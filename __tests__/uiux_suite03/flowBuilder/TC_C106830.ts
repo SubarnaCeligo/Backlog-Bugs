@@ -1,13 +1,14 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C106846", () => {
-  test("C106846 Test to validate that user is able to see cursor at next argument after he selects an item from Helpers section(For ex:- if the user selects dateadd then ui should show {{dateadd | the cursor should be at the end as shown here", async ({
+test.describe("C106830", () => {
+  test("C106830 Test to validate the auto suggestion feature in sandbox environment", async ({
     io,
     page
   }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.flowBuilder.click(selectors.homePagePO.SANDBOX_BUTTON);
     await io.homePage.clickByTextByIndex('Create', 0);
     await io.homePage.clickByTextByIndex('Flow', 0);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
@@ -30,10 +31,7 @@ test.describe("C106846", () => {
 
     await io.flowBuilder.click('button[aria-controls="helpers"]');
     await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.TREE_ITEM);
-    await io.flowBuilder.clickByIndex(
-      selectors.mappings.MAPPER2DOT0PO.TREE_ITEM,
-      1
-    );
+    await io.flowBuilder.clickByIndex(selectors.mappings.MAPPER2DOT0PO.TREE_ITEM, 1);
 
     const textarea = await page.$(selectors.connectionsPagePO.RULE_TEXTAERA);
 
@@ -42,9 +40,12 @@ test.describe("C106846", () => {
     expect(text.trim()).toEqual("{{abs");
 
     // verify the cursor position is at the end i.e, cursor should point at the end of current argument
-    const selectionRange = await textarea.evaluate(
-      (element: HTMLTextAreaElement) => element.selectionStart
-    );
+    const selectionRange = await textarea.evaluate((element: HTMLTextAreaElement) => element.selectionStart);
     expect(selectionRange).toEqual(6);
+
+
+    // C106447 Verify for handlebars AFE. numbering feature is available.
+    // We verify the numbering feature by checking if the editor is Ace editor as it has line numbers
+    await io.assert.verifyElementAttribute(selectors.connectionsPagePO.RULE_TEXTAERA, 'class', 'ace_text-input');
   });
 });
