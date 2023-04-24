@@ -1,0 +1,38 @@
+env:
+  node: true
+  es6: true
+extends:
+  - plugin:@typescript-eslint/recommended
+  - plugin:@typescript-eslint/eslint-recommended
+  - plugin:prettier/recommended
+  - eslint:recommended
+parser: "@typescript-eslint/parser"
+parserOptions:
+  ecmaVersion: 6
+  project: ./tsconfig.json
+plugins:
+  - "@typescript-eslint"
+  - "prettier"
+  - "import"
+rules:
+  semi: 2
+  no-multi-spaces: 2
+  space-in-parens: 2
+  no-multiple-empty-lines: 2
+  no-undef: 0
+  no-var: 0
+  no-unused-vars: 1
+  prefer-const: 0
+  no-prototype-builtins: 0
+  no-case-declarations: 1
+  no-trailing-spaces: 1
+  "@typescript-eslint/no-var-requires": "warn"
+  "@typescript-eslint/no-unused-vars": "warn"
+  "@typescript-eslint/naming-convention":
+    [
+      "warn",
+      {
+        "selector": "variableLike",
+        "format": ["camelCase", "UPPER_CASE", "snake_case", "PascalCase"],
+      },
+    ]
