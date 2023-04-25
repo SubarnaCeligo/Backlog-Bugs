@@ -1,11 +1,8 @@
-import * as dotenv from 'dotenv'
+import * as dotenv from "dotenv";
 
 export const getEnv = () => {
-
-    dotenv.config({
-        override: true,
-        path: `src/helper/env/.env.${process.env.ENV}`
-    })
-    
-
-}
+  dotenv.config({
+    override: true,
+    path: `src/helper/env/.env.${process.env.ENV}`
+  });
+};

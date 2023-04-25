@@ -1,4 +1,4 @@
-import { defineConfig, devices, PlaywrightTestConfig } from '@playwright/test';
+import { defineConfig, devices, PlaywrightTestConfig } from "@playwright/test";
 
 /**
  * Read environment variables from file.
@@ -10,7 +10,7 @@ import { defineConfig, devices, PlaywrightTestConfig } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: './tests',
+  testDir: "./src/tests",
   /* Maximum time one test can run for. */
   timeout: 1000 * 1000,
   expect: {
@@ -29,9 +29,9 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 2 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: "html",
 
-  globalSetup: require.resolve('./global-setup'),
+  globalSetup: require.resolve("./global-setup"),
 
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -41,37 +41,47 @@ export default defineConfig({
     // baseURL: 'http://localhost:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
-    storageState: './storageState.json',
-    screenshot: 'only-on-failure',
+    trace: "on-first-retry",
+    storageState: "./storageState.json",
+    screenshot: "only-on-failure"
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      name: "chromium",
+      use: {
+        ...devices["Desktop Chrome"],
+        baseURL: process.env.BASE_URL,
+        headless: true,
+        ignoreHTTPSErrors: true,
+        trace: "on"
+      }
     },
-
-    // {
-    //   name: 'firefox',
-    //   use: { ...devices['Desktop Firefox'] },
-    // },
 
     {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      name: "firefox",
+      use: {
+        ...devices["Desktop Firefox"],
+        baseURL: process.env.BASE_URL,
+        headless: true
+      }
     },
+
+    {
+      name: "webkit",
+      use: { ...devices["Desktop Safari"], baseURL: process.env.BASE_URL }
+    }
 
     /* Test against mobile viewports. */
     // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
+    //   name: "Mobile Chrome",
+    //   use: { ...devices["Pixel 5"], baseURL: process.env.BASE_URL }
     // },
     // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
-    // },
+    //   name: "Mobile Safari",
+    //   use: { ...devices["iPhone 12"], baseURL: process.env.BASE_URL }
+    // }
 
     /* Test against branded browsers. */
     // {
@@ -82,7 +92,7 @@ export default defineConfig({
     //   name: 'Google Chrome',
     //   use: { channel: 'chrome' },
     // },
-  ],
+  ]
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
   // outputDir: 'test-results/',
@@ -95,10 +105,10 @@ export default defineConfig({
 });
 
 const RPconfig = {
-  token: '4739f53f-b46a-426f-88f8-c3785e33f26c',
-  endpoint: 'http://43.204.111.120:8080',
-  project: 'Playwright Project',
-  launch: 'Playwright test',
+  token: "4739f53f-b46a-426f-88f8-c3785e33f26c",
+  endpoint: "http://43.204.111.120:8080",
+  project: "Playwright Project",
+  launch: "Playwright test",
   attributes: [
     // {
     //   key: 'key',
@@ -108,10 +118,10 @@ const RPconfig = {
     //   value: 'value',
     // },
   ],
-  description: 'Uploading reports to the portal...',
+  description: "Uploading reports to the portal..."
 };
 
 export const config: PlaywrightTestConfig = {
-  reporter: [['@reportportal/agent-js-playwright', RPconfig]],
-  testDir: './tests',
+  reporter: [["@reportportal/agent-js-playwright", RPconfig]],
+  testDir: "./tests"
 };
