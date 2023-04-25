@@ -1,11 +1,14 @@
 import type { Page } from "@playwright/test";
-import { selectTextfromDropDown } from "../utils/commonBrowserActions";
+import { WebActions } from "@lib/WebActions";
+
+let webActions: WebActions;
 
 export class FlowBuilderPage {
   private page: Page;
 
   constructor(page: Page) {
     this.page = page;
+    webActions = new WebActions(this.page);
   }
 
   public get elePGButton() {
@@ -48,8 +51,8 @@ export class FlowBuilderPage {
         .locator("[data-test=" + appname + "]")
         .getByText(appname)
         .click();
-      await this.page.getByRole('button', { name: 'Please select' }).click();
-      await this.page.getByText('Export records from source application').click();
+      await this.page.getByRole("button", { name: "Please select" }).click();
+      await this.page.getByText("Export records from source application").click();
       await this.page.getByRole("button", { name: "Please select" }).click();
       await this.page.getByText(connname, { exact: true }).click();
       await this.page.locator('[data-test="save"]').click();
@@ -68,7 +71,7 @@ export class FlowBuilderPage {
       .locator('[data-test="assistantMetadata\\.resource"]')
       .getByRole("button", { name: "Please select" })
       .click();
-    await selectTextfromDropDown(this.page, "order");
+    await webActions.selectTextfromDropDown(this.page, "order");
     await this.page.getByRole("button", { name: "Please select" }).click();
     await this.page.getByText("Retrieve a list of Orders").click();
     await this.page.locator('[data-test="saveAndClose"]').click();
@@ -209,9 +212,7 @@ export class FlowBuilderPage {
       .getByPlaceholder("generate")
       .fill("address[*].address2");
     await this.page.locator("#extract-13").click();
-    await this.page
-      .locator("#extract-13")
-      .fill("customer.default_address.city");
+    await this.page.locator("#extract-13").fill("customer.default_address.city");
     await this.page
       .locator('[data-test="generate-13"]')
       .getByPlaceholder("generate")
@@ -279,9 +280,7 @@ export class FlowBuilderPage {
       .getByPlaceholder("generate")
       .fill("address[*].zipcode");
     await this.page.locator("#extract-19").click();
-    await this.page
-      .locator("#extract-19")
-      .fill("customer.default_address.phone");
+    await this.page.locator("#extract-19").fill("customer.default_address.phone");
     await this.page
       .locator('[data-test="generate-19"]')
       .getByPlaceholder("generate")
@@ -341,7 +340,7 @@ export class FlowBuilderPage {
     // await this.page.getByRole('button', { name: 'Number' }).click();
     // await this.page.getByRole('menuitem', { name: 'String' }).click();
     // await this.page.locator('[data-test="dataType"] [class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input"]').getByRole('button', { name: 'Please select' }).click();
-    // await selectTextfromDropDown(page, 'String');
+    // await webActions.selectTextfromDropDown(page, 'String');
     // await this.page.locator('[data-test="Save"]').click();
     // await this.page.locator('input[name$="_value_0"]').click();
     // var y = await this.page.locator('[class="rule-value-container"] [class="settings-icon"]');
@@ -355,10 +354,7 @@ export class FlowBuilderPage {
     await this.page.locator('[data-test="addDataProcessor"]').click();
     await this.page.locator('[data-test="exportHooks"]').click();
     await this.page.waitForTimeout(2000);
-    await this.page
-      .locator('[data-test="preSavePage\\.script"]')
-      .first()
-      .click();
+    await this.page.locator('[data-test="preSavePage\\.script"]').first().click();
     await this.page.locator('[data-test="name"]').getByRole("textbox").click();
     await this.page.waitForTimeout(2000);
     await this.page
@@ -366,13 +362,13 @@ export class FlowBuilderPage {
       .getByRole("textbox")
       .fill("Export Basic NS_TEST");
     await this.page.getByRole("button", { name: "Please select" }).click();
-    await selectTextfromDropDown(this.page, "preSavePage");
+    await webActions.selectTextfromDropDown(this.page, "preSavePage");
     await this.page.waitForTimeout(2000);
     await this.page
       .locator("#content-inline div")
       .filter({
         hasText:
-          "/** preSavePageFunction stub:** The name of the function can be changed to anyth",
+          "/** preSavePageFunction stub:** The name of the function can be changed to anyth"
       })
       .nth(1)
       .click();
@@ -454,11 +450,11 @@ export class FlowBuilderPage {
     await this.page.locator('[data-test="exportSchedule"]').click();
     await this.page.getByLabel("Use preset").check();
     await this.page.getByRole("button", { name: "Please select" }).click();
-    await selectTextfromDropDown(this.page, "every_half_hour");
+    await webActions.selectTextfromDropDown(this.page, "every_half_hour");
     await this.page.locator('[data-test="endTime"]').click();
-    await selectTextfromDropDown(this.page, "11:35 PM");
+    await webActions.selectTextfromDropDown(this.page, "11:35 PM");
     await this.page.locator('[data-test="startTime"]').click();
-    await selectTextfromDropDown(this.page, "1:05 PM");
+    await webActions.selectTextfromDropDown(this.page, "1:05 PM");
     await this.page.locator('[data-test="saveAndClose"]').click();
   }
 
@@ -486,7 +482,7 @@ export class FlowBuilderPage {
     await this.page
       .getByRole("button", { name: "Please select a record type" })
       .click();
-    await selectTextfromDropDown(this.page, "customer");
+    await webActions.selectTextfromDropDown(this.page, "customer");
     await this.page.getByText("Add or update").click();
     await this.page
       .locator('[data-test="netsuite_da.internalIdLookup.expression"]')
@@ -737,7 +733,7 @@ export class FlowBuilderPage {
     await this.page.getByRole("button", { name: "Please select" }).click();
     await this.page
       .getByRole("menuitem", {
-        name: "Import records into destination application",
+        name: "Import records into destination application"
       })
       .click();
     await this.page.getByRole("button", { name: "Please select" }).click();
@@ -756,7 +752,7 @@ export class FlowBuilderPage {
     await this.page
       .getByRole("button", { name: "Please select a record type" })
       .click();
-    await selectTextfromDropDown(this.page, "salesorder");
+    await webActions.selectTextfromDropDown(this.page, "salesorder");
     await this.page
       .locator('[data-test="netsuite_da\\.internalIdLookup\\.expression"]')
       .click();
@@ -992,7 +988,7 @@ export class FlowBuilderPage {
   public async fillImportform1() {
     await this.page.locator('[data-test="addProcessor"]').click();
     await this.page.waitForTimeout(1000);
-    await this.page.locator('[class="css-y8aj3r"] input').fill('net');
+    await this.page.locator('[class="css-y8aj3r"] input').fill("net");
     await this.page
       .locator('[data-test="NetSuite"]')
       .getByText("NetSuite")
@@ -1014,7 +1010,7 @@ export class FlowBuilderPage {
     await this.page
       .getByRole("button", { name: "Please select a record type" })
       .click();
-    await selectTextfromDropDown(this.page, "creditcardcharge");
+    await webActions.selectTextfromDropDown(this.page, "creditcardcharge");
     await this.page.locator('[data-test="add"]').getByLabel("Add").check();
     await this.page.locator('[data-test="saveAndClose"]').click();
     await this.page.locator('[data-test="addDataProcessor"]').click();
@@ -1101,7 +1097,7 @@ export class FlowBuilderPage {
     await this.page.locator('[data-test="saveAndClose"]').click();
     await this.page.getByText("New flow").click();
     await this.page.getByRole("textbox").click({
-      clickCount: 3,
+      clickCount: 3
     });
     await this.page
       .getByRole("textbox")

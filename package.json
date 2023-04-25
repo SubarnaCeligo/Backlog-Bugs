@@ -12,9 +12,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.30.0",
-    "@reportportal/agent-js-playwright": "^5.0.8",
+    "@celigo/rest-api-automation": "^0.0.47",
     "@celigo/ui-test-automation": "0.0.4",
-    "@celigo/rest-api-automation": "0.0.72"
+    "@playwright/test": "^1.32.3",
+    "@reportportal/agent-js-playwright": "^5.0.8",
+    "playwright": "^1.32.3"
   }
 }

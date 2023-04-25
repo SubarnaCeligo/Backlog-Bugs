@@ -6,5 +6,6 @@ export const getEnv = () => {
         override: true,
         path: `src/helper/env/.env.${process.env.ENV}`
     })
+    
 
 }

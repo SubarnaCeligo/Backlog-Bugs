@@ -5,39 +5,9 @@
             "*": [
                 "types/*"
             ],
-            "@Config/*": [
-                "./src/config/*"
-            ],
-            "@Resources/*": [
-                "./src/resources/*"
-            ],
-            "@Helper/*": [
-                "./src/helper/*"
-            ],
-            "@Services/*": [
-                "./src/services/*"
-            ],
-            "@Types/*": [
-                "./src/types/*"
-            ],
-            "@Schema/*": [
-                "./src/schema/*"
-            ],
-            "@Validation/*": [
-                "./src/validations/*"
-            ],
-            "@Static/*": [
-                "./src/static/*"
-            ],
-            "@IO/*": [
-                "./src/controller/*"
-            ],
-            "@Lib/*": [
-                "./src/lib/*"
-            ],
-            "@TestData/*": [
-                "./test-data/*"
-            ]
+            "@pages/*":["src/pageFactory/pageRepository/*"],
+            "@objects/*":["src/pageFactory/objectRepository/*"],
+            "@lib/*":["src/lib/*"],
         },
         "target": "esnext",
         "module": "commonjs",
