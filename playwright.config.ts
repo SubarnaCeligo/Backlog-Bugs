@@ -1,16 +1,13 @@
-
 import { defineConfig, devices, PlaywrightTestConfig } from "@playwright/test";
 
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-// require('dotenv').config({
-//   override: true,
-//   path: `src/helper/env/.env.${process.env.ENV}`
-// });
-
-//console.log("URL",process.env.BASE_URL);
+require("dotenv").config({
+  override: true,
+  path: `src/helper/env/.env.${process.env.ENV}`
+});
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -35,7 +32,20 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 2 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: "html",
+  reporter: [
+    ["list", { printSteps: true }],
+    [
+      "allure-playwright",
+      {
+        environmentInfo: {
+          NODE_VERSION: process.version,
+          OS: process.platform,
+          USER: require("os").userInfo().username,
+          ENVIRONMENT: process.env.ENV
+        }
+      }
+    ]
+  ],
 
   globalSetup: require.resolve("./global-setup"),
 
@@ -56,7 +66,7 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: "chromium",
+      name: "UIUX",
       use: {
         ...devices["Desktop Chrome"],
         headless: true,

@@ -1,7 +1,8 @@
 // global-setup.ts
 import { chromium, FullConfig } from "@playwright/test";
 
-async function globalSetup() {
+async function globalSetup(config: FullConfig) {
+  const { baseURL, storageState } = config.projects[0].use;
   const browser = await chromium.launch({
     logger: {
       isEnabled: (name, severity) => name === "browser",
@@ -9,16 +10,16 @@ async function globalSetup() {
     }
   });
   const page = await browser.newPage();
-  await page.goto("https://staging.integrator.io", {
+  await page.goto(baseURL!, {
     waitUntil: "domcontentloaded"
   });
   await page.getByPlaceholder("Email*").click();
   await page.waitForTimeout(2000);
-  await page.getByPlaceholder("Email*").fill("shiva.potlapelli+2@celigo.com");
+  await page.getByPlaceholder("Email*").fill("io.auto.qa@celigo.com");
   await page.waitForTimeout(2000);
   await page.getByPlaceholder("Password*").click();
   await page.waitForTimeout(2000);
-  await page.getByPlaceholder("Password*").fill("Shiva@454555");
+  await page.getByPlaceholder("Password*").fill("gpgbjMPuK0lLwFX");
   await page.waitForTimeout(2000);
   await page.locator('[data-test="submit"]').click();
   await page.waitForTimeout(2000);

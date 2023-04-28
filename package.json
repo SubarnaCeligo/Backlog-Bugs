@@ -4,7 +4,7 @@
   "description": "playwright test framework for celigo ui/ux automation",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test --project=chromium --headed --config=playwright.config.ts",
+    "test": "npx playwright test --project=UIUX --headed --config=playwright.config.ts",
     "test:visual": "npm run storybook-build && npx playwright test --config=node_modules/@celigo/ui-test-automation/dist/visual.config.js --workers 3",
     "updateSnapshots": "npm run storybook-build && npx playwright test --config=node_modules/@celigo/ui-test-automation/dist/visual.config.js --update-snapshots",
     "build": "rm -rf ./dist && npx tsc",
@@ -17,10 +17,14 @@
   "author": "Celigo QA Automation Team",
   "license": "ISC",
   "devDependencies": {
-    "@celigo/rest-api-automation": "^0.0.47",
-    "@celigo/ui-test-automation": "0.0.4",
+    "@celigo/rest-api-automation": "^0.0.73",
+    "@celigo/ui-test-automation": "0.0.5",
     "@playwright/test": "^1.32.3",
     "@reportportal/agent-js-playwright": "^5.0.8",
+    "allure-playwright": "^2.2.1",
     "playwright": "^1.32.3"
+  },
+  "dependencies": {
+    "viewport-dimensions": "^0.2.0"
   }
 }
