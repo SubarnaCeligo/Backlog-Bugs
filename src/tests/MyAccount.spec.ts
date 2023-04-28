@@ -5,7 +5,7 @@ test.describe("My Account Test Case", () => {
   let myAccount: MyAccountPagePO;
   myAccount = new MyAccountPagePO();
 
-  test("C752 Verify Change password with invalid current pass and valid new pass - should show error messsage", async ({
+  test("C752 Verify Change password with invalid current pass and valid new pass - should show error messsage @smoke", async ({
     myAccountPage,
     webActions
   }) => {
