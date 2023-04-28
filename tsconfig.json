@@ -8,6 +8,8 @@
             "@pages/*":["src/pageFactory/pageRepository/*"],
             "@objects/*":["src/pageFactory/objectRepository/*"],
             "@lib/*":["src/lib/*"],
+            "@objectOR/*":["src/pageFactory/objectRepository/*"],
+            "@helper/*":["src/helper/*"]
         },
         "target": "esnext",
         "module": "commonjs",

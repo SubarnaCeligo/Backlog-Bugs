@@ -4,15 +4,17 @@ import { WebActions } from "@lib/WebActions";
 import { HomePage } from "@pages/HomePage";
 import { SettingsPage } from "@pages/SettingsPage";
 import { FlowBuilderPage } from "@pages/FlowBuilderPage";
+import { MyAccountPage } from "@pages/MyAccountPage";
 import { Assertions } from "@lib/Assertions";
 
-const test = baseTest.extend<{
+export const test = baseTest.extend<{
   webActions: WebActions;
   assert: Assertions;
   loginPage: LoginPage;
   homePage: HomePage;
   settingsPage: SettingsPage;
   flowBuilderPage: FlowBuilderPage;
+  myAccountPage: MyAccountPage;
 }>({
   webActions: async ({ page }, use) => {
     await use(new WebActions(page));
@@ -31,7 +33,11 @@ const test = baseTest.extend<{
   },
   flowBuilderPage: async ({ page }, use) => {
     await use(new FlowBuilderPage(page));
+  },
+  myAccountPage: async ({ page }, use) => {
+    await use(new MyAccountPage(page));
   }
 });
 
-export default test;
+ export default test;
+ export { expect } from "@playwright/test";

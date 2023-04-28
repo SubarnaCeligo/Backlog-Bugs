@@ -1,10 +1,16 @@
+
 import { defineConfig, devices, PlaywrightTestConfig } from "@playwright/test";
 
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-// require('dotenv').config();
+// require('dotenv').config({
+//   override: true,
+//   path: `src/helper/env/.env.${process.env.ENV}`
+// });
+
+//console.log("URL",process.env.BASE_URL);
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -37,6 +43,7 @@ export default defineConfig({
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
+    baseURL: process.env.BASE_URL,
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://localhost:3000',
 
@@ -52,10 +59,10 @@ export default defineConfig({
       name: "chromium",
       use: {
         ...devices["Desktop Chrome"],
-        baseURL: process.env.BASE_URL,
         headless: true,
         ignoreHTTPSErrors: true,
-        trace: "on"
+        trace: "on",
+        viewport: { width: 1440, height: 764 }
       }
     },
 
@@ -63,14 +70,13 @@ export default defineConfig({
       name: "firefox",
       use: {
         ...devices["Desktop Firefox"],
-        baseURL: process.env.BASE_URL,
         headless: true
       }
     },
 
     {
       name: "webkit",
-      use: { ...devices["Desktop Safari"], baseURL: process.env.BASE_URL }
+      use: { ...devices["Desktop Safari"] }
     }
 
     /* Test against mobile viewports. */

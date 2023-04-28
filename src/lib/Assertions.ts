@@ -67,9 +67,9 @@ export class Assertions extends WebActions {
     if (!element) {
       throw new Error(`Element not found for selector "${selector}".`);
     }
-
+    
     const actualSnapshot = await element.screenshot();
-    const expectedSnapshot = await fs.readFileSync(expectedSnapshotPath);
-    expect(actualSnapshot).toEqual(expectedSnapshot);
+   // const expectedSnapshot = await fs.readFileSync(p);
+    expect(actualSnapshot).toMatchSnapshot(expectedSnapshotPath);
   }
 }
