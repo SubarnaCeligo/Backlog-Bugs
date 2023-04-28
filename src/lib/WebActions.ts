@@ -14,7 +14,9 @@ export class WebActions {
   }
 
   async navigateTo(url: string): Promise<void> {
-    await this.page.goto(url);
+    await this.page.goto(url, {
+      waitUntil: "domcontentloaded"
+    });
   }
 
   async click(locator: string): Promise<void> {

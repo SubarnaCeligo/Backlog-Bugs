@@ -1,22 +1,26 @@
 import type { Page } from "@playwright/test";
 import { WebActions } from "@lib/WebActions";
+import { FlowBuilderPagePO } from "@objectOR/FlowBuilderPagePO";
 
-let webActions: WebActions;
+let webActions: WebActions,
+flowBuilder:FlowBuilderPagePO;
+
 
 export class FlowBuilderPage {
   private page: Page;
 
-  constructor(page: Page) {
+  public constructor(page: Page) {
     this.page = page;
     webActions = new WebActions(this.page);
+    flowBuilder = new FlowBuilderPagePO();
   }
 
   public get elePGButton() {
-    return this.page.locator('[data-test="addGenerator"]');
+    return this.page.locator(flowBuilder.PAGE_GENERATOR);
   }
 
   public get eleAppSelection() {
-    return this.page.locator("#react-select-2-input");
+    return this.page.locator(flowBuilder.APP_NAME_INPUT);
   }
 
   public async addPageGenerator() {
