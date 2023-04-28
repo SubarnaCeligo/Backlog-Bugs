@@ -14,8 +14,15 @@
     "lint-and-fix": "eslint --fix --ext .ts ."
   },
   "keywords": [],
-  "author": "Celigo QA Automation Team",
+  "author": "B Vinay Kumar",
   "license": "ISC",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/celigo/celigo-qa-automation.git"
+  },
   "devDependencies": {
     "@celigo/rest-api-automation": "^0.0.73",
     "@celigo/ui-test-automation": "0.0.5",

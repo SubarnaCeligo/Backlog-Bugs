@@ -2,9 +2,7 @@ import type { Page } from "@playwright/test";
 import { WebActions } from "@lib/WebActions";
 import { FlowBuilderPagePO } from "@objectOR/FlowBuilderPagePO";
 
-let webActions: WebActions,
-flowBuilder:FlowBuilderPagePO;
-
+let webActions: WebActions, flowBuilder: FlowBuilderPagePO;
 
 export class FlowBuilderPage {
   private page: Page;
