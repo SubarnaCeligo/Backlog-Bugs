@@ -1,4 +1,4 @@
-import type { Page } from "playwright";
+import type { Page } from "@playwright/test";
 
 export class WebActions {
   readonly page: Page;
@@ -186,7 +186,7 @@ export class WebActions {
 
   async selectTextfromDropDown(page: Page, value) {
     var dropdownList = await page.$$(".MuiMenu-paper li");
-    const style = await page.locator(".MuiMenu-paper div div");
+    const style = await page.$(".MuiMenu-paper div div");
     var h = await style.getAttribute("style");
     var k = parseInt(h.split(";")[0].split(":")[1]);
     var j = k / 48;
@@ -194,7 +194,7 @@ export class WebActions {
       actualValue,
       bool = false;
     await page.evaluate(
-      "document.querylocator('.MuiMenu-paper div').scrollTo(0,0);"
+      "() => document.querylocator('.MuiMenu-paper div').scrollTo(0,0);"
     );
     //For every li
     for (let i = 0; i < j; i++) {
@@ -224,7 +224,7 @@ export class WebActions {
           x = x + 48;
           try {
             await page.evaluate(
-              "document.querylocator('.MuiMenu-paper div').scrollTop=" + x
+              `() => document.querylocator('.MuiMenu-paper div').scrollTop=${x}`
             );
             await page.waitForTimeout(100);
           } catch (error) {

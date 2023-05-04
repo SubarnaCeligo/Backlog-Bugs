@@ -4,7 +4,7 @@ export class FlowBuilderPagePO {
   TRANSFORM_GENERATE_MAP = '[data-test="generate-';
   TRANSFORM_DESTINATION_MAP = "#extract-";
   PAGE_PROCESSOR = '[data-test="addProcessor"]';
-  DATA_PROCESSOR = '[data-test="addDataProcessor"]';
+  DATA_PROCESSOR = '[data-test^="pp-"] [data-test="addDataProcessor"]';
   EXPORT_FILTER = '[data-test="exportFilter"]';
   FILTER_CONTAINER = 'select[name$="_filter"]';
   FILTER_OPERATOR = 'select[name$="_operator"]';
@@ -20,4 +20,13 @@ export class FlowBuilderPagePO {
   ADD_RULE = '[data-add="rule"]';
   DESTINATION_MAPPING = '[data-test="text-fieldMappingGenerate-';
   SOURCE_MAPPING = '[data-test="text-fieldMappingExtract-';
+  TOGGLE_VIEW = '[id="toggle-view"]';
+  ADD_DESTINATION_OR_LOOKUP = '[data-test="Add destination / lookup"]';
+  EXPORT_TYPE = '[data-test="exportType"]';
+  USE_EXISTING_EXPORT = '[data-test="checkExistingImport"] input';
+  IMPORT_MAPPINGS = '[data-test="importMapping"]';
+  MAPPER_2 = '[data-test="Mapper 2.0"]';
+  FIELD_MAPPING_ADD = '[data-test^="fieldMappingAdd"]';
+  OPEN_ACTIONS_MENU = '[data-test="openActionsMenu"]';
+  DELETE_FLOW = '[data-test="deleteFlow"]';
 }
