@@ -1105,4 +1105,17 @@ export class FlowBuilderPage {
       .getByRole("textbox")
       .fill("TC_610_Credit_Card_Transaction_Add");
   }
+
+  public async fillQueryParameters(map: Map<any, any>) {
+    var qname = '[id="name-';
+    var qvalue = '[id="value-';
+    var queryparams;
+    var qnameField, qvalueField;
+    for (let [K, V] of map) {
+      queryparams = await this.page.$$('[data-test="queryParameters"] ul li');
+      var i = queryparams.length - 1;
+      await this.page.locator(qname + i + '"]').fill(K);
+      await this.page.locator(qvalue + i + '"]').fill(V);
+    }
+  }
 }

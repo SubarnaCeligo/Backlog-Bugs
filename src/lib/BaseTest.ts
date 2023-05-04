@@ -1,4 +1,4 @@
-import { test as baseTest } from "@playwright/test";
+import { Page, test as baseTest } from "@playwright/test";
 import { LoginPage } from "@pages/LoginPage";
 import { WebActions } from "@lib/WebActions";
 import { HomePage } from "@pages/HomePage";
@@ -6,6 +6,7 @@ import { SettingsPage } from "@pages/SettingsPage";
 import { FlowBuilderPage } from "@pages/FlowBuilderPage";
 import { MyAccountPage } from "@pages/MyAccountPage";
 import { Assertions } from "@lib/Assertions";
+import { ConnectionsPage } from "@pages/ConnectionsPage";
 
 export const test = baseTest.extend<{
   webActions: WebActions;
@@ -15,6 +16,7 @@ export const test = baseTest.extend<{
   settingsPage: SettingsPage;
   flowBuilderPage: FlowBuilderPage;
   myAccountPage: MyAccountPage;
+  connectionsPage: ConnectionsPage;
 }>({
   webActions: async ({ page }, use) => {
     await use(new WebActions(page));
@@ -36,6 +38,9 @@ export const test = baseTest.extend<{
   },
   myAccountPage: async ({ page }, use) => {
     await use(new MyAccountPage(page));
+  },
+  connectionsPage: async ({ page }, use) => {
+    await use(new ConnectionsPage(page));
   }
 });
 

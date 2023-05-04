@@ -13,6 +13,7 @@ async function globalSetup(config: FullConfig) {
   await page.goto(baseURL!, {
     waitUntil: "domcontentloaded"
   });
+  await page.waitForLoadState();
   await page.getByPlaceholder("Email*").click();
   await page.waitForTimeout(2000);
   await page.getByPlaceholder("Email*").fill("io.auto.qa@celigo.com");
