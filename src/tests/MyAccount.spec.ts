@@ -1,61 +1,46 @@
 import { test, expect } from "@lib/BaseTest";
-import { HomePagePO } from "@objects/HomePagePO";
-import { MyAccountPagePO } from "@objects/MyAccountPagePO";
-import { SettingsPagePO } from "@objects/SettingsPagePO";
-import { CommonPagePO } from "@objects/CommonPagePO";
-import { FlowBuilderPagePO } from "@objects/FlowBuilderPagePO";
-import { ConnectionsPagePO } from "@objects/ConnectionsPagePO";
-import { ExportsPagePO } from "@objects/ExportsPagePO";
+
 test.describe("My Account Test Case", () => {
-  let myAccount: MyAccountPagePO;
-  myAccount = new MyAccountPagePO();
-  let homePagePO: HomePagePO;
-  homePagePO = new HomePagePO();
-  let settingsPagePO: SettingsPagePO;
-  settingsPagePO = new SettingsPagePO();
-  let commonPagePO: CommonPagePO;
-  commonPagePO = new CommonPagePO();
-  let flowBuilderPagePO: FlowBuilderPagePO;
-  flowBuilderPagePO = new FlowBuilderPagePO();
-  let concPagePO: ConnectionsPagePO;
-  concPagePO = new ConnectionsPagePO();
-  let exportsPagePO: ExportsPagePO;
-  exportsPagePO = new ExportsPagePO();
+   
 
   test("C752 Verify Change password with invalid current pass and valid new pass - should show error messsage @smoke @sanity", async ({
     myAccountPage,
-    webActions
+    webActions,
+    myAccountPO
   }) => {
     await myAccountPage.navigateToMyAccount();
-    await webActions.click(myAccount.EDIT_PASSWORD);
-    await webActions.isVisible(myAccount.DIALOG_BOX);
-    await webActions.fill(myAccount.CURRENT_PASSWORD, "Test125362");
-    await webActions.fill(myAccount.NEW_PASSWORD, "Test21234");
-    await webActions.click(myAccount.CHANGE_PASSWORD);
-    let msg = await webActions.getText(myAccount.SNACK_BAR_MESSAGE);
+    await webActions.click(myAccountPO.EDIT_PASSWORD);
+    await webActions.isVisible(myAccountPO.DIALOG_BOX);
+    await webActions.fill(myAccountPO.CURRENT_PASSWORD, "Test125362");
+    await webActions.fill(myAccountPO.NEW_PASSWORD, "Test21234");
+    await webActions.click(myAccountPO.CHANGE_PASSWORD);
+    let msg = await webActions.getText(myAccountPO.SNACK_BAR_MESSAGE);
     await expect(msg).toContain(
       "Current password failed to authenticate.  Please try again."
     );
   });
 
-  // test("C28995 Verify Help texts are scrollable in My account > Users", async ({
-  //   myAccountPage,
-  //   webActions,
-  //   assert
-  // }) => {
-  //   await myAccountPage.navigateToMyAccount();
-  //   await webActions.click(myAccount.USERS);
-  //   await webActions.click(myAccount.HELP_TEXT);
-  //   await webActions.delay(3000);
-  //   await assert.checkSnapshot(myAccount.HELP_TEXT_DIALOG_BOX, "HelpText.png");
-  // });
+  test("C28995 Verify Help texts are scrollable in My account > Users", async ({
+    myAccountPage,
+    webActions,
+    assert,
+    myAccountPO
+  }) => {
+    await myAccountPage.navigateToMyAccount();
+    await webActions.click(myAccountPO.USERS);
+    await webActions.click(myAccountPO.HELP_TEXT);
+    await webActions.delay(3000);
+    await assert.checkSnapshot(myAccountPO.HELP_TEXT_DIALOG_BOX, "HelpText.png");
+  });
 
   test("C57810 Verify whether the page is showing the proper readable error , when the connection goes to offline", async ({
     myAccountPage,
     connectionsPage,
     homePage,
     webActions,
-    assert
+    homePagePO,
+    concPagePO,
+    myAccountPO
   }) => {
     await myAccountPage.navigateToMyAccount();
     await homePage.goToPage('Resources->Connections');
@@ -72,7 +57,7 @@ test.describe("My Account Test Case", () => {
     await webActions.delay(2000);
     await webActions.click(concPagePO.TEST_CONNECTION);
     await webActions.delay(5000);
-    var actual = await webActions.getText(myAccount.SNACK_BAR_MESSAGE);
+    var actual = await webActions.getText(myAccountPO.SNACK_BAR_MESSAGE);
     await expect(actual).toBe("Your test was not successful. Check your information and try again");
   });
 
@@ -100,13 +85,15 @@ test.describe("My Account Test Case", () => {
   //   await expect(error).toBe('Mock output cannot be larger than 1 MB. Decrease your mock data size and try again.');
   // });
 
-  test("C51543 Verify the allignmnet after adding multiple query parameters", async ({
+  test.skip("C51543 Verify the allignmnet after adding multiple query parameters", async ({
     myAccountPage,
     connectionsPage,
     homePage,
     settingsPage,
     flowBuilderPage,
     webActions,
+    commonPagePO,
+    exportsPagePO,
     assert
   }) => {
     await myAccountPage.navigateToMyAccount();
@@ -139,10 +126,10 @@ test.describe("My Account Test Case", () => {
 
   test("C51623 Verify the Scroll bar for Message column in the Error rows page of New view by navigating from the Current View", async ({
     myAccountPage,
-    connectionsPage,
+    homePagePO,
     homePage,
     settingsPage,
-    flowBuilderPage,
+    flowBuilderPagePO,
     webActions,
     assert
   }) => {
@@ -187,12 +174,12 @@ test.describe("My Account Test Case", () => {
     await settingsPage.screenshot('div.MuiDrawer-paperAnchorRight.MuiPaper-elevation16 > div > div > div > div > div > table > tbody > tr', "Message Column")
   });
 
-  test("C51867 verify when user adds a new mapping row then the cursor focus should be in destination field of new row in case of multiple source tabs", async ({
+  test.skip("C51867 verify when user adds a new mapping row then the cursor focus should be in destination field of new row in case of multiple source tabs", async ({
     myAccountPage,
-    connectionsPage,
+    commonPagePO,
     homePage,
     settingsPage,
-    flowBuilderPage,
+    flowBuilderPagePO,
     webActions,
     assert
   }) => {

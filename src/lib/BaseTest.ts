@@ -7,6 +7,14 @@ import { FlowBuilderPage } from "@pages/FlowBuilderPage";
 import { MyAccountPage } from "@pages/MyAccountPage";
 import { Assertions } from "@lib/Assertions";
 import { ConnectionsPage } from "@pages/ConnectionsPage";
+import { LoginPagePO } from "@objects/LoginPagePO";
+import { HomePagePO } from "@objects/HomePagePO";
+import { MyAccountPagePO } from "@objects/MyAccountPagePO";
+import { SettingsPagePO } from "@objects/SettingsPagePO";
+import { CommonPagePO } from "@objects/CommonPagePO";
+import { FlowBuilderPagePO } from "@objects/FlowBuilderPagePO";
+import { ConnectionsPagePO } from "@objects/ConnectionsPagePO";
+import { ExportsPagePO } from "@objects/ExportsPagePO";
 
 export const test = baseTest.extend<{
   webActions: WebActions;
@@ -17,6 +25,14 @@ export const test = baseTest.extend<{
   flowBuilderPage: FlowBuilderPage;
   myAccountPage: MyAccountPage;
   connectionsPage: ConnectionsPage;
+  loginPagePO: LoginPagePO;
+  myAccountPO: MyAccountPagePO;
+  homePagePO: HomePagePO;
+  settingsPagePO: SettingsPagePO;
+  commonPagePO: CommonPagePO;
+  flowBuilderPagePO: FlowBuilderPagePO;
+  concPagePO: ConnectionsPagePO;
+  exportsPagePO: ExportsPagePO;
 }>({
   webActions: async ({ page }, use) => {
     await use(new WebActions(page));
@@ -41,6 +57,30 @@ export const test = baseTest.extend<{
   },
   connectionsPage: async ({ page }, use) => {
     await use(new ConnectionsPage(page));
+  },
+  myAccountPO: async ({}, use) => {
+    await use(new MyAccountPagePO());
+  },
+  loginPagePO: async ({}, use) => {
+    await use(new LoginPagePO());
+  },
+  homePagePO: async ({}, use) => {
+    await use(new HomePagePO());
+  },
+  settingsPagePO: async ({}, use) => {
+    await use(new SettingsPagePO());
+  },
+  commonPagePO: async ({}, use) => {
+    await use(new CommonPagePO());
+  },
+  flowBuilderPagePO: async ({}, use) => {
+    await use(new FlowBuilderPagePO());
+  },
+  concPagePO: async ({}, use) => {
+    await use(new ConnectionsPagePO());
+  },
+  exportsPagePO: async ({}, use) => {
+    await use(new ExportsPagePO());
   }
 });
 
