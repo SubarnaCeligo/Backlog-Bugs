@@ -1,5 +1,6 @@
 // global-setup.ts
 import { chromium, FullConfig } from "@playwright/test";
+const Decrypt = require("atob");
 
 async function globalSetup(config: FullConfig) {
   const { baseURL, storageState } = config.projects[0].use;
@@ -16,11 +17,11 @@ async function globalSetup(config: FullConfig) {
   await page.waitForLoadState();
   await page.getByPlaceholder("Email*").click();
   await page.waitForTimeout(2000);
-  await page.getByPlaceholder("Email*").fill("io.auto.qa@celigo.com");
+  await page.getByPlaceholder("Email*").fill(process.env["EMAIL"]);
   await page.waitForTimeout(2000);
   await page.getByPlaceholder("Password*").click();
   await page.waitForTimeout(2000);
-  await page.getByPlaceholder("Password*").fill("gpgbjMPuK0lLwFX");
+  await page.getByPlaceholder("Password*").fill(Decrypt(process.env["PASSWORD"]));
   await page.waitForTimeout(2000);
   await page.locator('[data-test="submit"]').click();
   await page.waitForTimeout(2000);

@@ -75,7 +75,6 @@ export default defineConfig({
         viewport: { width: 1440, height: 764 }
       }
     },
-
     {
       name: "firefox",
       use: {

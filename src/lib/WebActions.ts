@@ -183,6 +183,112 @@ export class WebActions {
       return false;
     }
   }
+  async determineControlType(locator) {
+    var tempWebControl, typeOfControl, type, input, element;
+    console.log(locator);
+    tempWebControl = await this.page.$(locator);
+    //console.log("Attr",await tempWebControl.getAttribute("type"));
+    try {
+      type = await tempWebControl.getAttribute("type");
+      console.log(type);
+      if (type === "button") {
+        typeOfControl = "Button";
+        return { typeOfControl, tempWebControl };
+      } else if (type === "text") {
+        typeOfControl = "TextField";
+        return { typeOfControl, tempWebControl };
+      }
+    } catch (e) {
+      //console.log("Error :" + e);
+    }
+
+    try {
+      var role = await tempWebControl.getAttribute("role");
+      console.log(type,role);
+      if (type === "button" || role === "button" || role == "menuitem") {
+        typeOfControl = "Button";
+        return { typeOfControl, tempWebControl };
+      }
+    } catch (e) {
+      //console.log("Error :" + e);
+    }
+
+    try {
+      input = await tempWebControl.$("input");
+      var hidden = await input.getAttribute("aria-hidden");
+      if (hidden == "true") {
+        element = await this.page.locator(locator + " .MuiSelect-selectMenu");
+        typeOfControl = "DropDown";
+        tempWebControl = element;
+        return { typeOfControl, tempWebControl };
+      }
+      type = await input.getAttribute("type");
+      //console.log("Type", type);
+      tempWebControl = locator + " input";
+      switch (type) {
+        case "text":
+          typeOfControl = "TextField";
+          return { typeOfControl, tempWebControl };
+        case "number":
+          typeOfControl = "TextField";
+          return { typeOfControl, tempWebControl };
+        case "checkbox":
+          typeOfControl = "CheckBox";
+          return { typeOfControl, tempWebControl };
+        case "password":
+          typeOfControl = "TextField";
+          return { typeOfControl, tempWebControl };
+        default:
+        //console.log("Type not avaliable :" + type);
+      }
+    } catch (e) {
+      //console.log("Error :" + e);
+    }
+
+    try {
+      var textarea = await tempWebControl.$("textarea");
+      if (await textarea.isExisting()) {
+        typeOfControl = "TextArea";
+        return { typeOfControl, tempWebControl };
+      }
+    } catch (e) {
+      //console.log("Error :" + e);
+    }
+
+    try {
+      input = await tempWebControl.$("input");
+      type = await input.getAttribute("type");
+      if (type === "radio") {
+        typeOfControl = "RadioButton";
+        return { typeOfControl, tempWebControl };
+      }
+    } catch (e) {
+      //console.log("Error :" + e);
+    }
+  }
+
+  async performActionWithControl(
+    WebControlTemp: any,
+    typeOfControl: string,
+    value?: string
+  ) {
+    switch (typeOfControl) {
+      case "DropDown":
+        try {
+          await this.page.locator(WebControlTemp).scrollIntoViewIfNeeded();
+          await this.click(WebControlTemp);
+        } catch (e) {}
+      case "TextField":
+        try {
+          // let ele = await this.page
+          //   .$(WebControlTemp+" input");
+          //let loc = await ele.$("input");
+          //console.log("LOC", loc);
+          // await this.page.fill(loc.selector,value);
+           await this.fill(WebControlTemp, value);
+        } catch (e) {}
+    }
+  }
 
   async selectTextfromDropDown(page: Page, value) {
     var dropdownList = await page.$$(".MuiMenu-paper li");
@@ -235,4 +341,36 @@ export class WebActions {
     }
     return bool;
   }
+
+  async loadMap(data: any, obj: any) {
+    for (const key in data) {
+      const value = data[key];
+      if (typeof value === "object" && value !== null) {
+        this.loadMap(value, obj);
+      } else if (Object.values(obj).includes(key)) {
+        for (const b in obj) {
+          if (obj[b] === key) {
+            obj[b] = value;
+          }
+        }
+        //console.log(`Match found: ${key} = ${value}`);
+      } else {
+        //console.log(`No match found for ${key}`);
+      }
+    }
+    //console.log("Obj ", obj);
+    return obj;
+  }
+
+   async randomString(len?: number, charSet?: string) {
+  charSet =
+    charSet || "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  len = len || 5;
+  let randomString = "";
+  for (let i = 0; i < len; i++) {
+    const randomPoz = Math.floor(Math.random() * charSet.length);
+    randomString += charSet.substring(randomPoz, randomPoz + 1);
+  }
+  return randomString;
+}
 }

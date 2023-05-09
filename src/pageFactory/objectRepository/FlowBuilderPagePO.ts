@@ -29,4 +29,6 @@ export class FlowBuilderPagePO {
   FIELD_MAPPING_ADD = '[data-test^="fieldMappingAdd"]';
   OPEN_ACTIONS_MENU = '[data-test="openActionsMenu"]';
   DELETE_FLOW = '[data-test="deleteFlow"]';
+  APPLICATION = '[data-test="application"]';
+  CREATEFLOW = '[data-test="createFlow"]';
 }
