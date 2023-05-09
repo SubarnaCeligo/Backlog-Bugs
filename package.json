@@ -33,6 +33,7 @@
     "playwright": "^1.32.3"
   },
   "dependencies": {
-    "viewport-dimensions": "^0.2.0"
+    "viewport-dimensions": "^0.2.0", 
+    "atob": "^2.1.2"
   }
 }

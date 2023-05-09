@@ -1,10 +1,12 @@
 import type { Page } from "@playwright/test";
-
+import { WebActions } from "@lib/WebActions";
+let webActions: WebActions;
 export class HomePage {
   private page: Page;
 
   constructor(page: Page) {
     this.page = page;
+    webActions = new WebActions(this.page);
   }
 
   public get createFlowButton() {
@@ -15,6 +17,10 @@ export class HomePage {
       waitUntil: "domcontentloaded"
     });
     this.page.on("console", msg => console.log(msg.text()));
+  }
+
+  public async navigateToHome(){
+     await webActions.navigateTo("/home");
   }
 
   public async goToIntegrationTile() {

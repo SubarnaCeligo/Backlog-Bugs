@@ -1,14 +1,21 @@
-import type { Page } from "@playwright/test";
+import { Page } from "@playwright/test";
+import { request } from "@playwright/test";
 import { WebActions } from "@lib/WebActions";
 import { FlowBuilderPagePO } from "@objectOR/FlowBuilderPagePO";
+import { FTP } from "../../templates/FTP";
+const Decrypt = require("atob");
 
 let webActions: WebActions, flowBuilder: FlowBuilderPagePO;
 
 export class FlowBuilderPage {
   private page: Page;
+  connMap: any;
+  integrationMap: any;
 
   public constructor(page: Page) {
     this.page = page;
+    this.connMap = new Map();
+    this.integrationMap = new Map();
     webActions = new WebActions(this.page);
     flowBuilder = new FlowBuilderPagePO();
   }
@@ -20,13 +27,235 @@ export class FlowBuilderPage {
   public get eleAppSelection() {
     return this.page.locator(flowBuilder.APP_NAME_INPUT);
   }
+  private async postCall(endpoint, reqBody) {
+    const context = await request.newContext({
+      baseURL: process.env["API_URL"]
+    });
 
-  public async addPageGenerator() {
+    const resp = await context.post(endpoint, {
+      headers: {
+        ContentType: "application/json",
+        Authorization: Decrypt(`${process.env.API_TOKEN}`)
+      },
+      data: reqBody
+    });
+    return await resp.json();
+  }
+  private async putCall(endpoint, reqBody) {
+    const context = await request.newContext({
+      baseURL: process.env["API_URL"]
+    });
+
+    const resp = await context.put(endpoint, {
+      headers: {
+        ContentType: "application/json",
+        Authorization: Decrypt(`${process.env.API_TOKEN}`)
+      },
+      data: reqBody
+    });
+    return await resp.json();
+  }
+
+  private async getCall(endpoint) {
+    const context = await request.newContext({
+      baseURL: process.env["API_URL"]
+    });
+
+    const resp = await context.get(endpoint, {
+      headers: {
+        Authorization: Decrypt(`${process.env.API_TOKEN}`)
+      }
+    });
+
+    return await resp.json();
+  }
+
+  public async createFlowFromAPI(jsonData: any): Promise<any> {
+    var pageGen = [],
+      pageProc = [],
+      flowJSON = {};
+    await this.loadConnections();
+    await this.loadIntegrations();
+    if (
+      jsonData.hasOwnProperty("pageGenerators") &&
+      jsonData.pageGenerators.length > 0
+    ) {
+      for (let index = 0; index < jsonData.pageGenerators.length; index++) {
+        const exportData = jsonData.pageGenerators[index].qa__export;
+        var exportID = await this.createExportorImport(exportData, "export");
+        var pg = {
+          _exportId: exportID
+        };
+        pageGen.push(pg);
+        //console.log("page gen",JSON.stringify(pageGen));
+      }
+    }
+    if (
+      jsonData.hasOwnProperty("pageProcessors") &&
+      jsonData.pageProcessors.length > 0
+    ) {
+      for (let index = 0; index < jsonData.pageProcessors.length; index++) {
+        var pp, importData;
+        if (jsonData.pageProcessors[index].hasOwnProperty("qa__export")) {
+          importData = jsonData.pageProcessors[index].qa__export;
+          var ppExportID = await this.createExportorImport(importData, "export");
+          pp = {
+            responseMapping: {
+              fields: [],
+              lists: []
+            },
+            type: "export",
+            _exportId: ppExportID
+          };
+        } else {
+          importData = jsonData.pageProcessors[index].qa__import;
+          var importID = await this.createExportorImport(importData, "import");
+          pp = {
+            responseMapping: {
+              fields: [],
+              lists: []
+            },
+            type: "import",
+            _importId: importID
+          };
+        }
+        pageProc.push(pp);
+        //console.log("page proc", JSON.stringify(pageProc));
+      }
+    }
+    let EDIT_FLOW = {
+      name: "ENTER FLOW NAME",
+      disabled: false,
+      _integrationId: "",
+      skipRetries: false,
+      pageProcessors: [],
+      pageGenerators: []
+    };
+    flowJSON = EDIT_FLOW;
+    flowJSON["_integrationId"] = this.integrationMap.get("Automation Flows");
+    flowJSON["name"] = jsonData["name"];
+    flowJSON["pageGenerators"] = pageGen;
+    flowJSON["pageProcessors"] = pageProc;
+
+    if (jsonData.hasOwnProperty("export") && jsonData.export.type == "simple") {
+      var dlExpID = await this.createExportorImport(jsonData.export, "export");
+      var dlImpID = await this.createExportorImport(jsonData.import, "import");
+      flowJSON["_exportId"] = dlExpID;
+      flowJSON["_importId"] = dlImpID;
+      delete flowJSON["pageGenerators"];
+      delete flowJSON["pageProcessors"];
+    }
+    //console.log("FLOWS", JSON.stringify(flowJSON));
+    const response = await this.postCall("v1/flows", flowJSON);
+    if (jsonData.hasOwnProperty("export") && jsonData.export.type == "simple") {
+      delete flowJSON["_exportId"];
+      delete flowJSON["_importId"];
+    }
+    //console.log("res : " + JSON.stringify(response));
+    if (response.hasOwnProperty("_id")) {
+      return response._id;
+    } else {
+      throw new Error(
+        "Unable to get response " + JSON.stringify(response.errors)
+      );
+    }
+  }
+
+  public async createExportorImport(body, type) {
+    let uri;
+    if (type == "export") {
+      uri = "v1/exports";
+    } else if (type == "import") {
+      uri = "v1/imports";
+    }
+    body.name = "AutomationStandalone_" + (await webActions.randomString(5));
+    body._connectionId = await this.connMap.get(body._connectionId);
+    const response = await this.postCall(uri, body);
+    console.log("res : " + JSON.stringify(response));
+    if (response.hasOwnProperty("_id")) {
+      return response._id;
+    } else {
+      var ids = [];
+      for (var i = 0; i < response.length; i++) {
+        ids.push(response[i]._id);
+      }
+      return ids;
+    }
+  }
+
+  public async loadConnections() {
+    try {
+      var response = await this.getCall("v1/connections");
+      for (var index in response) {
+        var connection_name = response[index]["name"];
+        var conn_id = response[index]["_id"];
+        this.connMap.set(connection_name, conn_id);
+      }
+
+      //console.log("Map for the connection is", this.connMap);
+    } catch (error) {
+      console.log("Unable to fetch connections", error);
+    }
+  }
+
+  public async loadIntegrations() {
+    try {
+      var response = await this.getCall("v1/integrations");
+      for (const index in response) {
+        var integration_name = response[index]["name"];
+        if (integration_name === "Automation Flows") {
+          this.integrationMap.set(integration_name, response[index]["_id"]);
+        }
+      }
+
+      //console.log("Map for the Integration is",this.connMap)
+    } catch (error) {
+      console.log("Unable to fetch Integrations", error);
+    }
+  }
+
+  async navigateToFlows() {
+    let flows =
+      "/integrations/" + this.integrationMap.get("Automation Flows") + "/flows";
+    await webActions.navigateTo(flows);
+  }
+
+  public async addPageGenerator(data) {
+    await this.navigateToFlows();
+    await webActions.click(flowBuilder.CREATEFLOW);
+    var exp = data[0].qa__export;
+    let app = exp.adaptorType;
+    app = app.split("Export");
+    let ap = app[0];
     const ele = await this.elePGButton;
     if (ele != null) await ele?.click();
     else throw new Error("No element, hence failed");
+    let temp = await this.loadTemplate(ap, exp, "Export");
+    temp.application = ap;
+    temp.name =
+      "AutomationStandaloneExport__" + (await webActions.randomString(10));
+    console.log("Map:", JSON.stringify(temp));
+    for (var a in temp) {
+      let loc = "[data-test='" + a + "']";
+      var type = await webActions.determineControlType(loc);
+      //let ty:{} = JSON.stringify(type);
+      console.log("type", type);
+      await webActions.performActionWithControl(
+        type.tempWebControl,
+        type.typeOfControl,
+        temp[a]
+      );
+    }
   }
 
+  public async loadTemplate(appName, obj, type) {
+    let name = appName.toUpperCase();
+    switch (name) {
+      case "FTP":
+        let ftp = new FTP(this.page);
+        return await webActions.loadMap(obj, ftp.FTP_JSON.FTP_EXPORT);
+    }
+  }
   public async selectApplication(appname: string, connname: string) {
     const ele = await this.eleAppSelection;
     if (ele != null) {
