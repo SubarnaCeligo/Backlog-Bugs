@@ -24,12 +24,18 @@ export class SettingsPage {
     return this.webActions.selectTextfromDropDown(this.page, value);
   }
 
-  public async screenshot(locator: string, screenshotName: string) {
-    return this.page.locator(locator).screenshot({path: 'src/tests/MyAccount.spec.ts-snapshots/' + screenshotName + '.png'});
-  }
-
   public get eleAppSelection() {
     return this.page.locator('[data-test="application"] input[id*="react-select-"]');
+  }
+  
+  public async pasteFileContent(fileName: string, locator: string) {
+    const fs = require('fs');
+    const fileContent = fs.readFileSync(fileName, 'utf-8');
+    let textarea = await this.page.locator(locator);
+    await this.page.waitForTimeout(3000);
+    await textarea.focus();
+    await this.page.keyboard.type(fileContent);
+    await this.page.waitForTimeout(10000);
   }
 
   public async selectApplication(appname: string) {

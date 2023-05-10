@@ -1,11 +1,12 @@
 import { LoginPagePO } from "@objects/LoginPagePO";
 import { WebActions } from "@lib/WebActions";
-import type { Page } from "playwright";
+import type { Page } from "@playwright/test";
 
 let webActions: WebActions;
 
 export class LoginPage {
   readonly page: Page;
+  SIGNIN_PAGE_URL = "/signin";
 
   constructor(page: Page) {
     this.page = page;
