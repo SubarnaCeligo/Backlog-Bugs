@@ -314,8 +314,10 @@ export class WebActions {
       for (let l = 0; l < dropdownList.length; l++) {
         //await browser.pause(100);
         actualValue = await dropdownList[l].getAttribute("data-value");
+        var actualText = await (await dropdownList[l].textContent()).replace('...','');
         // console.log("actual value is", actualValue, value);
-        if (actualValue === value) {
+        // console.log("actual text is", actualText, value);
+        if (actualValue === value || actualText === value) {
           try {
             //await dropdownList[l].moveTo();
             await page.waitForTimeout(100);

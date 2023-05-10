@@ -15,13 +15,13 @@ async function globalSetup(config: FullConfig) {
     waitUntil: "domcontentloaded"
   });
   await page.waitForLoadState();
-  await page.getByPlaceholder("Email*").click();
+  await page.locator('[name="email"]').click();
   await page.waitForTimeout(2000);
-  await page.getByPlaceholder("Email*").fill(process.env["EMAIL"]);
+  await page.locator('[name="email"]').fill(process.env["EMAIL"]);
   await page.waitForTimeout(2000);
-  await page.getByPlaceholder("Password*").click();
+  await page.locator('[data-test="password"]').click();
   await page.waitForTimeout(2000);
-  await page.getByPlaceholder("Password*").fill(Decrypt(process.env["PASSWORD"]));
+  await page.locator('[data-test="password"] input').fill(Decrypt(process.env["PASSWORD"]));
   await page.waitForTimeout(2000);
   await page.locator('[data-test="submit"]').click();
   await page.waitForTimeout(2000);

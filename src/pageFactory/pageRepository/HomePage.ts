@@ -3,6 +3,7 @@ import { WebActions } from "@lib/WebActions";
 let webActions: WebActions;
 export class HomePage {
   private page: Page;
+  HOME_PAGE_URL = "/home";
 
   constructor(page: Page) {
     this.page = page;
@@ -45,16 +46,5 @@ export class HomePage {
     await this.page.waitForLoadState();
   }
 
-  public async pasteFileContent(fileName: string, locator: string, nth?: number) {
-    const fs = require('fs');
-    const fileContent = fs.readFileSync(fileName, 'utf-8');
-    let textarea = await this.page.locator(locator);
-    if (nth != undefined) {
-      textarea = await this.page.locator(locator).nth(nth);
-    }
-    await this.page.waitForTimeout(3000);
-    await textarea.focus();
-    await this.page.keyboard.type(fileContent);
-    await this.page.waitForTimeout(10000);
-  }
+  
 }

@@ -4,20 +4,31 @@ import { WebActions } from "@lib/WebActions";
 import { FlowBuilderPagePO } from "@objectOR/FlowBuilderPagePO";
 import { FTP } from "../../templates/FTP";
 const Decrypt = require("atob");
+import { CommonPagePO } from "@objects/CommonPagePO";
+import { ExportsPagePO } from "@objects/ExportsPagePO";
+import { SettingsPage } from "./SettingsPage";
+import { Assertions } from "@lib/Assertions";
 
-let webActions: WebActions, flowBuilder: FlowBuilderPagePO;
+let webActions: WebActions, assert: Assertions, flowBuilder: FlowBuilderPagePO, commonPagePO: CommonPagePO, exportsPagePO: ExportsPagePO, settingsPage: SettingsPage;
 
 export class FlowBuilderPage {
   private page: Page;
   connMap: any;
   integrationMap: any;
+  FLOW_BUILDER_PAGE_URL = "integrations/none/flowBuilder/new";
+  EXPORTS_PAGE_URL = "/exports";
+  IMPORTS_PAGE_URL = "/imports";
 
   public constructor(page: Page) {
     this.page = page;
     this.connMap = new Map();
     this.integrationMap = new Map();
     webActions = new WebActions(this.page);
+    assert = new Assertions(this.page);
     flowBuilder = new FlowBuilderPagePO();
+    commonPagePO = new CommonPagePO();
+    exportsPagePO = new ExportsPagePO();
+    settingsPage = new SettingsPage(this.page);
   }
 
   public get elePGButton() {
@@ -1336,15 +1347,130 @@ export class FlowBuilderPage {
   }
 
   public async fillQueryParameters(map: Map<any, any>) {
-    var qname = '[id="name-';
-    var qvalue = '[id="value-';
+    var qname = exportsPagePO.QUERY_PARAMETERS_NAME_FIELD;
+    var qvalue = exportsPagePO.QUERY_PARAMETERS_VALUE_FIELD;
     var queryparams;
-    var qnameField, qvalueField;
     for (let [K, V] of map) {
-      queryparams = await this.page.$$('[data-test="queryParameters"] ul li');
+      queryparams = await this.page.$$(exportsPagePO.QUERY_PARAMETERS_ROW);
       var i = queryparams.length - 1;
       await this.page.locator(qname + i + '"]').fill(K);
       await this.page.locator(qvalue + i + '"]').fill(V);
+    }
+  }
+
+  public async updateImportMappings(map: Map<any, any>) {
+    var sourceText, destinationText, sourceField, destinationField;
+    var i = 0;
+    sourceField = await this.page.locator(flowBuilder.MAPPER2_SOURCE_FIELD_FIELD);
+    destinationText = await this.page.locator(flowBuilder.MAPPER2_DESTINATION_FIELD_TEXT);
+    destinationField = await this.page.locator(flowBuilder.MAPPER2_DESTINATION_FIELD_FIELD).nth(0);
+    await destinationText.nth(i).dblclick();
+    for (let [K, V] of map) {
+      sourceText = await this.page.locator(flowBuilder.MAPPER2_SOURCE_FIELD_TEXT);
+      await destinationField.fill(K);
+      await sourceText.nth(i).dblclick();
+      await sourceField.fill(V);
+      var add = await this.page.locator(flowBuilder.FIELD_MAPPING_ADD);
+      await add.nth(i).click();
+      await add.nth(i).click();
+      i += 1;
+    }
+  }
+  
+  public async selectConnection(connectionName: string) {
+    var listBox = await webActions.page.locator(commonPagePO.CONNECTION + ' div').nth(0).getAttribute('aria-haspopup');
+    if (listBox == 'listbox') {
+      await webActions.click(commonPagePO.CONNECTION);
+      await settingsPage.selectTextFromDropDown(connectionName);
+    } else {
+      await webActions.click(commonPagePO.CONNECTION);
+      await webActions.fill(exportsPagePO.CONNECTIONS_DROPDOWN, connectionName);
+      await webActions.page.keyboard.press("ArrowDown");
+      await webActions.page.keyboard.press("Enter");
+    }
+  }
+  
+  public async enableFlow() {
+    await webActions.page.waitForSelector(flowBuilder.FLOW_TOGGLE);
+    var checked = await webActions.page.locator(flowBuilder.FLOW_TOGGLE).getAttribute('checked');
+    if (checked == null) {
+      await webActions.click(flowBuilder.FLOW_TOGGLE);
+      await webActions.click(flowBuilder.FLOW_ENABLE);
+    }
+    await webActions.page.waitForTimeout(1000);
+  }
+  
+  public async disableFlow() {
+    await webActions.page.waitForSelector(flowBuilder.FLOW_TOGGLE);
+    var checked = await webActions.page.locator(flowBuilder.FLOW_TOGGLE).getAttribute('checked');
+    if (checked != null) {
+      await webActions.click(flowBuilder.FLOW_TOGGLE);
+      await webActions.click(flowBuilder.FLOW_DISABLE);
+    }
+    await webActions.page.waitForTimeout(1000);
+  }
+  
+  public async waitForFlowToComplete() {
+    await webActions.page.waitForTimeout(2000);
+    var t = 0, maxWaitInQueue = 10;
+    var status = await webActions.getText(flowBuilder.FLOW_STATUS);
+    while (!(status.includes("Last run:"))) {
+      await webActions.page.waitForTimeout(1000);
+      status = await webActions.getText(flowBuilder.FLOW_STATUS);
+      t += 1;
+      if (t > maxWaitInQueue && status.includes("Waiting in queue")) {
+        await webActions.click(flowBuilder.REFRESH_JOBS_BOARD);
+        t = 0;
+      }
+    }
+  }
+  
+  public async runFlow() {
+    await this.enableFlow();
+    await webActions.click(flowBuilder.RUN_FLOW);
+    await this.waitForFlowToComplete();
+  }
+  
+  public async deleteFlow() {
+    await this.disableFlow();
+    await webActions.click(flowBuilder.OPEN_ACTIONS_MENU);
+    await webActions.click(flowBuilder.DELETE_FLOW);
+    await webActions.click(commonPagePO.DELETE);
+  }
+  
+  public async refreshErrorsDashboard() {
+    await webActions.page.waitForTimeout(2000);
+    var selected = await webActions.page.locator(flowBuilder.RESOLVED_ERRORS_TAB).getAttribute('aria-selected');
+    if (selected == 'true') {
+      await webActions.click(commonPagePO.CLOSE_RIGHT_DRAWER);
+      await webActions.page.reload({timeout: 5000});
+      await webActions.page.waitForTimeout(5000);
+      return true;
+    }
+  }
+  
+  public async navigateToJobErrorDashboard(jobName: string) {
+    // var drawerStyle = await webActions.page.locator('[class$=" MuiDrawer-paperAnchorBottom MuiDrawer-paperAnchorDockedBottom MuiPaper-elevation0"]').getAttribute('style');
+    // var height = drawerStyle.split(':')[1].trim();
+    // var r = /\d+/;
+    // var h = Number(height.match(r)[0]);
+    // if (h < 303) {
+    //   await webActions.click(flowBuilder.INCREASE_FLOW_BUILDER_BOTTOM_DRAWER);
+    // }
+    var job = await webActions.page.$$(flowBuilder.JOB_NAME);
+    var name;
+    for (var i = 0; i < job.length; i++) {
+      name = await job[i].textContent();
+      if (name === jobName) {
+        var errors = await webActions.page.$$(flowBuilder.JOB_ERRORS);
+        await errors[i].click();
+        break;
+      }
+    }
+    var t = await this.refreshErrorsDashboard();
+    if (t) {
+      await webActions.page.waitForTimeout(5000);
+      await this.navigateToJobErrorDashboard(jobName);
     }
   }
 }

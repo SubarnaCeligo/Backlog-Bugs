@@ -8,4 +8,5 @@ export class CommonPagePO {
   ADD_NEW_RESOURCE = '[data-test="addNewResource"]';
   CONNECTION = '[data-test="connection"]';
   DELETE = '[data-test="Delete"]';
+  CLOSE_RIGHT_DRAWER = '[data-test="closeRightDrawer"]';
 }

@@ -6,6 +6,7 @@ let webActions: WebActions, myAccount: MyAccountPagePO;
 
 export class MyAccountPage {
   private page: Page;
+  MY_ACCOUNT_PAGE_URL = "/myAccount/profile";
 
   constructor(page: Page) {
     this.page = page;

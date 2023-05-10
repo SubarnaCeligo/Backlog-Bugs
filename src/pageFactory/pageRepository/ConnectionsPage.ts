@@ -1,21 +1,12 @@
 import type { Page } from "@playwright/test";
 import { WebActions } from "@lib/WebActions";
 import { ConnectionsPagePO } from "@objectOR/ConnectionsPagePO";
-import { determineControlType } from "../../utilities/commonUtils";
 
 let webActions: WebActions, concPage: ConnectionsPagePO;
 
 export class ConnectionsPage {
   private page: Page;
-
-  FTP_BASIC: {
-    name: "name";
-    "ftp.hostURI": "hostURI";
-    "ftp.username": "username";
-    "ftp.port": "port";
-    "custom:[class^='MuiButtonBase-root MuiButton-root MuiButton-outlined jss']": "action";
-    testsaveAndClose: "action";
-  };
+  CONNECTIONS_PAGE_URL = "/connections";
 
   public constructor(page: Page) {
     this.page = page;
