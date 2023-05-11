@@ -13,7 +13,8 @@ export class MyAccountPagePO {
   INVITE_USER_ACCESS_LEVEL = '[data-test="accessLevel"]';
   REQUIRE_MFA = '[id="accountMFARequired"] .react-toggle-track';
   HELP_TEXT = '[data-test="openPageInfo"]';
-  HELP_TEXT_DIALOG_BOX = ".MuiPaper-root.MuiPaper-elevation1.MuiPaper-rounded";
+  HELP_TEXT_DIALOG_BOX =
+    ".MuiPaper-root.MuiPaper-elevation1.MuiPaper-rounded .MuiTypography-body2";
   CURRENT_PASSWORD = '[data-test="currentPassword"] input';
   NEW_PASSWORD = '[data-test="newPassword"] input';
   CHANGE_PASSWORD = '[data-test="changePassword"]';

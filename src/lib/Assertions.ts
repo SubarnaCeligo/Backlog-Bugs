@@ -1,4 +1,4 @@
-import { expect, Page } from "@playwright/test";
+import { expect, Page, test } from "@playwright/test";
 import { WebActions } from "./WebActions";
 import fs from "fs";
 
@@ -139,14 +139,37 @@ export class Assertions extends WebActions {
    */
   async checkSnapshot(
     selector: string,
-    expectedSnapshotPath: string
+    expectedSnapshotPath: string,
+    masklocator?: string
   ): Promise<void> {
+    //await this.waitForPageNavigation("domcontentloaded");
     const element = await this.page.$(selector);
     if (!element) {
       throw new Error(`Element not found for selector "${selector}".`);
     }
-    const actualSnapshot = await element.screenshot();
+    let actualSnapshot;
+    //if (masklocator !== undefined) {
+      actualSnapshot = await element.screenshot();
+    // } else {
+    //   actualSnapshot = await element.screenshot({
+    //     mask: [await this.page.locator(masklocator)]
+    //   });
+    //}
     // const expectedSnapshot = await fs.readFileSync(p);
     expect(actualSnapshot).toMatchSnapshot(expectedSnapshotPath);
+  }
+
+  /**
+   * Asynchronously checks if an element matches the expected text.
+   *
+   * @param selector The selector to locate the element to take a snapshot of.
+   * @param value Expected data to be matched
+   * @throws An error if the element is not found for the given selector or if the actual snapshot
+   *         does not match the expected snapshot.
+   */
+  async textFromElement(locator: string, value: any) {
+    await test.step("Matching text from element " + locator, async () => {
+      expect(await this.page.locator(locator)).toMatchSnapshot(value);
+    });
   }
 }

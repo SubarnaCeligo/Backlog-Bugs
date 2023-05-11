@@ -7,3 +7,5 @@ storageState.json
 .npmrc
 allure-report/
 allure-results/
+src/env/**
+dist/
