@@ -56,4 +56,15 @@ export class FlowBuilderPagePO {
   MAPPER2_TYPE_OR_SELECT_SOURCE_FIELD_TEXT = '[class$=" MuiPaper-elevation1 MuiPaper-rounded"] div ul';
   HTTP_FORM_SWITCH = '[data-test="HTTP"]';
   CHARTS = '[data-test="charts"]';
+  FITVIEW = "(//div[@class='react-flow__controls']/button)[3]";
+  CLOSE_RIGHT_DRAWER = "[data-test='closeRightDrawer']";
+  ERROR_DATA = ".ace_layer.ace_text-layer div";
+  COLUMNS = "tbody tr";
+  REFRESH = ".MuiButton-label=Refresh";
+  HEADER_STATUS = ".MuiButtonBase-root .MuiButton-label";
+  TIME = '[aria-label="relative date time"]';
+  JOBS_HEADER_ROW = ".MuiTableCell-root";
+  JOBS_ROWS = "tr.MuiTableRow-hover";
+  JOB_ERROR_NUMBERS = '[class$=" MuiButton-textPrimary MuiButton-disableElevation"]';
+  ERROR_MESSAGE_CHECKBOX = 'th [class="MuiFormControlLabel-root"]';
 }

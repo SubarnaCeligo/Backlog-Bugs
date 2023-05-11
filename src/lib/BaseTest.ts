@@ -19,7 +19,7 @@ import { ExportsPage } from "@pages/ExportsPage";
 import { Utilities } from "@lib/Utilities";
 import { ExportTestdata } from "@testData/Exports";
 import { MyAccountTestData } from "@testData/MyAccount";
-import { ConnectionsTestData } from "@testData/Connections";
+import { ConnectionsTestData } from "@testData/CONNECTIONS";
 
 export const test = baseTest.extend<{
   webActions: WebActions;
