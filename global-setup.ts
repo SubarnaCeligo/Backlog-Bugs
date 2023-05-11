@@ -17,11 +17,7 @@ async function globalSetup(config: FullConfig) {
     waitUntil: "domcontentloaded"
   });
   await page.waitForLoadState();
-  await page.locator(loginPagePO.EMAIL).click();
-  await page.waitForTimeout(2000);
   await page.locator(loginPagePO.EMAIL).fill(process.env["EMAIL"]);
-  await page.waitForTimeout(2000);
-  await page.locator(loginPagePO.PASSWORD).click();
   await page.waitForTimeout(2000);
   await page.locator(loginPagePO.PASSWORD).fill(Decrypt(process.env["PASSWORD"]));
   await page.waitForTimeout(2000);

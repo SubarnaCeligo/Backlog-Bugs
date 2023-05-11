@@ -15,6 +15,11 @@ import { CommonPagePO } from "@objects/CommonPagePO";
 import { FlowBuilderPagePO } from "@objects/FlowBuilderPagePO";
 import { ConnectionsPagePO } from "@objects/ConnectionsPagePO";
 import { ExportsPagePO } from "@objects/ExportsPagePO";
+import { ExportsPage } from "@pages/ExportsPage";
+import { Utilities } from "@lib/Utilities";
+import { ExportTestdata } from "@testData/Exports";
+import { MyAccountTestData } from "@testData/MyAccount";
+import { ConnectionsTestData } from "@testData/CONNECTIONS";
 
 export const test = baseTest.extend<{
   webActions: WebActions;
@@ -33,6 +38,11 @@ export const test = baseTest.extend<{
   flowBuilderPagePO: FlowBuilderPagePO;
   concPagePO: ConnectionsPagePO;
   exportsPagePO: ExportsPagePO;
+  exportsPage: ExportsPage;
+  util: Utilities;
+  exportTD: ExportTestdata;
+  myAccountTD: MyAccountTestData;
+  connectionTD: ConnectionsTestData;
 }>({
   webActions: async ({ page }, use) => {
     await use(new WebActions(page));
@@ -81,6 +91,21 @@ export const test = baseTest.extend<{
   },
   exportsPagePO: async ({}, use) => {
     await use(new ExportsPagePO());
+  },
+  exportsPage: async ({ page }, use) => {
+    await use(new ExportsPage(page));
+  },
+  util: async ({ page }, use) => {
+    await use(new Utilities(page));
+  },
+  exportTD: async ({}, use) => {
+    await use(new ExportTestdata());
+  },
+  myAccountTD: async ({}, use) => {
+    await use(new MyAccountTestData());
+  },
+  connectionTD: async ({}, use) => {
+    await use(new ConnectionsTestData());
   }
 });
 

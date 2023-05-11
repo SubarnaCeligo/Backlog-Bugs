@@ -1,22 +1,26 @@
-import { Page } from "@playwright/test";
+import { Page, test } from "@playwright/test";
 import { request } from "@playwright/test";
 import { WebActions } from "@lib/WebActions";
 import { FlowBuilderPagePO } from "@objectOR/FlowBuilderPagePO";
 import { FTP } from "../../templates/FTP";
-const Decrypt = require("atob");
+import { Utilities } from "@lib/Utilities";
 import { CommonPagePO } from "@objects/CommonPagePO";
-import { ExportsPagePO } from "@objects/ExportsPagePO";
 import { SettingsPage } from "./SettingsPage";
 import { Assertions } from "@lib/Assertions";
 
-let webActions: WebActions, assert: Assertions, flowBuilder: FlowBuilderPagePO, commonPagePO: CommonPagePO, exportsPagePO: ExportsPagePO, settingsPage: SettingsPage;
+let webActions: WebActions,
+  assert: Assertions,
+  flowBuilder: FlowBuilderPagePO,
+  commonPagePO: CommonPagePO,
+  settingsPage: SettingsPage,
+  util: Utilities;
 
 export class FlowBuilderPage {
   private page: Page;
   connMap: any;
   integrationMap: any;
-  FLOW_BUILDER_PAGE_URL = "integrations/none/flowBuilder/new";
-  EXPORTS_PAGE_URL = "/exports";
+  FLOW_BUILDER_PAGE_URL =
+    "integrations/" + process.env["INTEGRATION_ID"] + "/flows";
   IMPORTS_PAGE_URL = "/imports";
 
   public constructor(page: Page) {
@@ -27,8 +31,8 @@ export class FlowBuilderPage {
     assert = new Assertions(this.page);
     flowBuilder = new FlowBuilderPagePO();
     commonPagePO = new CommonPagePO();
-    exportsPagePO = new ExportsPagePO();
     settingsPage = new SettingsPage(this.page);
+    util = new Utilities(this.page);
   }
 
   public get elePGButton() {
@@ -38,29 +42,29 @@ export class FlowBuilderPage {
   public get eleAppSelection() {
     return this.page.locator(flowBuilder.APP_NAME_INPUT);
   }
+
   private async postCall(endpoint, reqBody) {
     const context = await request.newContext({
       baseURL: process.env["API_URL"]
     });
-
     const resp = await context.post(endpoint, {
       headers: {
         ContentType: "application/json",
-        Authorization: Decrypt(`${process.env.API_TOKEN}`)
+        Authorization: await util.decrypt(`${process.env.API_TOKEN}`)
       },
       data: reqBody
     });
     return await resp.json();
   }
+
   private async putCall(endpoint, reqBody) {
     const context = await request.newContext({
       baseURL: process.env["API_URL"]
     });
-
     const resp = await context.put(endpoint, {
       headers: {
         ContentType: "application/json",
-        Authorization: Decrypt(`${process.env.API_TOKEN}`)
+        Authorization: await util.decrypt(`${process.env.API_TOKEN}`)
       },
       data: reqBody
     });
@@ -71,13 +75,11 @@ export class FlowBuilderPage {
     const context = await request.newContext({
       baseURL: process.env["API_URL"]
     });
-
     const resp = await context.get(endpoint, {
       headers: {
-        Authorization: Decrypt(`${process.env.API_TOKEN}`)
+        Authorization: await util.decrypt(`${process.env.API_TOKEN}`)
       }
     });
-
     return await resp.json();
   }
 
@@ -94,6 +96,14 @@ export class FlowBuilderPage {
       for (let index = 0; index < jsonData.pageGenerators.length; index++) {
         const exportData = jsonData.pageGenerators[index].qa__export;
         var exportID = await this.createExportorImport(exportData, "export");
+        await test.step(
+          "Created Export for flow with ID " + exportID,
+          async () => {
+            await webActions.logger(
+              "Created Export for flow with ID " + exportID
+            );
+          }
+        );
         var pg = {
           _exportId: exportID
         };
@@ -110,6 +120,14 @@ export class FlowBuilderPage {
         if (jsonData.pageProcessors[index].hasOwnProperty("qa__export")) {
           importData = jsonData.pageProcessors[index].qa__export;
           var ppExportID = await this.createExportorImport(importData, "export");
+          await test.step(
+            "Created Export for flow with ID " + ppExportID,
+            async () => {
+              await webActions.logger(
+                "Created Export for flow with ID " + ppExportID
+              );
+            }
+          );
           pp = {
             responseMapping: {
               fields: [],
@@ -121,6 +139,14 @@ export class FlowBuilderPage {
         } else {
           importData = jsonData.pageProcessors[index].qa__import;
           var importID = await this.createExportorImport(importData, "import");
+          await test.step(
+            "Created Import for flow with ID " + importID,
+            async () => {
+              await webActions.logger(
+                "Created Import for flow with ID " + importID
+              );
+            }
+          );
           pp = {
             responseMapping: {
               fields: [],
@@ -164,6 +190,14 @@ export class FlowBuilderPage {
     }
     //console.log("res : " + JSON.stringify(response));
     if (response.hasOwnProperty("_id")) {
+      await test.step(
+        "Created Flow " + response.name + " with " + response._id,
+        async () => {
+          await webActions.logger(
+            "Created Flow " + response.name + " with " + response._id
+          );
+        }
+      );
       return response._id;
     } else {
       throw new Error(
@@ -179,10 +213,10 @@ export class FlowBuilderPage {
     } else if (type == "import") {
       uri = "v1/imports";
     }
-    body.name = "AutomationStandalone_" + (await webActions.randomString(5));
+    body.name = "AutomationStandalone_" + (await util.randomString(5));
     body._connectionId = await this.connMap.get(body._connectionId);
     const response = await this.postCall(uri, body);
-    console.log("res : " + JSON.stringify(response));
+    //console.log("res : " + JSON.stringify(response));
     if (response.hasOwnProperty("_id")) {
       return response._id;
     } else {
@@ -226,9 +260,11 @@ export class FlowBuilderPage {
   }
 
   async navigateToFlows() {
-    let flows =
-      "/integrations/" + this.integrationMap.get("Automation Flows") + "/flows";
-    await webActions.navigateTo(flows);
+    await test.step("Navigating to Flows Page", async () => {
+      let flows =
+        "/integrations/" + this.integrationMap.get("Automation Flows") + "/flows";
+      await webActions.navigateTo(flows);
+    });
   }
 
   public async addPageGenerator(data) {
@@ -243,20 +279,32 @@ export class FlowBuilderPage {
     else throw new Error("No element, hence failed");
     let temp = await this.loadTemplate(ap, exp, "Export");
     temp.application = ap;
-    temp.name =
-      "AutomationStandaloneExport__" + (await webActions.randomString(10));
-    console.log("Map:", JSON.stringify(temp));
+    temp.name = "AutomationStandaloneExport__" + (await util.randomString(10));
+    //console.log("Map:", JSON.stringify(temp));
     for (var a in temp) {
       let loc = "[data-test='" + a + "']";
       var type = await webActions.determineControlType(loc);
-      //let ty:{} = JSON.stringify(type);
-      console.log("type", type);
+      //console.log("type", type);
       await webActions.performActionWithControl(
         type.tempWebControl,
         type.typeOfControl,
         temp[a]
       );
     }
+  }
+
+  public async addPageProcessor(data) {
+    if ((await this.page.url()).search("flowbuilder") === -1) {
+      await this.navigateToFlows();
+      await webActions.click(flowBuilder.CREATEFLOW);
+    }
+    var imp = data[0].qa__import;
+    let app = imp.adaptorType;
+    app = app.split("Import");
+    let ap = app[0];
+    const ele = await this.elePGButton;
+    if (ele != null) await ele?.click();
+    else throw new Error("No element, hence failed");
   }
 
   public async loadTemplate(appName, obj, type) {
@@ -1346,24 +1394,16 @@ export class FlowBuilderPage {
       .fill("TC_610_Credit_Card_Transaction_Add");
   }
 
-  public async fillQueryParameters(map: Map<any, any>) {
-    var qname = exportsPagePO.QUERY_PARAMETERS_NAME_FIELD;
-    var qvalue = exportsPagePO.QUERY_PARAMETERS_VALUE_FIELD;
-    var queryparams;
-    for (let [K, V] of map) {
-      queryparams = await this.page.$$(exportsPagePO.QUERY_PARAMETERS_ROW);
-      var i = queryparams.length - 1;
-      await this.page.locator(qname + i + '"]').fill(K);
-      await this.page.locator(qvalue + i + '"]').fill(V);
-    }
-  }
-
   public async updateImportMappings(map: Map<any, any>) {
     var sourceText, destinationText, sourceField, destinationField;
     var i = 0;
     sourceField = await this.page.locator(flowBuilder.MAPPER2_SOURCE_FIELD_FIELD);
-    destinationText = await this.page.locator(flowBuilder.MAPPER2_DESTINATION_FIELD_TEXT);
-    destinationField = await this.page.locator(flowBuilder.MAPPER2_DESTINATION_FIELD_FIELD).nth(0);
+    destinationText = await this.page.locator(
+      flowBuilder.MAPPER2_DESTINATION_FIELD_TEXT
+    );
+    destinationField = await this.page
+      .locator(flowBuilder.MAPPER2_DESTINATION_FIELD_FIELD)
+      .nth(0);
     await destinationText.nth(i).dblclick();
     for (let [K, V] of map) {
       sourceText = await this.page.locator(flowBuilder.MAPPER2_SOURCE_FIELD_TEXT);
@@ -1376,45 +1416,37 @@ export class FlowBuilderPage {
       i += 1;
     }
   }
-  
-  public async selectConnection(connectionName: string) {
-    var listBox = await webActions.page.locator(commonPagePO.CONNECTION + ' div').nth(0).getAttribute('aria-haspopup');
-    if (listBox == 'listbox') {
-      await webActions.click(commonPagePO.CONNECTION);
-      await settingsPage.selectTextFromDropDown(connectionName);
-    } else {
-      await webActions.click(commonPagePO.CONNECTION);
-      await webActions.fill(exportsPagePO.CONNECTIONS_DROPDOWN, connectionName);
-      await webActions.page.keyboard.press("ArrowDown");
-      await webActions.page.keyboard.press("Enter");
-    }
-  }
-  
+
   public async enableFlow() {
     await webActions.page.waitForSelector(flowBuilder.FLOW_TOGGLE);
-    var checked = await webActions.page.locator(flowBuilder.FLOW_TOGGLE).getAttribute('checked');
+    var checked = await webActions.page
+      .locator(flowBuilder.FLOW_TOGGLE)
+      .getAttribute("checked");
     if (checked == null) {
       await webActions.click(flowBuilder.FLOW_TOGGLE);
       await webActions.click(flowBuilder.FLOW_ENABLE);
     }
     await webActions.page.waitForTimeout(1000);
   }
-  
+
   public async disableFlow() {
     await webActions.page.waitForSelector(flowBuilder.FLOW_TOGGLE);
-    var checked = await webActions.page.locator(flowBuilder.FLOW_TOGGLE).getAttribute('checked');
+    var checked = await webActions.page
+      .locator(flowBuilder.FLOW_TOGGLE)
+      .getAttribute("checked");
     if (checked != null) {
       await webActions.click(flowBuilder.FLOW_TOGGLE);
       await webActions.click(flowBuilder.FLOW_DISABLE);
     }
     await webActions.page.waitForTimeout(1000);
   }
-  
+
   public async waitForFlowToComplete() {
     await webActions.page.waitForTimeout(2000);
-    var t = 0, maxWaitInQueue = 10;
+    var t = 0,
+      maxWaitInQueue = 10;
     var status = await webActions.getText(flowBuilder.FLOW_STATUS);
-    while (!(status.includes("Last run:"))) {
+    while (!status.includes("Last run:")) {
       await webActions.page.waitForTimeout(1000);
       status = await webActions.getText(flowBuilder.FLOW_STATUS);
       t += 1;
@@ -1424,31 +1456,33 @@ export class FlowBuilderPage {
       }
     }
   }
-  
+
   public async runFlow() {
     await this.enableFlow();
     await webActions.click(flowBuilder.RUN_FLOW);
     await this.waitForFlowToComplete();
   }
-  
+
   public async deleteFlow() {
     await this.disableFlow();
     await webActions.click(flowBuilder.OPEN_ACTIONS_MENU);
     await webActions.click(flowBuilder.DELETE_FLOW);
     await webActions.click(commonPagePO.DELETE);
   }
-  
+
   public async refreshErrorsDashboard() {
     await webActions.page.waitForTimeout(2000);
-    var selected = await webActions.page.locator(flowBuilder.RESOLVED_ERRORS_TAB).getAttribute('aria-selected');
-    if (selected == 'true') {
+    var selected = await webActions.page
+      .locator(flowBuilder.RESOLVED_ERRORS_TAB)
+      .getAttribute("aria-selected");
+    if (selected == "true") {
       await webActions.click(commonPagePO.CLOSE_RIGHT_DRAWER);
-      await webActions.page.reload({timeout: 5000});
+      await webActions.page.reload({ timeout: 5000 });
       await webActions.page.waitForTimeout(5000);
       return true;
     }
   }
-  
+
   public async navigateToJobErrorDashboard(jobName: string) {
     // var drawerStyle = await webActions.page.locator('[class$=" MuiDrawer-paperAnchorBottom MuiDrawer-paperAnchorDockedBottom MuiPaper-elevation0"]').getAttribute('style');
     // var height = drawerStyle.split(':')[1].trim();

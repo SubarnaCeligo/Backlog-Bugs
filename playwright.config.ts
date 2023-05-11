@@ -6,7 +6,7 @@ import { defineConfig, devices, PlaywrightTestConfig } from "@playwright/test";
  */
 require("dotenv").config({
   override: true,
-  path: `src/helper/env/.env.${process.env.ENV}`
+  path: `src/env/.env.${process.env.ENV}`
 });
 
 /**
@@ -21,7 +21,7 @@ export default defineConfig({
      * Maximum time expect() should wait for the condition to be met.
      * For example in `await expect(locator).toHaveText();`
      */
-    timeout: 5000
+    timeout: 5000,
   },
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -72,7 +72,7 @@ export default defineConfig({
         headless: true,
         ignoreHTTPSErrors: true,
         trace: "on",
-        viewport: { width: 1440, height: 764 }
+        viewport: { width: 1440, height: 764 },
       }
     },
     {

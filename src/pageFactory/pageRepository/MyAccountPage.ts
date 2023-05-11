@@ -1,7 +1,6 @@
 import { test, Page } from "@playwright/test";
 import { WebActions } from "@lib/WebActions";
 import { MyAccountPagePO } from "@objects/MyAccountPagePO";
-
 let webActions: WebActions, myAccount: MyAccountPagePO;
 
 export class MyAccountPage {
@@ -31,8 +30,10 @@ export class MyAccountPage {
    *
    * @returns {Promise<void>} A Promise that resolves when the navigation is complete.
    */
-
   async navigateToMyAccount() {
-    await webActions.navigateTo("/myAccount/profile");
+    await test.step("Navigating to Account Page", async () => {
+      await webActions.logger("Navigating to Account Page");
+      await webActions.navigateTo("/myAccount/profile");
+    });
   }
 }
