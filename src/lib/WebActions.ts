@@ -1,4 +1,6 @@
 import type { Page } from "@playwright/test";
+import { test } from "@playwright/test";
+import { Logger } from "@celigo/aut-logger";
 
 export class WebActions {
   readonly page: Page;
@@ -27,8 +29,11 @@ export class WebActions {
    */
 
   async navigateTo(url: string): Promise<void> {
-    await this.page.goto(url, {
-      waitUntil: "domcontentloaded"
+    await test.step("Navigating to " + url, async () => {
+      await this.logger("Navigating to " + url);
+      await this.page.goto(url, {
+        waitUntil: "domcontentloaded"
+      });
     });
   }
 
@@ -41,8 +46,25 @@ export class WebActions {
    */
 
   async click(locator: string): Promise<void> {
-    await this.waitForElementAttached(locator);
-    await this.page.click(locator);
+    await test.step("Clicking on element " + locator, async () => {
+      await this.logger("Clicking on element " + locator);
+      await this.waitForElementAttached(locator);
+      await this.page.click(locator);
+    });
+  }
+
+  /**
+   * Determines if the element selected by the given selector is scrollable.
+   *
+   * @param {string} selector - The CSS selector of the element to check.
+   * @return {Promise<boolean>} - A promise that resolves with a boolean indicating if the element is scrollable.
+   */
+  async isScrollable(selector: string) {
+    const isScrollable = await this.page.evaluate(selector => {
+      const element = document.querySelector(selector);
+      return element.scrollHeight > element.clientHeight;
+    }, selector);
+    return isScrollable;
   }
 
   /**
@@ -56,6 +78,10 @@ export class WebActions {
     await this.page.$eval(locator, (element: HTMLElement) => element.click());
   }
 
+  async takeScreenShot(locator: string, path?: string) {
+    await this.page.locator(locator).screenshot({ path: "HelpText.png" });
+  }
+
   /**
    * Fills the input element identified by the given locator with the provided value.
    * Waits for the element to be attached to the DOM before filling it.
@@ -67,8 +93,16 @@ export class WebActions {
    */
 
   async fill(locator: string, value: string): Promise<void> {
-    await this.waitForElementAttached(locator);
-    await this.page.fill(locator, value);
+    await test.step(
+      "Entering text in locator " + locator + " with " + value,
+      async () => {
+        await this.waitForElementAttached(locator);
+        await this.page.fill(locator, value);
+        await this.logger(
+          "Entering text in locator " + locator + " with " + value
+        );
+      }
+    );
   }
 
   /**
@@ -204,7 +238,7 @@ export class WebActions {
 
     try {
       var role = await tempWebControl.getAttribute("role");
-      console.log(type,role);
+      //console.log(type, role);
       if (type === "button" || role === "button" || role == "menuitem") {
         typeOfControl = "Button";
         return { typeOfControl, tempWebControl };
@@ -285,7 +319,7 @@ export class WebActions {
           //let loc = await ele.$("input");
           //console.log("LOC", loc);
           // await this.page.fill(loc.selector,value);
-           await this.fill(WebControlTemp, value);
+          await this.fill(WebControlTemp, value);
         } catch (e) {}
     }
   }
@@ -314,7 +348,10 @@ export class WebActions {
       for (let l = 0; l < dropdownList.length; l++) {
         //await browser.pause(100);
         actualValue = await dropdownList[l].getAttribute("data-value");
-        var actualText = await (await dropdownList[l].textContent()).replace('...','');
+        var actualText = await (await dropdownList[l].textContent()).replace(
+          "...",
+          ""
+        );
         // console.log("actual value is", actualValue, value);
         // console.log("actual text is", actualText, value);
         if (actualValue === value || actualText === value) {
@@ -355,24 +392,23 @@ export class WebActions {
             obj[b] = value;
           }
         }
-        //console.log(`Match found: ${key} = ${value}`);
       } else {
-        //console.log(`No match found for ${key}`);
       }
     }
-    //console.log("Obj ", obj);
     return obj;
   }
 
-   async randomString(len?: number, charSet?: string) {
-  charSet =
-    charSet || "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-  len = len || 5;
-  let randomString = "";
-  for (let i = 0; i < len; i++) {
-    const randomPoz = Math.floor(Math.random() * charSet.length);
-    randomString += charSet.substring(randomPoz, randomPoz + 1);
+  async logger(title) {
+    await Logger.info(title);
   }
-  return randomString;
-}
+
+  public async pasteFileContent(fileName: string, locator: string) {
+    const fs = require("fs");
+    const fileContent = fs.readFileSync(fileName, "utf-8");
+    let textarea = await this.page.locator(locator);
+    await this.page.waitForTimeout(3000);
+    await textarea.focus();
+    await this.page.keyboard.type(fileContent);
+    await this.page.waitForTimeout(10000);
+  }
 }

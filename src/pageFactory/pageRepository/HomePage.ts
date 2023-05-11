@@ -1,6 +1,8 @@
 import type { Page } from "@playwright/test";
+import { test } from "@playwright/test";
 import { WebActions } from "@lib/WebActions";
 let webActions: WebActions;
+const homeUrl = "/home";
 export class HomePage {
   private page: Page;
   HOME_PAGE_URL = "/home";
@@ -20,8 +22,10 @@ export class HomePage {
     this.page.on("console", msg => console.log(msg.text()));
   }
 
-  public async navigateToHome(){
-     await webActions.navigateTo("/home");
+  public async navigateToHome() {
+    await test.step("Navigating to Home Page", async () => {
+      await webActions.navigateTo("/home");
+    });
   }
 
   public async goToIntegrationTile() {
@@ -29,9 +33,10 @@ export class HomePage {
   }
 
   public async goToPage(pageName: string) {
-    var list = [], ele;
-    if(pageName.includes('->')) {
-      list = pageName.split('->');
+    var list = [],
+      ele;
+    if (pageName.includes("->")) {
+      list = pageName.split("->");
       ele = await this.page.locator('[data-test="' + list[1] + '"]');
       if (await this.page.isVisible('[data-test="' + list[1] + '"]')) {
         await ele.click();
@@ -45,6 +50,4 @@ export class HomePage {
     await this.page.waitForTimeout(5000);
     await this.page.waitForLoadState();
   }
-
-  
 }

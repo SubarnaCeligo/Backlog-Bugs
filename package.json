@@ -12,7 +12,8 @@
     "build:watch": "npx tsc -w",
     "report": "allure generate allure-results --clean -o allure-report && allure open allure-report",
     "lint": "eslint . --ext .ts --quiet",
-    "lint-and-fix": "eslint --fix --ext .ts ."
+    "lint-and-fix": "eslint --fix --ext .ts .",
+    "trace":"npx playwright show-trace test-results/**/trace.zip"
   },
   "keywords": [],
   "author": "B Vinay Kumar",
@@ -27,6 +28,7 @@
   "devDependencies": {
     "@celigo/rest-api-automation": "^0.0.73",
     "@celigo/ui-test-automation": "0.0.5",
+    "@celigo/aut-logger":"0.0.1",
     "@playwright/test": "^1.32.3",
     "@reportportal/agent-js-playwright": "^5.0.8",
     "allure-playwright": "^2.2.1",
