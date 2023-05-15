@@ -15,7 +15,6 @@ async function globalSetup(config: FullConfig) {
   await page.goto(baseURL!, {
     waitUntil: "domcontentloaded"
   });
-  console.log("Locators", selectors.LoginPagePO.EMAIL);
   await page.locator(selectors.LoginPagePO.EMAIL).fill(process.env["EMAIL"]);
   await page.waitForTimeout(2000);
   await page
