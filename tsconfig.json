@@ -9,7 +9,8 @@
             "@selectors/*":["src/pageFactory/selectors/*"],
             "@lib/*":["src/lib/*"],
             "@helper/*":["src/helper/*"],
-            "@testData/*":["src/testData/*"]
+            "@testData/*":["src/testData/*"],
+            "@controller/*":["src/controller/*"]
         },
         "target": "esnext",
         "module": "commonjs",

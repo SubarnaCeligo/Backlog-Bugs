@@ -1,5 +1,5 @@
 import { Page, test } from "@playwright/test";
-import { request } from "@playwright/test";
+
 import { FTP } from "../../templates/FTP";
 import { Utilities } from "@lib/Utilities";
 import { Assertions } from "@lib/Assertions";
@@ -49,48 +49,6 @@ export class FlowBuilderPage extends BasePage{
 
   public get eleAppSelection() {
     return this.page.locator(this.selectors.FlowBuilderPagePO.APP_NAME_INPUT);
-  }
-
-  private async postCall(endpoint, reqBody) {
-    const context = await request.newContext({
-      baseURL: process.env["API_URL"]
-    });
-    const resp = await context.post(endpoint, {
-      headers: {
-        ContentType: "application/json",
-        Authorization: await util.decrypt(`${process.env.API_TOKEN}`)
-      },
-      data: reqBody
-    });
-    return await resp.json();
-  }
-
-  private async putCall(endpoint, reqBody) {
-    const context = await request.newContext({
-      baseURL: process.env["API_URL"]
-    });
-    const resp = await context.put(endpoint, {
-      headers: {
-        ContentType: "application/json",
-        Authorization: await util.decrypt(`${process.env.API_TOKEN}`)
-      },
-      data: reqBody
-    });
-    return await resp.json();
-  }
-
-  private async getCall(endpoint) {
-    const context = await request.newContext({
-      baseURL: process.env["API_URL"]
-    });
-    const resp = await context.get(endpoint, {
-      headers: {
-        Authorization: await util.decrypt(`${process.env.API_TOKEN}`)
-      }
-    });
-    if (await (await resp.text()).length > 0) {
-      return await resp.json();
-    }
   }
 
   public async createFlowFromAPI(jsonData: any): Promise<any> {
