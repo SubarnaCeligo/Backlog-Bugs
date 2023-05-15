@@ -1,4 +1,4 @@
-import { Page, selectors } from "@playwright/test";
+
 import BasePage from "./BasePage";
 
 export class ConnectionsPage extends BasePage {
@@ -21,5 +21,9 @@ export class ConnectionsPage extends BasePage {
     } else {
       throw new Error("No element, hence failed");
     }
+  }
+
+  public async fillConnectionForm(data){
+
   }
 }

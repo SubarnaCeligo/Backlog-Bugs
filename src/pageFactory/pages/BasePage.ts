@@ -3,14 +3,14 @@ import { test } from "@playwright/test";
 import { Logger } from "@celigo/aut-logger";
 import * as fs from "fs";
 const path = require("path");
-import * as selectors  from "@selectors/Selectors";
+import * as selectors from "@selectors/Selectors";
+import { IO } from "@controller/IO";
 
-export default class BasePage {
-  protected page: Page;
+export default class BasePage extends IO {
   protected selectors: typeof selectors;
 
   constructor(page: Page) {
-    this.page = page;
+    super();
     this.selectors = selectors;
   }
   /**
@@ -51,10 +51,10 @@ export default class BasePage {
 
   async click(locator: string): Promise<void> {
     await test.step("Clicking on element " + locator, async () => {
-      await this.logger("Clicking on element " + locator);
-      await this.waitForElementAttached(locator);
-      await this.page.locator(locator).scrollIntoViewIfNeeded();
-      await this.page.click(locator);
+    await this.logger("Clicking on element " + locator);
+    await this.waitForElementAttached(locator);
+    await this.page.locator(locator).scrollIntoViewIfNeeded();
+    await this.page.click(locator);
     });
   }
 
@@ -101,12 +101,10 @@ export default class BasePage {
     await test.step(
       "Entering text in locator " + locator + " with " + value,
       async () => {
-        await this.waitForElementAttached(locator);
-        await this.page.fill(locator, value);
-        await this.logger(
-          "Entering text in locator " + locator + " with " + value
-        );
-      }
+    await this.waitForElementAttached(locator);
+    await this.page.fill(locator, value);
+    await this.logger("Entering text in locator " + locator + " with " + value);
+    }
     );
   }
 
@@ -424,6 +422,3 @@ export default class BasePage {
     await this.page.keyboard.insertText(fileContent.toString());
   }
 }
-
-let page:Page
-export const app = new BasePage(page);
