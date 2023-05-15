@@ -21,6 +21,23 @@ export class FTP {
       "file.encoding": "encoding",
       "file.skipDelete": "skipDelete",
       saveAndClose: "action"
+    },
+    FTP_IMPORT: {
+      application: "adaptorType",
+      FTP: "action",
+      connection: "_connectionId",
+      save: "action",
+      name: "name",
+      "file.type": "type",
+      "ftp.directoryPath": "directoryPath",
+      "file.fileName": "fileName",
+      "text-columnDelimiter": "columnDelimiter",
+      "rowDelimiter": "rowDelimiter",
+      "replaceNewlineWithSpace": "replaceNewlineWithSpace",
+      "replaceTabWithSpace": "replaceTabWithSpace",
+      "truncateLastRowDelimiter": "truncateLastRowDelimiter",
+      "wrapWithQuotes": "wrapWithQuotes",
+      saveAndClose: "action"
     }
   };
 }
