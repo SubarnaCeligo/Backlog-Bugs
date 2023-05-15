@@ -1,14 +1,18 @@
 import type { Page } from "@playwright/test";
 import { test } from "@playwright/test";
 import { Logger } from "@celigo/aut-logger";
+import * as fs from "fs";
+const path = require("path");
+import * as selectors  from "@selectors/Selectors";
 
-export class WebActions {
-  readonly page: Page;
+export default class BasePage {
+  protected page: Page;
+  protected selectors: typeof selectors;
 
   constructor(page: Page) {
     this.page = page;
+    this.selectors = selectors;
   }
-
   /**
    * Asynchronously waits for the given amount of time.
    * @param time The time to wait, in milliseconds.
@@ -49,6 +53,7 @@ export class WebActions {
     await test.step("Clicking on element " + locator, async () => {
       await this.logger("Clicking on element " + locator);
       await this.waitForElementAttached(locator);
+      await this.page.locator(locator).scrollIntoViewIfNeeded();
       await this.page.click(locator);
     });
   }
@@ -403,12 +408,22 @@ export class WebActions {
   }
 
   public async pasteFileContent(fileName: string, locator: string) {
-    const fs = require("fs");
-    const fileContent = fs.readFileSync(fileName, "utf-8");
+    let fileContent = fs.readFileSync(path.join(fileName), "utf-8");
     let textarea = await this.page.locator(locator);
-    await this.page.waitForTimeout(3000);
     await textarea.focus();
-    await this.page.keyboard.type(fileContent);
-    await this.page.waitForTimeout(10000);
+    await this.page.waitForTimeout(4000);
+
+    // await this.page.locator(locator).evaluate(formEl => {
+    //   let clipboardData = new DataTransfer();
+    //   clipboardData.setData("text/plain", fileContent);
+    //   const clipboardEvent = new ClipboardEvent("paste", {
+    //     clipboardData
+    //   });
+    //   formEl.dispatchEvent(clipboardEvent);
+    // });
+    await this.page.keyboard.insertText(fileContent.toString());
   }
 }
+
+let page:Page
+export const app = new BasePage(page);

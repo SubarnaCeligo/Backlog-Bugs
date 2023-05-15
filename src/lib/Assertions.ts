@@ -1,8 +1,8 @@
 import { expect, Page, test } from "@playwright/test";
-import { WebActions } from "./WebActions";
+import  BasePage  from "@pages/BasePage";
 import fs from "fs";
 
-export class Assertions extends WebActions {
+export class Assertions extends BasePage {
   constructor(page: Page) {
     super(page);
   }
@@ -149,7 +149,7 @@ export class Assertions extends WebActions {
     }
     let actualSnapshot;
     //if (masklocator !== undefined) {
-      actualSnapshot = await element.screenshot();
+    actualSnapshot = await element.screenshot();
     // } else {
     //   actualSnapshot = await element.screenshot({
     //     mask: [await this.page.locator(masklocator)]

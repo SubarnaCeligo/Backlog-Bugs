@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "viewport-dimensions": "^0.2.0", 
-    "atob": "^2.1.2"
+    "atob": "^2.1.2",
+     "fs": "0.0.1-security"
   }
 }

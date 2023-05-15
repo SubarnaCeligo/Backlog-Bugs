@@ -1,22 +1,15 @@
 import type { Page } from "@playwright/test";
 import { test } from "@playwright/test";
-import { WebActions } from "@lib/WebActions";
-let webActions: WebActions;
-const homeUrl = "/home";
-export class HomePage {
-  private page: Page;
-  HOME_PAGE_URL = "/home";
+import BasePage from "./BasePage";
 
-  constructor(page: Page) {
-    this.page = page;
-    webActions = new WebActions(this.page);
-  }
+export class HomePage extends BasePage{
+  HOME_PAGE_URL = "/home";
 
   public get createFlowButton() {
     return this.page.locator('[data-test="createFlow"]');
   }
   public async open() {
-    await this.page.goto("https://staging.integrator.io", {
+    await this.page.goto(process.env["BASE_URL"], {
       waitUntil: "domcontentloaded"
     });
     this.page.on("console", msg => console.log(msg.text()));
@@ -24,7 +17,7 @@ export class HomePage {
 
   public async navigateToHome() {
     await test.step("Navigating to Home Page", async () => {
-      await webActions.navigateTo("/home");
+      await this.navigateTo(this.HOME_PAGE_URL);
     });
   }
 

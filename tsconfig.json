@@ -5,10 +5,9 @@
             "*": [
                 "types/*"
             ],
-            "@pages/*":["src/pageFactory/pageRepository/*"],
-            "@objects/*":["src/pageFactory/objectRepository/*"],
+            "@pages/*":["src/pageFactory/pages/*"],
+            "@selectors/*":["src/pageFactory/selectors/*"],
             "@lib/*":["src/lib/*"],
-            "@objectOR/*":["src/pageFactory/objectRepository/*"],
             "@helper/*":["src/helper/*"],
             "@testData/*":["src/testData/*"]
         },

@@ -1,9 +1,9 @@
 import { expect, Page, test } from "@playwright/test";
-import { WebActions } from "./WebActions";
+import BasePage from "@pages/BasePage";
 const Decrypt = require("atob");
 
 
-export class Utilities extends WebActions {
+export class Utilities extends BasePage {
   async randomString(len?: number, charSet?: string) {
     charSet =
       charSet || "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -16,7 +16,7 @@ export class Utilities extends WebActions {
     return randomString;
   }
 
-  async decrypt(value:string){
+  async decrypt(value: string) {
     return Decrypt(value);
   }
 }

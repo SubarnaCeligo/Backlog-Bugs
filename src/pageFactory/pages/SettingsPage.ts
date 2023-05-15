@@ -1,15 +1,9 @@
-import { WebActions } from "@lib/WebActions";
+import BasePage from "./BasePage";
 import type { Page } from "@playwright/test";
 
-export class SettingsPage {
-  private page: Page;
-  public webActions: WebActions;
+export class SettingsPage extends BasePage {
 
-  constructor(page: Page) {
-    this.page = page;
-    this.webActions = new WebActions(this.page);
-  }
-
+  
   public get createFlowButton() {
     return this.page.locator('[data-test="createFlow"]');
   }
@@ -21,7 +15,7 @@ export class SettingsPage {
   }
 
   public async selectTextFromDropDown(value: string) {
-    return this.webActions.selectTextfromDropDown(this.page, value);
+    return this.selectTextfromDropDown(this.page, value);
   }
 
   public get eleAppSelection() {

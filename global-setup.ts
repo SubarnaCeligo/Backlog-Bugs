@@ -1,6 +1,6 @@
 // global-setup.ts
 import { chromium, FullConfig } from "@playwright/test";
-import { LoginPagePO } from "@objects/LoginPagePO";
+import { LoginPage } from "@pages/LoginPage";
 const Decrypt = require("atob");
 
 async function globalSetup(config: FullConfig) {
@@ -12,17 +12,12 @@ async function globalSetup(config: FullConfig) {
     }
   });
   const page = await browser.newPage();
-  const loginPagePO: LoginPagePO = new LoginPagePO();
+  const loginPage: LoginPage = new LoginPage(page);
   await page.goto(baseURL!, {
     waitUntil: "domcontentloaded"
   });
   await page.waitForLoadState();
-  await page.locator(loginPagePO.EMAIL).fill(process.env["EMAIL"]);
-  await page.waitForTimeout(2000);
-  await page.locator(loginPagePO.PASSWORD).fill(Decrypt(process.env["PASSWORD"]));
-  await page.waitForTimeout(2000);
-  await page.locator(loginPagePO.SIGN_IN_BUTTON).click();
-  await page.waitForTimeout(2000);
+  await loginPage.login();
   await page.context().storageState({ path: "storageState.json" });
 }
 

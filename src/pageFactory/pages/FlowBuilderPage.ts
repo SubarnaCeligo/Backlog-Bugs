@@ -1,22 +1,14 @@
 import { Page, test } from "@playwright/test";
 import { request } from "@playwright/test";
-import { WebActions } from "@lib/WebActions";
-import { FlowBuilderPagePO } from "@objectOR/FlowBuilderPagePO";
 import { FTP } from "../../templates/FTP";
 import { Utilities } from "@lib/Utilities";
-import { CommonPagePO } from "@objects/CommonPagePO";
-import { SettingsPage } from "./SettingsPage";
 import { Assertions } from "@lib/Assertions";
+import BasePage from "./BasePage";
 
-let webActions: WebActions,
-  assert: Assertions,
-  flowBuilder: FlowBuilderPagePO,
-  commonPagePO: CommonPagePO,
-  settingsPage: SettingsPage,
+let assert: Assertions,
   util: Utilities;
 
-export class FlowBuilderPage {
-  private page: Page;
+export class FlowBuilderPage extends BasePage{
   connMap: any;
   integrationMap: any;
   FLOW_BUILDER_PAGE_URL =
@@ -31,16 +23,12 @@ export class FlowBuilderPage {
     IO_DASHBOARD_JOBCOUNT_SUCCESS: [1, 0, 0],
     IO_DASHBOARD_JOBCOUNT_IGNORE: [0, 1, 0],
     IO_DASHBOARD_JOBCOUNT_FAILURE: [0, 0, 1],
-    IMAGE_COMAPRISON_MISMATCH_THRESSHOLD: 15,
     JOB_COMPLETED_IN_IO_OK:
       "Job Completed Successfully with Correct Dashboard Count... ok!",
-    NS_VALIDATION_CHECK_OK: "All data validations in NetSuite... ok!!",
     ERR_JOB_COMPLETED_IN_IO_NOT_OK:
       "err!! ...Incorrect Job status from API. Verifying from UI.",
     CRITICAL_ERR_TERMINATING_TEST:
       "xxxxxxxxxxx      SOME ISSUE INITIALIZING BROWSER & LOGGING IN TO IO. TERMINATING TEST.      xxxxxxxxxxx",
-    VALIDATION_ERR: " Can't Perform Validations ***",
-    SCREENSHOT_LOCATION: "./logs_screenshots/error-shots"
     //add appropriate error message to be printed in testReport Here
   };
   ENV = process.env.ENV;
@@ -48,23 +36,19 @@ export class FlowBuilderPage {
   'https://staging.integrator.io/integrations/' + process.env["INTEGRATION_ID"] + '/';
 
   public constructor(page: Page) {
-    this.page = page;
+   super(page);
     this.connMap = new Map();
     this.integrationMap = new Map();
-    webActions = new WebActions(this.page);
     assert = new Assertions(this.page);
-    flowBuilder = new FlowBuilderPagePO();
-    commonPagePO = new CommonPagePO();
-    settingsPage = new SettingsPage(this.page);
-    util = new Utilities(this.page);
+    util = new Utilities(page);
   }
 
   public get elePGButton() {
-    return this.page.locator(flowBuilder.PAGE_GENERATOR);
+    return this.page.locator(this.selectors.FlowBuilderPagePO.PAGE_GENERATOR);
   }
 
   public get eleAppSelection() {
-    return this.page.locator(flowBuilder.APP_NAME_INPUT);
+    return this.page.locator(this.selectors.FlowBuilderPagePO.APP_NAME_INPUT);
   }
 
   private async postCall(endpoint, reqBody) {
@@ -125,7 +109,7 @@ export class FlowBuilderPage {
         await test.step(
           "Created Export for flow with ID " + exportID,
           async () => {
-            await webActions.logger(
+            await this.logger(
               "Created Export for flow with ID " + exportID
             );
           }
@@ -149,7 +133,7 @@ export class FlowBuilderPage {
           await test.step(
             "Created Export for flow with ID " + ppExportID,
             async () => {
-              await webActions.logger(
+              await this.logger(
                 "Created Export for flow with ID " + ppExportID
               );
             }
@@ -168,7 +152,7 @@ export class FlowBuilderPage {
           await test.step(
             "Created Import for flow with ID " + importID,
             async () => {
-              await webActions.logger(
+              await this.logger(
                 "Created Import for flow with ID " + importID
               );
             }
@@ -219,7 +203,7 @@ export class FlowBuilderPage {
       await test.step(
         "Created Flow " + response.name + " with " + response._id,
         async () => {
-          await webActions.logger(
+          await this.logger(
             "Created Flow " + response.name + " with " + response._id
           );
         }
@@ -290,13 +274,13 @@ export class FlowBuilderPage {
     await test.step("Navigating to Flows Page", async () => {
       let flows =
         "/integrations/" + this.integrationMap.get("Automation Flows") + "/flows";
-      await webActions.navigateTo(flows);
+      await this.navigateTo(flows);
     });
   }
 
   public async addPageGenerator(data) {
     await this.navigateToFlows();
-    await webActions.click(flowBuilder.CREATEFLOW);
+    await this.click(this.selectors.FlowBuilderPagePO.CREATEFLOW);
     var exp = data[0].qa__export;
     let app = exp.adaptorType;
     app = app.split("Export");
@@ -310,9 +294,9 @@ export class FlowBuilderPage {
     //console.log("Map:", JSON.stringify(temp));
     for (var a in temp) {
       let loc = "[data-test='" + a + "']";
-      var type = await webActions.determineControlType(loc);
+      var type = await this.determineControlType(loc);
       //console.log("type", type);
-      await webActions.performActionWithControl(
+      await this.performActionWithControl(
         type.tempWebControl,
         type.typeOfControl,
         temp[a]
@@ -323,7 +307,7 @@ export class FlowBuilderPage {
   public async addPageProcessor(data) {
     if ((await this.page.url()).search("flowbuilder") === -1) {
       await this.navigateToFlows();
-      await webActions.click(flowBuilder.CREATEFLOW);
+      await this.click(this.selectors.FlowBuilderPagePO.CREATEFLOW);
     }
     var imp = data[0].qa__import;
     let app = imp.adaptorType;
@@ -339,7 +323,7 @@ export class FlowBuilderPage {
     switch (name) {
       case "FTP":
         let ftp = new FTP(this.page);
-        return await webActions.loadMap(obj, ftp.FTP_JSON.FTP_EXPORT);
+        return await this.loadMap(obj, ftp.FTP_JSON.FTP_EXPORT);
     }
   }
   public async selectApplication(appname: string, connname: string) {
@@ -388,12 +372,12 @@ export class FlowBuilderPage {
       .locator('[data-test="assistantMetadata\\.resource"]')
       .getByRole("button", { name: "Please select" })
       .click();
-    await webActions.selectTextfromDropDown(this.page, "order");
+    await this.selectTextfromDropDown(this.page, "order");
     await this.page.getByRole("button", { name: "Please select" }).click();
     await this.page.getByText("Retrieve a list of Orders").click();
-    await this.page.locator('[data-test="saveAndClose"]').click();
-    await this.page.locator('[data-test="addDataProcessor"]').click();
-    await this.page.locator('[data-test="exportTransformation"]').click();
+    await this.page.locator(this.selectors.BasePagePO.SAVE_AND_CLOSE).click();
+    await this.page.locator(this.selectors.FlowBuilderPagePO.DATA_PROCESSOR).click();
+    await this.page.locator(this.selectors.FlowBuilderPagePO.EXPORT_TRANSFORMATION).click();
     await this.page.getByPlaceholder("extract").click();
     await this.page.getByPlaceholder("extract").fill("id");
     await this.page
@@ -641,7 +625,7 @@ export class FlowBuilderPage {
       .getByPlaceholder("generate")
       .fill("customer[*].customerid");
     await this.page.locator('[data-test="saveAndClose"]').click();
-    await this.page.locator('[data-test="addDataProcessor"]').click();
+    await this.page.locator('this.selectors.FlowBuilderPagePO.DATA_PROCESSOR').click();
     await this.page.locator('[data-test="exportFilter"]').click();
     await this.page
       .locator('select[name$="_filter"]')
@@ -657,7 +641,7 @@ export class FlowBuilderPage {
     // await this.page.getByRole('button', { name: 'Number' }).click();
     // await this.page.getByRole('menuitem', { name: 'String' }).click();
     // await this.page.locator('[data-test="dataType"] [class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input"]').getByRole('button', { name: 'Please select' }).click();
-    // await webActions.selectTextfromDropDown(page, 'String');
+    // await this.selectTextfromDropDown(page, 'String');
     // await this.page.locator('[data-test="Save"]').click();
     // await this.page.locator('input[name$="_value_0"]').click();
     // var y = await this.page.locator('[class="rule-value-container"] [class="settings-icon"]');
@@ -668,7 +652,7 @@ export class FlowBuilderPage {
     // await this.page.locator('[data-not="group"]').dblclick();
     await this.page.mouse.click(50, 100);
     await this.page.locator('[data-test="saveAndClose"]').click();
-    await this.page.locator('[data-test="addDataProcessor"]').click();
+    await this.page.locator('this.selectors.FlowBuilderPagePO.DATA_PROCESSOR').click();
     await this.page.locator('[data-test="exportHooks"]').click();
     await this.page.waitForTimeout(2000);
     await this.page.locator('[data-test="preSavePage\\.script"]').first().click();
@@ -679,7 +663,7 @@ export class FlowBuilderPage {
       .getByRole("textbox")
       .fill("Export Basic NS_TEST");
     await this.page.getByRole("button", { name: "Please select" }).click();
-    await webActions.selectTextfromDropDown(this.page, "preSavePage");
+    await this.selectTextfromDropDown(this.page, "preSavePage");
     await this.page.waitForTimeout(2000);
     await this.page
       .locator("#content-inline div")
@@ -763,15 +747,15 @@ export class FlowBuilderPage {
     await this.page.locator('[data-test="saveAndClose"]').click();
     await this.page.locator('[name="script-preSavePage"]').fill("preSavePage");
     await this.page.locator('[data-test="saveAndClose"]').click();
-    await this.page.locator('[data-test="addDataProcessor"]').click();
+    await this.page.locator('this.selectors.FlowBuilderPagePO.DATA_PROCESSOR').click();
     await this.page.locator('[data-test="exportSchedule"]').click();
     await this.page.getByLabel("Use preset").check();
     await this.page.getByRole("button", { name: "Please select" }).click();
-    await webActions.selectTextfromDropDown(this.page, "every_half_hour");
+    await this.selectTextfromDropDown(this.page, "every_half_hour");
     await this.page.locator('[data-test="endTime"]').click();
-    await webActions.selectTextfromDropDown(this.page, "11:35 PM");
+    await this.selectTextfromDropDown(this.page, "11:35 PM");
     await this.page.locator('[data-test="startTime"]').click();
-    await webActions.selectTextfromDropDown(this.page, "1:05 PM");
+    await this.selectTextfromDropDown(this.page, "1:05 PM");
     await this.page.locator('[data-test="saveAndClose"]').click();
   }
 
@@ -799,7 +783,7 @@ export class FlowBuilderPage {
     await this.page
       .getByRole("button", { name: "Please select a record type" })
       .click();
-    await webActions.selectTextfromDropDown(this.page, "customer");
+    await this.selectTextfromDropDown(this.page, "customer");
     await this.page.getByText("Add or update").click();
     await this.page
       .locator('[data-test="netsuite_da.internalIdLookup.expression"]')
@@ -1069,7 +1053,7 @@ export class FlowBuilderPage {
     await this.page
       .getByRole("button", { name: "Please select a record type" })
       .click();
-    await webActions.selectTextfromDropDown(this.page, "salesorder");
+    await this.selectTextfromDropDown(this.page, "salesorder");
     await this.page
       .locator('[data-test="netsuite_da\\.internalIdLookup\\.expression"]')
       .click();
@@ -1327,11 +1311,11 @@ export class FlowBuilderPage {
     await this.page
       .getByRole("button", { name: "Please select a record type" })
       .click();
-    await webActions.selectTextfromDropDown(this.page, "creditcardcharge");
+    await this.selectTextfromDropDown(this.page, "creditcardcharge");
     await this.page.locator('[data-test="add"]').getByLabel("Add").check();
     await this.page.locator('[data-test="saveAndClose"]').click();
-    await this.page.locator('[data-test="addDataProcessor"]').click();
-    await this.page.locator('[data-test="addDataProcessor"]').click();
+    await this.page.locator('this.selectors.FlowBuilderPagePO.DATA_PROCESSOR').click();
+    await this.page.locator('this.selectors.FlowBuilderPagePO.DATA_PROCESSOR').click();
     await this.page.locator('[data-test="importMapping"]').click();
     await this.page
       .locator('[data-test="text-fieldMappingGenerate-0"]')
@@ -1424,20 +1408,24 @@ export class FlowBuilderPage {
   public async updateImportMappings(map: Map<any, any>) {
     var sourceText, destinationText, sourceField, destinationField;
     var i = 0;
-    sourceField = await this.page.locator(flowBuilder.MAPPER2_SOURCE_FIELD_FIELD);
+    sourceField = await this.page.locator(this.selectors.FlowBuilderPagePO.MAPPER2_SOURCE_FIELD_FIELD);
     destinationText = await this.page.locator(
-      flowBuilder.MAPPER2_DESTINATION_FIELD_TEXT
+      this.selectors.FlowBuilderPagePO.MAPPER2_DESTINATION_FIELD_TEXT
     );
     destinationField = await this.page
-      .locator(flowBuilder.MAPPER2_DESTINATION_FIELD_FIELD)
+      .locator(this.selectors.FlowBuilderPagePO.MAPPER2_DESTINATION_FIELD_FIELD)
       .nth(0);
     await destinationText.nth(i).dblclick();
     for (let [K, V] of map) {
-      sourceText = await this.page.locator(flowBuilder.MAPPER2_SOURCE_FIELD_TEXT);
+      sourceText = await this.page.locator(
+        this.selectors.FlowBuilderPagePO.MAPPER2_SOURCE_FIELD_TEXT
+      );
       await destinationField.fill(K);
       await sourceText.nth(i).dblclick();
       await sourceField.fill(V);
-      var add = await this.page.locator(flowBuilder.FIELD_MAPPING_ADD);
+      var add = await this.page.locator(
+        this.selectors.FlowBuilderPagePO.FIELD_MAPPING_ADD
+      );
       await add.nth(i).click();
       await add.nth(i).click();
       i += 1;
@@ -1445,40 +1433,40 @@ export class FlowBuilderPage {
   }
 
   public async enableFlow() {
-    await webActions.page.waitForSelector(flowBuilder.FLOW_TOGGLE);
-    var checked = await webActions.page
-      .locator(flowBuilder.FLOW_TOGGLE)
+    await this.page.waitForSelector(this.selectors.FlowBuilderPagePO.FLOW_TOGGLE);
+    var checked = await this.page
+      .locator(this.selectors.FlowBuilderPagePO.FLOW_TOGGLE)
       .getAttribute("checked");
     if (checked == null) {
-      await webActions.click(flowBuilder.FLOW_TOGGLE);
-      await webActions.click(flowBuilder.FLOW_ENABLE);
+      await this.click(this.selectors.FlowBuilderPagePO.FLOW_TOGGLE);
+      await this.click(this.selectors.FlowBuilderPagePO.FLOW_ENABLE);
     }
-    await webActions.page.waitForTimeout(1000);
+    await this.page.waitForTimeout(1000);
   }
 
   public async disableFlow() {
-    await webActions.page.waitForSelector(flowBuilder.FLOW_TOGGLE);
-    var checked = await webActions.page
-      .locator(flowBuilder.FLOW_TOGGLE)
+    await this.page.waitForSelector(this.selectors.FlowBuilderPagePO.FLOW_TOGGLE);
+    var checked = await this.page
+      .locator(this.selectors.FlowBuilderPagePO.FLOW_TOGGLE)
       .getAttribute("checked");
     if (checked != null) {
-      await webActions.click(flowBuilder.FLOW_TOGGLE);
-      await webActions.click(flowBuilder.FLOW_DISABLE);
+      await this.click(this.selectors.FlowBuilderPagePO.FLOW_TOGGLE);
+      await this.click(this.selectors.FlowBuilderPagePO.FLOW_DISABLE);
     }
-    await webActions.page.waitForTimeout(1000);
+    await this.page.waitForTimeout(1000);
   }
 
   public async waitForFlowToComplete() {
-    await webActions.page.waitForTimeout(2000);
+    await this.page.waitForTimeout(2000);
     var t = 0,
       maxWaitInQueue = 10;
-    var status = await webActions.getText(flowBuilder.FLOW_STATUS);
+    var status = await this.getText(this.selectors.FlowBuilderPagePO.FLOW_STATUS);
     while (!status.includes("Last run:")) {
-      await webActions.page.waitForTimeout(1000);
-      status = await webActions.getText(flowBuilder.FLOW_STATUS);
+      await this.page.waitForTimeout(1000);
+      status = await this.getText(this.selectors.FlowBuilderPagePO.FLOW_STATUS);
       t += 1;
       if (t > maxWaitInQueue && status.includes("Waiting in queue")) {
-        await webActions.click(flowBuilder.REFRESH_JOBS_BOARD);
+        await this.click(this.selectors.FlowBuilderPagePO.REFRESH_JOBS_BOARD);
         t = 0;
       }
     }
@@ -1486,51 +1474,53 @@ export class FlowBuilderPage {
 
   public async runFlow() {
     await this.enableFlow();
-    await webActions.click(flowBuilder.RUN_FLOW);
+    await this.click(this.selectors.FlowBuilderPagePO.RUN_FLOW);
     await this.waitForFlowToComplete();
   }
 
   public async deleteFlow() {
     await this.disableFlow();
-    await webActions.click(flowBuilder.OPEN_ACTIONS_MENU);
-    await webActions.click(flowBuilder.DELETE_FLOW);
-    await webActions.click(commonPagePO.DELETE);
+    await this.click(this.selectors.FlowBuilderPagePO.OPEN_ACTIONS_MENU);
+    await this.click(this.selectors.FlowBuilderPagePO.DELETE_FLOW);
+    await this.click(this.selectors.BasePagePO.DELETE);
   }
 
   public async refreshErrorsDashboard() {
-    await webActions.page.waitForTimeout(2000);
-    var selected = await webActions.page
-      .locator(flowBuilder.RESOLVED_ERRORS_TAB)
+    await this.page.waitForTimeout(2000);
+    var selected = await this.page
+      .locator(this.selectors.FlowBuilderPagePO.RESOLVED_ERRORS_TAB)
       .getAttribute("aria-selected");
     if (selected == "true") {
-      await webActions.click(commonPagePO.CLOSE_RIGHT_DRAWER);
-      await webActions.page.reload({ timeout: 5000 });
-      await webActions.page.waitForTimeout(5000);
+      await this.click(this.selectors.BasePagePO.CLOSE_RIGHT_DRAWER);
+      await this.page.reload({ timeout: 5000 });
+      await this.page.waitForTimeout(5000);
       return true;
     }
   }
 
   public async navigateToJobErrorDashboard(jobName: string) {
-    // var drawerStyle = await webActions.page.locator('[class$=" MuiDrawer-paperAnchorBottom MuiDrawer-paperAnchorDockedBottom MuiPaper-elevation0"]').getAttribute('style');
+    // var drawerStyle = await this.page.locator('[class$=" MuiDrawer-paperAnchorBottom MuiDrawer-paperAnchorDockedBottom MuiPaper-elevation0"]').getAttribute('style');
     // var height = drawerStyle.split(':')[1].trim();
     // var r = /\d+/;
     // var h = Number(height.match(r)[0]);
     // if (h < 303) {
-    //   await webActions.click(flowBuilder.INCREASE_FLOW_BUILDER_BOTTOM_DRAWER);
+    //   await this.click(flowBuilder.INCREASE_FLOW_BUILDER_BOTTOM_DRAWER);
     // }
-    var job = await webActions.page.$$(flowBuilder.JOB_NAME);
+    var job = await this.page.$$(this.selectors.FlowBuilderPagePO.JOB_NAME);
     var name;
     for (var i = 0; i < job.length; i++) {
       name = await job[i].textContent();
       if (name === jobName) {
-        var errors = await webActions.page.$$(flowBuilder.JOB_ERRORS);
+        var errors = await this.page.$$(
+          this.selectors.FlowBuilderPagePO.JOB_ERRORS
+        );
         await errors[i].click();
         break;
       }
     }
     var t = await this.refreshErrorsDashboard();
     if (t) {
-      await webActions.page.waitForTimeout(5000);
+      await this.page.waitForTimeout(5000);
       await this.navigateToJobErrorDashboard(jobName);
     }
   }
@@ -1556,7 +1546,7 @@ export class FlowBuilderPage {
       }
       time += 2;
       process.stdout.write(".");
-      await webActions.delay(750);
+      await this.delay(750);
     } while (time <= maxWait);
     if (time > maxWait) {
       console.log(this.TEST_RESULT.ERR_JOB_COMPLETED_IN_IO_NOT_OK);
@@ -1591,7 +1581,7 @@ export class FlowBuilderPage {
       }
       time += 2;
       process.stdout.write(".");
-      await webActions.delay(750);
+      await this.delay(750);
     } while (time <= maxWait);
     if (time > maxWait) {
       console.log(this.TEST_RESULT.ERR_JOB_COMPLETED_IN_IO_NOT_OK);
@@ -1705,7 +1695,7 @@ export class FlowBuilderPage {
     var id = this.jobID;
     do {
       time += 2;
-      await webActions.delay(500);
+      await this.delay(500);
       process.stdout.write(". ");
 
       var jobResponse = await this.getCall("v1/jobs/" + id);
@@ -1731,7 +1721,7 @@ export class FlowBuilderPage {
           " | Err :: " +
           job_result.numError,
         async () => {
-          await webActions.logger(
+          await this.logger(
             flowName +
               " Flow completed with status => " +
               "Success :: " +
@@ -1775,7 +1765,7 @@ export class FlowBuilderPage {
     var id = this.jobID;
     do {
       time += 2;
-      await webActions.delay(500);
+      await this.delay(500);
       process.stdout.write(". ");
       var jobResponse = await this.getCall("v1/jobs/" + id);
       var job_result = jobResponse.data;
@@ -1868,12 +1858,14 @@ export class FlowBuilderPage {
     this.currTime =
       "0" + new Date().toLocaleString("en-US", { hour12: true }).replace(",", "");
     try {
-      var Jobs = await webActions.page.$$(flowBuilder.JOBS_ROWS);
+      var Jobs = await this.page.$$(this.selectors.FlowBuilderPagePO.JOBS_ROWS);
       this.tempJobQueue.clear();
       this.jobQueue.clear();
       var str, JobCount, JobName, CompletedTime, str1;
       for (var counter in Jobs) {
-        var len = await Jobs[counter].$$(flowBuilder.JOBS_HEADER_ROW);
+        var len = await Jobs[counter].$$(
+          this.selectors.FlowBuilderPagePO.JOBS_HEADER_ROW
+        );
         JobName = await len[0].textContent();
         JobCount =
           (await len[1].textContent()) +
@@ -1887,9 +1879,11 @@ export class FlowBuilderPage {
         // console.log("str1 >>>> ", str1);
         await this.tempJobQueue.set(counter, str1);
         try {
-          var time = await Jobs[counter].$(flowBuilder.TIME);
+          var time = await Jobs[counter].$(this.selectors.FlowBuilderPagePO.TIME);
           if (await time.isVisible()) {
-            var completed = await Jobs[counter].$(flowBuilder.TIME);
+            var completed = await Jobs[counter].$(
+              this.selectors.FlowBuilderPagePO.TIME
+            );
             // CompletedTime = await completed.getAttribute("datetime");
             CompletedTime = await completed.textContent();
           }
@@ -1920,20 +1914,22 @@ export class FlowBuilderPage {
       intURL = intURL.split("//").join("//iaqa.");
     }
     var flowURL = intURL + flowType + "/" + flowID;
-    await webActions.navigateTo(flowURL);
-    await webActions.delay(5000);
+    await this.navigateTo(flowURL);
+    await this.delay(5000);
   }
 
   public async waitForErrorMsgToAppear() {
-    await webActions.click(flowBuilder.FITVIEW);
+    await this.click(this.selectors.FlowBuilderPagePO.FITVIEW);
     var time = 0,
       flag = true,
       maxWait = 400;
     do {
       time += 2;
-      await webActions.delay(100);
+      await this.delay(100);
       process.stdout.write(". ");
-      var headerStatus = await this.page.$$(flowBuilder.HEADER_STATUS);
+      var headerStatus = await this.page.$$(
+        this.selectors.FlowBuilderPagePO.HEADER_STATUS
+      );
       for (let index = 0; index < headerStatus.length - 2; index++) {
         const errorStatus = await headerStatus[index];
         await errorStatus.waitForElementState("enabled");
@@ -1965,14 +1961,14 @@ export class FlowBuilderPage {
         // console.log("ERROR COUNT >>>>>>>>>>>> ", errorCount);
         if (errorCount > 0) {
           // console.log("index >>>>>>>>>> ", index);
-          x = await webActions.page.$$(
-            flowBuilder.JOB_ERROR_NUMBERS
+          x = await this.page.$$(
+            this.selectors.FlowBuilderPagePO.JOB_ERROR_NUMBERS
           );
           await x[index].click();
           await test.step("Opened Error Details Table", async () => {
-            await webActions.logger("Opened Error Details Table");
+            await this.logger("Opened Error Details Table");
           });
-          await webActions.delay(2000);
+          await this.delay(2000);
         }
         index = index + 2;
       }
@@ -1987,12 +1983,12 @@ export class FlowBuilderPage {
       maxWait = 400;
     do {
       time += 2;
-      await webActions.delay(100);
+      await this.delay(100);
       process.stdout.write(". ");
       if (time % 100 == 0) {
-        await webActions.click(flowBuilder.REFRESH);
+        await this.click(this.selectors.FlowBuilderPagePO.REFRESH);
       }
-      var columns = await this.page.$$(flowBuilder.COLUMNS);
+      var columns = await this.page.$$(this.selectors.FlowBuilderPagePO.COLUMNS);
       if (columns && columns.length == num) {
         flag = false;
         break;
@@ -2002,12 +1998,12 @@ export class FlowBuilderPage {
 
   public async changeErrorDrawerView() {
     try {
-      var toggleView = flowBuilder.TOGGLE_VIEW;
-      if (await webActions.isVisible(toggleView)) {
-        await webActions.click(toggleView);
-        var drawerView = flowBuilder.LIST_VIEW_ERRORS;
-        await webActions.click(drawerView);
-        await webActions.delay(2000);
+      var toggleView = this.selectors.FlowBuilderPagePO.TOGGLE_VIEW;
+      if (await this.isVisible(toggleView)) {
+        await this.click(toggleView);
+        var drawerView = this.selectors.FlowBuilderPagePO.LIST_VIEW_ERRORS;
+        await this.click(drawerView);
+        await this.delay(2000);
       }
     } catch (e) {
       console.log("Toggle not possible here");
@@ -2016,7 +2012,7 @@ export class FlowBuilderPage {
 
   public async openErrorDetailsSection() {
     await this.changeErrorDrawerView();
-    await webActions.delay(2000);
+    await this.delay(2000);
     await this.openErrorDetailsSection();
   }
 
@@ -2024,28 +2020,32 @@ export class FlowBuilderPage {
     var elements = await this.page.$$(locator);
     let index = elements.length - 1;
     await elements[index].click();
-    await webActions.delay(400);
+    await this.delay(400);
   }
 
   public async closeErrorModalPopup() {
-    var drawers = await this.page.$$(flowBuilder.CLOSE_RIGHT_DRAWER);
+    var drawers = await this.page.$$(
+      this.selectors.FlowBuilderPagePO.CLOSE_RIGHT_DRAWER
+    );
     var closeIcon = await drawers[drawers.length - 1];
     await closeIcon.click();
-    await webActions.delay(500);
+    await this.delay(500);
   }
 
   public async getErrorDetails(): Promise<string> {
     try {
       await this.openEm2ErrorTable();
-      await webActions.delay(2000);
+      await this.delay(2000);
       await this.changeErrorDrawerView();
-      await webActions.delay(1000);
+      await this.delay(1000);
       await this.openErrorDetailsSection();
-      await webActions.delay(2000);
-      let data = await this.page.$$(flowBuilder.ERROR_DATA);
+      await this.delay(2000);
+      let data = await this.page.$$(this.selectors.FlowBuilderPagePO.ERROR_DATA);
       let msg = await data[4].textContent();
-      await this.clickButtonAtTopOfArray(flowBuilder.CLOSE_RIGHT_DRAWER);
-      await webActions.delay(2000);
+      await this.clickButtonAtTopOfArray(
+        this.selectors.FlowBuilderPagePO.CLOSE_RIGHT_DRAWER
+      );
+      await this.delay(2000);
       await this.closeErrorModalPopup();
       return msg;
     } catch (e) {
@@ -2058,7 +2058,7 @@ export class FlowBuilderPage {
     await this.waitTillColumnsAppear(2);
     var message = await this.getErrorDetails();
     await test.step("Flow Failed With Error " + message, async () => {
-      await webActions.logger("Flow Failed With Error ");
+      await this.logger("Flow Failed With Error ");
     });
     return message;
   }
@@ -2140,7 +2140,7 @@ export class FlowBuilderPage {
       "Flow - " + flowName + " triggerred | " + JSON.stringify(allFlowsResponse)
     );
     await test.step(flowName + " triggerred successfully", async () => {
-      await webActions.logger(flowName + " triggerred successfully");
+      await this.logger(flowName + " triggerred successfully");
     });
   }
 }

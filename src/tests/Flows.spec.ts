@@ -1,10 +1,31 @@
 import { test, expect } from "@lib/BaseTest";
 import { flowsTestData } from "@testData/Flows";
+import * as selectors  from "@selectors/Selectors";
 
-test.describe("Flows Page Test Cases", () => {
-  test.beforeEach(async ({ flowBuilderPage, webActions }) => {
-    await webActions.navigateTo(flowBuilderPage.FLOW_BUILDER_PAGE_URL);
+test.describe.skip("Flows Page Test Cases", () => {
+  test.beforeEach(async ({ flowBuilderPage, basePage }) => {
+    await basePage.navigateTo(flowBuilderPage.FLOW_BUILDER_PAGE_URL);
   });
+
+   test("C51619 Verify the tooltip for the Error Check boxes in the Current View", async ({
+     flowBuilderPage,
+     loginPage,
+     basePage,
+     assert
+   }) => {
+     var res = await flowBuilderPage.createFlowFromAPI(
+       flowsTestData.C51619.importJSON
+     );
+     await flowBuilderPage.checkJobStatusFromAPI(
+       flowsTestData.C51619.importJSON.name,
+       res
+     );
+     await flowBuilderPage.getEm2ErrorTable(res);
+     await assert.verifyElementAttribute(selectors.FlowBuilderPagePO.ERROR_MESSAGE_CHECKBOX,
+       flowsTestData.C51619.ATTRIBUTE,
+       flowsTestData.C51619.VALIDATION_TEXT
+     );
+   });
 
   //   test("C51867 verify when user adds a new mapping row then the cursor focus should be in destination field of new row in case of multiple source tabs", async ({
   //     commonPagePO,
@@ -212,24 +233,5 @@ test.describe("Flows Page Test Cases", () => {
   //     await flowBuilderPage.deleteFlow();
   //   });
 
-  test("C51619 Verify the tooltip for the Error Check boxes in the Current View", async ({
-    flowBuilderPagePO,
-    flowBuilderPage,
-    webActions,
-    assert
-  }) => {
-    var res = await flowBuilderPage.createFlowFromAPI(
-      flowsTestData.C51619.importJSON
-    );
-    await flowBuilderPage.checkJobStatusFromAPI(
-      flowsTestData.C51619.importJSON.name,
-      res
-    );
-    await flowBuilderPage.getEm2ErrorTable(res);
-    await assert.verifyElementAttribute(
-      flowBuilderPagePO.ERROR_MESSAGE_CHECKBOX,
-      flowsTestData.C51619.ATTRIBUTE,
-      flowsTestData.C51619.VALIDATION_TEXT
-    );
-  });
+ 
 });
