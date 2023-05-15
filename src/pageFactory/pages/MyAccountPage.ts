@@ -1,17 +1,8 @@
 import { test, Page } from "@playwright/test";
-import { WebActions } from "@lib/WebActions";
-import { MyAccountPagePO } from "@objects/MyAccountPagePO";
-let webActions: WebActions, myAccount: MyAccountPagePO;
+import BasePage from "./BasePage";
 
-export class MyAccountPage {
-  private page: Page;
+export class MyAccountPage extends BasePage{
   MY_ACCOUNT_PAGE_URL = "/myAccount/profile";
-
-  constructor(page: Page) {
-    this.page = page;
-    webActions = new WebActions(this.page);
-    myAccount = new MyAccountPagePO();
-  }
 
   /**
    * Retrieves the element specified by `ele` from the "myAccount" locator object.
@@ -20,9 +11,9 @@ export class MyAccountPage {
    * @returns {Promise<ElementHandle>} - A promise that resolves to an ElementHandle representing the located element.
    */
 
-  async getElement(ele) {
-    return await this.page.locator(myAccount[ele]);
-  }
+  // async getElement(ele) {
+  //   return await this.page.locator(myAccount[ele]);
+  // }
 
   /**
    * Navigates to the My Account page by calling the 'navigateTo' method of 'webActions'
@@ -32,8 +23,8 @@ export class MyAccountPage {
    */
   async navigateToMyAccount() {
     await test.step("Navigating to Account Page", async () => {
-      await webActions.logger("Navigating to Account Page");
-      await webActions.navigateTo("/myAccount/profile");
+      await this.logger("Navigating to Account Page");
+      await this.navigateTo(this.MY_ACCOUNT_PAGE_URL);
     });
   }
 }

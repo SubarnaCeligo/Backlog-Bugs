@@ -5,7 +5,7 @@ export class ConnectionsTestData {
     MAGENTO2_BASE_URI: process.env["MAGENTO2_BASE_URI"],
     MAGENTO2_USERNAME: process.env["MAGENTO2_USERNAME"],
     MAGENTO2_PASSWORD: process.env["MAGENTO2_PASSWORD"],
-    Maagento_URI: "http://3.8.80.44/enterprise242/pub/rest"
+    Magento_URI: "http://3.8.80.44/enterprise242/pub/rest"
   };
   C57811 = {
     APP_NAME: "Magento 2",

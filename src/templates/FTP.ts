@@ -1,13 +1,10 @@
-import { WebActions } from "@lib/WebActions";
 import type { Page } from "@playwright/test";
 
-let webActions: WebActions;
 export class FTP {
   private page: Page;
 
   public constructor(page: Page) {
     this.page = page;
-    webActions = new WebActions(this.page);
   }
 
   FTP_JSON = {
