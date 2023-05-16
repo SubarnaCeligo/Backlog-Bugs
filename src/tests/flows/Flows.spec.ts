@@ -2,7 +2,7 @@ import { test, expect } from "@lib/BaseTest";
 import { flowsTestData } from "@testData/Flows";
 import * as selectors  from "@selectors/Selectors";
 
-test.describe.skip("Flows Page Test Cases", () => {
+test.describe("Flows Page Test Cases", () => {
   test.beforeEach(async ({ flowBuilderPage, basePage }) => {
     await basePage.navigateTo(flowBuilderPage.FLOW_BUILDER_PAGE_URL);
   });
@@ -233,5 +233,5 @@ test.describe.skip("Flows Page Test Cases", () => {
   //     await flowBuilderPage.deleteFlow();
   //   });
 
- 
+
 });

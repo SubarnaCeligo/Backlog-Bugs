@@ -1,7 +1,7 @@
 import { test, expect } from "@lib/BaseTest";
 import * as selectors from "@selectors/Selectors";
 
-test.describe.skip("My Account Test Case", () => {
+test.describe("My Account Test Case", () => {
   test.beforeEach(async ({ myAccountPage, basePage }) => {
     await basePage.navigateTo(myAccountPage.MY_ACCOUNT_PAGE_URL);
   });
