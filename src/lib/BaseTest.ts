@@ -12,6 +12,7 @@ import { Utilities } from "@lib/Utilities";
 import { ExportTestdata } from "@testData/Exports";
 import { MyAccountTestData } from "@testData/MyAccount";
 import { ConnectionsTestData } from "@testData/CONNECTIONS";
+import { IO } from "@controller/IO";
 
 export const test = baseTest.extend<{
   basePage: BasePage;
@@ -27,7 +28,11 @@ export const test = baseTest.extend<{
   exportTD: ExportTestdata;
   myAccountTD: MyAccountTestData;
   connectionTD: ConnectionsTestData;
+  io: IO;
 }>({
+  io: async ({}, use) => {
+    await use(new IO());
+  },
   basePage: async ({ page }, use) => {
     await use(new BasePage(page));
   },
