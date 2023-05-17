@@ -6,7 +6,8 @@ node_modules/
 storageState.json
 .npmrc
 allure-report/
-allure-results/
+allure-results/**
 src/env/**
 dist/
 !src/env/*gitkeep
+!allure-results/*gitkeep

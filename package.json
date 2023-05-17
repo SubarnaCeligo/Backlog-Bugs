@@ -25,6 +25,11 @@
     "type": "git",
     "url": "https://github.com/celigo/celigo-qa-automation.git"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run build"
+    }
+  },
   "devDependencies": {
     "@celigo/rest-api-automation": "^0.0.73",
     "@celigo/ui-test-automation": "0.0.5",
@@ -35,8 +40,9 @@
     "playwright": "^1.32.3"
   },
   "dependencies": {
-    "viewport-dimensions": "^0.2.0", 
+    "viewport-dimensions": "^0.2.0",
     "atob": "^2.1.2",
-     "fs": "0.0.1-security"
+     "fs": "0.0.1-security",
+    "husky": "^4.3.8"
   }
 }

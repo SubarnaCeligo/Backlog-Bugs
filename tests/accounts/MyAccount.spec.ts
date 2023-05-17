@@ -1,7 +1,7 @@
 import { test, expect } from "@lib/BaseTest";
 import { LoginPage } from "@pages/LoginPage";
 import * as selectors from "@selectors/Selectors";
-import { PageRegistry } from "@pages/PageRegistry";
+
 
 test.describe("My Account Test Case", () => {
   test.beforeEach(async ({io,page}) => {
