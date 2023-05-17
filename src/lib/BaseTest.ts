@@ -42,13 +42,13 @@ export const test = baseTest.extend<{
   assert: async ({ page }, use) => {
     await use(new Assertions(page));
   },
-  exportTD: async ({}, use) => {
+  exportTD: async ({ }, use) => {
     await use(new ExportTestdata());
   },
-  myAccountTD: async ({}, use) => {
+  myAccountTD: async ({ }, use) => {
     await use(new MyAccountTestData());
   },
-  connectionTD: async ({}, use) => {
+  connectionTD: async ({ }, use) => {
     await use(new ConnectionsTestData());
   }
 });
