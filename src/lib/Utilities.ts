@@ -1,9 +1,9 @@
 import { expect, Page, test } from "@playwright/test";
-import BasePage from "@pages/BasePage";
+import { IO } from "@controller/IO";
 const Decrypt = require("atob");
 
 
-export class Utilities extends BasePage {
+export class Utilities {
   async randomString(len?: number, charSet?: string) {
     charSet =
       charSet || "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";

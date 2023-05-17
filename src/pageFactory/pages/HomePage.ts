@@ -1,8 +1,9 @@
 import type { Page } from "@playwright/test";
 import { test } from "@playwright/test";
+import { IO } from "@controller/IO";
 import BasePage from "./BasePage";
 
-export class HomePage extends BasePage{
+export class HomePage extends BasePage {
   HOME_PAGE_URL = "/home";
 
   public get createFlowButton() {

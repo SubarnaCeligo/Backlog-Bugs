@@ -5,7 +5,7 @@ export enum ConnectionsPagePO {
   TEST_CONNECTION = '[data-test="test"]',
   ACTIONS_MENU_BUTTON = '[data-test="openActionsMenu"]',
   DELETE_CONNECTION = '[data-test="delete"]',
-  MAGENTO2_BASE_URI = '[data-test="http.baseURI"] input',
+  MAGENTO2_BASE_URI = '[data-test="settings.baseuri"] input',
   MAGENTO2_USERNAME = '[data-test="http.unencrypted.username"] input',
   MAGENTO2_PASSWORD = '[data-test="http.encrypted.password"] input',
   MAGENTO2_GENERATE_TOKEN = '[data-test="Generate token"]',

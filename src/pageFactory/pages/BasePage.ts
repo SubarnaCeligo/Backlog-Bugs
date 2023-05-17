@@ -1,18 +1,36 @@
 import type { Page } from "@playwright/test";
-import { test } from "@playwright/test";
+import { test, expect } from "@playwright/test";
 import { Logger } from "@celigo/aut-logger";
 import * as fs from "fs";
 const path = require("path");
 import * as selectors from "@selectors/Selectors";
-import { IO } from "@controller/IO";
+import { IBasePage } from "@interface/IBasePage";
 
-export default class BasePage extends IO {
+export default class BasePage implements IBasePage {
+  protected page: Page;
   protected selectors: typeof selectors;
-
   constructor(page: Page) {
-    super();
+    this.page = page;
     this.selectors = selectors;
   }
+
+  async loadMap(data: any, obj: any) {
+    for (const key in data) {
+      const value = data[key];
+      if (typeof value === "object" && value !== null) {
+        this.loadMap(value, obj);
+      } else if (Object.values(obj).includes(key)) {
+        for (const b in obj) {
+          if (obj[b] === key) {
+            obj[b] = value;
+          }
+        }
+      } else {
+      }
+    }
+    return obj;
+  }
+
   /**
    * Asynchronously waits for the given amount of time.
    * @param time The time to wait, in milliseconds.
@@ -51,10 +69,10 @@ export default class BasePage extends IO {
 
   async click(locator: string): Promise<void> {
     await test.step("Clicking on element " + locator, async () => {
-    await this.logger("Clicking on element " + locator);
-    await this.waitForElementAttached(locator);
-    await this.page.locator(locator).scrollIntoViewIfNeeded();
-    await this.page.click(locator);
+      await this.logger("Clicking on element " + locator);
+      await this.waitForElementAttached(locator);
+      await this.page.locator(locator).scrollIntoViewIfNeeded();
+      await this.page.click(locator);
     });
   }
 
@@ -64,7 +82,7 @@ export default class BasePage extends IO {
    * @param {string} selector - The CSS selector of the element to check.
    * @return {Promise<boolean>} - A promise that resolves with a boolean indicating if the element is scrollable.
    */
-  async isScrollable(selector: string) {
+  async isScrollable(selector: string): Promise<boolean> {
     const isScrollable = await this.page.evaluate(selector => {
       const element = document.querySelector(selector);
       return element.scrollHeight > element.clientHeight;
@@ -98,16 +116,11 @@ export default class BasePage extends IO {
    */
 
   async fill(locator: string, value: string): Promise<void> {
-    await test.step(
-      "Entering text in locator " + locator,
-      async () => {
-        await this.waitForElementAttached(locator);
-        await this.page.fill(locator, value);
-        await this.logger(
-          "Entering text in locator " + locator
-        );
-      }
-    );
+    await test.step("Entering text in locator " + locator, async () => {
+      await this.waitForElementAttached(locator);
+      await this.page.fill(locator, value);
+      await this.logger("Entering text in locator " + locator + " with " + value);
+    });
   }
 
   /**
@@ -144,7 +157,7 @@ export default class BasePage extends IO {
    * @returns A Promise that resolves to the text content of the found element.
    */
 
-  async getText(locator: string): Promise<string> {
+  async getText(locator: string) {
     return await this.page.textContent(locator);
   }
 
@@ -384,23 +397,6 @@ export default class BasePage extends IO {
       }
     }
     return bool;
-  }
-
-  async loadMap(data: any, obj: any) {
-    for (const key in data) {
-      const value = data[key];
-      if (typeof value === "object" && value !== null) {
-        this.loadMap(value, obj);
-      } else if (Object.values(obj).includes(key)) {
-        for (const b in obj) {
-          if (obj[b] === key) {
-            obj[b] = value;
-          }
-        }
-      } else {
-      }
-    }
-    return obj;
   }
 
   async logger(title) {

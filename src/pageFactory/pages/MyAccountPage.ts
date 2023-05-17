@@ -1,9 +1,8 @@
 import { test, Page } from "@playwright/test";
+import { IO } from "@controller/IO";
 import BasePage from "./BasePage";
 
-export class MyAccountPage extends BasePage{
-  MY_ACCOUNT_PAGE_URL = "/myAccount/profile";
-
+export class MyAccountPage extends BasePage {
   /**
    * Retrieves the element specified by `ele` from the "myAccount" locator object.
    *
@@ -21,10 +20,10 @@ export class MyAccountPage extends BasePage{
    *
    * @returns {Promise<void>} A Promise that resolves when the navigation is complete.
    */
-  async navigateToMyAccount() {
-    await test.step("Navigating to Account Page", async () => {
-      await this.logger("Navigating to Account Page");
-      await this.navigateTo(this.MY_ACCOUNT_PAGE_URL);
-    });
-  }
+  // async navigateToMyAccount() {
+  //   await test.step("Navigating to Account Page", async () => {
+  //     await this.logger("Navigating to Account Page");
+  //     await this.navigateTo(this.MY_ACCOUNT_PAGE_URL);
+  //   });
+  // }
 }

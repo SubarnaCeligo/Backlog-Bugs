@@ -30,38 +30,17 @@ export const test = baseTest.extend<{
   connectionTD: ConnectionsTestData;
   io: IO;
 }>({
-  io: async ({}, use) => {
-    await use(new IO());
-  },
-  basePage: async ({ page }, use) => {
-    await use(new BasePage(page));
-  },
-  assert: async ({ page }, use) => {
-    await use(new Assertions(page));
+  io: async ({ page }, use) => {
+    await use(new IO(page));
   },
   loginPage: async ({ page }, use) => {
     await use(new LoginPage(page));
   },
-  homePage: async ({ page }, use) => {
-    await use(new HomePage(page));
-  },
-  settingsPage: async ({ page }, use) => {
-    await use(new SettingsPage(page));
-  },
-  flowBuilderPage: async ({ page }, use) => {
-    await use(new FlowBuilderPage(page));
-  },
-  myAccountPage: async ({ page }, use) => {
-    await use(new MyAccountPage(page));
-  },
   connectionsPage: async ({ page }, use) => {
     await use(new ConnectionsPage(page));
   },
-  exportsPage: async ({ page }, use) => {
-    await use(new ExportsPage(page));
-  },
-  util: async ({ page }, use) => {
-    await use(new Utilities(page));
+  assert: async ({ page }, use) => {
+    await use(new Assertions(page));
   },
   exportTD: async ({}, use) => {
     await use(new ExportTestdata());

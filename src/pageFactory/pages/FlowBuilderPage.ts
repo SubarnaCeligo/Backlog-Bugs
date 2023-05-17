@@ -1,46 +1,24 @@
 import { Page, test } from "@playwright/test";
-
 import { FTP } from "../../templates/FTP";
 import { Utilities } from "@lib/Utilities";
 import { Assertions } from "@lib/Assertions";
+import { IO } from "@controller/IO";
 import BasePage from "./BasePage";
 
-let assert: Assertions,
-  util: Utilities;
+let assert: Assertions, util: Utilities;
 
-export class FlowBuilderPage extends BasePage{
-  connMap: any;
-  integrationMap: any;
-  FLOW_BUILDER_PAGE_URL =
-    "integrations/" + process.env["INTEGRATION_ID"] + "/flows";
+export class FlowBuilderPage extends BasePage {
+ 
+
   IMPORTS_PAGE_URL = "/imports";
-  jobID;
-  currTime;
-  tempJobQueue = new Map();
-  jobQueue = new Map();
-  TEST_RESULT = {
-    TEST_EXECUTION_STOP_ON_FAILURE: false,
-    IO_DASHBOARD_JOBCOUNT_SUCCESS: [1, 0, 0],
-    IO_DASHBOARD_JOBCOUNT_IGNORE: [0, 1, 0],
-    IO_DASHBOARD_JOBCOUNT_FAILURE: [0, 0, 1],
-    JOB_COMPLETED_IN_IO_OK:
-      "Job Completed Successfully with Correct Dashboard Count... ok!",
-    ERR_JOB_COMPLETED_IN_IO_NOT_OK:
-      "err!! ...Incorrect Job status from API. Verifying from UI.",
-    CRITICAL_ERR_TERMINATING_TEST:
-      "xxxxxxxxxxx      SOME ISSUE INITIALIZING BROWSER & LOGGING IN TO IO. TERMINATING TEST.      xxxxxxxxxxx",
-    //add appropriate error message to be printed in testReport Here
-  };
-  ENV = process.env.ENV;
-  EM20_INTEGRATION_URL=
-  'https://staging.integrator.io/integrations/' + process.env["INTEGRATION_ID"] + '/';
+  
 
-  public constructor(page: Page) {
-   super(page);
-    this.connMap = new Map();
-    this.integrationMap = new Map();
-    assert = new Assertions(this.page);
-    util = new Utilities(page);
+  ENV = process.env.ENV;
+  // EM20_INTEGRATION_URL=
+  // 'https://staging.integrator.io/integrations/' + process.env["INTEGRATION_ID"] + '/';
+
+   constructor(page: Page) {
+    super(page);
   }
 
   public get elePGButton() {
@@ -51,189 +29,18 @@ export class FlowBuilderPage extends BasePage{
     return this.page.locator(this.selectors.FlowBuilderPagePO.APP_NAME_INPUT);
   }
 
-  public async createFlowFromAPI(jsonData: any): Promise<any> {
-    var pageGen = [],
-      pageProc = [],
-      flowJSON = {};
-    await this.loadConnections();
-    await this.loadIntegrations();
-    if (
-      jsonData.hasOwnProperty("pageGenerators") &&
-      jsonData.pageGenerators.length > 0
-    ) {
-      for (let index = 0; index < jsonData.pageGenerators.length; index++) {
-        const exportData = jsonData.pageGenerators[index].qa__export;
-        var exportID = await this.createExportorImport(exportData, "export");
-        await test.step(
-          "Created Export for flow with ID " + exportID,
-          async () => {
-            await this.logger(
-              "Created Export for flow with ID " + exportID
-            );
-          }
-        );
-        var pg = {
-          _exportId: exportID
-        };
-        pageGen.push(pg);
-        //console.log("page gen",JSON.stringify(pageGen));
-      }
-    }
-    if (
-      jsonData.hasOwnProperty("pageProcessors") &&
-      jsonData.pageProcessors.length > 0
-    ) {
-      for (let index = 0; index < jsonData.pageProcessors.length; index++) {
-        var pp, importData;
-        if (jsonData.pageProcessors[index].hasOwnProperty("qa__export")) {
-          importData = jsonData.pageProcessors[index].qa__export;
-          var ppExportID = await this.createExportorImport(importData, "export");
-          await test.step(
-            "Created Export for flow with ID " + ppExportID,
-            async () => {
-              await this.logger(
-                "Created Export for flow with ID " + ppExportID
-              );
-            }
-          );
-          pp = {
-            responseMapping: {
-              fields: [],
-              lists: []
-            },
-            type: "export",
-            _exportId: ppExportID
-          };
-        } else {
-          importData = jsonData.pageProcessors[index].qa__import;
-          var importID = await this.createExportorImport(importData, "import");
-          await test.step(
-            "Created Import for flow with ID " + importID,
-            async () => {
-              await this.logger(
-                "Created Import for flow with ID " + importID
-              );
-            }
-          );
-          pp = {
-            responseMapping: {
-              fields: [],
-              lists: []
-            },
-            type: "import",
-            _importId: importID
-          };
-        }
-        pageProc.push(pp);
-        //console.log("page proc", JSON.stringify(pageProc));
-      }
-    }
-    let EDIT_FLOW = {
-      name: "ENTER FLOW NAME",
-      disabled: false,
-      _integrationId: "",
-      skipRetries: false,
-      pageProcessors: [],
-      pageGenerators: []
-    };
-    flowJSON = EDIT_FLOW;
-    flowJSON["_integrationId"] = this.integrationMap.get("Automation Flows");
-    flowJSON["name"] = jsonData["name"];
-    flowJSON["pageGenerators"] = pageGen;
-    flowJSON["pageProcessors"] = pageProc;
-
-    if (jsonData.hasOwnProperty("export") && jsonData.export.type == "simple") {
-      var dlExpID = await this.createExportorImport(jsonData.export, "export");
-      var dlImpID = await this.createExportorImport(jsonData.import, "import");
-      flowJSON["_exportId"] = dlExpID;
-      flowJSON["_importId"] = dlImpID;
-      delete flowJSON["pageGenerators"];
-      delete flowJSON["pageProcessors"];
-    }
-    //console.log("FLOWS", JSON.stringify(flowJSON));
-    const response = await this.postCall("v1/flows", flowJSON);
-    if (jsonData.hasOwnProperty("export") && jsonData.export.type == "simple") {
-      delete flowJSON["_exportId"];
-      delete flowJSON["_importId"];
-    }
-    //console.log("res : " + JSON.stringify(response));
-    if (response.hasOwnProperty("_id")) {
-      await test.step(
-        "Created Flow " + response.name + " with " + response._id,
-        async () => {
-          await this.logger(
-            "Created Flow " + response.name + " with " + response._id
-          );
-        }
-      );
-      console.log(JSON.stringify(response));
-      return response._id;
-    } else {
-      throw new Error(
-        "Unable to get response " + JSON.stringify(response.errors)
-      );
-    }
-  }
-
-  public async createExportorImport(body, type) {
-    let uri;
-    if (type == "export") {
-      uri = "v1/exports";
-    } else if (type == "import") {
-      uri = "v1/imports";
-    }
-    body.name = "AutomationStandalone_" + (await util.randomString(5));
-    body._connectionId = await this.connMap.get(body._connectionId);
-    const response = await this.postCall(uri, body);
-    //console.log("res : " + JSON.stringify(response));
-    if (response.hasOwnProperty("_id")) {
-      return response._id;
-    } else {
-      var ids = [];
-      for (var i = 0; i < response.length; i++) {
-        ids.push(response[i]._id);
-      }
-      return ids;
-    }
-  }
-
-  public async loadConnections() {
-    try {
-      var response = await this.getCall("v1/connections");
-      for (var index in response) {
-        var connection_name = response[index]["name"];
-        var conn_id = response[index]["_id"];
-        this.connMap.set(connection_name, conn_id);
-      }
-
-      //console.log("Map for the connection is", this.connMap);
-    } catch (error) {
-      console.log("Unable to fetch connections", error);
-    }
-  }
-
-  public async loadIntegrations() {
-    try {
-      var response = await this.getCall("v1/integrations");
-      for (const index in response) {
-        var integration_name = response[index]["name"];
-        if (integration_name === "Automation Flows") {
-          this.integrationMap.set(integration_name, response[index]["_id"]);
-        }
-      }
-
-      //console.log("Map for the Integration is",this.connMap)
-    } catch (error) {
-      console.log("Unable to fetch Integrations", error);
-    }
-  }
+ 
 
   async navigateToFlows() {
     await test.step("Navigating to Flows Page", async () => {
-      let flows =
-        "/integrations/" + this.integrationMap.get("Automation Flows") + "/flows";
+      let flows ="";
+      //  "/integrations/" + this.integrationMap.get("Automation Flows") + "/flows";
       await this.navigateTo(flows);
     });
+  }
+  public async fillFlowsForm(jsonData: any) {
+    await this.addPageGenerator(jsonData);
+    await this.addPageProcessor(jsonData);
   }
 
   public async addPageGenerator(data) {
@@ -334,8 +141,12 @@ export class FlowBuilderPage extends BasePage{
     await this.page.getByRole("button", { name: "Please select" }).click();
     await this.page.getByText("Retrieve a list of Orders").click();
     await this.page.locator(this.selectors.BasePagePO.SAVE_AND_CLOSE).click();
-    await this.page.locator(this.selectors.FlowBuilderPagePO.DATA_PROCESSOR).click();
-    await this.page.locator(this.selectors.FlowBuilderPagePO.EXPORT_TRANSFORMATION).click();
+    await this.page
+      .locator(this.selectors.FlowBuilderPagePO.DATA_PROCESSOR)
+      .click();
+    await this.page
+      .locator(this.selectors.FlowBuilderPagePO.EXPORT_TRANSFORMATION)
+      .click();
     await this.page.getByPlaceholder("extract").click();
     await this.page.getByPlaceholder("extract").fill("id");
     await this.page
@@ -583,7 +394,9 @@ export class FlowBuilderPage extends BasePage{
       .getByPlaceholder("generate")
       .fill("customer[*].customerid");
     await this.page.locator('[data-test="saveAndClose"]').click();
-    await this.page.locator('this.selectors.FlowBuilderPagePO.DATA_PROCESSOR').click();
+    await this.page
+      .locator("this.selectors.FlowBuilderPagePO.DATA_PROCESSOR")
+      .click();
     await this.page.locator('[data-test="exportFilter"]').click();
     await this.page
       .locator('select[name$="_filter"]')
@@ -610,7 +423,9 @@ export class FlowBuilderPage extends BasePage{
     // await this.page.locator('[data-not="group"]').dblclick();
     await this.page.mouse.click(50, 100);
     await this.page.locator('[data-test="saveAndClose"]').click();
-    await this.page.locator('this.selectors.FlowBuilderPagePO.DATA_PROCESSOR').click();
+    await this.page
+      .locator("this.selectors.FlowBuilderPagePO.DATA_PROCESSOR")
+      .click();
     await this.page.locator('[data-test="exportHooks"]').click();
     await this.page.waitForTimeout(2000);
     await this.page.locator('[data-test="preSavePage\\.script"]').first().click();
@@ -705,7 +520,9 @@ export class FlowBuilderPage extends BasePage{
     await this.page.locator('[data-test="saveAndClose"]').click();
     await this.page.locator('[name="script-preSavePage"]').fill("preSavePage");
     await this.page.locator('[data-test="saveAndClose"]').click();
-    await this.page.locator('this.selectors.FlowBuilderPagePO.DATA_PROCESSOR').click();
+    await this.page
+      .locator("this.selectors.FlowBuilderPagePO.DATA_PROCESSOR")
+      .click();
     await this.page.locator('[data-test="exportSchedule"]').click();
     await this.page.getByLabel("Use preset").check();
     await this.page.getByRole("button", { name: "Please select" }).click();
@@ -1272,8 +1089,12 @@ export class FlowBuilderPage extends BasePage{
     await this.selectTextfromDropDown(this.page, "creditcardcharge");
     await this.page.locator('[data-test="add"]').getByLabel("Add").check();
     await this.page.locator('[data-test="saveAndClose"]').click();
-    await this.page.locator('this.selectors.FlowBuilderPagePO.DATA_PROCESSOR').click();
-    await this.page.locator('this.selectors.FlowBuilderPagePO.DATA_PROCESSOR').click();
+    await this.page
+      .locator("this.selectors.FlowBuilderPagePO.DATA_PROCESSOR")
+      .click();
+    await this.page
+      .locator("this.selectors.FlowBuilderPagePO.DATA_PROCESSOR")
+      .click();
     await this.page.locator('[data-test="importMapping"]').click();
     await this.page
       .locator('[data-test="text-fieldMappingGenerate-0"]')
@@ -1366,7 +1187,9 @@ export class FlowBuilderPage extends BasePage{
   public async updateImportMappings(map: Map<any, any>) {
     var sourceText, destinationText, sourceField, destinationField;
     var i = 0;
-    sourceField = await this.page.locator(this.selectors.FlowBuilderPagePO.MAPPER2_SOURCE_FIELD_FIELD);
+    sourceField = await this.page.locator(
+      this.selectors.FlowBuilderPagePO.MAPPER2_SOURCE_FIELD_FIELD
+    );
     destinationText = await this.page.locator(
       this.selectors.FlowBuilderPagePO.MAPPER2_DESTINATION_FIELD_TEXT
     );
@@ -1418,13 +1241,19 @@ export class FlowBuilderPage extends BasePage{
     await this.page.waitForTimeout(2000);
     var t = 0,
       maxWaitInQueue = 10;
-    var status = await this.getText(this.selectors.FlowBuilderPagePO.FLOW_STATUS);
+    var status = await this.getText(
+      this.selectors.FlowBuilderPagePO.FLOW_STATUS
+    );
     while (!status.includes("Last run:")) {
       await this.page.waitForTimeout(1000);
-      status = await this.getText(this.selectors.FlowBuilderPagePO.FLOW_STATUS);
+      status = await this.getText(
+        this.selectors.FlowBuilderPagePO.FLOW_STATUS
+      );
       t += 1;
       if (t > maxWaitInQueue && status.includes("Waiting in queue")) {
-        await this.click(this.selectors.FlowBuilderPagePO.REFRESH_JOBS_BOARD);
+        await this.click(
+          this.selectors.FlowBuilderPagePO.REFRESH_JOBS_BOARD
+        );
         t = 0;
       }
     }
@@ -1483,394 +1312,71 @@ export class FlowBuilderPage extends BasePage{
     }
   }
 
-  /*****
-   * Checks when a particular flow is triggrerred in IO job queue
-   * @param flowName Name of flow for which flow status is to be monitored
-   * @returns boolean flag for successful or failure
-   ****/
-  private async getFlowReadyStatusThroughAPI(flowID: string) {
-    var inProgressStatus = false;
-    var inQueueStatus = false;
-    var time = 0,
-      maxWait = 80;
-    do {
-      inQueueStatus = await this.getInQueueFlows(flowID);
-      if (inQueueStatus) {
-        return true;
-      }
-      inProgressStatus = await this.getInProgressFlows(flowID);
-      if (inProgressStatus) {
-        return true;
-      }
-      time += 2;
-      process.stdout.write(".");
-      await this.delay(750);
-    } while (time <= maxWait);
-    if (time > maxWait) {
-      console.log(this.TEST_RESULT.ERR_JOB_COMPLETED_IN_IO_NOT_OK);
-      return false;
-    }
-    return inProgressStatus;
-  }
 
-  /*****
-   * Checks when a particular flow is triggrerred in IO job queue
-   * @param flowName Name of flow for which flow status is to be monitored
-   * @returns boolean flag for successful or failure
-   ****/
-  private async getFlowStatusThroughAPI(flowID: string) {
-    var inProgressStatus = false;
-    var inQueueStatus = false;
-    var inCompleteStatus = false;
-    var time = 0,
-      maxWait = 80;
-    do {
-      inQueueStatus = await this.getInQueueFlows(flowID);
-      if (inQueueStatus) {
-        return true;
-      }
-      inProgressStatus = await this.getInProgressFlows(flowID);
-      if (inProgressStatus) {
-        return true;
-      }
-      inCompleteStatus = await this.getCompletedFlows(flowID);
-      if (inCompleteStatus) {
-        return true;
-      }
-      time += 2;
-      process.stdout.write(".");
-      await this.delay(750);
-    } while (time <= maxWait);
-    if (time > maxWait) {
-      console.log(this.TEST_RESULT.ERR_JOB_COMPLETED_IN_IO_NOT_OK);
-      return false;
-    }
-    return inCompleteStatus;
-  }
+  // private checkForLastFewMinutes(time: string): boolean {
+  //   var timeDiff =
+  //     (Date.parse(this.currTime) - Date.parse(time.toUpperCase())) / (1000 * 60);
+  //   //console.log(this.currTime + " | " + time.toUpperCase() + " | " + timeDiff);
+  //   if (timeDiff > 4) return false;
+  //   else return true;
+  // }
 
-  /****
-   * Waits for Flow to be completed and verifies job status in Dashboard
-   * @param flowName Name of data flow
-   * @param dashBoardCounts Array of Job status count for Success, Error & Ignore
-   * @returns Success message of successful or boolean flag if error
-   */
-  public async verifyFlowStatusThroughAPI(
-    flowName: string,
-    flowID,
-    dashBoardCounts: any
-  ): Promise<any> {
-    var completeStatus = new Map();
-    var status = await this.getFlowStatusThroughAPI(flowID);
-    // console.log("$$$$$$$$$", status);
-    if (status) {
-      completeStatus = await this.verifyFlowCompleteStatusThroughAPI(
-        flowName,
-        dashBoardCounts
-      );
-      // console.log("&&&&&&", completeStatus);
-      return completeStatus;
-    } else {
-      // flow not completed within the given time
-      return completeStatus.set(false, "[Job Not Found From Dashboard !!]");
-    }
-  }
-
-  /*****
-   * Gets all Queue flows in IO job queue via API and checks if particular flow is in it.
-   * @param flowID ID of flow that should be trigerred
-   * @returns boolean flag for successful & failure
-   ****/
-  private async getInQueueFlows(flowID) {
-    var flowStatusResponse = null;
-    flowStatusResponse = await this.getCall(
-      "v1/jobs?status=queued&_flowId=" + flowID
-    );
-    //console.log("FLOW RESPONSE", flowStatusResponse.data, this.baseURL, TOKEN);
-    if (flowStatusResponse !== undefined) {
-    if (flowStatusResponse.hasOwnProperty("_id")) {
-        //var inqueuesFlows = JSON.parse(flowStatusResponse.data.toString());
-        this.jobID = flowStatusResponse._id;
-        //console.log("JOB ID", this.jobID);
-        return true;
-    }
-    }
-    return false;
-  }
-  /*****
-   * Gets all inprogress flows in IO job queue via API and checks if particular flow is in it.
-   * @param flowID ID of flow that should be trigerred
-   * @returns boolean flag for successful & failure
-   ****/
-  private async getInProgressFlows(flowID) {
-    var flowStatusResponse = await this.getCall(
-      "v1/jobs?status=running&_flowId=" + flowID
-    );
-    //console.log("FLOW INPROGRESS RESPONSE", flowStatusResponse.data);
-    if (flowStatusResponse !== undefined) {
-    if (flowStatusResponse.hasOwnProperty("_id")) {
-        //var inProgressFlows = JSON.parse(flowStatusResponse.data.toString());
-        this.jobID = flowStatusResponse._id;
-        //console.log("JOB ID", this.jobID);
-        return true;
-    }
-    }
-    return false;
-  }
-
-  /*****
-   * Gets all Completed flows in IO job queue via API and checks if particular flow is in it.
-   * @param flowID ID of flow that should be trigerred
-   * @returns boolean flag for successful & failure
-   ****/
-  private async getCompletedFlows(flowID) {
-    var flowStatusResponse = await this.getCall(
-      "v1/jobs?status=completed&_flowId=" + flowID
-    );
-    // console.log("%%%%", flowStatusResponse.data);
-    if (flowStatusResponse !== undefined) {
-    if (flowStatusResponse.hasOwnProperty("_id")) {
-        //var completedflows = JSON.parse(flowStatusResponse.data.toString());
-        this.jobID = flowStatusResponse._id;
-        //console.log("JOB ID", this.jobID);
-        return true;
-    }
-    }
-    return false;
-  }
-  /*****
-   * Verifies when a particular flow gets completed and compares job status count appearing on dashboard
-   * @param flowName Name of the flow to be verfied
-   * @param dashBoardCounts array of numbers to validate Success, Error & Ignore counts
-   * @returns boolean flag for successful or failure
-   ****/
-  public async verifyFlowCompletedStatusThroughAPI(
-    flowName: string,
-    dashBoardCounts: number[] = this.TEST_RESULT.IO_DASHBOARD_JOBCOUNT_FAILURE
-  ) {
-    var flag = true;
-    var time = 0,
-      maxWait = 400;
-    var id = this.jobID;
-    do {
-      time += 2;
-      await this.delay(500);
-      process.stdout.write(". ");
-
-      var jobResponse = await this.getCall("v1/jobs/" + id);
-      var job_result = jobResponse.data;
-      if (
-        job_result.status === "completed" ||
-        (job_result.status === "failed" && job_result.hasOwnProperty("numError"))
-      ) {
-        flag = false;
-        break;
-      }
-    } while (flag && time < maxWait);
-    if (flag) {
-      return false;
-    } else {
-      await test.step(
-        flowName +
-          " Flow completed with status => " +
-          "Success :: " +
-          job_result.numSuccess +
-          " | Ignore :: " +
-          job_result.numIgnore +
-          " | Err :: " +
-          job_result.numError,
-        async () => {
-          await this.logger(
-            flowName +
-              " Flow completed with status => " +
-              "Success :: " +
-              job_result.numSuccess +
-              " | Ignore :: " +
-              job_result.numIgnore +
-              " | Err :: " +
-              job_result.numError
-          );
-        }
-      );
-      process.stdout.write("\n");
-      if (
-        job_result.numSuccess >= dashBoardCounts[0] &&
-        job_result.numIgnore >= dashBoardCounts[1] &&
-        job_result.numError <= dashBoardCounts[2]
-      ) {
-        return true;
-      } else {
-        return false;
-      }
-    }
-  }
-
-  /*****
-   * Verifies when a particular flow gets completed and compares job status count appearing on dashboard
-   * @param flowName Name of the flow to be verfied
-   * @param dashBoardCounts array of numbers to validate Success, Error & Ignore counts
-   * @returns boolean flag for successful or failure
-   ****/
-  public async verifyFlowCompleteStatusThroughAPI(
-    flowName: string,
-    dashBoardCount: any
-  ): Promise<any> {
-    var flag = true;
-    var new_flag = true;
-    var resultmap = new Map();
-    var V;
-    var time = 0,
-      maxWait = 400;
-    var id = this.jobID;
-    do {
-      time += 2;
-      await this.delay(500);
-      process.stdout.write(". ");
-      var jobResponse = await this.getCall("v1/jobs/" + id);
-      var job_result = jobResponse.data;
-      if (
-        job_result.status === "completed" ||
-        (job_result.status === "failed" && job_result.hasOwnProperty("numError"))
-      ) {
-        flag = false;
-        break;
-      }
-    } while (flag && time < maxWait);
-    if (flag) {
-      return resultmap.set(false, ["Job Struck in Queue on Dashboard !!"]);
-    } else {
-      console.log(
-        flowName +
-          " Flow completed with status => " +
-          "Success :: " +
-          job_result.numSuccess +
-          " | Ignore :: " +
-          job_result.numIgnore +
-          " | Err :: " +
-          job_result.numError
-      );
-      process.stdout.write("\n");
-      if (
-        dashBoardCount.hasOwnProperty("Pages") &&
-        job_result.numPagesGenerated != dashBoardCount.pages
-      ) {
-        new_flag = false;
-      }
-      V =
-        flowName +
-        "| " +
-        job_result.status +
-        " " +
-        job_result.numSuccess +
-        " " +
-        job_result.numIgnore +
-        " " +
-        job_result.numError +
-        "| Pages " +
-        job_result.numPagesGenerated +
-        "| " +
-        job_result.endedAt;
-      if (
-        job_result.numSuccess == dashBoardCount.successCount &&
-        job_result.numIgnore == dashBoardCount.ignoreCount &&
-        job_result.numError == dashBoardCount.errorCount &&
-        new_flag
-      ) {
-        // console.log(
-        //   "$$$",
-        //   job_result.numSuccess,
-        //   job_result.numIgnore,
-        //   job_result.numError,
-        //   dashBoardCount.successCount,
-        //   dashBoardCount.ignoreCount,
-        //   dashBoardCount.errorCount,
-        //   new_flag
-        // );
-        console.log("Correct Job status from API >> " + [V]);
-        return resultmap.set(true, [V]);
-      } else {
-        // console.log(
-        //   "%%%%",
-        //   job_result.numSuccess,
-        //   job_result.numIgnore,
-        //   job_result.numError,
-        //   dashBoardCount.successCount,
-        //   dashBoardCount.ignoreCount,
-        //   dashBoardCount.errorCount,
-        //   new_flag
-        // );
-        console.log("Incorrect Job status from API >> " + [V]);
-        return resultmap.set(false, [V]);
-      }
-    }
-  }
-
-  private checkForLastFewMinutes(time: string): boolean {
-    var timeDiff =
-      (Date.parse(this.currTime) - Date.parse(time.toUpperCase())) / (1000 * 60);
-    //console.log(this.currTime + " | " + time.toUpperCase() + " | " + timeDiff);
-    if (timeDiff > 4) return false;
-    else return true;
-  }
-
-  private async getJobFlowsInLastThreeMinutesEM2() {
-    this.currTime =
-      "0" + new Date().toLocaleString("en-US", { hour12: true }).replace(",", "");
-    try {
-      var Jobs = await this.page.$$(this.selectors.FlowBuilderPagePO.JOBS_ROWS);
-      this.tempJobQueue.clear();
-      this.jobQueue.clear();
-      var str, JobCount, JobName, CompletedTime, str1;
-      for (var counter in Jobs) {
-        var len = await Jobs[counter].$$(
-          this.selectors.FlowBuilderPagePO.JOBS_HEADER_ROW
-        );
-        JobName = await len[0].textContent();
-        JobCount =
-          (await len[1].textContent()) +
-          " " +
-          (await len[2].textContent()) +
-          " " +
-          (await len[3].textContent()) +
-          " " +
-          (await len[4].textContent());
-        str1 = JobName + "|" + JobCount;
-        // console.log("str1 >>>> ", str1);
-        await this.tempJobQueue.set(counter, str1);
-        try {
-          var time = await Jobs[counter].$(this.selectors.FlowBuilderPagePO.TIME);
-          if (await time.isVisible()) {
-            var completed = await Jobs[counter].$(
-              this.selectors.FlowBuilderPagePO.TIME
-            );
-            // CompletedTime = await completed.getAttribute("datetime");
-            CompletedTime = await completed.textContent();
-          }
-        } catch (error) {
-          console.log("Error in finding completed time ", error);
-        }
-        if (CompletedTime !== undefined) {
-          if (this.checkForLastFewMinutes(CompletedTime)) {
-            str = JobName + "|" + JobCount + "|" + CompletedTime;
-            this.jobQueue.set(counter, str);
-          }
-        }
-      }
-      //console.log("temp job queue", this.tempJobQueue);
-      //console.log("job queue", this.jobQueue);
-    } catch (err) {
-      //console.log("Exception is", err);
-    }
-  }
+  // private async getJobFlowsInLastThreeMinutesEM2() {
+  //   this.currTime =
+  //     "0" + new Date().toLocaleString("en-US", { hour12: true }).replace(",", "");
+  //   try {
+  //     var Jobs = await this.page.$$(this.selectors.FlowBuilderPagePO.JOBS_ROWS);
+  //     this.tempJobQueue.clear();
+  //     this.jobQueue.clear();
+  //     var str, JobCount, JobName, CompletedTime, str1;
+  //     for (var counter in Jobs) {
+  //       var len = await Jobs[counter].$$(
+  //         this.selectors.FlowBuilderPagePO.JOBS_HEADER_ROW
+  //       );
+  //       JobName = await len[0].textContent();
+  //       JobCount =
+  //         (await len[1].textContent()) +
+  //         " " +
+  //         (await len[2].textContent()) +
+  //         " " +
+  //         (await len[3].textContent()) +
+  //         " " +
+  //         (await len[4].textContent());
+  //       str1 = JobName + "|" + JobCount;
+  //       // console.log("str1 >>>> ", str1);
+  //       await this.tempJobQueue.set(counter, str1);
+  //       try {
+  //         var time = await Jobs[counter].$(this.selectors.FlowBuilderPagePO.TIME);
+  //         if (await time.isVisible()) {
+  //           var completed = await Jobs[counter].$(
+  //             this.selectors.FlowBuilderPagePO.TIME
+  //           );
+  //           // CompletedTime = await completed.getAttribute("datetime");
+  //           CompletedTime = await completed.textContent();
+  //         }
+  //       } catch (error) {
+  //         console.log("Error in finding completed time ", error);
+  //       }
+  //       if (CompletedTime !== undefined) {
+  //         if (this.checkForLastFewMinutes(CompletedTime)) {
+  //           str = JobName + "|" + JobCount + "|" + CompletedTime;
+  //           this.jobQueue.set(counter, str);
+  //         }
+  //       }
+  //     }
+  //     //console.log("temp job queue", this.tempJobQueue);
+  //     //console.log("job queue", this.jobQueue);
+  //   } catch (err) {
+  //     //console.log("Exception is", err);
+  //   }
+  // }
 
   public async navigateToEm2Flow(flowID, flowType = "flowBuilder") {
-    var intURL = this.EM20_INTEGRATION_URL;
-    if (this.ENV == "qa") {
-      intURL = intURL.split("//").join("//qa.");
-    } else if (this.ENV == "qaprod") {
-      intURL = intURL.split("//").join("//qaprod.");
-    } else if (this.ENV == "iaqa") {
-      intURL = intURL.split("//").join("//iaqa.");
-    }
+    var intURL =
+      process.env["BASE_URL"] +
+      "/integrations/" +
+      process.env["INTEGRATION_ID"] +
+      "/";
     var flowURL = intURL + flowType + "/" + flowID;
     await this.navigateTo(flowURL);
     await this.delay(5000);
@@ -1901,39 +1407,39 @@ export class FlowBuilderPage extends BasePage{
     } while (flag && time < maxWait);
   }
 
-  public async openEm2ErrorTable(): Promise<void> {
-    try {
-      await this.getJobFlowsInLastThreeMinutesEM2();
-      var index = 1;
-      var x;
-      for (const entry of Array.from(this.tempJobQueue.entries())) {
-        var V = entry[1];
-        // console.log("V >>>>>>>>>>>>> ", V);
-        var status = V.split("|")[1];
-        // console.log("STATUS 1 >>>>>>>>>>>> ", status);
-        status = status.split("d")[1];
-        // console.log("STATUS 2 >>>>>>>>>>>> ", status);
-        status = status.split(" ");
-        // console.log("STATUS 3 >>>>>>>>>>>> ", status);
-        var errorCount = Number(status[3]);
-        // console.log("ERROR COUNT >>>>>>>>>>>> ", errorCount);
-        if (errorCount > 0) {
-          // console.log("index >>>>>>>>>> ", index);
-          x = await this.page.$$(
-            this.selectors.FlowBuilderPagePO.JOB_ERROR_NUMBERS
-          );
-          await x[index].click();
-          await test.step("Opened Error Details Table", async () => {
-            await this.logger("Opened Error Details Table");
-          });
-          await this.delay(2000);
-        }
-        index = index + 2;
-      }
-    } catch (e) {
-      console.log("Unable to open error details table from flowbuilder", e);
-    }
-  }
+  // public async openEm2ErrorTable(): Promise<void> {
+  //   try {
+  //     await this.getJobFlowsInLastThreeMinutesEM2();
+  //     var index = 1;
+  //     var x;
+  //     for (const entry of Array.from(this.tempJobQueue.entries())) {
+  //       var V = entry[1];
+  //       // console.log("V >>>>>>>>>>>>> ", V);
+  //       var status = V.split("|")[1];
+  //       // console.log("STATUS 1 >>>>>>>>>>>> ", status);
+  //       status = status.split("d")[1];
+  //       // console.log("STATUS 2 >>>>>>>>>>>> ", status);
+  //       status = status.split(" ");
+  //       // console.log("STATUS 3 >>>>>>>>>>>> ", status);
+  //       var errorCount = Number(status[3]);
+  //       // console.log("ERROR COUNT >>>>>>>>>>>> ", errorCount);
+  //       if (errorCount > 0) {
+  //         // console.log("index >>>>>>>>>> ", index);
+  //         x = await this.page.$$(
+  //           this.selectors.FlowBuilderPagePO.JOB_ERROR_NUMBERS
+  //         );
+  //         await x[index].click();
+  //         await test.step("Opened Error Details Table", async () => {
+  //           await this.logger("Opened Error Details Table");
+  //         });
+  //         await this.delay(2000);
+  //       }
+  //       index = index + 2;
+  //     }
+  //   } catch (e) {
+  //     console.log("Unable to open error details table from flowbuilder", e);
+  //   }
+  // }
 
   public async waitTillColumnsAppear(num: number) {
     var time = 0,
@@ -1990,115 +1496,51 @@ export class FlowBuilderPage extends BasePage{
     await this.delay(500);
   }
 
-  public async getErrorDetails(): Promise<string> {
-    try {
-      await this.openEm2ErrorTable();
-      await this.delay(2000);
-      await this.changeErrorDrawerView();
-      await this.delay(1000);
-      await this.openErrorDetailsSection();
-      await this.delay(2000);
-      let data = await this.page.$$(this.selectors.FlowBuilderPagePO.ERROR_DATA);
-      let msg = await data[4].textContent();
-      await this.clickButtonAtTopOfArray(
-        this.selectors.FlowBuilderPagePO.CLOSE_RIGHT_DRAWER
-      );
-      await this.delay(2000);
-      await this.closeErrorModalPopup();
-      return msg;
-    } catch (e) {
-      console.log("Unable to find error details ", e);
-    }
-  }
+  // public async getErrorDetails(): Promise<string> {
+  //   try {
+  //     await this.openEm2ErrorTable();
+  //     await this.delay(2000);
+  //     await this.changeErrorDrawerView();
+  //     await this.delay(1000);
+  //     await this.openErrorDetailsSection();
+  //     await this.delay(2000);
+  //     let data = await this.page.$$(this.selectors.FlowBuilderPagePO.ERROR_DATA);
+  //     let msg = await data[4].textContent();
+  //     await this.clickButtonAtTopOfArray(
+  //       this.selectors.FlowBuilderPagePO.CLOSE_RIGHT_DRAWER
+  //     );
+  //     await this.delay(2000);
+  //     await this.closeErrorModalPopup();
+  //     return msg;
+  //   } catch (e) {
+  //     console.log("Unable to find error details ", e);
+  //   }
+  // }
 
-  public async readEm2ErrorDetails(flowId) {
-    await this.navigateToFlowBuilderInEM2(flowId);
-    await this.waitTillColumnsAppear(2);
-    var message = await this.getErrorDetails();
-    await test.step("Flow Failed With Error " + message, async () => {
-      await this.logger("Flow Failed With Error ");
-    });
-    return message;
-  }
+  // public async readEm2ErrorDetails(flowId) {
+  //   await this.navigateToFlowBuilderInEM2(flowId);
+  //   await this.waitTillColumnsAppear(2);
+  //   var message = await this.getErrorDetails();
+  //   await test.step("Flow Failed With Error " + message, async () => {
+  //     await this.logger("Flow Failed With Error ");
+  //   });
+  //   return message;
+  // }
 
   public async navigateToFlowBuilderInEM2(flowID) {
     await this.navigateToEm2Flow(flowID);
     await this.waitForErrorMsgToAppear();
   }
 
-  public async getEm2ErrorTable(flowId) {
-    await this.navigateToFlowBuilderInEM2(flowId);
-    await this.openEm2ErrorTable();
-  }
+  // public async getEm2ErrorTable(flowId) {
+  //   await this.navigateToFlowBuilderInEM2(flowId);
+  //   await this.openEm2ErrorTable();
+  // }
 
-  public async checkJobStatusFromAPI(
-    flowName: string,
-    flowID: any,
-    expectedDashboardCount?: number[]
-  ): Promise<void> {
-    // run flow from API
-    await this.waitForBatchFlowToBeCompleted(
-      flowName,
-      flowID,
-      expectedDashboardCount
-    );
-  }
+  
 
-  public async verifyFlowStatus(
-    flowName: string,
-    flowID,
-    dashBoardCounts: number[]
-  ) {
-    var status = await this.getFlowReadyStatusThroughAPI(flowID);
-    if (status) {
-      var completeStatus = await this.verifyFlowCompletedStatusThroughAPI(
-        flowName,
-        dashBoardCounts
-      );
-      if (completeStatus) {
-        return this.TEST_RESULT.JOB_COMPLETED_IN_IO_OK;
-      } else {
-        return false;
-      }
-    } else {
-      // flow not completed within the given time
-      return false;
-    }
-  }
+ 
 
-  /****
-   * Trigger and check status of flows via API
-   * @param flowName for triggerring specific flow
-   * @param expectedDashBoardCount for validating Dashboard job status counts
-   */
-  public async waitForBatchFlowToBeCompleted(
-    flowName: string,
-    flowID,
-    expectedDashBoardCount: number[]
-  ) {
-    await this.runBatchFlowViaAPI(flowName, flowID);
-    var ioFlowResult = await this.verifyFlowStatus(
-      flowName,
-      flowID,
-      expectedDashBoardCount
-    );
-    return ioFlowResult;
-  }
-  /*****
-   * Triggers a flow via API in IO and Checks if flow ran
-   * @param flowName Name of  Flow to be triggered
-   ****/
-  public async runBatchFlowViaAPI(flowName: string, flowID) {
-    //console.log("Flowname : " + flowName + " | FlowId >> " + flowID);
-    var allFlowsResponse = await this.postCall(
-      "v1/flows/" + flowID + "/run",
-      "{}"
-    );
-    console.log(
-      "Flow - " + flowName + " triggerred | " + JSON.stringify(allFlowsResponse)
-    );
-    await test.step(flowName + " triggerred successfully", async () => {
-      await this.logger(flowName + " triggerred successfully");
-    });
-  }
+ 
+  
 }

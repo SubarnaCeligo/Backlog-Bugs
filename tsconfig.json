@@ -10,7 +10,8 @@
             "@lib/*":["src/lib/*"],
             "@helper/*":["src/helper/*"],
             "@testData/*":["src/testData/*"],
-            "@controller/*":["src/controller/*"]
+            "@controller/*":["src/controller/*"],
+            "@interface/*":["src/interfaces/*"]
         },
         "target": "esnext",
         "module": "commonjs",
