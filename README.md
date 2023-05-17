@@ -11,3 +11,19 @@ This is a Playwright and TypeScript project that provides a comprehensive testin
 - **Retry failed tests on CI**: Automatically retry failed tests on Continuous Integration (CI) systems to minimize test flakiness.
 - **Page Object Model**: Utilize the Page Object Model design pattern to create maintainable and reusable test code.
 - **Visual regression tests**: Perform visual regression testing to catch UI discrepancies and ensure consistent user experiences.
+
+
+## Run a test Case
+```sh
+ENV={env} SUITE={suitename} npm run test - To run tests based on suite name
+ENV={env} npm run test - To run all tests
+ENV={env} npm run test:smoke - To run tests based on tags.Tags are defined in the test files
+```
+
+## Reports
+
+```sh
+npm run report
+```
+
+

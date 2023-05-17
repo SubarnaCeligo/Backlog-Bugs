@@ -9,11 +9,20 @@ require("dotenv").config({
   path: `src/env/.env.${process.env.ENV}`
 });
 
+let testDirectory: any;
+
+if (process.env.SUITE) {
+  testDirectory = `./src/tests/${process.env.SUITE}`;
+} else {
+  // Default test directory if SUITE is undefined
+  testDirectory = './src/tests';
+}
+
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: "./src/tests",
+  testDir: testDirectory,
   /* Maximum time one test can run for. */
   timeout: 1000 * 1000,
   expect: {

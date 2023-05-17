@@ -2,12 +2,12 @@ import { test, expect } from "@lib/BaseTest";
 import * as selectors  from "@selectors/Selectors";
 
 
-test.describe.skip("Export Flows Test Cases", async ()=>{
+test.describe("Export Flows Test Cases", async ()=>{
     test.beforeEach(async({exportsPage, basePage })=>{
         await basePage.navigateTo(exportsPage.EXPORTS_PAGE_URL);
     });
 
-    test.skip("C55447 Verify the error message when data size is more than 1 MB for export & lookup", async ({
+    test("C55447 Verify the error message when data size is more than 1 MB for export & lookup", async ({
       exportsPage,
       connectionsPage,
       exportTD,

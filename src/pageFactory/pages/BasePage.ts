@@ -99,12 +99,14 @@ export default class BasePage extends IO {
 
   async fill(locator: string, value: string): Promise<void> {
     await test.step(
-      "Entering text in locator " + locator + " with " + value,
+      "Entering text in locator " + locator,
       async () => {
-    await this.waitForElementAttached(locator);
-    await this.page.fill(locator, value);
-    await this.logger("Entering text in locator " + locator + " with " + value);
-    }
+        await this.waitForElementAttached(locator);
+        await this.page.fill(locator, value);
+        await this.logger(
+          "Entering text in locator " + locator
+        );
+      }
     );
   }
 
