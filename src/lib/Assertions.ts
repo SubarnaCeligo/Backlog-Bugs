@@ -1,9 +1,10 @@
 import { expect, Page, test } from "@playwright/test";
 import { IO } from "@controller/IO";
+import BasePage from "@pages/BasePage";
 
-export class Assertions extends IO {
+export class Assertions extends BasePage {
   constructor(page: Page) {
-    super();
+    super(page);
   }
 
   /**
@@ -18,7 +19,7 @@ export class Assertions extends IO {
    */
 
   async verifyElementText(locator: string, text: string): Promise<void> {
-    await this.basePage.waitForElementAttached(locator);
+    await this.waitForElementAttached(locator);
     const textValue = await this.page.textContent(locator);
     expect(textValue.trim()).toBe(text);
   }
@@ -32,7 +33,7 @@ export class Assertions extends IO {
    */
 
   async verifyElementContainsText(locator: string, text: string): Promise<void> {
-    await this.basePage.waitForElementAttached(locator);
+    await this.waitForElementAttached(locator);
     await expect(this.page.locator(locator)).toContainText(text);
   }
 
@@ -48,7 +49,7 @@ export class Assertions extends IO {
    * if the element is not found.
    */
   async verifyJSElementValue(locator: string, text: string): Promise<void> {
-    await this.basePage.waitForElementAttached(locator);
+    await this.waitForElementAttached(locator);
     const textValue = await this.page.$eval(
       locator,
       (element: HTMLInputElement) => element.value
@@ -71,7 +72,7 @@ export class Assertions extends IO {
     attribute: string,
     value: string
   ): Promise<void> {
-    await this.basePage.waitForElementAttached(locator);
+    await this.waitForElementAttached(locator);
     const textValue = await this.page.getAttribute(locator, attribute);
     expect(textValue.trim()).toBe(value);
   }

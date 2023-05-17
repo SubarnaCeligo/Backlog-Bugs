@@ -4,6 +4,12 @@ This is a Playwright and TypeScript project that provides a comprehensive testin
 
 ## Features
 
+##Steps to Build the Project
+
+##Configure the project
+
+##How to write a test case
+
 - **Awesome report with screenshots, videos & logs**: Generate detailed test reports with screenshots and videos of test executions, as well as logs for easy debugging and analysis.
 - **Execute tests on multiple environments**: Run tests across multiple browsers (Chromium, Firefox, and WebKit) and platforms (Windows, macOS, and Linux).
 - **Parallel execution**: Execute tests in parallel, significantly reducing the overall test execution time.

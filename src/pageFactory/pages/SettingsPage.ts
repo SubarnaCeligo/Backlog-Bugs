@@ -1,9 +1,8 @@
+import { IO } from "@controller/IO";
 import BasePage from "./BasePage";
 import type { Page } from "@playwright/test";
 
 export class SettingsPage extends BasePage {
-
-  
   public get createFlowButton() {
     return this.page.locator('[data-test="createFlow"]');
   }
@@ -19,9 +18,10 @@ export class SettingsPage extends BasePage {
   }
 
   public get eleAppSelection() {
-    return this.page.locator('[data-test="application"] input[id*="react-select-"]');
+    return this.page.locator(
+      '[data-test="application"] input[id*="react-select-"]'
+    );
   }
-  
 
   public async selectApplication(appname: string) {
     const ele = await this.eleAppSelection;
