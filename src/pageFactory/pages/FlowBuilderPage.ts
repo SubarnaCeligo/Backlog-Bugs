@@ -4,23 +4,25 @@ import { Utilities } from "@lib/Utilities";
 import { Assertions } from "@lib/Assertions";
 import { IO } from "@controller/IO";
 import BasePage from "./BasePage";
+import { IFlowBuilderPage } from "@interface/IFlowBuilderPage";
 
 let assert: Assertions, util: Utilities;
 
-export class FlowBuilderPage extends BasePage {
+export class FlowBuilderPage extends BasePage implements IFlowBuilderPage{
  
 
-  IMPORTS_PAGE_URL = "/imports";
-  
-
-  ENV = process.env.ENV;
   // EM20_INTEGRATION_URL=
   // 'https://staging.integrator.io/integrations/' + process.env["INTEGRATION_ID"] + '/';
 
    constructor(page: Page) {
     super(page);
   }
-
+  fillExportForm1(): Promise<any> {
+    throw new Error("Method not implemented.");
+  }
+  fillImportForm1(): Promise<any> {
+    throw new Error("Method not implemented.");
+  }
   public get elePGButton() {
     return this.page.locator(this.selectors.FlowBuilderPagePO.PAGE_GENERATOR);
   }
@@ -101,24 +103,6 @@ export class FlowBuilderPage extends BasePage {
         .click();
       //await this.page.getByRole('button', { name: 'Please select' }).click();
       //await this.page.getByText('Export records from source application').click();
-      await this.page.getByRole("button", { name: "Please select" }).click();
-      await this.page.getByText(connname, { exact: true }).click();
-      await this.page.locator('[data-test="save"]').click();
-    } else {
-      throw new Error("No element, hence failed");
-    }
-  }
-
-  public async seleApplication(appname: string, connname: string) {
-    const ele = await this.eleAppSelection;
-    if (ele != null) {
-      await ele.fill(appname);
-      await this.page
-        .locator("[data-test=" + appname + "]")
-        .getByText(appname)
-        .click();
-      await this.page.getByRole("button", { name: "Please select" }).click();
-      await this.page.getByText("Export records from source application").click();
       await this.page.getByRole("button", { name: "Please select" }).click();
       await this.page.getByText(connname, { exact: true }).click();
       await this.page.locator('[data-test="save"]').click();
