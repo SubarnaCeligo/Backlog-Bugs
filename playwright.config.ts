@@ -12,10 +12,10 @@ require("dotenv").config({
 let testDirectory: any;
 
 if (process.env.SUITE) {
-  testDirectory = `./src/tests/${process.env.SUITE}`;
+  testDirectory = `./tests/${process.env.SUITE}`;
 } else {
   // Default test directory if SUITE is undefined
-  testDirectory = './src/tests';
+  testDirectory = './tests';
 }
 
 /**

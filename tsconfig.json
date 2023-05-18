@@ -5,13 +5,27 @@
             "*": [
                 "types/*"
             ],
-            "@pages/*":["src/pageFactory/pages/*"],
-            "@selectors/*":["src/pageFactory/selectors/*"],
-            "@lib/*":["src/lib/*"],
-            "@helper/*":["src/helper/*"],
-            "@testData/*":["src/testData/*"],
-            "@controller/*":["src/controller/*"],
-            "@interface/*":["src/interfaces/*"]
+            "@pages/*": [
+                "src/pageFactory/pages/*"
+            ],
+            "@selectors/*": [
+                "src/pageFactory/selectors/*"
+            ],
+            "@lib/*": [
+                "src/lib/*"
+            ],
+            "@helper/*": [
+                "src/helper/*"
+            ],
+            "@testData/*": [
+                "testData/*"
+            ],
+            "@controller/*": [
+                "src/controller/*"
+            ],
+            "@interface/*": [
+                "src/interfaces/*"
+            ]
         },
         "target": "esnext",
         "module": "commonjs",
