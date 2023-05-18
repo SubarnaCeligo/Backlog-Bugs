@@ -1,9 +1,9 @@
 import { test, Page } from "@playwright/test";
-import { IO } from "@controller/IO";
+import * as selectors from "@selectors/Selectors";
 import BasePage from "./BasePage";
 import { IMyAccountPage } from "@interface/IMyAccountPage";
 
-export class MyAccountPage extends BasePage implements IMyAccountPage{
+export class MyAccountPage extends BasePage implements IMyAccountPage {
   /**
    * Retrieves the element specified by `ele` from the "myAccount" locator object.
    *
@@ -27,4 +27,19 @@ export class MyAccountPage extends BasePage implements IMyAccountPage{
       //await this.navigateTo(this.MY_ACCOUNT_PAGE_URL);
     });
   }
+
+  async changePassword(jsonData){
+     await this.click(selectors.MyAccountPagePO.EDIT_PASSWORD);
+     await this.isVisible(selectors.MyAccountPagePO.DIALOG_BOX);
+     await this.fill(
+       selectors.MyAccountPagePO.CURRENT_PASSWORD,
+       jsonData.CURRENT_PASSWORD
+     );
+     await this.fill(
+       selectors.MyAccountPagePO.NEW_PASSWORD,
+       jsonData.NEW_PASSWORD
+     );
+     await this.click(selectors.MyAccountPagePO.CHANGE_PASSWORD);
+
+  };
 }
