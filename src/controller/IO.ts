@@ -10,6 +10,7 @@ import { Assertions } from "@lib/Assertions";
 import { Utilities } from "@lib/Utilities";
 import { ImportsPage } from "@pages/ImportsPage";
 import { API } from "./API";
+import * as data from "../config/configData";
 
 export class IO {
   protected page: Page;
@@ -24,6 +25,7 @@ export class IO {
   public assert: Assertions;
   public util: Utilities;
   public api: API;
+  public data: typeof data
 
   constructor(page: Page) {
     this.page = page;
@@ -38,6 +40,7 @@ export class IO {
     this.importsPage = new ImportsPage(this.page);
     this.flowBuilder = new FlowBuilderPage(this.page);
     this.api = new API();
+    this.data = data;
   }
 
 

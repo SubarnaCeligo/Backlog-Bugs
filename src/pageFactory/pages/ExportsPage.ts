@@ -38,5 +38,9 @@ export class ExportsPage extends BasePage implements IExportsPage {
 
   public async fillExportForm(jsonData: any) {}
 
+  private async fillFTPExportForm(jsonData:any){
+    
+  }
+
   public async editExportForm(jsonData: any, exportId: string) {}
 }
