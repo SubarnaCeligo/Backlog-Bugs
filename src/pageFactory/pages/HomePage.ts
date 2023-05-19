@@ -4,7 +4,7 @@ import { IO } from "@controller/IO";
 import BasePage from "./BasePage";
 import { IHomePage } from "@interface/IHomePage";
 
-export class HomePage extends BasePage implements IHomePage{
+export class HomePage extends BasePage implements IHomePage {
   HOME_PAGE_URL = "/home";
 
   public get createFlowButton() {

@@ -1,19 +1,18 @@
 import { test, expect } from "@lib/BaseTest";
-import { LoginPage } from "@pages/LoginPage";
 import * as selectors from "@selectors/Selectors";
 import * as MyAccountData from "@testData/MyAccount";
- var data = MyAccountData;
+var data = MyAccountData;
 
-test.describe.skip("My Account Test Case", () => {
-  
-  test.beforeEach(async ({io,page}) => {
+test.describe("My Account Test Case new", () => {
+
+  test.beforeEach(async ({ io, page }) => {
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
   });
 
   test("C752 Verify Change password with invalid current pass and valid new pass - should show error messsage @smoke", async ({
     io
   }) => {
-   await io.myAccountPage.changePassword(data.MyAccountTestData.C752);
+    await io.myAccountPage.changePassword(data.MyAccountTestData.C752);
     let msg = await io.myAccountPage.getText(
       selectors.MyAccountPagePO.SNACK_BAR_MESSAGE
     );

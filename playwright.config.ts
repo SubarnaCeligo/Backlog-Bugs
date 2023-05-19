@@ -6,7 +6,7 @@ import { defineConfig, devices, PlaywrightTestConfig } from "@playwright/test";
  */
 require("dotenv").config({
   override: true,
-  path: `src/env/.env.${process.env.ENV}`
+  path: `env/.env.${process.env.ENV}`
 });
 
 let testDirectory: any;
@@ -42,7 +42,7 @@ export default defineConfig({
   workers: process.env.CI ? 2 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
-    ["list", { printSteps: true }],
+    ["list"],
     [
       "allure-playwright",
       {
@@ -50,8 +50,9 @@ export default defineConfig({
           NODE_VERSION: process.version,
           OS: process.platform,
           USER: require("os").userInfo().username,
-          ENVIRONMENT: process.env.ENV
-        }
+          ENVIRONMENT: process.env.ENV,
+        },
+        stdout: false
       }
     ]
   ],

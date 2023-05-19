@@ -11,7 +11,7 @@ import { Utilities } from "@lib/Utilities";
 import { ImportsPage } from "@pages/ImportsPage";
 import { API } from "./API";
 import * as data from "../config/configData";
-
+type formTypes = 'CONNECTION' | "EXPORT" | "IMPORT"
 export class IO {
   protected page: Page;
   public connectionPage: ConnectionsPage;
@@ -26,6 +26,7 @@ export class IO {
   public util: Utilities;
   public api: API;
   public data: typeof data
+
 
   constructor(page: Page) {
     this.page = page;
@@ -44,7 +45,7 @@ export class IO {
   }
 
 
-  public async fillForm(jsonData, type) {
+  public async fillForm(jsonData, type: formTypes) {
     switch (type.toUpperCase()) {
       case "CONNECTION":
         await this.connectionPage.fillConnectionForm(jsonData);
