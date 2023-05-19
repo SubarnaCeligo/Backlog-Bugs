@@ -8,13 +8,13 @@ import { IFlowBuilderPage } from "@interface/IFlowBuilderPage";
 
 let assert: Assertions, util: Utilities;
 
-export class FlowBuilderPage extends BasePage implements IFlowBuilderPage{
- 
+export class FlowBuilderPage extends BasePage implements IFlowBuilderPage {
+
 
   // EM20_INTEGRATION_URL=
   // 'https://staging.integrator.io/integrations/' + process.env["INTEGRATION_ID"] + '/';
 
-   constructor(page: Page) {
+  constructor(page: Page) {
     super(page);
   }
   fillExportForm1(): Promise<any> {
@@ -31,11 +31,11 @@ export class FlowBuilderPage extends BasePage implements IFlowBuilderPage{
     return this.page.locator(this.selectors.FlowBuilderPagePO.APP_NAME_INPUT);
   }
 
- 
+
 
   async navigateToFlows() {
     await test.step("Navigating to Flows Page", async () => {
-      let flows ="";
+      let flows = "";
       //  "/integrations/" + this.integrationMap.get("Automation Flows") + "/flows";
       await this.navigateTo(flows);
     });
@@ -1521,10 +1521,10 @@ export class FlowBuilderPage extends BasePage implements IFlowBuilderPage{
   //   await this.openEm2ErrorTable();
   // }
 
-  
 
- 
 
- 
-  
+
+
+
+
 }

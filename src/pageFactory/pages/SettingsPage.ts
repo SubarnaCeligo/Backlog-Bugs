@@ -3,7 +3,7 @@ import BasePage from "./BasePage";
 import type { Page } from "@playwright/test";
 import { ISettingsPage } from "@interface/ISettingsPage";
 
-export class SettingsPage extends BasePage implements ISettingsPage{
+export class SettingsPage extends BasePage implements ISettingsPage {
   public get createFlowButton() {
     return this.page.locator('[data-test="createFlow"]');
   }

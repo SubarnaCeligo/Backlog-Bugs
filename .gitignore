@@ -7,7 +7,7 @@ storageState.json
 .npmrc
 allure-report/
 allure-results/**
-src/env/**
+env/**
 dist/
-!src/env/*gitkeep
+!env/*gitkeep
 !allure-results/*gitkeep

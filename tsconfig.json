@@ -9,13 +9,13 @@
                 "src/pageFactory/pages/*"
             ],
             "@selectors/*": [
-                "src/pageFactory/selectors/*"
+                "selectors/*"
             ],
             "@lib/*": [
                 "src/lib/*"
             ],
             "@helper/*": [
-                "src/helper/*"
+                "helper/*"
             ],
             "@testData/*": [
                 "testData/*"
@@ -24,7 +24,7 @@
                 "src/controller/*"
             ],
             "@interface/*": [
-                "src/interfaces/*"
+                "src/pageFactory/interfaces/*"
             ]
         },
         "target": "esnext",

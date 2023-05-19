@@ -28,18 +28,18 @@ export class MyAccountPage extends BasePage implements IMyAccountPage {
     });
   }
 
-  async changePassword(jsonData){
-     await this.click(selectors.MyAccountPagePO.EDIT_PASSWORD);
-     await this.isVisible(selectors.MyAccountPagePO.DIALOG_BOX);
-     await this.fill(
-       selectors.MyAccountPagePO.CURRENT_PASSWORD,
-       jsonData.CURRENT_PASSWORD
-     );
-     await this.fill(
-       selectors.MyAccountPagePO.NEW_PASSWORD,
-       jsonData.NEW_PASSWORD
-     );
-     await this.click(selectors.MyAccountPagePO.CHANGE_PASSWORD);
+  async changePassword(jsonData) {
+    await this.click(selectors.MyAccountPagePO.EDIT_PASSWORD);
+    await this.isVisible(selectors.MyAccountPagePO.DIALOG_BOX);
+    await this.fill(
+      selectors.MyAccountPagePO.CURRENT_PASSWORD,
+      jsonData.CURRENT_PASSWORD
+    );
+    await this.fill(
+      selectors.MyAccountPagePO.NEW_PASSWORD,
+      jsonData.NEW_PASSWORD
+    );
+    await this.click(selectors.MyAccountPagePO.CHANGE_PASSWORD);
 
   };
 }

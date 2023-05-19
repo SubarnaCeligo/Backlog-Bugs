@@ -1,6 +1,6 @@
 import { test, expect } from "@lib/BaseTest";
 import * as selectors from "@selectors/Selectors";
-import * as CD from "@testData/Connections";
+import * as CD from "@testData/CONNECTIONS";
 
 test.describe("Connections Page Test Cases", () => {
   test.beforeEach(async ({ io }) => {

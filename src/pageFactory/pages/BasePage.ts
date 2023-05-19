@@ -329,7 +329,7 @@ export default class BasePage implements IBasePage {
         try {
           await this.page.locator(WebControlTemp).scrollIntoViewIfNeeded();
           await this.click(WebControlTemp);
-        } catch (e) {}
+        } catch (e) { }
       case "TextField":
         try {
           // let ele = await this.page
@@ -338,7 +338,7 @@ export default class BasePage implements IBasePage {
           //console.log("LOC", loc);
           // await this.page.fill(loc.selector,value);
           await this.fill(WebControlTemp, value);
-        } catch (e) {}
+        } catch (e) { }
     }
   }
 

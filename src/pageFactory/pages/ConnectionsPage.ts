@@ -49,5 +49,5 @@ export class ConnectionsPage extends BasePage implements IConnectionsPage {
     );
     await this.click(selectors.ConnectionsPagePO.TEST_CONNECTION);
   }
-  public async editConnectionForm(data: any, connectionId: string) {}
+  public async editConnectionForm(data: any, connectionId: string) { }
 }
