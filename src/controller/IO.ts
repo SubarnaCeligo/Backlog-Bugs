@@ -6,8 +6,7 @@ import { LoginPage } from "../pageFactory/pages/LoginPage";
 import { MyAccountPage } from "../pageFactory/pages/MyAccountPage";
 import { SettingsPage } from "../pageFactory/pages/SettingsPage";
 import { FlowBuilderPage } from "@pages/FlowBuilderPage";
-import { Assertions } from "@lib/Assertions";
-import { Utilities } from "@lib/Utilities";
+import { Assertions } from "@validations/Assertions";
 import { ImportsPage } from "@pages/ImportsPage";
 import { API } from "./API";
 import * as data from "../config/configData";
@@ -23,7 +22,6 @@ export class IO {
   public myAccountPage: MyAccountPage;
   public settingsPage: SettingsPage;
   public assert: Assertions;
-  public util: Utilities;
   public api: API;
   public data: typeof data
 
@@ -37,7 +35,6 @@ export class IO {
     this.myAccountPage = new MyAccountPage(this.page);
     this.settingsPage = new SettingsPage(this.page);
     this.assert = new Assertions(this.page);
-    this.util = new Utilities();
     this.importsPage = new ImportsPage(this.page);
     this.flowBuilder = new FlowBuilderPage(this.page);
     this.api = new API();

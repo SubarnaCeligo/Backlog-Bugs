@@ -37,15 +37,15 @@ export class ConnectionsPage extends BasePage implements IConnectionsPage {
     await this.fill(selectors.ConnectionsPagePO.NAME, data.NAME);
     await this.fill(
       selectors.ConnectionsPagePO.MAGENTO2_BASE_URI,
-      data.MAGENTO2_BASE_URI
+      process.env["MAGENTO2_BASE_URI"]
     );
     await this.fill(
       selectors.ConnectionsPagePO.MAGENTO2_USERNAME,
-      data.MAGENTO2_USERNAME
+      process.env["MAGENTO2_USERNAME"]
     );
     await this.fill(
       selectors.ConnectionsPagePO.MAGENTO2_PASSWORD,
-      data.MAGENTO2_PASSWORD
+      process.env["MAGENTO2_PASSWORD"]
     );
     await this.click(selectors.ConnectionsPagePO.TEST_CONNECTION);
   }

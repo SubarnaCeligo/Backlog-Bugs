@@ -9,8 +9,6 @@ export interface IFlowBuilderPage {
   selectApplication(appname: string, connname: string): Promise<void>;
   fillExportForm(): Promise<void>;
   fillImportForm(): Promise<void>;
-  fillExportForm1();
-  fillImportForm1();
   updateImportMappings(map: Map<any, any>): Promise<void>;
   enableFlow(): Promise<void>;
   disableFlow(): Promise<void>;

@@ -36,7 +36,6 @@ export default class BasePage implements IBasePage {
    * @param time The time to wait, in milliseconds.
    * @returns A Promise that resolves after `time` milliseconds.
    */
-
   async delay(time: number): Promise<void> {
     return new Promise(function (resolve) {
       setTimeout(resolve, time);

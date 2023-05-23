@@ -1,5 +1,5 @@
 import { request } from "@playwright/test";
-import { Utilities } from "@lib/Utilities";
+import { decrypt,randomString } from "@utilities/stringUtil";
 import { TEST_RESULT } from "../config/configData";
 
 export class API {
@@ -9,13 +9,11 @@ export class API {
     currTime;
     tempJobQueue;
     jobQueue;
-    public util: Utilities;
     constructor(){
         this.connMap = new Map();
         this.integrationMap = new Map();
         this.tempJobQueue = new Map();
         this.jobQueue = new Map();
-        this.util = new Utilities();
     }
     public async createFlowFromAPI(jsonData: any): Promise<any> {
         var pageGen = [],
@@ -142,7 +140,7 @@ export class API {
         } else if (type == "import") {
             uri = "v1/imports";
         }
-        body.name = "AutomationStandalone_" + (await this.util.randomString(5));
+        body.name = "AutomationStandalone_" + (await randomString(5));
         body._connectionId = await this.connMap.get(body._connectionId);
         const response = await this.postCall(uri, body);
         //console.log("res : " + JSON.stringify(response));
@@ -163,7 +161,7 @@ export class API {
         });
         const resp = await context.get(endpoint, {
             headers: {
-                Authorization: await this.util.decrypt(`${process.env.API_TOKEN}`)
+                Authorization: await decrypt(`${process.env.API_TOKEN}`)
             }
         });
         if ((await (await resp.text()).length) > 0) {
@@ -178,7 +176,7 @@ export class API {
         const resp = await context.post(endpoint, {
             headers: {
                 ContentType: "application/json",
-                Authorization: await this.util.decrypt(`${process.env.API_TOKEN}`)
+                Authorization: await decrypt(`${process.env.API_TOKEN}`)
             },
             data: reqBody
         });
@@ -192,7 +190,7 @@ export class API {
         const resp = await context.put(endpoint, {
             headers: {
                 ContentType: "application/json",
-                Authorization: await this.util.decrypt(`${process.env.API_TOKEN}`)
+                Authorization: await decrypt(`${process.env.API_TOKEN}`)
             },
             data: reqBody
         });
@@ -633,4 +631,5 @@ export class API {
             setTimeout(resolve, time);
         });
     }
+
 }
