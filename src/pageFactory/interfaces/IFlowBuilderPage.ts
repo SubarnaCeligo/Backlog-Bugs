@@ -7,8 +7,6 @@ export interface IFlowBuilderPage {
   addPageProcessor(jsonData: any): Promise<void>;
   loadTemplate(appName, obj, type): Promise<any>;
   selectApplication(appname: string, connname: string): Promise<void>;
-  fillExportForm(): Promise<void>;
-  fillImportForm(): Promise<void>;
   updateImportMappings(map: Map<any, any>): Promise<void>;
   enableFlow(): Promise<void>;
   disableFlow(): Promise<void>;
