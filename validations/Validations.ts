@@ -2,8 +2,6 @@ import {
   sort,
   dataTable,
 } from "../utilities/commonUtil";
-import allureReporter, { Status } from "@wdio/allure-reporter";
-import { expect } from "@playwright/test";
 
 export class Validations {
   dataTableJsonarr: any;
@@ -121,54 +119,6 @@ export class Validations {
     };
     return objFinal;
   }
-
-
-  public async verifyJSON(
-    title,
-    allure: typeof allureReporter,
-    expected,
-    actual
-  ) {
-    console.log(expected, actual);
-    var overallTestStatus = "passed";
-    var data_table = "",
-      execStatus: Status = "passed";
-    if (actual === false || actual === null) {
-      overallTestStatus = "failed";
-    } else {
-      var comparision = await this.validateJSONData(expected, actual);
-      var Table = [];
-      Table.push(comparision);
-      for (let index = 0; index < Table.length; index++) {
-        const resultTable = Table[index];
-        if (resultTable.overallStatus == "Errored") {
-          //console.log("Result Table errord", resultTable.overallStatus);
-          data_table =
-            "<p style='background-color: red; font-weight: bold;'>" +
-            resultTable.dataTable +
-            "</p>";
-          execStatus = "failed";
-        } else {
-          var table = dataTable(resultTable.dataTable);
-          table = table
-            .toString()
-            .split("<td>PASS</td>")
-            .join(
-              "<td style='background-color: green; font-weight: bold;'>PASS</td>"
-            );
-          data_table = data_table + table;
-          if (resultTable.overallStatus == "failed") {
-            execStatus = "failed";
-          }
-        }
-      }
-      allure.addDescription(data_table, "html");
-      allure.addStep(title, {}, execStatus);
-    }
-    expect(overallTestStatus).toEqual(execStatus);
-  }
-
-
   public async jsonComparision(expected, actual, type?: any) {
     // console.log("Expected file", JSON.stringify(expected));
     // console.log("Actual file", JSON.stringify(actual));
@@ -200,13 +150,13 @@ export class Validations {
             //console.log("...", expelement);
             expected[key] = JSON.parse(
               "[" +
-                JSON.stringify(expelement).replace(/\[/g, "").replace(/]/g, "") +
-                "]"
+              JSON.stringify(expelement).replace(/\[/g, "").replace(/]/g, "") +
+              "]"
             );
             actual[key] = JSON.parse(
               "[" +
-                JSON.stringify(actelement).replace(/\[/g, "").replace(/]/g, "") +
-                "]"
+              JSON.stringify(actelement).replace(/\[/g, "").replace(/]/g, "") +
+              "]"
             );
           }
         }
