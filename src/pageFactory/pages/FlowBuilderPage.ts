@@ -1,27 +1,14 @@
 import { Page, test } from "@playwright/test";
 import { FTP } from "../../templates/FTP";
-import { Utilities } from "@lib/Utilities";
-import { Assertions } from "@lib/Assertions";
-import { IO } from "@controller/IO";
+import { randomString } from "@utilities/stringUtil";
 import BasePage from "./BasePage";
 import { IFlowBuilderPage } from "@interface/IFlowBuilderPage";
 
-let assert: Assertions, util: Utilities;
 
 export class FlowBuilderPage extends BasePage implements IFlowBuilderPage {
 
-
-  // EM20_INTEGRATION_URL=
-  // 'https://staging.integrator.io/integrations/' + process.env["INTEGRATION_ID"] + '/';
-
   constructor(page: Page) {
     super(page);
-  }
-  fillExportForm1(): Promise<any> {
-    throw new Error("Method not implemented.");
-  }
-  fillImportForm1(): Promise<any> {
-    throw new Error("Method not implemented.");
   }
   public get elePGButton() {
     return this.page.locator(this.selectors.FlowBuilderPagePO.PAGE_GENERATOR);
@@ -30,8 +17,6 @@ export class FlowBuilderPage extends BasePage implements IFlowBuilderPage {
   public get eleAppSelection() {
     return this.page.locator(this.selectors.FlowBuilderPagePO.APP_NAME_INPUT);
   }
-
-
 
   async navigateToFlows() {
     await test.step("Navigating to Flows Page", async () => {
@@ -57,7 +42,7 @@ export class FlowBuilderPage extends BasePage implements IFlowBuilderPage {
     else throw new Error("No element, hence failed");
     let temp = await this.loadTemplate(ap, exp, "Export");
     temp.application = ap;
-    temp.name = "AutomationStandaloneExport__" + (await util.randomString(10));
+    temp.name = "AutomationStandaloneExport__" + (await randomString(10));
     //console.log("Map:", JSON.stringify(temp));
     for (var a in temp) {
       let loc = "[data-test='" + a + "']";
@@ -93,6 +78,7 @@ export class FlowBuilderPage extends BasePage implements IFlowBuilderPage {
         return await this.loadMap(obj, ftp.FTP_JSON.FTP_EXPORT);
     }
   }
+  
   public async selectApplication(appname: string, connname: string) {
     const ele = await this.eleAppSelection;
     if (ele != null) {
@@ -1014,158 +1000,6 @@ export class FlowBuilderPage extends BasePage implements IFlowBuilderPage {
       .click();
     await this.page.locator('[data-test="Enable"]').click();
     await this.page.waitForTimeout(3000);
-  }
-
-  public async fillExportform1() {
-    await this.page.locator('[data-test="name"]').getByRole("textbox").click();
-    await this.page
-      .locator('[data-test="name"]')
-      .getByRole("textbox")
-      .fill("AutomationStandaloneExport__aE5s2tbl1T4");
-    await this.page.getByRole("button", { name: "Please select" }).click();
-    await this.page.getByRole("menuitem", { name: "JSON" }).click();
-    await this.page.locator('[id="text-ftp\\.directoryPath"]').click();
-    await this.page
-      .locator('[id="text-ftp\\.directoryPath"]')
-      .fill("/io.auto.qa/IO_UI_Automation_FTPExports");
-    await this.page.locator('[id="text-ftp\\.fileNameStartsWith"]').click();
-    await this.page
-      .locator('[id="text-ftp\\.fileNameStartsWith"]')
-      .fill("CCard_Transaction_Add.json");
-    await this.page.locator('[data-test="Advanced"]').click();
-    await this.page.getByLabel("Leave file on server").check();
-    await this.page.getByRole("button", { name: "Please select" }).click();
-    await this.page.getByRole("menuitem", { name: "UTF-8" }).click();
-    await this.page.locator('[data-test="saveAndClose"]').click();
-    await this.page.setInputFiles(
-      '[id="fileUpload"]',
-      "/Users/shivapotlapelli/Documents/GitHub/Playwright_Platform_POC/assets/FTPUploads/78_FTP to NSCustomer_JSON.json"
-    );
-    await this.page.locator('[data-test="saveAndClose"]').click();
-    await this.page.waitForTimeout(5000);
-  }
-
-  public async fillImportform1() {
-    await this.page.locator('[data-test="addProcessor"]').click();
-    await this.page.waitForTimeout(1000);
-    await this.page.locator('[class="css-y8aj3r"] input').fill("net");
-    await this.page
-      .locator('[data-test="NetSuite"]')
-      .getByText("NetSuite")
-      .click();
-    await this.page.getByRole("button", { name: "Please select" }).click();
-    await this.page
-      .getByText("Import records into destination application")
-      .click();
-    await this.page.getByRole("button", { name: "Please select" }).click();
-    await this.page
-      .getByRole("menuitem", { name: "NetSuite-TSTDRV1143616", exact: true })
-      .click();
-    await this.page.locator('[data-test="save"]').click();
-    await this.page.locator('[data-test="name"]').getByRole("textbox").click();
-    await this.page
-      .locator('[data-test="name"]')
-      .getByRole("textbox")
-      .fill("AutomationStandaloneImport__niW08Y2NV5");
-    await this.page
-      .getByRole("button", { name: "Please select a record type" })
-      .click();
-    await this.selectTextfromDropDown(this.page, "creditcardcharge");
-    await this.page.locator('[data-test="add"]').getByLabel("Add").check();
-    await this.page.locator('[data-test="saveAndClose"]').click();
-    await this.page
-      .locator("this.selectors.FlowBuilderPagePO.DATA_PROCESSOR")
-      .click();
-    await this.page
-      .locator("this.selectors.FlowBuilderPagePO.DATA_PROCESSOR")
-      .click();
-    await this.page.locator('[data-test="importMapping"]').click();
-    await this.page
-      .locator('[data-test="text-fieldMappingGenerate-0"]')
-      .getByRole("textbox")
-      .click();
-    await this.page.keyboard.type("custbody_celigo_etail_order_id");
-    await this.page
-      .locator('[data-test="text-fieldMappingExtract-0"]')
-      .getByRole("textbox")
-      .click();
-    await this.page
-      .locator('[data-test="text-fieldMappingExtract-0"]')
-      .getByRole("textbox")
-      .click();
-    await this.page.keyboard.type("id");
-    await this.page
-      .locator('[data-test="text-fieldMappingGenerate-1"]')
-      .getByRole("textbox")
-      .click();
-    await this.page.keyboard.type("celigo_replaceAllLines_item");
-    await this.page
-      .locator('[data-test="text-fieldMappingExtract-1"]')
-      .getByRole("textbox")
-      .click();
-    await this.page
-      .locator('[data-test="text-fieldMappingExtract-1"]')
-      .getByRole("textbox")
-      .click();
-    await this.page.keyboard.type('"true"');
-    await this.page
-      .locator('[data-test="text-fieldMappingGenerate-2"]')
-      .getByRole("textbox")
-      .click();
-    await this.page.keyboard.type("custbody_celigo_shopify_store");
-    await this.page.locator('[data-test="text-fieldMappingExtract-2"]').click();
-    await this.page.locator('[data-test="text-fieldMappingExtract-2"]').click();
-    await this.page.keyboard.type('"backward-auto-store3"');
-    await this.page
-      .locator('[data-test="text-fieldMappingGenerate-3"]')
-      .getByRole("textbox")
-      .click();
-    await this.page.keyboard.type("custbody_celigo_etail_channel");
-    await this.page
-      .locator('[data-test="text-fieldMappingExtract-3"]')
-      .getByRole("textbox")
-      .click();
-    await this.page
-      .locator('[data-test="text-fieldMappingExtract-3"]')
-      .getByRole("textbox")
-      .click();
-    await this.page.keyboard.type('"Shopify"');
-    await this.page
-      .locator('[data-test="text-fieldMappingGenerate-4"]')
-      .getByRole("textbox")
-      .click();
-    await this.page.keyboard.type("custbodycust_fullname");
-    await this.page
-      .locator('[data-test="text-fieldMappingExtract-4"]')
-      .getByRole("textbox")
-      .click();
-    await this.page
-      .locator('[data-test="text-fieldMappingExtract-4"]')
-      .getByRole("textbox")
-      .click();
-    await this.page.keyboard.type("fullname");
-    await this.page
-      .locator('[data-test="text-fieldMappingGenerate-5"]')
-      .getByRole("textbox")
-      .click();
-    await this.page.keyboard.type("entity");
-    await this.page
-      .locator('[data-test="text-fieldMappingExtract-5"]')
-      .getByRole("textbox")
-      .click();
-    await this.page
-      .locator('[data-test="text-fieldMappingExtract-5"]')
-      .getByRole("textbox")
-      .click();
-    await this.page.keyboard.type('{{join \\" \\" firstname lastname}}');
-    await this.page.locator('[data-test="saveAndClose"]').click();
-    await this.page.getByText("New flow").click();
-    await this.page.getByRole("textbox").click({
-      clickCount: 3
-    });
-    await this.page
-      .getByRole("textbox")
-      .fill("TC_610_Credit_Card_Transaction_Add");
   }
 
   public async updateImportMappings(map: Map<any, any>) {

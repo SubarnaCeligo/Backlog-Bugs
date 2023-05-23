@@ -25,7 +25,9 @@
             ],
             "@interface/*": [
                 "src/pageFactory/interfaces/*"
-            ]
+            ],
+            "@utilities/*":["utilities/*"],
+            "@validations/*":["validations/*"]
         },
         "target": "esnext",
         "module": "commonjs",

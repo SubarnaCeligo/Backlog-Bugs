@@ -1,4 +1,7 @@
 {
+    "APP_NAME": "FTP",
+    "CONNECTION_NAME": "FTP CONNECTION",
+    "NAME": "Test C55447",
     "page_of_records":[
        {
           "record":{

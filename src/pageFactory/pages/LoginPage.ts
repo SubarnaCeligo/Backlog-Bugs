@@ -1,9 +1,6 @@
-import { IO } from "@controller/IO";
 import BasePage from "./BasePage";
-import { Utilities } from "@lib/Utilities";
 import { ILoginPage } from "@interface/ILoginPage";
 
-let util: Utilities;
 export class LoginPage extends BasePage implements ILoginPage {
   SIGNIN_PAGE_URL = "/signin";
 

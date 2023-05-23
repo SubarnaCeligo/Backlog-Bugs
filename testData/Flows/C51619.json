@@ -1,0 +1,87 @@
+{
+  "importJSON": {
+    "skipRetries": false,
+    "_integrationId": "Automation Flows",
+    "name": "C51619",
+    "disabled": false,
+    "pageProcessors": [
+      {
+        "type": "export",
+        "qa__export": {
+          "name": "C51619 Import",
+          "_connectionId": "BIGCOMMERCE CONNECTION",
+          "asynchronous": true,
+          "isLookup": true,
+          "assistant": "bigcommerce",
+          "oneToMany": false,
+          "sandbox": false,
+          "assistantMetadata": {
+            "resource": "customers",
+            "version": "v2",
+            "operation": "get_acustomer"
+          },
+          "http": {
+            "relativeURI": "/v2/customers/sample",
+            "method": "GET",
+            "headers": [],
+            "successMediaType": "json",
+            "errorMediaType": "json",
+            "formType": "assistant"
+          },
+          "rest": {
+            "relativeURI": "/v2/customers/sample",
+            "method": "GET",
+            "headers": [],
+            "allowUndefinedResource": false
+          },
+          "adaptorType": "RESTExport"
+        }
+      }
+    ],
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "name": "C51619 Export",
+          "_connectionId": "BIGCOMMERCE CONNECTION",
+          "asynchronous": true,
+          "type": "test",
+          "assistant": "bigcommerce",
+          "oneToMany": false,
+          "sandbox": false,
+          "assistantMetadata": {
+            "resource": "customers",
+            "version": "v2",
+            "operation": "list_customers"
+          },
+          "http": {
+            "relativeURI": "/v2/customers{{#compare export.http.paging.page \"!=\" \"1\"}}?page={{{export.http.paging.page}}}{{/compare}}",
+            "method": "GET",
+            "successMediaType": "json",
+            "errorMediaType": "json",
+            "formType": "assistant",
+            "paging": {
+              "method": "page",
+              "page": 1,
+              "relativeURI": "/v2/customers{{#compare export.http.paging.page \"!=\" \"1\"}}?page={{{export.http.paging.page}}}{{/compare}}",
+              "lastPageStatusCode": 404
+            }
+          },
+          "rawData": "6459f72c0efd8768f4e3ec6d08e4cf48cdfe409e826f0129002be504",
+          "test": {
+            "limit": 1
+          },
+          "rest": {
+            "relativeURI": "/v2/customers",
+            "method": "GET",
+            "pagingMethod": "pageargument",
+            "allowUndefinedResource": false,
+            "pageArgument": "page"
+          },
+          "adaptorType": "RESTExport"
+        }
+      }
+    ]
+  },
+  "ATTRIBUTE": "title",
+  "VALIDATION_TEXT": "Selected errors are added to a batch, on which you can perform bulk retry and resolve actions."
+}
