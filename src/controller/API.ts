@@ -157,12 +157,12 @@ export class API {
 
     public async getCall(endpoint) {
         const context = await request.newContext({
-            baseURL: process.env["API_URL"]
+          baseURL: process.env["IO_API_URL"]
         });
         const resp = await context.get(endpoint, {
-            headers: {
-                Authorization: await decrypt(`${process.env.API_TOKEN}`)
-            }
+          headers: {
+            Authorization: await decrypt(`${process.env.IO_Token}`)
+          }
         });
         if ((await (await resp.text()).length) > 0) {
             return await resp.json();
@@ -171,28 +171,28 @@ export class API {
 
     public async postCall(endpoint, reqBody) {
         const context = await request.newContext({
-            baseURL: process.env["API_URL"]
+          baseURL: process.env["IO_API_URL"]
         });
         const resp = await context.post(endpoint, {
-            headers: {
-                ContentType: "application/json",
-                Authorization: await decrypt(`${process.env.API_TOKEN}`)
-            },
-            data: reqBody
+          headers: {
+            ContentType: "application/json",
+            Authorization: await decrypt(`${process.env.IO_Token}`)
+          },
+          data: reqBody
         });
         return await resp.json();
     }
 
     public async putCall(endpoint, reqBody) {
         const context = await request.newContext({
-            baseURL: process.env["API_URL"]
+          baseURL: process.env["IO_API_URL"]
         });
         const resp = await context.put(endpoint, {
-            headers: {
-                ContentType: "application/json",
-                Authorization: await decrypt(`${process.env.API_TOKEN}`)
-            },
-            data: reqBody
+          headers: {
+            ContentType: "application/json",
+            Authorization: await decrypt(`${process.env.IO_Token}`)
+          },
+          data: reqBody
         });
         return await resp.json();
     }

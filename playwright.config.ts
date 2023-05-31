@@ -1,21 +1,15 @@
 import { defineConfig, devices, PlaywrightTestConfig } from "@playwright/test";
-
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-require("dotenv").config({
-  override: true,
-  path: `env/.env.${process.env.ENV}`
-});
-
 let testDirectory: any;
 
 if (process.env.SUITE) {
   testDirectory = `./tests/${process.env.SUITE}`;
 } else {
   // Default test directory if SUITE is undefined
-  testDirectory = './tests';
+  testDirectory = "./tests";
 }
 
 /**
@@ -63,7 +57,6 @@ export default defineConfig({
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
-    baseURL: process.env.BASE_URL,
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://localhost:3000',
 
@@ -83,19 +76,21 @@ export default defineConfig({
         ignoreHTTPSErrors: true,
         trace: "on",
         viewport: { width: 1440, height: 764 },
+        baseURL: process.env.IOURL
       }
     },
     {
       name: "firefox",
       use: {
         ...devices["Desktop Firefox"],
-        headless: true
+        headless: true,
+        baseURL: process.env.IOURL
       }
     },
 
     {
       name: "webkit",
-      use: { ...devices["Desktop Safari"] }
+      use: { ...devices["Desktop Safari"], baseURL: process.env.IOURL }
     }
 
     /* Test against mobile viewports. */

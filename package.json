@@ -46,6 +46,7 @@
     "husky": "^4.3.8",
     "deep-object-diff": "^1.1.7",
     "azure-storage": "^2.10.6",
-    "@wdio/allure-reporter": "^7.19.7"
+    "@wdio/allure-reporter": "^7.19.7",
+    "aws-sdk": "^2.1125.0"
   }
 }

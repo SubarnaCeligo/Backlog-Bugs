@@ -229,9 +229,9 @@ export class FlowBuilderPage extends BasePage implements IFlowBuilderPage {
 
   public async navigateToEm2Flow(flowID, flowType = "flowBuilder") {
     var intURL =
-      process.env["BASE_URL"] +
+      process.env["IOURL"] +
       "/integrations/" +
-      process.env["INTEGRATION_ID"] +
+      process.env["IO_Integration_ID"] +
       "/";
     var flowURL = intURL + flowType + "/" + flowID;
     await this.navigateTo(flowURL);
