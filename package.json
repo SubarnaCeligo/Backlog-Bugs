@@ -13,7 +13,8 @@
     "report": "allure generate allure-results --clean -o allure-report && allure open allure-report",
     "lint": "eslint . --ext .ts --quiet",
     "lint-and-fix": "eslint --fix --ext .ts .",
-    "trace":"npx playwright show-trace test-results/**/trace.zip"
+    "trace":"npx playwright show-trace test-results/**/trace.zip",
+    "test1":"node getData.js && npm run test"
   },
   "keywords": [],
   "author": "B Vinay Kumar",
@@ -46,6 +47,7 @@
     "husky": "^4.3.8",
     "deep-object-diff": "^1.1.7",
     "azure-storage": "^2.10.6",
-    "@wdio/allure-reporter": "^7.19.7"
+    "@wdio/allure-reporter": "^7.19.7",
+    "aws-sdk": "^2.1125.0"
   }
 }

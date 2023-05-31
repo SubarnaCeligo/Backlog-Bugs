@@ -10,7 +10,7 @@ import { Assertions } from "@validations/Assertions";
 import { ImportsPage } from "@pages/ImportsPage";
 import { API } from "./API";
 import * as data from "../config/configData";
-type formTypes = 'CONNECTION' | "EXPORT" | "IMPORT"
+type formTypes = "CONNECTION" | "EXPORT" | "IMPORT";
 export class IO {
   protected page: Page;
   public connectionPage: ConnectionsPage;
@@ -23,8 +23,7 @@ export class IO {
   public settingsPage: SettingsPage;
   public assert: Assertions;
   public api: API;
-  public data: typeof data
-
+  public data: typeof data;
 
   constructor(page: Page) {
     this.page = page;
@@ -41,19 +40,28 @@ export class IO {
     this.data = data;
   }
 
-
   public async fillForm(jsonData, type: formTypes) {
     switch (type.toUpperCase()) {
       case "CONNECTION":
         await this.connectionPage.fillConnectionForm(jsonData);
         break;
       case "EXPORT":
-        await this.exportsPage.fillExportForm(jsonData);
+        const expId = await this.api.createExportorImport(jsonData, "export");
+        await this.exportsPage.navigateTo(
+          process.env.IOURL + "/exports/" + expId
+        );
         break;
       case "IMPORT":
-        await this.importsPage.fillImportForm(jsonData);
+        const impId = await this.api.createExportorImport(jsonData, "import");
+        await this.importsPage.navigateTo(
+          process.env.IOURL + "/imports/" + impId
+        );
         break;
       case "FLOWS":
+        const flowId = await this.api.createFlowFromAPI(jsonData);
+        await this.flowBuilder.navigateTo(
+          process.env.IO_Integration_URL + "/flowBuilder/" + flowId
+        );
         break;
     }
   }
@@ -77,5 +85,4 @@ export class IO {
   public async login() {
     await this.loginPage.login();
   }
-
 }
