@@ -31,7 +31,6 @@
     }
   },
   "devDependencies": {
-    "@celigo/aut-logger":"0.0.2",
     "@celigo/ui-core-automation": "0.0.3",
     "@celigo/aut-selectors": "latest",
     "@playwright/test": "^1.32.3",
