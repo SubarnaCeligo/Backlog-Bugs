@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "rm -rf ./allure-results && npx playwright test --project=UIUX --headed --config=node_modules/@celigo/ui-core-automation/dist/playwright.config.js",
-    "test:smoke":"rm -rf ./allure-results && npx playwright test --project=UIUX --headed --config=node_modules/@celigo/ui-core-automation/playwright.config.ts --grep '@smoke'",
+    "test:smoke": "rm -rf ./allure-results && npx playwright test --project=UIUX --headed --config=node_modules/@celigo/ui-core-automation/playwright.config.ts --grep '@smoke'",
     "test:visual": "npm run storybook-build && npx playwright test --config=node_modules/@celigo/ui-test-automation/dist/visual.config.js --workers 3",
     "updateSnapshots": "npm run storybook-build && npx playwright test --config=node_modules/@celigo/ui-test-automation/dist/visual.config.js --update-snapshots",
     "build": "rm -rf ./dist && npx tsc",
@@ -13,7 +13,7 @@
     "report": "allure generate allure-results --clean -o allure-report && allure open allure-report",
     "lint": "eslint . --ext .ts --quiet",
     "lint-and-fix": "eslint --fix --ext .ts .",
-    "trace":"npx playwright show-trace test-results/**/trace.zip"
+    "trace": "npx playwright show-trace test-results/**/trace.zip"
   },
   "keywords": [],
   "author": "B Vinay Kumar",
@@ -31,15 +31,15 @@
     }
   },
   "devDependencies": {
+    "@celigo/aut-selectors": "^0.0.3",
     "@celigo/ui-core-automation": "0.0.3",
-    "@celigo/aut-selectors": "latest",
     "@playwright/test": "^1.32.3",
     "allure-playwright": "^2.2.1",
     "playwright": "^1.32.3"
   },
   "dependencies": {
-    "viewport-dimensions": "^0.2.0",
     "atob": "^2.1.2",
-    "husky": "^4.3.8"
+    "husky": "^4.3.8",
+    "viewport-dimensions": "^0.2.0"
   }
 }

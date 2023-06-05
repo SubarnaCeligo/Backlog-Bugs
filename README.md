@@ -24,6 +24,10 @@ ENV={env} npm run test:smoke - To run tests based on tags.Tags are defined in th
 npm run report
 ```
 
+## Command to get latest selectors
+```sh
+npm i --save-dev @celigo/aut-selectors@latest
+```
 ## Features
 
 - **Awesome report with screenshots, videos & logs**: Generate detailed test reports with screenshots and videos of test executions, as well as logs for easy debugging and analysis.
