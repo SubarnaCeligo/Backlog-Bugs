@@ -1,9 +1,9 @@
-import { test, expect } from "@lib/BaseTest";
-import * as selectors from "@selectors/Selectors";
+import { test, expect } from "@celigo/ui-core-automation";
+import * as selectors from "@celigo/aut-selectors";
 import * as C57810 from "@testData/Connections/C57810.json";
 import * as C57811 from "@testData/Connections/C57811.json"
 
-test.describe.skip("Connections Page Test Cases", () => {
+test.describe("Connections Page Test Cases", () => {
   test.beforeEach(async ({ io }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
   });
@@ -13,15 +13,15 @@ test.describe.skip("Connections Page Test Cases", () => {
   }) => {
     await io.fillForm(C57810, "CONNECTION");
     await io.connectionPage.click(
-      selectors.ConnectionsPagePO.MAGENTO2_GENERATE_TOKEN
+      selectors.connectionsPagePO.MAGENTO2_GENERATE_TOKEN
     );
     await io.connectionPage.fill(
-      selectors.ConnectionsPagePO.MAGENTO2_BASE_URI,
+      selectors.connectionsPagePO.MAGENTO2_BASE_URI,
       C57810.Magento_URI
     );
-    await io.connectionPage.click(selectors.ConnectionsPagePO.TEST_CONNECTION);
+    await io.connectionPage.click(selectors.connectionsPagePO.TEST_CONNECTION);
     var actual = await io.connectionPage.getText(
-      selectors.MyAccountPagePO.SNACK_BAR_MESSAGE
+      selectors.myAccountPagePO.SNACK_BAR_MESSAGE
     );
     await expect(actual).toBe(
       "Your test was not successful. Check your information and try again"
@@ -33,11 +33,11 @@ test.describe.skip("Connections Page Test Cases", () => {
   }) => {
     await io.fillForm(C57811, "CONNECTION");
     await io.connectionPage.click(
-      selectors.ConnectionsPagePO.MAGENTO2_GENERATE_TOKEN
+      selectors.connectionsPagePO.MAGENTO2_GENERATE_TOKEN
     );
-    await io.connectionPage.click(selectors.BasePagePO.SAVE_AND_CLOSE);
+    await io.connectionPage.click(selectors.basePagePO.SAVE_AND_CLOSE);
     await io.assert.verifyElementContainsText(
-      selectors.ConnectionsPagePO.FIRST_ROW_IN_CONNECTIONS_PAGE,
+      selectors.connectionsPagePO.FIRST_ROW_IN_CONNECTIONS_PAGE,
       "Test C57811"
     );
   });

@@ -4,8 +4,8 @@
   "description": "playwright test framework for celigo ui/ux automation",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test --project=UIUX --headed --config=playwright.config.ts",
-    "test:smoke":"npx playwright test --project=UIUX --headed --config=playwright.config.ts --grep '@smoke'",
+    "test": "rm -rf ./allure-results && npx playwright test --project=UIUX --headed --config=node_modules/@celigo/ui-core-automation/dist/playwright.config.js",
+    "test:smoke":"rm -rf ./allure-results && npx playwright test --project=UIUX --headed --config=node_modules/@celigo/ui-core-automation/playwright.config.ts --grep '@smoke'",
     "test:visual": "npm run storybook-build && npx playwright test --config=node_modules/@celigo/ui-test-automation/dist/visual.config.js --workers 3",
     "updateSnapshots": "npm run storybook-build && npx playwright test --config=node_modules/@celigo/ui-test-automation/dist/visual.config.js --update-snapshots",
     "build": "rm -rf ./dist && npx tsc",
@@ -31,22 +31,16 @@
     }
   },
   "devDependencies": {
-    "@celigo/rest-api-automation": "^0.0.73",
-    "@celigo/ui-test-automation": "0.0.5",
-    "@celigo/aut-logger":"0.0.1",
+    "@celigo/aut-logger":"0.0.2",
+    "@celigo/ui-core-automation": "0.0.3",
+    "@celigo/aut-selectors": "latest",
     "@playwright/test": "^1.32.3",
-    "@reportportal/agent-js-playwright": "^5.0.8",
     "allure-playwright": "^2.2.1",
     "playwright": "^1.32.3"
   },
   "dependencies": {
     "viewport-dimensions": "^0.2.0",
     "atob": "^2.1.2",
-    "fs": "0.0.1-security",
-    "husky": "^4.3.8",
-    "deep-object-diff": "^1.1.7",
-    "azure-storage": "^2.10.6",
-    "@wdio/allure-reporter": "^7.19.7",
-    "aws-sdk": "^2.1125.0"
+    "husky": "^4.3.8"
   }
 }

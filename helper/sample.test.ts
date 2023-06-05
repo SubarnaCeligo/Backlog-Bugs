@@ -1,5 +1,5 @@
-import { test, expect } from "@lib/BaseTest";
-import * as selectors from "@selectors/Selectors";
+import { test, expect } from "@celigo/ui-core-automation";
+import * as selectors from "@celigo/aut-selectors";
 import * as C752 from "@testData/MyAccount/C752.json";
 
 test.describe("SAMPLE TEST CASE", () => {
@@ -13,7 +13,7 @@ test.describe("SAMPLE TEST CASE", () => {
         //Perform UI Actions
         await io.myAccountPage.changePassword(C752);
         let msg = await io.myAccountPage.getText(
-            selectors.MyAccountPagePO.SNACK_BAR_MESSAGE
+            selectors.myAccountPagePO.SNACK_BAR_MESSAGE
         );
         //Verify Results With Assertions
         await expect(msg).toContain(

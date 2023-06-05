@@ -5,29 +5,12 @@
             "*": [
                 "types/*"
             ],
-            "@pages/*": [
-                "src/pageFactory/pages/*"
-            ],
-            "@selectors/*": [
-                "selectors/*"
-            ],
-            "@lib/*": [
-                "src/lib/*"
-            ],
             "@helper/*": [
                 "helper/*"
             ],
             "@testData/*": [
                 "testData/*"
-            ],
-            "@controller/*": [
-                "src/controller/*"
-            ],
-            "@interface/*": [
-                "src/pageFactory/interfaces/*"
-            ],
-            "@utilities/*":["utilities/*"],
-            "@validations/*":["validations/*"]
+            ]
         },
         "target": "esnext",
         "module": "commonjs",
