@@ -12,12 +12,6 @@ test.describe("SAMPLE TEST CASE", () => {
     }) => {
         //Perform UI Actions
         await io.myAccountPage.changePassword(C752);
-        let msg = await io.myAccountPage.getText(
-            selectors.myAccountPagePO.SNACK_BAR_MESSAGE
-        );
-        //Verify Results With Assertions
-        await expect(msg).toContain(
-            "Current password failed to authenticate.  Please try again."
-        );
+        await io.assert.verifyElementText(selectors.myAccountPagePO.SNACK_BAR_MESSAGE, "Current password failed to authenticate.  Please try again.")
     });
 });
