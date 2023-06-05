@@ -1,5 +1,5 @@
-import { test, expect } from "@lib/BaseTest";
-import * as selectors from "@selectors/Selectors";
+import { test, expect } from "@celigo/ui-core-automation";
+import * as selectors from "@celigo/aut-selectors";
 import * as C752 from "@testData/MyAccount/C752.json";
 
 test.describe("My Account Test Case new", () => {
@@ -13,7 +13,7 @@ test.describe("My Account Test Case new", () => {
   }) => {
     await io.myAccountPage.changePassword(C752);
     let msg = await io.myAccountPage.getText(
-      selectors.MyAccountPagePO.SNACK_BAR_MESSAGE
+      selectors.myAccountPagePO.SNACK_BAR_MESSAGE
     );
     await expect(msg).toContain(
       "Current password failed to authenticate.  Please try again."
@@ -23,10 +23,10 @@ test.describe("My Account Test Case new", () => {
   test("C28995 Verify Help texts are scrollable in My account Users", async ({
     io
   }) => {
-    await io.myAccountPage.click(selectors.MyAccountPagePO.USERS);
-    await io.myAccountPage.click(selectors.MyAccountPagePO.HELP_TEXT);
+    await io.myAccountPage.click(selectors.myAccountPagePO.USERS);
+    await io.myAccountPage.click(selectors.myAccountPagePO.HELP_TEXT);
     await io.assert.checkSnapshot(
-      selectors.MyAccountPagePO.HELP_TEXT_DIALOG_BOX,
+      selectors.myAccountPagePO.HELP_TEXT_DIALOG_BOX,
       "HelpText.png"
     );
   });

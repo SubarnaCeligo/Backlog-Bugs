@@ -1,6 +1,6 @@
-// import { test, expect } from "@lib/BaseTest";
+// import { test, expect } from "@celigo/ui-core-automation";
 // import { flowsTestData } from "@testData/Flows";
-// import * as selectors  from "@selectors/Selectors";
+// import * as selectors  from "@celigo/aut-selectors";
 
 // test.describe.skip("Flows Page Test Cases", () => {
 //   test.beforeEach(async ({ flowBuilderPage, basePage,io }) => {
@@ -233,5 +233,5 @@
 //   //     await flowBuilderPage.deleteFlow();
 //   //   });
 
- 
+
 // });
