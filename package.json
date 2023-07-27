@@ -13,7 +13,8 @@
     "report": "allure generate allure-results --clean -o allure-report && allure open allure-report",
     "lint": "eslint . --ext .ts --quiet",
     "lint-and-fix": "eslint --fix --ext .ts .",
-    "trace":"npx playwright show-trace test-results/**/trace.zip"
+    "trace":"npx playwright show-trace test-results/**/trace.zip",
+    "uploadReport": "node uploadReport.js"
   },
   "keywords": [],
   "author": "B Vinay Kumar",
@@ -31,8 +32,9 @@
     }
   },
   "devDependencies": {
-    "@celigo/ui-core-automation": "0.0.3",
+    "@celigo/ui-core-automation": "0.0.4",
     "@celigo/aut-selectors": "latest",
+    "@celigo/aut-utilities": "0.0.6",
     "@playwright/test": "^1.32.3",
     "allure-playwright": "^2.2.1",
     "playwright": "^1.32.3"
