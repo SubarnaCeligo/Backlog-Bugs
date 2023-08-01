@@ -1,3 +1,6 @@
+require("./TC_C1458");
+require("./TC_C1459");
+
 // import { test, expect } from "@celigo/ui-core-automation";
 // import { flowsTestData } from "@testData/Flows";
 // import * as selectors  from "@celigo/aut-selectors";
@@ -232,6 +235,5 @@
 //   //     await webActions.click(commonPagePO.CLOSE);
 //   //     await flowBuilderPage.deleteFlow();
 //   //   });
-
 
 // });
