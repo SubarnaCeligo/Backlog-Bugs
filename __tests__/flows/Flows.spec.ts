@@ -1,5 +1,7 @@
 require("./TC_C1458");
 require("./TC_C1459");
+require("./TC_C53278");
+require("./TC_C56649");
 
 // import { test, expect } from "@celigo/ui-core-automation";
 // import { flowsTestData } from "@testData/Flows";
