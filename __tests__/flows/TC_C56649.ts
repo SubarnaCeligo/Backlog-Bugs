@@ -11,11 +11,13 @@ test.describe(`C56649 Verify the Router name field by entering the names of diff
     page
   }) => {
     await io.flowBuilder.clickByText("Flow builder");
+    // TODO: Change selector once added in aut-selectors (flowBuilderPagePO.PLUS_BUTTONS)
     const plusButtonsSelector = `.react-flow__edge .MuiButtonBase-root`;
     await io.flowBuilder.waitForElementAttached(plusButtonsSelector);
     const plusButtonsLocator = await page.$$(plusButtonsSelector);
     await plusButtonsLocator[0].click();
     await io.flowBuilder.clickByText("Add branching");
+    // TODO: Change selector once added in aut-selectors (flowBuilderPagePO.BRANCH_NAME_INPUT)
     const inputSelector =
       ".MuiInputBase-input.MuiFilledInput-input.MuiInputBase-inputMultiline";
     const inputElement = await page.$(inputSelector);
