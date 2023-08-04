@@ -11,11 +11,13 @@ test.describe(`C53278 Verfiy by adding a name for the router in the “Add branc
     page
   }) => {
     await io.flowBuilder.clickByText("Flow builder");
+    // TODO: Change selector once added in aut-selectors (flowBuilderPagePO.PLUS_BUTTONS)
     const plusButtonsSelector = `.react-flow__edge .MuiButtonBase-root`;
     await io.flowBuilder.waitForElementAttached(plusButtonsSelector);
     const plusButtonsLocator = await page.$$(plusButtonsSelector);
     await plusButtonsLocator[0].click();
     await io.flowBuilder.clickByText("Add branching");
+    // TODO: Change selector once added in aut-selectors (flowBuilderPagePO.BRANCH_NAME_INPUT)
     await io.flowBuilder.fill(
       ".MuiInputBase-input.MuiFilledInput-input.MuiInputBase-inputMultiline",
       "Custom Branch"
