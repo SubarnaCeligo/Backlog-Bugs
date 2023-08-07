@@ -12,8 +12,7 @@ test.describe(`C1458 Verify Notify me when job has errors field contains all the
   }) => {
     await io.homePage.clickByText("Automation Flows");
     const url = new URL(page.url());
-    // TODO: Change selector once added in aut-selectors (integrationPagePO.NOTIFICATIONS_TAB)
-    await io.flowBuilder.click("[data-test='Notifications']");
+    await io.flowBuilder.click(selectors.integrationPagePO.NOTIFICATIONS_TAB);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.NOTIFICATION_FLOWS);
     const path = url.pathname;
     const flows = await io.api.getCall(`v1${path}`);
