@@ -10,15 +10,18 @@ test.describe(`C1459 Verify User should not select multiple flows and also "All 
     io,
     page
   }) => {
-    io.homePage.clickByText("Automation Flows");
-    io.flowBuilder.click(selectors.integrationPagePO.NOTIFICATIONS_TAB);
-    io.flowBuilder.click(selectors.flowBuilderPagePO.NOTIFICATION_FLOWS);
-    for (const li of await page.getByRole("listbox").all()) {
-      await li.click();
+    await io.homePage.clickByText("Automation Flows");
+    await io.flowBuilder.click(selectors.integrationPagePO.NOTIFICATIONS_TAB);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.NOTIFICATION_FLOWS);
+    // TODO: selector.flowBuilderPagePO.FLOWS_LIST
+    const flowsList = await page.$$("[role=listbox] li");
+    for (const flow of flowsList) {
+      await flow.click();
     }
     const allFlowsCheckbox = page
       .getByRole("option")
       .filter({ has: page.getByText("All flows") });
+    // await allFlowsCheckbox.waitFor({ state: "visible", timeout: 10000 });
     await expect(allFlowsCheckbox).toHaveAttribute("aria-selected", "false");
   });
 });

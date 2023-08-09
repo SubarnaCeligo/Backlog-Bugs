@@ -1,0 +1,23 @@
+import { test, expect } from "@celigo/ui-core-automation";
+import * as selectors from "@celigo/aut-selectors";
+import * as testData from "@testData/Marketplace/C22282.json";
+
+test.describe(`C22282 Verify, when the description is large on the tile, scroll bar needs to present`, () => {
+  test.beforeEach(async ({ io }) => {
+    await io.flowBuilder.navigateTo(io.data.links.HOME_PAGE_URL);
+  });
+
+  test(`C22282 Verify, when the description is large on the tile, scroll bar needs to present`, async ({
+    io,
+    page
+  }) => {
+    // TODO: selectors.flowBuilderPagePO.MARKETPLACE
+    io.homePage.click("[data-test='Marketplace']");
+    io.homePage.clickByText("NetSuite");
+    const description = page.getByText(testData.description);
+    const isScrollable = await description.evaluate(
+      e => e.scrollHeight > e.clientHeight
+    );
+    expect(isScrollable).toBe(true);
+  });
+});
