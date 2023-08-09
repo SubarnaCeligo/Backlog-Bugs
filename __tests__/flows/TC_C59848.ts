@@ -7,9 +7,9 @@ test.describe("C59848 To verify that the Integrations will load properly", () =>
         await io.homePage.clickByText('Automation Flows');
         const isDeleteIntegrationVisible = await io.homePage.isVisible(selectors.integrationPagePO.DELETE_INTEGRATION);
         const isCloneIntegrationVisible = await io.homePage.isVisible(selectors.integrationPagePO.CLONE_INTEGRATION);
-        const isFlowsTabVisible = await io.homePage.isVisible("[data-test=Flows]");
-        const isDashboardTabVisible = await io.homePage.isVisible("[data-test=Dashboard]");
-        const isNotificationsTabVisible = await io.homePage.isVisible("[data-test=Notifications]");
+        const isFlowsTabVisible = await io.homePage.isVisible(selectors.integrationPagePO.FLOWS_TAB);
+        const isDashboardTabVisible = await io.homePage.isVisible(selectors.integrationPagePO.DASHBOARD_TAB);
+        const isNotificationsTabVisible = await io.homePage.isVisible(selectors.integrationPagePO.NOTIFICATIONS_TAB);
         const pageTitle = page.getByRole('heading', {name : 'Automation Flows', exact: true});
         await expect(pageTitle).toHaveText('Automation Flows');
         expect(isDeleteIntegrationVisible).toBe(true);
