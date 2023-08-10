@@ -1,4 +1,3 @@
-require("./TC_C60096");
 require("./TC_C63734")
 
 // import { test, expect } from "@celigo/ui-core-automation";
