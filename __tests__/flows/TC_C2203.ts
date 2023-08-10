@@ -14,10 +14,10 @@ test.describe(`C2203 Verify existing stacks are shown for flow builder exports a
     await io.flowBuilder.clickByText("test http flow");
     await page.getByLabel("Define options").first().click();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_HOOK);
-    // TODO: selector.flowBuilderPagePO.HOOK_TYPE_SCRIPT_OPTION
-    await io.flowBuilder.click("[data-test='stack']");
-    // TODO: selector.flowBuilderPagePO.STACKS_DROPDOWN
-    await io.flowBuilder.click("[data-test='stackId']");
+    await io.flowBuilder.click(
+      selectors.flowBuilderPagePO.HOOK_TYPE_SCRIPT_OPTION
+    );
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.STACKS_DROPDOWN);
     const stackList = await page.$$("[role=menuitem]");
     const stacks = await io.api.getCall(`v1/stacks`);
     expect(stackList.length - 1).toEqual(stacks.length);

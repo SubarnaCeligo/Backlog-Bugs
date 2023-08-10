@@ -12,8 +12,7 @@ test.describe(`C27978 Verify 'What would you like to export?' drawer label is up
   }) => {
     await io.homePage.clickByText("Standalone flows");
     await io.flowBuilder.clickByText("test http flow");
-    // TODO: selectors.flowBuilderPagePO.TRANSFER
-    await io.flowBuilder.click("[data-test='Transfer']");
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);
     const label = page.getByText("Where would you like to transfer from?");
     await label.waitFor({ state: "visible", timeout: 10000 });
     expect(label).toBeVisible();

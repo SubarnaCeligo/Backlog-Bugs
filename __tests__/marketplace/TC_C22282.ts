@@ -11,8 +11,7 @@ test.describe(`C22282 Verify, when the description is large on the tile, scroll 
     io,
     page
   }) => {
-    // TODO: selectors.flowBuilderPagePO.MARKETPLACE
-    io.homePage.click("[data-test='Marketplace']");
+    io.homePage.click(selectors.basePagePO.MARKETPLACE);
     io.homePage.clickByText("NetSuite");
     const description = page.getByText(testData.description);
     const isScrollable = await description.evaluate(

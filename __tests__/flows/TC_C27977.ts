@@ -12,8 +12,7 @@ test.describe(`C27977 Verify the fields in 'Non-standard API response patterns' 
   }) => {
     await io.homePage.clickByText("Standalone flows");
     await io.flowBuilder.clickByText("test http flow");
-    // TODO: selectors.flowBuilderPagePO.TRANSFER
-    await io.flowBuilder.click("[data-test='Transfer']");
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);
     await io.flowBuilder.clickByText("Non-standard API response patterns");
     expect(page.getByText("Path to file in HTTP response body")).toBeVisible();
   });

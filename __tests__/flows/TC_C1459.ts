@@ -13,8 +13,7 @@ test.describe(`C1459 Verify User should not select multiple flows and also "All 
     await io.homePage.clickByText("Automation Flows");
     await io.flowBuilder.click(selectors.integrationPagePO.NOTIFICATIONS_TAB);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.NOTIFICATION_FLOWS);
-    // TODO: selector.flowBuilderPagePO.FLOWS_LIST
-    const flowsList = await page.$$("[role=listbox] li");
+    const flowsList = await page.$$(selectors.flowBuilderPagePO.FLOWS_LIST);
     for (const flow of flowsList) {
       await flow.click();
     }

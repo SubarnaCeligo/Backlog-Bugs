@@ -12,12 +12,9 @@ test.describe(`C33167 Verify When there are unsaved changes and user tries to cl
   }) => {
     await io.homePage.clickByText("Standalone flows");
     await io.flowBuilder.clickByText("test http flow");
-    // TODO: selectors.flowBuilderPagePO.TRANSFER
-    await io.flowBuilder.click("[data-test='Transfer']");
-    // TODO: selectors.flowBuilderPagePO.DESCRIPTION
-    await io.flowBuilder.fill("#description input", "test");
-    // TODO: selectors.flowBuilderPagePO.CLOSE
-    await io.flowBuilder.click("[data-test='cancel']");
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);
+    await io.flowBuilder.fill(selectors.flowBuilderPagePO.DESCRIPTION, "test");
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
     expect(page.getByRole("dialog")).toBeVisible();
   });
 });
