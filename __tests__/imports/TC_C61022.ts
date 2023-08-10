@@ -11,8 +11,8 @@ test.describe('C61022', () => {
         await io.homePage.clickByText('Resources');
         await io.homePage.clickByText('Imports')
         await io.homePage.clickByText(' Create import')
-        await page.click(selectors.importPagePO.NETSUITE_IMPORT)
-        await page.click(selectors.importPagePO.NETSUITE_CONNECTIONS);
+        await io.importsPage.click(selectors.importPagePO.NETSUITE_IMPORT)
+        await io.importsPage.click(selectors.importPagePO.NETSUITE_CONNECTIONS);
          await io.homePage.clickByText('NETSUITE CONNECTION')
          await page.type(selectors.importPagePO.NETSUITE_NAME, 'import');
          await io.homePage.clickByText('Next');
