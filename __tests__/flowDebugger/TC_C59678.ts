@@ -13,8 +13,8 @@ test.describe("To verify that the Export/Import bubbles are working as expected"
      
         await io.fillForm(C59678, "FLOWS");
 
-         expect("data-test= Export").toBeTruthy();
-         expect("data-test= Import").toBeTruthy();
+         expect(selectors.exportsPagePO.EXPORT_NAME).toBeTruthy();
+         expect(selectors.importPagePO.IMPORT_NAME).toBeTruthy();
 
     });
 })
