@@ -1,5 +1,5 @@
 {
-    "name": "TC_266_NS_to_HTTP_Json_PUT",
+    "name": "C59678",
     "disabled": false,
     "timezone": "Asia/Calcutta",
     "_integrationId": "56d6b23fe1fc35de53914730",
@@ -77,7 +77,7 @@
         "importapiIdentifier": "i1672c3a46",
         "expected": {
             "Zendesk": {
-                "name": "TC_266_NS_to_HTTP_Json_PUT",
+                "name": "C59678",
                 "_integrationId": "56d6b23fe1fc35de53914730",
                 "import": {
                     "_connectionId": "HTTP ZENDESK CONNECTION"

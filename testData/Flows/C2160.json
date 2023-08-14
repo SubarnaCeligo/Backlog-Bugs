@@ -1,5 +1,5 @@
 {
-    "name": "C45340",
+    "name": "flow with long name and description",
     "disabled": false,
     "timezone": "Asia/Calcutta",
     "_integrationId": "56d6b23fe1fc35de53914730",
@@ -77,7 +77,7 @@
         "importapiIdentifier": "i1672c3a46",
         "expected": {
             "Zendesk": {
-                "name": "C45340",
+                "name": "flow with long name and description",
                 "_integrationId": "56d6b23fe1fc35de53914730",
                 "import": {
                     "_connectionId": "HTTP ZENDESK CONNECTION"

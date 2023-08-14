@@ -1,5 +1,7 @@
 require("./TC_C63734")
 require("./TC_C53344")
+require("./TC_C53345")
+ 
 
 // import { test, expect } from "@celigo/ui-core-automation";
 // import * as selectors from "@celigo/aut-selectors";
