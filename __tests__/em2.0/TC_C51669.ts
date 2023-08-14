@@ -1,6 +1,6 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import flowJSON from "@testData/em2.0/C51669.json";
+import flowJSON from "@testData/Em2.0/C51669.json";
 
 test.describe(`C51669 Verify by closing the "Error details" drawer without saving the changes made on "Edit Retry data"tab`, () => {
   test(`C51669 Verify by closing the "Error details" drawer without saving the changes made on "Edit Retry data"tab`, async ({
