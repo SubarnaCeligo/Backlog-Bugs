@@ -8,7 +8,7 @@ test.describe("C52048 Verify the Resolved errors tab, when no results are return
     page
   }) => {
     const id = await io.fillForm(testData, "FLOWS");
-    await io.api.runBatchFlowViaAPI("erronous flow", id);
+    await io.api.runBatchFlowViaAPI("C52048", id);
     const lastRun = page.getByText("Last run");
     await lastRun.waitFor({ state: "visible" });
     await page.getByText("1 error").nth(1).click();
