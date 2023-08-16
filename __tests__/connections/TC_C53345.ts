@@ -11,7 +11,7 @@ test.describe("Verify Base URI is not present in UPS Edit Connection page", () =
         await io.homePage.clickByText('Resources');
         await io.connectionPage.clickByText('Connections')
         await io.connectionPage.clickByText('Create connection')
-        await io.connectionPage.click("[data-test=UPS]")
+        await io.connectionPage.click(selectors.connectionsPagePO.UPS_CONNECTION)
  
         const fieldSelector = '[name=BaseUrl]'; // Replace with the actual selector
       

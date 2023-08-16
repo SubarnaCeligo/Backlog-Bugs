@@ -15,7 +15,7 @@ test.describe('Verify for the backupBucket for S3 import, only AFE 2.0 supports'
 
         await io.flowBuilder.clickByText("Advanced");
 
-        const element = await page.waitForSelector('[data-test="file.backupPath"]');
+        const element = await page.waitForSelector(selectors.importPagePO.S3_IMPORT_BACKUP_BUCKET);
 
 
           const toggleElement1 = await page.locator('[data-toggle-id="afe-1"]');

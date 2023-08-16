@@ -13,10 +13,10 @@ test.describe('verify user must be able to save the mapper 2.0 mappings exist if
           await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS)
         
            await io.flowBuilder.clickByText("Mapper 1.0");
-           await io.flowBuilder.click("[data-test=text-fieldMappingGenerate-0]");
+           await io.flowBuilder.click(selectors.mappings.Mapper1dot0PO.DESTINATION_INPUT);
 
           
-           const parentElement = await page.locator('[data-test="text-fieldMappingGenerate-0"]');
+           const parentElement = await page.locator(selectors.mappings.Mapper1dot0PO.DESTINATION_INPUT);
 
 
            // Find the <textarea> element within the parent element
@@ -57,7 +57,7 @@ test.describe('verify user must be able to save the mapper 2.0 mappings exist if
       
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.DESTINATION_MAPPING_PLACEHOLDER, "mapping");
 
-        await io.flowBuilder.click(".rc-tree-list-holder")
+        await io.flowBuilder.click(selectors.mappings.Mapper2dot0PO.FORWINDOWCLICK)
 
 
         await io.flowBuilder.clickByText("Save")
