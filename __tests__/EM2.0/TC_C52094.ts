@@ -9,15 +9,15 @@ test.describe("C52094 Verify the 'Add to Batch' check box option in both 'Curren
         const lastRun = page.getByText('Last run')
         await lastRun.waitFor({state: 'visible'});
         await page.getByText("1 error").nth(1).click();
-        await io.flowBuilder.waitForElementAttached('text="Add to batch"');
-        expect(await page.$('text="Add to batch"')).not.toBe(null);
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2dot0PO.ADD_TO_BATCH);
+        expect(await page.$(selectors.flowBuilderPagePO.EM2dot0PO.ADD_TO_BATCH)).not.toBe(null);
 
-        await io.flowBuilder.click('#toggle-view');
-        const views = await page.$$('[role=listbox] li');
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2dot0PO.TOGGLE_VIEW_DROPDOWN);
+        const views = await page.$$(selectors.flowBuilderPagePO.EM2dot0PO.TOGGLE_VIEW_DROPDOWN_OPTIONS);
         views[1].click();
-        await io.flowBuilder.waitForElementAttached('.MuiPaper-elevation16 div .MuiTableRow-hover td [data-test=openActionsMenu]');
-        await io.flowBuilder.click('.MuiPaper-elevation16 div .MuiTableRow-hover td [data-test=openActionsMenu]');
-        await io.flowBuilder.click('[data-test=editRetryData]');
-        expect(await page.$('text="Add to batch"')).not.toBe(null);
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2dot0PO.ACTIONS_MENU);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2dot0PO.ACTIONS_MENU);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2dot0PO.ACTIONS_MENU_EDIT_RETRY_DATA);
+        expect(await page.$(selectors.flowBuilderPagePO.EM2dot0PO.ADD_TO_BATCH)).not.toBe(null);
     });
 });

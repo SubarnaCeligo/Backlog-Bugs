@@ -9,11 +9,11 @@ test.describe("C51643 Verify the default view by clicking on the Error count in 
         const lastRun = page.getByText('Last run')
         await lastRun.waitFor({state: 'visible'});
         await page.getByText("1 error").nth(1).click();
-        await expect(page.locator('#tab-0')).toHaveAttribute('aria-selected', 'true');
-        await io.flowBuilder.waitForElementAttached('.MuiPaper-elevation16 div .MuiTableBody-root tr');
-        const errorList = await page.$$('.MuiPaper-elevation16 div .MuiTableBody-root tr');
+        await expect(page.locator(selectors.flowBuilderPagePO.EM2dot0PO.OPEN_ERRORS)).toHaveAttribute('aria-selected', 'true');
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2dot0PO.OPEN_ERRORS_TABLE_ROWS);
+        const errorList = await page.$$(selectors.flowBuilderPagePO.EM2dot0PO.OPEN_ERRORS_TABLE_ROWS);
         expect(await errorList[0].getAttribute('class')).toContain('Mui-selected');
-        expect(page.locator('.ace_text-input')).toBeDefined();
-        expect(page.locator('text="Error details"')).toBeDefined();
+        expect(page.locator(selectors.flowBuilderPagePO.EM2dot0PO.ACE_EDITOR_INPUT)).toBeDefined();
+        expect(page.getByText('Error details')).toBeDefined();
     });
 });

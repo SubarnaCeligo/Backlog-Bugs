@@ -9,8 +9,8 @@ test.describe("C51626 Verify the Actions coloumn the New view by navigating from
         const lastRun = page.getByText('Last run')
         await lastRun.waitFor({state: 'visible'});
         await page.getByText("1 error").nth(1).click();
-        await io.flowBuilder.waitForElementAttached('.MuiPaper-elevation16 div .MuiTableRow-head th');
-        let columnTitles = await page.$$('.MuiPaper-elevation16 div .MuiTableRow-head th');
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2dot0PO.OPEN_ERRORS_TABLE_HEADERS);
+        let columnTitles = await page.$$(selectors.flowBuilderPagePO.EM2dot0PO.OPEN_ERRORS_TABLE_HEADERS);
         columnTitles.forEach(async columnTitle => {
             const text = await columnTitle.textContent();
             expect(text).not.toBe('Actions');

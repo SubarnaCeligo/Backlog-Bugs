@@ -9,7 +9,7 @@ test.describe("C51656 Verify the Scroll bar for Message column in the Error rows
         const lastRun = page.getByText('Last run')
         await lastRun.waitFor({state: 'visible'});
         await page.getByText("1 error").nth(1).click();
-        await io.flowBuilder.waitForElementAttached('.MuiPaper-elevation16 div .MuiTableBody-root tr');
-        expect(await io.flowBuilder.isScrollable('.MuiPaper-elevation16 div .MuiTableBody-root tr td div div .MuiBox-root')).toBe(false);
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2dot0PO.OPEN_ERRORS_TABLE_ROWS);
+        expect(await io.flowBuilder.isScrollable(selectors.flowBuilderPagePO.EM2dot0PO.OPEN_ERRORS_MESSAGE_COLUMN)).toBe(false);
     });
 });
