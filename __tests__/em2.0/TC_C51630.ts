@@ -15,11 +15,14 @@ test.describe(`C51630 Verify the "Previous" & "Next" options in the "Error detai
     const lastRun = page.getByText("Last run");
     await lastRun.waitFor({ state: "visible" });
     await page.getByText("1 error").nth(1).click();
-    // TODO: selectors.flowBuilderPagePO.PREVIOUS_ERROR_BUTTON
-    await expect(page.locator('[data-test="previousError"]')).toBeVisible();
-    // TODO: selectors.flowBuilderPagePO.NEXT_ERROR_BUTTON
-    await expect(page.locator('[data-test="nextError"]')).toBeVisible();
-    // TODO: selectors.flowBuilderPagePO.PREVIOUS_ERROR_BUTTON
-    await expect(page.locator('[data-test="previousError"]')).toBeDisabled();
+    await expect(
+      page.locator(selectors.flowBuilderPagePO.PREVIOUS_ERROR_BUTTON)
+    ).toBeVisible();
+    await expect(
+      page.locator(selectors.flowBuilderPagePO.NEXT_ERROR_BUTTON)
+    ).toBeVisible();
+    await expect(
+      page.locator(selectors.flowBuilderPagePO.PREVIOUS_ERROR_BUTTON)
+    ).toBeDisabled();
   });
 });
