@@ -7,7 +7,6 @@ require("./TC_C22457");
 require("./TC_C60440");
 require("./TC_C55915");
 require("./TC_C59848");
-// new
 require("./TC_C59978");
 require("./TC_C59979");
 require("./TC_C28982");
