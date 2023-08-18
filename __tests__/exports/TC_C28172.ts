@@ -21,8 +21,7 @@ test.describe(`C28172 Verify export type dropdown values are updated in HTTP/RES
     await io.flowBuilder.clickByText("3PL CONNECTION");
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.delay(2000);
-    // TODO: await io.flowBuilder.click(selectors.exportsPagePO.EXPORT_TYPE_DROPDOWN);
-    await io.flowBuilder.click('[data-test="type"]');
+    await io.flowBuilder.click(selectors.exportsPagePO.EXPORT_TYPE_DROPDOWN);
     await expect(page.getByText("All – always export all data")).toBeVisible();
     await expect(
       page.getByText("Delta – export only modified data")
