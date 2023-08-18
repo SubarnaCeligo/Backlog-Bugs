@@ -13,7 +13,7 @@ test.describe("Verify Base URI is not present in Shopify Connection page", () =>
         await io.connectionPage.clickByText('Create connection')
         await io.connectionPage.click(selectors.connectionsPagePO.SHOPIFY_CONNECTION)
  
-        const usernameFieldSelector = '[name=BaseUrl]'; // Replace with the actual selector
+        const usernameFieldSelector = selectors.connectionsPagePO.MOCK_BASEURL; // Replace with the actual selector
       
         // Use page.$() to check if the username field element is present
         const usernameFieldElement = await page.$(usernameFieldSelector);

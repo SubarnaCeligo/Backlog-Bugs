@@ -1,7 +1,7 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe.only('Verify we should not allow integration level manage access once ALL integrations are given manage access', () => {
+test.describe('Verify we should not allow integration level manage access once ALL integrations are given manage access', () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     });

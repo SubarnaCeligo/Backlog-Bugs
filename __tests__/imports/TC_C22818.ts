@@ -19,8 +19,8 @@ test.describe('Verify for the backupBucket for S3 import, only AFE 2.0 supports'
         await page.click(selectors.importPagePO.S3_IMPORT_BACKUP_BUCKET);
 
 
-        const toggleElement1 = await page.locator('[data-toggle-id="afe-1"]');
-        const toggleElement2 = await page.locator('[data-toggle-id="afe-2.09"]');
+        const toggleElement1 = await page.locator(selectors.importPagePO.MOCK_AFE_1_EDITOR);
+        const toggleElement2 = await page.locator(selectors.importPagePO.MOCK_AFE_2DOT09_EDITOR);
 
         // Use the expect API to assert that the elements are not present
         await expect(toggleElement1).not.toBeVisible();

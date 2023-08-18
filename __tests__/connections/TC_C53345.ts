@@ -13,7 +13,7 @@ test.describe("Verify Base URI is not present in UPS Edit Connection page", () =
         await io.connectionPage.clickByText('Create connection')
         await io.connectionPage.click(selectors.connectionsPagePO.UPS_CONNECTION)
  
-        const fieldSelector = '[name=BaseUrl]'; // Replace with the actual selector
+        const fieldSelector = selectors.connectionsPagePO.MOCK_BASEURL; // Replace with the actual selector
       
         // Use page.$() to check if the username field element is present
         const fieldElement = await page.$(fieldSelector);
