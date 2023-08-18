@@ -19,8 +19,8 @@ test.describe(`C33166 Verify save saveAndClose close button are present in foote
     }
     await page.getByText("Import").click();
     await page.getByText("Yes (advanced)").click();
-    await expect(page.getByText("Save")).toBeVisible();
-    await expect(page.getByText("Save & close")).toBeVisible();
-    await expect(page.getByText("Close")).toBeVisible();
+    await expect(page.locator(selectors.basePagePO.SAVE)).toBeVisible();
+    await expect(page.locator(selectors.basePagePO.SAVE_AND_CLOSE)).toBeVisible();
+    await expect(page.locator(selectors.basePagePO.CLOSE)).toBeVisible();
   });
 });
