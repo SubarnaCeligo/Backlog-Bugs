@@ -11,12 +11,12 @@ test.describe("C51672 Verify the 'HTTP response' tab in the 'Error details' draw
         await page.getByText("1 error").nth(1).click();
         await io.flowBuilder.waitForElementAttached("text='HTTP response'");
         await io.flowBuilder.click("text='HTTP response'");
-        await io.flowBuilder.waitForElementAttached('[data-test="Body"]');
-        expect(await io.flowBuilder.isVisible('[data-test="Body"]')).toBe(true);
-        expect(await io.flowBuilder.isVisible('[data-test="Headers"]')).toBe(true);
-        expect(await io.flowBuilder.isVisible('[data-test="Other"]')).toBe(true);
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2dot0PO.BODY);
+        expect(await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.EM2dot0PO.BODY)).toBe(true);
+        expect(await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.EM2dot0PO.HEADERS)).toBe(true);
+        expect(await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.EM2dot0PO.OTHER)).toBe(true);
         expect(await io.flowBuilder.isVisible('text="Add to batch"')).toBe(true);
         expect(await io.flowBuilder.isVisible('text="Resolve & next"')).toBe(true);
-        expect(await io.flowBuilder.isVisible('[aria-label="Selected errors are added to a batch, on which you can perform bulk retry and resolve actions."]')).toBe(true);
+        expect(await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.EM2dot0PO.ADD_TO_BATCH_HOVER_LABEL)).toBe(true);
     });
 });

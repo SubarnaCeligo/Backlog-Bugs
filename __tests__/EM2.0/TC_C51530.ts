@@ -9,10 +9,10 @@ test.describe("C51530 Verify when retries are completed for a step and same step
         const lastRun = page.getByText('Last run')
         await lastRun.waitFor({state: 'visible'});
         await page.getByText("1 error").nth(1).click();
-        await io.flowBuilder.waitForElementAttached("[data-test='retryJobs']");
-        await io.flowBuilder.click("[data-test='retryJobs']");
-        await io.flowBuilder.click("[role='listbox'] [data-value='all']");
-        await io.flowBuilder.click("[data-test='Retry']")
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2dot0PO.RETRY_JOBS_DROPDOWN);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2dot0PO.RETRY_JOBS_DROPDOWN);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2dot0PO.RETRY_ALL_OPTION);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2dot0PO.RETRY)
         expect((await page.$$(selectors.flowBuilderPagePO.EM2dot0PO.OPEN_ERRORS_TABLE_ROWS)).length).toBe(1);
     });
 });

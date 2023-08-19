@@ -9,13 +9,13 @@ test.describe("C51639 Verify the download option in the Resolved Error drawer", 
         const lastRun = page.getByText('Last run')
         await lastRun.waitFor({state: 'visible'});
         await page.getByText("1 error").nth(1).click();
-        await io.flowBuilder.waitForElementAttached(".MuiPaper-elevation16 [data-test='openActionsMenu']");
-        await io.flowBuilder.click(".MuiPaper-elevation16 [data-test='openActionsMenu']");
-        expect(await io.flowBuilder.isVisible("[data-test='downloadErrors']")).toBe(true)
-        await io.flowBuilder.click('data-test="resolveAndNext"');
-        await io.flowBuilder.click("[data-test='flow-builder-resolved-errors']");
-        await io.flowBuilder.waitForElementAttached(".MuiPaper-elevation16 [data-test='openActionsMenu']");
-        await (await page.$$(".MuiPaper-elevation16 [data-test='openActionsMenu']"))[0].click();
-        expect(await io.flowBuilder.isVisible("[data-test='downloadErrors']")).toBe(true)
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2dot0PO.NEW_VIEW_ACTIONS_MENU);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2dot0PO.NEW_VIEW_ACTIONS_MENU);
+        expect(await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.EM2dot0PO.DOWNLOAD_ERRORS)).toBe(true)
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2dot0PO.RESOLVE_AND_NEXT);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2dot0PO.RESOLVED_ERRORS_TAB);
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2dot0PO.NEW_VIEW_ACTIONS_MENU);
+        await (await page.$$(selectors.flowBuilderPagePO.EM2dot0PO.NEW_VIEW_ACTIONS_MENU))[0].click();
+        expect(await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.EM2dot0PO.DOWNLOAD_ERRORS)).toBe(true)
     });
 });

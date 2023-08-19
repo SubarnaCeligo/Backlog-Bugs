@@ -9,9 +9,9 @@ test.describe("C51627 Verify the list and the default status of the footer butto
         const lastRun = page.getByText('Last run')
         await lastRun.waitFor({state: 'visible'});
         await page.getByText("1 error").nth(1).click();
-        await io.flowBuilder.waitForElementAttached("[data-test='retryAndNext']");
-        expect(await io.flowBuilder.isVisible("[data-test='retryAndNext']")).toBe(true);
-        expect(await io.flowBuilder.isVisible("[data-test='saveAndNext']")).toBe(true);
-        expect(await io.flowBuilder.isVisible("[data-test='resolveAndNext']")).toBe(true);
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2dot0PO.RETRY_AND_NEXT);
+        expect(await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.EM2dot0PO.RETRY_AND_NEXT)).toBe(true);
+        expect(await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.EM2dot0PO.SAVE_AND_NEXT)).toBe(true);
+        expect(await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.EM2dot0PO.RESOLVE_AND_NEXT)).toBe(true);
     });
 });
