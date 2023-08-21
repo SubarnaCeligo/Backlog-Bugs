@@ -13,7 +13,7 @@ test.describe("C51643 Verify the default view by clicking on the Error count in 
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2dot0PO.OPEN_ERRORS_TABLE_ROWS);
         const errorList = await page.$$(selectors.flowBuilderPagePO.EM2dot0PO.OPEN_ERRORS_TABLE_ROWS);
         expect(await errorList[0].getAttribute('class')).toContain('Mui-selected');
-        expect(page.locator(selectors.flowBuilderPagePO.EM2dot0PO.ACE_EDITOR_INPUT)).toBeDefined();
-        expect(page.getByText('Error details')).toBeDefined();
+        expect(await page.$(selectors.flowBuilderPagePO.EM2dot0PO.ACE_EDITOR_INPUT)).not.toBe(null);
+        expect(await page.$("text='Error details'")).not.toBe(null);
     });
 });
