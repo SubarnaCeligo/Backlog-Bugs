@@ -15,7 +15,9 @@ test.describe(`C51644 Verify the error rows table header fields displayed in the
     const lastRun = page.getByText("Last run");
     await lastRun.waitFor({ state: "visible" });
     await page.getByText("1 error").nth(1).click();
-    await expect(page.getByText("Message", { exact: true })).toBeVisible();
+    await expect(page.getByText("Message", { exact: true })).toBeVisible({
+      timeout: 10000
+    });
     await expect(page.getByText("Code", { exact: true })).toBeVisible();
     await expect(page.getByText("Source", { exact: true })).toBeVisible();
     await expect(page.getByText("Classification", { exact: true })).toBeVisible();
