@@ -6,6 +6,6 @@ test.describe("C62760 TO verify that the iFrame is loading fine when user log ou
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.click(selectors.homePagePO.PROFILE_MENU);
         await io.homePage.click(selectors.homePagePO.SIGN_OUT)
-        expect(await page.$(selectors.loginPagePO.IFRAME)).toBeDefined();
+        expect(await page.locator(selectors.loginPagePO.IFRAME)).toBeVisible();
     });
 });
