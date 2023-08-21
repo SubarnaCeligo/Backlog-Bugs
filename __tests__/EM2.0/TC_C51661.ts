@@ -11,9 +11,9 @@ test.describe("C51661 Verify the 'Error details' header fields displayed in the 
         await page.getByText("1 error").nth(1).click();
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2dot0PO.ERROR_DETAILS_TAB_LIST)
         const errorDetailsTabs = await page.$(selectors.flowBuilderPagePO.EM2dot0PO.ERROR_DETAILS_TAB_LIST);
-        expect(await errorDetailsTabs.$('text="Edit retry data"')).toBeDefined();
-        expect(await errorDetailsTabs.$('text="HTTP request"')).toBeDefined();
-        expect(await errorDetailsTabs.$('text="HTTP response"')).toBeDefined();
-        expect(await errorDetailsTabs.$('text="Error Fields"')).toBeDefined();
+        expect(await errorDetailsTabs.$('text="Edit retry data"')).not.toBe(null);
+        expect(await errorDetailsTabs.$('text="HTTP request"')).not.toBe(null);
+        expect(await errorDetailsTabs.$('text="HTTP response"')).not.toBe(null);
+        expect(await errorDetailsTabs.$('text="Error Fields"')).not.toBe(null);
     });
 });
