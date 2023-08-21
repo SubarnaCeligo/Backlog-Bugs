@@ -18,6 +18,6 @@ test.describe("C52094 Verify the 'Add to Batch' check box option in both 'Curren
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2dot0PO.ACTIONS_MENU);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2dot0PO.ACTIONS_MENU);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2dot0PO.ACTIONS_MENU_EDIT_RETRY_DATA);
-        expect(await page.$(selectors.flowBuilderPagePO.EM2dot0PO.ADD_TO_BATCH)).not.toBe(null);
+        expect(await page.locator(selectors.flowBuilderPagePO.EM2dot0PO.ADD_TO_BATCH)).toBeVisible();
     });
 });
