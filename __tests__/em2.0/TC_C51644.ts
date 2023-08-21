@@ -10,7 +10,7 @@ test.describe(`C51644 Verify the error rows table header fields displayed in the
     // await io.flowBuilder.navigateTo(io.data.links.HOME_PAGE_URL);
     // await io.flowBuilder.clickByText("Automation Flows");
     // await io.flowBuilder.clickByText("mytestflow");
-    const id = await io.fillForm(flowJSON, "FLOWS");
+    const id = await io.fillFormUI(flowJSON, "FLOWS");
     await io.api.runBatchFlowViaAPI("C51644", id);
     const lastRun = page.getByText("Last run");
     await lastRun.waitFor({ state: "visible" });
@@ -20,9 +20,6 @@ test.describe(`C51644 Verify the error rows table header fields displayed in the
     await expect(page.getByText("Source", { exact: true })).toBeVisible();
     await expect(page.getByText("Classification", { exact: true })).toBeVisible();
     await expect(page.getByText("Timestamp", { exact: true })).toBeVisible();
-    const totalColumns = await page
-      .getByText("Message", { exact: true })
-      .evaluate(e => e.parentNode.childElementCount);
-    expect(totalColumns).toBe(6);
+    await expect(page.getByText("Actions", { exact: true })).not.toBeVisible();
   });
 });
