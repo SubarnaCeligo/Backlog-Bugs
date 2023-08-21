@@ -4,7 +4,7 @@ import C51661 from '../../testData/EM2.0/TC_C51661.json';
 
 test.describe("C51672 Verify the 'HTTP response' tab in the 'Error details' drawer", () => {
     test.only("C51672 Verify the 'HTTP response' tab in the 'Error details' drawer", async ({io, page}) => {
-        const id = await io.fillForm(C51661,"FLOWS");
+        const id = await io.fillFormUI(C51661,"FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51661', id);
         const lastRun = page.getByText('Last run')
         await lastRun.waitFor({state: 'visible'});

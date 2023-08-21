@@ -32,7 +32,7 @@
     }
   },
   "devDependencies": {
-    "@celigo/ui-core-automation": "0.0.4",
+    "@celigo/ui-core-automation": "latest",
     "@celigo/aut-selectors": "latest",
     "@celigo/aut-utilities": "0.0.6",
     "@playwright/test": "^1.32.3",

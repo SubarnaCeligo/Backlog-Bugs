@@ -11,7 +11,7 @@ test.describe("Export Flows Test Cases", async () => {
   test.skip("C55447 Verify the error message when data size is more than 1 MB for export & lookup", async ({
     io,
   }) => {
-    await io.fillForm(C55447, "EXPORT");
+    await io.fillFormUI(C55447, "EXPORT");
     // await io.webActions.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     // await connectionsPage.selectApplication(exportTD.C55447.APP_NAME);
     // await exportsPage.selectConnection(exportTD.C55447.CONNECTION_NAME);
@@ -34,7 +34,7 @@ test.describe("Export Flows Test Cases", async () => {
   test.skip("C51543 Verify the allignmnet after adding multiple query parameters", async ({
     io,
   }) => {
-    await io.fillForm(C51543, "EXPORT");
+    await io.fillFormUI(C51543, "EXPORT");
     // await io.webActions.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     // await connectionsPage.selectApplication(exportTD.C51543.APP_NAME);
     // await exportsPage.selectConnection(exportTD.C51543.CONNECTION_NAME);
