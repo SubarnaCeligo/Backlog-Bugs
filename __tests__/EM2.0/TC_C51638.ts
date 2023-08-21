@@ -19,11 +19,8 @@ test.describe("C51638 Verify the Footer buttons in the Error details tab of Reso
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2dot0PO.ACTIONS_MENU);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2dot0PO.ACTIONS_MENU);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2dot0PO.ACTIONS_MENU_EDIT_RETRY_DATA);
-        const saveRetry = await page.$("text='Save & retry'");
-        const saveClose = await page.$("text='Save & close'");
-        const close = await page.$("text='Close'");
-        expect(saveRetry).not.toBe(null);
-        expect(saveClose).not.toBe(null);
-        expect(close).not.toBe(null);
+        expect(await page.getByText("Save & retry")).toBeVisible();
+        expect(await page.getByText("Save & close")).toBeVisible();
+        expect(await page.getByText("Close")).toBeVisible();
     });
 });
