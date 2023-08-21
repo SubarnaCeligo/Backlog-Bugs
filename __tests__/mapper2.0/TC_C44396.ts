@@ -14,7 +14,7 @@ test.describe(`C44396 Verify the type of field mapping should be displayed for t
       await testCase.waitFor({ state: "visible", timeout: 5000 });
       await testCase.click();
     } catch {
-      const id = await io.fillForm(testData, "FLOWS");
+      const id = await io.fillFormUI(testData, "FLOWS");
       await io.api.runBatchFlowViaAPI("C44396", id);
     }
     await page.getByLabel("Define options").nth(1).click();

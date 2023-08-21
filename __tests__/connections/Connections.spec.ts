@@ -1,7 +1,7 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import * as C57810 from "@testData/Connections/C57810.json";
-import * as C57811 from "@testData/Connections/C57811.json"
+import * as C57811 from "@testData/Connections/C57811.json";
 
 test.describe("Connections Page Test Cases", () => {
   test.beforeEach(async ({ io }) => {
@@ -11,7 +11,7 @@ test.describe("Connections Page Test Cases", () => {
   test("C57810 Verify whether the page is showing the proper readable error , when the connection goes to offline", async ({
     io
   }) => {
-    await io.fillForm(C57810, "CONNECTION");
+    await io.fillFormUI(C57810, "CONNECTION");
     await io.connectionPage.click(
       selectors.connectionsPagePO.MAGENTO2_GENERATE_TOKEN
     );
@@ -31,7 +31,7 @@ test.describe("Connections Page Test Cases", () => {
   test("C57811 Verify connection is saving upon clicking the save and close button, without testing the connection.", async ({
     io
   }) => {
-    await io.fillForm(C57811, "CONNECTION");
+    await io.fillFormUI(C57811, "CONNECTION");
     await io.connectionPage.click(
       selectors.connectionsPagePO.MAGENTO2_GENERATE_TOKEN
     );
