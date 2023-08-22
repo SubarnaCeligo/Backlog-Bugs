@@ -5,7 +5,7 @@ import C46915 from "@testData/Flows/C46915.json"
 test.describe('verify user must be able to save the mapper 2.0 mappings exist if there are no valid mappings in mapper 1.0', () => { 
     test("verify user must be able to save the mapper 2.0 mappings exist if there are no valid mappings in mapper 1.0", async ({ io, page }) => {
         
-          await io.fillForm(
+          await io.fillFormUI(
             C46915,
             'FLOWS'
           );
@@ -48,7 +48,7 @@ test.describe('verify user must be able to save the mapper 2.0 mappings exist if
       
       test("verify user must be able to save the mapper 2.0 ", async ({ io, page }) => {
         
-        await io.fillForm(
+        await io.fillFormUI(
           C46915,
           'FLOWS'
         );

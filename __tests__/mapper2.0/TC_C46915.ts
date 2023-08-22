@@ -5,7 +5,7 @@ import C46915 from "@testData/Flows/C46915.json"
 test.describe('File Provider - Verify the “Action to take if source field has no value” dropdown', () => { 
     test("File Provider - Verify the “Action to take if source field has no value” dropdown ", async ({ io, page }) => {
         
-          await io.fillForm(
+          await io.fillFormUI(
             C46915,
             'FLOWS'
           );
