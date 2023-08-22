@@ -15,9 +15,11 @@ test.describe(`C27965 Verify the fields in 'What would you like to export?' sect
     await io.exportsPage.click(selectors.basePagePO.SAVE);
     await io.exportsPage.delay(2000);
     const divList = await page
+      // TODO: .locator(selectors.exportsPagePO.WHAT_WOULD_YOU_LIKE_TO_EXPORT_TAB)
       .locator(`[data-test="What would you like to export?"]`)
       .evaluate(e => {
         const list = e.parentElement.querySelector(
+          // TODO: selectors.exportsPagePO.WHAT_WOULD_YOU_LIKE_TO_EXPORT_TAB_CONTENT
           ".MuiAccordionDetails-root > div"
         ).childNodes;
         const arr = [];
