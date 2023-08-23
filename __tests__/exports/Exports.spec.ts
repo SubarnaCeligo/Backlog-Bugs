@@ -9,9 +9,9 @@ test.describe("Export Flows Test Cases", async () => {
   });
 
   test.skip("C55447 Verify the error message when data size is more than 1 MB for export & lookup", async ({
-    io,
+    io
   }) => {
-    await io.fillForm(C55447, "EXPORT");
+    await io.fillFormUI(C55447, "EXPORT");
     // await io.webActions.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     // await connectionsPage.selectApplication(exportTD.C55447.APP_NAME);
     // await exportsPage.selectConnection(exportTD.C55447.CONNECTION_NAME);
@@ -25,16 +25,16 @@ test.describe("Export Flows Test Cases", async () => {
     //   "src/testData/HugeData/C55447.json",
     //   selectors.exportsPagePO.MOCK_OUTPUT_TEXTAREA
     // );
-     await io.assert.verifyElementText(
+    await io.assert.verifyElementText(
       selectors.exportsPagePO.MOCK_OUTPUT_DATA_SIZE_ERROR,
       "Mock output cannot be larger than 1 MB.Decrease your mock data size and try again."
     );
   });
 
   test.skip("C51543 Verify the allignmnet after adding multiple query parameters", async ({
-    io,
+    io
   }) => {
-    await io.fillForm(C51543, "EXPORT");
+    await io.fillFormUI(C51543, "EXPORT");
     // await io.webActions.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     // await connectionsPage.selectApplication(exportTD.C51543.APP_NAME);
     // await exportsPage.selectConnection(exportTD.C51543.CONNECTION_NAME);
