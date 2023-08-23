@@ -29,6 +29,7 @@ test.describe(`C46908 Verify the functionality by not providing a 'source record
     await $textarea.fill("test");
     await io.flowBuilder.click(selectors.mappings.Mapper2dot0PO.SOURCEFIELDS);
     await io.flowBuilder.click(selectors.mappings.Mapper2dot0PO.PREVIEW);
+    await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.delay(1000);
     const val = await page
       .locator(`${selectors.mappings.Mapper2dot0PO.PREVIEWRESULT}`)

@@ -26,7 +26,7 @@ test.describe(`C28172 Verify export type dropdown values are updated in HTTP/RES
     await expect(
       page.getByText("Delta – export only modified data")
     ).toBeVisible();
-    await expect(page.getByText("All – always export all data")).toBeVisible();
+    await expect(page.getByText("Once – export records only once")).toBeVisible();
     await expect(
       page.getByText("Limit – export a set number of records")
     ).toBeVisible();
