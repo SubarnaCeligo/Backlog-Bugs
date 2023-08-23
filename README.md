@@ -13,7 +13,8 @@ npm install
 -Please refer the sample test file in the project(./helper/sample.test.ts)
 ## Run a test Case
 ```sh
-ENV={env} SUITE={suitename} npm run test - To run tests based on suite name
+ENV={env} FEATURE={feature} npm run test - To run all tests in a feature
+ENV={env} FEATURE={feature} SUITE={suite} npm run test - To run specific tests inside a feature
 ENV={env} npm run test - To run all tests
 ENV={env} npm run test:smoke - To run tests based on tags.Tags are defined in the test files
 ```
