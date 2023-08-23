@@ -14,7 +14,7 @@ test.describe(`C33162 Verify save saveAndClose close button are present in foote
       await testCase.waitFor({ state: "visible", timeout: 5000 });
       await testCase.click();
     } catch {
-      const id = await io.fillForm(testData, "FLOWS");
+      const id = await io.fillFormUI(testData, "FLOWS");
       await io.api.runBatchFlowViaAPI("C33162", id);
     }
     await page.getByText("Import").click();

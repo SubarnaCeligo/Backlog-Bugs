@@ -14,7 +14,7 @@ test.describe(`C46908 Verify the functionality by not providing a 'source record
       await testCase.waitFor({ state: "visible", timeout: 5000 });
       await testCase.click();
     } catch {
-      const id = await io.fillForm(testData, "FLOWS");
+      const id = await io.fillFormUI(testData, "FLOWS");
       await io.api.runBatchFlowViaAPI("C46908", id);
     }
     await page.getByLabel("Define options").nth(1).click();

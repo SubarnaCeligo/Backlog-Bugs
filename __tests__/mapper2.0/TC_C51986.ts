@@ -14,7 +14,7 @@ test.describe(`C51986 Verify vertical line must be added to source row`, () => {
       await testCase.waitFor({ state: "visible", timeout: 5000 });
       await testCase.click();
     } catch {
-      const id = await io.fillForm(testData, "FLOWS");
+      const id = await io.fillFormUI(testData, "FLOWS");
       await io.api.runBatchFlowViaAPI("C51986", id);
     }
     await page.getByLabel("Define options").nth(1).click();
