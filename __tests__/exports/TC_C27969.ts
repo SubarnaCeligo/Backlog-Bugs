@@ -14,13 +14,11 @@ test.describe(`C27969 Verify the fields in 'Non-standard API response patterns' 
     await page.locator(selectors.exportsPagePO.NAME).fill("C27969");
     await io.exportsPage.click(selectors.basePagePO.SAVE);
     await io.exportsPage.delay(2000);
-    // TODO: const tab = page.locator(selectors.exportsPagePO.NON_STANDARD_API_TAB);
-    const tab = page.locator(`[data-test="Non-standard API response patterns"]`);
+    const tab = page.locator(selectors.exportsPagePO.NON_STANDARD_API_TAB);
     await tab.click();
     const divList = await tab.evaluate(e => {
       const list = e.parentElement.querySelector(
-        // TODO: selectors.exportsPagePO.NON_STANDARD_API_TAB_CONTENT
-        ".MuiAccordionDetails-root > div > div"
+        selectors.exportsPagePO.NON_STANDARD_API_TAB_CONTENT
       ).childNodes;
       const arr = [];
       // @ts-ignore

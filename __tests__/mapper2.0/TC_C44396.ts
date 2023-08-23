@@ -83,13 +83,17 @@ test.describe(`C44396 Verify the type of field mapping should be displayed for t
           await page.getByText("Lookup", { exact: true }).click();
           await page.getByText("Static", { exact: true }).click();
           await page
-            // TODO: .locator(selectors.mappings.Mapper2dot0PO.LOOKUP_STATIC_FIELDVALUE_TEXTAREAS)
-            .locator(`[id='lookup.mapList'] textarea`)
+            .locator(
+              selectors.mappings.Mapper2dot0PO.LOOKUP_STATIC_FIELDVALUE_TEXTAREAS
+            )
             .first()
             .fill("test");
-
-          // TODO: await page.locator(selectors.mappings.Mapper2dot0PO.LOOKUP_STATIC_FIELDVALUE_TEXTAREAS).nth(2).fill("123");
-          await page.locator(`[id='lookup.mapList'] textarea`).nth(2).fill("123");
+          await page
+            .locator(
+              selectors.mappings.Mapper2dot0PO.LOOKUP_STATIC_FIELDVALUE_TEXTAREAS
+            )
+            .nth(2)
+            .fill("123");
           await page
             .getByPlaceholder("Alphanumeric characters only")
             .first()
