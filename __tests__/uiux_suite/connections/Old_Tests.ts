@@ -1,7 +1,7 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import * as C57810 from "@testData/Connections/C57810.json";
-import * as C57811 from "@testData/Connections/C57811.json"
+import * as C57811 from "@testData/Connections/C57811.json";
 
 test.describe("Connections Page Test Cases", () => {
   test.beforeEach(async ({ io }) => {
