@@ -20,10 +20,13 @@ test.describe("E2E Tests", () => {
         await test.step("*** Creating PageProcessor ***", async () => {
             var importValidation = await io.pageProcessor(allure, SF);
         });
-        //Enable and run the Flow ***
-        await test.step("*** Enable and run the Flow *** ", async () => {
+        //Save, Enable and run the Flow ***
+        await test.step("*** Save, Enable And Run The Flow *** ", async () => {
+            //TODO : Save the flow with test title     
             await io.flowBuilder.enableFlow()
             await io.flowBuilder.click("button[data-test='runFlow']");
+            await io.flowBuilder.isVisible("div[role='dialog']");
+            await io.flowBuilder.click("button[data-test='Run']")
         });
     });
 });
