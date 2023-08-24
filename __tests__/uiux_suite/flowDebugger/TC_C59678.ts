@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C59678 from "@testData/Flows/C59678.json";
 
 
-test.describe("To verify that the Export/Import bubbles are working as expected", () => {
+test.describe.only("To verify that the Export/Import bubbles are working as expected", () => {
     test.beforeEach(async ({ io }) => {
         await io.flowBuilder.navigateTo(io.data.links.FLOW_BUILDER_PAGE_URL);
       });
@@ -13,8 +13,15 @@ test.describe("To verify that the Export/Import bubbles are working as expected"
      
         await io.fillFormUI(C59678, "FLOWS");
 
-         expect(selectors.exportsPagePO.EXPORT_NAME).toBeTruthy();
-         expect(selectors.importPagePO.IMPORT_NAME).toBeTruthy();
+        await io.flowBuilder.clickByText("Export");
 
+        await io.flowBuilder.clickByText("Preview")
+
+        await page.waitForSelector('body'); // Wait for the page to load
+  await page.waitForSelector('body:has-text("Success!")'); // Wait for the "Success!" text
+
+  const successTextPresent = await page.$('body:has-text("Success!")');
+
+  expect(successTextPresent).toBeTruthy(); 
     });
 })
