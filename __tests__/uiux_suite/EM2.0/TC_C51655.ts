@@ -1,10 +1,10 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C51655 from '../../testData/EM2.0/TC_C51655.json';
+import C51655 from '../../../testData/EM2.0/TC_C51655.json';
 
 test.describe("C51655 Verify the 'Error rows' navigation from one error row to the next using up/down arrow keys on the keyboard.", () => {
     test("C51655 Verify the 'Error rows' navigation from one error row to the next using up/down arrow keys on the keyboard.", async ({io, page}) => {
-        const errorFlowId = await io.fillForm(C51655, "FLOWS");
+        const errorFlowId = await io.fillFormUI(C51655, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51655', errorFlowId);
         const lastRun = page.getByText('Last run')
         await lastRun.waitFor({state: 'visible'});

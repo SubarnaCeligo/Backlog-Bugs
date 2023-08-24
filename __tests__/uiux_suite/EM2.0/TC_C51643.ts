@@ -1,10 +1,10 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C51626 from "../../testData/EM2.0/TC_C51626.json"
+import C51626 from "../../../testData/EM2.0/TC_C51626.json"
 
 test.describe("C51643 Verify the default view by clicking on the Error count in the (within a flow bubble, flow step drawer, run console, or run history)", () => {
     test("C51643 Verify the default view by clicking on the Error count in the (within a flow bubble, flow step drawer, run console, or run history)", async ({io, page}) => {
-        const errorFlowId = await io.fillForm(C51626, "FLOWS");
+        const errorFlowId = await io.fillFormUI(C51626, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51626', errorFlowId);
         const lastRun = page.getByText('Last run')
         await lastRun.waitFor({state: 'visible'});
