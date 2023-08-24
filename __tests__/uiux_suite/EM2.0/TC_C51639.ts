@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C51661 from '../../../testData/EM2.0/TC_C51661.json';
 
 test.describe("C51639 Verify the download option in the Resolved Error drawer", () => {
-    test.only("C51639 Verify the download option in the Resolved Error drawer", async ({io, page}) => {
+    test("C51639 Verify the download option in the Resolved Error drawer", async ({io, page}) => {
         const id = await io.fillFormUI(C51661,"FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51661', id);
         const lastRun = page.getByText('Last run')
