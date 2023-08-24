@@ -14,7 +14,8 @@
     "lint": "eslint . --ext .ts --quiet",
     "lint-and-fix": "eslint --fix --ext .ts .",
     "trace": "npx playwright show-trace test-results/**/trace.zip",
-    "uploadReport": "node uploadReport.js"
+    "uploadReport": "node uploadReport.js",
+    "test-remote": "rm -rf ./allure-results && npx playwright test --project=UIUX --config=node_modules/@celigo/ui-core-automation/dist/playwright.config.js"
   },
   "keywords": [],
   "author": "B Vinay Kumar",
