@@ -1,0 +1,96 @@
+{
+    "name": "TC_C21052",
+    "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "test s3 export",
+            "_connectionId": "AMAZON S3 CONNECTION",
+            "apiIdentifier": "e00afc1e37",
+            "asynchronous": true,
+            "sandbox": false,
+            "sampleData": [
+                {
+                    "id": 1,
+                    "name": "shiva",
+                    "mails": "kmk@gmail.com",
+                    "stu_id": "1234",
+                    "branch": "eee"
+                },
+                {
+                    "id": 2,
+                    "name": "praneetha",
+                    "mails": "abc@gmail.com",
+                    "stu_id": "1234",
+                    "branch": "eee"
+                },
+                {
+                    "id": 3,
+                    "name": "vamsi",
+                    "mails": "abc@gmail.com",
+                    "stu_id": "1234",
+                    "branch": "eee"
+                }
+            ],
+            "s3": {
+                "region": "us-east-1",
+                "bucket": "akhilqa",
+                "keyStartsWith": "fb1.json"
+            },
+            "file": {
+                "output": "records",
+                "skipDelete": true,
+                "type": "json",
+                "json": {
+                    "resourcePath": "*"
+                }
+            },
+            "adaptorType": "S3Export"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "test import s3",
+            "_connectionId": "AMAZON S3 CONNECTION",
+            "apiIdentifier": "ia212e43d2",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+                "fileName": "file-{{timestamp}}.json",
+                "skipAggregation": false,
+                "type": "json"
+            },
+            "s3": {
+                "region": "us-east-1",
+                "bucket": "akhilqa",
+                "fileKey": "file-{{timestamp}}.json"
+            },
+            "adaptorType": "S3Import"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C21052",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+}
