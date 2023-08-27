@@ -11,13 +11,13 @@ test.describe("C51628 Verify the displayed buttons by editing the retry data in 
       await page.getByText("1 error").nth(1).click();
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2dot0PO.RETRY_AND_NEXT);
       expect(await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.EM2dot0PO.RETRY_AND_NEXT)).toBe(true);
-      expect(await io.flowBuilder.isVisible('[data-test=saveRetryAndNext]')).toBe(false);
+      expect(await io.flowBuilder.isVisible(selectors.basePagePO.SAVE_AND_CLOSE)).toBe(false);
       await page.locator('.ace_editor').evaluate(e => {
         // @ts-ignore
         const editor = ace.edit(e);
         return editor.setValue('{}');
       });
       expect(await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.EM2dot0PO.RETRY_AND_NEXT)).toBe(false);
-      expect(await io.flowBuilder.isVisible('[data-test=saveRetryAndNext]')).toBe(true);
+      expect(await io.flowBuilder.isVisible(selectors.basePagePO.SAVE_AND_CLOSE)).toBe(true);
   });
 });

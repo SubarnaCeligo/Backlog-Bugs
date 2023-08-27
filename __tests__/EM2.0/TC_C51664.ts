@@ -14,10 +14,7 @@ test.describe("C51664 Verify the Top 'Retry' option in the Error Dashboard by ed
           const editor = ace.edit(e);
           return editor.setValue('{}');
         });
-        await page.pause();
-        expect(await page.locator('[data-test=retryJobs]').getAttribute('class')).toContain('Mui-disabled');
-        await page.hover('[data-test=retryJobs]');
-        await page.pause();
-        
+        expect(await page.locator(selectors.flowBuilderPagePO.EM2dot0PO.RETRY_JOBS_DROPDOWN).getAttribute('class')).toContain('Mui-disabled');
+        expect(page.getByLabel("Before retrying, you must save your edits for each error in the batch. Click “Save & next” on this error to continue.")).toBeVisible();
     });
   });

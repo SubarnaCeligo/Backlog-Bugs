@@ -14,14 +14,14 @@ test.describe("C52047 Verify the Open errors tab, when no results are returned f
         const source = page.locator(selectors.flowBuilderPagePO.EM2dot0PO.OPEN_ERRORS_TABLE_HEADERS).filter({hasText: 'Source'});
   
         await classification.locator('button').nth(0).click();
-        await page.locator('#arrow-popper').getByText('Governance').click();
+        await page.locator(selectors.basePagePO.ARROW_POPPER).getByText('Governance').click();
         await io.flowBuilder.clickByText('Apply');
   
         await source.locator('button').click();
-        await page.locator('#arrow-popper').getByText('Mapping', {exact: true}).click();
+        await page.locator(selectors.basePagePO.ARROW_POPPER).getByText('Mapping', {exact: true}).click();
         await io.flowBuilder.clickByText('Apply');
     
-        expect(await page.locator(".MuiPaper-elevation16 div [tabindex='0'] div .MuiTypography-body1").innerText()).toContain("You don't have any errors that match the filters you applied..");
+        expect(await page.locator(selectors.flowBuilderPagePO.EM2dot0PO.NO_FILTER_DATA_FOUND).innerText()).toContain("You don't have any errors that match the filters you applied..");
   
     });
   });
