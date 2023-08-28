@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import * as C752 from "@testData/MyAccount/C752.json";
 
-test.describe("My Account Test Case new", () => {
+test.describe("C752 Verify Change password with invalid current pass and valid new pass - should show error messsage", () => {
 
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
@@ -13,16 +13,5 @@ test.describe("My Account Test Case new", () => {
   }) => {
     await io.myAccountPage.changePassword(C752);
     await io.assert.verifyElementText(selectors.myAccountPagePO.SNACK_BAR_MESSAGE, "Current password failed to authenticate.  Please try again.")
-  });
-
-  test("C28995 Verify Help texts are scrollable in My account Users", async ({
-    io
-  }) => {
-    await io.myAccountPage.click(selectors.myAccountPagePO.USERS);
-    await io.myAccountPage.click(selectors.myAccountPagePO.HELP_TEXT);
-    await io.assert.checkSnapshot(
-      selectors.myAccountPagePO.HELP_TEXT_DIALOG_BOX,
-      "HelpText.png"
-    );
   });
 });
