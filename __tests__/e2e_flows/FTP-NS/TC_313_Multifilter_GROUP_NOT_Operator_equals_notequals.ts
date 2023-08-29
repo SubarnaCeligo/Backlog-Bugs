@@ -5,7 +5,7 @@ import NS from "@testData/Flows/create/netsuite/TC_313_Multifilter_GROUP_NOT_Ope
 test.describe("E2E Flows", () => {
 
     test.beforeEach(async ({ io }) => {
-        await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
+        await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
     test("TC_313_Multifilter_GROUP_NOT_Operator_equals_notequals", async ({

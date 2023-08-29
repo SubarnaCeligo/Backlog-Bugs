@@ -5,7 +5,7 @@ import NS from "@testData/Flows/create/netsuite/TC_311_Multifilter_AND_OR_Operat
 test.describe("E2E Flows", () => {
 
     test.beforeEach(async ({ io }) => {
-        await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
+        await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
     test("TC_311_Multifilter_AND_OR_Operator_equals_notequals_greaterthan", async ({
