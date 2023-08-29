@@ -16,9 +16,7 @@ test.describe('Verify when user is logged with google account, Name and Emailfie
         // Get the value attribute of the input element
         const actualValue = await page.getAttribute( selectors.myAccountPagePO.EMAIL_INPUT, "value");
         const actualNameValue = await page.getAttribute(selectors.myAccountPagePO.NAME_INPUT, "value");
-
-        console.log(expectedDefaultValue, expectedName, actualNameValue, actualValue);
-    
+   
         // Compare the actual value with the expected default value
         expect(actualValue).toBe(expectedDefaultValue);
            
