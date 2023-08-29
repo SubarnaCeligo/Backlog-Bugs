@@ -7,3 +7,6 @@ require("./TC_C53278");
 require("./TC_C56649");
 require("./TC_C59848");
 require("./TC_C60440");
+require("./TC_C59978");
+require("./TC_C59979");
+require("./TC_C28982");
