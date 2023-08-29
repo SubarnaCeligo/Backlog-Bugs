@@ -4,3 +4,7 @@ require("./TC_C51644");
 require("./TC_C51653");
 require("./TC_C51662");
 require("./TC_C51669");
+require("./TC_C51628");
+require("./TC_C51637");
+require("./TC_C51664");
+require("./TC_C52047");
