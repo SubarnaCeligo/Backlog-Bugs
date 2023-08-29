@@ -5,7 +5,7 @@ import allure from "allure-playwright";
 test.describe("E2E Flows", () => {
 
     test.beforeEach(async ({ io }) => {
-        await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
+        await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
     test("TC_247_FTP_Xml_Export_To_SF_Import", async ({
