@@ -1,7 +1,6 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import allure from "allure-playwright";
 import NS from "@testData/Flows/create/netsuite/TC_314_filterwithrows.json"
-import * as selectors from "@celigo/aut-selectors";
 
 test.describe("E2E Flows", () => {
 

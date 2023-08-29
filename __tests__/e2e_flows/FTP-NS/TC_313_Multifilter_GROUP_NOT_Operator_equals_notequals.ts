@@ -1,7 +1,6 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import allure from "allure-playwright";
 import NS from "@testData/Flows/create/netsuite/TC_313_Multifilter_GROUP_NOT_Operator_equals_notequals.json"
-import * as selectors from "@celigo/aut-selectors";
 
 test.describe("E2E Flows", () => {
 
