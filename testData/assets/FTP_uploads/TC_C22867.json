@@ -1,0 +1,24 @@
+[
+  {
+    "Drug_company": "Horizon Pharma Inc.",
+    "Drug @ Name": "Naproxen and Esomeprazole Magnesium",
+    "_code": "75987-030",
+    "Long Desc": "Benign neoplasm of eyeball, except conjunctiva, cornea, retina, and choroid",
+    "code's": "7675",
+    "#Number": "6495195850",
+    "$code": "2240",
+    "Desc(ICD)": "Group Counseling for Substance Abuse Treatment, Vocational",
+    "Desc(Short)": "Benign neoplasm, unspecified site"
+  },
+  {
+    "Drug_company": "SPIRIT PHARMACEUTICALS,LLC",
+    "Drug @ Name": "FAMOTIDINE",
+    "_code": "68210-0007",
+    "Long Desc": "Loss of weight",
+    "code's": "7675",
+    "#Number": "4544913950",
+    "$code": "78321",
+    "Desc(ICD)": "CT Scan of Bi Pulm Vein using H Osm Contrast, Unenh, Enhance",
+    "Desc(Short)": "Embolism and thrombosis of abdominal aorta"
+  }
+]

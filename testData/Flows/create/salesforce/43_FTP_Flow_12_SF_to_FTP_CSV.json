@@ -1,0 +1,162 @@
+{
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "pageProcessors": [{
+        "responseMapping": {
+            "fields": [],
+            "lists": []
+        },
+        "type": "import",
+        "qa__import": {
+            "name": "43 FTP import",
+            "adaptorType": "FTPImport",
+            "mapping": {
+                "fields": [{
+                    "extract": "Name",
+                    "generate": "Account"
+                }, {
+                    "extract": "Email__c",
+                    "generate": "E Mail"
+                }, {
+                    "extract": "Phone",
+                    "generate": "Phone"
+                }, {
+                    "extract": "Fax",
+                    "generate": "Fax"
+                }, {
+                    "extract": "BillingStreet",
+                    "generate": "BillingStreet"
+                }, {
+                    "extract": "{{BillingCity}}{{BillingPostalCode}}",
+                    "generate": "BillingCity"
+                }, {
+                    "extract": "BillingState",
+                    "generate": "BillingState"
+                }, {
+                    "extract": "BillingCountry",
+                    "generate": "BillingCountry"
+                }, {
+                    "extract": "BillingPostalCode",
+                    "generate": "BillingZipcode"
+                }, {
+                    "extract": "ShippingStreet",
+                    "generate": "ShippingStreet"
+                }, {
+                    "extract": "ShippingCity",
+                    "generate": "ShippingCity"
+                }, {
+                    "hardCodedValue": "Hard State",
+                    "generate": "ShippingState"
+                }, {
+                    "extract": "ShippingCountry",
+                    "generate": "ShippingCountry"
+                }, {
+                    "extract": "ShippingPostalCode",
+                    "generate": "ShippingZipcode"
+                }]
+            },
+            "file": {
+                "csv": {
+                    "replaceTabWithSpace": true,
+                    "rowDelimiter": "\n",
+                    "wrapWithQuotes": true,
+                    "replaceNewlineWithSpace": true,
+                    "includeHeader": true,
+                    "columnDelimiter": ";",
+                    "truncateLastRowDelimiter": false
+                },
+                "compressionFormat": "gzip",
+                "type": "csv"
+            },
+            "ftp": {
+                "fileName": "43SF2FTPAcc{{timestamp \"DD-Mon-YYYY hh:mm:ss\" \"Asia/Calcutta\"}}.csv",
+                "directoryPath": "/io.auto.qa/IO_UI_Automation"
+            },
+            "_connectionId": "FTP CONNECTION",
+            "qa__connectionId": "62e77f86d61e942a8d4ec65d",
+            "qa__path": "//FTP_uploads//43SF2FTPAccFile.csv",
+            "distributed": false
+        }
+    }],
+    "_integrationId": "62d6b4a955468141a906119e",
+    "timezone": "Asia/Calcutta",
+    "name": "43.FTP Flow#12_SF(Account) to FTP_ExtensionCSV_Semicolon",
+    "disabled": false,
+    "qa__dataVerification": {
+        "standaloneexportflowID": "",
+        "importRecordJSON": {
+            "Email": "43sf2ftp@celigo.com",
+            "BillingCity": "S Nagar",
+            "ShippingZip": "500087",
+            "BillingZip": "500011",
+            "Name": "43.SFAccount2FTP",
+            "ShippingStreet": "IZ Sec",
+            "subID": "14",
+            "BillingCountry": "India",
+            "BillingStreet": "GVP Colony",
+            "Phone": "7458965234",
+            "ShippingCountry": "India",
+            "ShippingCity": "Hitech",
+            "ShippingState": "Telangana",
+            "Fax": "7458451245",
+            "BillingState": "Telangana"
+        },
+        "importapiIdentifier": "i50f10d518",
+        "exportRecordType": "Account",
+        "isUIFlow": true,
+        "query": "Select Name,Email__c,phone,fax,Billingcity,Billingstreet,Billingcountry,Billingstate,BillingPostalCode,Shippingcity,Shippingstreet,Shippingcountry,ShippingPostalCode,Shippingstate from Account where name like '43.SFAccount2FTP'",
+        "expected": {
+            "FTP": {
+                "name": "43.FTP Flow#12_SF(Account) to FTP_ExtensionCSV_Semicolon",
+                "_integrationId": "62d6b4a955468141a906119e",
+                "import": {
+                    "_connectionId": "62e77f86d61e942a8d4ec65d",
+                    "file": {
+                        "csv": {
+                            "columnDelimiter": ";"
+                        }
+                    }
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "4",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "43SF2FTPAcc",
+                    "folderName":"/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".csv"
+                }
+            }
+        }
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "43 SF Export",
+            "adaptorType": "SalesforceExport",
+            "parsers": [],
+            "salesforce": {
+                "distributed": {
+                    "relatedLists": [],
+                    "userDefinedReferencedFields": [],
+                    "referencedFields": []
+                },
+                "soql": {
+                    "query": "Select Name,Email__c,phone,fax,Billingcity,Billingstreet,Billingcountry,Billingstate,BillingPostalCode,Shippingcity,Shippingstreet,Shippingcountry,ShippingPostalCode,Shippingstate from Account where name like '43.SFAccount2FTP'"
+                },
+                "api": "rest",
+                "type": "soql"
+            },
+            "transform": {
+                "rules": []
+            },
+            "asynchronous": true,
+            "_connectionId": "SALESFORCE CONNECTION",
+            "qa__connectionId": "SALESFORCE CONNECTION"
+        }
+    }]
+}

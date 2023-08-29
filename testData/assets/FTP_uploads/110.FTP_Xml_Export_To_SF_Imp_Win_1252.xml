@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  
+    <recordType>contact</recordType>
+    <Name>Auto@110.FTP_Xml_Export_To_SF_Imp_Win_1252</Name>
+    <Email>test110@mail.com</Email>
+    <Phone>650-555-9788</Phone>
+  <comments></comments>
+    <sublists>
+      <sublist>
+       <BillingAddress>Billing Address�</BillingAddress>
+        <BillingCity>Hyderabad</BillingCity>
+        <BillingCountry>India</BillingCountry>
+        <BillingZip>500081</BillingZip>
+         <ShippingAddress>Shipping Address</ShippingAddress>
+        <ShippingCity>Secunderabad</ShippingCity>
+        <ShippingCOuntry>Country</ShippingCOuntry>
+        <ShippingZip>500061</ShippingZip>
+      
+     
+        </sublist>
+    </sublists>
+</data>
