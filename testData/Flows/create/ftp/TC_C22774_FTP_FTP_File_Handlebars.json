@@ -1,0 +1,88 @@
+{
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "84",
+        "errorCount": "0"
+    },
+    "pageProcessors": [{
+        "responseMapping": {
+            "fields": [],
+            "lists": []
+        },
+        "type": "import",
+        "qa__import": {
+            "name": "FtpJsonfile_import",
+            "adaptorType": "FTPImport",
+            "oneToMany": false,
+            "sandbox": false,
+            "parsers": [],
+            "file": {
+                "fileName": "{{batch_of_records.0.record.first_name}}-{{timestamp \"YYYY-MM-DD hh:mm:ss\" \"Asia/Calcutta\"}}",
+                "skipAggregation": true,
+                "type": "json",
+                "compressionFormat": "zip"
+            },
+            "ftp": {
+                "directoryPath": "{{settings.integration.filepath}}",
+                "fileName": "{{batch_of_records.0.record.first_name}}-{{timestamp \"YYYY-MM-DD hh:mm:ss\" \"Asia/Calcutta\"}}",
+                "inProgressFileName": "Temporary file"
+            },
+            "_connectionId": "FTP CONNECTION",
+            "distributed": false
+        }
+    }],
+    "_integrationId": "62d6b4a955468141a906119e",
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C22774_FTP_FTP_File_Handlebars",
+    "disabled": false,
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "standaloneexportflowID": "",
+        "expected": {
+            "FTP": {
+                "name": "TC_C22774_FTP_FTP_File_Handlebars",
+                "_integrationId": "62d6b4a955468141a906119e",
+                "import": {
+                    "_connectionId": "FTP CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "84",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "Marji",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".json"
+                }
+            }
+        }
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "FtpJsonfile_export",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "ea797d30bf",
+            "asynchronous": true,
+            "sandbox": false,
+            "parsers": [],
+            "qa__path": "/FTP_uploads/Ftp to Ftp Zip.json",
+            "ftp": {
+                "directoryPath": "io.auto.qa/IO_Automation_SFTP_Exports",
+                "fileNameStartsWith": "Ftp to Ftp Zip"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json",
+                "json": {
+                    "resourcePath": "*"
+                }
+            },
+            "adaptorType": "FTPExport"
+        }
+    }]
+}
