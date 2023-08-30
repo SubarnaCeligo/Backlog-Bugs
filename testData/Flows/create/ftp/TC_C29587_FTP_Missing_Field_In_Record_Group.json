@@ -1,0 +1,88 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C29587_FTP_Missing_Field_In_Record_Group",
+    "disabled": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "4",
+        "errorCount": "0"
+    },
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "FTP Import",
+            "_connectionId": "FTP CONNECTION",
+            "distributed": false,
+            "file": {
+                "fileName": "TC_C29587_Missing_Field_In_Record_Group.json",
+                "skipAggregation": false,
+                "type": "json"
+            },
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                "fileName": "TC_C29587_Missing_Field_In_Record_Group.json"
+            },
+            "adaptorType": "FTPImport"
+        }
+    }],
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "standaloneexportflowID": "",
+        "expected": {
+            "FTP": {
+                "name": "TC_C29587_Missing_Field_In_Record_Group",
+                "_integrationId": "62d6b4a955468141a906119e",
+                "import": {
+                    "_connectionId": "FTP CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "4",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_C29587_Missing_Field_In_Record_Group",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".json"
+                }
+            }
+        }
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "FTP export",
+            "_connectionId": "FTP CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "parsers": [],
+            "qa__path": "/FTP_uploads/TC_C29587.json",
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_C29587"
+            },
+            "file": {
+                "output": "records",
+                "encoding": "utf8",
+                "skipDelete": true,
+                "type": "json",
+                "sortByFields": [{
+                        "field": "name",
+                        "descending": false
+                    },
+                    {
+                        "field": "age",
+                        "descending": false
+                    }
+                ],
+                "groupByFields": [
+                    "fileName"
+                ]
+            },
+            "adaptorType": "FTPExport"
+        }
+    }]
+}
