@@ -1,5 +1,5 @@
 import { test, expect } from "@celigo/ui-core-automation";
-import * as FTPtoFTP from "@testData/Flows/create/ftp/TC_C2661_FTP_FTP_EDI_Verify_Composite_Element.json"
+import * as FTPtoFTP from "@testData/Flows/create/ftp/TC_C2810_Verify_Ftp_import_CSV_without_headers.json"
 import allure from "allure-playwright";
 
 test.describe("E2E Flows", () => {
