@@ -1,0 +1,132 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "8",
+        "errorCount": "0"
+    },
+    "name": "TC_314_Filter_With_Rows_Data",
+    "disabled": false,
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "NS FIlter Export",
+            "_connectionId": "NETSUITE CONNECTION",
+            "asynchronous": true,
+            "netsuite": {
+                "type": "restlet",
+                "skipGrouping": false,
+                "statsOnly": false,
+                "restlet": {
+                    "recordType": "customer",
+                    "searchId": "3160",
+                    "useSS2Restlets": false
+                }
+            },
+            "qa__rules": [
+                [
+                    "rows[0].Name",
+                    "contains",
+                    "Loui"
+                ]
+            ],
+            "filter": {
+                "type": "expression",
+                "expression": {
+                    "rules": [
+                        "contains",
+                        [
+                            "string",
+                            [
+                                "extract",
+                                "Name"
+                            ]
+                        ],
+                        "Loui"
+                    ],
+                    "version": "1"
+                },
+                "version": "1",
+                "rules": [
+                    "contains",
+                    [
+                        "string",
+                        [
+                            "extract",
+                            "Name"
+                        ]
+                    ],
+                    "Loui"
+                ]
+            },
+
+            "adaptorType": "NetSuiteExport"
+        }
+    }],
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "ftp import",
+            "_connectionId": "FTP CONNECTION",
+            "distributed": false,
+            "mapping": {
+                "fields": [{
+                        "extract": "Name",
+                        "generate": "Name"
+                    },
+                    {
+                        "qa__extract": "Office Phone",
+                        "extract": "[Office Phone]",
+                        "generate": "OfficePhone"
+                    }
+                ]
+            },
+            "file": {
+                "type": "csv",
+                "csv": {
+                    "rowDelimiter": "\n",
+                    "columnDelimiter": ",",
+                    "includeHeader": true,
+                    "wrapWithQuotes": false,
+                    "replaceTabWithSpace": false,
+                    "replaceNewlineWithSpace": false,
+                    "truncateLastRowDelimiter": false
+                }
+            },
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                "fileName": "TC_314.csv"
+            },
+            "adaptorType": "FTPImport"
+        }
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "TC_314_Filter_With_Rows_Data",
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "fileName": "TC_314",
+                    "isUIFlow": true,
+                    "folderName":"/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".csv",
+                    "qa__columnDelimiter": ","
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "4",
+                    "errorCount": "0"
+                },
+                "import": {
+                    "_connectionId": "FTP CONNECTION",
+                    "file": {
+                        "csv": {
+                            "columnDelimiter": ","
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

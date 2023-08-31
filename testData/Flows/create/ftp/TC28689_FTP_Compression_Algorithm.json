@@ -1,0 +1,120 @@
+{
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "4",
+        "errorCount": "0"
+    },
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "name": "Ftp Import",
+                "_connectionId": "FTP CONNECTION",
+                "qa__connectionId": "62e77f86d61e942a8d4ec65d",
+                "apiIdentifier": "i470282871",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "TC28689.json",
+                    "skipAggregation": false,
+                    "type": "json",
+                    "compressionFormat": "zip"
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                    "fileName": "TC28689.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ],
+    "_integrationId": "62d6b4a955468141a906119e",
+    "timezone": "Asia/Calcutta",
+    "name": "TC28689_FTP_Compression_Algorithm",
+    "disabled": false,
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "standaloneexportflowID": "",
+        "expected": {
+            "FTP": {
+                "name": "TC28689_FTP_Compression_Algorithm",
+                "_integrationId": "62d6b4a955468141a906119e",
+                "import": {
+                    "_connectionId": "62e77f86d61e942a8d4ec65d"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "4",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC28689",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".json"
+                }
+            }
+        }
+    },
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "Ftp Export",
+                "_connectionId": "FTP CONNECTION",
+                "qa__connectionId": "62e77f86d61e942a8d4ec65d",
+                "apiIdentifier": "e09e131f6e",
+                "asynchronous": true,
+                "sandbox": false,
+                "qa__path": "/FTP_uploads/CompressionAlgo.json",
+                "sampleData": [
+                    {
+                        "record_type": "organizations",
+                        "name": "Johnson India 2",
+                        "email": "Johnson2@gmail.com",
+                        "billing_address_1": "Maine st",
+                        "billing_address2": null,
+                        "billing_city": "LA",
+                        "billing_state": "California",
+                        "shipping_address_1": "Brian st",
+                        "shipping_city": "LA",
+                        "shipping_state": "Tennesse",
+                        "shipping_country": "USA"
+                    },
+                    {
+                        "record_type": "organizations",
+                        "name": "Johnson India 1",
+                        "email": "Johnson1@gmail.com",
+                        "billing_address_1": "Alpine st",
+                        "billing_address2": null,
+                        "billing_city": "Memphis",
+                        "billing_state": "Tennesse",
+                        "shipping_address_1": "Braun st",
+                        "shipping_city": "Memphis",
+                        "shipping_state": "Tennesse",
+                        "shipping_country": "USA"
+                    }
+                ],
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                    "fileNameStartsWith": "CompressionAlgo",
+                    "fileNameEndsWith": ".json"
+                },
+                "file": {
+                    "output": "records",
+                    "encoding": "utf8",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ]
+}
