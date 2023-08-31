@@ -1,8 +1,8 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C55917 Verify the Default Structure/options of Pendo-Zendesk chat bot which is displayed in the integrator.io", () => {
-  test("C55917 Verify the Default Structure/options of Pendo-Zendesk chat bot which is displayed in the integrator.io", async ({
+test.describe(`C55936 Verify the auto -populated "Name" & "Email" fields in Pendo-zendesk chat bot when we login to a shared account which has only Manage access`, () => {
+  test(`C55936 Verify the auto -populated "Name" & "Email" fields in Pendo-zendesk chat bot when we login to a shared account which has only Manage access`, async ({
     page,
     io
   }) => {
