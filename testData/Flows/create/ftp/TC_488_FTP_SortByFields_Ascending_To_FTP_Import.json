@@ -1,0 +1,79 @@
+{
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "20",
+        "errorCount": "0"
+    },
+    "pageProcessors": [{
+        "responseMapping": {
+            "fields": [],
+            "lists": []
+        },
+        "type": "import",
+        "qa__import": {
+            "name": "FTP import",
+            "adaptorType": "FTPImport",
+            "file": {
+                "type": "json"
+            },
+            "ftp": {
+                "fileName": "AscendingSortedFile.json",
+                "directoryPath": "/io.auto.qa/IO Automation SFTP Imports"
+            },
+            "_connectionId": "FTP CONNECTION",
+            "distributed": false
+        }
+    }],
+    "_integrationId": "62d6b4a955468141a906119e",
+    "timezone": "Asia/Calcutta",
+    "name": "TC_488_FTP_SortByFields_Ascending_To_FTP_Import",
+    "disabled": false,
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "standaloneexportflowID": "",
+        "expected": {
+            "FTP": {
+                "name": "TC_488_FTP_SortByFields_Ascending_To_FTP_Import",
+                "_integrationId": "62d6b4a955468141a906119e",
+                "import": {
+                    "_connectionId": "FTP CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "20",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "AscendingSortedFile",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO Automation SFTP Imports",
+                    "fileType": ".json"
+                }
+            }
+        }
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "FTP export",
+            "_connectionId": "FTP CONNECTION",
+            "asynchronous": true,
+            "sandbox": false,
+            "qa__path": "//FTP_uploads//sortAndgroupFile.json",
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "sortAndgroupFile"
+            },
+            "file": {
+                "output": "records",
+                "encoding": "utf8",
+                "skipDelete": true,
+                "type": "json",
+                "sortByFields": [{
+                    "field": "age"
+                }]
+            },
+            "adaptorType": "FTPExport"
+        }
+    }]
+}
