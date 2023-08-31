@@ -1,0 +1,93 @@
+{
+    "name": "TC_C2810_Verify_Ftp_import_CSV_without_headers",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "62d6b4a955468141a906119e",
+    "skipRetries": false,
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "FTP Export",
+            "_connectionId": "FTP CONNECTION",
+            "qa__path": "//FTP_uploads//TC_C30817.json",
+            "asynchronous": true,
+            "sandbox": false,
+            "parsers": [],
+            "ftp": {
+                "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_C30817"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json",
+                "json": {
+                    "resourcePath": "*"
+                }
+            },
+            "adaptorType": "FTPExport"
+        }
+    }],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "4",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "name": "TC_C2810_Verify_Ftp_import_CSV_without_headers",
+                "_integrationId": "62d6b4a955468141a906119e",
+                "import": {
+                    "_connectionId": "FTP CONNECTION",
+                    "file": {
+                        "csv": {
+                            "columnDelimiter": ","
+                        }
+                    }
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "4",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "fileName": "TC_C2810-1",
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".csv"
+                }
+            }
+        }
+    },
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "FTP Import",
+            "parsers": [],
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "if47d966b0",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+                "fileName": "TC_C2810-1.csv",
+                "skipAggregation": false,
+                "type": "csv",
+                "csv": {
+                    "rowDelimiter": "\n",
+                    "columnDelimiter": ",",
+                    "includeHeader": false,
+                    "wrapWithQuotes": false,
+                    "replaceTabWithSpace": false,
+                    "replaceNewlineWithSpace": false,
+                    "truncateLastRowDelimiter": true
+                }
+            },
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                "fileName": "TC_C2810-1.csv"
+            },
+            "adaptorType": "FTPImport"
+        }
+    }]
+}
