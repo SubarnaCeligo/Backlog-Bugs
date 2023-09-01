@@ -5,7 +5,7 @@
           "type": "export",
           "qa__export": {
             "name": "test s3 export",
-            "_connectionId": "AMAZON S3 CONNECTION",
+            "_connectionId": "S3 CONNECTION",
             "apiIdentifier": "e00afc1e37",
             "asynchronous": true,
             "sandbox": false,
@@ -54,7 +54,7 @@
           "type": "import",
           "qa__import": {
             "name": "test import s3",
-            "_connectionId": "AMAZON S3 CONNECTION",
+            "_connectionId": "S3 CONNECTION",
             "apiIdentifier": "ia212e43d2",
             "oneToMany": false,
             "sandbox": false,
