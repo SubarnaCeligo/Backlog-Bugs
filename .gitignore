@@ -12,3 +12,4 @@ dist/
 !env/*gitkeep
 !allure-results/*gitkeep
 __tests__/*debug
+__tests__/**/debug
