@@ -14,7 +14,7 @@ test.describe('Verify that while creating import Advanced firls should be collap
         await io.importsPage.click(selectors.importPagePO.NETSUITE_IMPORT)
         await io.importsPage.click(selectors.importPagePO.NETSUITE_CONNECTIONS);
          await io.homePage.clickByText('NETSUITE CONNECTION')
-         await page.type(selectors.importPagePO.NETSUITE_NAME, 'import');
+         await page.type(selectors.importPagePO.NAME, 'import');
          await io.homePage.clickByText('Next');
     
          const initialAriaExpanded = await page.getAttribute(selectors.importPagePO.ADVANCED, 'aria-expanded');
