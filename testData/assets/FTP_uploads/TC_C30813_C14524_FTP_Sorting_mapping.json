@@ -1,0 +1,112 @@
+[
+  {
+    "Drug_company": "Horizon Pharma Inc.",
+    "Drug @ Name": "Naproxen and Esomeprazole Magnesium",
+    "_code": "75987-030",
+    "Long Desc": "Benign neoplasm of eyeball, except conjunctiva, cornea, retina, and choroid",
+    "code's": "7675",
+    "#Number": "6495195850",
+    "$code": "2240",
+    "Desc(ICD)": "Group Counseling for Substance Abuse Treatment, Vocational",
+    "Desc(Short)": "Benign neoplasm, unspecified site"
+  },
+  {
+    "Drug_company": "SPIRIT PHARMACEUTICALS,LLC",
+    "Drug @ Name": "FAMOTIDINE",
+    "_code": "68210-0007",
+    "Long Desc": "Loss of weight",
+    "code's": "7675",
+    "#Number": "4544913950",
+    "$code": "78321",
+    "Desc(ICD)": "CT Scan of Bi Pulm Vein using H Osm Contrast, Unenh, Enhance",
+    "Desc(Short)": "Embolism and thrombosis of abdominal aorta"
+  },
+  {
+    "Drug_company": "Novo Nordisk",
+    "Drug @ Name": "repaglinide and metformin hydrochloride",
+    "_code": "0169-0092",
+    "Long Desc": "Unspecified visual loss",
+    "code's": "7675",
+    "#Number": "9025710557",
+    "$code": "3699",
+    "Desc(ICD)": "Transfer Hypoglossal Nerve to Trigem Nrv, Perc Endo Approach",
+    "Desc(Short)": "Bariatric surgery status compl preg/chldbrth"
+  },
+  {
+    "Drug_company": "Northwind Pharmaceuticals",
+    "Drug @ Name": "Fenofibrate",
+    "_code": "51655-010",
+    "Long Desc": "Fall from (nonmotorized) scooter",
+    "code's": "7675",
+    "#Number": "1933831154",
+    "$code": "E8850",
+    "Desc(ICD)": "Repair Left Ulnar Artery, Open Approach",
+    "Desc(Short)": "Oth fx of low end l rad, subs for opn fx type I/2 w nonunion"
+  },
+  {
+    "Drug_company": "GlaxoSmithKline Consumer Healthcare LP",
+    "Drug @ Name": "nicotine polacrilex",
+    "_code": "0135-0230",
+    "Long Desc": "Other noncollision motor vehicle traffic accident injuring unspecified person",
+    "code's": "7675",
+    "#Number": "3656640440",
+    "$code": "E8189",
+    "Desc(ICD)": "Supplement Left Thyroid Artery with Autol Sub, Open Approach",
+    "Desc(Short)": "Adverse effect of antineoplastic and immunosup drugs, init"
+  },
+  {
+    "Drug_company": "Elizabeth Arden, Inc",
+    "Drug @ Name": "Octinoxate",
+    "_code": "67938-0808",
+    "Long Desc": "Enteritis due to other viral enteritis",
+    "code's": "7675",
+    "#Number": "6357049646",
+    "$code": "00869",
+    "Desc(ICD)": "Division of L Low Arm Subcu/Fascia, Open Approach",
+    "Desc(Short)": "Anterior disloc of proximal end of tibia, unsp knee, sequela"
+  },
+  {
+    "Drug_company": "REMEDYREPACK INC.",
+    "Drug @ Name": "Nortriptyline Hydrochloride",
+    "_code": "52125-965",
+    "Long Desc": "Other and unspecified disorder of breast associated with childbirth, antepartum condition or complication",
+    "code's": "8093",
+    "#Number": "7050996688",
+    "$code": "67633",
+    "Desc(ICD)": "Resection of Left Thorax Muscle, Perc Endo Approach",
+    "Desc(Short)": "Nondisp fx of prox phalanx of l great toe, 7thD"
+  },
+  {
+    "Drug_company": "AmerisourceBergen (Good Neighbor Pharmacy)",
+    "Drug @ Name": "Acetaminophen, Dextromethorphan Hydrobromide, Phenylephrine Hydrochloride",
+    "_code": "46122-184",
+    "Long Desc": "Open fractures involving skull or face with other bones, without mention of intracranial injury, with prolonged [more than 24 hours] loss of consciousness and return to pre-existing conscious level",
+    "code's": "6739",
+    "#Number": "3965202227",
+    "$code": "80454",
+    "Desc(ICD)": "Destruction of Left Seminal Vesicle, Open Approach",
+    "Desc(Short)": "Postdysenteric arthropathy, multiple sites"
+  },
+  {
+    "Drug_company": "AMOREPACIFIC",
+    "Drug @ Name": "OCTINOXATE, TITANIUM DIOXIDE, and ZINC OXIDE",
+    "_code": "43419-730",
+    "Long Desc": "Cauliflower ear",
+    "code's": "9761",
+    "#Number": "7971708874",
+    "$code": "7387",
+    "Desc(ICD)": "Removal of Int Fix from L Carpal Jt, Open Approach",
+    "Desc(Short)": "Other effects of lightning, subsequent encounter"
+  },
+  {
+    "Drug_company": "ESTEE LAUDER INC",
+    "Drug @ Name": "Avobenzone, Homosalate, Octisalate, Octocrylene, and Oxybenzone",
+    "_code": "11559-037",
+    "Long Desc": "Felty's syndrome",
+    "code's": "8018",
+    "#Number": "9644580532",
+    "$code": "7141",
+    "Desc(ICD)": "Transfer Vagus Nerve to Accessory Nerve, Open Approach",
+    "Desc(Short)": "Preterm prem ROM, onset labor within 24 hours of rupture"
+  }
+]
