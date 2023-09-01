@@ -1,0 +1,28 @@
+[
+    {
+      "record_type": "organizations",
+      "name": "Johnson India 2",
+      "email": "Johnson2@gmail.com",
+      "billing_address_1": "Maine st",
+      "billing_address2": null,
+      "billing_city": "LA",
+      "billing_state": "California",
+      "shipping_address_1": "Brian st",
+      "shipping_city": "LA",
+      "shipping_state": "Tennesse",
+      "shipping_country": "USA"
+    },
+    {
+    "record_type": "organizations",
+    "name": "Johnson India 1",
+    "email": "Johnson1@gmail.com",
+    "billing_address_1": "Alpine st",
+    "billing_address2": null,
+    "billing_city": "Memphis",
+    "billing_state": "Tennesse",
+    "shipping_address_1": "Braun st",
+    "shipping_city": "Memphis",
+    "shipping_state": "Tennesse",
+    "shipping_country": "USA"
+  }
+  ]

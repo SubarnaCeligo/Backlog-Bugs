@@ -1,0 +1,236 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "8",
+        "errorCount": "0"
+    },
+    "name": "TC_313_Multifilter_GROUP_NOT_Operator_equals_notequals",
+    "disabled": false,
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "NS FIlter Export",
+            "_connectionId": "NETSUITE CONNECTION",
+            "asynchronous": true,
+            "netsuite": {
+                "type": "restlet",
+                "skipGrouping": true,
+                "statsOnly": false,
+                "restlet": {
+                    "recordType": "customer",
+                    "searchId": "3160",
+                    "useSS2Restlets": false
+                }
+            },
+            "qa__rules": [
+                [
+                    "record.id",
+                    "equals",
+                    "11247",
+                    "GROUP"
+                ],
+                [
+                    "record.[Integer custom field_A]",
+                    "not_equal",
+                    "123",
+                    "OR"
+                ],
+                [
+                    "record.Name",
+                    "is_empty",
+                    null,
+                    "GROUP"
+                ],
+                [
+                    "record.[Keyword Search]",
+                    "is_not_empty",
+                    null,
+                    "NOT"
+                ]
+            ],
+            "filter": {
+                "type": "expression",
+                "expression": {
+                    "rules": [
+                        "or",
+                        [
+                            "or",
+                            [
+                                "equals",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "id"
+                                    ]
+                                ],
+                                "11247"
+                            ],
+                            [
+                                "notequals",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "[Integer custom field_A]"
+                                    ]
+                                ],
+                                "123"
+                            ]
+                        ],
+                        [
+                            "not",
+                            [
+                                "and",
+                                [
+                                    "empty",
+                                    [
+                                        "string",
+                                        [
+                                            "extract",
+                                            "Name"
+                                        ]
+                                    ]
+                                ],
+                                [
+                                    "notempty",
+                                    [
+                                        "string",
+                                        [
+                                            "extract",
+                                            "[Keyword Search]"
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ],
+                    "version": "1"
+                },
+                "version": "1",
+                "rules": [
+                    "or",
+                    [
+                        "or",
+                        [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "id"
+                                ]
+                            ],
+                            "11247"
+                        ],
+                        [
+                            "notequals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "[Integer custom field_A]"
+                                ]
+                            ],
+                            "123"
+                        ]
+                    ],
+                    [
+                        "not",
+                        [
+                            "and",
+                            [
+                                "empty",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "Name"
+                                    ]
+                                ]
+                            ],
+                            [
+                                "notempty",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "[Keyword Search]"
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            },
+            "adaptorType": "NetSuiteExport"
+        }
+    }],
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "ftp import",
+            "_connectionId": "FTP CONNECTION",
+            "distributed": false,
+            "mapping": {
+                "fields": [{
+                        "extract": "Name",
+                        "generate": "Name"
+                    },
+                    {
+                        "qa__extract": "Office Phone",
+                        "extract": "[Office Phone]",
+                        "generate": "OfficePhone"
+                    }
+                ]
+            },
+            "file": {
+                "type": "csv",
+                "csv": {
+                    "rowDelimiter": "\n",
+                    "columnDelimiter": ",",
+                    "includeHeader": true,
+                    "wrapWithQuotes": false,
+                    "replaceTabWithSpace": false,
+                    "replaceNewlineWithSpace": false,
+                    "truncateLastRowDelimiter": false
+                }
+            },
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                "fileName": "TC_313.csv"
+            },
+            "adaptorType": "FTPImport"
+        }
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "TC_313_Multifilter_GROUP_NOT_Operator_equals_notequals",
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "fileName": "TC_313",
+                    "isUIFlow": true,
+                    "folderName":"/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".csv",
+                    "qa__columnDelimiter": ","
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "4",
+                    "errorCount": "0"
+                },
+                "import": {
+                    "_connectionId": "FTP CONNECTION",
+                    "file": {
+                        "csv": {
+                            "columnDelimiter": ","
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

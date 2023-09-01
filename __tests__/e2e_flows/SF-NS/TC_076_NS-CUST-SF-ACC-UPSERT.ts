@@ -5,7 +5,7 @@ import NStoSF from "@testData/Flows/create/netsuite/03.Flow-3-NS-CUST-SF-ACC-UPS
 test.describe("E2E Flows", () => {
 
     test.beforeEach(async ({ io }) => {
-        await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
+        await io.homePage.navigateToHome()
     });
 
     test("TC_076_NS-CUST-SF-ACC-UPSERT", async ({

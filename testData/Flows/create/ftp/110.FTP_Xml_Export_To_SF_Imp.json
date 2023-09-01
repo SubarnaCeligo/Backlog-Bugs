@@ -1,0 +1,181 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "pageProcessors": [{
+        "responseMapping": {
+            "fields": [],
+            "lists": []
+        },
+        "type": "import",
+        "qa__import": {
+            "name": "110 SF import",
+            "adaptorType": "SalesforceImport",
+            "salesforce": {
+                "sObjectType": "Account",
+                "api": "soap",
+                "operation": "insert",
+                "removeNonSubmittableFields": false
+            },
+            "mapping": {
+                "fields": [{
+                    "extract": "Name",
+                    "generate": "Name"
+                }, {
+                    "extract": "Email",
+                    "generate": "Email__c"
+                }, {
+                    "extract": "Phone",
+                    "generate": "Phone"
+                }, {
+                    "extract": "sublists.sublist.BillingAddress",
+                    "generate": "BillingStreet"
+                }, {
+                    "extract": "sublists.sublist.BillingCity",
+                    "generate": "BillingCity"
+                }, {
+                    "extract": "sublists.sublist.BillingCountry",
+                    "generate": "BillingState"
+                }, {
+                    "extract": "sublists.sublist.BillingZip",
+                    "generate": "BillingPostalCode"
+                }, {
+                    "extract": "sublists.sublist.BillingAddress",
+                    "generate": "BillingCountry"
+                }, {
+                    "extract": "sublists.sublist.ShippingAddress",
+                    "generate": "ShippingStreet"
+                }, {
+                    "extract": "sublists.sublist.ShippingCity",
+                    "generate": "ShippingCity"
+                }, {
+                    "extract": "sublists.sublist.ShippingCOuntry",
+                    "generate": "ShippingState"
+                }, {
+                    "extract": "sublists.sublist.ShippingZip",
+                    "generate": "ShippingPostalCode"
+                }, {
+                    "extract": "sublists.sublist.ShippingAddress",
+                    "generate": "ShippingCountry"
+                }]
+            },
+            "_connectionId": "SALESFORCE CONNECTION",
+            "distributed": false
+        }
+    }],
+    "timezone": "Asia/Calcutta",
+    "name": "110.FTP_Xml_Export_To_SF_Imp",
+    "disabled": false,
+    "qa__dataVerification": {
+        "expected": {
+            "Salesforce": {
+                "_integrationId": "62d6b4a955468141a906119e",
+                "name": "110.FTP_Xml_Export_To_SF_Imp",
+                "import": {
+                    "_connectionId": "SALESFORCE CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "uniqueField": "Name",
+                    "standaloneexportflowID": "58d2232d2a786f376b970f5f",
+                    "importRecordType": "Account",
+                    "isUIFlow": true,
+                    "query": "Select id,Name, Email__c,phone,Billingcity,Billingstreet,Billingcountry,Billingstate,BillingPostalCode,Shippingcity,Shippingstreet,Shippingcountry,ShippingPostalCode,Shippingstate from Account where name like 'Auto@110.FTP_Xml_Export_To_SF_Imp_Win_1252%'",
+                    "exportapiIdentifier": "e1d3b0f8c1",
+                    "expectedJSON": [{
+                        "BillingCity": "Hyderabad",
+                        "Name": "Auto@110.FTP_Xml_Export_To_SF_Imp_Win_1252",
+                        "ShippingStreet": "Shipping Address",
+                        "BillingCountry": "Billing Address�",
+                        "BillingStreet": "Billing Address�",
+                        "Phone": "650-555-9788",
+                        "ShippingPostalCode": "500061",
+                        "ShippingCountry": "Shipping Address",
+                        "BillingPostalCode": "500081",
+                        "ShippingCity": "Secunderabad",
+                        "ShippingState": "Country",
+                        "BillingState": "India",
+                        "Email__c": "test110@mail.com"
+                    }]
+                }
+            }
+        }
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "110_FTP export",
+            "adaptorType": "FTPExport",
+            "qa__customtransform": true,
+            "transform": {
+                "rules": [
+                    [{
+                        "extract": "Email[0]._",
+                        "generate": "Email"
+                    }, {
+                        "extract": "Name[0]._",
+                        "generate": "Name"
+                    }, {
+                        "extract": "Phone[0]._",
+                        "generate": "Phone"
+                    }, {
+                        "extract": "comments",
+                        "generate": "comments"
+                    }, {
+                        "extract": "recordType[0]._",
+                        "generate": "recordType"
+                    }, {
+                        "extract": "sublists[0].sublist[0].BillingAddress[0]._",
+                        "generate": "sublists.sublist.BillingAddress"
+                    }, {
+                        "extract": "sublists[0].sublist[0].BillingCity[0]._",
+                        "generate": "sublists.sublist.BillingCity"
+                    }, {
+                        "extract": "sublists[0].sublist[0].BillingCountry[0]._",
+                        "generate": "sublists.sublist.BillingCountry"
+                    }, {
+                        "extract": "sublists[0].sublist[0].BillingZip[0]._",
+                        "generate": "sublists.sublist.BillingZip"
+                    }, {
+                        "extract": "sublists[0].sublist[0].ShippingAddress[0]._",
+                        "generate": "sublists.sublist.ShippingAddress"
+                    }, {
+                        "extract": "sublists[0].sublist[0].ShippingCOuntry[0]._",
+                        "generate": "sublists.sublist.ShippingCOuntry"
+                    }, {
+                        "extract": "sublists[0].sublist[0].ShippingCity[0]._",
+                        "generate": "sublists.sublist.ShippingCity"
+                    }, {
+                        "extract": "sublists[0].sublist[0].ShippingZip[0]._",
+                        "generate": "sublists.sublist.ShippingZip"
+                    }]
+                ],
+                "version": "1"
+            },
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports_FileAdaptors",
+                "fileNameStartsWith": "110.FTP_Xml_Export_To_SF_Imp_Win_1252.xml"
+            },
+            "file": {
+                "output": "records",
+                "skipDelete": true,
+                "xml": {
+                    "resourcePath": "/data"
+                },
+                "encoding": "win1252",
+                "type": "xml"
+            },
+            "asynchronous": true,
+            "_connectionId": "FTP CONNECTION",
+            "dataURITemplate": "{{{sublists.sublist.ShippingCity}}}",
+            "qa__path": "/FTP_uploads/110.FTP_Xml_Export_To_SF_Imp_Win_1252.xml"
+        }
+    }]
+}
