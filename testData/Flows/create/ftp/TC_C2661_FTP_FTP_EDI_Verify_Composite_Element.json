@@ -1,0 +1,663 @@
+{
+    "name": "TC_C2661_FTP_FTP_Verify_composite_element",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "62d6b4a955468141a906119e",
+    "skipRetries": false,
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "FTP Export",
+            "_connectionId": "FTP CONNECTION",
+            "qa__path": "//FTP_uploads//TC_C22867.json",
+            "asynchronous": true,
+            "sandbox": false,
+            "parsers": [],
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_C22867"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json"
+            },
+            "adaptorType": "FTPExport"
+        }
+    }],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "4",
+        "errorCount": "0",
+        "pages": "1"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "name": "TC_C2661_FTP_FTP_Verify_composite_element",
+                "_integrationId": "62d6b4a955468141a906119e",
+                "import": {
+                    "_connectionId": "FTP CONNECTION",
+                    "file": {
+                        "csv": {
+                            "columnDelimiter": ","
+                        }
+                    }
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "4",
+                    "errorCount": "0",
+                    "pages": "1"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_C2661",
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".edi"
+                }
+            }
+        }
+    },
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "FTP Import",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "i7258f9408",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+                "fileName": "TC_C2661-{{timestamp \"YYYY-MM-DDTHH:mm:ssZ\" \"Asia/Calcutta\"}}.edi",
+                "skipAggregation": true,
+                "type": "filedefinition",
+                "qa__type": "delimited/edifact",
+                "qa__ediformat": "amazonvcedifactorders",
+                "fileDefinition": {
+                    "_fileDefinitionId": "62c7c8924925e16007769a0a"
+                },
+                "qa__fileGeneratorHelper": true,
+                "qa__data": {
+                    "name": "Amazon Vendor Central EDIFACT ORDERS",
+                    "description": "Purchase Order",
+                    "version": "1",
+                    "format": "delimited/edifact",
+                    "skipEmptyEndColDelimiter": true,
+                    "delimited": {
+                        "rowSuffix": "'",
+                        "rowDelimiter": "\\n",
+                        "colDelimiter": "+"
+                    },
+                    "rules": [{
+                        "maxOccurrence": 2,
+                        "required": true,
+                        "elements": [{
+                                "name": "UNB",
+                                "value": "UNB"
+                            },
+                            {
+                                "name": "SYNTAX IDENTIFIER",
+                                "value": {
+                                    "delimiter": ":",
+                                    "elements": [{
+                                        "name": "Syntax identifier",
+                                        "value": "{{{[SYNTAX IDENTIFIER].[Syntax identifier]}}}"
+                                    }]
+                                }
+                            },
+                            {
+                                "name": "INTERCHANGE SENDER",
+                                "value": {
+                                    "delimiter": ":",
+                                    "elements": [{
+                                            "name": "Sender identification",
+                                            "value": "{{{[INTERCHANGE SENDER].[Sender identification]}}}"
+                                        },
+                                        {
+                                            "name": "Partner identification code qualifier",
+                                            "value": "{{{[INTERCHANGE SENDER].[Partner identification code qualifier]}}}"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "INTERCHANGE RECIPIENT",
+                                "value": {
+                                    "delimiter": ":",
+                                    "elements": [{
+                                            "name": "Recipient identification",
+                                            "value": "{{{[INTERCHANGE RECIPIENT].[Recipient identification]}}}"
+                                        },
+                                        {
+                                            "name": "Partner identification code qualifier",
+                                            "value": "{{{[INTERCHANGE RECIPIENT].[Partner identification code qualifier]}}}"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "DATE/TIME OF PREPARATION",
+                                "value": {
+                                    "delimiter": ":",
+                                    "elements": [{
+                                            "name": "Date of preparation",
+                                            "value": "{{{[DATE/TIME OF PREPARATION].[Date of preparation]}}}"
+                                        },
+                                        {
+                                            "name": "Time of preparation",
+                                            "value": "{{{[DATE/TIME OF PREPARATION].[Time of preparation]}}}"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Interchange control reference",
+                                "value": "{{{[Interchange control reference]}}}"
+                            },
+                            {
+                                "name": "UNB060",
+                                "value": "{{{[UNB060]}}}"
+                            },
+                            {
+                                "name": "UNB070",
+                                "value": "{{{[UNB070]}}}"
+                            },
+                            {
+                                "name": "UNB080",
+                                "value": "{{{[UNB080]}}}"
+                            },
+                            {
+                                "name": "Acknowledgement request",
+                                "value": "{{{[Acknowledgement request]}}}"
+                            },
+                            {
+                                "name": "Communications agreement ID",
+                                "value": "{{{[Communications agreement ID]}}}"
+                            }
+                        ],
+                        "children": [{
+                            "maxOccurrence": 1,
+                            "required": true,
+                            "elements": [{
+                                    "name": "UNH",
+                                    "value": "UNH"
+                                },
+                                {
+                                    "name": "Message reference number",
+                                    "value": "{{{[Message reference number]}}}"
+                                },
+                                {
+                                    "name": "MESSAGE IDENTIFIER",
+                                    "value": {
+                                        "delimiter": ":",
+                                        "elements": [{
+                                                "name": "Message type identifier",
+                                                "value": "{{{[MESSAGE IDENTIFIER].[Message type identifier]}}}"
+                                            },
+                                            {
+                                                "name": "Message type version number",
+                                                "value": "{{{[MESSAGE IDENTIFIER].[Message type version number]}}}"
+                                            },
+                                            {
+                                                "name": "Message type release number",
+                                                "value": "{{{[MESSAGE IDENTIFIER].[Message type release number]}}}"
+                                            },
+                                            {
+                                                "name": "Controlling agency",
+                                                "value": "{{{[MESSAGE IDENTIFIER].[Controlling agency]}}}"
+                                            },
+                                            {
+                                                "name": "Association assigned code",
+                                                "value": "{{{[MESSAGE IDENTIFIER].[Association assigned code]}}}"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ],
+                            "children": [{
+                                "maxOccurrence": 1,
+                                "required": true,
+                                "elements": [{
+                                        "name": "BGM",
+                                        "value": "BGM"
+                                    },
+                                    {
+                                        "name": "DOCUMENT/MESSAGE NAME",
+                                        "value": {
+                                            "delimiter": ":",
+                                            "elements": [{
+                                                "name": "Document/message name, coded",
+                                                "value": "{{{[DOCUMENT/MESSAGE NAME].[Document/message name, coded]}}}"
+                                            }]
+                                        }
+                                    },
+                                    {
+                                        "name": "Document/message number",
+                                        "value": "{{{[Document/message number]}}}"
+                                    },
+                                    {
+                                        "name": "Message function, coded",
+                                        "value": "{{{[Message function, coded]}}}"
+                                    }
+                                ],
+                                "children": [{
+                                        "maxOccurrence": 1,
+                                        "required": true,
+                                        "elements": [{
+                                                "name": "DTM",
+                                                "value": "DTM"
+                                            },
+                                            {
+                                                "name": "DATE/TIME/PERIOD",
+                                                "value": {
+                                                    "delimiter": ":",
+                                                    "elements": [{
+                                                            "name": "Date/time/period qualifier",
+                                                            "value": "{{{[DATE/TIME/PERIOD].[Date/time/period qualifier]}}}"
+                                                        },
+                                                        {
+                                                            "name": "Date/time/period",
+                                                            "value": "{{{[DATE/TIME/PERIOD].[Date/time/period]}}}"
+                                                        },
+                                                        {
+                                                            "name": "Date/time/period format qualifier",
+                                                            "value": "{{{[DATE/TIME/PERIOD].[Date/time/period format qualifier]}}}"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "DTM",
+                                        "maxOccurrence": 2,
+                                        "relativeDataPath": "DTM",
+                                        "required": true,
+                                        "elements": [{
+                                                "name": "DTM",
+                                                "value": "DTM"
+                                            },
+                                            {
+                                                "name": "DATE/TIME/PERIOD",
+                                                "value": {
+                                                    "delimiter": ":",
+                                                    "elements": [{
+                                                            "name": "Date/time/period qualifier",
+                                                            "value": "{{{[DATE/TIME/PERIOD].[Date/time/period qualifier]}}}"
+                                                        },
+                                                        {
+                                                            "name": "Date/time/period",
+                                                            "value": "{{{[DATE/TIME/PERIOD].[Date/time/period]}}}"
+                                                        },
+                                                        {
+                                                            "name": "Date/time/period format qualifier",
+                                                            "value": "{{{[DATE/TIME/PERIOD].[Date/time/period format qualifier]}}}"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "Segment Group 1",
+                                        "maxOccurrence": 10,
+                                        "relativeDataPath": "Segment Group 1",
+                                        "required": false,
+                                        "elements": [{
+                                                "name": "RFF",
+                                                "value": "RFF"
+                                            },
+                                            {
+                                                "name": "REFERENCE",
+                                                "value": {
+                                                    "delimiter": ":",
+                                                    "elements": [{
+                                                            "name": "Reference qualifier",
+                                                            "value": "{{{[REFERENCE].[Reference qualifier]}}}"
+                                                        },
+                                                        {
+                                                            "name": "Reference number",
+                                                            "value": "{{{[REFERENCE].[Reference number]}}}"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "Segment Group 2",
+                                        "maxOccurrence": 4,
+                                        "relativeDataPath": "Segment Group 2",
+                                        "required": true,
+                                        "elements": [{
+                                                "name": "NAD",
+                                                "value": "NAD"
+                                            },
+                                            {
+                                                "name": "Party qualifier",
+                                                "value": "{{{[Party qualifier]}}}"
+                                            },
+                                            {
+                                                "name": "PARTY IDENTIFICATION DETAILS",
+                                                "value": {
+                                                    "delimiter": ":",
+                                                    "elements": [{
+                                                            "name": "Party id. identification",
+                                                            "value": "{{{[PARTY IDENTIFICATION DETAILS].[Party id. identification]}}}"
+                                                        },
+                                                        {
+                                                            "name": "NAD020-020",
+                                                            "value": "{{{[PARTY IDENTIFICATION DETAILS].[NAD020-020]}}}"
+                                                        },
+                                                        {
+                                                            "name": "Code list responsible agency, coded",
+                                                            "value": "{{{[PARTY IDENTIFICATION DETAILS].[Code list responsible agency, coded]}}}"
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "name": "NAD030",
+                                                "value": "{{{[NAD030]}}}"
+                                            },
+                                            {
+                                                "name": "PARTY NAME",
+                                                "value": {
+                                                    "delimiter": ":",
+                                                    "elements": [{
+                                                            "name": "Party name",
+                                                            "value": "{{{[PARTY NAME].[Party name]}}}"
+                                                        },
+                                                        {
+                                                            "name": "Party name(NAD040-020)",
+                                                            "value": "{{{[PARTY NAME].[Party name(NAD040-020)]}}}"
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "name": "STREET",
+                                                "value": {
+                                                    "delimiter": ":",
+                                                    "elements": [{
+                                                            "name": "Street and number/p.o. box",
+                                                            "value": "{{{[STREET].[Street and number/p.o. box]}}}"
+                                                        },
+                                                        {
+                                                            "name": "Street and number/p.o. box(NAD050-020)",
+                                                            "value": "{{{[STREET].[Street and number/p.o. box(NAD050-020)]}}}"
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "name": "City name",
+                                                "value": "{{{[City name]}}}"
+                                            },
+                                            {
+                                                "name": "Country sub-entity identification",
+                                                "value": "{{{[Country sub-entity identification]}}}"
+                                            },
+                                            {
+                                                "name": "Postcode identification",
+                                                "value": "{{{[Postcode identification]}}}"
+                                            },
+                                            {
+                                                "name": "Country, coded",
+                                                "value": "{{{[Country, coded]}}}"
+                                            }
+                                        ],
+                                        "children": [{
+                                            "maxOccurrence": 1,
+                                            "required": false,
+                                            "elements": [{
+                                                    "name": "RFF",
+                                                    "value": "RFF"
+                                                },
+                                                {
+                                                    "name": "REFERENCE",
+                                                    "value": {
+                                                        "delimiter": ":",
+                                                        "elements": [{
+                                                                "name": "Reference qualifier",
+                                                                "value": "{{{[REFERENCE].[Reference qualifier]}}}"
+                                                            },
+                                                            {
+                                                                "name": "Reference number",
+                                                                "value": "{{{[REFERENCE].[Reference number]}}}"
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        }]
+                                    },
+                                    {
+                                        "name": "Segment Group 7",
+                                        "maxOccurrence": 5,
+                                        "relativeDataPath": "Segment Group 7",
+                                        "required": true,
+                                        "elements": [{
+                                                "name": "CUX",
+                                                "value": "CUX"
+                                            },
+                                            {
+                                                "name": "CURRENCY DETAILS",
+                                                "value": {
+                                                    "delimiter": ":",
+                                                    "elements": [{
+                                                            "name": "Currency details qualifier",
+                                                            "value": "{{{[CURRENCY DETAILS].[Currency details qualifier]}}}"
+                                                        },
+                                                        {
+                                                            "name": "Currency, coded",
+                                                            "value": "{{{[CURRENCY DETAILS].[Currency, coded]}}}"
+                                                        },
+                                                        {
+                                                            "name": "Currency qualifier",
+                                                            "value": "{{{[CURRENCY DETAILS].[Currency qualifier]}}}"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "Segment Group 25",
+                                        "maxOccurrence": 200000,
+                                        "relativeDataPath": "Segment Group 25",
+                                        "required": true,
+                                        "elements": [{
+                                                "name": "LIN",
+                                                "value": "LIN"
+                                            },
+                                            {
+                                                "name": "Line item number",
+                                                "value": "{{{[Line item number]}}}"
+                                            },
+                                            {
+                                                "name": "LIN020",
+                                                "value": "{{{[LIN020]}}}"
+                                            },
+                                            {
+                                                "name": "ITEM NUMBER IDENTIFICATION",
+                                                "value": {
+                                                    "delimiter": ":",
+                                                    "elements": [{
+                                                            "name": "Item number",
+                                                            "value": "{{{[ITEM NUMBER IDENTIFICATION].[Item number]}}}"
+                                                        },
+                                                        {
+                                                            "name": "Item number type, coded",
+                                                            "value": "{{{[ITEM NUMBER IDENTIFICATION].[Item number type, coded]}}}"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "children": [{
+                                                "maxOccurrence": 1,
+                                                "required": false,
+                                                "elements": [{
+                                                        "name": "PIA",
+                                                        "value": "PIA"
+                                                    },
+                                                    {
+                                                        "name": "Product id. function qualifier",
+                                                        "value": "{{{[Product id. function qualifier]}}}"
+                                                    },
+                                                    {
+                                                        "name": "ITEM NUMBER IDENTIFICATION(PIA020)",
+                                                        "value": {
+                                                            "delimiter": ":",
+                                                            "elements": [{
+                                                                    "name": "Item number",
+                                                                    "value": "{{{[ITEM NUMBER IDENTIFICATION(PIA020)].[Item number]}}}"
+                                                                },
+                                                                {
+                                                                    "name": "Item number type, coded",
+                                                                    "value": "{{{[ITEM NUMBER IDENTIFICATION(PIA020)].[Item number type, coded]}}}"
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "maxOccurrence": 1,
+                                                "required": true,
+                                                "elements": [{
+                                                        "name": "QTY",
+                                                        "value": "QTY"
+                                                    },
+                                                    {
+                                                        "name": "QUANTITY DETAILS",
+                                                        "value": {
+                                                            "delimiter": ":",
+                                                            "elements": [{
+                                                                    "name": "Quantity qualifier",
+                                                                    "value": "{{{[QUANTITY DETAILS].[Quantity qualifier]}}}"
+                                                                },
+                                                                {
+                                                                    "name": "Quantity",
+                                                                    "value": "{{{[QUANTITY DETAILS].[Quantity]}}}"
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "Segment Group 28",
+                                                "maxOccurrence": 25,
+                                                "relativeDataPath": "Segment Group 28",
+                                                "required": true,
+                                                "elements": [{
+                                                        "name": "PRI",
+                                                        "value": "PRI"
+                                                    },
+                                                    {
+                                                        "name": "PRICE INFORMATION",
+                                                        "value": {
+                                                            "delimiter": ":",
+                                                            "elements": [{
+                                                                    "name": "Price qualifier",
+                                                                    "value": "{{{[PRICE INFORMATION].[Price qualifier]}}}"
+                                                                },
+                                                                {
+                                                                    "name": "Price",
+                                                                    "value": "{{{[PRICE INFORMATION].[Price]}}}"
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "maxOccurrence": 1,
+                                        "required": true,
+                                        "elements": [{
+                                                "name": "UNS",
+                                                "value": "UNS"
+                                            },
+                                            {
+                                                "name": "Section identification",
+                                                "value": "{{{[Section identification]}}}"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "closeRule": {
+                                    "name": "CNT",
+                                    "maxOccurrence": 10,
+                                    "relativeDataPath": "CNT",
+                                    "required": true,
+                                    "elements": [{
+                                            "name": "CNT",
+                                            "value": "CNT"
+                                        },
+                                        {
+                                            "name": "CONTROL",
+                                            "value": {
+                                                "delimiter": ":",
+                                                "elements": [{
+                                                        "name": "Control qualifier",
+                                                        "value": "{{{[CONTROL].[Control qualifier]}}}"
+                                                    },
+                                                    {
+                                                        "name": "Control value",
+                                                        "value": "{{{[CONTROL].[Control value]}}}"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }],
+                            "closeRule": {
+                                "maxOccurrence": 1,
+                                "required": true,
+                                "elements": [{
+                                        "name": "UNT",
+                                        "value": "UNT"
+                                    },
+                                    {
+                                        "name": "Number of segments in a message",
+                                        "value": "{{{_iterationCount}}}"
+                                    },
+                                    {
+                                        "name": "Message reference number(UNT020)",
+                                        "value": "{{{[Message reference number]}}}"
+                                    }
+                                ]
+                            }
+                        }],
+                        "closeRule": {
+                            "maxOccurrence": 1,
+                            "required": true,
+                            "elements": [{
+                                    "name": "UNZ",
+                                    "value": "UNZ"
+                                },
+                                {
+                                    "name": "Interchange control count",
+                                    "value": "1"
+                                },
+                                {
+                                    "name": "Interchange control reference(UNZ020)",
+                                    "value": "{{{[Interchange control reference]}}}"
+                                }
+                            ]
+                        }
+                    }]
+                }
+            },
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                "fileName": "TC_C2661-{{timestamp \"YYYY-MM-DDTHH:mm:ssZ\" \"Asia/Calcutta\"}}.edi"
+            },
+            "adaptorType": "FTPImport"
+        }
+    }]
+}
