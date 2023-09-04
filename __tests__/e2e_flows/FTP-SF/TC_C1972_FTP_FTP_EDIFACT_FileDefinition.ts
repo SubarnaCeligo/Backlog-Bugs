@@ -1,5 +1,5 @@
 import { test, expect } from "@celigo/ui-core-automation";
-import * as FTPtoFTP from "@testData/Flows/create/ftp/TC_C2810_Verify_Ftp_import_CSV_with_headers.json"
+import * as FTPtoFTP from "@testData/Flows/create/ftp/TC_C1972_FTP_FTP_EDIFACT_FileDefinition.json"
 import allure from "allure-playwright";
 
 test.describe("E2E Flows", () => {
@@ -8,7 +8,7 @@ test.describe("E2E Flows", () => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("TC_C2810_Verify_Ftp_import_CSV_with_headers", async ({
+    test("TC_C1972_FTP_FTP_EDIFACT_FileDefinition", async ({
         io
     }, testInfo) => {
 
