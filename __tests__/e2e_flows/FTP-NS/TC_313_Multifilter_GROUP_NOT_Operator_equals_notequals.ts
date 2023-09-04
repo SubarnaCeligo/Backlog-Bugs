@@ -11,7 +11,6 @@ test.describe("E2E Flows", () => {
     test("TC_313_Multifilter_GROUP_NOT_Operator_equals_notequals", async ({
         io
     }, testInfo) => {
-
         //Creating PageGenerator 
         await test.step("*** Creating Page Generator ***", async () => {
             var exportValidation = await io.pageGenerator(allure, NS);
@@ -22,11 +21,9 @@ test.describe("E2E Flows", () => {
             var importValidation = await io.pageProcessor(allure, NS);
         });
 
-        //Save, Enable and run the Flow ***
+        //Save, Enable and Run the Flow
         await test.step("*** Save, Enable And Run The Flow *** ", async () => {
-            await io.flowBuilder.saveFlow(testInfo.title)
-            //Enable and run the flow
-            // await io.flowBuilder.runFlow()
+            await io.flowBuilder.saveandRunFlow(testInfo.title)
         });
     });
 });
