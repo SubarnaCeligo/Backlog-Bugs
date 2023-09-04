@@ -3,17 +3,12 @@ import allure from "allure-playwright";
 import NS from "@testData/Flows/create/netsuite/TC_317_InputFilter_With_Rows_Data_With_NS_Export.json"
 
 test.describe("E2E Flows", () => {
-    // test.beforeEach(async ({ io }) => {
-    //     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
-    // });
+    test.beforeEach(async ({ io }) => {
+        await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
+    });
     test("TC_317_InputFilter_With_Rows_Data_With_NS_Export", async ({
         io
     }, testInfo) => {
-        //Navigate to Home 
-        await test.step("*** Login and Navigate to Application ***", async () => {
-            await io.homePage.navigateToHome()
-        });
-
         //Creating PageGenerator 
         await test.step("*** Creating Page Generator ***", async () => {
             var exportValidation = await io.pageGenerator(allure, NS);
@@ -24,11 +19,9 @@ test.describe("E2E Flows", () => {
             var importValidation = await io.pageProcessor(allure, NS);
         });
 
-        //Save, Enable and run the Flow ***
+        //Save, Enable and Run the Flow
         await test.step("*** Save, Enable And Run The Flow *** ", async () => {
             await io.flowBuilder.saveandRunFlow(testInfo.title)
-            //Enable and run the flow
-            // await io.flowBuilder.runFlow()
         });
     });
 });
