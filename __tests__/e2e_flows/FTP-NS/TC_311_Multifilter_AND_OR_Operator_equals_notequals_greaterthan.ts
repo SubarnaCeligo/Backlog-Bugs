@@ -21,11 +21,9 @@ test.describe("E2E Flows", () => {
             var importValidation = await io.pageProcessor(allure, NS);
         });
 
-        //Save, Enable and run the Flow ***
+        //Save, Enable and Run the Flow
         await test.step("*** Save, Enable And Run The Flow *** ", async () => {
             await io.flowBuilder.saveandRunFlow(testInfo.title)
-            //Enable and run the flow
-            // await io.flowBuilder.runFlow()
         });
     });
 });
