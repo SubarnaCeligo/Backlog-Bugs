@@ -12,7 +12,7 @@ test.describe('C93669Validate user is getting auto-fill of function stub while c
         'FLOWS'
       );
   
-      await io.flowBuilder.click('[data-test="addDataProcessor"]:nth-child(2)')
+      await io.flowBuilder.click(selectors.exportsPagePO.EXPORT_ADDPROCESSOR_BUTTON)
   
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT_HOOK)
       await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_HOOK)

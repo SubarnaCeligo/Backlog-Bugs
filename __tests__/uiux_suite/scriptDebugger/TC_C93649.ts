@@ -13,7 +13,7 @@ test.describe('C93649Validate that user is able to see "postResponseMap" functio
         'FLOWS'
       );
   
-      await io.flowBuilder.click('[data-test="addDataProcessor"]:nth-child(2)')
+      await io.flowBuilder.click(selectors.exportsPagePO.EXPORT_ADDPROCESSOR_BUTTON)
   
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT_HOOK)
       await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_HOOK)
