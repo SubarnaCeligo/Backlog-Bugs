@@ -38,7 +38,6 @@ test.describe('C93668Validate user is getting auto-fill of funtion stub while cr
   
   const divTextContent = await page.textContent(divSelector);
   
-  console.log('hi',divTextContent);
   
   // Remove comments and whitespace from the text content for accurate comparison
   const cleanedDivTextContent = divTextContent.replace(/\/\*[\s\S]*?\*\/|\/\/.*/g, '').replace(/\s/g, '');
