@@ -23,7 +23,7 @@ test.describe("E2E Flows", () => {
         //Save, Enable and run the Flow ***
         await test.step("*** Save, Enable And Run The Flow *** ", async () => {
             //TODO : Save the flow with test title     
-            await io.flowBuilder.saveFlow(testInfo.title)
+            await io.flowBuilder.saveandRunFlow(testInfo.title)
 
             //Enable flow
             await io.flowBuilder.enableFlow()
