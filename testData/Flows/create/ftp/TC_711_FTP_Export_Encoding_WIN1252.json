@@ -1,0 +1,76 @@
+{
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "6",
+        "errorCount": "0"
+    },
+    "pageProcessors": [{
+        "responseMapping": {
+            "fields": [],
+            "lists": []
+        },
+        "type": "import",
+        "qa__import": {
+            "name": "FTP import",
+            "adaptorType": "FTPImport",
+            "file": {
+                "type": "json"
+            },
+            "ftp": {
+                "fileName": "TC_711_FTP_Export_Encoding_WIN1252.json",
+                "directoryPath": "/io.auto.qa/IO Automation SFTP Imports"
+            },
+            "_connectionId": "FTP CONNECTION",
+            "distributed": false
+        }
+    }],
+    "_integrationId": "62d6b4a955468141a906119e",
+    "timezone": "Asia/Calcutta",
+    "name": "TC_711_FTP_Export_Encoding_WIN1252",
+    "disabled": false,
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "standaloneexportflowID": "",
+        "expected": {
+            "FTP": {
+                "name": "TC_711_FTP_Export_Encoding_WIN1252",
+                "_integrationId": "62d6b4a955468141a906119e",
+                "import": {
+                    "_connectionId": "FTP CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "6",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_711_FTP_Export_Encoding_WIN1252",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO Automation SFTP Imports",
+                    "fileType": ".json"
+                }
+            }
+        }
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "FTP export",
+            "_connectionId": "FTP CONNECTION",
+            "asynchronous": true,
+            "sandbox": false,
+            "qa__path": "//FTP_uploads//TC_711_FTP_Export_Encoding_WIN1252.json",
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_711_FTP_Export_Encoding_WIN1252"
+            },
+            "file": {
+                "output": "records",
+                "encoding": "win1252",
+                "skipDelete": true,
+                "type": "json"
+            },
+            "adaptorType": "FTPExport"
+        }
+    }]
+}
