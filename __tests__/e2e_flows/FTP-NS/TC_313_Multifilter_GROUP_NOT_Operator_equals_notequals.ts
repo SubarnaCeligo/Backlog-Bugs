@@ -1,13 +1,14 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import allure from "allure-playwright";
-import NS from "@testData/Flows/create/salesforce/12_SF_Flow_01_SF_Account_to_NS_Cust_All_E2E_with_Verify.json"
+import NS from "@testData/Flows/create/netsuite/TC_313_Multifilter_GROUP_NOT_Operator_equals_notequals.json"
 
 test.describe("E2E Flows", () => {
+
     test.beforeEach(async ({ io }) => {
         await io.homePage.navigateToHome()
     });
-    
-    test("TC_059_SF_ACC_TO_NS_CUST_ADD", async ({
+
+    test("TC_313_Multifilter_GROUP_NOT_Operator_equals_notequals", async ({
         io
     }, testInfo) => {
         //Creating PageGenerator 

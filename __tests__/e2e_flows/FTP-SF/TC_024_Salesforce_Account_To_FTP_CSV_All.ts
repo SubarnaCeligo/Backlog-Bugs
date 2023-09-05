@@ -1,23 +1,22 @@
 import { test, expect } from "@celigo/ui-core-automation";
+import * as SFtoFTP from "@testData/Flows/create/salesforce/43_FTP_Flow_12_SF_to_FTP_CSV.json"
 import allure from "allure-playwright";
-import NS from "@testData/Flows/create/salesforce/12_SF_Flow_01_SF_Account_to_NS_Cust_All_E2E_with_Verify.json"
 
 test.describe("E2E Flows", () => {
     test.beforeEach(async ({ io }) => {
         await io.homePage.navigateToHome()
     });
-    
-    test("TC_059_SF_ACC_TO_NS_CUST_ADD", async ({
+    test("TC_024_Salesforce_Account_To_FTP_CSV_All", async ({
         io
     }, testInfo) => {
         //Creating PageGenerator 
         await test.step("*** Creating Page Generator ***", async () => {
-            var exportValidation = await io.pageGenerator(allure, NS);
+            var exportValidation = await io.pageGenerator(allure, SFtoFTP);
         });
 
         //Creating PageProcessor
         await test.step("*** Creating Page Processor ***", async () => {
-            var importValidation = await io.pageProcessor(allure, NS);
+            var importValidation = await io.pageProcessor(allure, SFtoFTP);
         });
 
         //Save, Enable and Run the Flow

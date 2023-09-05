@@ -1,0 +1,197 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "2",
+        "successCount": "4",
+        "errorCount": "0"
+    },
+    "name": "TC_311_Multifilter_AND_OR_Operator_equals_notequals_greaterthan",
+    "disabled": false,
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "NS FIlter Export",
+            "_connectionId": "NETSUITE CONNECTION",
+            "asynchronous": true,
+            "netsuite": {
+                "type": "restlet",
+                "skipGrouping": true,
+                "statsOnly": false,
+                "restlet": {
+                    "recordType": "customer",
+                    "searchId": "3160",
+                    "useSS2Restlets": false
+                }
+            },
+            "qa__rules": [
+                [
+                    "record.[New Date/Time Field]",
+                    "greater",
+                    "9/9/2020 10:20:00"
+                ],
+                [
+                    "record.[Date/Time]",
+                    "equals",
+                    "11/11/2020 10:20:00",
+                    "GROUP"
+                ],
+                [
+                    "record.Comments",
+                    "is_not_empty",
+                    null,
+                    "OR"
+                ]
+            ],
+            "filter": {
+                "type": "expression",
+                "expression": {
+                    "rules": [
+                        "and",
+                        [
+                            "greaterthan",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "[New Date/Time Field]"
+                                ]
+                            ],
+                            "9/9/2020 10:20:00"
+                        ],
+                        [
+                            "or",
+                            [
+                                "equals",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "[Date/Time]"
+                                    ]
+                                ],
+                                "11/11/2020 10:20:00"
+                            ],
+                            [
+                                "notempty",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "Comments"
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ],
+                    "version": "1"
+                },
+                "version": "1",
+                "rules": [
+                    "and",
+                    [
+                        "greaterthan",
+                        [
+                            "string",
+                            [
+                                "extract",
+                                "[New Date/Time Field]"
+                            ]
+                        ],
+                        "9/9/2020 10:20:00"
+                    ],
+                    [
+                        "or",
+                        [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "[Date/Time]"
+                                ]
+                            ],
+                            "11/11/2020 10:20:00"
+                        ],
+                        [
+                            "notempty",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "Comments"
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            },
+            "adaptorType": "NetSuiteExport"
+        }
+    }],
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "ftp import",
+            "_connectionId": "FTP CONNECTION",
+            "distributed": false,
+            "mapping": {
+                "fields": [{
+                        "extract": "Name",
+                        "generate": "Name"
+                    },
+                    {
+                        "qa__extract": "Office Phone",
+                        "extract": "[Office Phone]",
+                        "generate": "OfficePhone"
+                    }
+                ]
+            },
+            "file": {
+                "type": "csv",
+                "csv": {
+                    "rowDelimiter": "\n",
+                    "columnDelimiter": ",",
+                    "includeHeader": true,
+                    "wrapWithQuotes": false,
+                    "replaceTabWithSpace": false,
+                    "replaceNewlineWithSpace": false,
+                    "truncateLastRowDelimiter": false
+                }
+            },
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                "fileName": "TC_311.csv"
+            },
+            "adaptorType": "FTPImport"
+        }
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "TC_311_Multifilter_AND_OR_Operator_equals_notequals_greaterthan",
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "fileName": "TC_311",
+                    "isUIFlow": true,
+                    "folderName":"/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".csv",
+                    "qa__columnDelimiter": ","
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "3",
+                    "successCount": "1",
+                    "errorCount": "0"
+                },
+                "import": {
+                    "_connectionId": "FTP CONNECTION",
+                    "file": {
+                        "csv": {
+                            "columnDelimiter": ","
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
