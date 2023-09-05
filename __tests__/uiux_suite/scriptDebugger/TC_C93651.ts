@@ -4,20 +4,17 @@ import C30651 from "@testData/Flows/C26246.json"
 
 test.describe('C93651Validate that user is getting prefill function stub for "postResponseMap" function', () => {
    
+  test.beforeEach(async ({ io }) => {
+    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+});
+
     test('Validate that user is getting prefill function stub for "postResponseMap" function', async({io,page}) => {
   
-      const id =  await io.fillFormUI(
-        C30651,
-        'FLOWS'
-      );
+      
+      await io.homePage.click(selectors.basePagePO.RESOURCES);
+      await io.connectionPage.clickByText('Scripts')
   
-      await io.flowBuilder.click(selectors.exportsPagePO.EXPORT_ADDPROCESSOR_BUTTON)
-  
-      await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT_HOOK)
-      await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_HOOK)
-  
-   await page.getByLabel('Create script').click();
-  
+      await io.flowBuilder.clickByText("Create script")
     
   
     // Ensure that the choose function stub field is visible

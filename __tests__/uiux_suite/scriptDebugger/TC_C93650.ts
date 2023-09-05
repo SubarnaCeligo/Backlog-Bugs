@@ -3,21 +3,18 @@ import * as selectors from "@celigo/aut-selectors";
 import C30651 from "@testData/Flows/C26246.json"
 
 
-test.describe('C93650Validate that user is getting prefill function stub for "formInit" function', () => {
+test.describe.only('C93650Validate that user is getting prefill function stub for "formInit" function', () => {
    
+  test.beforeEach(async ({ io }) => {
+    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+});
+
     test('Validate that user is getting prefill function stub for "formInit" function', async({io,page}) => {
+
+      await io.homePage.click(selectors.basePagePO.RESOURCES)
+      await io.flowBuilder.clickByText('Scripts')
   
-      const id =  await io.fillFormUI(
-        C30651,
-        'FLOWS'
-      );
-  
-      await io.flowBuilder.click(selectors.exportsPagePO.EXPORT_ADDPROCESSOR_BUTTON)
-  
-      await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT_HOOK)
-      await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_HOOK)
-  
-   await page.getByLabel('Create script').click();
+  await io.flowBuilder.clickByText("Create script")
   
     
   
