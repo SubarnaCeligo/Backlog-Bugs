@@ -7,7 +7,7 @@ test.describe(`C33166 Verify save saveAndClose close button are present in foote
     io,
     page
   }) => {
-    await io.flowBuilder.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.flowBuilder.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
     await io.flowBuilder.clickByText("Automation Flows");
     const testCase = page.getByText("C33166").first();
     try {

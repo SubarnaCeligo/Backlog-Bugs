@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C60440 To verify that the integration is loading as expected from dashboard page", () => {
     test("C60440 To verify that the integration is loading as expected from dashboard pag", async ({io, page}) => {
-        await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
         await io.homePage.click(selectors.basePagePO.DASHBOARD);
         await io.homePage.click(selectors.dashboardPagePO.COMPLETED_FLOWS);
         await io.homePage.clickByText('Automation Flows');
