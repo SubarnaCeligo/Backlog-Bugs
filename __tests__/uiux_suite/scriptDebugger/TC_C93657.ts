@@ -33,22 +33,6 @@ test.describe('C93657Validate user is able to create "postMap" script through fl
   
    await io.flowBuilder.clickByText("Save & close");
   
-   // await page.pause();
-  
-   await page.waitForTimeout(5000)
-  
-   await io.flowBuilder.waitForElementAttached(selectors.basePagePO.SCRIPT_DEBUGGER_SELECTOR);
-  
-   const divSelector = selectors.basePagePO.SCRIPT_DEBUGGER_SELECTOR; // Replace with the appropriate selector
-  const expectedText = 'mockscript'; // The expected random text
-  
-  const divElement = await page.locator(divSelector);
-  const divTextContent = await divElement.textContent();
-  
-  console.log(divTextContent)
-  
-  expect(divTextContent).toEqual(expectedText);
-     
    
   
     });

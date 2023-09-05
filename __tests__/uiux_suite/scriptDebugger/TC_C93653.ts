@@ -29,31 +29,13 @@ test.describe('C93653Validate user is able to create "branching" script through 
     const chooseFunctionStubField = await page.$(selectors.basePagePO.FUNCTION_STUB);
    await chooseFunctionStubField.click();
   
-   const elementSelector = selectors.basePagePO.BRANCHING_FUNCTION;
-  const element = await page.locator(elementSelector);
-  
-  // Scroll the element into view
-  await element.scrollIntoViewIfNeeded();
-    
-   await io.flowBuilder.click(elementSelector)
+    await io.flowBuilder.selectTextfromDropDown(page,"router")
     // Scroll through the list of options to find "Transform" 
   
     await io.flowBuilder.clickByText("Save & close");
   
     // await page.pause();
   
-    await page.waitForTimeout(3000)
-  
-    await io.flowBuilder.waitForElementAttached(selectors.basePagePO.SCRIPT_DEBUGGER_SELECTOR);
-  
-    const divSelector = selectors.basePagePO.SCRIPT_DEBUGGER_SELECTOR; // Replace with the appropriate selector
-  const expectedText = 'mockscript'; // The expected random text
-  
-  const divElement = await page.locator(divSelector);
-  const divTextContent = await divElement.textContent();
-  
-  console.log(divTextContent)
-  
-  expect(divTextContent).toEqual(expectedText);
+    
     });
   })

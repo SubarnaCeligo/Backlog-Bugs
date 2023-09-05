@@ -30,11 +30,11 @@ test.describe('C93651Validate that user is getting prefill function stub for "po
     await page.waitForTimeout(3000);
     
     const divSelector = selectors.basePagePO.ACE_CONTENT; // Selector for the <div> element
-   
-  const divTextContent = await page.textContent(divSelector);
-  
-  expect(divTextContent).not.toBe(null);
-     
+
+// Check if the selector matches an element
+const divElement = await page.$(divSelector);
+const divTextContent = await divElement.textContent();
+  expect(divTextContent).not.toBeNull();
    
   
     });
