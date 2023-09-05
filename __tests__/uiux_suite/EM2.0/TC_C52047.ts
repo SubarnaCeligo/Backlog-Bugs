@@ -22,6 +22,7 @@ test.describe("C52047 Verify the Open errors tab, when no results are returned f
         await io.flowBuilder.clickByText('Apply');
     
         expect(await page.locator(selectors.flowBuilderPagePO.EM2dot0PO.NO_FILTER_DATA_FOUND).innerText()).toContain("You don't have any errors that match the filters you applied..");
+        expect(await page.locator(selectors.flowBuilderPagePO.EM2dot0PO.NO_FILTER_DATA_FOUND).innerText()).toContain("Clear all filters to see any errors for this step.");
   
     });
   });
