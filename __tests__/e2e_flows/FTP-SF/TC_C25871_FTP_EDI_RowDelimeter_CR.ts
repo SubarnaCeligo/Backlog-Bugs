@@ -1,28 +1,28 @@
 import { test, expect } from "@celigo/ui-core-automation"
-import * as FTPtoSF from "@testData/Flows/create/ftp/103.SF_Flow_FTP_JSON_to_SF_Account_Multifields.json";
+import * as FTPtoFTP from "@testData/Flows/create/ftp/TC_C25871_FTP_EDI_RowDelimeter_R.json"
 import allure from "allure-playwright";
 
 test.describe("E2E Flows", () => {
 
     test.beforeEach(async ({ io }) => {
-        await io.homePage.navigateToHome()
+        await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("TC_327_FTP_SF_Dynamic_Hardcode", async ({
+    test("TC_C25871_FTP_EDI_RowDelimeter_CR", async ({
         io
     }, testInfo) => {
+
         //Creating PageGenerator 
         await test.step("*** Creating PageGenerator ***", async () => {
-            await io.pageGenerator(allure, FTPtoSF);
+            await io.pageGenerator(allure, FTPtoFTP);
         });
-
         //Creating PageProcessor
         await test.step("*** Creating PageProcessor ***", async () => {
-            await io.pageProcessor(allure, FTPtoSF);
+            await io.pageProcessor(allure, FTPtoFTP);
         });
-
         //Enable and run the Flow ***
         await test.step("*** Enable and run the Flow *** ", async () => {
+            //TODO : Save the flow with test title     
             await io.flowBuilder.saveandRunFlow(testInfo.title)
         });
     });
