@@ -1,0 +1,213 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+    "pageProcessors": [{
+        "responseMapping": {
+            "fields": [],
+            "lists": []
+        },
+        "type": "import",
+        "qa__import": {
+            "name": "create account with composite api",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "distributed": false,
+            "mapping": {
+                "fields": [{
+                        "extract": "Email",
+                        "generate": "Email__c"
+                    },
+                    {
+                        "extract": "BillingCity",
+                        "generate": "BillingCity"
+                    },
+                    {
+                        "extract": "ShippingZip",
+                        "generate": "ShippingPostalCode"
+                    },
+                    {
+                        "extract": "BillingZip",
+                        "generate": "BillingPostalCode"
+                    },
+                    {
+                        "extract": "Name",
+                        "generate": "Name"
+                    },
+                    {
+                        "extract": "ShippingStreet",
+                        "generate": "ShippingStreet"
+                    },
+                    {
+                        "extract": "subID",
+                        "generate": "Subsidiary_Internal_ID__c"
+                    },
+                    {
+                        "extract": "BillingCountry",
+                        "generate": "BillingCountry"
+                    },
+                    {
+                        "extract": "BillingStreet",
+                        "generate": "BillingStreet"
+                    },
+                    {
+                        "extract": "Phone",
+                        "generate": "Phone"
+                    },
+                    {
+                        "extract": "ShippingCountry",
+                        "generate": "ShippingCountry"
+                    },
+                    {
+                        "extract": "ShippingCity",
+                        "generate": "ShippingCity"
+                    },
+                    {
+                        "extract": "ShippingState",
+                        "generate": "ShippingState"
+                    },
+                    {
+                        "extract": "Fax",
+                        "generate": "Fax"
+                    },
+                    {
+                        "extract": "BillingState",
+                        "generate": "BillingState"
+                    }
+                ],
+                "lists": [{
+                        "fields": [{
+                                "extract": "contactName",
+                                "generate": "LastName"
+                            },
+                            {
+                                "extract": "contactEmail",
+                                "generate": "Email"
+                            },
+                            {
+                                "extract": "contactTitle",
+                                "generate": "Title"
+                            },
+                            {
+                                "extract": "contactDescription",
+                                "generate": "Description"
+                            }
+                        ],
+                        "generate": "Contacts"
+                    },
+                    {
+                        "fields": [{
+                                "extract": "opportunityName",
+                                "generate": "Name"
+                            },
+                            {
+                                "extract": "opportunityAmount",
+                                "generate": "Amount"
+                            },
+                            {
+                                "extract": "opportunityStage",
+                                "generate": "StageName"
+                            },
+                            {
+                                "extract": "opportunityCloseDate",
+                                "generate": "CloseDate"
+                            }
+                        ],
+                        "generate": "Opportunities"
+                    }
+                ]
+            },
+            "salesforce": {
+                "qa__idLookup": [
+                    ["Name", "=", "Name"]
+                ],
+                "operation": "addupdate",
+                "sObjectType": "Account",
+                "api": "compositerecord",
+                "idLookup": {
+                    "whereClause": "(Name = {{{string Name}}})"
+                },
+                "removeNonSubmittableFields": false
+            },
+            "adaptorType": "SalesforceImport"
+        }
+    }],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "4",
+        "errorCount": "0"
+    },
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C15136_FTP_SF_Composite_records_updateAndInsert",
+    "disabled": false,
+    "qa__dataVerification": {
+        "expected": {
+            "Salesforce": {
+                "_integrationId": "62d6b4a955468141a906119e",
+                "name": "TC_C15136_FTP_SF_Composite_records_updateAndInsert",
+                "import": {
+                    "_connectionId": "SALESFORCE CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "4",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "standaloneexportflowID": "64c78e8494ad4a20f3bfcd41",
+                    "uniqueField": "Name",
+                    "importRecordType": "Account",
+                    "isUIFlow": true,
+                    "query": "select Name,Email__c,phone,fax,Billingcity,Billingstreet,Billingcountry,Billingstate,BillingPostalCode,Shippingcity,Shippingstreet,Shippingcountry,ShippingPostalCode,Shippingstate,(select LastName,Email, Title,Description from contacts where Name='sf_contact_123'),(select Amount,StageName,CloseDate from opportunities where name='13SF2NSsalesOrder_Opp_11') from Account where name like 'AutoTest123'",
+                    "exportapiIdentifier": "e75ba1d8a5",
+                    "expectedJSON": {
+                        "Name": "AutoTest123",
+                        "Email__c": "hkjghnb@celigo.com",
+                        "Phone": "86394255",
+                        "Fax": "123456789",
+                        "BillingCity": "S Nagar",
+                        "BillingStreet": "GVP Colony",
+                        "BillingCountry": "India",
+                        "BillingState": "Telangana",
+                        "BillingPostalCode": "500011",
+                        "ShippingCity": "Hitech",
+                        "ShippingStreet": "IZ Sec",
+                        "ShippingCountry": "India",
+                        "ShippingPostalCode": "500087",
+                        "ShippingState": "Telangana",
+                        "Contacts": [{
+                            "LastName": "sf_contact_123",
+                            "Email": "start123@gmail.com",
+                            "Title": "sf_contact_ftp_export",
+                            "Description": "IO_UI_Automation"
+                        }],
+                        "Opportunities": [{
+                            "Amount": 100,
+                            "StageName": "Qualification",
+                            "CloseDate": "2016-08-16"
+                        }]
+                    }
+                }
+            }
+        }
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "FTP JSON EXPORT",
+            "adaptorType": "FTPExport",
+            "apiIdentifier": "eab18b2131",
+            "sandbox": false,
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports_FileAdaptors",
+                "fileNameStartsWith": "TC_C15136_FTP_SF_Composite_records_updateAndInsert"
+            },
+            "file": {
+                "output": "records",
+                "skipDelete": true,
+                "encoding": "utf8",
+                "type": "json"
+            },
+            "asynchronous": true,
+            "_connectionId": "FTP CONNECTION",
+            "qa__path": "/FTP_uploads/TC_C15136_FTP_SF_Composite_records_updateAndInsert.json"
+        }
+    }]
+}
