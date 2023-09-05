@@ -5,7 +5,7 @@ import allure from "allure-playwright";
 test.describe("E2E Flows", () => {
 
     test.beforeEach(async ({ io }) => {
-        await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.myAccountPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
     });
 
     test("TC_C25873_FTP_FTP_EDI_Verify_ParseData", async ({

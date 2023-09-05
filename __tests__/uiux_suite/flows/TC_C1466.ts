@@ -6,7 +6,7 @@ test.describe("C1466 Verify,user able to select single or multiple options from 
   test("C1466 Verify,user able to select single or multiple options from 'Notify me when connection goes offline'", async ({
     io, page
   }) => {
-    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
     await io.homePage.clickByText("Automation Flows");
     await io.homePage.click(selectors.integrationPagePO.NOTIFICATIONS_TAB);
     await io.homePage.click(selectors.integrationPagePO.NOTIFY_ME_WHEN_CONNECTION_GOES_OFFLINE);

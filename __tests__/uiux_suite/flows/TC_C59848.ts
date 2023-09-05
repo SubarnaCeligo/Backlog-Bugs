@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C59848 To verify that the Integrations will load properly", () => {
     test("C59848 To verify that the Integrations will load properly", async ({io, page}) => {
-        await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
         await io.homePage.clickByText('Automation Flows');
         const isDeleteIntegrationVisible = await io.homePage.isVisible(selectors.integrationPagePO.DELETE_INTEGRATION);
         const isCloneIntegrationVisible = await io.homePage.isVisible(selectors.integrationPagePO.CLONE_INTEGRATION);

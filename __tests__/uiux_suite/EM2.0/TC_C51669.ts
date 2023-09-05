@@ -7,7 +7,7 @@ test.describe(`C51669 Verify by closing the "Error details" drawer without savin
     io,
     page
   }) => {
-    // await io.flowBuilder.navigateTo(io.data.links.HOME_PAGE_URL);
+    // await io.flowBuilder.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
     // await io.flowBuilder.clickByText("Automation Flows");
     // await io.flowBuilder.clickByText("C51669");
     const id = await io.fillFormUI(flowJSON, "FLOWS");

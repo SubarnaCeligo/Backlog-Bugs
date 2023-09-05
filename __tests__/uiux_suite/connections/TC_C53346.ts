@@ -6,7 +6,7 @@ test.describe("C53346 Verify Base URI is not present in Shopify Edit Connection 
     io,
     page
   }) => {
-    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
     let isConnectionsVisible = await io.homePage.isVisible(
       selectors.basePagePO.CONNECTIONS
     );
