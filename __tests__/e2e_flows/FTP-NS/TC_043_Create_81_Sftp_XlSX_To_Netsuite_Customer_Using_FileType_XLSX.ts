@@ -14,11 +14,11 @@ test.describe("E2E Tests", () => {
     },testInfo) => {
         //Creating PageGenerator 
         await test.step("*** Creating PageGenerator ***", async () => {
-            var exportValidation = await io.pageGenerator(allure, FTP);
+            await io.pageGenerator(allure, FTP);
         });
         //Creating PageProcessor
         await test.step("*** Creating PageProcessor ***", async () => {
-            var importValidation = await io.pageProcessor(allure, FTP);
+            await io.pageProcessor(allure, FTP);
         });
         //Enable and run the Flow ***
         await test.step("*** Enable and run the Flow *** ", async () => {
