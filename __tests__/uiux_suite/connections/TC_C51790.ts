@@ -10,7 +10,7 @@ test.describe.only(' C51790 Verify "Cant Find" Link under connection form when t
 
   test('Verify "Cant Find" Link under connection form when toggle is under simple', async({io,page}) => {
 
-      await io.homePage.click("[data-test='Resources']");
+      await io.homePage.click(selectors.basePagePO.RESOURCES);
       await io.connectionPage.clickByText('Connections')
       await io.connectionPage.clickByText('Create connection')
 
