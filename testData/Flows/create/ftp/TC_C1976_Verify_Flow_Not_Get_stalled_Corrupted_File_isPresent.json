@@ -1,0 +1,66 @@
+{
+    "name": "TC_C1976_Verify_Flow_Not_Get_stalled_Corrupted_File_isPresent",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "62d6b4a955468141a906119e",
+    "skipRetries": false,
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "FTP export",
+            "_connectionId": "FTP CONNECTION",
+            "qa__path": "//FTP_uploads//TC_C1976.json",
+            "asynchronous": true,
+            "sandbox": false,
+            "ftp": {
+                "directoryPath": "/io.auto.qa/TC_C1976",
+                "fileNameStartsWith": "TC_C1976"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json",
+                "json": {
+                    "resourcePath": "*"
+                }
+            },
+            "adaptorType": "FTPExport"
+        }
+    }],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "2",
+                    "errorCount": "0"
+                }
+            }
+        }
+    },
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "FTP Import",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "i228a9654c",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+                "fileName": "Dummy1.json",
+                "skipAggregation": false,
+                "type": "json"
+            },
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IOAutomation",
+                "fileName": "Dummy1.json"
+            },
+            "adaptorType": "FTPImport"
+        }
+    }]
+}
