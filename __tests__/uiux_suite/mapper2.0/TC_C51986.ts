@@ -7,7 +7,7 @@ test.describe(`C51986 Verify vertical line must be added to source row`, () => {
     io,
     page
   }) => {
-    await io.flowBuilder.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
+    await io.flowBuilder.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
     await io.flowBuilder.clickByText("Automation Flows");
     const testCase = page.getByText("C51986").first();
     try {
@@ -23,6 +23,6 @@ test.describe(`C51986 Verify vertical line must be added to source row`, () => {
       selectors.mappings.Mapper2dot0PO.SOURCEFIELDS
     );
     await sourceFieldDropdown.waitFor({ state: "visible" });
-    expect(sourceFieldDropdown).toHaveScreenshot();
+    await expect(sourceFieldDropdown).toHaveScreenshot();
   });
 });
