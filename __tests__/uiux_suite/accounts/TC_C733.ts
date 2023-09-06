@@ -14,11 +14,12 @@ test.describe('Verify when user is logged with google account, Name and Emailfie
         const expectedName =  C733.name;
     
         // Get the value attribute of the input element
-        const actualValue = await page.getAttribute( selectors.myAccountPagePO.EMAIL_INPUT, "value");
+        const actualEmailValue = await page.getAttribute( selectors.myAccountPagePO.EMAIL_INPUT, "value");
         const actualNameValue = await page.getAttribute(selectors.myAccountPagePO.NAME_INPUT, "value");
    
         // Compare the actual value with the expected default value
-        expect(actualValue).toBe(expectedDefaultValue);
+        expect(actualEmailValue).toBe(expectedDefaultValue);
+        expect(actualNameValue).toBe(expectedName);
            
       });       
   })
