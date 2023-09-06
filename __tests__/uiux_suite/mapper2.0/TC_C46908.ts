@@ -8,11 +8,10 @@ test.describe(`C46908 Verify the functionality by not providing a 'source record
     page
   }) => {
     await io.homePage.navigateTo(process.env.IO_Integration_URL);
-    await io.homePage.addStep("Navigation to Automation Flows");
-    const testCase = page.getByText("C46908").first();
+    await io.homePage.addStep("Navigated to Automation Flows");
     try {
+      const testCase = page.getByText("C46908").first();
       await testCase.waitFor({ state: "visible", timeout: 5000 });
-      await io.homePage.addStep("Waited for 'C46908' to be visible");
       await testCase.click();
       await io.homePage.addStep("Clicked on 'C46908'");
     } catch {
@@ -29,7 +28,6 @@ test.describe(`C46908 Verify the functionality by not providing a 'source record
       selectors.mappings.Mapper2dot0PO.DESTINATIONFIELDS
     );
     await destinationField.waitFor({ state: "visible" });
-    await io.flowBuilder.addStep("Waited for 'Destination Fields' to be visible");
     await destinationField.click();
     await io.flowBuilder.addStep("Clicked on 'Destination Fields'");
     const $destinationField = await destinationField.elementHandle();
