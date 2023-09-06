@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C55917 Verify the Default Structure/options of Pendo-Zendesk chat bot which is displayed in the integrator.io", () => {
     test("C55917 Verify the Default Structure/options of Pendo-Zendesk chat bot which is displayed in the integrator.io", async ({page,io}) => {
-        await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
         await io.homePage.waitForElementAttached(selectors.basePagePO.CHAT_BOT);
         console.log(await io.homePage.isVisible(selectors.basePagePO.CHAT_BOT_OPTIONS));
         if(!await io.homePage.isVisible(selectors.basePagePO.CHAT_BOT_OPTIONS))

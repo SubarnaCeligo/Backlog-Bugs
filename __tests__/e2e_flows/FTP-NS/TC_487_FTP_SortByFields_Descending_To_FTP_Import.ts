@@ -3,29 +3,25 @@ import allure from "allure-playwright";
 import NS from "@testData/Flows/create/ftp/TC_487_FTP_SortByFields_Descending_To_FTP_Import.json"
 
 test.describe("E2E Flows", () => {
+    test.beforeEach(async ({ io }) => {
+        await io.homePage.navigateToHome()
+    });
     test("TC_487_FTP_SortByFields_Descending_To_FTP_Import", async ({
         io
     }, testInfo) => {
-        //Navigate to Home 
-        await test.step("*** Login and Navigate to Application ***", async () => {
-            await io.homePage.navigateToHome()
-        });
-
         //Creating PageGenerator 
         await test.step("*** Creating Page Generator ***", async () => {
-            var exportValidation = await io.pageGenerator(allure, NS);
+            await io.pageGenerator(allure, NS);
         });
 
         //Creating PageProcessor
         await test.step("*** Creating Page Processor ***", async () => {
-            var importValidation = await io.pageProcessor(allure, NS);
+            await io.pageProcessor(allure, NS);
         });
 
-        //Save, Enable and run the Flow ***
+        //Save, Enable and Run the Flow
         await test.step("*** Save, Enable And Run The Flow *** ", async () => {
             await io.flowBuilder.saveandRunFlow(testInfo.title)
-            //Enable and run the flow
-            // await io.flowBuilder.runFlow()
         });
     });
 });

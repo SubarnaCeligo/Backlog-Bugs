@@ -1,0 +1,108 @@
+{
+    "name": "236.HTTP_xml_Delta_ to NS Customer",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "_connectionId": "HTTP OPENAIR CONNECTION",
+          "adaptorType": "HTTPExport",
+          "application" : "openair",
+          "name": "HTTPExportopenairdelta",
+          "asynchronous": true,
+          "type": "delta",
+          "http": {
+            "method": "POST",
+            "body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><request API_version=\"1.0\" client=\"test app\" client_ver=\"1.1\" namespace=\"{{{connection.http.unencrypted.namespace}}}\" key=\"{{{connection.http.unencrypted.apiKey}}}\">  <Auth>    <Login>      <company>{{{connection.http.unencrypted.companyId}}}</company>      <user>{{{connection.http.unencrypted.userId}}}</user>      <password>{{{connection.http.encrypted.password}}}</password>    </Login>  </Auth>  <Read type=\"Customer\" method=\"all\" limit=\"{{{export.http.paging.skip}}},1\" filter=\"newer-than\" field=\"updated\">  <Date>                    <hour>{{{dateFormat \"hh\" lastExportDateTime}}}</hour>                    <minute>{{{dateFormat \"mm\" lastExportDateTime}}}</minute>                    <second>{{{dateFormat \"ss\" lastExportDateTime}}}</second>                    <month>{{{dateFormat \"MM\" lastExportDateTime}}}</month>                    <day>{{{dateFormat \"DD\" lastExportDateTime}}}</day>                    <year>{{{dateFormat \"YYYY\" lastExportDateTime}}}</year>                </Date>    </Read>            </request>",
+            "response": {
+              "resourcePath": "/response/Read/Customer"
+            }
+          },
+          "qa__startdate": "08/03/2020",
+          "qa__startime": "5:30:00 AM"
+        }
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "_connectionId": "NETSUITE CONNECTION",
+          "name": "HTTPExporttoNScontacts",
+          "adaptorType": "NetSuiteDistributedImport",
+          "lookups": [],
+          "distributed": true,
+          "netsuite_da": {
+            "useSS2Restlets": false,
+            "operation": "add",
+            "recordType": "customer",
+            "lookups": [],
+            "mapping": {
+              "lists": [],
+              "fields": [
+                {
+                  "generate": "companyname",
+                  "extract": "name",
+                  "internalId": false
+                },
+                {
+                  "generate": "subsidiary",
+                  "hardCodedValue": "14",
+                  "internalId": true
+                },
+                {
+                  "generate": "comments",
+                  "hardCodedValue": "236. HTTP_xml _Delta",
+                  "internalId": false
+                },
+                {
+                  "generate": "email",
+                  "hardCodedValue": "236httpxmldelta@gmail.com",
+                  "internalId": false
+                }
+              ]
+            }
+          }
+        }
+      }
+    ],
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "2",
+      "errorCount": "0"
+    },
+    "qa__dataVerification": {
+      "expected": {
+        "Netsuite": {
+          "name": "236.HTTP_xml_Delta_ to NS Customer",
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "import": {
+            "_connectionId": "NETSUITE CONNECTION"
+          },
+          "qa__expectedDashboardCount": {
+            "successCount": "2",
+            "ignoreCount": "0",
+            "errorCount": "0"
+          },
+          "qa__dataVerification": {
+            "expectedJSON": [
+              {
+                "subsidiary": {
+                  "internalid": "14",
+                  "name": "NS Prod3"
+                },
+                "email": "236httpxmldelta@gmail.com"
+              }
+            ],
+            "uniqueField": "email",
+            "standaloneexportflowID": "5a60e6c8c237342c059c6d03",
+            "importRecordType": "Customer",
+            "isUIFlow": true,
+            "exportapiIdentifier": "e483be64a3"
+          }
+        }
+      }
+    }
+  }

@@ -7,7 +7,7 @@ test.describe(`C51653 Verify the height and the veritical scroll bar of the mess
     io,
     page
   }) => {
-    // await io.flowBuilder.navigateTo(io.data.links.HOME_PAGE_URL);
+    // await io.flowBuilder.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
     // await io.flowBuilder.clickByText("Automation Flows");
     // await io.flowBuilder.clickByText("mytestflow");
     const id = await io.fillFormUI(testData.flow, "FLOWS");
