@@ -7,40 +7,60 @@ test.describe(`C27969 Verify the fields in 'Non-standard API response patterns' 
     page
   }) => {
     await io.exportsPage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
+    await io.exportsPage.addStep("Navigated to exports page");
     await io.exportsPage.click(selectors.exportsPagePO.ADD_NEW_RESOURCE);
+    await io.exportsPage.addStep("Clicked on 'add new resource' button");
     await io.exportsPage.clickByText("REST API (HTTP)");
+    await io.exportsPage.addStep("Selected 'REST API (HTTP)' option");
     await io.exportsPage.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
+    await io.exportsPage.addStep("Clicked on 'connections' dropdown");
     await io.exportsPage.clickByText("3PL CONNECTION");
+    await io.exportsPage.addStep("Selected '3PL CONNECTION' option");
     await page.locator(selectors.exportsPagePO.NAME).fill("C27969");
+    await io.exportsPage.addStep("Filled the name field with 'C27969'");
     await io.exportsPage.click(selectors.basePagePO.SAVE);
+    await io.exportsPage.addStep("Clicked on 'save' button");
     await io.exportsPage.delay(2000);
     const tab = page.locator(selectors.exportsPagePO.NON_STANDARD_API_TAB);
     await tab.click();
-    const divList = await tab.evaluate(e => {
-      const list = e.parentElement.querySelector(
-        selectors.exportsPagePO.NON_STANDARD_API_TAB_CONTENT
-      ).childNodes;
+    await io.exportsPage.addStep("Clicked on 'Non-standard API' tab");
+    const divList = await tab.evaluate((e, tabContent) => {
+      const list = e.parentElement.querySelector(tabContent).childNodes;
       const arr = [];
       // @ts-ignore
       list.forEach(el => arr.push(el.firstChild.id));
       return arr;
-    });
+    }, selectors.exportsPagePO.NON_STANDARD_API_TAB_CONTENT);
 
     const firstId = divList[0];
     const secondId = divList[3];
     const thirdId = divList[4];
 
     expect(firstId).toBe("http.response.resourcePath");
+    await io.exportsPage.addStep("Verified the first field is 'http.method'");
     await expect(
       page.getByText("Path to records in HTTP response body")
     ).toBeVisible();
+    await io.exportsPage.addStep(
+      "Verified 'Path to records in HTTP response body' text is visible"
+    );
 
     expect(secondId).toBe("http.response.successPath");
+    await io.exportsPage.addStep(
+      "Verified the second field is 'http.relativeURI'"
+    );
     await expect(
       page.getByText("Path to success field in HTTP response body")
     ).toBeVisible();
+    await io.exportsPage.addStep(
+      "Verified 'Path to success field in HTTP response body' text is visible"
+    );
 
     expect(thirdId).toBe("http.response.successValues");
+    await io.exportsPage.addStep(
+      "Verified the third field is 'http.relativeURI'"
+    );
     await expect(page.getByText("Success values")).toBeVisible();
+    await io.exportsPage.addStep("Verified 'Success values' text is visible");
   });
 });
