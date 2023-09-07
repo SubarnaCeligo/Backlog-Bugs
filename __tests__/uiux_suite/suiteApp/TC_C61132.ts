@@ -19,22 +19,21 @@ test.describe(`C61132 Verify the Install link functionality displayed for the In
     await io.homePage.addStep("Uploaded integration zip file");
     await page.getByText("Install Integration").click();
     await io.homePage.addStep("Clicked 'Install Integration' button");
-    // TODO: await page.locator(selectors.basePagePO.DIALOG_PROCEED_BUTTON).click();
-    await page.locator("[data-test='Proceed']").click();
+    await page.locator(selectors.basePagePO.DIALOG_PROCEED_BUTTON).click();
     await io.homePage.addStep("Clicked 'Proceed' button");
     const configure = async () => {
       await expect(page.getByText("Integrator SuiteApp")).toBeVisible();
       await io.homePage.addStep("Checked if 'Integrator SuiteApp' is visible");
-      // TODO: await page.locator(selectors.integrationPagePO.SETUP_INTEGRATION_CONFIGURE_BUTTON.click();
-      await page.locator("[data-test='Configure']").click();
+      await page
+        .locator(selectors.integrationPagePO.SETUP_INTEGRATION_CONFIGURE_BUTTON)
+        .click();
       await io.homePage.addStep("Clicked 'Configure' button");
       await page.getByText("Use existing connection").click();
       await io.homePage.addStep("Clicked 'Use existing connection' radio button");
       await page.getByText("Please select").click();
       await io.homePage.addStep("Clicked 'Please select' dropdown");
       await page
-        // TODO: .locator(selectors.connectionsPagePO.CONNECTION_LIST_MODAL)
-        .locator("#menu-connection")
+        .locator(selectors.connectionsPagePO.CONNECTION_LIST_MODAL)
         .getByText("NETSUITE CONNECTION")
         .click();
       await io.homePage.addStep("Selected 'NETSUITE CONNECTION' from dropdown");
@@ -46,13 +45,13 @@ test.describe(`C61132 Verify the Install link functionality displayed for the In
       await io.homePage.addStep("Checked if 'Installed' is visible");
     };
     await configure();
-    // TODO: await page.locator(selectors.integrationPagePO.CONNECTION_LIST_MODAL).click();
-    await page.locator('[data-test="Install"]').click();
+    await page.locator(selectors.connectionsPagePO.CONNECTION_LIST_MODAL).click();
     await io.homePage.addStep("Clicked 'Install' button");
     await page.locator(selectors.homePagePO.CLONE_INTEGRATION).click();
     await io.homePage.addStep("Clicked 'Clone Integration' button (top right)");
-    // TODO: await page.locator(selectors.integrationPagePO.CLONE_INTEGRATION_BUTTON).click();
-    await page.locator("[data-test='Clone integration']").click();
+    await page
+      .locator(selectors.integrationPagePO.CLONE_INTEGRATION_BUTTON)
+      .click();
     await io.homePage.addStep("Clicked 'Clone integration' button (bottom)");
     await configure();
   });

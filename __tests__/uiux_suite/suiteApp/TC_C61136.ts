@@ -19,8 +19,7 @@ test.describe(`C61136 Verify the Integrator SuiteApp step displayed while upload
     await io.homePage.addStep("Uploaded integration zip file");
     await page.getByText("Install Integration").click();
     await io.homePage.addStep("Clicked 'Install Integration' button");
-    // TODO: await page.locator(selectors.basePagePO.DIALOG_PROCEED_BUTTON).click();
-    await page.locator("[data-test='Proceed']").click();
+    await page.locator(selectors.basePagePO.DIALOG_PROCEED_BUTTON).click();
     await io.homePage.addStep("Clicked 'Proceed' button");
     await expect(page.getByText("Integrator SuiteApp")).toBeVisible();
     await io.homePage.addStep("Checked if 'Integrator SuiteApp' is visible");
