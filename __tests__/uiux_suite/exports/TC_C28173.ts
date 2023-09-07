@@ -7,13 +7,7 @@ test.describe(`C28173 Verify the message “Add {{lastExportDateTime}} to either
     page
   }) => {
     await io.flowBuilder.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
-    const flowBuilderLocator = page.getByText("Flow builder");
-    if (await flowBuilderLocator.isVisible()) {
-      await io.homePage.clickByText("Flow builder");
-    } else {
-      await io.homePage.clickByText("Tools");
-      await io.homePage.clickByText("Flow builder");
-    }
+    await io.homePage.goToMenu("Tools","Flow builder");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
     await io.flowBuilder.delay(2000);
     await io.flowBuilder.clickByText("HTTP");
