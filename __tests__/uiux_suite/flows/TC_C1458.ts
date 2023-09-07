@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C1458 Verify Notify me when job has errors field contains all the flows of that integration and "All flows" option`, () => {
   test.beforeEach(async ({ io }) => {
-    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
   });
 
   test(`C1458 Verify Notify me when job has errors field contains all the flows of that integration and "All flows" option`, async ({

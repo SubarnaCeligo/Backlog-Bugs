@@ -6,7 +6,7 @@ test.describe(`C33162 Verify save saveAndClose close button are present in foote
     io,
     page
   }) => {
-    await io.exportsPage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.exportsPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
     const flowBuilderLocator = page.getByText("Flow builder");
     if (await flowBuilderLocator.isVisible()) {
       await io.homePage.clickByText("Flow builder");

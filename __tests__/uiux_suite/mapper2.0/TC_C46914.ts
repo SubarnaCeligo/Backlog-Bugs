@@ -7,7 +7,7 @@ test.describe(`C46914 Verify When no saved mappings exist, add empty parent row 
     io,
     page
   }) => {
-    await io.flowBuilder.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.flowBuilder.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
     await io.flowBuilder.clickByText("Automation Flows");
     const testCase = page.getByText("C46914").first();
     try {

@@ -1,0 +1,700 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C2496_FTP_FTP_Edit_file_definition",
+    "disabled": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0",
+        "pages": "1"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "FTP Export",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "e6f1b8b958",
+            "asynchronous": true,
+            "sandbox": false,
+            "ftp": {
+                "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_C2496.edi"
+            },
+            "file": {
+                "output": "records",
+                "skipDelete": true,
+                "type": "fixed",
+                "qa__fileGeneratorHelper": true,
+                "qa__data": {
+                    "resourcePath": "",
+                    "fileDefinition": {
+                        "name": "Voya ASN",
+                        "description": "Voya Advance Shipment Notice",
+                        "version": "1",
+                        "format": "fixed",
+                        "fixed": {
+                            "rowSuffix": "",
+                            "rowDelimiter": "\\n",
+                            "paddingChar": " "
+                        },
+                        "rules": [{
+                            "name": "ASN",
+                            "container": true,
+                            "maxOccurrence": 50,
+                            "ignoreIdentifier ": true,
+                            "children": [{
+                                    "required": true,
+                                    "elements": [{
+                                            "name": "000",
+                                            "value": "000",
+                                            "length": 3
+                                        },
+                                        {
+                                            "name": "Audit Action(000)",
+                                            "length": 1
+                                        },
+                                        {
+                                            "name": "ASN Receipt Date",
+                                            "length": 10
+                                        },
+                                        {
+                                            "name": "ASN Processing Status(000)",
+                                            "length": 1
+                                        },
+                                        {
+                                            "name": "Order Management Business Unit",
+                                            "length": 5
+                                        },
+                                        {
+                                            "name": "Inventory Unit",
+                                            "length": 5
+                                        },
+                                        {
+                                            "name": "Carrier ID",
+                                            "length": 10
+                                        },
+                                        {
+                                            "name": "Customer Id",
+                                            "length": 15
+                                        },
+                                        {
+                                            "name": "Device ID",
+                                            "length": 10
+                                        },
+                                        {
+                                            "name": "Device Date Time",
+                                            "length": 31
+                                        },
+                                        {
+                                            "name": "EC Primary Event Code",
+                                            "length": 6
+                                        },
+                                        {
+                                            "name": "EC Secondary Event Code",
+                                            "length": 10
+                                        },
+                                        {
+                                            "name": "Message Number(000)",
+                                            "length": 5,
+                                            "direction": "right"
+                                        },
+                                        {
+                                            "name": "Process Instance(000)",
+                                            "length": 10,
+                                            "direction": "right"
+                                        },
+                                        {
+                                            "name": "Ship Via Code",
+                                            "length": 10
+                                        },
+                                        {
+                                            "name": "Shipment Number(000)",
+                                            "length": 30
+                                        },
+                                        {
+                                            "name": "ShipTo SetID(000)",
+                                            "length": 5
+                                        },
+                                        {
+                                            "name": "ShipTo Location(000)",
+                                            "length": 10
+                                        },
+                                        {
+                                            "name": "Supplier ID(000)",
+                                            "length": 10,
+                                            "direction": "right"
+                                        },
+                                        {
+                                            "name": "Supplier SetID(000)",
+                                            "length": 5
+                                        },
+                                        {
+                                            "name": "Supplier Location",
+                                            "length": 10
+                                        },
+                                        {
+                                            "name": "Supplier UPN Ready",
+                                            "length": 1
+                                        },
+                                        {
+                                            "name": "Supplier ID Number(000)",
+                                            "length": 13
+                                        },
+                                        {
+                                            "name": "ShipTo GLN(000)",
+                                            "length": 13
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "110",
+                                    "container": true,
+                                    "maxOccurrence": 50,
+                                    "children": [{
+                                        "required": true,
+                                        "elements": [{
+                                                "name": "110",
+                                                "value": "110",
+                                                "length": 3
+                                            },
+                                            {
+                                                "name": "Audit Action(110)",
+                                                "length": 1
+                                            },
+                                            {
+                                                "name": "ASN Sequence number(110)",
+                                                "length": 9,
+                                                "direction": "right"
+                                            },
+                                            {
+                                                "name": "Shipment Number(110)",
+                                                "length": 30
+                                            },
+                                            {
+                                                "name": "Order Number(110)",
+                                                "length": 10
+                                            },
+                                            {
+                                                "name": "Order Line(110)",
+                                                "length": 5,
+                                                "direction": "right"
+                                            },
+                                            {
+                                                "name": "Schedule Line Number",
+                                                "length": 7,
+                                                "direction": "right"
+                                            },
+                                            {
+                                                "name": "Demand Line Number(110)",
+                                                "length": 4,
+                                                "direction": "right"
+                                            },
+                                            {
+                                                "name": "Customer Address type",
+                                                "length": 1
+                                            },
+                                            {
+                                                "name": "ShipTo Name",
+                                                "length": 40
+                                            },
+                                            {
+                                                "name": "ShipTo Name2",
+                                                "length": 40
+                                            },
+                                            {
+                                                "name": "Address Line 1",
+                                                "length": 35
+                                            },
+                                            {
+                                                "name": "Address Line 2",
+                                                "length": 35
+                                            },
+                                            {
+                                                "name": "Address Line 3",
+                                                "length": 35
+                                            },
+                                            {
+                                                "name": "Address Line 4",
+                                                "length": 35
+                                            },
+                                            {
+                                                "name": "City",
+                                                "length": 30
+                                            },
+                                            {
+                                                "name": "In City Limit",
+                                                "length": 1
+                                            },
+                                            {
+                                                "name": "Country1",
+                                                "length": 30
+                                            },
+                                            {
+                                                "name": "State",
+                                                "length": 6
+                                            },
+                                            {
+                                                "name": "Country2",
+                                                "length": 3
+                                            },
+                                            {
+                                                "name": "Postal Code",
+                                                "length": 12
+                                            }
+                                        ]
+                                    }]
+                                },
+                                {
+                                    "name": "100",
+                                    "container": true,
+                                    "maxOccurrence": 50,
+                                    "children": [{
+                                        "required": true,
+                                        "elements": [{
+                                                "name": "100",
+                                                "value": "100",
+                                                "length": 3
+                                            },
+                                            {
+                                                "name": "Audit Action(100)",
+                                                "length": 1
+                                            },
+                                            {
+                                                "name": "ASN Sequence number(100)",
+                                                "length": 9,
+                                                "direction": "right"
+                                            },
+                                            {
+                                                "name": "Shipment Number(100)",
+                                                "length": 30
+                                            },
+                                            {
+                                                "name": "Order Number(100)",
+                                                "length": 10
+                                            },
+                                            {
+                                                "name": "Bill Of Landing(100)",
+                                                "length": 30
+                                            },
+                                            {
+                                                "name": "Item Shipping Date",
+                                                "length": 10
+                                            },
+                                            {
+                                                "name": "Pro Number(100)",
+                                                "length": 40,
+                                                "direction": "right"
+                                            },
+                                            {
+                                                "name": "PO Business Unit(100)",
+                                                "length": 5
+                                            },
+                                            {
+                                                "name": "PO Number(100)",
+                                                "length": 10
+                                            }
+                                        ]
+                                    }]
+                                },
+                                {
+                                    "name": "200",
+                                    "container": true,
+                                    "maxOccurrence": 50,
+                                    "children": [{
+                                        "required": true,
+                                        "elements": [{
+                                                "name": "200",
+                                                "value": "200",
+                                                "length": 3
+                                            },
+                                            {
+                                                "name": "Audit Action(200)",
+                                                "length": 1
+                                            },
+                                            {
+                                                "name": "ASN Sequence number(200)",
+                                                "length": 9,
+                                                "direction": "right"
+                                            },
+                                            {
+                                                "name": "ASN Schedule Sequence Number(200)",
+                                                "length": 9,
+                                                "direction": "right"
+                                            },
+                                            {
+                                                "name": "Container ID",
+                                                "length": 10
+                                            },
+                                            {
+                                                "name": "Shipment Number(200)",
+                                                "length": 30
+                                            },
+                                            {
+                                                "name": "Order Number(200)",
+                                                "length": 10
+                                            },
+                                            {
+                                                "name": "Order Line(200)",
+                                                "length": 5,
+                                                "direction": "right"
+                                            },
+                                            {
+                                                "name": "Sched Line NO(200)",
+                                                "length": 7,
+                                                "direction": "right"
+                                            },
+                                            {
+                                                "name": "ASN Item ID(200)",
+                                                "length": 18
+                                            },
+                                            {
+                                                "name": "Demand Line Number(200)",
+                                                "length": 4,
+                                                "direction": "right"
+                                            },
+                                            {
+                                                "name": "ASN Item Description",
+                                                "length": 30
+                                            },
+                                            {
+                                                "name": "Quantity Shipped(200)",
+                                                "length": 17,
+                                                "direction": "right"
+                                            },
+                                            {
+                                                "name": "Shipment Unit of Measure(200)",
+                                                "length": 3
+                                            },
+                                            {
+                                                "name": "Customer Item Number",
+                                                "length": 18
+                                            },
+                                            {
+                                                "name": "Parent Product ID",
+                                                "length": 18
+                                            },
+                                            {
+                                                "name": "Parent Product Description",
+                                                "length": 30
+                                            },
+                                            {
+                                                "name": "Quantity",
+                                                "length": 10,
+                                                "direction": "right"
+                                            },
+                                            {
+                                                "name": "Quantity Code",
+                                                "length": 3
+                                            },
+                                            {
+                                                "name": "PO Business Unit(200)",
+                                                "length": 5
+                                            },
+                                            {
+                                                "name": "PO Number(200)",
+                                                "length": 10
+                                            },
+                                            {
+                                                "name": "Line Number(200)",
+                                                "length": 5,
+                                                "direction": "right"
+                                            },
+                                            {
+                                                "name": "Schedule Number(200)",
+                                                "length": 3,
+                                                "direction": "right"
+                                            },
+                                            {
+                                                "name": "Bill Of Landing(200)",
+                                                "length": 30
+                                            },
+                                            {
+                                                "name": "Process Instance(200)",
+                                                "length": 10,
+                                                "direction": "right"
+                                            },
+                                            {
+                                                "name": "ASN Default Key",
+                                                "length": 1
+                                            },
+                                            {
+                                                "name": "ASN Processing Status(200)",
+                                                "length": 1
+                                            },
+                                            {
+                                                "name": "Message Number(200)",
+                                                "length": 5,
+                                                "direction": "right"
+                                            },
+                                            {
+                                                "name": "Receiving Business Unit",
+                                                "length": 5
+                                            },
+                                            {
+                                                "name": "Conversion rate",
+                                                "length": 17,
+                                                "direction": "right"
+                                            },
+                                            {
+                                                "name": "Currency Code",
+                                                "length": 3
+                                            },
+                                            {
+                                                "name": "ERS Action",
+                                                "length": 1
+                                            },
+                                            {
+                                                "name": "Item ID",
+                                                "length": 18
+                                            },
+                                            {
+                                                "name": "More Information",
+                                                "length": 254
+                                            },
+                                            {
+                                                "name": "Item SetID",
+                                                "length": 5
+                                            },
+                                            {
+                                                "name": "Lot Control",
+                                                "length": 1
+                                            },
+                                            {
+                                                "name": "Receipt Number",
+                                                "length": 10
+                                            },
+                                            {
+                                                "name": "Receipt Line",
+                                                "length": 5,
+                                                "direction": "right"
+                                            },
+                                            {
+                                                "name": "Receiver Shipping Sequence",
+                                                "length": 3,
+                                                "direction": "right"
+                                            },
+                                            {
+                                                "name": "Serial Control",
+                                                "length": 1
+                                            },
+                                            {
+                                                "name": "ShipTo Location(200)",
+                                                "length": 10
+                                            },
+                                            {
+                                                "name": "ShipTo SetID(200)",
+                                                "length": 5
+                                            },
+                                            {
+                                                "name": "Standard Unit of Measure",
+                                                "length": 3
+                                            },
+                                            {
+                                                "name": "Unit of Measure",
+                                                "length": 3
+                                            },
+                                            {
+                                                "name": "Supplier ID(200)",
+                                                "length": 10
+                                            },
+                                            {
+                                                "name": "Supplier SetID(200)",
+                                                "length": 5
+                                            },
+                                            {
+                                                "name": "Revision Override",
+                                                "length": 1
+                                            },
+                                            {
+                                                "name": "Revision(200)",
+                                                "length": 4
+                                            },
+                                            {
+                                                "name": "Pro Number(200)",
+                                                "length": 40
+                                            },
+                                            {
+                                                "name": "Supplier Contract ID",
+                                                "length": 10
+                                            },
+                                            {
+                                                "name": "UPN ID",
+                                                "length": 13
+                                            },
+                                            {
+                                                "name": "Supplier ID Number(200)",
+                                                "length": 13
+                                            },
+                                            {
+                                                "name": "ShipTo GLN(200)",
+                                                "length": 13
+                                            }
+                                        ]
+                                    }]
+                                },
+                                {
+                                    "name": "300",
+                                    "container": true,
+                                    "maxOccurrence": 50,
+                                    "children": [{
+                                        "required": true,
+                                        "elements": [{
+                                                "name": "300",
+                                                "value": "300",
+                                                "length": 3
+                                            },
+                                            {
+                                                "name": "Audit Action(300)",
+                                                "length": 1
+                                            },
+                                            {
+                                                "name": "ASN Sequence number(300)",
+                                                "length": 9,
+                                                "direction": "right"
+                                            },
+                                            {
+                                                "name": "ASN Schedule Sequence Number(300)",
+                                                "length": 9,
+                                                "direction": "right"
+                                            },
+                                            {
+                                                "name": "ASN Lot/Serial Number",
+                                                "length": 9,
+                                                "direction": "right"
+                                            },
+                                            {
+                                                "name": "Shipment Number(300)",
+                                                "length": 30
+                                            },
+                                            {
+                                                "name": "Order Number(300)",
+                                                "length": 10
+                                            },
+                                            {
+                                                "name": "Order Line(300)",
+                                                "length": 5,
+                                                "direction": "right"
+                                            },
+                                            {
+                                                "name": "ASN Item ID(300)",
+                                                "length": 18
+                                            },
+                                            {
+                                                "name": "Sched Line NO(300)",
+                                                "length": 7,
+                                                "direction": "right"
+                                            },
+                                            {
+                                                "name": "Demand Line No",
+                                                "length": 4,
+                                                "direction": "right"
+                                            },
+                                            {
+                                                "name": "Quantity Shipped(300)",
+                                                "length": 17,
+                                                "direction": "right"
+                                            },
+                                            {
+                                                "name": "Shipment Unit of Measure(300)",
+                                                "length": 3
+                                            },
+                                            {
+                                                "name": "Lot Id",
+                                                "length": 15
+                                            },
+                                            {
+                                                "name": "Serial ID(300)",
+                                                "length": 20
+                                            },
+                                            {
+                                                "name": "PO Business Unit(300)",
+                                                "length": 5
+                                            },
+                                            {
+                                                "name": "PO Number(300)",
+                                                "length": 10
+                                            },
+                                            {
+                                                "name": "Line Number(300)",
+                                                "length": 5,
+                                                "direction": "right"
+                                            },
+                                            {
+                                                "name": "Schedule Number(300)",
+                                                "length": 3,
+                                                "direction": "right"
+                                            },
+                                            {
+                                                "name": "Supplier Lot",
+                                                "length": 15
+                                            },
+                                            {
+                                                "name": "Revision(300)",
+                                                "length": 4
+                                            }
+                                        ]
+                                    }]
+                                }
+                            ]
+                        }]
+                    }
+                },
+                "encoding": "utf8",
+                "fileDefinition": {
+                    "_fileDefinitionId": "62beb5e780aaaa53c700fa08"
+                }
+            },
+            "qa__fixedwidthformat": "voya",
+            "adaptorType": "FTPExport"
+        }
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "name": "FTP To FTP",
+                "_integrationId": "62d6b4a955468141a906119e",
+                "import": {
+                    "_connectionId": "FTP CONNECTION",
+                    "file": {
+                        "csv": {
+                            "columnDelimiter": ";"
+                        }
+                    }
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0",
+                    "pages": "1"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_C2496",
+                    "folderName": "io.auto.qa/IO_UI_Automation",
+                    "fileType": ".json"
+                }
+            }
+        }
+    },
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "FTP Import",
+            "parsers": [],
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "i3c5270140",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+                "fileName": "TC_C2496.json",
+                "skipAggregation": false,
+                "type": "json"
+            },
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                "fileName": "TC_C2496.json"
+            },
+            "adaptorType": "FTPImport"
+        }
+    }]
+}

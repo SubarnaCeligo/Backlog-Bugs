@@ -1,0 +1,108 @@
+{
+    "name": "flow with long name and description",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "pageGenerators": [{
+        "qa__export": {
+            "_connectionId": "NETSUITE CONNECTION",
+            "name": "NSExport2456",
+            "adaptorType": "NetSuiteExport",
+            "parsers": [],
+            "asynchronous": true,
+            "netsuite": {
+                "type": "restlet",
+                "skipGrouping": false,
+                "statsOnly": false,
+                "restlet": {
+                    "recordType": "customer",
+                    "searchId": "2456",
+                    "columns": [],
+                    "criteria": [],
+                    "useSS2Restlets": false
+                }
+            }
+        }
+    }],
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "application": "zendesk support",
+            "adaptorType": "HTTPImport",
+            "parsers": [],
+            "name": "HTTPimport239",
+            "lookups": [{
+                "name": "newhttplookupjson",
+                "relativeURI": "organizations/autocomplete.json?name=239.HTTP_json",
+                "method": "GET",
+                "extract": "organizations[0].id",
+                "allowFailures": false,
+                "useImportHeaders": true
+            }],
+            "distributed": false,
+            "http": {
+                "relativeURI": [
+                    "organizations/{{{lookup.newhttplookupjson}}}"
+                ],
+                "method": [
+                    "PUT"
+                ],
+                "body": [
+                    "{{#each data}}\n{{#if @index}} , {{/if}}\n{\n  \"organization\": {\n   \"notes\":\"{{this.0.Email}}\",\n    \"organization_fields\":{\n  \"address_address_1\": \"{{this.0.[Address 1]}}\",\n  \"address_address_2\":  \"{{this.0.[Address 2]}}\",\n   \"address_city\":\"{{this.0.City}}\",\n       \"phone\":\"{{this.0.recordType}}\"\n  \n}\n    \n  }\n}\n{{/each}}\n"
+                ],
+                "batchSize": 1,
+                "lookups": [{
+                    "name": "newhttplookupjson",
+                    "relativeURI": "search.json?query=type:organization notes:{{{data.Email}}}",
+                    "method": "GET",
+                    "extract": "results[0].id",
+                    "allowFailures": false,
+                    "useImportHeaders": true
+                }]
+            }
+        }
+    }],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "importRecordJSON": {
+            "Name": "239.HTTP_json_PUT",
+            "Email": "httpjsonput239@gmail.com"
+        },
+        "importapiIdentifier": "i1672c3a46",
+        "expected": {
+            "Zendesk": {
+                "name": "flow with long name and description",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "import": {
+                    "_connectionId": "HTTP ZENDESK CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "expectedJSON": {
+                        "name": "239.HTTP_json_PUT",
+                        "notes": "httpjsonput239@gmail.com",
+                        "organization_fields": {
+                            "phone": "customer"
+                        }
+                    },
+                    "standaloneexportflowID": "5a6883f49fade76e4272e474",
+                    "uniqueField": "notes",
+                    "importRecordType": "organizations",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e972758010",
+                    "exportRecordType": "customer"
+                }
+            }
+        }
+    }
+}

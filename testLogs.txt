@@ -1,0 +1,985 @@
+
+> playwright-ts@1.0.0 test
+> rm -rf ./allure-results && npx playwright test --project=PLAYWRIGHT --headed --config=node_modules/@celigo/ui-core-automation/dist/playwright.config.js
+
+
+[2mRunning [22m1[2m test using [22m1[2m worker[22m
+
+Error: connect ECONNREFUSED 127.0.0.1:8080
+URL: http://localhost:8080/api/v1/PLATFORM_SUITES/launch
+method: POST
+    at /Users/harshitarai/Desktop/celigo-qa-automation/node_modules/@reportportal/client-javascript/lib/rest.js:41:15
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+{"_id":"64f1998bc406df5cd7d62351","lastModified":"2023-09-01T07:58:05.432Z","name":"TC_51661","disabled":false,"_integrationId":"6459f5fc6df4b9686c0b7145","pageProcessors":[{"responseMapping":{"fields":[],"lists":[]},"type":"import","_importId":"64f1998b8c6b4c5cfcd9dd1b"}],"pageGenerators":[{"_exportId":"64f1998a8c6b4c5cfcd9dd19"}],"createdAt":"2023-09-01T07:58:03.845Z","autoResolveMatchingTraceKeys":true}
+[33m2023-09-01 13:28:05:285[39m [[32mAUTOMATION-TEST[39m] [36mINFO[39m: [36mNavigating to https://qa.staging.integrator.io/integrations/6459f5fc6df4b9686c0b7145/flowBuilder/64f1998bc406df5cd7d62351[39m
+[33m2023-09-01 13:28:06:286[39m [[32mAUTOMATION-TEST[39m] [36mINFO[39m: [36mClicking on element [data-test="addDataProcessor"]:nth-child(2)[39m
+[33m2023-09-01 13:28:13:2813[39m [[32mAUTOMATION-TEST[39m] [36mINFO[39m: [36mClicking on element [data-test='exportHooks'][39m
+[33m2023-09-01 13:28:14:2814[39m [[32mAUTOMATION-TEST[39m] [36mINFO[39m: [36mEntering text in locator [name="/name"] with mockscript[39m
+actual value is  transform
+Scrolling X  [33m48[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is router transform
+Scrolling X  [33m96[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is contentBasedFlowRouter transform
+Scrolling X  [33m144[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is filter transform
+Scrolling X  [33m192[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is formInit transform
+Scrolling X  [33m240[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is handleRequest transform
+Scrolling X  [33m288[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postAggregate transform
+Scrolling X  [33m336[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postMap transform
+Scrolling X  [33m384[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postResponseMap transform
+Scrolling X  [33m432[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is  transform
+Scrolling X  [33m480[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is router transform
+Scrolling X  [33m528[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is contentBasedFlowRouter transform
+Scrolling X  [33m576[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is filter transform
+Scrolling X  [33m624[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is formInit transform
+Scrolling X  [33m672[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is handleRequest transform
+Scrolling X  [33m720[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postAggregate transform
+Scrolling X  [33m768[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postMap transform
+Scrolling X  [33m816[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postResponseMap transform
+Scrolling X  [33m864[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is  transform
+Scrolling X  [33m912[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is router transform
+Scrolling X  [33m960[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is contentBasedFlowRouter transform
+Scrolling X  [33m1008[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is filter transform
+Scrolling X  [33m1056[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is formInit transform
+Scrolling X  [33m1104[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is handleRequest transform
+Scrolling X  [33m1152[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postAggregate transform
+Scrolling X  [33m1200[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postMap transform
+Scrolling X  [33m1248[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postResponseMap transform
+Scrolling X  [33m1296[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is  transform
+Scrolling X  [33m1344[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is router transform
+Scrolling X  [33m1392[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is contentBasedFlowRouter transform
+Scrolling X  [33m1440[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is filter transform
+Scrolling X  [33m1488[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is formInit transform
+Scrolling X  [33m1536[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is handleRequest transform
+Scrolling X  [33m1584[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postAggregate transform
+Scrolling X  [33m1632[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postMap transform
+Scrolling X  [33m1680[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postResponseMap transform
+Scrolling X  [33m1728[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is  transform
+Scrolling X  [33m1776[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is router transform
+Scrolling X  [33m1824[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is contentBasedFlowRouter transform
+Scrolling X  [33m1872[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is filter transform
+Scrolling X  [33m1920[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is formInit transform
+Scrolling X  [33m1968[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is handleRequest transform
+Scrolling X  [33m2016[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postAggregate transform
+Scrolling X  [33m2064[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postMap transform
+Scrolling X  [33m2112[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postResponseMap transform
+Scrolling X  [33m2160[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is  transform
+Scrolling X  [33m2208[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is router transform
+Scrolling X  [33m2256[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is contentBasedFlowRouter transform
+Scrolling X  [33m2304[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is filter transform
+Scrolling X  [33m2352[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is formInit transform
+Scrolling X  [33m2400[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is handleRequest transform
+Scrolling X  [33m2448[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postAggregate transform
+Scrolling X  [33m2496[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postMap transform
+Scrolling X  [33m2544[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postResponseMap transform
+Scrolling X  [33m2592[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is  transform
+Scrolling X  [33m2640[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is router transform
+Scrolling X  [33m2688[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is contentBasedFlowRouter transform
+Scrolling X  [33m2736[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is filter transform
+Scrolling X  [33m2784[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is formInit transform
+Scrolling X  [33m2832[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is handleRequest transform
+Scrolling X  [33m2880[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postAggregate transform
+Scrolling X  [33m2928[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postMap transform
+Scrolling X  [33m2976[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postResponseMap transform
+Scrolling X  [33m3024[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is  transform
+Scrolling X  [33m3072[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is router transform
+Scrolling X  [33m3120[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is contentBasedFlowRouter transform
+Scrolling X  [33m3168[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is filter transform
+Scrolling X  [33m3216[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is formInit transform
+Scrolling X  [33m3264[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is handleRequest transform
+Scrolling X  [33m3312[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postAggregate transform
+Scrolling X  [33m3360[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postMap transform
+Scrolling X  [33m3408[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postResponseMap transform
+Scrolling X  [33m3456[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is  transform
+Scrolling X  [33m3504[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is router transform
+Scrolling X  [33m3552[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is contentBasedFlowRouter transform
+Scrolling X  [33m3600[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is filter transform
+Scrolling X  [33m3648[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is formInit transform
+Scrolling X  [33m3696[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is handleRequest transform
+Scrolling X  [33m3744[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postAggregate transform
+Scrolling X  [33m3792[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postMap transform
+Scrolling X  [33m3840[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postResponseMap transform
+Scrolling X  [33m3888[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is  transform
+Scrolling X  [33m3936[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is router transform
+Scrolling X  [33m3984[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is contentBasedFlowRouter transform
+Scrolling X  [33m4032[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is filter transform
+Scrolling X  [33m4080[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is formInit transform
+Scrolling X  [33m4128[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is handleRequest transform
+Scrolling X  [33m4176[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postAggregate transform
+Scrolling X  [33m4224[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postMap transform
+Scrolling X  [33m4272[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postResponseMap transform
+Scrolling X  [33m4320[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is  transform
+Scrolling X  [33m4368[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is router transform
+Scrolling X  [33m4416[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is contentBasedFlowRouter transform
+Scrolling X  [33m4464[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is filter transform
+Scrolling X  [33m4512[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is formInit transform
+Scrolling X  [33m4560[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is handleRequest transform
+Scrolling X  [33m4608[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postAggregate transform
+Scrolling X  [33m4656[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postMap transform
+Scrolling X  [33m4704[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postResponseMap transform
+Scrolling X  [33m4752[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is  transform
+Scrolling X  [33m4800[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is router transform
+Scrolling X  [33m4848[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is contentBasedFlowRouter transform
+Scrolling X  [33m4896[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is filter transform
+Scrolling X  [33m4944[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is formInit transform
+Scrolling X  [33m4992[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is handleRequest transform
+Scrolling X  [33m5040[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postAggregate transform
+Scrolling X  [33m5088[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postMap transform
+Scrolling X  [33m5136[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postResponseMap transform
+Scrolling X  [33m5184[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is  transform
+Scrolling X  [33m5232[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is router transform
+Scrolling X  [33m5280[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is contentBasedFlowRouter transform
+Scrolling X  [33m5328[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is filter transform
+Scrolling X  [33m5376[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is formInit transform
+Scrolling X  [33m5424[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is handleRequest transform
+Scrolling X  [33m5472[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postAggregate transform
+Scrolling X  [33m5520[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postMap transform
+Scrolling X  [33m5568[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+actual value is postResponseMap transform
+Scrolling X  [33m5616[39m
+Scrolling Error >> page.evaluate: ReferenceError: x is not defined
+    at eval (eval at evaluate (:201:30), <anonymous>:2:84)
+    at UtilityScript.evaluate (<anonymous>:203:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at FlowBuilderPage.selectTextfromDropDown [90m(/Users/harshitarai/Desktop/celigo-qa-automation/[39mnode_modules/[4m@celigo[24m/ui-core-automation/src/pageFactory/pages/BasePage.ts:775:16[90m)[39m
+    at [90m/Users/harshitarai/Desktop/celigo-qa-automation/[39m__tests__/uiux_suite/debug/debug.spec.ts:135:1
+Please select
+  [31m✘[39m  [2m1 [22m[31m[PLAYWRIGHT] › debug.spec.ts:110:7 › C9366Validate user is able to see the options script,description,chose function stub while creating "transform" script through flow builder page › Validate user is able to see the options script,description,chose function stub while creating "transform" script through flow builder page[39m[2m (13.8s)[22m
+
+
+[31m  1) [PLAYWRIGHT] › debug.spec.ts:110:7 › C9366Validate user is able to see the options script,description,chose function stub while creating "transform" script through flow builder page › Validate user is able to see the options script,description,chose function stub while creating "transform" script through flow builder page [39m
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    Expected: [32m"Transform"[39m
+    Received: [31m"Please select"[39m
+
+      153 | console.log(divTextContent)
+      154 |
+    > 155 | expect(divTextContent).toEqual(expectedText);
+          |                        ^
+      156 |   });
+      157 | })
+      158 | // test.describe('C93666Validate user is able to see the options script,description,chose function stub while creating "postSubmit" script through flow builder page', () => {
+
+    [2m    at /Users/harshitarai/Desktop/celigo-qa-automation/__tests__/uiux_suite/debug/debug.spec.ts:155:24[22m
+
+[36m    attachment #1: screenshot (image/png) [2m──────────────────────────────────────────────────────────[22m[39m
+[36m    node_modules/@celigo/ui-core-automation/test-results/debug-C9366Validate-user-is-able-to-see-the-op-eaa24-ting-transform-script-through-flow-builder-page-PLAYWRIGHT/test-failed-1.png[39m
+[36m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[22m[39m
+
+[31m  1 failed[39m
+[31m    [PLAYWRIGHT] › debug.spec.ts:110:7 › C9366Validate user is able to see the options script,description,chose function stub while creating "transform" script through flow builder page › Validate user is able to see the options script,description,chose function stub while creating "transform" script through flow builder page [39m
+Error: connect ECONNREFUSED 127.0.0.1:8080
+URL: http://localhost:8080/api/v1/PLATFORM_SUITES/launch
+method: POST
+    at /Users/harshitarai/Desktop/celigo-qa-automation/node_modules/@reportportal/client-javascript/lib/rest.js:41:15
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)

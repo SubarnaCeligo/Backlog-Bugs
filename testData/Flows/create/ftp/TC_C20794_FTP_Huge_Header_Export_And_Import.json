@@ -1,0 +1,99 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "4",
+      "errorCount": "0"
+    },
+    "pageProcessors": [
+      {
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        },
+        "type": "import",
+        "qa__import": {
+          "_connectionId":"FTP CONNECTION",
+          "apiIdentifier": "i800892a74",
+          "oneToMany": false,
+          "sandbox": false,
+          "file": {
+            "fileName": "Test.csv",
+            "skipAggregation": false,
+            "type": "csv",
+            "csv": {
+              "rowDelimiter": "\n",
+              "columnDelimiter": ",",
+              "includeHeader": true,
+              "wrapWithQuotes": false,
+              "replaceTabWithSpace": false,
+              "replaceNewlineWithSpace": false,
+              "truncateLastRowDelimiter": false
+            }
+          },
+          "ftp": {
+            "directoryPath": "/io.auto.qa/IO_UI_Automation",
+            "fileName": "Test.csv"
+          },
+          "adaptorType": "FTPImport"
+        }
+      }
+    ],
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C20794_FTP_Huge_Header_Export_And_Import",
+    "disabled": false,
+    "qa__dataVerification": {
+      "expected": {
+        "FTP": {
+          "name": "TC_C20794_FTP_Huge_Header_Export_And_Import",
+          "_integrationId": "62d6b4a955468141a906119e",
+          "import": {
+            "_connectionId": "FTP CONNECTION",
+            "file": {
+              "csv": {
+                "columnDelimiter": ";"
+              }
+            }
+          },
+          "qa__expectedDashboardCount": {
+            "successCount": "4",
+            "ignoreCount": "0",
+            "errorCount": "0"
+          },
+          "qa__dataVerification": {
+            "fileName": "Test",
+            "folderName": "io.auto.qa/IO_UI_Automation",
+            "fileType": ".csv"
+          }
+        }
+      }
+    },
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "_connectionId":"FTP CONNECTION",
+          "ftp": {
+            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+            "fileNameStartsWith": "Sample_file_with_more_headers.csv"
+          },
+          "file": {
+            "encoding": "utf8",
+            "output": "records",
+            "skipDelete": true,
+            "type": "csv",
+            "csv": {
+              "columnDelimiter": ",",
+              "rowDelimiter": "\n",
+              "hasHeaderRow": false,
+              "trimSpaces": true,
+              "rowsToSkip": 0
+            }
+          },
+          "adaptorType": "FTPExport",
+          "qa__path": "//FTP_uploads//Sample_file_with_more_headers.csv"
+        }
+      }
+    ]
+  }
+  
