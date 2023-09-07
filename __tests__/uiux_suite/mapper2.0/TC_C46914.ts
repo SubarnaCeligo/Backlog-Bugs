@@ -43,9 +43,17 @@ test.describe(`C46914 Verify When no saved mappings exist, add empty parent row 
     const sourceFieldsCount = await page
       .locator(selectors.mappings.Mapper2dot0PO.SOURCEFIELDS)
       .count();
-    expect(destinationFieldsCount).toBe(2);
-    await io.flowBuilder.addStep("Verified 'Destination Fields' count is 2");
+
+    await io.assert.expectToBeValue(
+      "2",
+      String(destinationFieldsCount),
+      "Destination Fields count is not 2"
+    );
     expect(sourceFieldsCount).toBe(2);
-    await io.flowBuilder.addStep("Verified 'Source Fields' count is 2");
+    await io.assert.expectToBeValue(
+      "2",
+      String(sourceFieldsCount),
+      "Source Fields count is not 2"
+    );
   });
 });

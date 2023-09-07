@@ -30,13 +30,19 @@ test.describe(`C27965 Verify the fields in 'What would you like to export?' sect
         list.forEach(el => arr.push(el.firstChild.id));
         return arr;
       }, selectors.exportsPagePO.WHAT_WOULD_YOU_LIKE_TO_EXPORT_TAB_CONTENT);
+
     const firstId = divList[0];
     const secondId = divList[1];
-    expect(firstId).toBe("http.method");
-    await io.exportsPage.addStep("Verified the first field is 'http.method'");
-    expect(secondId).toBe("http.relativeURI");
-    await io.exportsPage.addStep(
-      "Verified the second field is 'http.relativeURI'"
+
+    await io.assert.expectToBeValue(
+      "http.method",
+      firstId,
+      "First field is not 'http.method'"
+    );
+    await io.assert.expectToBeValue(
+      "http.relativeURI",
+      secondId,
+      "Second field is not 'http.relativeURI'"
     );
   });
 });

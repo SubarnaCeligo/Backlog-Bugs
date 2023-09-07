@@ -36,8 +36,11 @@ test.describe(`C27969 Verify the fields in 'Non-standard API response patterns' 
     const secondId = divList[3];
     const thirdId = divList[4];
 
-    expect(firstId).toBe("http.response.resourcePath");
-    await io.exportsPage.addStep("Verified the first field is 'http.method'");
+    await io.assert.expectToBeValue(
+      "http.response.resourcePath",
+      firstId,
+      "First field is not 'http.response.resourcePath'"
+    );
     await expect(
       page.getByText("Path to records in HTTP response body")
     ).toBeVisible();
@@ -45,9 +48,10 @@ test.describe(`C27969 Verify the fields in 'Non-standard API response patterns' 
       "Verified 'Path to records in HTTP response body' text is visible"
     );
 
-    expect(secondId).toBe("http.response.successPath");
-    await io.exportsPage.addStep(
-      "Verified the second field is 'http.relativeURI'"
+    await io.assert.expectToBeValue(
+      "http.response.successPath",
+      secondId,
+      "Second field is not 'http.response.successPath'"
     );
     await expect(
       page.getByText("Path to success field in HTTP response body")
@@ -56,9 +60,10 @@ test.describe(`C27969 Verify the fields in 'Non-standard API response patterns' 
       "Verified 'Path to success field in HTTP response body' text is visible"
     );
 
-    expect(thirdId).toBe("http.response.successValues");
-    await io.exportsPage.addStep(
-      "Verified the third field is 'http.relativeURI'"
+    await io.assert.expectToBeValue(
+      "http.response.successValues",
+      thirdId,
+      "Third field is not 'http.response.successValues'"
     );
     await expect(page.getByText("Success values")).toBeVisible();
     await io.exportsPage.addStep("Verified 'Success values' text is visible");

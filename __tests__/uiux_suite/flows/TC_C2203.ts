@@ -26,10 +26,6 @@ test.describe(`C2203 Verify existing stacks are shown for flow builder exports a
     await io.flowBuilder.click(selectors.flowBuilderPagePO.STACKS_DROPDOWN);
     await io.flowBuilder.delay(1000);
     const stackList = await page.$$("[role=menuitem]");
-    console.log(
-      "🚀 ~ file: TC_C2203.ts:25 ~ test.describe ~ stackList:",
-      stackList
-    );
     const stacks = await io.api.getCall(`v1/stacks`);
     expect(stackList.length - 1).toEqual(stacks.length);
     await io.flowBuilder.addStep("Verified existing stacks are shown");
