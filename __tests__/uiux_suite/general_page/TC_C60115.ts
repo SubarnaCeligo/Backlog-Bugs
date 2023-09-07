@@ -8,7 +8,7 @@ test.describe('To verify that the user is able to load integration from dev play
   
     test('To verify that the user is able to load integration from dev playground page.', async({io,page}) => {
 
-         await io.homePage.click("[data-test='Tools']")
+         await io.homePage.click(selectors.basePagePO.TOOLS)
          await io.homePage.clickByText("Playground")
          await io.homePage.clickByText("Automation Flows")
          await page.getByText("TC_51661_DND").nth(1).click();
@@ -20,7 +20,7 @@ test.describe('To verify that the user is able to load integration from dev play
           
           // Use an assertion library to check if the text is as expected
           const expectedText = 'Flow builder';
-          expect(flowBuilderText).toBe(expectedText);
+          io.assert.expectToBeValue(expectedText, flowBuilderText, "unable to find locator") 
  
     });
   })

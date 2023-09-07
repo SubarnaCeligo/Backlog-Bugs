@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import C733 from "@testData/MyAccount/C733.json"
 
-test.describe.only('Verify when user is logged with google account, Name and Emailfields vaules should be displayed by default', () => { 
+test.describe('Verify when user is logged with google account, Name and Emailfields vaules should be displayed by default', () => { 
 
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
@@ -18,9 +18,8 @@ test.describe.only('Verify when user is logged with google account, Name and Ema
         const actualEmailValue = await emailInput.getAttribute("value");
         const actualNameValue = await nameInput.getAttribute("value");
 
-   
-        expect(actualEmailValue).toBe(expectedDefaultValue);
-        expect(actualNameValue).toBe(expectedName);
-  
+        io.assert.expectToBeValue(expectedDefaultValue, actualEmailValue, "unable to find locator") 
+        io.assert.expectToBeValue(expectedName, actualNameValue, "unable to find locator") 
+        
       });       
   })
