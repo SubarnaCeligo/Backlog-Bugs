@@ -1,6 +1,6 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C30651 from "@testData/Flows/C26246.json"
+import data from "@testData/ScriptDebugger/C93682.json"
 
 
 test.describe('C93682Validate user is getting auto-fill of funtion stub while creating "postSubmit" script through flow builder hook', () => {
@@ -8,7 +8,7 @@ test.describe('C93682Validate user is getting auto-fill of funtion stub while cr
     test('Validate user is getting auto-fill of funtion stub while creating "postSubmit" script through flow builder hook', async({io,page}) => {
   
       const id =  await io.fillFormUI(
-        C30651,
+        data,
         'FLOWS'
       );
   

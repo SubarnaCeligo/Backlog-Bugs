@@ -3,13 +3,12 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe('Verify Auto-scroll to show form errors', () => {
     test.beforeEach(async ({ io }) => {
-        await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.homePage.navigateTo(io.data.links.IMPORTS_PAGE_URL);
     });
   
     test('Verify Auto-scroll to show form errors', async({io,page}) => {
     
-        await io.homePage.clickByText('Resources');
-        await io.homePage.clickByText('Imports')
+        
         await io.homePage.clickByText('Create import')
         await io.importsPage.click(selectors.importPagePO.FTP_IMPORT)
         await io.importsPage.click(selectors.basePagePO.CONNECTION_DROPDOWN)

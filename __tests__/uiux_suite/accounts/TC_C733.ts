@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import C733 from "@testData/MyAccount/C733.json"
 
-test.describe('Verify when user is logged with google account, Name and Emailfields vaules should be displayed by default', () => { 
+test.describe.only('Verify when user is logged with google account, Name and Emailfields vaules should be displayed by default', () => { 
 
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
@@ -12,14 +12,15 @@ test.describe('Verify when user is logged with google account, Name and Emailfie
         
         const expectedDefaultValue = C733.mail;
         const expectedName =  C733.name;
-    
-        // Get the value attribute of the input element
-        const actualEmailValue = await page.getAttribute( selectors.myAccountPagePO.EMAIL_INPUT, "value");
-        const actualNameValue = await page.getAttribute(selectors.myAccountPagePO.NAME_INPUT, "value");
+            const emailInput = await page.waitForSelector( `input${selectors.myAccountPagePO.EMAIL_INPUT}`);
+        const nameInput = await page.waitForSelector(selectors.flowBuilderPagePO.FLOW_NAME);
+
+        const actualEmailValue = await emailInput.getAttribute("value");
+        const actualNameValue = await nameInput.getAttribute("value");
+
    
-        // Compare the actual value with the expected default value
         expect(actualEmailValue).toBe(expectedDefaultValue);
         expect(actualNameValue).toBe(expectedName);
-           
+  
       });       
   })

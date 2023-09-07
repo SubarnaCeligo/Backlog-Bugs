@@ -4,12 +4,13 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe("Verify Base URI is not present in UPS Edit Connection page", () => {
 
     test.beforeEach(async ({ io }) => {
-        await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+        // await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.homePage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
       });
+      
 
       test ("Verify Base URI is not present in UPS Edit Connection page", async ({io,page}) => {
-        await io.homePage.clickByText('Resources');
-        await io.connectionPage.clickByText('Connections')
+         
         await io.connectionPage.clickByText('Create connection')
         await io.connectionPage.click(selectors.connectionsPagePO.UPS_CONNECTION)
  

@@ -16,7 +16,7 @@ await page.waitForSelector(toolbarSelector);
 let isToolbarPresent = await page.$(toolbarSelector);
 expect(isToolbarPresent).toBeTruthy();
     
-        await io.homePage.clickByText('Resources');
+        await io.homePage.click(selectors.basePagePO.RESOURCES);
 
        await io.homePage.waitForElementAttached(toolbarSelector);
         

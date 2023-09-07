@@ -8,7 +8,7 @@ test.describe('Verify that while creating import Advanced firls should be collap
   
     test('Verify that while creating import Advanced firls should be collapsed ', async({io,page}) => {
     
-        await io.homePage.clickByText('Resources');
+        await io.homePage.click(selectors.basePagePO.RESOURCES);
         await io.homePage.clickByText('Imports')
         await io.homePage.clickByText(' Create import')
         await io.importsPage.click(selectors.importPagePO.NETSUITE_IMPORT)

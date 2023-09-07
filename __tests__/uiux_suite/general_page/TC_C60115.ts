@@ -8,10 +8,10 @@ test.describe('To verify that the user is able to load integration from dev play
   
     test('To verify that the user is able to load integration from dev playground page.', async({io,page}) => {
 
-         await io.homePage.clickByText("Tools")
+         await io.homePage.click("[data-test='Tools']")
          await io.homePage.clickByText("Playground")
          await io.homePage.clickByText("Automation Flows")
-         await page.getByText("C46915").nth(1).click();
+         await page.getByText("TC_51661_DND").nth(1).click();
          await io.homePage.clickByText("Open in Flow Builder")
          const flowBuilderText = await page.evaluate(() => {
             const pElement = document.querySelector('.MuiBreadcrumbs-li p.MuiTypography-body2');
