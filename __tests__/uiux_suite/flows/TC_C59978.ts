@@ -7,7 +7,7 @@ test.describe(`C59978 To verify that the browser URL while creating a new flow s
     page,
     context
   }) => {
-    await io.flowBuilder.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
+    await io.flowBuilder.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
     const flowBuilderLocator = page.getByText("Flow builder");
     if (await flowBuilderLocator.isVisible()) {
       await io.homePage.clickByText("Flow builder");
@@ -19,10 +19,15 @@ test.describe(`C59978 To verify that the browser URL while creating a new flow s
     await io.flowBuilder.waitForElementAttached(plusButtonsSelector);
     const plusButtonsLocator = await page.$$(plusButtonsSelector);
     await plusButtonsLocator[0].click();
+    await io.flowBuilder.addStep("Clicked on 'plus' button");
     await io.flowBuilder.clickByText("Add branching");
+    await io.flowBuilder.addStep("Clicked on 'Add branching'");
     await io.flowBuilder.fill(
       selectors.flowBuilderPagePO.BRANCH_NAME_INPUT,
       "Branch C59978"
+    );
+    await io.flowBuilder.addStep(
+      "Entered branch name 'Branch C59978' in the “Add branching” drawer"
     );
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await page
@@ -38,5 +43,8 @@ test.describe(`C59978 To verify that the browser URL while creating a new flow s
     ).toBeVisible({
       timeout: 10000
     });
+    await io.flowBuilder.addStep(
+      "Verified the branch name 'Branch C59978' is visible in the new tab"
+    );
   });
 });

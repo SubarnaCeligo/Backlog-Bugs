@@ -37,7 +37,7 @@ test.describe(`C53277 Verify the new "Name" filed in the “Add branching” dra
     await io.flowBuilder.addStep("Verified 'Branching name' is empty");
     await io.flowBuilder.clickByText("Save");
     await io.flowBuilder.addStep("Clicked on 'Save'");
-    await expect(page.getByText("Branch 1.1")).toBeVisible({
+    await expect(page.getByText("Branch 1.1").first()).toBeVisible({
       timeout: 10000
     });
     await io.flowBuilder.addStep("Verified 'Branch 1.1' is visible");
