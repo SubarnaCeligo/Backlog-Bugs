@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C59678 from "@testData/Flows/C59678.json";
 
 
-test.describe.only("To verify that the Export/Import bubbles are working as expected", () => {
+test.describe("To verify that the Export/Import bubbles are working as expected", () => {
     test.beforeEach(async ({ io }) => {
         await io.flowBuilder.navigateTo(io.data.links.FLOW_BUILDER_PAGE_URL);
       });
