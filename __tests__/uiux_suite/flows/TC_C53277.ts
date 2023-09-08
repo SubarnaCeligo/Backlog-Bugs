@@ -10,16 +10,7 @@ test.describe(`C53277 Verify the new "Name" filed in the “Add branching” dra
     io,
     page
   }) => {
-    const flowBuilderLocator = page.getByText("Flow builder");
-    if (await flowBuilderLocator.isVisible()) {
-      await io.homePage.clickByText("Flow builder");
-      await io.homePage.addStep("Clicked on 'Flow builder'");
-    } else {
-      await io.homePage.clickByText("Tools");
-      await io.homePage.addStep("Clicked on 'Tools'");
-      await io.homePage.clickByText("Flow builder");
-      await io.homePage.addStep("Clicked on 'Flow builder'");
-    }
+    await io.homePage.goToMenu("Tools", "Flow builder");
     const plusButtonsSelector = selectors.flowBuilderPagePO.PLUS_BUTTONS;
     await io.flowBuilder.waitForElementAttached(plusButtonsSelector);
     await io.flowBuilder.addStep("Waited for 'plus' buttons to be visible");

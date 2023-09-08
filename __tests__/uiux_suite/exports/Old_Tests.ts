@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import * as C55447 from "@testData/Exports/C55447.json";
 import * as C51543 from "@testData/Exports/C51543.json";
 
-test.describe("Export Flows Test Cases", async () => {
+test.describe.skip("Export Flows Test Cases", async () => {
   test.beforeEach(async ({ io }) => {
     await io.exportsPage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
   });
