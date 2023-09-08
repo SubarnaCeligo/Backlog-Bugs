@@ -24,6 +24,7 @@ test.describe("E2E Flows", () => {
         await test.step("*** Enable and run the Flow *** ", async () => {
             //TODO : Save the flow with test title     
             await io.flowBuilder.saveandRunFlow(testInfo.title)
+            await io.api.validateJobCountFromAPI(testInfo.title, FTPtoFTP.qa__expectedDashboardCount)
         });
     });
 });

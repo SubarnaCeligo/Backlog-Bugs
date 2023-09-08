@@ -5,7 +5,7 @@ import allure from "allure-playwright";
 test.describe("E2E Flows", () => {
 
     test.beforeEach(async ({ io }) => {
-        await io.homePage.navigateToHome()
+        await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
     test("TC_251_FTP_JSON_To_Salesforce_Account_Multifield", async ({
@@ -24,6 +24,7 @@ test.describe("E2E Flows", () => {
         //Enable and run the Flow ***
         await test.step("*** Enable and run the Flow *** ", async () => {
             await io.flowBuilder.saveandRunFlow(testInfo.title)
+            await io.api.validateJobCountFromAPI(testInfo.title, FTPtoSF.qa__expectedDashboardCount)
         });
     });
 });

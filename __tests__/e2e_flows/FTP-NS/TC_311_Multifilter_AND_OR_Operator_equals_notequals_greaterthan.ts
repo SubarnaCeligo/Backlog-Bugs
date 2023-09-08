@@ -5,7 +5,7 @@ import NS from "@testData/Flows/create/netsuite/TC_311_Multifilter_AND_OR_Operat
 test.describe("E2E Flows", () => {
 
     test.beforeEach(async ({ io }) => {
-        await io.homePage.navigateToHome()
+        await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
     test("TC_311_Multifilter_AND_OR_Operator_equals_notequals_greaterthan", async ({
@@ -24,6 +24,7 @@ test.describe("E2E Flows", () => {
         //Save, Enable and Run the Flow
         await test.step("*** Save, Enable And Run The Flow *** ", async () => {
             await io.flowBuilder.saveandRunFlow(testInfo.title)
+            await io.api.validateJobCountFromAPI(testInfo.title, NS.qa__expectedDashboardCount)
         });
     });
 });
