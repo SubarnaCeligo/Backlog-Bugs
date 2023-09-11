@@ -12,13 +12,14 @@ test.describe('Verify when user is logged with google account, Name and Emailfie
         
         const expectedDefaultValue = C733.mail;
         const expectedName =  C733.name;
-    
-        // Get the value attribute of the input element
-        const actualValue = await page.getAttribute( selectors.myAccountPagePO.EMAIL_INPUT, "value");
-        const actualNameValue = await page.getAttribute(selectors.myAccountPagePO.NAME_INPUT, "value");
-   
-        // Compare the actual value with the expected default value
-        expect(actualValue).toBe(expectedDefaultValue);
-           
+            const emailInput = await page.waitForSelector( `input${selectors.myAccountPagePO.EMAIL_INPUT}`);
+        const nameInput = await page.waitForSelector(selectors.flowBuilderPagePO.FLOW_NAME);
+
+        const actualEmailValue = await emailInput.getAttribute("value");
+        const actualNameValue = await nameInput.getAttribute("value");
+
+        io.assert.expectToBeValue(expectedDefaultValue, actualEmailValue, "unable to find locator") 
+        io.assert.expectToBeValue(expectedName, actualNameValue, "unable to find locator") 
+        
       });       
   })
