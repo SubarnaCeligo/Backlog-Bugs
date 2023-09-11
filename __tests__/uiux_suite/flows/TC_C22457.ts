@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C22457 Should be able to click on all the types of resources on the left side such as connections,exports,imports.", () => {
     test("Exports check", async ({io,page}) => {
-        await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
         let isExportsVisible = await io.homePage.isVisible(selectors.basePagePO.EXPORTS);
         if(!isExportsVisible) await io.homePage.clickByText('Resources');
         isExportsVisible = await io.homePage.isVisible(selectors.basePagePO.EXPORTS); 
@@ -14,7 +14,7 @@ test.describe("C22457 Should be able to click on all the types of resources on t
     });
 
     test("Imports check", async ({io,page}) => {
-        await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
         let isImportsVisible = await io.homePage.isVisible(selectors.basePagePO.IMPORTS);
         if(!isImportsVisible) await io.homePage.clickByText('Resources');
         isImportsVisible = await io.homePage.isVisible(selectors.basePagePO.IMPORTS);
@@ -25,7 +25,7 @@ test.describe("C22457 Should be able to click on all the types of resources on t
     });
 
     test("Connections check", async ({io,page}) => {
-        await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
         let isConnectionsVisible = await io.homePage.isVisible(selectors.basePagePO.CONNECTIONS);
         if(!isConnectionsVisible) await io.homePage.clickByText('Resources');
         isConnectionsVisible = await io.homePage.isVisible(selectors.basePagePO.CONNECTIONS);
@@ -36,7 +36,7 @@ test.describe("C22457 Should be able to click on all the types of resources on t
     });
 
     test("Agents check", async ({io,page}) => {
-        await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
         let isAgentsVisible = await io.homePage.isVisible(selectors.basePagePO.AGENTS);
         if(!isAgentsVisible) await io.homePage.clickByText('Resources');
         isAgentsVisible = await io.homePage.isVisible(selectors.basePagePO.AGENTS);
@@ -47,7 +47,7 @@ test.describe("C22457 Should be able to click on all the types of resources on t
     });
 
     test("iClients check", async ({io,page}) => {
-        await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
         let isiClientsVisible = await io.homePage.isVisible(selectors.basePagePO.ICLIENTS);
         if(!isiClientsVisible)await io.homePage.clickByText('Resources');
         isiClientsVisible = await io.homePage.isVisible(selectors.basePagePO.ICLIENTS);
@@ -58,7 +58,7 @@ test.describe("C22457 Should be able to click on all the types of resources on t
     });
 
     test("API Tokens check", async ({io,page}) => {
-        await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
         let isAPITokenVisible = await io.homePage.isVisible(selectors.basePagePO.API_TOKENS);
         if(!isAPITokenVisible)await io.homePage.clickByText('Resources');
         isAPITokenVisible = await io.homePage.isVisible(selectors.basePagePO.API_TOKENS);
@@ -69,7 +69,7 @@ test.describe("C22457 Should be able to click on all the types of resources on t
     });
 
     test("Recycle bin check", async ({io,page}) => {
-        await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
         let isRecycleBinVisible = await io.homePage.isVisible(selectors.basePagePO.RECYCLE_BIN);
         if(!isRecycleBinVisible)await io.homePage.clickByText('Resources');
         isRecycleBinVisible = await io.homePage.isVisible(selectors.basePagePO.RECYCLE_BIN);

@@ -7,14 +7,8 @@ test.describe(`C59978 To verify that the browser URL while creating a new flow s
     page,
     context
   }) => {
-    await io.flowBuilder.navigateTo(io.data.links.HOME_PAGE_URL);
-    const flowBuilderLocator = page.getByText("Flow builder");
-    if (await flowBuilderLocator.isVisible()) {
-      await io.homePage.clickByText("Flow builder");
-    } else {
-      await io.homePage.clickByText("Tools");
-      await io.homePage.clickByText("Flow builder");
-    }
+    await io.flowBuilder.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
+    await io.homePage.goToMenu("Tools","Flow builder");
     const plusButtonsSelector = selectors.flowBuilderPagePO.PLUS_BUTTONS;
     await io.flowBuilder.waitForElementAttached(plusButtonsSelector);
     const plusButtonsLocator = await page.$$(plusButtonsSelector);

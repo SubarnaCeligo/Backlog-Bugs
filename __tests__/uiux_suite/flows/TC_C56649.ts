@@ -3,20 +3,14 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C56649 Verify the Router name field by entering the names of different lengths up to 256 characters`, () => {
   test.beforeEach(async ({ io }) => {
-    await io.flowBuilder.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.flowBuilder.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
   });
 
   test(`C56649 Verify the Router name field by entering the names of different lengths up to 256 characters`, async ({
     io,
     page
   }) => {
-    const flowBuilderLocator = page.getByText("Flow builder");
-    if (await flowBuilderLocator.isVisible()) {
-      await io.homePage.clickByText("Flow builder");
-    } else {
-      await io.homePage.clickByText("Tools");
-      await io.homePage.clickByText("Flow builder");
-    }
+    await io.homePage.goToMenu("Tools","Flow builder");
     const plusButtonsSelector = selectors.flowBuilderPagePO.PLUS_BUTTONS;
     await io.flowBuilder.waitForElementAttached(plusButtonsSelector);
     const plusButtonsLocator = await page.$$(plusButtonsSelector);

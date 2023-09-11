@@ -4,7 +4,7 @@ import * as testData from "@testData/Marketplace/C22282.json";
 
 test.describe(`C22282 Verify, when the description is large on the tile, scroll bar needs to present`, () => {
   test.beforeEach(async ({ io }) => {
-    await io.flowBuilder.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.flowBuilder.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
   });
 
   test(`C22282 Verify, when the description is large on the tile, scroll bar needs to present`, async ({

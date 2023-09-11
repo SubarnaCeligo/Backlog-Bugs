@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C27977 Verify the fields in 'Non-standard API response patterns' section are updated as per requirement in HTTP/REST lookup additional files`, () => {
   test.beforeEach(async ({ io }) => {
-    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
   });
 
   test(`C27977 Verify the fields in 'Non-standard API response patterns' section are updated as per requirement in HTTP/REST lookup additional files`, async ({
