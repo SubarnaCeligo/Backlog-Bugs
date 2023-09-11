@@ -14,8 +14,6 @@ test.describe('Verify the displayed default Gray text in the Mapper2.0 mapping f
             C45340,
             'FLOWS'
           );
-          
-
           await  io.flowBuilder.click(selectors.flowBuilderPagePO.HTTP_IMPORT_PLUSBUTTON);
           await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS)
           const inputSourceSelector =  selectors.flowBuilderPagePO.SOURCE_MAPPING_PLACEHOLDER;

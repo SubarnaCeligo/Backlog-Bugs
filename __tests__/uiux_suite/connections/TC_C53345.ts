@@ -6,13 +6,12 @@ test.describe("C53345 Verify Base URI is not present in UPS Edit Connection page
     test.beforeEach(async ({ io }) => {
         await io.homePage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
       });
+      
 
-      test ("C53345 Verify Base URI is not present in UPS Edit Connection page", async ({io,page}) => {
-        await io.connectionPage.clickByText('Create connection');
-        await page.waitForTimeout(5000);
-        await io.connectionPage.fill(selectors.connectionsPagePO.APP_NAME_INPUT,"UPS");
-        await page.locator(selectors.connectionsPagePO.UPS_CONNECTION).scrollIntoViewIfNeeded();
-        await io.connectionPage.click(selectors.connectionsPagePO.UPS_CONNECTION);
+      test ("Verify Base URI is not present in UPS Edit Connection page", async ({io,page}) => {
+         
+        await io.connectionPage.clickByText('Create connection')
+        await io.connectionPage.click(selectors.connectionsPagePO.UPS_CONNECTION)
  
         const fieldSelector = selectors.connectionsPagePO.MOCK_BASEURL; // Replace with the actual selector
       
