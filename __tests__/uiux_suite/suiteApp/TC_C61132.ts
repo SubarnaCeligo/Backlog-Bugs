@@ -9,50 +9,36 @@ test.describe(`C61132 Verify the Install link functionality displayed for the In
     await io.homePage.navigateTo(
       `${io.data.links.HOME_PAGE_URL}/installIntegration`
     );
-    await io.homePage.addStep(
-      "Navigated to install integration page (/home/installIntegration)"
-    );
     const fileChooserPromise = page.waitForEvent("filechooser");
-    await page.getByText("Choose file").click();
+    await io.homePage.clickByText("Choose file");
     const fileChooser = await fileChooserPromise;
     await fileChooser.setFiles("testData/SuiteApp/C61132.zip");
     await io.homePage.addStep("Uploaded integration zip file");
-    await page.getByText("Install Integration").click();
-    await io.homePage.addStep("Clicked 'Install Integration' button");
-    await page.locator(selectors.basePagePO.DIALOG_PROCEED_BUTTON).click();
-    await io.homePage.addStep("Clicked 'Proceed' button");
+    await io.homePage.clickByText("Install integration");
+    await io.homePage.click(selectors.basePagePO.DIALOG_PROCEED_BUTTON);
     const configure = async () => {
       await expect(page.getByText("Integrator SuiteApp")).toBeVisible();
-      await io.homePage.addStep("Checked if 'Integrator SuiteApp' is visible");
-      await page
-        .locator(selectors.integrationPagePO.SETUP_INTEGRATION_CONFIGURE_BUTTON)
-        .click();
-      await io.homePage.addStep("Clicked 'Configure' button");
-      await page.getByText("Use existing connection").click();
-      await io.homePage.addStep("Clicked 'Use existing connection' radio button");
-      await page.getByText("Please select").click();
-      await io.homePage.addStep("Clicked 'Please select' dropdown");
+      await io.homePage.addStep("Verified 'Integrator SuiteApp' is visible");
+      await io.homePage.click(
+        selectors.integrationPagePO.SETUP_INTEGRATION_CONFIGURE_BUTTON
+      );
+      await io.homePage.clickByText("Use existing connection");
+      await io.homePage.clickByText("Please select");
       await page
         .locator(selectors.connectionsPagePO.CONNECTION_LIST_MODAL)
         .getByText("NETSUITE CONNECTION")
         .click();
       await io.homePage.addStep("Selected 'NETSUITE CONNECTION' from dropdown");
       await io.connectionPage.click(selectors.basePagePO.SAVE);
-      await io.homePage.addStep("Clicked Save button");
       await expect(page.getByText("Verifying")).toBeVisible();
-      await io.homePage.addStep("Checked if 'Verifying' is visible");
+      await io.homePage.addStep("Verified 'Verifying' is visible");
       await expect(page.getByText("Installed")).toBeVisible();
       await io.homePage.addStep("Checked if 'Installed' is visible");
     };
     await configure();
-    await page.locator(selectors.connectionsPagePO.CONNECTION_LIST_MODAL).click();
-    await io.homePage.addStep("Clicked 'Install' button");
-    await page.locator(selectors.homePagePO.CLONE_INTEGRATION).click();
-    await io.homePage.addStep("Clicked 'Clone Integration' button (top right)");
-    await page
-      .locator(selectors.integrationPagePO.CLONE_INTEGRATION_BUTTON)
-      .click();
-    await io.homePage.addStep("Clicked 'Clone integration' button (bottom)");
+    await io.homePage.clickByText("Install");
+    await io.homePage.click(selectors.integrationPagePO.CLONE_INTEGRATION);
+    await io.homePage.click(selectors.integrationPagePO.CLONE_INTEGRATION_BUTTON);
     await configure();
   });
 });

@@ -9,18 +9,13 @@ test.describe(`C61159 Verify IIf all the NS stepsn my integration are solely con
     await io.homePage.navigateTo(
       `${io.data.links.HOME_PAGE_URL}/installIntegration`
     );
-    await io.homePage.addStep(
-      "Navigated to install integration page (/home/installIntegration)"
-    );
     const fileChooserPromise = page.waitForEvent("filechooser");
-    await page.getByText("Choose file").click();
+    await io.homePage.clickByText("Choose file");
     const fileChooser = await fileChooserPromise;
     await fileChooser.setFiles("testData/SuiteApp/C61159.zip");
     await io.homePage.addStep("Uploaded integration zip file");
-    await page.getByText("Install Integration").click();
-    await io.homePage.addStep("Clicked 'Install Integration' button");
-    await page.locator(selectors.basePagePO.DIALOG_PROCEED_BUTTON).click();
-    await io.homePage.addStep("Clicked 'Proceed' button");
+    await io.homePage.clickByText("Install Integration");
+    await io.homePage.click(selectors.basePagePO.DIALOG_PROCEED_BUTTON);
     await expect(page.getByText("Integrator SuiteApp")).toBeVisible();
     await io.homePage.addStep("Checked if 'Integrator SuiteApp' is visible");
     await expect(

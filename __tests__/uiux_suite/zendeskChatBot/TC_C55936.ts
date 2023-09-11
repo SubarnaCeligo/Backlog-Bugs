@@ -7,13 +7,9 @@ test.describe(`C55936 Verify the auto -populated "Name" & "Email" fields in Pend
     io
   }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.homePage.addStep(
-      "Navigated to home page (/home) and clicked on chat bot icon"
-    );
     await io.homePage.waitForElementAttached(selectors.basePagePO.CHAT_BOT);
     if (!(await io.homePage.isVisible(selectors.basePagePO.CHAT_BOT_OPTIONS))) {
       await io.homePage.click(selectors.basePagePO.CHAT_BOT);
-      await io.homePage.addStep("Clicked on 'chat bot' icon");
     }
     await io.homePage.waitForElementAttached(
       selectors.basePagePO.CHAT_BOT_OPTIONS
