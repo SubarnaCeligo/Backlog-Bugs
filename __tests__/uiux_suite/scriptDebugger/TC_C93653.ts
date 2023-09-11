@@ -26,16 +26,16 @@ test.describe('C93653Validate user is able to create "branching" script through 
     
   
     // Ensure that the choose function stub field is visible
-    const chooseFunctionStubField = await page.$(selectors.basePagePO.FUNCTION_STUB);
-   await chooseFunctionStubField.click();
-  
-    await io.flowBuilder.selectTextfromDropDown(page,"router")
-    // Scroll through the list of options to find "Transform" 
-  
+    const chooseFunctionStubField = await page.$(
+      selectors.basePagePO.FUNCTION_STUB
+    );
+    await chooseFunctionStubField.click();
+
+    await io.flowBuilder.selectTextfromDropDown(page, "router");
+    // Scroll through the list of options to find "Transform"
+
     await io.flowBuilder.clickByText("Save & close");
-  
+
     // await page.pause();
-  
-    
-    });
-  })
+  });
+});

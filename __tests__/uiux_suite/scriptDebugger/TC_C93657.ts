@@ -23,17 +23,16 @@ test.describe('C93657Validate user is able to create "postMap" script through fl
     
   
     // Ensure that the choose function stub field is visible
-    const chooseFunctionStubField = await page.$(selectors.basePagePO.FUNCTION_STUB);
-   await chooseFunctionStubField.click();
-  
-   // Ensure that the choose function stub field is visible
-    
-  await io.flowBuilder.selectTextfromDropDown(page,"postMap");
-   // Scroll through the list of options to find "Transform" 
-  
-   await io.flowBuilder.clickByText("Save & close");
-  
-   
-  
-    });
-  })
+    const chooseFunctionStubField = await page.$(
+      selectors.basePagePO.FUNCTION_STUB
+    );
+    await chooseFunctionStubField.click();
+
+    // Ensure that the choose function stub field is visible
+
+    await io.flowBuilder.selectTextfromDropDown(page, "postMap");
+    // Scroll through the list of options to find "Transform"
+
+    await io.flowBuilder.clickByText("Save & close");
+  });
+});
