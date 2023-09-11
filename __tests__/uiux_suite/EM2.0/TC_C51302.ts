@@ -16,10 +16,12 @@ test.describe(`C51302 Verify when a retry is in progress and “Cancel” is cli
       selectors.flowBuilderPagePO.EM2dot0PO.RETRY_AND_NEXT
     );
     await io.flowBuilder.delay(1000);
-    await io.flowBuilder.click('[data-test="flow-builder-retried-errors"]');
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2dot0PO.RETRIES_TAB);
     await page.getByText("Cancel retry").first().click();
     await io.flowBuilder.addStep("Clicked 'cancel retry'");
-    await io.flowBuilder.click('[data-test="Cancel retry"]');
+    await io.flowBuilder.click(
+      selectors.flowBuilderPagePO.EM2dot0PO.CANCEL_RETRY_BUTTON
+    );
     await io.flowBuilder.delay(1000);
     const retryStatus = await page
       .getByText("Cancel retry")

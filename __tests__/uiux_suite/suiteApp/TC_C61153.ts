@@ -17,7 +17,7 @@ test.describe(`C61153 Verify If all the NS steps in my integration are solely co
     const fileChooser = await fileChooserPromise;
     await fileChooser.setFiles("testData/SuiteApp/C61153.zip");
     await io.homePage.addStep("Uploaded integration zip file");
-    await page.getByText("Install Integration").click();
+    await page.getByText("Install integration").click();
     await io.homePage.addStep("Clicked 'Install Integration' button");
     await page.locator(selectors.basePagePO.DIALOG_PROCEED_BUTTON).click();
     await io.homePage.addStep("Clicked 'Proceed' button");
