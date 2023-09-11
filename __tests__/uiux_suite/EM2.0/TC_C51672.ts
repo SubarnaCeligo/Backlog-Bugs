@@ -1,10 +1,10 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C51661 from '../../../testData/EM2.0/TC_C51661.json';
+import C51672 from '../../../testData/EM2.0/C51672.json';
 
 test.describe("C51672 Verify the 'HTTP response' tab in the 'Error details' drawer", () => {
     test("C51672 Verify the 'HTTP response' tab in the 'Error details' drawer", async ({io, page}) => {
-        const id = await io.fillFormUI(C51661,"FLOWS");
+        const id = await io.fillFormUI(C51672,"FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51661', id);
         const lastRun = page.getByText('Last run')
         await lastRun.waitFor({state: 'visible'});
