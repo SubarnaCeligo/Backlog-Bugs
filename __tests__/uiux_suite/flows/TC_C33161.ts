@@ -7,13 +7,7 @@ test.describe(`C33161 Verify When changes have been made but not yet saved, show
     page
   }) => {
     await io.exportsPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
-    const flowBuilderLocator = page.getByText("Flow builder");
-    if (await flowBuilderLocator.isVisible()) {
-      await io.homePage.clickByText("Flow builder");
-    } else {
-      await io.homePage.clickByText("Tools");
-      await io.homePage.clickByText("Flow builder");
-    }
+    await io.homePage.goToMenu("Tools","Flow builder");
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP
     );

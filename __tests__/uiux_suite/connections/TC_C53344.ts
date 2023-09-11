@@ -1,15 +1,15 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("Verify Base URI is not present in Shopify Connection page", () => {
+test.describe("C53344 Verify Base URI is not present in Shopify Connection page", () => {
 
     test.beforeEach(async ({ io }) => {
-        await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.homePage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
       });
 
-      test ("Verify Base URI is not present in Shopify Connection page", async ({io,page}) => {
-        await io.homePage.clickByText('Resources');
-        await io.connectionPage.clickByText('Connections')
+      test ("C53344 Verify Base URI is not present in Shopify Connection page", async ({io,page}) => {
+        // await io.homePage.clickByText('Resources');
+        // await io.connectionPage.clickByText('Connections')
         await io.connectionPage.clickByText('Create connection')
         await io.connectionPage.click(selectors.connectionsPagePO.SHOPIFY_CONNECTION)
  
