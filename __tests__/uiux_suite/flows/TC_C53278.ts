@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C53278 Verfiy by adding a name for the router in the “Add branching” drawer`, () => {
   test.beforeEach(async ({ io }) => {
-    await io.flowBuilder.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.flowBuilder.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
   });
 
   test(`C53278 Verfiy by adding a name for the router in the “Add branching” drawer`, async ({
