@@ -1,7 +1,7 @@
 
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C30651 from "@testData/Flows/C26246.json"
+import data from "@testData/ScriptDebugger/C93655.json"
 
 
 test.describe('C93655Validate user is able to create "filter" script through flow builder page', () => {
@@ -9,7 +9,7 @@ test.describe('C93655Validate user is able to create "filter" script through flo
     test('Validate user is able to create "filter" script through flow builder page', async({io,page}) => {
   
       const id =  await io.fillFormUI(
-        C30651,
+        data,
         'FLOWS'
       );
   
