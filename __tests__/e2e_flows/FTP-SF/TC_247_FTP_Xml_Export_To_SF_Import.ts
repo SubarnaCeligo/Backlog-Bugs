@@ -19,7 +19,7 @@ test.describe("E2E Flows", () => {
         //Creating PageProcessor
         await test.step("*** Creating PageProcessor ***", async () => {
             await io.pageProcessor(allure, FTPtoSF);
-         });
+        });
 
         //Enable and run the Flow ***
         await test.step("*** Enable and run the Flow *** ", async () => {
