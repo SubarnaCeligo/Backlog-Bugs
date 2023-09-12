@@ -22,7 +22,7 @@ test.describe(`C51302 Verify when a retry is in progress and “Cancel” is cli
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.EM2dot0PO.CANCEL_RETRY_BUTTON
     );
-    await io.flowBuilder.delay(1000);
+    await io.flowBuilder.delay(2000);
     const retryStatus = await page
       .getByText("Cancel retry")
       .first()
