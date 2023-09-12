@@ -20,8 +20,8 @@ import C51661 from '../../../testData/EM2.0/TC_C51661.json';
 // import C56565 from '../../../testData/Flows/TC_C56565.json'
 // import C21052 from '../../../testData/Flows/TC_C21052.json';
 // import C22817 from '../../../testData/Flows/TC_C22817.json'
-import C48963 from '../../../testData/Flows/C48963.json';
-import C46906 from '../../../testData/Mapper2.0/C46906.json';
+// import C48963 from '../../../testData/Flows/C48963.json';
+// import C46906 from '../../../testData/Mapper2.0/C46906.json';
 import C93992 from '../../../testData/Flows/C93992.json';
 import C55975 from '../../../testData/Flows/C59975.json';
 import C2467 from '../../../testData/Flows/C2467.json';

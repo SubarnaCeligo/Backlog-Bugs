@@ -17,8 +17,6 @@ test.describe("C51626 Verify the Actions coloumn the New view by navigating from
         options[0].click();
         await io.flowBuilder.delay(1000);
         const textArray = await io.flowBuilder.getText(selectors.flowBuilderPagePO.EM2dot0PO.OPEN_ERRORS_TABLE_HEADERS);
-
-        console.log("test array", textArray);
         await io.assert.expectNotToBeValueInArray(textArray,"Actions","Found Actions in Array");
 
     });
