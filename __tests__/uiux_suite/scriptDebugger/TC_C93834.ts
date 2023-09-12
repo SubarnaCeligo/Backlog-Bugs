@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import data1 from "@testData/ScriptDebugger/C93832.json"
 
-test.describe.only('C93834Validate user is getting auto-fill of function stub while creating "preSavePage" script through flow builder hook', () => {
+test.describe('C93834Validate user is getting auto-fill of function stub while creating "preSavePage" script through flow builder hook', () => {
    
     test('Validate user is getting auto-fill of function stub while creating "preSavePage" script through flow builder hook', async({io,page}) => {
   
