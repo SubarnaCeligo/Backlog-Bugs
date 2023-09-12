@@ -1,6 +1,6 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C30651 from "@testData/Flows/C26246.json"
+import data from "@testData/ScriptDebugger/C93657.json"
 
 
 test.describe('C93657Validate user is able to create "postMap" script through flow builder page', () => {
@@ -8,7 +8,7 @@ test.describe('C93657Validate user is able to create "postMap" script through fl
     test('Validate user is able to create "postMap" script through flow builder page', async({io,page}) => {
   
       const id =  await io.fillFormUI(
-        C30651,
+         data,
         'FLOWS'
       );
   
@@ -23,17 +23,16 @@ test.describe('C93657Validate user is able to create "postMap" script through fl
     
   
     // Ensure that the choose function stub field is visible
-    const chooseFunctionStubField = await page.$(selectors.basePagePO.FUNCTION_STUB);
-   await chooseFunctionStubField.click();
-  
-   // Ensure that the choose function stub field is visible
-    
-  await io.flowBuilder.selectTextfromDropDown(page,"postMap");
-   // Scroll through the list of options to find "Transform" 
-  
-   await io.flowBuilder.clickByText("Save & close");
-  
-   
-  
-    });
-  })
+    const chooseFunctionStubField = await page.$(
+      selectors.basePagePO.FUNCTION_STUB
+    );
+    await chooseFunctionStubField.click();
+
+    // Ensure that the choose function stub field is visible
+
+    await io.flowBuilder.selectTextfromDropDown(page, "postMap");
+    // Scroll through the list of options to find "Transform"
+
+    await io.flowBuilder.clickByText("Save & close");
+  });
+});

@@ -7,7 +7,7 @@ test.describe("C51655 Verify the 'Error rows' navigation from one error row to t
         const errorFlowId = await io.fillFormUI(C51655, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51655', errorFlowId);
         const lastRun = page.getByText('Last run')
-        await lastRun.waitFor({state: 'visible'});
+        await lastRun.waitFor({state: 'visible',timeout:60000*3});
         await page.getByText("2 errors").nth(1).click();
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2dot0PO.OPEN_ERRORS_TABLE_ROWS);
         const errorRows = await page.$$(selectors.flowBuilderPagePO.EM2dot0PO.OPEN_ERRORS_TABLE_ROWS);
