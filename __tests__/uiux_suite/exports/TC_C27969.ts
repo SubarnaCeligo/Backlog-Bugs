@@ -7,7 +7,6 @@ test.describe(`C27969 Verify the fields in 'Non-standard API response patterns' 
     page
   }) => {
     await io.exportsPage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
-    await io.exportsPage.addStep("Navigated to exports page");
     await io.exportsPage.click(selectors.exportsPagePO.ADD_NEW_RESOURCE);
     await io.exportsPage.addStep("Clicked on 'add new resource' button");
     await io.exportsPage.clickByText("REST API (HTTP)");

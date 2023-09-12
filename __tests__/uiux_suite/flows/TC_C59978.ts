@@ -11,17 +11,11 @@ test.describe(`C59978 To verify that the browser URL while creating a new flow s
     await io.homePage.goToMenu("Tools", "Flow builder");
     const plusButtonsSelector = selectors.flowBuilderPagePO.PLUS_BUTTONS;
     await io.flowBuilder.waitForElementAttached(plusButtonsSelector);
-    const plusButtonsLocator = await page.$$(plusButtonsSelector);
-    await plusButtonsLocator[0].click();
-    await io.flowBuilder.addStep("Clicked on 'plus' button");
+    await io.flowBuilder.clickByIndex(plusButtonsSelector, 0);
     await io.flowBuilder.clickByText("Add branching");
-    await io.flowBuilder.addStep("Clicked on 'Add branching'");
     await io.flowBuilder.fill(
       selectors.flowBuilderPagePO.BRANCH_NAME_INPUT,
       "Branch C59978"
-    );
-    await io.flowBuilder.addStep(
-      "Entered branch name 'Branch C59978' in the “Add branching” drawer"
     );
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await page

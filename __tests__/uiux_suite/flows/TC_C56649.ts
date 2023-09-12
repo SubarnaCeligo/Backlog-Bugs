@@ -13,11 +13,8 @@ test.describe(`C56649 Verify the Router name field by entering the names of diff
     await io.homePage.goToMenu("Tools", "Flow builder");
     const plusButtonsSelector = selectors.flowBuilderPagePO.PLUS_BUTTONS;
     await io.flowBuilder.waitForElementAttached(plusButtonsSelector);
-    const plusButtonsLocator = await page.$$(plusButtonsSelector);
-    await plusButtonsLocator[0].click();
-    await io.flowBuilder.addStep("Clicked on 'plus' button");
+    await io.flowBuilder.clickByIndex(plusButtonsSelector, 0);
     await io.flowBuilder.clickByText("Add branching");
-    await io.flowBuilder.addStep("Clicked on 'Add branching'");
     const inputSelector = selectors.flowBuilderPagePO.BRANCH_NAME_INPUT;
     const inputElement = await page.$(inputSelector);
     const boxBefore = await inputElement.boundingBox();
@@ -25,9 +22,6 @@ test.describe(`C56649 Verify the Router name field by entering the names of diff
     await io.flowBuilder.fill(
       inputSelector,
       "Verfiy by adding a name for the router in the “Add branching” drawer, Verfiy by adding a name for the router in the “Add branching” drawer"
-    );
-    await io.flowBuilder.addStep(
-      "Entered a long name for the router in the “Add branching” drawer"
     );
     const boxAfter = await inputElement.boundingBox();
     const heightAfter = boxAfter?.height;

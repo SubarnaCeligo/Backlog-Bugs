@@ -7,7 +7,6 @@ test.describe(`C27965 Verify the fields in 'What would you like to export?' sect
     page
   }) => {
     await io.exportsPage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
-    await io.exportsPage.addStep("Navigated to exports page");
     await io.exportsPage.click(selectors.exportsPagePO.ADD_NEW_RESOURCE);
     await io.exportsPage.addStep("Clicked on 'add new resource' button");
     await io.exportsPage.clickByText("REST API (HTTP)");
@@ -20,7 +19,9 @@ test.describe(`C27965 Verify the fields in 'What would you like to export?' sect
     await io.exportsPage.addStep("Filled the name field with 'C27965'");
     await io.exportsPage.click(selectors.basePagePO.SAVE);
     await io.exportsPage.addStep("Clicked on 'save' button");
-    await io.exportsPage.delay(2000);
+    await io.exportsPage.waitForElementAttached(
+      selectors.exportsPagePO.WHAT_WOULD_YOU_LIKE_TO_EXPORT_TAB
+    );
     const divList = await page
       .locator(selectors.exportsPagePO.WHAT_WOULD_YOU_LIKE_TO_EXPORT_TAB)
       .evaluate((e, tabContent) => {

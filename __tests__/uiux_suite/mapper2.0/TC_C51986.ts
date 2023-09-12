@@ -8,22 +8,11 @@ test.describe(`C51986 Verify vertical line must be added to source row`, () => {
     page
   }) => {
     await io.homePage.navigateTo(process.env.IO_Integration_URL);
-    await io.homePage.addStep("Navigated to Automation Flows");
-    try {
-      const testCase = page.getByText("C51986").first();
-      await testCase.waitFor({ state: "visible", timeout: 5000 });
-      await testCase.click();
-      await io.homePage.addStep("Clicked on 'C51986'");
-    } catch {
-      const id = await io.fillFormUI(testData, "FLOWS");
-      await io.homePage.addStep("Created new flow 'C51986'");
-      await io.api.runBatchFlowViaAPI("C51986", id);
-      await io.homePage.addStep("Ran flow 'C51986' via API");
-    }
+    const id = await io.fillFormUI(testData, "FLOWS");
+    await io.api.runBatchFlowViaAPI("C51986", id);
     await page.getByLabel("Define options").nth(1).click();
     await io.flowBuilder.addStep("Clicked on 'Plus button'");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);
-    await io.flowBuilder.addStep("Clicked on 'Import Mappings'");
     const sourceFieldDropdown = page.locator(
       selectors.mappings.Mapper2dot0PO.SOURCEFIELDS
     );

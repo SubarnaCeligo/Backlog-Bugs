@@ -13,24 +13,26 @@ test.describe(`C53277 Verify the new "Name" filed in the “Add branching” dra
     await io.homePage.goToMenu("Tools", "Flow builder");
     const plusButtonsSelector = selectors.flowBuilderPagePO.PLUS_BUTTONS;
     await io.flowBuilder.waitForElementAttached(plusButtonsSelector);
-    await io.flowBuilder.addStep("Waited for 'plus' buttons to be visible");
-    const plusButtonsLocator = await page.$$(plusButtonsSelector);
-    await plusButtonsLocator[0].click();
-    await io.flowBuilder.addStep("Clicked on 'plus' button");
+    await io.flowBuilder.clickByIndex(plusButtonsSelector, 0);
+    // const plusButtonsLocator = await page.$$(plusButtonsSelector);
+    // await plusButtonsLocator[0].click();
     await io.flowBuilder.clickByText("Add branching");
-    await io.flowBuilder.addStep("Clicked on 'Add branching'");
-    await expect(page.getByText("Branching name")).toBeVisible();
+    await io.assert.verifyElementDisplayedByText(
+      "Branching name",
+      "'Branching name' not visible"
+    );
     await io.flowBuilder.addStep("Verified 'Branching name' is visible");
     await io.assert.verifyElementText(
       selectors.flowBuilderPagePO.BRANCH_NAME_INPUT,
       ""
     );
-    await io.flowBuilder.addStep("Verified 'Branching name' is empty");
     await io.flowBuilder.clickByText("Save");
-    await io.flowBuilder.addStep("Clicked on 'Save'");
+    // await io.assert.verifyElementDisplayedByText(
+    //   "Branch 1.1",
+    //   "Branch 1.1 not visible"
+    // );
     await expect(page.getByText("Branch 1.1").first()).toBeVisible({
       timeout: 10000
     });
-    await io.flowBuilder.addStep("Verified 'Branch 1.1' is visible");
   });
 });

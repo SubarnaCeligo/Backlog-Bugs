@@ -9,8 +9,6 @@ test.describe(`C28172 Verify export type dropdown values are updated in HTTP/RES
     await io.flowBuilder.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
     await io.homePage.goToMenu("Tools", "Flow builder");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
-    await io.flowBuilder.addStep("Clicked on 'Add source'");
-    await io.flowBuilder.delay(2000);
     await io.flowBuilder.clickByText("HTTP");
     await io.flowBuilder.addStep("Selected 'HTTP' option");
     await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
@@ -19,7 +17,6 @@ test.describe(`C28172 Verify export type dropdown values are updated in HTTP/RES
     await io.flowBuilder.addStep("Selected '3PL CONNECTION' option");
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.addStep("Clicked on 'save' button");
-    await io.flowBuilder.delay(2000);
     await io.flowBuilder.click(selectors.exportsPagePO.EXPORT_TYPE_DROPDOWN);
     await io.flowBuilder.addStep("Clicked on 'export type' dropdown");
     await expect(page.getByText("All – always export all data")).toBeVisible();
