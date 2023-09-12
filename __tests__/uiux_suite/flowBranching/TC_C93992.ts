@@ -3,27 +3,32 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C93992 Verify 'Script is required'/'Function is required' validations on branching filter", () => {
     test("C93992 Verify 'Script is required'/'Function is required' validations on branching filter", async ({io, page}) => {
+        await io.flowBuilder.addStep('Navigating to automation flows integration and clicking on create flow');
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
+        await io.flowBuilder.addStep('Adding branch in the new flow');
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.PLUS_BUTTONS);
-        await page.locator(selectors.flowBuilderPagePO.PLUS_BUTTONS).nth(0).click();
+        await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.PLUS_BUTTONS,0);
         await page.getByRole('menuitem', { name: 'Add branching' }).click();
+        await io.flowBuilder.addStep('Switching to javascript option');
         await io.flowBuilder.click(selectors.basePagePO.JAVASCRIPTWINDOW);
         let errorMessage = await page.locator(selectors.mappings.Mapper2dot0PO.ERROR).evaluate(e => {
             // @ts-ignore
             const editor = ace.edit(e);
             return editor.getValue();
           });
+        await io.flowBuilder.addStep('Verifying error message when no script is given');
         expect(errorMessage).toBe('Script is required');
   
         await io.flowBuilder.click('#scriptId');
-        await page.locator("[role='listbox'] li").nth(1).click();
-        await io.flowBuilder.fill('#entryFunction','');
+        await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.SCRIPTS_LIST, 1);
+        await io.flowBuilder.fill(selectors.flowBuilderPagePO.FUNCTION_NAME_INPUT,'');
         errorMessage = await page.locator(selectors.mappings.Mapper2dot0PO.ERROR).evaluate(e => {
           // @ts-ignore
           const editor = ace.edit(e);
           return editor.getValue();
         });
+        await io.flowBuilder.addStep('Verifying error message when no function is given');
         expect(errorMessage).toBe('Function is required');
   
     });
