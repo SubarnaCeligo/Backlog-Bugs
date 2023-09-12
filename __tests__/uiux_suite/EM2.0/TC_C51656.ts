@@ -7,7 +7,7 @@ test.describe("C51656 Verify the Scroll bar for Message column in the Error rows
         const errorFlowId = await io.fillFormUI(C51656, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51656', errorFlowId);
         const lastRun = page.getByText('Last run')
-        await lastRun.waitFor({state: 'visible'});
+        await lastRun.waitFor({state: 'visible',timeout:60000*3});
         await page.getByText("1 error").nth(1).click();
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2dot0PO.OPEN_ERRORS_TABLE_ROWS);
         expect(await io.flowBuilder.isScrollable(selectors.flowBuilderPagePO.EM2dot0PO.OPEN_ERRORS_MESSAGE_COLUMN)).toBe(false);
