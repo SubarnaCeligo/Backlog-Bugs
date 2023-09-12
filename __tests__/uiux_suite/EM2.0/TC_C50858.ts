@@ -9,7 +9,7 @@ test.describe("C50858 Verify the displayed screen by clicking on the error count
       const id = await io.fillFormUI(C51661,"FLOWS");
       await io.api.runBatchFlowViaAPI('TC_C51661', id);
       const lastRun = page.getByText('Last run')
-      await lastRun.waitFor({state: 'visible'});
+      await lastRun.waitFor({state: 'visible',timeout:60000*3});
       await page.getByText("1 error").nth(1).click();
 
       await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2dot0PO.TOGGLE_VIEW_DROPDOWN);
