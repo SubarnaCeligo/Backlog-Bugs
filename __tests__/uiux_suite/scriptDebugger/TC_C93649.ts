@@ -1,6 +1,5 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C30651 from "@testData/Flows/C26246.json";
 
 test.describe('C93649 Validate that user is able to see "postResponseMap" function wherever “Insert function stub” field is present.', () => {
   test.beforeEach(async ({ io }) => {
