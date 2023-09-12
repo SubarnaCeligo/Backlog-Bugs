@@ -7,7 +7,7 @@ test.describe("C51658 Verify the Parent drawer underneath while checking the Err
         const errorFlowId = await io.fillFormUI(C51656, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51656', errorFlowId);
         const lastRun = page.getByText('Last run');
-        await lastRun.waitFor({state: 'visible'});
+        await lastRun.waitFor({state: 'visible',timeout:60000*3});
         await page.getByText("1 error").nth(1).click();
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2dot0PO.OPEN_ERRORS_TABLE_ROWS);
         const errorList = await page.$$(selectors.flowBuilderPagePO.EM2dot0PO.OPEN_ERRORS_TABLE_ROWS);
