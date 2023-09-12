@@ -7,8 +7,8 @@ test.describe("C52094 Verify the 'Add to Batch' check box option in both 'Curren
         const errorFlowId = await io.fillFormUI(C52094, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C52094', errorFlowId);
         const lastRun = page.getByText('Last run')
-        await lastRun.waitFor({state: 'visible'});
-        await page.getByText("1 error").nth(1).click();
+        await lastRun.waitFor({state: 'visible', timeout: 180000});
+        await io.flowBuilder.clickByTextByIndex("1 error", 1);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2dot0PO.ADD_TO_BATCH);
         expect(await page.$(selectors.flowBuilderPagePO.EM2dot0PO.ADD_TO_BATCH)).not.toBe(null);
 

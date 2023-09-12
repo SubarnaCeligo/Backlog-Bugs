@@ -7,13 +7,13 @@ test.describe("C51643 Verify the default view by clicking on the Error count in 
         const errorFlowId = await io.fillFormUI(C51643, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51643', errorFlowId);
         const lastRun = page.getByText('Last run')
-        await lastRun.waitFor({state: 'visible'});
-        await page.getByText("1 error").nth(1).click();
+        await lastRun.waitFor({state: 'visible', timeout: 180000});
+        await io.flowBuilder.clickByTextByIndex("1 error", 1);
         await expect(page.locator(selectors.flowBuilderPagePO.EM2dot0PO.OPEN_ERRORS)).toHaveAttribute('aria-selected', 'true');
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2dot0PO.OPEN_ERRORS_TABLE_ROWS);
         const errorList = await page.$$(selectors.flowBuilderPagePO.EM2dot0PO.OPEN_ERRORS_TABLE_ROWS);
         expect(await errorList[0].getAttribute('class')).toContain('Mui-selected');
         await io.assert.verifyElementIsDisplayed(`#editRetry ${selectors.flowBuilderPagePO.EM2dot0PO.ACE_EDITOR_INPUT}`,'Unable to locate Edit Retry Editor');
-        expect(page.getByText("Error details")).toBeVisible();
+        await io.assert.verifyElementDisplayedByText('Error details', 'Error details not displayed');
     });
 });

@@ -7,8 +7,7 @@ test.describe("C51530 Verify when retries are completed for a step and same step
         const id = await io.fillFormUI(C51530,"FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51530', id);
         const lastRun = page.getByText('Last run')
-        await lastRun.waitFor({state: 'visible'});
-        // await page.getByText("1 error").nth(1).click();
+        await lastRun.waitFor({state: 'visible', timeout: 180000});
         await io.flowBuilder.clickByTextByIndex("1 error", 1);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2dot0PO.RETRY_JOBS_DROPDOWN);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2dot0PO.RETRY_JOBS_DROPDOWN);

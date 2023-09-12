@@ -10,8 +10,6 @@ test.describe("C51638 Verify the Footer buttons in the Error details tab of Reso
         await lastRun.waitFor({state: 'visible', timeout: 180000});
         await io.flowBuilder.clickByTextByIndex("1 error", 1);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2dot0PO.TOGGLE_VIEW_DROPDOWN);
-        // const options = await page.$$(selectors.flowBuilderPagePO.EM2dot0PO.TOGGLE_VIEW_DROPDOWN_OPTIONS);
-        // options[1].click();
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.EM2dot0PO.TOGGLE_VIEW_DROPDOWN_OPTIONS, 1);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2dot0PO.ACTIONS_MENU);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2dot0PO.ACTIONS_MENU);
@@ -21,8 +19,8 @@ test.describe("C51638 Verify the Footer buttons in the Error details tab of Reso
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2dot0PO.ACTIONS_MENU);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2dot0PO.ACTIONS_MENU);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2dot0PO.ACTIONS_MENU_EDIT_RETRY_DATA);
-        expect(page.getByText("Save & retry", {exact: true})).toBeVisible();
-        expect(page.getByText("Save & close", {exact: true})).toBeVisible();
-        expect(page.getByText("Close", {exact: true})).toBeVisible();
+        await io.assert.verifyElementDisplayedByText("Save & retry", "Save & retry no present");
+        await io.assert.verifyElementDisplayedByText("Save & close", "Save & close no present");
+        await io.assert.verifyElementDisplayedByText("Close", "Close no present");
     });
 });
