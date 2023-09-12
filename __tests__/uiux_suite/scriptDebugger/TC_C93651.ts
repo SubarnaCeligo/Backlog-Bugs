@@ -24,7 +24,6 @@ test.describe('C93651Validate that user is getting prefill function stub for "po
 
     await io.flowBuilder.selectTextfromDropDown(page, "postResponseMap");
 
-    await page.waitForTimeout(3000);
 
     const divSelector = selectors.basePagePO.ACE_CONTENT; // Selector for the <div> element
 

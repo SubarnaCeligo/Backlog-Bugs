@@ -25,7 +25,6 @@ test.describe('C93650Validate that user is getting prefill function stub for "fo
 
     const formInitField = await page.$(selectors.basePagePO.FORM_INIT_FUNCTION);
 
-    await page.waitForTimeout(3000);
 
     const divSelector = selectors.basePagePO.ACE_CONTENT; // Selector for the <div> element
 

@@ -1,7 +1,7 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe(' C51612 Verify the name field under imports', () => {
+test.describe(' C51613 Verify the name field under exports', () => {
     test.beforeEach(async ({ io }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
@@ -16,7 +16,6 @@ test.describe(' C51612 Verify the name field under imports', () => {
         await io.importsPage.fill("input[name='/name']", "jazz")
         await io.importsPage.clickByText("Next");
   
-        await page.waitForTimeout(2000)
   
         io.assert.verifyElementContainsText("label[for=\"name\"]", "Name your export");    
     });

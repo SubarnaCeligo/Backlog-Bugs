@@ -17,7 +17,7 @@ test.describe('C93667Validate user is able to see the options script,description
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT_HOOK)
       await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_HOOK)
   
-   await page.getByLabel('Create script').click();
+      await io.flowBuilder.click("[aria-label='Create script']");
   
   
   

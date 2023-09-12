@@ -17,8 +17,6 @@ test.describe(' C51612 Verify the name field under imports', () => {
         await io.importsPage.fill("input[name='/name']", "jazz")
         await io.importsPage.clickByText("Next");
   
-        await page.waitForTimeout(2000)
-  
-        io.assert.verifyElementContainsText("label[for=\"name\"]", "Name your import");    
+         io.assert.verifyElementContainsText("label[for=\"name\"]", "Name your import");    
     });
   });

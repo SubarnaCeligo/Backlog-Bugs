@@ -17,7 +17,7 @@ test.describe('C93657Validate user is able to create "postMap" script through fl
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT_HOOK)
       await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_HOOK)
   
-   await page.getByLabel('Create script').click();
+      await io.flowBuilder.click("[aria-label='Create script']");
   
    await io.flowBuilder.fill(selectors.importPagePO.NAME, "mockscript");
     

@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import data1 from "@testData/ScriptDebugger/C93832.json"
 
-test.describe('C93834Validate user is getting auto-fill of function stub while creating "preSavePage" script through flow builder hook', () => {
+test.describe.only('C93834Validate user is getting auto-fill of function stub while creating "preSavePage" script through flow builder hook', () => {
    
     test('Validate user is getting auto-fill of function stub while creating "preSavePage" script through flow builder hook', async({io,page}) => {
   
@@ -17,10 +17,9 @@ test.describe('C93834Validate user is getting auto-fill of function stub while c
     
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT_HOOK)
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_HOOK)
-    
-        await page.getByLabel('Create script').click();
-      
-      
+
+        await io.flowBuilder.click("[aria-label='Create script']");
+  
         await io.flowBuilder.fill(selectors.importPagePO.NAME, "Pre save page  script");
        
          
@@ -35,11 +34,7 @@ test.describe('C93834Validate user is getting auto-fill of function stub while c
          await io.flowBuilder.clickByText("Save & close");
        
          // await page.pause();
-       
-         await page.waitForTimeout(2000)
-    
-    
-    
+           
       await io.flowBuilder.click(selectors.flowBuilderPagePO.EDIT_ECRIPT_LABEL_SELECTOR)
       
       const divSelector = selectors.basePagePO.ACE_CONTENT; // Selector for the <div> element

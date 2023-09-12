@@ -17,7 +17,7 @@ test.describe('C93672Validate user is getting auto-fill of funtion stub while cr
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT_HOOK)
       await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_HOOK)
   
-   await page.getByLabel('Create script').click();
+      await io.flowBuilder.click("[aria-label='Create script']");
   
     
   
@@ -33,7 +33,6 @@ test.describe('C93672Validate user is getting auto-fill of funtion stub while cr
   //  await locator.click();
     // Scroll through the list of options to find "Transform" 
   
-    await page.waitForTimeout(3000);
   
     const divSelector = selectors.basePagePO.ACE_CONTENT; // Selector for the <div> element
 

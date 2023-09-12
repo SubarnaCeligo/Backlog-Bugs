@@ -18,7 +18,7 @@ test.describe('C93833Validate user is getting auto-fill of function stub while c
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT_HOOK)
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_HOOK)
     
-        await page.getByLabel('Create script').click();
+        await io.flowBuilder.click("[aria-label='Create script']");
       
       
         await io.flowBuilder.fill(selectors.importPagePO.NAME, "Post Aggregate script");
@@ -36,10 +36,6 @@ test.describe('C93833Validate user is getting auto-fill of function stub while c
        
          // await page.pause();
        
-         await page.waitForTimeout(2000)
-    
-    
-    
       await io.flowBuilder.click(selectors.flowBuilderPagePO.EDIT_ECRIPT_LABEL_SELECTOR)
       
       const divSelector = selectors.basePagePO.ACE_CONTENT; // Selector for the <div> element

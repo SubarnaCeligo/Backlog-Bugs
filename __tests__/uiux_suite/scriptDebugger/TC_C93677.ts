@@ -16,7 +16,7 @@ test.describe('C93677Validate user is getting auto-fill of funtion stub while cr
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT_HOOK)
       await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_HOOK)
   
-      await page.getByLabel('Create script').click();
+      await io.flowBuilder.click("[aria-label='Create script']");
     
     
       await io.flowBuilder.fill(selectors.importPagePO.NAME, "Branching script");
@@ -34,7 +34,6 @@ test.describe('C93677Validate user is getting auto-fill of funtion stub while cr
      
        // await page.pause();
      
-       await page.waitForTimeout(2000)
   
   
   
