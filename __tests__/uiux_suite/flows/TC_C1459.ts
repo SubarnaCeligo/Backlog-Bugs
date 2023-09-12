@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C1459 Verify User should not select multiple flows and also "All flows" from Notify me when job has error field`, () => {
   test.beforeEach(async ({ io }) => {
-    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
   });
 
   test(`C1459 Verify User should not select multiple flows and also "All flows" from Notify me when job has error field`, async ({

@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C27978 Verify 'What would you like to export?' drawer label is updated as expected in REST/HTTP lookup additional files`, () => {
   test.beforeEach(async ({ io }) => {
-    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
   });
 
   test(`C27978 Verify 'What would you like to export?' drawer label is updated as expected in REST/HTTP lookup additional files`, async ({

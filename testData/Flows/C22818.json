@@ -1,0 +1,196 @@
+{
+	"skipRetries": false,
+	"qa__expectedDashboardCount": {
+		"ignoreCount": "0",
+		"successCount": "2",
+		"errorCount": "0"
+	},
+	"pageProcessors": [
+		{
+			"responseMapping": {
+				"fields": [],
+				"lists": []
+			},
+			"type": "import",
+			"qa__import":  {
+                "name": "467_S3_Import",
+                "adaptorType": "S3Import",
+                "mapping": {
+                    "fields": [
+                        {
+                            "hardCodedValue": "12345",
+                            "generate": "id"
+                        },
+                        {
+                            "extract": "recordType",
+                            "generate": "recordType"
+                        },
+                        {
+                            "extract": "Name",
+                            "generate": "Name"
+                        },
+                        {
+                            "extract": "Email",
+                            "generate": "Email"
+                        },
+                        {
+                            "extract": "Phone",
+                            "generate": "Phone"
+                        },
+                        {
+                            "extract": "Fax",
+                            "generate": "Fax"
+                        },
+                        {
+                            "extract": "[Primary Subsidiary]",
+                            "qa__extract": "Primary Subsidiary",
+                            "generate": "Subsidiary"
+                        },
+                        {
+                            "extract": "[Billing Address 1]",
+                            "qa__ignoreBrackets": true,
+                            "generate": "Billing Address 1",
+                            "qa__extract": "Billing Address 1"
+                        },
+                        {
+                            "extract": "[Billing City]",
+                            "qa__ignoreBrackets": true,
+                            "generate": "Billing City",
+                            "qa__extract": "Billing City"
+                        },
+                        {
+                            "extract": "[Billing State/Province]",
+                            "qa__ignoreBrackets": true,
+                            "generate": "Billing State/Province",
+                            "qa__extract": "Billing State/Province"
+                        },
+                        {
+                            "extract": "[Billing Country]",
+                            "qa__ignoreBrackets": true,
+                            "generate": "Billing Country",
+                            "qa__extract": "Billing Country"
+                        },
+                        {
+                            "extract": "[Billing Zip]",
+                            "qa__ignoreBrackets": true,
+                            "generate": "Billing Zip",
+                            "qa__extract": "Billing Zip"
+                        },
+                        {
+                            "extract": "[Shipping Address 1]",
+                            "qa__ignoreBrackets": true,
+                            "generate": "Shipping Address 1",
+                            "qa__extract": "Shipping Address 1"
+                        },
+                        {
+                            "extract": "[Shipping City]",
+                            "qa__ignoreBrackets": true,
+                            "generate": "Shipping City",
+                            "qa__extract": "Shipping City"
+                        },
+                        {
+                            "extract": "[Shipping State/Province]",
+                            "qa__ignoreBrackets": true,
+                            "generate": "Shipping State/Province",
+                            "qa__extract": "Shipping State/Province"
+                        },
+                        {
+                            "extract": "[Shipping Country]",
+                            "qa__ignoreBrackets": true,
+                            "generate": "Shipping Country",
+                            "qa__extract": "Shipping Country"
+                        },
+                        {
+                            "extract": "[Shipping Zip]",
+                            "qa__ignoreBrackets": true,
+                            "generate": "Shipping Zip",
+                            "qa__extract": "Shipping Zip"
+                        }
+                    ]
+                },
+                "file": {
+                    "fileName": "TC_483_S3_Import_Encoding_UTF16LE.json",
+                    "type": "json",
+                    "encoding": "utf-16le"
+                },
+                "s3": {
+                    "bucket": "automations3import",
+                    "fileKey": "TC_483_S3_Import_Encoding_UTF16LE.json",
+                    "region": "us-east-1"
+                },
+                "_connectionId": "S3 CONNECTION",
+                "distributed": false
+            }
+		}
+	],
+	"_integrationId": "56d6b23fe1fc35de53914730",
+	"timezone": "Asia/Calcutta",
+	"name": "TC_483_S3_Import_Encoding_UTF16LE",
+	"disabled": false,
+	"qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "importRecordJSON": {
+            "shipping_state": "AP",
+            "shipping_city": "PR Pally",
+            "billing_country": "India",
+            "subsidiary": "HH Inc.",
+            "billing_city": "Hyderabad",
+            "phone": "9885512124",
+            "billing_state": "TS",
+            "shipping_zip": "500581",
+            "companyname": "483.NSCustomertoFTPtypeJSON",
+            "shipping_address1": "APHB Colony",
+            "billing_zip": "500116",
+            "fax": "9985510121",
+            "billing_address1": "GVQ Colony",
+            "shipping_country": "India",
+            "email": "483ns2ftpjson@celigo.com"
+        },
+        "importapiIdentifier": "ie048d3fe2",
+        "exportRecordType": "Customer",
+        "expected": {
+            "S3": {
+                "name": "TC_483_S3_Import_Encoding_UTF16LE",
+                "_integrationId": "60cd9a49d99bd92eb5bd2527",
+                "import": {
+                    "_connectionId": "60dc6226caf3f658b50afb0e"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_483_S3_Import_Encoding_UTF16LE",
+                    "isUIFlow": true,
+                    "bucketName": "automations3import",
+                    "fileType": ".json"
+                }
+            }
+        }
+    },
+	"pageGenerators": [
+		{
+			"qa__export": {
+				"name": "638.NS Export",
+				"adaptorType": "NetSuiteExport",
+				"parsers": [],
+				"asynchronous": true,
+				"_connectionId": "NETSUITE CONNECTION",
+				"qa__connectionId":"6111055aa39a7b5605cdf705",
+				"netsuite": {
+					"statsOnly": false,
+					"type": "restlet",
+					"restlet": {
+						"searchId": "3600",
+						"recordType": "customer",
+						"criteria": [],
+						"columns": [],
+						"useSS2Restlets": false
+					},
+					"skipGrouping": false
+				}
+			}
+		}
+	]
+}
