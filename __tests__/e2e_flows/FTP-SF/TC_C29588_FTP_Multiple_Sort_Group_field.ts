@@ -4,7 +4,7 @@ import allure from "allure-playwright";
 
 test.describe("E2E Flows", () => {
     test.beforeEach(async ({ io }) => {
-        await io.homePage.navigateToHome()
+        await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
     test("TC_C29588_FTP_Multiple_Sort_Group_field", async ({
@@ -23,6 +23,7 @@ test.describe("E2E Flows", () => {
         //Save, Enable and Run the Flow
         await test.step("*** Save, Enable And Run The Flow *** ", async () => {
             await io.flowBuilder.saveandRunFlow(testInfo.title)
+            await io.api.validateJobCountFromAPI(testInfo.title, FTPtoFTP.qa__expectedDashboardCount)
         });
     });
 });

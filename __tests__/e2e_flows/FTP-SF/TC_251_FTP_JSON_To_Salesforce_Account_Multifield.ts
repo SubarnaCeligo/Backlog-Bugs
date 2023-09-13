@@ -1,5 +1,5 @@
 import { test, expect } from "@celigo/ui-core-automation"
-import * as FTPtoFTP from "@testData/Flows/create/ftp/TC_C30821_FTP_SortAndGroup_FTP_CSV_JSON.json";
+import * as FTPtoSF from "@testData/Flows/create/ftp/103.SF_Flow_FTP_JSON_to_SF_Account_Multifields.json";
 import allure from "allure-playwright";
 
 test.describe("E2E Flows", () => {
@@ -8,23 +8,23 @@ test.describe("E2E Flows", () => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("TC_C30821_FTP_SortAndGroup_FTP_CSV_JSON", async ({
+    test("TC_251_FTP_JSON_To_Salesforce_Account_Multifield", async ({
         io
     }, testInfo) => {
-
         //Creating PageGenerator 
         await test.step("*** Creating PageGenerator ***", async () => {
-            await io.pageGenerator(allure, FTPtoFTP);
+            await io.pageGenerator(allure, FTPtoSF);
         });
+
         //Creating PageProcessor
         await test.step("*** Creating PageProcessor ***", async () => {
-            await io.pageProcessor(allure, FTPtoFTP);
+            await io.pageProcessor(allure, FTPtoSF);
         });
+
         //Enable and run the Flow ***
         await test.step("*** Enable and run the Flow *** ", async () => {
-            //TODO : Save the flow with test title     
             await io.flowBuilder.saveandRunFlow(testInfo.title)
-            await io.api.validateJobCountFromAPI(testInfo.title, FTPtoFTP.qa__expectedDashboardCount)
+            await io.api.validateJobCountFromAPI(testInfo.title, FTPtoSF.qa__expectedDashboardCount)
         });
     });
 });
