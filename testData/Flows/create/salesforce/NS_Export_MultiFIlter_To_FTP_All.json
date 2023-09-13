@@ -1,0 +1,163 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "1",
+        "successCount": "6",
+        "errorCount": "0"
+    },
+    "name": "NS_Export_MultiFIlter_To_FTP_All",
+    "disabled": false,
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "NS FIlter Export",
+            "_connectionId": "NETSUITE CONNECTION",
+            "asynchronous": true,
+            "netsuite": {
+                "type": "restlet",
+                "skipGrouping": true,
+                "statsOnly": false,
+                "restlet": {
+                    "recordType": "customer",
+                    "searchId": "3160",
+                    "useSS2Restlets": false
+                }
+            },
+            "qa__rules": [
+                [
+                    "record.Name",
+                    "contains",
+                    "Loui"
+                ],
+                [
+                    "record.Phone",
+                    "not_equal",
+                    "77777777777777"
+                ]
+            ],
+            "filter": {
+                "type": "expression",
+                "expression": {
+                    "rules": [
+                        "and",
+                        [
+                            "contains",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "Name"
+                                ]
+                            ],
+                            "Loui"
+                        ],
+                        [
+                            "notequals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "Phone"
+                                ]
+                            ],
+                            "77777777777777"
+                        ]
+                    ],
+                    "version": "1"
+                },
+                "version": "1",
+                "rules": [
+                    "and",
+                    [
+                        "contains",
+                        [
+                            "string",
+                            [
+                                "extract",
+                                "Name"
+                            ]
+                        ],
+                        "Loui"
+                    ],
+                    [
+                        "notequals",
+                        [
+                            "string",
+                            [
+                                "extract",
+                                "Phone"
+                            ]
+                        ],
+                        "77777777777777"
+                    ]
+                ]
+            },
+            "adaptorType": "NetSuiteExport"
+        }
+    }],
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "ftp import",
+            "_connectionId": "FTP CONNECTION",
+            "distributed": false,
+            "mapping": {
+                "fields": [{
+                        "extract": "Name",
+                        "generate": "Name"
+                    },
+                    {
+                        "extract": "Phone",
+                        "generate": "Phone"
+                    }
+                ]
+            },
+            "file": {
+                "type": "csv",
+                "csv": {
+                    "rowDelimiter": "\n",
+                    "columnDelimiter": ",",
+                    "includeHeader": true,
+                    "wrapWithQuotes": false,
+                    "replaceTabWithSpace": false,
+                    "replaceNewlineWithSpace": false,
+                    "truncateLastRowDelimiter": false
+                }
+            },
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                "fileName": "Nsexportmultifilters.csv"
+            },
+            "adaptorType": "FTPImport"
+        }
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "NS_Export_MultiFIlter_To_FTP_All",
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "fileName": "Nsexportmultifilters",
+                    "isUIFlow": true,
+                    "folderName":"/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".csv",
+                    "qa__columnDelimiter": ","
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "1",
+                    "successCount": "3",
+                    "errorCount": "0"
+                },
+                "import": {
+                    "_connectionId": "FTP CONNECTION",
+                    "file": {
+                        "csv": {
+                            "columnDelimiter": ","
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
