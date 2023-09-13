@@ -13,7 +13,7 @@ test.describe("C93997 Verify 'Script is required'/'Function is required' validat
         await io.flowBuilder.addStep('Clicking on javascript option');
         await io.flowBuilder.click(selectors.basePagePO.JAVASCRIPTWINDOW);
         await io.flowBuilder.addStep('Clicking on script dropdown and selecting the script');
-        await io.flowBuilder.click('#scriptId');
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.SCRIPT_LIST_DROPDOWN_ID);
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.SCRIPTS_LIST, 1);
         await io.flowBuilder.addStep('Providing empty function name');
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.FUNCTION_NAME_INPUT,'');

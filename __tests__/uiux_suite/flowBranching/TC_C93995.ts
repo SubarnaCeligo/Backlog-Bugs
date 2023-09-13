@@ -14,7 +14,7 @@ test.describe("C93995 Verify 'Script is required'/'Function is required' validat
       await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.SCRIPT_ID, 0);
       await io.flowBuilder.clickByIndex(selectors.basePagePO.MENUITEM, 1);
       await io.flowBuilder.addStep('Clicking first on edit script icon');
-      await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.EDIT_ECRIPT_LABEL_SELECTOR, 0);
+      await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.EDIT_SCRIPT_LABEL_SELECTOR, 0);
       await io.flowBuilder.addStep('Providing empty function name');
       await io.flowBuilder.fill(selectors.flowBuilderPagePO.FUNCTION_NAME_INPUT,'');
       const errorMessage = await page.locator(selectors.mappings.Mapper2dot0PO.ERROR).evaluate(e => {

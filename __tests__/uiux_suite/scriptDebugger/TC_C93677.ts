@@ -38,7 +38,7 @@ test.describe('C93677Validate user is getting auto-fill of funtion stub while cr
   
   
   
-    await io.flowBuilder.click(selectors.flowBuilderPagePO.EDIT_ECRIPT_LABEL_SELECTOR)
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.EDIT_SCRIPT_LABEL_SELECTOR)
     
     const divSelector = selectors.basePagePO.ACE_CONTENT; // Selector for the <div> element
    
