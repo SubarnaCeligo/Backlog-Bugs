@@ -1,0 +1,137 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "name": "Create_NS_to_EDI_Macy_870",
+    "disabled": false,
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "PG_Export",
+            "_connectionId": "NETSUITE CONNECTION",
+
+            "asynchronous": true,
+            "parsers": [],
+            "netsuite": {
+                "type": "restlet",
+                "skipGrouping": false,
+                "statsOnly": false,
+                "restlet": {
+                    "recordType": "salesorder",
+                    "searchId": "2383",
+                    "criteria": [],
+                    "columns": [],
+                    "useSS2Restlets": false
+                }
+            },
+            "adaptorType": "NetSuiteExport"
+        }
+    }],
+    "pageProcessors": [{
+        "qa__import": {
+            "name": "PP_Import",
+            "_connectionId": "FTP CONNECTION",
+            "qa__ediformat": "macysedi870",
+            "distributed": false,
+            "mapping": {
+                "fields": [{
+                        "extract": "Name",
+                        "generate": "BSR05"
+                    },
+                    {
+                        "extract": "Item",
+                        "generate": "ID(ST01)"
+                    },
+                    {
+                        "extract": "Amount",
+                        "generate": "Control Number(ST02)"
+                    },
+                    {
+                        "extract": "Quantity",
+                        "generate": "Reference Identification(BSR03)"
+                    },
+                    {
+                        "extract": "recordType",
+                        "generate": "Sender ID(GS02)"
+                    },
+                    {
+                        "extract": "Account",
+                        "generate": "BSR08"
+                    },
+                    {
+                        "generate": "HL.REF.Reference Identification",
+                        "hardCodedValue": "CO"
+                    },
+                    {
+                        "generate": "HL.REF.Reference Identification Qualifier",
+                        "hardCodedValue": "AB"
+                    },
+                    {
+                        "generate": "REF.Reference Identification",
+                        "hardCodedValue": "DC"
+                    }
+                ]
+            },
+            "file": {
+                "type": "filedefinition",
+                "fileDefinition": {
+                    "_fileDefinitionId": "5cdeb0d78479a1629ad603cc"
+                }
+            },
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                "fileName": "NS_to_EDI_macy_870-{{timestamp \"YYYY-MM-DDTHH:mm:ssZ\" \"Asia/Calcutta\"}}.edi"
+            },
+            "filter": {
+                "type": "expression",
+                "expression": {
+                    "version": "1"
+                },
+                "version": "1"
+            },
+            "adaptorType": "FTPImport"
+        },
+        "responseMapping": {
+            "fields": [],
+            "lists": []
+        },
+        "type": "import"
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "_integrationId": "62d6b4a955468141a906119e",
+                "name": "Create_NS_to_EDI_Macy_870",
+                "qa__dataVerification": {
+                    "file": {
+                        "csv": {
+                            "columnDelimiter": "*"
+                        }
+                    },
+                    "generateSampleDropDownAvailable": false,
+                    "fileName": "NS_to_EDI_macy_870",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".edi",
+                    "qa__columnDelimiter": "*"
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "2",
+                    "errorCount": "0"
+                },
+                "import": {
+                    "_connectionId": "FTP CONNECTION",
+                    "file": {
+                        "csv": {
+                            "columnDelimiter": "*"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
