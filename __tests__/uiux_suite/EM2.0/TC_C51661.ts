@@ -7,10 +7,10 @@ test.describe("C51661 Verify the 'Error details' header fields displayed in the 
         const errorFlowId = await io.fillFormUI(C51661, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51661', errorFlowId);
         const lastRun = page.getByText('Last run')
-        await lastRun.waitFor({state: 'visible'});
-        await page.getByText("1 error").nth(1).click();
+        await lastRun.waitFor({state: 'visible', timeout: 180000});
+        await io.flowBuilder.clickByTextByIndex("1 error", 1);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2dot0PO.ERROR_DETAILS_TAB_LIST)
-        const errorDetailsTabs = await page.locator(selectors.flowBuilderPagePO.EM2dot0PO.ERROR_DETAILS_TAB_LIST);
+        const errorDetailsTabs = page.locator(selectors.flowBuilderPagePO.EM2dot0PO.ERROR_DETAILS_TAB_LIST);
         expect(errorDetailsTabs.locator('text="Edit retry data"')).toBeVisible();
         expect(errorDetailsTabs.locator('text="HTTP request"')).toBeVisible();
         expect(errorDetailsTabs.locator('text="HTTP response"')).toBeVisible();
@@ -19,25 +19,25 @@ test.describe("C51661 Verify the 'Error details' header fields displayed in the 
         const firstTabInTablist = errorDetailsTabs.locator("button:nth-of-type(1)");
         const firstTabButton = page.getByRole("tab", { name: "Edit retry data" });
         expect(await firstTabButton.textContent()).toEqual(
-          await firstTabInTablist.textContent()
+          await firstTabInTablist.nth(1).textContent()
         );
 
         const secondTabInTablist = errorDetailsTabs.locator("button:nth-of-type(2)");
         const secondTabButton = page.getByRole("tab", { name: "HTTP request" });
         expect(await secondTabButton.textContent()).toEqual(
-          await secondTabInTablist.textContent()
+          await secondTabInTablist.nth(1).textContent()
         );
 
         const thirdTabInTablist = errorDetailsTabs.locator("button:nth-of-type(3)");
         const thirdTabButton = page.getByRole("tab", { name: "HTTP response" });
         expect(await thirdTabButton.textContent()).toEqual(
-          await thirdTabInTablist.textContent()
+          await thirdTabInTablist.nth(1).textContent()
         );
 
         const fourthTabInTablist = errorDetailsTabs.locator("button:nth-of-type(4)");
         const fourthTabButton = page.getByRole("tab", { name: "Error fields" });
         expect(await fourthTabButton.textContent()).toEqual(
-          await fourthTabInTablist.textContent()
+          await fourthTabInTablist.nth(1).textContent()
         );
     });
 });

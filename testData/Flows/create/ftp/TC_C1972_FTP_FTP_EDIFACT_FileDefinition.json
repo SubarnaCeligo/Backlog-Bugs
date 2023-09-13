@@ -1,0 +1,83 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C1972_FTP_FTP_EDIFACT",
+    "disabled": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0",
+        "pages": "1"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "FTP Export",
+            "_connectionId": "FTP CONNECTION",
+            "asynchronous": true,
+            "sandbox": false,
+            "ftp": {
+                "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_C1972.edi"
+            },
+            "file": {
+                "output": "records",
+                "skipDelete": true,
+                "type": "filedefinition",
+                "qa__type": "delimited/edifact",
+                "qa__ediformat": "superdrugedifactinvoices",
+                "encoding": "utf8",
+                "fileDefinition": {
+                    "_fileDefinitionId": "62bd92ec099e0d75cabc8d39"
+                }
+            },
+            "adaptorType": "FTPExport"
+        }
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "name": "FTP To FTP",
+                "_integrationId": "62d6b4a955468141a906119e",
+                "import": {
+                    "_connectionId": "FTP CONNECTION",
+                    "file": {
+                        "csv": {
+                            "columnDelimiter": ";"
+                        }
+                    }
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0",
+                    "pages": "1"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_C1972",
+                    "folderName": "io.auto.qa/IO_UI_Automation",
+                    "fileType": ".json"
+                }
+            }
+        }
+    },
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "FTP Import",
+            "_connectionId": "FTP CONNECTION",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+                "fileName": "TC_C1972.json",
+                "skipAggregation": false,
+                "type": "json"
+            },
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                "fileName": "TC_C1972.json"
+            },
+            "adaptorType": "FTPImport"
+        }
+    }]
+}

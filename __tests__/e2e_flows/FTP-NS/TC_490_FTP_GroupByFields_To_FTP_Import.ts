@@ -4,24 +4,25 @@ import FTP from "@testData/Flows/create/ftp/TC_490_FTP_GroupByFields_To_FTP_Impo
 
 test.describe("E2E Flows", () => {
     test.beforeEach(async ({ io }) => {
-        await io.homePage.navigateToHome()
+        await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
     test("TC_490_FTP_GroupByFields_To_FTP_Import", async ({
         io
     }, testInfo) => {
         //Creating PageGenerator 
         await test.step("*** Creating Page Generator ***", async () => {
-            var exportValidation = await io.pageGenerator(allure, FTP);
+            await io.pageGenerator(allure, FTP);
         });
 
         //Creating PageProcessor
         await test.step("*** Creating Page Processor ***", async () => {
-            var importValidation = await io.pageProcessor(allure, FTP);
+            await io.pageProcessor(allure, FTP);
         });
 
         //Save, Enable and Run the Flow
         await test.step("*** Save, Enable And Run The Flow *** ", async () => {
             await io.flowBuilder.saveandRunFlow(testInfo.title)
+            await io.api.validateJobCountFromAPI(testInfo.title, FTP.qa__expectedDashboardCount)
         });
     });
 });

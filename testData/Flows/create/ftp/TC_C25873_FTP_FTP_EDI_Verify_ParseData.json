@@ -1,0 +1,75 @@
+{
+    "name": "TC_C25873_FTP_To_FTP_EDI_Verify_Parse_data",
+    "disabled": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+    "timezone": "Asia/Calcutta",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "skipRetries": false,
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "Ftp Import",
+            "parsers": [],
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "ib28449845",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+                "fileName": "TC_C25873.json",
+                "skipAggregation": false,
+                "type": "json"
+            },
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                "fileName": "TC_C25873.json"
+            },
+            "adaptorType": "FTPImport"
+        }
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "name": "TC_C25873_FTP_To_FTP_EDI_Verify_Parse_data",
+                "_integrationId": "62d6b4a955468141a906119e",
+                "import": {
+                    "_connectionId": "FTP CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_C25873",
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".json"
+                }
+            }
+        }
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "FTP Export",
+            "_connectionId": "FTP CONNECTION",
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_C25873.edi"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "filedefinition",
+                "qa__ediformat": "genericedi850",
+                "fileDefinition": {
+                    "_fileDefinitionId": "62cc2fc29263164167660a11"
+                }
+            },
+            "adaptorType": "FTPExport"
+        }
+    }]
+}
