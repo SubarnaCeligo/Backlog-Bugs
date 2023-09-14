@@ -14,13 +14,13 @@ test.describe(`C55936 Verify the auto -populated "Name" & "Email" fields in Pend
     await io.homePage.waitForElementAttached(
       selectors.basePagePO.CHAT_BOT_OPTIONS
     );
-    const searchOurDocs = (
-      await page.$$(selectors.basePagePO.CHAT_BOT_OPTIONS)
-    )[0];
-    await searchOurDocs.click();
-    await io.homePage.addStep("Clicked on 'Search our docs' option");
-    const iframe = page.frameLocator("#webWidget");
-    const getInTouchBtn = iframe.locator('[data-testid="pill-button"]');
+    await io.homePage.clickByIndex(selectors.basePagePO.CHAT_BOT_OPTIONS, 0);
+    const iframe = page.frameLocator(
+      selectors.homePagePO.PENDO_ZENDESK.PENDO_ZENDESK_IFRAME
+    );
+    const getInTouchBtn = iframe.locator(
+      selectors.homePagePO.PENDO_ZENDESK.GET_IN_TOUCH
+    );
     await getInTouchBtn.click();
     await io.homePage.addStep("Clicked on 'Get in touch' button");
     await iframe.getByText("Leave a message").click();
@@ -44,17 +44,28 @@ test.describe(`C55936 Verify the auto -populated "Name" & "Email" fields in Pend
     const descriptionLabel = await getFullLabelText("Description");
     const environmentLabel = await getFullLabelText("Environment");
 
-    expect(yourNameInputValue).not.toBe("");
-    await io.homePage.addStep("Checked if 'Your name' field is not empty");
-    expect(emailInputValue).not.toBe("");
-    await io.homePage.addStep("Checked if 'Email address' field is not empty");
+    await io.assert.expectNotToBeValue(
+      yourNameInputValue,
+      "",
+      "'Your name' field is empty"
+    );
+
+    await io.assert.expectNotToBeValue(
+      emailInputValue,
+      "",
+      "'Email address' field is empty"
+    );
+
     expect(subjectLabel).not.toContain("optional");
     await io.homePage.addStep("Checked if 'Subject' field is not optional");
+
     expect(descriptionLabel).not.toContain("optional");
     await io.homePage.addStep("Checked if 'Description' field is not optional");
+
     expect(environmentLabel).not.toContain("optional");
     await io.homePage.addStep("Checked if 'Environment' field is not optional");
-    await iframe.locator('[data-testid="Icon--dash"]').click();
+
+    await iframe.locator(selectors.homePagePO.PENDO_ZENDESK.MINUS_ICON).click();
     await io.homePage.addStep("Clicked on 'Dash/Minus' button to close chatbot");
   });
 });

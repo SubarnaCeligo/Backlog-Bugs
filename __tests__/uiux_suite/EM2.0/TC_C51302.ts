@@ -11,13 +11,13 @@ test.describe(`C51302 Verify when a retry is in progress and “Cancel” is cli
     await io.api.runBatchFlowViaAPI("C51302", id);
     const lastRun = page.getByText("Last run");
     await lastRun.waitFor({ state: "visible" });
-    await page.getByText("1 error").nth(1).click();
+    await io.flowBuilder.clickByTextByIndex("1 error", 1);
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.EM2dot0PO.RETRY_AND_NEXT
     );
     await io.flowBuilder.delay(1000);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2dot0PO.RETRIES_TAB);
-    await page.getByText("Cancel retry").first().click();
+    await io.flowBuilder.clickByTextByIndex("Cancel retry", 0);
     await io.flowBuilder.addStep("Clicked 'cancel retry'");
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.EM2dot0PO.CANCEL_RETRY_BUTTON

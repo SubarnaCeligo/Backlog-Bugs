@@ -42,28 +42,29 @@
     {
       "type": "import",
       "qa__import": {
-        "name": "Netsuite customer import",
+        "name": "HTTP import",
+        "application": "zendesk support",
         "parsers": [],
-        "_connectionId": "NETSUITE CONNECTION",
-        "distributed": true,
-        "apiIdentifier": "i45477eaa3",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
         "lookups": [],
-        "netsuite_da": {
-          "useSS2Restlets": false,
-          "operation": "add",
-          "recordType": "customer",
-          "lookups": [],
-          "mapping": {
-            "fields": [],
-            "lists": []
-          }
+        "http": {
+          "relativeURI": ["/ticket.json"],
+          "method": ["POST"],
+          "body": ["{\"name\":\"New\"}"],
+          "batchSize": 1,
+          "sendPostMappedData": true,
+          "formType": "http"
         },
-        "adaptorType": "NetSuiteDistributedImport"
+        "adaptorType": "HTTPImport"
       }
     }
   ],
   "createFlow": {
-    "name": "TC_001_C23737",
+    "name": "TC_C25461",
     "disabled": false,
     "_integrationId": "603ce75ac4fec33283691f43",
     "skipRetries": false,
