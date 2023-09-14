@@ -1,0 +1,85 @@
+{
+	"skipRetries": false,
+	"_integrationId": "56d6b23fe1fc35de53914730",
+	"qa__expectedDashboardCount": {
+		"ignoreCount": "0",
+		"successCount": "1",
+		"errorCount": "0"
+	},
+	"pageProcessors": [
+		{
+			"responseMapping": {
+				"fields": [],
+				"lists": []
+			},
+			"type": "import",
+			"qa__import": {
+				"name": "CustomServerScriptLog import",
+				"_connectionId": "FTP CONNECTION",
+				"oneToMany": false,
+				"sandbox": false,
+				"file": {
+				  "fileName": "CustomServerScriptLog.json",
+				  "type": "json"
+				},
+				"ftp": {
+				  "directoryPath": "/io.auto.qa/IO_UI_Automation",
+				  "fileName": "CustomServerScriptLog.json"
+				},
+				"adaptorType": "FTPImport"
+			  }
+		}
+	],
+	"timezone": "Asia/Calcutta",
+	"name": "TC_642_NS_CustomServerScriptLog_To_FTP",
+	"disabled": false,
+	"qa__dataVerification": {
+		"generateSampleDropDownAvailable": false,
+		"expected": {
+			"FTP": {
+				"name": "TC_642_NS_CustomServerScriptLog_To_FTP",
+				"_integrationId": "56d6b23fe1fc35de53914730",
+				"import": {
+					"_connectionId": "FTP CONNECTION"
+				},
+				"qa__expectedDashboardCount": {
+					"successCount": "1",
+					"ignoreCount": "0",
+					"errorCount": "0"
+				},
+				"qa__dataVerification": {
+					"fileName": "CustomServerScriptLog",
+					"isUIFlow": true,
+					"folderName": "/io.auto.qa/IO_UI_Automation",
+					"fileType": ".json"
+				}
+			}
+		}
+	},
+	"pageGenerators": [
+		{
+			"qa__export": {
+				"name": "CustomServerScriptLog export",
+				"_connectionId": "NETSUITE CONNECTION",
+				"asynchronous": true,
+				"oneToMany": false,
+				"sandbox": false,
+				"netsuite": {
+					"type": "restlet",
+					"skipGrouping": true,
+					"statsOnly": false,
+					"restlet": {
+						"recordType": "scriptexecutionlog",
+						"searchId": "3599",
+						"useSS2Restlets": false
+					},
+					"distributed": {
+						"disabled": false,
+						"forceReload": false
+					}
+				},
+				"adaptorType": "NetSuiteExport"
+			}
+		}
+	]
+}

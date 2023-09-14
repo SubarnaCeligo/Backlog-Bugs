@@ -1,0 +1,85 @@
+[
+    {
+        "Name": "A Private Cust3",
+        "Email": "nsmultifield@gmail.com",
+        "Item": "ACC00001",
+        "Qunaity": "3",
+        "Amount": "344",
+        "Add One": "25",
+        "Add two": "123",
+        "And Field1": "Yes",
+        "And Field2": "No",
+        "Avg1": "100",
+        "Avg2": "200",
+        "Avg3": "40",
+        "Base64Encode Username": "vgolla68@gmail.com",
+        "Base64Encode Pass": "Venkat@580",
+        "Base64Encodehtml Username": "vgolla68@gmail.com",
+        "Base64Encodehtml Pass": "Venkat@580",
+        "capitalize": "celigo foo bar",
+        "capitalizeAll": "celigo foo bar",
+        "Ceil": "4.3",
+        "compare fieldone": "43",
+        "compare fieldtwo": "32",
+        "Contains": [
+            "BD",
+            "CD",
+            "EF"
+        ],
+        "DecodeURI": "conn%2Fcall.back%26state%3D12345",
+        "Divide fieldone": "25",
+        "Divide fieldtwo": "5",
+        "People": [
+            {
+                "Name": "Integration"
+            },
+            {
+                "Name": "Adaptor"
+            },
+            {
+                "Name": "Demos"
+            }
+        ],
+        "encodeuri": "https://integrator.com@gmail.com",
+        "encodeuri html": "https://integrator.com@gmail.com",
+        "Floor": "45.8",
+        "IfEven": "43",
+        "Lower Case": "CELIGO FOOBAR",
+        "Multiply One": "42",
+        "Multiple Two": "11",
+        "Neither One": "YES",
+        "Neither two": "NO",
+        "Or one": "YES",
+        "Replace": "integration",
+        "Round": "9.4",
+         "Round": "9.4",
+        "SortNum": [
+      "21",
+      "3",
+      "90"
+    ],"SortString": [
+      "Venuzuela",
+      "Abudabi",
+      "Switzerland",
+      "Ireland"
+    ],
+        "Substract One": "425",
+        "Substract two": "122",
+        "Sum": [
+            "12",
+            "33",
+            "56"
+        ],
+		"JoinField One": "One",
+    "JoinField Two": "Two",
+        "Toexponentail": "23235",
+        "ToFixed": "123.1234",
+        "ToPrecision": "12.1234",
+        "Unless": "9490992768",
+        "Uppercase": "celigo foobar",
+        "With": {
+            "withone": "Charles",
+            "withtwo": "Babbage"
+        }
+    }
+]
