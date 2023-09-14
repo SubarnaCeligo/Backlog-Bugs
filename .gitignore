@@ -13,3 +13,15 @@ dist/
 !allure-results/*gitkeep
 __tests__/*debug
 __tests__/uiux_suite/*debug
+downloads/FTP_Downloads/*
+!downloads/FTP_Downloads/*.gitkeep
+downloads/SFTP_Downloads/*
+!downloads/SFTP_Downloads/*.gitkeep
+downloads/S3_Downloads/*
+!downloads/S3_Downloads/*.gitkeep
+downloads/Template_Downloads/*
+!downloads/Template_Downloads/*.gitkeep
+downloads/Gdrive_Downloads/*
+!downloads/Gdrive_Downloads/*.gitkeep
+downloads/Azure_Downloads/*
+!downloads/Azure_Downloads/*.gitkeep
