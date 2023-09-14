@@ -10,9 +10,9 @@ test.describe("C47425 Test to create empty PG/PP bubbles as a administrator user
       await page.getByRole('menuitem', { name: 'Add branching' }).click();
       await io.flowBuilder.waitForElementAttached(selectors.basePagePO.SAVE_AND_CLOSE);
       await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
-      await io.flowBuilder.delay(1000);
+      await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.CANVAS_FIT_TO_SCREEN);
       await io.flowBuilder.click(selectors.flowBuilderPagePO.CANVAS_FIT_TO_SCREEN);
       const pageProcessors = await page.locator(selectors.flowBuilderPagePO.MOVE_PP).all();
-      expect(pageProcessors.length).toBe(2);
+      await io.assert.expectToBeValue("2", pageProcessors.length.toString(), "Page processor count not as expected");
   });
 });
