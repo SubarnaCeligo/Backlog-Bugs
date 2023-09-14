@@ -13,6 +13,7 @@ test.describe("C102562 Verify for items at the bottom of navigation bar with sub
       e =>
         e.parentElement
           .querySelector("div > div > div > div")
+          // @ts-ignore
           .computedStyleMap()
           // @ts-ignore
           .get("margin-top").value
