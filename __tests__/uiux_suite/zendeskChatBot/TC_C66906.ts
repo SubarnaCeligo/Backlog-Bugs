@@ -41,8 +41,8 @@ test.describe('C66906 Verify the auto -populated ""Name"" & ""Email"" fields in 
       const descriptionLabel = await getFullLabelText("Description");
       const environmentLabel = await getFullLabelText("Environment");
       await io.homePage.addStep('Checking Input values for your name, email to be auto populated and subject, description, environment to be optional');
-      expect(yourNameInputValue).not.toBe("");
-      expect(emailInputValue).not.toBe("");
+      await io.assert.expectNotToBeValue("", yourNameInputValue, "Your name is not auto  filled");
+      await io.assert.expectNotToBeValue("", emailInputValue, "Email is not auto  filled");
       expect(subjectLabel).not.toContain("optional");
       expect(descriptionLabel).not.toContain("optional");
       expect(environmentLabel).not.toContain("optional");

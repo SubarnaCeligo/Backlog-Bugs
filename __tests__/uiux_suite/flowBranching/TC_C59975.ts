@@ -19,6 +19,6 @@ test.describe("C59975 Verify User is able to see the script under flow dashboard
         await io.flowBuilder.click(selectors.flowBuilderPagePO.SCRIPTS);
         await io.flowBuilder.addStep('Getting all rows or script tab table');
         const scriptList = await page.locator(selectors.flowBuilderPagePO.SCRIPT_PANEL_ROWS).all();
-        expect(scriptList.length).toBe(1);
+        await io.assert.expectToBeValue("1", scriptList.length.toString(), "Length of script list not as expected");
     });
   });
