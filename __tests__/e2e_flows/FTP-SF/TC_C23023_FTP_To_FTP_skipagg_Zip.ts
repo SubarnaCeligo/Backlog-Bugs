@@ -5,7 +5,7 @@ import allure from "allure-playwright";
 test.describe("E2E Flows", () => {
 
     test.beforeEach(async ({ io }) => {
-        await io.myAccountPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
+        await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
     test("TC_C23023_FTP_To_FTP_skipagg_Zip.ts-SF/", async ({
@@ -24,6 +24,7 @@ test.describe("E2E Flows", () => {
         await test.step("*** Save, Enable And Run The Flow *** ", async () => {
             //TODO : Save the flow with test title     
             await io.flowBuilder.saveandRunFlow(testInfo.title)
+            await io.api.validateJobCountFromAPI(testInfo.title, FTPtoFTP.qa__expectedDashboardCount)
         });
     });
 });

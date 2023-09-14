@@ -12,6 +12,5 @@ test.describe("C23442 EM1.0 Timestamp on run dashboard does not follow user time
         const firstRowColumns = await runConsoleRows[0].$$('td');
         await firstRowColumns[7].hover();
         expect(await page.$(selectors.flowBuilderPagePO.EM2dot0PO.COMPLETED_ROWS_HOVER)).toBeDefined();
-
     });
 });

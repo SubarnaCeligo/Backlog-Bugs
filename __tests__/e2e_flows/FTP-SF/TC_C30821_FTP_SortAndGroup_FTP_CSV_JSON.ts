@@ -5,7 +5,7 @@ import allure from "allure-playwright";
 test.describe("E2E Flows", () => {
 
     test.beforeEach(async ({ io }) => {
-        await io.myAccountPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
+        await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
     test("TC_C30821_FTP_SortAndGroup_FTP_CSV_JSON", async ({
@@ -24,6 +24,7 @@ test.describe("E2E Flows", () => {
         await test.step("*** Enable and run the Flow *** ", async () => {
             //TODO : Save the flow with test title     
             await io.flowBuilder.saveandRunFlow(testInfo.title)
+            await io.api.validateJobCountFromAPI(testInfo.title, FTPtoFTP.qa__expectedDashboardCount)
         });
     });
 });

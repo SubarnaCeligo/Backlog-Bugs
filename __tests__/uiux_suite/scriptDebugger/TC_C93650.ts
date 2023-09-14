@@ -1,8 +1,9 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C30651 from "@testData/Flows/C26246.json";
 
-test.describe('C93650 Validate that user is getting prefill function stub for "formInit" function', () => {
+
+test.describe('C93650Validate that user is getting prefill function stub for "formInit" function', () => {
+   
   test.beforeEach(async ({ io }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
