@@ -1,0 +1,146 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "name": "Create_NS_to_Fixedwidth_EDI",
+    "disabled": false,
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "PG_Export",
+            "_connectionId": "NETSUITE CONNECTION",
+
+            "asynchronous": true,
+            "parsers": [],
+            "netsuite": {
+                "type": "restlet",
+                "skipGrouping": false,
+                "statsOnly": false,
+                "restlet": {
+                    "recordType": "salesorder",
+                    "searchId": "2383",
+                    "criteria": [],
+                    "columns": [],
+                    "useSS2Restlets": false
+                }
+            },
+            "adaptorType": "NetSuiteExport"
+        }
+    }],
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "PP_Import",
+            "_connectionId": "FTP CONNECTION",
+            "qa__fixedwidthformat": "voya",
+            "distributed": false,
+            "mapping": {
+                "fields": [{
+                    "extract": "Type",
+                    "generate": "Shipment Number(000)"
+                }],
+                "lists": [{
+                        "fields": [{
+                                "extract": "*.Account",
+                                "qa__ignoreStar": true,
+                                "qa__extract": "Account",
+                                "generate": "ShipTo Name"
+                            },
+                            {
+                                "extract": "*.Item",
+                                "qa__ignoreStar": true,
+                                "qa__extract": "Item",
+                                "generate": "City"
+                            }
+                        ],
+                        "generate": "110"
+                    },
+                    {
+                        "fields": [{
+                                "extract": "*.Amount",
+                                "qa__ignoreStar": true,
+                                "qa__extract": "Amount",
+                                "generate": "Shipment Number(100)"
+                            },
+                            {
+                                "extract": "*.Quantity",
+                                "qa__ignoreStar": true,
+                                "qa__extract": "Quantity",
+                                "generate": "Order Number(100)"
+                            }
+                        ],
+                        "generate": "100"
+                    },
+                    {
+                        "fields": [{
+                            "extract": "*.Name",
+                            "qa__ignoreStar": true,
+                            "qa__extract": "Name",
+                            "generate": "Customer Item Number"
+                        }],
+                        "generate": "200"
+                    },
+                    {
+                        "fields": [
+                            {
+                                "generate": "ASN Item ID(300)",
+                                "hardCodedValue": "1234"
+                            }
+                        ],
+                        "generate": "300"
+                    }
+                ]
+            },
+            "file": {
+                "type": "fixed",
+                "fileDefinition": {
+                    "_fileDefinitionId": "5cdfe779031f1c31bbe2b714"
+                }
+            },
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                "fileName": "NS_to_Fixedwidth_EDI-{{timestamp \"YYYY-MM-DDTHH:mm:ssZ\" \"Asia/Calcutta\"}}.edi"
+            },
+            "filter": {
+                "type": "expression",
+                "expression": {
+                    "version": "1"
+                },
+                "version": "1"
+            },
+            "adaptorType": "FTPImport"
+        }
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "_integrationId": "62d6b4a955468141a906119e",
+                "name": "Create_NS_to_Fixedwidth_EDI",
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "fileName": "NS_to_Fixedwidth_EDI",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".edi",
+                    "qa__columnDelimiter": " "
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "2",
+                    "errorCount": "0"
+                },
+                "import": {
+                    "_connectionId": "FTP CONNECTION",
+                    "file": {
+                        "csv": {
+                            "columnDelimiter": " "
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

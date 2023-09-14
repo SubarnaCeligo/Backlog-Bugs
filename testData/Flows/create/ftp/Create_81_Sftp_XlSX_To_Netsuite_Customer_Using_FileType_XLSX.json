@@ -1,0 +1,251 @@
+{
+  "skipRetries": false,
+  "_integrationId": "62d6b4a955468141a906119e",
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "qa__import": {
+        "name": "81 NS import",
+        "_connectionId": "NETSUITE CONNECTION",
+        "lookups": [],
+        "distributed": true,
+        "netsuite_da": {
+          "useSS2Restlets": false,
+          "lookups": [],
+          "mapping": {
+            "lists": [
+              {
+                "fields": [
+                  {
+                    "internalId": false,
+                    "extract": "['BillingCity']",
+                    "generate": "city"
+                  },
+                  {
+                    "internalId": false,
+                    "extract": "['BillingState']",
+                    "generate": "state"
+                  },
+                  {
+                    "internalId": false,
+                    "extract": "['BillingCountry']",
+                    "generate": "country"
+                  },
+                  {
+                    "internalId": false,
+                    "extract": "['BillingAddress 1']",
+                    "generate": "addr1"
+                  }
+                ],
+                "generate": "_billing_addressbook"
+              },
+              {
+                "fields": [
+                  {
+                    "internalId": false,
+                    "extract": "['ShippingfAddress 1']",
+                    "generate": "addr1"
+                  },
+                  {
+                    "internalId": false,
+                    "extract": "['ShippingCity']",
+                    "generate": "city"
+                  },
+                  {
+                    "internalId": false,
+                    "extract": "['ShippingState']",
+                    "generate": "state"
+                  },
+                  {
+                    "internalId": false,
+                    "extract": "['ShippingCountry']",
+                    "generate": "country"
+                  }
+                ],
+                "generate": "_shipping_addressbook"
+              },
+              {
+                "fields": [
+                  {
+                    "internalId": false,
+                    "extract": "['UserNote Title']",
+                    "generate": "title"
+                  },
+                  {
+                    "internalId": false,
+                    "extract": "['Usernote Memo']",
+                    "generate": "note"
+                  },
+                  {
+                    "internalId": true,
+                    "extract": "['Usernote Direction']",
+                    "generate": "direction"
+                  }
+                ],
+                "generate": "usernotes"
+              }
+            ],
+            "fields": [
+              {
+                "internalId": false,
+                "extract": "['Company Name']",
+                "generate": "companyname"
+              },
+              {
+                "internalId": false,
+                "extract": "['Fax']",
+                "generate": "fax"
+              },
+              {
+                "internalId": false,
+                "extract": "['phone']",
+                "generate": "phone"
+              },
+              {
+                "internalId": false,
+                "extract": "['E Mail']",
+                "generate": "email"
+              },
+              {
+                "internalId": true,
+                "hardCodedValue": "14",
+                "generate": "subsidiary"
+              },
+              {
+                "hardCodedValue": "true",
+                "generate": "celigo_recordmode_dynamic",
+                "internalId": false
+              }
+            ]
+          },
+          "recordType": "customer",
+          "operation": "add"
+        },
+        "filter": {
+          "type": "expression",
+          "expression": {
+            "version": "1"
+          },
+          "version": "1"
+        },
+        "adaptorType": "NetSuiteDistributedImport"
+      }
+    }
+  ],
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "4",
+    "errorCount": "0"
+  },
+  "timezone": "Asia/Calcutta",
+  "name": "81.SFTP_Flow#7_SFTP(XLSX) to NS(Customer)_XlSX",
+  "disabled": false,
+  "qa__dataVerification": {
+    "standaloneexportflowID": "580fb46440c39b46e0a166d0",
+    "uniqueField": "entityid",
+    "importRecordType": "Customer",
+    "isUIFlow": true,
+    "exportapiIdentifier": "ef8e3acf02",
+    "expected": {
+      "netsuite": {
+        "_integrationId": "62d6b4a955468141a906119e",
+        "name": "81.SFTP_Flow#7_SFTP(XLSX) to NS(Customer)_XlSX",
+        "import": {
+          "_connectionId": "NETSUITE CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "4",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "standaloneexportflowID": "580fb46440c39b46e0a166d0",
+          "uniqueField": "entityid",
+          "importRecordType": "Customer",
+          "isUIFlow": true,
+          "exportapiIdentifier": "ef8e3acf02",
+          "expectedJSON": [
+            {
+              "entityid": "Auto@SFTPtoNSCustomer_XLSX_1",
+              "subsidiary": {
+                "internalid": "14",
+                "name": "NS Prod3"
+              },
+              "companyname": "Auto@SFTPtoNSCustomer_XLSX_1",
+              "defaultaddress": "Auto@SFTPtoNSCustomer_XLSX_1\nMagestic\nHyderabad AP \nIndia",
+              "email": "AutoSFTPtoNSCustomer_XLSX_1@gmail.com",
+              "_billing_addressbook": {
+                "addressbookaddress_text": "Auto@SFTPtoNSCustomer_XLSX_1\nMagestic\nHyderabad AP \nIndia",
+                "label": "Magestic",
+                "country": {
+                  "internalid": "IN",
+                  "name": "India"
+                },
+                "addressee": "Auto@SFTPtoNSCustomer_XLSX_1",
+                "city": "Hyderabad",
+                "addr1": "Magestic",
+                "state": "AP",
+                "override": false,
+                "addrtext": "Auto@SFTPtoNSCustomer_XLSX_1\nMagestic\nHyderabad AP \nIndia"
+              }
+            },
+            {
+              "entityid": "Auto@SFTPtoNSCustomer_XLSX_2",
+              "subsidiary": {
+                "internalid": "14",
+                "name": "NS Prod3"
+              },
+              "companyname": "Auto@SFTPtoNSCustomer_XLSX_2",
+              "defaultaddress": "Auto@SFTPtoNSCustomer_XLSX_2\nRV road\nHyderabad AP \nIndia",
+              "email": "AutoSFTPtoNSCustomer_XLSX_2@gmail.com",
+              "_billing_addressbook": {
+                "addressbookaddress_text": "Auto@SFTPtoNSCustomer_XLSX_2\nRV road\nHyderabad AP \nIndia",
+                "label": "RV road",
+                "enable_subrecord_to_parent_synchronization": "T",
+                "country": {
+                  "internalid": "IN",
+                  "name": "India"
+                },
+                "addressee": "Auto@SFTPtoNSCustomer_XLSX_2",
+                "city": "Hyderabad",
+                "addr1": "RV road",
+                "state": "AP",
+                "override": false,
+                "addrtext": "Auto@SFTPtoNSCustomer_XLSX_2\nRV road\nHyderabad AP \nIndia"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "81 FTPexport",
+        "adaptorType": "FTPExport",
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+          "fileNameEndsWith": ".xlsx",
+          "fileNameStartsWith": "81_SFTP to NSCustomers_xlsx"
+        },
+        "file": {
+          "output": "records",
+          "xlsx": {
+            "hasHeaderRow": true
+          },
+          "skipDelete": true,
+          "encoding": "utf8",
+          "type": "xlsx"
+        },
+        "asynchronous": true,
+        "_connectionId": "FTP CONNECTION",
+        "qa__path": "//FTP_uploads//81_SFTP to NSCustomers_XLSX.xlsx"
+      }
+    }
+  ]
+}

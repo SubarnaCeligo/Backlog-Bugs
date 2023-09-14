@@ -1,0 +1,135 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "pageProcessors": [{
+        "responseMapping": {
+            "fields": [
+
+            ],
+            "lists": [
+
+            ]
+        },
+        "type": "import",
+        "qa__import": {
+            "name": "118.FTP import",
+            "adaptorType": "FTPImport",
+            "mapping": {
+                "fields": [{
+                        "extract": "{{#each People}}{{Name}}{{/each}}",
+                        "generate": "Each"
+                    },
+                    {
+                        "extract": "{{sort SortNum number=\"true\"}}",
+                        "generate": "Sort Num"
+                    },
+                    {
+                        "extract": "{{sort SortString}}",
+                        "generate": "Sort String"
+                    },
+                    {
+                        "extract": "{{sum Sum}}",
+                        "generate": "Sum Fun"
+                    },
+                    {
+                        "extract": "{{#with With}} {{withone}} {{withtwo}} {{/with}}",
+                        "generate": "With Fun"
+                    },
+                    {
+                        "extract": "{{{regexMatch Regexreplaceandmatch \"[0-9][0-9][0-9]\" 1 \"g\"}}}",
+                        "generate": "regexmatch"
+                    },
+                    {
+                        "extract": "{{{regexReplace Regexreplaceandmatch \"celigo\" \"[3-5][0-9][0-9]\" g}}}",
+                        "generate": "regexreplace"
+                    },
+                    {
+                        "extract": "{{getValue (join \".\" \"dates\" (join \"-\" Schedulerequest_item.[0].date.Date.year Schedulerequest_item.[0].date.Date.month Schedulerequest_item.[0].date.Date.day))}}",
+                        "generate": "getvalue"
+                    },
+                    {
+                        "extract": "{{getValue \"With.withone\" \"700\"}}",
+                        "generate": "getvaluejson"
+                    }
+                ]
+            },
+            "file": {
+                "skipAggregation": true,
+                "type": "csv",
+                "csv": {
+                    "rowDelimiter": "\n",
+                    "columnDelimiter": ",",
+                    "includeHeader": true,
+                    "wrapWithQuotes": false,
+                    "replaceTabWithSpace": false,
+                    "replaceNewlineWithSpace": false,
+                    "truncateLastRowDelimiter": false
+                }
+            },
+            "ftp": {
+                "fileName": "FTP to FTP Multifield Expressions{{timestamp \"YYYY-MM-DDTHH:mm:ssZ\" \"Asia/Calcutta\"}}.csv",
+                "directoryPath": "/io.auto.qa/IO_UI_Automation"
+            },
+            "_connectionId": "FTP CONNECTION",
+            "qa__path": "/FTP_uploads/FTP to FTP Multifield Expressions.csv",
+            "distributed": false
+        }
+    }],
+    "timezone": "Asia/Calcutta",
+    "name": "118.FTP to FTP - Multifeld Expressions",
+    "disabled": false,
+    "qa__dataVerification": {
+        "expected": {
+            "ftp": {
+                "name": "118.FTP to FTP - Multifeld Expressions",
+                "_integrationId": "62d6b4a955468141a906119e",
+                "import": {
+                    "_connectionId": "FTP CONNECTION",
+                    "file": {
+                        "csv": {
+                            "columnDelimiter": ","
+                        }
+                    }
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "FTP to FTP Multifield Expressions",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".csv"
+                }
+            }
+        }
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "118.FTP Export",
+            "adaptorType": "FTPExport",
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "NS Import_MultifieldFunctions.json"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json",
+                "json": {
+                    "resourcePath": "*"
+                }
+            },
+            "asynchronous": true,
+            "_connectionId": "FTP CONNECTION",
+            "qa__path": "/FTP_uploads/NS Import_MultifieldFunctions_Sublists.json"
+        }
+    }]
+}
