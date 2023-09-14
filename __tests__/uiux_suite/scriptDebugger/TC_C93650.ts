@@ -18,17 +18,10 @@ test.describe('C93650Validate that user is getting prefill function stub for "fo
 
     // Ensure that the choose function stub field is visible
     await io.flowBuilder.click(selectors.basePagePO.FUNCTION_STUB);
-    // const chooseFunctionStubField = await page.$(
-    //   selectors.basePagePO.FUNCTION_STUB
-    // );
-    // await chooseFunctionStubField.click();
-
-    const formInitField = await page.$(selectors.basePagePO.FORM_INIT_FUNCTION);
-
-
+    await io.flowBuilder.addStep("Clicked on function stub button")
+    await io.flowBuilder.selectTextfromDropDown(page,"formInit");
+    await io.flowBuilder.addStep("locating the formInit buttton selector")
     const divSelector = selectors.basePagePO.ACE_CONTENT; // Selector for the <div> element
-
-    // Check if the selector matches an element
     const divElement = await page.$(divSelector);
     const divTextContent = await divElement.textContent();
     expect(divTextContent).not.toBeNull();

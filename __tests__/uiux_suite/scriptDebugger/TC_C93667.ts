@@ -17,12 +17,10 @@ test.describe('C93667Validate user is able to see the options script,description
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT_HOOK)
       await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_HOOK)
   
-      await io.flowBuilder.click("[aria-label='Create script']");
-  
-  
-  
+      await io.flowBuilder.click(selectors.basePagePO.CREATE_SCRIPT_ARIA_LABEL);
+   
     const chooseFunctionStubField = await page.$(selectors.basePagePO.FUNCTION_STUB);
-   await chooseFunctionStubField.click();
+    await io.flowBuilder.click(selectors.basePagePO.FUNCTION_STUB);   
   
   await io.flowBuilder.selectTextfromDropDown(page,"postResponseMap");
   

@@ -17,16 +17,12 @@ test.describe('C93657Validate user is able to create "postMap" script through fl
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT_HOOK)
       await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_HOOK)
   
-      await io.flowBuilder.click("[aria-label='Create script']");
+      await io.flowBuilder.click(selectors.basePagePO.CREATE_SCRIPT_ARIA_LABEL);
   
    await io.flowBuilder.fill(selectors.importPagePO.NAME, "mockscript");
     
   
-    // Ensure that the choose function stub field is visible
-    const chooseFunctionStubField = await page.$(
-      selectors.basePagePO.FUNCTION_STUB
-    );
-    await chooseFunctionStubField.click();
+   await io.flowBuilder.click(selectors.basePagePO.FUNCTION_STUB);   
 
     // Ensure that the choose function stub field is visible
 

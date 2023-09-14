@@ -16,16 +16,10 @@ test.describe('C93670Validate user is getting auto-fill of function stub while c
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT_HOOK)
       await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_HOOK)
   
-      await io.flowBuilder.click("[aria-label='Create script']");
-  
-    
-  
-    // Ensure that the choose function stub field is visible
-    const chooseFunctionStubField = await page.$(selectors.basePagePO.FUNCTION_STUB);
-   await chooseFunctionStubField.click();
-  
-  
-   const formInitField = await page.$(selectors.basePagePO.FORM_INIT_FUNCTION);
+      await io.flowBuilder.click(selectors.basePagePO.CREATE_SCRIPT_ARIA_LABEL);
+   
+      await io.flowBuilder.click(selectors.basePagePO.FUNCTION_STUB);   
+   await io.flowBuilder.selectTextfromDropDown(page,"formInit");
     
     const divSelector = selectors.basePagePO.ACE_CONTENT; // Selector for the <div> element
 

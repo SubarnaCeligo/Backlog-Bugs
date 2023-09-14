@@ -12,21 +12,18 @@ test.describe(' C51614 Verify the name field under lookups', () => {
   
 test(' Verify the name field under lookups', async({io,page}) => {
 
-    await io.flowBuilder.click(selectors.basePagePO.TOOLS)
-    await io.flowBuilder.clickByText("Flow builder")
-
-      await io.flowBuilder.click('[data-test="addProcessor"]')
-      await io.flowBuilder.click('[data-test="JazzHR"]')
+  await io.homePage.goToMenu("Tools", "Flow builder")
+      await io.flowBuilder.click(selectors.basePagePO.LOOKUP_ADD_BUTTON)
+      await io.flowBuilder.click(selectors.basePagePO.JAZZHR_SELECTOR)
 
       await page.getByRole("menuitem").nth(2).click();
-      await io.flowBuilder.click('#connections-dropdown')
+      await io.flowBuilder.click(selectors.basePagePO.CONNECTION_DROPDOWN)
       await io.flowBuilder.clickByText('JAZZHR CONNECTION')
       await io.flowBuilder.clickByText("Next");
 
-        const divSelector = '#name'; // Selector for the <div> element
-const divTextContent = await page.textContent(divSelector);
+      await io.flowBuilder.waitForElementAttached(selectors.basePagePO.NAME_ID)
 
-await io.assert.verifyElementContainsText('#name',"Name your lookup")
+await io.assert.verifyElementContainsText(selectors.basePagePO.NAME_ID,"Name your lookup")
 
 
   });

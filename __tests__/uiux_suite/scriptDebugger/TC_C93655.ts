@@ -18,16 +18,11 @@ test.describe('C93655Validate user is able to create "filter" script through flo
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT_HOOK)
       await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_HOOK)
   
-      await io.flowBuilder.click("[aria-label='Create script']");
+      await io.flowBuilder.click(selectors.basePagePO.CREATE_SCRIPT_ARIA_LABEL);
   
   
    await io.flowBuilder.fill(selectors.importPagePO.NAME, "mockscript");
-  
-    
-  
-    // Ensure that the choose function stub field is visible
-    const chooseFunctionStubField = await page.$(selectors.basePagePO.FUNCTION_STUB);
-   await chooseFunctionStubField.click();
+   await io.flowBuilder.click(selectors.basePagePO.FUNCTION_STUB);   
   
    const elementSelector = selectors.basePagePO.FILTER_FUNCTION;
   const element = await page.locator(elementSelector);
@@ -39,9 +34,6 @@ test.describe('C93655Validate user is able to create "filter" script through flo
     // Scroll through the list of options to find "Transform" 
   
     await io.flowBuilder.clickByText("Save & close");
-  
-    // await page.pause();
-  
-     
+   
     });
   })

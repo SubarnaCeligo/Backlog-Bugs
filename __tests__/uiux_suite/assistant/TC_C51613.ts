@@ -7,16 +7,15 @@ test.describe(' C51613 Verify the name field under exports', () => {
     });
     test(' Verify the name field under exports', async({io,page}) => {
   
-        await io.homePage.click("[data-test='Resources']");
-        await io.connectionPage.clickByText('Exports')
+        await io.homePage.goToMenu("Resources", "Exports")
         await io.importsPage.clickByText('Create export')
-        await io.importsPage.click("[data-test='JazzHR']")
-        await io.importsPage.click('#connections-dropdown')
+        await io.importsPage.click( selectors.basePagePO.JAZZHR_SELECTOR)
+        await io.importsPage.click(selectors.basePagePO.CONNECTION_DROPDOWN)
         await io.importsPage.clickByText('JAZZHR CONNECTION')
-        await io.importsPage.fill("input[name='/name']", "jazz")
+        await io.importsPage.fill(selectors.basePagePO.INPUT_NAME_SELECTOR, "jazz")
         await io.importsPage.clickByText("Next");
   
-  
-        io.assert.verifyElementContainsText("label[for=\"name\"]", "Name your export");    
+  await io.flowBuilder.waitForElementAttached(selectors.basePagePO.LABEL_NAME_SELECTOR)
+        io.assert.verifyElementContainsText(selectors.basePagePO.LABEL_NAME_SELECTOR, "Name your export");    
     });
   });

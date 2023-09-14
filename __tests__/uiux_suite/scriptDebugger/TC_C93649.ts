@@ -17,9 +17,6 @@ test.describe('C93649 Validate that user is able to see "postResponseMap" functi
     const chooseFunctionStubField = await page.$(
       selectors.basePagePO.FUNCTION_STUB
     );
-    // await io.flowBuilder.waitForElementAttached(selectors.basePagePO.FUNCTION_STUB)
-    // await chooseFunctionStubField.click();
-
     await io.flowBuilder.selectTextfromDropDown(page, "postResponseMap");
 
     const expectedText = "Post response map"; // The expected random text

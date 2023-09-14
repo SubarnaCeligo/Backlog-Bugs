@@ -12,19 +12,14 @@ test.describe('C93648Validate that user is able to see "formInit" function where
     page
   }) => {
     await io.homePage.goToMenu("Resources","Scripts");
-
     await io.flowBuilder.clickByText("Create script");
-
     await io.flowBuilder.fill(selectors.importPagePO.NAME, "mockscript");
-
-    // Ensure that the choose function stub field is visible
     const chooseFunctionStubField = await page.$(
       selectors.basePagePO.FUNCTION_STUB
     );
     await chooseFunctionStubField.click();
-
+    await io.flowBuilder.addStep("Clicked on 'insert function stab' button")
     const formInitField = await page.$(selectors.basePagePO.FORM_INIT_FUNCTION);
-
     expect(formInitField).not.toBeNull();
   });
 });

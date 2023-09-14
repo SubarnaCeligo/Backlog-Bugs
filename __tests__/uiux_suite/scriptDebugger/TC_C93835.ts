@@ -1,6 +1,6 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import data1 from "@testData/ScriptDebugger/C93832.json"
+import data1 from "@testData/ScriptDebugger/C93835.json"
 
 test.describe('C93835 Validate user is getting auto-fill of funtion stub while creating "preSavePage" script through flow builder branching filter', () => {
    
@@ -15,12 +15,11 @@ test.describe('C93835 Validate user is getting auto-fill of funtion stub while c
      
      const plusButtonsSelector = selectors.flowBuilderPagePO.PLUS_BUTTONS;
      await io.flowBuilder.waitForElementAttached(plusButtonsSelector);
-     const plusButtonsLocator = await page.$$(plusButtonsSelector);
-     await plusButtonsLocator[0].click();
+     await io.flowBuilder.clickByIndex(plusButtonsSelector, 0)
      await io.flowBuilder.clickByText("Add branching");
      await io.flowBuilder.clickByText("JavaScript")
-     await io.flowBuilder.click("#scriptId")
-  await page.getByText("Pre save page  script").first().click(); 
+     await io.flowBuilder.click(selectors.basePagePO.SCRIPT_ID)
+     await io.flowBuilder.clickByTextByIndex("Pre save page  script", 0);
          const divSelector = selectors.basePagePO.ACE_CONTENT; // Selector for the <div> element
      
     const divTextContent = await page.textContent(divSelector);
