@@ -17,8 +17,7 @@ test.describe("C93992 Verify 'Script is required'/'Function is required' validat
             const editor = ace.edit(e);
             return editor.getValue();
           });
-        await io.flowBuilder.addStep('Verifying error message when no script is given');
-        expect(errorMessage).toBe('Script is required');
+        await io.assert.expectToBeValue('Script is required', errorMessage, 'Script required message not visible');
   
         await io.flowBuilder.click('#scriptId');
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.SCRIPTS_LIST, 1);
@@ -28,8 +27,6 @@ test.describe("C93992 Verify 'Script is required'/'Function is required' validat
           const editor = ace.edit(e);
           return editor.getValue();
         });
-        await io.flowBuilder.addStep('Verifying error message when no function is given');
-        expect(errorMessage).toBe('Function is required');
-  
+        await io.assert.expectToBeValue('Function is required', errorMessage, 'Function required message not visible');  
     });
   });

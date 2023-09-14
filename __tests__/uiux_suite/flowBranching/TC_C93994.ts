@@ -22,8 +22,6 @@ test.describe("C93994 Verify 'Script is required'/'Function is required' validat
           const editor = ace.edit(e);
           return editor.getValue();
         });
-        await io.flowBuilder.addStep('Validating error message incase of empty function name');
-        expect(errorMessage).toBe('Function is required');
-  
+        await io.assert.expectToBeValue('Function is required', errorMessage, 'Function required message not visible');
     });
   });
