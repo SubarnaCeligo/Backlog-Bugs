@@ -10,14 +10,15 @@ test.describe("C52094 Verify the 'Add to Batch' check box option in both 'Curren
         await lastRun.waitFor({state: 'visible', timeout: 180000});
         await io.flowBuilder.clickByTextByIndex("1 error", 1);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2dot0PO.ADD_TO_BATCH);
-        expect(await page.$(selectors.flowBuilderPagePO.EM2dot0PO.ADD_TO_BATCH)).not.toBe(null);
+        await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.EM2dot0PO.ADD_TO_BATCH, "Add to batch not displayed in new view");
 
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2dot0PO.TOGGLE_VIEW_DROPDOWN);
+        await io.flowBuilder.addStep("Changing the view from dropdown");
         const views = await page.$$(selectors.flowBuilderPagePO.EM2dot0PO.TOGGLE_VIEW_DROPDOWN_OPTIONS);
         views[1].click();
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2dot0PO.ACTIONS_MENU);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2dot0PO.ACTIONS_MENU);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2dot0PO.ACTIONS_MENU_EDIT_RETRY_DATA);
-        expect(page.locator(selectors.flowBuilderPagePO.EM2dot0PO.ADD_TO_BATCH).nth(1)).toBeVisible();
+        await io.assert.verifyElementIsDisplayed(`:nth-match(:text("Add to batch"), 2)`, "Add  to batch not displayed in current view");
     });
 });
