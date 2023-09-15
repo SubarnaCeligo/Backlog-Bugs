@@ -6,7 +6,8 @@ test.describe("C59659 Verify sample url link for Sign up Page", () => {
     await io.homePage.navigateTo(
       "https://www.celigo.com/integrations/hubspot-netsuite/"
     );
-    await page.getByText("Get Started for Free!").click();
+    await io.homePage.clickByText("Get Started for Free!");
     expect(page.url()).toContain("https://integrator.io/signup");
+    await io.homePage.addStep("Verified User is re-directing to Sign up Page.");
   });
 });

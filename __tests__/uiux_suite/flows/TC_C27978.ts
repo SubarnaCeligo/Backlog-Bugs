@@ -22,9 +22,12 @@ test.describe(`C27978 Verify 'What would you like to export?' drawer label is up
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.waitForElementAttached(selectors.exportsPagePO.NAME);
     await io.flowBuilder.fill(selectors.exportsPagePO.NAME, "C27977");
-    await io.flowBuilder.click('[data-test="http.blobMethod"]');
+    await io.flowBuilder.click(selectors.exportsPagePO.LOOKUP.HTTP_METHOD);
     await io.flowBuilder.clickByText("GET");
-    await io.flowBuilder.fill("[id='text-http.relativeURI']", "/");
+    await io.flowBuilder.fill(
+      selectors.exportsPagePO.LOOKUP.HTTP_RELATIVE_URI,
+      "/"
+    );
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);
     await io.assert.verifyElementDisplayedByText(
