@@ -29,8 +29,10 @@ test.describe(`C61135 Verify the Install link functionality displayed for the In
       .first()
       .click();
     await io.homePage.addStep("Clicked 'Continue setup >61130_DND'");
-    await expect(page.getByText("Integrator SuiteApp")).toBeVisible();
-    await io.homePage.addStep("Checked if 'Integrator SuiteApp' is visible");
+    await io.assert.verifyElementDisplayedByText(
+      "Integrator SuiteApp",
+      "'Integrator SuiteApp' step not displayed"
+    );
     await io.homePage.click(
       selectors.integrationPagePO.SETUP_INTEGRATION_CONFIGURE_BUTTON
     );
@@ -42,9 +44,13 @@ test.describe(`C61135 Verify the Install link functionality displayed for the In
       .click();
     await io.homePage.addStep("Selected 'NETSUITE CONNECTION' from dropdown");
     await io.homePage.click(selectors.basePagePO.SAVE);
-    await expect(page.getByText("Verifying")).toBeVisible();
-    await io.homePage.addStep("Verified 'Verifying' is visible");
-    await expect(page.getByText("Installed")).toBeVisible();
-    await io.homePage.addStep("Verified 'Installed' is visible");
+    await io.assert.verifyElementDisplayedByText(
+      "Verifying",
+      "'Verifying' step not displayed"
+    );
+    await io.assert.verifyElementDisplayedByText(
+      "Installed",
+      "'Installed' step not displayed"
+    );
   });
 });

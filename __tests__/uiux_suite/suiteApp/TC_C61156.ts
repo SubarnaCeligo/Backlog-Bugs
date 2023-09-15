@@ -16,8 +16,10 @@ test.describe(`C61156 Verify IIf all the NS stepsn my integration are solely con
     await io.homePage.addStep("Uploaded integration zip file");
     await io.homePage.clickByText("Install integration");
     await io.homePage.click(selectors.basePagePO.DIALOG_PROCEED_BUTTON);
-    await expect(page.getByText("Integrator SuiteApp")).toBeVisible();
-    await io.homePage.addStep("Checked if 'Integrator SuiteApp' is visible");
+    await io.assert.verifyElementDisplayedByText(
+      "Integrator SuiteApp",
+      "'Integrator SuiteApp' step not displayed"
+    );
     await expect(page.getByText("Integrator Bundle")).not.toBeVisible();
     await io.homePage.addStep("Checked if 'Integrator Bundle' is not visible");
   });
