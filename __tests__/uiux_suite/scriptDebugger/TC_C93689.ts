@@ -5,7 +5,7 @@ import data1 from "@testData/ScriptDebugger/C93689.json"
 
 test.describe('C93689 Validate user is getting auto-fill of funtion stub while creating "postMap" script through flow builder branching filter', () => {
    
-    test('Validate user is getting auto-fill of funtion stub while creating "postMap" script through flow builder branching filte', async({io,page}) => {
+    test('C93689  Validate user is getting auto-fill of funtion stub while creating "postMap" script through flow builder branching filte', async({io,page}) => {
   
       const id =  await io.fillFormUI(
         data1,
@@ -21,12 +21,7 @@ test.describe('C93689 Validate user is getting auto-fill of funtion stub while c
      await io.flowBuilder.clickByText("JavaScript")
      await io.flowBuilder.click(selectors.basePagePO.SCRIPT_ID)
      await io.flowBuilder.clickByTextByIndex("Post map script",0)
-  
-         const divSelector = selectors.basePagePO.ACE_CONTENT; // Selector for the <div> element
-     
-    const divTextContent = await page.textContent(divSelector);
-
-    
-    expect(divTextContent).not.toBe(null);  
+     let divTextContent = await io.flowBuilder.getText(selectors.basePagePO.ACE_CONTENT);
+     await io.assert.expectNotToBeNull(divTextContent,"Value is not null")
     });
   })

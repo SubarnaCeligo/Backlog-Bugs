@@ -13,17 +13,13 @@ test.describe('C93650Validate that user is getting prefill function stub for "fo
     page
   }) => {
     await io.homePage.goToMenu("Resources","Scripts");
-
     await io.flowBuilder.clickByText("Create script");
-
     // Ensure that the choose function stub field is visible
     await io.flowBuilder.click(selectors.basePagePO.FUNCTION_STUB);
     await io.flowBuilder.addStep("Clicked on function stub button")
     await io.flowBuilder.selectTextfromDropDown(page,"formInit");
     await io.flowBuilder.addStep("locating the formInit buttton selector")
-    const divSelector = selectors.basePagePO.ACE_CONTENT; // Selector for the <div> element
-    const divElement = await page.$(divSelector);
-    const divTextContent = await divElement.textContent();
-    expect(divTextContent).not.toBeNull();
+    let divTextContent = await io.flowBuilder.getText(selectors.basePagePO.ACE_CONTENT);
+   await io.assert.expectNotToBeNull(divTextContent,"Value is not null")
   });
 });

@@ -2,9 +2,9 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import data1 from "@testData/ScriptDebugger/C93827.json"
 
-test.describe('C93827Validate user is getting auto-fill of function stub while creating "contentBasedFlowRouter" script through flow builder page', () => {
+test.describe('C93827 Validate user is getting auto-fill of function stub while creating "contentBasedFlowRouter" script through flow builder page', () => {
    
-    test('Validate user is getting auto-fill of function stub while creating "contentBasedFlowRouter" script through flow builder page', async({io,page}) => {
+    test('C93827 Validate user is getting auto-fill of function stub while creating "contentBasedFlowRouter" script through flow builder page', async({io,page}) => {
   
       const id =  await io.fillFormUI(
         data1,
@@ -21,13 +21,7 @@ test.describe('C93827Validate user is getting auto-fill of function stub while c
   
       await io.flowBuilder.click(selectors.basePagePO.FUNCTION_STUB);   
    await io.flowBuilder.selectTextfromDropDown(page,"contentBasedFlowRouter");
-  const divSelector = selectors.basePagePO.ACE_CONTENT; // Selector for the <div> element
-  // Check if the selector matches an element
-  const divElement = await page.$(divSelector);
-  const divTextContent = await divElement.textContent();
-    expect(divTextContent).not.toBeNull();
-  
-  // Check if the element exists and has non-null text content
-   
+   let divTextContent = await io.flowBuilder.getText(selectors.basePagePO.ACE_CONTENT);
+   await io.assert.expectNotToBeNull(divTextContent,"Value is not null")
     });
   })

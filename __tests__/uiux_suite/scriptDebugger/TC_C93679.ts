@@ -3,9 +3,9 @@ import * as selectors from "@celigo/aut-selectors";
 import data from "@testData/ScriptDebugger/C93679.json"
 
 
-test.describe('C93679Validate user is getting auto-fill of funtion stub while creating "filter" script through flow builder hook', () => {
+test.describe('C93679 Validate user is getting auto-fill of funtion stub while creating "filter" script through flow builder hook', () => {
    
-    test('Validate user is getting auto-fill of funtion stub while creating "filter" script through flow builder hook', async({io,page}) => {
+    test('C93679 Validate user is getting auto-fill of funtion stub while creating "filter" script through flow builder hook', async({io,page}) => {
   
       const id =  await io.fillFormUI(
         data,
@@ -25,13 +25,9 @@ test.describe('C93679Validate user is getting auto-fill of funtion stub while cr
       await io.flowBuilder.selectTextfromDropDown(page,"filter");
        // Scroll through the list of options to find "Transform" 
      
-       await io.flowBuilder.clickByText("Save & close");
-    await io.flowBuilder.click(selectors.flowBuilderPagePO.EDIT_SCRIPT_LABEL_SELECTOR)
-    
-    const divSelector = selectors.basePagePO.ACE_CONTENT; // Selector for the <div> element
-   
-  const divTextContent = await page.textContent(divSelector);
-  
-  expect(divTextContent).not.toBe(null);
+      await io.flowBuilder.clickByText("Save & close");
+      await io.flowBuilder.click(selectors.flowBuilderPagePO.EDIT_SCRIPT_LABEL_SELECTOR)
+      let divTextContent = await io.flowBuilder.getText(selectors.basePagePO.ACE_CONTENT);
+      await io.assert.expectNotToBeNull(divTextContent,"Value is not null")
     });
   })

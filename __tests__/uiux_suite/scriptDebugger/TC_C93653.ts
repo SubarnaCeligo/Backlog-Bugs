@@ -12,16 +12,13 @@ test.describe('C93653Validate user is able to create "branching" script through 
          data,
         'FLOWS'
       );
-  
       await io.flowBuilder.click( selectors.exportsPagePO.EXPORT_ADDPROCESSOR_BUTTON)
-  
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT_HOOK)
       await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_HOOK)
-  
       await io.flowBuilder.click(selectors.basePagePO.CREATE_SCRIPT_ARIA_LABEL);
-   await io.flowBuilder.fill(selectors.importPagePO.NAME, "mockscript");
-   await io.flowBuilder.click(selectors.basePagePO.FUNCTION_STUB);   
-    await io.flowBuilder.selectTextfromDropDown(page, "router");
-    await io.flowBuilder.clickByText("Save & close");
+      await io.flowBuilder.fill(selectors.importPagePO.NAME, "mockscript");
+      await io.flowBuilder.click(selectors.basePagePO.FUNCTION_STUB);   
+        await io.flowBuilder.selectTextfromDropDown(page, "router");
+        await io.flowBuilder.clickByText("Save & close");
   });
 });

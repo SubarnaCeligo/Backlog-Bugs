@@ -5,9 +5,9 @@ import data1 from "@testData/ScriptDebugger/C93831.json"
 
 
 
-test.describe('C93831Validate user is getting auto-fill of function stub while creating "contentBasedFlowRouter" script through flow builder hook', () => {
+test.describe('C93831 Validate user is getting auto-fill of function stub while creating "contentBasedFlowRouter" script through flow builder hook', () => {
    
-    test('Validate user is getting auto-fill of function stub while creating "contentBasedFlowRouter" script through flow builder hook', async({io,page}) => {
+    test('C93831 Validate user is getting auto-fill of function stub while creating "contentBasedFlowRouter" script through flow builder hook', async({io,page}) => {
   
       
     
@@ -20,20 +20,15 @@ test.describe('C93831Validate user is getting auto-fill of function stub while c
     
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT_HOOK)
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_HOOK)
-      await io.flowBuilder.click(selectors.basePagePO.CREATE_SCRIPT_ARIA_LABEL);
+        await io.flowBuilder.click(selectors.basePagePO.CREATE_SCRIPT_ARIA_LABEL);
         await io.flowBuilder.fill(selectors.importPagePO.NAME, "Contnet based  script");
         await io.flowBuilder.click(selectors.basePagePO.FUNCTION_STUB);   
         await io.flowBuilder.selectTextfromDropDown(page,"contentBasedFlowRouter");
-         await io.flowBuilder.clickByText("Save & close");
-      await io.flowBuilder.click(selectors.flowBuilderPagePO.EDIT_SCRIPT_LABEL_SELECTOR)
-      
-      const divSelector = selectors.basePagePO.ACE_CONTENT; // Selector for the <div> element
-     
-    const divTextContent = await page.textContent(divSelector);
-    
-    expect(divTextContent).not.toBe(null);
-  
-  // Check if the element exists and has non-null text content
+        await io.flowBuilder.clickByText("Save & close");
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.EDIT_SCRIPT_LABEL_SELECTOR)
+        let divTextContent = await io.flowBuilder.getText(selectors.basePagePO.ACE_CONTENT);
+        await io.assert.expectNotToBeNull(divTextContent,"Value is not null")
+
    
     });
   })

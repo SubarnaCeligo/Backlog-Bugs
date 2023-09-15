@@ -15,10 +15,7 @@ test.describe('C93651Validate that user is getting prefill function stub for "po
     await io.flowBuilder.clickByText("Create script");
     await io.flowBuilder.click(selectors.basePagePO.FUNCTION_STUB);   
     await io.flowBuilder.selectTextfromDropDown(page, "postResponseMap");
-    const divSelector = selectors.basePagePO.ACE_CONTENT; // Selector for the <div> element
-    // Check if the selector matches an element
-    const divElement = await page.$(divSelector);
-    const divTextContent = await divElement.textContent();
-    expect(divTextContent).not.toBeNull();
+    let divTextContent = await io.flowBuilder.getText(selectors.basePagePO.ACE_CONTENT);
+   await io.assert.expectNotToBeNull(divTextContent,"Value is not null")
   });
 });

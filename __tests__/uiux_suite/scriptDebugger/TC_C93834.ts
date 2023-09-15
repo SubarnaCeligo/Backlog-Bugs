@@ -2,9 +2,9 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import data1 from "@testData/ScriptDebugger/C93834.json"
 
-test.describe('C93834Validate user is getting auto-fill of function stub while creating "preSavePage" script through flow builder hook', () => {
+test.describe('C93834 Validate user is getting auto-fill of function stub while creating "preSavePage" script through flow builder hook', () => {
    
-    test('Validate user is getting auto-fill of function stub while creating "preSavePage" script through flow builder hook', async({io,page}) => {
+    test('C93834 Validate user is getting auto-fill of function stub while creating "preSavePage" script through flow builder hook', async({io,page}) => {
   
       
     
@@ -23,10 +23,10 @@ test.describe('C93834Validate user is getting auto-fill of function stub while c
         await io.flowBuilder.fill(selectors.importPagePO.NAME, "Pre save page  script");
         await io.flowBuilder.click(selectors.basePagePO.FUNCTION_STUB);   
         await io.flowBuilder.selectTextfromDropDown(page,"preSavePage");
-         await io.flowBuilder.clickByText("Save & close");
-      await io.flowBuilder.click(selectors.flowBuilderPagePO.EDIT_SCRIPT_LABEL_SELECTOR)
-      const divSelector = selectors.basePagePO.ACE_CONTENT; // Selector for the <div> element
-    const divTextContent = await page.textContent(divSelector);
-    expect(divTextContent).not.toBe(null);
+        await io.flowBuilder.clickByText("Save & close");
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.EDIT_SCRIPT_LABEL_SELECTOR)
+        let divTextContent = await io.flowBuilder.getText(selectors.basePagePO.ACE_CONTENT);
+        await io.assert.expectNotToBeNull(divTextContent,"Value is not null")
+
     });
   })
