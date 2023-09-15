@@ -1,0 +1,82 @@
+{
+    "name": "TC_C21052",
+    "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "test confluence",
+            "_connectionId": "Confluence cloud connection",
+            "apiIdentifier": "ef31f30c8e",
+            "asynchronous": true,
+            "assistant": "confluencecloud",
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+                "relativeURI": "/content?type=page&start={{{export.http.paging.skip}}}",
+                "method": "GET",
+                "requestMediaType": "json",
+                "successMediaType": "json",
+                "errorMediaType": "json",
+                "_httpConnectorVersionId": "637c5817098e3a8865f0a2a4",
+                "_httpConnectorResourceId": "637c5817098e3a8865f0a2a5",
+                "_httpConnectorEndpointId": "637c5817098e3a8865f0a2a6",
+                "formType": "assistant",
+                "paging": {
+                    "method": "skip",
+                    "skip": 0,
+                    "maxCountPath": "size"
+                },
+                "response": {
+                    "resourcePath": "results"
+                }
+            },
+            "rawData": "6459f5dc0dee1b3f6ca7a4bd9582211ea1df496c9319c01bb1f51dcd",
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Test import",
+            "_connectionId": "POSTGRESQL CONNECTION",
+            "apiIdentifier": "icdfce0876",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "rdbms": {
+                "query": [
+                    "SELECT * from table"
+                ],
+                "queryType": [
+                    "INSERT"
+                ]
+            },
+            "adaptorType": "RDBMSImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C21052",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+}
