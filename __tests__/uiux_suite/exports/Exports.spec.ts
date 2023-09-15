@@ -75,3 +75,4 @@ require("./TC_C22915");
 //     // await io.webActions.click(selectors.basePagePO.DISCARD_CHANGES);
 //   });
 // });
+require("./TC_C22817");
