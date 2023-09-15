@@ -21,7 +21,7 @@ test.describe('C93690 Validate user is getting auto-fill of funtion stub while c
      await io.flowBuilder.clickByText("Add branching");
      await io.flowBuilder.clickByText("JavaScript")
      await io.flowBuilder.click(selectors.basePagePO.SCRIPT_ID)
-     await io.flowBuilder.clickByTextByIndex("Post Submit script",0)
+     await io.flowBuilder.clickByTextByIndex("Post submit script",0)
      let divTextContent = await io.flowBuilder.getText(selectors.basePagePO.ACE_CONTENT);
      await io.assert.expectNotToBeNull(divTextContent,"Value is not null")
     });
