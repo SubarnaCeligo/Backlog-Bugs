@@ -1,14 +1,14 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C51661 from '../../../testData/EM2.0/TC_C51661.json';
+import C51637 from '../../../testData/EM2.0/C51637.json';
 
 test.describe("C51637 Verify the drawer title, tab titles and tab order in the 'Resolved Error' drawer", () => {
     test("C51637 Verify the drawer title, tab titles and tab order in the 'Resolved Error' drawer", async ({io, page}) => {
-        const errorFlowId = await io.fillFormUI(C51661, "FLOWS");
-        await io.api.runBatchFlowViaAPI('TC_C51661', errorFlowId);
+        const errorFlowId = await io.fillFormUI(C51637, "FLOWS");
+        await io.api.runBatchFlowViaAPI('TC_C51637', errorFlowId);
         const lastRun = page.getByText('Last run')
-        await lastRun.waitFor({state: 'visible'});
-        await page.getByText("1 error").nth(1).click();
+        await lastRun.waitFor({state: 'visible', timeout: 180000});
+        await io.flowBuilder.clickByTextByIndex("1 error", 1);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2dot0PO.TOGGLE_VIEW_DROPDOWN);
         const options = await page.$$(selectors.flowBuilderPagePO.EM2dot0PO.TOGGLE_VIEW_DROPDOWN_OPTIONS);
         options[1].click();
