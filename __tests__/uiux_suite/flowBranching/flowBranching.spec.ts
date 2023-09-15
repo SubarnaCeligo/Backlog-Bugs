@@ -1,3 +1,6 @@
+require("./TC_C49539");
+require("./TC_C47992");
+require("./TC_C47425");
 require('./TC_C93992');
 require('./TC_C93993');
 require('./TC_C93994');
