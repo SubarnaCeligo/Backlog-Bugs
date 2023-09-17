@@ -46,3 +46,6 @@ require("./TC_C93687")
 require("./TC_C93688")
 require("./TC_C93689")
 require("./TC_C93690")
+require('./Administrator/TC_C93694');
+require('./Administrator/TC_C93698');
+require('./Administrator/TC_C93710');
