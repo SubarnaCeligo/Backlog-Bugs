@@ -1,16 +1,16 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C51661 from '@testData/EM2.0/TC_C51661.json';
+import C50858 from '@testData/EM2.0/C50858.json';
 
 
 
 test.describe("C50858 Verify the displayed screen by clicking on the error count from the following pages within a flow bubble, flow step drawer, run console,and run history", () => {
   test("C50858 Verify the displayed screen by clicking on the error count from the following pages within a flow bubble, flow step drawer, run console,and run history", async ({io, page}) => {
-      const id = await io.fillFormUI(C51661,"FLOWS");
-      await io.api.runBatchFlowViaAPI('TC_C51661', id);
+      const id = await io.fillFormUI(C50858,"FLOWS");
+      await io.api.runBatchFlowViaAPI('TC_C50858', id);
       const lastRun = page.getByText('Last run')
-      await lastRun.waitFor({state: 'visible',timeout:60000*3});
-      await page.getByText("1 error").nth(1).click();
+      await lastRun.waitFor({state: 'visible', timeout: 180000});
+      await io.flowBuilder.clickByTextByIndex("1 error", 1);
 
       await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2dot0PO.TOGGLE_VIEW_DROPDOWN);
 
