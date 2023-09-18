@@ -20,5 +20,6 @@ require("./TC_C52094");
 require("./TC_C51628");
 require("./TC_C51637");
 require("./TC_C51664");
-require("./TC_C52047");;
-require("./TC_C50858");
+require("./TC_C52047");
+require("./TC_C50858");;
+require("./TC_C51623");
