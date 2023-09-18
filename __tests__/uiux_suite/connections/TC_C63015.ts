@@ -1,0 +1,20 @@
+import { expect, test } from "@celigo/ui-core-automation";
+import * as selectors from "@celigo/aut-selectors";
+
+test.describe(`C63015 Verify user is able to see API Type field with description, name, and radio input`, () => {
+  test(`C63015 Verify user is able to see API Type field with description, name, and radio input`, async ({
+    page,
+    io
+  }) => {
+    await io.homePage.navigateTo(process.env.IO_UI_CONNECTOR_URL + "connections");
+    await io.connectionPage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
+    await io.connectionPage.click('[data-test="Narvar"]');
+    const apiTypeOption = page.locator('[data-test="Narvar"]');
+    await io.assert.verifyElementContainsText('[data-test="Narvar"]', "Narvar");
+    await io.assert.verifyElementContainsText(
+      '[data-test="Narvar"]',
+      "Choose to enable post purchase services, such as orders and shipments."
+    );
+    await expect(apiTypeOption.getByRole("radio")).toBeVisible();
+  });
+});
