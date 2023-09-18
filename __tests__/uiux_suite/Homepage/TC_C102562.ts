@@ -23,7 +23,7 @@ test.describe("C102562 Verify for items at the bottom of navigation bar with sub
     await io.assert.expectToBeValue(
       subMenuTopMargin,
       "auto",
-      "Sub-menu is not visible"
+      "Sub-menu items are not bottom aligned"
     );
   });
 });
