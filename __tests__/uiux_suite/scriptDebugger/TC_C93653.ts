@@ -12,30 +12,13 @@ test.describe('C93653Validate user is able to create "branching" script through 
          data,
         'FLOWS'
       );
-  
       await io.flowBuilder.click( selectors.exportsPagePO.EXPORT_ADDPROCESSOR_BUTTON)
-  
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT_HOOK)
       await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_HOOK)
-  
-   await page.getByLabel('Create script').click();
-  
-  
-   await io.flowBuilder.fill(selectors.importPagePO.NAME, "mockscript");
-  
-    
-  
-    // Ensure that the choose function stub field is visible
-    const chooseFunctionStubField = await page.$(
-      selectors.basePagePO.FUNCTION_STUB
-    );
-    await chooseFunctionStubField.click();
-
-    await io.flowBuilder.selectTextfromDropDown(page, "router");
-    // Scroll through the list of options to find "Transform"
-
-    await io.flowBuilder.clickByText("Save & close");
-
-    // await page.pause();
+      await io.flowBuilder.click(selectors.basePagePO.CREATE_SCRIPT_ARIA_LABEL);
+      await io.flowBuilder.fill(selectors.importPagePO.NAME, "mockscript");
+      await io.flowBuilder.click(selectors.basePagePO.FUNCTION_STUB);   
+        await io.flowBuilder.selectTextfromDropDown(page, "router");
+        await io.flowBuilder.clickByText("Save & close");
   });
 });
