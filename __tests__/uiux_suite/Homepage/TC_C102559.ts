@@ -7,7 +7,7 @@ test.describe("C102559 Verify Hovering over any item that contains a sub-level m
     page
   }) => {
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
-    await page.hover('[data-test="Account"]');
+    await page.hover(selectors.basePagePO.ACCOUNT);
     await io.homePage.addStep("Hovered over 'Account'");
     await io.assert.verifyElementIsDisplayed(
       selectors.homePagePO.SIGN_OUT,

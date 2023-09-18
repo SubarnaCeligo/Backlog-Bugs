@@ -8,8 +8,8 @@ test.describe('C65081 Verify "My account" option moved from the top navigation b
   }) => {
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
     const topNav = page.locator(selectors.basePagePO.TOP_MENUBAR_DIV_SELECTOR);
-    const leftNav = page.locator(".MuiDrawer-root.MuiDrawer-docked > div");
-    const myAccount = page.locator('[data-test="Account"]');
+    const leftNav = page.locator(selectors.basePagePO.LEFT_NAV);
+    const myAccount = page.locator(selectors.basePagePO.ACCOUNT);
     await expect(topNav.locator(myAccount)).not.toBeVisible();
     await io.homePage.addStep(
       "Verified My Account is not visible in the top nav"

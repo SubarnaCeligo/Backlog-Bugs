@@ -7,8 +7,8 @@ test.describe("C65083 Verify Relocated the “Help” option from the left navig
     page
   }) => {
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
-    const leftNav = page.locator(".MuiDrawer-root.MuiDrawer-docked > div");
-    await expect(leftNav.locator('[data-test="Help"]')).toBeVisible();
+    const leftNav = page.locator(selectors.basePagePO.LEFT_NAV);
+    await expect(leftNav.locator(selectors.basePagePO.HELP)).toBeVisible();
     await io.homePage.addStep("Verified 'Help' is visible in the left nav");
   });
 });

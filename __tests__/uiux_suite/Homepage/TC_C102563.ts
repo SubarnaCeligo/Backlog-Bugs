@@ -7,11 +7,11 @@ test.describe("C102563 Verify White checkmarks is showing for active section", (
     page
   }) => {
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
-    await page.hover('[data-test="Account"]');
+    await page.hover(selectors.basePagePO.ACCOUNT);
     await io.homePage.addStep("Hovered over 'Account'");
-    await io.homePage.click('[data-test="Profile"]');
-    const profile = page.locator('[data-test="Profile"]');
-    await expect(profile.locator('[data-testid="CheckIcon"]')).toBeVisible();
+    await io.homePage.click(selectors.myAccountPagePO.PROFILE);
+    const profile = page.locator(selectors.myAccountPagePO.PROFILE);
+    await expect(profile.locator(selectors.basePagePO.CHECK_ICON)).toBeVisible();
     await io.homePage.addStep(
       "Verified White checkmarks is showing for active section"
     );

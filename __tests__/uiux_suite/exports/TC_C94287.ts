@@ -11,7 +11,7 @@ test.describe(`C94287 Verify user should be able to see the connection dropdown`
     await io.exportsPage.clickByText("REST API (HTTP)");
     await io.exportsPage.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
     await io.assert.verifyElementIsDisplayed(
-      "#connections-dropdown-listbox",
+      selectors.connectionsPagePO.CONNECTIONS_DROPDOWN_LIST,
       "Connection dropdown is not displayed"
     );
   });

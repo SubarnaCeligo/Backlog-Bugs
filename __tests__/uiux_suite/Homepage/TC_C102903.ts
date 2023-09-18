@@ -7,9 +7,9 @@ test.describe("C102903 Verify User is able to navigate to correct window on clic
     page
   }) => {
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
-    await page.hover('[data-test="Resources"]');
+    await page.hover(selectors.basePagePO.RESOURCES);
     await io.homePage.addStep("Hovered over 'Resources'");
-    await io.homePage.click('[data-test="Imports"]');
+    await io.homePage.click(selectors.basePagePO.IMPORTS);
     await io.assert.expectToBeValue(
       page.url(),
       `${process.env.IO_UI_CONNECTOR_URL}imports`,

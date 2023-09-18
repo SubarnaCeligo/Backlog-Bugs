@@ -7,9 +7,9 @@ test.describe("C102561 Verify if we hover over item/sub menu, It should highligh
     page
   }) => {
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
-    await page.hover('[data-test="Account"]');
+    await page.hover(selectors.basePagePO.ACCOUNT);
     await io.homePage.addStep("Hovered over 'Account'");
-    await expect(page.locator('[data-test="Account"]')).toHaveCSS(
+    await expect(page.locator(selectors.basePagePO.ACCOUNT)).toHaveCSS(
       "background-color",
       "rgb(51, 61, 71)"
     );
