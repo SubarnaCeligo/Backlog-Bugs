@@ -14,6 +14,6 @@ test.describe("C59977 Verify Post response map is persisted for flow with router
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.POST_RESPONSE_MAP_HOOK);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FUNCTION_NAME_INPUT);
-        await io.assert.verifyElementContainsText("[data-test='postResponseMap']", 'Insert post response map stub');
+        await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.POST_RESPONSE_MAP_DATA_TEST, 'Insert post response map stub');
     });
   });
