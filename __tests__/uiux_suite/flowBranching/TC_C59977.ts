@@ -15,5 +15,13 @@ test.describe("C59977 Verify Post response map is persisted for flow with router
         await io.flowBuilder.click(selectors.flowBuilderPagePO.POST_RESPONSE_MAP_HOOK);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FUNCTION_NAME_INPUT);
         await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.POST_RESPONSE_MAP_DATA_TEST, 'Insert post response map stub');
+        await io.flowBuilder.click(selectors.basePagePO.CLOSE);
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.PLUS_BUTTONS);
+        await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.PLUS_BUTTONS, 0);
+        await page.getByRole('menuitem', { name: 'Add branching' }).click();
+        await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.POST_RESPONSE_MAP_HOOK);
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FUNCTION_NAME_INPUT);
+        await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.POST_RESPONSE_MAP_DATA_TEST, 'Insert post response map stub');
     });
   });
