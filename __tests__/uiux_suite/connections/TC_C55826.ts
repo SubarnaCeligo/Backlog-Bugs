@@ -17,16 +17,24 @@ test.describe(`C55826 Verify connection dropdown Replace connection in flow buil
     );
     await io.flowBuilder.clickByText("Replace connection");
     await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
-    const connectionText = await io.flowBuilder.getText(
+    const connectionText = (await io.flowBuilder.getText(
       selectors.connectionsPagePO.CONNECTION_OPTION_TEXT
+    )) as string;
+    await page.getByText("API type").first().waitFor({ state: "visible" });
+    await io.assert.expectToContainValue(
+      "Narvar",
+      connectionText,
+      "Connection name not found"
     );
-    // Added delay due to dropdown bug
-    await io.flowBuilder.delay(1000);
-    expect(connectionText).toContain("Narvar");
-    await io.flowBuilder.addStep("Verified connection name is displayed");
-    expect(connectionText).toContain("API type");
-    await io.flowBuilder.addStep("Verified API type is displayed");
-    expect(connectionText).toContain("API version");
-    await io.flowBuilder.addStep("Verified API version is displayed");
+    await io.assert.expectToContainValue(
+      "API type",
+      connectionText,
+      "API type not found"
+    );
+    await io.assert.expectToContainValue(
+      "API version",
+      connectionText,
+      "API version not found"
+    );
   });
 });

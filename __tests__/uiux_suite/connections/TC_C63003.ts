@@ -21,13 +21,22 @@ test.describe(`C63003 Verify connection dropdown while clonning flow`, () => {
     await io.flowBuilder.clickByText("Use existing connection");
     await io.flowBuilder.click(selectors.basePagePO.CONNECTION);
     const connectionText = await page.getByRole("menuitem").nth(1).textContent();
-    // added delay due to connection dropdown bug
-    await io.flowBuilder.delay(1000);
-    expect(connectionText).toContain("Narvar");
-    await io.flowBuilder.addStep("Verified connection name is displayed");
-    expect(connectionText).toContain("API type");
-    await io.flowBuilder.addStep("Verified API type is displayed");
-    expect(connectionText).toContain("API version");
-    await io.flowBuilder.addStep("Verified API version is displayed");
+    await page.getByText("API type").first().waitFor({ state: "visible" });
+
+    await io.assert.expectToContainValue(
+      "Narvar",
+      connectionText,
+      "Connection name not found"
+    );
+    await io.assert.expectToContainValue(
+      "API type",
+      connectionText,
+      "API type not found"
+    );
+    await io.assert.expectToContainValue(
+      "API version",
+      connectionText,
+      "API version not found"
+    );
   });
 });
