@@ -6,11 +6,11 @@ test.describe("C102708 Showing the 'Save the changes' pop up when we are seeing 
       await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
       await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.PLUS_BUTTONS);
-      await page.locator(selectors.flowBuilderPagePO.PLUS_BUTTONS).nth(0).click();
+      await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.PLUS_BUTTONS, 0);
       await page.getByRole('menuitem', { name: 'Add branching' }).click();
       await io.flowBuilder.waitForElementAttached(selectors.basePagePO.SAVE_AND_CLOSE);
       await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
-      await io.flowBuilder.click('[aria-label="Edit branching"]');
+      await io.flowBuilder.click(selectors.flowBuilderPagePO.EDIT_BRANCHING);
       await io.assert.verifyElementAttributeContainsText(selectors.basePagePO.SAVE, 'class', 'Mui-disabled');
       await io.assert.verifyElementIsDisplayed(selectors.basePagePO.CLOSE, 'Close button not displayed');
     });

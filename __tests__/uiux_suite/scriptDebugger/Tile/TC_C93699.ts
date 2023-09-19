@@ -9,6 +9,6 @@ test.describe('C93699 Validate that user is able to see " postResponseMap" funct
     await io.homePage.waitForElementAttached(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.flowBuilder.click(selectors.basePagePO.FUNCTION_STUB);
-    await io.assert.verifyElementIsDisplayed('[data-value="postResponseMap"]',"Element is present")
+    await io.assert.verifyElementIsDisplayed(selectors.basePagePO.POST_RESPONSE_MAP,"Element is present")
   });
 });
