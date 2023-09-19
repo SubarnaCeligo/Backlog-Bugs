@@ -8,6 +8,7 @@ test.describe(`C63015 Verify user is able to see API Type field with description
   }) => {
     await io.homePage.navigateTo(process.env.IO_UI_CONNECTOR_URL + "connections");
     await io.connectionPage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
+    // TODO replace: selectors.connectionsPagePO.NARVAR_CONNECTION
     await io.connectionPage.click('[data-test="Narvar"]');
     const apiTypeOption = page.locator('[data-test="Narvar"]');
     await io.assert.verifyElementContainsText('[data-test="Narvar"]', "Narvar");

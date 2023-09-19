@@ -23,6 +23,7 @@ test.describe(`C63021 Verify User is able create connection while installing int
       '[data-test="Narvar"]',
       "API type 'Narvar' not visible"
     );
+    // TODO replace: selectors.connectionsPagePO.NARVAR_RMA_CONNECTION
     await io.assert.verifyElementIsDisplayed(
       '[data-test="Narvar RMA"]',
       "API type 'Narvar' not visible"
