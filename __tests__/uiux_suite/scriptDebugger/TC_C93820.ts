@@ -20,5 +20,7 @@ test.describe('C93820 Validate user is able to create "postAggregate" script thr
       await io.flowBuilder.click(selectors.basePagePO.FUNCTION_STUB);   
       await io.flowBuilder.selectTextfromDropDown(page, "postAggregate");
       await io.flowBuilder.clickByText("Save & close");
+      await io.flowBuilder.waitForElementAttached(':has-text("mockscript")');
+      await io.assert.verifyElementText(selectors.flowBuilderPagePO.SCRIPT_ID, 'mockscript');
   });
   });
