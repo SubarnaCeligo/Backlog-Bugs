@@ -10,6 +10,6 @@ test.describe("C55915 Verify the Visibility of 'Pendo-Zendesk chat bot' in the i
     const isChatBotVisible = await io.homePage.isVisible(
       selectors.basePagePO.CHAT_BOT
     );
-    expect(isChatBotVisible).toBe(true);
+    await io.assert.expectToBeTrue(isChatBotVisible, "chatbot not visible");
   });
 });
