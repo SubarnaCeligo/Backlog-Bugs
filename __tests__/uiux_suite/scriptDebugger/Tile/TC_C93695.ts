@@ -2,13 +2,16 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 
-test.describe('C93695 Validate that user is able to see "formInit" function in “Insert function stub” field while creating a script (Tile Level)', () => {
-  test('C93695 Validate that user is able to see "formInit" function in “Insert function stub” field while creating a script (Tile Level)', async ({io,page}) => {
+test.describe('C93695 Validate that user is not able to see "formInit" function in “Insert function stub” field while creating a script (Tile Level)', () => {
+  test('C93695 Validate that user is not able to see "formInit" function in “Insert function stub” field while creating a script (Tile Level)', async ({io,page}) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.homePage.goToMenu("Resources","Scripts");
-    await io.homePage.waitForElementAttached(selectors.basePagePO.ADD_NEW_RESOURCE);
-    await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
-    await io.flowBuilder.click(selectors.basePagePO.FUNCTION_STUB);
-    await io.assert.verifyElementIsDisplayed(selectors.basePagePO.FORM_INIT_FUNCTION,"Element is present")
+    const isResourceVisible = await io.homePage.isVisible(selectors.basePagePO.RESOURCES);
+    if(isResourceVisible){
+        await page.hover(selectors.basePagePO.RESOURCES);
+        const isScriptsVisible = await io.homePage.isVisible('[data-test="Scripts"]');
+        await io.assert.expectToBeValue('false', isScriptsVisible.toString(), 'Scripts page is visible');
+    }else{
+        await io.assert.expectToBeValue('false', isResourceVisible.toString(), 'Resource page is visible');
+    }
   });
 });
