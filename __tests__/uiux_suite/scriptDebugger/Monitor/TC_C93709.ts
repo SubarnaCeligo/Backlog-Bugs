@@ -5,17 +5,12 @@ import C93708 from "../../../../testData/ScriptDebugger/C93708.json"
 
 test.describe('C93709 Validate user is able to create "formInit" script through flow builder page (Monitor)', () => {
     test('C93709 Validate user is able to create "formInit" script through flow builder page (Monitor)', async({io,page}) => {
-      await io.fillFormUI(C93708,'FLOWS');
+      await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+      await io.flowBuilder.clickByText('TC_51661_DND');
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
       await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR, 0);
-      await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT_HOOK)
-      await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_HOOK)
-      await io.flowBuilder.click(selectors.basePagePO.CREATE_SCRIPT_ARIA_LABEL);
-      await io.flowBuilder.fill(selectors.importPagePO.NAME, "test_script");
-      await io.flowBuilder.click(selectors.basePagePO.FUNCTION_STUB);   
-      await io.flowBuilder.click(selectors.basePagePO.FORM_INIT_FUNCTION);
-      await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
-      await io.flowBuilder.waitForElementAttached(':has-text("test_script")');
-      await io.assert.verifyElementText(selectors.flowBuilderPagePO.SCRIPT_ID, 'test_script');
+      await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT_HOOK);
+      await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_HOOK);
+      await io.assert.verifyElementAttributeContainsText(`${selectors.basePagePO.CREATE_SCRIPT_ARIA_LABEL} button`, 'class', 'Mui-disabled');
     });
 });
