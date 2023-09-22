@@ -10,17 +10,21 @@ test.describe(`C63064 Verify in connection if user selected one api type in simp
     await io.connectionPage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
     // TODO replace: selectors.connectionsPagePO.NARVAR_CONNECTION
     await io.connectionPage.click('[data-test="Narvar"]');
+    // TODO replace: selectors.connectionsPagePO.NARVAR_RMA_CONNECTION
     await io.connectionPage.click('[data-test="Narvar RMA"]');
     await io.connectionPage.fill(selectors.basePagePO.NAME, "Narvar-RMA-Test");
     await io.connectionPage.fill(
+      // TODO replace: selectors.connectionsPagePO.USERNAME
       '[data-test="http.auth.basic.username"] input',
       "narvar"
     );
     await io.connectionPage.fill(
+      // TODO replace: selectors.connectionsPagePO.PASSWORD
       '[data-test="http.auth.basic.password"] input',
       "E59E404A332C1692B4CB1D63103E5520"
     );
     await io.connectionPage.fill(
+      // TODO replace: selectors.connectionsPagePO.STORENAME
       '[data-test="http.unencrypted.storename"] input',
       "celigo-test-2"
     );
@@ -33,6 +37,7 @@ test.describe(`C63064 Verify in connection if user selected one api type in simp
     // TODO replace: await io.flowBuilder.click(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
     await io.flowBuilder.click('[data-test="Simple"]');
     await expect(
+      // TODO replace: selectors.connectionsPagePO.NARVAR_RMA_CONNECTION
       page.locator('[data-test="Narvar RMA"]').getByRole("radio")
     ).toBeChecked();
   });

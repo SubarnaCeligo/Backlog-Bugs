@@ -21,14 +21,17 @@ test.describe(`C63024 Verify user is able to create connection from already crea
     await io.homePage.click('[data-test="Narvar RMA"]');
     await io.homePage.fill(selectors.basePagePO.NAME, "Narvar-RMA-Test");
     await io.homePage.fill(
+      // TODO replace: selectors.connectionsPagePO.USERNAME
       '[data-test="http.auth.basic.username"] input',
       "narvar"
     );
     await io.homePage.fill(
+      // TODO replace: selectors.connectionsPagePO.PASSWORD
       '[data-test="http.auth.basic.password"] input',
       "E59E404A332C1692B4CB1D63103E5520"
     );
     await io.homePage.fill(
+      // TODO replace: selectors.connectionsPagePO.STORENAME
       '[data-test="http.unencrypted.storename"] input',
       "celigo-test-2"
     );

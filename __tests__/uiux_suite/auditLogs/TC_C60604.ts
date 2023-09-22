@@ -8,7 +8,9 @@ test.describe(`C60604 Verify View label colour before hovering over the link and
   }) => {
     await io.homePage.navigateTo(process.env.IO_Integration_URL);
     await io.flowBuilder.clickByText("Narvar_DND");
+    // TODO replace: selectors.flowBuilderPagePO.AUDIT_LOGS
     await io.flowBuilder.click('[data-test="auditLogs"]');
+    // TODO replace: selectors.flowBuilderPagePO.AUDIT_LOG_CHANGES
     let label = page.locator('[data-test="auditLogChanges"]').first();
     await expect(label).toHaveCSS("color", "rgb(29, 118, 199)");
     await label.hover();
@@ -16,6 +18,7 @@ test.describe(`C60604 Verify View label colour before hovering over the link and
     await io.homePage.navigateTo(
       process.env.IO_UI_CONNECTOR_URL + "myAccount/audit"
     );
+    // TODO replace: selectors.flowBuilderPagePO.AUDIT_LOG_CHANGES
     label = page.locator('[data-test="auditLogChanges"]').first();
     await expect(label).toHaveCSS("color", "rgb(29, 118, 199)");
     await label.hover();

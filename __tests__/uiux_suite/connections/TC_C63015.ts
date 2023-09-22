@@ -10,9 +10,12 @@ test.describe(`C63015 Verify user is able to see API Type field with description
     await io.connectionPage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
     // TODO replace: selectors.connectionsPagePO.NARVAR_CONNECTION
     await io.connectionPage.click('[data-test="Narvar"]');
+    // TODO replace: selectors.connectionsPagePO.NARVAR_CONNECTION
     const apiTypeOption = page.locator('[data-test="Narvar"]');
+    // TODO replace: selectors.connectionsPagePO.NARVAR_CONNECTION
     await io.assert.verifyElementContainsText('[data-test="Narvar"]', "Narvar");
     await io.assert.verifyElementContainsText(
+      // TODO replace: selectors.connectionsPagePO.NARVAR_CONNECTION
       '[data-test="Narvar"]',
       "Choose to enable post purchase services, such as orders and shipments."
     );

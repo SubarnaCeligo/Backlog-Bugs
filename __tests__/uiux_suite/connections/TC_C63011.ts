@@ -37,10 +37,12 @@ test.describe(`C63011 Verify User is able create connection while cloning integr
       selectors.integrationPagePO.SETUP_INTEGRATION_CONFIGURE_BUTTON
     );
     await io.assert.verifyElementIsDisplayed(
+      // TODO replace: selectors.connectionsPagePO.NARVAR_CONNECTION
       '[data-test="Narvar"]',
       "API type 'Narvar' not visible"
     );
     await io.assert.verifyElementIsDisplayed(
+      // TODO replace: selectors.connectionsPagePO.NARVAR_RMA_CONNECTION
       '[data-test="Narvar RMA"]',
       "API type 'Narvar' not visible"
     );
