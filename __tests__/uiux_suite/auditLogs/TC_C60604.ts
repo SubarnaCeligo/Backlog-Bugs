@@ -16,7 +16,7 @@ test.describe(`C60604 Verify View label colour before hovering over the link and
     await io.homePage.navigateTo(
       process.env.IO_UI_CONNECTOR_URL + "myAccount/audit"
     );
-    label = page.locator('[data-test="auditLogChanges"]');
+    label = page.locator('[data-test="auditLogChanges"]').first();
     await expect(label).toHaveCSS("color", "rgb(29, 118, 199)");
     await label.hover();
     await expect(label).toHaveCSS("color", "rgb(0, 161, 225)");
