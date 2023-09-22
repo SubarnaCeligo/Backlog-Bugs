@@ -8,15 +8,16 @@ test.describe(`C63015 Verify user is able to see API Type field with description
   }) => {
     await io.homePage.navigateTo(process.env.IO_UI_CONNECTOR_URL + "connections");
     await io.connectionPage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
-    // TODO replace: selectors.connectionsPagePO.NARVAR_CONNECTION
-    await io.connectionPage.click('[data-test="Narvar"]');
-    // TODO replace: selectors.connectionsPagePO.NARVAR_CONNECTION
-    const apiTypeOption = page.locator('[data-test="Narvar"]');
-    // TODO replace: selectors.connectionsPagePO.NARVAR_CONNECTION
-    await io.assert.verifyElementContainsText('[data-test="Narvar"]', "Narvar");
+    await io.connectionPage.click(selectors.connectionsPagePO.NARVAR_CONNECTION);
+    const apiTypeOption = page.locator(
+      selectors.connectionsPagePO.NARVAR_CONNECTION
+    );
     await io.assert.verifyElementContainsText(
-      // TODO replace: selectors.connectionsPagePO.NARVAR_CONNECTION
-      '[data-test="Narvar"]',
+      selectors.connectionsPagePO.NARVAR_CONNECTION,
+      "Narvar"
+    );
+    await io.assert.verifyElementContainsText(
+      selectors.connectionsPagePO.NARVAR_CONNECTION,
       "Choose to enable post purchase services, such as orders and shipments."
     );
     await expect(apiTypeOption.getByRole("radio")).toBeVisible();

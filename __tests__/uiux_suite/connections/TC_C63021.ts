@@ -19,22 +19,15 @@ test.describe(`C63021 Verify User is able create connection while installing int
     await io.homePage.click(
       selectors.integrationPagePO.SETUP_INTEGRATION_CONFIGURE_BUTTON
     );
-    // TODO replace: selectors.connectionsPagePO.NARVAR_RMA_CONNECTION
-    await io.homePage.click('[data-test="Narvar RMA"]');
+    await io.homePage.click(selectors.connectionsPagePO.NARVAR_RMA_CONNECTION);
     await io.homePage.fill(selectors.basePagePO.NAME, "Narvar-RMA-Test");
+    await io.homePage.fill(selectors.connectionsPagePO.USERNAME, "narvar");
     await io.homePage.fill(
-      // TODO replace: selectors.connectionsPagePO.USERNAME
-      '[data-test="http.auth.basic.username"] input',
-      "narvar"
-    );
-    await io.homePage.fill(
-      // TODO replace: selectors.connectionsPagePO.PASSWORD
-      '[data-test="http.auth.basic.password"] input',
+      selectors.connectionsPagePO.PASSWORD,
       "E59E404A332C1692B4CB1D63103E5520"
     );
     await io.homePage.fill(
-      // TODO replace: selectors.connectionsPagePO.STORENAME
-      '[data-test="http.unencrypted.storename"] input',
+      selectors.connectionsPagePO.STORENAME,
       "celigo-test-2"
     );
     await io.homePage.click(selectors.basePagePO.SAVE);
