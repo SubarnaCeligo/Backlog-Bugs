@@ -1,8 +1,8 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe(`C63021 Verify User is able create connection while installing integration.`, () => {
-  test(`C63021 Verify User is able create connection while installing integration.`, async ({
+test.describe(`C63022 Verify User is able use existing connection with different API Type while installing integration.`, () => {
+  test(`C63022 Verify User is able use existing connection with different API Type while installing integration.`, async ({
     page,
     io
   }) => {
@@ -19,25 +19,13 @@ test.describe(`C63021 Verify User is able create connection while installing int
     await io.homePage.click(
       selectors.integrationPagePO.SETUP_INTEGRATION_CONFIGURE_BUTTON
     );
-    // TODO replace: selectors.connectionsPagePO.NARVAR_RMA_CONNECTION
-    await io.homePage.click('[data-test="Narvar RMA"]');
-    await io.homePage.fill(selectors.basePagePO.NAME, "Narvar-RMA-Test");
-    await io.homePage.fill(
-      '[data-test="http.auth.basic.username"] input',
-      "narvar"
-    );
-    await io.homePage.fill(
-      '[data-test="http.auth.basic.password"] input',
-      "E59E404A332C1692B4CB1D63103E5520"
-    );
-    await io.homePage.fill(
-      '[data-test="http.unencrypted.storename"] input',
-      "celigo-test-2"
-    );
+    await io.flowBuilder.clickByText("Use existing connection");
+    await io.flowBuilder.click(selectors.basePagePO.CONNECTION);
+    await io.flowBuilder.clickByTextByIndex("Narvar RMA", 0);
     await io.homePage.click(selectors.basePagePO.SAVE);
     await io.assert.verifyElementDisplayedByText(
       "Configured",
-      "Connection creation error"
+      "Connection configuration error"
     );
   });
 });
