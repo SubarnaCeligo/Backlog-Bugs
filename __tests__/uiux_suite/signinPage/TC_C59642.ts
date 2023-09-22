@@ -13,9 +13,10 @@ test.describe(`Verify after clicking on "https://www.celigo.com/platform/free\-t
       .first()
       .click();
     await io.homePage.addStep("Clicked on Free Trial Link");
-    expect(page.url()).toContain("https://integrator.io/signup");
-    await io.homePage.addStep(
-      "Verified User is re-directing to https://integrator.io/signup Page."
+    await io.assert.expectToContainValue(
+      "https://integrator.io/signup",
+      page.url(),
+      "User is not re-directing to https://integrator.io/signup Page."
     );
   });
 });
