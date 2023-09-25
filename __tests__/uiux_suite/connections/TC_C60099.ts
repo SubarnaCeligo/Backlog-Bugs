@@ -1,14 +1,13 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import testData from "@testData/Connections/C59658.json";
+import testData from "@testData/Connections/Narvar.json";
 
 test.describe(`C60099 Verify connection dropdown for edit lookups`, () => {
   test(`C60099 Verify connection dropdown for edit lookups`, async ({
     io,
     page
   }) => {
-    await io.homePage.navigateTo(process.env.IO_Integration_URL);
-    await io.flowBuilder.clickByText("Narvar_DND");
+    await io.fillFormUI(testData, "FLOWS");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.LOOKUP);
     await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
     const connectionText = (await io.flowBuilder.getText(

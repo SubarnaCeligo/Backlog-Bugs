@@ -1,0 +1,103 @@
+{
+  "name": "Narvar_Flow",
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "_id": "6502fbcceb637a5d0a153056",
+        "createdAt": "2023-09-14T12:25:48.053Z",
+        "lastModified": "2023-09-14T12:25:48.165Z",
+        "name": "test",
+        "_connectionId": "Narvar",
+        "apiIdentifier": "e49e91c200",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": "/orders/12",
+          "method": "GET",
+          "headers": [],
+          "requestMediaType": "json",
+          "successMediaType": "json",
+          "errorMediaType": "json",
+          "_httpConnectorVersionId": "631e0eb7065d342533672a61",
+          "_httpConnectorResourceId": "631e0eb9fce6ff22a74752c6",
+          "_httpConnectorEndpointId": "631e0ebb6592db322b5395c8",
+          "formType": "assistant",
+          "response": {
+            "successValues": []
+          }
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "_id": "6502fc357f01c42fe25aa0f5",
+        "createdAt": "2023-09-14T12:27:33.022Z",
+        "lastModified": "2023-09-14T12:27:33.166Z",
+        "name": "Narvar Import",
+        "_connectionId": "Narvar",
+        "apiIdentifier": "i4c0a16733",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "lookups": [],
+        "http": {
+          "relativeURI": ["/orders"],
+          "method": ["POST"],
+          "body": [
+            "{{#each data}}\n                {\n                  {{#each this}}\n                  {{#compare @key \"==\" \"ioRecordIndex\"}}  \n                  {{else}} \n                    {{#compare @key \"==\" \"ioFirstRecord\"}}  \n                      {{else}} \n                        {{#compare @key \"==\" \"ioLastRecord\"}}  \n                        {{else}} \n                          {{#if @index}},{{/if}} {{{jsonSerialize @key}}}: {{{jsonSerialize this}}} \n                        {{/compare}} \n                      {{/compare}}   \n                  {{/compare}}\n                  {{/each}}\n                }\n                {{/each}}"
+          ],
+          "headers": [],
+          "requestMediaType": "json",
+          "successMediaType": "json",
+          "errorMediaType": "json",
+          "strictHandlebarEvaluation": false,
+          "sendPostMappedData": true,
+          "_httpConnectorVersionId": "631e0eb7065d342533672a61",
+          "_httpConnectorResourceId": "631e0eb9fce6ff22a74752c6",
+          "_httpConnectorEndpointIds": ["631e0ebd065d342533672a81"],
+          "formType": "assistant",
+          "lookups": []
+        },
+        "adaptorType": "HTTPImport"
+      }
+    },
+    {
+      "type": "export",
+      "qa__export": {
+        "_id": "6502fc4f1e923e12b84f7147",
+        "createdAt": "2023-09-14T12:27:59.579Z",
+        "lastModified": "2023-09-14T12:27:59.673Z",
+        "name": "Narvar lookup",
+        "_connectionId": "Narvar",
+        "apiIdentifier": "ebe5ec6451",
+        "asynchronous": true,
+        "isLookup": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": "/orders/12",
+          "method": "GET",
+          "headers": [],
+          "requestMediaType": "json",
+          "successMediaType": "json",
+          "errorMediaType": "json",
+          "_httpConnectorVersionId": "631e0eb7065d342533672a61",
+          "_httpConnectorResourceId": "631e0eb9fce6ff22a74752c6",
+          "_httpConnectorEndpointId": "631e0ebb6592db322b5395c8",
+          "formType": "assistant",
+          "response": {
+            "successValues": []
+          }
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ]
+}

@@ -1,16 +1,16 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
+import testData from "@testData/Connections/Narvar.json";
 
 test.describe(`C63003 Verify connection dropdown while clonning flow`, () => {
   test(`C63003 Verify connection dropdown while clonning flow`, async ({
     io,
     page
   }) => {
-    await io.homePage.navigateTo(process.env.IO_Integration_URL);
-    await io.flowBuilder.clickByText("Narvar_DND");
+    await io.fillFormUI(testData, "FLOWS");
     await page
       .locator("div")
-      .filter({ hasText: /^Narvar_DNDTEST MODEBeta$/ })
+      .filter({ hasText: /^Narvar_FlowTEST MODEBeta$/ })
       .locator(selectors.connectionsPagePO.ACTIONS_MENU_BUTTON)
       .click();
     await io.flowBuilder.clickByText("Clone flow");
