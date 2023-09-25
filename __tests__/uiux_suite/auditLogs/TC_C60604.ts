@@ -1,13 +1,13 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
+import testData from "@testData/Connections/Narvar.json";
 
 test.describe(`C60604 Verify View label colour before hovering over the link and after hovering over the link.`, () => {
   test(`C60604 Verify View label colour before hovering over the link and after hovering over the link.`, async ({
     io,
     page
   }) => {
-    await io.homePage.navigateTo(process.env.IO_Integration_URL);
-    await io.flowBuilder.clickByText("Narvar_DND");
+    await io.fillFormUI(testData, "FLOWS");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.AUDIT_LOGS);
     let label = page
       .locator(selectors.flowBuilderPagePO.AUDIT_LOG_CHANGES)

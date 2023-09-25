@@ -1,13 +1,13 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
+import testData from "@testData/Connections/Narvar.json";
 
 test.describe(`C63061 Verify fields are autopopulating once user switch from Simple to HTTP View in import/export/lookup`, () => {
   test(`C63061 Verify fields are autopopulating once user switch from Simple to HTTP View in import/export/lookup`, async ({
     page,
     io
   }) => {
-    await io.homePage.navigateTo(process.env.IO_Integration_URL);
-    await io.flowBuilder.clickByText("Narvar_DND");
+    await io.fillFormUI(testData, "FLOWS");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH);
 
