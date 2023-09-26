@@ -1,0 +1,1208 @@
+{
+    "name": "TC_C65758",
+    "pageGenerators": [
+        {
+            "qa__export":{
+                "name": "zendesk_new",
+    "_connectionId": "HTTP ZENDESK CONNECTION",
+    "_sourceId": "6433c901d46544517c7be84e",
+    "apiIdentifier": "e090c66d67",
+    "asynchronous": true,
+    "type": "test",
+    "pageSize": 1,
+    "oneToMany": false,
+    "mockOutput": {
+        "page_of_records": [
+            {
+                "record": {
+                    "url": "https://celigoqa.zendesk.com/api/v2/tickets/126.json",
+                    "id": 126,
+                    "external_id": null,
+                    "via": {
+                        "channel": "web",
+                        "source": {
+                            "rel": null
+                        }
+                    },
+                    "created_at": "2017-10-18T13:36:36Z",
+                    "updated_at": "2023-08-24T07:10:25Z",
+                    "type": null,
+                    "subject": "Orches_Flow_Blob_2071",
+                    "raw_subject": "Orches_Flow_Blob_2071",
+                    "description": "Orches_Flow_Blob_207",
+                    "priority": "low",
+                    "status": "pending",
+                    "recipient": null,
+                    "requester_id": 1473313072,
+                    "submitter_id": 1473313072,
+                    "assignee_id": 1473313072,
+                    "organization_id": null,
+                    "group_id": 25032922,
+                    "collaborator_ids": [],
+                    "follower_ids": [],
+                    "email_cc_ids": [],
+                    "forum_topic_id": null,
+                    "problem_id": null,
+                    "has_incidents": false,
+                    "is_public": true,
+                    "due_at": null,
+                    "tags": [
+                        "true"
+                    ],
+                    "custom_fields": [
+                        {
+                            "id": 4485575108882,
+                            "value": null
+                        },
+                        {
+                            "id": 24838175,
+                            "value": "Pagination"
+                        },
+                        {
+                            "id": 360005417319,
+                            "value": false
+                        },
+                        {
+                            "id": 32855665,
+                            "value": false
+                        },
+                        {
+                            "id": 360021374599,
+                            "value": null
+                        },
+                        {
+                            "id": 26700425,
+                            "value": null
+                        },
+                        {
+                            "id": 24786059,
+                            "value": null
+                        },
+                        {
+                            "id": 25373679,
+                            "value": null
+                        }
+                    ],
+                    "satisfaction_rating": null,
+                    "sharing_agreement_ids": [],
+                    "fields": [
+                        {
+                            "id": 4485575108882,
+                            "value": null
+                        },
+                        {
+                            "id": 24838175,
+                            "value": "Pagination"
+                        },
+                        {
+                            "id": 360005417319,
+                            "value": false
+                        },
+                        {
+                            "id": 32855665,
+                            "value": false
+                        },
+                        {
+                            "id": 360021374599,
+                            "value": null
+                        },
+                        {
+                            "id": 26700425,
+                            "value": null
+                        },
+                        {
+                            "id": 24786059,
+                            "value": null
+                        },
+                        {
+                            "id": 25373679,
+                            "value": null
+                        }
+                    ],
+                    "followup_ids": [],
+                    "brand_id": 611742,
+                    "allow_channelback": false,
+                    "allow_attachments": true,
+                    "from_messaging_channel": false
+                }
+            },
+            {
+                "record": {
+                    "url": "https://celigoqa.zendesk.com/api/v2/tickets/18255.json",
+                    "id": 18255,
+                    "external_id": null,
+                    "via": {
+                        "channel": "web",
+                        "source": {
+                            "rel": null
+                        }
+                    },
+                    "created_at": "2022-09-01T12:04:40Z",
+                    "updated_at": "2023-09-12T09:18:27Z",
+                    "type": "task",
+                    "subject": "My printer is on fire!",
+                    "raw_subject": "My printer is on fire!",
+                    "description": "comment01",
+                    "priority": "urgent",
+                    "status": "open",
+                    "recipient": null,
+                    "requester_id": 1473313072,
+                    "submitter_id": 1473313072,
+                    "assignee_id": 1473313072,
+                    "organization_id": null,
+                    "group_id": 25032922,
+                    "collaborator_ids": [],
+                    "follower_ids": [],
+                    "email_cc_ids": [],
+                    "forum_topic_id": null,
+                    "problem_id": null,
+                    "has_incidents": false,
+                    "is_public": true,
+                    "due_at": null,
+                    "tags": [
+                        "true"
+                    ],
+                    "custom_fields": [
+                        {
+                            "id": 4485575108882,
+                            "value": null
+                        },
+                        {
+                            "id": 24838175,
+                            "value": null
+                        },
+                        {
+                            "id": 360005417319,
+                            "value": false
+                        },
+                        {
+                            "id": 32855665,
+                            "value": false
+                        },
+                        {
+                            "id": 360021374599,
+                            "value": null
+                        },
+                        {
+                            "id": 26700425,
+                            "value": null
+                        },
+                        {
+                            "id": 24786059,
+                            "value": null
+                        },
+                        {
+                            "id": 25373679,
+                            "value": null
+                        }
+                    ],
+                    "satisfaction_rating": null,
+                    "sharing_agreement_ids": [],
+                    "fields": [
+                        {
+                            "id": 4485575108882,
+                            "value": null
+                        },
+                        {
+                            "id": 24838175,
+                            "value": null
+                        },
+                        {
+                            "id": 360005417319,
+                            "value": false
+                        },
+                        {
+                            "id": 32855665,
+                            "value": false
+                        },
+                        {
+                            "id": 360021374599,
+                            "value": null
+                        },
+                        {
+                            "id": 26700425,
+                            "value": null
+                        },
+                        {
+                            "id": 24786059,
+                            "value": null
+                        },
+                        {
+                            "id": 25373679,
+                            "value": null
+                        }
+                    ],
+                    "followup_ids": [],
+                    "brand_id": 611742,
+                    "allow_channelback": false,
+                    "allow_attachments": true,
+                    "from_messaging_channel": false
+                }
+            },
+            {
+                "record": {
+                    "url": "https://celigoqa.zendesk.com/api/v2/tickets/675396.json",
+                    "id": 675396,
+                    "external_id": null,
+                    "via": {
+                        "channel": "api",
+                        "source": {
+                            "rel": null
+                        }
+                    },
+                    "created_at": "2023-09-04T06:03:27Z",
+                    "updated_at": "2023-09-04T06:03:27Z",
+                    "type": "task",
+                    "subject": "My printer is on fire!",
+                    "raw_subject": "My printer is on fire!",
+                    "description": "The smoke is very colorful.",
+                    "priority": "urgent",
+                    "status": "open",
+                    "recipient": null,
+                    "requester_id": 1473313072,
+                    "submitter_id": 1473313072,
+                    "assignee_id": 1473313072,
+                    "organization_id": null,
+                    "group_id": 25032922,
+                    "collaborator_ids": [],
+                    "follower_ids": [],
+                    "email_cc_ids": [],
+                    "forum_topic_id": null,
+                    "problem_id": null,
+                    "has_incidents": false,
+                    "is_public": true,
+                    "due_at": null,
+                    "tags": [
+                        "true"
+                    ],
+                    "custom_fields": [
+                        {
+                            "id": 4485575108882,
+                            "value": null
+                        },
+                        {
+                            "id": 24838175,
+                            "value": null
+                        },
+                        {
+                            "id": 360005417319,
+                            "value": null
+                        },
+                        {
+                            "id": 32855665,
+                            "value": null
+                        },
+                        {
+                            "id": 360021374599,
+                            "value": null
+                        },
+                        {
+                            "id": 26700425,
+                            "value": null
+                        },
+                        {
+                            "id": 24786059,
+                            "value": null
+                        },
+                        {
+                            "id": 25373679,
+                            "value": null
+                        }
+                    ],
+                    "satisfaction_rating": null,
+                    "sharing_agreement_ids": [],
+                    "fields": [
+                        {
+                            "id": 4485575108882,
+                            "value": null
+                        },
+                        {
+                            "id": 24838175,
+                            "value": null
+                        },
+                        {
+                            "id": 360005417319,
+                            "value": null
+                        },
+                        {
+                            "id": 32855665,
+                            "value": null
+                        },
+                        {
+                            "id": 360021374599,
+                            "value": null
+                        },
+                        {
+                            "id": 26700425,
+                            "value": null
+                        },
+                        {
+                            "id": 24786059,
+                            "value": null
+                        },
+                        {
+                            "id": 25373679,
+                            "value": null
+                        }
+                    ],
+                    "followup_ids": [],
+                    "brand_id": 611742,
+                    "allow_channelback": false,
+                    "allow_attachments": true,
+                    "from_messaging_channel": false
+                }
+            },
+            {
+                "record": {
+                    "url": "https://celigoqa.zendesk.com/api/v2/tickets/675397.json",
+                    "id": 675397,
+                    "external_id": null,
+                    "via": {
+                        "channel": "api",
+                        "source": {
+                            "rel": null
+                        }
+                    },
+                    "created_at": "2023-09-04T06:03:27Z",
+                    "updated_at": "2023-09-04T06:03:27Z",
+                    "type": "task",
+                    "subject": "My printer is on fire!",
+                    "raw_subject": "My printer is on fire!",
+                    "description": "The smoke is very colorful.",
+                    "priority": "urgent",
+                    "status": "open",
+                    "recipient": null,
+                    "requester_id": 1473313072,
+                    "submitter_id": 1473313072,
+                    "assignee_id": 1473313072,
+                    "organization_id": null,
+                    "group_id": 25032922,
+                    "collaborator_ids": [],
+                    "follower_ids": [],
+                    "email_cc_ids": [],
+                    "forum_topic_id": null,
+                    "problem_id": null,
+                    "has_incidents": false,
+                    "is_public": true,
+                    "due_at": null,
+                    "tags": [
+                        "true"
+                    ],
+                    "custom_fields": [
+                        {
+                            "id": 4485575108882,
+                            "value": null
+                        },
+                        {
+                            "id": 24838175,
+                            "value": null
+                        },
+                        {
+                            "id": 360005417319,
+                            "value": null
+                        },
+                        {
+                            "id": 32855665,
+                            "value": null
+                        },
+                        {
+                            "id": 360021374599,
+                            "value": null
+                        },
+                        {
+                            "id": 26700425,
+                            "value": null
+                        },
+                        {
+                            "id": 24786059,
+                            "value": null
+                        },
+                        {
+                            "id": 25373679,
+                            "value": null
+                        }
+                    ],
+                    "satisfaction_rating": null,
+                    "sharing_agreement_ids": [],
+                    "fields": [
+                        {
+                            "id": 4485575108882,
+                            "value": null
+                        },
+                        {
+                            "id": 24838175,
+                            "value": null
+                        },
+                        {
+                            "id": 360005417319,
+                            "value": null
+                        },
+                        {
+                            "id": 32855665,
+                            "value": null
+                        },
+                        {
+                            "id": 360021374599,
+                            "value": null
+                        },
+                        {
+                            "id": 26700425,
+                            "value": null
+                        },
+                        {
+                            "id": 24786059,
+                            "value": null
+                        },
+                        {
+                            "id": 25373679,
+                            "value": null
+                        }
+                    ],
+                    "followup_ids": [],
+                    "brand_id": 611742,
+                    "allow_channelback": false,
+                    "allow_attachments": true,
+                    "from_messaging_channel": false
+                }
+            },
+            {
+                "record": {
+                    "url": "https://celigoqa.zendesk.com/api/v2/tickets/675398.json",
+                    "id": 675398,
+                    "external_id": null,
+                    "via": {
+                        "channel": "api",
+                        "source": {
+                            "rel": null
+                        }
+                    },
+                    "created_at": "2023-09-04T06:03:27Z",
+                    "updated_at": "2023-09-04T06:03:27Z",
+                    "type": "task",
+                    "subject": "My printer is on fire!",
+                    "raw_subject": "My printer is on fire!",
+                    "description": "The smoke is very colorful.",
+                    "priority": "urgent",
+                    "status": "open",
+                    "recipient": null,
+                    "requester_id": 1473313072,
+                    "submitter_id": 1473313072,
+                    "assignee_id": 1473313072,
+                    "organization_id": null,
+                    "group_id": 25032922,
+                    "collaborator_ids": [],
+                    "follower_ids": [],
+                    "email_cc_ids": [],
+                    "forum_topic_id": null,
+                    "problem_id": null,
+                    "has_incidents": false,
+                    "is_public": true,
+                    "due_at": null,
+                    "tags": [
+                        "true"
+                    ],
+                    "custom_fields": [
+                        {
+                            "id": 4485575108882,
+                            "value": null
+                        },
+                        {
+                            "id": 24838175,
+                            "value": null
+                        },
+                        {
+                            "id": 360005417319,
+                            "value": null
+                        },
+                        {
+                            "id": 32855665,
+                            "value": null
+                        },
+                        {
+                            "id": 360021374599,
+                            "value": null
+                        },
+                        {
+                            "id": 26700425,
+                            "value": null
+                        },
+                        {
+                            "id": 24786059,
+                            "value": null
+                        },
+                        {
+                            "id": 25373679,
+                            "value": null
+                        }
+                    ],
+                    "satisfaction_rating": null,
+                    "sharing_agreement_ids": [],
+                    "fields": [
+                        {
+                            "id": 4485575108882,
+                            "value": null
+                        },
+                        {
+                            "id": 24838175,
+                            "value": null
+                        },
+                        {
+                            "id": 360005417319,
+                            "value": null
+                        },
+                        {
+                            "id": 32855665,
+                            "value": null
+                        },
+                        {
+                            "id": 360021374599,
+                            "value": null
+                        },
+                        {
+                            "id": 26700425,
+                            "value": null
+                        },
+                        {
+                            "id": 24786059,
+                            "value": null
+                        },
+                        {
+                            "id": 25373679,
+                            "value": null
+                        }
+                    ],
+                    "followup_ids": [],
+                    "brand_id": 611742,
+                    "allow_channelback": false,
+                    "allow_attachments": true,
+                    "from_messaging_channel": false
+                }
+            },
+            {
+                "record": {
+                    "url": "https://celigoqa.zendesk.com/api/v2/tickets/675399.json",
+                    "id": 675399,
+                    "external_id": null,
+                    "via": {
+                        "channel": "api",
+                        "source": {
+                            "rel": null
+                        }
+                    },
+                    "created_at": "2023-09-04T06:03:27Z",
+                    "updated_at": "2023-09-04T06:03:27Z",
+                    "type": "task",
+                    "subject": "My printer is on fire!",
+                    "raw_subject": "My printer is on fire!",
+                    "description": "The smoke is very colorful.",
+                    "priority": "urgent",
+                    "status": "open",
+                    "recipient": null,
+                    "requester_id": 1473313072,
+                    "submitter_id": 1473313072,
+                    "assignee_id": 1473313072,
+                    "organization_id": null,
+                    "group_id": 25032922,
+                    "collaborator_ids": [],
+                    "follower_ids": [],
+                    "email_cc_ids": [],
+                    "forum_topic_id": null,
+                    "problem_id": null,
+                    "has_incidents": false,
+                    "is_public": true,
+                    "due_at": null,
+                    "tags": [
+                        "true"
+                    ],
+                    "custom_fields": [
+                        {
+                            "id": 4485575108882,
+                            "value": null
+                        },
+                        {
+                            "id": 24838175,
+                            "value": null
+                        },
+                        {
+                            "id": 360005417319,
+                            "value": null
+                        },
+                        {
+                            "id": 32855665,
+                            "value": null
+                        },
+                        {
+                            "id": 360021374599,
+                            "value": null
+                        },
+                        {
+                            "id": 26700425,
+                            "value": null
+                        },
+                        {
+                            "id": 24786059,
+                            "value": null
+                        },
+                        {
+                            "id": 25373679,
+                            "value": null
+                        }
+                    ],
+                    "satisfaction_rating": null,
+                    "sharing_agreement_ids": [],
+                    "fields": [
+                        {
+                            "id": 4485575108882,
+                            "value": null
+                        },
+                        {
+                            "id": 24838175,
+                            "value": null
+                        },
+                        {
+                            "id": 360005417319,
+                            "value": null
+                        },
+                        {
+                            "id": 32855665,
+                            "value": null
+                        },
+                        {
+                            "id": 360021374599,
+                            "value": null
+                        },
+                        {
+                            "id": 26700425,
+                            "value": null
+                        },
+                        {
+                            "id": 24786059,
+                            "value": null
+                        },
+                        {
+                            "id": 25373679,
+                            "value": null
+                        }
+                    ],
+                    "followup_ids": [],
+                    "brand_id": 611742,
+                    "allow_channelback": false,
+                    "allow_attachments": true,
+                    "from_messaging_channel": false
+                }
+            },
+            {
+                "record": {
+                    "url": "https://celigoqa.zendesk.com/api/v2/tickets/675400.json",
+                    "id": 675400,
+                    "external_id": null,
+                    "via": {
+                        "channel": "api",
+                        "source": {
+                            "rel": null
+                        }
+                    },
+                    "created_at": "2023-09-04T06:03:27Z",
+                    "updated_at": "2023-09-04T06:03:27Z",
+                    "type": "task",
+                    "subject": "My printer is on fire!",
+                    "raw_subject": "My printer is on fire!",
+                    "description": "The smoke is very colorful.",
+                    "priority": "urgent",
+                    "status": "open",
+                    "recipient": null,
+                    "requester_id": 1473313072,
+                    "submitter_id": 1473313072,
+                    "assignee_id": 1473313072,
+                    "organization_id": null,
+                    "group_id": 25032922,
+                    "collaborator_ids": [],
+                    "follower_ids": [],
+                    "email_cc_ids": [],
+                    "forum_topic_id": null,
+                    "problem_id": null,
+                    "has_incidents": false,
+                    "is_public": true,
+                    "due_at": null,
+                    "tags": [
+                        "true"
+                    ],
+                    "custom_fields": [
+                        {
+                            "id": 4485575108882,
+                            "value": null
+                        },
+                        {
+                            "id": 24838175,
+                            "value": null
+                        },
+                        {
+                            "id": 360005417319,
+                            "value": null
+                        },
+                        {
+                            "id": 32855665,
+                            "value": null
+                        },
+                        {
+                            "id": 360021374599,
+                            "value": null
+                        },
+                        {
+                            "id": 26700425,
+                            "value": null
+                        },
+                        {
+                            "id": 24786059,
+                            "value": null
+                        },
+                        {
+                            "id": 25373679,
+                            "value": null
+                        }
+                    ],
+                    "satisfaction_rating": null,
+                    "sharing_agreement_ids": [],
+                    "fields": [
+                        {
+                            "id": 4485575108882,
+                            "value": null
+                        },
+                        {
+                            "id": 24838175,
+                            "value": null
+                        },
+                        {
+                            "id": 360005417319,
+                            "value": null
+                        },
+                        {
+                            "id": 32855665,
+                            "value": null
+                        },
+                        {
+                            "id": 360021374599,
+                            "value": null
+                        },
+                        {
+                            "id": 26700425,
+                            "value": null
+                        },
+                        {
+                            "id": 24786059,
+                            "value": null
+                        },
+                        {
+                            "id": 25373679,
+                            "value": null
+                        }
+                    ],
+                    "followup_ids": [],
+                    "brand_id": 611742,
+                    "allow_channelback": false,
+                    "allow_attachments": true,
+                    "from_messaging_channel": false
+                }
+            },
+            {
+                "record": {
+                    "url": "https://celigoqa.zendesk.com/api/v2/tickets/675401.json",
+                    "id": 675401,
+                    "external_id": null,
+                    "via": {
+                        "channel": "api",
+                        "source": {
+                            "rel": null
+                        }
+                    },
+                    "created_at": "2023-09-04T06:03:27Z",
+                    "updated_at": "2023-09-04T06:03:27Z",
+                    "type": "task",
+                    "subject": "My printer is on fire!",
+                    "raw_subject": "My printer is on fire!",
+                    "description": "The smoke is very colorful.",
+                    "priority": "urgent",
+                    "status": "open",
+                    "recipient": null,
+                    "requester_id": 1473313072,
+                    "submitter_id": 1473313072,
+                    "assignee_id": 1473313072,
+                    "organization_id": null,
+                    "group_id": 25032922,
+                    "collaborator_ids": [],
+                    "follower_ids": [],
+                    "email_cc_ids": [],
+                    "forum_topic_id": null,
+                    "problem_id": null,
+                    "has_incidents": false,
+                    "is_public": true,
+                    "due_at": null,
+                    "tags": [
+                        "true"
+                    ],
+                    "custom_fields": [
+                        {
+                            "id": 4485575108882,
+                            "value": null
+                        },
+                        {
+                            "id": 24838175,
+                            "value": null
+                        },
+                        {
+                            "id": 360005417319,
+                            "value": null
+                        },
+                        {
+                            "id": 32855665,
+                            "value": null
+                        },
+                        {
+                            "id": 360021374599,
+                            "value": null
+                        },
+                        {
+                            "id": 26700425,
+                            "value": null
+                        },
+                        {
+                            "id": 24786059,
+                            "value": null
+                        },
+                        {
+                            "id": 25373679,
+                            "value": null
+                        }
+                    ],
+                    "satisfaction_rating": null,
+                    "sharing_agreement_ids": [],
+                    "fields": [
+                        {
+                            "id": 4485575108882,
+                            "value": null
+                        },
+                        {
+                            "id": 24838175,
+                            "value": null
+                        },
+                        {
+                            "id": 360005417319,
+                            "value": null
+                        },
+                        {
+                            "id": 32855665,
+                            "value": null
+                        },
+                        {
+                            "id": 360021374599,
+                            "value": null
+                        },
+                        {
+                            "id": 26700425,
+                            "value": null
+                        },
+                        {
+                            "id": 24786059,
+                            "value": null
+                        },
+                        {
+                            "id": 25373679,
+                            "value": null
+                        }
+                    ],
+                    "followup_ids": [],
+                    "brand_id": 611742,
+                    "allow_channelback": false,
+                    "allow_attachments": true,
+                    "from_messaging_channel": false
+                }
+            },
+            {
+                "record": {
+                    "url": "https://celigoqa.zendesk.com/api/v2/tickets/675402.json",
+                    "id": 675402,
+                    "external_id": null,
+                    "via": {
+                        "channel": "api",
+                        "source": {
+                            "rel": null
+                        }
+                    },
+                    "created_at": "2023-09-04T06:03:27Z",
+                    "updated_at": "2023-09-04T06:03:27Z",
+                    "type": "task",
+                    "subject": "My printer is on fire!",
+                    "raw_subject": "My printer is on fire!",
+                    "description": "The smoke is very colorful.",
+                    "priority": "urgent",
+                    "status": "open",
+                    "recipient": null,
+                    "requester_id": 1473313072,
+                    "submitter_id": 1473313072,
+                    "assignee_id": 1473313072,
+                    "organization_id": null,
+                    "group_id": 25032922,
+                    "collaborator_ids": [],
+                    "follower_ids": [],
+                    "email_cc_ids": [],
+                    "forum_topic_id": null,
+                    "problem_id": null,
+                    "has_incidents": false,
+                    "is_public": true,
+                    "due_at": null,
+                    "tags": [
+                        "true"
+                    ],
+                    "custom_fields": [
+                        {
+                            "id": 4485575108882,
+                            "value": null
+                        },
+                        {
+                            "id": 24838175,
+                            "value": null
+                        },
+                        {
+                            "id": 360005417319,
+                            "value": null
+                        },
+                        {
+                            "id": 32855665,
+                            "value": null
+                        },
+                        {
+                            "id": 360021374599,
+                            "value": null
+                        },
+                        {
+                            "id": 26700425,
+                            "value": null
+                        },
+                        {
+                            "id": 24786059,
+                            "value": null
+                        },
+                        {
+                            "id": 25373679,
+                            "value": null
+                        }
+                    ],
+                    "satisfaction_rating": null,
+                    "sharing_agreement_ids": [],
+                    "fields": [
+                        {
+                            "id": 4485575108882,
+                            "value": null
+                        },
+                        {
+                            "id": 24838175,
+                            "value": null
+                        },
+                        {
+                            "id": 360005417319,
+                            "value": null
+                        },
+                        {
+                            "id": 32855665,
+                            "value": null
+                        },
+                        {
+                            "id": 360021374599,
+                            "value": null
+                        },
+                        {
+                            "id": 26700425,
+                            "value": null
+                        },
+                        {
+                            "id": 24786059,
+                            "value": null
+                        },
+                        {
+                            "id": 25373679,
+                            "value": null
+                        }
+                    ],
+                    "followup_ids": [],
+                    "brand_id": 611742,
+                    "allow_channelback": false,
+                    "allow_attachments": true,
+                    "from_messaging_channel": false
+                }
+            },
+            {
+                "record": {
+                    "url": "https://celigoqa.zendesk.com/api/v2/tickets/675403.json",
+                    "id": 675403,
+                    "external_id": null,
+                    "via": {
+                        "channel": "api",
+                        "source": {
+                            "rel": null
+                        }
+                    },
+                    "created_at": "2023-09-04T06:03:28Z",
+                    "updated_at": "2023-09-04T06:03:28Z",
+                    "type": "task",
+                    "subject": "My printer is on fire!",
+                    "raw_subject": "My printer is on fire!",
+                    "description": "The smoke is very colorful.",
+                    "priority": "urgent",
+                    "status": "open",
+                    "recipient": null,
+                    "requester_id": 1473313072,
+                    "submitter_id": 1473313072,
+                    "assignee_id": 1473313072,
+                    "organization_id": null,
+                    "group_id": 25032922,
+                    "collaborator_ids": [],
+                    "follower_ids": [],
+                    "email_cc_ids": [],
+                    "forum_topic_id": null,
+                    "problem_id": null,
+                    "has_incidents": false,
+                    "is_public": true,
+                    "due_at": null,
+                    "tags": [
+                        "true"
+                    ],
+                    "custom_fields": [
+                        {
+                            "id": 4485575108882,
+                            "value": null
+                        },
+                        {
+                            "id": 24838175,
+                            "value": null
+                        },
+                        {
+                            "id": 360005417319,
+                            "value": null
+                        },
+                        {
+                            "id": 32855665,
+                            "value": null
+                        },
+                        {
+                            "id": 360021374599,
+                            "value": null
+                        },
+                        {
+                            "id": 26700425,
+                            "value": null
+                        },
+                        {
+                            "id": 24786059,
+                            "value": null
+                        },
+                        {
+                            "id": 25373679,
+                            "value": null
+                        }
+                    ],
+                    "satisfaction_rating": null,
+                    "sharing_agreement_ids": [],
+                    "fields": [
+                        {
+                            "id": 4485575108882,
+                            "value": null
+                        },
+                        {
+                            "id": 24838175,
+                            "value": null
+                        },
+                        {
+                            "id": 360005417319,
+                            "value": null
+                        },
+                        {
+                            "id": 32855665,
+                            "value": null
+                        },
+                        {
+                            "id": 360021374599,
+                            "value": null
+                        },
+                        {
+                            "id": 26700425,
+                            "value": null
+                        },
+                        {
+                            "id": 24786059,
+                            "value": null
+                        },
+                        {
+                            "id": 25373679,
+                            "value": null
+                        }
+                    ],
+                    "followup_ids": [],
+                    "brand_id": 611742,
+                    "allow_channelback": false,
+                    "allow_attachments": true,
+                    "from_messaging_channel": false
+                }
+            }
+        ]
+    },
+    "http": {
+        "relativeURI": "tickets",
+        "method": "GET",
+        "formType": "http",
+        "response": {
+            "resourcePath": "tickets"
+        }
+    },
+    "rawData": "6459f5dc0dee1b3f6ca7a4bd91ed84bad6a547769c5298eca9796190",
+    "test": {
+        "limit": 1
+    },
+    "adaptorType": "HTTPExport"
+              }
+          }
+      ],
+      "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "Skip number import",
+                "parsers": [
+    
+                ],
+                "_connectionId": "FTP CONNECTION",
+                "oneToMany": false,
+                "file": {
+                  "fileName": "Skip_Paging_QA.json",
+                  "skipAggregation": false,
+                  "type": "json"
+                },
+                "ftp": {
+                  "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                  "fileName": "Skip_Paging_QA.json"
+                },
+                "adaptorType": "FTPImport"
+              }
+          }
+      ],
+      "createFlow": {
+        "name": "TC_C63406",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+}
