@@ -1,5 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
+import testData from "@testData/Connections/C63011.json";
 
 test.describe(`C63021 Verify User is able create connection while installing integration.`, () => {
   test(`C63021 Verify User is able create connection while installing integration.`, async ({
@@ -24,7 +25,7 @@ test.describe(`C63021 Verify User is able create connection while installing int
     await io.homePage.fill(selectors.connectionsPagePO.USERNAME, "narvar");
     await io.homePage.fill(
       selectors.connectionsPagePO.PASSWORD,
-      "E59E404A332C1692B4CB1D63103E5520"
+      testData.password
     );
     await io.homePage.fill(
       selectors.connectionsPagePO.STORENAME,

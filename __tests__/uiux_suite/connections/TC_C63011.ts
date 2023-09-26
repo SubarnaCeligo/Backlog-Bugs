@@ -1,5 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
+import testData from "@testData/Connections/C63011.json";
 
 test.describe(`C63011 Verify User is able create connection while cloning integration.`, () => {
   test(`C63011 Verify User is able create connection while cloning integration.`, async ({
@@ -36,13 +37,28 @@ test.describe(`C63011 Verify User is able create connection while cloning integr
     await io.homePage.click(
       selectors.integrationPagePO.SETUP_INTEGRATION_CONFIGURE_BUTTON
     );
-    await io.assert.verifyElementIsDisplayed(
-      selectors.connectionsPagePO.NARVAR_CONNECTION,
-      "API type 'Narvar' not visible"
+    await io.homePage.click(selectors.connectionsPagePO.NARVAR_RMA_CONNECTION);
+    await io.homePage.fill(selectors.basePagePO.NAME, "Narvar-RMA-Test");
+    await io.homePage.fill(selectors.connectionsPagePO.USERNAME, "narvar");
+    await io.homePage.fill(
+      selectors.connectionsPagePO.PASSWORD,
+      testData.password
     );
-    await io.assert.verifyElementIsDisplayed(
-      selectors.connectionsPagePO.NARVAR_RMA_CONNECTION,
-      "API type 'Narvar' not visible"
+    await io.homePage.fill(
+      selectors.connectionsPagePO.STORENAME,
+      "celigo-test-2"
     );
+    await io.homePage.click(selectors.basePagePO.SAVE);
+    await io.assert.verifyElementDisplayedByText(
+      "Configured",
+      "Connection creation error"
+    );
+  });
+  test.afterEach(async ({ io }) => {
+    const connections = await io.api.getCall("v1/connections");
+    const connectionId = connections.find(
+      (connection: any) => connection.name === "Narvar-RMA-Test"
+    )._id;
+    await io.api.deleteCall(`v1/connections/${connectionId}`, {});
   });
 });

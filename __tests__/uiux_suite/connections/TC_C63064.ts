@@ -1,5 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
+import testData from "@testData/Connections/C63011.json";
 
 test.describe(`C63064 Verify in connection if user selected one api type in simple and move it to HTTP and then switch the toggle back to simple then check whether prevuiously selcted api type is persisted or not`, () => {
   test(`C63064 Verify in connection if user selected one api type in simple and move it to HTTP and then switch the toggle back to simple then check whether prevuiously selcted api type is persisted or not`, async ({
@@ -16,7 +17,7 @@ test.describe(`C63064 Verify in connection if user selected one api type in simp
     await io.connectionPage.fill(selectors.connectionsPagePO.USERNAME, "narvar");
     await io.connectionPage.fill(
       selectors.connectionsPagePO.PASSWORD,
-      "E59E404A332C1692B4CB1D63103E5520"
+      testData.password
     );
     await io.connectionPage.fill(
       selectors.connectionsPagePO.STORENAME,

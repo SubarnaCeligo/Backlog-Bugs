@@ -1,13 +1,14 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import testData from "@testData/Connections/Narvar.json";
+import flow from "@testData/Connections/Narvar.json";
+import testData from "@testData/Connections/C63011.json";
 
 test.describe(`C63024 Verify user is able to create connection from already created export/lookup and import`, () => {
   test(`C63024 Verify user is able to create connection from already created export/lookup and import`, async ({
     page,
     io
   }) => {
-    await io.fillFormUI(testData, "FLOWS");
+    await io.fillFormUI(flow, "FLOWS");
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.NOTIFICATION_CONNECTIONS
     );
@@ -22,7 +23,7 @@ test.describe(`C63024 Verify user is able to create connection from already crea
     await io.homePage.fill(selectors.connectionsPagePO.USERNAME, "narvar");
     await io.homePage.fill(
       selectors.connectionsPagePO.PASSWORD,
-      "E59E404A332C1692B4CB1D63103E5520"
+      testData.password
     );
     await io.homePage.fill(
       selectors.connectionsPagePO.STORENAME,
