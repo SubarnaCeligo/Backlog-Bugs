@@ -6,8 +6,8 @@ test.describe(`C33161 Verify When changes have been made but not yet saved, show
     io,
     page
   }) => {
-    await io.exportsPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
-    await io.homePage.goToMenu("Tools","Flow builder");
+    await io.exportsPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
+    await io.homePage.goToMenu("Tools", "Flow builder");
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP
     );
@@ -16,10 +16,18 @@ test.describe(`C33161 Verify When changes have been made but not yet saved, show
     await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.clickByText("3PL CONNECTION");
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
-    await io.flowBuilder.delay(2000);
-    await page.locator(selectors.exportsPagePO.NAME).fill("C33161");
-    await expect(page.locator(selectors.basePagePO.SAVE)).toBeVisible();
-    await expect(page.locator(selectors.basePagePO.SAVE_AND_CLOSE)).toBeVisible();
-    await expect(page.locator(selectors.basePagePO.CLOSE)).toBeVisible();
+    await io.flowBuilder.fill(selectors.exportsPagePO.NAME, "C33161");
+    await io.assert.verifyElementIsDisplayed(
+      selectors.basePagePO.SAVE,
+      "'Save' button is not displayed"
+    );
+    await io.assert.verifyElementIsDisplayed(
+      selectors.basePagePO.SAVE_AND_CLOSE,
+      "'Save & close' button is not displayed"
+    );
+    await io.assert.verifyElementIsDisplayed(
+      selectors.basePagePO.CLOSE,
+      "'Close' button is not displayed"
+    );
   });
 });

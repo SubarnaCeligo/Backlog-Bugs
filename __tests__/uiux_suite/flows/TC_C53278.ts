@@ -3,18 +3,17 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C53278 Verfiy by adding a name for the router in the “Add branching” drawer`, () => {
   test.beforeEach(async ({ io }) => {
-    await io.flowBuilder.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
+    await io.flowBuilder.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
   });
 
   test(`C53278 Verfiy by adding a name for the router in the “Add branching” drawer`, async ({
     io,
     page
   }) => {
-    await io.homePage.goToMenu("Tools","Flow builder");
+    await io.homePage.goToMenu("Tools", "Flow builder");
     const plusButtonsSelector = selectors.flowBuilderPagePO.PLUS_BUTTONS;
     await io.flowBuilder.waitForElementAttached(plusButtonsSelector);
-    const plusButtonsLocator = await page.$$(plusButtonsSelector);
-    await plusButtonsLocator[0].click();
+    await io.flowBuilder.clickByIndex(plusButtonsSelector, 0);
     await io.flowBuilder.clickByText("Add branching");
     await io.flowBuilder.fill(
       selectors.flowBuilderPagePO.BRANCH_NAME_INPUT,
@@ -24,5 +23,8 @@ test.describe(`C53278 Verfiy by adding a name for the router in the “Add branc
     await expect(
       page.locator("span").filter({ hasText: "Custom Branch" })
     ).toBeVisible({ timeout: 10000 });
+    await io.flowBuilder.addStep(
+      "Verified the 'Custom Branch' name is displayed"
+    );
   });
 });
