@@ -9,3 +9,6 @@ require('./TC_C93996');
 require('./TC_C93997');
 require('./TC_C59975');
 require('./TC_C68107');
+require("./TC_C59977");
+require("./TC_C69565");
+require("./TC_C102708");
