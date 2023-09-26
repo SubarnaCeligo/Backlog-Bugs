@@ -3,7 +3,7 @@ require("./TC_C27969");
 require("./TC_C28172");
 require("./TC_C28173");
 require("./TC_C22915");
-
+require("./TC_C94287");
 // import { test, expect } from "@celigo/ui-core-automation";
 // import * as selectors from "@celigo/aut-selectors";
 // import * as C55447 from "@testData/Exports/C55447.json";
