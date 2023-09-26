@@ -10,7 +10,7 @@ test.describe('C93720 Validate user is able to see default function name as "for
      const isResourceVisible = await io.homePage.isVisible(selectors.basePagePO.RESOURCES);
         if(isResourceVisible){
             await page.hover(selectors.basePagePO.RESOURCES);
-            const isScriptsVisible = await io.homePage.isVisible('[data-test="Scripts"]');
+            const isScriptsVisible = await io.homePage.isVisible(selectors.basePagePO.SCRIPTS);
             await io.assert.expectToBeValue('false', isScriptsVisible.toString(), 'Scripts page is visible');
         }else{
             await io.assert.expectToBeValue('false', isResourceVisible.toString(), 'Resource page is visible');
