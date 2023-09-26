@@ -1,7 +1,6 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import data from "@testData/ScriptDebugger/C93679.json"
-
+import data from "@testData/ScriptDebugger/C93679.json";
 
 test.describe('C93679 Validate user is getting auto-fill of funtion stub while creating "filter" script through flow builder hook', () => {
    
