@@ -1,0 +1,136 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "3",
+        "successCount": "5",
+        "errorCount": "0"
+    },
+    "name": "TC_317_InputFilter_With_Rows_Data_With_NS_Export",
+    "disabled": false,
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "NS FIlter Export",
+            "_connectionId": "NETSUITE CONNECTION",
+            "asynchronous": true,
+            "netsuite": {
+                "type": "restlet",
+                "skipGrouping": false,
+                "statsOnly": false,
+                "restlet": {
+                    "recordType": "customer",
+                    "searchId": "3160",
+                    "useSS2Restlets": false
+                }
+            },
+            "adaptorType": "NetSuiteExport"
+        }
+    }],
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "ftp import",
+            "_connectionId": "FTP CONNECTION",
+            "distributed": false,
+            "mapping": {
+                "fields": [{
+                        "extract": "Name",
+                        "generate": "Name"
+                    },
+                    {
+                        "extract": "Phone",
+                        "generate": "OfficePhone"
+                    },
+                    {
+                        "extract": "Email",
+                        "generate": "Email"
+                    }
+                ]
+            },
+            "qa__inputFilter": true,
+            "qa__rules": [
+                [
+                    "rows[0].Email",
+                    "contains",
+                    "abc"
+                ]
+            ],
+            "file": {
+                "fileName": "TC_317.csv",
+                "type": "csv",
+                "csv": {
+                    "rowDelimiter": "\n",
+                    "columnDelimiter": ",",
+                    "includeHeader": true,
+                    "wrapWithQuotes": false,
+                    "replaceTabWithSpace": false,
+                    "replaceNewlineWithSpace": false,
+                    "truncateLastRowDelimiter": false
+                }
+            },
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                "fileName": "TC_317.csv"
+            },
+            "filter": {
+                "type": "expression",
+                "expression": {
+                    "rules": [
+                        "contains",
+                        [
+                            "string",
+                            [
+                                "extract",
+                                "Email"
+                            ]
+                        ],
+                        "abc"
+                    ],
+                    "version": "1"
+                },
+                "version": "1",
+                "rules": [
+                    "contains",
+                    [
+                        "string",
+                        [
+                            "extract",
+                            "Email"
+                        ]
+                    ],
+                    "abc"
+                ]
+            },
+            "adaptorType": "FTPImport"
+        }
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "TC_317_InputFilter_With_Rows_Data_With_NS_Export",
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "fileName": "TC_317",
+                    "isUIFlow": true,
+                    "folderName":"/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".csv",
+                    "qa__columnDelimiter": ","
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "3",
+                    "successCount": "1",
+                    "errorCount": "0"
+                },
+                "import": {
+                    "_connectionId": "FTP CONNECTION",
+                    "file": {
+                        "csv": {
+                            "columnDelimiter": ","
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

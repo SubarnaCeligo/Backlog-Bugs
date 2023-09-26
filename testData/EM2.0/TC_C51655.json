@@ -4,21 +4,24 @@
         {
           "type": "export",
           "qa__export": {
-            "name": "netsuite",
-            "_connectionId": "NETSUITE CONNECTION",
+            "name": "Skip parameter  pagination Export",
+            "application": "Acumatica",
+            "_connectionId": "HTTP ACUMATICA CONNECTION",
             "asynchronous": true,
-            "rawData": "603ce5ede9250226dcea46086593cf58e3d6445f887d5b20627d20e8",
-            "netsuite": {
-              "type": "restlet",
-              "skipGrouping": false,
-              "statsOnly": false,
-              "restlet": {
-                "recordType": "customer",
-                "searchId": "3622",
-                "useSS2Restlets": false
+            "oneToMany": false,
+            "parsers": [
+
+            ],
+            "http": {
+              "relativeURI": "/ShipVia?$top=100&$skip={{{export.http.paging.skip}}}",
+              "method": "GET",
+              "formType": "http",
+              "paging": {
+                "method": "skip",
+                "lastPageStatusCode": 404
               }
             },
-            "adaptorType": "NetSuiteExport"
+            "adaptorType": "HTTPExport"
           }
         }
       ],
@@ -26,45 +29,26 @@
         {
           "type": "import",
           "qa__import": {
-            "name": "FTP",
-            "_connectionId": "FTP CONNECTION",
-            "sandbox": false,
-            "lookups": [
-              {
-                "name": "staticlookup",
-                "map": {
-                  "123": "456"
-                },
-                "allowFailures": false
-              }
-            ],
-            "mapping": {
-              "fields": [
-                {
-                  "extract": "Name",
-                  "generate": "Name",
-                  "lookupName": "staticlookup"
-                }
-              ]
-            },
-            "file": {
-              "fileName": "TC_019_C25427-{{timestamp}}.json",
-              "type": "json",
-              "lookups": [
-                {
-                  "name": "staticlookup",
-                  "map": {
-                    "123": "456"
-                  },
-                  "allowFailures": false
-                }
-              ]
-            },
-            "ftp": {
-              "directoryPath": "/io.auto.qa/IO_UI_Automation",
-              "fileName": "TC_019_C25427-{{timestamp}}.json"
-            },
-            "adaptorType": "FTPImport"
+            "name": "AutomationStandalone_45EuH",
+    "_connectionId": "FTP CONNECTION",
+    "apiIdentifier": "id54c745ff",
+    "hooks": {
+        "preMap": {
+            "_scriptId": "64f6dd2a965799375c57e439",
+            "function": "premap"
+        }
+    },
+    "oneToMany": false,
+    "file": {
+        "fileName": "Skip_Paging_QA.json",
+        "skipAggregation": false,
+        "type": "json"
+    },
+    "ftp": {
+        "directoryPath": "/io.auto.qa/IO_UI_Automation",
+        "fileName": "Skip_Paging_QA.json"
+    },
+    "adaptorType": "FTPImport"
           }
         }
       ],
