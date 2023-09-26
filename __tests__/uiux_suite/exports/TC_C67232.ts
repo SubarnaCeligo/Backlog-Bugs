@@ -13,7 +13,7 @@ test.describe("C67232 Verify Red errored window is not displayed on 'Rule' secti
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.SCRIPTS_LIST, 1);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.PREVIEW);
         await io.flowBuilder.waitForElementAttached(selectors.mappings.Mapper2dot0PO.ERROR);
-        await io.flowBuilder.click('[data-test="Rules 1.0"]');
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.RULES1);
         await io.assert.verifyElementIsDisplayed(selectors.mappings.Mapper2dot0PO.ERROR, 'Error box not present when switched tab to rule');
     });
   });

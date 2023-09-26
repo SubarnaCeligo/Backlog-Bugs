@@ -7,8 +7,8 @@ test.describe("C45581 Verify if the IO account user is able to view the option t
         await io.myAccountPage.click(selectors.myAccountPagePO.SECURITY);
         await io.myAccountPage.click(selectors.myAccountPagePO.MFA);
         await io.assert.verifyElementDisplayedByText('Enable MFA', 'Enable MFA not visible');
-        const isToggleEnable = await io.myAccountPage.isVisible('[aria-label="Off / On"] .react-toggle--checked');
-        if(isToggleEnable) await io.myAccountPage.click('[aria-label="Off / On"] .react-toggle--checked');
+        const isToggleEnable = await io.myAccountPage.isVisible(`${selectors.myAccountPagePO.MFA_ON_OFF} .react-toggle--checked`);
+        if(isToggleEnable) await io.myAccountPage.click(`${selectors.myAccountPagePO.MFA_ON_OFF} .react-toggle--checked`);
         const isResetMFAVisible = await io.myAccountPage.isVisible(':has-text("Get verification app")');
         const isQrCodeVisible = await io.myAccountPage.isVisible(':has-text("Add integrator.io")');
         const isSecretKeyVisible = await io.myAccountPage.isVisible(':has-text("Verify mobile device")');
