@@ -64,7 +64,9 @@ require("./Manage/TC_C93700")
 require("./Manage/TC_C93704")
 require("./Manage/TC_C93712")
 require("./Manage/TC_C93719")
-require("./Monitor/TC_C93701")
+require('./Administrator/TC_C93694');
+require('./Administrator/TC_C93698');
+require('./Administrator/TC_C93710');require("./Monitor/TC_C93701")
 require("./Monitor/TC_C93705")
 require("./Monitor/TC_C93713")
 require("./Monitor/TC_C93720")
