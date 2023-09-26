@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C1459 Verify User should not select multiple flows and also "All flows" from Notify me when job has error field`, () => {
   test.beforeEach(async ({ io }) => {
-    await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
+    await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
   });
 
   test(`C1459 Verify User should not select multiple flows and also "All flows" from Notify me when job has error field`, async ({
@@ -17,10 +17,11 @@ test.describe(`C1459 Verify User should not select multiple flows and also "All 
     for (const flow of flowsList) {
       await flow.click();
     }
+    await io.flowBuilder.addStep("Clicked on all flows");
     const allFlowsCheckbox = page
       .getByRole("option")
       .filter({ has: page.getByText("All flows") });
-    // await allFlowsCheckbox.waitFor({ state: "visible", timeout: 10000 });
     await expect(allFlowsCheckbox).toHaveAttribute("aria-selected", "false");
+    await io.flowBuilder.addStep("Verified 'All flows' checkbox is disabled");
   });
 });
