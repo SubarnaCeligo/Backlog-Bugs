@@ -15,7 +15,7 @@ test.describe(`C51302 Verify when a retry is in progress and “Cancel” is cli
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.EM2dot0PO.RETRY_AND_NEXT
     );
-    await io.flowBuilder.delay(1000);
+    await io.flowBuilder.delay(1000); // https://celigo.atlassian.net/browse/IO-29218
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2dot0PO.RETRIES_TAB);
     await io.flowBuilder.clickByTextByIndex("Cancel retry", 0);
     await io.flowBuilder.addStep("Clicked 'cancel retry'");
