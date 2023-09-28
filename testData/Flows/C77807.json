@@ -12,7 +12,7 @@
     
                 ],
                 "http": {
-                  "relativeURI": "/ShipVia?$top=100&$skip={{{export.http.paging.skip}}}",
+                  "relativeURI": "/test",
                   "method": "GET",
                   "formType": "http",
                   "paging": {
