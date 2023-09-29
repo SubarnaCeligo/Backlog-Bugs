@@ -11,9 +11,8 @@ test.describe(`C61349 Verify url displayed upon hovering is same as the page is 
     const url = new URL(page.url());
     const path = url.pathname;
     await page
-      .locator("div")
-      .filter({ hasText: /^Narvar_FlowTEST MODEBeta$/ })
       .locator(selectors.connectionsPagePO.ACTIONS_MENU_BUTTON)
+      .first()
       .click();
     await io.flowBuilder.clickByText("Clone flow");
     const breadcrumbPath = await page

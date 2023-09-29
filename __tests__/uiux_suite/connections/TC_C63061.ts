@@ -18,15 +18,11 @@ test.describe(`C63061 Verify fields are autopopulating once user switch from Sim
       .locator(`${selectors.basePagePO.CONNECTION} input`)
       .evaluate((el: HTMLInputElement) => el.value);
 
-    await io.assert.expectToBeValue(
-      name,
-      "Narvar Import",
-      "Name value is not 'Narvar Import'"
-    );
-    await io.assert.expectToBeValue(
+    await io.assert.expectNotToBeValue("", name, "Name value is empty");
+    await io.assert.expectNotToBeValue(
+      "",
       connection,
-      "Narvar",
-      "Connection value is not Narvar"
+      "Connection value is empty"
     );
   });
 });

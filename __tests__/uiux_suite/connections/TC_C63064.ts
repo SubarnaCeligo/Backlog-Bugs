@@ -35,6 +35,9 @@ test.describe(`C63064 Verify in connection if user selected one api type in simp
         .locator(selectors.connectionsPagePO.NARVAR_RMA_CONNECTION)
         .getByRole("radio")
     ).toBeChecked();
+    await io.flowBuilder.addStep(
+      "Verified previous selected api type is persisted"
+    );
   });
   test.afterEach(async ({ io }) => {
     const connections = await io.api.getCall("v1/connections");
