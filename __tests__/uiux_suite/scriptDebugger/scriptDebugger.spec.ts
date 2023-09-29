@@ -64,3 +64,14 @@ require("./Manage/TC_C93700")
 require("./Manage/TC_C93704")
 require("./Manage/TC_C93712")
 require("./Manage/TC_C93719")
+require('./Administrator/TC_C93694');
+require('./Administrator/TC_C93698');
+require('./Administrator/TC_C93710');
+require("./Monitor/TC_C93701")
+require("./Monitor/TC_C93705")
+require("./Monitor/TC_C93713")
+require("./Monitor/TC_C93720")
+require("./Tile level/TC_C93703")
+require("./Tile level/TC_C93707")
+require("./Tile level/TC_C93715")
+require("./Tile level/TC_C93722")
