@@ -9,9 +9,8 @@ test.describe(`C63003 Verify connection dropdown while clonning flow`, () => {
   }) => {
     await io.fillFormUI(testData, "FLOWS");
     await page
-      .locator("div")
-      .filter({ hasText: /^Narvar_FlowTEST MODEBeta$/ })
       .locator(selectors.connectionsPagePO.ACTIONS_MENU_BUTTON)
+      .first()
       .click();
     await io.flowBuilder.clickByText("Clone flow");
     await io.flowBuilder.clickByText("Please select");
