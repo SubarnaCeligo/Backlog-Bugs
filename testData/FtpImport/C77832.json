@@ -1,0 +1,70 @@
+{
+    "name": "TC_C77832",
+    "pageGenerators": [
+        {
+            "qa__export":{
+                "name": "Skip parameter  pagination Export",
+                "application": "Acumatica",
+                "_connectionId": "HTTP ACUMATICA CONNECTION",
+                "asynchronous": true,
+                "oneToMany": false,
+                "parsers": [
+    
+                ],
+                "http": {
+                  "relativeURI": "/ShipVia?$top=100&$skip={{{export.http.paging.skip}}}",
+                  "method": "GET",
+                  "formType": "http",
+                  "paging": {
+                    "method": "skip",
+                    "lastPageStatusCode": 404
+                  }
+                },
+                "adaptorType": "HTTPExport"
+              }
+          }
+      ],
+      "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "FTP Import",
+            "parsers": [],
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "if47d966b0",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+                "fileName": "test656.json",
+                "skipAggregation": false,
+                "type": "json"
+                 
+            },
+            "ftp": {
+                "directoryPath": "/test",
+                "fileName":"test656.json"
+            },
+            "adaptorType": "FTPImport"
+        }
+    }],
+      "createFlow": {
+        "name": "TC_C63406",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+}
