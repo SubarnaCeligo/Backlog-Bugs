@@ -16,24 +16,30 @@ test.describe(`C68717 Verify user is able to create connection for NS JDBC conne
       .nth(1)
       .fill(testData.connection.name);
     await io.flowBuilder.fill(
+      // TODO replace: selectors.connectionsPagePO.JDBC_HOST_INPUT
       '[data-test="jdbc.host"] input',
       testData.connection.host
     );
+    // TODO replace: selectors.connectionsPagePO.JDBC_SERVER_DATA_SOURCE
     await io.flowBuilder.click('[data-test="jdbc.serverDataSource"]');
     await io.flowBuilder.clickByText("NetSuite.com");
     await io.flowBuilder.fill(
+      // TODO replace: selectors.connectionsPagePO.JDBC_EMAIL_INPUT
       '[data-test="jdbc.email"] input',
       testData.connection.email
     );
     await io.flowBuilder.fill(
+      // TODO replace: selectors.connectionsPagePO.JDBC_PASSWORD_INPUT
       '[data-test="jdbc.password"] input',
       testData.connection.password
     );
     await io.flowBuilder.fill(
+      // TODO replace: selectors.connectionsPagePO.JDBC_ACCOUNT_INPUT
       '[data-test="jdbc.account"] input',
       testData.connection.account
     );
     await io.flowBuilder.fill(
+      // TODO replace: selectors.connectionsPagePO.JDBC_ROLE_ID_INPUT
       '[data-test="jdbc.roleId"] input',
       testData.connection.roleId
     );
