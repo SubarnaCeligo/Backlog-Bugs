@@ -26,11 +26,11 @@ test.describe(`C27372 Verify AutoMap field button is shown when both extract/gen
                     data4,
                     'FLOWS'
                   );
-         await io.flowBuilder.waitForElementAttached('[data-test="addDataProcessor"]')        
-         await io.flowBuilder.clickByIndex('[data-test="addDataProcessor"]',1)
+         await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ADD_DATA_PROCESSOR)        
+         await io.flowBuilder.clickByIndex(selectors.basePagePO.ADD_DATA_PROCESSOR,1)
          await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.IMPORT_MAPPINGS)        
          await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS)   
-         const separationBoundary = await io.flowBuilder.isVisible("[data-test='auto-map']")
+         const separationBoundary = await io.flowBuilder.isVisible(selectors.mappings.DEFAULT_MAPPING_TYPE.AUTO_MAP)
          await io.assert.expectToBeValue(separationBoundary.toString(), 'true', "Element not found");
 
     });

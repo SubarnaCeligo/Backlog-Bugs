@@ -8,7 +8,7 @@ test.describe(`C42051 Verify aliases tab should not be shown for IA's`, () => {
     test(`C42051 Verify aliases tab should not be shown for IA's`, async({io,page}) => {
   
        await io.flowBuilder.clickByText("Edition")
-       const element = await io.homePage.isVisible('[data-test="Aliases"]');
+       const element = await io.homePage.isVisible(selectors.basePagePO.ALIASES);
        await io.assert.expectToBeValue(element.toString(), 'false', "Element is not present")
 
     });

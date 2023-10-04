@@ -10,8 +10,8 @@ test.describe(`C52775 Verify the Shopify connector is defaulting to the basic au
         await io.homePage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL)
         await io.connectionPage.clickByText("Create connection")
         await io.connectionPage.click(selectors.connectionsPagePO.SHOPIFY_CONNECTION)
-        await io.assert.verifyElementContainsText('[data-test="http.auth.type"] div[role="button"]',"Basic")
-        await io.assert.verifyElementIsDisplayed('[for="http.unencrypted.version"]',"API version")
-        await io.assert.verifyElementIsDisplayed('[for="http.storeName"]',"Store name")
+        await io.assert.verifyElementContainsText(selectors.connectionsPagePO.AUTH_TYPE,"Basic")
+        await io.assert.verifyElementIsDisplayed( selectors.connectionsPagePO.VERSION_TYPE,"API version")
+        await io.assert.verifyElementIsDisplayed(selectors.connectionsPagePO.STORE_NAME,"Store name")
     });
 });

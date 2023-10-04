@@ -11,11 +11,11 @@ test.describe(`C25946 Verify suggested mapping separation boundary must be Clear
                     data4,
                     'FLOWS'
                   );
-         await io.flowBuilder.waitForElementAttached('[data-test="addDataProcessor"]')        
-         await io.flowBuilder.clickByIndex('[data-test="addDataProcessor"]',1)
+         await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ADD_DATA_PROCESSOR)        
+         await io.flowBuilder.clickByIndex(selectors.basePagePO.ADD_DATA_PROCESSOR,1)
          await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS)   
-         await io.flowBuilder.click("[data-test='auto-map']")
-         const separationBoundary = await io.flowBuilder.isVisible('text="New mappings"')
+         await io.flowBuilder.click(selectors.mappings.DEFAULT_MAPPING_TYPE.AUTO_MAP)
+         const separationBoundary = await io.flowBuilder.isVisible(selectors.mappings.DEFAULT_MAPPING_TYPE.NEW_MAPPINGS)
          await io.assert.expectToBeValue(separationBoundary.toString(), 'true', "Element not found");
 
     });
