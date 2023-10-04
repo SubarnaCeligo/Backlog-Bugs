@@ -1,6 +1,5 @@
 {
-  "flow": {
-    "name": "C51653",
+    "name": "C51644",
     "pageGenerators": [
       {
         "type": "export",
@@ -84,7 +83,6 @@
         }
       ]
     }
-  },
-  "errorText": "Failed to save record because Please enter value(s) for: Company Name, Subsidiary",
-  "newText": "Failed to save record because Please enter value(s) for: Company Name, SubsidiaryFailed to save record because Please enter value(s) for: Company Name, SubsidiaryFailed to save record because Please enter value(s) for: Company Name, SubsidiaryFailed to save record because Please enter value(s) for: Company Name, SubsidiaryFailed to save record because Please enter value(s) for: Company Name, SubsidiaryFailed to save record because Please enter value(s) for: Company Name, Subsidiary"
-}
+  }
+  
+  
