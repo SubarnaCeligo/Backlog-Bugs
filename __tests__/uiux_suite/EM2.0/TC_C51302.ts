@@ -1,13 +1,13 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import flowJSON from "@testData/EM2.0/C51302.json";
+
 
 test.describe(`C51302 Verify when a retry is in progress and “Cancel” is clicked, few errors are successful and few errors are unsuccessful`, () => {
   test(`C51302 Verify when a retry is in progress and “Cancel” is clicked, few errors are successful and few errors are unsuccessful`, async ({
     io,
     page
   }) => {
-    const id = await io.fillFormUI(flowJSON, "FLOWS");
+    const id = await io.fillFormUI("flowJSON", "FLOWS");
     await io.api.runBatchFlowViaAPI("C51302", id);
     const lastRun = page.getByText("Last run");
     await lastRun.waitFor({ state: "visible" });
