@@ -1,6 +1,7 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import testData from "@testData/Em2.0/C51653.json";
+import testData from "@testData/EM2.0/C51653.json"
+
 
 test.describe(`C51653 Verify the height and the veritical scroll bar of the message coloumn in the "Error rows" panel`, () => {
   test(`C51653 Verify the height and the veritical scroll bar of the message coloumn in the "Error rows" panel`, async ({
