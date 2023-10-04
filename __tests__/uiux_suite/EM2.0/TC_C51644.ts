@@ -1,6 +1,6 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import flowJSON from "@testData/EM2.0/C51644.json";
+import flowJSON from "@testData/EM2.0/C51644.json"
 
 test.describe(`C51644 Verify the error rows table header fields displayed in the New View`, () => {
   test(`C51644 Verify the error rows table header fields displayed in the New View`, async ({
