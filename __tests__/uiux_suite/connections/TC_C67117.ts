@@ -19,8 +19,7 @@ test.describe(`C67117 Verify There should be a horizontal line above the control
       .getByText("Use existing export", { exact: true })
       .waitFor({ state: "visible" });
     const borderTop = await page
-      // TODO replace: selectors.connectionsPagePO.CHECK_EXISTING_EXPORT
-      .locator("[id=checkExistingExport] > div")
+      .locator(selectors.connectionsPagePO.CHECK_EXISTING_EXPORT)
       .first()
       .evaluate(el => {
         return getComputedStyle(el).borderTop;

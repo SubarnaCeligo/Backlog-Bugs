@@ -8,7 +8,7 @@ test.describe(`C61155 Verify If all the NS steps in my integration are solely co
   }) => {
     await io.homePage.navigateTo(
       process.env["IO_UI_CONNECTOR_URL"] +
-        "marketplace/netsuite/installTemplate/preview/651aff4f8b3a9978eb23f121"
+        "marketplace/installTemplate/preview/651aff4f8b3a9978eb23f121"
     );
     await io.homePage.clickByText("Install now");
     await io.assert.verifyElementDisplayedByText(

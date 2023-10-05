@@ -13,10 +13,12 @@ test.describe(`C65721 Verify Home key should place cursor at the beginning of th
     await io.flowBuilder.click(
       selectors.mappings.Mapper2dot0PO.MAPPER1DOT0BUTTON
     );
-    // TODO replace: selectors.mappings.Mapper1dot0PO.SOURCE_RECORD_FIELD_FIRST
-    await io.flowBuilder.click('[data-test="text-fieldMappingExtract-0"]');
-    // TODO replace: selectors.mappings.Mapper1dot0PO.SOURCE_RECORD_FIELD_INPUT
-    const inp = page.locator("#fieldMappingExtract-0 input").first();
+    await io.flowBuilder.click(
+      selectors.mappings.Mapper1dot0PO.SOURCE_RECORD_FIELD_FIRST
+    );
+    const inp = page
+      .locator(selectors.mappings.Mapper1dot0PO.SOURCE_RECORD_FIELD_INPUT)
+      .first();
     await inp.fill("test");
     await io.flowBuilder.addStep("Filled the input field with 'test'");
     await page.keyboard.press("Home");

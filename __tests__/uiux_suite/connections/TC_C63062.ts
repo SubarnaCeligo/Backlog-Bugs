@@ -8,6 +8,15 @@ test.describe(`C63062 Verify while editing connection through export/import/look
     page
   }) => {
     await io.fillFormUI(testData, "FLOWS");
+    try {
+      const iframe = page.frameLocator(
+        selectors.homePagePO.PENDO_ZENDESK.PENDO_ZENDESK_IFRAME
+      );
+      await iframe
+        .locator(selectors.homePagePO.PENDO_ZENDESK.MINUS_ICON)
+        .click({ timeout: 2000 });
+      await io.flowBuilder.addStep("Clicked on the minus icon to close chatbot");
+    } catch (e) {}
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.NOTIFICATION_CONNECTIONS
     );

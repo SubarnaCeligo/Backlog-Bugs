@@ -16,31 +16,27 @@ test.describe(`C68717 Verify user is able to create connection for NS JDBC conne
       .nth(1)
       .fill(testData.connection.name);
     await io.flowBuilder.fill(
-      // TODO replace: selectors.connectionsPagePO.JDBC_HOST_INPUT
-      '[data-test="jdbc.host"] input',
+      selectors.connectionsPagePO.JDBC_HOST_INPUT,
       testData.connection.host
     );
-    // TODO replace: selectors.connectionsPagePO.JDBC_SERVER_DATA_SOURCE
-    await io.flowBuilder.click('[data-test="jdbc.serverDataSource"]');
+    await io.flowBuilder.click(
+      selectors.connectionsPagePO.JDBC_SERVER_DATA_SOURCE
+    );
     await io.flowBuilder.clickByText("NetSuite.com");
     await io.flowBuilder.fill(
-      // TODO replace: selectors.connectionsPagePO.JDBC_EMAIL_INPUT
-      '[data-test="jdbc.email"] input',
+      selectors.connectionsPagePO.JDBC_EMAIL_INPUT,
       testData.connection.email
     );
     await io.flowBuilder.fill(
-      // TODO replace: selectors.connectionsPagePO.JDBC_PASSWORD_INPUT
-      '[data-test="jdbc.password"] input',
+      selectors.connectionsPagePO.JDBC_PASSWORD_INPUT,
       testData.connection.password
     );
     await io.flowBuilder.fill(
-      // TODO replace: selectors.connectionsPagePO.JDBC_ACCOUNT_INPUT
-      '[data-test="jdbc.account"] input',
+      selectors.connectionsPagePO.JDBC_ACCOUNT_INPUT,
       testData.connection.account
     );
     await io.flowBuilder.fill(
-      // TODO replace: selectors.connectionsPagePO.JDBC_ROLE_ID_INPUT
-      '[data-test="jdbc.roleId"] input',
+      selectors.connectionsPagePO.JDBC_ROLE_ID_INPUT,
       testData.connection.roleId
     );
     await io.flowBuilder.clickByIndex(selectors.basePagePO.SAVE, 1);

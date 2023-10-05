@@ -9,7 +9,7 @@ test.describe(`C61158 Verify If some of the NS steps are configured to use suite
   }) => {
     await io.homePage.navigateTo(
       process.env["IO_UI_CONNECTOR_URL"] +
-        "marketplace/netsuite/installTemplate/preview/6516a1efb099920bd58b1850"
+        "marketplace/installTemplate/preview/6516a1efb099920bd58b1850"
     );
     await io.homePage.clickByText("Install now");
     await io.assert.verifyElementDisplayedByText(
