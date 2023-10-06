@@ -1,0 +1,21 @@
+{
+  "_id": "651dc4fd7462f17c1b53fe1f",
+  "name": "New flow",
+  "pageGenerators": [
+    {
+      "_exportId": "651dc4fc7462f17c1b53fe1b",
+      "skipRetries": false
+    }
+  ],
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "_importId": "651dc4fd7462f17c1b53fe1d"
+    }
+  ],
+  "free": false
+}

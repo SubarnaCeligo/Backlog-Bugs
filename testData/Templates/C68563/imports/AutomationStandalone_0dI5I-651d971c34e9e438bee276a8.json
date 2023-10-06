@@ -1,0 +1,18 @@
+{
+  "_id": "651d971c34e9e438bee276a8",
+  "name": "AutomationStandalone_0dI5I",
+  "parsers": [],
+  "_connectionId": "6459f5e26c260356df1c7ce9",
+  "apiIdentifier": "i46ddb39a4",
+  "oneToMany": false,
+  "file": {
+    "fileName": "Skip_Paging_QA.json",
+    "skipAggregation": false,
+    "type": "json"
+  },
+  "ftp": {
+    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+    "fileName": "Skip_Paging_QA.json"
+  },
+  "adaptorType": "FTPImport"
+}

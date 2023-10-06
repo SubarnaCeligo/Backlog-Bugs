@@ -1,0 +1,42 @@
+{
+  "_id": "6511874d2019bf2cf108bf80",
+  "name": "ftp",
+  "mockResponse": [
+    {
+      "id": "1234567890",
+      "errors": [],
+      "_json": {
+        "id": "1234567890",
+        "mockResponse": "replace me"
+      },
+      "statusCode": 200,
+      "ignored": false,
+      "dataURI": "",
+      "_headers": {
+        "content-type": "application/json; charset=utf-8"
+      }
+    }
+  ],
+  "_connectionId": "6459f5e26c260356df1c7ce9",
+  "apiIdentifier": "id9eb69b8f",
+  "oneToMany": false,
+  "file": {
+    "fileName": "file.json",
+    "skipAggregation": false,
+    "type": "csv",
+    "csv": {
+      "rowDelimiter": "\n",
+      "columnDelimiter": ",",
+      "includeHeader": true,
+      "wrapWithQuotes": false,
+      "replaceTabWithSpace": false,
+      "replaceNewlineWithSpace": false,
+      "truncateLastRowDelimiter": false
+    }
+  },
+  "ftp": {
+    "directoryPath": "random",
+    "fileName": "file.json"
+  },
+  "adaptorType": "FTPImport"
+}

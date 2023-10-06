@@ -1,0 +1,37 @@
+{
+  "_id": "651e87a69f5844786ea15e52",
+  "name": "TC100370_FTP_TO_FTP",
+  "install": [],
+  "installSteps": [
+    {
+      "name": "Box",
+      "completed": true,
+      "type": "connection",
+      "sourceConnection": {
+        "type": "http",
+        "name": "Box",
+        "assistant": "box",
+        "http": {
+          "formType": "assistant"
+        }
+      }
+    },
+    {
+      "name": "FTP Connection",
+      "completed": true,
+      "type": "connection",
+      "sourceConnection": {
+        "type": "ftp",
+        "name": "FTP Connection"
+      }
+    },
+    {
+      "name": "Copy resources now from template zip",
+      "completed": true,
+      "type": "template_zip"
+    }
+  ],
+  "uninstallSteps": [],
+  "changeEditionSteps": [],
+  "flowGroupings": []
+}

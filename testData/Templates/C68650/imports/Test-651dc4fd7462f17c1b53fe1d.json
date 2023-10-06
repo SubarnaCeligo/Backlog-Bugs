@@ -1,0 +1,22 @@
+{
+  "_id": "651dc4fd7462f17c1b53fe1d",
+  "name": "Test",
+  "_connectionId": "6459f5e6cb223d10e33299c3",
+  "distributed": true,
+  "apiIdentifier": "i52497f1d8",
+  "ignoreExisting": false,
+  "ignoreMissing": false,
+  "oneToMany": false,
+  "lookups": [],
+  "netsuite_da": {
+    "restletVersion": "suiteapp2.0",
+    "operation": "add",
+    "recordType": "customer",
+    "lookups": [],
+    "mapping": {
+      "fields": [],
+      "lists": []
+    }
+  },
+  "adaptorType": "NetSuiteDistributedImport"
+}
