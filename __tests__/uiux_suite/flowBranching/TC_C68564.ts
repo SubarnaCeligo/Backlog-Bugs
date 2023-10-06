@@ -14,7 +14,7 @@ test.describe(`C68564 Verify user is upload the integration zip file having one 
             await io.homePage.waitForElementAttached(`:has-text("temp1") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
             await io.homePage.click(`tbody tr:has-text("temp4-DND") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
             await io.homePage.clickByText("Upload template zip");
-            const fileInput = await page.$('input[data-test="uploadFile"]');
+            const fileInput = await page.$(selectors.basePagePO.UPLOAD_FILE);
             await fileInput.setInputFiles('testData/Templates/C68564.zip');  
             await io.homePage.clickByText("Marketplace")
             await io.marketplacePage.fill('[placeholder="Search marketplace"]', "temp4-DND") 
@@ -32,7 +32,7 @@ test.describe(`C68564 Verify user is upload the integration zip file having one 
               .getByText("FTP CONNECTION")
               .click();
               await io.connectionPage.click(selectors.basePagePO.SAVE);
-            await io.homePage.click('[data-test="Install"]');
+            await io.homePage.click(selectors.basePagePO.INSTALL);
             await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
             await io.homePage.waitForElementAttached("text='C68564'")
             const flow = await io.homePage.isVisible("text='C68564'")
@@ -41,10 +41,10 @@ test.describe(`C68564 Verify user is upload the integration zip file having one 
             await io.homePage.waitForElementAttached(`tbody tr:has-text("C68564") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
             await io.homePage.clickByIndex(`tbody tr:has-text("C68564") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`,0);
             await io.homePage.clickByText("Delete flow")
-            await io.homePage.click('[data-test="Delete"]')
+            await io.homePage.click(selectors.basePagePO.DELETE_BUTTON)
             await io.homePage.waitForElementAttached('text="Delete integration"')
             await io.homePage.clickByText('Delete integration')
-            await io.homePage.click('[data-test="Delete"]')
+            await io.homePage.click(selectors.basePagePO.DELETE_BUTTON)
             await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
           
         });

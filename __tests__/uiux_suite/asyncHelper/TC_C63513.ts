@@ -2,8 +2,8 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import data5 from "@testData/Flows/C63512.json"
 
-test.describe(`C68513 Verify if any other flows that are present in the same Integration are accessible.`, () => {
-    test(`C68513 Verify if any other flows that are present in the same Integration are accessible.`, async ({
+test.describe(`C63513 Verify if any other flows that are present in the same Integration are accessible.`, () => {
+    test(`C63513 Verify if any other flows that are present in the same Integration are accessible.`, async ({
       io,
       page
     }) => {

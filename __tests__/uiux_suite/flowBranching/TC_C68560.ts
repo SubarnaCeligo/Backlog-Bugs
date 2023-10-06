@@ -14,7 +14,7 @@ test.describe(`C68560 Verify user is upload the ntegration zip file having one l
             await io.homePage.waitForElementAttached(`:has-text("temp1") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
             await io.homePage.click(`tbody tr:has-text("temp2-DND") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
             await io.homePage.clickByText("Upload template zip");
-            const fileInput = await page.$('input[data-test="uploadFile"]');
+            const fileInput = await page.$(selectors.basePagePO.UPLOAD_FILE);
             await fileInput.setInputFiles('testData/Templates/C68650copy.zip');  
             await io.homePage.clickByText("Marketplace")
             await io.marketplacePage.fill('[placeholder="Search marketplace"]', "temp2-DND") 
@@ -43,7 +43,7 @@ test.describe(`C68560 Verify user is upload the ntegration zip file having one l
               .click();
               await io.connectionPage.click(selectors.basePagePO.SAVE);
 
-            await io.homePage.click('[data-test="Install"]');
+            await io.homePage.click(selectors.basePagePO.INSTALL);
 
             await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         
@@ -54,10 +54,10 @@ test.describe(`C68560 Verify user is upload the ntegration zip file having one l
             await io.homePage.waitForElementAttached(`tbody tr:has-text("TC100370_FTP_TO_FTP") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
             await io.homePage.clickByIndex(`tbody tr:has-text("TC100370_FTP_TO_FTP") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`,0);
             await io.homePage.clickByText("Delete flow")
-            await io.homePage.click('[data-test="Delete"]')
+            await io.homePage.click(selectors.basePagePO.DELETE_BUTTON)
             await io.homePage.waitForElementAttached('text="Delete integration"')
             await io.homePage.clickByText('Delete integration')
-            await io.homePage.click('[data-test="Delete"]')
+            await io.homePage.click(selectors.basePagePO.DELETE)
             await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
 
         });
