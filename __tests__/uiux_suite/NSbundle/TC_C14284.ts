@@ -14,7 +14,7 @@ test.describe(`C14284 Verify in mappings whether all the payment instruments fie
 
          await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS)   
          await io.flowBuilder.waitForElementAttached(':has-text("Card Brand (InternalId)")');
-         await io.assert.verifyElementTextByIndex(`[data-test=text-fieldMappingGenerate-0] textarea`, "Card Brand (InternalId)",0)      
+         await io.assert.verifyElementTextByIndex(` ${selectors.mappings.Mapper1dot0PO.DESTINATION_INPUT} textarea`, "Card Brand (InternalId)",0)      
                    
 
     });
