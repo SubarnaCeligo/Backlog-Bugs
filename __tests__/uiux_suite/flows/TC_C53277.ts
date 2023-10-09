@@ -14,8 +14,6 @@ test.describe(`C53277 Verify the new "Name" filed in the “Add branching” dra
     const plusButtonsSelector = selectors.flowBuilderPagePO.PLUS_BUTTONS;
     await io.flowBuilder.waitForElementAttached(plusButtonsSelector);
     await io.flowBuilder.clickByIndex(plusButtonsSelector, 0);
-    // const plusButtonsLocator = await page.$$(plusButtonsSelector);
-    // await plusButtonsLocator[0].click();
     await io.flowBuilder.clickByText("Add branching");
     await io.assert.verifyElementDisplayedByText(
       "Branching name",
@@ -27,12 +25,9 @@ test.describe(`C53277 Verify the new "Name" filed in the “Add branching” dra
       ""
     );
     await io.flowBuilder.clickByText("Save");
-    // await io.assert.verifyElementDisplayedByText(
-    //   "Branch 1.1",
-    //   "Branch 1.1 not visible"
-    // );
     await expect(page.getByText("Branch 1.1").first()).toBeVisible({
       timeout: 10000
     });
+    await io.flowBuilder.addStep("Verified the default branch name is displayed");
   });
 });

@@ -1,6 +1,6 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import testData from "@testData/Em2.0/C51662.json";
+import testData from "@testData/EM2.0/C51662.json";
 
 test.describe(`C51662 Verify the default view of the Error details drawer`, () => {
   test(`C51662 Verify the default view of the Error details drawer`, async ({

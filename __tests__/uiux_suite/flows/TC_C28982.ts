@@ -6,8 +6,8 @@ test.describe(`C28982 Verify Connection status is displaying correctly in create
     io,
     page
   }) => {
-    await io.flowBuilder.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
-    await io.homePage.goToMenu("Tools","Flow builder");
+    await io.flowBuilder.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
+    await io.homePage.goToMenu("Tools", "Flow builder");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
     await io.flowBuilder.delay(2000);
     await io.flowBuilder.clickByText("HTTP");
@@ -15,6 +15,16 @@ test.describe(`C28982 Verify Connection status is displaying correctly in create
     await io.flowBuilder.clickByText("3PL CONNECTION");
     const statusDot = page.getByRole("status");
     await expect(page.getByText("Online")).toBeVisible();
+    await io.assert.verifyElementDisplayedByText(
+      "Online",
+      "'Online' is not displayed"
+    );
+    await io.flowBuilder.addStep(
+      "Verified the connection status is displayed as 'Online'"
+    );
     await expect(statusDot).toHaveCSS("background-color", "rgb(76, 187, 2)");
+    await io.flowBuilder.addStep(
+      "Verified the connection status dot is displayed as green"
+    );
   });
 });

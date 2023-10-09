@@ -10,9 +10,7 @@ test.describe(' C39939 Verify the message under resources tab if we do not have 
     test('Verify the message under resources tab if we do not have any imports,agents,exports in the IO', async({io,page}) => {
   
         await io.homePage.goToMenu("Resources", "Agents");
-        const elementSelector = selectors.basePagePO.H3_TEXT_SELECTOR; // Combine the classes
-        await io.homePage.waitForElementAttached(elementSelector)
-         await io.assert.verifyElementText(elementSelector, 'You don’t have any agents')
+         await io.assert.verifyElementTextByIndex(selectors.basePagePO.H3_TEXT_SELECTOR, "You don’t have any agents", 1);
        
     });
   })
