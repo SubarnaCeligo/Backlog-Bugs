@@ -8,7 +8,7 @@ require('./TC_C64846');
 require('./TC_C65758');
 require('./TC_C65759');
 require('./TC_C67232');
-
+require('./TC_C65696');
 // import { test, expect } from "@celigo/ui-core-automation";
 // import * as selectors from "@celigo/aut-selectors";
 // import * as C55447 from "@testData/Exports/C55447.json";
