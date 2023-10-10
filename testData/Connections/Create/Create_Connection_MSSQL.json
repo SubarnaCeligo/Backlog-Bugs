@@ -1,0 +1,27 @@
+{
+    "expectedJSON": {
+        "type": "rdbms",
+        "name": "Create_Connection_Mssql",
+        "rdbms": {
+            "type": "mssql",
+            "host": "integrator-staging.database.windows.net",
+            "database": "integrator-staging-qa",
+            "version": "Azure",
+            "user": "celigoqa",
+            "password": "******"
+        }
+    },
+    "importJSON": {
+        "type": "rdbms",
+        "name": "Create_Connection_Mssql",
+        "rdbms": {
+            "type": "mssql",
+            "host": "integrator-staging.database.windows.net",
+            "database": "integrator-staging-qa",
+            "version": "Azure",
+            "user": "celigoqa",
+            "password": "******",
+            "qa__password": "eU1LcDAydFdrR3RybGRMSw=="
+        }
+    }
+}

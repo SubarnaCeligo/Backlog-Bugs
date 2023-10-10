@@ -1,0 +1,42 @@
+{
+    "expectedJSON": {
+        "type": "rdbms",
+        "name": "AmazonRedshift_Connection_Automation",
+        "rdbms": 
+        {
+        "type": "redshift",
+        "database": "qa",
+        "user": "celigo_qa",
+        "options": [],
+        "disableStrictSSL": false,
+        "redshift": {
+            "aws": {
+                "accessKeyId": "AKIASXM4V7ZFRT6PT6OB",
+                "secretAccessKey": "******"
+            },
+            "clusterIdentifier": "integrator-dev-cluster",
+            "region": "us-east-1"
+        }
+        }
+    },
+    "importJSON": {
+        "type": "rdbms",
+        "name": "AmazonRedshift_Connection_Automation",
+        "rdbms": {
+            "type": "redshift",
+            "database": "qa",
+            "user": "celigo_qa",
+            "options": [],
+            "disableStrictSSL": false,
+            "redshift": {
+                "aws": {
+                    "accessKeyId": "AKIASXM4V7ZFRT6PT6OB",
+                    "secretAccessKey": "******",
+                    "qa__secretAccessKey": "V3d1S1ByQWN0WXFyV1MxaS9qUVpTVmVoVStvSERNWWZxcXZvQ25HbQ=="
+                },
+                "clusterIdentifier": "integrator-dev-cluster",
+                "region": "us-east-1"
+            }
+    }
+}
+}
