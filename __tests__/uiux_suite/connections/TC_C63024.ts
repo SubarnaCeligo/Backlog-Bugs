@@ -40,6 +40,6 @@ test.describe(`C63024 Verify user is able to create connection from already crea
     const connectionId = connections.find(
       (connection: any) => connection.name === "Narvar-RMA-Test"
     )._id;
-    await io.api.deleteCall(`v1/connections/${connectionId}`, {});
+    await io.api.deleteCall(`v1/connections/${connectionId}`);
   });
 });

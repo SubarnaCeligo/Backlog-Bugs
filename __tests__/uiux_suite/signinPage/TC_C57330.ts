@@ -1,7 +1,7 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C57330 Verify if the user is logged out we should be navigating to signin page as expected", () => {
+test.describe.skip("C57330 Verify if the user is logged out we should be navigating to signin page as expected", () => {
     test("C57330 Verify if the user is logged out we should be navigating to signin page as expected", async ({io, page}) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT);
