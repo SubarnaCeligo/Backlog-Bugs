@@ -50,7 +50,6 @@ test.describe(`C68717 Verify user is able to create connection for NS JDBC conne
     const connectionId = connections.find(
       (connection: any) => connection.name === testData.connection.name
     )?._id;
-    if (connectionId)
-      await io.api.deleteCall(`v1/connections/${connectionId}`, {});
+    if (connectionId) await io.api.deleteCall(`v1/connections/${connectionId}`);
   });
 });
