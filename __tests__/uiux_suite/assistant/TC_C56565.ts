@@ -30,7 +30,6 @@ test.describe("C56565 Verify when (input, textarea, date) fieldType is selected 
     await io.flowBuilder.fill(selectors.importPagePO.QUERY_PARAMETER_VALUE_0, 'testValue');
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT);
-    const isSaveAndCloseVisible = io.flowBuilder.isVisible(selectors.basePagePO.SAVE_AND_CLOSE);
     await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.EXPORT, 'The export is not created');
   });
 });

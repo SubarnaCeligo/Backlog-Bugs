@@ -8,12 +8,12 @@ test.describe("C24850 Verify that the flow event report results are sorted by th
         await io.homePage.goToMenu("Tools","Reports");
         for(let i=0; i<3; i++){
           await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
-          await io.homePage.waitForElementAttached('#integration');
-          await io.homePage.clickByIndex('#integration',0);
+          await io.homePage.waitForElementAttached(selectors.basePagePO.INTEGRATION_ID);
+          await io.homePage.clickByIndex(selectors.basePagePO.INTEGRATION_ID,0);
           await io.homePage.click('[role="menuitem"]:has-text("Automation Flows")');
           await io.homePage.clickByText('Choose flows');
-          await io.homePage.waitForElementAttached(".PrivateSwitchBase-root");
-          await io.homePage.clickByIndex('.PrivateSwitchBase-root', 0);
+          await io.homePage.waitForElementAttached(selectors.exportsPagePO.PRIVATE_SWITCH_BASE_ROOT);
+          await io.homePage.clickByIndex(selectors.exportsPagePO.PRIVATE_SWITCH_BASE_ROOT, 0);
           await io.homePage.click(selectors.flowBuilderPagePO.NOTIFICATION_CLOSE_SELECT);
           await io.homePage.clickByText('Choose date range');
           await io.homePage.clickByText('Last 24 hours');

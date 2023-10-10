@@ -7,9 +7,9 @@ test.describe("C93548 To verify that the there should not be an empty click betw
       await io.homePage.waitForElementAttached(selectors.homePagePO.TILE_VIEW);
       await io.homePage.click('button:has-text("Create")');
       await io.assert.verifyElementIsDisplayed(selectors.homePagePO.CREATEFLOW, 'Flow option not visible');
-      await io.assert.verifyElementIsDisplayed('[data-test="createConnection"]', 'Create connection option not visible');
-      await io.assert.verifyElementIsDisplayed('[data-test="newIntegration"]', 'New Integration option not visible');
+      await io.assert.verifyElementIsDisplayed(selectors.homePagePO.CREATE_CONNECTION, 'Create connection option not visible');
+      await io.assert.verifyElementIsDisplayed(selectors.homePagePO.NEW_INTEGRATION, 'New Integration option not visible');
       await io.homePage.click('button:has-text("Upload")');
-      await io.assert.verifyElementIsDisplayed('[data-test="installZip"]', 'Install zip option not visible');
+      await io.assert.verifyElementIsDisplayed(selectors.homePagePO.INSTALL_ZIP, 'Install zip option not visible');
   });
 });

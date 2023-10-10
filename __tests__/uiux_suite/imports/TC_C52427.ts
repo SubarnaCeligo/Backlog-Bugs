@@ -8,22 +8,22 @@ test.describe("C52427 For NS SS2.0 - Verify shipping address sub record is shown
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP);
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'netsuite');
     await io.flowBuilder.click(selectors.connectionsPagePO.NETSUITE_CONNECTION);
-    await io.flowBuilder.click('[data-value="importRecords"]');
+    await io.flowBuilder.click(selectors.connectionsPagePO.IMPORT_RECORDS);
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.clickByText('NETSUITE CONNECTION');
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
 
-    await io.flowBuilder.fill('[name="/netsuite_da/recordType"]', 'Subsidia');
-    await io.flowBuilder.click('[name="/netsuite_da/recordType"]');
+    await io.flowBuilder.fill(selectors.importPagePO.NETSUITE_RECORD_TYPE, 'Subsidia');
+    await io.flowBuilder.click(selectors.importPagePO.NETSUITE_RECORD_TYPE);
     await io.flowBuilder.clickByText('Subsidiary');
     await io.flowBuilder.clickByText('Add subrecord');
-    await io.flowBuilder.click('[id="mui-component-select-fieldId"]');
-    await io.flowBuilder.click('[data-value="celigo_address_shipping"]');
-    await io.flowBuilder.click('input[id="jsonPath_celigo_address_shipping"]');
-    await io.flowBuilder.click('[id="react-autowhatever-1"]')
+    await io.flowBuilder.click(selectors.importPagePO.MUI_SELECT_FIELD_ID);
+    await io.flowBuilder.click(selectors.importPagePO.CELIGO_ADDRESS_SHIPPING);
+    await io.flowBuilder.click(selectors.importPagePO.JSONPATH_CELIGO_ADDRESS_SHIPPING);
+    await io.flowBuilder.click(selectors.importPagePO.REACT_AUTO_WHATEVER_1)
     await io.flowBuilder.click(selectors.basePagePO.MFA_SAVE);
     await io.assert.verifyElementDisplayedByText('celigo_address_shipping', 'sub record not visible');
-    await io.assert.verifyElementIsDisplayed('[aria-label="Edit subrecord"]', 'Edit subrecord not visible');
-    await io.assert.verifyElementIsDisplayed('[aria-label="Delete subrecord"]', 'Delete subrecord not visible');
+    await io.assert.verifyElementIsDisplayed(selectors.importPagePO.EDIT_SUBRECORDS, 'Edit subrecord not visible');
+    await io.assert.verifyElementIsDisplayed(selectors.importPagePO.DELETE_SUBRECORDS, 'Delete subrecord not visible');
   });
 });
