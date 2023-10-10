@@ -22,6 +22,7 @@ test.describe(`C65721 Verify Home key should place cursor at the beginning of th
     await inp.fill("test");
     await io.flowBuilder.addStep("Filled the input field with 'test'");
     await page.keyboard.press("Home");
+    await io.flowBuilder.addStep("Pressed 'Home' key");
     let cursorPosition = await inp.evaluate(
       (el: HTMLInputElement) => el.selectionStart
     );
@@ -31,6 +32,7 @@ test.describe(`C65721 Verify Home key should place cursor at the beginning of th
       'Cursor position is not "0"'
     );
     await page.keyboard.press("End");
+    await io.flowBuilder.addStep("Pressed 'End' key");
     cursorPosition = await inp.evaluate(
       (el: HTMLInputElement) => el.selectionStart
     );
