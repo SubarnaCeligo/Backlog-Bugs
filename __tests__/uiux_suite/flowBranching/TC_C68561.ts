@@ -28,7 +28,7 @@ test.describe(`C68561 Verify user is upload the integration zip file having Mult
             await io.homePage.clickByText("Please select");
             await page
               .locator(selectors.connectionsPagePO.CONNECTION_LIST_MODAL)
-              .getByText("FTP CONNECTION")
+              .getByText("FTP CONNECTION").first()
               .click();
               await io.connectionPage.click(selectors.basePagePO.SAVE);
             await page.waitForTimeout(3000);
@@ -53,11 +53,12 @@ test.describe(`C68561 Verify user is upload the integration zip file having Mult
             await io.homePage.waitForElementAttached(`:has-text('C68561') ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
             await io.homePage.clickByIndex(`tbody tr:has-text("C68561") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`,0);
             await io.homePage.clickByText("Delete flow")
-            await io.homePage.click(selectors.basePagePO.DELETE_BUTTON)
+            await io.homePage.waitForElementAttached(selectors.basePagePO.DELETE)
+            await io.homePage.click( selectors.basePagePO.DELETE)
             await io.homePage.waitForElementAttached('text="Delete integration"')
             await io.homePage.clickByText('Delete integration')
-            await io.homePage.click(selectors.basePagePO.DELETE_BUTTON)
-            await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+            await io.homePage.waitForElementAttached( selectors.basePagePO.DELETE)
+            await io.homePage.click( selectors.basePagePO.DELETE)
         });
       });
 
