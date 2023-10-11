@@ -1,6 +1,9 @@
 import { API } from "@celigo/ui-core-automation";
-// Get flaky cases from the API
-const flakycases = await (API as any).getFlakyCases("/platform_suites/widget/25");
+
+async function fetchFlakyCases() {
+  const PI = new API();
+  return PI.getFlakyTestcases("/platform_suites/widget/25");
+}
 const testCases = [
   "TC_311_Multifilter_AND_OR_Operator_equals_notequals_greaterthan",
   "TC_313_Multifilter_GROUP_NOT_Operator_equals_notequals",
@@ -23,8 +26,14 @@ const testCases = [
   "TC_C37478_FTP_InvalidHandlebarErrorValidation",
   "TC_043_Create_81_Sftp_XlSX_To_Netsuite_Customer_Using_FileType_XLSX"
 ];
-testCases.forEach(testCase => {
-  if (!flakycases.includes(testCase)) {
-       require(`./${testCase}`);
+
+async function runTestCases() {
+  const flakycases = await fetchFlakyCases();
+  for (const testCase of testCases) {
+    if (!flakycases.includes(testCase)) {
+      require(`./${testCase}`);
+    }
   }
-});
+}
+
+runTestCases();
