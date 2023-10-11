@@ -4,9 +4,6 @@
     {
       "type": "export",
       "qa__export": {
-        "_id": "6502fbcceb637a5d0a153056",
-        "createdAt": "2023-09-14T12:25:48.053Z",
-        "lastModified": "2023-09-14T12:25:48.165Z",
         "name": "test",
         "_connectionId": "Narvar",
         "apiIdentifier": "e49e91c200",
@@ -36,9 +33,6 @@
     {
       "type": "import",
       "qa__import": {
-        "_id": "6502fc357f01c42fe25aa0f5",
-        "createdAt": "2023-09-14T12:27:33.022Z",
-        "lastModified": "2023-09-14T12:27:33.166Z",
         "name": "Narvar Import",
         "_connectionId": "Narvar",
         "apiIdentifier": "i4c0a16733",
@@ -71,9 +65,6 @@
     {
       "type": "export",
       "qa__export": {
-        "_id": "6502fc4f1e923e12b84f7147",
-        "createdAt": "2023-09-14T12:27:59.579Z",
-        "lastModified": "2023-09-14T12:27:59.673Z",
         "name": "Narvar lookup",
         "_connectionId": "Narvar",
         "apiIdentifier": "ebe5ec6451",
