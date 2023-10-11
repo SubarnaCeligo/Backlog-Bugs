@@ -1,4 +1,5 @@
 import { API } from "@celigo/ui-core-automation";
+// Get flaky cases from the API
 const flakycases = await (API as any).getFlakyCases("/platform_suites/widget/25");
 const testCases = [
   "TC_311_Multifilter_AND_OR_Operator_equals_notequals_greaterthan",
