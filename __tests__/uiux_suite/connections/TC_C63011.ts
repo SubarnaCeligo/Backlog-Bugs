@@ -59,6 +59,6 @@ test.describe(`C63011 Verify User is able create connection while cloning integr
     const connectionId = connections.find(
       (connection: any) => connection.name === "Narvar-RMA-Test"
     )._id;
-    await io.api.deleteCall(`v1/connections/${connectionId}`, {});
+    await io.api.deleteCall(`v1/connections/${connectionId}`);
   });
 });

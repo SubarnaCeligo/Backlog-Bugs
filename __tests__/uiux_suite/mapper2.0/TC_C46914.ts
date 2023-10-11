@@ -7,8 +7,6 @@ test.describe(`C46914 Verify When no saved mappings exist, add empty parent row 
     io,
     page
   }) => {
-    await io.homePage.navigateTo(process.env.IO_Integration_URL);
-    await io.homePage.clickByTextByIndex("C46914", 0);
     const id = await io.fillFormUI(testData, "FLOWS");
     await io.api.runBatchFlowViaAPI("C46914", id);
     await page.getByLabel("Define options").nth(1).click();

@@ -7,9 +7,6 @@ test.describe(`C51644 Verify the error rows table header fields displayed in the
     io,
     page
   }) => {
-    // await io.flowBuilder.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
-    // await io.flowBuilder.clickByText("Automation Flows");
-    // await io.flowBuilder.clickByText("mytestflow");
     const id = await io.fillFormUI(flowJSON, "FLOWS");
     await io.api.runBatchFlowViaAPI("C51644", id);
     const lastRun = page.getByText("Last run");
@@ -21,7 +18,9 @@ test.describe(`C51644 Verify the error rows table header fields displayed in the
     await expect(page.getByText("Code", { exact: true })).toBeVisible();
     await expect(page.getByText("Source", { exact: true })).toBeVisible();
     await expect(page.getByText("Classification", { exact: true })).toBeVisible();
-    await expect(page.getByText("Timestamp", { exact: true })).toBeVisible();
+    await expect(
+      page.getByRole("columnheader", { name: "Timestamp" }).locator("div")
+    ).toBeVisible();
     await expect(page.getByText("Actions", { exact: true })).not.toBeVisible();
   });
 });

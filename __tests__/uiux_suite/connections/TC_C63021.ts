@@ -42,6 +42,6 @@ test.describe(`C63021 Verify User is able create connection while installing int
     const connectionId = connections.find(
       (connection: any) => connection.name === "Narvar-RMA-Test"
     )._id;
-    await io.api.deleteCall(`v1/connections/${connectionId}`, {});
+    await io.api.deleteCall(`v1/connections/${connectionId}`);
   });
 });
