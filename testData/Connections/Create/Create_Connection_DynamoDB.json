@@ -17,7 +17,7 @@
                 "accessKeyId": "AKIASXM4V7ZFRT6PT6OB",
                 "qa__accessKeyId": "QUtJQVNYTTRWN1pGUlQ2UFQ2T0I=",
                 "secretAccessKey": "******",
-                "qa__secretAccessKey": "V3d1S1ByQWN0WXFyV1MxaS9qUVpTVmVoVStvSERNWWZxcXZvQ25HbQ=="
+                "qa__secretAccessKey": "process.ENV[DYNAMODB_ACCESS_KEY]"
             }
         }
     }

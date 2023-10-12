@@ -13,12 +13,12 @@ test.describe("E2E Flows", () => {
     }, testInfo) => {
         //Creating PageGenerator 
         await test.step("*** Creating Page Generator ***", async () => {
-            await io.pageGenerator(allure, FTPtoFTP);
+            await io.pageGeneratorDemo(allure, FTPtoFTP);
         });
         
         //Creating PageProcessor
         await test.step("*** Creating Page Processor ***", async () => {
-            await io.pageProcessor(allure, FTPtoFTP);
+            await io.pageProcessorDemo(allure, FTPtoFTP);
         });
 
         //Save, Enable and Run the Flow
