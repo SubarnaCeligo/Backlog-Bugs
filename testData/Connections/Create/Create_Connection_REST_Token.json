@@ -31,7 +31,7 @@
     "importJSON": {
         "rest": {
             "baseURI": "https://api.slack.com",
-            "qa__bearerToken": "eG94cC0zNzM3MDE1ODQ3LTM4NjQ4MzY3NjYtMTEwOTQ5MjMzNzk5LTY4ODZkOTA1ODlhNDlkMzUwMjlhYTc1NzdhMTE2NzBj",
+            "qa__bearerToken": "process.env[REST_QA__BEARERTOKEN]",
             "bearerToken": "******",
             "tokenLocation": "header",
             "mediaType": "json",

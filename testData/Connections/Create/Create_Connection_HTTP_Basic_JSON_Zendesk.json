@@ -27,8 +27,8 @@
                 "type": "basic",
                 "qa__basic": {
                     "password": "******",
-                    "qa__password": "Y2VsaWdvMTIzNA==",
-                    "username": "mounica.manavapati@celigo.com"
+                    "qa__password": "process.env[HTTP_ZENDESK_PASSWORD]",
+                    "username": "process.env[HTTP_ZENDESK_USER]"
                 }
             },
             "ping": {

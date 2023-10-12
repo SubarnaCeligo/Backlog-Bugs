@@ -45,7 +45,7 @@
         "http": {
             "baseURI": "https://slack.com/api",
             "bearerToken": "******",
-            "qa__bearerToken": "eG94cC0xMzIwNTg4ODM2NjktMTMyMDQ4ODYwOTgwLTEzMTkwODQ1ODQ2Ny0xZmU0MzI1MTI1NTc3ZGI4ZjdkODNlY2M5YzllNjc1Yw==",
+            "qa__bearerToken": "process.env[SLACK__ASSISTANT__BEARERTOKEN]",
             "tokenLocation": "url",
             "tokenParam": "token",
             "mediaType": "urlencoded",
