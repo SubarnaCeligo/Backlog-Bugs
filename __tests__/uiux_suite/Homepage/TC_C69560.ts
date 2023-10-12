@@ -11,10 +11,14 @@ test.describe(`C69560 Key search field text is changing to Undefined once user s
       selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
       "test"
     );
+    await io.flowBuilder.fill(
+      selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
+      ""
+    );
     await io.assert.verifyElementAttribute(
       selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
-      "value",
-      "test"
+      "placeholder",
+      "Search…"
     );
   });
 });
