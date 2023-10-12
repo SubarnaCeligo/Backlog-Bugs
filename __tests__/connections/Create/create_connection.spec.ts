@@ -1,0 +1,6 @@
+require("./TC_037_Create_Connection_DynamoDB")
+require("./BigQueryConnection")
+require("./TC_003_Create_Connection_FTP")
+require("./TC_027_Create_Connection_Mssql")
+require("./TC_028_Create_Connection_Mysql")
+require("./TC_C40112_Create_Connection_AmazonRedshift")
