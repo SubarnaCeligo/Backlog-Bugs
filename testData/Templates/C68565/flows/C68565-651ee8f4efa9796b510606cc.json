@@ -1,0 +1,19 @@
+{
+  "_id": "651ee8f4efa9796b510606cc",
+  "name": "C68565",
+  "pageGenerators": [
+    {
+      "_exportId": "651c4dde08ba8b7fbb4d621c"
+    }
+  ],
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "_importId": "651ee1631ee87652e974f140"
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+    "name": "TC_C59977",
+    "pageGenerators": [
+        {
+            "qa__export":{
+                "name": "FTP",
+                
+                "_connectionId": "FTP CONNECTION",
+                "_sourceId": "64d66a44cba75e5c20e980bd",
+                "apiIdentifier": "efeac9defb",
+                "asynchronous": true,
+                "ftp": {
+                    "directoryPath": "/Group-QA/FileServices/Export",
+                    "fileNameStartsWith": "automation.json"
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "adaptorType": "FTPExport"
+              }
+          }
+      ],
+      "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "Import",
+            "sampleData": {
+                "name": "books",
+                "version": "0.1.0",
+                "private": true,
+                "dependencies": {
+                    "@testing-library/jest-dom": "^5.16.5",
+                    "@testing-library/react": "^13.3.0",
+                    "@testing-library/user-event": "^13.5.0",
+                    "json-server": "^0.17.0",
+                    "react": "^18.2.0",
+                    "react-dom": "^18.2.0",
+                    "react-scripts": "5.0.1",
+                    "web-vitals": "^2.1.4"
+                },
+                "scripts": {
+                    "start": "react-scripts start",
+                    "server": "json-server -p 3001 --watch db.json",
+                    "build": "react-scripts build",
+                    "test": "react-scripts test",
+                    "eject": "react-scripts eject"
+                },
+                "eslintConfig": {
+                    "extends": [
+                        "react-app",
+                        "react-app/jest"
+                    ]
+                },
+                "browserslist": {
+                    "production": [
+                        ">0.2%",
+                        "not dead",
+                        "not op_mini all"
+                    ],
+                    "development": [
+                        "last 1 chrome version",
+                        "last 1 firefox version",
+                        "last 1 safari version"
+                    ]
+                }
+            },
+    "_connectionId": "BOX CONNECTION",
+    "_sourceId": "651cf6126f691c10b5c86d95",
+    "apiIdentifier": "i0f02b0fed",
+    "oneToMany": false,
+    "assistant": "box",
+    "file": {
+        "fileName": "file-{{timestamp}}.json",
+        "skipAggregation": false,
+        "type": "json"
+    },
+    "http": {
+        "type": "file",
+        "relativeURI": [
+            "test"
+        ],
+        "method": [
+            "POST"
+        ],
+        "body": [],
+        "sendPostMappedData": true,
+        "formType": "assistant",
+        "response": {
+            "resourcePath": [
+                "files"
+            ]
+        }
+    },
+    "adaptorType": "HTTPImport"
+        }
+    }],
+      "createFlow": {
+        "name": "TC_C63406",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+}

@@ -1,0 +1,118 @@
+{
+    "name": "TC_C68814",
+    "pageGenerators": [
+        {
+            "qa__export":{
+                "name": "ftp_expoereeqw",
+    "description": "ftp_expoereeqw",
+    "_connectionId": "FTP CONNECTION",
+    "_sourceId": "649e9485de23ac481bafdebf",
+    "apiIdentifier": "e231ef53aa",
+    "asynchronous": true,
+    "pageSize": 5000,
+    "sampleData": [
+        {
+            "id": "0",
+            "name": "Item 0",
+            "value": "0.6766995538349982",
+            "category": "0.1iammtz7c1",
+            "URL": "i8ECVItfhzrXeEs4vjtygjGxRBLMs4GLbCCQL3PRi5UixqMkX8O4EfMc20HG8oYjEocWDxjIGTRCi2we1sm82cIb5Bg0ZlC2lYglxhg0IuidpKHfjFuBNJ5Fc2T8YDiA8pa6sQjBZMiaTMEXLI9JeufiXSoNiqM62nxiO8iWSFJVrBhKpJlmVMMh7nFQGYZQv1fQlCyTjQlHPbwMrFBYYOq1kWx1jCcSvqkRmTWeS0KQI1QV938L3N2k6VGAraaPmHyHF5Crv1o98Wtc2a5LihoOWapxVqHj3LIYZIsKxvC1kmSnhp8NSAAtBoIdZhbK3NeBLMQoQsjaOYTFbXdEhrjUD5cqOgTHsIBlDCSh05UA7vQvH6ZumE6zLjWgcZjQBVI3rlXpe6fu5Wcm5fe82TbowuEUADqbjkqhTuQK3v42ICadKEdjHiUAks2ORPFAIsPdQZbmWJrpwoYTrF6dIMiAgDvu9rSJqlkA9usxxfmD1Z7iY86JXXdB6PY3s30r3CfJ9TvfkfBupyxSzxPAT1zGYP8dQm4NUsQV51UJ47qUZWdBnSnEEIuOKpQSXSiijHpKNjdg6iycH4VcTaPCDnDvOKvTMY3cJr5cgQxlugaTbM7qabuBMRwzChMC8efwlf8KlppfCcKHcFoUuOkDrz8clZSGLNyiXFG0cVZpYCE8ZhXFqy8F6dHY3Yfkk8sIeMKGajre4OwEYCaFXmzmC7ox0lcxeh6w4zY5ZD93rzhKOKJzKcJo7ByOXoT1jEeB0zzoJOhlobYnm7Xljx6NBKjG4gXOpmPiuUsQNtvBUOBpLzTacb2ufGdrLyrT3gur4anAagbEZt1tvK4Q4UailoGxg3LkqFO6r15IhBraMSlPnhckh2SrKqbim3Lb8FS08jjLDyAwNpivh62Dxftxd4RwYQ2AefOcBng1A26L5zJl1fmjfGjRN4t8L7txR5wktK5joEh5tJ6hYTFDF38lUfSFH4p8vQdaOiioJAF9",
+            "email": "ssss@gmail.com"
+        },
+        {
+            "id": "1",
+            "name": "Item 1",
+            "value": "0.9072829155593969",
+            "category": "0.q3qygrgg6nm",
+            "URL": "i8ECVItfhzrXeEs4vjtygjGxRBLMs4GLbCCQL3PRi5UixqMkX8O4EfMc20HG8oYjEocWDxjIGTRCi2we1sm82cIb5Bg0ZlC2lYglxhg0IuidpKHfjFuBNJ5Fc2T8YDiA8pa6sQjBZMiaTMEXLI9JeufiXSoNiqM62nxiO8iWSFJVrBhKpJlmVMMh7nFQGYZQv1fQlCyTjQlHPbwMrFBYYOq1kWx1jCcSvqkRmTWeS0KQI1QV938L3N2k6VGAraaPmHyHF5Crv1o98Wtc2a5LihoOWapxVqHj3LIYZIsKxvC1kmSnhp8NSAAtBoIdZhbK3NeBLMQoQsjaOYTFbXdEhrjUD5cqOgTHsIBlDCSh05UA7vQvH6ZumE6zLjWgcZjQBVI3rlXpe6fu5Wcm5fe82TbowuEUADqbjkqhTuQK3v42ICadKEdjHiUAks2ORPFAIsPdQZbmWJrpwoYTrF6dIMiAgDvu9rSJqlkA9usxxfmD1Z7iY86JXXdB6PY3s30r3CfJ9TvfkfBupyxSzxPAT1zGYP8dQm4NUsQV51UJ47qUZWdBnSnEEIuOKpQSXSiijHpKNjdg6iycH4VcTaPCDnDvOKvTMY3cJr5cgQxlugaTbM7qabuBMRwzChMC8efwlf8KlppfCcKHcFoUuOkDrz8clZSGLNyiXFG0cVZpYCE8ZhXFqy8F6dHY3Yfkk8sIeMKGajre4OwEYCaFXmzmC7ox0lcxeh6w4zY5ZD93rzhKOKJzKcJo7ByOXoT1jEeB0zzoJOhlobYnm7Xljx6NBKjG4gXOpmPiuUsQNtvBUOBpLzTacb2ufGdrLyrT3gur4anAagbEZt1tvK4Q4UailoGxg3LkqFO6r15IhBraMSlPnhckh2SrKqbim3Lb8FS08jjLDyAwNpivh62Dxftxd4RwYQ2AefOcBng1A26L5zJl1fmjfGjRN4t8L7txR5wktK5joEh5tJ6hYTFDF38lUfSFH4p8vQdaOiioJAF9",
+            "email": "ssss@gmail.com"
+        },
+        {
+            "id": "2",
+            "name": "Item 2",
+            "value": "0.9532561429499933",
+            "category": "0.dgyao0cooxd",
+            "URL": "i8ECVItfhzrXeEs4vjtygjGxRBLMs4GLbCCQL3PRi5UixqMkX8O4EfMc20HG8oYjEocWDxjIGTRCi2we1sm82cIb5Bg0ZlC2lYglxhg0IuidpKHfjFuBNJ5Fc2T8YDiA8pa6sQjBZMiaTMEXLI9JeufiXSoNiqM62nxiO8iWSFJVrBhKpJlmVMMh7nFQGYZQv1fQlCyTjQlHPbwMrFBYYOq1kWx1jCcSvqkRmTWeS0KQI1QV938L3N2k6VGAraaPmHyHF5Crv1o98Wtc2a5LihoOWapxVqHj3LIYZIsKxvC1kmSnhp8NSAAtBoIdZhbK3NeBLMQoQsjaOYTFbXdEhrjUD5cqOgTHsIBlDCSh05UA7vQvH6ZumE6zLjWgcZjQBVI3rlXpe6fu5Wcm5fe82TbowuEUADqbjkqhTuQK3v42ICadKEdjHiUAks2ORPFAIsPdQZbmWJrpwoYTrF6dIMiAgDvu9rSJqlkA9usxxfmD1Z7iY86JXXdB6PY3s30r3CfJ9TvfkfBupyxSzxPAT1zGYP8dQm4NUsQV51UJ47qUZWdBnSnEEIuOKpQSXSiijHpKNjdg6iycH4VcTaPCDnDvOKvTMY3cJr5cgQxlugaTbM7qabuBMRwzChMC8efwlf8KlppfCcKHcFoUuOkDrz8clZSGLNyiXFG0cVZpYCE8ZhXFqy8F6dHY3Yfkk8sIeMKGajre4OwEYCaFXmzmC7ox0lcxeh6w4zY5ZD93rzhKOKJzKcJo7ByOXoT1jEeB0zzoJOhlobYnm7Xljx6NBKjG4gXOpmPiuUsQNtvBUOBpLzTacb2ufGdrLyrT3gur4anAagbEZt1tvK4Q4UailoGxg3LkqFO6r15IhBraMSlPnhckh2SrKqbim3Lb8FS08jjLDyAwNpivh62Dxftxd4RwYQ2AefOcBng1A26L5zJl1fmjfGjRN4t8L7txR5wktK5joEh5tJ6hYTFDF38lUfSFH4p8vQdaOiioJAF9",
+            "email": "ssss@gmail.com"
+        },
+        {
+            "id": "3",
+            "name": "Item 3",
+            "value": "0.1443029064666339",
+            "category": "0.fpzxvjx03fg",
+            "URL": "i8ECVItfhzrXeEs4vjtygjGxRBLMs4GLbCCQL3PRi5UixqMkX8O4EfMc20HG8oYjEocWDxjIGTRCi2we1sm82cIb5Bg0ZlC2lYglxhg0IuidpKHfjFuBNJ5Fc2T8YDiA8pa6sQjBZMiaTMEXLI9JeufiXSoNiqM62nxiO8iWSFJVrBhKpJlmVMMh7nFQGYZQv1fQlCyTjQlHPbwMrFBYYOq1kWx1jCcSvqkRmTWeS0KQI1QV938L3N2k6VGAraaPmHyHF5Crv1o98Wtc2a5LihoOWapxVqHj3LIYZIsKxvC1kmSnhp8NSAAtBoIdZhbK3NeBLMQoQsjaOYTFbXdEhrjUD5cqOgTHsIBlDCSh05UA7vQvH6ZumE6zLjWgcZjQBVI3rlXpe6fu5Wcm5fe82TbowuEUADqbjkqhTuQK3v42ICadKEdjHiUAks2ORPFAIsPdQZbmWJrpwoYTrF6dIMiAgDvu9rSJqlkA9usxxfmD1Z7iY86JXXdB6PY3s30r3CfJ9TvfkfBupyxSzxPAT1zGYP8dQm4NUsQV51UJ47qUZWdBnSnEEIuOKpQSXSiijHpKNjdg6iycH4VcTaPCDnDvOKvTMY3cJr5cgQxlugaTbM7qabuBMRwzChMC8efwlf8KlppfCcKHcFoUuOkDrz8clZSGLNyiXFG0cVZpYCE8ZhXFqy8F6dHY3Yfkk8sIeMKGajre4OwEYCaFXmzmC7ox0lcxeh6w4zY5ZD93rzhKOKJzKcJo7ByOXoT1jEeB0zzoJOhlobYnm7Xljx6NBKjG4gXOpmPiuUsQNtvBUOBpLzTacb2ufGdrLyrT3gur4anAagbEZt1tvK4Q4UailoGxg3LkqFO6r15IhBraMSlPnhckh2SrKqbim3Lb8FS08jjLDyAwNpivh62Dxftxd4RwYQ2AefOcBng1A26L5zJl1fmjfGjRN4t8L7txR5wktK5joEh5tJ6hYTFDF38lUfSFH4p8vQdaOiioJAF9",
+            "email": "ssss@gmail.com"
+        },
+        {
+            "id": "4",
+            "name": "Item 4",
+            "value": "0.7178967989879634",
+            "category": "0.4pe74nk9sa6",
+            "URL": "i8ECVItfhzrXeEs4vjtygjGxRBLMs4GLbCCQL3PRi5UixqMkX8O4EfMc20HG8oYjEocWDxjIGTRCi2we1sm82cIb5Bg0ZlC2lYglxhg0IuidpKHfjFuBNJ5Fc2T8YDiA8pa6sQjBZMiaTMEXLI9JeufiXSoNiqM62nxiO8iWSFJVrBhKpJlmVMMh7nFQGYZQv1fQlCyTjQlHPbwMrFBYYOq1kWx1jCcSvqkRmTWeS0KQI1QV938L3N2k6VGAraaPmHyHF5Crv1o98Wtc2a5LihoOWapxVqHj3LIYZIsKxvC1kmSnhp8NSAAtBoIdZhbK3NeBLMQoQsjaOYTFbXdEhrjUD5cqOgTHsIBlDCSh05UA7vQvH6ZumE6zLjWgcZjQBVI3rlXpe6fu5Wcm5fe82TbowuEUADqbjkqhTuQK3v42ICadKEdjHiUAks2ORPFAIsPdQZbmWJrpwoYTrF6dIMiAgDvu9rSJqlkA9usxxfmD1Z7iY86JXXdB6PY3s30r3CfJ9TvfkfBupyxSzxPAT1zGYP8dQm4NUsQV51UJ47qUZWdBnSnEEIuOKpQSXSiijHpKNjdg6iycH4VcTaPCDnDvOKvTMY3cJr5cgQxlugaTbM7qabuBMRwzChMC8efwlf8KlppfCcKHcFoUuOkDrz8clZSGLNyiXFG0cVZpYCE8ZhXFqy8F6dHY3Yfkk8sIeMKGajre4OwEYCaFXmzmC7ox0lcxeh6w4zY5ZD93rzhKOKJzKcJo7ByOXoT1jEeB0zzoJOhlobYnm7Xljx6NBKjG4gXOpmPiuUsQNtvBUOBpLzTacb2ufGdrLyrT3gur4anAagbEZt1tvK4Q4UailoGxg3LkqFO6r15IhBraMSlPnhckh2SrKqbim3Lb8FS08jjLDyAwNpivh62Dxftxd4RwYQ2AefOcBng1A26L5zJl1fmjfGjRN4t8L7txR5wktK5joEh5tJ6hYTFDF38lUfSFH4p8vQdaOiioJAF9",
+            "email": "ssss@gmail.com"
+        }
+    ],
+    "ftp": {
+        "directoryPath": "Group-QA/HR-ui",
+        "fileNameStartsWith": "Testè"
+    },
+    "file": {
+        "output": "records",
+        "skipDelete": true,
+        "type": "json",
+        "json": {
+            "resourcePath": "*"
+        }
+    },
+    "adaptorType": "FTPExport"
+              }
+          }
+      ],
+      "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+                "name": "ftp_import_2111",
+    "description": "ftp_import_2111",
+    "_connectionId": "FTP CONNECTION",
+    "_sourceId": "649e9486de23ac481bafdec1",
+    "apiIdentifier": "i41fddc87e",
+    "oneToMany": false,
+    "file": {
+        "fileName": "bhanahaja-{{timestamp \"YYYY-MM-DDTHH:mm:ss.SSSZZ\" \"Asia/Calcutta\"}}.json",
+        "skipAggregation": true,
+        "type": "json",
+        "backupPath": "Group-QA/mq",
+        "batchSize": 1000
+    },
+    "ftp": {
+        "directoryPath": "Group-QA/dw",
+        "fileName": "bhanahaja-{{timestamp \"YYYY-MM-DDTHH:mm:ss.SSSZZ\" \"Asia/Calcutta\"}}.json",
+        "backupDirectoryPath": "Group-QA/mq"
+    },
+    "adaptorType": "FTPImport"
+              }
+          }
+      ],
+      "createFlow": {
+        "name": "TC_C63406",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+}

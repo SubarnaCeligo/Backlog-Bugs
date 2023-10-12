@@ -1,0 +1,43 @@
+{
+  "_id": "651e60d4a719e462513b278f",
+  "type": "http",
+  "name": "BOX CONNECTION",
+  "assistant": "box",
+  "http": {
+    "formType": "assistant",
+    "mediaType": "json",
+    "baseURI": "https://api.box.com/2.0/",
+    "concurrencyLevel": 25,
+    "targetConcurrencyLevel": 25,
+    "auth": {
+      "type": "oauth",
+      "failStatusCode": 403,
+      "oauth": {
+        "authURI": "https://account.box.com/api/oauth2/authorize",
+        "tokenURI": "https://api.box.com/oauth2/token",
+        "scope": [
+          "root_readwrite",
+          "root_readonly"
+        ],
+        "scopeDelimiter": " ",
+        "accessTokenPath": "access_token",
+        "grantType": "authorizecode",
+        "clientCredentialsLocation": "body",
+        "accessTokenHeaders": [
+          {
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ]
+      },
+      "token": {
+        "location": "header",
+        "headerName": "Authorization",
+        "scheme": "Bearer",
+        "refreshMethod": "POST",
+        "refreshRelativeURI": "https://api.box.com/oauth2/token",
+        "refreshMediaType": "urlencoded"
+      }
+    }
+  }
+}

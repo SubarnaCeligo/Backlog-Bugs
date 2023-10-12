@@ -1,0 +1,20 @@
+{
+  "_id": "651e87b8d097a3058bdb9608",
+  "name": "FTP",
+  "_connectionId": "6459f5e26c260356df1c7ce9",
+  "apiIdentifier": "e590cc400a",
+  "asynchronous": true,
+  "ftp": {
+    "directoryPath": "/Group-QA/FileServices/Export",
+    "fileNameStartsWith": "automation.json"
+  },
+  "file": {
+    "output": "records",
+    "skipDelete": true,
+    "type": "json",
+    "json": {
+      "resourcePath": "*"
+    }
+  },
+  "adaptorType": "FTPExport"
+}

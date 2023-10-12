@@ -1,0 +1,43 @@
+{
+  "_id": "651ea272f5f48f3fd4a64173",
+  "name": "AutomationStandalone_0B12o",
+  "_connectionId": "6459f5e86df4b9686c0b712d",
+  "apiIdentifier": "e34c61125a",
+  "asynchronous": true,
+  "type": "test",
+  "oneToMany": false,
+  "http": {
+    "relativeURI": "/users",
+    "method": "GET",
+    "formType": "http",
+    "response": {
+      "resourcePath": "users"
+    }
+  },
+  "test": {
+    "limit": 10
+  },
+  "transform": {
+    "type": "expression",
+    "expression": {
+      "rules": [
+        []
+      ],
+      "version": "1"
+    },
+    "rules": [
+      []
+    ],
+    "version": "1"
+  },
+  "filter": {
+    "type": "expression",
+    "expression": {
+      "rules": [],
+      "version": "1"
+    },
+    "rules": [],
+    "version": "1"
+  },
+  "adaptorType": "HTTPExport"
+}
