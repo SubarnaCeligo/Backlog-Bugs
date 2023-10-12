@@ -1,6 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import testData from "./test.json";
+import testData from "./monitor_all.json";
 
 test.describe(`C24937 Monitor All- Verify able to filter report results by status`, () => {
   test(`C24937 Monitor All- Verify able to filter report results by status`, async ({

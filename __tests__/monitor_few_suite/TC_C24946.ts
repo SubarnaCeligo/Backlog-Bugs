@@ -1,6 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import testData from "./test.json";
+import testData from "./monitor_few.json";
 
 test.describe(`C24946 Tile Monitor - Verify able to filter report results by flow`, () => {
   test(`C24946 Tile Monitor - Verify able to filter report results by flow`, async ({

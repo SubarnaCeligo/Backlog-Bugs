@@ -1,6 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import testData from "./test.json";
+import testData from "./monitor_few_manage_few.json";
 
 test.describe(`C24969 Tile few Manage and few monitor - Verify when clicked on view report details option under the actions drop down of a completed report, the Report details drawer is loaded`, () => {
   test(`C24969 Tile few Manage and few monitor - Verify when clicked on view report details option under the actions drop down of a completed report, the Report details drawer is loaded`, async ({

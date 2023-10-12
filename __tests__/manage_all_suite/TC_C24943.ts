@@ -1,6 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import testData from "./test.json";
+import testData from "./manage_all.json";
 
 test.describe(`C24943 Manage all- Verify able to filter report results by flow`, () => {
   test(`C24943 Manage all- Verify able to filter report results by flow`, async ({
