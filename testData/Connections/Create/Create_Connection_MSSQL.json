@@ -19,9 +19,9 @@
             "host": "integrator-staging.database.windows.net",
             "database": "integrator-staging-qa",
             "version": "Azure",
-            "user": "celigoqa",
+            "user": "process.env[MSSQL_USERNAME]",
             "password": "******",
-            "qa__password": "eU1LcDAydFdrR3RybGRMSw=="
+            "qa__password": "process.env[MSSQL_PASSWORD]"
         }
     }
 }
