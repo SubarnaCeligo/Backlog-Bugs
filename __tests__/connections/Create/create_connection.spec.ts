@@ -1,7 +1,5 @@
 require("./TC_037_Create_Connection_DynamoDB")
-require("./TC_005_Create_Connection_FTP_Using_Privatekey_And_Passphrase")
 require("./BigQueryConnection")
-require("./TC_004_Create_Connection_FTP_PGP_Using_PublicKey")
 require("./TC_003_Create_Connection_FTP")
 require("./TC_027_Create_Connection_Mssql")
 require("./TC_028_Create_Connection_Mysql")
