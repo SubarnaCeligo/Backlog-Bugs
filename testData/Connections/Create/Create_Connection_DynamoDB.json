@@ -1,0 +1,24 @@
+{
+    "expectedJSON": {
+        "type": "dynamodb",
+        "name": "Create_Connection_DynamoDB",
+        "dynamodb": {
+            "aws": {
+                "accessKeyId": "AKIASXM4V7ZFRT6PT6OB",
+                "secretAccessKey": "******"
+            }
+        }
+    },
+    "importJSON": {
+        "type": "dynamodb",
+        "name": "Create_Connection_DynamoDB",
+        "dynamodb": {
+            "aws": {
+                "accessKeyId": "AKIASXM4V7ZFRT6PT6OB",
+                "qa__accessKeyId": "QUtJQVNYTTRWN1pGUlQ2UFQ2T0I=",
+                "secretAccessKey": "******",
+                "qa__secretAccessKey": "process.ENV[DYNAMODB_ACCESS_KEY]"
+            }
+        }
+    }
+}
