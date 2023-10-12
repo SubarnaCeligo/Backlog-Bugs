@@ -1,6 +1,7 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import flowJSON from "@testData/Em2.0/C51302.json";
+import flowJSON from "@testData/EM2.0/C51302.json"
+
 
 test.describe(`C51302 Verify when a retry is in progress and “Cancel” is clicked, few errors are successful and few errors are unsuccessful`, () => {
   test(`C51302 Verify when a retry is in progress and “Cancel” is clicked, few errors are successful and few errors are unsuccessful`, async ({
