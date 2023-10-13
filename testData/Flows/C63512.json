@@ -1,0 +1,82 @@
+{
+    "name": "ASYNC_HELPER",
+    "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "http exp",
+    "_connectionId": "HTTP ZENDESK CONNECTION",
+    "_sourceId": "64ec1d4c43c4d51a1afc0fbe",
+    "apiIdentifier": "e66b297ec0",
+    "asynchronous": true,
+    "oneToMany": false,
+    "http": {
+        "relativeURI": "tickets",
+        "method": "GET",
+        "_asyncHelperId": "651fb111a7a5916298e56979",
+        "formType": "http",
+        "response": {
+            "resourcePath": "tickets"
+        }
+    },
+    "transform": {
+        "type": "expression",
+        "expression": {
+            "rules": [
+                []
+            ],
+            "version": "1"
+        },
+        "rules": [
+            []
+        ],
+        "version": "1"
+    },
+    "adaptorType": "HTTPExport"
+            }
+          }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "ftp",
+    "_connectionId": "FTP CONNECTION",
+    "_sourceId": "64ec1d5f3e32fe66027160fc",
+    "apiIdentifier": "i508dca8e9",
+    "oneToMany": false,
+    "file": {
+        "fileName": "file-{{timestamp}}.json",
+        "skipAggregation": false,
+        "type": "json"
+    },
+    "ftp": {
+        "directoryPath": "/io.auto.qa/Shashiii",
+        "fileName": "file-{{timestamp}}.json"
+    },
+    "adaptorType": "FTPImport"
+        }
+    }
+],
+    "createFlow": {
+        "name": "TC_C48963",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+}

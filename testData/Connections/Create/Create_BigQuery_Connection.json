@@ -1,0 +1,29 @@
+{
+    "expectedJSON": {
+        "type": "rdbms",
+        "name": "Automated Bigquery Connection",
+        "rdbms": {
+            "type": "bigquery",
+            "bigquery": {
+                "projectId": "ioqa-342912",
+                "clientEmail": "bigquery-testing-ioqa@ioqa-342912.iam.gserviceaccount.com",
+                "privateKey": "******",
+                "dataset": "1234"
+            }
+        }
+    },
+    "importJSON": {
+        "type": "rdbms",
+        "name": "Automated Bigquery Connection",
+        "rdbms": {
+            "type": "bigquery",
+            "bigquery": {
+                "projectId": "ioqa-342912",
+                "clientEmail": "bigquery-testing-ioqa@ioqa-342912.iam.gserviceaccount.com",
+                "privateKey": "******",
+                "qa__privateKey": "process.env[BIG_QUERY_PRIVATE_KEY]",
+                "dataset": "1234"
+            }
+        }
+    }
+}

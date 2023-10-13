@@ -1,0 +1,18 @@
+{
+  "_id": "651db23234e9e438bee278e8",
+  "name": "AutomationStandalone_Cv5Fa",
+  "_connectionId": "6459f5e26c260356df1c7ce9",
+  "apiIdentifier": "e3fd17860a",
+  "asynchronous": true,
+  "ftp": {
+    "directoryPath": "/ io.auto.qa/IO_UI_Automation_FTPExports",
+    "fileNameStartsWith": "FTP.json"
+  },
+  "file": {
+    "encoding": "utf8",
+    "output": "records",
+    "skipDelete": true,
+    "type": "json"
+  },
+  "adaptorType": "FTPExport"
+}
