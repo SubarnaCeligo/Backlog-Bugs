@@ -18,7 +18,7 @@ test.describe("CONNECTIONS", () => {
       });
       //Validating connection
       await test.step("*** Validating Connection ***", async () => {
-        await io.validateConnection(testInfo, connectionData.expectedJSON, connectionJson)
+        await io.validation.validateConnection(testInfo, connectionData.expectedJSON, connectionJson)
       });
     });
   });

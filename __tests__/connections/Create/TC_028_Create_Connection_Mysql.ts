@@ -16,7 +16,7 @@ test.describe("Create Connections", () => {
 
         //Validating connection
         await test.step("*** Validating Connection ***", async () => {
-            await io.validateConnection(testInfo, MYSQL.expectedJSON, actualJson)
+            await io.validation.validateConnection(testInfo, MYSQL.expectedJSON, actualJson)
         });
     });
 });
