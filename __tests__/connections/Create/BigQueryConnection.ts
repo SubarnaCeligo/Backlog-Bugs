@@ -17,7 +17,7 @@ test.describe("Create Connections", () => {
 
         //Validating connection
         await test.step("*** Validating Connection ***", async () => {
-            await io.validateConnection(testInfo, BigQuery.expectedJSON, actualJson)
+            await io.validation.validateConnection(testInfo, BigQuery.expectedJSON, actualJson)
         });
     });
 });

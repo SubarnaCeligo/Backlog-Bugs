@@ -16,7 +16,7 @@ test.describe("Create Connections", () => {
 
         //Validating connection
         await test.step("*** Validating Connection ***", async () => {
-            await io.validateConnection(testInfo, MSSQL.expectedJSON, actualJson)
+            await io.validation.validateConnection(testInfo, MSSQL.expectedJSON, actualJson)
         });
     });
 });
