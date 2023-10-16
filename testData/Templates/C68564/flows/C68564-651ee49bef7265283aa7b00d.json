@@ -1,0 +1,48 @@
+{
+  "_id": "651ee49bef7265283aa7b00d",
+  "name": "C68564",
+  "pageGenerators": [
+    {
+      "_exportId": "651ee1631ee87652e974f13e"
+    }
+  ],
+  "routers": [
+    {
+      "name": "branch1",
+      "routeRecordsUsing": "input_filters",
+      "id": "xkwhXsDudoc",
+      "routeRecordsTo": "first_matching_branch",
+      "branches": [
+        {
+          "name": "Branch 1.0",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "651ee1631ee87652e974f140"
+            }
+          ]
+        },
+        {
+          "name": "Branch 1.1",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "651ee200061a6f7e8a4755ef"
+            }
+          ]
+        }
+      ],
+      "script": {
+        "function": "branching"
+      }
+    }
+  ]
+}
