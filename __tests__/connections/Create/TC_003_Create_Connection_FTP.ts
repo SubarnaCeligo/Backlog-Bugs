@@ -17,7 +17,7 @@ test.describe("Create Connections", () => {
 
         //Validating connection
         await test.step("*** Validating Connection ***", async () => {
-            await io.validateConnection(testInfo, FTP.expectedJSON, actualJson)
+            await io.validation.validateConnection(testInfo, FTP.expectedJSON, actualJson)
         });
     });
 });

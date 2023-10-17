@@ -1,0 +1,8 @@
+{
+  "_id": "64f6dd4c3d1cd50bc77c0ba7",
+  "lastModified": "2023-09-05T07:48:28.080Z",
+  "createdAt": "2023-09-05T07:48:28.080Z",
+  "name": "Branching script",
+  "sandbox": false,
+  "postResponseHookToProcessOnChildRecord": false
+}

@@ -1,0 +1,29 @@
+{
+  "_id": "651dc4fc7462f17c1b53fe1b",
+  "name": "Test",
+  "_connectionId": "6459f5e6cb223d10e33299c3",
+  "apiIdentifier": "eff81ac7c4",
+  "asynchronous": true,
+  "type": "test",
+  "oneToMany": false,
+  "test": {
+    "limit": 1
+  },
+  "netsuite": {
+    "type": "restlet",
+    "skipGrouping": true,
+    "statsOnly": false,
+    "restlet": {
+      "criteria": [],
+      "columns": [],
+      "recordType": "customer",
+      "searchId": "1957",
+      "restletVersion": "suiteapp2.0"
+    },
+    "distributed": {
+      "executionContext": [],
+      "executionType": []
+    }
+  },
+  "adaptorType": "NetSuiteExport"
+}
