@@ -16,7 +16,7 @@ test.describe("Create Connections", () => {
 
         //Validating connection
         await test.step("*** Validating Connection ***", async () => {
-            await io.validateConnection(testInfo, DynamoDB.expectedJSON, actualJson)
+            await io.validation.validateConnection(testInfo, DynamoDB.expectedJSON, actualJson)
         });
     });
 });
