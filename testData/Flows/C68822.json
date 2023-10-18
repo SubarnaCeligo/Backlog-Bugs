@@ -1,5 +1,5 @@
 {
-    "name": "TC_C68830",
+    "name": "TC_C68822",
     "pageGenerators": [
         {
             "qa__export":{
@@ -54,7 +54,7 @@
     ],
     "ftp": {
         "directoryPath": "Group-QA/HR-ui",
-        "fileNameStartsWith": ""
+        "fileNameStartsWith": "Testè, Test "
     },
     "file": {
         "output": "records",
