@@ -8,3 +8,4 @@ require("./TC_C22818");
 require("./TC_C63406");
 require("./TC_C63001");
 require("./TC_C63111");
+require('./TC_C52427');

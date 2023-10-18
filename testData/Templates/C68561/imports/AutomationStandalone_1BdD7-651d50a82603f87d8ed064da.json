@@ -1,0 +1,34 @@
+{
+  "_id": "651d50a82603f87d8ed064da",
+  "name": "AutomationStandalone_1BdD7",
+  "parsers": [],
+  "mockResponse": [
+    {
+      "id": "1234567890",
+      "errors": [],
+      "_json": {
+        "id": "1234567890",
+        "mockResponse": "replace me"
+      },
+      "statusCode": 200,
+      "ignored": false,
+      "dataURI": "",
+      "_headers": {
+        "content-type": "application/json; charset=utf-8"
+      }
+    }
+  ],
+  "_connectionId": "6459f5e26c260356df1c7ce9",
+  "apiIdentifier": "icb74d1e90",
+  "oneToMany": false,
+  "file": {
+    "fileName": "Skip_Paging_QA.json",
+    "skipAggregation": false,
+    "type": "json"
+  },
+  "ftp": {
+    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+    "fileName": "Skip_Paging_QA.json"
+  },
+  "adaptorType": "FTPImport"
+}

@@ -1,0 +1,68 @@
+{
+  "_id": "651edff24f61d74ec5dc12c0",
+  "name": "C68563",
+  "pageGenerators": [
+    {
+      "_exportId": "651c4dde08ba8b7fbb4d621c"
+    }
+  ],
+  "routers": [
+    {
+      "name": "",
+      "id": "GSm62hRTQGv",
+      "branches": [
+        {
+          "name": "Branch 1.0",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "651e6b5491224d642cc85781"
+            }
+          ],
+          "nextRouterId": "YLxGcI7XkDY"
+        }
+      ]
+    },
+    {
+      "name": "branch 1",
+      "routeRecordsUsing": "input_filters",
+      "id": "YLxGcI7XkDY",
+      "routeRecordsTo": "first_matching_branch",
+      "branches": [
+        {
+          "name": "Branch 1.0",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "651ec348324a9674484191ce"
+            }
+          ]
+        },
+        {
+          "name": "Branch 1.1",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "651d971c34e9e438bee276a8"
+            }
+          ]
+        }
+      ],
+      "script": {
+        "function": "branching"
+      }
+    }
+  ]
+}

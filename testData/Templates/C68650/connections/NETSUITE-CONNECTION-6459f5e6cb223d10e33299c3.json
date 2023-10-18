@@ -1,0 +1,10 @@
+{
+  "_id": "6459f5e6cb223d10e33299c3",
+  "type": "netsuite",
+  "name": "NETSUITE CONNECTION",
+  "netsuite": {
+    "wsdlVersion": "2020.2",
+    "concurrencyLevel": 5,
+    "targetConcurrencyLevel": 5
+  }
+}

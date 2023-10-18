@@ -1,0 +1,22 @@
+{
+  "_id": "6459f5e86df4b9686c0b712d",
+  "type": "http",
+  "name": "HTTP ZENDESK CONNECTION",
+  "http": {
+    "formType": "http",
+    "mediaType": "json",
+    "baseURI": "https://celigoqa.zendesk.com/api/v2",
+    "disableStrictSSL": false,
+    "concurrencyLevel": 25,
+    "targetConcurrencyLevel": 25,
+    "ping": {
+      "relativeURI": "/organizations.json",
+      "method": "GET",
+      "successPath": "",
+      "errorPath": ""
+    },
+    "auth": {
+      "type": "basic"
+    }
+  }
+}

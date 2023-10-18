@@ -6,4 +6,7 @@ require('./TC_C50900');
 require('./TC_C45581');
 require('./TC_C45823');
 require('./TC_C69015');
-
+require('./TC_C45579');
+require('./TC_C45580');
+require('./TC_C51044');
+require('./TC_C57328');
