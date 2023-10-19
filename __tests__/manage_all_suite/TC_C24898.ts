@@ -2,8 +2,8 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import testData from "./manage_all.json";
 
-test.describe(`C24898 Monitor tile - Verify Reports Listing page should Contain Report type filter to the right.`, () => {
-  test(`C24898 Monitor tile - Verify Reports Listing page should Contain Report type filter to the right.`, async ({
+test.describe(`C24898 Manage All - Verify Reports Listing page should Contain Report type filter to the right.`, () => {
+  test(`C24898 Manage All - Verify Reports Listing page should Contain Report type filter to the right.`, async ({
     page,
     io
   }) => {

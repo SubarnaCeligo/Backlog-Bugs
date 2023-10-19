@@ -2,8 +2,8 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import testData from "./monitor_all_manage_few.json";
 
-test.describe(`C24896 Manage few and Monitor few - Verify Reports Listing page should Contain Report type filter to the right.`, () => {
-  test(`C24896 Manage few and Monitor few - Verify Reports Listing page should Contain Report type filter to the right.`, async ({
+test.describe(`C24896 Monitor All and Manage few  - Verify Reports Listing page should Contain Report type filter to the right.`, () => {
+  test(`C24896 Monitor All and Manage few  - Verify Reports Listing page should Contain Report type filter to the right.`, async ({
     page,
     io
   }) => {

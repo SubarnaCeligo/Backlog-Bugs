@@ -1,15 +1,17 @@
-require("./TC_C27965");
-require("./TC_C27969");
-require("./TC_C28172");
-require("./TC_C28173");
-require("./TC_C22915");
-require("./TC_C94287");
-require('./TC_C64846');
-require('./TC_C65758');
-require('./TC_C65759');
-require('./TC_C67232');
-require('./TC_C65696');
-require("./TC_C58484")
+// require("./TC_C27965");
+// require("./TC_C27969");
+// require("./TC_C28172");
+// require("./TC_C28173");
+// require("./TC_C22915");
+// require("./TC_C94287");
+// require('./TC_C64846');
+// require('./TC_C65758');
+// require('./TC_C65759');
+// require('./TC_C67232');
+// require('./TC_C65696');
+// require("./TC_C58484");
+// require("./TC_C22817");
+require("./TC_C69769");
 
 // import { test, expect } from "@celigo/ui-core-automation";
 // import * as selectors from "@celigo/aut-selectors";
@@ -82,4 +84,3 @@ require("./TC_C58484")
 //     // await io.webActions.click(selectors.basePagePO.DISCARD_CHANGES);
 //   });
 // });
-require("./TC_C22817");
