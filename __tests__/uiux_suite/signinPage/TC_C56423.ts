@@ -12,12 +12,10 @@ test.describe.skip(
       await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT);
       await page.hover(selectors.basePagePO.ACCOUNT);
       await io.homePage.click(selectors.basePagePO.SIGN_OUT);
-      // todo replace: selectors.loginPagePO.SIGNUP_SIGNIN_FOOTER
-      await io.homePage.click('[data-test="signupOrSigninFooter"]');
+      await io.homePage.click(selectors.loginPagePO.SIGNUP_SIGNIN_FOOTER);
       expect(page.url()).toContain("/signup");
       await io.homePage.addStep("Verified user is navigated to signup page");
-      // todo replace: selectors.loginPagePO.SIGN_UP_BUTTON
-      await io.homePage.click('[data-test="Sign up"]');
+      await io.homePage.click(selectors.loginPagePO.SIGN_UP_BUTTON);
       await io.assert.verifyElementDisplayedByText(
         "Name is required.",
         "'Name is required.' text is not displayed"

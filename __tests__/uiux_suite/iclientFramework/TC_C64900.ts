@@ -11,13 +11,11 @@ test.describe(`C64900 Validate editing the iClient created in Resources -> iClie
     await io.flowBuilder.click(selectors.flowBuilderPagePO.APPLICATION);
     await io.flowBuilder.clickByText("3PL Central");
     await io.assert.verifyElementIsDisplayed(
-      // todo replace: selectors.connectionsPagePO.SEND_CLIENT_CREDENTIALS_VIA
-      '[data-test="oauth2.clientCredentialsLocation"]',
+      selectors.connectionsPagePO.SEND_CLIENT_CREDENTIALS_VIA,
       "'Send client credentials via' is not displayed"
     );
     await io.assert.verifyElementIsDisplayed(
-      // todo replace: selectors.connectionsPagePO.ACCESS_TOKEN_URL
-      '[data-test="oauth2.token.uri"]',
+      selectors.connectionsPagePO.ACCESS_TOKEN_URL,
       "'Access token URL' is not displayed"
     );
     await io.connectionPage.addStep("Verified HTTP form is displayed");
@@ -25,9 +23,8 @@ test.describe(`C64900 Validate editing the iClient created in Resources -> iClie
       process.env["IO_UI_CONNECTOR_URL"] + "connections"
     );
     await io.flowBuilder.click(selectors.integrationPagePO.ADDNEWRESOURCE);
-    // todo replace: selectors.connectionsPagePO.THREEPL_CONNECTION
-    await io.flowBuilder.click('[data-test="3PL Central"]');
-    await io.flowBuilder.click('[aria-label="Create iClient"]');
+    await io.flowBuilder.click(selectors.connectionsPagePO.THREEPL_CONNECTION);
+    await io.flowBuilder.click(selectors.connectionsPagePO.CREATE_ICLIENT);
     await expect(page.getByRole("button", { name: "Simple" })).toHaveAttribute(
       "aria-pressed",
       "true"

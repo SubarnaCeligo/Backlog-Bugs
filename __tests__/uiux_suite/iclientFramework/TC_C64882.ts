@@ -8,9 +8,8 @@ test.describe(`C64882 verify toggle button for iclient under connection`, () => 
   }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
-    // todo replace: selectors.connectionsPagePO.GUSTO_CONNECTION
-    await io.connectionPage.click('[data-test="Gusto"]');
-    await io.flowBuilder.click('[aria-label="Create iClient"]');
+    await io.connectionPage.click(selectors.connectionsPagePO.GUSTO_CONNECTION);
+    await io.flowBuilder.click(selectors.connectionsPagePO.CREATE_ICLIENT);
     await io.assert.verifyElementIsDisplayed(
       selectors.importPagePO.HTTP_IMPORT,
       "HTTP form switch is not displayed"

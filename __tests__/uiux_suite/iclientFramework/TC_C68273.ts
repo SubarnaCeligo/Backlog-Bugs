@@ -10,9 +10,8 @@ test.describe(`C68273 verify application field under HTTP iclient is disabled`, 
       process.env["IO_UI_CONNECTOR_URL"] + "connections"
     );
     await io.flowBuilder.click(selectors.integrationPagePO.ADDNEWRESOURCE);
-    // todo replace: selectors.connectionsPagePO.GUSTO_CONNECTION
-    await io.connectionPage.click('[data-test="Gusto"]');
-    await io.flowBuilder.click('[aria-label="Create iClient"]');
+    await io.connectionPage.click(selectors.connectionsPagePO.GUSTO_CONNECTION);
+    await io.flowBuilder.click(selectors.connectionsPagePO.CREATE_ICLIENT);
     await io.flowBuilder.clickByIndex(selectors.importPagePO.HTTP_IMPORT, 2);
     await expect(
       page.locator(selectors.connectionsPagePO.CONNECTION_SEARCH)

@@ -11,8 +11,7 @@ test.describe(`C77873 HTTP connection-- for 0auth 2.0 Auth type while creating t
     await io.connectionPage.click(selectors.importPagePO.HTTP_IMPORT);
     await io.connectionPage.click(selectors.connectionsPagePO.AUTH_TYPE);
     await io.connectionPage.clickByText("OAuth 2.0");
-    // todo replace: selectors.connectionsPagePO.CREATE_ICLIENT
-    await io.exportsPage.click('[aria-label="Create iClient"]');
+    await io.exportsPage.click(selectors.connectionsPagePO.CREATE_ICLIENT);
     await expect(
       page.locator(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH)
     ).not.toBeVisible();
@@ -21,14 +20,12 @@ test.describe(`C77873 HTTP connection-- for 0auth 2.0 Auth type while creating t
     await io.connectionPage.click(selectors.basePagePO.CLOSE);
     await io.connectionPage.click(selectors.basePagePO.DISCARD_CHANGES);
     await io.connectionPage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
-    // todo replace: selectors.connectionsPagePO.LITMOS_CONNECTION
-    await io.connectionPage.click('[data-test="Litmos"]');
+    await io.connectionPage.click(selectors.connectionsPagePO.LITMOS_CONNECTION);
     await io.connectionPage.delay(1000);
     await io.connectionPage.click(selectors.importPagePO.HTTP_IMPORT);
     await io.connectionPage.click(selectors.connectionsPagePO.AUTH_TYPE);
     await io.connectionPage.clickByText("OAuth 2.0");
-    // todo replace: selectors.connectionsPagePO.CREATE_ICLIENT
-    await io.exportsPage.click('[aria-label="Create iClient"]');
+    await io.exportsPage.click(selectors.connectionsPagePO.CREATE_ICLIENT);
     await expect(page.getByRole("button", { name: "Simple" })).toBeVisible();
     await io.connectionPage.addStep("Verified 'Simple' toggle is visible");
     await io.assert.verifyElementIsDisplayed(
@@ -36,13 +33,11 @@ test.describe(`C77873 HTTP connection-- for 0auth 2.0 Auth type while creating t
       "'Name' field not displayed"
     );
     await io.assert.verifyElementIsDisplayed(
-      // todo replace: selectors.connectionsPagePO.OAUTH2_CLIENT_ID
-      '[data-test="oauth2.clientId"]',
+      selectors.connectionsPagePO.OAUTH2_CLIENT_ID,
       "'Client ID' field not displayed"
     );
     await io.assert.verifyElementIsDisplayed(
-      // todo replace: selectors.connectionsPagePO.OAUTH2_CLIENT_SECRET
-      '[data-test="oauth2.clientSecret"]',
+      selectors.connectionsPagePO.OAUTH2_CLIENT_SECRET,
       "'Client Secret' field not displayed"
     );
   });

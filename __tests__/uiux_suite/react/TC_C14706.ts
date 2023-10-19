@@ -19,8 +19,7 @@ test.describe("C14706 Export Panel on Staging is Missing the Following Component
     await io.exportsPage.addStep("Verified that the 'Body' tab is visible");
     await expect(page.getByRole("tab", { name: "Headers" })).toBeVisible();
     await io.exportsPage.addStep("Verified that the 'Headers' tab is visible");
-    // todo replace: selectors.exportsPagePO.HTTP_RESPONSE
-    await io.exportsPage.click('[data-test="HTTP response"]');
+    await io.exportsPage.click(selectors.exportsPagePO.HTTP_RESPONSE);
     await expect(page.getByRole("tab", { name: "Body" })).toBeVisible();
     await io.exportsPage.addStep("Verified that the 'Body' tab is visible");
     await expect(page.getByRole("tab", { name: "Headers" })).toBeVisible();

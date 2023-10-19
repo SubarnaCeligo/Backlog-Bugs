@@ -20,13 +20,11 @@ test.describe(`C62413 Verify New Outh 2.0 iclient form is getting display if you
     await io.flowBuilder.clickByText("Configure");
     await io.flowBuilder.click(selectors.integrationPagePO.ADDNEWRESOURCE);
     await io.assert.verifyElementIsDisplayed(
-      // todo replace: selectors.connectionsPagePO.OAUTH2_CLIENT_ID
-      '[data-test="oauth2.clientId"]',
+      selectors.connectionsPagePO.OAUTH2_CLIENT_ID,
       "'Client ID' field not displayed"
     );
     await io.assert.verifyElementIsDisplayed(
-      // todo replace: selectors.connectionsPagePO.OAUTH2_CLIENT_SECRET
-      '[data-test="oauth2.clientSecret"]',
+      selectors.connectionsPagePO.OAUTH2_CLIENT_SECRET,
       "'Client Secret' field not displayed"
     );
   });

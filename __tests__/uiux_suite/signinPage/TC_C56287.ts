@@ -12,13 +12,11 @@ test.describe.skip(
       await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT);
       await page.hover(selectors.basePagePO.ACCOUNT);
       await io.homePage.click(selectors.basePagePO.SIGN_OUT);
-      // todo replace: selectors.loginPagePO.SIGNUP_SIGNIN_FOOTER
-      await io.homePage.click('[data-test="signupOrSigninFooter"]');
+      await io.homePage.click(selectors.loginPagePO.SIGNUP_SIGNIN_FOOTER);
       expect(page.url()).toContain("/signup");
       await io.homePage.addStep("Verified user is navigated to signup page");
       await io.assert.verifyElementIsDisplayed(
-        // todo replace: selectors.basePagePO.CELIGO_LOGO
-        '[data-test="celigo-logo"]',
+        selectors.basePagePO.CELIGO_LOGO,
         "Celigo logo is not displayed"
       );
       await expect(
@@ -38,13 +36,11 @@ test.describe.skip(
         "I agree to the Terms of Service and Privacy Policy checkbox is not displayed"
       );
       await io.assert.verifyElementIsDisplayed(
-        // todo replace: selectors.loginPagePO.SIGN_UP_BUTTON
-        '[data-test="Sign up"]',
+        selectors.loginPagePO.SIGN_UP_BUTTON,
         "Sign up button is not displayed"
       );
       await io.assert.verifyElementIsDisplayed(
-        // todo replace: selectors.loginPagePO.SIGNUP_SIGNIN_FOOTER
-        '[data-test="signupOrSigninFooter"]',
+        selectors.loginPagePO.SIGNUP_SIGNIN_FOOTER,
         "Sign in link is not displayed"
       );
     });

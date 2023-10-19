@@ -8,8 +8,7 @@ test.describe(`C69768 getting unknown error if we are saving dataloader first ti
   }) => {
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
     await io.homePage.goToMenu("Tools", "Data loader");
-    // todo replace: selectors.basePagePO.DATA_LOADER
-    await io.flowBuilder.click('[data-test="Data loader"]');
+    await io.flowBuilder.click(selectors.basePagePO.DATA_LOADER);
     await io.flowBuilder.click(selectors.exportsPagePO.FILE_TYPE);
     await io.flowBuilder.clickByText("XLSX");
     await io.flowBuilder.clickByText("File has header");

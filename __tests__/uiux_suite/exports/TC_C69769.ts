@@ -8,8 +8,7 @@ test.describe(`C69769 For both exports and imports, name field is still showing 
   }) => {
     await io.exportsPage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
     await io.exportsPage.click(selectors.exportsPagePO.ADD_NEW_RESOURCE);
-    // todo replace: selectors.connectionsPagePO.LITMOS_CONNECTION
-    await io.exportsPage.click('[data-test="Litmos"]');
+    await io.exportsPage.click(selectors.connectionsPagePO.LITMOS_CONNECTION);
     await io.exportsPage.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
     await io.exportsPage.click(
       selectors.connectionsPagePO.CONNECTION_OPTION_TEXT
