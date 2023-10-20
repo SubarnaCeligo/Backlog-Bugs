@@ -6,7 +6,7 @@ test.describe("C107972 Showing the 'Save the changes' pop up when we are seeing 
       await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
       await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.PLUS_BUTTONS);
-      await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.PLUS_BUTTONS, 0);ß
+      await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.PLUS_BUTTONS, 0);
       await io.flowBuilder.clickByText('Add branching');
       await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
       await io.flowBuilder.click(selectors.flowBuilderPagePO.EDIT_BRANCHING);
