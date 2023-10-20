@@ -8,10 +8,10 @@ test.describe(`C59643 Verify connection dropdown for exports`, () => {
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
     await io.flowBuilder.clickByText("Narvar");
     await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
+    await page.getByText("API type").first().waitFor({ state: "visible" });
     const connectionText = (await io.flowBuilder.getText(
       selectors.connectionsPagePO.CONNECTION_OPTION_TEXT
     )) as string;
-    await page.getByText("API type").first().waitFor({ state: "visible" });
     await io.assert.expectToContainValue(
       "Narvar",
       connectionText,

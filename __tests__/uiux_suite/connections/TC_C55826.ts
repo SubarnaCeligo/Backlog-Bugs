@@ -16,10 +16,10 @@ test.describe(`C55826 Verify connection dropdown Replace connection in flow buil
     );
     await io.flowBuilder.clickByText("Replace connection");
     await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
+    await page.getByText("API type").first().waitFor({ state: "visible" });
     const connectionText = (await io.flowBuilder.getText(
       selectors.connectionsPagePO.CONNECTION_OPTION_TEXT
     )) as string;
-    await page.getByText("API type").first().waitFor({ state: "visible" });
     await io.assert.expectToContainValue(
       "Narvar",
       connectionText,

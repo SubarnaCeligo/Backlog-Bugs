@@ -19,8 +19,8 @@ test.describe(`C63003 Verify connection dropdown while clonning flow`, () => {
     await io.flowBuilder.clickByText("Configure");
     await io.flowBuilder.clickByText("Use existing connection");
     await io.flowBuilder.click(selectors.basePagePO.CONNECTION);
-    const connectionText = await page.getByRole("menuitem").nth(1).textContent();
     await page.getByText("API type").first().waitFor({ state: "visible" });
+    const connectionText = await page.getByRole("menuitem").nth(1).textContent();
 
     await io.assert.expectToContainValue(
       "Narvar",
