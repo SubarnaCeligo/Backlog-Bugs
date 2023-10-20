@@ -13,10 +13,10 @@ test.describe(`C59644 Verify connection dropdown for imports`, () => {
       "Import records into destination application"
     );
     await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
+    await page.getByText("API type").first().waitFor({ state: "visible" });
     const connectionText = (await io.flowBuilder.getText(
       selectors.connectionsPagePO.CONNECTION_OPTION_TEXT
     )) as string;
-    await page.getByText("API type").first().waitFor({ state: "visible" });
 
     await io.assert.expectToContainValue(
       "Narvar",

@@ -18,6 +18,8 @@ require("./TC_C102563");
 require("./TC_C102903");
 require("./TC_C2148");
 require("./TC_C59380");
-require("./TC_C57329")
-require('./TC_C29053');
-
+require("./TC_C69560");
+require("./TC_C1077");
+require("./TC_C39971");
+require("./TC_C57329");
+require("./TC_C29053");
