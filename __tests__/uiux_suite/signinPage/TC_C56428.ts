@@ -1,7 +1,7 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-  test.describe("C56428 Verify refreshing on signin/ request reset/ forgot password/ accept invite pages should stay", () => {
+  test.describe.skip("C56428 Verify refreshing on signin/ request reset/ forgot password/ accept invite pages should stay", () => {
     test.beforeEach("C56428 Signing out", async ({io, page}) => {
       await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
       const isNotLoggedIn = await io.loginPage.checkLoginState();

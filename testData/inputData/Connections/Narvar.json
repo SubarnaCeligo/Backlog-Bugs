@@ -5,7 +5,7 @@
       "type": "export",
       "qa__export": {
         "name": "test",
-        "_connectionId": "Narvar",
+        "_connectionId": "NARVAR CONNECTION",
         "apiIdentifier": "e49e91c200",
         "asynchronous": true,
         "oneToMany": false,
@@ -34,7 +34,7 @@
       "type": "import",
       "qa__import": {
         "name": "Narvar Import",
-        "_connectionId": "Narvar",
+        "_connectionId": "NARVAR CONNECTION",
         "apiIdentifier": "i4c0a16733",
         "ignoreExisting": false,
         "ignoreMissing": false,
@@ -66,7 +66,7 @@
       "type": "export",
       "qa__export": {
         "name": "Narvar lookup",
-        "_connectionId": "Narvar",
+        "_connectionId": "NARVAR CONNECTION",
         "apiIdentifier": "ebe5ec6451",
         "asynchronous": true,
         "isLookup": true,

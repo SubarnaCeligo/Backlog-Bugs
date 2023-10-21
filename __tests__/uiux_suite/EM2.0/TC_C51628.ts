@@ -1,6 +1,6 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C51628 from '../../../testData/EM2.0/C51628.json';
+import C51628 from '@testData/EM2.0/C51628.json';
 
 test.describe("C51628 Verify the displayed buttons by editing the retry data in the 'Error details' drawer>'Edit retry data'tab", () => {
   test("C51628 Verify the displayed buttons by editing the retry data in the 'Error details' drawer>'Edit retry data'tab", async ({io, page}) => {
