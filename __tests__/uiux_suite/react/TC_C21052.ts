@@ -1,6 +1,6 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C21052 from '../../../testData/Flows/TC_C21052.json';
+import C21052 from '@testData/Flows/TC_C21052.json';
 
 test.describe("C21052 When Opened Mapping from settings page for Database, Http related flows instead of the builder forms, Presented with extract and generate form", () => {
   test("C21052 When Opened Mapping from settings page for Database, Http related flows instead of the builder forms, Presented with extract and generate form", async ({io, page}) => {

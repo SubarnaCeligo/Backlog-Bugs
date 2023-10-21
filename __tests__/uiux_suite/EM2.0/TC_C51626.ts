@@ -1,6 +1,6 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C51626 from "../../../testData/EM2.0/TC_C51626.json"
+import C51626 from "@testData/EM2.0/TC_C51626.json"
 
 test.describe("C51626 Verify the Actions coloumn the New view by navigating from the current view", () => {
     test("C51626 Verify the Actions coloumn the New view by navigating from the current view", async ({io, page}) => {

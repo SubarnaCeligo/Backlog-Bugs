@@ -1,6 +1,6 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C35067 from '../../../testData/Flows/C35067.json';
+import C35067 from '@testData/Flows/C35067.json';
 
 test.describe("C35067 Verify downdload button UI in audit log", () => {
     test("C35067 Verify downdload button UI in audit log", async ({io, page}) => {

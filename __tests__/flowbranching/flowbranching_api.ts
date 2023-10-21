@@ -1,5 +1,5 @@
 import { test, expect } from "@celigo/ui-core-automation";
-import fb from "../../testData/flowbranching/fb_ui.json"
+import fb from "@testData/flowbranching/fb_ui.json"
 
 
 test.describe("flowbranching_api", () => {

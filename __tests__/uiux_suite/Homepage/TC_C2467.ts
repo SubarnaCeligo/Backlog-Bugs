@@ -1,6 +1,6 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C2467 from '../../../testData/Flows/C2467.json';
+import C2467 from '@testData/Flows/C2467.json';
 
 test.describe("C2467 Verified all the possible pop-ups and they are closed on click.", () => {
     test("C2467 Verified the delete integration pop up", async ({io, page}) => {
