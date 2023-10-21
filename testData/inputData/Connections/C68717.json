@@ -1,0 +1,33 @@
+{
+  "flow": {
+    "name": "NS_JDBC Flow",
+    "pageGenerators": [
+      {
+        "type": "export",
+        "qa__export": {
+          "_id": "6512a9a266bd497228501706",
+          "createdAt": "2023-09-26T09:51:30.291Z",
+          "lastModified": "2023-09-26T09:51:30.413Z",
+          "name": "NS_JDBC Export",
+          "_connectionId": "NS_JDBC",
+          "apiIdentifier": "e94f77aa3d",
+          "asynchronous": true,
+          "oneToMany": false,
+          "sandbox": false,
+          "jdbc": {
+            "query": "{{settings}}"
+          },
+          "adaptorType": "JDBCExport"
+        }
+      }
+    ]
+  },
+  "connection": {
+    "name": "NS JDBC Test",
+    "host": "tstdrv916728.connect.api.netsuite.com",
+    "email": "bhanu.prakash.reddy.adapala@celigo.com",
+    "password": "123rahjRAHJ@#",
+    "account": "TSTDRV916728",
+    "roleId": "1028"
+  }
+}

@@ -5,7 +5,7 @@
             "qa__export":{
                 "name": "ftp_expoereeqw",
     "description": "ftp_expoereeqw",
-    "_connectionId": "FTP OFFLINE CONNECTION",
+    "_connectionId": "FTP CONNECTION",
     "_sourceId": "649e9485de23ac481bafdebf",
     "apiIdentifier": "e231ef53aa",
     "asynchronous": true,
@@ -54,7 +54,7 @@
     ],
     "ftp": {
         "directoryPath": "Group-QA/HR-ui",
-        "fileNameStartsWith": "Testè"
+        "fileNameStartsWith": ""
     },
     "file": {
         "output": "records",

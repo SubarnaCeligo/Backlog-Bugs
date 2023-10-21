@@ -8,8 +8,11 @@ test.describe.skip("C59659 Verify sample url link for Sign up Page", () => {
     );
     await page.locator("a").filter({ hasText: "Try for free" }).click();
     await io.homePage.addStep("Clicked on 'Try for free' button");
-    await page.waitForURL("https://integrator.io/signup");
-    expect(page.url()).toContain("https://integrator.io/signup");
-    await io.homePage.addStep("Verified User is re-directing to Sign up Page.");
+    await page.waitForURL(/^https:\/\/integrator\.io\/signup/);
+    await io.assert.expectToContainValue(
+      "https://integrator.io/signup",
+      page.url(),
+      "User is not re-directing to https://integrator.io/signup Page."
+    );
   });
 });
