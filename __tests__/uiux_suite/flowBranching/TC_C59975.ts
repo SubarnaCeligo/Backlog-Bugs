@@ -1,6 +1,6 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C55975 from '../../../testData/Flows/C59975.json';
+import C55975 from '@testData/Flows/C59975.json';
 
 test.describe("C59975 Verify User is able to see the script under flow dashboard for flow branching", () => {
     test("C59975 Verify User is able to see the script under flow dashboard for flow branching", async ({io, page}) => {

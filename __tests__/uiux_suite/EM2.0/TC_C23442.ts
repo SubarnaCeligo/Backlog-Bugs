@@ -1,6 +1,6 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C51656 from "../../../testData/EM2.0/TC_ C51656.json"
+import C51656 from "@testData/EM2.0/TC_ C51656.json"
 
 test.describe("C23442 EM1.0 Timestamp on run dashboard does not follow user time preference setting", () => {
     test("C23442 EM1.0 Timestamp on run dashboard does not follow user time preference setting", async ({io, page}) => {

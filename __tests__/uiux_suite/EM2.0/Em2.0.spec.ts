@@ -24,6 +24,8 @@ require("./TC_C51664");
 require("./TC_C52047");
 require("./TC_C50858");
 require("./TC_C51623");
-require('./TC_C20896');
+require("./TC_C20896");
 require("./TC_C50859");
+require("./TC_C69561");
+
 require("./TC_C66296");

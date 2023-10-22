@@ -1,0 +1,8 @@
+{
+  "_id": "64f1d2b67eb61a709d11e401",
+  "emails": ["abhishek.angira+1@celigo.com"],
+  "accessLevel": "admin",
+  "integrationAccessLevel": [],
+  "accountSSORequired": false,
+  "accountMFARequired": false
+}

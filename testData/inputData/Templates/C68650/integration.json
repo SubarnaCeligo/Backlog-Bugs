@@ -1,0 +1,31 @@
+{
+  "_id": "651dc4f6d9a98910167a71c9",
+  "name": "61130_DND",
+  "install": [],
+  "installSteps": [
+    {
+      "name": "NETSUITE CONNECTION",
+      "completed": true,
+      "type": "connection",
+      "sourceConnection": {
+        "type": "netsuite",
+        "name": "NETSUITE CONNECTION"
+      }
+    },
+    {
+      "name": "Integrator SuiteApp",
+      "description": "Please install Integrator suiteapp in NetSuite account",
+      "completed": true,
+      "type": "url",
+      "url": "https://tstdrv1143616.app.netsuite.com/suiteapp/ui/marketplace.nl?whence=#/app?id=com.celigo.integratorio"
+    },
+    {
+      "name": "Copy resources now from template zip",
+      "completed": true,
+      "type": "template_zip"
+    }
+  ],
+  "uninstallSteps": [],
+  "changeEditionSteps": [],
+  "flowGroupings": []
+}

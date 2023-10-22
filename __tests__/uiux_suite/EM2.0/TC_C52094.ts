@@ -1,6 +1,6 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C52094 from "../../../testData/EM2.0/C52094.json"
+import C52094 from "@testData/EM2.0/C52094.json"
 
 test.describe("C52094 Verify the 'Add to Batch' check box option in both 'Current View' & 'New view'", () => {
     test("C52094 Verify the 'Add to Batch' check box option in both 'Current View' & 'New view'", async ({io, page}) => {

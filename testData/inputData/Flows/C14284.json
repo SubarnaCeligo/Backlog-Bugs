@@ -1,0 +1,90 @@
+{
+    "name": "TC_C14284",
+    "pageGenerators": [
+        {
+            "qa__export":{
+                "name": "Ns exptqa",
+    "_connectionId": "NETSUITE CONNECTION",
+    "_sourceId": "6513c9c923a67e615daec259",
+    "apiIdentifier": "eba10f76a7",
+    "asynchronous": true,
+    "type": "test",
+    "oneToMany": false,
+    "test": {
+        "limit": 1
+    },
+    "netsuite": {
+        "type": "restlet",
+        "skipGrouping": true,
+        "statsOnly": false,
+        "restlet": {
+            "recordType": "customer",
+            "searchId": "736",
+            "criteria": [],
+            "columns": [],
+            "restletVersion": "suiteapp2.0"
+        },
+        "distributed": {
+            "executionContext": [],
+            "executionType": []
+        }
+    },
+    "adaptorType": "NetSuiteExport"
+              }
+          }
+      ],
+      "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "Payment card",
+    "_connectionId": "NETSUITE CONNECTION",
+    "_sourceId": "651bfc60d6ab065f892f475c",
+    "distributed": true,
+    "apiIdentifier": "i6867f223c",
+    "ignoreExisting": false,
+    "ignoreMissing": false,
+    "oneToMany": false,
+    "lookups": [],
+    "netsuite_da": {
+        "restletVersion": "suiteapp2.0",
+        "operation": "add",
+        "recordType": "paymentcard",
+        "lookups": [],
+        "mapping": {
+            "fields": [
+                {
+                    "generate": "cardbrand",
+                    "extract": "id",
+                    "internalId": true
+                }
+            ],
+            "lists": []
+        }
+    },
+    "adaptorType": "NetSuiteDistributedImport"
+              }
+          }
+      ],
+      "createFlow": {
+        "name": "TC_C63406",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+  }

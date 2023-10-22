@@ -10,10 +10,10 @@ test.describe(`C59859 Verify connection dropdown for edit imports`, () => {
     await io.fillFormUI(testData, "FLOWS");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT);
     await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
+    await page.getByText("API type").first().waitFor({ state: "visible" });
     const connectionText = (await io.flowBuilder.getText(
       selectors.connectionsPagePO.CONNECTION_OPTION_TEXT
     )) as string;
-    await page.getByText("API type").first().waitFor({ state: "visible" });
 
     await io.assert.expectToContainValue(
       "Narvar",
