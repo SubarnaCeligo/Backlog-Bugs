@@ -1,6 +1,6 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C93992 from '../../../testData/Flows/C93992.json';
+import C93992 from '@testData/Flows/C93992.json';
 
 test.describe("C93994 Verify 'Script is required'/'Function is required' validations on input filter", () => {
     test("C93994 Verify 'Script is required'/'Function is required' validations on input filter", async ({io, page}) => {

@@ -1,6 +1,6 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C50859 from '../../../testData/Flows/C50859.json';
+import C50859 from '@testData/Flows/C50859.json';
 
 test.describe("C50859 Verify the displayed default page in 'Error Dashboard' when there is no error in the flow", () => {
     test("C50859 Verify the displayed default page in 'Error Dashboard' when there is no error in the flow", async ({io, page}) => {
