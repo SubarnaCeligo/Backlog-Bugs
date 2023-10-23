@@ -1,6 +1,6 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C51639 from '../../../testData/EM2.0/C51639.json';
+import C51639 from '@testData/EM2.0/C51639.json';
 
 test.describe("C51639 Verify the download option in the Resolved Error drawer", () => {
     test("C51639 Verify the download option in the Resolved Error drawer", async ({io, page}) => {

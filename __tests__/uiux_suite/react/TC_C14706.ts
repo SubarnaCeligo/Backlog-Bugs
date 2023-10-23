@@ -1,6 +1,5 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C21052 from "../../../testData/Flows/TC_C21052.json";
 
 test.describe("C14706 Export Panel on Staging is Missing the Following Components", () => {
   test("C14706 Export Panel on Staging is Missing the Following Components", async ({

@@ -9,7 +9,7 @@
                 "helper/*"
             ],
             "@testData/*": [
-                "testData/*"
+                "testData/inputData/*"
             ]
         },
         "target": "esnext",

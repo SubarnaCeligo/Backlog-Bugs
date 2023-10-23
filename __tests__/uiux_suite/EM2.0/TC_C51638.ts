@@ -1,6 +1,6 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C51638 from "../../../testData/EM2.0/C51638.json"
+import C51638 from "@testData/EM2.0/C51638.json"
 
 test.describe("C51638 Verify the Footer buttons in the Error details tab of Resolved Errors drawer", () => {
     test("C51638 Verify the Footer buttons in the Error details tab of Resolved Errors drawer", async ({io, page}) => {
