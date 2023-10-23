@@ -8,11 +8,11 @@ test.describe("C58036 Verify when we refresh the page when there is an open crea
       await io.homePage.goToMenu("Resources", "Integration apps");
 
       await io.homePage.click(`tbody tr:has-text('IA_DND') ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
-      await io.homePage.click('[data-test="licenses"]');
+      await io.homePage.click(selectors.homePagePO.LICENSES);
       await io.homePage.clickByText('New license');
       await page.reload();
 
-      await io.homePage.waitForElementAttached('[data-test="homeSearchInput"]');
+      await io.homePage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
       const isSaveNotVisible = !await io.homePage.isVisible(selectors.basePagePO.SAVE);
       await io.assert.expectToBeTrue(isSaveNotVisible, 'The form is still visible');
   });

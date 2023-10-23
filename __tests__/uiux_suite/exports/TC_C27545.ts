@@ -1,7 +1,7 @@
 
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C27545 from '../../../testData/Flows/C27545.json'
+import C27545 from '../../../testData/inputData/Flows/C27545.json'
 
 test.describe("C27545 Sensitive information is not getting masked in the export preview panel.", () => {
   test("C27545 Sensitive information is not getting masked in the export preview panel.", async ({io, page}) => {

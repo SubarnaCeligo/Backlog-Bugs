@@ -9,8 +9,8 @@ test.describe("C51577 Verify connection form base URI while installing IAs/templ
       await io.homePage.fill(selectors.homePagePO.SEARCH_MARKETPLACE, 'HTTP_DND');
       await io.homePage.click(selectors.homePagePO.INSTALL_TEMPLATE);
       await io.homePage.clickByText("Install now");
-      await io.homePage.click('[data-test="Configure"]');
-      await io.assert.verifyElementIsDisplayed('[data-test="http.baseURI"]', 'Base URI is not displayed');
+      await io.homePage.click(selectors.integrationPagePO.SETUP_INTEGRATION_CONFIGURE_BUTTON);
+      await io.assert.verifyElementIsDisplayed(selectors.connectionsPagePO.HTTP_BASE_URI, 'Base URI is not displayed');
      
   });
 });
