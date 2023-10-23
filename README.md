@@ -4,11 +4,6 @@ This is a Playwright and TypeScript project that provides a comprehensive testin
 
 ## Steps to Build the Project
 
-## Configure the project
-```sh
-npm install
-```
-
 ## How to write a test case
 -Please refer the sample test file in the project(./helper/sample.test.ts)
 ## Run a test Case
@@ -25,9 +20,10 @@ ENV={env} npm run test:smoke - To run tests based on tags.Tags are defined in th
 npm run report
 ```
 
-## Command to get latest selectors
+## Command to get latest module
 ```sh
-npm i --save-dev @celigo/aut-selectors@latest
+npm ci
+Example: npm ci --save-dev @celigo/aut-selectors@latest
 ```
 ## Features
 

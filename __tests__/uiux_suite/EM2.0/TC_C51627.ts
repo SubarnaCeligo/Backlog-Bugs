@@ -1,6 +1,6 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C51627 from '../../../testData/EM2.0/C51627.json';
+import C51627 from '@testData/EM2.0/C51627.json';
 
 test.describe("C51627 Verify the list and the default status of the footer buttons displayed in the 'Error details' drawer", () => {
     test("C51627 Verify the list and the default status of the footer buttons displayed in the 'Error details' drawer", async ({io, page}) => {
