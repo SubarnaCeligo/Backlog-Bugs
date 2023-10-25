@@ -6,16 +6,17 @@ test.describe(`C50900 Verify the "Don't allow trusted devices" check box`, () =>
     io,
     page
   }) => {
-    await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
-    await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
-    await io.homePage.click(selectors.basePagePO.MY_PROFILE_BUTTON);
-    await io.homePage.click(selectors.myAccountPagePO.SECURITY);
-    await io.homePage.click(selectors.myAccountPagePO.MFA);
-    await page
-      .locator(selectors.myAccountPagePO.DONT_ALLOW_TRUSTED_DEVICES_CHECKBOX)
-      .click();
+    await io.homePage.navigateTo(
+      process.env["IO_UI_CONNECTOR_URL"] + "myAccount/security/mfa"
+    );
+    await io.homePage.click(
+      selectors.myAccountPagePO.DONT_ALLOW_TRUSTED_DEVICES_CHECKBOX
+    );
     await expect(
       page.locator(selectors.myAccountPagePO.TRUST_DEVICES_FOR_DAYS_INPUT)
     ).toBeDisabled();
+    await io.homePage.addStep(
+      "Verified 'Number of days until MFA is required again for trusted devices' input is disabled"
+    );
   });
 });

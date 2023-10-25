@@ -1,0 +1,77 @@
+{
+    "name": "TC_C65969",
+    "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "AutomationStandalone_0cRUr",
+    "_connectionId": "HTTP ZENDESK CONNECTION",
+    "apiIdentifier": "edfe4d3b4b",
+    "asynchronous": true,
+    "oneToMany": false,
+    "sandbox": false,
+    "parsers": [
+        {
+            "type": "xml",
+            "version": "1",
+            "rules": {
+                "V0_json": true,
+                "stripNewLineChars": false,
+                "trimSpaces": false
+            }
+        }
+    ],
+    "http": {
+        "relativeURI": "/users",
+        "method": "GET",
+        "formType": "http"
+    },
+    "rawData": "6459f5dc0dee1b3f6ca7a4bd499eee8d74374ae8b184e760ac388bb7",
+    "adaptorType": "HTTPExport"
+            }
+          }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "AutomationStandalone_1BdD7",
+    "parsers": [],
+    "_connectionId": "FTP CONNECTION",
+    "apiIdentifier": "icb74d1e90",
+    "oneToMany": false,
+    "file": {
+        "fileName": "Skip_Paging_QA.json",
+        "skipAggregation": false,
+        "type": "json"
+    },
+    "ftp": {
+        "directoryPath": "/io.auto.qa/IO_UI_Automation",
+        "fileName": "Skip_Paging_QA.json"
+    },
+    "adaptorType": "FTPImport"
+        }
+    }
+],
+    "createFlow": {
+        "name": "TC_C67026",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+}

@@ -8,6 +8,8 @@ require('./TC_C64846');
 require('./TC_C65758');
 require('./TC_C65759');
 require('./TC_C67232');
+require('./TC_C65696');
+require("./TC_C58484")
 
 // import { test, expect } from "@celigo/ui-core-automation";
 // import * as selectors from "@celigo/aut-selectors";

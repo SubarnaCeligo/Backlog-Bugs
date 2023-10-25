@@ -1,6 +1,6 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C22817 from '../../../testData/Flows/TC_C22817.json';
+import C22817 from '@testData/Flows/TC_C22817.json';
 
 test.describe("C22817 Verify for the backupBucket for S3 export, only AFE 2.0 supports", () => {
   test("C22817 Verify for the backupBucket for S3 export, only AFE 2.0 supports", async ({io, page}) => {

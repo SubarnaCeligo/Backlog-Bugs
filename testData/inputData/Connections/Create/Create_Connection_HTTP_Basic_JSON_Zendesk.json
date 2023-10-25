@@ -1,0 +1,46 @@
+{
+    "expectedJSON": {
+        "name": "Create_Connection_HTTP_Basic_JSON_Zendesk",
+        "http": {
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "password": "******",
+                    "username": "mounica.manavapati@celigo.com"
+                }
+            },
+            "ping": {
+                "method": "GET",
+                "relativeURI": "users.json",
+                "successPath": "users[0].id"
+            },
+            "baseURI": "https://celigoqa.zendesk.com/api/v2/",
+            "mediaType": "json"
+        },
+        "type": "http"
+    },
+    "importJSON": {
+        "name": "Create_Connection_HTTP_Basic_JSON_Zendesk",
+        "_borrowConcurrencyFromConnectionId": "HTTP ZENDESK CONCURRENCY CONNECTION",
+        "http": {
+            "auth": {
+                "type": "basic",
+                "qa__basic": {
+                    "password": "******",
+                    "qa__password": "process.env[HTTP_ZENDESK_PASSWORD]",
+                    "username": "process.env[HTTP_ZENDESK_USER]"
+                }
+            },
+            "ping": {
+                "method": "GET",
+                "successValues": [],
+                "successPath": "users[0].id",
+                "relativeURI": "users.json"
+            },
+            "baseURI": "https://celigoqa.zendesk.com/api/v2/",
+            "mediaType": "json",
+            "encryptedFields": []
+        },
+        "type": "http"
+    }
+}

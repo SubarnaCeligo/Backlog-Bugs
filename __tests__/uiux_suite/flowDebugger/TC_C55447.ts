@@ -1,8 +1,8 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C55447 from '../../../testData/FlowDebugger/C55447.json';
-import C55446 from '../../../testData/FlowDebugger/C55446.json';
-import C55447_mockData from '../../../testData/FlowDebugger/C55447_mockData.json';
+import C55447 from '@testData/FlowDebugger/C55447.json';
+import C55446 from '@testData/FlowDebugger/C55446.json';
+import C55447_mockData from '@testData/FlowDebugger/C55447_mockData.json';
 
 test.describe("C55447 Verify the error message when data size is more than 1 MB for export & lookup", () => {
     test("C55447 Verify for export", async ({io, page}) => {

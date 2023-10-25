@@ -4,3 +4,5 @@ require("./TC_C61153");
 require("./TC_C61156");
 require("./TC_C61159");
 require("./TC_C61135");
+require("./TC_C61158");
+require("./TC_C61155");

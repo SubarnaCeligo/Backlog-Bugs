@@ -1,0 +1,22 @@
+{
+  "_id": "651e87b9d097a3058bdb960c",
+  "name": "TC100370_FTP_TO_FTP",
+  "pageGenerators": [
+    {
+      "_exportId": "651e87b8d097a3058bdb9608",
+      "skipRetries": false
+    }
+  ],
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "_importId": "651e87b8d097a3058bdb960a"
+    }
+  ],
+  "free": false,
+  "_templateId": "651bf59e5813cd768739bc46"
+}

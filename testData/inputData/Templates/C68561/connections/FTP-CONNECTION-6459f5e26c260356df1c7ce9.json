@@ -1,0 +1,10 @@
+{
+  "_id": "6459f5e26c260356df1c7ce9",
+  "type": "ftp",
+  "name": "FTP CONNECTION",
+  "ftp": {
+    "type": "sftp",
+    "concurrencyLevel": 1,
+    "targetConcurrencyLevel": 1
+  }
+}

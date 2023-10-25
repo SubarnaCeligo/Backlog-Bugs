@@ -1,0 +1,60 @@
+{
+    "expectedJSON": {
+        "type": "rest",
+        "name": "Create_Connection_Slack",
+        "assistant": "slack",
+        "isHTTP": true,
+        "http": {
+            "mediaType": "json",
+            "baseURI": "https://slack.com/api",
+            "ping": {
+                "relativeURI": "api.test",
+                "method": "GET",
+                "successPath": "ok"
+            },
+            "auth": {
+                "type": "token",
+                "token": {
+                    "token": "******",
+                    "location": "header",
+                    "paramName": "token"
+                }
+            }
+        },
+        "rest": {
+            "baseURI": "https://slack.com/api",
+            "bearerToken": "******",
+            "tokenLocation": "header",
+            "tokenParam": "token",
+            "mediaType": "json",
+            "authType": "token",
+            "headers": [],
+            "encryptedFields": [],
+            "unencryptedFields": [],
+            "scope": [],
+            "pingRelativeURI": "api.test",
+            "pingSuccessPath": "ok",
+            "pingMethod": "GET",
+            "refreshTokenHeaders": []
+        }
+    },
+    "importJSON": {
+        "type": "http",
+        "name": "Create_Connection_Slack",
+        "assistant": "slack",
+        "http": {
+            "baseURI": "https://slack.com/api",
+            "bearerToken": "******",
+            "qa__bearerToken": "process.env[SLACK__ASSISTANT__BEARERTOKEN]",
+            "tokenLocation": "url",
+            "tokenParam": "token",
+            "mediaType": "urlencoded",
+            "authType": "token",
+            "encryptedFields": [],
+            "unencryptedFields": [],
+            "scope": [],
+            "pingRelativeURI": "api.test",
+            "pingSuccessPath": "ok"
+        }
+    }
+}

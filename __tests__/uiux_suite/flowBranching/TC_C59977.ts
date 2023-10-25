@@ -1,6 +1,6 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C59977 from '../../../testData/Flows/C59977.json'
+import C59977 from '@testData/Flows/C59977.json'
 
 test.describe("C59977 Verify Post response map is persisted for flow with routers and without routers", () => {
     test("C59977 Verify Post response map is persisted for flow with routers and without routers", async ({io, page}) => {
