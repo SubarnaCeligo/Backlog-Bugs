@@ -1,6 +1,6 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C63111 from '../../../testData/Flows/C63111.json';
+import C63111 from '@testData/Flows/C63111.json';
 
 test.describe("C63111 To verify that the a text box in the UI to accept the feedOptions. This will be only visible when the “Feed Type“ dropdown is visible in UI.", () => {
     test("C63111 To verify that the a text box in the UI to accept the feedOptions. This will be only visible when the “Feed Type“ dropdown is visible in UI.", async ({io, page}) => {

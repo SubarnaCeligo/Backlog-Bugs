@@ -1,6 +1,6 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C93708 from "../../../../testData/ScriptDebugger/C93708.json"
+import C93708 from "@testData/ScriptDebugger/C93708.json"
 
 
 test.describe('C93709 Validate user is able to create "formInit" script through flow builder page (Monitor)', () => {

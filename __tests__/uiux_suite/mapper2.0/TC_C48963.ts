@@ -1,6 +1,6 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C48963 from '../../../testData/Flows/C48963.json';
+import C48963 from '@testData/Flows/C48963.json';
 
 test.describe("C48963 Verify 'Actions to take if source value not found' options functionality for ObjectArray Data type", () => {
   test("C48963 Verify 'Actions to take if source value not found' options functionality for ObjectArray Data type", async ({io, page}) => {

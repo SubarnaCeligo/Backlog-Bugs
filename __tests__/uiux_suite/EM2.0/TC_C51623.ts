@@ -1,6 +1,6 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C51661 from '../../../testData/EM2.0/TC_C51661.json';
+import C51661 from '@testData/EM2.0/TC_C51661.json';
 
 test.describe("C51623 Verify the Scroll bar for Message column in the Error rows page of New view by navigating from the Current View", () => {
     test("C51623 Verify the Scroll bar for Message column in the Error rows page of New view by navigating from the Current View", async ({io, page}) => {

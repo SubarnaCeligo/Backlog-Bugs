@@ -1,6 +1,6 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C51661 from '../../../testData/EM2.0/TC_C51661.json';
+import C51661 from '@testData/EM2.0/TC_C51661.json';
 
 test.describe("C51661 Verify the 'Error details' header fields displayed in the New View", () => {
     test("C51661 Verify the 'Error details' header fields displayed in the New View", async ({io, page}) => {

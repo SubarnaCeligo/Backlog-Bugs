@@ -1,6 +1,6 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C20896 from '../../../testData/EM2.0/C20896.json';
+import C20896 from '@testData/EM2.0/C20896.json';
 
 test.describe("C20896 Verify user can able to toggle notification at flow level", () => {
     test("C20896 Verify user can able to toggle notification at flow level", async ({io, page}) => {
