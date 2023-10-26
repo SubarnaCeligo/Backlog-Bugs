@@ -15,6 +15,11 @@ test.describe("C55971 Verify when we use an old password that was set in the las
     io,
     page
   }) => {
+    await io.homePage.navigateTo(
+      "https://staging.integrator.io/request-reset?email=qaautomation1@celigo.com"
+    );
+    await io.homePage.click(selectors.basePagePO.SUBMIT);
+    await page.waitForTimeout(5000);
     const link = await io.emailVal.getLinkFromEmail(
       "[staging.integrator.io] Request to reset your password"
     );
