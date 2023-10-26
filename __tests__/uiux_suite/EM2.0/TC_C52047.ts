@@ -1,6 +1,6 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C51661 from '../../../testData/EM2.0/TC_C51661.json';
+import C51661 from '@testData/EM2.0/TC_C51661.json';
 
 test.describe("C52047 Verify the Open errors tab, when no results are returned for filter selections in both Current View & New View", () => {
     test("C52047 Verify the Open errors tab, when no results are returned for filter selections in both Current View & New View", async ({io, page}) => {
