@@ -1,0 +1,139 @@
+{
+    "_id": "6530cb14a76ec92258fcc933",
+    "name": "FTP with Offline Lookup - FDB",
+    "disabled": true,
+    "_integrationId": "651bdc9aee44aa5f19611f39",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "_id": "652fbd74c92d7275993aee92",
+                "name": "FTP EXport - FDB",
+                "description": "Get all customers,orders and order details records from FTP.",
+                "_connectionId": "FTP CONNECTION",
+                "_sourceId": "61e954635f84151de26b9af8",
+                "apiIdentifier": "ed303dbe4e",
+                "asynchronous": true,
+                "_templateId": "5c4c1436576d6872082981cf",
+                "parsers": [],
+                "ftp": {
+                    "directoryPath": "/Please Enter Parent Directory"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "csv",
+                    "groupByFields": [],
+                    "csv": {
+                        "columnDelimiter": ",",
+                        "rowDelimiter": "\r\n",
+                        "keyColumns": [],
+                        "hasHeaderRow": true,
+                        "trimSpaces": true,
+                        "rowsToSkip": 0
+                    }
+                },
+                "filter": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [],
+                        "version": "1"
+                    },
+                    "rules": [],
+                    "version": "1"
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "export",  
+            "qa__export":{
+                "_id": "65364e09587c54372feb5f11",
+                "createdAt": "2023-10-23T10:42:17.303Z",
+                "lastModified": "2023-10-23T10:42:17.532Z",
+                "name": "Netsuite Lookup",
+                "_connectionId": "NETSUITE 706 CONNECTION",
+                "apiIdentifier": "e118389992",
+                "asynchronous": true,
+                "isLookup": true,
+                "type": "blob",
+                "oneToMany": false,
+                "sandbox": false,
+                "netsuite": {
+                "skipGrouping": false,
+                "statsOnly": false,
+                "internalId": "123",
+                "restlet": {
+                "criteria": [],
+                "columns": []
+                },
+                "distributed": {
+                "executionContext": [],
+                "executionType": []
+                }
+                },
+                "adaptorType": "NetSuiteExport"
+                }
+        },
+        {
+            "type": "import",
+            "qa__import":{
+                "_id": "6530cb6242486b62e90346e5",
+                "name": "FTP Export - FDB",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "ic48821509",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "file-{{timestamp}}.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "/Group-QA/ShritiS/Import",
+                    "fileName": "file-{{timestamp}}.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+        
+    ],
+    "createFlow": {
+        "_id": "6530cb14a76ec92258fcc933",
+        "name": "FTP with lookup FDB",
+        "disabled": true,
+        "_integrationId": "651bdc9aee44aa5f19611f39",
+        "pageGenerators": [
+            {
+                "_exportId": "652fbd74c92d7275993aee92"
+            }
+        ],
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "export",
+                "_exportId": "652fb54eb7c1cf4f03035af1"
+            },
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "6530cb6242486b62e90346e5"
+            }
+        ],
+        "createdAt": "2023-10-19T06:22:12.045Z",
+        "autoResolveMatchingTraceKeys": true
+    }
+}
