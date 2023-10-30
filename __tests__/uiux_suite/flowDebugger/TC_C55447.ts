@@ -6,7 +6,7 @@ import C55447_mockData from '@testData/FlowDebugger/C55447_mockData.json';
 
 test.describe("C55447 Verify the error message when data size is more than 1 MB for export & lookup", () => {
     test("C55447 Verify for export", async ({io, page}) => {
-        await io.fillFormUI(C55447, "FLOWS");
+        await io.createResourceFromAPI(C55447, "FLOWS");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.MOCK_OUTPUT);
         await io.flowBuilder.fill('#mockOutput .ace_text-input', JSON.stringify(C55447_mockData));
@@ -16,7 +16,7 @@ test.describe("C55447 Verify the error message when data size is more than 1 MB 
     });
 
     test("C55447 Verify for lookup", async ({io, page}) => {
-        await io.fillFormUI(C55446, "FLOWS");
+        await io.createResourceFromAPI(C55446, "FLOWS");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.LOOKUP);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.MOCK_OUTPUT);
         await io.flowBuilder.fill('#mockOutput .ace_text-input', JSON.stringify(C55447_mockData));

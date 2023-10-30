@@ -7,7 +7,7 @@ test.describe('C93819 Validate user is able to create "contentBasedFlowRouter" s
    
     test('C93819 Validate user is able to create "contentBasedFlowRouter" script through flow builder page', async({io,page}) => {
   
-      const id =  await io.fillFormUI(
+      const id =  await io.createResourceFromAPI(
          data1,
         'FLOWS'
       );

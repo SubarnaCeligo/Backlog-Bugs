@@ -8,7 +8,7 @@ test.describe('Verify the prefix “Build “ from the field labels in exports a
     test('Verify the prefix “Build “ from the field labels in exports', async ({ io, page }) => {
         
 
-      const id =  await io.fillFormUI(
+      const id =  await io.createResourceFromAPI(
           testData1,
           'FLOWS'
         );
@@ -30,7 +30,7 @@ test.describe('Verify the prefix “Build “ from the field labels in exports a
     test('Verify the prefix “Build “ from the field labels in imports', async ({ io, page }) => {
         
 
-      const id =  await io.fillFormUI(
+      const id =  await io.createResourceFromAPI(
           testData2,
           'FLOWS'
         );

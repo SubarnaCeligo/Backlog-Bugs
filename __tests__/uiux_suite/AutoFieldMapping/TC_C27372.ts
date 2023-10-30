@@ -8,7 +8,7 @@ test.describe(`C27372 Verify AutoMap field button is shown when both extract/gen
      
     test(`C27372 Verify AutoMap field button isnot shown when both extract/generate fields are not present`, async({io,page}) => {
   
-        const id =  await io.fillFormUI(
+        const id =  await io.createResourceFromAPI(
                     data3,
                     'FLOWS'
                   );
@@ -22,7 +22,7 @@ test.describe(`C27372 Verify AutoMap field button is shown when both extract/gen
     });
     test(`C27372 Verify AutoMap field button is shown when both extract/generate fields are present and In case anyone is missing, we hide it.`, async({io,page}) => {
   
-        const id =  await io.fillFormUI(
+        const id =  await io.createResourceFromAPI(
                     data4,
                     'FLOWS'
                   );

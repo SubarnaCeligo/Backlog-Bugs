@@ -7,17 +7,17 @@ test.describe(`C65721 Verify Home key should place cursor at the beginning of th
     io,
     page
   }) => {
-    await io.fillFormUI(testData, "FLOWS");
+    await io.createResourceFromAPI(testData, "FLOWS");
     await page.getByLabel("Define options").nth(1).click();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);
     await io.flowBuilder.click(
-      selectors.mappings.Mapper2dot0PO.MAPPER1DOT0BUTTON
+      selectors.mappings.MAPPER2DOT0PO.MAPPER1DOT0BUTTON
     );
     await io.flowBuilder.click(
-      selectors.mappings.Mapper1dot0PO.SOURCE_RECORD_FIELD_FIRST
+      selectors.mappings.MAPPER1DOT0PO.SOURCE_RECORD_FIELD_FIRST
     );
     const inp = page
-      .locator(selectors.mappings.Mapper1dot0PO.SOURCE_RECORD_FIELD_INPUT)
+      .locator(selectors.mappings.MAPPER1DOT0PO.SOURCE_RECORD_FIELD_INPUT)
       .first();
     await inp.fill("test");
     await io.flowBuilder.addStep("Filled the input field with 'test'");

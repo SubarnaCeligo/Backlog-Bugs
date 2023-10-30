@@ -8,13 +8,13 @@ test.describe(`C51986 Verify vertical line must be added to source row`, () => {
     page
   }) => {
     await io.homePage.navigateTo(process.env.IO_Integration_URL);
-    const id = await io.fillFormUI(testData, "FLOWS");
+    const id = await io.createResourceFromAPI(testData, "FLOWS");
     await io.api.runBatchFlowViaAPI("C51986", id);
     await page.getByLabel("Define options").nth(1).click();
     await io.flowBuilder.addStep("Clicked on 'Plus button'");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);
     const sourceFieldDropdown = page.locator(
-      selectors.mappings.Mapper2dot0PO.SOURCEFIELDS
+      selectors.mappings.MAPPER2DOT0PO.SOURCEFIELDS
     );
     await sourceFieldDropdown.waitFor({ state: "visible" });
     await expect(sourceFieldDropdown).toHaveScreenshot();

@@ -7,7 +7,7 @@ test.describe('C93657 Validate user is able to create "postMap" script through f
    
     test('C93657 Validate user is able to create "postMap" script through flow builder page', async({io,page}) => {
   
-      const id =  await io.fillFormUI(
+      const id =  await io.createResourceFromAPI(
          data,
         'FLOWS'
       );
