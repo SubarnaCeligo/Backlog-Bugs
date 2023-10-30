@@ -29,8 +29,10 @@ test.describe.skip(
         selectors.basePagePO.CELIGO_LOGO,
         "Celigo logo is not displayed"
       );
-      await expect(page.getByPlaceholder("Enter new password*")).toBeVisible();
-      await io.homePage.addStep('Verified "Enter new password" input is visible');
+      await io.assert.verifyElementIsDisplayed(
+        selectors.loginPagePO.PASSWORD,
+        "Password field is not displayed"
+      );
       await expect(page.getByRole("button", { name: "Save" })).toBeVisible();
       await io.homePage.addStep('Verified "Save" button is visible');
       await expect(page.getByRole("link", { name: "Cancel" })).toBeVisible();
