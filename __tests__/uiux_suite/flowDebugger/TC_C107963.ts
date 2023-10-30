@@ -6,7 +6,7 @@ import C107963 from '../../../testData/inputData/FlowDebugger/C107963.json';
 test.describe("Verify the hover text for disabled source in dropdown.", () => {
   test("Verify the hover text for disabled source in dropdown.", async ({ io, page }) => {
     //Create a flow with multiple exports and offline connections
-    await io.fillFormUI(C107963, "FLOWS");
+    await io.createResourceFromAPI(C107963, "FLOWS");
 
     //Disable the flow
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);

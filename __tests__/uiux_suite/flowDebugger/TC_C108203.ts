@@ -7,7 +7,7 @@ test.describe("Verify if a source has offline connection and no mock output data
     test("Verify if a source has offline connection and no mock output data, then run test button is disabled.", async ({io, page}) => {
         
         //Create a flow with offline connection
-        await io.fillFormUI(C108203, "FLOWS");
+        await io.createResourceFromAPI(C108203, "FLOWS");
 
         //Disable the flow
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
@@ -20,10 +20,9 @@ test.describe("Verify if a source has offline connection and no mock output data
         await runTestButtonOnTop.waitFor();
     
         //Verify if both Run Test Buttons are in disabled state. 
-        const isDisabled =  (await io.assert.checkElementState(selectors.flowBuilderPagePO.RUNTEST_BUTTON_TOP_XPATH, 'isDisabled')) && (await io.assert.checkElementState(selectors.flowBuilderPagePO.RUNTEST_BUTTON_RUN_CONSOLE_XPATH, 'isDisabled'));
-        await io.assert.expectToBeTrue(isDisabled,'Run Test button is not disabled.');
- 
-       
+        await io.assert.verifyElementAttributeContainsText(selectors.flowBuilderPagePO.RUNTEST_BUTTON_TOP_XPATH, 'class','Mui-disable');
+        await io.assert.verifyElementAttributeContainsText(selectors.flowBuilderPagePO.RUNTEST_BUTTON_RUN_CONSOLE_XPATH, 'class','Mui-disable');
+        
         
     });
 });

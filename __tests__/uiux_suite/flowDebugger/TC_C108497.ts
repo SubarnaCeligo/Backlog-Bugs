@@ -10,7 +10,7 @@ test.describe("Verify that existing Netsuite/Salesforce imports have adaptor spe
     test("Verify that existing Netsuite import has adaptor specific stub when Mock Output is repopulated.", async ({io, page}) => {
   
         //Create a flow with Netsuite import
-        await io.fillFormUI(C108497_NS, "FLOWS");
+        await io.createResourceFromAPI(C108497_NS, "FLOWS");
 
         //Go to Import page
         await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT);
@@ -31,7 +31,7 @@ test.describe("Verify that existing Netsuite/Salesforce imports have adaptor spe
     test("Verify that existing Salesforce SOAP import has adaptor specific stub when Mock Output is repopulated.", async ({io, page}) => {
        
         //Create a flow with Salesforce SOAP import 
-        await io.fillFormUI(C108497_SF_SOAP, "FLOWS");
+        await io.createResourceFromAPI(C108497_SF_SOAP, "FLOWS");
 
         //Go to Import page
         await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT);
@@ -52,7 +52,7 @@ test.describe("Verify that existing Netsuite/Salesforce imports have adaptor spe
     test("Verify that existing Salesforce REST import has adaptor specific stub when Mock Output is repopulated.", async ({io, page}) => {
         
         //Create a flow with Salesforce REST import 
-        await io.fillFormUI(C108497_SF_REST, "FLOWS");
+        await io.createResourceFromAPI(C108497_SF_REST, "FLOWS");
 
         //Go to Import page
         await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT);
@@ -73,7 +73,7 @@ test.describe("Verify that existing Netsuite/Salesforce imports have adaptor spe
     test("Verify that existing Salesforce COMPOSITE import has adaptor specific stub when Mock Output is repopulated.", async ({io, page}) => {
         
        //Create a flow with Salesforce COMPOSITE import 
-       await io.fillFormUI(C108497_SF_COMPOSITE, "FLOWS");
+       await io.createResourceFromAPI(C108497_SF_COMPOSITE, "FLOWS");
 
        //Go to Import page
        await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT);

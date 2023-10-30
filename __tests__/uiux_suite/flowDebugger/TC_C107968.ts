@@ -6,7 +6,7 @@ import C107968 from '../../../testData/inputData/FlowDebugger/C107968.json';
 test.describe("Validate the Run confirmation dialog title when a flow step has offline connections", () => {
     test("Validate the Run confirmation dialog title when a flow steps has offline connections", async ({io, page}) => {
         //Create a flow with offiline connection and wait for the integration to load
-        await io.fillFormUI(C107968, "FLOWS");
+        await io.createResourceFromAPI(C107968, "FLOWS");
 
         const runFlowButtonOnTop = await page.locator(selectors.flowBuilderPagePO.RUN_FLOW);
 
