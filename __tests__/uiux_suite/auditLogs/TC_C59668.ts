@@ -7,7 +7,7 @@ test.describe(`C59668 Verify Click to view label should be named to View in Audi
     io,
     page
   }) => {
-    await io.fillFormUI(testData, "FLOWS");
+    await io.createResourceFromAPI(testData, "FLOWS");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.AUDIT_LOGS);
     try {
       let label = await page

@@ -7,7 +7,7 @@ test.describe('C93665 Validate user is able to see the options script,descriptio
    
     test('C93665 Validate user is able to see the options script,description,chose function stub while creating "postMap" script through flow builder page', async({io,page}) => {
   
-      const id =  await io.fillFormUI(
+      const id =  await io.createResourceFromAPI(
         data,
         'FLOWS'
       );

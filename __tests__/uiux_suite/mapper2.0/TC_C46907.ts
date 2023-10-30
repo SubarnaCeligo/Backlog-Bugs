@@ -14,13 +14,13 @@ test.describe(`C46907 Verify the functionality by not providing a 'destination r
       await testCase.waitFor({ state: "visible", timeout: 5000 });
       await testCase.click();
     } catch {
-      const id = await io.fillFormUI(testData, "FLOWS");
+      const id = await io.createResourceFromAPI(testData, "FLOWS");
       await io.api.runBatchFlowViaAPI("C46907", id);
     }
     await page.getByLabel("Define options").nth(1).click();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);
     const sourceField = page.locator(
-      selectors.mappings.Mapper2dot0PO.SOURCEFIELDS
+      selectors.mappings.MAPPER2DOT0PO.SOURCEFIELDS
     );
     await sourceField.waitFor({ state: "visible" });
     await sourceField.click();
@@ -28,7 +28,7 @@ test.describe(`C46907 Verify the functionality by not providing a 'destination r
     const $textarea = await $sourceField.$("textarea");
     await $textarea.fill("test");
     await io.flowBuilder.click(
-      selectors.mappings.Mapper2dot0PO.DESTINATIONFIELDS
+      selectors.mappings.MAPPER2DOT0PO.DESTINATIONFIELDS
     );
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     expect(
