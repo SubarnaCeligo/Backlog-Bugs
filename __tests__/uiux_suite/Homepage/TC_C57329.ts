@@ -7,7 +7,7 @@ test.describe("C57329 Verify after login, all pages should render without any re
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources","Connections");
         await io.homePage.addStep("Reloading the page");
-        await page.reload();
+        await io.homePage.reloadPage();
         await io.assert.verifyElementText(selectors.basePagePO.ADD_NEW_RESOURCE, 'Create connection');
 
     });
@@ -16,7 +16,7 @@ test.describe("C57329 Verify after login, all pages should render without any re
       await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources","Imports");
         await io.homePage.addStep("Reloading the page");
-        await page.reload();
+        await io.homePage.reloadPage();
         await io.assert.verifyElementText(selectors.basePagePO.ADD_NEW_RESOURCE, 'Create import');
     });
     test("C57329 Exports Page.", async ({io, page}) => {
@@ -24,7 +24,7 @@ test.describe("C57329 Verify after login, all pages should render without any re
       await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources","Exports");
         await io.homePage.addStep("Reloading the page");
-        await page.reload();
+        await io.homePage.reloadPage();
         await io.assert.verifyElementText(selectors.basePagePO.ADD_NEW_RESOURCE, 'Create export');
     });
     test("C57329 Agents Page.", async ({io, page}) => {
@@ -32,15 +32,14 @@ test.describe("C57329 Verify after login, all pages should render without any re
       await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources","Agents");
         await io.homePage.addStep("Reloading the page");
-        await page.reload();
+        await io.homePage.reloadPage();
         await io.assert.verifyElementText(selectors.basePagePO.ADD_NEW_RESOURCE, 'Create agent');
     });
 
     test("C57329 Integration Page.", async ({io, page}) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.waitForElementAttached(selectors.homePagePO.CLONE_INTEGRATION);
-        await page.reload();
-        await io.homePage.waitForElementAttached(selectors.homePagePO.CLONE_INTEGRATION);
+        await io.homePage.reloadPage();
         await io.assert.verifyElementIsDisplayed(selectors.homePagePO.CLONE_INTEGRATION, "clone integration is not displayed");
         await io.assert.verifyElementIsDisplayed(selectors.homePagePO.DELETE_INTEGRATION, "Delete integration is not displayed");
     });

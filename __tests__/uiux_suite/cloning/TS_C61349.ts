@@ -7,7 +7,7 @@ test.describe(`C61349 Verify url displayed upon hovering is same as the page is 
     page,
     io
   }) => {
-    await io.fillFormUI(testData, "FLOWS");
+    await io.createResourceFromAPI(testData, "FLOWS");
     const url = new URL(page.url());
     const path = url.pathname;
     await page

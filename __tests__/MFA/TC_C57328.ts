@@ -6,7 +6,7 @@ test.describe("C57328 Verify if we refresh the MFA setup page we should be stayi
       await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
       await io.myAccountPage.click(selectors.myAccountPagePO.SECURITY);
       await io.myAccountPage.click(selectors.myAccountPagePO.MFA);
-      await page.reload();
+      await io.myAccountPage.reloadPage();
       await io.assert.verifyElementDisplayedByText('Enable MFA', 'Enable MFA is not displayed');
       await io.assert.verifyElementDisplayedByText('Account settings', 'Account settings accordion not displayed');
       await io.assert.verifyElementIsDisplayed(selectors.myAccountPagePO.TRUSTED_DEVICE_FOR_PERIOD_INPUT, 'Trusted device for period is not visible');

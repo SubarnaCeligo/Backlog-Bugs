@@ -7,7 +7,7 @@ test.describe(`C63513 Verify if any other flows that are present in the same Int
       io,
       page
     }) => {
-      const id = await io.fillFormUI(data5,"FLOWS");
+      const id = await io.createResourceFromAPI(data5,"FLOWS");
       await io.api.runBatchFlowViaAPI('ASYNC_HELPER', id);
       const lastRun = page.getByText('Last run')
       await lastRun.waitFor({state: 'visible', timeout: 180000});

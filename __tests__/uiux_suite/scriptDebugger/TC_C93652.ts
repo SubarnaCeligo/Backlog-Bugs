@@ -7,7 +7,7 @@ test.describe('C93652 Validate user is able to create "transform" script through
    
     test('C93652 Validate user is able to create "transform" script through flow builder page', async({io,page}) => {
   
-      const id =  await io.fillFormUI(
+      const id =  await io.createResourceFromAPI(
          data,
         'FLOWS'
       );

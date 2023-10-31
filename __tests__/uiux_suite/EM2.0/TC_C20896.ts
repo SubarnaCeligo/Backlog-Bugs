@@ -4,7 +4,7 @@ import C20896 from '@testData/EM2.0/C20896.json';
 
 test.describe("C20896 Verify user can able to toggle notification at flow level", () => {
     test("C20896 Verify user can able to toggle notification at flow level", async ({io, page}) => {
-        const id = await io.fillFormUI(C20896, "FLOWS");
+        const id = await io.createResourceFromAPI(C20896, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_SETTINGS);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_SETTINGS);
         await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.NOTIFY_ME_ON_FLOW_ERROR, "Notify me of flow error not present");
