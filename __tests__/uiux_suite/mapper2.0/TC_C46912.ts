@@ -5,7 +5,7 @@ import C46915 from "@testData/Flows/C46915.json"
 test.describe('verify user must be able to save the mapper 2.0 mappings exist if there are no valid mappings in mapper 1.0', () => { 
     test("verify user must be able to save the mapper 2.0 mappings exist if there are no valid mappings in mapper 1.0", async ({ io, page }) => {
         
-          await io.fillFormUI(
+          await io.createResourceFromAPI(
             C46915,
             'FLOWS'
           );
@@ -13,10 +13,10 @@ test.describe('verify user must be able to save the mapper 2.0 mappings exist if
           await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS)
         
            await io.flowBuilder.clickByText("Mapper 1.0");
-           await io.flowBuilder.click(selectors.mappings.Mapper1dot0PO.DESTINATION_INPUT);
+           await io.flowBuilder.click(selectors.mappings.MAPPER1DOT0PO.DESTINATION_INPUT);
 
           
-           const parentElement = await page.locator(selectors.mappings.Mapper1dot0PO.DESTINATION_INPUT);
+           const parentElement = await page.locator(selectors.mappings.MAPPER1DOT0PO.DESTINATION_INPUT);
 
 
            // Find the <textarea> element within the parent element
@@ -48,7 +48,7 @@ test.describe('verify user must be able to save the mapper 2.0 mappings exist if
       
       test("verify user must be able to save the mapper 2.0 ", async ({ io, page }) => {
         
-        await io.fillFormUI(
+        await io.createResourceFromAPI(
           C46915,
           'FLOWS'
         );
@@ -57,7 +57,7 @@ test.describe('verify user must be able to save the mapper 2.0 mappings exist if
       
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.DESTINATION_MAPPING_PLACEHOLDER, "mapping");
 
-        await io.flowBuilder.click(selectors.mappings.Mapper2dot0PO.FORWINDOWCLICK)
+        await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.FORWINDOWCLICK)
 
 
         await io.flowBuilder.clickByText("Save")

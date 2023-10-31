@@ -4,7 +4,7 @@ import data from "@testData/Flows/C68824.json"
  
  test.describe("C68824 verify user if user opened Multiple SFTP sessions simultaneously , each session can Access files and directories from the sevrer.", () => {
       test("C68824 verify user if user opened Multiple SFTP sessions simultaneously , each session can Access files and directories from the sevrer.", async ({io, page}) => {
-        const id = await io.fillFormUI(data, "FLOWS");
+        const id = await io.createResourceFromAPI(data, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C68824', id);
         const lastRun = page.getByText('Last run');
         await lastRun.waitFor({state: 'visible', timeout: 180000});

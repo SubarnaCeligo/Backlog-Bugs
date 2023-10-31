@@ -4,7 +4,7 @@ import data from "@testData/Flows/C68814.json"
 
 test.describe("C68814 Verify ftp_bridge properly encodes the spaces and access the Correct file from the Directory if the relative path Include Non-ASCII characters in file name.", () => {
   test("C68814 Verify ftp_bridge properly encodes the spaces and access the Correct file from the Directory if the relative path Include Non-ASCII characters in file name.", async ({io, page}) => {
-    const id = await io.fillFormUI(data, "FLOWS");
+    const id = await io.createResourceFromAPI(data, "FLOWS");
     await io.api.runBatchFlowViaAPI('TC_C68814', id);
     const lastRun = page.getByText('Last run');
     await lastRun.waitFor({state: 'visible', timeout: 180000});

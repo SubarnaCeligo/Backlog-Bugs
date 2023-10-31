@@ -8,7 +8,7 @@ test.describe('C93653Validate user is able to create "branching" script through 
    
     test('Validate user is able to create "branching" script through flow builder page', async({io,page}) => {
   
-      const id =  await io.fillFormUI(
+      const id =  await io.createResourceFromAPI(
          data,
         'FLOWS'
       );

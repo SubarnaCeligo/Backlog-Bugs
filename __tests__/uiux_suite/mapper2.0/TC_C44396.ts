@@ -13,7 +13,7 @@ test.describe(`C44396 Verify the type of field mapping should be displayed for t
       await testCase.waitFor({ state: "visible", timeout: 5000 });
       await testCase.click();
     } catch {
-      await io.fillFormUI(testData, "FLOWS");
+      await io.createResourceFromAPI(testData, "FLOWS");
     }
     await page.getByLabel("Define options").nth(1).click();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);
@@ -25,16 +25,16 @@ test.describe(`C44396 Verify the type of field mapping should be displayed for t
     ];
     for (let i = 0; i < labels.length; i++) {
       const destinationFields = page.locator(
-        selectors.mappings.Mapper2dot0PO.DESTINATIONFIELDS
+        selectors.mappings.MAPPER2DOT0PO.DESTINATIONFIELDS
       );
       const sourceFields = page.locator(
-        selectors.mappings.Mapper2dot0PO.SOURCEFIELDS
+        selectors.mappings.MAPPER2DOT0PO.SOURCEFIELDS
       );
       const addButtons = page.locator(
-        selectors.mappings.Mapper2dot0PO.ADDBUTTONS
+        selectors.mappings.MAPPER2DOT0PO.ADDBUTTONS
       );
       const settingsButtons = page.locator(
-        selectors.mappings.Mapper2dot0PO.SETTINGSBUTTONS
+        selectors.mappings.MAPPER2DOT0PO.SETTINGSBUTTONS
       );
       await sourceFields.nth(i).waitFor({ state: "visible" });
       switch (i) {
@@ -84,13 +84,13 @@ test.describe(`C44396 Verify the type of field mapping should be displayed for t
           await page.getByText("Static", { exact: true }).click();
           await page
             .locator(
-              selectors.mappings.Mapper2dot0PO.LOOKUP_STATIC_FIELDVALUE_TEXTAREAS
+              selectors.mappings.MAPPER2DOT0PO.LOOKUP_STATIC_FIELDVALUE_TEXTAREAS
             )
             .first()
             .fill("test");
           await page
             .locator(
-              selectors.mappings.Mapper2dot0PO.LOOKUP_STATIC_FIELDVALUE_TEXTAREAS
+              selectors.mappings.MAPPER2DOT0PO.LOOKUP_STATIC_FIELDVALUE_TEXTAREAS
             )
             .nth(2)
             .fill("123");

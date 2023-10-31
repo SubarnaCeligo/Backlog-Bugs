@@ -7,7 +7,7 @@ test.describe(`C59979 To verify that the FlowBuilder should work as expected.`, 
     io,
     page
   }) => {
-    const id = await io.fillFormUI(testData, "FLOWS");
+    const id = await io.createResourceFromAPI(testData, "FLOWS");
     await io.api.runBatchFlowViaAPI("C59979", id);
     await io.flowBuilder.addStep("Ran the flow via API");
     const lastRun = page.getByText("Last run");

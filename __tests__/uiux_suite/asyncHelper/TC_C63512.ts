@@ -7,7 +7,7 @@ test.describe(`C63512 Verify if flow or the integration page is opening after cr
       io,
       page
     }) => {
-      const id = await io.fillFormUI(data5,"FLOWS");
+      const id = await io.createResourceFromAPI(data5,"FLOWS");
       await io.api.runBatchFlowViaAPI('ASYNC_HELPER', id);
       const lastRun = page.getByText('Last run')
       await lastRun.waitFor({state: 'visible', timeout: 180000});

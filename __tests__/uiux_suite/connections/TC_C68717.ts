@@ -7,7 +7,7 @@ test.describe(`C68717 Verify user is able to create connection for NS JDBC conne
     io,
     page
   }) => {
-    await io.fillFormUI(testData.flow, "FLOWS");
+    await io.createResourceFromAPI(testData.flow, "FLOWS");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
     await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.clickByText("Create connection");

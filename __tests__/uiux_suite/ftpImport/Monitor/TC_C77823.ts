@@ -7,7 +7,7 @@ test.describe(`C77823 Validate User is not seeing the vertical line when downloa
       io,
       page
     }) => {
-        const id =  await io.fillFormUI(
+        const id =  await io.createResourceFromAPI(
             data,
            'FLOWS'
          );
