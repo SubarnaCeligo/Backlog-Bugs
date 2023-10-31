@@ -7,7 +7,7 @@ test.describe(`C51662 Verify the default view of the Error details drawer`, () =
     io,
     page
   }) => {
-    const id = await io.fillFormUI(testData, "FLOWS");
+    const id = await io.createResourceFromAPI(testData, "FLOWS");
     await io.api.runBatchFlowViaAPI("C51662", id);
     const lastRun = page.getByText("Last run");
     await lastRun.waitFor({ state: "visible" });

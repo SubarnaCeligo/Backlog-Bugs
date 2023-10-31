@@ -11,7 +11,7 @@ test.describe("C56565 Verify when (input, textarea, date) fieldType is selected 
     await io.flowBuilder.click(selectors.basePagePO.CONNECTION_DROPDOWN);
     await io.flowBuilder.clickByText('Confluence cloud connection');
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
-    await page.reload();
+    await io.flowBuilder.reloadPage();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Confluence cloud');
     await io.flowBuilder.click(selectors.connectionsPagePO.CONFLUENCE_CLOUD_CONNECTION);

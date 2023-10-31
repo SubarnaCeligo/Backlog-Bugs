@@ -6,7 +6,7 @@ test.describe(`C25946 Verify suggested mapping separation boundary must be Clear
   test(`C25946 Verify suggested mapping separation boundary must be Cleared on mapping changes`, async ({
     io
   }) => {
-    const id = await io.fillFormUI(data4, "FLOWS");
+    const id = await io.createResourceFromAPI(data4, "FLOWS");
     await io.flowBuilder.waitForElementAttached(
       selectors.basePagePO.ADD_DATA_PROCESSOR
     );

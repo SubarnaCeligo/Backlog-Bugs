@@ -7,7 +7,7 @@ test.describe(`C77814 Validate User is able to see the more actions icon when do
       io,
       page
     }) => {
-        const id =  await io.fillFormUI(
+        const id =  await io.createResourceFromAPI(
             data,
            'FLOWS'
          );

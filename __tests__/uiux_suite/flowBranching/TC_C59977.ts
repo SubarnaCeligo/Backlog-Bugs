@@ -4,7 +4,7 @@ import C59977 from '@testData/Flows/C59977.json'
 
 test.describe("C59977 Verify Post response map is persisted for flow with routers and without routers", () => {
     test("C59977 Verify Post response map is persisted for flow with routers and without routers", async ({io, page}) => {
-        const id = await io.fillFormUI(C59977, "FLOWS");
+        const id = await io.createResourceFromAPI(C59977, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR, 1);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.POST_RESPONSE_MAP_HOOK);

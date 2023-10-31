@@ -8,7 +8,7 @@ test.describe('C93655 Validate user is able to create "filter" script through fl
    
     test('C93655 Validate user is able to create "filter" script through flow builder page', async({io,page}) => {
   
-      const id =  await io.fillFormUI(
+      const id =  await io.createResourceFromAPI(
         data,
         'FLOWS'
       );
