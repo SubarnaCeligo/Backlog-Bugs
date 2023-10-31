@@ -7,7 +7,7 @@ test.describe("C52048 Verify the Resolved errors tab, when no results are return
     io,
     page
   }) => {
-    const id = await io.fillFormUI(testData, "FLOWS");
+    const id = await io.createResourceFromAPI(testData, "FLOWS");
     await io.api.runBatchFlowViaAPI("C52048", id);
     const lastRun = page.getByText("Last run");
     await lastRun.waitFor({ state: "visible" });

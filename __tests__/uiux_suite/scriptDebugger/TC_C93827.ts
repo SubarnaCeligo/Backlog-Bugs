@@ -6,7 +6,7 @@ test.describe('C93827 Validate user is getting auto-fill of function stub while 
    
     test('C93827 Validate user is getting auto-fill of function stub while creating "contentBasedFlowRouter" script through flow builder page', async({io,page}) => {
   
-      const id =  await io.fillFormUI(
+      const id =  await io.createResourceFromAPI(
         data1,
         'FLOWS'
       );

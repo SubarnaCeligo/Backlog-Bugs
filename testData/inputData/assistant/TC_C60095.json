@@ -1,0 +1,134 @@
+{
+    "name": "Magento2-C60095",
+    "published": false,
+    "isGraphQL": false,
+    "baseURIs": [
+        "http://{{{connection.settings.baseuri}}}/rest"
+    ],
+    "helpURL": "https://docs.celigo.com/hc/en-us/articles/360038907131-Set-up-a-connection-to-Magento-2",
+    "versions": [
+        {
+            "_id": "63b55d6564e5aeecd6dac972",
+            "name": "V1",
+            "published": true,
+            "supportedBy": {}
+        }
+    ],
+    "apis": [],
+    "supportedBy": {
+        "export": {
+            "preConfiguredFields": [
+                {
+                    "path": "paging",
+                    "values": [
+                        {
+                            "method": "page",
+                            "page": 1,
+                            "lastPageStatusCode": 404
+                        }
+                    ]
+                }
+            ]
+        },
+        "connection": {
+            "preConfiguredFields": [
+                {
+                    "path": "type",
+                    "values": [
+                        "http"
+                    ]
+                },
+                {
+                    "path": "http.mediaType",
+                    "values": [
+                        "json"
+                    ]
+                },
+                {
+                    "path": "http.successMediaType",
+                    "values": [
+                        "json"
+                    ]
+                },
+                {
+                    "path": "http.errorMediaType",
+                    "values": [
+                        "json"
+                    ]
+                },
+                {
+                    "path": "http.baseURI",
+                    "values": [
+                        "http://{{{connection.settings.baseuri}}}/rest"
+                    ]
+                },
+                {
+                    "path": "http.ping.method",
+                    "values": [
+                        "GET"
+                    ]
+                },
+                {
+                    "path": "http.ping.relativeURI",
+                    "values": [
+                        "/V1/modules"
+                    ]
+                },
+                {
+                    "path": "http.auth.type",
+                    "values": [
+                        "oauth1"
+                    ]
+                },
+                {
+                    "path": "http.auth.oauth.oauth1.signatureMethod",
+                    "values": [
+                        "hmac-sha256"
+                    ]
+                },
+                {
+                    "path": "settingsForm",
+                    "values": [
+                        {
+                            "fieldMap": {
+                                "region": {
+                                    "id": "baseuri",
+                                    "name": "baseuri",
+                                    "type": "text",
+                                    "label": "Base URI",
+                                    "helpText": "Enter the base URI for your Magento 2 account. You can find this URL in the address bar where you sign into your account - for example, https://123.12.12.1/community231/rest.",
+                                    "required": true
+                                }
+                            },
+                            "layout": {
+                                "fields": [
+                                    "baseuri"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ],
+            "fieldsUserMustSet": [
+                {
+                    "path": "http.auth.oauth.oauth1.signatureMethod"
+                },
+                {
+                    "path": "http.settings.baseuri"
+                },
+                {
+                    "path": "http.auth.oauth.oauth1.consumerKey"
+                },
+                {
+                    "path": "http.auth.oauth.oauth1.consumerSecret"
+                },
+                {
+                    "path": "http.auth.oauth.oauth1.accessToken"
+                },
+                {
+                    "path": "http.auth.oauth.oauth1.tokenSecret"
+                }
+            ]
+        }
+    }
+}

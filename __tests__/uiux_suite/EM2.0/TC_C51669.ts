@@ -11,7 +11,7 @@ test.describe(`C51669 Verify by closing the "Error details" drawer without savin
     // await io.flowBuilder.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
     // await io.flowBuilder.clickByText("Automation Flows");
     // await io.flowBuilder.clickByText("C51669");
-    const id = await io.fillFormUI(flowJSON, "FLOWS");
+    const id = await io.createResourceFromAPI(flowJSON, "FLOWS");
     await io.api.runBatchFlowViaAPI("C51669", id);
     const lastRun = page.getByText("Last run");
     await lastRun.waitFor({ state: "visible" });

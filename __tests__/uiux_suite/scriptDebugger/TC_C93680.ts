@@ -6,7 +6,7 @@ test.describe('C93680 Validate user is getting auto-fill of funtion stub while c
    
     test('C93680 Validate user is getting auto-fill of funtion stub while creating "preMap" script through flow builder hook', async({io,page}) => {
   
-      const id =  await io.fillFormUI(
+      const id =  await io.createResourceFromAPI(
         data,
         'FLOWS'
       );

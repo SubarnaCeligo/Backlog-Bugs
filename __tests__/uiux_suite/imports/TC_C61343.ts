@@ -1,10 +1,10 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C61343 from '../../../testData/Imports/TC_C61343.json';
+import C61343 from '@testData/Imports/TC_C61343.json';
 
 test.describe("C61343 Verify Preview Error is automatically redirecting to Parsed", () => {
     test("C61343 Verify Preview Error is automatically redirecting to Parsed", async ({io, page}) => {
-        const id = await io.fillFormUI(C61343,"FLOWS");
+        const id = await io.createResourceFromAPI(C61343,"FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C61343', id);
         const lastRun = page.getByText('Last run')
         await lastRun.waitFor({state: 'visible'});

@@ -8,20 +8,20 @@ test.describe(`C51302 Verify when a retry is in progress and “Cancel” is cli
     io,
     page
   }) => {
-    const id = await io.fillFormUI(flowJSON, "FLOWS");
+    const id = await io.createResourceFromAPI(flowJSON, "FLOWS");
     await io.api.runBatchFlowViaAPI("C51302", id);
     const lastRun = page.getByText("Last run");
     await lastRun.waitFor({ state: "visible" });
     await io.flowBuilder.clickByTextByIndex("1 error", 1);
     await io.flowBuilder.click(
-      selectors.flowBuilderPagePO.EM2dot0PO.RETRY_AND_NEXT
+      selectors.flowBuilderPagePO.EM2DOT0PO.RETRY_AND_NEXT
     );
     await io.flowBuilder.delay(1000); // https://celigo.atlassian.net/browse/IO-29218
-    await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2dot0PO.RETRIES_TAB);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2DOT0PO.RETRIES_TAB);
     await io.flowBuilder.clickByTextByIndex("Cancel retry", 0);
     await io.flowBuilder.addStep("Clicked 'cancel retry'");
     await io.flowBuilder.click(
-      selectors.flowBuilderPagePO.EM2dot0PO.CANCEL_RETRY_BUTTON
+      selectors.flowBuilderPagePO.EM2DOT0PO.CANCEL_RETRY_BUTTON
     );
     await page
       .getByText("Retry completed.")
