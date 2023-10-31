@@ -31,7 +31,7 @@ test.describe(`C2014 Verify PG,PP-export&import created in account level manage 
     const fileChooserPromise = page.waitForEvent("filechooser");
     await io.homePage.clickByText("Choose file");
     const fileChooser = await fileChooserPromise;
-    await fileChooser.setFiles("testData/MyAccount/C733.json");
+    await fileChooser.setFiles("testData/inputData/MyAccount/C733.json");
     await io.homePage.waitForElementAttached('[name="/ftp/directoryPath"]')
     await io.exportsPage.fill('[name="/ftp/directoryPath"]', "/user")
 

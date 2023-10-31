@@ -13,6 +13,7 @@ test.describe(`C1569 Verify If same document is under two integrations with diff
     );
     console.log(res)
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL)
+    await page.pause();
     await io.homePage.clickByText('Automation Flows')
     await io.homePage.clickByText('Create flow')
     await io.homePage.click('[data-test="Add source"]')
