@@ -7,7 +7,7 @@ test.describe(`C63062 Verify while editing connection through export/import/look
     io,
     page
   }) => {
-    await io.fillFormUI(testData, "FLOWS");
+    await io.createResourceFromAPI(testData, "FLOWS");
     try {
       const iframe = page.frameLocator(
         selectors.homePagePO.PENDO_ZENDESK.PENDO_ZENDESK_IFRAME

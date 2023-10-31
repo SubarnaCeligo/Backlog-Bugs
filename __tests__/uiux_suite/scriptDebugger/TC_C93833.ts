@@ -8,7 +8,7 @@ test.describe('C93833 Validate user is getting auto-fill of function stub while 
   
       
     
-        const id =  await io.fillFormUI(
+        const id =  await io.createResourceFromAPI(
           data1,
           'FLOWS'
         );
