@@ -12,13 +12,12 @@ test.describe(`C21309 Verify the connections of a monitored tiles should not be 
       `v1/ashares/${process.env.IO_Ashare_ID}`,
       testData
     );
-    console.log(res)
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL)
     await io.homePage.clickByText('Automation Flows')
     await io.homePage.clickByText('Create flow')
-    await io.homePage.click('[data-test="Add source"]')
-    await io.homePage.click('[data-test="FTP"]')
-    await io.homePage.click('#connections-dropdown')
+    await io.homePage.click(selectors.basePagePO.ADD_SOURCE_BUTTON)
+    await io.homePage.click(selectors.connectionsPagePO.FTP_CONNECTION)
+    await io.homePage.click(selectors.basePagePO.CONNECTION_DROPDOWN)
     const monitorExp = await io.homePage.isVisible("text='MONITOR CONNECTION'")
     await io.assert.expectToBeValue(monitorExp.toString(), 'false', "Value is found")
     

@@ -18,13 +18,13 @@ test.describe(`C2014 Verify PG,PP-export&import created in account level manage 
 
     await io.homePage.clickByText("Automation Flows")
     await io.homePage.clickByText('Create flow')
-    await io.homePage.click('[data-test="Add source"]')
-    await io.homePage.click('[data-test="FTP"]')
-    await io.homePage.click('#connections-dropdown')
+    await io.homePage.click(selectors.basePagePO.ADD_SOURCE_BUTTON)
+    await io.homePage.click(selectors.connectionsPagePO.FTP_CONNECTION)
+    await io.homePage.click(selectors.importPagePO.NETSUITE_CONNECTIONS)
     await io.homePage.clickByTextByIndex("FTP connection", 0)
-    await io.homePage.click('[data-test="save"]')
-    await io.homePage.waitForElementAttached('[name="/name"]')
-    await io.exportsPage.fill('[name="/name"]', "test")
+    await io.homePage.click(selectors.basePagePO.SAVE)
+    await io.homePage.waitForElementAttached(selectors.importPagePO.NAME)
+    await io.exportsPage.fill(selectors.importPagePO.NAME, "test")
     await io.exportsPage.clickByTextByIndex("Please select",0)
     await io.exportsPage.clickByText("JSON")
 
@@ -32,10 +32,10 @@ test.describe(`C2014 Verify PG,PP-export&import created in account level manage 
     await io.homePage.clickByText("Choose file");
     const fileChooser = await fileChooserPromise;
     await fileChooser.setFiles("testData/inputData/MyAccount/C733.json");
-    await io.homePage.waitForElementAttached('[name="/ftp/directoryPath"]')
-    await io.exportsPage.fill('[name="/ftp/directoryPath"]', "/user")
+    await io.homePage.waitForElementAttached(selectors.basePagePO.FTP_DIRECTORY_PATH)
+    await io.exportsPage.fill(selectors.basePagePO.FTP_DIRECTORY_PATH, "/user")
 
-    await io.exportsPage.click('[data-test="saveAndClose"]')
+    await io.exportsPage.click(selectors.basePagePO.SAVE_AND_CLOSE)
     await io.exportsPage.clickByText("Resources")
     await io.exportsPage.clickByText("Exports")
     const exportText = await io.exportsPage.isVisible("text='test'")

@@ -11,10 +11,10 @@ test.describe("C68492 Verify user is able to clone the integration from Sandbox 
               await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL)
               await io.homePage.waitForElementAttached(`:has-text("TC_C68492_DND") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
               await io.homePage.click(`tbody tr:has-text("TC_C68492_DND") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
-              await io.homePage.click('[data-test="cloneIntegration"]')
-              await io.homePage.click('[data-test="sandbox"]')
-              await io.homePage.click('[data-test="Clone integration"]')
-              await io.homePage.click('[data-test="No, stay in Sandbox"]')
+              await io.homePage.click(selectors.homePagePO.CLONE_INTEGRATION)
+              await io.homePage.click(selectors.homePagePO.SANDBOX)
+              await io.homePage.click(selectors.homePagePO.CLONE_INTEGRATION_BUTTON)
+              await io.homePage.click(selectors.homePagePO.STAY_IN_SANDBOX)
               await io.marketplacePage.waitForElementAttached(selectors.integrationPagePO.SETUP_INTEGRATION_CONFIGURE_BUTTON)
               await io.homePage.click(
                 selectors.integrationPagePO.SETUP_INTEGRATION_CONFIGURE_BUTTON
@@ -28,8 +28,8 @@ test.describe("C68492 Verify user is able to clone the integration from Sandbox 
                 await io.connectionPage.click(selectors.basePagePO.SAVE);
               await io.homePage.click(selectors.basePagePO.INSTALL);
               await io.homePage.clickByTextByIndex("Clone - TC_C68492_DND", 0)
-              await io.assert.verifyElementIsDisplayed('[aria-label="Edit schedule"]',"Scheduling is not present")
-              await io.homePage.click('[data-test="Production"]')
+              await io.assert.verifyElementIsDisplayed(selectors.basePagePO.EDIT_SCHEDULE,"Scheduling is not present")
+              await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON)
               await io.homePage.clickByText("Automation Flows")
               
 

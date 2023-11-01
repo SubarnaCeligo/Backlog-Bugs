@@ -2,8 +2,8 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import testData from "./manage_all.json";
 
-test.describe(`C1560 Verify PG,PP-export&import created in account level manage user are shown up in list of "exports&imports" in that account.`, () => {
-  test(`C1560 Verify PG,PP-export&import created in account level manage user are shown up in list of "exports&imports" in that account.`, async ({
+test.describe(`C1560 Veirfy,Generating and uploading a template zip file in user account of manage access`, () => {
+  test(`C1560 Veirfy,Generating and uploading a template zip file in user account of manage access`, async ({
     page,
     io
   }) => {

@@ -11,14 +11,12 @@ test.describe(`C1569 Verify If same document is under two integrations with diff
       `v1/ashares/${process.env.IO_Ashare_ID}`,
       testData
     );
-    console.log(res)
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL)
-    await page.pause();
     await io.homePage.clickByText('Automation Flows')
     await io.homePage.clickByText('Create flow')
-    await io.homePage.click('[data-test="Add source"]')
-    await io.homePage.click('[data-test="FTP"]')
-    await io.homePage.click('#connections-dropdown')
+    await io.homePage.click(selectors.basePagePO.ADD_SOURCE_BUTTON)
+    await io.homePage.click(selectors.connectionsPagePO.FTP_CONNECTION)
+    await io.homePage.click(selectors.basePagePO.CONNECTION_DROPDOWN)
     const monitorExp = await io.homePage.isVisible("text='FTP CONNECTION'")
     await io.homePage.addStep("FTP CONNECTION is present in both monitor and manage accese integrations");
     await io.assert.expectToBeValue(monitorExp.toString(), 'true', "Value is found")
