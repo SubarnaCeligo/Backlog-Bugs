@@ -18,7 +18,6 @@ test.describe('C68488 Verify no error message is displayed when user uninstall a
           await fileChooser.setFiles("testData/inputData/SuiteApp/C61136.zip");
           await io.homePage.addStep("Uploaded integration zip file");
           await io.homePage.clickByText("Install integration");
-          await page.pause()
           await io.homePage.click(selectors.basePagePO.DIALOG_PROCEED_BUTTON);
           await io.homePage.waitForElementAttached(selectors.basePagePO.UNINSTALL_BUTTON)
           await io.homePage.click(selectors.basePagePO.UNINSTALL_BUTTON)
