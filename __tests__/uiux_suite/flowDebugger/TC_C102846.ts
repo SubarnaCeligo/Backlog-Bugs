@@ -16,15 +16,15 @@ test.describe("Verify if lookup has offline connection and no mock output data, 
         //Click on flow toggle button to disable the flow and accept the flow disable popup
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE); 
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
-
+      
         //Wait for Run Test button to appear
         const runTestButtonOnTop = await page.locator(selectors.flowBuilderPagePO.RUNTEST_BUTTON_TOP_XPATH);
         await runTestButtonOnTop.waitFor();
         
         //Verify if both Run Test Buttons are in disabled state. 
-        await io.assert.verifyElementAttributeContainsText(selectors.flowBuilderPagePO.RUNTEST_BUTTON_TOP_XPATH, 'class','Mui-disable');
-        await io.assert.verifyElementAttributeContainsText(selectors.flowBuilderPagePO.RUNTEST_BUTTON_RUN_CONSOLE_XPATH, 'class','Mui-disable');
-  
+        await io.assert.checkElementState(selectors.flowBuilderPagePO.RUNTEST_BUTTON_TOP_XPATH, 'isDisabled');
+        await io.assert.checkElementState(selectors.flowBuilderPagePO.RUNTEST_BUTTON_RUN_CONSOLE_XPATH, 'isDisabled');
+        
   
     });
 });
