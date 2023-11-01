@@ -18,7 +18,9 @@ test.describe.skip(
       page
     }) => {
       await io.homePage.navigateTo(
-        "https://staging.integrator.io/request-reset?email=qaautomation1@celigo.com"
+        process.env.IO_UI_CONNECTOR_URL +
+          "request-reset?email=" +
+          process.env.IO_EMAIL_ACCOUNT
       );
       await io.homePage.click(selectors.basePagePO.SUBMIT);
       await page.waitForTimeout(5000);
