@@ -88,13 +88,13 @@
     "_id": "6539275a221c2e02516f22db",
     "name": "NS to FTP - Multiple Exports",
     "disabled": true,
-    "_integrationId": "6459f5fc6df4b9686c0b7145",
+    "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
     "pageGenerators": [
       {
-        "_exportId": "65392750819e880991259e71"
+        "_exportId": "UPDATE WITH NEW EXPORTID"
       },
       {
-        "_exportId": "65382cc8c6b8eb6a164d9031"
+        "_exportId": "UPDATE WITH NEW EXPORTID"
       }
     ],
     "pageProcessors": [
@@ -104,7 +104,7 @@
           "lists": []
         },
         "type": "import",
-        "_importId": "65392755819e880991259e74"
+        "_importId": "UPDATE WITH NEW IMPORTID"
       }
     ],
     "autoResolveMatchingTraceKeys": true

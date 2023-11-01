@@ -109,10 +109,10 @@
         "_id": "6530cb14a76ec92258fcc933",
         "name": "FTP with lookup FDB",
         "disabled": true,
-        "_integrationId": "651bdc9aee44aa5f19611f39",
+        "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
         "pageGenerators": [
             {
-                "_exportId": "652fbd74c92d7275993aee92"
+                "_exportId": "UPDATE WITH NEW EXPORTID"
             }
         ],
         "pageProcessors": [
@@ -122,7 +122,7 @@
                     "lists": []
                 },
                 "type": "export",
-                "_exportId": "652fb54eb7c1cf4f03035af1"
+                "_exportId": "UPDATE WITH NEW EXPORTID"
             },
             {
                 "responseMapping": {
@@ -130,7 +130,7 @@
                     "lists": []
                 },
                 "type": "import",
-                "_importId": "6530cb6242486b62e90346e5"
+                "_importId": "UPDATE WITH NEW IMPORTID"
             }
         ],
         "createdAt": "2023-10-19T06:22:12.045Z",
