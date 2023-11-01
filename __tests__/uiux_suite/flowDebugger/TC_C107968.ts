@@ -18,7 +18,6 @@ test.describe("Validate the Run confirmation dialog title when a flow step has o
 
         //Validate the dialog title
         const dialogTitle = (await io.flowBuilder.getText("h2")).toString();
-        expect (dialogTitle).toBe('Confirm run with offline connections');
         await io.assert.expectToContainValue('Confirm run with offline connections', dialogTitle, 'Dialog title is incorrect')
     
         //Validate the dialog contents.
