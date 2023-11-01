@@ -15,7 +15,8 @@
     "lint-and-fix": "eslint --fix --ext .ts .",
     "trace": "npx playwright show-trace test-results/**/trace.zip",
     "uploadReport": "node uploadReport.js",
-    "test-remote": "rm -rf ./allure-results && npx playwright test --project=PLAYWRIGHT --config=node_modules/@celigo/ui-core-automation/dist/playwright.config.js"
+    "test-remote": "rm -rf ./allure-results && npx playwright test --project=PLAYWRIGHT --config=node_modules/@celigo/ui-core-automation/dist/playwright.config.js",
+    "help": "node --no-warnings index.js"
   },
   "keywords": [],
   "author": "B Vinay Kumar",
@@ -33,16 +34,20 @@
     }
   },
   "devDependencies": {
-    "@celigo/ui-core-automation": "^0.1.27",
-    "@celigo/aut-selectors": "^0.0.88",
-    "@celigo/aut-utilities": "^0.0.34",
+    "@celigo/ui-core-automation": "^0.1.33",
+    "@celigo/aut-selectors": "^0.0.95",
+    "@celigo/aut-utilities": "^0.0.35",
     "@playwright/test": "^1.32.3",
     "allure-playwright": "^2.2.1",
+    "inquirer-search-list": "^1.2.6",
     "playwright": "^1.32.3"
   },
   "dependencies": {
     "atob": "^2.1.2",
+    "chalk": "^4.0.0",
+    "figlet": "^1.7.0",
     "husky": "^4.3.8",
+    "inquirer": "^7.1.0",
     "viewport-dimensions": "^0.2.0"
   }
 }

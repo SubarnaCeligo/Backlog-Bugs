@@ -7,7 +7,7 @@ test.describe(`C51644 Verify the error rows table header fields displayed in the
     io,
     page
   }) => {
-    const id = await io.fillFormUI(flowJSON, "FLOWS");
+    const id = await io.createResourceFromAPI(flowJSON, "FLOWS");
     await io.api.runBatchFlowViaAPI("C51644", id);
     const lastRun = page.getByText("Last run");
     await lastRun.waitFor({ state: "visible" });

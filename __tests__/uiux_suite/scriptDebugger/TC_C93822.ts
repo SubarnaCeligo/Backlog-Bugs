@@ -7,7 +7,7 @@ test.describe('C93822 Validate user is able to create "preSavePage" script throu
    
     test('C93822 Validate user is able to create "preSavePage" script through flow builder page', async({io,page}) => {
   
-      const id =  await io.fillFormUI(
+      const id =  await io.createResourceFromAPI(
          data1,
         'FLOWS'
       );

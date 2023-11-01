@@ -6,7 +6,7 @@ test.describe('C93687 Validate user is getting auto-fill of funtion stub while c
    
     test('C93687  Validate user is getting auto-fill of funtion stub while creating "filter" script through flow builder branching filte', async({io,page}) => {
   
-      const id =  await io.fillFormUI(
+      const id =  await io.createResourceFromAPI(
         data1,
         'FLOWS'
       );

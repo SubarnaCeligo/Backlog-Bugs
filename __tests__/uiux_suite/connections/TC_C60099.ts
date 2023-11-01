@@ -7,7 +7,7 @@ test.describe(`C60099 Verify connection dropdown for edit lookups`, () => {
     io,
     page
   }) => {
-    await io.fillFormUI(testData, "FLOWS");
+    await io.createResourceFromAPI(testData, "FLOWS");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.LOOKUP);
     await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
     await page.getByText("API type").first().waitFor({ state: "visible" });

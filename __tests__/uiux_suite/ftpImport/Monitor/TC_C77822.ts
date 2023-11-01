@@ -7,7 +7,7 @@ import data from "@testData/FtpImport/C77822.json"
           io,
           page
         }) => {
-            const id =  await io.fillFormUI(
+            const id =  await io.createResourceFromAPI(
                 data,
                'FLOWS'
              );

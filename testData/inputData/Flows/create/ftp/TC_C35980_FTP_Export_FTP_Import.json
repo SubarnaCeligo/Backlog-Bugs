@@ -16,6 +16,7 @@
         "type": "import",
         "qa__import": {
           "_connectionId":"FTP CONNECTION",
+          "name": "FTP_Import",
           "file": {
             "fileName": "TC_C35980.json",
             "type": "json"
@@ -75,7 +76,7 @@
           "name": "FTP_Export",
           "_connectionId":"FTP CONNECTION",
           "asynchronous": true,
-          "qa__type": "blob",
+          "qa__outputMode": "blob",
           "pageSize": 1,
           "sandbox": false,
           "qa__path": "//FTP_uploads//TC_C22867.json",

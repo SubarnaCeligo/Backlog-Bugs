@@ -5,7 +5,7 @@ import C55445_mockData from '@testData/FlowDebugger/C55445_mockData.json';
 
 test.describe("C55446 Verify the data size limit for each flow step should be maximum 1 MB - lookup", () => {
     test("C55446 Verify the data size limit for each flow step should be maximum 1 MB - lookup", async ({io, page}) => {
-        await io.fillFormUI(C55446, "FLOWS");
+        await io.createResourceFromAPI(C55446, "FLOWS");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.LOOKUP);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.MOCK_OUTPUT);
         await io.flowBuilder.fill('#mockOutput .ace_text-input', JSON.stringify(C55445_mockData));

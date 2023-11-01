@@ -4,7 +4,7 @@ import C65969 from '@testData/Flows/C65969.json';
 
 test.describe("C65696 Verify Preview call works fine When user clicks on preview continuously for 5 times", () => {
   test("C65696 Verify Preview call works fine When user clicks on preview continuously for 5 times", async ({io, page}) => {
-      await io.fillFormUI(C65969, "FLOWS");
+      await io.createResourceFromAPI(C65969, "FLOWS");
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
       await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
       await io.flowBuilder.click(selectors.exportsPagePO.NON_STANDARD_API_TAB);

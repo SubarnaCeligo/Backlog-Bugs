@@ -15,7 +15,7 @@ test.describe(`C46908 Verify the functionality by not providing a 'source record
       await testCase.click();
       await io.homePage.addStep("Clicked on 'C46908'");
     } catch {
-      const id = await io.fillFormUI(testData, "FLOWS");
+      const id = await io.createResourceFromAPI(testData, "FLOWS");
       await io.homePage.addStep("Created new flow 'C46908'");
       await io.api.runBatchFlowViaAPI("C46908", id);
       await io.homePage.addStep("Ran flow 'C46908' via API");
@@ -25,7 +25,7 @@ test.describe(`C46908 Verify the functionality by not providing a 'source record
     await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);
     await io.flowBuilder.addStep("Clicked on 'Import Mappings'");
     const destinationField = page.locator(
-      selectors.mappings.Mapper2dot0PO.DESTINATIONFIELDS
+      selectors.mappings.MAPPER2DOT0PO.DESTINATIONFIELDS
     );
     await destinationField.waitFor({ state: "visible" });
     await destinationField.click();
@@ -34,15 +34,15 @@ test.describe(`C46908 Verify the functionality by not providing a 'source record
     const $textarea = await $destinationField.$("textarea");
     await $textarea.fill(Math.random().toString(36).substring(7));
     await io.flowBuilder.addStep("Filled 'Destination Fields' with random text");
-    await io.flowBuilder.click(selectors.mappings.Mapper2dot0PO.SOURCEFIELDS);
+    await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.SOURCEFIELDS);
     await io.flowBuilder.addStep("Clicked on 'Source Fields'");
-    await io.flowBuilder.click(selectors.mappings.Mapper2dot0PO.PREVIEW);
+    await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.PREVIEW);
     await io.flowBuilder.addStep("Clicked on 'Preview'");
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.addStep("Clicked on 'Save'");
     await io.flowBuilder.delay(1000);
     const val = await page
-      .locator(`${selectors.mappings.Mapper2dot0PO.PREVIEWRESULT}`)
+      .locator(`${selectors.mappings.MAPPER2DOT0PO.PREVIEWRESULT}`)
       .evaluate(e => {
         // @ts-ignore
         const editor = ace.edit(e);

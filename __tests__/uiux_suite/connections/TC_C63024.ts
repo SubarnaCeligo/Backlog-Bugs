@@ -8,7 +8,7 @@ test.describe(`C63024 Verify user is able to create connection from already crea
     page,
     io
   }) => {
-    await io.fillFormUI(flow, "FLOWS");
+    await io.createResourceFromAPI(flow, "FLOWS");
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.NOTIFICATION_CONNECTIONS
     );

@@ -4,7 +4,7 @@ import data from "@testData/Flows/C68830.json"
 
 test.describe("C68830 Verify that ftp_bridge properly handles the termination and returns an appropriate error message when attempting to access files and directories on the server using the terminated session", () => {
   test("C68830 Verify that ftp_bridge properly handles the termination and returns an appropriate error message when attempting to access files and directories on the server using the terminated session", async ({io, page}) => {
-    const id = await io.fillFormUI(data, "FLOWS");
+    const id = await io.createResourceFromAPI(data, "FLOWS");
     await io.api.runBatchFlowViaAPI('TC_C68830', id);
     const lastRun = page.getByText('Last run');
     await lastRun.waitFor({state: 'visible', timeout: 180000});
