@@ -7,7 +7,7 @@ test.describe(`C55826 Verify connection dropdown Replace connection in flow buil
     io,
     page
   }) => {
-    await io.fillFormUI(testData, "FLOWS");
+    await io.createResourceFromAPI(testData, "FLOWS");
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.NOTIFICATION_CONNECTIONS
     );

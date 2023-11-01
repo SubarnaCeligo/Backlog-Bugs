@@ -14,6 +14,7 @@
         "type": "import",
         "qa__import": {
             "_connectionId": "FTP CONNECTION",
+            "name": "EDIFACT_Import",
             "file": {
                 "fileName": "TC_C25871EDI.json",
                 "type": "json"

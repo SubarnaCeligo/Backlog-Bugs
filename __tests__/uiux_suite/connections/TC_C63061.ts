@@ -7,7 +7,7 @@ test.describe(`C63061 Verify fields are autopopulating once user switch from Sim
     page,
     io
   }) => {
-    await io.fillFormUI(testData, "FLOWS");
+    await io.createResourceFromAPI(testData, "FLOWS");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH);
 

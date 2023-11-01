@@ -7,7 +7,7 @@ test.describe('C93820 Validate user is able to create "postAggregate" script thr
    
     test('C93820 Validate user is able to create "postAggregate" script through flow builder page', async({io,page}) => {
   
-      const id =  await io.fillFormUI(
+      const id =  await io.createResourceFromAPI(
          data1,
         'FLOWS'
       );

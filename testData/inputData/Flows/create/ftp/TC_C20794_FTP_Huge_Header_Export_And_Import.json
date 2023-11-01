@@ -16,6 +16,7 @@
         "qa__import": {
           "_connectionId":"FTP CONNECTION",
           "apiIdentifier": "i800892a74",
+          "name": "FTP CSV Import",
           "oneToMany": false,
           "sandbox": false,
           "file": {
@@ -73,6 +74,7 @@
       {
         "qa__export": {
           "_connectionId":"FTP CONNECTION",
+          "name": "FTP CSV Export",
           "ftp": {
             "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
             "fileNameStartsWith": "Sample_file_with_more_headers.csv"

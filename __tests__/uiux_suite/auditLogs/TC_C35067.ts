@@ -4,7 +4,7 @@ import C35067 from '@testData/Flows/C35067.json';
 
 test.describe("C35067 Verify downdload button UI in audit log", () => {
     test("C35067 Verify downdload button UI in audit log", async ({io, page}) => {
-        await io.fillFormUI(C35067, "FLOWS");
+        await io.createResourceFromAPI(C35067, "FLOWS");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.AUDIT_LOGS);
         await io.assert.verifyElementIsDisplayed('button:has-text("Download")', 'Download button not displayed in audit logs')
     });
