@@ -1,0 +1,82 @@
+{
+    "_id": "652e15d26819f54a81ada56f",
+    "name": "Salesforce REST Mock Stub Test",
+    "disabled": true,
+    "_integrationId": "65239b7a699d210c29d7b67e",
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "FTP Export",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "eebcca58d7",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/Group-QA/ShritiS"
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": false,
+                    "type": "json",
+                    "filter": {
+                        "type": "expression",
+                        "expression": {
+                            "rules": [],
+                            "version": "1"
+                        },
+                        "rules": [],
+                        "version": "1"
+                    }
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "_id": "653129b582c57a12343e9680",
+                "createdAt": "2023-10-19T13:05:57.601Z",
+                "lastModified": "2023-10-19T13:05:57.681Z",
+                "name": "Salesforce SOAP",
+                "_connectionId": "SALESFORCE CONNECTION",
+                "apiIdentifier": "i1b31897ac",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "salesforce": {
+                    "operation": "insert",
+                    "sObjectType": "Account",
+                    "api": "rest",
+                    "removeNonSubmittableFields": false
+                },
+                "adaptorType": "SalesforceImport"
+            }
+        }
+    ],
+    "createFlow": {
+        "_id": "652e15d26819f54a81ada56f",
+        "name": "Salesforce REST Mock Stub Test",
+        "disabled": true,
+        "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID",
+                "skipRetries": false
+            }
+        ],
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "autoResolveMatchingTraceKeys": true
+    }
+}
