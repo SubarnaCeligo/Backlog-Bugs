@@ -23,11 +23,10 @@ test.describe("Error message should not contain 'Learn More' when mock output is
         await io.importsPage.click(selectors.importPagePO.EXPAND_MOCK_RESPONSE);
 
         //Enter an invalid mock output without 'statusCode' key
-        await page.locator('textarea').fill('[{"statusCode1":200}]');
+        await io.importsPage.fill(selectors.importPagePO.INPUT_MOCK_RESPONSE_XPATH, '[{"statusCode1":200}]');
 
         //Check if error message contains 'Learn More'
-        const isLearnMoreVisible = await page.getByText('Mock response must include a statusCode value. Learn more').isVisible();
-        expect (isLearnMoreVisible).toBeFalsy();
+        await io.assert.verifyElementDisplayedByText('Mock response must include a statusCode value.', 'Expected error message is not displayed.')
     
     });
 

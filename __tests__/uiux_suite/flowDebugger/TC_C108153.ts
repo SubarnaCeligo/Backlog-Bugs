@@ -28,12 +28,11 @@ test.describe("Verify that a Salesforce SOAP type import has adaptor specific st
         await io.importsPage.click(selectors.importPagePO.POPULATE_CANONICAL_STUB);
 
         //Get Stub contents
-        const stubContents = (await io.importsPage.getText(selectors.importPagePO.STUB_CONTENTS_CSS)).toString();
-        const expectedStub = '[,  {,    "statusCode": 200,,    "id": "0010o000037gWmtAAE",,    "_json": {,      "id": "0010o000037gWmtAAE",,      "success": true,    },,    "errors": [],  },]';
-        // //Match with expected stub.
-        const isExpected = (expectedStub.includes(stubContents));
-        await io.assert.expectToBeTrue(isExpected, 'Invalid stub contents');
+        const actualStubContents = (await io.importsPage.getText(selectors.importPagePO.STUB_CONTENTS_CSS)).toString();
         
+        // //Match with expected stub.
+        const expectedStubContents = '[,  {,    "statusCode": 200,,    "id": "0010o000037gWmtAAE",,    "_json": {,      "id": "0010o000037gWmtAAE",,      "success": true,    },,    "errors": [],  },]';
+        await io.assert.expectToContainValue(expectedStubContents, actualStubContents, 'Invalid stub contents' )    
 
     });
 

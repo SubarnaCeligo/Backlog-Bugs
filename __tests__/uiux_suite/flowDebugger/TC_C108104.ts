@@ -25,11 +25,11 @@ test.describe("Verify that a Netsuite import has netsuite specific stub in the m
         await io.importsPage.click(selectors.importPagePO.POPULATE_CANONICAL_STUB);
     
         //Get the stub contents
-        const stubContents = (await io.importsPage.getText(selectors.importPagePO.STUB_CONTENTS_CSS)).toString();
-        const expectedStub = '[,  {,    "id": 478945,,    "statusCode": 200,,    "_json": {,      "id": 478945,    },,    "ignored": false,,    "errors": [],,    "dataURI": "",  },]';
+        const actualStubContents = (await io.importsPage.getText(selectors.importPagePO.STUB_CONTENTS_CSS)).toString();
+        
         // Match with expected stub.
-        const isExpected = (expectedStub.includes(stubContents));
-        await io.assert.expectToBeTrue(isExpected, 'Invalid stub contents');
+        const expectedStubContents = '[,  {,    "id": 478945,,    "statusCode": 200,,    "_json": {,      "id": 478945,    },,    "ignored": false,,    "errors": [],,    "dataURI": "",  },]';
+        await io.assert.expectToContainValue(expectedStubContents, actualStubContents, 'Invalid stub contents' );
         
     
     });

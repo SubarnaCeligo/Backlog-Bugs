@@ -16,8 +16,7 @@ test.describe("Verify if a source has offline connection and no mock output data
        
 
         //Wait for Run Test button to appear
-        const runTestButtonOnTop = await page.locator(selectors.flowBuilderPagePO.RUNTEST_BUTTON_TOP_XPATH);
-        await runTestButtonOnTop.waitFor();
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUNTEST_BUTTON_TOP_XPATH);
     
         //Verify if both Run Test Buttons are in disabled state. 
         await io.assert.checkElementState(selectors.flowBuilderPagePO.RUNTEST_BUTTON_TOP_XPATH, 'isDisabled');

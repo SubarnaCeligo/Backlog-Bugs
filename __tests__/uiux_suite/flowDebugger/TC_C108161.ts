@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("Error message should not contain 'Learn More' when mock output is in invalid format", () => {
+test.describe("When Mock Output is in invalid format, 'Status Code' should be a hyperlink", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
@@ -31,8 +31,8 @@ test.describe("Error message should not contain 'Learn More' when mock output is
         await io.assert.expectToBeTrue(isStatusCodeHyperlink, 'Status code is not a hyperlink');
 
         const hyperlink = await page.getByRole('link', { name: 'statusCode' }).getAttribute('href');
-        expect(hyperlink).toBe('https://docs.celigo.com/hc/en-us/articles/4473437451163#Canonical-format-for-mock-response-data');
-
+        await io.assert.expectToContainValue('https://docs.celigo.com/hc/en-us/articles/4473437451163#Canonical-format-for-mock-response-data', hyperlink, 'Invalid hyperlink')
+       
     });
 
 });

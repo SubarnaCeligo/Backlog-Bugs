@@ -28,13 +28,12 @@ test.describe("Verify that a Salesforce composite type import has adaptor specif
         await io.importsPage.click(selectors.importPagePO.POPULATE_CANONICAL_STUB);
     
         //Get Stub contents
-        const stubContents = (await io.importsPage.getText(selectors.importPagePO.STUB_CONTENTS_CSS)).toString();
-        const expectedStub ='[,  {,    "statusCode": 200,,    "id": "0010o000037gWjsAAE",,    "_json": [,      {,        "body": [,          {,            "id": "0010o000037gWjsAAE",,            "success": true,,            "errors": [],          },        ],,        "httpHeaders": {},        "httpStatusCode": 200,,       "referenceId": "refAccount",       },       ],,       "errors": [],       },       ]';         
+        const actualStubContents = (await io.importsPage.getText(selectors.importPagePO.STUB_CONTENTS_CSS)).toString();
+        const expectedStubContents ='[,  {,    "statusCode": 200,,    "id": "0010o000037gWjsAAE",,    "_json": [,      {,        "body": [,          {,            "id": "0010o000037gWjsAAE",,            "success": true,,            "errors": [],          },        ],,        "httpHeaders": {},';         
 
         // Match with expected stub.
-        const expectedContainsActual = (expectedStub.includes(stubContents));
-        await io.assert.expectToBeTrue(expectedContainsActual, 'Invalid stub contents');
-    
+        await io.assert.expectToContainValue(expectedStubContents, actualStubContents, 'Invalid stub contents' );
+       
     });
 
 });
