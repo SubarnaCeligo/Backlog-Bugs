@@ -74,7 +74,7 @@ test.describe.skip(
           "request-reset?email=" +
           process.env.IO_EMAIL_ACCOUNT
       );
-      await page.getByRole("link", { name: "Cancel" }).click();
+      await io.homePage.getByRoleClick("link", "Cancel");
       const regex = /signin$/;
       await page.waitForURL(regex);
       await io.assert.expectToContainValue(
