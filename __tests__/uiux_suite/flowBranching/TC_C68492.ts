@@ -21,11 +21,8 @@ test.describe("C68492 Verify user is able to clone the integration from Sandbox 
               );
               await io.homePage.clickByText("Use existing connection");
               await io.homePage.clickByText("Please select");
-              await page
-                .locator(selectors.connectionsPagePO.CONNECTION_LIST_MODAL)
-                .getByText("FTP CONNECTION").first()
-                .click();
-                await io.connectionPage.click(selectors.basePagePO.SAVE);
+              await io.homePage.clickByTextByIndex("FTP CONNECTION",0)
+              await io.connectionPage.click(selectors.basePagePO.SAVE);
               await io.homePage.click(selectors.basePagePO.INSTALL);
               await io.homePage.clickByTextByIndex("Clone - TC_C68492_DND", 0)
               await io.assert.verifyElementIsDisplayed(selectors.basePagePO.EDIT_SCHEDULE,"Scheduling is not present")

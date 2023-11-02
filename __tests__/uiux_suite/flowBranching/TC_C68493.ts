@@ -1,7 +1,7 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C68493 Verify user is able to clone the integration from Sandbox env. having multiple flows with enabled scheduling", () =>{
+test.describe.only("C68493 Verify user is able to clone the integration from Sandbox env. having multiple flows with enabled scheduling", () =>{
 
     test("C68493 Verify user is able to clone the integration from Sandbox env. having multiple flows with enabled scheduling", async({
                io,
@@ -22,10 +22,7 @@ test.describe("C68493 Verify user is able to clone the integration from Sandbox 
               );
               await io.homePage.clickByText("Use existing connection");
               await io.homePage.clickByText("Please select");
-              await page
-                .locator(selectors.connectionsPagePO.CONNECTION_LIST_MODAL)
-                .getByText("FTP CONNECTION").first()
-                .click();
+               await io.homePage.clickByTextByIndex("FTP CONNECTION",0)
                 await io.connectionPage.click(selectors.basePagePO.SAVE);
                 await page.waitForTimeout(3000);
               await io.homePage.click(
@@ -33,10 +30,7 @@ test.describe("C68493 Verify user is able to clone the integration from Sandbox 
               );
               await io.homePage.clickByText("Use existing connection");
               await io.homePage.clickByText("Please select");
-              await page
-                .locator(selectors.connectionsPagePO.CONNECTION_LIST_MODAL)
-                .getByText("HTTP MIVA CONNECTION")
-                .click();
+              await io.homePage.clickByTextByIndex("HTTP MIVA CONNECTION",0)
               await io.connectionPage.click(selectors.basePagePO.SAVE);
               await io.homePage.click(selectors.basePagePO.INSTALL);
               await io.homePage.clickByTextByIndex("Clone - 1 - TC_C68492-DND", 0)

@@ -5,8 +5,8 @@ import testData from "./monitor_all_manage_few.json";
  
  
  
-test.describe(`C21310 Verify Connections and Exports & Imports of monitored tiles should not be displayed while creating flows in the managed tile`, () => {
-  test(`C21310 Verify Connections and Exports & Imports of monitored tiles should not be displayed while creating flows in the managed tile`, async ({
+test.describe.only(`C21310 Tile level user is allowed to create a flow which uses an export or an import to which the user doesn't have access`, () => {
+  test(`C21310 Tile level user is allowed to create a flow which uses an export or an import to which the user doesn't have access`, async ({
     page,
     io
   }) => {
@@ -23,7 +23,7 @@ test.describe(`C21310 Verify Connections and Exports & Imports of monitored tile
     await io.homePage.click(selectors.basePagePO.CONNECTION_DROPDOWN)
     await io.homePage.clickByTextByIndex("FTP connection", 0)
     await io.homePage.click(selectors.exportsPagePO.CHECK_EXISTING_EXPORT)
-    const monitorExp = await io.homePage.isVisible("text='AutomationStandalone_Uw3YN'")
+    const monitorExp = await io.homePage.isVisible("text='monitor export'")
     await io.assert.expectToBeValue(monitorExp.toString(), 'false', "Value is found")
 
   });

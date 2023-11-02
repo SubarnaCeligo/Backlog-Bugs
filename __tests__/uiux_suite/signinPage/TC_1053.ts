@@ -12,7 +12,7 @@ test.describe(`C1053 Verify on clicking "Signin with Google" asks to login to go
       }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT);
-        await page.hover(selectors.basePagePO.ACCOUNT);
+        await io.homePage.hover(selectors.basePagePO.ACCOUNT);
         await io.homePage.click(selectors.basePagePO.SIGN_OUT);
         await io.homePage.clickByText("Sign in with Google")
         const text = await io.homePage.isVisible("text='Forgot email?'")
