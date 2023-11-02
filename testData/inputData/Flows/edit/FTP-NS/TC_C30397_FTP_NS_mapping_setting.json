@@ -1,0 +1,212 @@
+{
+  "name": "TC_C30397_FTP_NS_mapping_setting",
+  "disabled": false,
+  "_integrationId": "653b4b9e0cb9a81038473143",
+  "skipRetries": false,
+  "pageProcessors": [
+    {
+      "qa__isEdit": true,
+      "type": "import",
+      "qa__import": {
+        "name": "customer",
+        "_connectionId": "NETSUITE CONNECTION",
+        "distributed": true,
+        "netsuite_da": {
+          "mapping": {
+            "fields": [
+              {
+                "generate": "companyname",
+                "extract": "CompanyName",
+                "internalId": false
+              },
+              {
+                "generate": "subsidiary",
+                "internalId": false,
+                "discardIfEmpty": false,
+                "immutable": false,
+                "extract": "SubsidaryName"
+              },
+              {
+                "generate": "phone",
+                "extract": "Phone",
+                "internalId": false
+              },
+              {
+                "generate": "isinactive",
+                "discardIfEmpty": false,
+                "immutable": false,
+                "hardCodedValue": "true",
+                "internalId": false
+              }
+            ],
+            "lists": []
+          }
+        },
+        "adaptorType": "NetSuiteDistributedImport",
+        "qa__import1": {
+          "name": "customer",
+          "_connectionId": "NETSUITE CONNECTION",
+          "distributed": true,
+          "ignoreExisting": false,
+          "ignoreMissing": false,
+          "oneToMany": false,
+          "sandbox": false,
+          "lookups": [],
+          "netsuite_da": {
+            "useSS2Restlets": false,
+            "operation": "add",
+            "recordType": "customer",
+            "lookups": [],
+            "mapping": {
+              "fields": [
+                {
+                  "generate": "companyname",
+                  "extract": "CompanyName",
+                  "internalId": false
+                },
+                {
+                  "generate": "subsidiary",
+                  "internalId": false,
+                  "discardIfEmpty": false,
+                  "immutable": false,
+                  "extract": "SubsidaryName"
+                },
+                {
+                  "generate": "phone",
+                  "extract": "Phone",
+                  "internalId": false
+                },
+                {
+                  "generate": "isinactive",
+                  "discardIfEmpty": false,
+                  "immutable": false,
+                  "hardCodedValue": "true",
+                  "internalId": false
+                }
+              ],
+              "lists": []
+            }
+          },
+          "adaptorType": "NetSuiteDistributedImport"
+        }
+      }
+    }
+  ],
+  "pageGenerators": [
+    {
+      "qa__isIgnore": true,
+      "qa__export": {
+        "name": "test",
+        "_connectionId": "HTTP ZENDESK CONNECTION"
+      }
+    }
+  ],
+  "qa__dataVerification": {
+    "expectedJSON": {
+      "name": "TC_C30397_FTP_NS_mapping_setting",
+      "disabled": false,
+      "skipRetries": false,
+      "_integrationId": "653b4b9e0cb9a81038473143",
+      "pageProcessors": [
+        {
+          "type": "import",
+          "responseMapping": {
+            "lists": [],
+            "fields": []
+          }
+        }
+      ],
+      "pageGenerators": [
+        {
+          "qa__ignore": true
+        }
+      ]
+    },
+    "importJSON": {
+      "name": "TC_C30397_FTP_NS_mapping_setting",
+      "disabled": false,
+      "_integrationId": "653b4b9e0cb9a81038473143",
+      "skipRetries": false,
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "customer",
+            "_connectionId": "NETSUITE CONNECTION",
+            "distributed": true,
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [],
+            "netsuite_da": {
+              "useSS2Restlets": false,
+              "operation": "add",
+              "recordType": "customer",
+              "lookups": [],
+              "mapping": {
+                "fields": [
+                  {
+                    "generate": "companyname",
+                    "extract": "CompanyName",
+                    "internalId": false
+                  },
+                  {
+                    "generate": "subsidiary",
+                    "internalId": false,
+                    "discardIfEmpty": false,
+                    "immutable": false,
+                    "extract": "SubsidaryName"
+                  },
+                  {
+                    "generate": "phone",
+                    "extract": "Phone",
+                    "internalId": false
+                  },
+                  {
+                    "generate": "isinactive",
+                    "discardIfEmpty": false,
+                    "immutable": false,
+                    "hardCodedValue": "false",
+                    "internalId": false
+                  }
+                ],
+                "lists": []
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          },
+          "responseMapping": {
+            "lists": [],
+            "fields": []
+          }
+        }
+      ],
+      "pageGenerators": [
+        {
+          "qa__export": {
+            "name": "test",
+            "_connectionId": "FTP CONNECTION",
+            "asynchronous": true,
+            "sandbox": false,
+            "parsers": [],
+            "ftp": {
+              "directoryPath": "/Group-QA/HTTP_Composite",
+              "fileNameStartsWith": "test"
+            },
+            "file": {
+              "encoding": "utf8",
+              "output": "records",
+              "skipDelete": false,
+              "type": "json",
+              "json": {
+                "resourcePath": "*"
+              }
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ]
+    }
+  }
+}
