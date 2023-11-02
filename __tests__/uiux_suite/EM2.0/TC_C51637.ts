@@ -10,8 +10,7 @@ test.describe("C51637 Verify the drawer title, tab titles and tab order in the '
         await lastRun.waitFor({state: 'visible', timeout: 180000});
         await io.flowBuilder.clickByTextByIndex("1 error", 1);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2DOT0PO.TOGGLE_VIEW_DROPDOWN);
-        const options = await page.$$(selectors.flowBuilderPagePO.FLOWS_LIST);
-        options[1].click();
+        await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.FLOWS_LIST,1);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2DOT0PO.ACTIONS_MENU);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2DOT0PO.ACTIONS_MENU);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2DOT0PO.ACTIONS_MENU_RESOLVE_ERROR);
