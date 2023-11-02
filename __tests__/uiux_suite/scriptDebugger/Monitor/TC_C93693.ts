@@ -7,7 +7,7 @@ test.describe('C93693 Validate that user is not able to see "formInit" function 
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     const isResourceVisible = await io.homePage.isVisible(selectors.basePagePO.RESOURCES);
     if(isResourceVisible){
-        await page.hover(selectors.basePagePO.RESOURCES);
+        await io.homePage.hover(selectors.basePagePO.RESOURCES);
         const isScriptsVisible = await io.homePage.isVisible(selectors.basePagePO.SCRIPTS);
         await io.assert.expectToBeValue('false', isScriptsVisible.toString(), 'Scripts page is visible');
     }else{

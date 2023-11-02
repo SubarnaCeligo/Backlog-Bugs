@@ -1,0 +1,112 @@
+{
+  "_id": "652e15d26819f54a81ada56f",
+  "name": "NS to FTP - Multiple Exports",
+  "disabled": true,
+  "_integrationId": "65239b7a699d210c29d7b67e",
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "_id": "64c75b86efa4694f4e2e4f06",
+        "name": "test netsuite export",
+        "_connectionId": "NETSUITE 706 CONNECTION",
+        "apiIdentifier": "e08412ca91",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "netsuite": {
+          "type": "restlet",
+          "skipGrouping": true,
+          "statsOnly": false,
+          "restlet": {
+            "recordType": "account",
+            "searchId": "-71",
+            "criteria": [],
+            "columns": [],
+            "restletVersion": "suiteapp2.0",
+            "markExportedBatchSize": 100
+          },
+          "distributed": {
+            "executionContext": [],
+            "executionType": []
+          }
+        },
+        "adaptorType": "NetSuiteExport"
+      }
+    },
+    {
+      "qa__export": {
+        "_id": "65382cc8c6b8eb6a164d9031",
+        "name": "netsuite export 2",
+        "_connectionId": "NETSUITE CONNECTION",
+        "apiIdentifier": "e7094c087f",
+        "asynchronous": true,
+        "parsers": [],
+        "netsuite": {
+          "type": "restlet",
+          "skipGrouping": false,
+          "statsOnly": false,
+          "restlet": {
+            "recordType": "customer",
+            "searchId": "2456",
+            "criteria": [],
+            "columns": [],
+            "useSS2Restlets": false,
+            "restletVersion": "suitebundle"
+          },
+          "distributed": {
+            "executionContext": [],
+            "executionType": []
+          }
+        },
+        "adaptorType": "NetSuiteExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "FTP Import",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "i786e3ba03",
+        "oneToMany": false,
+        "sandbox": false,
+        "file": {
+          "fileName": "file-{{timestamp}}.json",
+          "skipAggregation": false,
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "/Group-QA/ShritiS/Import",
+          "fileName": "file-{{timestamp}}.json"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "createFlow": {
+    "_id": "6539275a221c2e02516f22db",
+    "name": "NS to FTP - Multiple Exports",
+    "disabled": true,
+    "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+    "pageGenerators": [
+      {
+        "_exportId": "UPDATE WITH NEW EXPORTID"
+      },
+      {
+        "_exportId": "UPDATE WITH NEW EXPORTID"
+      }
+    ],
+    "pageProcessors": [
+      {
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        },
+        "type": "import",
+        "_importId": "UPDATE WITH NEW IMPORTID"
+      }
+    ],
+    "autoResolveMatchingTraceKeys": true
+  }
+}

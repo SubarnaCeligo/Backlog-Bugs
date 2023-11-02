@@ -7,7 +7,7 @@ test.describe("C1077 Verify that the newly created Integration displays as a til
     page
   }) => {
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
-    await page.getByRole("button", { name: "Create" }).click();
+    await io.homePage.getByRoleClick("button","Create");
     await io.homePage.addStep("Clicked on 'Create' button");
     await io.homePage.click(selectors.homePagePO.CREATE_NEW_INTEGRATION);
     await io.homePage.fill(selectors.basePagePO.NAME, "C1077");
