@@ -9,7 +9,7 @@ test.describe.skip(
       const isNotLoggedIn = await io.loginPage.checkLoginState();
       if (!isNotLoggedIn) {
         await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT);
-        await page.hover(selectors.basePagePO.ACCOUNT);
+        await io.homePage.hover(selectors.basePagePO.ACCOUNT);
         await io.homePage.click(selectors.basePagePO.SIGN_OUT);
       }
     });
@@ -23,6 +23,7 @@ test.describe.skip(
           process.env.IO_EMAIL_ACCOUNT
       );
       await io.homePage.click(selectors.basePagePO.SUBMIT);
+      // Delay for new email to be sent, otherwise picks up old email
       await page.waitForTimeout(5000);
       const link = await io.emailVal.getLinkFromEmail(
         "[staging.integrator.io] Request to reset your password"
@@ -47,8 +48,8 @@ test.describe.skip(
         "type",
         "text"
       );
-      await page.getByRole("button", { name: "Save" }).click();
-      await io.homePage.addStep("Clicked on save button");
+      await io.homePage.getByRoleClick("button", "Save");
+
       await io.loginPage.fill(
         selectors.loginPagePO.EMAIL,
         "qaautomation1@celigo.com"
@@ -57,7 +58,11 @@ test.describe.skip(
       await io.loginPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
       const regex = /home$/;
       await page.waitForURL(regex);
-      expect(page.url()).toContain("home");
+      await io.assert.expectToContainValue(
+        "home",
+        page.url(),
+        "URL doesn't contain home"
+      );
       await io.homePage.addStep("Verified user is able to login successfully");
     });
     test("C56285 Verify the user is able to cancel and redirected to signin page", async ({
@@ -72,7 +77,11 @@ test.describe.skip(
       await page.getByRole("link", { name: "Cancel" }).click();
       const regex = /signin$/;
       await page.waitForURL(regex);
-      expect(page.url()).toContain("signin");
+      await io.assert.expectToContainValue(
+        "signin",
+        page.url(),
+        "URL doesn't contain signin"
+      );
       await io.homePage.addStep("Verified user is redirected to signin page");
     });
   }

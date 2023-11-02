@@ -18,11 +18,9 @@ test.describe.skip(
         "[staging.integrator.io] Request to reset your password"
       );
       await io.homePage.navigateTo(link);
-      await expect(
-        page.getByText("You already have an active session running.")
-      ).toBeVisible();
-      await io.homePage.addStep(
-        "Verified 'You already have an active session running.' is visible"
+      await io.assert.verifyElementDisplayedByText(
+        "You already have an active session running.",
+        "Session running error is not displayed"
       );
     });
   }
