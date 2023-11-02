@@ -7,7 +7,7 @@ test.describe("C102563 Verify White checkmarks is showing for active section", (
     page
   }) => {
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
-    await page.hover(selectors.basePagePO.ACCOUNT);
+    await io.homePage.hover(selectors.basePagePO.ACCOUNT);
     await io.homePage.addStep("Hovered over 'Account'");
     await io.homePage.click(selectors.myAccountPagePO.PROFILE);
     const profile = page.locator(selectors.myAccountPagePO.PROFILE);
