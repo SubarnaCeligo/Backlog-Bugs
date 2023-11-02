@@ -9,7 +9,6 @@ test.describe("C55917 Verify the Default Structure/options of Pendo-Zendesk chat
           await io.homePage.click(selectors.basePagePO.CHAT_BOT);
         await io.homePage.waitForElementAttached(selectors.basePagePO.CHAT_BOT_OPTIONS);
         const helpList = await page.$$(selectors.basePagePO.CHAT_BOT_OPTIONS);
-        await page.pause();
         expect(await helpList[0].innerText()).toContain('Search our docs');
         expect(await helpList[1].innerText()).toContain('Chat with us');
         expect(await helpList[2].innerText()).toContain('Announcements');
