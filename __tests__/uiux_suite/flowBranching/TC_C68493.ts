@@ -24,7 +24,6 @@ test.describe.only("C68493 Verify user is able to clone the integration from San
               await io.homePage.clickByText("Please select");
                await io.homePage.clickByTextByIndex("FTP CONNECTION",0)
                 await io.connectionPage.click(selectors.basePagePO.SAVE);
-                await page.waitForTimeout(3000);
               await io.homePage.click(
                 selectors.integrationPagePO.SETUP_INTEGRATION_CONFIGURE_BUTTON
               );
