@@ -10,7 +10,7 @@ test.describe("C57327 C50895 C50907", () => {
         const isNotLoggedIn = await io.loginPage.checkLoginState();
         if(!isNotLoggedIn){
             await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT);
-            await page.hover(selectors.basePagePO.ACCOUNT);
+            await io.homePage.hover(selectors.basePagePO.ACCOUNT);
             await io.homePage.click(selectors.basePagePO.SIGN_OUT);
         }
     })
@@ -20,7 +20,7 @@ test.describe("C57327 C50895 C50907", () => {
         await io.signInPage.fill(selectors.loginPagePO.PASSWORD, decrypt(process.env["IO_Password"]));
         await io.signInPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
         await io.signInPage.waitForElementAttached(':has-text("Trust this device")');
-        await page.reload();
+        await io.signInPage.reloadPage();
         await io.signInPage.waitForElementAttached(':has-text("Trust this device")');
 
         await test.step("C57327 Verify if we refresh the MFA verify page we should be staying on the same page and not navigated to other pages",async ()=>{

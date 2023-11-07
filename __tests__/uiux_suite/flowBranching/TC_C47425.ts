@@ -6,12 +6,12 @@ test.describe("C47425 Test to create empty PG/PP bubbles as a administrator user
       await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
       await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.PLUS_BUTTONS);
-      await page.locator(selectors.flowBuilderPagePO.PLUS_BUTTONS).nth(0).click();
-      await page.getByRole('menuitem', { name: 'Add branching' }).click();
+      await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.PLUS_BUTTONS,0);
+      await io.flowBuilder.getByRoleClick('menuitem','Add branching');
       await io.flowBuilder.waitForElementAttached(selectors.basePagePO.SAVE_AND_CLOSE);
       await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
-      await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.CANVAS_FIT_TO_SCREEN);
-      await io.flowBuilder.click(selectors.flowBuilderPagePO.CANVAS_FIT_TO_SCREEN);
+      await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FIT_WINDOW_WITH_BUTTON);
+      await io.flowBuilder.click(selectors.flowBuilderPagePO.FIT_WINDOW_WITH_BUTTON);
       const pageProcessors = await page.locator(selectors.flowBuilderPagePO.MOVE_PP).all();
       await io.assert.expectToBeValue("2", pageProcessors.length.toString(), "Page processor count not as expected");
   });

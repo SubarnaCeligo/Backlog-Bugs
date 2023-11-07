@@ -11,7 +11,7 @@ test.describe("C56565 Verify when (input, textarea, date) fieldType is selected 
     await io.flowBuilder.click(selectors.basePagePO.CONNECTION_DROPDOWN);
     await io.flowBuilder.clickByText('Confluence cloud connection');
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
-    await page.reload();
+    await io.flowBuilder.reloadPage();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Confluence cloud');
     await io.flowBuilder.click(selectors.connectionsPagePO.CONFLUENCE_CLOUD_CONNECTION);
@@ -21,12 +21,12 @@ test.describe("C56565 Verify when (input, textarea, date) fieldType is selected 
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.fill(selectors.basePagePO.INPUT_NAME_SELECTOR, 'test confluence export');
     await io.flowBuilder.click(selectors.importPagePO.ASSISTANT_METADATA_RESOURCE);
-    await page.getByRole('menuitem', { name: 'Content', exact: true }).click();
+    await io.flowBuilder.getByRoleClick('menuitem','Content');
     await io.flowBuilder.click(selectors.importPagePO.ASSISTANT_METADATA_OPERTAION);
-    await page.getByRole('menuitem', { name: 'Get Content', exact: true }).click();
+    await io.flowBuilder.getByRoleClick('menuitem','Get Content');
     await io.flowBuilder.waitForElementAttached(selectors.importPagePO.QUERY_PARAMETER_NAME_0);
     await io.flowBuilder.click(selectors.importPagePO.QUERY_PARAMETER_NAME_0);
-    await page.locator(selectors.basePagePO.MENU_ITEM).nth(0).click();
+    await io.flowBuilder.clickByIndex(selectors.basePagePO.MENU_ITEM,0);
     await io.flowBuilder.fill(selectors.importPagePO.QUERY_PARAMETER_VALUE_0, 'testValue');
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT);

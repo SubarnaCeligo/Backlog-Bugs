@@ -6,7 +6,7 @@ test.describe('C93821 Validate user is able to create "handleRequest" script thr
    
     test('C93821 Validate user is able to create "handleRequest" script through flow builder page', async({io,page}) => {
   
-      const id =  await io.fillFormUI(
+      const id =  await io.createResourceFromAPI(
          data1,
         'FLOWS'
       );

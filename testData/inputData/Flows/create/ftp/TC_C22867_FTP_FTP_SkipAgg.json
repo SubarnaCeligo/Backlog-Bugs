@@ -7,6 +7,7 @@
     "pageGenerators": [{
         "qa__export": {
             "_connectionId": "FTP CONNECTION",
+            "name": "FTP Export",
             "qa__path": "//FTP_uploads//TC_C22867.json",
             "pageSize": 1,
             "ftp": {
@@ -52,6 +53,7 @@
         "type": "import",
         "qa__import": {
             "_connectionId": "FTP CONNECTION",
+            "name": "FTP Import",
             "file": {
                 "fileName": "TC_C22867-{{batch_of_records.0.record.Drug_company}}-{{timestamp \"YYYY-MM-DDTHH:mm:ssZ\" \"Asia/Calcutta\"}}.json",
                 "skipAggregation": true,

@@ -8,7 +8,7 @@ test.describe(`C77840 Validate User is not seeing the more actions when download
       io,
       page
     }) => {
-        const id =  await io.fillFormUI(
+        const id =  await io.createResourceFromAPI(
             data,
            'FLOWS'
          );

@@ -7,7 +7,7 @@ test.describe(`C60604 Verify View label colour before hovering over the link and
     io,
     page
   }) => {
-    await io.fillFormUI(testData, "FLOWS");
+    await io.createResourceFromAPI(testData, "FLOWS");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.AUDIT_LOGS);
     try {
       let label = page

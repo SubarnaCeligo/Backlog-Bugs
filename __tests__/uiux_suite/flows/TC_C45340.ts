@@ -10,7 +10,7 @@ test.describe('Verify the displayed default Gray text in the Mapper2.0 mapping f
     test("Verify the displayed default Gray text in the Mapper2.0 mapping fields when no data is entered/selected form Drop down ", async ({ io, page }) => {
         //   await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         
-          await io.fillFormUI(
+          await io.createResourceFromAPI(
             C45340,
             'FLOWS'
           );

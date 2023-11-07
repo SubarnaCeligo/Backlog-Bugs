@@ -27,3 +27,5 @@ require("./TC_C51623");
 require("./TC_C20896");
 require("./TC_C50859");
 require("./TC_C69561");
+require('./TC_C107439');
+require('./TC_C106997');

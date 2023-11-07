@@ -5,7 +5,7 @@ import C22818 from "@testData/Flows/C22818.json"
 test.describe('Verify for the backupBucket for S3 import, only AFE 2.0 supports', () => { 
     test('Verify for the backupBucket for S3 import, only AFE 2.0 supports', async ({ io, page }) => {
         
-          await io.fillFormUI(
+          await io.createResourceFromAPI(
             C22818,
             'FLOWS'
           );

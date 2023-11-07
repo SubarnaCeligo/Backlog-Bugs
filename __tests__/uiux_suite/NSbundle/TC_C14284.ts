@@ -7,14 +7,14 @@ test.describe(`C14284 Verify in mappings whether all the payment instruments fie
      
     test(`C14284 Verify in mappings whether all the payment instruments fields are shown and working as expected.`, async({io,page}) => {
   
-        const id =  await io.fillFormUI(
+        const id =  await io.createResourceFromAPI(
                     data1,
                     'FLOWS'
                   );
 
          await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS)   
          await io.flowBuilder.waitForElementAttached(':has-text("Card Brand (InternalId)")');
-         await io.assert.verifyElementTextByIndex(` ${selectors.mappings.Mapper1dot0PO.DESTINATION_INPUT} textarea`, "Card Brand (InternalId)",0)      
+         await io.assert.verifyElementTextByIndex(` ${selectors.mappings.MAPPER1DOT0PO.DESTINATION_INPUT} textarea`, "Card Brand (InternalId)",0)      
                    
 
     });
