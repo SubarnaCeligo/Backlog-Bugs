@@ -18,22 +18,26 @@ test.describe("IO-41074", () => {
     await io.flowBuilder.waitForElementAttached(
       selectors.scriptsPO.AFE_INPUT_FIELD
     );
-    await expect(page.locator(selectors.scriptsPO.AFE_INPUT_FIELD)).toContainText(
+    await io.assert.verifyElementContainsText(
+      selectors.scriptsPO.AFE_INPUT_FIELD,
       expectedText
     );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.PREVIEW);
     await io.flowBuilder.waitForElementAttached(
       selectors.scriptsPO.AFE_PREVIEW_FIELD
     );
-    await expect(
-      page.locator(selectors.scriptsPO.AFE_PREVIEW_FIELD)
-    ).toContainText('"testMode"');
-    await expect(
-      page.locator(selectors.scriptsPO.AFE_PREVIEW_FIELD)
-    ).toContainText(": ");
-    await expect(
-      page.locator(selectors.scriptsPO.AFE_PREVIEW_FIELD)
-    ).toContainText('"false"');
+    await io.assert.verifyElementContainsText(
+      selectors.scriptsPO.AFE_PREVIEW_FIELD,
+      '"testMode"'
+    );
+    await io.assert.verifyElementContainsText(
+      selectors.scriptsPO.AFE_PREVIEW_FIELD,
+      ": "
+    );
+    await io.assert.verifyElementContainsText(
+      selectors.scriptsPO.AFE_PREVIEW_FIELD,
+      '"false"'
+    );
     await io.flowBuilder.clickByIndex(
       selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER,
       1
@@ -55,22 +59,26 @@ test.describe("IO-41074", () => {
     await io.flowBuilder.waitForElementAttached(
       selectors.scriptsPO.AFE_INPUT_FIELD
     );
-    await expect(page.locator(selectors.scriptsPO.AFE_INPUT_FIELD)).toContainText(
+    await io.assert.verifyElementContainsText(
+      selectors.scriptsPO.AFE_INPUT_FIELD,
       expectedText
     );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.PREVIEW);
     await io.flowBuilder.waitForElementAttached(
       selectors.scriptsPO.AFE_PREVIEW_FIELD
     );
-    await expect(
-      page.locator(selectors.scriptsPO.AFE_PREVIEW_FIELD)
-    ).toContainText('"testMode"');
-    await expect(
-      page.locator(selectors.scriptsPO.AFE_PREVIEW_FIELD)
-    ).toContainText(": ");
-    await expect(
-      page.locator(selectors.scriptsPO.AFE_PREVIEW_FIELD)
-    ).toContainText('"false"');
+    await io.assert.verifyElementContainsText(
+      selectors.scriptsPO.AFE_PREVIEW_FIELD,
+      '"testMode"'
+    );
+    await io.assert.verifyElementContainsText(
+      selectors.scriptsPO.AFE_PREVIEW_FIELD,
+      ": "
+    );
+    await io.assert.verifyElementContainsText(
+      selectors.scriptsPO.AFE_PREVIEW_FIELD,
+      '"false"'
+    );
     await io.flowBuilder.clickByIndex(
       selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER,
       1
@@ -84,22 +92,26 @@ test.describe("IO-41074", () => {
     await io.flowBuilder.waitForElementAttached(
       selectors.scriptsPO.AFE_INPUT_FIELD
     );
-    await expect(page.locator(selectors.scriptsPO.AFE_INPUT_FIELD)).toContainText(
+    await io.assert.verifyElementContainsText(
+      selectors.scriptsPO.AFE_INPUT_FIELD,
       expectedText
     );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.PREVIEW);
     await io.flowBuilder.waitForElementAttached(
       selectors.scriptsPO.AFE_PREVIEW_FIELD
     );
-    await expect(
-      page.locator(selectors.scriptsPO.AFE_PREVIEW_FIELD)
-    ).toContainText('"testMode"');
-    await expect(
-      page.locator(selectors.scriptsPO.AFE_PREVIEW_FIELD)
-    ).toContainText(": ");
-    await expect(
-      page.locator(selectors.scriptsPO.AFE_PREVIEW_FIELD)
-    ).toContainText('"false"');
+    await io.assert.verifyElementContainsText(
+      selectors.scriptsPO.AFE_PREVIEW_FIELD,
+      '"testMode"'
+    );
+    await io.assert.verifyElementContainsText(
+      selectors.scriptsPO.AFE_PREVIEW_FIELD,
+      ": "
+    );
+    await io.assert.verifyElementContainsText(
+      selectors.scriptsPO.AFE_PREVIEW_FIELD,
+      '"false"'
+    );
     await io.flowBuilder.clickByIndex(
       selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER,
       1
@@ -113,22 +125,26 @@ test.describe("IO-41074", () => {
     await io.flowBuilder.waitForElementAttached(
       selectors.scriptsPO.AFE_INPUT_FIELD
     );
-    await expect(page.locator(selectors.scriptsPO.AFE_INPUT_FIELD)).toContainText(
+    await io.assert.verifyElementContainsText(
+      selectors.scriptsPO.AFE_INPUT_FIELD,
       expectedText
     );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.PREVIEW);
     await io.flowBuilder.waitForElementAttached(
       selectors.scriptsPO.AFE_PREVIEW_FIELD
     );
-    await expect(
-      page.locator(selectors.scriptsPO.AFE_PREVIEW_FIELD)
-    ).toContainText('"testMode"');
-    await expect(
-      page.locator(selectors.scriptsPO.AFE_PREVIEW_FIELD)
-    ).toContainText(": ");
-    await expect(
-      page.locator(selectors.scriptsPO.AFE_PREVIEW_FIELD)
-    ).toContainText('"false"');
+    await io.assert.verifyElementContainsText(
+      selectors.scriptsPO.AFE_PREVIEW_FIELD,
+      '"testMode"'
+    );
+    await io.assert.verifyElementContainsText(
+      selectors.scriptsPO.AFE_PREVIEW_FIELD,
+      ": "
+    );
+    await io.assert.verifyElementContainsText(
+      selectors.scriptsPO.AFE_PREVIEW_FIELD,
+      '"false"'
+    );
     await io.flowBuilder.clickByIndex(
       selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER,
       1
@@ -148,8 +164,9 @@ test.describe("IO-41074", () => {
     await io.flowBuilder.waitForElementAttached(
       selectors.scriptsPO.POSTRESPONSE_INPUT_FIELD
     );
-    await expect(
-      page.locator(selectors.scriptsPO.POSTRESPONSE_INPUT_FIELD)
-    ).toContainText(expectedText);
+    await io.assert.verifyElementContainsText(
+      selectors.scriptsPO.POSTRESPONSE_INPUT_FIELD,
+      expectedText
+    );
   });
 });
