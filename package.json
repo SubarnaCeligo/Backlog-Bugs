@@ -34,8 +34,8 @@
     }
   },
   "devDependencies": {
-    "@celigo/ui-core-automation": "^0.1.36",
-    "@celigo/aut-selectors": "^0.0.99",
+    "@celigo/ui-core-automation": "^0.1.43",
+    "@celigo/aut-selectors": "^0.1.1",
     "@celigo/aut-utilities": "^0.0.35",
     "@playwright/test": "^1.32.3",
     "allure-playwright": "^2.2.1",
