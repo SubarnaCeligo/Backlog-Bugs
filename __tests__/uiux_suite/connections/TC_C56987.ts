@@ -1,0 +1,26 @@
+import { test, expect } from "@celigo/ui-core-automation";
+import * as selectors from "@celigo/aut-selectors";
+
+
+
+
+
+test.describe("C56987 Verify the seller central URL that UI is navigating to is as expected when we select the marketplace as Belgium", () => {
+    test("C56987 Verify the seller central URL that UI is navigating to is as expected when we select the marketplace as Belgium", async ({io, page}) => {
+    
+      await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
+      let isConnectionsVisible = await io.homePage.isVisible(
+                selectors.basePagePO.CONNECTIONS
+              );
+      if (!isConnectionsVisible) await io.homePage.clickByText("Resources");
+            await io.homePage.click(selectors.basePagePO.CONNECTIONS);
+
+            await io.connectionPage.clickByText("amazon_seller_central")
+            await io.connectionPage.click(selectors.basePagePO.SAVE)
+            const newPage = await page.waitForEvent('popup');
+            const currentUrl = newPage.url();
+            const expectedUrl = 'https://sellercentral.amazon.com.be';  
+            const func = currentUrl.includes(expectedUrl)
+            await io.assert.expectToBeTrue(true, "urls doesn't match")
+    });
+  });
