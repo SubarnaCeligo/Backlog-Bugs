@@ -53,7 +53,9 @@ const askFeatureQuestion = () => {
                 "e2e_flows",
                 "uiux_suite",
                 "flowbranching",
-                "MFA"
+                "MFA",
+                "manage_suite",
+                "monitor_suite"
             ],
             message: "Please Select A Feature:",
         }

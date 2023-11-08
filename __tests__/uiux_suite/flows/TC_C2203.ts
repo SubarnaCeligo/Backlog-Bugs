@@ -14,7 +14,7 @@ test.describe(`C2203 Verify existing stacks are shown for flow builder exports a
       await testCase.click();
       await io.homePage.addStep("Clicked on 'C2203' test case");
     } catch {
-      await io.fillFormUI(testData, "FLOWS");
+      await io.createResourceFromAPI(testData, "FLOWS");
       await io.homePage.addStep("Created new flow");
     }
     await page.getByLabel("Define options").first().click();

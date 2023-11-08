@@ -12,7 +12,7 @@ test.describe("C93992 Verify 'Script is required'/'Function is required' validat
         await page.getByRole('menuitem', { name: 'Add branching' }).click();
         await io.flowBuilder.addStep('Switching to javascript option');
         await io.flowBuilder.click(selectors.basePagePO.JAVASCRIPTWINDOW);
-        let errorMessage = await page.locator(selectors.mappings.Mapper2dot0PO.ERROR).evaluate(e => {
+        let errorMessage = await page.locator(selectors.mappings.MAPPER2DOT0PO.ERROR).evaluate(e => {
             // @ts-ignore
             const editor = ace.edit(e);
             return editor.getValue();
@@ -22,7 +22,7 @@ test.describe("C93992 Verify 'Script is required'/'Function is required' validat
         await io.flowBuilder.click('#scriptId');
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.SCRIPTS_LIST, 1);
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.FUNCTION_NAME_INPUT,'');
-        errorMessage = await page.locator(selectors.mappings.Mapper2dot0PO.ERROR).evaluate(e => {
+        errorMessage = await page.locator(selectors.mappings.MAPPER2DOT0PO.ERROR).evaluate(e => {
           // @ts-ignore
           const editor = ace.edit(e);
           return editor.getValue();

@@ -5,7 +5,7 @@ import C46915 from "@testData/Flows/C46915.json"
 test.describe('File Provider - Verify the “Action to take if source field has no value” dropdown', () => { 
     test("File Provider - Verify the “Action to take if source field has no value” dropdown ", async ({ io, page }) => {
         
-          await io.fillFormUI(
+          await io.createResourceFromAPI(
             C46915,
             'FLOWS'
           );
@@ -14,8 +14,8 @@ test.describe('File Provider - Verify the “Action to take if source field has 
         
           await io.flowBuilder.fill(selectors.flowBuilderPagePO.DESTINATION_MAPPING_PLACEHOLDER, "mapping");
 
-          await io.flowBuilder.click(selectors.mappings.Mapper2dot0PO.FORWINDOWCLICK)
-          await io.flowBuilder.click(selectors.mappings.Mapper2dot0PO.SETTINGSBUTTON)
+          await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.FORWINDOWCLICK)
+          await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.SETTINGSBUTTON)
           await io.flowBuilder.clickByText("Do nothing");
           const liElement1 = await page.locator("li").filter({ hasText: "Do nothing" });
           await expect(liElement1).toHaveText("Do nothing", { timeout: 5000 });

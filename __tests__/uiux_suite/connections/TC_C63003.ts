@@ -7,7 +7,7 @@ test.describe(`C63003 Verify connection dropdown while clonning flow`, () => {
     io,
     page
   }) => {
-    await io.fillFormUI(testData, "FLOWS");
+    await io.createResourceFromAPI(testData, "FLOWS");
     await page
       .locator(selectors.connectionsPagePO.ACTIONS_MENU_BUTTON)
       .first()

@@ -11,7 +11,7 @@ test.describe("To verify that the Export/Import bubbles are working as expected"
 
     test("To verify that the Export/Import bubbles are working as expected", async ({io,page}) => {
      
-        await io.fillFormUI(C59678, "FLOWS");
+        await io.createResourceFromAPI(C59678, "FLOWS");
 
         await io.flowBuilder.clickByText("Export");
 

@@ -7,7 +7,7 @@ test.describe("C58307 There should not be any error when Data retention page is 
         await io.myAccountPage.addStep('click on data retention tab');
         await io.myAccountPage.click(selectors.myAccountPagePO.DATA_RETENTION);
         await io.myAccountPage.addStep('Reloading page and checking ');
-        await page.reload();
+        await io.myAccountPage.reloadPage();
         await io.assert.verifyElementIsDisplayed(selectors.myAccountPagePO.DATA_RETENTION_PERIOD, 'Not reloaded properly');
     });
   });

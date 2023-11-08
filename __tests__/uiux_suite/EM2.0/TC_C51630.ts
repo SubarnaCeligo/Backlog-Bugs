@@ -11,7 +11,7 @@ test.describe(`C51630 Verify the "Previous" & "Next" options in the "Error detai
     // await io.flowBuilder.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
     // await io.flowBuilder.clickByText("Automation Flows");
     // await io.flowBuilder.clickByText("mytestflow");
-    const id = await io.fillFormUI(flowJSON, "FLOWS");
+    const id = await io.createResourceFromAPI(flowJSON, "FLOWS");
     await io.api.runBatchFlowViaAPI("C51630", id);
     const lastRun = page.getByText("Last run");
     await lastRun.waitFor({ state: "visible" });

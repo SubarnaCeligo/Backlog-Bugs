@@ -8,12 +8,12 @@ test.describe('C93716 Validate user is able to see default function name as "for
    
     test('C93716 Validate user is able to see default function name as "formInit" instead of "main" for form builder', async({io,page}) => {
   
-      const id =  await io.fillFormUI(
+      const id =  await io.createResourceFromAPI(
         data,
         'FLOWS'
       );
-  
-      await io.flowBuilder.clickByText("Import")
+      await page.pause()
+      await io.flowBuilder.click('[data-test="Import"]')
       await io.flowBuilder.clickByText("Custom settings")
       await io.flowBuilder.clickByText("Launch form builder")
       await io.flowBuilder.clickByText("Script")

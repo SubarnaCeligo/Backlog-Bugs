@@ -6,7 +6,7 @@ test.describe('C93825 Validate user is able to see the options script,descriptio
      
     test('C93825 Validate user is able to see the options script,description,chose function stub while creating "postAggregate" script through flow builder page', async({io,page}) => {
   
-      const id =  await io.fillFormUI(
+      const id =  await io.createResourceFromAPI(
          data1,
         'FLOWS'
       );
