@@ -7,12 +7,12 @@ test.describe("C107439_C106998 Verify the Sort Errors in new error view in Ascen
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
   test("C107439_C106998 Verify user can able to toggle sorting arrow and view changes", async ({ io, page }) => {
-    const errorFlowId = await io.fillFormUI(C107439, "FLOWS");
+    const errorFlowId = await io.createResourceFromAPI(C107439, "FLOWS");
     await io.api.runBatchFlowViaAPI('TC_C107439', errorFlowId);
     const lastRun = page.getByText('Last run')
     await lastRun.waitFor({ state: 'visible', timeout: 180000 });
     await io.flowBuilder.clickByTextByIndex("5 errors", 1);
-    const timeStamp = page.locator(selectors.flowBuilderPagePO.EM2dot0PO.TIMESTAMP_TABLE);
+    const timeStamp = page.locator(selectors.flowBuilderPagePO.EM2DOT0PO.TIMESTAMP_TABLE);
     await timeStamp.nth(2).waitFor();
     const descendingList = await timeStamp.all();
     for (let i = 1; i < descendingList.length - 1; i++) {
@@ -21,7 +21,7 @@ test.describe("C107439_C106998 Verify the Sort Errors in new error view in Ascen
       await io.assert.expectToBeTrue(firstTimeStamp >= lastTimeStamp, 'The list is not sorted according to Descending timestamp');
     }
     await io.flowBuilder.click(
-      selectors.flowBuilderPagePO.EM2dot0PO.DOWN_ARROW
+      selectors.flowBuilderPagePO.EM2DOT0PO.DOWN_ARROW
     );
     const ascendingList = await timeStamp.all();
     for (let i = 2; i < ascendingList.length - 1; i++) {

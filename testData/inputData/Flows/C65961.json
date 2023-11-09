@@ -1,0 +1,154 @@
+{
+    "name": "TC_C65961",
+    "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Loop Export 1",
+    "_connectionId": "Loop Returns",
+    "_sourceId": "649990f336f89d18aecd451f",
+    "apiIdentifier": "e8245ff927",
+    "asynchronous": true,
+    "assistant": "loopreturns",
+    "oneToMany": false,
+    "http": {
+        "relativeURI": "/whitelists?page={{{export.http.paging.page}}}",
+        "method": "GET",
+        "requestMediaType": "json",
+        "successMediaType": "json",
+        "errorMediaType": "json",
+        "_httpConnectorVersionId": "639184209998e4b191badcb2",
+        "_httpConnectorResourceId": "639184209998e4b191badcb3",
+        "_httpConnectorEndpointId": "639184209998e4b191badcb6",
+        "formType": "assistant",
+        "paging": {
+            "method": "page",
+            "page": 1
+        },
+        "response": {
+            "resourcePath": "data"
+        }
+    },
+    "settingsForm": {
+        "form": {
+            "fieldMap": {
+                "testSetting": {
+                    "label": "test refresh type setting",
+                    "helpText": "Choose an SAP Business ByDesign item to track your Amazon order total sales tax. The selected item is added as a line item on the SAP Business ByDesign sales order.",
+                    "id": "testSetting",
+                    "name": "testSetting",
+                    "type": "exportSelect",
+                    "displayAfter": "export.assistantMetadata.pathParams.whitelist_id",
+                    "resource": {
+                        "virtual": {
+                            "asynchronous": true,
+                            "_connectionId": "",
+                            "http": {
+                                "relativeURI": "/whitelists",
+                                "method": "GET",
+                                "requestMediaType": "json",
+                                "successMediaType": "json",
+                                "errorMediaType": "json",
+                                "_httpConnectorVersionId": "639184209998e4b191badcb2",
+                                "_httpConnectorResourceId": "639184209998e4b191badcb3",
+                                "_httpConnectorEndpointId": "639184209998e4b191badcb4",
+                                "formType": "assistant",
+                                "response": {
+                                    "resourcePath": "data[0].id"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "layout": {
+                "fields": [
+                    "testSetting"
+                ]
+            }
+        }
+    },
+    "settings": {
+        "testSetting": ""
+    },
+    "adaptorType": "HTTPExport"
+        }
+    }
+], "pageProcessors": [
+    {
+        "type": "import",
+        "qa__import": {
+            "name": "Zen import",
+            "_connectionId": "ZENDESK CONNECTION",
+            "_sourceId": "6528fa09e49af640189875ac",
+            "apiIdentifier": "i60150d86c",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "assistantMetadata": {
+                "resource": "tickets_api",
+                "version": "v2",
+                "operation": "create_tickets_api"
+            },
+            "http": {
+                "relativeURI": [
+                    "/api/v2/tickets.json"
+                ],
+                "method": [
+                    "POST"
+                ],
+                "body": [
+                    "{\n  \"ticket\": {\n    \"comment\": {\n      \"body\": \"The smoke is very colorful.\"\n    },\n    \"priority\": \"27oct\",\n    \"subject\": \"My printer is on fire!\"\n  }\n}"
+                ],
+                "batchSize": 1,
+                "requestMediaType": "json",
+                "successMediaType": "json",
+                "errorMediaType": "json",
+                "strictHandlebarEvaluation": true,
+                "formType": "http",
+                "response": {
+                    "resourceIdPath": [
+                        null
+                    ]
+                }
+            },
+            "rest": {
+                "relativeURI": [
+                    "/api/v2/tickets.json"
+                ],
+                "method": [
+                    "POST"
+                ],
+                "body": [
+                    "{\n  \"ticket\": {\n    \"comment\": {\n      \"body\": \"The smoke is very colorful.\"\n    },\n    \"priority\": \"27oct\",\n    \"subject\": \"My printer is on fire!\"\n  }\n}"
+                ],
+                "responseIdPath": [
+                    null
+                ]
+            },
+            "adaptorType": "RESTImport"
+          }
+      }
+  ],
+    "createFlow": {
+        "name": "TC_C65961",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+}

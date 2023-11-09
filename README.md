@@ -22,8 +22,8 @@ npm run report
 
 ## Command to get latest module
 ```sh
-npm ci
-Example: npm ci --save-dev @celigo/aut-selectors@latest
+npm i
+Example: npm i --save-dev @celigo/aut-selectors@latest
 ```
 ## Features
 

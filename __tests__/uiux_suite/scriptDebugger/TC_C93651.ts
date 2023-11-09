@@ -11,7 +11,8 @@ test.describe('C93651Validate that user is getting prefill function stub for "po
     io,
     page
   }) => {
-    await io.homePage.goToMenu("Resources","Scripts");
+    await io.homePage.click(selectors.basePagePO.RESOURCES)
+    await io.homePage.clickByText("Scripts");
     await io.flowBuilder.clickByText("Create script");
     await io.flowBuilder.click(selectors.basePagePO.FUNCTION_STUB);   
     await io.flowBuilder.selectTextfromDropDown(page, "postResponseMap");
