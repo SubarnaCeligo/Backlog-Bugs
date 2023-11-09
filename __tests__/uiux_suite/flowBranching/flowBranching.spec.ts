@@ -21,3 +21,4 @@ require('./TC_C68563');
 require('./TC_C68564');
 require('./TC_C68565');
 require("./TC_C107972");
+require('./TC_C69064');

@@ -1,0 +1,55 @@
+{
+    "name": "TC_C9466",
+    "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "AutomationStandalone_7KGu9",
+    "_connectionId": "HTTP ZENDESK CONNECTION",
+    "apiIdentifier": "e852ce511e",
+    "asynchronous": true,
+    "type": "test",
+    "oneToMany": false,
+    "http": {
+        "relativeURI": "/test",
+        "method": "GET",
+        "formType": "http"
+    },
+    "test": {
+        "limit": 1
+    },
+    "adaptorType": "HTTPExport"
+            }
+          }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "NS premium import",
+    "_connectionId": "347 NS CONNECTION",
+    "distributed": true,
+    "apiIdentifier": "i9f015fc6d",
+    "ignoreExisting": false,
+    "ignoreMissing": false,
+    "oneToMany": false,
+    "sandbox": false,
+    "lookups": [],
+    "netsuite_da": {
+        "restletVersion": "suiteapp2.0",
+        "operation": "update",
+        "recordType": "pricebook",
+        "internalIdLookup": {
+            "expression": "[\"chargefrequency\",\"equalto\",\"1000\"]"
+        },
+        "lookups": [],
+        "mapping": {
+            "fields": [],
+            "lists": []
+        }
+    },
+    "adaptorType": "NetSuiteDistributedImport"
+        }
+    }
+]
+}
