@@ -1,15 +1,9 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import testData from '@testData/Flows/C33306.json';
+import {isValidLocalTimeFormat, isRelativeTimeFormat} from "@celigo/aut-utilities"
 
 
-function isRelativeTimeFormat(timeText) {
-  return /ago|minutes|hours|days|weeks|months|year|now|Just/i.test(timeText);
-}
-function isValidLocalTimeFormat(timeText) {
-  const timePattern = /^(0?[1-9]|1[0-2]):[0-5][0-9]:[0-5][0-9]\s*(am|pm)$/;
-   return /am|pm/i.test(timeText);
-}
 
 
 test.describe("C33306 Verify in Timestamp and Resolved at columns in Resolved errors section are displayed in relative format and the vice versa.", () => {
