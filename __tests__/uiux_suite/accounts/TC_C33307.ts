@@ -23,9 +23,9 @@ test.describe("C33307 Verify if the checkbox is checked user should be see the r
       await io.api.runBatchFlowViaAPI('TC_50858', id);
       const lastRun = page.getByText('Last run')
       await lastRun.waitFor({state: 'visible', timeout: 180000});
-      await io.assert.verifyElementIsDisplayed('[aria-label="local date time"]', 'Exact time and date format is not  displayed when hovered over the Relative time format.')
+      await io.assert.verifyElementIsDisplayed(selectors.myAccountPagePO.LOCAL_DATE_TIME, 'Exact time and date format is not  displayed when hovered over the Relative time format.')
       await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
-      await io.myAccountPage.click('input[name="showRelativeDateTime"]')
+      await io.myAccountPage.click(selectors.myAccountPagePO.SHOW_RELATIVE_DATE_TIME_CHECKBOX)
       await io.myAccountPage.click(selectors.basePagePO.MFA_SAVE)
       await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL)
       await io.homePage.clickByText("Automation Flows")
