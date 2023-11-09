@@ -11,7 +11,8 @@ test.describe('C93702 Validate that user is able to see "formInit" function wher
       io,
       page
     }) => {
-      await io.homePage.goToMenu("Resources","Scripts");
+      await io.homePage.click(selectors.basePagePO.RESOURCES)
+      await io.homePage.clickByText("Scripts");
       await io.flowBuilder.clickByText("Create script");
       await io.flowBuilder.fill(selectors.importPagePO.NAME, "mockscript");
       await io.flowBuilder.click(selectors.basePagePO.FUNCTION_STUB);

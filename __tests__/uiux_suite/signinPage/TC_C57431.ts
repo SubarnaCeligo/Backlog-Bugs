@@ -5,7 +5,7 @@ test.describe.skip("C57431 Verify the success message in the forgot password pag
     test("C57431 Verify the success message in the forgot password page after we submit the password reset request by providing the email id of the user", async ({io, page}) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT);
-        await page.hover(selectors.basePagePO.ACCOUNT);
+        await io.homePage.hover(selectors.basePagePO.ACCOUNT);
         await io.homePage.click(selectors.basePagePO.SIGN_OUT);
         await io.signInPage.click(selectors.loginPagePO.FORGOT_PASSWORD);
         await io.signInPage.fill(selectors.loginPagePO.EMAIL_ID,process.env["IO_UserName"]);

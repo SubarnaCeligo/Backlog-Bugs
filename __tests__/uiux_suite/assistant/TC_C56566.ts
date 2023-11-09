@@ -21,12 +21,12 @@ test.describe("C56566 Verify when (select, multiselect) fieldType is selected in
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.fill(selectors.basePagePO.INPUT_NAME_SELECTOR, 'test confluence export');
     await io.flowBuilder.click(selectors.importPagePO.ASSISTANT_METADATA_RESOURCE);
-    await page.getByRole('menuitem', { name: 'Content labels', exact: true }).click();
+    await io.flowBuilder.getByRoleClick('menuitem','Content labels');
     await io.flowBuilder.click(selectors.importPagePO.ASSISTANT_METADATA_OPERTAION);
-    await page.getByRole('menuitem', { name: 'Get labels for content', exact: true }).click();
+    await io.flowBuilder.getByRoleClick('menuitem','Content labels');
     await io.flowBuilder.waitForElementAttached(selectors.importPagePO.QUERY_PARAMETER_NAME_0);
     await io.flowBuilder.click(selectors.importPagePO.QUERY_PARAMETER_NAME_0);
-    await page.locator(selectors.basePagePO.MENU_ITEM).nth(0).click();
+    await io.flowBuilder.clickByIndex(selectors.basePagePO.MENU_ITEM,0);
     await io.flowBuilder.click(selectors.importPagePO.QUERY_PARAMETER_VALUE_0);
     const dropdownOptions = await page.getByRole('menuitem').all();
     expect(dropdownOptions.length).toBeGreaterThanOrEqual(1);
