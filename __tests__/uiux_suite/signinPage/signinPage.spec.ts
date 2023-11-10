@@ -11,6 +11,7 @@ require("./TC_C66306");
 require("./TC_C66307");
 require("./TC_C67008");
 require("./TC_C59777");
+require("./TC_C66316");
 require("./TC_C56283");
 require("./TC_C56284");
 require("./TC_C56287");
