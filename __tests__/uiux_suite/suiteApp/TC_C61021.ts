@@ -17,7 +17,6 @@ test.describe(`C61021 Verify the prompt displayed on selecting ‘SuiteBundle Su
     await io.exportsPage.click(
       selectors.connectionsPagePO.CONNECTION_OPTION_TEXT
     );
-    // await io.flowBuilder.clickByText("NS No SA SB");
     await io.flowBuilder.fill(selectors.exportsPagePO.NAME, "NS Import");
     await io.exportsPage.click(selectors.basePagePO.SAVE);
     await page
