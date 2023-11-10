@@ -37,4 +37,7 @@ require("./TC_C107375");
 require("./TC_C107377");
 require("./TC_C107378");
 require("./TC_C56987");
+require("./TC_C9473");
+require("./TC_C52776");
+require("./TC_C52777");
 require("./TC_C23866");
