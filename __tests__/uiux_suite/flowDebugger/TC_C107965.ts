@@ -7,11 +7,14 @@ test.describe("Validate the hover text for disabled Test Run button (On top and 
   test("Validate the hover text for disabled Test Run button (On top and in the run console)", async ({ io, page }) => {
     //Create a flow with offline connections
     await io.createResourceFromAPI(C107965, "FLOWS");
-   
+
     //Disable the flow
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
+
+    //Wait for the flow to be disabled completely
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_ON_OFF);
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
 
     //Hover on the disabled Run Test button on top
