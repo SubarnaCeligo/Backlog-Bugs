@@ -12,9 +12,10 @@ test.describe('C67020 To verify that the delete option colour is changed to red 
 
   test('Homepage List view', async ({page,io}) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.homePage.click(selectors.homePagePO.LIST_VIEW)
+    await io.homePage.click(selectors.homePagePO.LIST_VIEW);
     await io.homePage.waitForElementAttached(`${selectors.flowBuilderPagePO.COLUMNS} ${selectors.connectionsPagePO.ACTIONS_MENU_BUTTON}`)
     await io.homePage.clickByIndex(`${selectors.flowBuilderPagePO.COLUMNS} ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`, 0);
+    await io.homePage.waitForElementAttached(selectors.homePagePO.DELETE_INTEGRATION);
     const color = await page.locator(selectors.homePagePO.DELETE_INTEGRATION).evaluate((el: any) => getComputedStyle(el).color);
     await io.assert.expectToBeValue(color,"rgb(217, 83, 79)","Color not red");
     await io.homePage.click(selectors.homePagePO.TILE_VIEW);

@@ -12,7 +12,7 @@ test.describe("C55447 Verify the error message when data size is more than 1 MB 
         await io.flowBuilder.fill('#mockOutput .ace_text-input', JSON.stringify(C55447_mockData));
         const mockOutputErrorDiv = await page.$('#mockOutput .MuiFormHelperText-root');
         const errorText = await mockOutputErrorDiv.innerText();
-        expect(errorText).toBe('Mock output cannot be larger than 1 MB. Decrease your mock data size and try again.')
+        expect(errorText).toBe('Mock output cannot be larger than 1 MB. Decrease your data size and try again.')
     });
 
     test("C55447 Verify for lookup", async ({io, page}) => {
@@ -22,6 +22,6 @@ test.describe("C55447 Verify the error message when data size is more than 1 MB 
         await io.flowBuilder.fill('#mockOutput .ace_text-input', JSON.stringify(C55447_mockData));
         const mockOutputErrorDiv = await page.$('#mockOutput .MuiFormHelperText-root');
         const errorText = await mockOutputErrorDiv.innerText();
-        expect(errorText).toBe('Mock output cannot be larger than 1 MB. Decrease your mock data size and try again.')
+        expect(errorText).toBe('Mock output cannot be larger than 1 MB. Decrease your data size and try again.')
     });
 });
