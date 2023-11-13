@@ -14,7 +14,7 @@ test.describe("Validate the hover text for disabled Test Run button (On top and 
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
 
     //Wait for the flow to be disabled completely
-    await io.flowBuilder.waitForElementAttached('[data-test="switchFlowOnOff"]');
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_ON_OFF);
 
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
 
