@@ -12,6 +12,9 @@ test.describe("Verify the hover text for disabled source in dropdown.", () => {
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
+
+    //Wait for flow to be disabled completely
+    await io.flowBuilder.waitForElementAttached('[data-test="switchFlowOnOff"]');
     
     //Click on the Run Test chevron icon
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_SPECIFIC_SOURCE_DROPDOWN);
