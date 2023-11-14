@@ -12,6 +12,6 @@ test.describe("C752 Verify Change password with invalid current pass and valid n
     io
   }) => {
     await io.myAccountPage.changePassword(C752);
-    await io.assert.verifyElementText(selectors.myAccountPagePO.SNACK_BAR_MESSAGE, "Current password failed to authenticate.  Please try again.")
+    await io.assert.verifyElementText(selectors.basePagePO.NOTIFICTION_BAR, "Current password failed to authenticate.  Please try again.")
   });
 });
