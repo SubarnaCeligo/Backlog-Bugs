@@ -14,6 +14,6 @@ test.describe("C51643 Verify the default view by clicking on the Error count in 
         const errorList = await page.$$(selectors.flowBuilderPagePO.EM2DOT0PO.OPEN_ERRORS_TABLE_ROWS);
         expect(await errorList[0].getAttribute('class')).toContain('Mui-selected');
         await io.assert.verifyElementIsDisplayed(`#editRetry ${selectors.flowBuilderPagePO.EM2DOT0PO.ACE_EDITOR_INPUT}`,'Unable to locate Edit Retry Editor');
-        await io.assert.verifyElementDisplayedByText('Error details', 'Error details not displayed');
+        await io.assert.verifyElementDisplayedByText('Error Details', 'Error details not displayed');
     });
 });
