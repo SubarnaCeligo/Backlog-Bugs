@@ -10,3 +10,4 @@ require("./TC_C63001");
 require("./TC_C63111");
 require("./TC_C52427");
 require("./TC_C93561");
+require("./TC_C30504");
