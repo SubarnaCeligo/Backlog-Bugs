@@ -5,7 +5,7 @@ import testMode from "@testData/FlowDebugger/IO-41074.json";
 test.describe("IO-41074", () => {
   test("IO-41074", async ({ io, page }) => {
     //C106907	C106908	C106909	C106910	C106939	C107003
-    const id = await io.fillFormUI(testMode, "FLOWS");
+    const id = await io.createResourceFromAPI(testMode, "FLOWS");
     await io.flowBuilder.waitForElementAttached(
       selectors.flowBuilderPagePO.EXPORT_HOOK
     );
