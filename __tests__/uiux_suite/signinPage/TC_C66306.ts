@@ -7,7 +7,7 @@ test.describe("C66306 Verify Sign up with Google is enabled on NA Sign up page",
     const isNotLoggedIn = await io.loginPage.checkLoginState();
     if (!isNotLoggedIn) {
       await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT);
-      await page.hover(selectors.basePagePO.ACCOUNT);
+      await io.homePage.hover(selectors.basePagePO.ACCOUNT);
       await io.homePage.click(selectors.basePagePO.SIGN_OUT);
     }
   });

@@ -8,7 +8,7 @@ test.describe(`C52754 Verify search functionality when user searches a child des
   }) => {
     await io.homePage.navigateTo(process.env.IO_Integration_URL);
     const testCase = page.getByText("Mapping_DND").first();
-    io.homePage.addStep("Clicked on Mapping_DND flow");
+    await io.homePage.addStep("Clicked on Mapping_DND flow");
     await testCase.waitFor({ state: "visible", timeout: 18000 });
     await testCase.click();
     await page.getByLabel("Define options").nth(1).click();
