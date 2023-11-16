@@ -17,7 +17,7 @@ test.describe.skip(
       const link = await io.emailVal.getLinkFromEmail(
         "[staging.integrator.io] Request to reset your password"
       );
-      await io.homePage.navigateTo(link);
+      await io.homePage.navigateTo(link.toString());
       await io.assert.verifyElementDisplayedByText(
         "You already have an active session running.",
         "Session running error is not displayed"
