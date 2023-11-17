@@ -10,20 +10,13 @@ test.describe('C93677 Validate user is getting auto-fill of funtion stub while c
         data,
         'FLOWS'
       );
-  
       await io.flowBuilder.click(selectors.exportsPagePO.EXPORT_ADDPROCESSOR_BUTTON)
-  
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT_HOOK)
       await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_HOOK)
-  
       await io.flowBuilder.click(selectors.basePagePO.CREATE_SCRIPT_ARIA_LABEL);
-    
-    
       await io.flowBuilder.fill(selectors.importPagePO.NAME, "Branching script");
       await io.flowBuilder.click(selectors.basePagePO.FUNCTION_STUB);   
       await io.flowBuilder.selectTextfromDropDown(page,"router");
-       // Scroll through the list of options to find "Transform" 
-     
       await io.flowBuilder.clickByText("Save & close");
       await io.flowBuilder.click(selectors.flowBuilderPagePO.EDIT_SCRIPT_LABEL_SELECTOR)
       let divTextContent = await io.flowBuilder.getText(selectors.basePagePO.ACE_CONTENT);

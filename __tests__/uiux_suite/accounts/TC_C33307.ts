@@ -7,7 +7,7 @@ import testData from '@testData/Flows/C33307.json';
  
 
  
-test.describe("C33307 Verify if the checkbox is checked user should be see the relative time format and when they mousehover the timestamp column field relative format is displayed and the vice versa.", () => {
+test.describe.only("C33307 Verify if the checkbox is checked user should be see the relative time format and when they mousehover the timestamp column field relative format is displayed and the vice versa.", () => {
     test("C33307Verify if the checkbox is checked user should be see the relative time format and when they mousehover the timestamp column field relative format is displayed and the vice versa.", async ({io, page}) => {
     
       await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);

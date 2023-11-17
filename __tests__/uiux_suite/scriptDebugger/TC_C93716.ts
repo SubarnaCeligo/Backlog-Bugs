@@ -12,7 +12,6 @@ test.describe('C93716 Validate user is able to see default function name as "for
         data,
         'FLOWS'
       );
-      await page.pause()
       await io.flowBuilder.click('[data-test="Import"]')
       await io.flowBuilder.clickByText("Custom settings")
       await io.flowBuilder.clickByText("Launch form builder")
