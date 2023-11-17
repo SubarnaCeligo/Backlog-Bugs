@@ -20,7 +20,7 @@ test.describe.skip(
       const link = await io.emailVal.getLinkFromEmail(
         "[staging.integrator.io] Request to reset your password"
       );
-      await io.homePage.navigateTo(link);
+      await io.homePage.navigateTo(link.toString());
       await io.homePage.fill(selectors.loginPagePO.PASSWORD, "123");
       await io.homePage.getByRoleClick("button", "Save");
 
