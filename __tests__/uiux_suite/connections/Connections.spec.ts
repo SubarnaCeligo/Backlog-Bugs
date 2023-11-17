@@ -40,6 +40,7 @@ require("./TC_C56987");
 require("./TC_C23866");
 require("./TC_C63002");
 require("./TC_C66292");
+require("./TC_C51793");
 require("./TC_C9473");
 require("./TC_C52776");
 require("./TC_C52777");
