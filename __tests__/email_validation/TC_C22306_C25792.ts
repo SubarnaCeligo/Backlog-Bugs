@@ -1,5 +1,4 @@
-import { test, expect } from "@celigo/ui-core-automation";
-import { getRemainingMinutes } from "@celigo/aut-utilities";
+import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import C22306 from '../../testData/inputData/email_validations/C22306.json'
 import monitor_all_manage_few from "./monitor_all_manage_few.json"

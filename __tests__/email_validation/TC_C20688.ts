@@ -1,5 +1,4 @@
-import { test, expect } from "@celigo/ui-core-automation";
-import { getRemainingMinutes } from "@celigo/aut-utilities";
+import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import C20688 from '../../testData/inputData/email_validations/C20688.json'
 import admin from "./admin.json"
@@ -21,7 +20,6 @@ test.describe("C20688 EM 2.0- email notification - clicking on 'Unsubscribe'  in
       await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
       const lastRun = page.getByText('Last run');
       await lastRun.waitFor({state: 'visible', timeout: 180000});
-      console.log("Waiting for 15 minutes");
       await io.flowBuilder.delay(1000 * 60 * 15);
       const res = await io.emailVal.getLinkFromEmail("1 new error: TC_C20688",true);
       await io.homePage.navigateTo(res[5].split('\\')[0]);

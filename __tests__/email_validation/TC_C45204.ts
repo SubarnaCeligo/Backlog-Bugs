@@ -1,4 +1,4 @@
-import { test, expect } from "@celigo/ui-core-automation";
+import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C45204 Verify list of Accounts dropdown beside profile icon", () => {

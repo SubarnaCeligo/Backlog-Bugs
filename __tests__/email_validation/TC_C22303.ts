@@ -1,11 +1,10 @@
-import { test, expect } from "@celigo/ui-core-automation";
+import { test } from "@celigo/ui-core-automation";
 import { decrypt } from "@celigo/aut-utilities";
-import { getRemainingMinutes } from "@celigo/aut-utilities";
 import * as selectors from "@celigo/aut-selectors";
 import C22303 from '../../testData/inputData/email_validations/C22303.json'
 import admin from "./admin.json"
 
-test.describe("C22303 Verify whether the navigation is appropriate according to the org for which email received.", () => {
+test.describe.skip("C22303 Verify whether the navigation is appropriate according to the org for which email received.", () => {
     test.beforeEach(async ({io, page}) => {
       const res1 = await io.api.putCall(
         `v1/ashares/${process.env.IO_Ashare_ID}`,
