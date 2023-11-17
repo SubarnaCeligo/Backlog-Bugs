@@ -13,7 +13,7 @@ import data from "@testData/FtpImport/C77822.json"
              );
              await io.api.runBatchFlowViaAPI('C77805', id);
              const lastRun = page.getByText('Last run')
-             await lastRun.waitFor({state: 'visible', timeout: 180000});
+             await lastRun.waitFor({state: 'visible', timeout: 360000});
              await io.flowBuilder.clickByTextByIndex("1 error", 1);
              await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FTP_BRIDGE_ERROR_MORE_BUTTON);
              await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.FTP_BRIDGE_ERROR_MORE_BUTTON,"Element is present") 

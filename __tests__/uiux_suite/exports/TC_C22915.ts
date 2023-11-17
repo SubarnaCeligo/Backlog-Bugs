@@ -13,40 +13,24 @@ test.describe('Verify the prefix “Build “ from the field labels in exports a
           'FLOWS'
         );
 
-        await io.flowBuilder.clickByText("Export");
-
+        await io.flowBuilder.click('[data-test="Export"]');
         const labels = await page.$$eval('label', elements =>
         elements.map(element => element.textContent.trim())
       );
-      
-      // Loop through the labels and check if any of them start with "Build "
       const labelsWithBuildPrefix = labels.filter(label => label.startsWith('Build '));
-      
-      // Assert that there are no labels with the "Build " prefix
       expect(labelsWithBuildPrefix.length).toBe(0);
-
 
     });       
     test('Verify the prefix “Build “ from the field labels in imports', async ({ io, page }) => {
-        
-
       const id =  await io.createResourceFromAPI(
           testData2,
           'FLOWS'
         );
-
-        await io.flowBuilder.clickByText("Import");
-
+        await io.flowBuilder.click('[data-test="Import"]');
         const labels = await page.$$eval('label', elements =>
         elements.map(element => element.textContent.trim())
       );
-      
-      // Loop through the labels and check if any of them start with "Build "
       const labelsWithBuildPrefix = labels.filter(label => label.startsWith('Build '));
-      
-      // Assert that there are no labels with the "Build " prefix
       expect(labelsWithBuildPrefix.length).toBe(0);
-
-
     });       
   })

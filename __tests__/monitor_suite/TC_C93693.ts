@@ -1,9 +1,14 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
+import testData from "@testData/monitorSuite/monitor_all.json";
 
 
-test.describe('C93699 Validate that user is not able to see " postResponseMap" function in “Insert function stub” field while creating a script (Tile Level)', () => {
-  test('C93699 Validate that user is not able to see " postResponseMap" function in “Insert function stub” field while creating a script (Tile Level)', async ({io,page}) => {
+test.describe('C93693 Validate that user is not able to see "formInit" function in “Insert function stub” field while creating a script (Monitor)', () => {
+  test('C93693 Validate that user is not able to see "formInit" function in “Insert function stub” field while creating a script (Monitor)', async ({io,page}) => {
+    const res = await io.api.putCall(
+        `v1/ashares/${process.env.IO_Ashare_ID}`,
+        testData
+      );
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     const isResourceVisible = await io.homePage.isVisible(selectors.basePagePO.RESOURCES);
     if(isResourceVisible){

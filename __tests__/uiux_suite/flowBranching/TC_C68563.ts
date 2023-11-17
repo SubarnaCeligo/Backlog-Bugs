@@ -15,7 +15,7 @@ test.describe(`C68563 Verify user is upload the integration zip file having Mult
             await io.homePage.click(`tbody tr:has-text("temp5-DND") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
             await io.homePage.clickByText("Upload template zip");
             const fileInput = await page.$(selectors.basePagePO.UPLOAD_FILE);
-            await fileInput.setInputFiles('testData/Templates/C68563.zip');  
+            await fileInput.setInputFiles('testData/inputData/Templates/C68563.zip');  
             await io.homePage.clickByText("Marketplace")
             await io.marketplacePage.fill('[placeholder="Search marketplace"]', "temp5-DND") 
             await io.marketplacePage.clickByText("Preview");

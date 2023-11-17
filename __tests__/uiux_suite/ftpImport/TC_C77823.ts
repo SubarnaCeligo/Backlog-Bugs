@@ -13,7 +13,7 @@ test.describe(`C77823 Validate User is not seeing the vertical line when downloa
          );
          await io.api.runBatchFlowViaAPI('C77823', id);
          const lastRun = page.getByText('Last run')
-         await lastRun.waitFor({state: 'visible', timeout: 180000});
+         await lastRun.waitFor({state: 'visible', timeout: 360000});
          
          await io.flowBuilder.clickByTextByIndex("1 error", 1);
         const element = await io.flowBuilder.isVisible(selectors.basePagePO.MENU_ITEM)

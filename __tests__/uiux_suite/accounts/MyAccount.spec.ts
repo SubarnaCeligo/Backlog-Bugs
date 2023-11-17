@@ -5,3 +5,5 @@ require("./TC_C733");
 require("./TC_C25555");
 require("./TC_C108513");
 require("./TC_C101084");
+require("./TC_C33306");
+require("./TC_C33307");
