@@ -9,13 +9,13 @@ test.describe("Verify that the hide map(X) icon appears upon hovering over the m
     await io.createResourceFromAPI(C110682, "FLOWS");
 
     //Wait for the mini map controld to load 
-    await io.flowBuilder.waitForElementAttached('[data-test="canvas-mini-map"]');
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_SHOW_HIDE_MAP);
 
     //Click on Show Map
-    await io.flowBuilder.click('[data-test="canvas-mini-map"]');
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_SHOW_HIDE_MAP);
 
     //Hover on the map
-    await io.flowBuilder.hover('[data-testid="rf__minimap"]', 0, false);
+    await io.flowBuilder.hover(selectors.flowBuilderPagePO.MINI_MAP, 0, false);
 
     //Wait for X icon to appear and hover on it
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.HIDE_MAP_X_ICON);
