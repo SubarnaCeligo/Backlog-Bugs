@@ -26,8 +26,7 @@ test.describe(`C60400 "Verify whether data types(select,integer) are supporting 
       selectors.exportsPagePO.ASSISTANT_META_DATA_OPERATION
     );
     await io.exportsPage.clickByText("Get all talents for a worker");
-    // todo replace: selectors.connectionsPagePO.LIST_NAME
-    await io.exportsPage.click("[id='assistantMetadata.pathParams.list_name']");
+    await io.exportsPage.click(selectors.connectionsPagePO.LIST_NAME);
     await io.assert.verifyElementIsDisplayed(
       selectors.basePagePO.LISTBOX_ROLE,
       "List box is not displayed"

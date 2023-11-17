@@ -26,8 +26,7 @@ test.describe(`C60399 Verify whether data types(select,integer) are supporting f
       selectors.exportsPagePO.ASSISTANT_META_DATA_OPERATION
     );
     await io.exportsPage.clickByText("Time Off");
-    // todo replace: selectors.connectionsPagePO.LIST_NAME
-    await io.exportsPage.click("[id='assistantMetadata.pathParams.list_name']");
+    await io.exportsPage.click(selectors.connectionsPagePO.LIST_NAME);
     await io.assert.verifyElementIsDisplayed(
       selectors.basePagePO.LISTBOX_ROLE,
       "List box is not displayed"
