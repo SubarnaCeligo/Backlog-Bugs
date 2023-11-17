@@ -64,6 +64,7 @@
                 "skipDelete": true,
                 "encoding": "utf8",
                 "type": "filedefinition",
+                "qa__type": "filedefinition",
                 "qa__ediformat": "genericedi850",
                 "fileDefinition": {
                     "_fileDefinitionId": "62cc2fc29263164167660a11"
