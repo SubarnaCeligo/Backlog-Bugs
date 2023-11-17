@@ -26,7 +26,7 @@ test.describe.skip(
       const link = await io.emailVal.getLinkFromEmail(
         "[staging.integrator.io] Request to reset your password"
       );
-      await io.homePage.navigateTo(link);
+      await io.homePage.navigateTo(link.toString());
       await io.assert.verifyElementIsDisplayed(
         selectors.basePagePO.CELIGO_LOGO,
         "Celigo logo is not displayed"
