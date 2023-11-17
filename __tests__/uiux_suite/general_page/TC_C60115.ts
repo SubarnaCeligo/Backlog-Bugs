@@ -1,12 +1,12 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("To verify that the user is able to load integration from dev playground page.", () => {
+test.describe("C60115 To verify that the user is able to load integration from dev playground page.", () => {
   test.beforeEach(async ({ io }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
 
-  test("To verify that the user is able to load integration from dev playground page.", async ({
+  test("C60115 To verify that the user is able to load integration from dev playground page.", async ({
     io,
     page
   }) => {

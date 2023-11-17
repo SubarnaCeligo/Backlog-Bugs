@@ -25,7 +25,7 @@ test.describe('C106997_C106995_C106996 Validate that the sort dropdwon when spec
         await io.assert.expectToBeTrue(curString === 'hello: Number must be 0 or 1', 'The list is not sorted according to Ascending order in Message');
       }
       await io.flowBuilder.click(
-        selectors.flowBuilderPagePO.EM2dot0PO.UP_ARROW
+        selectors.flowBuilderPagePO.EM2DOT0PO.UP_ARROW
       );
 
       for(let i=6; i<=10; i++){
@@ -52,7 +52,7 @@ test.describe('C106997_C106995_C106996 Validate that the sort dropdwon when spec
         await io.assert.expectToBeTrue(curString === 'Mapping', 'The list is not sorted according to Ascending order in Source');
       }
       await io.flowBuilder.click(
-        selectors.flowBuilderPagePO.EM2dot0PO.UP_ARROW
+        selectors.flowBuilderPagePO.EM2DOT0PO.UP_ARROW
       );
 
       for(let i=6; i<=10; i++){
@@ -79,7 +79,7 @@ test.describe('C106997_C106995_C106996 Validate that the sort dropdwon when spec
         await io.assert.expectToBeTrue(curString === 'incompatible_datatype', 'The list is not sorted according to Ascending order in Code');
       }
       await io.flowBuilder.click(
-        selectors.flowBuilderPagePO.EM2dot0PO.UP_ARROW
+        selectors.flowBuilderPagePO.EM2DOT0PO.UP_ARROW
       );
 
       for(let i=6; i<=10; i++){
@@ -106,7 +106,7 @@ test.describe('C106997_C106995_C106996 Validate that the sort dropdwon when spec
         await io.assert.expectToBeTrue(curString === 'Missing', 'The list is not sorted according to Ascending order in Classification');
       }
       await io.flowBuilder.click(
-        selectors.flowBuilderPagePO.EM2dot0PO.UP_ARROW
+        selectors.flowBuilderPagePO.EM2DOT0PO.UP_ARROW
       );
 
       for(let i=6; i<=10; i++){
