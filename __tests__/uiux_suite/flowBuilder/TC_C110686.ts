@@ -27,7 +27,6 @@ test.describe("Verify that the hide map(X) icon appears upon hovering over the m
     //Get the hover text
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUNTEST_TOOLTIP);
     const hoverText = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.RUNTEST_TOOLTIP)).toString();
-    console.log(hoverText)
 
     //Validate the hover text
     await io.assert.expectToContainValue('Hide map', hoverText, 'Incorrect/No hover text')
