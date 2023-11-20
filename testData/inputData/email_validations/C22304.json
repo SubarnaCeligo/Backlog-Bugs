@@ -1,0 +1,75 @@
+{
+    "name": "TC_C22304",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "pageGenerators": [
+      {
+        "qa__export": {
+            "name": "test",
+            "_connectionId": "SHOPIFY CONNECTION",
+            "apiIdentifier": "ee0490a103",
+            "asynchronous": true,
+            "assistant": "shopify",
+            "oneToMany": false,
+            "sandbox": false,
+            "assistantMetadata": {
+                "resource": "access_storefront_access_tokens",
+                "version": "v2",
+                "operation": "retrievesalistofstorefrontaccesstokensthathavebeenissued"
+            },
+            "http": {
+                "relativeURI": "/storefront_access_tokens.json",
+                "method": "GET",
+                "headers": [],
+                "successMediaType": "json",
+                "errorMediaType": "json",
+                "formType": "assistant",
+                "response": {
+                    "resourcePath": "storefront_access_tokens"
+                }
+            },
+            "rest": {
+                "relativeURI": "/storefront_access_tokens.json",
+                "method": "GET",
+                "headers": [],
+                "resourcePath": "storefront_access_tokens",
+                "allowUndefinedResource": false
+            },
+            "adaptorType": "RESTExport"
+        }
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+            "name": "AutomationStandalone_1Wg98",
+            "parsers": [],
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "i09892d4ce",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+                "relativeURI": [
+                    "/ticket.json"
+                ],
+                "method": [
+                    "POST"
+                ],
+                "body": [
+                    "{\"name\":\"New\"}"
+                ],
+                "batchSize": 1,
+                "sendPostMappedData": true,
+                "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+        }
+      }
+    ]
+  }
+  
