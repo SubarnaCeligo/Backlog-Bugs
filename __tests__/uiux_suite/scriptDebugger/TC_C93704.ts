@@ -10,7 +10,8 @@ test.describe('C93704 Validate that user is able to see "postResponseMap" functi
       io,
       page
     }) => {
-      await io.homePage.goToMenu("Resources","Scripts");
+      await io.homePage.clickByText("Resources")
+    await io.homePage.clickByText("Scripts")
       await io.flowBuilder.clickByText("Create script");
       await io.flowBuilder.fill(selectors.importPagePO.NAME, "mockscript");
       await io.flowBuilder.click(selectors.basePagePO.FUNCTION_STUB);

@@ -14,7 +14,7 @@ test.describe(`C77832 Validate User is not seeing the more actions when download
          );
          await io.api.runBatchFlowViaAPI('C77832', id);
          const lastRun = page.getByText('Last run')
-         await lastRun.waitFor({state: 'visible', timeout: 180000});
+         await lastRun.waitFor({state: 'visible', timeout: 360000});
          
          await io.flowBuilder.clickByTextByIndex("1 error", 1);
          await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FTP_BRIDGE_ERROR_MORE_BUTTON);

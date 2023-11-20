@@ -4,7 +4,7 @@ import C27545 from '../../../testData/inputData/Flows/C27545.json'
 
 test.describe("C65755 Verify that the Delta Preview window is closed when user clicks on Cancel Button", () => {
   test("C65755 Verify that the Delta Preview window is closed when user clicks on Cancel Button", async ({io, page}) => {
-      await io.fillFormUI(C27545, "FLOWS");
+      await io.createResourceFromAPI(C27545, "FLOWS");
       await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
       await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.START_DATE_AUTOMATIC, 'Pop up did not open');
       await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);

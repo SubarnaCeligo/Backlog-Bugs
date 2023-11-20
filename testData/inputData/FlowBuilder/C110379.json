@@ -1,0 +1,88 @@
+{
+    "_id": "652e15d26819f54a81ada56f",
+    "name": "Disbale Flow Hover Text",
+    "disabled": true,
+    "_integrationId": "65239b7a699d210c29d7b67e",
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "FTP Export",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "eebcca58d7",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/Group-QA/ShritiS"
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": false,
+                    "type": "json",
+                    "filter": {
+                        "type": "expression",
+                        "expression": {
+                            "rules": [],
+                            "version": "1"
+                        },
+                        "rules": [],
+                        "version": "1"
+                    }
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "_id": "653123c6d1af2601c34a5406",
+                "createdAt": "2023-10-19T12:40:38.534Z",
+                "lastModified": "2023-10-19T12:40:38.605Z",
+                "name": "NS",
+                "_connectionId": "NETSUITE CONNECTION",
+                "distributed": true,
+                "apiIdentifier": "i5efdc2e44",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "lookups": [],
+                "netsuite_da": {
+                    "restletVersion": "suiteapp2.0",
+                    "operation": "add",
+                    "recordType": "account",
+                    "lookups": [],
+                    "mapping": {
+                        "fields": [],
+                        "lists": []
+                    }
+                },
+                "adaptorType": "NetSuiteDistributedImport"
+            }
+        }
+    ],
+    "createFlow": {
+        "_id": "652e15d26819f54a81ada56f",
+        "name": "Disbale Flow Hover Text",
+        "disabled": true,
+        "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID",
+                "skipRetries": false
+            }
+        ],
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "autoResolveMatchingTraceKeys": true
+    }
+}

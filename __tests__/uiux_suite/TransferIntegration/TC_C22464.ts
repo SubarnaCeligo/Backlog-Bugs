@@ -11,15 +11,15 @@
 //   }) => {
      
 //     const res = await io.api.postCall(
-//       `v1/transfers/invite`,
-//       testData
-//     );
-
-//     console.log(res, 'response')
-//     const res1 = await io.api.putCall(
-//         `v1/transfers/${res._id}/dismiss`,
-//         res._id
-//      );
+//         `v1/transfers/invite`,
+//         testData
+//       );
+//       let data = await io.api.putCall(
+//           `v1/transfers/${res._id}/dismiss`,
+//          {},
+//          undefined,
+//          process.env.IO_Cancel_Token
+//        );
 //     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
 //     await io.myAccountPage.click(selectors.homePagePO.TRANSFER)
 //     await page.waitForSelector('table');
