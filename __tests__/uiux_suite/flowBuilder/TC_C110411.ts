@@ -28,7 +28,7 @@ test.describe("C110411_110413_110419_110421)", () => {
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.PAGE_INFO_TEXT);
         const dialogContents = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.PAGE_INFO_TEXT)).toString();
         const jsonStringfy = JSON.stringify(dialogContents);
-        await io.assert.expectToContainValue("\"To view a removed step's errors drawer, restore it using the following actions:\\n1. Create a new step that uses the same connector and connection as the removed step.\\n2. Click Use existing. \\n3. Select the removed step from the list and add it to your flow.\"", jsonStringfy, "Info message are in correct");
+        await io.assert.expectToContainValue("\"To view a removed step's errors drawer, restore it using the following actions:\\n\\n    Create a new step that uses the same connector and connection as the removed step.\\n    Click Use existing.\\n    Select the removed step from the list and add it to your flow.\\n\"", jsonStringfy, "Info message are in correct");
         await io.assert.verifyElementText(selectors.flowBuilderPagePO.PAGE_INFO_HEADER_TEXT, 'Step removed');
         await io.homePage.addStep('Verified info text');
         await io.homePage.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
@@ -56,7 +56,7 @@ test.describe("C110411_110413_110419_110421)", () => {
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.PAGE_INFO_TEXT);
         const dialogContents1 = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.PAGE_INFO_TEXT)).toString();
         const jsonStringfy1 = JSON.stringify(dialogContents1);
-        await io.assert.expectToContainValue("\"To view a removed step's errors drawer, restore it using the following actions:\\n1. Create a new step that uses the same connector and connection as the removed step.\\n2. Click Use existing. \\n3. Select the removed step from the list and add it to your flow.\"", jsonStringfy1, "Info message are in correct");
+        await io.assert.expectToContainValue("\"To view a removed step's errors drawer, restore it using the following actions:\\n\\n    Create a new step that uses the same connector and connection as the removed step.\\n    Click Use existing.\\n    Select the removed step from the list and add it to your flow.\\n\"", jsonStringfy1, "Info message are in correct");
         await io.assert.verifyElementText(selectors.flowBuilderPagePO.PAGE_INFO_HEADER_TEXT, 'Step removed');
         await io.homePage.addStep('Verified info text');
         await io.homePage.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
@@ -104,7 +104,7 @@ test.describe("C110411_110413_110419_110421)", () => {
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.PAGE_INFO_TEXT);
         const dialogContents2 = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.PAGE_INFO_TEXT)).toString();
         const jsonStringfy2 = JSON.stringify(dialogContents2);
-        await io.assert.expectToContainValue("\"To view a removed step's errors drawer, restore it using the following actions:\\n1. Create a new step that uses the same connector and connection as the removed step.\\n2. Click Use existing. \\n3. Select the removed step from the list and add it to your flow.\"", jsonStringfy2, "Info message are in correct");
+        await io.assert.expectToContainValue("\"To view a removed step's errors drawer, restore it using the following actions:\\n\\n    Create a new step that uses the same connector and connection as the removed step.\\n    Click Use existing.\\n    Select the removed step from the list and add it to your flow.\\n\"", jsonStringfy2, "Info message are in correct");
         await io.assert.verifyElementText(selectors.flowBuilderPagePO.PAGE_INFO_HEADER_TEXT, 'Step removed');
         await io.homePage.addStep('Verified info text');
         await io.homePage.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
@@ -146,14 +146,11 @@ test.describe("C110411_110413_110419_110421)", () => {
         await io.homePage.addStep('Verified User should not be able to click on success');
 
         //1.Info text should show as expected.
-        let pageInfo1 = page
-            .locator(selectors.flowBuilderPagePO.OPEN_PAGE_INFO)
-            .nth(1);
-        await pageInfo1.click();
+        await io.homePage.clickByIndex(selectors.flowBuilderPagePO.OPEN_PAGE_INFO, 1);
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.PAGE_INFO_TEXT);
         const dialogContents3 = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.PAGE_INFO_TEXT)).toString();
         const jsonStringfy3 = JSON.stringify(dialogContents3);
-        await io.assert.expectToContainValue("\"To view a removed step's errors drawer, restore it using the following actions:\\n1. Create a new step that uses the same connector and connection as the removed step.\\n2. Click Use existing. \\n3. Select the removed step from the list and add it to your flow.\"", jsonStringfy3, "Info message are in correct");
+        await io.assert.expectToContainValue("\"To view a removed step's errors drawer, restore it using the following actions:\\n\\n    Create a new step that uses the same connector and connection as the removed step.\\n    Click Use existing.\\n    Select the removed step from the list and add it to your flow.\\n\"", jsonStringfy3, "Info message are in correct");
         await io.assert.verifyElementText(selectors.flowBuilderPagePO.PAGE_INFO_HEADER_TEXT, 'Step removed');
         await io.homePage.addStep('Verified info text');
         await io.homePage.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
