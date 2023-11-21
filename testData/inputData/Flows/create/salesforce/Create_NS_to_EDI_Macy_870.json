@@ -77,6 +77,7 @@
             },
             "file": {
                 "type": "filedefinition",
+                "qa__type": "filedefinition",
                 "fileDefinition": {
                     "_fileDefinitionId": "5cdeb0d78479a1629ad603cc"
                 }

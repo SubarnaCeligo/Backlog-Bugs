@@ -1,0 +1,48 @@
+{
+    "name": "TC_C69107",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "pageGenerators": [
+      {
+        "qa__export": {
+            "name": "sf export",
+    "_connectionId": "SALESFORCE CONNECTION",
+    "_sourceId": "654d28760100036088cf478a",
+    "apiIdentifier": "e95f25c04a",
+    "asynchronous": true,
+    "oneToMany": false,
+    "salesforce": {
+        "type": "soql",
+        "api": "rest",
+        "soql": {
+            "query": "select Name from Account"
+        }
+    },
+    "adaptorType": "SalesforceExport"
+        }
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+            "name": "sf",
+    "_connectionId": "SALESFORCE CONNECTION",
+    "_sourceId": "654d28b71dd3180450198fa7",
+    "apiIdentifier": "i6a9540f1a",
+    "ignoreExisting": false,
+    "ignoreMissing": false,
+    "oneToMany": false,
+    "salesforce": {
+        "operation": "insert",
+        "sObjectType": "Account",
+        "api": "soap",
+        "removeNonSubmittableFields": false
+    },
+    "adaptorType": "SalesforceImport"
+        }
+      }
+    ]
+  }
