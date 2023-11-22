@@ -23,7 +23,7 @@ test.describe("C21535 Verify email link for > 1000 JOB errors", () => {
       await io.flowBuilder.delay(1000 * 60 * 15);
       const res = await io.emailVal.getLinkFromEmail("1415 new errors: TC_C21535",true);
       await io.homePage.navigateTo(res[2].split('>')[0]);
-      await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2DOT0PO.RESOLVED_ERRORS_TAB);
-      await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.EM2DOT0PO.RESOLVED_ERRORS_TAB, 'Error dashboard did not open');
+      await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RESOLVED_ERRORS_TAB);
+      await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.RESOLVED_ERRORS_TAB, 'Error dashboard did not open');
     });
   });

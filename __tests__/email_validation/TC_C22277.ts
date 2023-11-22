@@ -23,7 +23,7 @@ test.describe("C22277 Email notification em 2.0- app crashing while clicking on 
       await io.flowBuilder.delay(1000 * 60 * 15);
       const res = await io.emailVal.getLinkFromEmail("1 new error: TC_C22277",true);
       await io.homePage.navigateTo(res[2].split('>')[0]);
-      await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2DOT0PO.RESOLVED_ERRORS_TAB);
-      await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.EM2DOT0PO.RESOLVED_ERRORS_TAB, 'The app crashed while clicking on the link in the email notification')
+      await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RESOLVED_ERRORS_TAB);
+      await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.RESOLVED_ERRORS_TAB, 'The app crashed while clicking on the link in the email notification')
     });
   });

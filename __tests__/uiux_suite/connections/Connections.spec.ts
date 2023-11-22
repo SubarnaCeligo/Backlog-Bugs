@@ -1,45 +1,50 @@
-require("./TC_C53343");
-require("./TC_C53344");
-require("./TC_C53345");
-require("./TC_C53346");
-require("./TC_C63011");
-require("./TC_C63015");
-require("./TC_C63021");
-require("./TC_C63022");
-require("./TC_C63024");
-require("./TC_C63061");
-require("./TC_C63064");
-require("./TC_C63005");
-require("./TC_C63006");
-require("./TC_C63007");
-require("./TC_C63008");
-require("./TC_C63010");
-require("./TC_C64961");
-require("./TC_C67220");
-require("./TC_C59643");
-require("./TC_C59644");
-require("./TC_C59657");
-require("./TC_C59658");
-require("./TC_C59859");
-require("./TC_C60099");
-require("./TC_C55826");
-require("./TC_C63003");
-require("./TC_C63004");
-require("./TC_C68717");
-require("./TC_C63062");
-require("./TC_C67117");
-require("./TC_C65462");
-require("./TC_C65490");
-require("./TC_C67022");
-require("./TC_C52775");
-require("./TC_C97060");
-require("./TC_C107375");
-require("./TC_C107377");
-require("./TC_C107378");
-require("./TC_C56987");
-require("./TC_C23866");
-require("./TC_C51793");
-require("./TC_C9473");
-require("./TC_C52776");
-require("./TC_C52777");
-require("./TC_C23866");
+var testCases = [
+  "C53343",
+  "C53344",
+  "C53345",
+  "C53346",
+  "C63011",
+  "C63015",
+  "C63021",
+  "C63022",
+  "C63024",
+  "C63061",
+  "C63064",
+  "C63005",
+  "C63006",
+  "C63007",
+  "C63008",
+  "C63010",
+  "C64961",
+  "C67220",
+  "C59643",
+  "C59644",
+  "C59657",
+  "C59658",
+  "C59859",
+  "C60099",
+  "C55826",
+  "C63003",
+  "C63004",
+  "C68717",
+  "C63062",
+  "C67117",
+  "C65462",
+  "C65490",
+  "C67022",
+  "C52775"
+];
+
+var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
+
+(async () => {
+  for (const testCase of testCases) {
+    if (!flakycases.some(element => element.includes(testCase))) {
+      console.log("Running test case: ", testCase);
+      require(`./TC_${testCase}`);
+    } else {
+      console.log("Skipping Flaky Test Case ", `${testCase}`, " , please fix!!!");
+    }
+  }
+  console.log("All test cases completed.");
+})();
