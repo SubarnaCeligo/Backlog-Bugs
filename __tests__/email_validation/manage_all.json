@@ -1,0 +1,7 @@
+{
+  "emails": ["qaautomation1@celigo.com"],
+  "accessLevel": "manage",
+  "integrationAccessLevel": [],
+  "accountSSORequired": false,
+  "accountMFARequired": false
+}

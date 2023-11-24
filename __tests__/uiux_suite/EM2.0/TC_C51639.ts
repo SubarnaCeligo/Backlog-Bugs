@@ -13,7 +13,7 @@ test.describe("C51639 Verify the download option in the Resolved Error drawer", 
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2DOT0PO.NEW_VIEW_ACTIONS_MENU);
         await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.EM2DOT0PO.DOWNLOAD_ERRORS, "Download errors not displayed");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2DOT0PO.RESOLVE_AND_NEXT);
-        await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2DOT0PO.RESOLVED_ERRORS_TAB);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.RESOLVED_ERRORS_TAB);
         await io.flowBuilder.clickByText('Refresh errors');
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2DOT0PO.NEW_VIEW_ACTIONS_MENU);
         await (await page.$$(selectors.flowBuilderPagePO.EM2DOT0PO.NEW_VIEW_ACTIONS_MENU))[0].click();
