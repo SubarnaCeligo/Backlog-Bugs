@@ -1,3 +1,4 @@
+import {filterTestCases} from "@celigo/aut-utilities"
 var testCases = [
   "C53343",
   "C53344",
@@ -38,13 +39,5 @@ var testCases = [
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
 
 (async () => {
-  for (const testCase of testCases) {
-    if (!flakycases.some(element => element.includes(testCase))) {
-      console.log("Running test case: ", testCase);
-      require(`./TC_${testCase}`);
-    } else {
-      console.log("Skipping Flaky Test Case ", `${testCase}`, " , please fix!!!");
-    }
-  }
-  console.log("All test cases completed.");
+  await filterTestCases(testCases,flakycases,"connections")
 })();
