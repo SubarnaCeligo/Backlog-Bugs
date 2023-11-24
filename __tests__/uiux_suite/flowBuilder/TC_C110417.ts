@@ -51,17 +51,18 @@ test.describe("C110417)", () => {
         await io.homePage.click(selectors.flowBuilderPagePO.COMPLETED_FLOWS);
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.RUNS);
 
-        const flowName = await page.$$(selectors.flowBuilderPagePO.JOB_NAME);
-        const openAction = await page.$$(selectors.flowBuilderPagePO.RUNS);
-        let userExist = false;
-        for (var i = 0; i < flowName.length; i++) {
-            let usernames = await flowName[i].textContent();
-            if (usernames === "TC_C110417") {
-                await openAction[i].click();
-                userExist = true;
-                break
-            }
-        }
+        // const flowName = await page.$$(selectors.flowBuilderPagePO.JOB_NAME);
+        // const openAction = await page.$$(selectors.flowBuilderPagePO.RUNS);
+        await io.flowBuilder.clickButtonInTable(selectors.flowBuilderPagePO.JOB_NAME, selectors.flowBuilderPagePO.RUNS, "TC_C110417");
+        // let userExist = false;
+        // for (var i = 0; i < flowName.length; i++) {
+        //     let usernames = await flowName[i].textContent();
+        //     if (usernames === "TC_C110417") {
+        //         await openAction[i].click();
+        //         userExist = true;
+        //         break
+        //     }
+        // }
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.TOGGLE_JOB);
         await io.homePage.click(selectors.flowBuilderPagePO.TOGGLE_JOB);
         let label2 = page
@@ -79,17 +80,18 @@ test.describe("C110417)", () => {
         await io.homePage.click(selectors.flowBuilderPagePO.COMPLETED_FLOWS);
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.RUNS);
 
-        const flowName1 = await page.$$(selectors.flowBuilderPagePO.FLOW_NAME_ACCOUNT_DASHBOARD);
-        const openAction1 = await page.$$(selectors.flowBuilderPagePO.RUNS);
-        let userExist1 = false;
-        for (var i = 0; i < flowName1.length; i++) {
-            let usernames1 = await flowName1[i].textContent();
-            if (usernames1 === "TC_C110417") {
-                await openAction1[i].click();
-                userExist1 = true;
-                break
-            }
-        }
+        // const flowName1 = await page.$$(selectors.flowBuilderPagePO.FLOW_NAME_ACCOUNT_DASHBOARD);
+        // const openAction1 = await page.$$(selectors.flowBuilderPagePO.RUNS);
+        await io.flowBuilder.clickButtonInTable(selectors.flowBuilderPagePO.FLOW_NAME_ACCOUNT_DASHBOARD, selectors.flowBuilderPagePO.RUNS, "TC_C110417");
+        // let userExist1 = false;
+        // for (var i = 0; i < flowName1.length; i++) {
+        //     let usernames1 = await flowName1[i].textContent();
+        //     if (usernames1 === "TC_C110417") {
+        //         await openAction1[i].click();
+        //         userExist1 = true;
+        //         break
+        //     }
+        // }
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.TOGGLE_JOB);
         await io.homePage.click(selectors.flowBuilderPagePO.TOGGLE_JOB);
 
