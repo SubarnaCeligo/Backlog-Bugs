@@ -25,9 +25,9 @@ test.describe.skip(
       await io.homePage.click(selectors.basePagePO.SUBMIT);
       // Delay for new email to be sent, otherwise picks up old email
       await page.waitForTimeout(5000);
-      const link = await io.emailVal.getLinkFromEmail(
+      const link = (await io.emailVal.getLinkFromEmail(
         "[staging.integrator.io] Request to reset your password"
-      );
+      )) as string;
       await io.homePage.navigateTo(link);
       await io.homePage.fill(selectors.loginPagePO.PASSWORD, "123");
       await io.assert.verifyElementIsDisplayed(
