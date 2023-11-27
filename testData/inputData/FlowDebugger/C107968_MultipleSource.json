@@ -1,0 +1,116 @@
+{
+  "_id": "652e15d26819f54a81ada56f",
+  "name": "Run Conf Dialog-Multiple Sources",
+  "disabled": true,
+  "_integrationId": "65239b7a699d210c29d7b67e",
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "_id": "655c731b1dd3ea6f1462f25b",
+        "name": "FTP Export 1",
+        "_connectionId": "FTP OFFLINE CONNECTION",
+        "apiIdentifier": "e6fe5792d2",
+        "asynchronous": true,
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "/Test/Export1"
+        },
+        "file": {
+          "output": "records",
+          "skipDelete": false,
+          "type": "json",
+          "filter": {
+            "type": "expression",
+            "expression": {
+              "rules": [],
+              "version": "1"
+            },
+            "rules": [],
+            "version": "1"
+          }
+        },
+        "adaptorType": "FTPExport"
+      }
+    },
+    {
+      "qa__export": {
+        "_id": "655c73421dd3ea6f1462f25f",
+        "name": "FTP Export2",
+        "_connectionId": "FTP OFFLINE CONNECTION",
+        "apiIdentifier": "e74320af5d",
+        "asynchronous": true,
+        "sandbox": false,
+        "sampleData": {},
+        "ftp": {
+          "directoryPath": "/Test/Export2"
+        },
+        "file": {
+          "output": "records",
+          "skipDelete": false,
+          "type": "json",
+          "filter": {
+            "type": "expression",
+            "expression": {
+              "rules": [],
+              "version": "1"
+            },
+            "rules": [],
+            "version": "1"
+          }
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "_id": "655c7366e906ed2a6f697db9",
+        "name": "FTP Import",
+        "_connectionId": "FTP OFFLINE CONNECTION",
+        "apiIdentifier": "ie634e100d",
+        "oneToMany": false,
+        "sandbox": false,
+        "file": {
+          "fileName": "file-{{timestamp}}.json",
+          "skipAggregation": false,
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "/Test/Import",
+          "fileName": "file-{{timestamp}}.json"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "createFlow": {
+    "_id": "655c731b1a8b451ab174aa8b",
+    "name": "Run Conf Dialog-Multiple Sources",
+    "disabled": true,
+    "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+    "pageGenerators": [
+      {
+        "_exportId": "UPDATE WITH NEW EXPORTID",
+        "skipRetries": false
+      },
+      {
+        "_exportId": "UPDATE WITH NEW EXPORTID",
+        "skipRetries": false
+      }
+    ],
+    "pageProcessors": [
+      {
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        },
+        "type": "import",
+        "_importId": "UPDATE WITH NEW IMPORTID"
+      }
+    ],
+    "createdAt": "2023-11-21T09:06:35.799Z",
+    "autoResolveMatchingTraceKeys": true
+  }
+}
