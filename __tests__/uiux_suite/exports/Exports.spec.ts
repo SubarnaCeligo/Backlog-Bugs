@@ -1,16 +1,31 @@
-require("./TC_C27965");
-require("./TC_C27969");
-require("./TC_C28172");
-require("./TC_C28173");
-require("./TC_C22915");
-require("./TC_C94287");
-require('./TC_C64846');
-require('./TC_C65758');
-require('./TC_C65759');
-require('./TC_C67232');
-require('./TC_C65696');
-require("./TC_C58484");
-require("./TC_C27545");
+import {filterTestCases} from "@celigo/aut-utilities"
+var testCases = [
+"C27965",
+"C27969",
+"C28172",
+"C28173",
+"C22915",
+"C94287",
+"C64846",
+"C65758",
+"C65759",
+"C67232",
+"C65696",
+"C58484",
+"C27545",
+"C64846",
+"C65758",
+"C65759",
+"C67232",
+"C65696",
+"C58484",
+"C22817",
+"C69769"
+];
+var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
+    (async () => {
+      await filterTestCases(testCases,flakycases,"exports")
+    })();
 // import { test, expect } from "@celigo/ui-core-automation";
 // import * as selectors from "@celigo/aut-selectors";
 // import * as C55447 from "@testData/Exports/C55447.json";
@@ -24,7 +39,7 @@ require("./TC_C27545");
 //   test.skip("C55447 Verify the error message when data size is more than 1 MB for export & lookup", async ({
 //     io
 //   }) => {
-//     await io.createResourceFromAPI(C55447, "EXPORT");
+//     await io.createResourceFromAPI(C55447, "EXPORT",
 //     // await io.webActions.click(selectors.basePagePO.ADD_NEW_RESOURCE);
 //     // await connectionsPage.selectApplication(exportTD.C55447.APP_NAME);
 //     // await exportsPage.selectConnection(exportTD.C55447.CONNECTION_NAME);
@@ -47,7 +62,7 @@ require("./TC_C27545");
 //   test.skip("C51543 Verify the allignmnet after adding multiple query parameters", async ({
 //     io
 //   }) => {
-//     await io.createResourceFromAPI(C51543, "EXPORT");
+//     await io.createResourceFromAPI(C51543, "EXPORT",
 //     // await io.webActions.click(selectors.basePagePO.ADD_NEW_RESOURCE);
 //     // await connectionsPage.selectApplication(exportTD.C51543.APP_NAME);
 //     // await exportsPage.selectConnection(exportTD.C51543.CONNECTION_NAME);
@@ -56,7 +71,7 @@ require("./TC_C27545");
 //     // await io.webActions.click(
 //     //   selectors.exportsPagePO.ASSISTANT_META_DATA_RESOURCE
 //     // );
-//     // await settingsPage.selectTextFromDropDown("Balance");
+//     // await settingsPage.selectTextFromDropDown("Balance",
 //     // await io.webActions.click(
 //     //   selectors.exportsPagePO.ASSISTANT_META_DATA_OPERATION
 //     // );
@@ -82,11 +97,3 @@ require("./TC_C27545");
 //     // await io.webActions.click(selectors.basePagePO.DISCARD_CHANGES);
 //   });
 // });
-require("./TC_C64846");
-require("./TC_C65758");
-require("./TC_C65759");
-require("./TC_C67232");
-require("./TC_C65696");
-require("./TC_C58484");
-require("./TC_C22817");
-require("./TC_C69769");
