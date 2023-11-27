@@ -26,7 +26,7 @@ test.describe("Validate the Run confirmation dialog title when a flow step has o
 
     });
     test("Bug#IO-48090-Validate the Run confirmation dialog from Run Source dropdown when a flow steps has offline connections", async ({ io, page }) => {
-        //Create a flow with offiline connection and wait for the integration to load
+        //Create a flow containg multiple sources with offiline connections and wait for the integration to load
         await io.createResourceFromAPI(C107968_MultipleSource, "FLOWS");
 
         //Wait for Run Flow button to appear and Click on chevron to expand run specific source dropdwon
