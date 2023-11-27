@@ -8,7 +8,8 @@ test.describe("C111321, C110854, C110846, C111404 verify items populate under 'p
 
         //create a flow having json resource in export FTP
         await io.createResourceFromAPI(C111321, "FLOWS");
-        await page.locator(selectors.flowBuilderPagePO.TRANSFER).nth(1).click();
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.TRANSFER);
+        await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.TRANSFER,1);
         await expect(page.getByText("Yes (advanced)")).toBeChecked();
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ONE_TO_MANY);
         let pathToManyOptions;
@@ -32,7 +33,7 @@ test.describe("C111321, C110854, C110846, C111404 verify items populate under 'p
         await test.step("C110846 ", async () => {
             const option = await page.waitForSelector(`${selectors.flowBuilderPagePO.PATH_TO_MANY_OPTIONS}:has-text("user.items")`);
             await option.click(); 
-            expect(await page.locator(selectors.flowBuilderPagePO.ONE_TO_MANY).getAttribute('value')).toEqual('user.items');
+            await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.ONE_TO_MANY, 'value', 'user.items');
         });
 
         //save and close the import changes

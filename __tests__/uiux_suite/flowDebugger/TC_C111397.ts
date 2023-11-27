@@ -35,14 +35,14 @@ test.describe("C111397, C111313, C111314, C111318, C111396, C111316, C111399, C1
         await test.step("C111396, C111399, C111397", async () => {
             const option = await page.waitForSelector(`${selectors.flowBuilderPagePO.PATH_TO_MANY_OPTIONS}:has-text("user.items")`);
             await option.click(); 
-            expect(await page.locator(selectors.flowBuilderPagePO.ONE_TO_MANY).getAttribute('value')).toEqual('user.items');
+            await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.ONE_TO_MANY, 'value', 'user.items');
         });
 
         await test.step("C111316, C111314, C111318, C111313 ", async () => {
             await io.flowBuilder.click(selectors.flowBuilderPagePO.ONE_TO_MANY);
             await io.flowBuilder.clearTextValue(selectors.flowBuilderPagePO.ONE_TO_MANY);
             await io.flowBuilder.fill(selectors.flowBuilderPagePO.ONE_TO_MANY, 'random');
-            expect(await page.locator(selectors.flowBuilderPagePO.ONE_TO_MANY).getAttribute('value')).toEqual('random');
+            await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.ONE_TO_MANY, 'value', 'random');
         });
 
     });

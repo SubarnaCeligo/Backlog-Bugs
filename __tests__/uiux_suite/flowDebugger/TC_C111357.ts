@@ -8,7 +8,8 @@ test.describe("C111357, C111406, C110859, C110837, C112229, C111403, C111405, C1
 
         //create a flow having json resource in export FTP
         await io.createResourceFromAPI(C111357, "FLOWS");
-        await page.locator(selectors.flowBuilderPagePO.TRANSFER).nth(1).click();
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.TRANSFER);
+        await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.TRANSFER,1);
         await expect(page.getByText("Yes (advanced)")).toBeChecked();
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ONE_TO_MANY);
         let pathToManyOptions;
@@ -23,7 +24,7 @@ test.describe("C111357, C111406, C110859, C110837, C112229, C111403, C111405, C1
         await io.flowBuilder.clearTextValue(selectors.flowBuilderPagePO.ONE_TO_MANY);
         await test.step("C110859, C110837 ", async () => {
             await io.flowBuilder.fill(selectors.flowBuilderPagePO.ONE_TO_MANY, 'user.items');
-            expect(await page.locator(selectors.flowBuilderPagePO.ONE_TO_MANY).getAttribute('value')).toEqual('user.items');
+            await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.ONE_TO_MANY, 'value', 'user.items');
         });
 
         //save and close the import changes
@@ -61,12 +62,12 @@ test.describe("C111357, C111406, C110859, C110837, C112229, C111403, C111405, C1
         
     });
     
-
     test("C112229, C111403, C111405 verify items populate under 'path to many' if there are no json array fields in the resource", async ({io, page}) => {
 
         //create a flow having json resource in export FTP
         await io.createResourceFromAPI(C111357, "FLOWS");
-        await page.locator(selectors.flowBuilderPagePO.TRANSFER).nth(1).click();
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.TRANSFER);
+        await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.TRANSFER,1);
         await expect(page.getByText("Yes (advanced)")).toBeChecked();
 
         //enter any text and verify if selected field taken for pathToMany
@@ -114,7 +115,8 @@ test.describe("C111357, C111406, C110859, C110837, C112229, C111403, C111405, C1
 
         //create a flow having json resource in export FTP
         await io.createResourceFromAPI(C111357, "FLOWS");
-        await page.locator(selectors.flowBuilderPagePO.TRANSFER).nth(1).click();
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.TRANSFER);
+        await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.TRANSFER,1);
         await expect(page.getByText("Yes (advanced)")).toBeChecked();
 
         //enter any text and verify if selected field taken for pathToMany
