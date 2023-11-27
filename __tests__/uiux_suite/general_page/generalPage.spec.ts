@@ -1,6 +1,13 @@
-require('./TC_C29283')
-require('./TC_C60115')
-require('./TC_C67020')
-require('./TC_C67026')
-require('./TC_C61932')
-require('./IO-46625')
+import {filterTestCases} from "@celigo/aut-utilities"
+var testCases = [
+    "C29283",
+    "C60115",
+    "C67020",
+    "C67026",
+    "C61932",
+    "C46625"];
+    var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
+    (async () => {
+      await filterTestCases(testCases,flakycases,"general_page")
+    })();
+
