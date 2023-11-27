@@ -1,16 +1,22 @@
-require("./TC_C60447");
-require("./TC_C62760");
-require("./TC_C59642");
-require("./TC_C59659");
-require("./TC_C56424");
-require("./TC_C56428");
-require("./TC_C56424");
-require('./TC_C1053');
-require("./TC_C66316");
-require("./TC_C56283");
-require("./TC_C56284");
-require("./TC_C56287");
-require("./TC_C56423");
-require("./TC_C58439");
-require("./TC_C66318");
-require("./TC_C1053");
+import {filterTestCases} from "@celigo/aut-utilities"
+var testCases = ["C60447",
+"C62760",
+"C59642",
+"C59659",
+"C56424",
+"C56428",
+"C56424",
+"C1053",
+"C66316",
+"C56283",
+"C56284",
+"C56287",
+"C56423",
+"C58439",
+"C66318",
+"C1053"
+];
+var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
+    (async () => {
+      await filterTestCases(testCases,flakycases,"signinPage")
+    })();
