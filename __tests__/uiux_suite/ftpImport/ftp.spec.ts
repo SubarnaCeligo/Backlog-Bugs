@@ -1,18 +1,25 @@
-require("./TC_C77813")
-require("./TC_C77814")
-require("./TC_C77815")
-require("./TC_C77816")
-require("./TC_C77821")
-require("./TC_C77822")
-require("./TC_C77823")
-require("./TC_C77824")
-require("./TC_C77805")
-require("./TC_C77807")
-require("./TC_C77829")
-require("./TC_C77830")
-require("./TC_C77831")
-require("./TC_C77832")
-require("./TC_C77837")
-require("./TC_C77838")
-require("./TC_C77839")
-require("./TC_C77840")
+import {filterTestCases} from "@celigo/aut-utilities"
+var testCases = [
+"C77813",
+"C77814",
+"C77815",
+"C77816",
+"C77821",
+"C77822",
+"C77823",
+"C77824",
+"C77805",
+"C77807",
+"C77829",
+"C77830",
+"C77831",
+"C77832",
+"C77837",
+"C77838",
+"C77839",
+"C77840"
+];
+var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
+    (async () => {
+      await filterTestCases(testCases,flakycases,"ftpImport")
+    })();

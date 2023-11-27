@@ -1,18 +1,26 @@
-require("./TC_C59678")
-require('./TC_C55445');
-require('./TC_C55447');
-require('./TC_C55446');
-require('./TC_C96303');
-require('./IO-41074');
-require('./TC_C108203');
-require('./TC_C102846');
-require('./TC_C108160');
-require('./TC_C108161');
-require('./TC_C108104');
-require('./TC_C108152');
-require('./TC_C108153');
-require('./TC_C108154');
-require('./TC_C107968');
-require('./TC_C108497');
-require('./TC_C107965');
-require('./TC_C107963');
+import {filterTestCases} from "@celigo/aut-utilities"
+var testCases = [
+"C59678",
+"C55445", 
+"C55447", 
+"C55446", 
+"C96303", 
+"C41074", 
+"C108203", 
+"C102846", 
+"C108160", 
+"C108161", 
+"C108104", 
+"C108152", 
+"C108153", 
+"C108154", 
+"C107968", 
+"C108497", 
+"C107965", 
+"C107963"
+];
+var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
+    (async () => {
+      await filterTestCases(testCases,flakycases,"flowDebugger")
+    })();
+

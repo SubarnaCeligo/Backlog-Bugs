@@ -1,29 +1,36 @@
-// require("./TC_C49539");
-// require("./TC_C47992");
-// require("./TC_C47425");
-// require('./TC_C93992');
-// require('./TC_C93993');
-// require('./TC_C93994');
-// require('./TC_C93995');
-// require('./TC_C93996');
-// require('./TC_C93997');
-// require('./TC_C59975');
-// require('./TC_C68107');
-// require("./TC_C59977");
-// require("./TC_C69565");
-// require("./TC_C102708");
-// require('./TC_C68531');
-// require('./TC_C68554');
-require('./TC_C68560');
-require('./TC_C68561');
-require('./TC_C68562');
-require('./TC_C68563');
-require('./TC_C68564');
-require('./TC_C68565');
-// require("./TC_C107972");
-// require("./TC_C68488");
-// require("./TC_C68492");
-// require("./TC_C68493");
-// require("./TC_C65961");
-// require('./TC_C69064');
-// require('./TC_C68544');
+import {filterTestCases} from "@celigo/aut-utilities"
+var testCases = [
+// "C49539"
+// "C47992"
+// "C47425"
+// "C93992"
+// "C93993"
+// "C93994"
+// "C93995"
+// "C93996"
+// "C93997"
+// "C59975"
+// "C68107"
+// "C59977"
+// "C69565"
+// "C102708"
+// "C68531"
+// "C68554"
+"C68560",
+"C68561",
+"C68562",
+"C68563",
+"C68564",
+"C68565"
+// "C107972"
+// "C68488"
+// "C68492"
+// "C68493"
+// "C65961"
+// "C69064"
+// "C68544"
+];
+var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
+    (async () => {
+      await filterTestCases(testCases,flakycases,"flowBranching")
+    })();
