@@ -29,7 +29,7 @@ test.describe("Validate the Run confirmation dialog title when a flow step has o
         //Create a flow with offiline connection and wait for the integration to load
         await io.createResourceFromAPI(C107968_MultipleSource, "FLOWS");
 
-        //Wait for Run Flow button to appear and Click  on chevron to expand run specific source dropdwon
+        //Wait for Run Flow button to appear and Click on chevron to expand run specific source dropdwon
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_SPECIFIC_SOURCE_DROPDOWN);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.SELECT_PAGE_GENERATOR_POPPER);
