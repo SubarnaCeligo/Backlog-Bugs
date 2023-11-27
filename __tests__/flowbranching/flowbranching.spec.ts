@@ -1,7 +1,8 @@
 import {filterTestCases} from "@celigo/aut-utilities"
 var testCases = [
 "flowbranching_api",
-"flowbranching_UI"
+"flowbranching_UI",
+"C110781_C110787_C110788_C111507"
 ];
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
 
@@ -9,4 +10,4 @@ var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
   await filterTestCases(testCases,flakycases,"flowbranching");
 })();
 
-require("./TC_C110781_C110787_C110788_C111507")
+
