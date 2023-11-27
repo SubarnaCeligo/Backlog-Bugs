@@ -4,7 +4,7 @@ import C107968 from '../../../testData/inputData/FlowDebugger/C107968.json';
 import C107968_MultipleSource from '../../../testData/inputData/FlowDebugger/C107968_MultipleSource.json';
 
 test.describe("Validate the Run confirmation dialog title when a flow step has offline connections", () => {
-    test("Validate the Run confirmation dialog title when a flow steps has offline connections", async ({ io, page }) => {
+    test("Validate the Run confirmation dialog title when a flow steps has offline connections", async ({io, page}) => {
         //Create a flow with offiline connection and wait for the integration to load
         await io.createResourceFromAPI(C107968, "FLOWS");
 
