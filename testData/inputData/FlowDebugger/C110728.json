@@ -1,0 +1,94 @@
+{
+    "name": "TC_C110728",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "Account",
+                "_connectionId": "SALESFORCE CONNECTION",
+                "apiIdentifier": "e93ffea455",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "sandbox": false,
+                "rawData": "6253c695bbf2c06775d39fe17b1aec3274aa47f4b60dd4d063aeb88c",
+                "test": {
+                  "limit": 11
+                },
+                "salesforce": {
+                  "type": "soql",
+                  "api": "rest",
+                  "soql": {
+                    "query": "select Name,BillingAddress, Site, AccountNumber, NumberOfEmployees, Fax from Account"
+                  },
+                  "distributed": {
+                    "referencedFields": [
+
+                    ],
+                    "userDefinedReferencedFields": [
+
+                    ],
+                    "relatedLists": [
+
+                    ]
+                  }
+                },
+                "adaptorType": "SalesforceExport"
+              }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "HTTP BLOB EXPORT",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "e30c2cf43c",
+                "asynchronous": true,
+                "isLookup": true,
+                "type": "blob",
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                  "relativeURI": "/users.json",
+                  "method": "GET",
+                  "formType": "http",
+                  "response": {
+                    "blobFormat": "utf-16le"
+                  }
+                },
+                "adaptorType": "HTTPExport"
+              }
+        }
+    ],
+    "createFlow": {
+        "name": "TC_C110728",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "export",
+                "_importId": "UPDATE WITH NEW EXPORTID"
+            }
+        ],
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+        ]
+    },
+    "editedStub": {
+        "page_of_records": [
+          {
+            "record": {
+              "blobKey": "Testing"
+            }
+          }
+        ]
+      }
+}
