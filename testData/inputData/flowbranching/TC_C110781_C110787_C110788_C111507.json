@@ -1,0 +1,110 @@
+{
+
+    "name": "New flow",
+    "disabled": true,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "NS Export",
+                "description": "NS for multiple pages and records",
+                "_connectionId": "NETSUITE CONNECTION",
+                "apiIdentifier": "e9c3f5615c",
+                "asynchronous": true,
+                "pageSize": 5,
+                "oneToMany": false,
+                "sandbox": false,
+                "netsuite": {
+                    "type": "restlet",
+                    "skipGrouping": true,
+                    "statsOnly": false,
+                    "restlet": {
+                        "recordType": "item",
+                        "searchId": "2509",
+                        "useSS2Restlets": false,
+                        "markExportedBatchSize": 100
+                    },
+                    "distributed": {
+                        "useSS2Framework": false
+                    }
+                },
+                "transform": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [
+                            []
+                        ],
+                        "version": "1"
+                    },
+                    "version": "1",
+                    "rules": [
+                        []
+                    ]
+                },
+                "adaptorType": "NetSuiteExport"
+            }
+        }
+    ],
+
+    "routers": [
+        {
+            "name": "",
+            "routeRecordsUsing": "input_filters",
+            "id": "lnf08eelkRL",
+            "routeRecordsTo": "first_matching_branch",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "_importId": "65252277a57fb86a65d78200"
+                        }
+                    ],
+                    "nextRouterId": "rkgHCPYCYRI"
+                },
+                {
+                    "name": "Branch 1.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "_importId": "65318781365db958327ba0fd"
+                        }
+                    ],
+                    "nextRouterId": "rkgHCPYCYRI"
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        },
+        {
+            "name": "",
+            "id": "rkgHCPYCYRI",
+            "branches": [
+                {
+                    "name": "",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "_importId": "6540b5a461ac5e4c706252cd"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
