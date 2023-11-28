@@ -11,11 +11,12 @@ test.describe(`TC_C1_C2_C6`, () => {
 
     await io.flowBuilder.click('[data-test="oauth2.grantType"]');
     await expect(page.locator('[data-value="password"]')).toBeVisible();
-    await io.assert.verifyElementContainsText('[data-value="password"]', "Password Credentials");
+    await io.assert.verifyElementContainsText('[data-value="password"]', "Password credentials");
+    await io.connectionPage.addStep("Verified 'Password credentials' grant type is present");
 
     //TC3
     await io.flowBuilder.click('[data-value="password"]');
-    await io.connectionPage.addStep("Selected 'Password Credentials' grant type")
+    await io.connectionPage.addStep("Selected 'Password credentials' grant type")
 
     await expect(page.locator('[id="oauth2.username"]')).toBeVisible();
     await expect(page.locator('[id="oauth2.password"]')).toBeVisible();
@@ -32,6 +33,24 @@ test.describe(`TC_C1_C2_C6`, () => {
     await io.connectionPage.addStep("Verified help text for 'Username' and 'Password' fields");
 
     await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
+
+    //TC_new
+    await io.flowBuilder.fill('[name="/oauth2/username"]', "test");
+    await io.flowBuilder.click('button[data-test="oauth2.token.uri"]');
+    await io.connectionPage.addStep("Opening Access token URI handlebar");
+    await io.assert.verifyElementContainsText('[id="data"] .ace_content', "username");
+    await io.assert.verifyElementContainsText('[id="data"] .ace_content', "password");
+    await io.connectionPage.addStep("Verified 'Username' and 'Password' fields are present in Input data");
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER);
+    await io.connectionPage.addStep("Closing Access token URI handlebar");
+
+    await io.flowBuilder.click('button[data-test="oauth2.revoke.uri"]');
+    await io.connectionPage.addStep("Opening Revoke token URI handlebar");
+    await io.assert.verifyElementContainsText('[id="data"] .ace_content', "username");
+    await io.assert.verifyElementContainsText('[id="data"] .ace_content', "password");
+    await io.connectionPage.addStep("Verified 'Username' and 'Password' fields are present in Input data");
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER);
+    await io.connectionPage.addStep("Closing Revoke token URI handlebar");
 
     //TC6
     await io.flowBuilder.click(selectors.importPagePO.ADVANCED);
@@ -64,11 +83,12 @@ test.describe(`TC_C1_C2_C6`, () => {
 
     await io.flowBuilder.click('[data-test="oauth2.grantType"]');
     await expect(page.locator('[data-value="password"]')).toBeVisible();
-    await io.assert.verifyElementContainsText('[data-value="password"]', "Password Credentials");
+    await io.assert.verifyElementContainsText('[data-value="password"]', "Password credentials");
+    await io.connectionPage.addStep("Verified 'Password credentials' grant type is present");
 
     //TC3
     await io.flowBuilder.click('[data-value="password"]');
-    await io.connectionPage.addStep("Selected 'Password Credentials' grant type")
+    await io.connectionPage.addStep("Selected 'Password credentials' grant type")
 
     await expect(page.locator('[id="oauth2.username"]')).toBeVisible();
     await expect(page.locator('[id="oauth2.password"]')).toBeVisible();
@@ -85,6 +105,24 @@ test.describe(`TC_C1_C2_C6`, () => {
     await io.connectionPage.addStep("Verified help text for 'Username' and 'Password' fields");
 
     await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
+
+    //TC_new
+    await io.flowBuilder.fill('[name="/oauth2/username"]', "test");
+    await io.flowBuilder.click('button[data-test="oauth2.token.uri"]');
+    await io.connectionPage.addStep("Opening Access token URI handlebar");
+    await io.assert.verifyElementContainsText('[id="data"] .ace_content', "username");
+    await io.assert.verifyElementContainsText('[id="data"] .ace_content', "password");
+    await io.connectionPage.addStep("Verified 'Username' and 'Password' fields are present in Input data");
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER);
+    await io.connectionPage.addStep("Closing Access token URI handlebar");
+
+    await io.flowBuilder.click('button[data-test="oauth2.revoke.uri"]');
+    await io.connectionPage.addStep("Opening Revoke token URI handlebar");
+    await io.assert.verifyElementContainsText('[id="data"] .ace_content', "username");
+    await io.assert.verifyElementContainsText('[id="data"] .ace_content', "password");
+    await io.connectionPage.addStep("Verified 'Username' and 'Password' fields are present in Input data");
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER);
+    await io.connectionPage.addStep("Closing Revoke token URI handlebar");
 
     //TC6
     await io.flowBuilder.clickByIndex(selectors.importPagePO.ADVANCED, 1);
@@ -118,11 +156,12 @@ test.describe(`TC_C1_C2_C6`, () => {
 
     await io.flowBuilder.click('[data-test="oauth2.grantType"]');
     await expect(page.locator('[data-value="password"]')).toBeVisible();
-    await io.assert.verifyElementContainsText('[data-value="password"]', "Password Credentials");
+    await io.assert.verifyElementContainsText('[data-value="password"]', "Password credentials");
+    await io.connectionPage.addStep("Verified 'Password credentials' grant type is present");
 
     //TC3
     await io.flowBuilder.click('[data-value="password"]');
-    await io.connectionPage.addStep("Selected 'Password Credentials' grant type")
+    await io.connectionPage.addStep("Selected 'Password credentials' grant type")
 
     await expect(page.locator('[id="oauth2.username"]')).toBeVisible();
     await expect(page.locator('[id="oauth2.password"]')).toBeVisible();
@@ -139,6 +178,24 @@ test.describe(`TC_C1_C2_C6`, () => {
     await io.connectionPage.addStep("Verified help text for 'Username' and 'Password' fields");
 
     await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
+
+    //TC_new
+    await io.flowBuilder.fill('[name="/oauth2/username"]', "test");
+    await io.flowBuilder.click('button[data-test="oauth2.token.uri"]');
+    await io.connectionPage.addStep("Opening Access token URI handlebar");
+    await io.assert.verifyElementContainsText('[id="data"] .ace_content', "username");
+    await io.assert.verifyElementContainsText('[id="data"] .ace_content', "password");
+    await io.connectionPage.addStep("Verified 'Username' and 'Password' fields are present in Input data");
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER);
+    await io.connectionPage.addStep("Closing Access token URI handlebar");
+
+    await io.flowBuilder.click('button[data-test="oauth2.revoke.uri"]');
+    await io.connectionPage.addStep("Opening Revoke token URI handlebar");
+    await io.assert.verifyElementContainsText('[id="data"] .ace_content', "username");
+    await io.assert.verifyElementContainsText('[id="data"] .ace_content', "password");
+    await io.connectionPage.addStep("Verified 'Username' and 'Password' fields are present in Input data");
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER);
+    await io.connectionPage.addStep("Closing Revoke token URI handlebar");
 
     //TC6
     await io.flowBuilder.clickByIndex(selectors.importPagePO.ADVANCED, 1);
@@ -174,11 +231,12 @@ test.describe(`TC_C1_C2_C6`, () => {
 
     await io.flowBuilder.click('[data-test="oauth2.grantType"]');
     await expect(page.locator('[data-value="password"]')).toBeVisible();
-    await io.assert.verifyElementContainsText('[data-value="password"]', "Password Credentials");
+    await io.assert.verifyElementContainsText('[data-value="password"]', "Password credentials");
+    await io.connectionPage.addStep("Verified 'Password credentials' grant type is present");
 
     //TC3
     await io.flowBuilder.click('[data-value="password"]');
-    await io.connectionPage.addStep("Selected 'Password Credentials' grant type")
+    await io.connectionPage.addStep("Selected 'Password credentials' grant type")
 
     await expect(page.locator('[id="oauth2.username"]')).toBeVisible();
     await expect(page.locator('[id="oauth2.password"]')).toBeVisible();
@@ -195,6 +253,24 @@ test.describe(`TC_C1_C2_C6`, () => {
     await io.connectionPage.addStep("Verified help text for 'Username' and 'Password' fields");
 
     await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
+
+    //TC_new
+    await io.flowBuilder.fill('[name="/oauth2/username"]', "test");
+    await io.flowBuilder.click('button[data-test="oauth2.token.uri"]');
+    await io.connectionPage.addStep("Opening Access token URI handlebar");
+    await io.assert.verifyElementContainsText('[id="data"] .ace_content', "username");
+    await io.assert.verifyElementContainsText('[id="data"] .ace_content', "password");
+    await io.connectionPage.addStep("Verified 'Username' and 'Password' fields are present in Input data");
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER);
+    await io.connectionPage.addStep("Closing Access token URI handlebar");
+
+    await io.flowBuilder.click('button[data-test="oauth2.revoke.uri"]');
+    await io.connectionPage.addStep("Opening Revoke token URI handlebar");
+    await io.assert.verifyElementContainsText('[id="data"] .ace_content', "username");
+    await io.assert.verifyElementContainsText('[id="data"] .ace_content', "password");
+    await io.connectionPage.addStep("Verified 'Username' and 'Password' fields are present in Input data");
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER);
+    await io.connectionPage.addStep("Closing Revoke token URI handlebar");
 
     //TC6
     await io.flowBuilder.clickByIndex(selectors.importPagePO.ADVANCED, 1);
@@ -225,11 +301,12 @@ test.describe(`TC_C1_C2_C6`, () => {
 
     await io.flowBuilder.click('[data-test="oauth2.grantType"]');
     await expect(page.locator('[data-value="password"]')).toBeVisible();
-    await io.assert.verifyElementContainsText('[data-value="password"]', "Password Credentials");
+    await io.assert.verifyElementContainsText('[data-value="password"]', "Password credentials");
+    await io.connectionPage.addStep("Verified 'Password credentials' grant type is present");
 
     //TC3
     await io.flowBuilder.click('[data-value="password"]');
-    await io.connectionPage.addStep("Selected 'Password Credentials' grant type")
+    await io.connectionPage.addStep("Selected 'Password credentials' grant type")
 
     await expect(page.locator('[id="oauth2.username"]')).toBeVisible();
     await expect(page.locator('[id="oauth2.password"]')).toBeVisible();
@@ -246,6 +323,24 @@ test.describe(`TC_C1_C2_C6`, () => {
     await io.connectionPage.addStep("Verified help text for 'Username' and 'Password' fields");
 
     await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
+
+    //TC_new
+    await io.flowBuilder.fill('[name="/oauth2/username"]', "test");
+    await io.flowBuilder.click('button[data-test="oauth2.token.uri"]');
+    await io.connectionPage.addStep("Opening Access token URI handlebar");
+    await io.assert.verifyElementContainsText('[id="data"] .ace_content', "username");
+    await io.assert.verifyElementContainsText('[id="data"] .ace_content', "password");
+    await io.connectionPage.addStep("Verified 'Username' and 'Password' fields are present in Input data");
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER);
+    await io.connectionPage.addStep("Closing Access token URI handlebar");
+
+    await io.flowBuilder.click('button[data-test="oauth2.revoke.uri"]');
+    await io.connectionPage.addStep("Opening Revoke token URI handlebar");
+    await io.assert.verifyElementContainsText('[id="data"] .ace_content', "username");
+    await io.assert.verifyElementContainsText('[id="data"] .ace_content', "password");
+    await io.connectionPage.addStep("Verified 'Username' and 'Password' fields are present in Input data");
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER);
+    await io.connectionPage.addStep("Closing Revoke token URI handlebar");
 
     //TC6
     await io.flowBuilder.click(selectors.importPagePO.ADVANCED);
