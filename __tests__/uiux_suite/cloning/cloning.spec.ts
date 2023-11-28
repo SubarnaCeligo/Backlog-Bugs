@@ -1,3 +1,7 @@
-require("./TC_C61349");
-require("./TC_C62413");
-require("./TC_C32362");
+import { filterTestCases } from "@celigo/aut-utilities";
+var testCases = ["C61349", "C62413", "C32362"];
+var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
+
+(async () => {
+  await filterTestCases(testCases, flakycases, "cloning");
+})();

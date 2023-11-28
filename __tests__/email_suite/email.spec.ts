@@ -1,8 +1,16 @@
-require("./TC_C55951");
-require("./TC_C55952");
-require("./TC_C55953");
-require("./TC_C55954");
-require("./TC_C55955");
-require("./TC_C55971");
-require("./TC_C56285");
-require("./TC_C67012");
+import { filterTestCases } from "@celigo/aut-utilities";
+var testCases = [
+  "C55951",
+  "C55952",
+  "C55953",
+  "C55954",
+  "C55955",
+  "C55971",
+  "C56285",
+  "C67012"
+];
+var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
+
+(async () => {
+  await filterTestCases(testCases, flakycases);
+})();

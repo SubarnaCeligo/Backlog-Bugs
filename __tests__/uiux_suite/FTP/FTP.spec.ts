@@ -1,10 +1,17 @@
-require("./TC_C68814");
-require("./TC_C68815");
-require("./TC_C68816");
-require("./TC_C68820");
-require("./TC_C68821");
-require("./TC_C68822");
-require("./TC_C68824");
-require("./TC_C68826");
-require("./TC_C68830");
-require("./TC_C48555");
+import { filterTestCases } from "@celigo/aut-utilities";
+var testCases = [
+  "C68814",
+  "C68815",
+  "C68816",
+  "C68820",
+  "C68821",
+  "C68822",
+  "C68824",
+  "C68826",
+  "C68830",
+  "C48555"
+];
+var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
+(async () => {
+  await filterTestCases(testCases, flakycases, "FTP");
+})();
