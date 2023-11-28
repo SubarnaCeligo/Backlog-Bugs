@@ -1,0 +1,112 @@
+{
+  "_id": "654d0412860abb76dce3bb9c",
+  "name": "IO-34461 FTP-FTP json export Negative Testcase ",
+  "disabled": true,
+  "_integrationId": "65239b7a699d210c29d7b67e",
+  "pageGenerators": [
+      {
+          "qa__export": 
+            {
+              "_id": "654ccd961dd31804501980e3",
+              "createdAt": "2023-11-09T12:16:22.065Z",
+              "lastModified": "2023-11-16T12:21:36.410Z",
+              "name": "format json export",
+              "_connectionId": "FTP CONNECTION",
+              "apiIdentifier": "e4ea07cd41",
+              "asynchronous": true,
+              "sandbox": false,
+              "ftp": {
+                "directoryPath": "/io.auto.qa/BVAutoFTP"
+              },
+              "file": {
+                "output": "records",
+                "skipDelete": true,
+                "type": "json",
+                "filter": {
+                  "type": "expression",
+                  "expression": {
+                    "rules": [
+                      "contains",
+                      [
+                        "string",
+                        [
+                          "extract",
+                          "filename"
+                        ]
+                      ],
+                      "NoArrayFieldsIO-34461"
+                    ],
+                    "version": "1"
+                  },
+                  "rules": [
+                    "contains",
+                    [
+                      "string",
+                      [
+                        "extract",
+                        "filename"
+                      ]
+                    ],
+                    "NoArrayFieldsIO-34461"
+                  ],
+                  "version": "1"
+                }
+              },
+              "adaptorType": "FTPExport"
+            }
+      }
+  ],
+  "pageProcessors": [
+      {
+          "type": "import",
+          "qa__import": 
+            {
+              "_id": "654c8e130100036088cf3048",
+              "createdAt": "2023-11-09T07:45:23.899Z",
+              "lastModified": "2023-11-16T12:23:01.312Z",
+              "name": "FTP import",
+              "_connectionId": "FTP CONNECTION",
+              "apiIdentifier": "i79b6dd84e",
+              "oneToMany": true,
+              "pathToMany": "user.items2",
+              "sandbox": false,
+              "file": {
+                "fileName": "file-{{timestamp}}.json",
+                "skipAggregation": false,
+                "type": "json"
+              },
+              "ftp": {
+                "directoryPath": "io.auto.qa/BVAutoFTP",
+                "fileName": "file-{{timestamp}}.json"
+              },
+              "adaptorType": "FTPImport"
+            }
+      }
+  ],
+  "createFlow": 
+  {
+    "_id": "654d0412860abb76dce3bb9c",
+    "lastModified": "2023-11-16T12:23:02.074Z",
+    "name": "FTP - FTP Negative Testcase : IO-34461",
+    "disabled": false,
+    "pageGenerators": [
+      {
+        "_exportId": "654ccd961dd31804501980e3",
+        "skipRetries": false
+      }
+    ],
+    "pageProcessors": [
+      {
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        },
+        "type": "import",
+        "_importId": "654c8e130100036088cf3048"
+      }
+    ],
+    "createdAt": "2023-11-09T16:08:50.631Z",
+    "lastExecutedAt": "2023-11-16T12:24:09.613Z",
+    "autoResolveMatchingTraceKeys": true
+    }
+}
