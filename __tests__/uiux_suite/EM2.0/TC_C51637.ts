@@ -14,7 +14,7 @@ test.describe("C51637 Verify the drawer title, tab titles and tab order in the '
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2DOT0PO.ACTIONS_MENU);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2DOT0PO.ACTIONS_MENU);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2DOT0PO.ACTIONS_MENU_RESOLVE_ERROR);
-        await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2DOT0PO.RESOLVED_ERRORS_TAB);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.RESOLVED_ERRORS_TAB);
         await page.getByText('Refresh errors').click();
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2DOT0PO.ACTIONS_MENU);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2DOT0PO.ACTIONS_MENU);

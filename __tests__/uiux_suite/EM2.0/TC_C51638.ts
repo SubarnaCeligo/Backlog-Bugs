@@ -14,7 +14,7 @@ test.describe("C51638 Verify the Footer buttons in the Error details tab of Reso
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2DOT0PO.ACTIONS_MENU);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2DOT0PO.ACTIONS_MENU);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2DOT0PO.ACTIONS_MENU_RESOLVE_ERROR);
-        await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2DOT0PO.RESOLVED_ERRORS_TAB);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.RESOLVED_ERRORS_TAB);
         await io.flowBuilder.clickByText('Refresh errors');
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2DOT0PO.ACTIONS_MENU);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2DOT0PO.ACTIONS_MENU);

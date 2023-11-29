@@ -1,0 +1,9 @@
+{
+  "emails": ["qaautomation1@celigo.com"],
+  "accessLevel": "monitor",
+  "integrationAccessLevel": [
+    { "_integrationId": "64e710e869b2fe328ac1ce51", "accessLevel": "manage" }
+  ],
+  "accountSSORequired": false,
+  "accountMFARequired": false
+}

@@ -1,3 +1,10 @@
-require("./TC_C22282");
-require('./TC_C2397');
-require('./TC_C77923')
+import {filterTestCases} from "@celigo/aut-utilities"
+var testCases = ["C22282",
+"C2397",
+"C77923",
+"C22227"
+];
+var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
+    (async () => {
+      await filterTestCases(testCases,flakycases,"marketplace")
+    })();
