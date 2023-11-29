@@ -1,0 +1,70 @@
+{
+    "name": "TC_C110417",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "http export",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "e35adb4a31",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "users",
+                    "method": "GET",
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "users"
+                    }
+                },
+                "rawData": "6253c695bbf2c06775d39fe1315bbd0fe1ba4d04b412f0909708d1cd",
+                "test": {
+                    "limit": 2
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "FTP import",
+                "adaptorType": "FTPImport",
+                "file": {
+                    "type": "json"
+                },
+                "ftp": {
+                    "fileName": "sortedFile.json",
+                    "directoryPath": "/io.auto.qa/IO Automation SFTP Imports"
+                },
+                "_connectionId": "FTP CONNECTION",
+                "distributed": false
+            }
+        }
+    ],
+    "createFlow": {
+        "name": "TC_C110417",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID",
+                "skipRetries": false
+            }
+        ]
+    }
+}

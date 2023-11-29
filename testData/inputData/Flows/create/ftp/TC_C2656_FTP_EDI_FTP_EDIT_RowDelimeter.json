@@ -66,6 +66,7 @@
                 "output": "records",
                 "skipDelete": true,
                 "type": "filedefinition",
+                "qa__type": "filedefinition",
                 "qa__ediformat": "genericedi850",
                 "fileDefinition": {
                     "_fileDefinitionId": "631096857622dd0a25a0a9a5"

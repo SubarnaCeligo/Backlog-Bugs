@@ -1,10 +1,10 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import testData from '@testData/Flows/C33306.json';
-import {isValidLocalTimeFormat, isRelativeTimeFormat} from "@celigo/aut-utilities"
-
-
-
+import testData from "@testData/Flows/C33306.json";
+import {
+  isValidLocalTimeFormat,
+  isRelativeTimeFormat
+} from "@celigo/aut-utilities";
 
 test.describe.only("C33306 Verify in Timestamp and Resolved at columns in Resolved errors section are displayed in relative format and the vice versa.", () => {
     test("C33306 Verify in Timestamp and Resolved at columns in Resolved errors section are displayed in relative format and the vice versa.", async ({io, page}) => {
