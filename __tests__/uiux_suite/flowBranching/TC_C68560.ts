@@ -5,6 +5,8 @@ test.describe(`C68560 Verify user is upload the ntegration zip file having one l
     test.beforeEach(async ({ io }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
       });
+
+      
         test(`C68560 Verify user is upload the ntegration zip file having one linear flow in the template and able to install the template`, async ({
           io,
           page
@@ -44,12 +46,26 @@ test.describe(`C68560 Verify user is upload the ntegration zip file having one l
               await io.connectionPage.click(selectors.basePagePO.SAVE);
 
             await io.homePage.click(selectors.basePagePO.INSTALL);
-
+            await io.homePage.clickByTextByIndex('TC100370_FTP_TO_FTP',2);
+            const linkUrl = await page.url();
+            const match = linkUrl.match(/\/integrations\/(\w+)\/flowBuilder\/(\w+)/);
+            const firstString = match[1];
+            const secondString = match[2];
+             
             await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
             await io.homePage.fill('[placeholder="Search integrations & flows"]','TC100370_FTP_TO_FTP' )
             await io.homePage.waitForElementAttached("text='TC100370_FTP_TO_FTP'")
             const flow = await io.homePage.isVisible("text='TC100370_FTP_TO_FTP'")
             await io.assert.expectToBeValue(flow.toString(),'true', "Template flow not found")
+
+            const res = await io.api.deleteCall(
+              `v1/flows/${secondString}`,
+            );
+            
+            const res2 = await io.api.deleteCall(
+              `v1/integrations/${firstString}`,
+            );
+
         });
       });
     

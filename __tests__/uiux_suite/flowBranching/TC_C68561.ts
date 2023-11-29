@@ -44,11 +44,25 @@ test.describe(`C68561 Verify user is upload the integration zip file having Mult
               await io.connectionPage.click(selectors.basePagePO.SAVE);
 
             await io.homePage.click( selectors.basePagePO.INSTALL);
+            await io.homePage.clickByTextByIndex('C68561',2);
+            const linkUrl = await page.url();
+            const match = linkUrl.match(/\/integrations\/(\w+)\/flowBuilder\/(\w+)/);
+            const firstString = match[1];
+            const secondString = match[2];
+             
 
             await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+            await io.homePage.fill('[placeholder="Search integrations & flows"]','C68561' )
             await io.homePage.waitForElementAttached("text='C68561'")
             const flow = await io.homePage.isVisible("text='C68561'")
             await io.assert.expectToBeValue(flow.toString(),'true', "Template flow not found")
+            const res = await io.api.deleteCall(
+              `v1/flows/${secondString}`,
+            );
+            
+            const res2 = await io.api.deleteCall(
+              `v1/integrations/${firstString}`)
+              
              
         });
       });

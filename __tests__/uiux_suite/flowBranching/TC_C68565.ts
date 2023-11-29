@@ -1,7 +1,7 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe.only(`C68565 Verify user is upload the integration zip file having linear flow (with input/output/mapping/hooks defined) in the template ad able to install the template`, () => {
+test.describe(`C68565 Verify user is upload the integration zip file having linear flow (with input/output/mapping/hooks defined) in the template ad able to install the template`, () => {
     test.beforeEach(async ({ io }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
       });
@@ -33,17 +33,23 @@ test.describe.only(`C68565 Verify user is upload the integration zip file having
               .click();
               await io.connectionPage.click(selectors.basePagePO.SAVE);
             await io.homePage.click(selectors.basePagePO.INSTALL);
+            await io.homePage.clickByText('C68565');
+            const linkUrl = await page.url();
+            const match = linkUrl.match(/\/integrations\/(\w+)\/flowBuilder\/(\w+)/);
+            const firstString = match[1];
+            const secondString = match[2];
             await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+            await io.homePage.fill('[placeholder="Search integrations & flows"]','C68565' )
             await io.homePage.waitForElementAttached("text='C68545'")
             const flow = await io.homePage.isVisible("text='C68545'")
             await io.assert.expectToBeValue(flow.toString(),'true', "Template flow not found")
-            await io.homePage.clickByTextByIndex("C68545",0);
-            await io.homePage.waitForElementAttached(`tbody tr:has-text("C68565") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
-            await io.homePage.clickByIndex(`tbody tr:has-text("C68565") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`,0)
-            await io.homePage.waitForElementAttached('text="Delete integration"')
-            await io.homePage.clickByText('Delete integration')
-            await io.homePage.waitForElementAttached( selectors.basePagePO.DELETE)
-            await io.homePage.click( selectors.basePagePO.DELETE)
+            const res = await io.api.deleteCall(
+              `v1/flows/${secondString}`,
+            );
+            
+            const res2 = await io.api.deleteCall(
+              `v1/integrations/${firstString}`)
+              
         });
       });
  
