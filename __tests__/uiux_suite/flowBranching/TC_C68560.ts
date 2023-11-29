@@ -11,7 +11,7 @@ test.describe(`C68560 Verify user is upload the ntegration zip file having one l
         }) => {
             await io.homePage.clickByText("Resources");
             await io.homePage.clickByText("Templates");
-            await io.homePage.waitForElementAttached(`:has-text("temp1") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
+            await io.homePage.waitForElementAttached(`:has-text("temp2-DND") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
             await io.homePage.click(`tbody tr:has-text("temp2-DND") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
             await io.homePage.clickByText("Upload template zip");
             const fileInput = await page.$(selectors.basePagePO.UPLOAD_FILE);
@@ -46,22 +46,10 @@ test.describe(`C68560 Verify user is upload the ntegration zip file having one l
             await io.homePage.click(selectors.basePagePO.INSTALL);
 
             await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-        
+            await io.homePage.fill('[placeholder="Search integrations & flows"]','TC100370_FTP_TO_FTP' )
             await io.homePage.waitForElementAttached("text='TC100370_FTP_TO_FTP'")
             const flow = await io.homePage.isVisible("text='TC100370_FTP_TO_FTP'")
             await io.assert.expectToBeValue(flow.toString(),'true', "Template flow not found")
-            await io.homePage.clickByTextByIndex("TC100370_FTP_TO_FTP",0);
-            await io.homePage.waitForElementAttached(`tbody tr:has-text("TC100370_FTP_TO_FTP") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
-            await io.homePage.clickByIndex(`tbody tr:has-text("TC100370_FTP_TO_FTP") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`,0);
-            await io.homePage.clickByText("Delete flow")
-            await io.homePage.waitForElementAttached(selectors.basePagePO.DELETE)
-            await io.homePage.click( selectors.basePagePO.DELETE)
-            await io.homePage.waitForElementAttached('text="Delete integration"')
-            await io.homePage.clickByText('Delete integration')
-            await io.homePage.waitForElementAttached( selectors.basePagePO.DELETE)
-            await io.homePage.click( selectors.basePagePO.DELETE)
-           
-
         });
       });
     

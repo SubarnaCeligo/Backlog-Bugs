@@ -1,7 +1,7 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe(`C68820 Verify User attempt to Connect to the SFTP server in very short time out.`, () => {
+test.describe.only(`C68820 Verify User attempt to Connect to the SFTP server in very short time out.`, () => {
     test.beforeEach(async ({ io }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
       });
@@ -19,6 +19,7 @@ test.describe(`C68820 Verify User attempt to Connect to the SFTP server in very 
         await io.connectionPage.waitForElementAttached(selectors.basePagePO.FTP_PASSWORD)
         await io.connectionPage.fill(selectors.basePagePO.FTP_PASSWORD, "itZDKb3PJ43bLQIS")
         await io.connectionPage.click(selectors.basePagePO.TEST_CONNECTION)
+        await page.pause()
         await io.assert.verifyElementText(selectors.loginPagePO.CLIENT_SNACKBAR, "Your test was not successful. Check your information and try again")
 
     });

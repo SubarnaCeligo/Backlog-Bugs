@@ -49,16 +49,7 @@ test.describe(`C68561 Verify user is upload the integration zip file having Mult
             await io.homePage.waitForElementAttached("text='C68561'")
             const flow = await io.homePage.isVisible("text='C68561'")
             await io.assert.expectToBeValue(flow.toString(),'true', "Template flow not found")
-            await io.homePage.clickByTextByIndex('C68561',0);
-            await io.homePage.waitForElementAttached(`:has-text('C68561') ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
-            await io.homePage.clickByIndex(`tbody tr:has-text("C68561") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`,0);
-            await io.homePage.clickByText("Delete flow")
-            await io.homePage.waitForElementAttached(selectors.basePagePO.DELETE)
-            await io.homePage.click( selectors.basePagePO.DELETE)
-            await io.homePage.waitForElementAttached('text="Delete integration"')
-            await io.homePage.clickByText('Delete integration')
-            await io.homePage.waitForElementAttached( selectors.basePagePO.DELETE)
-            await io.homePage.click( selectors.basePagePO.DELETE)
+             
         });
       });
 

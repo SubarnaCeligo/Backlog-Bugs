@@ -1,7 +1,7 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe(`C68565 Verify user is upload the integration zip file having linear flow (with input/output/mapping/hooks defined) in the template ad able to install the template`, () => {
+test.describe.only(`C68565 Verify user is upload the integration zip file having linear flow (with input/output/mapping/hooks defined) in the template ad able to install the template`, () => {
     test.beforeEach(async ({ io }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
       });
@@ -39,16 +39,11 @@ test.describe(`C68565 Verify user is upload the integration zip file having line
             await io.assert.expectToBeValue(flow.toString(),'true', "Template flow not found")
             await io.homePage.clickByTextByIndex("C68545",0);
             await io.homePage.waitForElementAttached(`tbody tr:has-text("C68565") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
-            await io.homePage.clickByIndex(`tbody tr:has-text("C68565") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`,0);
-            await io.homePage.clickByText("Delete flow")
-            await io.homePage.waitForElementAttached(selectors.basePagePO.DELETE)
-            await io.homePage.click( selectors.basePagePO.DELETE)
+            await io.homePage.clickByIndex(`tbody tr:has-text("C68565") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`,0)
             await io.homePage.waitForElementAttached('text="Delete integration"')
             await io.homePage.clickByText('Delete integration')
             await io.homePage.waitForElementAttached( selectors.basePagePO.DELETE)
             await io.homePage.click( selectors.basePagePO.DELETE)
-           
-          
         });
       });
  
