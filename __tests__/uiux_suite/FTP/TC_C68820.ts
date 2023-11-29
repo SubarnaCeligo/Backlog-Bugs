@@ -19,7 +19,6 @@ test.describe.only(`C68820 Verify User attempt to Connect to the SFTP server in 
         await io.connectionPage.waitForElementAttached(selectors.basePagePO.FTP_PASSWORD)
         await io.connectionPage.fill(selectors.basePagePO.FTP_PASSWORD, "itZDKb3PJ43bLQIS")
         await io.connectionPage.click(selectors.basePagePO.TEST_CONNECTION)
-        await page.pause()
         await io.assert.verifyElementText(selectors.loginPagePO.CLIENT_SNACKBAR, "Your test was not successful. Check your information and try again")
 
     });
