@@ -65,17 +65,9 @@ test.describe("C94517_C94527_C94525_C94521_C94529_C94533_C94528_C94531_C94526_C9
         await io.homePage.addStep('Verifeid Preview control should not show in the result for the Build file internal id field');
 
         //TC_C94519 Status is either True or False (processes successfully, and either passed or failed the filter) or Error (not processed successfully).
-        const statusValues = ["Success", "Error"];
-        let statusCol = await page.$$(
-            selectors.flowBuilderPagePO.TEST_RUN_STATUS
-        );
-        for (let i = 0; i < statusCol.length; i++) {
-            await statusCol[i].click();
-            await io.flowBuilder.delay(3000);
-            let cell = await (await statusCol[i]).textContent();
-            let cellValue = await statusValues.includes(cell);
-            await expect(cellValue).toBeTruthy();
-        }
+        const result = await io.flowBuilder.getRunStatus(selectors.flowBuilderPagePO.TEST_RUN_STATUS) as string;
+        const jsonStringfy1 = JSON.stringify(result);
+        await io.assert.expectToContainValue('["Success","Success","Success","Success","Success","Success","Success","Success","Success","Success"]', jsonStringfy1, "Status is not showing");
         await io.homePage.addStep('Verifeid Status is either Success or Error (processes successfully, and either passed or failed the filter) or Error (not processed successfully');
 
         //TC_C94534 Verify test run result showing when we have AFE2.0 toggle selected
