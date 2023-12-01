@@ -52,7 +52,7 @@ test.describe(`C68562 Verify user is upload the integration zip file having Mult
               testdata.secondString = match[2];
              
             await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-            await io.homePage.fill('[placeholder="Search integrations & flows"]','C68562' )
+            await io.homePage.fill(selectors.marketplacePagePO.SEARCH_INTEGRATION,'C68562' )
             await io.homePage.waitForElementAttached("text='C68562'")
             const flow = await io.homePage.isVisible("text='C68562'")
             await io.assert.expectToBeValue(flow.toString(),'true', "Template flow not found")

@@ -65,7 +65,7 @@ test.describe.only(`C68560 Verify user is upload the ntegration zip file having 
               testdata.secondString = match[2];
              
             await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-            await io.homePage.fill('[placeholder="Search integrations & flows"]','TC100370_FTP_TO_FTP' )
+            await io.homePage.fill(selectors.marketplacePagePO.SEARCH_INTEGRATION,'TC100370_FTP_TO_FTP' )
             await io.homePage.waitForElementAttached("text='TC100370_FTP_TO_FTP'")
             const flow = await io.homePage.isVisible("text='TC100370_FTP_TO_FTP'")
             await io.assert.expectToBeValue(flow.toString(),'true', "Template flow not found")
