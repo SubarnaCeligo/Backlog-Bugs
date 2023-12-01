@@ -40,6 +40,7 @@ test.describe("C57329 Verify after login, all pages should render without any re
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.waitForElementAttached(selectors.homePagePO.CLONE_INTEGRATION);
         await io.homePage.reloadPage();
+        await io.homePage.waitForElementAttached(selectors.homePagePO.CLONE_INTEGRATION);
         await io.assert.verifyElementIsDisplayed(selectors.homePagePO.CLONE_INTEGRATION, "clone integration is not displayed");
         await io.assert.verifyElementIsDisplayed(selectors.homePagePO.DELETE_INTEGRATION, "Delete integration is not displayed");
     });
