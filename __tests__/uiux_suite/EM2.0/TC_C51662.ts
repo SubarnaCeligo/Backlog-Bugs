@@ -12,10 +12,8 @@ test.describe(`C51662 Verify the default view of the Error details drawer`, () =
     const lastRun = page.getByText("Last run");
     await lastRun.waitFor({ state: "visible" });
     await page.getByText("1 error").nth(1).click();
-    const tabListLocator = page.locator(
-      selectors.flowBuilderPagePO.ERROR_DETAILS_TABLIST
-    );
-    const firstTabInTablist = tabListLocator.locator("button:nth-of-type(1)");
+    const tabListLocator = page.getByRole("tablist").nth(1);
+    const firstTabInTablist = tabListLocator.locator("button").first();
     const firstTabButton = page.getByRole("tab", { name: "Edit retry data" });
     expect(await firstTabButton.textContent()).toEqual(
       await firstTabInTablist.textContent()

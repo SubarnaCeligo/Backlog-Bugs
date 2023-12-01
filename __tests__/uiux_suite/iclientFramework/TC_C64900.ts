@@ -9,7 +9,8 @@ test.describe(`C64900 Validate editing the iClient created in Resources -> iClie
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "iClients");
     await io.flowBuilder.click(selectors.integrationPagePO.ADDNEWRESOURCE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.APPLICATION);
-    await io.flowBuilder.clickByText("3PL Central");
+    // clickbytextbyindex doesn't work here
+    await page.getByText("3PL Central").nth(2).click();
     await io.assert.verifyElementIsDisplayed(
       selectors.connectionsPagePO.SEND_CLIENT_CREDENTIALS_VIA,
       "'Send client credentials via' is not displayed"
@@ -23,6 +24,9 @@ test.describe(`C64900 Validate editing the iClient created in Resources -> iClie
       process.env["IO_UI_CONNECTOR_URL"] + "connections"
     );
     await io.flowBuilder.click(selectors.integrationPagePO.ADDNEWRESOURCE);
+    await io.flowBuilder.waitForElementAttached(
+      selectors.connectionsPagePO.THREEPL_CONNECTION
+    );
     await io.flowBuilder.click(selectors.connectionsPagePO.THREEPL_CONNECTION);
     await io.flowBuilder.click(selectors.connectionsPagePO.CREATE_ICLIENT);
     await expect(page.getByRole("button", { name: "Simple" })).toHaveAttribute(

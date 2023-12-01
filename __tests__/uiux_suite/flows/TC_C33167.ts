@@ -32,7 +32,7 @@ test.describe(`C33167 Verify When there are unsaved changes and user tries to cl
     await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);
     await io.flowBuilder.fill(selectors.flowBuilderPagePO.DESCRIPTION, "test");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
-    expect(page.getByRole("dialog")).toBeVisible();
+    await expect(page.getByRole("dialog")).toBeVisible();
     await io.flowBuilder.addStep("Verified the leave dialog is visible");
   });
 });
