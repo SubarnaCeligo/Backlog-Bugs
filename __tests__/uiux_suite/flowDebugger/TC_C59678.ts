@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C59678 from "@testData/Flows/C59678.json";
 
 
-test.describe.only("To verify that the Export/Import bubbles are working as expected", () => {
+test.describe("To verify that the Export/Import bubbles are working as expected", () => {
     test.beforeEach(async ({ io }) => {
         await io.flowBuilder.navigateTo(io.data.links.FLOW_BUILDER_PAGE_URL);
       });
@@ -12,7 +12,7 @@ test.describe.only("To verify that the Export/Import bubbles are working as expe
     test("To verify that the Export/Import bubbles are working as expected", async ({io,page}) => {
      
         await io.createResourceFromAPI(C59678, "FLOWS");
-        await io.flowBuilder.click('[data-test="Export"]');
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT)
         await io.flowBuilder.clickByText("Preview")
         await page.waitForSelector('body');  
         await page.waitForSelector('body:has-text("Success!")');  

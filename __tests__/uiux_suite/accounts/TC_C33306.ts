@@ -11,16 +11,14 @@ test.describe.only("C33306 Verify in Timestamp and Resolved at columns in Resolv
     
       await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
       await io.myAccountPage.waitForElementAttached(selectors.myAccountPagePO.SHOW_RELATIVE_DATE_TIME_CHECKBOX)
-      const inputElement = await page.$('[name="showRelativeDateTime"]');
+      const inputElement = await page.$(selectors.myAccountPagePO.SHOW_RELATIVE_DATE_TIME_CHECKBOX);
        let valueAttribute = await inputElement.getAttribute('value');
-      console.log(valueAttribute, "value");
       if(valueAttribute === 'false')
       {
-        await io.myAccountPage.click('[name="showRelativeDateTime"]')
+        await io.myAccountPage.click(selectors.myAccountPagePO.SHOW_RELATIVE_DATE_TIME_CHECKBOX)
         await io.myAccountPage.click(selectors.basePagePO.MFA_SAVE)
       }
       valueAttribute = await inputElement.getAttribute('value');
-      console.log(valueAttribute, "check")
       const id = await io.createResourceFromAPI(testData,"FLOWS");
       await io.api.runBatchFlowViaAPI('TC_50858', id);
       const lastRun = page.getByText('Last run')
@@ -32,7 +30,7 @@ test.describe.only("C33306 Verify in Timestamp and Resolved at columns in Resolv
       await io.assert.expectToBeTrue(isRelativeTime, "not in a relative time format")
 
       await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
-      await io.myAccountPage.click('[name="showRelativeDateTime"]')
+      await io.myAccountPage.click(selectors.myAccountPagePO.SHOW_RELATIVE_DATE_TIME_CHECKBOX)
       await io.myAccountPage.click(selectors.basePagePO.MFA_SAVE)
       await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL)
       await io.homePage.clickByText("Automation Flows")

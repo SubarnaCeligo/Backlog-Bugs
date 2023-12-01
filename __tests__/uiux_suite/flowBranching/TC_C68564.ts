@@ -1,9 +1,20 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
+import testdata from "./testdata.json"
+
 
 test.describe(`C68564 Verify user is upload the integration zip file having one branched flow (with input/output/mapping/hooks defined) in the template ad able to install the template`, () => {
     test.beforeEach(async ({ io }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+      });
+      test.afterEach(async ({ io }) => {
+        const res = await io.api.deleteCall(
+          `v1/flows/${testdata.secondString}`,
+        );
+         const res2 = await io.api.deleteCall(
+          `v1/integrations/${testdata.firstString}`,
+        );
+
       });
         test(`C68564 Verify user is upload the integration zip file having one branched flow (with input/output/mapping/hooks defined) in the template ad able to install the template`, async ({
           io,
@@ -36,19 +47,14 @@ test.describe(`C68564 Verify user is upload the integration zip file having one 
             await io.homePage.clickByTextByIndex('C68564',2);
             const linkUrl = await page.url();
             const match = linkUrl.match(/\/integrations\/(\w+)\/flowBuilder\/(\w+)/);
-            const firstString = match[1];
-            const secondString = match[2];
+              testdata.firstString = match[1];
+              testdata.secondString = match[2];
             await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
             await io.homePage.fill('[placeholder="Search integrations & flows"]','C68564' )
             await io.homePage.waitForElementAttached("text='C68564'")
             const flow = await io.homePage.isVisible("text='C68564'")
             await io.assert.expectToBeValue(flow.toString(),'true', "Template flow not found")
-            const res = await io.api.deleteCall(
-              `v1/flows/${secondString}`,
-            );
             
-            const res2 = await io.api.deleteCall(
-              `v1/integrations/${firstString}`)
               
           
         });

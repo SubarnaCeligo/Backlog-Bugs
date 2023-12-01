@@ -9,7 +9,7 @@ test.describe('Verify for the backupBucket for S3 import, only AFE 2.0 supports'
             C22818,
             'FLOWS'
           );
-        await io.flowBuilder.click('[data-test="Transfer"]');
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);
         await io.flowBuilder.clickByText("Advanced");
         const element = await page.waitForSelector(selectors.importPagePO.S3_IMPORT_BACKUP_BUCKET);
         await page.click(selectors.importPagePO.S3_IMPORT_BACKUP_BUCKET);

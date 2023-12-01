@@ -1,7 +1,7 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe.only(`C68820 Verify User attempt to Connect to the SFTP server in very short time out.`, () => {
+test.describe(`C68820 Verify User attempt to Connect to the SFTP server in very short time out.`, () => {
     test.beforeEach(async ({ io }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
       });
