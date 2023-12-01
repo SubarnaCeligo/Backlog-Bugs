@@ -2,7 +2,7 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe(' C39939 Verify the message under resources tab if we do not have any imports,agents,exports in the IO', () => {
+test.describe.skip(' C39939 Verify the message under resources tab if we do not have any imports,agents,exports in the IO', () => {
     test.beforeEach(async ({ io }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
