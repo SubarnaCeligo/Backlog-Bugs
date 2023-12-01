@@ -1,5 +1,13 @@
-require("./TC_C24898");
-require("./TC_C24936");
-require("./TC_C24943");
-require("./TC_C2014");
-require("./TC_C1560");
+import {filterTestCases} from "@celigo/aut-utilities"
+var testCases = [
+"C24898",
+"C24936",
+"C24943",
+"C2014",
+"C1560"
+];
+var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
+
+(async () => {
+  await filterTestCases(testCases,flakycases,"manage_all_suite");
+})();

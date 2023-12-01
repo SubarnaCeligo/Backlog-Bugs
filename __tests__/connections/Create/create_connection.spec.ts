@@ -1,10 +1,18 @@
-require("./TC_037_Create_Connection_DynamoDB")
-require("./BigQueryConnection")
-require("./TC_003_Create_Connection_FTP")
-require("./TC_027_Create_Connection_Mssql")
-require("./TC_028_Create_Connection_Mysql")
-require("./TC_C40112_Create_Connection_AmazonRedshift")
-require("./TC_011_Create_Connection_REST_Token")
-require("./TC_017_Create_Connection_HTTP_Basic_JSON_Zendesk")
-require("./TC_029_Create_Connection_Slack")
-require("./TC_040_Create_Connection_AS2")
+import {filterTestCases} from "@celigo/aut-utilities"
+var testCases = [
+"037_Create_Connection_DynamoDB",
+"BigQueryConnection",
+"003_Create_Connection_FTP",
+"027_Create_Connection_Mssql",
+"028_Create_Connection_Mysql",
+"C40112_Create_Connection_AmazonRedshift",
+"011_Create_Connection_REST_Token",
+"017_Create_Connection_HTTP_Basic_JSON_Zendesk",
+"029_Create_Connection_Slack",
+"040_Create_Connection_AS2",
+];
+var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
+
+(async () => {
+  await filterTestCases(testCases,flakycases,"Create");
+})();
