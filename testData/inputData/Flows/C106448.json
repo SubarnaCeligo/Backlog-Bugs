@@ -1,0 +1,174 @@
+{
+    "name": "C106448",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "6459f5fc6df4b9686c0b7145",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "Salesforce Export",
+                "_connectionId": "SALESFORCE CONNECTION",
+                "apiIdentifier": "e5a8478200",
+                "asynchronous": true,
+                "type": "once",
+                "oneToMany": false,
+                "sandbox": false,
+                "rawData": "6253c695bbf2c06775d39fe10d3bf64ab80442f18ff5e19002ba6028",
+                "once": {
+                    "booleanField": "Exported__c"
+                },
+                "salesforce": {
+                    "type": "soql",
+                    "api": "rest",
+                    "soql": {
+                        "query": "Select Name from Account"
+                    }
+                },
+                "adaptorType": "SalesforceExport"
+            }
+        },
+        {
+            "qa__export": {
+                "name": "MongoDB Export",
+                "_connectionId": "MONGODB CONNECTION",
+                "apiIdentifier": "e2743380d5",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "groupByFields": [
+                    "id"
+                ],
+                "rawData": "6253c695bbf2c06775d39fe147a330a269a1463ea9e7dba8d188a243",
+                "mongodb": {
+                    "method": "find",
+                    "collection": "TEST NEW"
+                },
+                "filter": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [],
+                        "version": "1"
+                    },
+                    "rules": [],
+                    "version": "1"
+                },
+                "adaptorType": "MongodbExport"
+            }
+        },
+        {
+            "qa__export": {
+                "name": "dynamodb_export",
+                "_connectionId": "DYNAMODB CONNECTION",
+                "apiIdentifier": "e49473bdb7",
+                "asynchronous": true,
+                "sandbox": false,
+                "rawData": "6253c695bbf2c06775d39fe1b1098cd428ec496dadf46f9aa8f8acf8",
+                "dynamodb": {
+                    "region": "us-east-1",
+                    "method": "query",
+                    "tableName": "limit-test",
+                    "keyConditionExpression": "#n1 = :p1 AND #n2 > :p2",
+                    "expressionAttributeNames": "{\"#n1\":\"sku\",\"#n2\":\"id\"}",
+                    "expressionAttributeValues": "{\":p1\":\"celigo-tshirt\",\":p2\":99}"
+                },
+                "filter": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [],
+                        "version": "1"
+                    },
+                    "rules": [],
+                    "version": "1"
+                },
+                "adaptorType": "DynamodbExport"
+            }
+        },
+        {
+            "qa__export": {
+                "name": "Netsuite export",
+                "_connectionId": "NETSUITE CONNECTION",
+                "apiIdentifier": "ea782c4a4e",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "rawData": "6253c695bbf2c06775d39fe14a82033bcca0411fa93f2d49afc92255",
+                "netsuite": {
+                    "type": "restlet",
+                    "skipGrouping": false,
+                    "statsOnly": false,
+                    "restlet": {
+                        "recordType": "customer",
+                        "searchId": "1970",
+                        "restletVersion": "suiteapp2.0",
+                        "markExportedBatchSize": 100
+                    },
+                    "distributed": {}
+                },
+                "filter": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [],
+                        "version": "1"
+                    },
+                    "rules": [],
+                    "version": "1"
+                },
+                "adaptorType": "NetSuiteExport"
+            }
+        },
+        {
+            "qa__export": {
+                "name": "Ftp Export",
+                "_connectionId": "FTP CONNECTION",
+                "_sourceId": "63357a21a0e7ad168336c4cc",
+                "apiIdentifier": "ebe54799cd",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports_FileAdaptors",
+                    "fileNameStartsWith": "CreateAddress",
+                    "fileNameEndsWith": "json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "HTTP import",
+                "application": "zendesk support",
+                "parsers": [],
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "lookups": [],
+                "http": {
+                    "relativeURI": [
+                        "/ticket.json"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [
+                        "{\"name\":\"New\"}"
+                    ],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ]
+}
