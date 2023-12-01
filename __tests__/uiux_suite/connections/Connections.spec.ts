@@ -1,4 +1,4 @@
-import {filterTestCases} from "@celigo/aut-utilities"
+import { filterTestCases } from "@celigo/aut-utilities";
 var testCases = [
   "C53343",
   "C53344",
@@ -33,11 +33,12 @@ var testCases = [
   "C65462",
   "C65490",
   "C67022",
-  "C52775"
+  "C52775",
+  "C97060"
 ];
 
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
 
 (async () => {
-  await filterTestCases(testCases,flakycases,"connections")
+  await filterTestCases(testCases, flakycases, "connections");
 })();

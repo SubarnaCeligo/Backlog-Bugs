@@ -27,13 +27,20 @@ test.describe(`C97060 App crash should not happen when user edits the connector 
     await io.exportsPage.clickByText("Accounts");
     await io.exportsPage.click(selectors.exportsPagePO.API_ENDPOINT);
     await io.exportsPage.clickByText("Get account by ID");
+    await io.exportsPage.fill(selectors.exportsPagePO.ACCOUNT_NUMBER, "12345");
     await io.exportsPage.click(selectors.basePagePO.SAVE);
     await io.exportsPage.clickByText("Custom settings");
     await io.exportsPage.clickByText("Launch form builder");
     await page.locator(selectors.exportsPagePO.FORM_DEFINITION).evaluate(e => {
       // @ts-ignore
       const editor = ace.edit(e);
-      return editor.session.removeFullLines(1, 1);
+      return editor.setValue(`{
+        "layout": {
+          "fields": [
+            "pathparam"
+          ]
+        }
+      }`);
     });
     await io.exportsPage.addStep("Edited the custom settings form builder");
     await io.exportsPage.click(selectors.basePagePO.SAVE_AND_CLOSE);

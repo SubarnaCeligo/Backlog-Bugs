@@ -8,7 +8,12 @@ test.describe(`C69768 getting unknown error if we are saving dataloader first ti
   }) => {
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
     await io.homePage.goToMenu("Tools", "Data loader");
-    await io.flowBuilder.click(selectors.basePagePO.DATA_LOADER);
+    await page
+      .getByText(
+        "You can add a destination application once you complete the configuration of your data loader."
+      )
+      .waitFor({ state: "visible" });
+    await io.flowBuilder.clickByIndex(selectors.basePagePO.DATA_LOADER, 1);
     await io.flowBuilder.click(selectors.exportsPagePO.FILE_TYPE);
     await io.flowBuilder.clickByText("XLSX");
     await io.flowBuilder.clickByText("File has header");

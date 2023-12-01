@@ -9,13 +9,14 @@ test.describe(`C62413 Verify New Outh 2.0 iclient form is getting display if you
   }) => {
     await io.homePage.navigateTo(process.env.IO_Integration_URL);
     await io.homePage.clickByTextByIndex("Gdrive_DND", 0);
-    await io.homePage.clickByIndex(
-      selectors.connectionsPagePO.ACTIONS_MENU_BUTTON,
-      0
-    );
+    // not working with clickbyindex
+    await page
+      .locator(selectors.connectionsPagePO.ACTIONS_MENU_BUTTON)
+      .first()
+      .click();
     await io.flowBuilder.clickByText("Clone flow");
     await io.flowBuilder.clickByText("Please select");
-    await io.flowBuilder.clickByTextByIndex("Automation Flows", 0);
+    await page.getByRole("menuitem").nth(1).click();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLONE_FLOW_BUTTON);
     await io.flowBuilder.clickByText("Configure");
     await io.flowBuilder.click(selectors.integrationPagePO.ADDNEWRESOURCE);
