@@ -1,28 +1,29 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe(`TC_C1_C2_C6`, () => {
-  test(`TC_C2_C3_C6_C7_C8_C9_HTTP_2.0`, async ({ io, page }) => {
+test.describe(`C113520_C113521_C113522_C113523_C113524_C113525_C113526`, () => {
+  test(`Normal HTTP 2.0 framework connectors`, async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
     await io.connectionPage.click(selectors.connectionsPagePO.GUSTO_CONNECTION);
     await io.flowBuilder.click(selectors.connectionsPagePO.CREATE_ICLIENT);
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH, 2);
 
+    //TC_C113520 - Verify Password credentials  new field is added in Grant type dropdown
     await io.flowBuilder.click('[data-test="oauth2.grantType"]');
     await expect(page.locator('[data-value="password"]')).toBeVisible();
     await io.assert.verifyElementContainsText('[data-value="password"]', "Password credentials");
     await io.connectionPage.addStep("Verified 'Password credentials' grant type is present");
 
-    //TC3
+    //TC_C113521 - Verify username and password fields is added after Grant type field
     await io.flowBuilder.click('[data-value="password"]');
     await io.connectionPage.addStep("Selected 'Password credentials' grant type")
 
-    await expect(page.locator('[id="oauth2.username"]')).toBeVisible();
-    await expect(page.locator('[id="oauth2.password"]')).toBeVisible();
+    await expect(page.locator('[data-test="oauth2.username"]')).toBeVisible();
+    await expect(page.locator('[data-test="oauth2.password"]')).toBeVisible();
     await io.connectionPage.addStep("Verified 'Username' and 'Password' fields are present")
 
-    //TC7
+    //TC_C113524 - Verify help text is added for username and password fields
     await io.flowBuilder.click('[id="oauth2.username"] button');
     await io.connectionPage.addStep("Click on help icon for 'Username' field");
     await io.assert.verifyElementContainsText('[id="oauth2.username"] [id="helpBubble"]', "Enter your username. This is typically associated with your account or identity on the authorization server, which is responsible for issuing access tokens. Your username serves to identify you.");
@@ -34,8 +35,8 @@ test.describe(`TC_C1_C2_C6`, () => {
 
     await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
 
-    //TC_new
-    await io.flowBuilder.fill('[name="/oauth2/username"]', "test");
+    //TC_C113522 - Verify {username} && {password} are added in AFE handlebar for revoke token url ,access token url
+    await io.flowBuilder.fill('[data-test="oauth2.username"] input', "test");
     await io.flowBuilder.click('button[data-test="oauth2.token.uri"]');
     await io.connectionPage.addStep("Opening Access token URI handlebar");
     await io.assert.verifyElementContainsText('[id="data"] .ace_content', "username");
@@ -52,13 +53,14 @@ test.describe(`TC_C1_C2_C6`, () => {
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER);
     await io.connectionPage.addStep("Closing Revoke token URI handlebar");
 
-    //TC6
+    //TC_C113523 - Verify Encrypted and Unencrypted fields are added in Advanced section
     await io.flowBuilder.click(selectors.importPagePO.ADVANCED);
     await expect(page.locator('[id="oauth2.encrypted"]')).toBeVisible();
     await expect(page.locator('[id="oauth2.unencrypted"]')).toBeVisible();
     await io.connectionPage.addStep("Verified 'Encrypted' and 'Unencrypted' fields are present");
 
-    //TC8_TC9
+    //TC_C113525 - Verify field path is correct for Encrypted and Unencrypted fields
+    //TC_C113526 -  Verify help text is correct for Encrypted and Unencrypted fields
     await io.flowBuilder.click('[id="oauth2.encrypted"] button');
     await io.connectionPage.addStep("Click on help icon for 'Encypted' field");
     await io.assert.verifyElementContainsText('[id="oauth2.encrypted"] [id="helpBubble"]', "Field path: iClient.oauth2.encrypted");
@@ -73,7 +75,8 @@ test.describe(`TC_C1_C2_C6`, () => {
     await io.connectionPage.addStep("Verified field path and help text for 'Unencrypted' field");
     await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
   });
-  test(`1TC_C2_C3_C6_C7_C8_C9_HTTP`, async ({ io, page }) => {
+
+  test(`HTTP connection iClient page`, async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
     await io.connectionPage.click(selectors.importPagePO.HTTP_IMPORT);
@@ -81,20 +84,21 @@ test.describe(`TC_C1_C2_C6`, () => {
     await io.connectionPage.click(selectors.connectionsPagePO.OAUTH);
     await io.flowBuilder.click(selectors.connectionsPagePO.CREATE_ICLIENT);
 
+    //TC_C113520 - Verify Password credentials  new field is added in Grant type dropdown
     await io.flowBuilder.click('[data-test="oauth2.grantType"]');
     await expect(page.locator('[data-value="password"]')).toBeVisible();
     await io.assert.verifyElementContainsText('[data-value="password"]', "Password credentials");
     await io.connectionPage.addStep("Verified 'Password credentials' grant type is present");
 
-    //TC3
+    //TC_C113521 - Verify username and password fields is added after Grant type field
     await io.flowBuilder.click('[data-value="password"]');
     await io.connectionPage.addStep("Selected 'Password credentials' grant type")
 
-    await expect(page.locator('[id="oauth2.username"]')).toBeVisible();
-    await expect(page.locator('[id="oauth2.password"]')).toBeVisible();
+    await expect(page.locator('[data-test="oauth2.username"]')).toBeVisible();
+    await expect(page.locator('[data-test="oauth2.password"]')).toBeVisible();
     await io.connectionPage.addStep("Verified 'Username' and 'Password' fields are present")
 
-    //TC7
+    //TC_C113524 - Verify help text is added for username and password fields
     await io.flowBuilder.click('[id="oauth2.username"] button');
     await io.connectionPage.addStep("Click on help icon for 'Username' field");
     await io.assert.verifyElementContainsText('[id="oauth2.username"] [id="helpBubble"]', "Enter your username. This is typically associated with your account or identity on the authorization server, which is responsible for issuing access tokens. Your username serves to identify you.");
@@ -106,7 +110,7 @@ test.describe(`TC_C1_C2_C6`, () => {
 
     await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
 
-    //TC_new
+    //TC_C113522 - Verify {username} && {password} are added in AFE handlebar for revoke token url ,access token url
     await io.flowBuilder.fill('[name="/oauth2/username"]', "test");
     await io.flowBuilder.click('button[data-test="oauth2.token.uri"]');
     await io.connectionPage.addStep("Opening Access token URI handlebar");
@@ -124,13 +128,14 @@ test.describe(`TC_C1_C2_C6`, () => {
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER);
     await io.connectionPage.addStep("Closing Revoke token URI handlebar");
 
-    //TC6
+    //TC_C113523 - Verify Encrypted and Unencrypted fields are added in Advanced section
     await io.flowBuilder.clickByIndex(selectors.importPagePO.ADVANCED, 1);
     await expect(page.locator('[id="oauth2.encrypted"]')).toBeVisible();
     await expect(page.locator('[id="oauth2.unencrypted"]')).toBeVisible();
     await io.connectionPage.addStep("Verified 'Encrypted' and 'Unencrypted' fields are present");
 
-    //TC8_TC9
+    //TC_C113525 - Verify field path is correct for Encrypted and Unencrypted fields
+    //TC_C113526 -  Verify help text is correct for Encrypted and Unencrypted fields
     await io.flowBuilder.click('[id="oauth2.encrypted"] button');
     await io.connectionPage.addStep("Click on help icon for 'Encypted' field");
     await io.assert.verifyElementContainsText('[id="oauth2.encrypted"] [id="helpBubble"]', "Field path: iClient.oauth2.encrypted");
@@ -146,7 +151,7 @@ test.describe(`TC_C1_C2_C6`, () => {
     await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
   });
 
-  test(`1TC_C2_C3_C6_C7_C8_C9_REST_API`, async ({ io, page }) => {
+  test(`REST connection iClient page`, async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
     await io.connectionPage.click('[data-test="REST API (HTTP)"]');
@@ -154,20 +159,21 @@ test.describe(`TC_C1_C2_C6`, () => {
     await io.connectionPage.click(selectors.connectionsPagePO.OAUTH);
     await io.flowBuilder.click(selectors.connectionsPagePO.CREATE_ICLIENT);
 
+    //TC_C113520 - Verify Password credentials  new field is added in Grant type dropdown
     await io.flowBuilder.click('[data-test="oauth2.grantType"]');
     await expect(page.locator('[data-value="password"]')).toBeVisible();
     await io.assert.verifyElementContainsText('[data-value="password"]', "Password credentials");
     await io.connectionPage.addStep("Verified 'Password credentials' grant type is present");
 
-    //TC3
+    //TC_C113521 - Verify username and password fields is added after Grant type field
     await io.flowBuilder.click('[data-value="password"]');
     await io.connectionPage.addStep("Selected 'Password credentials' grant type")
 
-    await expect(page.locator('[id="oauth2.username"]')).toBeVisible();
-    await expect(page.locator('[id="oauth2.password"]')).toBeVisible();
+    await expect(page.locator('[data-test="oauth2.username"]')).toBeVisible();
+    await expect(page.locator('[data-test="oauth2.password"]')).toBeVisible();
     await io.connectionPage.addStep("Verified 'Username' and 'Password' fields are present")
 
-    //TC7
+    //TC_C113524 - Verify help text is added for username and password fields
     await io.flowBuilder.click('[id="oauth2.username"] button');
     await io.connectionPage.addStep("Click on help icon for 'Username' field");
     await io.assert.verifyElementContainsText('[id="oauth2.username"] [id="helpBubble"]', "Enter your username. This is typically associated with your account or identity on the authorization server, which is responsible for issuing access tokens. Your username serves to identify you.");
@@ -179,7 +185,7 @@ test.describe(`TC_C1_C2_C6`, () => {
 
     await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
 
-    //TC_new
+    //TC_C113522 - Verify {username} && {password} are added in AFE handlebar for revoke token url ,access token url
     await io.flowBuilder.fill('[name="/oauth2/username"]', "test");
     await io.flowBuilder.click('button[data-test="oauth2.token.uri"]');
     await io.connectionPage.addStep("Opening Access token URI handlebar");
@@ -197,13 +203,14 @@ test.describe(`TC_C1_C2_C6`, () => {
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER);
     await io.connectionPage.addStep("Closing Revoke token URI handlebar");
 
-    //TC6
+    //TC_C113523 - Verify Encrypted and Unencrypted fields are added in Advanced section
     await io.flowBuilder.clickByIndex(selectors.importPagePO.ADVANCED, 1);
     await expect(page.locator('[id="oauth2.encrypted"]')).toBeVisible();
     await expect(page.locator('[id="oauth2.unencrypted"]')).toBeVisible();
     await io.connectionPage.addStep("Verified 'Encrypted' and 'Unencrypted' fields are present");
 
-    //TC8_TC9
+    //TC_C113525 - Verify field path is correct for Encrypted and Unencrypted fields
+    //TC_C113526 -  Verify help text is correct for Encrypted and Unencrypted fields
     await io.flowBuilder.click('[id="oauth2.encrypted"] button');
     await io.connectionPage.addStep("Click on help icon for 'Encypted' field");
     await io.assert.verifyElementContainsText('[id="oauth2.encrypted"] [id="helpBubble"]', "Field path: iClient.oauth2.encrypted");
@@ -219,7 +226,7 @@ test.describe(`TC_C1_C2_C6`, () => {
     await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
   });
 
-  test(`1TC_C2_C3_C6_C7_C8_C9_OAuth2.0`, async ({ io, page }) => {
+  test(`Auth2.0 supported connector iClient page`, async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
     await io.connectionPage.click(selectors.connectionsPagePO.GUSTO_CONNECTION);
@@ -229,12 +236,13 @@ test.describe(`TC_C1_C2_C6`, () => {
     await io.flowBuilder.click(selectors.connectionsPagePO.CREATE_ICLIENT);
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH, 2);
 
+    //TC_C113520 - Verify Password credentials  new field is added in Grant type dropdown
     await io.flowBuilder.click('[data-test="oauth2.grantType"]');
     await expect(page.locator('[data-value="password"]')).toBeVisible();
     await io.assert.verifyElementContainsText('[data-value="password"]', "Password credentials");
     await io.connectionPage.addStep("Verified 'Password credentials' grant type is present");
 
-    //TC3
+    //TC_C113521 - Verify username and password fields is added after Grant type field
     await io.flowBuilder.click('[data-value="password"]');
     await io.connectionPage.addStep("Selected 'Password credentials' grant type")
 
@@ -242,7 +250,7 @@ test.describe(`TC_C1_C2_C6`, () => {
     await expect(page.locator('[id="oauth2.password"]')).toBeVisible();
     await io.connectionPage.addStep("Verified 'Username' and 'Password' fields are present")
 
-    //TC7
+    //TC_C113524 - Verify help text is added for username and password fields
     await io.flowBuilder.click('[id="oauth2.username"] button');
     await io.connectionPage.addStep("Click on help icon for 'Username' field");
     await io.assert.verifyElementContainsText('[id="oauth2.username"] [id="helpBubble"]', "Enter your username. This is typically associated with your account or identity on the authorization server, which is responsible for issuing access tokens. Your username serves to identify you.");
@@ -254,7 +262,7 @@ test.describe(`TC_C1_C2_C6`, () => {
 
     await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
 
-    //TC_new
+    //TC_C113522 - Verify {username} && {password} are added in AFE handlebar for revoke token url ,access token url
     await io.flowBuilder.fill('[name="/oauth2/username"]', "test");
     await io.flowBuilder.click('button[data-test="oauth2.token.uri"]');
     await io.connectionPage.addStep("Opening Access token URI handlebar");
@@ -272,13 +280,14 @@ test.describe(`TC_C1_C2_C6`, () => {
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER);
     await io.connectionPage.addStep("Closing Revoke token URI handlebar");
 
-    //TC6
+    //TC_C113523 - Verify Encrypted and Unencrypted fields are added in Advanced section
     await io.flowBuilder.clickByIndex(selectors.importPagePO.ADVANCED, 1);
     await expect(page.locator('[id="oauth2.encrypted"]')).toBeVisible();
     await expect(page.locator('[id="oauth2.unencrypted"]')).toBeVisible();
     await io.connectionPage.addStep("Verified 'Encrypted' and 'Unencrypted' fields are present");
 
-    //TC8_TC9
+    //TC_C113525 - Verify field path is correct for Encrypted and Unencrypted fields
+    //TC_C113526 -  Verify help text is correct for Encrypted and Unencrypted fields
     await io.flowBuilder.click('[id="oauth2.encrypted"] button');
     await io.connectionPage.addStep("Click on help icon for 'Encypted' field");
     await io.assert.verifyElementContainsText('[id="oauth2.encrypted"] [id="helpBubble"]', "Field path: iClient.oauth2.encrypted");
@@ -294,17 +303,17 @@ test.describe(`TC_C1_C2_C6`, () => {
     await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
   });
 
-  test(`TC_C2_C3_C6_C7_C8_C9_Iclient`, async ({ io, page }) => {
+  test(`Resource iClient Page`, async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "iClients");
     await io.connectionPage.click(selectors.integrationPagePO.ADDNEWRESOURCE);
   
-
+    //TC_C113520 - Verify Password credentials  new field is added in Grant type dropdown
     await io.flowBuilder.click('[data-test="oauth2.grantType"]');
     await expect(page.locator('[data-value="password"]')).toBeVisible();
     await io.assert.verifyElementContainsText('[data-value="password"]', "Password credentials");
     await io.connectionPage.addStep("Verified 'Password credentials' grant type is present");
 
-    //TC3
+    //TC_C113521 - Verify username and password fields is added after Grant type field
     await io.flowBuilder.click('[data-value="password"]');
     await io.connectionPage.addStep("Selected 'Password credentials' grant type")
 
@@ -312,7 +321,7 @@ test.describe(`TC_C1_C2_C6`, () => {
     await expect(page.locator('[id="oauth2.password"]')).toBeVisible();
     await io.connectionPage.addStep("Verified 'Username' and 'Password' fields are present")
 
-    //TC7
+    //TC_C113524 - Verify help text is added for username and password fields
     await io.flowBuilder.click('[id="oauth2.username"] button');
     await io.connectionPage.addStep("Click on help icon for 'Username' field");
     await io.assert.verifyElementContainsText('[id="oauth2.username"] [id="helpBubble"]', "Enter your username. This is typically associated with your account or identity on the authorization server, which is responsible for issuing access tokens. Your username serves to identify you.");
@@ -324,7 +333,7 @@ test.describe(`TC_C1_C2_C6`, () => {
 
     await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
 
-    //TC_new
+    //TC_C113522 - Verify {username} && {password} are added in AFE handlebar for revoke token url ,access token url
     await io.flowBuilder.fill('[name="/oauth2/username"]', "test");
     await io.flowBuilder.click('button[data-test="oauth2.token.uri"]');
     await io.connectionPage.addStep("Opening Access token URI handlebar");
@@ -342,13 +351,14 @@ test.describe(`TC_C1_C2_C6`, () => {
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER);
     await io.connectionPage.addStep("Closing Revoke token URI handlebar");
 
-    //TC6
+    //TC_C113523 - Verify Encrypted and Unencrypted fields are added in Advanced section
     await io.flowBuilder.click(selectors.importPagePO.ADVANCED);
     await expect(page.locator('[id="oauth2.encrypted"]')).toBeVisible();
     await expect(page.locator('[id="oauth2.unencrypted"]')).toBeVisible();
     await io.connectionPage.addStep("Verified 'Encrypted' and 'Unencrypted' fields are present");
 
-    //TC8_TC9
+    //TC_C113525 - Verify field path is correct for Encrypted and Unencrypted fields
+    //TC_C113526 -  Verify help text is correct for Encrypted and Unencrypted fields
     await io.flowBuilder.click('[id="oauth2.encrypted"] button');
     await io.connectionPage.addStep("Click on help icon for 'Encypted' field");
     await io.assert.verifyElementContainsText('[id="oauth2.encrypted"] [id="helpBubble"]', "Field path: iClient.oauth2.encrypted");
