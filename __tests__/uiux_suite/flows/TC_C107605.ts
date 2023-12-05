@@ -6,7 +6,7 @@ test.describe("C107605", () => {
   test("C107605 Verify  drop-down in the HTTP Import when transferring files to the destination application for HTTP 2.0 framework", async ({io, page}) => {
       await io.createResourceFromAPI(testMode, "FLOWS");
       await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);
-      await io.flowBuilder.click("[data-test='HTTP']");
+      await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
       const helpBubble =selectors.myAccountPagePO.HELP_BUBBLE;
       const helptext_close = selectors.connectionsPagePO.HELPTEXT_CLOSE;
       const blobFormat = selectors.flowBuilderPagePO.BLOB_Format;
