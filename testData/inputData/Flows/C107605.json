@@ -1,5 +1,5 @@
 {
-  "name": "C107604",
+  "name": "C107605",
   "pageGenerators": [
     {
       "type": "export",
@@ -29,33 +29,41 @@
       "type": "import",
       "qa__import": {
         "name": "http zendesk import1",
-        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "_connectionId": "PERSONIO CONNECTION",
         "ignoreExisting": false,
         "ignoreMissing": false,
         "oneToMany": false,
         "sandbox": false,
-        "blobKeyPath": "blobKey",
          "blob": true,
-        "http": {
+         "http": {
           "relativeURI": [
-          "/api/v2/tickets"
+          "/company/documents"
           ],
           "method": [
           "POST"
           ],
           "body": [
-          ""
+          "[\n  {\n    \"name\": \"file\",\n    \"value\": \"{{data.Personiofile}}\",\n    \"type\": \"attachment\",\n    \"filename\": \"Employee_image\" \n }, {\n \"name\": \"title\",\n \"value\": \"DocumentCategory\"\n }, {\n \"name\": \"employee_id\",\n \"value\": \"18892169\"\n }, {\n \"name\": \"category_id\",\n \"value\": \"1794041\"\n } \n]"
           ],
           "headers": [
           {
-          "name": "Content-Type",
-          "value": "application/json"
+          "name": "content-type",
+          "value": "multipart/form-data"
           }
           ],
           "batchSize": 1,
-          "blobFormat": "ucs2",
+          "blobFormat": "base64",
+          "requestMediaType": "json",
+          "successMediaType": "json",
+          "errorMediaType": "json",
+          "strictHandlebarEvaluation": false,
           "sendPostMappedData": true,
-          "formType": "http"
+          "_httpConnectorVersionId": "6530dd7849673e2c90abea8d",
+          "_httpConnectorResourceId": "6530df7ca58090280dbcd74d",
+          "_httpConnectorEndpointIds": [
+          "6530df7ca58090280dbcd74e"
+          ],
+          "formType": "assistant"
           },
         "adaptorType": "HTTPImport"
       }
