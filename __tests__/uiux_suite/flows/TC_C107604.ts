@@ -5,7 +5,7 @@ import testMode from "@testData/flows/C107604.json";
 test.describe("C107604_C107606", () => {
   test("C107604 Verify drop-down in the HTTP Import when transferring files to the destination application.", async ({io, page}) => {
       await io.createResourceFromAPI(testMode, "FLOWS");
-      await io.flowBuilder.click("[data-test='Transfer']");
+      await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);
       const helpBubble =selectors.myAccountPagePO.HELP_BUBBLE;
       const helptext_close = selectors.connectionsPagePO.HELPTEXT_CLOSE;
       const blobFormat = selectors.flowBuilderPagePO.BLOB_Format;
