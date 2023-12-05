@@ -39,16 +39,16 @@ test.describe(`C113520_C113521_C113522_C113523_C113524_C113525_C113526`, () => {
     await io.flowBuilder.fill(selectors.connectionsPagePO.OAUTH2_USERNAME_INPUT, "test");
     await io.flowBuilder.click(selectors.connectionsPagePO.ACCESS_TOKEN_URI_HANDLEBAR);
     await io.connectionPage.addStep("Opening Access token URI handlebar");
-    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_CONTENT, "username");
-    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_CONTENT, "password");
+    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, "username");
+    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, "password");
     await io.connectionPage.addStep("Verified 'Username' and 'Password' fields are present in Input data");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER);
     await io.connectionPage.addStep("Closing Access token URI handlebar");
 
     await io.flowBuilder.click(selectors.connectionsPagePO.REVOKE_TOKEN_URI_HANDLEBAR);
     await io.connectionPage.addStep("Opening Revoke token URI handlebar");
-    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_CONTENT, "username");
-    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_CONTENT, "password");
+    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, "username");
+    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, "password");
     await io.connectionPage.addStep("Verified 'Username' and 'Password' fields are present in Input data");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER);
     await io.connectionPage.addStep("Closing Revoke token URI handlebar");
@@ -114,16 +114,16 @@ test.describe(`C113520_C113521_C113522_C113523_C113524_C113525_C113526`, () => {
     await io.flowBuilder.fill(selectors.connectionsPagePO.OAUTH2_USERNAME_INPUT, "test");
     await io.flowBuilder.click(selectors.connectionsPagePO.ACCESS_TOKEN_URI_HANDLEBAR);
     await io.connectionPage.addStep("Opening Access token URI handlebar");
-    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_CONTENT, "username");
-    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_CONTENT, "password");
+    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, "username");
+    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, "password");
     await io.connectionPage.addStep("Verified 'Username' and 'Password' fields are present in Input data");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER);
     await io.connectionPage.addStep("Closing Access token URI handlebar");
 
     await io.flowBuilder.click(selectors.connectionsPagePO.REVOKE_TOKEN_URI_HANDLEBAR);
     await io.connectionPage.addStep("Opening Revoke token URI handlebar");
-    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_CONTENT, "username");
-    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_CONTENT, "password");
+    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, "username");
+    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, "password");
     await io.connectionPage.addStep("Verified 'Username' and 'Password' fields are present in Input data");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER);
     await io.connectionPage.addStep("Closing Revoke token URI handlebar");
@@ -189,16 +189,16 @@ test.describe(`C113520_C113521_C113522_C113523_C113524_C113525_C113526`, () => {
     await io.flowBuilder.fill(selectors.connectionsPagePO.OAUTH2_USERNAME_INPUT, "test");
     await io.flowBuilder.click(selectors.connectionsPagePO.ACCESS_TOKEN_URI_HANDLEBAR);
     await io.connectionPage.addStep("Opening Access token URI handlebar");
-    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_CONTENT, "username");
-    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_CONTENT, "password");
+    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, "username");
+    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, "password");
     await io.connectionPage.addStep("Verified 'Username' and 'Password' fields are present in Input data");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER);
     await io.connectionPage.addStep("Closing Access token URI handlebar");
 
     await io.flowBuilder.click(selectors.connectionsPagePO.REVOKE_TOKEN_URI_HANDLEBAR);
     await io.connectionPage.addStep("Opening Revoke token URI handlebar");
-    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_CONTENT, "username");
-    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_CONTENT, "password");
+    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, "username");
+    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, "password");
     await io.connectionPage.addStep("Verified 'Username' and 'Password' fields are present in Input data");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER);
     await io.connectionPage.addStep("Closing Revoke token URI handlebar");
@@ -266,16 +266,16 @@ test.describe(`C113520_C113521_C113522_C113523_C113524_C113525_C113526`, () => {
     await io.flowBuilder.fill(selectors.connectionsPagePO.OAUTH2_USERNAME_INPUT, "test");
     await io.flowBuilder.click(selectors.connectionsPagePO.ACCESS_TOKEN_URI_HANDLEBAR);
     await io.connectionPage.addStep("Opening Access token URI handlebar");
-    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_CONTENT, "username");
-    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_CONTENT, "password");
+    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, "username");
+    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, "password");
     await io.connectionPage.addStep("Verified 'Username' and 'Password' fields are present in Input data");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER);
     await io.connectionPage.addStep("Closing Access token URI handlebar");
 
     await io.flowBuilder.click(selectors.connectionsPagePO.REVOKE_TOKEN_URI_HANDLEBAR);
     await io.connectionPage.addStep("Opening Revoke token URI handlebar");
-    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_CONTENT, "username");
-    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_CONTENT, "password");
+    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, "username");
+    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, "password");
     await io.connectionPage.addStep("Verified 'Username' and 'Password' fields are present in Input data");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER);
     await io.connectionPage.addStep("Closing Revoke token URI handlebar");
@@ -337,16 +337,16 @@ test.describe(`C113520_C113521_C113522_C113523_C113524_C113525_C113526`, () => {
     await io.flowBuilder.fill(selectors.connectionsPagePO.OAUTH2_USERNAME_INPUT, "test");
     await io.flowBuilder.click(selectors.connectionsPagePO.ACCESS_TOKEN_URI_HANDLEBAR);
     await io.connectionPage.addStep("Opening Access token URI handlebar");
-    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_CONTENT, "username");
-    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_CONTENT, "password");
+    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, "username");
+    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, "password");
     await io.connectionPage.addStep("Verified 'Username' and 'Password' fields are present in Input data");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER);
     await io.connectionPage.addStep("Closing Access token URI handlebar");
 
     await io.flowBuilder.click(selectors.connectionsPagePO.REVOKE_TOKEN_URI_HANDLEBAR);
     await io.connectionPage.addStep("Opening Revoke token URI handlebar");
-    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_CONTENT, "username");
-    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_CONTENT, "password");
+    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, "username");
+    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, "password");
     await io.connectionPage.addStep("Verified 'Username' and 'Password' fields are present in Input data");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER);
     await io.connectionPage.addStep("Closing Revoke token URI handlebar");
