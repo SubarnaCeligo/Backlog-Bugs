@@ -10,7 +10,9 @@ var testCases = ["C61343",
     "C63001",
     "C63111",
     "C52427",
-    "C93561"];
+    "C93561",
+    "C113932"
+];
     var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
     (async () => {
       await filterTestCases(testCases,flakycases,"imports")
