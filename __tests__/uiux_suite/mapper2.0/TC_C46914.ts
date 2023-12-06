@@ -16,8 +16,7 @@ test.describe(`C46914 Verify When no saved mappings exist, add empty parent row 
     await io.flowBuilder.click(
       selectors.mappings.MAPPER2DOT0PO.CHANGEOUTPUTFORMAT
     );
-    // clickbytextbyindex doesn't work here sice it uses {exact: true}
-    await page.getByText("Create destination rows").click();
+    await io.flowBuilder.clickByText("Create destination rows", { exact: false });
     const destinationFieldsCount = await page
       .locator(selectors.mappings.MAPPER2DOT0PO.DESTINATIONFIELDS)
       .count();
