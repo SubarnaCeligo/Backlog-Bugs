@@ -1,0 +1,75 @@
+{
+  "name": "FTP_To_NS",
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "_id": "65250c2a21772c6b438c0c7e",
+        "createdAt": "2023-10-10T08:32:42.479Z",
+        "lastModified": "2023-10-10T08:32:42.584Z",
+        "name": "FTP",
+        "_connectionId": "FTP connection",
+        "_sourceId": "651e87b8d097a3058bdb9608",
+        "apiIdentifier": "e95b4028f8",
+        "asynchronous": true,
+        "_templateId": "651fa03b1ee87652e9751b2b",
+        "ftp": {
+          "directoryPath": "/Group-QA/FileServices/Export",
+          "fileNameStartsWith": "automation.json"
+        },
+        "file": {
+          "output": "records",
+          "skipDelete": true,
+          "type": "json",
+          "json": {
+            "resourcePath": "*"
+          }
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "_id": "653b455a721b765d78032c5e",
+        "createdAt": "2023-10-27T05:06:34.427Z",
+        "lastModified": "2023-11-14T08:01:54.540Z",
+        "name": "NS premium import",
+        "_connectionId": "347 NS CONNECTION",
+        "distributed": true,
+        "apiIdentifier": "i9f015fc6d",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "lookups": [],
+        "netsuite_da": {
+          "restletVersion": "suiteapp2.0",
+          "operation": "add",
+          "recordType": "itemfulfillment",
+          "lookups": [],
+          "mapping": {
+            "fields": [],
+            "lists": [
+              {
+                "generate": "item",
+                "fields": [
+                  {
+                    "generate": "celigo_inventorydetail",
+                    "subRecordMapping": {
+                      "recordType": "inventorydetail",
+                      "jsonPath": "$"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "adaptorType": "NetSuiteDistributedImport"
+      }
+    }
+  ]
+}
