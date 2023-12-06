@@ -6,14 +6,18 @@ test.describe("C107605", () => {
   test("C107605 Verify  drop-down in the HTTP Import when transferring files to the destination application for HTTP 2.0 framework", async ({io, page}) => {
       await io.createResourceFromAPI(testMode, "FLOWS");
       await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);
+      await io.flowBuilder.loadingTime();
       await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
       const helpBubble =selectors.myAccountPagePO.HELP_BUBBLE;
       const helptext_close = selectors.connectionsPagePO.HELPTEXT_CLOSE;
       const blobFormat = selectors.flowBuilderPagePO.BLOB_Format;
-      await expect(page.locator(blobFormat)).toBeVisible();
+      await io.assert.verifyElementIsDisplayed(
+        blobFormat,
+        "Encoding format is not displayed"
+      );
       await io.assert.verifyElementDisplayedByText(
         "Character encoding",
-        "Character encoding is not displayed"
+        "Character encoding text is not displayed"
       );
       await io.flowBuilder.click(selectors.flowBuilderPagePO.BLOB_Helptext);
       //C107606- Verify the help text for drop-down in the HTTP Import when transferring files to the destination application.
@@ -25,25 +29,46 @@ test.describe("C107605", () => {
       await io.flowBuilder.loadingTime();
       await io.flowBuilder.click(blobFormat);
       await io.flowBuilder.loadingTime();
-      await expect(page.locator(selectors.flowBuilderPagePO.ASCII)).toBeVisible();
+      await io.assert.verifyElementIsDisplayed(
+        selectors.flowBuilderPagePO.ASCII,
+        "Encoding ASCII format is not displayed"
+      );
       await io.flowBuilder.loadingTime();
       await io.homePage.addStep("ascii");
-      await expect(page.locator(selectors.flowBuilderPagePO.BASE64)).toBeVisible();
+      await io.assert.verifyElementIsDisplayed(
+        selectors.flowBuilderPagePO.BASE64,
+        "Encoding BASE64 format is not displayed"
+      );
       await io.flowBuilder.loadingTime();
       await io.homePage.addStep("base64");
-      await expect(page.locator(selectors.flowBuilderPagePO.BINARY)).toBeVisible();
+      await io.assert.verifyElementIsDisplayed(
+        selectors.flowBuilderPagePO.BINARY,
+        "Encoding BINARY format is not displayed"
+      );
       await io.flowBuilder.loadingTime();
       await io.homePage.addStep("binary");
-      await expect(page.locator(selectors.flowBuilderPagePO.HEX)).toBeVisible();
+      await io.assert.verifyElementIsDisplayed(
+        selectors.flowBuilderPagePO.HEX,
+        "Encoding HEX format is not displayed"
+      );
       await io.flowBuilder.loadingTime();
       await io.homePage.addStep("hex");
-      await expect(page.locator(selectors.flowBuilderPagePO.UTF16E)).toBeVisible();
+      await io.assert.verifyElementIsDisplayed(
+        selectors.flowBuilderPagePO.UTF16E,
+        "Encoding UTF16E format is not displayed"
+      );
       await io.flowBuilder.loadingTime();
       await io.homePage.addStep("UTF16");
-      await expect(page.locator(selectors.flowBuilderPagePO.UCS2)).toBeVisible();
+      await io.assert.verifyElementIsDisplayed(
+        selectors.flowBuilderPagePO.UCS2,
+        "Encoding UCS2 format is not displayed"
+      );
       await io.flowBuilder.loadingTime();
       await io.homePage.addStep("ucs2");
-      await expect(page.locator(selectors.flowBuilderPagePO.UTF8)).toBeVisible();
+      await io.assert.verifyElementIsDisplayed(
+        selectors.flowBuilderPagePO.UTF8,
+        "Encoding UTF8 format is not displayed"
+      );
       await io.flowBuilder.loadingTime();
       await io.homePage.addStep("utf8");
   });
