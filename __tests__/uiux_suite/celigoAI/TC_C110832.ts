@@ -109,6 +109,10 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
       "Celigo AI Prompt Thinking is not displayed"
     )
     const exportFilter = page.getByText('function filter');
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.JAVASCRIPT_PANEL);
+      while (!(await exportFilter.isVisible())) {
+          await page.mouse.wheel(0, 600);
+      }
     await exportFilter.waitFor({ state: 'visible', timeout: 30000 });
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER);
     await io.flowBuilder.click(selectors.basePagePO.DISCARD_CHANGES);
@@ -229,6 +233,10 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
       selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR,
       "Celigo AI Prompt Thinking is not displayed"
     )
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.JAVASCRIPT_PANEL);
+      while (!(await exportFilter.isVisible())) {
+          await page.mouse.wheel(0, 600);
+      }
     await exportFilter.waitFor({ state: 'visible', timeout: 30000 });
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER);
     await io.flowBuilder.click(selectors.basePagePO.DISCARD_CHANGES);
@@ -398,15 +406,16 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
        selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR,
        "Celigo AI Prompt Thinking is not displayed"
      )
-     const importPostResponseMap = page.getByText('function postResponseMap');
+     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.JAVASCRIPT_PANEL);
+     const importPostResponseMap = page.getByText('function').last();
      while (!(await importPostResponseMap.isVisible())) {
       await page.mouse.wheel(0, 600);
      }
      await importPostResponseMap.waitFor({ state: 'visible', timeout: 30000 });
      await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER);
      await io.flowBuilder.click(selectors.basePagePO.DISCARD_CHANGES);
-     //FTP
-    //Post Aggregate Hook JS editor C110840
+    //  FTP
+    // Post Aggregate Hook JS editor C110840
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR, 1);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.PAGE_PROCESSOR_HOOKS);
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.SCRIPT_ID, 3);
@@ -435,7 +444,8 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
       selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR,
       "Celigo AI Prompt Thinking is not displayed"
     )
-    const importPostAggHook = page.getByText('function postAggregate');
+    await io.flowBuilder.loadingTime();
+    const importPostAggHook = page.getByText('function').last();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.JAVASCRIPT_PANEL);
       while (!(await importPostAggHook.isVisible())) {
           await page.mouse.wheel(0, 600);
