@@ -21,8 +21,7 @@ test.describe("C52047 Verify the Open errors tab, when no results are returned f
         await page.locator(selectors.basePagePO.ARROW_POPPER).getByText('Mapping', {exact: true}).click();
         await io.flowBuilder.clickByText('Apply');
 
-        await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.EM2DOT0PO.NO_FILTER_DATA_FOUND,"You don't have any errors that match the filters you applied..");
-        await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.EM2DOT0PO.NO_FILTER_DATA_FOUND,"Clear all filters to see any errors for this step.");
+        await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.EM2DOT0PO.NO_FILTER_DATA_FOUND,"You don't have any errors that match the filters you applied.Clear all filters to see any errors for this step.");
   
     });
   });
