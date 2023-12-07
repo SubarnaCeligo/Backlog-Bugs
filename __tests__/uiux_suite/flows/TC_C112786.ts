@@ -2,8 +2,8 @@ import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import testData from '../../../testData/inputData/FlowDebugger/TC_C112786.json';
 
-test.describe("Bug# IO-55940 - Lookup in NS import is being reset after configuring conditional mapping(advanced lookup)", () => {
-    test("Bug# IO-55940 - Lookup in NS import is being reset after configuring conditional mapping(advanced lookup)", async ({ io, page }) => {
+test.describe("TC_C112786- Lookup in NS import is being reset after configuring conditional mapping(advanced lookup)", () => {
+    test("TC_C112786- Lookup in NS import is being reset after configuring conditional mapping(advanced lookup)", async ({ io, page }) => {
 
         await io.createResourceFromAPI(testData, "FLOWS");
   await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
