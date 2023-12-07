@@ -8,9 +8,7 @@ test.describe("C110728_C110729_C110730_C110732", () => {
         //Disable the flow
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_DISABLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUNTEST_BUTTON_TOP_XPATH);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);
         await io.homePage.addStep('clicking on import');
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.MOCK_OUTPUT);
@@ -30,11 +28,9 @@ test.describe("C110728_C110729_C110730_C110732", () => {
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.TRANSFER);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);
         await io.homePage.addStep('clicking on import');
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.MOCK_OUTPUT);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.MOCK_OUTPUT);
 
         //TC_C110730 Clicking â€œPopulate with canonical stubâ€? loads stub and auto-places it into the â€œMock outputâ€? field, replacing existing stub in the mock output field
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.POPULATE_WITH_CANONICAL_STUB);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.POPULATE_WITH_CANONICAL_STUB);
         const stub1 = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.MOCK_OUTPUT_STUB)).toString();
         await io.assert.expectToContainValue('{  "page_of_records": [    {      "record": {        "blobKey": "Replace me"      }    }  ]}', stub1, "Stub is not showing properly");

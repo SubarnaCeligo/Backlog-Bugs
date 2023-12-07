@@ -12,7 +12,6 @@ test.describe("C112117", () => {
 
         await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.TRANSFER, 1);
         await io.homePage.addStep('clicking on import');
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.MOCK_OUTPUT);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
         const element = await io.homePage.isVisible(selectors.basePagePO.ALIASES);

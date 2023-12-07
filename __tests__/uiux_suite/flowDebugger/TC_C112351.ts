@@ -6,7 +6,6 @@ test.describe("C112351", () => {
     test("C112351", async ({ io, page }) => {
         await io.createResourceFromAPI(C112351, "FLOWS");
         //Disable the flow
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
