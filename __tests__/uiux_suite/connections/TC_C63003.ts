@@ -8,10 +8,10 @@ test.describe(`C63003 Verify connection dropdown while clonning flow`, () => {
     page
   }) => {
     await io.createResourceFromAPI(testData, "FLOWS");
-    await page
-      .locator(selectors.connectionsPagePO.ACTIONS_MENU_BUTTON)
-      .first()
-      .click();
+    await io.flowBuilder.clickByIndex(
+      selectors.connectionsPagePO.ACTIONS_MENU_BUTTON,
+      0
+    );
     await io.flowBuilder.clickByText("Clone flow");
     await io.flowBuilder.clickByText("Please select");
     await page.getByRole("menuitem").nth(1).click();
@@ -21,7 +21,6 @@ test.describe(`C63003 Verify connection dropdown while clonning flow`, () => {
     await io.flowBuilder.click(selectors.basePagePO.CONNECTION);
     await page.getByText("API type").first().waitFor({ state: "visible" });
     const connectionText = await page.getByRole("menuitem").nth(1).textContent();
-
     await io.assert.expectToContainValue(
       "Narvar",
       connectionText,
