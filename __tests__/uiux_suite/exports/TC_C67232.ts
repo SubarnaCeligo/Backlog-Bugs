@@ -10,7 +10,7 @@ test.describe("C67232 Verify Red errored window is not displayed on 'Rule' secti
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_TRANSFORMATION);
         await io.flowBuilder.click(selectors.basePagePO.JAVASCRIPTWINDOW);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.SCRIPT_LIST_DROPDOWN_ID);
-        await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.SCRIPTS_LIST, 1);
+        await io.flowBuilder.clickByTextByIndex(`Branching script`, 1);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.PREVIEW);
         await io.flowBuilder.waitForElementAttached(selectors.mappings.MAPPER2DOT0PO.ERROR);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RULES1);

@@ -1,0 +1,101 @@
+{
+  "name": "C107605",
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "http zendesk export",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "asynchronous": true,
+        "hooks": {
+          "preSavePage": {
+            "_scriptId": "652e8c68dadc8e536d600c79",
+            "function": "preSavePage"
+          }
+        },
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": "/users",
+          "method": "GET",
+          "formType": "http"
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "http zendesk import1",
+        "_connectionId": "PERSONIO CONNECTION",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+         "blob": true,
+         "http": {
+          "relativeURI": [
+          "/company/documents"
+          ],
+          "method": [
+          "POST"
+          ],
+          "body": [
+          "[\n  {\n    \"name\": \"file\",\n    \"value\": \"{{data.Personiofile}}\",\n    \"type\": \"attachment\",\n    \"filename\": \"Employee_image\" \n }, {\n \"name\": \"title\",\n \"value\": \"DocumentCategory\"\n }, {\n \"name\": \"employee_id\",\n \"value\": \"18892169\"\n }, {\n \"name\": \"category_id\",\n \"value\": \"1794041\"\n } \n]"
+          ],
+          "headers": [
+          {
+          "name": "content-type",
+          "value": "multipart/form-data"
+          }
+          ],
+          "batchSize": 1,
+          "blobFormat": "base64",
+          "requestMediaType": "json",
+          "successMediaType": "json",
+          "errorMediaType": "json",
+          "strictHandlebarEvaluation": false,
+          "sendPostMappedData": true,
+          "_httpConnectorVersionId": "6530dd7849673e2c90abea8d",
+          "_httpConnectorResourceId": "6530df7ca58090280dbcd74d",
+          "_httpConnectorEndpointIds": [
+          "6530df7ca58090280dbcd74e"
+          ],
+          "formType": "assistant"
+          },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "createFlow": {
+    "name": "testMode",
+    "disabled": false,
+    "_integrationId": "6459f5fc6df4b9686c0b7145",
+    "skipRetries": false,
+    "pageGenerators": [
+      {
+        "_exportId": "UPDATE WITH NEW EXPORTID"
+      }
+    ],
+    "pageProcessors": [
+      {
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        },
+        "type": "import",
+        "_importId": "UPDATE WITH NEW IMPORTID"
+      },
+      {
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        },
+        "type": "import",
+        "_importId": "UPDATE WITH NEW IMPORTID"
+      }
+    ]
+  }
+}
