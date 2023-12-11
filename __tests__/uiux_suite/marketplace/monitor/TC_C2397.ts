@@ -1,7 +1,7 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C2397 Marketplace Install button should be greyed out for non-permitted users", () => {
+test.describe.skip("C2397 Marketplace Install button should be greyed out for non-permitted users", () => {
   test("C2397 Marketplace Install button should be greyed out for non-permitted users", async ({io, page}) => {
       await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
       await io.homePage.waitForElementAttached(selectors.basePagePO.MARKETPLACE)

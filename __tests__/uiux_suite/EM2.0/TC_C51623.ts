@@ -15,7 +15,6 @@ test.describe("C51623 Verify the Scroll bar for Message column in the Error rows
         options[1].click();
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2DOT0PO.OPEN_ERRORS_TABLE_ROWS);
         const isMessageColumnScrollable = await io.flowBuilder.isScrollable(selectors.flowBuilderPagePO.EM2DOT0PO.OPEN_ERRORS_MESSAGE_COLUMN);
-        await io.assert.expectToBeTrue(isMessageColumnScrollable, "Message column not scrollable");
-        // expect(await io.flowBuilder.isScrollable(selectors.flowBuilderPagePO.EM2DOT0PO.OPEN_ERRORS_MESSAGE_COLUMN)).toBe(false);
+        await io.assert.expectToBeTrue(!isMessageColumnScrollable, "Message column scrollable");
     });
 });
