@@ -65,7 +65,11 @@ test.describe(`C55936 Verify the auto -populated "Name" & "Email" fields in Pend
     expect(environmentLabel).not.toContain("optional");
     await io.homePage.addStep("Checked if 'Environment' field is not optional");
 
-    await iframe.locator(selectors.homePagePO.PENDO_ZENDESK.MINUS_ICON).click();
-    await io.homePage.addStep("Clicked on 'Dash/Minus' button to close chatbot");
+    test.afterEach("Closing open iframe", async ({ page, io }) => {
+      const iframe = page.frameLocator(
+        selectors.homePagePO.PENDO_ZENDESK.PENDO_ZENDESK_IFRAME
+      );
+      await iframe.locator(selectors.homePagePO.PENDO_ZENDESK.MINUS_ICON).click();
+    });
   });
 });

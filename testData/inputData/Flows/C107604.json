@@ -1,0 +1,93 @@
+{
+  "name": "C107604",
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "http zendesk export",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "asynchronous": true,
+        "hooks": {
+          "preSavePage": {
+            "_scriptId": "652e8c68dadc8e536d600c79",
+            "function": "preSavePage"
+          }
+        },
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": "/users",
+          "method": "GET",
+          "formType": "http"
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "http zendesk import1",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "blobKeyPath": "blobKey",
+         "blob": true,
+        "http": {
+          "relativeURI": [
+          "/api/v2/tickets"
+          ],
+          "method": [
+          "POST"
+          ],
+          "body": [
+          ""
+          ],
+          "headers": [
+          {
+          "name": "Content-Type",
+          "value": "application/json"
+          }
+          ],
+          "batchSize": 1,
+          "blobFormat": "ucs2",
+          "sendPostMappedData": true,
+          "formType": "http"
+          },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "createFlow": {
+    "name": "testMode",
+    "disabled": false,
+    "_integrationId": "6459f5fc6df4b9686c0b7145",
+    "skipRetries": false,
+    "pageGenerators": [
+      {
+        "_exportId": "UPDATE WITH NEW EXPORTID"
+      }
+    ],
+    "pageProcessors": [
+      {
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        },
+        "type": "import",
+        "_importId": "UPDATE WITH NEW IMPORTID"
+      },
+      {
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        },
+        "type": "import",
+        "_importId": "UPDATE WITH NEW IMPORTID"
+      }
+    ]
+  }
+}
