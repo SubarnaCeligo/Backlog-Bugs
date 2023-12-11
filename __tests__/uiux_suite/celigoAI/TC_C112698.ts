@@ -41,6 +41,18 @@ test.describe("C112698 Verify Mapper2.0 is having Celigo AI", () => {
        selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
        "Celigo AI Placeholder is not displayed"
      )
+     //When all the fields are already mapped	C112767
+     await io.flowBuilder.loadingTime();
+     await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'Map all the fields');
+     await io.flowBuilder.loadingTime();
+     await page.keyboard.press('Enter');
+     await io.assert.verifyElementIsDisplayed(
+       selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR,
+       "Celigo AI Prompt Thinking is not displayed"
+     )
+     await io.flowBuilder.loadingTime();
+     await expect(page.locator(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR)).toHaveAttribute('aria-expanded', 'false');
+     await expect(page.locator(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR)).toHaveAttribute('aria-disabled', 'true');
     //Rows output formats C112764
     await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.CHANGEOUTPUTFORMAT);
     await io.flowBuilder.clickByText("Create destination rows [ ] from source record { }");
