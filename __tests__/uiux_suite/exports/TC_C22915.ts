@@ -13,7 +13,7 @@ test.describe('Verify the prefix “Build “ from the field labels in exports a
           'FLOWS'
         );
 
-        await io.flowBuilder.click('[data-test="Export"]');
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
         const labels = await page.$$eval('label', elements =>
         elements.map(element => element.textContent.trim())
       );
