@@ -11,14 +11,12 @@ test.describe(`TC_C113716_C113717_C113721_C113722_C113723_C113724_C113785_C11378
     page
   }) => {
   await io.createResourceFromAPI(testData, "FLOWS");
-  await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
   await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
   await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
   await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_ON_OFF);
   await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.RUNTEST_BUTTON, 0);
   await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUNTEST_BUTTON_TOP_XPATH);
   await io.flowBuilder.addStep("Verified the flow ran successfully");
-  await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.IMPORT_MAPPINGS) 
   await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);
   await io.flowBuilder.click(selectors.importPagePO.SWITCH_TO_MAPPING)
   await io.flowBuilder.click(selectors.importPagePO.MAPPING_LOOKUP_T_ICON);

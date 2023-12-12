@@ -6,7 +6,7 @@ test.describe("TC_C112786- Lookup in NS import is being reset after configuring 
     test("TC_C112786- Lookup in NS import is being reset after configuring conditional mapping(advanced lookup)", async ({ io, page }) => {
 
         await io.createResourceFromAPI(testData, "FLOWS");
-  await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
+
   await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
   await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
   await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_ON_OFF);
@@ -14,7 +14,6 @@ test.describe("TC_C112786- Lookup in NS import is being reset after configuring 
   await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUNTEST_BUTTON_TOP_XPATH);
   await io.flowBuilder.addStep("Verified the flow ran successfully");
 
-  await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.IMPORT_MAPPINGS) 
   await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);
 
   await io.flowBuilder.click(selectors.importPagePO.SWITCH_TO_MAPPING)
