@@ -23,9 +23,7 @@ test.describe("TC_C112786- Lookup in NS import is being reset after configuring 
   await io.flowBuilder.click(selectors.importPagePO.ADVANCED); 
   await io.flowBuilder.loadingTime();
   await io.flowBuilder.click(selectors.importPagePO.ADVANCED); 
-  let datatst= await page.$$(selectors.flowBuilderPagePO.GEAR_ICON);
-  console.log(datatst.length)
-  await datatst[43].click();
+  await io.homePage.clickByIndex(selectors.flowBuilderPagePO.GEAR_ICON, 43); 
   const contents = (await io.importsPage.getText(selectors.importPagePO.TEST_RESULTS_CONTENTS)).toString();
   let status=false
   const recordString = 'Record 1,Line 1,Line 2,Record 2,Line 1,Line 2,Line 3,Record 3';
