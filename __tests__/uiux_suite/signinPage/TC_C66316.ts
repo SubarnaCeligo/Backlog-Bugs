@@ -4,8 +4,8 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe("C66316 Verify Sign up with Google is the first option and the sign up form is the second option on the page", () => {
   test("C66316 Verify Sign up with Google is the first option and the sign up form is the second option on the page", async ({io, page}) => {
       await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-      await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT);
-      await page.hover(selectors.basePagePO.ACCOUNT);
+      await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_ICON);
+      await io.homePage.click(selectors.basePagePO.ACCOUNT_ICON);
       await io.homePage.click(selectors.basePagePO.SIGN_OUT);
       await io.loginPage.clickByText('Sign up');
       await io.loginPage.waitForElementAttached('#root');

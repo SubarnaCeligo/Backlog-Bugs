@@ -1,0 +1,112 @@
+{
+    "name": "TC_C112117",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "Netsuite Export CSV file type",
+                "_connectionId": "NETSUITE CONNECTION",
+                "apiIdentifier": "eb570513ff",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "netsuite": {
+                  "type": "file",
+                  "skipGrouping": false,
+                  "statsOnly": false,
+                  "distributed": {
+
+                  },
+                  "file": {
+                    "folderInternalId": "56643"
+                  }
+                },
+                "file": {
+                  "output": "records",
+                  "skipDelete": false,
+                  "type": "csv",
+                  "csv": {
+                    "columnDelimiter": ",",
+                    "rowDelimiter": "\n",
+                    "hasHeaderRow": false,
+                    "trimSpaces": true,
+                    "rowsToSkip": 0,
+                    "disableQuoteAndStripEnclosingQuotes": false
+                  },
+                  "filter": {
+                    "type": "expression",
+                    "expression": {
+                      "rules": [
+
+                      ],
+                      "version": "1"
+                    },
+                    "rules": [
+
+                    ],
+                    "version": "1"
+                  }
+                },
+                "adaptorType": "NetSuiteExport"
+              }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "NS BLOB lookup",
+                "_connectionId": "NETSUITE CONNECTION",
+                "apiIdentifier": "ef8fd5ae1f",
+                "asynchronous": true,
+                "isLookup": true,
+                "type": "blob",
+                "oneToMany": false,
+                "sandbox": false,
+                "netsuite": {
+                  "skipGrouping": false,
+                  "statsOnly": false,
+                  "internalId": "1262",
+                  "restlet": {
+                    "criteria": [
+
+                    ],
+                    "columns": [
+
+                    ]
+                  },
+                  "distributed": {
+                    "executionContext": [
+
+                    ],
+                    "executionType": [
+
+                    ]
+                  }
+                },
+                "adaptorType": "NetSuiteExport"
+              }
+        }
+    ],
+    "createFlow": {
+        "name": "TC_C112117",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "export",
+                "_importId": "UPDATE WITH NEW EXPORTID"
+            }
+        ],
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+        ]
+    }
+}

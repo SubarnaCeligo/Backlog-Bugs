@@ -1,0 +1,75 @@
+{
+    "name": "TC_C94560",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "Salesforce export test",
+                "_connectionId": "SALESFORCE CONNECTION",
+                "_sourceId": "64f07273ac92e86071d81e2a",
+                "apiIdentifier": "e8506d650b",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "sandbox": false,
+                "test": {
+                    "limit": 20
+                },
+                "salesforce": {
+                    "type": "soql",
+                    "api": "rest",
+                    "soql": {
+                        "query": "select Name, ID from Attachment"
+                    }
+                },
+                "adaptorType": "SalesforceExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "Salesforce blob lookup Attachment",
+                "_connectionId": "SALESFORCE CONNECTION",
+                "apiIdentifier": "ea175ca86d",
+                "asynchronous": true,
+                "isLookup": true,
+                "type": "blob",
+                "oneToMany": false,
+                "sandbox": false,
+                "salesforce": {
+                    "type": "soql",
+                    "api": "rest",
+                    "sObjectType": "attachment",
+                    "id": "{{data.Id}}"
+                },
+                "adaptorType": "SalesforceExport"
+            }
+        }
+    ],
+    "createFlow": {
+        "name": "TC_C94560",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "export",
+            "_importId": "UPDATE WITH NEW EXPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+}

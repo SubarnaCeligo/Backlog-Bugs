@@ -12,6 +12,7 @@ test.describe("C20898 Verify if the toggle is on for all flows, then at flow lev
     await io.homePage.click(selectors.flowBuilderPagePO.NOTIFICATION_CLOSE_SELECT);
     await io.homePage.click(selectors.basePagePO.SAVE);
     await io.homePage.click(selectors.basePagePO.CLOSE);
+    await io.homePage.waitForElementAttached(selectors.integrationPagePO.FLOWS_TAB)
     await io.homePage.click(selectors.integrationPagePO.FLOWS_TAB);
     await io.homePage.waitForElementAttached('tbody tr th a');
     await io.homePage.clickByIndex('tbody tr th a', 0);

@@ -1,0 +1,76 @@
+{
+  "name": "TC_C94646",
+  "disabled": false,
+  "timezone": "Asia/Calcutta",
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "BigQuery Export",
+        "_connectionId": "BIGQUERY CONNECTION",
+        "apiIdentifier": "ef4335885e",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "rawData": "6253c695bbf2c06775d39fe1422b5f2a26994befab388a25372804d3",
+        "rdbms": {
+          "query": "select * from `1234.IO_TestExport` order by ID desc"
+        },
+        "filter": {
+          "type": "expression",
+          "expression": {
+            "rules": [],
+            "version": "1"
+          },
+          "rules": [],
+          "version": "1"
+        },
+        "adaptorType": "RDBMSExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "BigQuery Import",
+        "_connectionId": "BIGQUERY CONNECTION",
+        "apiIdentifier": "idbe00289c",
+        "oneToMany": false,
+        "sandbox": false,
+        "rdbms": {
+          "query": [],
+          "queryType": [
+            "bulk_insert"
+          ],
+          "bulkInsert": {
+            "tableName": "{{data.0.Name}}"
+          }
+        },
+        "adaptorType": "RDBMSImport"
+      }
+    }
+  ],
+  "createFlow": {
+    "name": "TC_C94646",
+    "disabled": false,
+    "_integrationId": "603ce75ac4fec33283691f43",
+    "skipRetries": false,
+    "pageProcessors": [
+      {
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        },
+        "type": "import",
+        "_importId": "UPDATE WITH NEW IMPORTID"
+      }
+    ],
+    "pageGenerators": [
+      {
+        "_exportId": "UPDATE WITH NEW EXPORTID"
+      }
+    ]
+  }
+}
