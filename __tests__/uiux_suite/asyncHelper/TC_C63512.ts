@@ -15,7 +15,6 @@ test.describe(`C63512 Verify if flow or the integration page is opening after cr
       await io.homePage.clickByText("Automation Flows")
       await io.homePage.waitForElementAttached("text='ASYNC_HELPER'")
       await io.homePage.clickByTextByIndex("ASYNC_HELPER",0)
-
       await io.homePage.waitForElementAttached("text='SOURCES'")
       const sourceElement = await io.homePage.isVisible("text='SOURCES'")
       await io.assert.expectToBeValue(sourceElement.toString(),'true', "Page not loaded")
