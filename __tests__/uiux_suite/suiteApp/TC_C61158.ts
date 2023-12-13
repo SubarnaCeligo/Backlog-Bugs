@@ -11,6 +11,7 @@ test.describe(`C61158 Verify If some of the NS steps are configured to use suite
       process.env["IO_UI_CONNECTOR_URL"] +
         "marketplace/installTemplate/preview/6516a1efb099920bd58b1850"
     );
+    await page.getByText("Loading").waitFor({ state: "hidden" });
     await io.homePage.clickByText("Install now");
     await io.assert.verifyElementDisplayedByText(
       "Integrator SuiteApp",
