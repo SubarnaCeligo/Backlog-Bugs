@@ -7,16 +7,7 @@ test.describe(`C46907 Verify the functionality by not providing a 'destination r
     io,
     page
   }) => {
-    await io.flowBuilder.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
-    await io.flowBuilder.clickByText("Automation Flows");
-    const testCase = page.getByText("C46907").first();
-    try {
-      await testCase.waitFor({ state: "visible", timeout: 5000 });
-      await testCase.click();
-    } catch {
-      const id = await io.createResourceFromAPI(testData, "FLOWS");
-      await io.api.runBatchFlowViaAPI("C46907", id);
-    }
+    const id = await io.createResourceFromAPI(testData, "FLOWS");
     await page.getByLabel("Define options").nth(1).click();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);
     const sourceField = page.locator(

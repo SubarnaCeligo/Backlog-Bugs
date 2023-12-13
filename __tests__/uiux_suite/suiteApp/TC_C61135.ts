@@ -12,10 +12,11 @@ test.describe(`C61135 Verify the Install link functionality displayed for the In
     await io.homePage.addStep(
       "Navigated to install integration page (/home/installIntegration)"
     );
+    await page.getByText("Loading").waitFor({ state: "hidden" });
     const fileChooserPromise = page.waitForEvent("filechooser");
     await io.homePage.clickByText("Choose file");
     const fileChooser = await fileChooserPromise;
-    await fileChooser.setFiles("testData/SuiteApp/C61135.zip");
+    await fileChooser.setFiles("testData/inputData/SuiteApp/C61135.zip");
     await io.homePage.addStep("Uploaded integration zip file");
     await io.homePage.clickByText("Install integration");
     await io.homePage.click(selectors.basePagePO.DIALOG_PROCEED_BUTTON);

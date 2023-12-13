@@ -12,7 +12,7 @@ test.describe(`C27103 In the Date range window of the Run report drawer, we shou
     );
     await io.homePage.clickByText("Run report");
     await io.homePage.clickByText("Choose integration");
-    await io.homePage.clickByText("Automation Flows");
+    await page.getByRole("menuitem").nth(1).click();
     await io.homePage.clickByText("Choose date range");
     await io.homePage.clickByText("Custom");
     const nextDateButtonClass = await page
