@@ -1,0 +1,222 @@
+{
+    "_id": "652e15d26819f54a81ada56f",
+    "name": "NS Lookup reset issue testing",
+    "disabled": true,
+    "_integrationId": "65239b7a699d210c29d7b67e",
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "_id": "65671fbf77a77f6584a1246a",
+                "name": "NS Sales Order",
+                "_connectionId": "NETSUITE CONNECTION",
+                "apiIdentifier": "ef1df8b2f8",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "mockOutput": {
+                    "page_of_records": [
+                        {
+                            "record": {
+                                "id": "79460",
+                                "companyname": "IO_41202_01_DND",
+                                "NS-ID": "2839486",
+                                "recordType": "account",
+                                "Name": "0Account 1",
+                                "Display Name": "10.0 0Account 1",
+                                "Account Type": "Bank",
+                                "Description": "",
+                                "Balance": ".00",
+                                "Show in Fixed Assets Management": "",
+                                "dataURI": "https://tstdrv1143616.app.netsuite.com/app/accounting/account/account.nl?id=79460&compid=TSTDRV1143616",
+                                "item": [
+                                    {
+                                        "item": "387"
+                                    },
+                                    {
+                                        "item": "501"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "record": {
+                                "id": "79460",
+                                "companyname": "IO_41202_02_DND",
+                                "NS-ID": "2843991",
+                                "recordType": "account",
+                                "Name": "0Account 1",
+                                "Display Name": "10.0 0Account 1",
+                                "Account Type": "Bank",
+                                "Description": "",
+                                "Balance": ".00",
+                                "Show in Fixed Assets Management": "",
+                                "dataURI": "https://tstdrv1143616.app.netsuite.com/app/accounting/account/account.nl?id=79460&compid=TSTDRV1143616",
+                                "item": [
+                                    {
+                                        "item": "502"
+                                    },
+                                    {
+                                        "item": "504"
+                                    },
+                                    {
+                                        "item": "505"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "record": {
+                                "id": "79460",
+                                "companyname": "IO_41202_03_DND",
+                                "NS-ID": "2843992",
+                                "recordType": "account",
+                                "Name": "0Account 1",
+                                "Display Name": "10.0 0Account 1",
+                                "Account Type": "Bank",
+                                "Description": "",
+                                "Balance": ".00",
+                                "Show in Fixed Assets Management": "",
+                                "dataURI": "https://tstdrv1143616.app.netsuite.com/app/accounting/account/account.nl?id=79460&compid=TSTDRV1143616",
+                                "item": [
+                                    {
+                                        "item": "506"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "rawData": "6507e090475aca646e0272eb27729aeac1a748efa29b222d6184f2fb",
+                "netsuite": {
+                    "type": "restlet",
+                    "skipGrouping": true,
+                    "statsOnly": false,
+                    "restlet": {
+                        "recordType": "salesorder",
+                        "searchId": "1009",
+                        "restletVersion": "suiteapp2.0",
+                        "markExportedBatchSize": 100
+                    },
+                    "distributed": {}
+                },
+                "adaptorType": "NetSuiteExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "_id": "656eccb21be07668ecc282d8",
+                "name": "NS import",
+                "mockResponse": [
+                    {
+                        "id": "1234567890",
+                        "errors": [],
+                        "_json": {
+                            "id": "1234567890",
+                            "mockResponse": "replace me"
+                        },
+                        "statusCode": 200,
+                        "ignored": false,
+                        "dataURI": "",
+                        "_headers": {
+                            "content-type": "application/json; charset=utf-8"
+                        }
+                    }
+                ],
+                "_connectionId": "NETSUITE CONNECTION",
+                "_sourceId": "65671ff1de63bf1e3a29762b",
+                "distributed": true,
+                "apiIdentifier": "i515528f83",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "lookups": [
+                    {
+                        "recordType": "customer",
+                        "resultField": "companyname",
+                        "expression": "[\"companyname\",\"is\",\"{{{companyname}}}\"]",
+                        "name": "AdvLookup"
+                    },
+                    {
+                        "name": "ItemsArray",
+                        "recordType": "item",
+                        "resultField": "internalid",
+                        "expression": "[\"internalid\",\"is\",\"{{{item[*].item}}}\"]",
+                        "allowFailures": false
+                    }
+                ],
+                "netsuite_da": {
+                    "restletVersion": "suiteapp2.0",
+                    "operation": "addupdate",
+                    "recordType": "salesorder",
+                    "internalIdLookup": {
+                        "expression": "[\"internalid\",\"is\",\"{{{[NS-ID]}}}\"]"
+                    },
+                    "lookups": [
+                        {
+                            "recordType": "customer",
+                            "resultField": "companyname",
+                            "expression": "[\"companyname\",\"is\",\"{{{companyname}}}\"]",
+                            "name": "AdvLookup"
+                        },
+                        {
+                            "name": "ItemsArray",
+                            "recordType": "item",
+                            "resultField": "internalid",
+                            "expression": "[\"internalid\",\"is\",\"{{{item[*].item}}}\"]",
+                            "allowFailures": false
+                        }
+                    ],
+                    "mapping": {
+                        "fields": [],
+                        "lists": [
+                            {
+                                "generate": "item",
+                                "fields": [
+                                    {
+                                        "generate": "item",
+                                        "discardIfEmpty": false,
+                                        "immutable": false,
+                                        "lookupName": "ItemsArray",
+                                        "internalId": true,
+                                        "conditional": {
+                                            "when": "lookup_not_empty",
+                                            "lookupName": "AdvLookup"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "adaptorType": "NetSuiteDistributedImport"
+            }
+        }
+    ],
+    "createFlow": {
+        "_id": "652e15d26819f54a81ada56f",
+        "name": "NS Lookup reset issue testing",
+        "disabled": true,
+        "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID",
+                "skipRetries": false
+            }
+        ],
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "autoResolveMatchingTraceKeys": true
+    }
+}

@@ -13,8 +13,8 @@ test.describe('C93833 Validate user is getting auto-fill of function stub while 
           'FLOWS'
         );
     
-        await io.flowBuilder.click(selectors.exportsPagePO.EXPORT_ADDPROCESSOR_BUTTON)
-    
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
+        await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR, 0);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT_HOOK)
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_HOOK)
         await io.flowBuilder.click(selectors.basePagePO.CREATE_SCRIPT_ARIA_LABEL);
