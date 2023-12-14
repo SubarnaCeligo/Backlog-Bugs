@@ -43,7 +43,7 @@ test.describe(`C63064 Verify in connection if user selected one api type in simp
     const connections = await io.api.getCall("v1/connections");
     const connectionId = connections.find(
       (connection: any) => connection.name === "Narvar-RMA-Test"
-    )._id;
+    )?._id;
     await io.api.deleteCall(`v1/connections/${connectionId}`);
   });
 });
