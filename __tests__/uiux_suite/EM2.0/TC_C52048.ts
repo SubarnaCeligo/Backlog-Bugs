@@ -1,6 +1,6 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import testData from "@testData/EM2.0/C52048.json"
+import testData from "@testData/EM2.0/C52048.json";
 
 test.describe("C52048 Verify the Resolved errors tab, when no results are returned for filter selections", () => {
   test("C52048 Verify the Resolved errors tab, when no results are returned for filter selections", async ({
@@ -20,7 +20,7 @@ test.describe("C52048 Verify the Resolved errors tab, when no results are return
     await io.flowBuilder.clickByText("Apply");
     await expect(
       page.getByText(
-        "You don't have any errors that match the filters you applied.."
+        "You don't have any errors that match the filters you applied."
       )
     ).toBeVisible();
     await expect(

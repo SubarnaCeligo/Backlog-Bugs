@@ -14,8 +14,7 @@ test.describe(`C63003 Verify connection dropdown while clonning flow`, () => {
     );
     await io.flowBuilder.clickByText("Clone flow");
     await io.flowBuilder.clickByText("Please select");
-    await page.keyboard.press("a");
-    await io.flowBuilder.clickByTextByIndex("Automation Flows", 0);
+    await page.getByRole("menuitem").nth(1).click();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLONE_FLOW_BUTTON);
     await io.flowBuilder.clickByText("Configure");
     await io.flowBuilder.clickByText("Use existing connection");
