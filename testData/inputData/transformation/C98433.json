@@ -1,0 +1,222 @@
+{
+    "_id": "652e15d26819f54a81ada56f",
+    "name": "FTP to FTP with Tx",
+    "disabled": true,
+    "_integrationId": "65239b7a699d210c29d7b67e",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "_id": "6576d02792551f778dc4743e",
+                "name": "FTP Export",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "e781a2a097",
+                "asynchronous": true,
+                "sandbox": false,
+                "mockOutput": {
+                    "page_of_records": [
+                        {
+                            "record": {
+                                "attributes": {
+                                    "type": "Contact",
+                                    "url": "/services/data/v54.0/sobjects/Contact/0032w00000xoFp9AAE"
+                                },
+                                "Id": "0032w00000xoFp9AAE",
+                                "Name": "Rose Gonzalez",
+                                "firstName": "Rose",
+                                "lastName": "Gonzalez"
+                            }
+                        },
+                        {
+                            "record": {
+                                "attributes": {
+                                    "type": "Contact",
+                                    "url": "/services/data/v54.0/sobjects/Contact/0032w00000xoFpAAAU"
+                                },
+                                "Id": "0032w00000xoFpAAAU",
+                                "Name": "Sean Forbes",
+                                "firstName": "Sean",
+                                "lastName": "Forbes"
+                            }
+                        },
+                        {
+                            "record": {
+                                "attributes": {
+                                    "type": "Contact",
+                                    "url": "/services/data/v54.0/sobjects/Contact/0032w00000xoFpBAAU"
+                                },
+                                "Id": "0032w00000xoFpBAAU",
+                                "Name": "Jack Rogers",
+                                "firstName": "Jack",
+                                "lastName": "Rogers"
+                            }
+                        },
+                        {
+                            "record": {
+                                "attributes": {
+                                    "type": "Contact",
+                                    "url": "/services/data/v54.0/sobjects/Contact/0032w00000xoFpCAAU"
+                                },
+                                "Id": "0032w00000xoFpCAAU",
+                                "Name": "Pat Stumuller",
+                                "firstName": "Pat",
+                                "lastName": "Stumuller"
+                            }
+                        },
+                        {
+                            "record": {
+                                "attributes": {
+                                    "type": "Contact",
+                                    "url": "/services/data/v54.0/sobjects/Contact/0032w00000xoFpDAAU"
+                                },
+                                "Id": "0032w00000xoFpDAAU",
+                                "Name": "Andy Young",
+                                "firstName": "Andy",
+                                "lastName": "Young"
+                            }
+                        }
+                    ]
+                },
+                "ftp": {
+                    "directoryPath": "/Group-QA/ShritiS"
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    },
+                    "filter": {
+                        "type": "expression",
+                        "expression": {
+                            "rules": [
+                                "contains",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "filename"
+                                    ]
+                                ],
+                                "Contact_DM"
+                            ],
+                            "version": "1"
+                        },
+                        "rules": [
+                            "contains",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "filename"
+                                ]
+                            ],
+                            "Contact_DM"
+                        ],
+                        "version": "1"
+                    }
+                },
+                "transform": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [
+                            []
+                        ],
+                        "rulesTwoDotZero": {
+                            "mappings": [
+                                {
+                                    "generate": "firstName",
+                                    "dataType": "string",
+                                    "extract": "{{split Name ' ' 0}}",
+                                    "sourceDataType": "string",
+                                    "conditional": {
+                                        "when": "extract_not_empty"
+                                    },
+                                    "status": "Active"
+                                }
+                            ],
+                            "mode": "modify"
+                        },
+                        "version": "2"
+                    },
+                    "rules": [
+                        []
+                    ],
+                    "version": "2"
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "_id": "6576d3d2bbd91a74cb2c8cf5",
+                "name": "FTP Import",
+                "sampleData": {
+                    "attributes": {
+                        "type": "Contact",
+                        "url": "/services/data/v54.0/sobjects/Contact/0032w00000xoFpDAAU"
+                    },
+                    "Id": "0032w00000xoFpDAAU",
+                    "Name": "Andy Young"
+                },
+                "mockResponse": [
+                    {
+                        "id": "1234567890",
+                        "errors": [],
+                        "_json": {
+                            "id": "1234567890",
+                            "mockResponse": "replace me"
+                        },
+                        "statusCode": 200,
+                        "ignored": false,
+                        "dataURI": "",
+                        "_headers": {
+                            "content-type": "application/json; charset=utf-8"
+                        }
+                    }
+                ],
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "ia253aefaf",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "file-{{timestamp}}.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "/Group-QA/ShritiS/Import",
+                    "fileName": "file-{{timestamp}}.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ],
+    "createFlow": {
+        "_id": "652e15d26819f54a81ada56f",
+        "name": "FTP to FTP with Tx",
+        "disabled": true,
+        "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID",
+                "skipRetries": false
+            }
+        ],
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "autoResolveMatchingTraceKeys": true
+    }
+}
