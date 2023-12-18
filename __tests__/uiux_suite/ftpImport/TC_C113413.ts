@@ -9,7 +9,7 @@ test("C113413 User should able to run the flow successfully", async ({io, page})
     await io.homePage.waitForElementAttached("text='JWTDOCUSIGN_DND'")
     await io.homePage.clickByText("JWTDOCUSIGN_DND")
     await io.flowBuilder.loadingTime();
-    await io.homePage.click("[data-test='runFlow']");
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
     const lastRun = page.getByText('Last run');
     try {
         await lastRun.waitFor({ state: "visible", timeout: 20000 });

@@ -8,14 +8,12 @@ test.describe("C112084 User should able to run the flow successfully", () => {
     await io.homePage.waitForElementAttached("text='JWTGITHUB_DND'")
     await io.homePage.clickByText("JWTGITHUB_DND")
     await io.flowBuilder.loadingTime();
-    await io.homePage.click("[data-test='runFlow']");
-    const lastRun = page.getByText('Last run');
-    try {
-      await lastRun.waitFor({ state: "visible", timeout: 20000 });
-    } catch (error) {
-      console.log("error", error);
-    }
-    await expect(lastRun).toBeVisible();
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
+    await io.assert.verifyElementDisplayedByText(
+      "Last run",
+      "Last run is not displayed"
+    );
+  
     await io.flowBuilder.addStep("Verified the flow ran successfully");
   });
 });
