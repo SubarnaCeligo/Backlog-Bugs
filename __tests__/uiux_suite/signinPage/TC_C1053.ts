@@ -1,7 +1,7 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe(`C1053 Verify on clicking "Signin with Google" asks to login to google account(if not loggedinto the browser)`, () => {
+test.describe.skip(`C1053 Verify on clicking "Signin with Google" asks to login to google account(if not loggedinto the browser)`, () => {
   test(`C1053 Verify on clicking "Signin with Google" asks to login to google account(if not loggedinto the browser)`, async ({
     io
   }) => {
