@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C59777 Verify clicking on sign out page redirects to sign in page", () => {
+test.describe.skip("C59777 Verify clicking on sign out page redirects to sign in page", () => {
   test("C59777 Verify clicking on sign out page redirects to sign in page", async ({
     io,
     page

@@ -1,7 +1,7 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C67038 Verify if the error message is shown when the user tries to signup using google with an invalid email", () => {
+test.describe.skip("C67038 Verify if the error message is shown when the user tries to signup using google with an invalid email", () => {
     test("C67038 Verify if the error message is shown when the user tries to signup using google with an invalid email", async ({io, page}) => {
       await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
       await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_ICON);

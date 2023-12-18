@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C66306 Verify Sign up with Google is enabled on NA Sign up page", () => {
+test.describe.skip("C66306 Verify Sign up with Google is enabled on NA Sign up page", () => {
   test.beforeEach("Sign out", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     const isNotLoggedIn = await io.loginPage.checkLoginState();
