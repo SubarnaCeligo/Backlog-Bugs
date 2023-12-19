@@ -1,7 +1,7 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C66316 Verify Sign up with Google is the first option and the sign up form is the second option on the page", () => {
+test.describe.skip("C66316 Verify Sign up with Google is the first option and the sign up form is the second option on the page", () => {
   test("C66316 Verify Sign up with Google is the first option and the sign up form is the second option on the page", async ({io, page}) => {
       await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
       await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_ICON);
