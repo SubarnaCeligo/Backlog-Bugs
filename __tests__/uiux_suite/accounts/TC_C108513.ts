@@ -1,9 +1,7 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-
 test.describe("C108513 In security tab Style is not applied for 'Enable MFA'", () => {
-
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
   });
