@@ -1,6 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import testMode from "@testData/flows/C107605.json";
+import testMode from "@testData/Flows/C107605.json";
 
 test.describe("C107605", () => {
   test("C107605 Verify  drop-down in the HTTP Import when transferring files to the destination application for HTTP 2.0 framework", async ({io, page}) => {
