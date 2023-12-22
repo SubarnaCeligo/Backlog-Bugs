@@ -19,6 +19,7 @@ test.describe("Verify user should not see alert 133- XSS in debug tab of Flow bu
         await io.flowBuilder.click(selectors.importPagePO.IMPORT_CLOSE_DRAWER);
 
         //Open connections tab
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.CONNECTIONS_TAB);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CONNECTIONS_TAB);
 
         //Open actions menue and click on 'Debug Connection'
