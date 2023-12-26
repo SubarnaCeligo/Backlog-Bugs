@@ -10,23 +10,8 @@ test.describe("TC_C115649_C115651", () => {
         await io.flowBuilder.click(selectors.integrationPagePO.INTEGRATIONAPPS);
         await io.homePage.waitForElementAttached(selectors.integrationPagePO.OPENACTIONSMENU);
         await io.flowBuilder.clickButtonInTable(selectors.flowBuilderPagePO.FLOW_NAME_ACCOUNT_DASHBOARD, selectors.integrationPagePO.OPENACTIONSMENU, "IO-56360_DND");
-        await io.flowBuilder.click('[data-test="installBase"]');
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.INSTALL_BASE_SCROLLER);
-        const importPostHook = page.getByText('function postMap');
-        let scroll = false
-        var count = 0;
-        try {
-            while (!(await importPostHook.isVisible())) {
-                await page.mouse.wheel(0, 20);
-                count = count + 1
-                if(count == 2) {
-                    scroll = true
-                    break;
-                }
-            }
-        } catch (err) {
-            console.log("Returnig error message", err)
-        }
+        await io.flowBuilder.click(selectors.integrationPagePO.INSTALL_BASE);
+        var scroll = await io.flowBuilder.VerifyScroll(selectors.flowBuilderPagePO.DEBUG_LOGS);
         expect(scroll).toBeTruthy();
     });
     test("TC_C115651 Verify proper error message should show while creating more than 200 agent", async ({ io, page }) => {
