@@ -132,7 +132,6 @@ test.describe('C111378_C111377_C111376_C111375', () => {
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.TEST_RUN_STATUS);
         const dropdown = await page.$$(selectors.flowBuilderPagePO.TEST_RUN_STATUS);
         var dropdownLength = await dropdown.length
-        console.log("Returning",dropdownLength)
         await io.assert.expectToBeValue("8", dropdownLength.toString(), "All script are not showing");
 
         //HTTP request
