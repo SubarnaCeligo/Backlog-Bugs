@@ -1,0 +1,104 @@
+{
+    "name": "TC_C113073",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "AutomationStandalone_gCiUT",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "e41f23cfee",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "/users",
+                    "method": "GET",
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "users"
+                    }
+                },
+                "rawData": "EMPTY RAW DATA",
+                "test": {
+                    "limit": 12
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "Create organizations",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "i538d1fc4d",
+                "hooks": {
+                    "postMap": {
+                        "_scriptId": "656898299845da30508d818a",
+                        "function": "postMap"
+                    },
+                    "postSubmit": {
+                        "_scriptId": "656f1383094ff84bc105f777",
+                        "function": "postSubmit"
+                    },
+                    "preMap": {
+                        "_scriptId": "656f10610db74222e0be713f",
+                        "function": "preMap"
+                    }
+                },
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mapping": {
+                    "fields": [
+                        {
+                            "extract": "name",
+                            "generate": "organization.name"
+                        },
+                        {
+                            "extract": "details",
+                            "generate": "organization.notes"
+                        }
+                    ]
+                },
+                "http": {
+                    "relativeURI": [
+                        "/organizations"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "createFlow": {
+        "name": "TC_C113073",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+        ]
+    }
+}
