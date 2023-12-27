@@ -16,11 +16,11 @@ test.describe("TC_C32141", () => {
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.fill(selectors.basePagePO.INPUT_NAME_SELECTOR, 'TC_C32141');
     await io.flowBuilder.click(selectors.exportsPagePO.HTTP_METHOD);
-    await io.flowBuilder.click("[data-value='COMPOSITE']");
-    await io.flowBuilder.click("[data-test='http.compositeType']");
-    await io.assert.verifyElementContainsText("[data-value='createandignore']", 'Create new records & ignore existing records');
-    await io.assert.verifyElementContainsText("[data-value='createandupdate']", 'Create new records & update existing records');
-    await io.assert.verifyElementContainsText("[data-value='updateandignore']", 'Ignore new records & update existing records');
+    await io.flowBuilder.click(selectors.exportsPagePO.COMPOSITE_METHOD);
+    await io.flowBuilder.click(selectors.exportsPagePO.COMPOSITE_DROPDOWN);
+    await io.assert.verifyElementContainsText(selectors.exportsPagePO.COMPOSITEDROPDOWN_VALUES1, 'Create new records & ignore existing records');
+    await io.assert.verifyElementContainsText(selectors.exportsPagePO.COMPOSITEDROPDOWN_VALUES2, 'Create new records & update existing records');
+    await io.assert.verifyElementContainsText(selectors.exportsPagePO.COMPOSITEDROPDOWN_VALUES3, 'Ignore new records & update existing records');
 
   });
 
