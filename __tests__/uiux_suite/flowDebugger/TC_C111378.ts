@@ -12,7 +12,6 @@ test.describe('C111378_C111377_C111376_C111375', () => {
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
-        await io.flowBuilder.delay(20000);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.LOOKUP);
@@ -49,7 +48,6 @@ test.describe('C111378_C111377_C111376_C111375', () => {
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
-        await io.flowBuilder.delay(20000);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.LOOKUP);
@@ -84,7 +82,6 @@ test.describe('C111378_C111377_C111376_C111375', () => {
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
-        await io.flowBuilder.delay(20000);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.LOOKUP);
@@ -120,7 +117,6 @@ test.describe('C111378_C111377_C111376_C111375', () => {
         //Disable the flow
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
-        await io.flowBuilder.delay(20000);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
         //Lookup
