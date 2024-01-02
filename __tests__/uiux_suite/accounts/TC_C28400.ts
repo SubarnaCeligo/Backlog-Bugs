@@ -9,7 +9,7 @@ test.describe('C28400 Running flows tab -Verify the pagination is shown correctl
       
   });
      
-    test('C25638 Running flows tab -Verify the pagination is shown correctly - 50 rows in 1 page', async ({
+    test('C28400 Running flows tab -Verify the pagination is shown correctly - 50 rows in 1 page', async ({
       io,
       page
     }) => {
