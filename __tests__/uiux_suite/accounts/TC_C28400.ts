@@ -17,7 +17,6 @@ test.describe('C28400 Running flows tab -Verify the pagination is shown correctl
       await io.homePage.fill(selectors.homePagePO.SEARCH_INTEGRATION,"50");
       await io.homePage.clickByText("50Flows_TC_28400"); 
       await io.homePage.loadingTime();
-      await page.pause();
       let i =1;
       while(i<51)
       {
