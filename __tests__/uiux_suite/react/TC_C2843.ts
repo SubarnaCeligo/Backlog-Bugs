@@ -11,9 +11,9 @@ test.describe("C2843 Verify default time shown in 'Automatic' for newly created 
        await io.createResourceFromAPI(C2843, 'FLOWS');
        await io.homePage.loadingTime();
        
-    await io.flowBuilder.click('[data-test="runFlow"]');
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
     await io.homePage.loadingTime();
-   const time =  await page.$('[aria-label*="Choose time"]');
+   const time =  await page.$(selectors.flowBuilderPagePO.CHOOSETIME_DELTAFLOW_TIMESTAMP);
    await io.homePage.loadingTime();
   
    let valueAttribute = (await time.getAttribute('value')).toString();

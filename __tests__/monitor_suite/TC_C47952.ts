@@ -7,12 +7,12 @@ test.describe("C47952 Use this account for SSO dropdown in security tab should
        
         await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
         await io.myAccountPage.loadingTime();
-        const company =  await page.$('[name="company"]');
+        const company =  await page.$(selectors.myAccountPagePO.COMPANY_NAME);
         let companyvalue = (await company.getAttribute('value')).toString().toLowerCase();
         await io.myAccountPage.click(selectors.myAccountPagePO.SECURITY);
         await io.myAccountPage.clickByText("Please select");
  
-        const ssodropdown =    (await io.myAccountPage.getText("[role='menuitem']"));
+        const ssodropdown =    (await io.myAccountPage.getText(selectors.basePagePO.MENU_ITEM));
         let result = false;
 
         if(companyvalue==ssodropdown[1].toString().toLowerCase())
