@@ -1,0 +1,38 @@
+{
+    "orderData":
+    {
+        "orderId": "1234512345",
+        "customerEmail": "john.doe@email.com",
+        "objItems": {
+               "testing": ["testing1","testing2"],
+               "a": {
+                "b": {
+                    "c": ["testing c"]
+                }
+               }
+        },
+        "items": [
+        {
+            "sku": "Business Cards",
+            "itemId": "67890",
+            "serialNumbers": [
+            {
+                "code": "swRkEQmd"
+            },
+            {
+                "code": "EQ8vELmm"
+            }]
+        },
+        {
+            "sku": "Pens",
+            "itemId": "12345",
+            "serialNumbers": [
+            {
+                "code": "abvyPHCS"
+            },
+            {
+                "code": "SWFAqWGt"
+            }]
+        }]
+    }
+}

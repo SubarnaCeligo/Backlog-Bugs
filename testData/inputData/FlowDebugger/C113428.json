@@ -1,0 +1,75 @@
+{
+    "name": "TC_C113428",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "http export",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "e8d3cf1a0c",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "/users",
+                    "method": "GET",
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "users"
+                    }
+                },
+                "rawData": "EMPTY RAW DATA",
+                "test": {
+                    "limit": 13
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "HTTP BLOB EXPORT",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "e30c2cf43c",
+                "asynchronous": true,
+                "isLookup": true,
+                "type": "blob",
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "/users.json",
+                    "method": "GET",
+                    "formType": "http",
+                    "response": {
+                        "blobFormat": "utf-16le"
+                    }
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "createFlow": {
+        "name": "TC_C113428",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "export",
+                "_importId": "UPDATE WITH NEW EXPORTID"
+            }
+        ],
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+        ]
+    }
+}
