@@ -19,12 +19,7 @@ test.describe("C45832 Verify if the user is not able to initiate the authenticat
         await io.myAccountPage.fill(selectors.myAccountPagePO.MOBILE_CODE,"123456789");
         const mobilecodevalue = (await (await page.$(selectors.myAccountPagePO.MOBILE_CODE)).getAttribute('value')).toString();
         const length = mobilecodevalue.length;
-        let result = false;
-        if(length == 6)
-        {
-            result = true;
-        }
-        await io.assert.expectToBeTrue(result,"Length does'nt match");
+        await io.assert.expectToBeValue("6",length.toString(),"Length does'nt match");
          
         });
 

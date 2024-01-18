@@ -13,13 +13,8 @@ test.describe("C47952 Use this account for SSO dropdown in security tab should
         await io.myAccountPage.clickByText("Please select");
  
         const ssodropdown =    (await io.myAccountPage.getText(selectors.basePagePO.MENU_ITEM));
-        let result = false;
 
-        if(companyvalue==ssodropdown[1].toString().toLowerCase())
-        {
-          result = true;
-        }
-         await io.assert.expectToBeTrue(result, "Not displaying company name.");
+        await io.assert.expectToBeValue(companyvalue,ssodropdown[1].toString(),"Not Displaying Company Name");
          
         });
         

@@ -26,12 +26,9 @@ test.describe("C2843 Verify default time shown in 'Automatic' for newly created 
    let time1=hours[0].trim().replace(/\s/g, '')
    let time2=currentHours[0].trim().replace(/\s/g, '');
 
-  if(time1==time2)
-  {
-    result = true;
-  }
-   await io.assert.expectToBeTrue(result, "Not in LocalTime")
-    });
+   await io.assert.expectToBeValue(time1,time2,"Not in local time");
+   
+      });
   });
    
 

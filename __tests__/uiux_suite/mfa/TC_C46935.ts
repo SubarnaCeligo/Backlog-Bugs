@@ -18,22 +18,9 @@ test.describe("C46935 Verify, the owner shouldn't be getting an option to select
         await io.myAccountPage.click(selectors.myAccountPagePO.MFA_TOGGLE);
        const count = (await page.$$('.MuiTypography-h5')).length;
        const count2 = (await page.$$('.Mui-required')).length;
-       let result = false;
-       if(count+count2 == 5)
-       {
-        result = true;
-       }
-
-       await io.assert.expectToBeTrue(result,"Total number of steps is not as expected");
-        
+       await io.assert.expectToBeValue("5",(count+count2).toString(),"Total number of steps is not as expected");
        const mfaChooseAccount = await page.$$("Choose primary account to reset MFA ");
-       let results = false;
-       if(mfaChooseAccount.length==0)
-       {
-        results = true;
-       }
-
-       await io.assert.expectToBeTrue(results,"Element is present which is not expected");
-         
-        });
+       await io.assert.expectToBeValue("0",mfaChooseAccount.length.toString(),"Element is present which is not expected")
+   
+       });
     });
