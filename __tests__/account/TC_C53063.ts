@@ -14,9 +14,8 @@ test.describe('C53063 Verify that the 30 and 60 days option is enable for licens
       page
     }) => {
      
-        const licenses = await io.api.getCall("v1/licenses");
-        let  LID= "6595487f92df6f0af1f73f89"
-        let putcall =await io.api.putCall(`v1/test/licenses/${LID}`, ProfessionalLicense);
+        const licenses = await io.api.getCall("v1/licenses");   
+        let putcall =await io.api.putCall(`v1/test/licenses/${process.env["IO_Integration_ID"]}`, ProfessionalLicense);
       
 
           await io.myAccountPage.click(selectors.myAccountPagePO.DATA_RETENTION);
