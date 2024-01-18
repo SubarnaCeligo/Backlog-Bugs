@@ -15,7 +15,7 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
     await io.myAccountPage.click(selectors.basePagePO.EDIT_EMAIL_BUTTON)
     // Click on edit email button
     await io.myAccountPage.waitForElementAttached(selectors.basePagePO.NEW_EMAIL)
-    console.log("user name: " + process.env.IO_UserName)
+    // console.log("user name: " + process.env.IO_UserName)
     await io.myAccountPage.fill(selectors.basePagePO.NEW_EMAIL, "qaautomation1+emailcheck1@celigo.com")
     await io.myAccountPage.waitForElementAttached(selectors.basePagePO.NEW_PASSWORD)
     await io.myAccountPage.fill(selectors.basePagePO.NEW_PASSWORD, decrypt(process.env["IO_Password"]));
@@ -30,14 +30,14 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
     const link = await io.emailVal.getLinkFromEmail(
       "[qa.staging.integrator.io] Request to change your email", false, "pwqa1"
     );
-    console.log("link: " + link.toString())
+    // console.log("link: " + link.toString())
     let AccountTab=".MuiToolbar-root .MuiSvgIcon-root"
     let AccountTab1=await page.$$(".MuiToolbar-root .MuiSvgIcon-root")
     await page.waitForTimeout(20000);
-    console.log("Account tab : " + AccountTab)
-    console.log("Account tab len : " + AccountTab.length)
+    // console.log("Account tab : " + AccountTab)
+    // console.log("Account tab len : " + AccountTab.length)
     let  last = await AccountTab1.length - 1;
-    console.log("last: " + last)
+    // console.log("last: " + last)
     let x=AccountTab
     if (!isNotLoggedIn) {
       // await io.homePage.waitForElementAttached(AccountTab[last]);
@@ -45,8 +45,10 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
       await io.homePage.click(selectors.basePagePO.SIGN_OUT);
     }
     // check for link in email and navigate to that link
-                           
+    await page.waitForTimeout(5000);                       
     await io.homePage.navigateTo(link.toString());
+    await io.homePage.reloadPage();
+    await io.homePage.reloadPage();
     await io.loginPage.fill(selectors.loginPagePO.EMAIL, "qaautomation1+emailcheck1@celigo.com");
     await io.loginPage.fill(selectors.loginPagePO.PASSWORD, decrypt(process.env["IO_Password"]));
     await io.loginPage.click(selectors.basePagePO.SUBMIT);
@@ -62,9 +64,9 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
         const agentlink = await io.emailVal.getLinkFromEmail(
       "ALERT: Agent access token was displayed in clear text",true, "pwqa1"
     );
-console.log("agentlink: " + agentlink)
+// console.log("agentlink: " + agentlink)
     let result=agentlink.toString();
-    console.log("result: " + result)
+    // console.log("result: " + result)
     let validate=false;
       if(result.includes('agent'))
       {
@@ -79,7 +81,7 @@ console.log("agentlink: " + agentlink)
     await io.myAccountPage.click(selectors.basePagePO.EDIT_EMAIL_BUTTON)
     // Click on edit email button
     await io.myAccountPage.waitForElementAttached(selectors.basePagePO.NEW_EMAIL)
-    console.log("user name: " + process.env.IO_UserName)
+    // console.log("user name: " + process.env.IO_UserName)
     await io.myAccountPage.fill(selectors.basePagePO.NEW_EMAIL, "qaautomation1+emailcheck@celigo.com")
     await io.myAccountPage.waitForElementAttached(selectors.basePagePO.NEW_PASSWORD)
     await io.myAccountPage.fill(selectors.basePagePO.NEW_PASSWORD, decrypt(process.env["IO_Password"]));
@@ -96,23 +98,30 @@ console.log("agentlink: " + agentlink)
     const link1 = await io.emailVal.getLinkFromEmail(
       "[qa.staging.integrator.io] Request to change your email", false, "pwqa1"
     );
-    console.log("link: " + link1.toString())
+    // console.log("link: " + link1.toString())
     let Account1Tab=".MuiToolbar-root .MuiSvgIcon-root"
     let Account1Tab1=await page.$$(".MuiToolbar-root .MuiSvgIcon-root")
     await page.waitForTimeout(20000);
-    console.log("Account tab : " + Account1Tab)
-    console.log("Account tab len : " + Account1Tab.length)
+    // console.log("Account tab : " + Account1Tab)
+    // console.log("Account tab len : " + Account1Tab.length)
     let  last1 = await Account1Tab1.length - 1;
-    console.log("last: " + last1)
+    // console.log("last: " + last1)
 
     if (!isNotLoggedIn1) {
       // await io.homePage.waitForElementAttached(AccountTab[last]);
       await io.myAccountPage.clickByIndex(Account1Tab, last1);
       await io.homePage.click(selectors.basePagePO.SIGN_OUT);
     }
+
+    //Start TC_C1655 - Email Change Link continues to work even after changing the password
+    await io.homePage.navigateTo(link.toString());
+    const errorMessage = (await io.homePage.getText(selectors.basePagePO.H3_TEXT_SELECTOR)).toString();
+    await io.assert.expectToContainValue(errorMessage, "Failed to change email address.", "Link is still valid")
+    //End TC_C1655
+
     // check for link in email and navigate to that link
              
-    await io.homePage.navigateTo(link1.toString());
+    // await io.homePage.navigateTo(link1.toString());
     await page.waitForTimeout(10000);
     await io.homePage.navigateTo(link1.toString());
     await io.loginPage.fill(selectors.loginPagePO.EMAIL, "qaautomation1+emailcheck@celigo.com");
