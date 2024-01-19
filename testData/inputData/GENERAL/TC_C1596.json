@@ -1,0 +1,40 @@
+{
+    "expectedJSON": {
+        "ftp": {
+            "password": "******",
+            "port": 22,
+            "hostURI": "celigo.files.com",
+            "type": "sftp",
+            "usePassiveMode": true,
+            "username": "io.auto.qa@celigo.com"
+        },
+        "name": "Edit_Connection_FTP_SFTP",
+        "type": "ftp"
+    },
+    "apiJSON": {
+        "ftp": {
+            "password": "******",
+            "port": 21,
+            "hostURI": "celigo.brickftp.com",
+            "qa__password": "NDE5VnduNE1tSmxu",
+            "type": "ftp",
+            "usePassiveMode": true,
+            "username": "celigoc1"
+        },
+        "name": "Edit_Connection_FTP_SFTP",
+        "type": "ftp"
+    },
+    "importJSON": {
+        "ftp": {
+            "password": "******",
+            "port": 22,
+            "hostURI": "celigo.files.com",
+            "type": "sftp",
+            "qa__password": "dlVZYTE4ejhQUVlmakd1SQ==",
+            "usePassiveMode": true,
+            "username": "io.auto.qa@celigo.com"
+        },
+        "name": "Edit_Connection_FTP_SFTP",
+        "type": "ftp"
+    }
+}

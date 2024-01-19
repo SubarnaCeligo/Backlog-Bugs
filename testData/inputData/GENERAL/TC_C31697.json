@@ -1,0 +1,258 @@
+[
+  {
+    "qaexportDoc1": {
+      "name": "TC_C31697_Export1",
+      "description": "<a href='https://celigosuccess.zendesk.com'>celigo</a>",
+      "_connectionId": "FTP CONNECTION",
+      "ftp": {
+        "directoryPath": "Manish",
+        "fileNameStartsWith": "nscustomer"
+      },
+      "file": {
+        "output": "records",
+        "skipDelete": false,
+        "type": "json",
+        "json": {
+          "resourcePath": "*"
+        }
+      },
+      "adaptorType": "FTPExport"
+    },
+    "qaexportDoc2": {
+      "name": "TC_C31697_Export2",
+      "description": "<a href='https://help.shopify.com'>celigo</a>",
+      "_connectionId": "FTP CONNECTION",
+      "ftp": {
+        "directoryPath": "Manish",
+        "fileNameStartsWith": "nscustomer"
+      },
+      "file": {
+        "output": "records",
+        "skipDelete": false,
+        "type": "json",
+        "json": {
+          "resourcePath": "*"
+        }
+      },
+      "adaptorType": "FTPExport"
+    },
+    "qaexportDoc3": {
+      "name": "TC_C31697_Export3",
+      "description": "<a href='https://docs.celigo.com'>celigo</a>",
+      "_connectionId": "FTP CONNECTION",
+      "ftp": {
+        "directoryPath": "Manish",
+        "fileNameStartsWith": "nscustomer"
+      },
+      "file": {
+        "output": "records",
+        "skipDelete": false,
+        "type": "json",
+        "json": {
+          "resourcePath": "*"
+        }
+      },
+      "adaptorType": "FTPExport"
+    },
+    "qaexportDoc4": {
+      "name": "TC_C31697_Export4",
+      "description": "<a href='https://developer.paypal.com/docs'>celigo</a>",
+      "_connectionId": "FTP CONNECTION",
+      "ftp": {
+        "directoryPath": "Manish",
+        "fileNameStartsWith": "nscustomer"
+      },
+      "file": {
+        "output": "records",
+        "skipDelete": false,
+        "type": "json",
+        "json": {
+          "resourcePath": "*"
+        }
+      },
+      "adaptorType": "FTPExport"
+    },
+    "qaexportDoc5": {
+      "name": "TC_C31697_Export5",
+      "description": "<a href='https://evil.celigo.com'>celigo</a>",
+      "_connectionId": "FTP CONNECTION",
+      "ftp": {
+        "directoryPath": "Manish",
+        "fileNameStartsWith": "nscustomer"
+      },
+      "file": {
+        "output": "records",
+        "skipDelete": false,
+        "type": "json",
+        "json": {
+          "resourcePath": "*"
+        }
+      },
+      "adaptorType": "FTPExport"
+    },
+    "qaexportDoc6": {
+      "name": "TC_C31697_Export6",
+      "description": "<a href='https://123shopify.com'>celigo</a>",
+      "_connectionId": "FTP CONNECTION",
+      "ftp": {
+        "directoryPath": "Manish",
+        "fileNameStartsWith": "nscustomer"
+      },
+      "file": {
+        "output": "records",
+        "skipDelete": false,
+        "type": "json",
+        "json": {
+          "resourcePath": "*"
+        }
+      },
+      "adaptorType": "FTPExport"
+    },
+    "qaexportDoc7": {
+      "name": "TC_C31697_Export7",
+      "description": "<a href='https://test.com'>celigo</a>",
+      "_connectionId": "FTP CONNECTION",
+      "ftp": {
+        "directoryPath": "Manish",
+        "fileNameStartsWith": "nscustomer"
+      },
+      "file": {
+        "output": "records",
+        "skipDelete": false,
+        "type": "json",
+        "json": {
+          "resourcePath": "*"
+        }
+      },
+      "adaptorType": "FTPExport"
+    }
+  },
+  {
+    "stageexportDoc1": {
+      "name": "TC_C31697_Export1",
+      "description": "<a href='https://celigosuccess.zendesk.com'>celigo</a>",
+      "_connectionId": "FTP CONNECTION",
+      "ftp": {
+        "directoryPath": "Manish",
+        "fileNameStartsWith": "nscustomer"
+      },
+      "file": {
+        "output": "records",
+        "skipDelete": false,
+        "type": "json",
+        "json": {
+          "resourcePath": "*"
+        }
+      },
+      "adaptorType": "FTPExport"
+    },
+    "stageexportDoc2": {
+      "name": "TC_C31697_Export2",
+      "description": "<a href='https://help.shopify.com'>celigo</a>",
+      "_connectionId": "FTP CONNECTION",
+      "ftp": {
+        "directoryPath": "Manish",
+        "fileNameStartsWith": "nscustomer"
+      },
+      "file": {
+        "output": "records",
+        "skipDelete": false,
+        "type": "json",
+        "json": {
+          "resourcePath": "*"
+        }
+      },
+      "adaptorType": "FTPExport"
+    },
+    "stageexportDoc3": {
+      "name": "TC_C31697_Export3",
+      "description": "<a href='https://docs.celigo.com'>celigo</a>",
+      "_connectionId": "FTP CONNECTION",
+      "ftp": {
+        "directoryPath": "Manish",
+        "fileNameStartsWith": "nscustomer"
+      },
+      "file": {
+        "output": "records",
+        "skipDelete": false,
+        "type": "json",
+        "json": {
+          "resourcePath": "*"
+        }
+      },
+      "adaptorType": "FTPExport"
+    },
+    "stageexportDoc4": {
+      "name": "TC_C31697_Export4",
+      "description": "<a href='https://developer.paypal.com/docs'>celigo</a>",
+      "_connectionId": "FTP CONNECTION",
+      "ftp": {
+        "directoryPath": "Manish",
+        "fileNameStartsWith": "nscustomer"
+      },
+      "file": {
+        "output": "records",
+        "skipDelete": false,
+        "type": "json",
+        "json": {
+          "resourcePath": "*"
+        }
+      },
+      "adaptorType": "FTPExport"
+    },
+    "stageexportDoc5": {
+      "name": "TC_C31697_Export5",
+      "description": "<a href='https://evil.celigo.com'>celigo</a>",
+      "_connectionId": "FTP CONNECTION",
+      "ftp": {
+        "directoryPath": "Manish",
+        "fileNameStartsWith": "nscustomer"
+      },
+      "file": {
+        "output": "records",
+        "skipDelete": false,
+        "type": "json",
+        "json": {
+          "resourcePath": "*"
+        }
+      },
+      "adaptorType": "FTPExport"
+    },
+    "stageexportDoc6": {
+      "name": "TC_C31697_Export6",
+      "description": "<a href='https://123shopify.com'>celigo</a>",
+      "_connectionId": "FTP CONNECTION",
+      "ftp": {
+        "directoryPath": "Manish",
+        "fileNameStartsWith": "nscustomer"
+      },
+      "file": {
+        "output": "records",
+        "skipDelete": false,
+        "type": "json",
+        "json": {
+          "resourcePath": "*"
+        }
+      },
+      "adaptorType": "FTPExport"
+    },
+    "stageexportDoc7": {
+      "name": "TC_C31697_Export7",
+      "description": "<a href='https://test.com'>celigo</a>",
+      "_connectionId": "FTP CONNECTION",
+      "ftp": {
+        "directoryPath": "Manish",
+        "fileNameStartsWith": "nscustomer"
+      },
+      "file": {
+        "output": "records",
+        "skipDelete": false,
+        "type": "json",
+        "json": {
+          "resourcePath": "*"
+        }
+      },
+      "adaptorType": "FTPExport"
+    }
+  }
+]

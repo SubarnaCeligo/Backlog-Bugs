@@ -1,0 +1,150 @@
+{
+  "name": "TC_C26405_TC_C26409_retry_presave_page_error_SF",
+  "referencename": "TC_C26405_TC_C26409_retry_presave_page_error_SF",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "0",
+    "errorCount": "1"
+  },
+  "qa__expectedDashboardCount1qa": {
+    "ignoreCount": "0",
+    "successCount": "1",
+    "errorCount": "0"
+  },
+  "qa__expectedDashboardCount1staging": {
+    "ignoreCount": "0",
+    "successCount": "0",
+    "errorCount": "0"
+  },
+  "data": {
+    "importRecordJSON": {
+      "lastname": "TC_C26409",
+      "firstname": "abc"
+    },
+    "application": "SALESFORCE",
+    "importapiIdentifier": "i6c9d427d8",
+    "importapidoc": {
+      "_id": "6342bddd1486c63a7cc0c9fb",
+      "createdAt": "2022-10-09T12:26:05.342Z",
+      "lastModified": "2022-10-09T12:26:21.639Z",
+      "name": "SF_contact_creation",
+      "_connectionId": "571f99ac7dcd19f174d07ad8",
+      "apiIdentifier": "i6c9d427d8",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "mapping": {
+        "fields": [
+          {
+            "extract": "lastname",
+            "generate": "LastName"
+          },
+          {
+            "extract": "firstname",
+            "generate": "FirstName"
+          }
+        ]
+      },
+      "salesforce": {
+        "operation": "insert",
+        "sObjectType": "Contact",
+        "api": "soap",
+        "removeNonSubmittableFields": false
+      },
+      "adaptorType": "SalesforceImport"
+    }
+  },
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "TC_C26409_exp",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "asynchronous": true,
+            "type": "distributed",
+            "hooks": {
+              "preSavePage": {
+                "_scriptId": "",
+                "function": "preSavePage"
+              }
+            },
+            "oneToMany": false,
+            "sandbox": false,
+            "distributed": {
+              "bearerToken": "******"
+            },
+            "salesforce": {
+              "sObjectType": "Contact",
+              "distributed": {
+                "disabled": false,
+                "qualifier": "LastName LIKE '%TC_C26409%'"
+              }
+            },
+            "adaptorType": "SalesforceExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "TC_C26409_imp",
+            "_connectionId": "FTP CONNECTION",
+            "oneToMany": false,
+            "sandbox": false,
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "lastname",
+                  "generate": "ID"
+                }
+              ]
+            },
+            "file": {
+              "fileName": "TC_C26409.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "io.auto.qa/IO_UI_Automation",
+              "fileName": "TC_C26409.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C26405_TC_C26409_retry_presave_page_error_SF",
+        "disabled": false,
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ],
+  "scriptBody": {
+    "name": "TC_C26409",
+    "content": "function preSavePage(options) {\r\n  throw new Error(\"tc\");\r\n}"
+  },
+  "correctScriptBody": {
+    "name": "TC_C26409",
+    "content": "function preSavePage(options){\r\n options.data[0].lastname = options.data[0].LastName; \r\n return {\r\ndata: options.data\r\n}\r\n}"
+  }
+}

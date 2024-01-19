@@ -1,0 +1,38 @@
+{
+      "name": "TC_C2016",
+      "referencename": "TC_C2016",
+      "qa__api_tdata": [
+        {
+            "pageGenerators": [
+              {
+                "type": "export",
+                "qa__export":{
+                    "name": "TC_C2016",
+                    "_connectionId": "FTP CONNECTION",
+                    "apiIdentifier": "e44d4417a9",
+                    "asynchronous": true,
+                    "sandbox": false,
+                    "sampleData": {
+                        "id": [
+                            1,
+                            null
+                        ]
+                    },
+                    "ftp": {
+                        "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                        "fileNameStartsWith": "C22311"
+                    },
+                    "file": {
+                        "encoding": "utf8",
+                        "output": "records",
+                        "skipDelete": true,
+                        "type": "json"
+                    },
+                    "adaptorType": "FTPExport"
+                }
+              }
+            ]
+          }
+      ]
+
+  }

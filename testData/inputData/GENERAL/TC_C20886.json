@@ -1,0 +1,7 @@
+{
+    "qa": "https://qa.staging.integrator.io/fxbdf",
+    "staging" : "https://staging.integrator.io/fxbdf",
+    "qaprod":"https://qaprod.staging.integrator.io/fxbdf",
+    "iaqa":"https://iaqa.staging.integrator.io/fxbdf",
+    "platformone":"https://platform1.dev.integrator.io/fxbdf"
+}

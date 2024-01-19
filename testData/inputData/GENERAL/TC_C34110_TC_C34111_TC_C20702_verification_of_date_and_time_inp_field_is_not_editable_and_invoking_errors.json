@@ -1,0 +1,78 @@
+{
+  "name": "TC_C34110_TC_C34111_TC_C20702_verification_of_date_and_time_inp_field_is_not_editable_and_invoking_errors",
+  "referencename": "TC_C34110_TC_C34111_TC_C20702_verification_of_date_and_time_inp_field_is_not_editable_and_invoking_errors",
+  "qa__dataVerification": {},
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "0",
+    "errorCount": "0"
+  },
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "TC_C34110_TC_C34111_TC_C20702_exp",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "rawData": "EMPTY RAW DATA",
+            "salesforce": {
+              "type": "soql",
+              "api": "rest",
+              "soql": {
+                "query": "Select id from 'Contact'"
+              }
+            },
+            "adaptorType": "SalesforceExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "TC_C34110_TC_C34111_TC_C20702_exp",
+            "_connectionId": "FTP CONNECTION",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+              "fileName": "TC_C34110_TC_C34111_TC_C20702.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "io.auto.qa/IO_UI_Automation",
+              "fileName": "TC_C34110_TC_C34111_TC_C20702.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C34110_TC_C34111_TC_C20702_verification_of_date_and_time_inp_field_is_not_editable_and_invoking_errors",
+        "disabled": false,
+        "_integrationId": "6317518c5bca603be6bc9af0",
+        "qa__integrationId": "6317333395653f0f15147f47",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

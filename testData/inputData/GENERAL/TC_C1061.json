@@ -1,0 +1,5 @@
+{
+    "qa": "https://qa.staging.integrator.io/request-reset?",
+    "qaprod": "https://qaprod.staging.integrator.io/request-reset?",
+    "staging" : "https://staging.integrator.io/request-reset?"
+}

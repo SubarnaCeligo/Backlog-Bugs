@@ -1,0 +1,42 @@
+{
+    "name": "TC_C1097_TC_C1098_connections_downlink",
+    "referencename": "TC_C1097_TC_C1098_connections_downlink",
+    "qa__dataVerification": {},
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+                "name": "TC_C1097_TC_C1098_exp",
+                "_connectionId":"",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C26409_data",
+                    "fileNameEndsWith": ".json"
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C1097_TC_C1098_connections_downlink",
+          "disabled": false,
+          "_integrationId": "",
+          "skipRetries": false,
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }
