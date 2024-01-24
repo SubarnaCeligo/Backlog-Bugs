@@ -1,0 +1,193 @@
+{
+    "_id": "6530cb14a76ec92258fcc933",
+    "name": "flow",
+    "disabled": true,
+    "_integrationId": "651bdc9aee44aa5f19611f39",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "FTP huge file",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/Shashii"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "filter": {
+                        "type": "expression",
+                        "expression": {
+                            "rules": [
+                                "startswith",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "filename"
+                                    ]
+                                ],
+                                "testingtypes.json"
+                            ],
+                            "version": "1"
+                        },
+                        "rules": [
+                            "startswith",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "filename"
+                                ]
+                            ],
+                            "testingtypes.json"
+                        ],
+                        "version": "1"
+                    }
+                },
+                "transform": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [
+                            []
+                        ],
+                        "version": "2",
+                        "rulesTwoDotZero": {
+                            "mappings": [
+                                {
+                                    "generate": "c",
+                                    "dataType": "string",
+                                    "extract": "$.mockOutputexpd",
+                                    "sourceDataType": "string",
+                                    "status": "Active"
+                                }
+                            ],
+                            "mode": "create"
+                        }
+                    },
+                    "rules": [
+                        []
+                    ],
+                    "version": "2"
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "export",
+            "qa__export": {
+                "name": "HTTP ZD Lookup",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "asynchronous": true,
+                "isLookup": true,
+                "type": "test",
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "tickets",
+                    "method": "GET",
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "tickets"
+                    }
+                },
+                "test": {
+                    "limit": 1
+                },
+                "transform": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [
+                            []
+                        ],
+                        "version": "1"
+                    },
+                    "rules": [
+                        []
+                    ],
+                    "version": "1"
+                },
+                "adaptorType": "HTTPExport"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "_id": "6530cb6242486b62e90346e5",
+                "name": "FTP Export - FDB",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "ic48821509",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "file-{{timestamp}}.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "/Group-QA/ShritiS/Import",
+                    "fileName": "file-{{timestamp}}.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ],
+    "createFlow": {
+        "_id": "6530cb14a76ec92258fcc933",
+        "name": "FTP with lookup FDB",
+        "disabled": true,
+        "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+        ],
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [
+                        {
+                            "extract": "errors",
+                            "generate": "errors2"
+                        },
+                        {
+                            "extract": "ignored",
+                            "generate": "ignored2"
+                        },
+                        {
+                            "extract": "statusCode",
+                            "generate": "name1"
+                        },
+                        {
+                            "extract": "data",
+                            "generate": "data2"
+                        }
+                    ],
+                    "lists": []
+                },
+                "type": "export",
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            },
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+
+        "autoResolveMatchingTraceKeys": true
+    }
+}
