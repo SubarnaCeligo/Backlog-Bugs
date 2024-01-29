@@ -1,6 +1,5 @@
 import {filterTestCases} from "@celigo/aut-utilities"
-var testCases = [
-"C32975",
+var testCases = ["C32975",
 "C67221",
 "C2660",
 "C24850",
@@ -75,11 +74,9 @@ var testCases = [
 "C111344",
 "C111328",
 "C111333",
-"C117949",
-"C102875",
-"C119139"
+"C33018"
 ]
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
-    (async () => {
-      await filterTestCases(testCases,flakycases,"flowBuilder")
-    })();
+(async () => {
+  await filterTestCases(testCases, flakycases, "flowBuilder");
+})();
