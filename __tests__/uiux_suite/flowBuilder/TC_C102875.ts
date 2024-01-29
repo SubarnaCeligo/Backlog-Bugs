@@ -4,10 +4,10 @@ import TC from '../../../testData/inputData/FlowBuilder/C102875.json';
 
 test.describe("C102875_C102876_C102877_C102878_C102879", () => {
     test("C102875_C102876", async ({ io, page }) => {
-        // await io.createResourceFromAPI(TC, "FLOWS");
-        // await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
-        // const lastRun = page.getByText('Last run');
-        // await lastRun.waitFor({state: 'visible', timeout: 180000});
+        await io.createResourceFromAPI(TC, "FLOWS");
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
+        const lastRun = page.getByText('Last run');
+        await lastRun.waitFor({state: 'visible', timeout: 180000});
         await page.reload();
         //Home page: Dashboard
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
