@@ -1,0 +1,150 @@
+{
+    "name": "TC_C117329",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "SF RT new flow",
+                "_connectionId": "SALESFORCE CONNECTION",
+                "_sourceId": "62e1382253431e3b078966e0",
+                "apiIdentifier": "e3886676d4",
+                "asynchronous": true,
+                "type": "distributed",
+                "oneToMany": false,
+                "mockOutput": {
+                    "page_of_records": [
+                        {
+                            "record": {
+                                "id": "44207",
+                                "recordType": "account",
+                                "Name": "0Account 1",
+                                "Display Name": "10.0 0Account 1",
+                                "Account Type": "Bank"
+                            }
+                        },
+                        {
+                            "record": {
+                                "id": "44208",
+                                "recordType": "account",
+                                "Name": "0Account 2",
+                                "Display Name": "130.0 0Account 2",
+                                "Account Type": "Bank"
+                            }
+                        },
+                        {
+                            "record": {
+                                "id": "656",
+                                "recordType": "account",
+                                "Name": "Automation_DH",
+                                "Display Name": "12345678 Automation_DH",
+                                "Account Type": "Bank"
+                            }
+                        },
+                        {
+                            "record": {
+                                "id": "44007",
+                                "recordType": "account",
+                                "Name": "C47503 Automation",
+                                "Display Name": "123 C47503 Automation",
+                                "Account Type": "Bank",
+                                "Description": "",
+                                "Balance": ".00",
+                                "Show in Fixed Assets Management": "",
+                                "dataURI": "/app/accounting/account/account.nl?id=44007&compid=TSTDRV1143616"
+                            }
+                        },
+                        {
+                            "record": {
+                                "id": "652",
+                                "recordType": "account",
+                                "Name": "CS",
+                                "Display Name": "111 CS",
+                                "Account Type": "Bank"
+                            }
+                        },
+                        {
+                            "record": {
+                                "id": "537",
+                                "recordType": "account",
+                                "Name": "New NS Account",
+                                "Display Name": "200311 New NS Account",
+                                "Account Type": "Bank"
+                            }
+                        },
+                        {
+                            "record": {
+                                "id": "201",
+                                "recordType": "account",
+                                "Name": "PTL Account",
+                                "Display Name": "7777 PTL Account",
+                                "Account Type": "Bank"
+                            }
+                        },
+                        {
+                            "record": {
+                                "id": "538",
+                                "recordType": "account",
+                                "Name": "TEst",
+                                "Display Name": "12121 TEst",
+                                "Account Type": "Bank"
+                            }
+                        }
+                    ]
+                },
+                "distributed": {
+                    "bearerToken": "******"
+                },
+                "salesforce": {
+                    "sObjectType": "Account",
+                    "distributed": {
+                        "disabled": true,
+                        "qualifier": null,
+                        "batchSize": null
+                    }
+                },
+                "adaptorType": "SalesforceExport"
+            }
+        }
+    ],
+    "autoResolveMatchingTraceKeys": true,
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "nw5EED",
+            "routeRecordsTo": "all_matching_branches",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "_connectionId": "FTP CONNECTION",
+                                "file": {
+                                    "fileName": "file1{{timestamp \"YYYY-MM-DDTHH:mm:ssZ\"}}.json",
+                                    "skipAggregation": true,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                                    "fileName": "file1{{timestamp \"YYYY-MM-DDTHH:mm:ssZ\"}}.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        }
+    ]
+}
