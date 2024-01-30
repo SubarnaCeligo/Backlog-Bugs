@@ -1,4 +1,4 @@
-import { filterTestCases } from "@celigo/aut-utilities"
+import { filterTestCases } from "@celigo/aut-utilities";
 var testCases = [
   "C106452",
   "C108514",
