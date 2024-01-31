@@ -79,8 +79,9 @@ var testCases = [
   "IO52927",
   "C102875",
   "C117949",
-  "C119139"
-]
+  "C119139",
+  "C68894"
+];
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
 (async () => {
   await filterTestCases(testCases, flakycases, "flowBuilder");
