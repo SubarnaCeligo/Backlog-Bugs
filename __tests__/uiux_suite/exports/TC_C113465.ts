@@ -1,6 +1,6 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C113465 from '../../../testData/inputData/exports/C113465.json';
+import C113465 from '@testData/Exports/C113465.json'
 
 
 test.describe("C113466, C113465, C113464, C113463, 113462, C113461, C113460 verify Prefix text box for S3 export", () => { 
