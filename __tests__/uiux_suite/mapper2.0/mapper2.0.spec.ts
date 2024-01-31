@@ -1,18 +1,25 @@
-require("./TC_C51986");
-require("./TC_C44421");
-require("./TC_C46907");
-require("./TC_C46914");
-require("./TC_C46912");
-require("./TC_C46915");
-require("./TC_C46908");
-require("./TC_C44396");
-require("./TC_C46912");
-require("./TC_C46915");
-require("./TC_C44937");
-require("./TC_C46906");
-require("./TC_C48963");
-require("./TC_C65721");
-require("./TC_C48904");
-require("./TC_C52754");
-require("./TC_C53149");
-require("./TC_C51954");
+import { filterTestCases } from "@celigo/aut-utilities";
+var testCases = [
+  "C44396",
+  "C44421",
+  "C44937",
+  "C46906",
+  "C46907",
+  "C46908",
+  "C46912",
+  "C46914",
+  "C46915",
+  "C48904",
+  "C48963",
+  "C51116",
+  "C51954",
+  "C51986",
+  "C52754",
+  "C53141",
+  "C53149",
+  "C65721"
+];
+var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
+(async () => {
+  await filterTestCases(testCases, flakycases, "mapper2.0");
+})();
