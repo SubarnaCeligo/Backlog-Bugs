@@ -10,7 +10,7 @@ test.describe("C107605", () => {
       await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
       const helpBubble =selectors.myAccountPagePO.HELP_BUBBLE;
       const helptext_close = selectors.connectionsPagePO.HELPTEXT_CLOSE;
-      const blobFormat = selectors.flowBuilderPagePO.BLOB_Format;
+      const blobFormat = selectors.flowBuilderPagePO.BLOB_FORMAT;
       await io.assert.verifyElementIsDisplayed(
         blobFormat,
         "Encoding format is not displayed"
@@ -19,7 +19,7 @@ test.describe("C107605", () => {
         "Character encoding",
         "Character encoding text is not displayed"
       );
-      await io.flowBuilder.click(selectors.flowBuilderPagePO.BLOB_Helptext);
+      await io.flowBuilder.click(selectors.flowBuilderPagePO.BLOB_HELPTEXT);
       //C107606- Verify the help text for drop-down in the HTTP Import when transferring files to the destination application.
       await io.assert.verifyElementContainsText(
         helpBubble,
