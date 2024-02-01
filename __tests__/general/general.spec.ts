@@ -1,6 +1,6 @@
 require("./TC_1727")
-// require("./TC_C1050_TC_C41255_TC_C2651_iframe_signin_btn_and_signin_with_google_verification") //discuss
-// require("./TC_C1056")
+require("./TC_C1050_TC_C41255_TC_C2651_iframe_signin_btn_and_signin_with_google_verification") //discuss
+require("./TC_C1056")
 require("./TC_C1061")
 require("./TC_C1072")
 require("./TC_C1073")
@@ -76,7 +76,7 @@ require("./TC_C36480")
 require("./TC_C37319_C37323_C22333")
 require("./TC_C37321")
 require("./TC_C40126_empty_flow_group_message")
-// require("./TC_C41256_iframe_verify")
+require("./TC_C41256_iframe_verify")
 require("./TC_C45323")
 require("./TC_C45324")
 require("./TC_C45326")
@@ -84,4 +84,4 @@ require("./TC_C45327")
 require("./TC_C751")
 require("./TC_C753")
 require("./TC_C758")
-require("./TC_C99373") //errors
+require("./TC_C99373")
