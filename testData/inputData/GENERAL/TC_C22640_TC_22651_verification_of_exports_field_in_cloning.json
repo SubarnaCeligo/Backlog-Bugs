@@ -1,0 +1,36 @@
+{
+    "DataExportQA": {
+        "name": "TC_C22640_TC_C22651",
+        "_connectionId": "FTP CONNECTION",
+        "asynchronous": true,
+        "sandbox": false,
+        "ftp": {
+            "directoryPath": "io.auto.qa/IO_UI_AutomationFTPExports",
+            "fileNameStartsWith": "TC_C22290",
+            "fileNameEndsWith": ".json"
+        },
+        "file": {
+            "output": "records",
+            "skipDelete": true,
+            "type": "json"
+        },
+        "adaptorType": "FTPExport"
+    },
+    "DataExportStaging": {
+        "name": "TC_C22640_TC_C22651",
+        "_connectionId": "FTP CONNECTION",
+        "asynchronous": true,
+        "sandbox": false,
+        "ftp": {
+            "directoryPath": "io.auto.qa/IO_UI_AutomationFTPExports",
+            "fileNameStartsWith": "TC_C22290",
+            "fileNameEndsWith": ".json"
+        },
+        "file": {
+            "output": "records",
+            "skipDelete": true,
+            "type": "json"
+        },
+        "adaptorType": "FTPExport"
+    }
+}

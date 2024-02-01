@@ -1,0 +1,30 @@
+{
+    "conn":{
+    "type": "ftp",
+    "name": "Don't use",
+    "offline": true,
+    "sandbox": false,
+    "ftp": {
+        "type": "sftp",
+        "hostURI": "abc",
+        "username": "abc",
+        "password": "******",
+        "port": 22,
+        "usePassiveMode": true,
+        "userDirectoryIsRoot": false,
+        "useImplicitFtps": false,
+        "requireSocketReUse": false
+    }
+},
+"ids":{
+    "qa":"61260afc6566c530d347a762",
+    "staging":"61260e770fd96e799e771e88"
+},
+"ftp":{
+    "qa":"FTP CONNECTION",
+    "staging":"FTP CONNECTION"
+},
+"netsuite":{
+    "qa":"NETSUITE CONNECTION",
+    "staging":"NETSUITE CONNECTION"
+}}
