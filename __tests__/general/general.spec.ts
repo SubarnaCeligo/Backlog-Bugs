@@ -1,5 +1,5 @@
 require("./TC_1727")
-require("./TC_C1050_TC_C41255_TC_C2651_iframe_signin_btn_and_signin_with_google_verification") //discuss
+require("./TC_C1050_TC_C41255_TC_C2651_iframe_signin_btn_and_signin_with_google_verification")
 require("./TC_C1056")
 require("./TC_C1061")
 require("./TC_C1072")
