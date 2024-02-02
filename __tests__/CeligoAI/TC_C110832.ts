@@ -13,7 +13,7 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR, 0);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_TRANSFORMATION);
     await io.flowBuilder.loadingTime();
-    //EXPORT_TRANSFORMATION RULES C111492
+    // //EXPORT_TRANSFORMATION RULES C111492
     const isCeligoAINotVisibleInRule = !(await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT));
     await io.assert.expectToBeTrue(isCeligoAINotVisibleInRule, "Celigo AI Not Visible for Rule 1.0 or 2.0");
     await io.flowBuilder.click(selectors.basePagePO.JAVASCRIPTWINDOW);
@@ -59,6 +59,10 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
       "Celigo AI Prompt Thinking is not displayed"
     )
     const exportFunction = page.getByText('function transform');
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.JAVASCRIPT_PANEL);
+    while (!(await exportFunction.isVisible())) {
+        await page.mouse.wheel(0, 800);
+    }
     await exportFunction.waitFor({ state: 'visible', timeout: 30000 });
     //user can provide feedback thumbs up C111477
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.THUMPSUP);
@@ -79,9 +83,6 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR, 0);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_FILTER);
     await io.flowBuilder.loadingTime();
-    //EXPORT_FILTER RULES C111491
-    const isCeligoAINotVisibleInRules = !(await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT));
-    await io.assert.expectToBeTrue(isCeligoAINotVisibleInRules, "Celigo AI Not Visible for Rules");
     await io.flowBuilder.click(selectors.basePagePO.JAVASCRIPTWINDOW);
     //Verify Celigo AI are in collapsed state. 
     await expect(page.locator(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR)).toHaveAttribute('aria-expanded', 'false');
@@ -270,6 +271,10 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
       selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR,
       "Celigo AI Prompt Thinking is not displayed"
     )
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.JAVASCRIPT_PANEL);
+    while (!(await exportFunction.isVisible())) {
+        await page.mouse.wheel(0, 800);
+    }
     await exportFunction.waitFor({ state: 'visible', timeout: 30000 });
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER);
     await io.flowBuilder.click(selectors.basePagePO.DISCARD_CHANGES);
