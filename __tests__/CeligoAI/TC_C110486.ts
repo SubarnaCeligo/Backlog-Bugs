@@ -18,6 +18,7 @@ test.describe("C110486 Verify export of Big Query is having Celigo AI", () => {
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
       "Celigo AI is not displayed"
     )
+    await io.flowBuilder.clickByText('Celigo AI');
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
       "Celigo AI Placeholder is not displayed"
