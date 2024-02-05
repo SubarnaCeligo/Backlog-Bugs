@@ -1,0 +1,65 @@
+{
+    "script" :
+    {
+
+    "fieldMap": {
+
+          "test_custom_field": {
+
+            "id": "test_custom_field",
+
+            "name": "test_custom_field",
+
+            "type": "text",
+
+            "helpText": "Help text for my test custom field",
+
+            "label": "Test custom field"
+
+          },
+
+          "test_custom_field1": {
+
+            "id": "test_custom_field1",
+
+            "name": "test_custom_field1",
+
+            "type": "text",
+
+            "helpText": "Help text for my test custom field",
+
+            "label": "Test custom field1"
+
+          },
+
+          "test_custom_field2": {
+
+            "id": "test_custom_field2",
+
+            "name": "test_custom_field2",
+
+            "type": "text",
+
+            "helpText": "Help text for my test custom field",
+
+            "label": "Test custom field2"
+
+          }
+
+        },
+
+        "layout": {
+
+          "fields": [
+
+            "test_custom_field",
+
+            "test_custom_field1",
+
+            "test_custom_field2"
+
+          ]
+
+        }
+ }
+}

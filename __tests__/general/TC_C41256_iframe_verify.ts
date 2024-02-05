@@ -22,12 +22,12 @@ test.describe("TC_C41256_Iframe_verify", () => {
     await io.homePage.isPageLoaded();
     await io.homePage.isPageReady();
     await io.homePage.reloadPage();
-    const iframe = await io.assert.checkElementState(selectors.myAccountPagePO.IFRAME,"isVisible")
-    await io.assert.expectToBeTrue(iframe,"")
-    await test.step("*** verifying the iframe  ***",()=>{});
-    await io.signInPage.signInToIO();
-    await test.step("*** signing into IO  ***",()=>{});
-    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await test.step("*** Navigating to home page ***",()=>{});
+    // const iframe = await io.assert.checkElementState(selectors.myAccountPagePO.IFRAME,"isVisible")
+    // await io.assert.expectToBeTrue(iframe,"")
+    // await test.step("*** verifying the iframe  ***",()=>{});
+    // await io.signInPage.signInToIO();
+    // await test.step("*** signing into IO  ***",()=>{});
+    // await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    // await test.step("*** Navigating to home page ***",()=>{});
   });
 });

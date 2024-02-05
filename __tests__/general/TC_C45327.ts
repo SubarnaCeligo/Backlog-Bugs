@@ -11,7 +11,7 @@ test.describe("TC_C45327 | Golden", () => {
   });
   test("TC_C45327", async ({io,page}, testInfo) => {
     await io.homePage.loadingTime();
-    await io.homePage.selectTabInHelperMenu("Product Portal");
+    await io.homePage.selectTabInHelperMenu("Product portal");
     await test.step("*** Navigating to product portal ***",()=>{});
     await io.homePage.isPageLoaded();
     await io.homePage.isPageReady();
