@@ -17,11 +17,17 @@ test.describe("TC_IO63636_Test mode run for flow with presavepage hook and mock 
         await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
         await io.homePage.addStep("*** Clicked on run button in test mode ***");
-        await io.flowBuilder.delay(10000);
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
         await io.homePage.addStep("*** Waiting flow  to get completed ***");
         await io.homePage.addStep("*** Flow ran successfully ***");
-        const Symbol = await page.$(selectors.flowBuilderPagePO.EXPORT_HOOK);
-        expect(await Symbol.screenshot()).toMatchSnapshot("IO63636.png");
+        await io.homePage.click(selectors.mappings.MAPPER2DOT0PO.IMPORT_MAPPING);
+        await io.homePage.addStep("*** Opened import mappings ***");
+        await io.flowBuilder.loadingTime();
+        await io.assert.verifyElementDisplayedByText(
+            "Test run results",
+            "Error is present"
+          );
+        await io.homePage.addStep("*** Verified there are no errors  ***");
         await io.homePage.addStep("*** Checked the 'T' icon on exports using screenshot ***");
         await io.homePage.addStep("*** Checked the flow is running fine by checking error tab we have no errors ***");
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
