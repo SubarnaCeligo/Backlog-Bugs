@@ -13,7 +13,6 @@ test.describe("C102875_C102876_C102877_C102878_C102879", () => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.click(selectors.basePagePO.DASHBOARD);
-        await io.flowBuilder.delay(20000);
         // TC_C102875 "Select application" filter box should be added on dashboard page for Completed flows and Running flows tab.
         // TC_C102876 Verify only application that are used in flows will be appear in the dropdown.
         await io.flowBuilder.waitForElementAttached(selectors.dashboardPagePO.SELECT_APPLICATION);
@@ -25,8 +24,7 @@ test.describe("C102875_C102876_C102877_C102878_C102879", () => {
         await io.flowBuilder.click(selectors.dashboardPagePO.SELECT_APPLICATION);
         const valueToVerify = 'Http';
         const valueToVerify1 = 'Ftp';
-        let list1 = await page.$$(selectors.dashboardPagePO.APPLICATION_LIST);
-        const elementTexts1 = await Promise.all(list1.map(element => element.textContent()));
+        let elementTexts1 = await io.connectionPage.getText(selectors.dashboardPagePO.APPLICATION_LIST);
         await io.assert.expectToBeValueInArray(elementTexts1, valueToVerify, 'Application not showing properly');
         await io.assert.expectToBeValueInArray(elementTexts1, valueToVerify1, 'Application not showing properly');
 
@@ -43,8 +41,7 @@ test.describe("C102875_C102876_C102877_C102878_C102879", () => {
 
         //Verify application showing in dropdown
         await io.flowBuilder.click(selectors.dashboardPagePO.SELECT_APPLICATION);
-        let list3 = await page.$$(selectors.dashboardPagePO.APPLICATION_LIST);
-        const elementTexts3 = await Promise.all(list3.map(element => element.textContent()));
+        let elementTexts3 = await io.connectionPage.getText(selectors.dashboardPagePO.APPLICATION_LIST);
         await io.assert.expectToBeValueInArray(elementTexts3, valueToVerify, 'Application not showing properly');
         await io.assert.expectToBeValueInArray(elementTexts3, valueToVerify1, 'Application not showing properly');
     });
@@ -75,7 +72,6 @@ test.describe("C102875_C102876_C102877_C102878_C102879", () => {
 
         await io.flowBuilder.click(selectors.dashboardPagePO.SELECT_APPLICATION);
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.FILTER_OPTION,0);
-        // await io.homePage.clickByText("All applications");
         await io.homePage.clickByText("Apply");
         await io.assert.verifyElementText(selectors.dashboardPagePO.SELECT_APPLICATION, 'No application selected');
 
@@ -102,7 +98,6 @@ test.describe("C102875_C102876_C102877_C102878_C102879", () => {
         await io.assert.verifyElementText(selectors.dashboardPagePO.SELECT_APPLICATION, 'All applications');
 
         await io.flowBuilder.click(selectors.dashboardPagePO.SELECT_APPLICATION);
-        // await io.homePage.clickByText("All applications");
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.FILTER_OPTION,0);
         await io.homePage.clickByText("Apply");
         await io.assert.verifyElementText(selectors.dashboardPagePO.SELECT_APPLICATION, 'No application selected');
