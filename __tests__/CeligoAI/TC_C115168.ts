@@ -91,7 +91,7 @@ test.describe("C115168 Verify the flow description Celigo AI", () => {
     await feedback.waitFor({ state: 'visible', timeout: 30000 });
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.ClOSE_BUTTON);
     //Export in FLowBuilder C115184
-    await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.EXPORT_DESCRIPTION);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
     await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.OPENAI.CELIGOAI_GENERATEDBUTTON, "CeligoAI Generated Button is not displayed");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.CELIGOAI_GENERATEDBUTTON);
     const exportFlowDisc = page.getByText('Export description').first();
@@ -99,7 +99,7 @@ test.describe("C115168 Verify the flow description Celigo AI", () => {
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.ClOSE_BUTTON);
     await io.exportsPage.click(selectors.importPagePO.IMPORT_CLOSE_DRAWER);
     //Import in FLowBuilder
-    await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.IMPORT_DESCRIPTION);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT);
     await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.OPENAI.CELIGOAI_GENERATEDBUTTON, "CeligoAI Generated Button is not displayed");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.CELIGOAI_GENERATEDBUTTON);
     const importFlowDisc = page.getByText('Import description').first();

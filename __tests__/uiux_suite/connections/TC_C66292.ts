@@ -2,8 +2,8 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Connections/Narvar.json";
 
-test.describe(`C63003 Verify connection dropdown while clonning flow`, () => {
-  test(`C63003 Verify connection dropdown while clonning flow`, async ({
+test.describe(`C66292 Verify the Canceled by dropdown will auto adjust to display the full character length of the username field`, () => {
+  test(`C66292 Verify the Canceled by dropdown will auto adjust to display the full character length of the username field`, async ({
     io,
     page
   }) => {
