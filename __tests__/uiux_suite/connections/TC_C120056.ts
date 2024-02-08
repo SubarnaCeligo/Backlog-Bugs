@@ -2,8 +2,8 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Connections/Narvar.json";
 
-test.describe(`TC_C119670`, () => {
-  test(`C119670  Verify cloned integration has the Plain text option for media type`, async ({
+test.describe(`TC_C120056`, () => {
+  test(`C120056  Verify cloned integration has the Plain text option for media type`, async ({
     io,
     page
   }) => {
