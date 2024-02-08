@@ -27,5 +27,5 @@ var testCases = [
 ];
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
 (async () => {
-  await filterTestCases(testCases, flakycases, "signinPage");
+  await filterTestCases(testCases, flakycases);
 })();
