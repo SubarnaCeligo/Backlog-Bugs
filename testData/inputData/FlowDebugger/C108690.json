@@ -1,0 +1,143 @@
+{
+  "skipRetries": false,
+  "_integrationId": "64ba67438d9d2a17f3f5b092",
+  "name": "C107439_Verify_the_Sort_Errors_in_new_error_view_Timestamp",
+  "disabled": false,
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "TC_C108690 Export",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "e6799d025a",
+        "asynchronous": true,
+        "sandbox": false,
+        "mockOutput": {
+          "page_of_records": [
+            {
+              "record": {
+                "Email": "haha1124@celigo.com",
+                "BillingCity": "K R Nagar",
+                "ShippingZip": "500025",
+                "BillingZip": "500051",
+                "Name": "MRSCCeligo",
+                "ShippingStreet": "IK Sec",
+                "subID": "16",
+                "BillingCountry": "India",
+                "BillingStreet": "GVP Extension",
+                "Phone": "698457",
+                "ShippingCountry": "India",
+                "ShippingCity": "Hitech",
+                "ShippingState": "Hyderabad",
+                "Fax": "5956",
+                "BillingState": "Hyderabad"
+              }
+            }
+          ]
+        },
+        "sampleData": {
+          "Email": "haha1124@celigo.com",
+          "BillingCity": "K R Nagar",
+          "ShippingZip": "500025",
+          "BillingZip": "500051",
+          "Name": "MRSCCeligo",
+          "ShippingStreet": "IK Sec",
+          "subID": "16",
+          "BillingCountry": "India",
+          "BillingStreet": "GVP Extension",
+          "Phone": "698457",
+          "ShippingCountry": "India",
+          "ShippingCity": "Hitech",
+          "ShippingState": "Hyderabad",
+          "Fax": "5956",
+          "BillingState": "Hyderabad"
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports_FileAdaptors"
+        },
+        "file": {
+          "output": "records",
+          "skipDelete": true,
+          "type": "json",
+          "filter": {
+            "type": "expression",
+            "expression": {
+              "version": "1",
+              "rules": [
+                "contains",
+                ["string", ["extract", "filename"]],
+                "TC_C51879.json"
+              ]
+            },
+            "rules": [
+              "contains",
+              ["string", ["extract", "filename"]],
+              "TC_C51879.json"
+            ],
+            "version": "1"
+          }
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "TC_C108690 Import",
+        "mockResponse": [
+          {
+            "id": "1234567890",
+            "errors": [],
+            "_json": {
+              "id": "1234567890",
+              "mockResponse": "replace me"
+            },
+            "statusCode": 200,
+            "ignored": false,
+            "dataURI": "",
+            "_headers": {
+              "content-type": "application/json; charset=utf-8"
+            }
+          }
+        ],
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "i0fc81e5b1",
+        "oneToMany": false,
+        "sandbox": false,
+        "file": {
+          "fileName": "TC_C108690-file.json",
+          "skipAggregation": false,
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPImports",
+          "fileName": "TC_C108690-file.json"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "createFlow": {
+    "name": "TC_C108690_Flow_DND",
+    "disabled": true,
+    "_integrationId": "64ba67438d9d2a17f3f5b092",
+    "pageGenerators": [
+      {
+        "_exportId": "UPDATE WITH NEW EXPORTID",
+        "skipRetries": false
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "_importId": "UPDATE WITH NEW IMPORTID",
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        }
+      }
+    ],
+    "autoResolveMatchingTraceKeys": true
+  }
+}
