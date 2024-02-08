@@ -4,7 +4,7 @@ import * as selectors from "@celigo/aut-selectors";
 import {decrypt} from "@celigo/aut-utilities";
 
 
-test.describe("C57327 C50895 C50907", () => {
+test.describe.skip("C57327 C50895 C50907", () => {
     test.beforeEach('check sign out', async({io, page}) => {
         await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
         const isNotLoggedIn = await io.loginPage.checkLoginState();

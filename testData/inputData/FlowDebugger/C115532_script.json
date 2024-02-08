@@ -1,0 +1,30 @@
+{
+    "postMap": {
+        "name": "Post map script",
+        "content": "function postMap (options) {\n  console.log(\"postMap\")\n  return options.postMapData.map((d) => {\n    return {\n      data: d\n    }\n  })\n}"
+    },
+    "postSubmit": {
+        "name": "Post submit script",
+        "content": "function postSubmit (options) {\n   console.debug(\"Post submit debug test\")\n  return options.responseData\n}"
+    },
+    "preMap": {
+        "name": "Pre map script",
+        "content": "\nfunction preMap (options) {\n  console.error(\"Pre map error test\")\n  return options.data.map((d) => {\n    return {\n      data: d\n    }\n  })\n}"
+    },
+    "script": {
+        "name": "Input filter script",
+        "content": "function filter (options) {\n  console.log(\"Input filter script\")\n  return true\n}"
+    },
+    "preSavePage": {
+        "name": "Pre save page  script",
+        "content": "\nfunction preSavePage (options) {\n console.log(\"Presave page script\")\n  return {\n    data: options.data,\n    errors: options.errors,\n    abort: false,\n    newErrorsAndRetryData: []\n  }\n}"
+    },
+    "transform": {
+        "name": "Transform script",
+        "content": "\nfunction transform (options) {\n  console.log(\"Transfrom script\")\n  return options.record\n}"
+    },
+    "outputFilter": {
+        "name": "Output filter",
+        "content": "function filter (options) {\n  console.log(\"Output filter\")\n  return true\n}"
+    }
+}

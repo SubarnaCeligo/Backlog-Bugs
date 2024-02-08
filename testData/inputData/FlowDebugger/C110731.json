@@ -1,0 +1,171 @@
+{
+    "name": "TC_C110731",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "FTP BLOB EXPORT",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "ebd95bd3db",
+                "asynchronous": true,
+                "type": "blob",
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports"
+                },
+                "file": {
+                    "output": "blobKeys",
+                    "skipDelete": true,
+                    "filter": {
+                        "type": "expression",
+                        "expression": {
+                            "rules": [
+                                "equals",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "filename"
+                                    ]
+                                ],
+                                "TC_C110731.json"
+                            ],
+                            "version": "1"
+                        },
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "filename"
+                                ]
+                            ],
+                            "TC_C110731.json"
+                        ],
+                        "version": "1"
+                    }
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "FTP BLOB LOOKUP",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "e5c04c240f",
+                "asynchronous": true,
+                "isLookup": true,
+                "type": "blob",
+                "sandbox": false,
+                "mockOutput": {
+                    "page_of_records": [
+                        {
+                            "record": {
+                                "blobKey": "1234"
+                            }
+                        }
+                    ]
+                },
+                "ftp": {
+                    "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports"
+                },
+                "file": {
+                    "output": "blobKeys",
+                    "skipDelete": false,
+                    "filter": {
+                        "type": "expression",
+                        "expression": {
+                            "rules": [
+                                "equals",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "filename"
+                                    ]
+                                ],
+                                "TC_C30570.json"
+                            ],
+                            "version": "1"
+                        },
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "filename"
+                                ]
+                            ],
+                            "TC_C30570.json"
+                        ],
+                        "version": "1"
+                    }
+                },
+                "adaptorType": "FTPExport"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "FTP IMPORT",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "ib66a4a7a8",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "TC_C110731.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileName": "TC_C110731.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ],
+    "createFlow": {
+        "name": "TC_C110731",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "export",
+                "_importId": "UPDATE WITH NEW EXPORTID"
+            },
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+        ]
+    },
+    "editedStub": {
+        "page_of_records": [
+            {
+                "record": {
+                    "blobKey": "1234"
+                }
+            }
+        ]
+    }
+}

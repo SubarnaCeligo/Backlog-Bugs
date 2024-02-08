@@ -1,0 +1,131 @@
+{
+    "name": "TC_C111387",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "AutomationStandalone_gCiUT",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "e41f23cfee",
+                "asynchronous": true,
+                "type": "test",
+                "hooks": {
+                    "preSavePage": {
+                        "_scriptId": "65206cb2e4ee7c0df0db130a",
+                        "function": "preSavePage"
+                    }
+                },
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "/users",
+                    "method": "GET",
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "users"
+                    }
+                },
+                "rawData": "EMPTY RAW DATA",
+                "test": {
+                    "limit": 12
+                },
+                "transform": {
+                    "type": "script",
+                    "script": {
+                        "_scriptId": "654beb61860abb76dce3a842",
+                        "function": "transform"
+                    }
+                },
+                "filter": {
+                    "type": "script",
+                    "script": {
+                        "_scriptId": "6582a2a06d359c6557858ac3",
+                        "function": "filter"
+                    }
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "Create organizations",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "i538d1fc4d",
+                "hooks": {
+                    "postMap": {
+                        "_scriptId": "656898299845da30508d818a",
+                        "function": "postMap"
+                    },
+                    "postSubmit": {
+                        "_scriptId": "656f1383094ff84bc105f777",
+                        "function": "postSubmit"
+                    },
+                    "preMap": {
+                        "_scriptId": "656f10610db74222e0be713f",
+                        "function": "preMap"
+                    }
+                },
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mapping": {
+                    "fields": [
+                        {
+                            "extract": "name",
+                            "generate": "organization.name"
+                        },
+                        {
+                            "extract": "details",
+                            "generate": "organization.notes"
+                        }
+                    ]
+                },
+                "http": {
+                    "relativeURI": [
+                        "/organizations"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "filter": {
+                    "type": "script",
+                    "script": {
+                        "_scriptId": "656f09798e2619322641f855",
+                        "function": "filter"
+                    }
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "createFlow": {
+        "name": "TC_C111387",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+        ]
+    }
+}

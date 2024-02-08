@@ -1,0 +1,59 @@
+{
+    "name": "TC_C94527",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "Netsuite Export",
+                "_connectionId": "NETSUITE CONNECTION",
+                "_sourceId": "64f9b7ef6b0ed3314537cbbe",
+                "apiIdentifier": "edccbaec1f",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "rawData": "6253c695bbf2c06775d39fe174c0e2d555e34c81ab67b85d0df1baf3",
+                "test": {
+                    "limit": 23
+                },
+                "netsuite": {
+                    "type": "restlet",
+                    "skipGrouping": true,
+                    "statsOnly": false,
+                    "restlet": {
+                        "recordType": "customer",
+                        "searchId": "996",
+                        "restletVersion": "suitebundle",
+                        "markExportedBatchSize": 100
+                    },
+                    "distributed": {}
+                },
+                "adaptorType": "NetSuiteExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "NS Transfer File internal ID",
+                "_connectionId": "NETSUITE CONNECTION",
+                "apiIdentifier": "i00828de45",
+                "oneToMany": false,
+                "blobKeyPath": "BlobKey",
+                "blob": true,
+                "sandbox": false,
+                "netsuite": {
+                    "operation": "update",
+                    "recordType": "file",
+                    "file": {
+                        "internalId": "{{data.id}}"
+                    }
+                },
+                "adaptorType": "NetSuiteImport"
+            }
+        }
+    ]
+}
