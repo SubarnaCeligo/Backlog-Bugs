@@ -9,7 +9,7 @@ This is a Playwright and TypeScript project that provides a comprehensive testin
 ## Run a test Case
 ```sh
 ENV={env} FEATURE={feature} npm run test - To run all tests in a feature
-ENV={env} FEATURE={feature} SUITE={suite} npm run test - To run specific tests inside a feature
+ENV={env} FEATURE={feature} SUITE={suite} npm run test - To run specific tests inside a feature and Suite
 ENV={env} npm run test - To run all tests
 ENV={env} npm run test:smoke - To run tests based on tags.Tags are defined in the test files
 ```
