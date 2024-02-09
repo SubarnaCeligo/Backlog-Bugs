@@ -1,6 +1,5 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C108690 from "@testData/FlowDebugger/C108690.json";
 
 test.describe("C108690 Verify the save and close buttons once we edit any flow", () => {
   test.beforeEach(async ({ io }) => {
@@ -13,19 +12,24 @@ test.describe("C108690 Verify the save and close buttons once we edit any flow",
   }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();
-    await io.flowBuilder.clickByText(C108690.createFlow.name);
+    await io.flowBuilder.clickByText("TC_C108690_Flow_DND");
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
-    await io.flowBuilder.click("[data-test='Transfer']");
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);
     await io.flowBuilder.loadingTime();
-    await io.flowBuilder.fill('input[name="/name"]', "TC_C108690 Export1");
-    const notificationErrorMessage = await page.locator("#notification");
+    await io.flowBuilder.fill(
+      selectors.basePagePO.INPUT_NAME_SELECTOR,
+      "TC_C108690 Export1"
+    );
+    const notificationErrorMessage = await page.locator(
+      selectors.flowBuilderPagePO.EXPORT_NOTIFICATION_ERROR_MESSAGE
+    );
     const notificationErrorText = await notificationErrorMessage.innerText();
     await expect(notificationErrorText).toBe(
       "Making edits to a flow (including modifying a step, changing step options, changing the test run source, or reordering steps) will clear all test results.\nRun a new test after making edits to see accurate results."
     );
     const saveCloseButton = await page.locator(
-      'button[data-test="saveAndClose"]'
+      selectors.basePagePO.SAVE_AND_CLOSE
     );
     await expect(saveCloseButton).toBeEnabled();
   });
