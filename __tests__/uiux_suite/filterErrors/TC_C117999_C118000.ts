@@ -25,19 +25,16 @@ test.describe("C117998_C118000 Verify the search feature with a successful/unsuc
     //Open the flow
     await io.flowBuilder.clickByText( "Flow_With_Errors_DND");
 
-    //Open errors dashborad
-    await io.flowBuilder.click(
-      selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
-    );
+    await io.flowBuilder.clickByText("18 errors")
 
     //Click on Filter Icon
-    await io.flowBuilder.click('[aria-label="Filter errors"]');
+    await io.flowBuilder.click(selectors.filterErrorTag.ARIALABELFILTERERROR);
 
     //Validate search feature(valid and invalid search)
-    await io.flowBuilder.waitForElementAttached("#arrow-popper");
+    await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
 
     await io.flowBuilder.fill(
-      '[aria-label="Search Users"]',
+     selectors.filterErrorTag.ARIALABELSEARCHUSER,
       "test "
     );
 

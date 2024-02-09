@@ -26,25 +26,23 @@ test.describe("C118037_C118038 Verify that 'Clear filter' button is disabled whe
     await io.flowBuilder.clickByText("Flow_With_Errors_DND");
 
     //Open errors dashborad
-    await io.flowBuilder.click(
-      selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
-    );
+    await io.flowBuilder.clickByText("18 errors")
 
     //Click on Filter Icon
-    await io.flowBuilder.click('[aria-label="Filter errors"]');
+    await io.flowBuilder.click(selectors.filterErrorTag.ARIALABELFILTERERROR);
 
     //Validate the contents
-    await io.flowBuilder.waitForElementAttached("#arrow-popper");
+    await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
     // await io.flowBuilder.clickButtonByIndex('#arrow-popper .PrivateSwitchBase-input', 0);
 
     await io.flowBuilder.checkAndUncheck(
-      "#arrow-popper .PrivateSwitchBase-input",
+       selectors.filterErrorTag.ALLERRORSSELECTOR,
       "All errors",
       0
     );
 
     await io.assert.verifyElementAttributeContainsText(
-      '[data-test="clearTags"]',
+      selectors.filterErrorTag.CLEARTAGSSELECTOR,
       "class",
       "Mui-disable"
     );
@@ -71,30 +69,27 @@ test.describe("C118037_C118038 Verify that 'Clear filter' button is disabled whe
     //Open the flow
     await io.flowBuilder.clickByText("Flow_With_Errors_DND");
 
-    //Open errors dashborad
-    await io.flowBuilder.click(
-      selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
-    );
+    await io.flowBuilder.clickByText("18 errors")
 
     //Click on Filter Icon
-    await io.flowBuilder.click('[aria-label="Filter errors"]');
+    await io.flowBuilder.click(selectors.filterErrorTag.ARIALABELFILTERERROR);
 
     //Validate the contents
-    await io.flowBuilder.waitForElementAttached("#arrow-popper");
+    await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
     // await io.flowBuilder.clickButtonByIndex('#arrow-popper .PrivateSwitchBase-input', 0);
 
     await io.flowBuilder.clickByText("Myself");
 
-    await io.flowBuilder.click('[data-test="applyTags"]');
+    await io.flowBuilder.click(selectors.filterErrorTag.APPLYYAGSSELECTOR);
 
-    await io.flowBuilder.click('[aria-label="Filter errors"]');
+    await io.flowBuilder.click(selectors.filterErrorTag.ARIALABELFILTERERROR);
 
     //Validate the contents
-    await io.flowBuilder.waitForElementAttached("#arrow-popper");
+    await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
 
-    const isEnabled = await page.$eval(  '[data-test="clearTags"]', (element) => element.hasAttribute("Mui-disable"));
+    const isEnabled = await page.$eval(selectors.filterErrorTag.CLEARTAGSSELECTOR, (element) => element.hasAttribute("Mui-disable"));
     expect(isEnabled).toBeFalsy();
-    
+      
     
   });
 });

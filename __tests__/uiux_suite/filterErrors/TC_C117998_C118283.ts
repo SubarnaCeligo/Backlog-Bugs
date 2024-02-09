@@ -26,22 +26,20 @@ test.describe("C117999_C118000 Verify if user filter section is added to filter 
     //Open the flow
     await io.flowBuilder.clickByText( "Flow_With_Errors_DND");
 
-    //Open errors dashborad
-    await io.flowBuilder.click(
-      selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
-    );
-
+    await io.flowBuilder.clickByText("18 errors")
+ 
+  
     //Click on Filter Icon
-    await io.flowBuilder.click('[aria-label="Filter errors"]');
+    await io.flowBuilder.click(selectors.filterErrorTag.ARIALABELFILTERERROR);
 
     //Validate the contents
     await io.homePage.waitForElementAttached("text='Assigned to'")
     const flow = await io.homePage.isVisible("text='Assigned to'")
     await io.assert.expectToBeValue(flow.toString(),'true', "text not found")
-    const isChecked = await page.isChecked('.Mui-checked [type="checkbox"]');
+    const isChecked = await page.isChecked( selectors.filterErrorTag.ALLERRORSCHECKBOX);
     expect(isChecked).toBe(true);
     await io.assert.verifyElementIsDisplayed(
-         '[aria-label="Search Users"]',
+        selectors.filterErrorTag.ARIALABELSEARCHUSER,
         "Search bar is not displayed"
       );
   });

@@ -26,11 +26,9 @@ test.describe("C118280 Verify the filter feature on resolved errors section by a
     await io.flowBuilder.clickByText("Flow_With_Errors_DND");
 
     //Open errors dashborad
-    await io.flowBuilder.click(
-      selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
-    );
+    await io.flowBuilder.clickByText("18 errors")
 
-    await io.flowBuilder.click('[data-test="flow-builder-resolved-errors"]');
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.RESOLVED_ERRORS_TAB);
   
     const isTagDisplayed = await io.flowBuilder.isVisible('text="Test1"');
     await io.assert.expectToBeValue(isTagDisplayed.toString(),'true', "Test 1 not found");

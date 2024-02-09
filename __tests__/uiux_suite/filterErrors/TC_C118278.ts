@@ -25,23 +25,20 @@ test.describe("C118278 Verify filtering by a specific user returns errors assign
     //Open the flow
     await io.flowBuilder.clickByText("Flow_With_Errors_DND");
 
-    //Open errors dashborad
-    await io.flowBuilder.click(
-      selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
-    );
+    await io.flowBuilder.clickByText("18 errors")
     //Click on Filter Icon
-    await io.flowBuilder.click('[aria-label="Filter errors"]');
+    await io.flowBuilder.click( selectors.filterErrorTag.ARIALABELFILTERERROR);
 
     const isDisplayed = await io.flowBuilder.isVisible('text="Manage User"');
     await io.assert.expectToBeValue(isDisplayed.toString(),'true', "Manage User")
 
     //Validate the contents
-    await io.flowBuilder.waitForElementAttached("#arrow-popper");
+    await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER); 
 
     //Check Myself
     await io.flowBuilder.clickByText("Myself");   
     //Click Apply
-    await io.flowBuilder.click('[data-test="applyTags"]');
+    await io.flowBuilder.click(selectors.filterErrorTag.APPLYYAGSSELECTOR);
     const isNotDisplayed = await io.flowBuilder.isVisible('text="Manage User"');
     await io.assert.expectToBeValue(isNotDisplayed.toString(),'false', "Manage User displayed")
 

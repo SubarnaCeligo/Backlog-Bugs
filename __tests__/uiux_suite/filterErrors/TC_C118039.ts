@@ -26,32 +26,29 @@ test("Verify that clicking on 'Clear filter' button closes the filter dropdown a
   //Open the flow
   await io.flowBuilder.clickByText("Flow_With_Errors_DND");
 
-  //Open errors dashborad
-  await io.flowBuilder.click(
-    selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
-  );
+  await io.flowBuilder.clickByText("18 errors")
 
   //Click on Filter Icon
-  await io.flowBuilder.click('[aria-label="Filter errors"]');
+  await io.flowBuilder.click(selectors.filterErrorTag.ARIALABELFILTERERROR);
 
   //Validate the contents
-  await io.flowBuilder.waitForElementAttached("#arrow-popper");
+  await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
   // await io.flowBuilder.clickButtonByIndex('#arrow-popper .PrivateSwitchBase-input', 0);
 
   await io.flowBuilder.clickByText("Myself");
 
-  await io.flowBuilder.click('[data-test="applyTags"]');
+  await io.flowBuilder.click( selectors.filterErrorTag.APPLYYAGSSELECTOR);
 
-  await io.flowBuilder.click('[aria-label="Filter errors"]');
+  await io.flowBuilder.click(selectors.filterErrorTag.ARIALABELFILTERERROR);
 
   //Validate the contents
-  await io.flowBuilder.waitForElementAttached("#arrow-popper");
+  await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
 
-  await io.flowBuilder.click('[data-test="clearTags"]');
-  await io.flowBuilder.click('[aria-label="Filter errors"]');
-  await io.flowBuilder.waitForElementAttached("#arrow-popper");
+  await io.flowBuilder.click(selectors.filterErrorTag.CLEARTAGSSELECTOR);
+  await io.flowBuilder.click(selectors.filterErrorTag.ARIALABELFILTERERROR);
+  await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
 
-  const isChecked = await page.isChecked('.Mui-checked [type="checkbox"]');
+  const isChecked = await page.isChecked(selectors.filterErrorTag.ALLERRORSCHECKBOX);
   expect(isChecked).toBe(true);
   
   

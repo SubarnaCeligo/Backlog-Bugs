@@ -25,36 +25,33 @@ test.describe("C118284 Verify filter persistence when the user navigates to othe
     //Open the flow
     await io.flowBuilder.clickByText("Flow_With_Errors_DND");
 
-    //Open errors dashborad
-    await io.flowBuilder.click(
-      selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
-    );
+    await io.flowBuilder.clickByText("18 errors")
 
     //Click on Filter Icon
-    await io.flowBuilder.click('[aria-label="Filter errors"]');
+    await io.flowBuilder.click( selectors.filterErrorTag.ARIALABELFILTERERROR);
 
     //Validate the contents
-    await io.flowBuilder.waitForElementAttached("#arrow-popper");
+    await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
 
     //Select a user
     await io.flowBuilder.clickByText("Myself");
 
     //Click Apply
-    await io.flowBuilder.click('[data-test="applyTags"]');
+    await io.flowBuilder.click(selectors.filterErrorTag.APPLYYAGSSELECTOR);
 
     //Go to Resolved errors
-    await io.flowBuilder.click('[data-test="flow-builder-resolved-errors"]');
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.RESOLVED_ERRORS_TAB);
 
     //Go back to open errors
-    await io.flowBuilder.click('[data-test="flow-builder-open-errors"]');
+    await io.flowBuilder.click(selectors.integrationPagePO.OPENERRORS);
 
     //Click on Filter Icon
-    await io.flowBuilder.click('[aria-label="Filter errors"]');
+    await io.flowBuilder.click( selectors.filterErrorTag.ARIALABELFILTERERROR);
 
     //Validate if filter is retained
-    await io.flowBuilder.waitForElementAttached("#arrow-popper");
+    await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
 
-    const isCheckedele = await page.isChecked('label:has-text("Myself") input[type="checkbox"]');
+    const isCheckedele = await page.isChecked(selectors.filterErrorTag.MYSELFCHECKBOX);
 
    
    await io.assert.expectToBeValue( isCheckedele.toString(),'true', "filter doesn't retained")

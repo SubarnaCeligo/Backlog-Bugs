@@ -27,15 +27,12 @@ test.describe("C118281_C118282 Verify user email is displayed on filter UI when 
     //Open the flow
     await io.flowBuilder.clickByText("Flow_With_Errors_DND");
 
-    //Open errors dashborad
-    await io.flowBuilder.click(
-      selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
-    );
+    await io.flowBuilder.clickByText("18 errors")
     //Click on Filter Icon
-    await io.flowBuilder.click('[aria-label="Filter errors"]');
+    await io.flowBuilder.click(selectors.filterErrorTag.ARIALABELFILTERERROR);
 
     //Verify how non IO users are displayed
-    await io.flowBuilder.waitForElementAttached("#arrow-popper");
+    await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
     const isEmailDisplayed = await io.flowBuilder.isVisible('text="io.auto.qa+assignpending@celigo.com"');
     await io.assert.expectToBeValue(isEmailDisplayed.toString(),'true', "io.auto.qa+assignpending@celigo.com not found");
 
@@ -61,16 +58,13 @@ test.describe("C118281_C118282 Verify user email is displayed on filter UI when 
     //Open the flow
     await io.flowBuilder.clickByText("Flow_With_Errors_DND");
 
-    //Open errors dashborad
-    await io.flowBuilder.click(
-      selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
-    );
+    await io.flowBuilder.clickByText("18 errors")
     //Click on Filter Icon
-    await io.flowBuilder.click('[aria-label="Filter errors"]');
+    await io.flowBuilder.click(selectors.filterErrorTag.ARIALABELFILTERERROR);
 
     //Verify how non IO users are displayed
-    await io.flowBuilder.waitForElementAttached("#arrow-popper");
-    await io.flowBuilder.fill('[aria-label="Search Users"]', "User WithLongUserNameTestWithLongUserN")
+    await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
+    await io.flowBuilder.fill(selectors.filterErrorTag.ARIALABELSEARCHUSER, "User WithLongUserNameTestWithLongUserN")
      
     const isEmailDisplayed = await io.flowBuilder.isVisible('text="User WithLongUserNameTestWithLongUserN..."');
     await io.assert.expectToBeValue(isEmailDisplayed.toString(),'true', "User WithLongUserNameTestWithLongUserN not found");

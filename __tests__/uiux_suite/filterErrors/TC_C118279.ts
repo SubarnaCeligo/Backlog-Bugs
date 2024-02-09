@@ -26,21 +26,19 @@ test.describe("C118279 Verify the filter feature on open errors section by apply
     await io.flowBuilder.clickByText("Flow_With_Errors_DND");
 
     //Open errors dashborad
-    await io.flowBuilder.click(
-      selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
-    );
+    await io.flowBuilder.clickByText("18 errors")
     //Click on Filter Icon
-    await io.flowBuilder.click('[aria-label="Filter errors"]');
+    await io.flowBuilder.click(selectors.filterErrorTag.ARIALABELFILTERERROR);
 
     //Validate the contents
-    await io.flowBuilder.waitForElementAttached("#arrow-popper");
+    await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
 
     //Set a filter - select both users and tags
     await io.flowBuilder.clickByText("Myself");
-    await page.locator('#arrow-popper').getByText('Test1').click()
+    await page.locator(selectors.basePagePO.ARROW_POPPER).getByText('Test1').click()
 
     //Click Apply
-    await io.flowBuilder.click('[data-test="applyTags"]');
+    await io.flowBuilder.click(selectors.filterErrorTag.APPLYYAGSSELECTOR);
 
     const isTagDisplayed = await io.flowBuilder.isVisible('text="Test1"');
     await io.assert.expectToBeValue(isTagDisplayed.toString(),'true', "Test 1 not found");
