@@ -18,8 +18,8 @@ test.describe("SS2.0 Flows", () => {
             await io.pageProcessor(allure, NS_FTP);
             await io.flowBuilder.click(selectors.flowBuilderPagePO.HTTP_IMPORT_PLUSBUTTON);
             await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);
-            await page.locator(selectors.flowBuilderPagePO.DESTINATION_MAPPING_PLACEHOLDER).nth(0).fill('CreatedDate');
-            await page.locator(selectors.flowBuilderPagePO.SOURCE_MAPPING_PLACEHOLDER).nth(0).fill('2024-02-06 03:12 PM');
+            await io.homePage.fill(selectors.flowBuilderPagePO.DESTINATION_MAPPING_PLACEHOLDER, 'CreatedDate')
+            await io.homePage.fill(selectors.flowBuilderPagePO.SOURCE_MAPPING_PLACEHOLDER, '2024-02-06 03:12 PM')
             await io.homePage.waitForElementAttached(selectors.mappings.MAPPER2DOT0PO.PREVIEW)
             await io.homePage.performWebActions(selectors.mappings.MAPPER2DOT0PO.PREVIEW, "preview")
             await io.homePage.click(selectors.mappings.MAPPER2DOT0PO.PREVIEW)
