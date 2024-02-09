@@ -17,13 +17,7 @@ test.describe('C28400 Running flows tab -Verify the pagination is shown correctl
       await io.homePage.fill(selectors.homePagePO.SEARCH_INTEGRATION,"50");
       await io.homePage.clickByText("50Flows_TC_28400"); 
       await io.homePage.loadingTime();
-      let i =1;
-      while(i<51)
-      {
-        await io.homePage.clickButtonByIndex(selectors.flowBuilderPagePO.RUN_FLOW,i);
-        i++;
-        
-      }
+      await io.flowBuilder.runAllFlows(50);
       await io.homePage.click(selectors.flowBuilderPagePO.DASHBOARD);
       await io.assert.verifyElementDisplayedByText("1 - 50 of 50","Count is not expected");
       
