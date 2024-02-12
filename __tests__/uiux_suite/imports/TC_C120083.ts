@@ -150,9 +150,9 @@ test.describe(`TC_C120083_C120084_C120086_C120088_C120085_C120087_C120089_C12009
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OVERRIDE_MEDIA_ERROR_RESPONSE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.DO_NOT_OVERRIDE_MEDIA_TYPE);
 
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_RESOURCE_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_SUCCESS_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.ID_PATH)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_RESOURCE_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_SUCCESS_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.ID_PATH, 'isHidden');
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.PATH_TO_FAIL_PATH,
       "Field should be visible"
@@ -182,8 +182,8 @@ test.describe(`TC_C120083_C120084_C120086_C120088_C120085_C120087_C120089_C12009
       selectors.flowBuilderPagePO.ID_PATH,
       "Field should be visible"
     )
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_FAIL_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_ERROR_PATH)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_FAIL_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_ERROR_PATH, 'isHidden');
 
     await io.connectionPage.addStep("Verified all the fields are visible when Override media type for success responses is Do not override and Override media type for error responses is Plain text");
 
@@ -193,11 +193,11 @@ test.describe(`TC_C120083_C120084_C120086_C120088_C120085_C120087_C120089_C12009
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OVERRIDE_MEDIA_ERROR_RESPONSE);
     await io.flowBuilder.click(selectors.connectionsPagePO.PLAINTEXT);
 
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_RESOURCE_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_SUCCESS_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.ID_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_FAIL_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_ERROR_PATH)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_RESOURCE_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_SUCCESS_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.ID_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_FAIL_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_ERROR_PATH, 'isHidden');
 
     await io.connectionPage.addStep("Verified all the fields are visible when Override media type for success responses is Plain text and Override media type for error responses is Plain text");
 
@@ -216,15 +216,15 @@ test.describe(`TC_C120083_C120084_C120086_C120088_C120085_C120087_C120089_C12009
     await io.connectionPage.addStep("Connection media type as Plain text");
 
     await io.flowBuilder.click(selectors.flowBuilderPagePO.REQUESTMEDIATYPE);
-    expect(page.locator(selectors.connectionsPagePO.PLAINTEXT)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.connectionsPagePO.PLAINTEXT, 'isHidden');
     await io.flowBuilder.click(selectors.flowBuilderPagePO.DO_NOT_OVERRIDE_MEDIA_TYPE);
 
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OVERRIDE_MEDIA_SUCCESS_RESPONSE);
-    expect(page.locator(selectors.connectionsPagePO.PLAINTEXT)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.connectionsPagePO.PLAINTEXT, 'isHidden');
     await io.flowBuilder.click(selectors.flowBuilderPagePO.DO_NOT_OVERRIDE_MEDIA_TYPE);
 
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OVERRIDE_MEDIA_ERROR_RESPONSE);
-    expect(page.locator(selectors.connectionsPagePO.PLAINTEXT)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.connectionsPagePO.PLAINTEXT, 'isHidden');
     await io.flowBuilder.click(selectors.flowBuilderPagePO.DO_NOT_OVERRIDE_MEDIA_TYPE);
 
     await io.connectionPage.addStep("Verified plain text option is not present in Override request media type, success media type and error media type if connection media type is plain text");
@@ -239,11 +239,11 @@ test.describe(`TC_C120083_C120084_C120086_C120088_C120085_C120087_C120089_C12009
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OVERRIDE_MEDIA_ERROR_RESPONSE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.DO_NOT_OVERRIDE_MEDIA_TYPE);
 
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_RESOURCE_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_SUCCESS_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.ID_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_FAIL_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_ERROR_PATH)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_RESOURCE_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_SUCCESS_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.ID_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_FAIL_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_ERROR_PATH, 'isHidden');
 
     await io.connectionPage.addStep("Verified all the fields are not visible when Override media type for success responses is Do not override and Override media type for error responses is Do not override");
 
@@ -265,8 +265,8 @@ test.describe(`TC_C120083_C120084_C120086_C120088_C120085_C120087_C120089_C12009
       selectors.flowBuilderPagePO.ID_PATH,
       "Field should be visible"
     )
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_FAIL_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_ERROR_PATH)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_FAIL_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_ERROR_PATH, 'isHidden');
 
     await io.connectionPage.addStep("Verified all the fields are not visible when Override media type for success responses is json and Override media type for error responses is Do not override");
 
@@ -276,9 +276,9 @@ test.describe(`TC_C120083_C120084_C120086_C120088_C120085_C120087_C120089_C12009
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OVERRIDE_MEDIA_ERROR_RESPONSE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.JSON);
 
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_RESOURCE_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_SUCCESS_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.ID_PATH)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_RESOURCE_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_SUCCESS_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.ID_PATH, 'isHidden');
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.PATH_TO_FAIL_PATH,
       "Field should be visible"
@@ -326,7 +326,7 @@ test.describe(`TC_C120083_C120084_C120086_C120088_C120085_C120087_C120089_C12009
 
     await io.connectionPage.addStep("Connection media type is Plain text and Override request media type is JSON");
 
-    expect(page.locator(selectors.importPagePO.NUMBER_OF_RECORDS_PER_HTTP_REQUEST)).toBeVisible();
+    await io.assert.checkElementState(selectors.importPagePO.NUMBER_OF_RECORDS_PER_HTTP_REQUEST, 'isVisible');
 
     await io.connectionPage.addStep("Verified Number of records per HTTP request field is visible when connection media type is Plain text and Override request media type is JSON");
 
@@ -335,7 +335,7 @@ test.describe(`TC_C120083_C120084_C120086_C120088_C120085_C120087_C120089_C12009
 
     await io.connectionPage.addStep("Connection media type is Plain text and Override request media type is Do not override");
 
-    expect(page.locator(selectors.importPagePO.NUMBER_OF_RECORDS_PER_HTTP_REQUEST)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.importPagePO.NUMBER_OF_RECORDS_PER_HTTP_REQUEST, 'isHidden');
 
     await io.connectionPage.addStep("Verified Number of records per HTTP request field is not visible when connection media type is Plain text and Override request media type is Do not override");
 
@@ -348,7 +348,7 @@ test.describe(`TC_C120083_C120084_C120086_C120088_C120085_C120087_C120089_C12009
 
     await io.connectionPage.addStep("Connection media type is JSON and Override request media type is Plain text");
 
-    expect(page.locator(selectors.importPagePO.NUMBER_OF_RECORDS_PER_HTTP_REQUEST)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.importPagePO.NUMBER_OF_RECORDS_PER_HTTP_REQUEST, 'isHidden');
 
     await io.connectionPage.addStep("Verified Number of records per HTTP request field is not visible when connection media type is JSON and Override request media type is Plain text");
 

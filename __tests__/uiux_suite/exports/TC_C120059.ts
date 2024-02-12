@@ -141,9 +141,9 @@ test.describe(`C120059_C120061_C120063_C120082_C120069_120070_C120072_C120074_C1
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OVERRIDE_MEDIA_ERROR_RESPONSE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.DO_NOT_OVERRIDE_MEDIA_TYPE);
 
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_RESOURCE_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_SUCCESS_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_FILE_URL_PATHS)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_RESOURCE_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_SUCCESS_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_FILE_URL_PATHS, 'isHidden');
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.PATH_TO_FAIL_PATH,
       "Field should be visible"
@@ -155,7 +155,7 @@ test.describe(`C120059_C120061_C120063_C120082_C120069_120070_C120072_C120074_C1
     
     // TC_C120082 - Verify For Exports/Lookups, remove the “Does this API use paging?” section if The override media type for success response is plain text OR if the connection media type is plain text (Provided all other override media type is “Do not override”)
     // Does this API use paging? section will not be visible
-    expect(page.locator(selectors.flowBuilderPagePO.PAGE)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PAGE, 'isHidden');
 
     await io.connectionPage.addStep("Verified visibility when Override media type for success responses is Plain text and Override media type for error responses is Do not override");
 
@@ -177,8 +177,8 @@ test.describe(`C120059_C120061_C120063_C120082_C120069_120070_C120072_C120074_C1
       selectors.flowBuilderPagePO.PATH_TO_FILE_URL_PATHS,
       "Field should be visible"
     )
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_FAIL_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_ERROR_PATH)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_FAIL_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_ERROR_PATH, 'isHidden');
 
     // TC_C120082 - Verify For Exports/Lookups, remove the “Does this API use paging?” section if The override media type for success response is plain text OR if the connection media type is plain text (Provided all other override media type is “Do not override”)
     // Does this API use paging? section will be visible
@@ -194,15 +194,15 @@ test.describe(`C120059_C120061_C120063_C120082_C120069_120070_C120072_C120074_C1
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OVERRIDE_MEDIA_ERROR_RESPONSE);
     await io.flowBuilder.click(selectors.connectionsPagePO.PLAINTEXT);
 
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_RESOURCE_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_SUCCESS_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_FILE_URL_PATHS)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_FAIL_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_ERROR_PATH)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_RESOURCE_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_SUCCESS_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_FILE_URL_PATHS, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_FAIL_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_ERROR_PATH, 'isHidden');
 
     // TC_C120082 - Verify For Exports/Lookups, remove the “Does this API use paging?” section if The override media type for success response is plain text OR if the connection media type is plain text (Provided all other override media type is “Do not override”)
     // Does this API use paging? section will not be visible
-    expect(page.locator(selectors.flowBuilderPagePO.PAGE)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PAGE, 'isHidden');
     await io.connectionPage.addStep("Verified visibility when Override media type for success responses is Plain text and Override media type for error responses is Plain text");
 
     // TC_C120069 - Additional dropdown value "Plain text" in the existing "Override request media type"
@@ -344,9 +344,9 @@ test.describe(`C120059_C120061_C120063_C120082_C120069_120070_C120072_C120074_C1
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OVERRIDE_MEDIA_ERROR_RESPONSE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.DO_NOT_OVERRIDE_MEDIA_TYPE);
 
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_RESOURCE_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_SUCCESS_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_FILE_URL_PATHS)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_RESOURCE_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_SUCCESS_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_FILE_URL_PATHS, 'isHidden');
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.PATH_TO_FAIL_PATH,
       "Field should be visible"
@@ -358,7 +358,7 @@ test.describe(`C120059_C120061_C120063_C120082_C120069_120070_C120072_C120074_C1
 
     // TC_C120082 - Verify For Exports/Lookups, remove the “Does this API use paging?” section if The override media type for success response is plain text OR if the connection media type is plain text (Provided all other override media type is “Do not override”)
     // Does this API use paging? section will not be visible
-    expect(page.locator(selectors.flowBuilderPagePO.PAGE)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PAGE, 'isHidden');
     await io.connectionPage.addStep("Verified visibility when Override media type for success responses is Plain text and Override media type for error responses is Do not override");
 
     // Check for visibility when Override media type for success responses is Do not override and Override media type for error responses is Plain text
@@ -379,8 +379,8 @@ test.describe(`C120059_C120061_C120063_C120082_C120069_120070_C120072_C120074_C1
       selectors.flowBuilderPagePO.PATH_TO_FILE_URL_PATHS,
       "Field should be visible"
     )
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_FAIL_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_ERROR_PATH)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_FAIL_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_ERROR_PATH, 'isHidden');
 
     // TC_C120082 - Verify For Exports/Lookups, remove the “Does this API use paging?” section if The override media type for success response is plain text OR if the connection media type is plain text (Provided all other override media type is “Do not override”)
     // Does this API use paging? section will be visible
@@ -396,15 +396,15 @@ test.describe(`C120059_C120061_C120063_C120082_C120069_120070_C120072_C120074_C1
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OVERRIDE_MEDIA_ERROR_RESPONSE);
     await io.flowBuilder.click(selectors.connectionsPagePO.PLAINTEXT);
 
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_RESOURCE_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_SUCCESS_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_FILE_URL_PATHS)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_FAIL_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_ERROR_PATH)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_RESOURCE_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_SUCCESS_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_FILE_URL_PATHS, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_FAIL_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_ERROR_PATH, 'isHidden');
 
     // TC_C120082 - Verify For Exports/Lookups, remove the “Does this API use paging?” section if The override media type for success response is plain text OR if the connection media type is plain text (Provided all other override media type is “Do not override”)
     // Does this API use paging? section will not be visible
-    expect(page.locator(selectors.flowBuilderPagePO.PAGE)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PAGE, 'isHidden');
 
     await io.connectionPage.addStep("Verified visibility when Override media type for success responses is Plain text and Override media type for error responses is Plain text");
 
@@ -431,11 +431,11 @@ test.describe(`C120059_C120061_C120063_C120082_C120069_120070_C120072_C120074_C1
 
     await io.flowBuilder.click(selectors.exportsPagePO.NON_STANDARD_API_TAB);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OVERRIDE_MEDIA_SUCCESS_RESPONSE);
-    expect(page.locator(selectors.connectionsPagePO.PLAINTEXT)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.connectionsPagePO.PLAINTEXT, 'isHidden');
     await io.flowBuilder.click(selectors.flowBuilderPagePO.DO_NOT_OVERRIDE_MEDIA_TYPE);
 
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OVERRIDE_MEDIA_ERROR_RESPONSE);
-    expect(page.locator(selectors.connectionsPagePO.PLAINTEXT)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.connectionsPagePO.PLAINTEXT, 'isHidden');
     await io.flowBuilder.click(selectors.flowBuilderPagePO.DO_NOT_OVERRIDE_MEDIA_TYPE);
 
     await io.connectionPage.addStep("Verified plain text option is not present in Override request media type, success media type and error media type if connection media type is plain text");
@@ -446,15 +446,15 @@ test.describe(`C120059_C120061_C120063_C120082_C120069_120070_C120072_C120074_C1
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OVERRIDE_MEDIA_ERROR_RESPONSE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.DO_NOT_OVERRIDE_MEDIA_TYPE);
 
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_RESOURCE_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_SUCCESS_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_FILE_URL_PATHS)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_FAIL_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_ERROR_PATH)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_RESOURCE_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_SUCCESS_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_FILE_URL_PATHS, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_FAIL_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_ERROR_PATH, 'isHidden');
 
     // TC_C120082 - Verify For Exports/Lookups, remove the “Does this API use paging?” section if The override media type for success response is plain text OR if the connection media type is plain text (Provided all other override media type is “Do not override”)
     // Does this API use paging? section will not be visible
-    expect(page.locator(selectors.flowBuilderPagePO.PAGE)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PAGE, 'isHidden');
     await io.connectionPage.addStep("Verified visibility when Override media type for success responses is Do not override and Override media type for error responses is Do not override");
 
     // Check for visibility when Override media type for success responses is json and Override media type for error responses is Do not override
@@ -475,8 +475,8 @@ test.describe(`C120059_C120061_C120063_C120082_C120069_120070_C120072_C120074_C1
       selectors.flowBuilderPagePO.PATH_TO_FILE_URL_PATHS,
       "Field should be visible"
     )
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_FAIL_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_ERROR_PATH)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_FAIL_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_ERROR_PATH, 'isHidden');
 
     // TC_C120082 - Verify For Exports/Lookups, remove the “Does this API use paging?” section if The override media type for success response is plain text OR if the connection media type is plain text (Provided all other override media type is “Do not override”)
     // Does this API use paging? section will be visible
@@ -492,9 +492,9 @@ test.describe(`C120059_C120061_C120063_C120082_C120069_120070_C120072_C120074_C1
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OVERRIDE_MEDIA_ERROR_RESPONSE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.JSON);
 
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_RESOURCE_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_SUCCESS_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_FILE_URL_PATHS)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_RESOURCE_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_SUCCESS_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_FILE_URL_PATHS, 'isHidden');
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.PATH_TO_FAIL_PATH,
       "Field should be visible"
@@ -506,7 +506,7 @@ test.describe(`C120059_C120061_C120063_C120082_C120069_120070_C120072_C120074_C1
 
     // TC_C120082 - Verify For Exports/Lookups, remove the “Does this API use paging?” section if The override media type for success response is plain text OR if the connection media type is plain text (Provided all other override media type is “Do not override”)
     // Does this API use paging? section will not be visible
-    expect(page.locator(selectors.flowBuilderPagePO.PAGE)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PAGE, 'isHidden');
 
     await io.connectionPage.addStep("Verified visibility when Override media type for success responses is Do not override and Override media type for error responses is json");
 
@@ -555,15 +555,15 @@ test.describe(`C120059_C120061_C120063_C120082_C120069_120070_C120072_C120074_C1
     await io.connectionPage.addStep("HTTP method as POST, Connection media type as Plain text");
 
     await io.flowBuilder.click(selectors.flowBuilderPagePO.REQUESTMEDIATYPE);
-    expect(page.locator(selectors.connectionsPagePO.PLAINTEXT)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.connectionsPagePO.PLAINTEXT, 'isHidden');
     await io.flowBuilder.click(selectors.flowBuilderPagePO.DO_NOT_OVERRIDE_MEDIA_TYPE);
 
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OVERRIDE_MEDIA_SUCCESS_RESPONSE);
-    expect(page.locator(selectors.connectionsPagePO.PLAINTEXT)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.connectionsPagePO.PLAINTEXT, 'isHidden');
     await io.flowBuilder.click(selectors.flowBuilderPagePO.DO_NOT_OVERRIDE_MEDIA_TYPE);
 
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OVERRIDE_MEDIA_ERROR_RESPONSE);
-    expect(page.locator(selectors.connectionsPagePO.PLAINTEXT)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.connectionsPagePO.PLAINTEXT, 'isHidden');
     await io.flowBuilder.click(selectors.flowBuilderPagePO.DO_NOT_OVERRIDE_MEDIA_TYPE);
 
     await io.connectionPage.addStep("Verified plain text option is not present in Override request media type, success media type and error media type if connection media type is plain text");
@@ -574,15 +574,15 @@ test.describe(`C120059_C120061_C120063_C120082_C120069_120070_C120072_C120074_C1
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OVERRIDE_MEDIA_ERROR_RESPONSE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.DO_NOT_OVERRIDE_MEDIA_TYPE);
 
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_RESOURCE_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_SUCCESS_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_FILE_URL_PATHS)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_FAIL_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_ERROR_PATH)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_RESOURCE_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_SUCCESS_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_FILE_URL_PATHS, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_FAIL_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_ERROR_PATH, 'isHidden');
 
     // TC_C120082 - Verify For Exports/Lookups, remove the “Does this API use paging?” section if The override media type for success response is plain text OR if the connection media type is plain text (Provided all other override media type is “Do not override”)
     // Does this API use paging? section will not be visible
-    expect(page.locator(selectors.flowBuilderPagePO.PAGE)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PAGE, 'isHidden');
 
     await io.connectionPage.addStep("Verified visibility when Override media type for success responses is Do not override and Override media type for error responses is Do not override");
 
@@ -604,8 +604,8 @@ test.describe(`C120059_C120061_C120063_C120082_C120069_120070_C120072_C120074_C1
       selectors.flowBuilderPagePO.PATH_TO_FILE_URL_PATHS,
       "Field should be visible"
     )
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_FAIL_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_ERROR_PATH)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_FAIL_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_ERROR_PATH, 'isHidden');
 
     // TC_C120082 - Verify For Exports/Lookups, remove the “Does this API use paging?” section if The override media type for success response is plain text OR if the connection media type is plain text (Provided all other override media type is “Do not override”)
     // Does this API use paging? section will be visible
@@ -622,9 +622,9 @@ test.describe(`C120059_C120061_C120063_C120082_C120069_120070_C120072_C120074_C1
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OVERRIDE_MEDIA_ERROR_RESPONSE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.JSON);
 
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_RESOURCE_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_SUCCESS_PATH)).not.toBeVisible();
-    expect(page.locator(selectors.flowBuilderPagePO.PATH_TO_FILE_URL_PATHS)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_RESOURCE_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_SUCCESS_PATH, 'isHidden');
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PATH_TO_FILE_URL_PATHS, 'isHidden');
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.PATH_TO_FAIL_PATH,
       "Field should be visible"
@@ -636,7 +636,7 @@ test.describe(`C120059_C120061_C120063_C120082_C120069_120070_C120072_C120074_C1
 
     // TC_C120082 - Verify For Exports/Lookups, remove the “Does this API use paging?” section if The override media type for success response is plain text OR if the connection media type is plain text (Provided all other override media type is “Do not override”)
     // Does this API use paging? section will not be visible
-    expect(page.locator(selectors.flowBuilderPagePO.PAGE)).not.toBeVisible();
+    await io.assert.checkElementState(selectors.flowBuilderPagePO.PAGE, 'isHidden');
 
     await io.connectionPage.addStep("Verified visibility when Override media type for success responses is Do not override and Override media type for error responses is json");
 
