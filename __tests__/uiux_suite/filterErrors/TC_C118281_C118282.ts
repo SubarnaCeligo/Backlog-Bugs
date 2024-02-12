@@ -22,8 +22,7 @@ test.describe("C118281_C118282 Verify user email is displayed on filter UI when 
       selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
       "Flow_With_Errors_DND"
     );
-    await io.integrationPage.delay(2000); // wait for the search to complete
-
+ 
     //Open the flow
     await io.flowBuilder.clickByText("Flow_With_Errors_DND");
 
@@ -53,8 +52,7 @@ test.describe("C118281_C118282 Verify user email is displayed on filter UI when 
       selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
       "Flow_With_Errors_DND"
     );
-    await io.integrationPage.delay(2000); // wait for the search to complete
-
+ 
     //Open the flow
     await io.flowBuilder.clickByText("Flow_With_Errors_DND");
 
@@ -65,7 +63,7 @@ test.describe("C118281_C118282 Verify user email is displayed on filter UI when 
     //Verify how non IO users are displayed
     await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
     await io.flowBuilder.fill(selectors.filterErrorTag.ARIALABELSEARCHUSER, "User WithLongUserNameTestWithLongUserN")
-     
+    await io.flowBuilder.waitForElementAttached('text="User WithLongUserNameTestWithLongUserN..."');
     const isEmailDisplayed = await io.flowBuilder.isVisible('text="User WithLongUserNameTestWithLongUserN..."');
     await io.assert.expectToBeValue(isEmailDisplayed.toString(),'true', "User WithLongUserNameTestWithLongUserN not found");
 

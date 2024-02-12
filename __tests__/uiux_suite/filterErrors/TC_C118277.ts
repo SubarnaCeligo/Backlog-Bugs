@@ -20,7 +20,6 @@ test.describe("C118277 Verify filtering by 'Unassigned' returns only unassigned 
       selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
       "Flow_With_Errors_DND"
     );
-    await io.integrationPage.delay(2000); // wait for the search to complete
 
     //Open the flow
     await io.flowBuilder.clickByText("Flow_With_Errors_DND");

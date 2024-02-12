@@ -21,8 +21,7 @@ test("Verify that clicking on 'Clear filter' button closes the filter dropdown a
     selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
     "Flow_With_Errors_DND"
   );
-  await io.integrationPage.delay(2000); // wait for the search to complete
-
+ 
   //Open the flow
   await io.flowBuilder.clickByText("Flow_With_Errors_DND");
 
@@ -48,8 +47,7 @@ test("Verify that clicking on 'Clear filter' button closes the filter dropdown a
   await io.flowBuilder.click(selectors.filterErrorTag.ARIALABELFILTERERROR);
   await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
 
-  const isChecked = await page.isChecked(selectors.filterErrorTag.ALLERRORSCHECKBOX);
-  expect(isChecked).toBe(true);
+  await io.assert.checkElementState(selectors.filterErrorTag.ALLERRORSCHECKBOX, 'isChecked')
   
   
 });

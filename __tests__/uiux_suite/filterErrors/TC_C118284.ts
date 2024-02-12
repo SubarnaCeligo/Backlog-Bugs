@@ -20,8 +20,7 @@ test.describe("C118284 Verify filter persistence when the user navigates to othe
       selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
       "Flow_With_Errors_DND"
     );
-    await io.integrationPage.delay(2000); // wait for the search to complete
-
+ 
     //Open the flow
     await io.flowBuilder.clickByText("Flow_With_Errors_DND");
 

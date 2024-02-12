@@ -20,8 +20,7 @@ test.describe("C118279 Verify the filter feature on open errors section by apply
       selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
       "Flow_With_Errors_DND"
     );
-    await io.integrationPage.delay(2000); // wait for the search to complete
-
+ 
     //Open the flow
     await io.flowBuilder.clickByText("Flow_With_Errors_DND");
 
@@ -35,7 +34,7 @@ test.describe("C118279 Verify the filter feature on open errors section by apply
 
     //Set a filter - select both users and tags
     await io.flowBuilder.clickByText("Myself");
-    await page.locator(selectors.basePagePO.ARROW_POPPER).getByText('Test1').click()
+    await page.locator(selectors.basePagePO.ARROW_POPPER).getByText('Test1').nth(1).click()
 
     //Click Apply
     await io.flowBuilder.click(selectors.filterErrorTag.APPLYYAGSSELECTOR);

@@ -21,8 +21,7 @@ test.describe("C117999_C118000 Verify if user filter section is added to filter 
       selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
       "Flow_With_Errors_DND"
     );
-    await io.integrationPage.delay(2000); // wait for the search to complete
-
+ 
     //Open the flow
     await io.flowBuilder.clickByText( "Flow_With_Errors_DND");
 
@@ -36,8 +35,9 @@ test.describe("C117999_C118000 Verify if user filter section is added to filter 
     await io.homePage.waitForElementAttached("text='Assigned to'")
     const flow = await io.homePage.isVisible("text='Assigned to'")
     await io.assert.expectToBeValue(flow.toString(),'true', "text not found")
-    const isChecked = await page.isChecked( selectors.filterErrorTag.ALLERRORSCHECKBOX);
-    expect(isChecked).toBe(true);
+     
+    await io.assert.checkElementState(selectors.filterErrorTag.ALLERRORSCHECKBOX, 'isChecked')
+    
     await io.assert.verifyElementIsDisplayed(
         selectors.filterErrorTag.ARIALABELSEARCHUSER,
         "Search bar is not displayed"

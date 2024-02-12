@@ -20,8 +20,7 @@ test.describe("C118118 Verify the filter dialog when there are no assigned error
       selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
       "Flow_With_Errors_DND"
     );
-    await io.integrationPage.delay(2000); // wait for the search to complete
-
+ 
     //Open the flow
     await io.flowBuilder.clickByText("Flow_With_Errors_DND");
 
