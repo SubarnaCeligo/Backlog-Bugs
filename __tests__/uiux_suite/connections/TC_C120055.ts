@@ -13,8 +13,11 @@ test.describe("TC_C120055", () => {
     await io.connectionPage.click(selectors.connectionsPagePO.REFRESH_TOKEN_CUSTOM);
     await io.connectionPage.click(selectors.connectionsPagePO.REFRESH_MEDIATYPE);
     await io.connectionPage.clickByText("Plain text");
+    await io.flowBuilder.waitForElementAttached(selectors.exportsPagePO.NON_STANDARD_API_TAB);
     await io.connectionPage.click(selectors.exportsPagePO.NON_STANDARD_API_TAB);
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.NONSTANDARD);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.NONSTANDARD);
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.HOWTOTESTCONN);
     await io.connectionPage.click(selectors.flowBuilderPagePO.HOWTOTESTCONN);
     const refreshTokenLocation = await io.homePage.isVisible(selectors.flowBuilderPagePO.REFRESH_TOKEN_LOCATION);
     const refreshTokenPath = await io.homePage.isVisible(selectors.flowBuilderPagePO.PATH_TO_TOKEN);

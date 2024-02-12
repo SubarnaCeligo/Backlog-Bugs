@@ -14,14 +14,19 @@ test.describe("TC_C120046", () => {
     await io.connectionPage.clickByText("JSON");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OVERRIDE_MEDIA_SUCCESS_RESPONSE);
     await io.connectionPage.clickByText("XML");
+    await io.flowBuilder.waitForElementAttached(selectors.exportsPagePO.NON_STANDARD_API_TAB);
     await io.connectionPage.click(selectors.exportsPagePO.NON_STANDARD_API_TAB);
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.NONSTANDARD);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.NONSTANDARD);
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.HOWTOTESTCONN);
     await io.connectionPage.click(selectors.flowBuilderPagePO.HOWTOTESTCONN);
     const failPath = await io.homePage.isVisible(selectors.flowBuilderPagePO.FAILPATHHTTP)
     const errorPath = await io.homePage.isVisible(selectors.flowBuilderPagePO.PINGERRORPATH)
     const authFailPath = await io.homePage.isVisible(selectors.flowBuilderPagePO.FAILPATH)
     const successPath = await io.homePage.isVisible(selectors.flowBuilderPagePO.SUCCESSPATH)
-    await io.assert.expectToBeValue(successPath.toString(), "true", "Field is not present ")
+    const limitFailpath = await io.homePage.isVisible(selectors.connectionsPagePO.NON_STANDARD_API_RATE_FAIL_PATH)
+    await io.assert.expectToBeValue(limitFailpath.toString(), "true", "Field is not present")
+    await io.assert.expectToBeValue(successPath.toString(), "true", "Field is not present")
     await io.assert.expectToBeValue(failPath.toString(), "true", "Field failPath is not present")
     await io.assert.expectToBeValue(errorPath.toString(), "true", "Field errorPath is not present")
     await io.assert.expectToBeValue(authFailPath.toString(), "true", "Field authFailPath is not present")
