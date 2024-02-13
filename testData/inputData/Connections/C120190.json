@@ -1,0 +1,49 @@
+{
+    "iClient": {},
+    "Connections": {
+        "type": "http",
+        "name": "TC_C120190 3PL CONNECTION DON't USE",
+        "assistant": "3plcentral",
+        "sandbox": false,
+        "enableMicroBatchForOneToMany": true,
+        "http": {
+            "formType": "assistant",
+            "_iClientId": "65674030ab577b62c8be2f6b",
+            "mediaType": "json",
+            "baseURI": "https://{{{connection.http.unencrypted.environment}}}-wms.com/",
+            "concurrencyLevel": 25,
+            "ping": {
+                "relativeURI": "orders",
+                "method": "GET"
+            },
+            "unencrypted": {
+                "field": "value",
+                "environment": "secure",
+                "userLoginId": "b779b82f-f5e5-4d59-a2c9-ea2c5eb8eec3"
+            },
+            "_httpConnectorId": "6345f57469f848d92751bfbe",
+            "_httpConnectorVersionId": "6345f57469f848d92751bfbf",
+            "auth": {
+                "type": "oauth",
+                "oauth": {
+                    "useIClientFields": true
+                },
+                "token": {
+                    "headerName": "Authorization",
+                    "scheme": " ",
+                    "paramName": "access_token"
+                }
+            }
+        },
+        "autoRecoverRateLimitErrors": false,
+        "microServices": {
+            "disableNetSuiteWebservices": false,
+            "disableRdbms": false,
+            "disableNetSuiteDistributed": false,
+            "disableHttp": false,
+            "disableS3": false,
+            "disableSalesforce": false,
+            "disableAs2": false
+        }
+    }
+}
