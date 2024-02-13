@@ -2,12 +2,12 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import * as TC from "@testData/Connections/C120189.json";
 
-test.describe(`C120189`, () => {
+test.describe(`C120189_C120195_C120196`, () => {
     test.afterEach(async ({ io }) => {
         await io.connections.deleteConnection("3PL CONNECTION DON't USE");
         await io.myAccountPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     });
-    test(`C120189`, async ({ io, page }) => {
+    test(`C120189_C120195_C120196`, async ({ io, page }) => {
         await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
         await io.connectionPage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
         await io.connectionPage.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
@@ -25,6 +25,11 @@ test.describe(`C120189`, () => {
         await io.flowBuilder.enterHugeData(selectors.connectionsPagePO.OAUTH2_CLIENT_SECRET, TC.ClientSecret);
         await io.connectionPage.click(selectors.basePagePO.SAVE_AND_CLOSE);
 
+        //TC_C120196 Verify toggle changes for iclient when user create/edit it from http connection form.
+        await io.connectionPage.click(selectors.integrationPagePO.EDITRESOURCE);
+        let toggle = await page.$$(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
+        var text = await toggle[1].getAttribute('aria-pressed');
+        await io.connectionPage.clickButtonByIndex(selectors.flowBuilderPagePO.CLOSE,1);
         //LOgIn ID
         await io.connectionPage.waitForElementAttached(selectors.basePagePO.SAVE);
         await io.flowBuilder.enterHugeData(selectors.connectionsPagePO.USER_LOGIN_ID, TC.GUID);
