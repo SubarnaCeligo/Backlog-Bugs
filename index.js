@@ -54,6 +54,7 @@ const askFeatureQuestion = () => {
                 "uiux_suite",
                 "flowbranching",
                 "MFA",
+                "APIM",
                 "manage_suite",
                 "monitor_suite",
                 "CeligoAI"
