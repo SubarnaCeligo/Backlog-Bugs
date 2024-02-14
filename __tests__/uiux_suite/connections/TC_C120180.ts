@@ -77,7 +77,6 @@ test.describe(`C120180_C120181_C120182_C120184_C120185_C120186_C120187_C120188`,
 
         //Verify if Users should also have the option to unselect the application by clicking on â€˜Remove/clear selectionâ€™ button
         await io.flowBuilder.clickByText('Clear selection');
-        await io.flowBuilder.delay(2000);
         //Media Type
         await io.assert.verifyElementIsDisplayed(
             selectors.flowBuilderPagePO.MEDIA_TYPE,
@@ -88,7 +87,6 @@ test.describe(`C120180_C120181_C120182_C120184_C120185_C120186_C120187_C120188`,
             selectors.connectionsPagePO.SLACK_AUTH_TYPE,
             "Auth type is not displayed"
         );
-        await io.flowBuilder.delay(20000);
         //TC_C120186 Verify If the user switches the application, the form should be updated to show the configuration details of the newly selected application.
         await io.connectionPage.click(selectors.connectionsPagePO.FACEBOOK_ADS);
         await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.FACEBOOK_API_VERSION);

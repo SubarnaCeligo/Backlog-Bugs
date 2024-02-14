@@ -18,9 +18,9 @@ test.describe(`C120189_C120195_C120196`, () => {
         //Create iClient
         await io.connectionPage.clickButtonByIndex(selectors.basePagePO.ADD_NEW_RESOURCE,1);
         await io.connectionPage.clickButtonByIndex(selectors.basePagePO.ADD_NAME, 1);
-        await page.keyboard.press('3');
-        await page.keyboard.press('P');
-        await page.keyboard.press('L');
+        await io.connectionPage.keyboard('3');
+        await io.connectionPage.keyboard('P');
+        await io.connectionPage.keyboard('L');
         await io.flowBuilder.enterHugeData(selectors.connectionsPagePO.OAUTH2_CLIENT_ID, TC.ClientId);
         await io.flowBuilder.enterHugeData(selectors.connectionsPagePO.OAUTH2_CLIENT_SECRET, TC.ClientSecret);
         await io.connectionPage.click(selectors.basePagePO.SAVE_AND_CLOSE);
@@ -29,6 +29,7 @@ test.describe(`C120189_C120195_C120196`, () => {
         await io.connectionPage.click(selectors.integrationPagePO.EDITRESOURCE);
         let toggle = await page.$$(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
         var text = await toggle[1].getAttribute('aria-pressed');
+        expect(text).toBe('true');
         await io.connectionPage.clickButtonByIndex(selectors.flowBuilderPagePO.CLOSE,1);
         //LOgIn ID
         await io.connectionPage.waitForElementAttached(selectors.basePagePO.SAVE);

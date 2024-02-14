@@ -18,7 +18,6 @@ test.describe('C119631', () => {
         await io.flowBuilder.click(selectors.flowBuilderPagePO.LIST_VIEW_ERRORS);
         const text = await io.homePage.isVisible("text='Actions'")
         await io.assert.expectToBeValue(text.toString(), 'true', "Text is not found")
-        await io.flowBuilder.delay(10000);
         //Togglet button
         await io.flowBuilder.click(selectors.flowBuilderPagePO.PANELICON1);
         //split view

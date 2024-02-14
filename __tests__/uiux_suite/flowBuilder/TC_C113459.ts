@@ -8,9 +8,7 @@ test.describe("TC_C113459", () => {
         await io.createResourceFromAPI(C113459, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);
-        let simpleToggle = await page.locator('[id="file.fileFilterConditions"]');
-        let result = await simpleToggle.isVisible();
-        await io.assert.expectToBeValue(result.toString(), "false", "Filter is not hidden");
+        await io.assert.checkElementState(selectors.flowBuilderPagePO.FILTER_CONDITION,"isVisible");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
     });
 });

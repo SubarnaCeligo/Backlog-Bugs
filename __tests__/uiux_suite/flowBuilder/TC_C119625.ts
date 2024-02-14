@@ -10,7 +10,6 @@ test.describe("TC_C119625", () => {
         await io.flowBuilder.clickButtonByIndex(selectors.basePagePO.ADD_DATA_PROCESSOR,0);
         await io.flowBuilder.click(selectors.basePagePO.OUTPUTFILTER);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.PREVIEW);
-        await io.flowBuilder.delay(20000);
         const Symbol = await page.$(selectors.flowBranchingPO.LOGICRULES_CONTAINER);
         expect(await Symbol.screenshot()).toMatchSnapshot("OutputRule.png");
         await io.homePage.addStep("*** Checked the Extra line is not showing using screenshot ***");
@@ -19,7 +18,6 @@ test.describe("TC_C119625", () => {
         await io.flowBuilder.clickButtonByIndex(selectors.basePagePO.ADD_DATA_PROCESSOR,1);
         await io.flowBuilder.click(selectors.basePagePO.INPUTFILTER);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.PREVIEW);
-        await io.flowBuilder.delay(20000);
         const Symbol1 = await page.$(selectors.flowBranchingPO.LOGICRULES_CONTAINER);
         expect(await Symbol1.screenshot()).toMatchSnapshot("InputRule.png");
         await io.homePage.addStep("*** Checked the Extra line is not showing using screenshot ***");

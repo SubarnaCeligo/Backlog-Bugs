@@ -27,7 +27,6 @@ test.describe(`C120190_C120193`, () => {
         await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CREATE_CONNECTION);
         await io.homePage.fill(selectors.flowBuilderPagePO.SEARCH, "TC_C120190 3PL CONNECTION DON't USE");
         await io.flowBuilder.clickByText("TC_C120190 3PL CONNECTION DON't USE");
-        await io.flowBuilder.delay(20000);
         await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.HTTP_CNNECTOR);
         await io.connectionPage.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
         await io.connectionPage.click(selectors.importPagePO.ADVANCED);
