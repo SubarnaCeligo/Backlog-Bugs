@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing API Manager and Push to apim option is not available for custom Webhooks", () => {
     test("MyAPis", async ({ io, page, context }) => {
-        const randomString = "MyAPIS" + (Math.floor((Math.random() + 1) * 10)).toString();
+        const randomString = "MyAPIS" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
         await io.homePage.loadingTime();
@@ -29,9 +29,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.homePage.loadingTime();
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APIMSEARCH, randomString);
         await io.flowBuilder.click(selectors.integrationPagePO.OPENACTIONSMENU);
-        const PushtoAPIM = await page.$$(selectors.integrationPagePO.EDIT);
-        await io.homePage.loadingTime();
-        await PushtoAPIM[1].click();
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.PUSHTOAPIM);
         await io.homePage.loadingTime();
         const name = await io.flowBuilder.getText(selectors.flowBuilderPagePO.APIMRESOURCELABEL);
         await io.assert.expectToBeTrue(name.toString().includes(randomString), "name doesn't match");
@@ -61,8 +59,8 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         const func = currentUrl.toString().includes(expectedUrl)
         await io.assert.expectToBeTrue(func, "urls doesn't match")
     });
-    test("custom webhook", async ({ io }) => {
-        const randomString = "webhook" + (Math.floor((Math.random() + 1) * 19)).toString();
+    test("custom webhook", async ({ io, page }) => {
+        const randomString = "webhook" +(Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
         await io.flowBuilder.click(selectors.basePagePO.RESOURCES);
@@ -85,13 +83,15 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APIMSEARCH, randomString);
         await io.flowBuilder.click(selectors.integrationPagePO.OPENACTIONSMENU);
         const PushtoAPIM = await io.flowBuilder.getElementsLength(selectors.flowBuilderPagePO.APIMPUSHOPTION);
+        const manageApi = await page.locator(selectors.flowBuilderPagePO.PUSHTOAPIM);
+        await expect(manageApi).not.toBeVisible();
         await io.assert.expectToBeValue(PushtoAPIM.toString(), '1', "PUSH to APIM is visible for custom webhook");
         await io.flowBuilder.click(selectors.connectionsPagePO.DELETE_CONNECTION);
         await io.flowBuilder.click(selectors.basePagePO.DELETE);
         await io.homePage.loadingTime();
     });
     test.skip("IOListner", async ({ io, page, context }) => {
-        const randomString = "IOListner" + (Math.floor((Math.random() + 1) * 18)).toString();
+        const randomString = "IOListner" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
         await io.flowBuilder.click(selectors.basePagePO.RESOURCES);
@@ -109,7 +109,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.homePage.loadingTime();
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APIMSEARCH, randomString);
         await io.flowBuilder.click(selectors.integrationPagePO.OPENACTIONSMENU);
-        await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.APIMPUSHOPTION, 1);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.PUSHTOAPIM)
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APIMCONTEXTPATH, randomString);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMOPERATION);
         await io.flowBuilder.click(selectors.importPagePO.HTTPPOSTMETHOD);
@@ -125,7 +125,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.assert.expectToBeTrue(func, "urls doesn't match")
     });
     test("Export", async ({ io, context }) => {
-        const randomString = "Export" + (Math.floor((Math.random() + 1) * 17)).toString();
+        const randomString = "Export" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
         await io.flowBuilder.click(selectors.basePagePO.RESOURCES);
@@ -145,7 +145,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.homePage.loadingTime();
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APIMSEARCH, randomString);
         await io.flowBuilder.click(selectors.integrationPagePO.OPENACTIONSMENU);
-        await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.APIMPUSHOPTION, 1);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.PUSHTOAPIM)
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APIMCONTEXTPATH, randomString);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMOPERATION);
         await io.flowBuilder.click(selectors.importPagePO.HTTPPOSTMETHOD);
@@ -161,7 +161,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.assert.expectToBeTrue(func, "urls doesn't match")
     });
     test("Lookup", async ({ io, context }) => {
-        const randomString = "Lookup" + (Math.floor((Math.random() + 1) * 16)).toString();
+        const randomString = "Lookup" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
         await io.homePage.loadingTime();
@@ -185,7 +185,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.homePage.loadingTime();
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APIMSEARCH, randomString);
         await io.flowBuilder.click(selectors.integrationPagePO.OPENACTIONSMENU);
-        await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.APIMPUSHOPTION, 1);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.PUSHTOAPIM)
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APIMCONTEXTPATH, randomString);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMOPERATION);
         await io.flowBuilder.click(selectors.importPagePO.HTTPDELETEMETHOD);
@@ -202,7 +202,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
 
     });
     test("Existing API Manager", async ({ io, page, context }) => {
-        const randomString = "EAPIM" + (Math.floor((Math.random() + 1) * 15)).toString();
+        const randomString = "EAPIM" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
         await io.homePage.loadingTime();
@@ -226,16 +226,13 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.homePage.loadingTime();
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APIMSEARCH, randomString);
         await io.flowBuilder.click(selectors.integrationPagePO.OPENACTIONSMENU);
-        await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.APIMPUSHOPTION, 1);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.PUSHTOAPIM)
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMEXISTING);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMREFRESHSELECT);
         await io.assert.expectToBeTrue(await (await page.$(selectors.flowBuilderPagePO.APIMREFRESHSELECT)).isVisible(), "refresh select is not visible");
-        await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMPUSH);
-        let erroralert = await io.connectionPage.getText(
-            selectors.flowGroupingPagePO.ALERT_MESSAGE
-        );
-        await io.flowBuilder.loadingTime();
-        await io.assert.expectToBeTrue(erroralert.toString().includes("Only use letters, numbers, dashes or underscores for Endpoint."), "message doesn't match");
+        const pushtoapim = await page.$(selectors.flowBuilderPagePO.APIMPUSH);
+        const pushoapim1 = await pushtoapim.isDisabled();
+        await io.assert.expectToBeTrue(pushoapim1, "Push to APIM is not disabled");
         await io.flowBuilder.loadingTime();
         await page.setDefaultTimeout(5000);
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APIMFLOW, randomString);
@@ -250,7 +247,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.assert.expectToBeTrue(func, "urls doesn't match");
     });
     test("Import", async ({ io, page, context }) => {
-        const randomString = "Import" + (Math.floor((Math.random() + 1) * 11)).toString();
+        const randomString = "Import" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
         await io.homePage.loadingTime();
@@ -272,7 +269,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.homePage.loadingTime();
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APIMSEARCH, randomString);
         await io.flowBuilder.click(selectors.integrationPagePO.OPENACTIONSMENU);
-        await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.APIMPUSHOPTION, 1);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.PUSHTOAPIM)
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APIMCONTEXTPATH, randomString);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMOPERATION);
         await io.flowBuilder.click(selectors.importPagePO.HTTPPOSTMETHOD);

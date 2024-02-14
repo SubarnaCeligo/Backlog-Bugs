@@ -19,7 +19,7 @@ test.describe("TC_C120055", () => {
     await io.flowBuilder.click(selectors.flowBuilderPagePO.NONSTANDARD);
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.HOWTOTESTCONN);
     await io.connectionPage.click(selectors.flowBuilderPagePO.HOWTOTESTCONN);
-    const refreshTokenLocation = await io.homePage.isVisible(selectors.flowBuilderPagePO.REFRESH_TOKEN_LOCATION);
+    const refreshTokenLocation = await io.homePage.isVisible(selectors.connectionsPagePO.REFRESH_TOKEN_LOCATION);
     const refreshTokenPath = await io.homePage.isVisible(selectors.flowBuilderPagePO.PATH_TO_TOKEN);
     await io.assert.expectToBeValue(refreshTokenLocation.toString(), "false", "Field refreshTokenLocation is present in after Plain text is selected in Override media type")
     await io.assert.expectToBeValue(refreshTokenPath.toString(), "false", "Field refreshTokenPath is present in after Plain text is selected in Override media type")
