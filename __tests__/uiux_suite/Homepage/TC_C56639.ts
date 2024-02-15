@@ -9,7 +9,7 @@ test.describe("C56639_Verify the iclient action menu from resource page in diffe
         await io.homePage.addStep("Reloading the page");
         await io.homePage.reloadPage();
         await io.flowBuilder.click(selectors.integrationPagePO.OPENACTIONSMENU);
-        const actionText = (await io.flowBuilder.getText('[id="row-actions"]')) as string;
+        const actionText = (await io.flowBuilder.getText(selectors.dashboardPagePO.OPEN_ACTION_CLICK)) as string;
         // Validating action menu details visible
         await io.assert.expectToContainValue("Edit iClient", actionText, "Edit iClient not available");
         await io.assert.expectToContainValue("View audit log", actionText, "View audit log not available");
