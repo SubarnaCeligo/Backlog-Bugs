@@ -25,7 +25,7 @@ test.describe("APIM Help Text Validation", () => {
         await io.homePage.loadingTime();
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APIMSEARCH, randomString);
         await io.flowBuilder.click(selectors.integrationPagePO.OPENACTIONSMENU);
-        await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.APIMPUSHOPTION, 1);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.PUSHTOAPIM)
         await io.flowBuilder.loadingTime();
         // Gateway URL help text
         const gatewayvalue = await (await page.$(selectors.flowBuilderPagePO.APIMGATEWAY)).textContent();
