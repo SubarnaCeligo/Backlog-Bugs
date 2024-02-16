@@ -38,8 +38,6 @@ test.describe("C118278 Verify filtering by a specific user returns errors assign
     await io.homePage.clickByText("Assign");
     await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL);
     await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX, 2);
-    // await io.flowBuilder.delay(20000);
-    await io.flowBuilder.reloadPage();
     await io.flowBuilder.reloadPage();
 
     //Click on Filter Icon

@@ -57,7 +57,6 @@ test.describe("C118280 Verify the filter feature on resolved errors section by a
 
     //Apply filter involving user and tag
     await io.flowBuilder.clickByText("Myself");
-    // const tags = await io.flowBuilder.getText('[data-test="editTag"]');
     await io.flowBuilder.clickByIndex(selectors.em2DotOLineGraphPO.TAGS_FILTERBOX,0);
     await io.flowBuilder.clickByText("Apply");
     await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL);
