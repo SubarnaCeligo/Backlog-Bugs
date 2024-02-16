@@ -52,6 +52,8 @@ const askFeatureQuestion = () => {
                 "connections",
                 "e2e_flows",
                 "uiux_suite",
+                "transferSBflow",
+                "transfer",
                 "flowbranching",
                 "MFA",
                 "APIM",
