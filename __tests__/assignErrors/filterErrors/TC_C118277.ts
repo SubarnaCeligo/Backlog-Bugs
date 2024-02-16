@@ -1,11 +1,11 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C117998_C118000 Verify the search feature with a successful/unsuccessful search", () => {
+test.describe("C118277 Verify filtering by 'Unassigned' returns only unassigned errors", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("Verify the search feature with a successful search", async ({
+  test("Verify filtering by 'Unassigned' returns only unassigned errors", async ({
     io,
     page,
   }) => {
@@ -18,26 +18,28 @@ test.describe("C117998_C118000 Verify the search feature with a successful/unsuc
     );
     await io.integrationPage.fill(
       selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
-      "Flow_With_Errors_DND"
+      "Filter_Automation04_DND"
     );
- 
-    //Open the flow
-    await io.flowBuilder.clickByText( "Flow_With_Errors_DND");
 
-    await io.flowBuilder.clickByText("18 errors")
+    //Open the flow
+    await io.flowBuilder.clickByText("Filter_Automation04_DND");
+
+    //Open errors dashborad
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
 
     //Click on Filter Icon
     await io.flowBuilder.click(selectors.filterErrorTag.ARIALABELFILTERERROR);
 
-    //Validate search feature(valid and invalid search)
+    //Validate the contents
     await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
 
-    await io.flowBuilder.fill(
-     selectors.filterErrorTag.ARIALABELSEARCHUSER,
-      "test "
-    );
+    await io.flowBuilder.clickByText("Unassigned");
 
-    const isDisplayed = await io.flowBuilder.isVisible('text="There are no users matching your search"');
-    await io.assert.expectToBeValue(isDisplayed.toString(),'true', "There areusers matching your search")
+    // Click Apply
+    await io.flowBuilder.click(selectors.filterErrorTag.APPLYYAGSSELECTOR);
+
+    const assigneePillsDisplayed = await io.assert.checkElementState(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL,'isDisplayed');
+    await io.assert.expectToBeFalse(assigneePillsDisplayed, 'Unassigned filter did not work');
+
   });
 });
