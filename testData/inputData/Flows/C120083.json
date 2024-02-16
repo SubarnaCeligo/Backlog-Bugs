@@ -1,0 +1,57 @@
+{
+  "name": "TC_C120083",
+  "disabled": false,
+  "timezone": "Asia/Calcutta",
+  "_integrationId": "6459f5fc6df4b9686c0b7145",
+  "skipRetries": false,
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "Fulfillment Export",
+        "_connectionId": "FULFILLMENT CONNECTION",
+        "apiIdentifier": "eedc2e8f14",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": "/users/me",
+          "method": "GET",
+          "formType": "http"
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "HTTP import",
+        "_connectionId": "FULFILLMENT CONNECTION",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": [
+            "/top"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [],
+          "batchSize": 2,
+          "sendPostMappedData": true,
+          "isRest": false,
+          "formType": "http",
+          "response": {
+            "resourcePath": [
+              "pp"
+            ]
+          }
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ]
+}
