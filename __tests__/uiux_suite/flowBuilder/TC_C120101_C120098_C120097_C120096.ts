@@ -6,11 +6,23 @@ test.describe("C120101,C120098,C120097,C120096", () => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
     test("C120101,C120098,C120097,C120096", async ({ io, page }) => {
-        await io.homePage.addStep("*** Navigated back to home page ***");
-        await io.homePage.click(selectors.homePagePO.SEARCH_INTEGRATION);
-        await io.homePage.fill(selectors.homePagePO.SEARCH_INTEGRATION, "Maria_DB");
-        await io.homePage.clickByText("Maria_DB");
-        await io.homePage.clickByText("Maria_DB_Flow");
+        await io.homePage.loadingTime();
+        await io.homePage.goToMenu("Tools", "Flow builder");
+        await io.flowBuilder.click(
+          selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP
+        );
+        await io.flowBuilder.clickByText("MariaDB");
+        await io.flowBuilder.clickByText("Import records into destination application");
+        await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
+        await io.flowBuilder.clickByText("MariaDBCred");
+        await io.flowBuilder.click(selectors.basePagePO.SAVE);
+        await io.flowBuilder.waitForElementAttached(selectors.exportsPagePO.NAME);
+        await io.flowBuilder.fill(selectors.exportsPagePO.NAME, "MariaDB");
+        await io.homePage.click(selectors.flowBuilderPagePO.DESTINATIONTABLESEARCHPOSTGRE);
+        await io.homePage.addStep("*** Clicked on destination table search field ***");
+        await io.flowBuilder.clickByText("Automation");
+        await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+        await io.flowBuilder.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.ADD_DATA_PROCESSOR);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);
