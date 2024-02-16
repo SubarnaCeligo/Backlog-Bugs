@@ -1,0 +1,94 @@
+{
+    "name": "TC_C120056",
+    "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "AAA_C2660_export",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "e30aeca996",
+            "asynchronous": true,
+            "type": "delta",
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+                "relativeURI": "/customers/{{lastlastExportDateTime}}",
+                "method": "GET",
+                "formType": "http"
+            },
+            "delta": {
+                "dateFormat": "DD/MM/YYYY"
+            },
+            "adaptorType": "HTTPExport"
+            }
+          }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "AutomationStandalone_7mn28",
+    "parsers": [],
+    "_connectionId": "HTTP ZENDESK CONNECTION",
+    "distributed": false,
+    "apiIdentifier": "i6eb0e871f",
+    "lookups": [
+        {
+            "name": "newhttplookupjson",
+            "relativeURI": "search.json?query=type:organization notes:{{{data.Email}}}",
+            "method": "GET",
+            "extract": "results[0].id",
+            "allowFailures": false,
+            "useImportHeaders": true
+        }
+    ],
+    "http": {
+        "relativeURI": [
+            "organizations/{{{lookup.newhttplookupjson}}}"
+        ],
+        "method": [
+            "PUT"
+        ],
+        "body": [
+            "{{#each data}}\n{{#if @index}} , {{/if}}\n{\n  \"organization\": {\n   \"notes\":\"{{this.0.Email}}\",\n    \"organization_fields\":{\n  \"address_address_1\": \"{{this.0.[Address 1]}}\",\n  \"address_address_2\":  \"{{this.0.[Address 2]}}\",\n   \"address_city\":\"{{this.0.City}}\",\n       \"phone\":\"{{this.0.recordType}}\"\n  \n}\n    \n  }\n}\n{{/each}}\n"
+        ],
+        "batchSize": 1,
+        "sendPostMappedData": true,
+        "formType": "http",
+        "lookups": [
+            {
+                "name": "newhttplookupjson",
+                "relativeURI": "search.json?query=type:organization notes:{{{data.Email}}}",
+                "method": "GET",
+                "extract": "results[0].id",
+                "allowFailures": false,
+                "useImportHeaders": true
+            }
+        ]
+    },
+    "adaptorType": "HTTPImport"
+        }
+    }
+],
+    "createFlow": {
+        "name": "TC_C48963",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+}
