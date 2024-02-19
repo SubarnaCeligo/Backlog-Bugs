@@ -29,7 +29,7 @@ test.describe(`C120189_C120195_C120196`, () => {
         await io.connectionPage.click(selectors.integrationPagePO.EDITRESOURCE);
         let toggle = await page.$$(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
         var text = await toggle[1].getAttribute('aria-pressed');
-        expect(text).toBe('true');
+        await io.assert.expectToBeValue('true', text.toString(), 'Simple form is not selected');
         await io.connectionPage.clickButtonByIndex(selectors.flowBuilderPagePO.CLOSE,1);
         //LOgIn ID
         await io.connectionPage.waitForElementAttached(selectors.basePagePO.SAVE);
