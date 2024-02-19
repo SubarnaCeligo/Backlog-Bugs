@@ -2,8 +2,8 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import C119818 from "../../../testData/inputData/transformation/C119818.json";
 
-test.describe("C98433-Verify user is able to Drag and drop the fields in Transformation 2.0", () => {
-  test("C98433- Drag and drop the fields in Transformation 2.0", async ({
+test.describe("C119818-Verify that Flowbranching input panel data shows Transformed data, when mock is populated at export with grouping", () => {
+  test("C119818- Flowbranching input panel data shows Transformed data", async ({
     io,
     page
   }) => {
