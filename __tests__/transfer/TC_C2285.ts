@@ -3,10 +3,10 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "./C1582.json";
  
 
-test.describe(`C1582 Verify,When two integrations have same connections, when trying to transfer one integration, it must provide a validation that the same connection is used in another integration`, () => {
+test.describe(`C2285  Verify : If the account sharing is disabled for the user to whom account transfer is being done then Account transfer should not be allowed and should get proper error message.`, () => {
 
    
-  test(`C1582 Verify,When two integrations have same connections, when trying to transfer one integration, it must provide a validation that the same connection is used in another integration`, async ({
+  test(`C2285  Verify : If the account sharing is disabled for the user to whom account transfer is being done then Account transfer should not be allowed and should get proper error message.`, async ({
     page,
     io
   }) => {

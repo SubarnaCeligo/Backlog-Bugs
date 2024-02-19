@@ -66,7 +66,7 @@ test.describe(`C2255_C2288_C2290_C2284_C2289_C2291_C2445 Transfer Account Owners
        
     );
 
- await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+      await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
       await io.homePage.waitForElementAttached('.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-colorInherit.MuiIconButton-sizeSmall')
       await io.homePage.clickByIndex('.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-colorInherit.MuiIconButton-sizeSmall',1)
       await io.homePage.click('[data-test="signOut"]');
@@ -77,19 +77,12 @@ test.describe(`C2255_C2288_C2290_C2284_C2289_C2291_C2445 Transfer Account Owners
       await io.homePage.click('[placeholder="Password*"]')
       await io.homePage.fill('[placeholder="Password*"]', "$vH9nO&mEY1r!RHd");
       await io.homePage.click('[data-test="submit"]')
-
-
       await io.homePage.waitForElementAttached('.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-colorInherit.MuiIconButton-sizeSmall')
       await io.homePage.clickByIndex('.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-colorInherit.MuiIconButton-sizeSmall',1)
-
-      
-
-
-     
-     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL); 
+      await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL); 
       await io.homePage.waitForElementAttached('[aria-label="notifications"]')
       await io.homePage.click('[aria-label="notifications"]')
-    await io.homePage.click('[data-test="accept transfer share"]')
-    await page.reload();
+      await io.homePage.click('[data-test="accept transfer share"]')
+      await page.reload();
   });
 });
