@@ -1,0 +1,1279 @@
+{
+    "_id": "652e15d26819f54a81ada56f",
+    "name": "FTP to FTP with Tx",
+    "disabled": true,
+    "_integrationId": "65239b7a699d210c29d7b67e",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "_id": "65c397d537a07b9f783a0432",
+                "name": "HTTP ZENDESK mock group",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "sandbox": false,
+                "groupByFields": [
+                    "priority"
+                ],
+                "mockOutput": {
+                    "page_of_records": [
+                        {
+                            "rows": [
+                                {
+                                    "url": "https://celigoqa.zendesk.com/api/v2/tickets/126.json",
+                                    "id": 126,
+                                    "external_id": null,
+                                    "via": {
+                                        "channel": "web",
+                                        "source": {
+                                            "rel": null
+                                        }
+                                    },
+                                    "created_at": "2017-10-18T13:36:36Z",
+                                    "updated_at": "2023-08-24T07:10:25Z",
+                                    "type": null,
+                                    "subject": "Orches_Flow_Blob_2071",
+                                    "raw_subject": "Orches_Flow_Blob_2071",
+                                    "description": "Orches_Flow_Blob_207",
+                                    "priority": "low",
+                                    "status": "pending",
+                                    "recipient": null,
+                                    "requester_id": 1473313072,
+                                    "submitter_id": 1473313072,
+                                    "assignee_id": 1473313072,
+                                    "organization_id": null,
+                                    "group_id": 25032922,
+                                    "collaborator_ids": [],
+                                    "follower_ids": [],
+                                    "email_cc_ids": [],
+                                    "forum_topic_id": null,
+                                    "problem_id": null,
+                                    "has_incidents": false,
+                                    "is_public": true,
+                                    "due_at": null,
+                                    "tags": [
+                                        "true"
+                                    ],
+                                    "custom_fields": [
+                                        {
+                                            "id": 4485575108882,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24838175,
+                                            "value": "Pagination"
+                                        },
+                                        {
+                                            "id": 360005417319,
+                                            "value": false
+                                        },
+                                        {
+                                            "id": 32855665,
+                                            "value": false
+                                        },
+                                        {
+                                            "id": 360021374599,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 26700425,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24786059,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 25373679,
+                                            "value": null
+                                        }
+                                    ],
+                                    "satisfaction_rating": null,
+                                    "sharing_agreement_ids": [],
+                                    "fields": [
+                                        {
+                                            "id": 4485575108882,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24838175,
+                                            "value": "Pagination"
+                                        },
+                                        {
+                                            "id": 360005417319,
+                                            "value": false
+                                        },
+                                        {
+                                            "id": 32855665,
+                                            "value": false
+                                        },
+                                        {
+                                            "id": 360021374599,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 26700425,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24786059,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 25373679,
+                                            "value": null
+                                        }
+                                    ],
+                                    "followup_ids": [],
+                                    "brand_id": 611742,
+                                    "allow_channelback": false,
+                                    "allow_attachments": true,
+                                    "from_messaging_channel": false
+                                }
+                            ]
+                        },
+                        {
+                            "rows": [
+                                {
+                                    "url": "https://celigoqa.zendesk.com/api/v2/tickets/18255.json",
+                                    "id": 18255,
+                                    "external_id": null,
+                                    "via": {
+                                        "channel": "web",
+                                        "source": {
+                                            "rel": null
+                                        }
+                                    },
+                                    "created_at": "2022-09-01T12:04:40Z",
+                                    "updated_at": "2023-11-01T17:10:01Z",
+                                    "type": "task",
+                                    "subject": "My printer is on fire!",
+                                    "raw_subject": "My printer is on fire!",
+                                    "description": "comment01",
+                                    "priority": "urgent",
+                                    "status": "open",
+                                    "recipient": null,
+                                    "requester_id": 1473313072,
+                                    "submitter_id": 1473313072,
+                                    "assignee_id": 1473313072,
+                                    "organization_id": null,
+                                    "group_id": 25032922,
+                                    "collaborator_ids": [],
+                                    "follower_ids": [],
+                                    "email_cc_ids": [],
+                                    "forum_topic_id": null,
+                                    "problem_id": null,
+                                    "has_incidents": false,
+                                    "is_public": true,
+                                    "due_at": null,
+                                    "tags": [
+                                        "true"
+                                    ],
+                                    "custom_fields": [
+                                        {
+                                            "id": 4485575108882,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24838175,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 360005417319,
+                                            "value": false
+                                        },
+                                        {
+                                            "id": 32855665,
+                                            "value": false
+                                        },
+                                        {
+                                            "id": 360021374599,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 26700425,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24786059,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 25373679,
+                                            "value": null
+                                        }
+                                    ],
+                                    "satisfaction_rating": null,
+                                    "sharing_agreement_ids": [],
+                                    "fields": [
+                                        {
+                                            "id": 4485575108882,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24838175,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 360005417319,
+                                            "value": false
+                                        },
+                                        {
+                                            "id": 32855665,
+                                            "value": false
+                                        },
+                                        {
+                                            "id": 360021374599,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 26700425,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24786059,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 25373679,
+                                            "value": null
+                                        }
+                                    ],
+                                    "followup_ids": [],
+                                    "brand_id": 611742,
+                                    "allow_channelback": false,
+                                    "allow_attachments": true,
+                                    "from_messaging_channel": false
+                                },
+                                {
+                                    "url": "https://celigoqa.zendesk.com/api/v2/tickets/2550066.json",
+                                    "id": 2550066,
+                                    "external_id": null,
+                                    "via": {
+                                        "channel": "api",
+                                        "source": {
+                                            "rel": null
+                                        }
+                                    },
+                                    "created_at": "2023-09-11T21:15:11Z",
+                                    "updated_at": "2023-09-11T21:15:11Z",
+                                    "type": "task",
+                                    "subject": "HF Ticket 1093",
+                                    "raw_subject": "HF Ticket 1093",
+                                    "description": "HF Ticket 1093",
+                                    "priority": "urgent",
+                                    "status": "open",
+                                    "recipient": null,
+                                    "requester_id": 1473313072,
+                                    "submitter_id": 1473313072,
+                                    "assignee_id": 1473313072,
+                                    "organization_id": null,
+                                    "group_id": 25032922,
+                                    "collaborator_ids": [],
+                                    "follower_ids": [],
+                                    "email_cc_ids": [],
+                                    "forum_topic_id": null,
+                                    "problem_id": null,
+                                    "has_incidents": false,
+                                    "is_public": true,
+                                    "due_at": null,
+                                    "tags": [
+                                        "true"
+                                    ],
+                                    "custom_fields": [
+                                        {
+                                            "id": 4485575108882,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24838175,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 360005417319,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 32855665,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 360021374599,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 26700425,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24786059,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 25373679,
+                                            "value": null
+                                        }
+                                    ],
+                                    "satisfaction_rating": null,
+                                    "sharing_agreement_ids": [],
+                                    "fields": [
+                                        {
+                                            "id": 4485575108882,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24838175,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 360005417319,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 32855665,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 360021374599,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 26700425,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24786059,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 25373679,
+                                            "value": null
+                                        }
+                                    ],
+                                    "followup_ids": [],
+                                    "brand_id": 611742,
+                                    "allow_channelback": false,
+                                    "allow_attachments": true,
+                                    "from_messaging_channel": false
+                                },
+                                {
+                                    "url": "https://celigoqa.zendesk.com/api/v2/tickets/2550067.json",
+                                    "id": 2550067,
+                                    "external_id": null,
+                                    "via": {
+                                        "channel": "api",
+                                        "source": {
+                                            "rel": null
+                                        }
+                                    },
+                                    "created_at": "2023-09-11T21:15:11Z",
+                                    "updated_at": "2023-09-11T21:15:11Z",
+                                    "type": "task",
+                                    "subject": "HF old Prod Test Ticket 84",
+                                    "raw_subject": "HF old Prod Test Ticket 84",
+                                    "description": "HF old Prod Test Ticket 84",
+                                    "priority": "urgent",
+                                    "status": "open",
+                                    "recipient": null,
+                                    "requester_id": 1473313072,
+                                    "submitter_id": 1473313072,
+                                    "assignee_id": 1473313072,
+                                    "organization_id": null,
+                                    "group_id": 25032922,
+                                    "collaborator_ids": [],
+                                    "follower_ids": [],
+                                    "email_cc_ids": [],
+                                    "forum_topic_id": null,
+                                    "problem_id": null,
+                                    "has_incidents": false,
+                                    "is_public": true,
+                                    "due_at": null,
+                                    "tags": [
+                                        "true"
+                                    ],
+                                    "custom_fields": [
+                                        {
+                                            "id": 4485575108882,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24838175,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 360005417319,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 32855665,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 360021374599,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 26700425,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24786059,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 25373679,
+                                            "value": null
+                                        }
+                                    ],
+                                    "satisfaction_rating": null,
+                                    "sharing_agreement_ids": [],
+                                    "fields": [
+                                        {
+                                            "id": 4485575108882,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24838175,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 360005417319,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 32855665,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 360021374599,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 26700425,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24786059,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 25373679,
+                                            "value": null
+                                        }
+                                    ],
+                                    "followup_ids": [],
+                                    "brand_id": 611742,
+                                    "allow_channelback": false,
+                                    "allow_attachments": true,
+                                    "from_messaging_channel": false
+                                },
+                                {
+                                    "url": "https://celigoqa.zendesk.com/api/v2/tickets/2550068.json",
+                                    "id": 2550068,
+                                    "external_id": null,
+                                    "via": {
+                                        "channel": "api",
+                                        "source": {
+                                            "rel": null
+                                        }
+                                    },
+                                    "created_at": "2023-09-11T21:15:11Z",
+                                    "updated_at": "2023-09-11T21:15:11Z",
+                                    "type": "task",
+                                    "subject": "HF old Prod Test Ticket 401",
+                                    "raw_subject": "HF old Prod Test Ticket 401",
+                                    "description": "HF old Prod Test Ticket 401",
+                                    "priority": "urgent",
+                                    "status": "open",
+                                    "recipient": null,
+                                    "requester_id": 1473313072,
+                                    "submitter_id": 1473313072,
+                                    "assignee_id": 1473313072,
+                                    "organization_id": null,
+                                    "group_id": 25032922,
+                                    "collaborator_ids": [],
+                                    "follower_ids": [],
+                                    "email_cc_ids": [],
+                                    "forum_topic_id": null,
+                                    "problem_id": null,
+                                    "has_incidents": false,
+                                    "is_public": true,
+                                    "due_at": null,
+                                    "tags": [
+                                        "true"
+                                    ],
+                                    "custom_fields": [
+                                        {
+                                            "id": 4485575108882,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24838175,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 360005417319,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 32855665,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 360021374599,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 26700425,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24786059,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 25373679,
+                                            "value": null
+                                        }
+                                    ],
+                                    "satisfaction_rating": null,
+                                    "sharing_agreement_ids": [],
+                                    "fields": [
+                                        {
+                                            "id": 4485575108882,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24838175,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 360005417319,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 32855665,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 360021374599,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 26700425,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24786059,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 25373679,
+                                            "value": null
+                                        }
+                                    ],
+                                    "followup_ids": [],
+                                    "brand_id": 611742,
+                                    "allow_channelback": false,
+                                    "allow_attachments": true,
+                                    "from_messaging_channel": false
+                                },
+                                {
+                                    "url": "https://celigoqa.zendesk.com/api/v2/tickets/2550069.json",
+                                    "id": 2550069,
+                                    "external_id": null,
+                                    "via": {
+                                        "channel": "api",
+                                        "source": {
+                                            "rel": null
+                                        }
+                                    },
+                                    "created_at": "2023-09-11T21:15:11Z",
+                                    "updated_at": "2023-09-11T21:15:11Z",
+                                    "type": "task",
+                                    "subject": "HF old Prod Test Ticket 235",
+                                    "raw_subject": "HF old Prod Test Ticket 235",
+                                    "description": "HF old Prod Test Ticket 235",
+                                    "priority": "urgent",
+                                    "status": "open",
+                                    "recipient": null,
+                                    "requester_id": 1473313072,
+                                    "submitter_id": 1473313072,
+                                    "assignee_id": 1473313072,
+                                    "organization_id": null,
+                                    "group_id": 25032922,
+                                    "collaborator_ids": [],
+                                    "follower_ids": [],
+                                    "email_cc_ids": [],
+                                    "forum_topic_id": null,
+                                    "problem_id": null,
+                                    "has_incidents": false,
+                                    "is_public": true,
+                                    "due_at": null,
+                                    "tags": [
+                                        "true"
+                                    ],
+                                    "custom_fields": [
+                                        {
+                                            "id": 4485575108882,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24838175,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 360005417319,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 32855665,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 360021374599,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 26700425,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24786059,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 25373679,
+                                            "value": null
+                                        }
+                                    ],
+                                    "satisfaction_rating": null,
+                                    "sharing_agreement_ids": [],
+                                    "fields": [
+                                        {
+                                            "id": 4485575108882,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24838175,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 360005417319,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 32855665,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 360021374599,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 26700425,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24786059,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 25373679,
+                                            "value": null
+                                        }
+                                    ],
+                                    "followup_ids": [],
+                                    "brand_id": 611742,
+                                    "allow_channelback": false,
+                                    "allow_attachments": true,
+                                    "from_messaging_channel": false
+                                },
+                                {
+                                    "url": "https://celigoqa.zendesk.com/api/v2/tickets/2550070.json",
+                                    "id": 2550070,
+                                    "external_id": null,
+                                    "via": {
+                                        "channel": "api",
+                                        "source": {
+                                            "rel": null
+                                        }
+                                    },
+                                    "created_at": "2023-09-11T21:15:11Z",
+                                    "updated_at": "2023-09-11T21:15:11Z",
+                                    "type": "task",
+                                    "subject": "HF old Prod Test Ticket 216",
+                                    "raw_subject": "HF old Prod Test Ticket 216",
+                                    "description": "HF old Prod Test Ticket 216",
+                                    "priority": "urgent",
+                                    "status": "open",
+                                    "recipient": null,
+                                    "requester_id": 1473313072,
+                                    "submitter_id": 1473313072,
+                                    "assignee_id": 1473313072,
+                                    "organization_id": null,
+                                    "group_id": 25032922,
+                                    "collaborator_ids": [],
+                                    "follower_ids": [],
+                                    "email_cc_ids": [],
+                                    "forum_topic_id": null,
+                                    "problem_id": null,
+                                    "has_incidents": false,
+                                    "is_public": true,
+                                    "due_at": null,
+                                    "tags": [
+                                        "true"
+                                    ],
+                                    "custom_fields": [
+                                        {
+                                            "id": 4485575108882,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24838175,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 360005417319,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 32855665,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 360021374599,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 26700425,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24786059,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 25373679,
+                                            "value": null
+                                        }
+                                    ],
+                                    "satisfaction_rating": null,
+                                    "sharing_agreement_ids": [],
+                                    "fields": [
+                                        {
+                                            "id": 4485575108882,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24838175,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 360005417319,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 32855665,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 360021374599,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 26700425,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24786059,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 25373679,
+                                            "value": null
+                                        }
+                                    ],
+                                    "followup_ids": [],
+                                    "brand_id": 611742,
+                                    "allow_channelback": false,
+                                    "allow_attachments": true,
+                                    "from_messaging_channel": false
+                                },
+                                {
+                                    "url": "https://celigoqa.zendesk.com/api/v2/tickets/2550071.json",
+                                    "id": 2550071,
+                                    "external_id": null,
+                                    "via": {
+                                        "channel": "api",
+                                        "source": {
+                                            "rel": null
+                                        }
+                                    },
+                                    "created_at": "2023-09-11T21:15:11Z",
+                                    "updated_at": "2023-09-11T21:15:11Z",
+                                    "type": "task",
+                                    "subject": "HF old Prod Test Ticket 383",
+                                    "raw_subject": "HF old Prod Test Ticket 383",
+                                    "description": "HF old Prod Test Ticket 383",
+                                    "priority": "urgent",
+                                    "status": "open",
+                                    "recipient": null,
+                                    "requester_id": 1473313072,
+                                    "submitter_id": 1473313072,
+                                    "assignee_id": 1473313072,
+                                    "organization_id": null,
+                                    "group_id": 25032922,
+                                    "collaborator_ids": [],
+                                    "follower_ids": [],
+                                    "email_cc_ids": [],
+                                    "forum_topic_id": null,
+                                    "problem_id": null,
+                                    "has_incidents": false,
+                                    "is_public": true,
+                                    "due_at": null,
+                                    "tags": [
+                                        "true"
+                                    ],
+                                    "custom_fields": [
+                                        {
+                                            "id": 4485575108882,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24838175,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 360005417319,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 32855665,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 360021374599,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 26700425,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24786059,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 25373679,
+                                            "value": null
+                                        }
+                                    ],
+                                    "satisfaction_rating": null,
+                                    "sharing_agreement_ids": [],
+                                    "fields": [
+                                        {
+                                            "id": 4485575108882,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24838175,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 360005417319,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 32855665,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 360021374599,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 26700425,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24786059,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 25373679,
+                                            "value": null
+                                        }
+                                    ],
+                                    "followup_ids": [],
+                                    "brand_id": 611742,
+                                    "allow_channelback": false,
+                                    "allow_attachments": true,
+                                    "from_messaging_channel": false
+                                },
+                                {
+                                    "url": "https://celigoqa.zendesk.com/api/v2/tickets/2550072.json",
+                                    "id": 2550072,
+                                    "external_id": null,
+                                    "via": {
+                                        "channel": "api",
+                                        "source": {
+                                            "rel": null
+                                        }
+                                    },
+                                    "created_at": "2023-09-11T21:15:11Z",
+                                    "updated_at": "2023-09-11T21:15:11Z",
+                                    "type": "task",
+                                    "subject": "HF old Prod Test Ticket 391",
+                                    "raw_subject": "HF old Prod Test Ticket 391",
+                                    "description": "HF old Prod Test Ticket 391",
+                                    "priority": "urgent",
+                                    "status": "open",
+                                    "recipient": null,
+                                    "requester_id": 1473313072,
+                                    "submitter_id": 1473313072,
+                                    "assignee_id": 1473313072,
+                                    "organization_id": null,
+                                    "group_id": 25032922,
+                                    "collaborator_ids": [],
+                                    "follower_ids": [],
+                                    "email_cc_ids": [],
+                                    "forum_topic_id": null,
+                                    "problem_id": null,
+                                    "has_incidents": false,
+                                    "is_public": true,
+                                    "due_at": null,
+                                    "tags": [
+                                        "true"
+                                    ],
+                                    "custom_fields": [
+                                        {
+                                            "id": 4485575108882,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24838175,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 360005417319,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 32855665,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 360021374599,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 26700425,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24786059,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 25373679,
+                                            "value": null
+                                        }
+                                    ],
+                                    "satisfaction_rating": null,
+                                    "sharing_agreement_ids": [],
+                                    "fields": [
+                                        {
+                                            "id": 4485575108882,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24838175,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 360005417319,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 32855665,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 360021374599,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 26700425,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24786059,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 25373679,
+                                            "value": null
+                                        }
+                                    ],
+                                    "followup_ids": [],
+                                    "brand_id": 611742,
+                                    "allow_channelback": false,
+                                    "allow_attachments": true,
+                                    "from_messaging_channel": false
+                                },
+                                {
+                                    "url": "https://celigoqa.zendesk.com/api/v2/tickets/2550073.json",
+                                    "id": 2550073,
+                                    "external_id": null,
+                                    "via": {
+                                        "channel": "api",
+                                        "source": {
+                                            "rel": null
+                                        }
+                                    },
+                                    "created_at": "2023-09-11T21:15:11Z",
+                                    "updated_at": "2023-09-11T21:15:11Z",
+                                    "type": "task",
+                                    "subject": "HF old Prod Test Ticket 236",
+                                    "raw_subject": "HF old Prod Test Ticket 236",
+                                    "description": "HF old Prod Test Ticket 236",
+                                    "priority": "urgent",
+                                    "status": "open",
+                                    "recipient": null,
+                                    "requester_id": 1473313072,
+                                    "submitter_id": 1473313072,
+                                    "assignee_id": 1473313072,
+                                    "organization_id": null,
+                                    "group_id": 25032922,
+                                    "collaborator_ids": [],
+                                    "follower_ids": [],
+                                    "email_cc_ids": [],
+                                    "forum_topic_id": null,
+                                    "problem_id": null,
+                                    "has_incidents": false,
+                                    "is_public": true,
+                                    "due_at": null,
+                                    "tags": [
+                                        "true"
+                                    ],
+                                    "custom_fields": [
+                                        {
+                                            "id": 4485575108882,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24838175,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 360005417319,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 32855665,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 360021374599,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 26700425,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24786059,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 25373679,
+                                            "value": null
+                                        }
+                                    ],
+                                    "satisfaction_rating": null,
+                                    "sharing_agreement_ids": [],
+                                    "fields": [
+                                        {
+                                            "id": 4485575108882,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24838175,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 360005417319,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 32855665,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 360021374599,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 26700425,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 24786059,
+                                            "value": null
+                                        },
+                                        {
+                                            "id": 25373679,
+                                            "value": null
+                                        }
+                                    ],
+                                    "followup_ids": [],
+                                    "brand_id": 611742,
+                                    "allow_channelback": false,
+                                    "allow_attachments": true,
+                                    "from_messaging_channel": false
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "http": {
+                    "relativeURI": "/tickets",
+                    "method": "GET",
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "tickets"
+                    }
+                },
+                "rawData": "6459f5dc0dee1b3f6ca7a4bd380a8e3fdbc54d73a3a1dbdef88efbb2",
+                "test": {
+                    "limit": 5
+                },
+                "transform": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [
+                            []
+                        ],
+                        "rulesTwoDotZero": {
+                            "mappings": [
+                                {
+                                    "generate": "URL",
+                                    "dataType": "stringarray",
+                                    "status": "Active",
+                                    "buildArrayHelper": [
+                                        {
+                                            "extract": "$[*].url",
+                                            "sourceDataType": "string"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "generate": "ID",
+                                    "dataType": "numberarray",
+                                    "status": "Active",
+                                    "buildArrayHelper": [
+                                        {
+                                            "extract": "$[*].id",
+                                            "sourceDataType": "number"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "generate": "SUBJECT",
+                                    "dataType": "stringarray",
+                                    "status": "Active",
+                                    "buildArrayHelper": [
+                                        {
+                                            "extract": "$[*].subject",
+                                            "sourceDataType": "string"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "mode": "create"
+                        },
+                        "version": "2"
+                    },
+                    "rules": [
+                        []
+                    ],
+                    "version": "2"
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "_id": "6576d3d2bbd91a74cb2c8cf5",
+                "name": "FTP Import",
+                "sampleData": {
+                    "attributes": {
+                        "type": "Contact",
+                        "url": "/services/data/v54.0/sobjects/Contact/0032w00000xoFpDAAU"
+                    },
+                    "Id": "0032w00000xoFpDAAU",
+                    "Name": "Andy Young"
+                },
+                "mockResponse": [
+                    {
+                        "id": "1234567890",
+                        "errors": [],
+                        "_json": {
+                            "id": "1234567890",
+                            "mockResponse": "replace me"
+                        },
+                        "statusCode": 200,
+                        "ignored": false,
+                        "dataURI": "",
+                        "_headers": {
+                            "content-type": "application/json; charset=utf-8"
+                        }
+                    }
+                ],
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "ia253aefaf",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "file-{{timestamp}}.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "/Group-QA/ShritiS/Import",
+                    "fileName": "file-{{timestamp}}.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ],
+    "createFlow": {
+        "_id": "652e15d26819f54a81ada56f",
+        "name": "FTP to FTP with Tx",
+        "disabled": true,
+        "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID",
+                "skipRetries": false
+            }
+        ],
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "autoResolveMatchingTraceKeys": true
+    }
+}

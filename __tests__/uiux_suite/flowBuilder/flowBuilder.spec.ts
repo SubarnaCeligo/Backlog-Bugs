@@ -101,11 +101,14 @@ var testCases = [
   "C113934",
   "C120220_C120111_C120110_C120109_C120108_C120107_C120105_C120104_C120103_C120102",
   "C120101_C120098_C120097_C120096",
-  "C120112"
-  
+  "C120112",
+  "C120099"
+
 
 ];
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
 (async () => {
   await filterTestCases(testCases, flakycases, "flowBuilder");
 })();
+
+require("./mariadb_3");
