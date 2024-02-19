@@ -55,9 +55,11 @@ const askFeatureQuestion = () => {
                 "flowbranching",
                 "MFA",
                 "APIM",
+                "HTTP2DOT0",
                 "manage_suite",
                 "monitor_suite",
                 "CeligoAI"
+                
             ],
             message: "Please Select A Feature:",
         }
