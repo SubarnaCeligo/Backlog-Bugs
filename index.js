@@ -51,6 +51,7 @@ const askFeatureQuestion = () => {
             choices: [
                 "connections",
                 "e2e_flows",
+                "integrationApps",
                 "uiux_suite",
                 "transferSBflow",
                 "transfer",

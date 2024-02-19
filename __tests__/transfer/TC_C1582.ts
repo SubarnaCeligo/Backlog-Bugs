@@ -3,10 +3,10 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "./C1582.json";
  
 
-test.describe(`C2255_C2288_C2290_C2284_C2289_C2291_C2445 Transfer Account Ownership between users`, () => {
+test.describe(`C1582 Verify,When two integrations have same connections, when trying to transfer one integration, it must provide a validation that the same connection is used in another integration`, () => {
 
    
-  test(` Transfer Account Ownership between users`, async ({
+  test(`C1582 Verify,When two integrations have same connections, when trying to transfer one integration, it must provide a validation that the same connection is used in another integration`, async ({
     page,
     io
   }) => {

@@ -10,7 +10,7 @@ test.describe.skip(
     }) => {
       await io.homePage.navigateTo(
         process.env.IO_UI_CONNECTOR_URL +
-          "accept-invite:token?email=" +
+          "request-reset?email=" +
           process.env.IO_EMAIL_ACCOUNT
       );
       await io.homePage.click(selectors.basePagePO.SUBMIT);
@@ -20,7 +20,7 @@ test.describe.skip(
       await io.homePage.navigateTo(link.toString());
       await io.assert.verifyElementDisplayedByText(
         "You already have an active session running.",
-        "SPlease signout from the account and try again."
+        "Please signout from the account and try again."
       );
     });
   }
