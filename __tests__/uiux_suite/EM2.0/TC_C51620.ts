@@ -5,7 +5,7 @@ test.describe("TC_C51620 Verify the tooltip for the 'Actions' icon in the Curren
   test("C51620 Verify the tooltip for the 'Actions' icon in the Current View", async ({
     io
   }) => {
-    await await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+    await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.clickByText("TC_C51620_Flow_DND");
     await io.flowBuilder.loadingTime();
