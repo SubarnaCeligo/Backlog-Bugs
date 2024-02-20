@@ -52,6 +52,7 @@ const askFeatureQuestion = () => {
                 "connections",
                 "e2e_flows",
                 "uiux_suite",
+                "agent_db_suite",
                 "flowbranching",
                 "MFA",
                 "APIM",
