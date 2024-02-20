@@ -11,9 +11,9 @@ test.describe(`TC_C41561 To verify create pull button is not displayed under "Re
   }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.clickByText("Revisions");
-    const createPullBottonLocator = await page.locator(
-      selectors.integrationPagePO.CREATE_PULL
+    await io.assert.checkElementState(
+      selectors.integrationPagePO.CREATE_PULL,
+      "isHidden"
     );
-    await expect(createPullBottonLocator).toBeHidden();
   });
 });

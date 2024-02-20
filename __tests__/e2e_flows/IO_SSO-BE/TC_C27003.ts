@@ -10,8 +10,11 @@ test.describe("E2E Flows", () => {
     await test.step("*** GET /profile and validate ***", async () => {
       const profileResponse = await io.api.getCall("api/profile");
       await io.flowBuilder.loadingTime();
-      const profileResponseKeys = await Object.keys(profileResponse);
-      await expect(profileResponseKeys).toContain("authTypeSSO");
+      await io.assert.expectToContainValue(
+        "authTypeSSO",
+        profileResponse,
+        "authType SSO key is not present in Profile response"
+      );
     });
   });
 });

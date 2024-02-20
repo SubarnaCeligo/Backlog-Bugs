@@ -21,16 +21,13 @@ test.describe("C108690 Verify the save and close buttons once we edit any flow",
       selectors.basePagePO.INPUT_NAME_SELECTOR,
       "TC_C108690 Export1"
     );
-    const notificationErrorMessage = await page.locator(
-      selectors.flowBuilderPagePO.EXPORT_NOTIFICATION_ERROR_MESSAGE
-    );
-    const notificationErrorText = await notificationErrorMessage.innerText();
-    await expect(notificationErrorText).toBe(
+    await io.assert.verifyElementText(
+      selectors.flowBuilderPagePO.EXPORT_NOTIFICATION_ERROR_MESSAGE,
       "Making edits to a flow (including modifying a step, changing step options, changing the test run source, or reordering steps) will clear all test results.\nRun a new test after making edits to see accurate results."
     );
-    const saveCloseButton = await page.locator(
-      selectors.basePagePO.SAVE_AND_CLOSE
+    await io.assert.checkElementState(
+      selectors.basePagePO.SAVE_AND_CLOSE,
+      "isEnabled"
     );
-    await expect(saveCloseButton).toBeEnabled();
   });
 });

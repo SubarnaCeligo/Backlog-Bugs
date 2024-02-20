@@ -20,10 +20,10 @@ test.describe(`TC_C41543 To verify create pull button is displayed under "Revisi
     await io.flowBuilder.click(selectors.homePagePO.CLONE_INTEGRATION_BUTTON);
     await io.flowBuilder.click(selectors.basePagePO.INSTALL);
     await io.flowBuilder.clickByText("Revisions");
-    const createPullButton = await page.locator(
-      selectors.integrationPagePO.CREATE_PULL
+    await io.assert.verifyElementIsDisplayed(
+      selectors.integrationPagePO.CREATE_PULL,
+      "Element is not displayed properly"
     );
-    await expect(createPullButton).toBeVisible();
     await io.flowBuilder.click(selectors.homePagePO.DELETE_INTEGRATION);
     await io.flowBuilder.click(selectors.basePagePO.DELETE);
     await io.flowBuilder.clickByText("TC_C41543 Integration");
