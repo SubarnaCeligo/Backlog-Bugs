@@ -30,7 +30,7 @@ test.describe("C118388_C118394 -Verify batch reassign feature when errors assign
     await io.flowBuilder.clickByText('Assign to me');
     await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL);
     await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX, 1);
-    // await page.pause();
+    
     //Assign one error to a another user who has access to integration
     await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX, 2);
     await io.flowBuilder.click(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
