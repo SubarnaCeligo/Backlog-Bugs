@@ -12,8 +12,8 @@ test.describe(
     }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.clickByText("Mapper1 IA")
-        await io.flowBuilder.waitForElementAttached('[data-test="importMapping"]')
-        await io.flowBuilder.click('[data-test="importMapping"]')
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.IMPORT_MAPPINGS)
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS)
         
         const mqpper2field = await io.flowBuilder.isVisible('text="Refresh fields"')
         await io.assert.expectToBeValue(mqpper2field.toString(), "false", "Refresh fields not present in IA")   

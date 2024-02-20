@@ -12,8 +12,8 @@ test.describe(
     }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.clickByText("Mapper2 IA")
-        await io.flowBuilder.waitForElementAttached('[data-test="importMapping"]')
-        await io.flowBuilder.click('[data-test="importMapping"]')
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.IMPORT_MAPPINGS)
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS)
         
         const element = await page.$('.MuiToggleButtonGroup-root button[data-test="Mapper 1.0"]');
         expect(element).toBeNull();

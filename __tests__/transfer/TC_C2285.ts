@@ -15,8 +15,7 @@ test.describe(`C2285  Verify : If the account sharing is disabled for the user t
       testData,
        
     );
-    console.log(res.errors[0].message,"res");
-    await expect(res.errors[0].message).toBe('Cannot transfer account ownership to selected user as he is part of multiple organizations.');
+    await io.assert.expectToBeValue(res.errors[0].message,'Cannot transfer account ownership to selected user as he is part of multiple organizations.',"message doesn't match")
 
   });
 });

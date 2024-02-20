@@ -15,25 +15,24 @@ test.describe(`C2255_C2288_C2290_C2284_C2289_C2291_C2445 Transfer Account Owners
       testData,
        
     );
-    console.log(res,"res")
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await page.reload();
-    await io.homePage.click('[aria-label="notifications"]')
+    await  io.homePage.reloadPage();
+    await io.homePage.click(selectors.basePagePO.NOTIFICATION_ARIA_LABEL)
     await io.homePage.click('[data-test="accept transfer share"]')
-    await page.reload();
+    await  io.homePage.reloadPage();
     await io.homePage.waitForElementAttached('.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-colorInherit.MuiIconButton-sizeSmall')
     await io.homePage.clickByIndex('.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-colorInherit.MuiIconButton-sizeSmall',1)
     //C2255  Transfer Account Ownership between users
-    await io.assert.verifyElementIsDisplayed('[data-test="Subscription"]', "Acount ownership is not transferred successfully")
+    await io.assert.verifyElementIsDisplayed(selectors.myAccountPagePO.SUBSCRIPTION, "Acount ownership is not transferred successfully")
 
     // C2445 Verify the newly signed up user is able to access integration tiles/whole account once he accepts the account ownership.(without navigating to profile page)
-    await io.assert.verifyElementIsDisplayed('[data-test="Audit log"]', "Acount ownership is not transferred successfully")
-    await io.assert.verifyElementIsDisplayed('[data-test="Users"]', "Acount ownership is not transferred successfully")
-    await io.assert.verifyElementIsDisplayed('[data-test="Transfers"]', "Acount ownership is not transferred successfully")
+    await io.assert.verifyElementIsDisplayed(selectors.myAccountPagePO.AUDIT_LOG, "Acount ownership is not transferred successfully")
+    await io.assert.verifyElementIsDisplayed(selectors.myAccountPagePO.USERS, "Acount ownership is not transferred successfully")
+    await io.assert.verifyElementIsDisplayed(selectors.myAccountPagePO.TRANSFERTAB, "Acount ownership is not transferred successfully")
     
    //C2288 Fields to be verified: After the account transfer is done, the following fields should be intact in both user accounts. fields: name, email, password, role, phone, time zone, developer, sign in with google id and email.
-    await io.homePage.click('[data-test="Profile"]')
-    await io.assert.verifyElementIsDisplayed('[for="phone"]', "Acount ownership is not transferred successfully")
+    await io.homePage.click(selectors.myAccountPagePO.PROFILE)
+    await io.assert.verifyElementIsDisplayed(selectors.myAccountPagePO.PHONEFIELD, "Acount ownership is not transferred successfully")
     await io.assert.verifyElementIsDisplayed('[for="name"]', "Acount ownership is not transferred successfully")
     await io.assert.verifyElementIsDisplayed('[for="password"]', "Acount ownership is not transferred successfully")
     await io.assert.verifyElementIsDisplayed('[for="company"]', "Acount ownership is not transferred successfully")
@@ -43,11 +42,11 @@ test.describe(`C2255_C2288_C2290_C2284_C2289_C2291_C2445 Transfer Account Owners
 
 
     //C2289 Verify that company field:If the old owner doesn't have any value for this field then both users will not have any value for this field after account transfer.
-    const roleText = await io.myAccountPage.getText('[name="role"]')
+    const roleText = await io.myAccountPage.getText(selectors.myAccountPagePO.ROLEFIELD)
     await expect(roleText).toBe("");
 
     //C2284 Verify1) Account transfer is only allowed between users of same organisation 2) The user to whom the account is being transfer should not be part of multiple organisations
-    await io.homePage.click('[data-test="Users"]')
+    await io.homePage.click(selectors.myAccountPagePO.USERS)
 
 
       const locator1 = await io.homePage.isVisible('text="Owner"');
@@ -69,20 +68,20 @@ test.describe(`C2255_C2288_C2290_C2284_C2289_C2291_C2445 Transfer Account Owners
       await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
       await io.homePage.waitForElementAttached('.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-colorInherit.MuiIconButton-sizeSmall')
       await io.homePage.clickByIndex('.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-colorInherit.MuiIconButton-sizeSmall',1)
-      await io.homePage.click('[data-test="signOut"]');
+      await io.homePage.click(selectors.basePagePO.SIGN_OUT);
       await io.homePage.waitForElementAttached('[type= "Email"]');
       await io.homePage.click('[type= "Email"]')
       await io.homePage.fill('[type= "Email"]', "sai.phanindra.godavarthi+owner@celigo.com")
       await io.homePage.waitForElementAttached('[placeholder="Password*"]');
       await io.homePage.click('[placeholder="Password*"]')
       await io.homePage.fill('[placeholder="Password*"]', "$vH9nO&mEY1r!RHd");
-      await io.homePage.click('[data-test="submit"]')
+      await io.homePage.click(selectors.basePagePO.SUBMIT)
       await io.homePage.waitForElementAttached('.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-colorInherit.MuiIconButton-sizeSmall')
       await io.homePage.clickByIndex('.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-colorInherit.MuiIconButton-sizeSmall',1)
       await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL); 
-      await io.homePage.waitForElementAttached('[aria-label="notifications"]')
-      await io.homePage.click('[aria-label="notifications"]')
+      await io.homePage.waitForElementAttached(selectors.basePagePO.NOTIFICATION_ARIA_LABEL)
+      await io.homePage.click(selectors.basePagePO.NOTIFICATION_ARIA_LABEL)
       await io.homePage.click('[data-test="accept transfer share"]')
-      await page.reload();
+      await  io.homePage.reloadPage();
   });
 });

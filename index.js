@@ -52,6 +52,7 @@ const askFeatureQuestion = () => {
                 "connections",
                 "e2e_flows",
                 "integrationApps",
+                "licenseExpired",
                 "uiux_suite",
                 "transferSBflow",
                 "transfer",

@@ -12,18 +12,19 @@ test.describe(
        await io.homePage.waitForElementAttached('.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-colorInherit.MuiIconButton-sizeSmall')
        await io.homePage.clickByIndex('.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-colorInherit.MuiIconButton-sizeSmall',1)
        
-       await io.homePage.click('[data-test="Users"]')
+       await io.homePage.click(selectors.myAccountPagePO.USERS)
        await io.myAccountPage.clickByText('Invite user')
 
-        await io.myAccountPage.waitForElementAttached('#accountMFARequired')       
+        await io.myAccountPage.waitForElementAttached(selectors.myAccountPagePO.ACCOUNT_MFA_REQUIRED)       
         // Find the "Require MFA" toggle element
-        const mfaToggle = await page.$('#accountMFARequired');
+        const mfaToggle = await page.$(selectors.myAccountPagePO.ACCOUNT_MFA_REQUIRED);
 
         // Check if the toggle is unchecked
         const isChecked = await mfaToggle.$eval('input', input => input.checked);
 
         // Assert that the toggle is unchecked
         expect(isChecked).toBeFalsy();
+
 
     });
   }

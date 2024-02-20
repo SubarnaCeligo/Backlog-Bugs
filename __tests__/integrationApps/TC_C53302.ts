@@ -12,14 +12,14 @@ test.describe(
     }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.clickByText("Mapper2 IA")
-        await io.flowBuilder.waitForElementAttached('[data-test="importMapping"]')
-        await io.flowBuilder.click('[data-test="importMapping"]')
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.IMPORT_MAPPINGS)
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS)
         
         const mqpper2field = await io.flowBuilder.isVisible('text="Refresh fields"')
         await io.assert.expectToBeValue(mqpper2field.toString(), "true", "Refresh fields not present in IA")   
         const mqpper2button = await io.flowBuilder.isVisible('text="Mapper1.0"')
         await io.assert.expectToBeValue(mqpper2button.toString(), "false", "Mapper1.0 present present in IA")   
-        await io.assert.verifyElementIsDisplayed('[data-test="mapper2Guide"]', "Mapeer2.0 is visible")
+        await io.assert.verifyElementIsDisplayed(selectors.mappings.MAPPER2DOT0PO.MAPPER2GUIDE, "Mapeer2.0 is visible")
 
     });
   }
