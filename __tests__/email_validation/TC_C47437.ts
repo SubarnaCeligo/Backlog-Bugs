@@ -1,26 +1,45 @@
-import { test } from "@celigo/ui-core-automation";
+import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C22305 from '../../testData/inputData/email_validations/C22305.json'
+import { randomString, randomNumber } from "@celigo/aut-utilities";
+import { decrypt } from "@celigo/aut-utilities";
 
-test.describe("C47437  ", () => {
+test.describe("C47437", () => {
+  test("C47437", async ({
+    io,
+    page
+  }) => {
+    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.clickByText("Abctest1-DND")
+    await io.flowBuilder.waitForElementAttached('[data-test="Notifications"]')
+    await io.flowBuilder.click('[data-test="Notifications"]')
+    await io.flowBuilder.click('[data-test="connections"]')
+    await page.locator('#menu-connections').getByText('ftp con').click()
+    await io.flowBuilder.click('[data-test="closeSelect"]')
+    await io.flowBuilder.click('[data-test="Save"]')
+    await io.flowBuilder.waitForElementAttached('[data-test="Connections"]')
+    await io.homePage.click('[data-test="Connections"]')
+    await io.connectionPage.clickByText("ftp con")
+    await io.connectionPage.fill('[name="/ftp/password"]', "test")
+    await io.connectionPage.click('[data-test="saveAndClose"]')
+    await io.connectionPage.click('[data-test="Save"]')
+    await io.connectionPage.clickByText("ftp con")
+    await io.connectionPage.fill('[name="/ftp/password"]', "w6jZ^DO9@HRUtA5f")
+    await io.connectionPage.click('[data-test="saveAndClose"]')
+     
+     
+    await io.flowBuilder.delay(20000);
+    const res = await io.emailVal.getLinkFromEmail("[staging.integrator.io] connection is offline: ftp con",true, "pwqa1");
+    await io.assert.expectNotToBeNull(res, "email is not working")
     
 
-    test("C47437  ", async ({io, page}) => {
-      const id = await io.createResourceFromAPI(C22305, "FLOWS");
-       
-      await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_SETTINGS);
-      await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_SETTINGS);
-      await page.pause()
-      // await io.flowBuilder.click(`${selectors.flowBuilderPagePO.NOTIFY_ME_ON_FLOW_ERROR} ${selectors.basePagePO.VALUE_TRUE}`);
-      // await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
-      // await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
-      // const lastRun = page.getByText('Last run');
-      // await lastRun.waitFor({state: 'visible', timeout: 180000});
-      // await io.flowBuilder.delay(1000 * 60 * 15);
-      // const res = await io.emailVal.getLinkFromEmail("1 new error: TC_C22305",true);
-      // await io.homePage.navigateTo(res[2].split('>')[0]);
-      // await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
-      // await io.myAccountPage.waitForElementAttached(selectors.loginPagePO.EMAIL_ID)
-      // await io.assert.verifyElementAttribute(`input${selectors.loginPagePO.EMAIL_ID}`, 'value', 'qaautomation1@celigo.com');
-    });
+    await io.flowBuilder.waitForElementAttached('[data-test="Notifications"]')
+    await io.flowBuilder.click('[data-test="Notifications"]')
+    await io.flowBuilder.click('[data-test="connections"]')
+    await page.locator('#menu-connections').getByText('ftp con').click()
+    await io.flowBuilder.click('[data-test="closeSelect"]')
+    await io.flowBuilder.click('[data-test="Save"]')
+ 
+ 
+ 
   });
+});
