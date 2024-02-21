@@ -7,13 +7,15 @@ test.describe("TC_C59779 Verify the hyperlinks for Terms of Service / Service Su
     page
   }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-    let AccountTab = ".MuiToolbar-root .MuiSvgIcon-root";
-    await io.homePage.waitForElementAttached(AccountTab);
+    await io.homePage.waitForElementAttached(
+      selectors.basePagePO.ACCOUNT_SELECTOR
+    );
     const isLoggedIn = await io.loginPage.checkLoginState();
-    let AccountTab1 = await page.$$(".MuiToolbar-root .MuiSvgIcon-root");
-    let last = AccountTab1.length - 1;
     if (!isLoggedIn) {
-      await io.myAccountPage.clickByIndex(AccountTab, last);
+      await io.myAccountPage.clickByIndex(
+        selectors.basePagePO.ACCOUNT_SELECTOR,
+        1
+      );
       await io.homePage.click(selectors.basePagePO.SIGN_OUT);
     }
     await io.flowBuilder.loadingTime();
@@ -31,12 +33,7 @@ test.describe("TC_C59779 Verify the hyperlinks for Terms of Service / Service Su
     await io.homePage.switchWindow();
     await io.flowBuilder.clickByText("Privacy Policy");
     await io.flowBuilder.loadingTime();
-    await io.flowBuilder.loadingTime();
-    await io.flowBuilder.loadingTime();
-    await io.flowBuilder.loadingTime();
     const page2 = await io.homePage.switchWindow();
-    await io.flowBuilder.loadingTime();
-    await io.flowBuilder.loadingTime();
     await io.flowBuilder.loadingTime();
     expect((await page2.title()).toString()).toBe(
       "Celigo Privacy and Cookie Policy - Celigo"
