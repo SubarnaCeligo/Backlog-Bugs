@@ -45,7 +45,7 @@ test.describe("C118395_C118396 - Verify batch unassignment for errors assigned t
     await io.flowBuilder.clickByText('Clear assignment');
     await io.flowBuilder.reloadPage();
 
-    const assigneePillVisible = await page.isVisible(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL);
+    const assigneePillVisible = await io.flowBuilder.isVisible(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL);
     await io.assert.expectToBeFalse(assigneePillVisible, 'Assignee pill is not removed after unassignment');
 
 

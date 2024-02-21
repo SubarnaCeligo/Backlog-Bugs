@@ -51,7 +51,7 @@ test.describe("C118397 - Verify batch unassign feature when errors assigned to m
     await io.flowBuilder.reloadPage();
 
     //Verify if assignee is removed
-    const assigneePillVisible = await page.isVisible(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL);
+    const assigneePillVisible = await io.flowBuilder.isVisible(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL);
     await io.assert.expectToBeFalse(assigneePillVisible, 'Assignee pill is not removed after unassignment');
 
   });

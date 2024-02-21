@@ -59,7 +59,7 @@ test.describe("C118302 - Verify the assignee pill when the user is removed from 
    //Reload the page and check if the user email pill is still visible.
    await io.flowBuilder.addStep("Validating pill after removing user from account");
    await io.flowBuilder.reloadPage();
-   const assigneePillVisible = await page.isVisible(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL);
+   const assigneePillVisible = await io.flowBuilder.isVisible(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL);
    await io.assert.expectToBeFalse(assigneePillVisible, 'Assignee pill is not removed after user is removed from account');
 
  });
