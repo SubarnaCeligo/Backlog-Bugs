@@ -1,0 +1,14 @@
+{
+    "_id": "65d0c1fef58d1be858d43bed",
+    "emails": [
+        "io.auto.qa+remintaccess@celigo.com"
+    ],
+    "integrationAccessLevel": [
+        {
+            "_integrationId": "65ce36df5dea6f451c362846",
+            "accessLevel": "manage"
+        }
+    ],
+    "accountSSORequired": false,
+    "accountMFARequired": false
+}
