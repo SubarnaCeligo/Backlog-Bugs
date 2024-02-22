@@ -10,21 +10,21 @@ test.describe("C47437", () => {
   }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.clickByText("Abctest1-DND")
-    await io.flowBuilder.waitForElementAttached('[data-test="Notifications"]')
-    await io.flowBuilder.click('[data-test="Notifications"]')
-    await io.flowBuilder.click('[data-test="connections"]')
+    await io.flowBuilder.waitForElementAttached(selectors.integrationPagePO.NOTIFICATIONS_TAB)
+    await io.flowBuilder.click(selectors.integrationPagePO.NOTIFICATIONS_TAB)
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CONNECTIONS_TAB)
     await page.locator('#menu-connections').getByText('ftp con').click()
-    await io.flowBuilder.click('[data-test="closeSelect"]')
-    await io.flowBuilder.click('[data-test="Save"]')
-    await io.flowBuilder.waitForElementAttached('[data-test="Connections"]')
-    await io.homePage.click('[data-test="Connections"]')
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.NOTIFICATION_CLOSE_SELECT)
+    await io.flowBuilder.click(selectors.basePagePO.MFA_SAVE)
+    await io.flowBuilder.waitForElementAttached(selectors.basePagePO.CONNECTIONS)
+    await io.homePage.click(selectors.basePagePO.CONNECTIONS)
     await io.connectionPage.clickByText("ftp con")
-    await io.connectionPage.fill('[name="/ftp/password"]', "test")
-    await io.connectionPage.click('[data-test="saveAndClose"]')
-    await io.connectionPage.click('[data-test="Save"]')
+    await io.connectionPage.fill(selectors.basePagePO.FTP_PASSWORD, "test")
+    await io.connectionPage.click(selectors.mappings.MAPPER2DOT0PO.SAVEANDCLOSE)
+    await io.connectionPage.click(selectors.basePagePO.MFA_SAVE)
     await io.connectionPage.clickByText("ftp con")
-    await io.connectionPage.fill('[name="/ftp/password"]', "w6jZ^DO9@HRUtA5f")
-    await io.connectionPage.click('[data-test="saveAndClose"]')
+    await io.connectionPage.fill(selectors.basePagePO.FTP_PASSWORD, "w6jZ^DO9@HRUtA5f")
+    await io.connectionPage.click(selectors.mappings.MAPPER2DOT0PO.SAVEANDCLOSE)
      
      
     await io.flowBuilder.delay(20000);
@@ -32,12 +32,12 @@ test.describe("C47437", () => {
     await io.assert.expectNotToBeNull(res, "email is not working")
     
 
-    await io.flowBuilder.waitForElementAttached('[data-test="Notifications"]')
-    await io.flowBuilder.click('[data-test="Notifications"]')
-    await io.flowBuilder.click('[data-test="connections"]')
+    await io.flowBuilder.waitForElementAttached(selectors.integrationPagePO.NOTIFICATIONS_TAB)
+    await io.flowBuilder.click(selectors.integrationPagePO.NOTIFICATIONS_TAB)
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CONNECTIONS_TAB)
     await page.locator('#menu-connections').getByText('ftp con').click()
-    await io.flowBuilder.click('[data-test="closeSelect"]')
-    await io.flowBuilder.click('[data-test="Save"]')
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.NOTIFICATION_CLOSE_SELECT)
+    await io.flowBuilder.click(selectors.basePagePO.MFA_SAVE)
  
  
  

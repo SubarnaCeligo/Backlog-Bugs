@@ -10,10 +10,10 @@ test.describe("C61361 Verify that there shouldnt be any popup message saying Sta
   }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(
-      ".MuiButtonBase-root.MuiIconButton-root.MuiIconButton-colorInherit.MuiIconButton-sizeSmall"
+      selectors.basePagePO.ACCOUNT_SELECTOR
     );
     await io.homePage.clickByIndex(
-      ".MuiButtonBase-root.MuiIconButton-root.MuiIconButton-colorInherit.MuiIconButton-sizeSmall",
+      selectors.basePagePO.ACCOUNT_SELECTOR,
       1
     );
     await io.homePage.click(selectors.basePagePO.SIGN_OUT);
@@ -36,7 +36,7 @@ test.describe("C61361 Verify that there shouldnt be any popup message saying Sta
     const regex = /home$/;
     await page.waitForURL(regex);
     await io.homePage.delay(10000);
-    await io.homePage.waitForElementAttached(".MuiButtonBase-root.MuiIconButton-root.MuiIconButton-colorInherit.MuiIconButton-sizeSmall")
+    await io.homePage.waitForElementAttached( selectors.basePagePO.ACCOUNT_SELECTOR)
     const msg =await io.homePage.isVisible("text='Start free trail now to experience optimal process automation for your business with full access to integrator.io . For 30 days, the unlimited flow trial gives you'")
     await io.assert.expectToBeValue(msg.toString(),"false", "above msg is popped up");
   });

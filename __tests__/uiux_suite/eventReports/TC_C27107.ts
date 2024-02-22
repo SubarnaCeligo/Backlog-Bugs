@@ -12,10 +12,10 @@ test.describe(`C27107  Run report drawer - ‘Child integrations’ multi-select
     );
      
     await io.homePage.clickByText("Run report");
-    await io.flowBuilder.click('[id ="mui-component-select-/integration"]');
+    await io.flowBuilder.click(selectors.basePagePO.CHOOSEINTEGRATIONFORREPORT);
     await io.flowBuilder.waitForElementAttached('text="Payout to Reconciliation"');
     await io.flowBuilder.click('text="Payout to Reconciliation"');
-    await io.flowBuilder.click('[id="mui-component-select-/childIntegrations"]');
+    await io.flowBuilder.click(selectors.basePagePO.CHOOSECHILDINTEGRATIONFORREPORT);
     const selectAll = await io.flowBuilder.isVisible('text="Select All"');
     await io.assert.expectToBeValue(selectAll.toString(), "true", "Select All is not present in the dropdown");
 

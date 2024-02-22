@@ -15,7 +15,7 @@ test.describe(
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.IMPORT_MAPPINGS)
         await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS)
         
-        const element = await page.$('.MuiToggleButtonGroup-root button[data-test="Mapper 1.0"]');
+        const element = await page.$(selectors.flowBuilderPagePO.MAPPER1TOGGLEBUTTON);
         expect(element).toBeNull();
 
     });

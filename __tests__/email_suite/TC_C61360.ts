@@ -36,7 +36,7 @@ test.describe("C61360  Verify that there shouldn't be any Get Unlimited flows bu
     const regex = /home$/;
     await page.waitForURL(regex);
     await io.homePage.delay(10000);
-    await io.homePage.waitForElementAttached(".MuiButtonBase-root.MuiIconButton-root.MuiIconButton-colorInherit.MuiIconButton-sizeSmall")
+    await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_SELECTOR)
     const msg =await io.homePage.isVisible("text='Get Unlimited flows'")
     await io.assert.expectToBeValue(msg.toString(),"false", "above msg is popped up");
   });
