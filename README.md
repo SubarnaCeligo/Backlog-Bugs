@@ -32,7 +32,7 @@ Example: npm i --save-dev @celigo/aut-selectors@latest
 - **Parallel execution**: Execute tests in parallel, significantly reducing the overall test execution time.
 - **Rerun only failed features**: Quickly rerun only the tests that failed in the previous run, saving time and resources.
 - **Retry failed tests on CI**: Automatically retry failed tests on Continuous Integration (CI) systems to minimize test flakiness.
-- **Page Object Model**: Utilize the Page Object Model design pattern to create maintainable and reusable test code.
+- **Page Object Model**: Utilize the Page Object Model design pattern to create maintainable and reusable test codes.
 - **Visual regression tests**: Perform visual regression testing to catch UI discrepancies and ensure consistent user experiences.
 
 
