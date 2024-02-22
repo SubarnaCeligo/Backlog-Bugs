@@ -13,7 +13,7 @@ test.describe("C47437", () => {
     await io.flowBuilder.waitForElementAttached(selectors.integrationPagePO.NOTIFICATIONS_TAB)
     await io.flowBuilder.click(selectors.integrationPagePO.NOTIFICATIONS_TAB)
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CONNECTIONS_TAB)
-    await page.locator('#menu-connections').getByText('ftp con').click()
+    await page.locator(selectors.basePagePO.MENUCONNECTIONS).getByText('ftp con').click()
     await io.flowBuilder.click(selectors.flowBuilderPagePO.NOTIFICATION_CLOSE_SELECT)
     await io.flowBuilder.click(selectors.basePagePO.MFA_SAVE)
     await io.flowBuilder.waitForElementAttached(selectors.basePagePO.CONNECTIONS)
@@ -31,15 +31,14 @@ test.describe("C47437", () => {
     const res = await io.emailVal.getLinkFromEmail("[staging.integrator.io] connection is offline: ftp con",true, "pwqa1");
     await io.assert.expectNotToBeNull(res, "email is not working")
     
+    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
 
     await io.flowBuilder.waitForElementAttached(selectors.integrationPagePO.NOTIFICATIONS_TAB)
     await io.flowBuilder.click(selectors.integrationPagePO.NOTIFICATIONS_TAB)
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CONNECTIONS_TAB)
-    await page.locator('#menu-connections').getByText('ftp con').click()
+    await page.locator(selectors.basePagePO.MENUCONNECTIONS).getByText('ftp con').click()
     await io.flowBuilder.click(selectors.flowBuilderPagePO.NOTIFICATION_CLOSE_SELECT)
     await io.flowBuilder.click(selectors.basePagePO.MFA_SAVE)
- 
- 
  
   });
 });

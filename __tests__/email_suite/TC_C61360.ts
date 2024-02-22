@@ -22,7 +22,7 @@ test.describe("C61360  Verify that there shouldn't be any Get Unlimited flows bu
     let email = `qaautomation1+${randomString(5) + randomNumber(5)}@celigo.com`;
     await io.signInPage.fill(selectors.loginPagePO.EMAIL, email);
     await io.signInPage.fill(selectors.loginPagePO.COMPANY, "Celigo");
-    await io.signInPage.click('[data-test="agreeTOSAndPP"] input');
+    await io.signInPage.click(selectors.basePagePO.AGREETOSANDPP);
     await io.signInPage.click(selectors.loginPagePO.SIGN_UP_BUTTON);
     await io.signInPage.delay(20000);
     // @ts-ignore

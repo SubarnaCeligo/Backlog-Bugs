@@ -19,7 +19,7 @@ test.describe(`C27107  Run report drawer - ‘Child integrations’ multi-select
     const selectAll = await io.flowBuilder.isVisible('text="Select All"');
     await io.assert.expectToBeValue(selectAll.toString(), "true", "Select All is not present in the dropdown");
 
-    const listItemSelector = '.MuiList-root.MuiMenu-list li';
+    const listItemSelector =selectors.flowBuilderPagePO.LISTITEMSELECTOR;
     const listItems = await page.$$(listItemSelector);
     const textContents = [];
     for (let i = 1; i < listItems.length; i++) {
