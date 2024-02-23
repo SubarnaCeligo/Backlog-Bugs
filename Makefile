@@ -8,8 +8,6 @@ build:
 test:
 	ENV=$(ENV) \
 	FEATURE=$(FEATURE) \
-	AWS_ACCESS_KEY=$(AWS_ACCESS_KEY) \
-	AWS_SECRET_KEY=$(AWS_SECRET_KEY) \
 	npm run test:ci
 
 
