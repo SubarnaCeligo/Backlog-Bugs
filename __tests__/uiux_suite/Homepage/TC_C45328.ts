@@ -7,7 +7,7 @@ test.describe("C45328_Verify whether user is able to vote on features and add su
         await io.homePage.click(selectors.homePagePO.HELPER_MENU);
         await io.homePage.click(selectors.basePagePO.PRODUCTPORTAL);
         await io.homePage.loadingTime()
-        const iframe = page.frameLocator(selectors.homePagePO.PRODUCT_PORTAL);
+        const iframe = page.frameLocator(selectors.homePagePO.IFRAME_PRODUCT_PORTAL);
         await iframe.getByText("Submit idea").click();
         await iframe.locator(selectors.homePagePO.SUBMIT_IDEA_COMMENT).fill('Test')
         await iframe.getByText('Nice-to-have').click()
