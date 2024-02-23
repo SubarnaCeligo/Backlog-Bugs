@@ -1,6 +1,6 @@
 {
   "name": "playwright-ts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "playwright test framework for celigo ui/ux automation",
   "main": "index.js",
   "scripts": {
