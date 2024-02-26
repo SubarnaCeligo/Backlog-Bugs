@@ -1,10 +1,10 @@
 import { filterTestCases } from "@celigo/aut-utilities";
 var testCases = [
-  "C27103", 
-  "C27073",
-  "C27109"
+  "C107885",
+  "C107916",
+  "C21262",
 ];
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
 (async () => {
-  await filterTestCases(testCases, flakycases, "flowEventReports");
+  await filterTestCases(testCases, flakycases, "NS-FTP");
 })();
