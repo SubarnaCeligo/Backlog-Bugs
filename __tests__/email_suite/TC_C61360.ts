@@ -10,10 +10,10 @@ test.describe("C61360  Verify that there shouldn't be any Get Unlimited flows bu
   }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(
-      ".MuiButtonBase-root.MuiIconButton-root.MuiIconButton-colorInherit.MuiIconButton-sizeSmall"
+      selectors.basePagePO.ACCOUNT_SELECTOR
     );
     await io.homePage.clickByIndex(
-      ".MuiButtonBase-root.MuiIconButton-root.MuiIconButton-colorInherit.MuiIconButton-sizeSmall",
+      selectors.basePagePO.ACCOUNT_SELECTOR,
       1
     );
     await io.homePage.click(selectors.basePagePO.SIGN_OUT);

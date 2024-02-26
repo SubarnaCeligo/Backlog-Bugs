@@ -9,8 +9,8 @@ test.describe(
       page
     }) => {
        await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL)
-       await io.homePage.waitForElementAttached('.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-colorInherit.MuiIconButton-sizeSmall')
-       await io.homePage.clickByIndex('.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-colorInherit.MuiIconButton-sizeSmall',1)
+       await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_SELECTOR)
+       await io.homePage.clickByIndex(selectors.basePagePO.ACCOUNT_SELECTOR,1)
        
        await io.homePage.click(selectors.myAccountPagePO.USERS)
        await io.myAccountPage.clickByText('Invite user')

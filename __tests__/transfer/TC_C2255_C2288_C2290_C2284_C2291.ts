@@ -43,7 +43,7 @@ test.describe(`C2255_C2288_C2290_C2284_C2289_C2291_C2445 Transfer Account Owners
 
     //C2289 Verify that company field:If the old owner doesn't have any value for this field then both users will not have any value for this field after account transfer.
     const roleText = await io.myAccountPage.getText(selectors.myAccountPagePO.ROLEFIELD)
-    await expect(roleText).toBe("");
+    await io.assert.expectToBeValue(roleText.toString(), "", " field value is not empty")
 
     //C2284 Verify1) Account transfer is only allowed between users of same organisation 2) The user to whom the account is being transfer should not be part of multiple organisations
     await io.homePage.click(selectors.myAccountPagePO.USERS)
