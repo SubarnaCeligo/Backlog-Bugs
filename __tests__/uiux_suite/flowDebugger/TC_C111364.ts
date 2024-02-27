@@ -78,7 +78,7 @@ test.describe('C111364_C111365_C111367_C111368_C111370', () => {
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_SPECIFIC_SOURCE_DROPDOWN);
         await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.RUNTEST_BUTTON, 3);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
-        await io.flowBuilder.click('[aria-label="Zoom to fit"]');
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.MAP_ZOOM_TO_FIT);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT);
         await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.EXPORT, 1);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.VIEW_DEBUG_LOG);
