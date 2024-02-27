@@ -13,8 +13,8 @@ test.describe("C117448 Verify Filter is having Celigo AI", () => {
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR, 0);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_FILTER);
     //Verify Celigo AI are in collapsed state and disabled.
-    expect(page.locator(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR).nth(-1)).toHaveAttribute("aria-expanded","false");
-    expect(page.locator(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR).nth(-1)).toHaveAttribute("aria-disabled","true");
+    await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","false", 1);
+    await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-disabled","true", 1);
     
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
@@ -34,7 +34,7 @@ test.describe("C117448 Verify Filter is having Celigo AI", () => {
       "Celigo AI Placeholder is not displayed"
     )
     //Verify Celigo AI are in expand state. Explain button disabled  C117472
-    expect(page.locator(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR).nth(-1)).toHaveAttribute("aria-expanded","true");
+    await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","true", 1);
     const explainDisabled = await page.$$(selectors.flowBuilderPagePO.OPENAI.EXPLAIN_SELECTION);
     expect(await explainDisabled[0].getAttribute('class')).toContain('Mui-disabled');
 
@@ -197,8 +197,8 @@ test.describe("C117448 Verify Filter is having Celigo AI", () => {
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR, 1);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.INPUT_FILTER);
     //Verify Celigo AI are in collapsed state and disabled.
-    expect(page.locator(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR).nth(-1)).toHaveAttribute("aria-expanded","false");
-    expect(page.locator(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR).nth(-1)).toHaveAttribute("aria-disabled","true");
+    await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","false", 1);
+    await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-disabled","true", 1);
     
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
@@ -214,7 +214,7 @@ test.describe("C117448 Verify Filter is having Celigo AI", () => {
     await io.flowBuilder.clickByText('Filter editor');
     await io.flowBuilder.clickByText('Simple JSON record');
     //Verify Celigo AI are in collapsed state. 
-    expect(page.locator(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR).nth(-1)).toHaveAttribute("aria-expanded","false");
+    await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","false", 1);
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
       "Celigo AI is not displayed"
