@@ -1,8 +1,14 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import C115343 from "@testData/FlowDebugger/C115343.json"
+import playload from "@testData/profile/updatePreference.json"
 
 test.describe('C115343', () => {
+    test.beforeEach(async ({ io }) => {
+        //Set relative timestamp to true
+        playload.showRelativeDateTime = true;
+        const resp = await io.api.putCall('v1/preferences',playload);
+    });
     test('C115343 Verify [UX] Test run debug log page not showing properly aligned', async ({ io, page }) => {
         const id = await io.createResourceFromAPI(C115343, "FLOWS");
         //Disable the flow

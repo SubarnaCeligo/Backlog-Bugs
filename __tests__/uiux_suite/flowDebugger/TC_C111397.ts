@@ -22,6 +22,7 @@ test.describe("C111397, C111313, C111314, C111318, C111396, C111316, C111399, C1
 
         await io.importsPage.fill(selectors.basePagePO.INPUT_NAME_SELECTOR, "Test IO-34461");
         await io.importsPage.clickByText("Yes (advanced)");
+        await io.importsPage.waitForElementAttached(selectors.flowBuilderPagePO.ONE_TO_MANY);
         await io.importsPage.click(selectors.flowBuilderPagePO.ONE_TO_MANY);
 
         let pathToManyOptions;
