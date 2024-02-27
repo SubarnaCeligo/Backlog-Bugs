@@ -24,10 +24,8 @@ test.describe("C61361 Verify that there shouldnt be any popup message saying Sta
     await io.signInPage.fill(selectors.loginPagePO.COMPANY, "Celigo");
     await io.signInPage.click(selectors.basePagePO.AGREETOSANDPP);
     await io.signInPage.click(selectors.loginPagePO.SIGN_UP_BUTTON);
-    await io.signInPage.delay(20000);
     // @ts-ignore
     let link = await io.emailVal.getLinkFromEmail("Activate your Celigo staging.integrator.io account", true, "pwqa1");
-    console.log("link", link);
     await io.homePage.navigateTo(link[0].split("<br>")[0]);
     const password = "C!" + randomString(5) + randomNumber(5);
     await io.signInPage.fill(selectors.loginPagePO.PASSWORD, password);
@@ -35,7 +33,6 @@ test.describe("C61361 Verify that there shouldnt be any popup message saying Sta
    
     const regex = /home$/;
     await page.waitForURL(regex);
-    await io.homePage.delay(10000);
     await io.homePage.waitForElementAttached( selectors.basePagePO.ACCOUNT_SELECTOR)
     const msg =await io.homePage.isVisible("text='Start free trail now to experience optimal process automation for your business with full access to integrator.io . For 30 days, the unlimited flow trial gives you'")
     await io.assert.expectToBeValue(msg.toString(),"false", "above msg is popped up");

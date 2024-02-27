@@ -24,10 +24,8 @@ test.describe("C61360  Verify that there shouldn't be any Get Unlimited flows bu
     await io.signInPage.fill(selectors.loginPagePO.COMPANY, "Celigo");
     await io.signInPage.click(selectors.basePagePO.AGREETOSANDPP);
     await io.signInPage.click(selectors.loginPagePO.SIGN_UP_BUTTON);
-    await io.signInPage.delay(20000);
     // @ts-ignore
     let link = await io.emailVal.getLinkFromEmail("Activate your Celigo staging.integrator.io account", true, "pwqa1");
-    console.log("link", link);
     await io.homePage.navigateTo(link[0].split("<br>")[0]);
     const password = "C!" + randomString(5) + randomNumber(5);
     await io.signInPage.fill(selectors.loginPagePO.PASSWORD, password);
@@ -35,7 +33,6 @@ test.describe("C61360  Verify that there shouldn't be any Get Unlimited flows bu
    
     const regex = /home$/;
     await page.waitForURL(regex);
-    await io.homePage.delay(10000);
     await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_SELECTOR)
     const msg =await io.homePage.isVisible("text='Get Unlimited flows'")
     await io.assert.expectToBeValue(msg.toString(),"false", "above msg is popped up");
