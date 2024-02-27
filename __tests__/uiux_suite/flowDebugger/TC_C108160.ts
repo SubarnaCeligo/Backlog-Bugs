@@ -1,11 +1,11 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("Error message should not contain 'Learn More' when mock output is in invalid format", () => {
+test.describe("TC_C108160 - Error message should not contain 'Learn More' when mock output is in invalid format", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("Error message should not contain 'Learn More' when mock output is in invalid format", async ({ io, page }) => {
+    test("TC_C108160 - Error message should not contain 'Learn More' when mock output is in invalid format", async ({ io, page }) => {
         //Click on Create Import, select FTP
         await io.homePage.navigateTo(io.data.links.IMPORTS_PAGE_URL);
         await io.homePage.clickByText('Create import');

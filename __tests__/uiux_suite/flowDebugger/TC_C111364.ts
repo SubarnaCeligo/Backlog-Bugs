@@ -13,7 +13,8 @@ test.describe('C111364_C111365_C111367_C111368_C111370', () => {
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
 
         //TC_C111364 Users should be able to view the debug logs for the test run.
-        await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT);
+        await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.EXPORT, 0);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.VIEW_DEBUG_LOG);
         await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.TEST_RUN_DEBUG_LOGS, "Debug logs for the test run is not displayed");
 
@@ -51,16 +52,19 @@ test.describe('C111364_C111365_C111367_C111368_C111370', () => {
         //TC_C111370 Verify for export user should able to filter debug log by using filters
         //Method filter
         await io.flowBuilder.waitForElementAttached(selectors.importPagePO.HTTP_REQUEST);
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.DEBUG_LOG_FILTER);
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.DEBUG_LOG_FILTER, 3);
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.FILTER_OPTION, 2);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.DATERANGE_APPLY);
         const text = await io.homePage.isVisible("text='You don’t have any debug log entries.'")
         await io.assert.expectToBeValue(text.toString(), 'true', "Filter is not working")
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.DEBUG_LOG_FILTER);
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.DEBUG_LOG_FILTER, 3);
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.FILTER_OPTION, 0);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.DATERANGE_APPLY);
 
         //Response code filter
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.DEBUG_LOG_FILTER);
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.DEBUG_LOG_FILTER, 4);
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.FILTER_OPTION, 3);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.DATERANGE_APPLY);
@@ -68,12 +72,14 @@ test.describe('C111364_C111365_C111367_C111368_C111370', () => {
         await io.assert.expectToBeValue(text1.toString(), 'true', "Filter is not working")
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_LOG);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
-
+        // await page.pause();
         //TC_C111367 Verify for export If mock output is available, users are able to access test run debug logs.
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_SPECIFIC_SOURCE_DROPDOWN);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_SPECIFIC_SOURCE_DROPDOWN);
         await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.RUNTEST_BUTTON, 3);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
+        await io.flowBuilder.click('[aria-label="Zoom to fit"]');
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT);
         await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.EXPORT, 1);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.VIEW_DEBUG_LOG);
         await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.TEST_RUN_DEBUG_LOGS, "Debug logs for the test run is not displayed");
