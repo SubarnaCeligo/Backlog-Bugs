@@ -4,7 +4,7 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe("C119146 Verify the Error Panel in AFE windows", () => {
   test("C119146 Verify the Error Panel in AFE windows", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
-    await io.flowBuilder.clickByText('Reset_DND');
+    await io.flowBuilder.clickByText('ErrorPanel_DND');
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.OPEN_HANDLEBARS_EDITOR);

@@ -19,8 +19,8 @@ test.describe("C112698 Verify Mapper2.0 is having Celigo AI", () => {
     await io.assert.expectToBeTrue(isCeligoAINotVisibleInMapper1, "Celigo AI Not Visible for Mapper 1.0");
     //Verify Celigo AI are in collapsed state and disabled. C112701 C112698 C112756
     await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.MAPPER2DOT0BUTTON);
-    await expect(page.locator(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR)).toHaveAttribute('aria-expanded', 'false');
-    await expect(page.locator(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR)).toHaveAttribute('aria-disabled', 'true');
+    await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","false",1);
+    await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-disabled","true",1);
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
       "Celigo AI is not displayed"
@@ -35,7 +35,7 @@ test.describe("C112698 Verify Mapper2.0 is having Celigo AI", () => {
     await io.flowBuilder.clickByIndex(selectors.connectionsPagePO.HELPTEXT_CLOSE,0);
     await io.flowBuilder.clickByText('Celigo AI');
      //Placeholder C115221
-     const placeholderText = page.getByText('Start typing a prompt that describes your mappings.').first();
+     const placeholderText = page.getByPlaceholder('Tell me about your mapping here... I will apply your request to the existing mapping unless you tell me to replace it').first();
      await placeholderText.waitFor({ state: 'visible', timeout: 30000 });
      await io.assert.verifyElementIsDisplayed(
        selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
@@ -51,12 +51,12 @@ test.describe("C112698 Verify Mapper2.0 is having Celigo AI", () => {
        "Celigo AI Prompt Thinking is not displayed"
      )
      await io.flowBuilder.loadingTime();
-     await expect(page.locator(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR)).toHaveAttribute('aria-expanded', 'false');
-     await expect(page.locator(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR)).toHaveAttribute('aria-disabled', 'true');
+     await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","false",1);
+     await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-disabled","true",1);
     //Rows output formats C112764
     await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.CHANGEOUTPUTFORMAT);
     await io.flowBuilder.clickByText("Create destination rows [ ] from source record { }");
-    await expect(page.locator(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR)).toHaveAttribute('aria-expanded', 'false');
-    await expect(page.locator(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR)).toHaveAttribute('aria-disabled', 'true');
+    await io.flowBuilder.loadingTime();
+    await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","false",1);
   });
 });
