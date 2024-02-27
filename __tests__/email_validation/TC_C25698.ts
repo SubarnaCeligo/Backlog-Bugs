@@ -1,6 +1,6 @@
 import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C25698 from './C25698.json'
+import C25698 from '@testData/email_validations/C25698.json'
 
 test.describe("C25698 Verify the link on the email on resolved errors", () => {
 
