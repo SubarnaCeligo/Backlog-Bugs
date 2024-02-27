@@ -72,7 +72,7 @@ test.describe('C111364_C111365_C111367_C111368_C111370', () => {
         await io.assert.expectToBeValue(text1.toString(), 'true', "Filter is not working")
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_LOG);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
-        // await page.pause();
+       
         //TC_C111367 Verify for export If mock output is available, users are able to access test run debug logs.
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_SPECIFIC_SOURCE_DROPDOWN);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_SPECIFIC_SOURCE_DROPDOWN);
