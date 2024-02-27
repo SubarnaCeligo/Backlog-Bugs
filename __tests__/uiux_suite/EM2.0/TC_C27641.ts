@@ -1,10 +1,13 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
+import playload from "@testData/profile/updatePreference.json"
 
 
 test.describe("Verify flow run time is displayed correct on Line Graph when changed the 'last run' value", () => {
   test.beforeEach(async ({ io }) => {
-    await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+    //Set relative timestamp to true
+    playload.showRelativeDateTime = false;
+    const resp = await io.api.putCall('v1/preferences',playload);
   });
   test("Verify flow run time is displayed correct on Line Graph when changed the 'last run' value", async ({ io, page }) => {
 
@@ -13,11 +16,13 @@ test.describe("Verify flow run time is displayed correct on Line Graph when chan
 
     // Search for a DND flow which has been running for more than 2 weeks
     await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
-    await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Flow_With_Errors_DND');
-    await io.integrationPage.delay(2000); // wait for the search to complete
-
+    await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Flow_With_Errors2_DND');
+    
+    //Wait for search to complete
+    await io.integrationPage.waitForElementAttached(selectors.flowBuilderPagePO.ACTIONS_SELECTOR);
+ 
     //Open the flow
-    await io.integrationPage.clickByText('Flow_With_Errors_DND');
+    await io.integrationPage.clickByText('Flow_With_Errors2_DND');
 
     //Open line graph
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CHARTS);
