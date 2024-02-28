@@ -8,6 +8,7 @@ test.describe("C94517_C94527_C94525_C94521_C94529_C94533_C94528_C94531_C94526_C9
         //Disable the flow
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);
@@ -18,6 +19,7 @@ test.describe("C94517_C94527_C94525_C94521_C94529_C94533_C94528_C94531_C94526_C9
         await io.homePage.addStep('Verified Flow hotspot should be located on Build file internal id field if we added a Build file internal id field');
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.NS_FILE_INTERNALID);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.NS_FILE_INTERNALID);
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.TEST_RUN_RESULT_TAB);
         await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.TEST_RUN_RESULT_TAB, 'Test run result tab is not displayed');
         await io.homePage.addStep('Verified Test run result tab is displayed');
 
@@ -27,6 +29,7 @@ test.describe("C94517_C94527_C94525_C94521_C94529_C94533_C94528_C94531_C94526_C9
 
         //TC_C94521 Verify Help Text for Test run results tab on Build file internal id field window
         await io.flowBuilder.click(selectors.flowBuilderPagePO.TEST_RUN_HELP_TEXT_BUTTON);
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.TEST_RUN_HELP_TEXT);
         const helpText = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.TEST_RUN_HELP_TEXT)).toString();
         const jsonStringfyq = JSON.stringify(helpText);
         await io.assert.expectToContainValue("Click a test run record to review success or error output information", jsonStringfyq, "Help text not found");
@@ -34,6 +37,7 @@ test.describe("C94517_C94527_C94525_C94521_C94529_C94533_C94528_C94531_C94526_C9
 
         //TC_C94529 The user should be able to toggle between Test run results and Handle bar templates and the page should reflect accordingly.
         await io.flowBuilder.click(selectors.flowBuilderPagePO.HANDLEBARS_TEMPLATE);
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.HANDLEBAR_CONTENT);
         const content = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.HANDLEBAR_CONTENT)).toString();
         const jsonStringfy = JSON.stringify(content);
         await io.assert.expectToContainValue("{{data.id}}", jsonStringfy, "Content are incorrect");
@@ -44,6 +48,7 @@ test.describe("C94517_C94527_C94525_C94521_C94529_C94533_C94528_C94531_C94526_C9
         //TC_C94532 Verify Empty state message when AFE2.0 is selected but 2.0 template has no content and there are no result to show
         await io.flowBuilder.click(selectors.flowBuilderPagePO.AFE_TWO_DOT_ZERO);
         await io.homePage.addStep('Clicking on AFE 2.0');
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EMPTY_STATE_MESSAGE);
         const msg = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.EMPTY_STATE_MESSAGE)).toString();
         const masg = JSON.stringify(msg);
         await io.assert.expectToContainValue("\"No results to show since AFE 2.0 was not used in the last test run. Switch to AFE 1.0 to see test run results.\"", masg, "Empty state msg not found");
@@ -86,6 +91,7 @@ test.describe("C94517_C94527_C94525_C94521_C94529_C94533_C94528_C94531_C94526_C9
         //TC_C94531 Verify Empty state message when AFE1.0 is selected but 1.0 template has no content and there are no result to show
         await io.flowBuilder.click(selectors.flowBuilderPagePO.AFE_ONE_DOT_ZERO);
         await io.homePage.addStep('Clicking on AFE 1.0');
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EMPTY_STATE_MESSAGE);
         const msg1 = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.EMPTY_STATE_MESSAGE)).toString();
         const masg1 = JSON.stringify(msg1);
         await io.assert.expectToContainValue("\"No results to show since AFE 1.0 was not used in the last test run. Switch to AFE 2.0 to see test run results.\"", masg1, "Empty state msg not found");
