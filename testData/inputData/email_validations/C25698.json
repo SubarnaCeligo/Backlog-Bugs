@@ -8,38 +8,28 @@
     "pageGenerators": [
       {
         "qa__export": {
-            "name": "test",
-            "_connectionId": "SHOPIFY CONNECTION",
-            "apiIdentifier": "ee0490a103",
+            "name": "AAA_C2660_export",
+            "_connectionId": "HTTP ZENDESK CONNECTION2",
+            "apiIdentifier": "e4901ece0f",
             "asynchronous": true,
-            "assistant": "shopify",
+            "type": "test",
+            "dataURITemplate": "https://d3v-celigo5000.zendesk.com/agent/tickets/{{record.id}}",
             "oneToMany": false,
             "sandbox": false,
-            "assistantMetadata": {
-                "resource": "access_storefront_access_tokens",
-                "version": "v2",
-                "operation": "retrievesalistofstorefrontaccesstokensthathavebeenissued"
-            },
             "http": {
-                "relativeURI": "/storefront_access_tokens.json",
+                "relativeURI": "api/v2/tickets",
                 "method": "GET",
-                "headers": [],
-                "successMediaType": "json",
-                "errorMediaType": "json",
-                "formType": "assistant",
+                "formType": "http",
                 "response": {
-                    "resourcePath": "storefront_access_tokens"
+                    "resourcePath": "tickets"
                 }
             },
-            "rest": {
-                "relativeURI": "/storefront_access_tokens.json",
-                "method": "GET",
-                "headers": [],
-                "resourcePath": "storefront_access_tokens",
-                "allowUndefinedResource": false
+            "rawData": "6459f649beb3fa04056e2c8e0a03af402409490cb4db283fc5f390fd",
+            "test": {
+                "limit": 1
             },
-            "adaptorType": "RESTExport"
-        }
+            "adaptorType": "HTTPExport"
+            }
       }
     ],
     "pageProcessors": [
@@ -48,21 +38,22 @@
         "qa__import": {
             "name": "AutomationStandalone_1Wg98",
             "parsers": [],
-            "_connectionId": "HTTP MIVA CONNECTION",
-            "apiIdentifier": "i09892d4ce",
+            "_connectionId": "HTTP ZENDESK CONNECTION2",
+            "apiIdentifier": "i6397669bc",
             "ignoreExisting": false,
             "ignoreMissing": false,
+            "dataURITemplate": "https://d3v-celigo5000.zendesk.com/agent/tickets/1",
             "oneToMany": false,
             "sandbox": false,
             "http": {
                 "relativeURI": [
-                    "/ticket.json"
+                    "fdsfdsfdsfdsfdsfdsfdsfdsf"
                 ],
                 "method": [
                     "POST"
                 ],
                 "body": [
-                    "{\"name\":\"New\"}"
+                    "dfadsfdsfdsfdsfdsfdsf"
                 ],
                 "batchSize": 1,
                 "sendPostMappedData": true,
