@@ -13,7 +13,6 @@ test.describe("C26246_Verify the Resolved graph UI with different browsers", () 
         await io.flowBuilder.reloadPage()
         await io.flowBuilder.clickByText('1 error')
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER)
-        await page.waitForTimeout(20000);
         await io.flowBuilder.clickByText('1 error')
         await io.flowBuilder.clickByText('Resolve & next')
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER)

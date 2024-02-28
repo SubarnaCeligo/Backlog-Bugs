@@ -22,8 +22,7 @@ test.describe("TC_C42590_Verify the mapping preview for the custom fields added 
             const map1 = page.locator(selectors.mappings.MAPPER1DOT0PO.SOURCE_RECORD_FIELD_INPUT).first();
             await map1.fill("Name");
             await io.homePage.doubleClick(selectors.mappings.MAPPER1DOT0PO.DESTINATION_INPUT)
-            const map11 = page.locator(selectors.mappings.MAPPER1DOT0PO.DESTINATION_INPUT_ADD).first();
-            await map11.fill("TC_C42590");
+            await io.homePage.fillByIndex(selectors.mappings.MAPPER1DOT0PO.DESTINATION_INPUT_ADD, "TC_C42590", 0 )
             await io.homePage.waitForElementAttached(selectors.mappings.MAPPER2DOT0PO.PREVIEW)
             await io.homePage.performWebActions(selectors.mappings.MAPPER2DOT0PO.PREVIEW, "preview")
             await io.homePage.click(selectors.mappings.MAPPER2DOT0PO.PREVIEW)

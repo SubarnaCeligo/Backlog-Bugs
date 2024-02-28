@@ -13,10 +13,8 @@ test.describe("C19882_verify user can able to view number of resolved errors sub
         await io.flowBuilder.reloadPage()
         await io.flowBuilder.clickByText('1 error')
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER)
-        await page.waitForTimeout(20000);
         await io.flowBuilder.clickByText('1 error')
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER)
-        await page.waitForTimeout(5000);
         await io.flowBuilder.clickByText('1 error')
         await io.flowBuilder.clickByText('Resolve & next')
         // Validating resolved count added
