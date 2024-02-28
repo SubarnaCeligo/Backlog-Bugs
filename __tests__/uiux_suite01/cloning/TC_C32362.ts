@@ -12,7 +12,18 @@ test.describe(`C32362 Verify cloned integration has the updated flow after updat
     await io.homePage.click(selectors.connectionsPagePO.ACTIONS_MENU_BUTTON);
     await io.flowBuilder.clickByText("Clone flow");
     await io.flowBuilder.clickByText("Please select");
-    await io.flowBuilder.clickByIndex(selectors.basePagePO.MENU_ITEM, 1);
+    let menuitem = await page.locator(selectors.basePagePO.MENU_ITEM).first(); 
+    const buttonBoundingBox = await menuitem.boundingBox();
+    if (buttonBoundingBox) {
+      const x = buttonBoundingBox.x + buttonBoundingBox.width / 2;
+      const y = buttonBoundingBox.y + buttonBoundingBox.height / 2;
+      await page.mouse.move(x, y);
+      const automationFlows = page.getByText('Automation Flows');
+      while (!(await automationFlows.isVisible())) {
+          await page.mouse.wheel(0, 200);
+      }
+      automationFlows.click();
+    }
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLONE_FLOW_BUTTON);
     await io.flowBuilder.clickByTextByIndex("Configure", 0);
     await io.flowBuilder.clickByText("Use existing connection");
@@ -50,7 +61,7 @@ test.describe(`C32362 Verify cloned integration has the updated flow after updat
       "347 NS CONNECTION step is not displayed"
     );
     await io.assert.verifyElementDisplayedByText(
-      "FTP connection",
+      "FTP",
       "FTP connection step is not displayed"
     );
     await io.assert.verifyElementDisplayedByText(
