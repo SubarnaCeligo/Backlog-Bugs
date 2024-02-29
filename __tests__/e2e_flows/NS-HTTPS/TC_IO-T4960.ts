@@ -21,7 +21,7 @@ test.describe("Verify resume button for script debugger in NS export and HTTP im
         IO_T4960.qa__api_tdata[0].pageGenerators[0].qa__export.hooks.preSavePage._scriptId = preSavePage;
         flowMap = await io.api.createImpOrExpAndFlowsThruAPI(IO_T4960, false);
         await io.flowBuilder.navigateTo(process.env.IO_Integration_URL + "flowBuilder/" + flowMap.get('NS - fetch listner log Test')['flowId']);
-        await page.pause();
+
         await io.flowBuilder.saveandRunFlow(testInfo.title);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.SCRIPTS);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ACTIONS_SELECTOR);
