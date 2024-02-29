@@ -13,8 +13,9 @@ test.describe("C117448 Verify Filter is having Celigo AI", () => {
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR, 0);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_FILTER);
     //Verify Celigo AI are in collapsed state and disabled.
-    await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","false");
-    await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-disabled","true");
+    await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","false", 1);
+    await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-disabled","true", 1);
+    
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
       "Celigo AI is not displayed"
@@ -26,16 +27,21 @@ test.describe("C117448 Verify Filter is having Celigo AI", () => {
     await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW, 'Note: Your instructions will not be saved after you exit the editor window.');
     await io.flowBuilder.clickByIndex(selectors.connectionsPagePO.HELPTEXT_CLOSE, 0);
     await io.flowBuilder.clickByText('Celigo AI');
-    const placeholderText = page.getByText('Start typing a prompt that describes the filter rules.The conversation will be recorded here for as long as you remain in this screen.').first();
-    await placeholderText.waitFor({ state: 'visible', timeout: 30000 });
+
+    await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,"placeholder","Tell me about your filter here... I will apply your request to the existing filter unless you tell me to replace it");
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
       "Celigo AI Placeholder is not displayed"
     )
     //Verify Celigo AI are in expand state. Explain button disabled  C117472
-    await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","true");
+    await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","true", 1);
     const explainDisabled = await page.$$(selectors.flowBuilderPagePO.OPENAI.EXPLAIN_SELECTION);
     expect(await explainDisabled[0].getAttribute('class')).toContain('Mui-disabled');
+
+    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.OPENAI.EXPLAIN_SELECTION,'Explain filter rules')
+    await io.flowBuilder.hover(selectors.flowBuilderPagePO.OPENAI.EXPLAIN_FILTER_RULES, 0, false);
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUNTEST_TOOLTIP);
+    await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.RUNTEST_TOOLTIP, "Tooltip for explanation button is not displayed")
 
     //Default layout is vertical layout if Celigo AI is enabled for filter editors C117454
     await io.flowBuilder.click(selectors.playgroundPO.LAYOUT_TOGGLE);
@@ -53,9 +59,37 @@ test.describe("C117448 Verify Filter is having Celigo AI", () => {
     const promptErrorMsg = page.getByText('Invalid prompt - Please provide relevant prompt.').first();
     await promptErrorMsg.waitFor({ state: 'visible', timeout: 30000 });
 
+
+    (await page.$(selectors.flowBuilderPagePO.EM2DOT0PO.ACE_EDITOR_INPUT)).focus();
+    await page.keyboard.press('Control+A');
+    await page.keyboard.press('Meta+A');
+    await page.keyboard.press('Backspace');
+    await io.flowBuilder.loadingTime();
+    (await page.$(selectors.flowBuilderPagePO.EM2DOT0PO.ACE_EDITOR_INPUT)).fill(`{
+      "record": {
+        "id": 1,
+        "title": "iPhone 9",
+        "description": "An apple mobile which is nothing like apple",
+        "price": 549,
+        "discountPercentage": 12.96,
+        "rating": 4.69,
+        "stock": 94,
+        "brand": "Apple",
+        "category": "smartphones"
+      },
+      "settings": {
+        "integration": {},
+        "flow": {},
+        "flowGrouping": {},
+        "connection": {},
+        "iClient": {},
+        "export": {}
+      }
+    }`);
+
     //Valid Prompt for filter C117459
     await io.flowBuilder.clickByText('Celigo AI');
-    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'Add filter for id with value 123455929');
+    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'Filter by price less than 500');
     await io.flowBuilder.loadingTime();
     await page.keyboard.press('Enter');
     await io.assert.verifyElementIsDisplayed(
@@ -63,8 +97,93 @@ test.describe("C117448 Verify Filter is having Celigo AI", () => {
       "Celigo AI Prompt Thinking is not displayed"
     );
     await io.flowBuilder.loadingTime();
-    const idResult = page.getByText('123455929').first();
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.PREVIEW);
+    await io.flowBuilder.loadingTime();
+    await expect(page.locator(selectors.flowBuilderPagePO.AFE_RESULT_PANEL)).toContainText('FALSE:');
+
+    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'remove previous filter and add following filters  i. brand is Apple ii. price is greater than 500 iii. category is smartphones');
+    await io.flowBuilder.loadingTime();
+    await page.keyboard.press('Enter');
+    await io.assert.verifyElementIsDisplayed(
+      selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR,
+      "Celigo AI Prompt Thinking is not displayed"
+    );
+    await io.flowBuilder.loadingTime();
+    const idResult = page.getByText('500').first();
     await idResult.waitFor({ state: 'visible', timeout: 30000 });
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.PREVIEW);
+    await io.flowBuilder.loadingTime();
+    await expect(page.locator(selectors.flowBuilderPagePO.AFE_RESULT_PANEL)).toContainText('TRUE:');
+
+    // remove filter rules with mouse clicks
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.DELETECONDI);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.DELETECONDI);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.DELETECONDI);
+
+    // check for another filter with different data
+    (await page.$(selectors.flowBuilderPagePO.EM2DOT0PO.ACE_EDITOR_INPUT)).focus();
+    await page.keyboard.press('Control+A');
+    await page.keyboard.press('Meta+A');
+    await page.keyboard.press('Backspace');
+    await io.flowBuilder.loadingTime();
+    (await page.$(selectors.flowBuilderPagePO.EM2DOT0PO.ACE_EDITOR_INPUT)).fill(`{
+      "record": {
+        "transactionId": "TX123456789",
+        "date": "2024-02-23",
+        "amount": 150,
+        "currency": "USD",
+        "customer": {
+          "customerId": "C12345",
+          "name": "Jane Doe"
+        },
+        "item": {
+          "itemId": "I123",
+          "quantity": 1
+        }
+      },
+      "settings": {
+        "integration": {},
+        "flow": {},
+        "flowGrouping": {},
+        "connection": {},
+        "iClient": {},
+        "export": {}
+      }
+    }`);
+
+    await io.flowBuilder.clickByText('Celigo AI');
+    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'filter by where item quantity is 2, amount is less than 160 and customerId is C12345');
+    await io.flowBuilder.loadingTime();
+    await page.keyboard.press('Enter');
+    await io.assert.verifyElementIsDisplayed(
+      selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR,
+      "Celigo AI Prompt Thinking is not displayed"
+    );
+    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.PREVIEW);
+    await io.flowBuilder.loadingTime();
+    await expect(page.locator(selectors.flowBuilderPagePO.AFE_RESULT_PANEL)).toContainText('FALSE:');
+
+    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'update the filter with quantity to be 1 instead');
+    await io.flowBuilder.loadingTime();
+    await page.keyboard.press('Enter');
+    await io.assert.verifyElementIsDisplayed(
+      selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR,
+      "Celigo AI Prompt Thinking is not displayed"
+    );
+    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.PREVIEW);
+    await io.flowBuilder.loadingTime();
+    await expect(page.locator(selectors.flowBuilderPagePO.AFE_RESULT_PANEL)).toContainText('TRUE:');
+
+    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'negate the current filter');
+    await io.flowBuilder.loadingTime();
+    await page.keyboard.press('Enter');
+    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.PREVIEW);
+    await io.flowBuilder.loadingTime();
+    await expect(page.locator(selectors.flowBuilderPagePO.AFE_RESULT_PANEL)).toContainText('FALSE:');
+
     //C117473
     await io.flowBuilder.loadingTime();
     const explainEnabled = await page.$$(selectors.flowBuilderPagePO.OPENAI.EXPLAIN_SELECTION);
@@ -73,7 +192,6 @@ test.describe("C117448 Verify Filter is having Celigo AI", () => {
     await io.flowBuilder.loadingTime();
     const explanation = page.getByText('Explanation');
     await explanation.waitFor({ state: 'visible', timeout: 30000 });
-    await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.ClOSE_BUTTON);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER);
     await io.flowBuilder.click(selectors.basePagePO.DISCARD_CHANGES);
 
@@ -81,8 +199,9 @@ test.describe("C117448 Verify Filter is having Celigo AI", () => {
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR, 1);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.INPUT_FILTER);
     //Verify Celigo AI are in collapsed state and disabled.
-    await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","false");
-    await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-disabled","true");
+    await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","false", 1);
+    await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-disabled","true", 1);
+    
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
       "Celigo AI is not displayed"
@@ -97,7 +216,7 @@ test.describe("C117448 Verify Filter is having Celigo AI", () => {
     await io.flowBuilder.clickByText('Filter editor');
     await io.flowBuilder.clickByText('Simple JSON record');
     //Verify Celigo AI are in collapsed state. 
-    await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","false");
+    await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","false", 1);
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
       "Celigo AI is not displayed"
