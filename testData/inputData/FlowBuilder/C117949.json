@@ -1,0 +1,130 @@
+{
+    "text": {
+        "fieldMap": {
+            "url": {
+                "optionsMap": [
+                    {
+                        "id": "accountType_listSFAccountType",
+                        "label": "Salesforce Account Type",
+                        "required": true,
+                        "type": "select",
+                        "supportsRefresh": true,
+                        "options": [
+                            {
+                                "id": "Prospect",
+                                "text": "Prospect"
+                            },
+                            {
+                                "id": "Customer - Direct",
+                                "text": "Customer - Direct"
+                            },
+                            {
+                                "id": "Customer - Channel",
+                                "text": "Customer - Channel"
+                            },
+                            {
+                                "id": "Channel Partner / Reseller",
+                                "text": "Channel Partner / Reseller"
+                            },
+                            {
+                                "id": "Installation Partner",
+                                "text": "Installation Partner"
+                            },
+                            {
+                                "id": "Technology Partner",
+                                "text": "Technology Partner"
+                            },
+                            {
+                                "id": "Other",
+                                "text": "Other"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "customerstage_listCustomerStage",
+                        "label": "NetSuite Customer Stage",
+                        "required": true,
+                        "type": "select",
+                        "options": [
+                            {
+                                "id": "LEAD",
+                                "value": "Lead"
+                            },
+                            {
+                                "id": "PROSPECT",
+                                "value": "Prospect"
+                            },
+                            {
+                                "id": "CUSTOMER",
+                                "value": "Customer"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "customerstatus_listNetSuiteCustomerStatuses",
+                        "label": "NetSuite Customer Status",
+                        "required": true,
+                        "type": "select",
+                        "supportsRefresh": true,
+                        "options": [
+                            {
+                                "id": "6",
+                                "text": "Unqualified"
+                            },
+                            {
+                                "id": "7",
+                                "text": "Qualified Lead"
+                            },
+                            {
+                                "id": "8",
+                                "text": "In Discussion"
+                            },
+                            {
+                                "id": "9",
+                                "text": "Identified Decision Makers"
+                            },
+                            {
+                                "id": "10",
+                                "text": "Proposal"
+                            },
+                            {
+                                "id": "11",
+                                "text": "In Negotiation"
+                            },
+                            {
+                                "id": "12",
+                                "text": "Purchasing"
+                            },
+                            {
+                                "id": "13",
+                                "text": "Closed Won"
+                            },
+                            {
+                                "id": "14",
+                                "text": "Closed Lost"
+                            },
+                            {
+                                "id": "15",
+                                "text": "Renewal"
+                            },
+                            {
+                                "id": "16",
+                                "text": "Lost Customer"
+                            },
+                            {
+                                "id": "17",
+                                "text": "Qualified Prospect"
+                            }
+                        ]
+                    }
+                ],
+                "allowFailures": false,
+                "hideLookupAllowFailures": true,
+                "title": "Map Salesforce Account Type to NetSuite Customer Stage and Status",
+                "tooltip": "",
+                "name": "imports_64997ce8b5ced97fbfc5e6ef_accountTypeToCustomerStatusMap_listSFAccountTypeAndCustomerStatus",
+                "type": "staticMap"
+            }
+        }
+    }
+}

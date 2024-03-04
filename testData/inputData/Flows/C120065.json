@@ -1,0 +1,77 @@
+{
+  "name": "TC_C120083",
+  "disabled": false,
+  "timezone": "Asia/Calcutta",
+  "_integrationId": "6459f5fc6df4b9686c0b7145",
+  "skipRetries": false,
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "Fulfillment Export",
+        "_connectionId": "HTTP CONNECTION MEDIA TYPE AS PLAIN TEXT",
+        "apiIdentifier": "eedc2e8f14",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": "/readPlainTxt",
+          "method": "GET",
+          "formType": "http"
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "HTTP import",
+        "_connectionId": "HTTP CONNECTION MEDIA TYPE AS PLAIN TEXT",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": [
+            "/uploadplainTxt"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [],
+          "batchSize": 2,
+          "sendPostMappedData": true,
+          "isRest": false,
+          "formType": "http",
+          "response": {
+            "resourcePath": [
+              "pp"
+            ]
+          }
+        },
+        "adaptorType": "HTTPImport"
+      }
+    },
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "FTP import",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "ic0b511299",
+        "oneToMany": false,
+        "sandbox": false,
+        "file": {
+          "fileName": "file-{{timestamp}}.json",
+          "skipAggregation": false,
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "io.auto.qa/Abhignya_Folder",
+          "fileName": "file-{{timestamp}}.json"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ]
+}
