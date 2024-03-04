@@ -1,0 +1,82 @@
+{
+    "name": "TC_C42590",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "NS_C107885_Export",
+                "_connectionId": "NETSUITE CONNECTION",
+                "asynchronous": true,
+                "oneToMany": false,
+                "aiDescription": {
+                    "summary": null,
+                    "detailed": null,
+                    "generatedOn": null
+                },
+                "rawData": "64ff5a3670fd665c5211d1d2af2686d012214573a60044c7249d8c0f",
+                "netsuite": {
+                    "type": "restlet",
+                    "skipGrouping": true,
+                    "statsOnly": false,
+                    "restlet": {
+                        "recordType": "account",
+                        "searchId": "59266",
+                        "criteria": [
+                            {
+                                "field": "name",
+                                "operator": "contains",
+                                "searchValue": "C107885"
+                            }
+                        ],
+                        "restletVersion": "suiteapp2.0",
+                        "markExportedBatchSize": 100
+                    },
+                    "distributed": {}
+                },
+                "adaptorType": "NetSuiteExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "Salesforce SOAP",
+                "_connectionId": "SALESFORCE CONNECTION",
+                "apiIdentifier": "i1b31897ac",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "salesforce": {
+                    "operation": "insert",
+                    "sObjectType": "Account",
+                    "api": "compositerecord",
+                    "removeNonSubmittableFields": false
+                },
+                "adaptorType": "SalesforceImport"
+            }
+        }
+    ],
+    "createFlow": {
+        "name": "TC_C42590_Flow",
+        "disabled": false,
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID",
+                "skipRetries": false
+            }
+        ],
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "autoResolveMatchingTraceKeys": true
+    }
+}
