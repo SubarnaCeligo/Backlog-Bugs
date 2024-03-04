@@ -64,9 +64,14 @@ test.describe("C117448 Verify Filter is having Celigo AI", () => {
     await page.keyboard.press('Control+A');
     await page.keyboard.press('Meta+A');
     await io.flowBuilder.loadingTime();
-    await page.keyboard.press('Backspace');
-    await page.keyboard.press('Delete');
-    await io.flowBuilder.fill(selectors.flowBuilderPagePO.EM2DOT0PO.ACE_EDITOR_INPUT, ' ');
+    // await page.keyboard.press('Backspace');
+    // await page.keyboard.press('Delete');
+    // await io.flowBuilder.fill(selectors.flowBuilderPagePO.EM2DOT0PO.ACE_EDITOR_INPUT, ' ');
+    await page.evaluate(() => {
+      // @ts-ignore
+      const editor = ace.edit("data"); 
+      editor.setValue("");
+    });
     await io.flowBuilder.loadingTime();
     (await page.$(selectors.flowBuilderPagePO.EM2DOT0PO.ACE_EDITOR_INPUT)).fill(`{
       "record": {
@@ -124,7 +129,7 @@ test.describe("C117448 Verify Filter is having Celigo AI", () => {
     await io.flowBuilder.click(selectors.flowBuilderPagePO.DELETECONDI);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.DELETECONDI);
     await io.flowBuilder.loadingTime();
-    
+
     // check for another filter with different data
     (await page.$(selectors.flowBuilderPagePO.EM2DOT0PO.ACE_EDITOR_INPUT)).focus();
     await page.keyboard.press('Control+A');
