@@ -33,9 +33,9 @@ test.describe("C115168 Verify the flow description Celigo AI", () => {
     await io.flowBuilder.loadingTime();
     const hoverText = page.getByText('Use these concise descriptions and summaries of workflows to understand intricate flow configurations and settings.').first();
     await hoverText.waitFor({ state: 'visible', timeout: 30000 });
-    // Refresh Button Disabled C115180
+    // Refresh Button not Disabled if chanages are there C115180
     const refreshDisabled = await page.$$(selectors.flowBuilderPagePO.OPENAI.REFRESH_BUTTON);
-    expect(await refreshDisabled[0].getAttribute('class')).toContain('Mui-disabled');
+    expect(await refreshDisabled[0].getAttribute('class')).not.toContain('Mui-disabled');
     //C115186
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.COLLAPSE_BUTTON);
     await expect(page.locator(selectors.flowBuilderPagePO.OPENAI.FLOW_DESCRIPTION_BAR)).toHaveAttribute('aria-expanded', 'false');
