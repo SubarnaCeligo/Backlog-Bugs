@@ -35,12 +35,18 @@ test.describe("TC_C119791_C119793_C119795", () => {
         await io.myAccountPage.delay(2000);
         // -'Simple/HTTP' toggle at the very top of the bubble drawers (i.e. for HTTP based connectors) should be hidden
         await io.flowBuilder.waitForElementAttached(selectors.importPagePO.ADVANCED);
-        await io.assert.expectToBeFalse(await (await page.locator(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH)).isVisible(), "Simple toggle is not visible");
-        await io.assert.expectToBeFalse(await (await page.locator(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH)).isVisible(), "Http toggle is not hidden");
+        await io.flowBuilder.waitForElementAttached(selectors.importPagePO.ADVANCED);
+        const toggleSimple = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
+        await io.assert.expectToBeFalse(toggleSimple, "Simple toggle is not visible");
+        const toggleHttp = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
+        await io.assert.expectToBeFalse(toggleHttp, "Http toggle is not hidden");
         // -Other sections 'How would you like to parse files?' or 'What would you like to export' or any other should be hidden
-        await io.assert.expectToBeFalse(await (await page.locator(selectors.flowBuilderPagePO.HOW_WOULD_PARSE)).isVisible(), "How would you like to parse files? is not hidden");
-        await io.assert.expectToBeFalse(await (await page.locator(selectors.flowBuilderPagePO.WHERE_WOULD_TRANSFER)).isVisible(), "Where would you like to transfer from? is not hidden");
-        await io.assert.expectToBeFalse(await (await page.locator(selectors.flowBuilderPagePO.SORTANDGROUP)).isVisible(), "How would you like to group and sort records? is not hidden");
+        const wouldParse = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.HOW_WOULD_PARSE);
+        await io.assert.expectToBeFalse(wouldParse, "How would you like to parse files? is not hidden");
+        const wouldTrn2 = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.WHERE_WOULD_TRANSFER);
+        await io.assert.expectToBeFalse(wouldTrn2, "Where would you like to transfer from? is not hidden");
+        const sortGrpoup = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.SORTANDGROUP);
+        await io.assert.expectToBeFalse(sortGrpoup, "How would you like to group and sort records? is not hidden");
         //-'Custom settings' should be renamed to 'Settings'.
         const Text = await io.homePage.isVisible("text='Settings'");
         await io.assert.expectToBeTrue(Text, "Settings name not shown");
@@ -72,10 +78,14 @@ test.describe("TC_C119791_C119793_C119795", () => {
         await io.myAccountPage.delay(2000);
         // -'Simple/HTTP' toggle at the very top of the bubble drawers (i.e. for HTTP based connectors) should be hidden
         await io.flowBuilder.waitForElementAttached(selectors.importPagePO.ADVANCED);
-        await io.assert.expectToBeFalse(await (await page.locator(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH)).isVisible(), "Simple toggle is not visible");
-        await io.assert.expectToBeFalse(await (await page.locator(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH)).isVisible(), "Http toggle is not hidden");
+        await io.flowBuilder.waitForElementAttached(selectors.importPagePO.ADVANCED);
+        const toggleSimple1 = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
+        await io.assert.expectToBeFalse(toggleSimple1, "Simple toggle is not visible");
+        const toggleHttp1 = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
+        await io.assert.expectToBeFalse(toggleHttp1, "Http toggle is not hidden");
         // -Other sections 'Configure export type' or 'What would you like to export' or any other should be hidden
-        await io.assert.expectToBeFalse(await (await page.locator(selectors.flowBuilderPagePO.WHERE_WOULD_TRANSFER)).isVisible(), "Where would you like to transfer from? is not hidden");
+        const wouldTrn = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.WHERE_WOULD_TRANSFER);
+        await io.assert.expectToBeFalse(wouldTrn, "Where would you like to transfer from? is not hidden");
         //-'Custom settings' should be renamed to 'Settings'.
         const Text1 = await io.homePage.isVisible("text='Settings'");
         await io.assert.expectToBeTrue(Text1, "Settings name not shown");
@@ -108,11 +118,16 @@ test.describe("TC_C119791_C119793_C119795", () => {
         await io.myAccountPage.delay(2000);
         // -'Simple/HTTP' toggle at the very top of the bubble drawers (i.e. for HTTP based connectors) should be hidden
         await io.flowBuilder.waitForElementAttached(selectors.importPagePO.ADVANCED);
-        await io.assert.expectToBeFalse(await (await page.locator(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH)).isVisible(), "Simple toggle is not visible");
-        await io.assert.expectToBeFalse(await (await page.locator(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH)).isVisible(), "Http toggle is not hidden");
+        await io.flowBuilder.waitForElementAttached(selectors.importPagePO.ADVANCED);
+        const toggleSimple2 = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
+        await io.assert.expectToBeFalse(toggleSimple2, "Simple toggle is not visible");
+        const toggleHttp2 = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
+        await io.assert.expectToBeFalse(toggleHttp2, "Http toggle is not hidden");
         // -Other sections 'Configure export type' or 'What would you like to export' or any other should be hidden
-        await io.assert.expectToBeFalse(await (await page.locator(selectors.importPagePO.FILES_TRANSFERED)).isVisible(), "Where would you like the files transferred? is not hidden");
-        await io.assert.expectToBeFalse(await (await page.locator(selectors.flowBuilderPagePO.HOW_WOULD_GENE_FILE)).isVisible(), "How would you like to generate files? is not hidden");
+        const fileTransf = await io.flowBuilder.isVisible(selectors.importPagePO.FILES_TRANSFERED);
+        await io.assert.expectToBeFalse(fileTransf, "Where would you like the files transferred? is not hidden");
+        const genFile = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.HOW_WOULD_GENE_FILE);
+        await io.assert.expectToBeFalse(genFile, "How would you like to generate files? is not hidden");
         //-'Custom settings' should be renamed to 'Settings'.
         const Text2 = await io.homePage.isVisible("text='Settings'");
         await io.assert.expectToBeTrue(Text2, "Settings name not shown");

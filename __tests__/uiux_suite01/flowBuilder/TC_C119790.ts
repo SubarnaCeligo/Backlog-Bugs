@@ -20,11 +20,15 @@ test.describe("TC_C119790_C119792_C119794", () => {
         await io.myAccountPage.delay(2000);
         // -'Simple/HTTP' toggle at the very top of the bubble drawers (i.e. for HTTP based connectors) should be hidden
         await io.flowBuilder.waitForElementAttached(selectors.importPagePO.ADVANCED);
-        await io.assert.expectToBeFalse(await (await page.locator(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH)).isVisible(), "Simple toggle is not visible");
-        await io.assert.expectToBeFalse(await (await page.locator(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH)).isVisible(), "Http toggle is not hidden");
+        const toggleSimple = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
+        await io.assert.expectToBeFalse(toggleSimple, "Simple toggle is not visible");
+        const toggleHttp = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
+        await io.assert.expectToBeFalse(toggleHttp, "Http toggle is not hidden");
         // -Other sections 'Configure export type' or 'What would you like to export' or any other should be hidden
-        await io.assert.expectToBeFalse(await (await page.locator(selectors.exportsPagePO.CONFIGURE_EXPORT_TYPE)).isVisible(), "Configure export type is not hidden");
-        await io.assert.expectToBeFalse(await (await page.locator(selectors.exportsPagePO.WHAT_WOULD_YOU_LIKE_TO_EXPORT_TAB)).isVisible(), "What would you like to export? is not hidden");
+        const exportType = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
+        await io.assert.expectToBeFalse(exportType, "Configure export type is not hidden");
+        const wouldLike = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
+        await io.assert.expectToBeFalse(wouldLike, "What would you like to export? is not hidden");
         //-'Custom settings' should be renamed to 'Settings'.
         const Text = await io.homePage.isVisible("text='Settings'");
         await io.assert.expectToBeTrue(Text, "Settings name not shown");
@@ -58,11 +62,15 @@ test.describe("TC_C119790_C119792_C119794", () => {
         await io.myAccountPage.delay(2000);
         // -'Simple/HTTP' toggle at the very top of the bubble drawers (i.e. for HTTP based connectors) should be hidden
         await io.flowBuilder.waitForElementAttached(selectors.importPagePO.ADVANCED);
-        await io.assert.expectToBeFalse(await (await page.locator(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH)).isVisible(), "Simple toggle is visible");
-        await io.assert.expectToBeFalse(await (await page.locator(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH)).isVisible(), "Http toggle is not hidden");
+        const toggleSimple = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
+        await io.assert.expectToBeFalse(toggleSimple, "Simple toggle is not visible");
+        const toggleHttp = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
+        await io.assert.expectToBeFalse(toggleHttp, "Http toggle is not hidden");
         // -Other sections 'Configure export type' or 'What would you like to export' or any other should be hidden
-        await io.assert.expectToBeFalse(await (await page.locator(selectors.exportsPagePO.CONFIGURE_EXPORT_TYPE)).isVisible(), "Configure export type is not hidden");
-        await io.assert.expectToBeFalse(await (await page.locator(selectors.exportsPagePO.WHAT_WOULD_YOU_LIKE_TO_EXPORT_TAB)).isVisible(), "What would you like to export? is not hidden");
+        const exportType = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
+        await io.assert.expectToBeFalse(exportType, "Configure export type is not hidden");
+        const wouldLike = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
+        await io.assert.expectToBeFalse(wouldLike, "What would you like to export? is not hidden");
         //-'Custom settings' should be renamed to 'Settings'.
         const Text1 = await io.homePage.isVisible("text='Settings'");
         await io.assert.expectToBeTrue(Text1, "Settings name not shown");
@@ -95,11 +103,15 @@ test.describe("TC_C119790_C119792_C119794", () => {
         await io.myAccountPage.delay(2000);
         // -'Simple/HTTP' toggle at the very top of the bubble drawers (i.e. for HTTP based connectors) should be hidden
         await io.flowBuilder.waitForElementAttached(selectors.importPagePO.ADVANCED);
-        await io.assert.expectToBeFalse(await (await page.locator(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH)).isVisible(), "Simple toggle is visible");
-        await io.assert.expectToBeFalse(await (await page.locator(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH)).isVisible(), "Http toggle is not hidden");
+        const toggleSimple = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
+        await io.assert.expectToBeFalse(toggleSimple, "Simple toggle is not visible");
+        const toggleHttp = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
+        await io.assert.expectToBeFalse(toggleHttp, "Http toggle is not hidden");
         // -Other sections 'Configure export type' or 'What would you like to export' or any other should be hidden
-        await io.assert.expectToBeFalse(await (await page.locator(selectors.exportsPagePO.CONFIGURE_EXPORT_TYPE)).isVisible(), "Configure export type is not hidden");
-        await io.assert.expectToBeFalse(await (await page.locator(selectors.exportsPagePO.WHAT_WOULD_YOU_LIKE_TO_EXPORT_TAB)).isVisible(), "What would you like to export? is not hidden");
+        const exportType = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
+        await io.assert.expectToBeFalse(exportType, "Configure export type is not hidden");
+        const wouldLike = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
+        await io.assert.expectToBeFalse(wouldLike, "What would you like to export? is not hidden");
         //-'Custom settings' should be renamed to 'Settings'.
         const Text2 = await io.homePage.isVisible("text='Settings'");
         await io.assert.expectToBeTrue(Text2, "Settings name not shown");
