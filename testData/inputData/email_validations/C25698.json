@@ -1,0 +1,66 @@
+
+{
+    "name": "TC_C25698",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "pageGenerators": [
+      {
+        "qa__export": {
+            "name": "AAA_C2660_export",
+            "_connectionId": "HTTP ZENDESK CONNECTION2",
+            "apiIdentifier": "e4901ece0f",
+            "asynchronous": true,
+            "type": "test",
+            "dataURITemplate": "https://d3v-celigo5000.zendesk.com/agent/tickets/{{record.id}}",
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+                "relativeURI": "api/v2/tickets",
+                "method": "GET",
+                "formType": "http",
+                "response": {
+                    "resourcePath": "tickets"
+                }
+            },
+            "rawData": "6459f649beb3fa04056e2c8e0a03af402409490cb4db283fc5f390fd",
+            "test": {
+                "limit": 1
+            },
+            "adaptorType": "HTTPExport"
+            }
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+            "name": "AutomationStandalone_1Wg98",
+            "parsers": [],
+            "_connectionId": "HTTP ZENDESK CONNECTION2",
+            "apiIdentifier": "i6397669bc",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "dataURITemplate": "https://d3v-celigo5000.zendesk.com/agent/tickets/1",
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+                "relativeURI": [
+                    "fdsfdsfdsfdsfdsfdsfdsfdsf"
+                ],
+                "method": [
+                    "POST"
+                ],
+                "body": [
+                    "dfadsfdsfdsfdsfdsfdsf"
+                ],
+                "batchSize": 1,
+                "sendPostMappedData": true,
+                "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+        }
+      }
+    ]
+  }

@@ -26,5 +26,12 @@
     "outputFilter": {
         "name": "Output filter",
         "content": "function filter (options) {\n  console.log(\"Output filter\")\n  return true\n}"
+    },
+    "postResponseMap": {
+        "name": "Post Response Map",
+        "_sourceId": "64b92af8e623201af77899f2",
+        "sandbox": false,
+        "postResponseHookToProcessOnChildRecord": true,
+        "content": "function postResponseMap (options) {\n  console.log(\"test old script\");\n return options.postResponseMapData\n}"
     }
 }
