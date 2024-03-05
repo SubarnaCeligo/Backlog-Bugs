@@ -1,8 +1,8 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C63190", () => {
-  test("C63190 If the internet goes offline, then a proper error message should display instead of unknown error", async ({
+test.describe("C93549", () => {
+  test("C93549 Verify Logo for MariaDB connector in connectors list and connection page.[Imports]", async ({
     io,
     page
   }) => {
