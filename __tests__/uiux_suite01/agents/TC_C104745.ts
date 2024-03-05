@@ -1,8 +1,8 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C106831", () => {
-  test("C106831 Verify for Agent dropdown", async ({
+test.describe("C104745", () => {
+  test("C104745 Verify for Agent dropdown", async ({
     io,
     page
   }) => {
