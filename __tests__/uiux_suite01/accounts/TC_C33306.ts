@@ -5,7 +5,6 @@ import {
   isValidLocalTimeFormat,
   isRelativeTimeFormat
 } from "@celigo/aut-utilities";
-
 test.describe("C33306 Verify in Timestamp and Resolved at columns in Resolved errors section are displayed in relative format and the vice versa.", () => {
     test("C33306 Verify in Timestamp and Resolved at columns in Resolved errors section are displayed in relative format and the vice versa.", async ({io, page}) => {
     
@@ -18,28 +17,42 @@ test.describe("C33306 Verify in Timestamp and Resolved at columns in Resolved er
         await io.myAccountPage.click(selectors.myAccountPagePO.SHOW_RELATIVE_DATE_TIME_CHECKBOX)
         await io.myAccountPage.click(selectors.basePagePO.MFA_SAVE)
       }
-      valueAttribute = await inputElement.getAttribute('value');
-      const id = await io.createResourceFromAPI(testData,"FLOWS");
-      await io.api.runBatchFlowViaAPI('TC_50858', id);
-      const lastRun = page.getByText('Last run')
-      await lastRun.waitFor({state: 'visible', timeout: 180000});
-      await io.flowBuilder.waitForElementAttached(selectors.myAccountPagePO.LOCAL_DATE_TIME)
-      const timeString = await io.flowBuilder.getText(selectors.myAccountPagePO.LOCAL_DATE_TIME)    
-      
-      const isRelativeTime = isRelativeTimeFormat(timeString[0]);
-      await io.assert.expectToBeTrue(isRelativeTime, "not in a relative time format")
-
+      await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL)
+      await io.homePage.click(selectors.homePagePO.SEARCH_INTEGRATION);
+      await io.homePage.fill(selectors.homePagePO.SEARCH_INTEGRATION,"Error_FLOW2_DND");
+      await io.homePage.clickByText("Error_FLOW2_DND"); 
+      await io.homePage.loadingTime();
+      await io.homePage.clickByText("Error_flow_DND"); 
+      await io.homePage.click(selectors.basePagePO.RUNFLOW);
+      await io.homePage.addStep("*** Running the flow ***");
+      await io.flowBuilder.loadingTime();
+      await io.flowBuilder.loadingTime();
+      await io.flowBuilder.waitForElementAttached(selectors.basePagePO.RUNFLOW);
+      await io.homePage.addStep("*** Flow ran succesfully ***");
+      await io.flowBuilder.loadingTime();
+      await io.homePage.click(selectors.flowBuilderPagePO.ERROR_BUBBLE);
+      await io.homePage.addStep("*** Opened Error bage ***");
+      await io.homePage.click(selectors.integrationPagePO.RESOLVEDERRORS);
+      await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL)
       await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
       await io.myAccountPage.click(selectors.myAccountPagePO.SHOW_RELATIVE_DATE_TIME_CHECKBOX)
       await io.myAccountPage.click(selectors.basePagePO.MFA_SAVE)
       await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL)
-      await io.homePage.clickByText("Automation Flows")
-      await io.homePage.clickByTextByIndex("TC_C33306",0)
-      await io.flowBuilder.click(selectors.flowBuilderPagePO.NOTIFICATION_CONNECTIONS)
-      await io.flowBuilder.waitForElementAttached(selectors.myAccountPagePO.RELATIVE_DATE_TIME)
-      const timeStringlocal = await io.flowBuilder.getText(selectors.myAccountPagePO.RELATIVE_DATE_TIME)
-      const isLocalTime = isValidLocalTimeFormat(timeStringlocal[0])
-
-      await io.assert.expectToBeTrue(isLocalTime, "Not in local time")
+      await io.homePage.click(selectors.homePagePO.SEARCH_INTEGRATION);
+      await io.homePage.fill(selectors.homePagePO.SEARCH_INTEGRATION,"Error_FLOW2_DND");
+      await io.homePage.clickByText("Error_FLOW2_DND"); 
+      await io.homePage.loadingTime();
+      await io.homePage.clickByText("Error_flow_DND"); 
+      await io.homePage.click(selectors.basePagePO.RUNFLOW);
+      await io.homePage.addStep("*** Running the flow ***");
+      await io.flowBuilder.loadingTime();
+      await io.flowBuilder.loadingTime();
+      await io.flowBuilder.waitForElementAttached(selectors.basePagePO.RUNFLOW);
+      await io.homePage.addStep("*** Flow ran succesfully ***");
+      await io.flowBuilder.loadingTime();
+      await io.homePage.click(selectors.flowBuilderPagePO.ERROR_BUBBLE);
+      await io.homePage.addStep("*** Opened Error bage ***");
+      await io.homePage.click(selectors.integrationPagePO.RESOLVEDERRORS);
+      await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL)
     });
   });

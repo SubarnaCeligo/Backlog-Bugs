@@ -2,10 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 const fs = require('fs');
 import * as selectors from "@celigo/aut-selectors";
 import { HomePage } from "@celigo/ui-core-automation/dist/src/pageFactory/pages/HomePage";
-
-
 test.describe("C110451 Verify user is able to download the agent on Linux machine.", () => {
-
     test.beforeEach(async ({ io }) => {
          
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
@@ -21,6 +18,5 @@ test.describe("C110451 Verify user is able to download the agent on Linux machin
      const download = await page.waitForEvent('download');
      const suggestedFileName = download.suggestedFilename()
      expect(download.suggestedFilename()).toBe("agent-linux.AppImage");
-
     });
 });
