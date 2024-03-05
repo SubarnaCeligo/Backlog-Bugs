@@ -11,7 +11,9 @@ test.describe('Verify we should not allow integration level manage access once A
         await io.myAccountPage.clickByText("Users");
         await io.myAccountPage.clickByText("Invite user");
         await io.myAccountPage.waitForElementAttached("text='Custom'")
-        await io.myAccountPage.clickByTextByIndex("Custom",0);
+        await io.homePage.loadingTime()
+        await io.homePage.loadingTime()
+        await io.myAccountPage.clickByText("Custom");
         await io.myAccountPage.click(selectors.myAccountPagePO.CUSTOM_MONITOR_ALL)
         await io.myAccountPage.click(selectors.myAccountPagePO.MONITOR_ALL_BUTTON);
         await  io.myAccountPage.clickByText('Automation Flows')
