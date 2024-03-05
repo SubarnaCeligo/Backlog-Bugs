@@ -58,12 +58,17 @@ test.describe("C117448 Verify Filter is having Celigo AI", () => {
     await io.flowBuilder.loadingTime();
     const promptErrorMsg = page.getByText('Invalid prompt - Please provide relevant prompt.').first();
     await promptErrorMsg.waitFor({ state: 'visible', timeout: 30000 });
-
+    await io.flowBuilder.loadingTime();
 
     (await page.$(selectors.flowBuilderPagePO.EM2DOT0PO.ACE_EDITOR_INPUT)).focus();
     await page.keyboard.press('Control+A');
     await page.keyboard.press('Meta+A');
-    await page.keyboard.press('Backspace');
+    await io.flowBuilder.loadingTime();
+    await page.evaluate(() => {
+      // @ts-ignore
+      const editor = ace.edit("data"); 
+      editor.setValue("");
+    });
     await io.flowBuilder.loadingTime();
     (await page.$(selectors.flowBuilderPagePO.EM2DOT0PO.ACE_EDITOR_INPUT)).fill(`{
       "record": {
@@ -88,6 +93,7 @@ test.describe("C117448 Verify Filter is having Celigo AI", () => {
     }`);
 
     //Valid Prompt for filter C117459
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.clickByText('Celigo AI');
     await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'Filter by price less than 500');
     await io.flowBuilder.loadingTime();
@@ -119,12 +125,18 @@ test.describe("C117448 Verify Filter is having Celigo AI", () => {
     await io.flowBuilder.click(selectors.flowBuilderPagePO.DELETECONDI);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.DELETECONDI);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.DELETECONDI);
+    await io.flowBuilder.loadingTime();
 
     // check for another filter with different data
     (await page.$(selectors.flowBuilderPagePO.EM2DOT0PO.ACE_EDITOR_INPUT)).focus();
     await page.keyboard.press('Control+A');
-    await page.keyboard.press('Meta+A');
-    await page.keyboard.press('Backspace');
+    await page.keyboard.press('Meta+A'); 
+    await io.flowBuilder.loadingTime();
+    await page.evaluate(() => {
+      // @ts-ignore
+      const editor = ace.edit("data"); 
+      editor.setValue("");
+    });
     await io.flowBuilder.loadingTime();
     (await page.$(selectors.flowBuilderPagePO.EM2DOT0PO.ACE_EDITOR_INPUT)).fill(`{
       "record": {
@@ -150,7 +162,7 @@ test.describe("C117448 Verify Filter is having Celigo AI", () => {
         "export": {}
       }
     }`);
-
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.clickByText('Celigo AI');
     await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'filter by where item quantity is 2, amount is less than 160 and customerId is C12345');
     await io.flowBuilder.loadingTime();
