@@ -54,6 +54,7 @@ test.describe(`C32362 Verify cloned integration has the updated flow after updat
       .nth(1)
       .click();
     await io.homePage.click(selectors.basePagePO.SAVE);
+    await io.flowBuilder.loadingTime();
     await io.homePage.clickByTextByIndex("Clone - C32362_DND", 0);
     await io.homePage.click('[data-test="connections"]');
     await io.assert.verifyElementDisplayedByText(

@@ -8,7 +8,7 @@ test.describe("C27073 In Run report drawer the Flows list should be Alpha sorted
       await io.homePage.goToMenu("Tools", "Reports");
       await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
       await io.homePage.click(selectors.homePagePO.INTEGRATION);
-      await io.homePage.clickByText('Automation Flows');
+      await page.getByRole("menuitem").nth(1).click();
       await io.homePage.clickByText('Choose flows');
       const allOptions = await page.locator(selectors.homePagePO.REPORT_AUTOMATION_FLOWS_OPTION).all();
       const allOptionsText = [];
