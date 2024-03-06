@@ -1,8 +1,8 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C2660 Verify export is hidden which is once used in the flow.", () => {
-  test("C2660 Verify export is hidden which is once used in the flow.", async ({io, page}) => {
+test.describe("C106829 Test to validate that user is able to see helper syntax for nested expressions only when the cursor is pointing nested expression", () => {
+  test("C106829 Test to validate that user is able to see helper syntax for nested expressions only when the cursor is pointing nested expression", async ({io, page}) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
