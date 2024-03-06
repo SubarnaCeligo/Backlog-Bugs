@@ -23,7 +23,7 @@ test.describe("C47437", () => {
     await io.connectionPage.click(selectors.mappings.MAPPER2DOT0PO.SAVEANDCLOSE)
     await io.connectionPage.click(selectors.basePagePO.MFA_SAVE)
     await io.connectionPage.clickByText("ftp con")
-    await io.connectionPage.fill(selectors.basePagePO.FTP_PASSWORD, "w6jZ^DO9@HRUtA5f")
+    await io.connectionPage.fill(selectors.basePagePO.FTP_PASSWORD, process.env.FTP_password)
     await io.connectionPage.click(selectors.mappings.MAPPER2DOT0PO.SAVEANDCLOSE)
      
      

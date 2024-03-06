@@ -23,6 +23,7 @@ test.describe(`C27107  Run report drawer - ‘Child integrations’ multi-select
     const listItems = await page.$$(listItemSelector);
     const textContents = [];
 
+    // this code is for sorting the array in alphabetical order
     for (let i = 0; i < listItems.length; i++) {
         const textContent = await io.flowBuilder.getText(listItemSelector); // Pass locator instead of element
         if (typeof textContent === 'string') {
