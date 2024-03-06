@@ -2,7 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C106807", () => {
-  test("C106807 C106827 Test to validate that the datatype is visible for the items in Fields section  in the access level accounts where ever it is applicable", async ({io, page}) => {
+  test("C106807 C106827 C106773 Test to validate that the datatype is visible for the items in Fields section  in the access level accounts where ever it is applicable", async ({io, page}) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
@@ -25,7 +25,7 @@ test.describe("C106807", () => {
     await io.assert.verifyElementTextByIndex(selectors.mappings.MAPPER2DOT0PO.TREE_ITEM, 'namestring' ,2);
 
 
-    await io.flowBuilder.click('button[aria-controls="helpers"]');
+    await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.POPPER_TAB_HELPERS);
     await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.TREE_ITEM);
     await io.flowBuilder.clickByIndex(selectors.mappings.MAPPER2DOT0PO.TREE_ITEM, 1);
 
@@ -40,7 +40,37 @@ test.describe("C106807", () => {
 
     const updatedTextarea = await page.$(selectors.connectionsPagePO.RULE_TEXTAERA);
     const updatedText = await updatedTextarea.evaluate((element: HTMLTextAreaElement) => element.value);
-    await page.pause();
     expect(updatedText.trimEnd()).toEqual('{{a');
+
+
+    // C106773 Test to validate that user is able to invoke dropdown by clicking (Cmnd/Ctrl+space) combination,
+    // and validate that user is seeing ""All"", ""Fields"","" Helpers"" options, and user should be able to navigate through each section when dropdown is invoked
+
+    // clear all existing text
+    await page.keyboard.press('Backspace');
+    await page.keyboard.press('Backspace');
+    await page.keyboard.press('Backspace');
+    await page.waitForTimeout(500);
+    await page.keyboard.press('Control+Space');
+
+    const popperTabs = await page.$$(selectors.mappings.MAPPER2DOT0PO.HANDLEBARS + " " + selectors.flowBuilderPagePO.TAB_LIST + ' button');
+    const allButtonText = await popperTabs[0].evaluate((element: HTMLButtonElement) => element.textContent);
+    const fieldsButtonText = await popperTabs[1].evaluate((element: HTMLButtonElement) => element.textContent);
+    const helpersButtonText = await popperTabs[2].evaluate((element: HTMLButtonElement) => element.textContent);
+
+
+    expect(allButtonText).toEqual('All');
+    expect(fieldsButtonText).toEqual('Fields');
+    expect(helpersButtonText).toEqual('Helpers');
+
+
+    await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.POPPER_TAB_HELPERS);
+    io.assert.verifyElementTextByIndex(selectors.mappings.MAPPER2DOT0PO.TREE_ITEM, 'Numeric', 0);
+
+    await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.POPPER_TAB_FIELDS);
+    io.assert.verifyElementTextByIndex(selectors.mappings.MAPPER2DOT0PO.TREE_ITEM, 'connectionobject', 0);
+    
+    await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.POPPER_TAB_ALL);
+    io.assert.verifyElementTextByIndex(selectors.mappings.MAPPER2DOT0PO.TREE_ITEM, 'Fields', 0);
   });
 });
