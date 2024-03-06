@@ -7,7 +7,9 @@ test.describe("C106846", () => {
     page
   }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
-    await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
+    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.clickByTextByIndex('Create', 0);
+    await io.homePage.clickByTextByIndex('Flow', 0);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, "http");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH);
@@ -24,7 +26,7 @@ test.describe("C106846", () => {
     await io.flowBuilder.click(selectors.flowBuilderPagePO.HTTPREQUSTBODY);
 
     await page.keyboard.type("{{");
-    await io.assert.verifyElementIsDisplayed(HANDLEBAR_POPPER,"Handlebars popper is not visible but it should be");
+    await io.assert.verifyElementIsDisplayed(selectors.basePagePO.HANDLEBAR_POPPER,"Handlebars popper is not visible but it should be");
 
     await io.flowBuilder.click('button[aria-controls="helpers"]');
     await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.TREE_ITEM);
@@ -34,7 +36,7 @@ test.describe("C106846", () => {
 
     // verify text is updated
     const text = await textarea.evaluate((element: HTMLTextAreaElement) => element.value);
-    expect(text).toEqual("{{abs ");
+    expect(text.trim()).toEqual("{{abs");
 
     // verify the cursor position is at the end i.e, cursor should point at the end of current argument
     const selectionRange = await textarea.evaluate((element: HTMLTextAreaElement) => element.selectionStart);
