@@ -1,7 +1,7 @@
 
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-
+import jsonData from "@testData/FlowBuilder/IO_T4960.json";
 
 test.describe("TC_C32179", () => {
   test.beforeEach(async ({ io }) => {
@@ -18,28 +18,22 @@ test.describe("TC_C32179", () => {
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.click(selectors.exportsPagePO.FILE_TYPE);
 
-    //Check invalid file input
-    // await io.flowBuilder.clickByText('XML');
-    // let fileInput = await page.$(selectors.basePagePO.UPLOAD_FILE);
-    // await fileInput.setInputFiles("testData/inputData/FlowBuilder/IO_T4960.json");
-    // await io.flowBuilder.waitForElementAttached(selectors.basePagePO.VALUE_MUST_BE_PROVIDED_ERROR);
-    // const errorMsg = (await io.flowBuilder.getText(selectors.basePagePO.VALUE_MUST_BE_PROVIDED_ERROR)).toString();
-    // await io.assert.expectToContainValue('Please select valid xml file', errorMsg, "Error for file is not showing properly");
-
-    //Check valid file input
-    //await io.flowBuilder.click(selectors.exportsPagePO.FILE_TYPE);
     await io.flowBuilder.clickByText('JSON');
     let fileInput1 = await page.$(selectors.basePagePO.UPLOAD_FILE);
     await fileInput1.setInputFiles("testData/inputData/FlowBuilder/IO_T4960.json");
 
     //await io.flowBuilder.waitForText(selectors.basePagePO.FILE_NAME, "IO_T4960.json");
+    await page.getByText("IO_T4960.json").waitFor({ state: 'visible', timeout: 30000 })
+
     await io.flowBuilder.click(selectors.importPagePO.CLICKPREVIEW);
     await io.connectionPage.addStep("Clicking on preview");
 
-    const previewTextGET = await io.connectionPage.getText(
-      selectors.flowBuilderPagePO.CONTENT
-    );
-    console.log(previewTextGET);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.COPY_BUTTON);
+    let previewTextGET = await page.evaluate(() => {
+      return navigator.clipboard.readText();
+    });
+    previewTextGET = JSON.parse(previewTextGET);
+    expect(previewTextGET['page_of_records'][0]['record']).toStrictEqual(jsonData);
   });
 });
 
