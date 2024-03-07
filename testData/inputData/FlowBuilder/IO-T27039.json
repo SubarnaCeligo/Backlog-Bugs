@@ -1,0 +1,239 @@
+{
+    "name": "IO-T27039",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "Shopify customer export",
+                "_connectionId": "SHOPIFY CONNECTION",
+                "asynchronous": true,
+                "assistant": "shopify",
+                "assistantMetadata": {
+                    "resource": "customer",
+                    "version": "v2",
+                    "operation": "searches_forcustomersthatmatchasuppliedquery"
+                },
+                "http": {
+                    "relativeURI": "/customers/search.json?query=first_name:C23737",
+                    "method": "GET",
+                    "paging": {
+                        "method": "linkheader",
+                        "lastPageStatusCode": 404,
+                        "linkHeaderRelation": "next"
+                    },
+                    "response": {
+                        "resourcePath": "customers"
+                    }
+                },
+                "settingsForm": {
+                    "form": {
+                        "useAsPrimaryInterface": true,
+                        "fieldMap": {
+                            "pathparam": {
+                                "id": "pathparam",
+                                "name": "pathparam",
+                                "type": "text",
+                                "label": "Account number",
+                                "required": true,
+                                "helpText": "Enter an account number, and separate additional values with a comma."
+                            }
+                        },
+                        "layout": {
+                            "fields": [
+                                "pathparam"
+                            ]
+                        }
+                    }
+                },
+                "rawData": "603ce5ede9250226dcea4608dda6230d547e4261bcf2b129528d1898",
+                "rest": {
+                    "relativeURI": "/customers/search.json?query=first_name:C23737",
+                    "method": "GET",
+                    "resourcePath": "customers",
+                    "pagingMethod": "linkheader",
+                    "allowUndefinedResource": false,
+                    "linkHeaderRelation": "next"
+                },
+                "adaptorType": "RESTExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "shopify lookup",
+                "_connectionId": "SHOPIFY CONNECTION",
+                "apiIdentifier": "ef957f9855",
+                "asynchronous": true,
+                "isLookup": true,
+                "assistant": "shopify",
+                "oneToMany": false,
+                "sandbox": false,
+                "assistantMetadata": {
+                    "resource": "report",
+                    "version": "v2",
+                    "operation": "retrieves_alistofreports"
+                },
+                "http": {
+                    "relativeURI": "/reports.json",
+                    "method": "GET",
+                    "headers": [],
+                    "successMediaType": "json",
+                    "errorMediaType": "json",
+                    "formType": "assistant",
+                    "paging": {
+                        "method": "linkheader",
+                        "lastPageStatusCode": 404,
+                        "linkHeaderRelation": "next"
+                    },
+                    "response": {
+                        "resourcePath": "reports"
+                    }
+                },
+                "rest": {
+                    "relativeURI": "/reports.json",
+                    "method": "GET",
+                    "headers": [],
+                    "resourcePath": "reports",
+                    "pagingMethod": "linkheader",
+                    "allowUndefinedResource": false,
+                    "linkHeaderRelation": "next"
+                },
+                "adaptorType": "RESTExport"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "shpoi import",
+                "_connectionId": "SHOPIFY CONNECTION",
+                "apiIdentifier": "i706e3878e",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "assistant": "shopify",
+                "sandbox": false,
+                "assistantMetadata": {
+                    "resource": "application_credits",
+                    "version": "v2",
+                    "operation": "create_recurring_application_credit"
+                },
+                "lookups": [],
+                "http": {
+                    "relativeURI": [
+                        "/application_credits.json"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [
+                        null
+                    ],
+                    "headers": [],
+                    "batchSize": 1,
+                    "requestMediaType": "json",
+                    "successMediaType": "json",
+                    "errorMediaType": "json",
+                    "strictHandlebarEvaluation": true,
+                    "sendPostMappedData": true,
+                    "formType": "assistant",
+                    "lookups": [],
+                    "response": {
+                        "resourceIdPath": [
+                            null
+                        ]
+                    }
+                },
+                "rest": {
+                    "relativeURI": [
+                        "/application_credits.json"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [
+                        null
+                    ],
+                    "headers": [],
+                    "responseIdPath": [
+                        null
+                    ],
+                    "successPath": [
+                        null
+                    ],
+                    "successValues": [
+                        null
+                    ],
+                    "lookups": []
+                },
+                "adaptorType": "RESTImport"
+            }
+        }
+    ],
+    "createFlow": {
+        "name": "IO-T27039",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "export",
+                "_importId": "UPDATE WITH NEW EXPORTID"
+            },
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+        ]
+    },
+    "customSetting": {
+        "useAsPrimaryInterface": "true",
+        "fieldMap": {
+            "pathparam": {
+                "id": "pathparam",
+                "name": "pathparam",
+                "type": "text",
+                "label": "Account number",
+                "required": true,
+                "helpText": "Enter an account number, and separate additional values with a comma."
+            }
+        },
+        "layout": {
+            "fields": [
+                "pathparam"
+            ]
+        }
+    },
+    "customSetting1": {
+        "useAsPrimaryInterface": "  ",
+        "fieldMap": {
+            "pathparam": {
+                "id": "pathparam",
+                "name": "pathparam",
+                "type": "text",
+                "label": "Account number",
+                "required": true,
+                "helpText": "Enter an account number, and separate additional values with a comma."
+            }
+        },
+        "layout": {
+            "fields": [
+                "pathparam"
+            ]
+        }
+    }
+}
