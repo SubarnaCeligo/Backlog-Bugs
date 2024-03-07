@@ -24,10 +24,7 @@ test.describe("C106846", () => {
     await io.flowBuilder.click(selectors.flowBuilderPagePO.HTTPREQUSTBODY);
 
     await page.keyboard.type("{{");
-    await io.assert.verifyElementIsDisplayed(
-      selectors.basePagePO.HANDLEBAR_POPPER,
-      "Handlebars popper is not visible but it should be"
-    );
+    await io.assert.verifyElementIsDisplayed(selectors.basePagePO.HANDLEBAR_POPPER,"Handlebars popper is not visible but it should be");
 
     await io.flowBuilder.click('button[aria-controls="helpers"]');
     await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.TREE_ITEM);

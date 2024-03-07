@@ -21,6 +21,7 @@ test.describe("SS2.0 Flows", () => {
       selectors.flowBuilderPagePO.HTTP_IMPORT_PLUSBUTTON
     );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);
+    await page.waitForTimeout(10000);
     await io.homePage.fill(
       selectors.flowBuilderPagePO.DESTINATION_MAPPING_PLACEHOLDER,
       "CreatedDate"
