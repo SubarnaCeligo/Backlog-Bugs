@@ -25,15 +25,15 @@ test.describe("IO-T2957 verify validations are present in the configure search p
         await io.exportsPage.clickByText('Orders');
         await io.exportsPage.click(selectors.exportsPagePO.ASSISTANT_META_DATA_OPERATION);
         await io.exportsPage.clickByText('Get Orders');
-        await io.exportsPage.waitForElementAttached("[data-test='assistantMetadata.queryParams']")
-        await io.exportsPage.click("[data-test='assistantMetadata.queryParams']");
+        await io.exportsPage.waitForElementAttached(selectors.exportsPagePO.ASSISTANT_METADATA_QUERY_PARAMS)
+        await io.exportsPage.click(selectors.exportsPagePO.ASSISTANT_METADATA_QUERY_PARAMS);
         await io.assert.verifyElementDisplayedByText(
             "LastUpdatedAfter *",
             "LastUpdatedAfter should be have mandatory symbol *"
         );
 
-        await io.exportsPage.fill('[name="LastUpdatedAfter"]', 'test');
-        await io.exportsPage.clearTextValue('[name="LastUpdatedAfter"]');
+        await io.exportsPage.fill(selectors.exportsPagePO.LASTUPDATEDAFTER, 'test');
+        await io.exportsPage.clearTextValue(selectors.exportsPagePO.LASTUPDATEDAFTER);
 
         await io.exportsPage.click(selectors.basePagePO.MFA_SAVE);
                 

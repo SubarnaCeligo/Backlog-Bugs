@@ -25,14 +25,14 @@ test.describe("TC_IO-T4959_IO-T4958_IO-T4956_IO-T4954_IO-T4955", () => {
         //Open listener Logs
         await io.flowBuilder.click(selectors.flowBuilderPagePO.LISTENER);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.VIEW_DEBUG_LOG);
-        await io.flowBuilder.click('th:has-text("Time") >> css=.MuiButtonBase-root');
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.LISTENER_LOGS_TIME);
         await io.flowBuilder.clickByText("Yesterday");
         await io.flowBuilder.clickByText("Apply");
         await page.getByText("Fetching logs...", { exact: false }).waitFor({ state: `visible`, timeout: 10000 })
-        await io.flowBuilder.click('th:has-text("Time") >> css=.MuiButtonBase-root');
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.LISTENER_LOGS_TIME);
         await io.flowBuilder.clickByText("Custom");
-        await io.flowBuilder.click(".rdrNextPrevButton.rdrPprevButton")
-        let buttonList = await page.$$('.rdrDay');
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.CALENDER_PREVIOS)
+        let buttonList = await page.$$(selectors.flowBuilderPagePO.CALENDER_DAY_SELECTOR);
 
         // Filter the enabled buttons
         let enabledButtons = [];
@@ -74,8 +74,8 @@ test.describe("TC_IO-T4959_IO-T4958_IO-T4956_IO-T4954_IO-T4955", () => {
         //IO-T4958 verify the fetching percentage is shown as expected for listener logs & Script logs
         await io.flowBuilder.clickByText("Yesterday");
         await io.flowBuilder.clickByText("Custom");
-        await io.flowBuilder.click(".rdrNextPrevButton.rdrPprevButton")
-        buttonList = await page.$$('.rdrDay');
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.CALENDER_PREVIOS)
+        buttonList = await page.$$(selectors.flowBuilderPagePO.CALENDER_DAY_SELECTOR);
 
         // Filter the enabled buttons
         enabledButtons = [];

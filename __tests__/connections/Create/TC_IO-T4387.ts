@@ -18,8 +18,8 @@ test.describe("TC_IO-T4387", () => {
     });
 
     await test.step("*** Verifying the created connection and making it offline***", async () => {
-      await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, 'Create_Connection_FTP_test_offline_case');
-      await io.assert.expectToBeTrue(await io.homePage.isVisible('text=Create_Connection_FTP_test_offline_case'), "Connection is not created");
+      await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, body.name);
+      await io.assert.expectToBeTrue(await io.homePage.isVisible(`text=${body.name}`), "Connection is not created");
       await io.connectionPage.click(selectors.integrationPagePO.OPENACTIONSMENU);
       await io.connectionPage.clickByText("Edit connection");
       await io.connectionPage.delay(1000);
@@ -42,8 +42,8 @@ test.describe("TC_IO-T4387", () => {
       }
 
       await io.connections.createOrEditConnection(connectionData);
-      await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, 'Create_Connection_FTP_test_offline_case');
-      await io.assert.expectToBeTrue(await io.homePage.isVisible('text=Create_Connection_FTP_test_offline_case'), "Connection is not created");
+      await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, body.name);
+      await io.assert.expectToBeTrue(await io.homePage.isVisible(`text=${body.name}`), "Connection is not created");
       await io.connectionPage.delay(2000);
       const connectionStatus = await page.$eval(selectors.flowBuilderPagePO.CONNECTION_STATUS, (span) => span.getAttribute('aria-label'));
       let result = connectionStatus === 'success';
