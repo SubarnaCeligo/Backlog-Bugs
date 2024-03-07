@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/monitorSuite/monitor_all_manage_few.json";
 
- 
+
 test.describe(`C21309 Verify the connections of a monitored tiles should not be listed while creating new flow under manage tile.`, () => {
   test(`C21309 Verify the connections of a monitored tiles should not be listed while creating new flow under manage tile.`, async ({
     page,
@@ -20,7 +20,5 @@ test.describe(`C21309 Verify the connections of a monitored tiles should not be 
     await io.homePage.click(selectors.basePagePO.CONNECTION_DROPDOWN)
     const monitorExp = await io.homePage.isVisible("text='MONITOR CONNECTION'")
     await io.assert.expectToBeValue(monitorExp.toString(), 'false', "Value is found")
-    
-
   });
 });

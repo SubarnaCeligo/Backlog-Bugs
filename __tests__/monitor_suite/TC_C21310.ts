@@ -17,7 +17,7 @@ import testData from "@testData/monitorSuite/monitor_all_manage_few.json";
     await io.homePage.click(selectors.basePagePO.ADD_SOURCE_BUTTON)
     await io.homePage.click(selectors.connectionsPagePO.FTP_CONNECTION)
     await io.homePage.click(selectors.basePagePO.CONNECTION_DROPDOWN)
-    await io.homePage.clickByTextByIndex("FTP connection", 0)
+    await io.homePage.clickByTextByIndex("FTP CONNECTION", 0)
     await io.homePage.click(selectors.exportsPagePO.CHECK_EXISTING_EXPORT)
     const monitorExp = await io.homePage.isVisible("text='monitor export'")
     await io.assert.expectToBeValue(monitorExp.toString(), 'false', "Value is found")
