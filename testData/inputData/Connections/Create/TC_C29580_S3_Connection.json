@@ -1,0 +1,22 @@
+{
+  "type": "s3",
+  "name": "TC_C29580 Amazon S3",
+  "sandbox": false,
+  "enableMicroBatchForOneToMany": true,
+  "s3": {
+    "accessKeyId": "AKIASXM4V7ZF2CWVU3HE",
+    "secretAccessKey": "******"
+  },
+  "autoRecoverRateLimitErrors": true,
+  "microServices": {
+    "disableRdbms": false,
+    "disableNetSuiteDistributed": false,
+    "disableHttp": false
+  },
+  "queues": [
+    {
+      "name": "657aee3309421f72350a7820",
+      "size": 0
+    }
+  ]
+}
