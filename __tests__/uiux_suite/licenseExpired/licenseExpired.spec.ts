@@ -1,10 +1,11 @@
 import {filterTestCases} from "@celigo/aut-utilities"
 var testCases = [
-"C51042",
-"C50882"
+"C23048",
+"C23055"
 ];
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
 
 (async () => {
-  await filterTestCases(testCases,flakycases,"mfa_required");
+  await filterTestCases(testCases,flakycases, "licenseExpired");
 })();
+
