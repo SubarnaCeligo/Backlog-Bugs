@@ -22,7 +22,7 @@ test.describe("TC_IO-T4387", () => {
       await io.assert.expectToBeTrue(await io.homePage.isVisible(`text=${body.name}`), "Connection is not created");
       await io.connectionPage.click(selectors.integrationPagePO.OPENACTIONSMENU);
       await io.connectionPage.clickByText("Edit connection");
-      await io.connectionPage.delay(1000);
+      await io.connectionPage.loadingTime();
       await io.connectionPage.click(selectors.flowBuilderPagePO.CLOSE);
 
       await page.getByText('Offline', { exact: true }).waitFor({ state: 'visible', timeout: 60000 });
@@ -44,7 +44,7 @@ test.describe("TC_IO-T4387", () => {
       await io.connections.createOrEditConnection(connectionData);
       await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, body.name);
       await io.assert.expectToBeTrue(await io.homePage.isVisible(`text=${body.name}`), "Connection is not created");
-      await io.connectionPage.delay(2000);
+      await io.connectionPage.loadingTime();
       const connectionStatus = await page.$eval(selectors.flowBuilderPagePO.CONNECTION_STATUS, (span) => span.getAttribute('aria-label'));
       let result = connectionStatus === 'success';
       await io.assert.expectToBeTrue(result, "Connection is Offline");
