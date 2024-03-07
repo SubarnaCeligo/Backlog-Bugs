@@ -24,7 +24,7 @@
         ],
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
-        "forceConsistentCasingInFileNames": true,
+        "forceConsistentCasingInFileNames": false,
         "skipLibCheck": true,
         "moduleResolution": "node",
         "resolveJsonModule": true,
