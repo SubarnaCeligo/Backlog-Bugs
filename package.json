@@ -1,5 +1,5 @@
 {
-  "name": "playwright-ts",
+  "name": "@celigo/playwright-ts",
   "version": "1.0.0",
   "description": "playwright test framework for celigo ui/ux automation",
   "main": "index.js",
@@ -35,12 +35,12 @@
     }
   },
   "devDependencies": {
-    "@celigo/aut-selectors": "^0.2.5",
-    "@celigo/ui-core-automation": "^0.2.5",
-    "@playwright/test": "^1.32.3",
+    "@celigo/aut-selectors": "^0.2.25",
+    "@celigo/ui-core-automation": "^0.2.17",
+    "@playwright/test": "1.41.2",
     "allure-playwright": "^2.2.1",
     "inquirer-search-list": "^1.2.6",
-    "playwright": "^1.32.3"
+    "playwright": "1.41.2"
   },
   "dependencies": {
     "atob": "^2.1.2",
