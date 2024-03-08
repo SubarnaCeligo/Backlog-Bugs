@@ -1,24 +1,37 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
+import TC from "@testData/monitorSuite/C118391.json";
 
 test.describe("TC_C118391_C118392_C118749 - Assign cases in monitor account", () => {
+    let id;
     test.beforeEach(async ({ io }) => {
-        await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
+    test.afterEach(async ({ io }) => {
+        await io.api.deleteFlowViaAPI(id);
+    });
+
     test("TC_C118391_C118392_C118749 - Assign cases in monitor account", async ({ io, page }) => {
+        var flows = await io.api.createImpOrExpAndFlowsThruAPI(TC);
+        id = flows.get(TC.name)["flowId"];
+        await io.api.checkJobStatusFromAPI(
+            TC.name,
+            flows.get(TC.name)["flowId"],
+            [20, 0, 20]
+        );
 
         //Navigate to default integration
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
 
         // Search for a flow
         await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
-        await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Flow_With_Errors2_DND');
+        await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'TC_C118391');
 
         //Wait for search to complete
         await io.integrationPage.waitForElementAttached(selectors.flowBuilderPagePO.ACTIONS_SELECTOR);
 
         //Open the flow
-        await io.flowBuilder.clickByText('Flow_With_Errors2_DND');
+        await io.flowBuilder.clickByText('TC_C118391');
 
         //Open errors dashborad
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
@@ -31,7 +44,7 @@ test.describe("TC_C118391_C118392_C118749 - Assign cases in monitor account", ()
 
         await io.flowBuilder.addStep("C118392 - Verify that new user invite section is disabled for manage/monitor users when invitation feature is disabled.");
         await io.assert.verifyElementAttributeContainsText(selectors.em2DotOLineGraphPO.NEW_USER_EMAIL, 'class', 'Mui-disabled');
-        
+
         await io.flowBuilder.addStep("C118749 - Verify when users who don’t have access to the integration will appear grayed out in the user’s list in the “Assign errors” dropdown when invitation feature is disabled ");
         await io.flowBuilder.fill(selectors.filterErrorTag.ARIALABELSEARCHUSER, 'IOCustom User');
         await io.flowBuilder.waitForElementAttached('text="IOCustom User"');
