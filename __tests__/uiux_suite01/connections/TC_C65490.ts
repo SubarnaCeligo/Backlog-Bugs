@@ -16,8 +16,8 @@ test.describe("C65490 Verify Export for Parse files", () => {
       await io.flowBuilder.click(selectors.connectionsPagePO.FILE_DEFINITION);
       await io.flowBuilder.click(selectors.connectionsPagePO.EDIX12_FORMAT);
       await io.flowBuilder.click(selectors.connectionsPagePO.LUMBEREDI810);
+      const fileParserHelper = await io.flowBuilder.isVisible("text='EDI parser helper'");
       await io.flowBuilder.clickByText('Launch');
-      const fileParserHelper = await io.flowBuilder.isVisible("text='File parser helper'");
       const filedefinition = await io.flowBuilder.isVisible("text='Type your file definition rules here'");
       const sampleFile = await io.flowBuilder.isVisible("text='Sample file'");
       const parsedFile = await io.flowBuilder.isVisible("text='Parsed output'");

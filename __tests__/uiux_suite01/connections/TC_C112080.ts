@@ -37,8 +37,8 @@ test.describe("C112080_C112081_C112082_C2112083_C112089", () => {
     await io.connectionPage.click(selectors.connectionsPagePO.SIGNATURE_METHOD);
     await io.connectionPage.selectTextfromDropDown(page, "hmac-sha256");
     await io.flowBuilder.loadingTime();
-    await io.homePage.waitForElementAttached(selectors.connectionsPagePO.JWT_PAYLOAD);
-    await io.assert.checkSnapshot(selectors.connectionsPagePO.JWT_PAYLOAD,"C112081.png");
+    let payload = (await io.connectionPage.getText(selectors.connectionsPagePO.JWT_PAYLOAD)).toString();
+    await io.assert.expectToContainValue('{"exp":"expiration-as-integer","sub":"{sub}","iss":"{iss}","aud":"{aud}"}',payload, 'Payload is not displayed');
   });
   test("C112082 Verify secret key as masked while user entering", async ({io, page}) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
@@ -55,7 +55,8 @@ test.describe("C112080_C112081_C112082_C2112083_C112089", () => {
     await io.connectionPage.fill(selectors.connectionsPagePO.JWT_SECRET,"345");
     await io.flowBuilder.loadingTime();
     await io.homePage.waitForElementAttached(selectors.connectionsPagePO.JWT_SECRET);
-    await io.assert.checkSnapshot(selectors.importPagePO.PASSWORD,"C112082.png");
+    // await io.assert.checkSnapshot(selectors.importPagePO.PASSWORD,"C112082.png"); -- Screenshot comparision fails most of the times due to 2-3 pixel difference
+    await io.assert.verifyElementAttribute(selectors.connectionsPagePO.SECRET_KEY_INPUT , 'type', 'password');
   });
   test("C112083 Verify user able to create connection using JWT bearer HTTP connection", async ({io, page}) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
@@ -87,8 +88,8 @@ test.describe("C112080_C112081_C112082_C2112083_C112089", () => {
       );
     await page.locator(selectors.connectionsPagePO.JWT_PAYLOAD).nth(0).click({clickCount: 3});
         await page.keyboard.press('Backspace');
-      await io.connectionPage.enterHugeData(
-        selectors.connectionsPagePO.JWT_PAYLOAD,
+      await io.connectionPage.fill(
+        selectors.connectionsPagePO.JWT_PAYLOAD_INPUT,
         '{"iss":"495629"}'
       );
     await io.connectionPage.click(selectors.connectionsPagePO.LOCATION);
@@ -101,7 +102,9 @@ test.describe("C112080_C112081_C112082_C2112083_C112089", () => {
     await io.connectionPage.click(selectors.connectionsPagePO.PING_METHOD);
     await io.connectionPage.selectTextfromDropDown(page, "GET");
     await io.connectionPage.fill(selectors.connectionsPagePO.RELATIVEURI,'/app');
-    await io.connectionPage.click(selectors.basePagePO.TEST_CONNECTION)
+    // await page.pause();
+    await io.connectionPage.click(selectors.basePagePO.TEST_CONNECTION);
+    await io.flowBuilder.waitForElementAttached('#notification');
     await io.assert.verifyElementDisplayedByText(
       "Your connection is working great! Nice Job!",
       "Connection creation error"
@@ -124,6 +127,12 @@ test.describe("C112080_C112081_C112082_C2112083_C112089", () => {
     await io.connectionPage.click(selectors.connectionsPagePO.PAYLOAD);
     await io.flowBuilder.loadingTime();
     await io.homePage.waitForElementAttached(selectors.connectionsPagePO.DATA_PANEL);
-    await io.assert.checkSnapshot(selectors.connectionsPagePO.DATA_PANEL,"C112089.png");
+    let dataPanel = (await io.homePage.getText(selectors.connectionsPagePO.DATA_PANEL)).toString();
+    await io.assert.expectToContainValue(
+      '{  "connection": {    "name": "GITHUB DND",    "http": {      "unencrypted": {        "field": "value"      },      "encrypted": "********"    }  },  "settings": {    "connection": {      "iss": "495629",      "aud": "test",      "exp": "7764",      "typ": "test",      "alg": "rsa256"    }  }}',
+      dataPanel,
+      'Data Panel is not displayed'
+    );
+    // await io.assert.checkSnapshot(selectors.connectionsPagePO.DATA_PANEL,"C112089.png");
   });
 });
