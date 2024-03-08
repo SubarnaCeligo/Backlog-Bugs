@@ -146,7 +146,7 @@ test.describe("C113404", () => {
     await io.connectionPage.click(selectors.connectionsPagePO.SLACK_AUTH_TYPE);
     await io.connectionPage.selectTextfromDropDown(page,"oauth");
     await io.connectionPage.click(selectors.connectionsPagePO.ICLIENT_ID);
-    await io.homePage.waitForElementAttached(".MuiMenu-list");
+    await io.homePage.waitForElementAttached(selectors.connectionsPagePO.ICLIENT_LIST);
     await io.homePage.clickByTextByIndex("3PL", 0);
     await io.connectionPage.click(selectors.connectionsPagePO.EDIT_RESOURCE);
     const monitorExp2 = await io.homePage.isVisible("text='Use JWT'");
