@@ -38,7 +38,7 @@ test.describe("C112080_C112081_C112082_C2112083_C112089", () => {
     await io.connectionPage.selectTextfromDropDown(page, "hmac-sha256");
     await io.flowBuilder.loadingTime();
     let payload = (await io.connectionPage.getText(selectors.connectionsPagePO.JWT_PAYLOAD)).toString();
-    await io.assert.expectToContainValue('{"exp":"expiration-as-integer","sub":"{sub}","iss":"{iss}","aud":"{aud}"}',payload, '');
+    await io.assert.expectToContainValue('{"exp":"expiration-as-integer","sub":"{sub}","iss":"{iss}","aud":"{aud}"}',payload, 'Payload is not displayed');
   });
   test("C112082 Verify secret key as masked while user entering", async ({io, page}) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
@@ -131,7 +131,7 @@ test.describe("C112080_C112081_C112082_C2112083_C112089", () => {
     await io.assert.expectToContainValue(
       '{  "connection": {    "name": "GITHUB DND",    "http": {      "unencrypted": {        "field": "value"      },      "encrypted": "********"    }  },  "settings": {    "connection": {      "iss": "495629",      "aud": "test",      "exp": "7764",      "typ": "test",      "alg": "rsa256"    }  }}',
       dataPanel,
-      ''
+      'Data Panel is not displayed'
     );
     // await io.assert.checkSnapshot(selectors.connectionsPagePO.DATA_PANEL,"C112089.png");
   });
