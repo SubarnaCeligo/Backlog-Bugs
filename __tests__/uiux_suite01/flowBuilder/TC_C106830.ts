@@ -43,5 +43,9 @@ test.describe("C106830", () => {
     const selectionRange = await textarea.evaluate((element: HTMLTextAreaElement) => element.selectionStart);
     expect(selectionRange).toEqual(6);
 
+
+    // C106447 Verify for handlebars AFE. numbering feature is available.
+    // We verify the numbering feature by checking if the editor is Ace editor as it has line numbers
+    await io.assert.verifyElementAttribute(selectors.connectionsPagePO.RULE_TEXTAERA, 'class', 'ace_text-input');
   });
 });
