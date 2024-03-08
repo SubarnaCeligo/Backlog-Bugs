@@ -34,7 +34,7 @@ test.describe("TC_C119797_C119798_C119799", () => {
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.flowBuilder.click(selectors.exportsPagePO.WHAT_WOULD_YOU_LIKE_TO_EXPORT_TAB);
         await io.flowBuilder.click(selectors.exportsPagePO.CONFIGURE_EXPORT_TYPE);
-        await io.myAccountPage.delay(3000);
+        await io.homePage.loadingTime();
         expect(await page.screenshot()).toMatchSnapshot("TC_C119797.png");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
@@ -51,7 +51,7 @@ test.describe("TC_C119797_C119798_C119799", () => {
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.flowBuilder.click(selectors.exportsPagePO.WHAT_WOULD_YOU_LIKE_TO_EXPORT_TAB);
         await io.flowBuilder.click(selectors.exportsPagePO.CONFIGURE_EXPORT_TYPE);
-        await io.myAccountPage.delay(3000);
+        await io.homePage.loadingTime();
         expect(await page.screenshot()).toMatchSnapshot("TC_C119798.png");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
@@ -68,7 +68,7 @@ test.describe("TC_C119797_C119798_C119799", () => {
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXISTINGRECORDSIMPORT);
-        await io.myAccountPage.delay(3000);
+        await io.homePage.loadingTime();
         expect(await page.screenshot()).toMatchSnapshot("TC_C119799.png");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 

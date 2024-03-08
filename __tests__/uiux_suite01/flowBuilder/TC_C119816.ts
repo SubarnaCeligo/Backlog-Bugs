@@ -50,7 +50,7 @@ test.describe(`TC_C119815_C119816`, () => {
     // -'Mock output' and 'Advanced' sections should be displayed below 'Settings'
     // -'Custom settings' section should be displayed below 'General' section.
     await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
-    await io.myAccountPage.delay(3000);
+    await io.homePage.loadingTime();
     expect(await page.screenshot()).toMatchSnapshot("TC_C119816.png");
     await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
 
@@ -79,7 +79,7 @@ test.describe(`TC_C119815_C119816`, () => {
     // -'Mock output' and 'Advanced' sections should be displayed below 'Settings'
     // -'Custom settings' section should be displayed below 'General' section.
     await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
-    await io.myAccountPage.delay(3000);
+    await io.homePage.loadingTime();
     const Symbol = await page.$(selectors.flowBuilderPagePO.RIGHT_DRAWER);
     expect(await Symbol.screenshot()).toMatchSnapshot("TC_C119816 Lookup.png");
     await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
@@ -111,7 +111,7 @@ test.describe(`TC_C119815_C119816`, () => {
     // -'Mock output' and 'Advanced' sections should be displayed below 'Settings'
     // -'Custom settings' section should be displayed below 'General' section.
     await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
-    await io.myAccountPage.delay(3000);
+    await io.homePage.loadingTime();
     const Symbol1 = await page.$(selectors.flowBuilderPagePO.RIGHT_DRAWER);
     expect(await Symbol1.screenshot()).toMatchSnapshot("TC_C119816 Import.png");
     await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
@@ -163,7 +163,7 @@ test.describe(`TC_C119815_C119816`, () => {
     // -'Mock output' and 'Advanced' sections should be displayed below 'Settings'
     // -'Custom settings' section should be displayed below 'General' section.
     await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
-    await io.myAccountPage.delay(3000);
+    await io.homePage.loadingTime();
     expect(await page.screenshot()).toMatchSnapshot("TC_C119815.png");
     await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
 
@@ -192,7 +192,7 @@ test.describe(`TC_C119815_C119816`, () => {
     // -'Mock output' and 'Advanced' sections should be displayed below 'Settings'
     // -'Custom settings' section should be displayed below 'General' section.
     await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
-    await io.myAccountPage.delay(3000);
+    await io.homePage.loadingTime();
     const Symbo = await page.$(selectors.flowBuilderPagePO.RIGHT_DRAWER);
     expect(await Symbo.screenshot()).toMatchSnapshot("TC_C119815 Lookup.png");
     await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
@@ -224,7 +224,7 @@ test.describe(`TC_C119815_C119816`, () => {
     // -'Mock output' and 'Advanced' sections should be displayed below 'Settings'
     // -'Custom settings' section should be displayed below 'General' section.
     await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
-    await io.myAccountPage.delay(3000);
+    await io.homePage.loadingTime();
     const Symbo1 = await page.$(selectors.flowBuilderPagePO.RIGHT_DRAWER);
     expect(await Symbo1.screenshot()).toMatchSnapshot("TC_C119815 Import.png");
     await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);

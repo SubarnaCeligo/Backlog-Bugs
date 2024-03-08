@@ -24,7 +24,7 @@ test.describe("TC_C119800_C119801", () => {
         // -'Custom settings' section should be displayed below 'General' section.
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CONFIGREALEXPORT);
-        await io.myAccountPage.delay(2000);
+        await io.homePage.loadingTime();
         expect(await page.screenshot()).toMatchSnapshot("TC_C119800.png");
 
         //C119801 'useAsPrimaryInterface' value as false
@@ -39,7 +39,7 @@ test.describe("TC_C119800_C119801", () => {
         //No section should be hidden
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CONFIGREALEXPORT);
-        await io.myAccountPage.delay(2000);
+        await io.homePage.loadingTime();
         expect(await page.screenshot()).toMatchSnapshot("TC_C119801.png");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 

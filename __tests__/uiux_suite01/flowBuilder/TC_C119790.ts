@@ -17,7 +17,7 @@ test.describe("TC_C119790_C119792_C119794", () => {
         await io.flowBuilder.clearTextValue(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
         await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, JSON.stringify(TC.CustomJson));
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
-        await io.myAccountPage.delay(2000);
+        await io.homePage.loadingTime();
         // -'Simple/HTTP' toggle at the very top of the bubble drawers (i.e. for HTTP based connectors) should be hidden
         await io.flowBuilder.waitForElementAttached(selectors.importPagePO.ADVANCED);
         const toggleSimple = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
@@ -36,7 +36,7 @@ test.describe("TC_C119790_C119792_C119794", () => {
         // -'Mock output' and 'Advanced' sections should be displayed below 'Settings'
         // -'Custom settings' section should be displayed below 'General' section.
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
-        await io.myAccountPage.delay(4000);
+        await io.homePage.loadingTime();
         expect(await page.screenshot()).toMatchSnapshot("Export_UX.png");
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
 
@@ -78,7 +78,7 @@ test.describe("TC_C119790_C119792_C119794", () => {
         // -'Mock output' and 'Advanced' sections should be displayed below 'Settings'
         // -'Custom settings' section should be displayed below 'General' section.
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
-        await io.myAccountPage.delay(4000);
+        await io.homePage.loadingTime();
         expect(await page.screenshot()).toMatchSnapshot("LOOKUP_UX.png");
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
 
@@ -119,7 +119,7 @@ test.describe("TC_C119790_C119792_C119794", () => {
         // -'Mock output' and 'Advanced' sections should be displayed below 'Settings'
         // -'Custom settings' section should be displayed below 'General' section.
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
-        await io.myAccountPage.delay(4000);
+        await io.homePage.loadingTime();
         expect(await page.screenshot()).toMatchSnapshot("IMPORT_UX.png");
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
 

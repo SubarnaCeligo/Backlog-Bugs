@@ -47,7 +47,7 @@ test.describe("TC_C119812_C119813_C119814", () => {
     // -'Mock output' and 'Advanced' sections should be displayed below 'Settings'
     // -'Custom settings' section should be displayed below 'General' section.
     await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
-    await io.myAccountPage.delay(2000);
+    await io.homePage.loadingTime();
     expect(await page.screenshot()).toMatchSnapshot("TC_C119812 Export.png");
     await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
 
@@ -92,7 +92,7 @@ test.describe("TC_C119812_C119813_C119814", () => {
     // -'Mock output' and 'Advanced' sections should be displayed below 'Settings'
     // -'Custom settings' section should be displayed below 'General' section.
     await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
-    await io.myAccountPage.delay(2000);
+    await io.homePage.loadingTime();
     expect(await page.screenshot()).toMatchSnapshot("TC_C119813 Lookup.png");
     await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
 
@@ -125,7 +125,7 @@ test.describe("TC_C119812_C119813_C119814", () => {
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.DATATEST);
 
     //Import
-    await io.myAccountPage.delay(2000);
+    await io.homePage.loadingTime();
     // -'Simple/HTTP' toggle at the very top of the bubble drawers (i.e. for HTTP based connectors) should be hidden
     const toggleSimple = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
     await io.assert.expectToBeFalse(toggleSimple, "Simple toggle is not visible");

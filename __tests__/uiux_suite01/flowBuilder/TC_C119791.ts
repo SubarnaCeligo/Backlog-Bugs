@@ -32,7 +32,7 @@ test.describe("TC_C119791_C119793_C119795", () => {
         await io.flowBuilder.clearTextValue(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
         await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, JSON.stringify(TC.CustomJson));
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
-        await io.myAccountPage.delay(2000);
+        await io.homePage.loadingTime();
         // -'Simple/HTTP' toggle at the very top of the bubble drawers (i.e. for HTTP based connectors) should be hidden
         await io.flowBuilder.waitForElementAttached(selectors.importPagePO.ADVANCED);
         await io.flowBuilder.waitForElementAttached(selectors.importPagePO.ADVANCED);
@@ -54,7 +54,7 @@ test.describe("TC_C119791_C119793_C119795", () => {
         // -'Mock output' and 'Advanced' sections should be displayed below 'Settings'
         // -'Custom settings' section should be displayed below 'General' section.
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
-        await io.myAccountPage.delay(2000);
+        await io.homePage.loadingTime();
         expect(await page.screenshot()).toMatchSnapshot("TC_C119791.png");
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
 
@@ -75,7 +75,7 @@ test.describe("TC_C119791_C119793_C119795", () => {
         await io.flowBuilder.clearTextValue(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
         await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, JSON.stringify(TC.CustomJson));
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
-        await io.myAccountPage.delay(2000);
+        await io.homePage.loadingTime();
         // -'Simple/HTTP' toggle at the very top of the bubble drawers (i.e. for HTTP based connectors) should be hidden
         await io.flowBuilder.waitForElementAttached(selectors.importPagePO.ADVANCED);
         await io.flowBuilder.waitForElementAttached(selectors.importPagePO.ADVANCED);
@@ -93,7 +93,7 @@ test.describe("TC_C119791_C119793_C119795", () => {
         // -'Mock output' and 'Advanced' sections should be displayed below 'Settings'
         // -'Custom settings' section should be displayed below 'General' section.
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
-        await io.myAccountPage.delay(2000);
+        await io.homePage.loadingTime();
         const Symbol = await page.$(selectors.flowBuilderPagePO.RIGHT_DRAWER);
         expect(await Symbol.screenshot()).toMatchSnapshot("TC_C119795.png");
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
@@ -115,7 +115,7 @@ test.describe("TC_C119791_C119793_C119795", () => {
         await io.flowBuilder.clearTextValue(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
         await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, JSON.stringify(TC.CustomJson));
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
-        await io.myAccountPage.delay(2000);
+        await io.homePage.loadingTime();
         // -'Simple/HTTP' toggle at the very top of the bubble drawers (i.e. for HTTP based connectors) should be hidden
         await io.flowBuilder.waitForElementAttached(selectors.importPagePO.ADVANCED);
         await io.flowBuilder.waitForElementAttached(selectors.importPagePO.ADVANCED);
@@ -135,7 +135,7 @@ test.describe("TC_C119791_C119793_C119795", () => {
         // -'Mock output' and 'Advanced' sections should be displayed below 'Settings'
         // -'Custom settings' section should be displayed below 'General' section.
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
-        await io.myAccountPage.delay(2000);
+        await io.homePage.loadingTime();
         const Symbol1 = await page.$(selectors.flowBuilderPagePO.RIGHT_DRAWER);
         expect(await Symbol1.screenshot()).toMatchSnapshot("TC_C119793.png");
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);

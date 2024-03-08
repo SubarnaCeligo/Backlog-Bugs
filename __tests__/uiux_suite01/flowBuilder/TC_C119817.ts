@@ -36,7 +36,7 @@ test.describe("TC_C119817", () => {
     await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, JSON.stringify(C119817.customSetting));
     await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.CUSTOM_ERROR, 'The·"displayAfter"·and·"useAsPrimaryInterface"·properties·are·incompatible·with·each·other.·To·proceed·further,·remove·one·of·the·properties.¶');
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
-    await io.myAccountPage.delay(2000);
+    await io.homePage.loadingTime();
     // -'Simple/HTTP' toggle at the very top of the bubble drawers (i.e. for HTTP based connectors) should be hidden
     await io.flowBuilder.waitForElementAttached(selectors.importPagePO.ADVANCED);
     await io.flowBuilder.waitForElementAttached(selectors.importPagePO.ADVANCED);
@@ -53,7 +53,7 @@ test.describe("TC_C119817", () => {
     // -'Mock output' and 'Advanced' sections should be displayed below 'Settings'
     // -'Custom settings' section should be displayed below 'General' section.
     await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
-    await io.myAccountPage.delay(2000);
+    await io.homePage.loadingTime();
     expect(await page.screenshot()).toMatchSnapshot("TC_C119817 export.png");
     await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
 
@@ -73,7 +73,7 @@ test.describe("TC_C119817", () => {
     await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, JSON.stringify(C119817.customSetting));
     await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.CUSTOM_ERROR, 'The·"displayAfter"·and·"useAsPrimaryInterface"·properties·are·incompatible·with·each·other.·To·proceed·further,·remove·one·of·the·properties.¶');
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
-    await io.myAccountPage.delay(2000);
+    await io.homePage.loadingTime();
 
     // -'Simple/HTTP' toggle at the very top of the bubble drawers (i.e. for HTTP based connectors) should be hidden
     await io.flowBuilder.waitForElementAttached(selectors.importPagePO.ADVANCED);
@@ -93,10 +93,10 @@ test.describe("TC_C119817", () => {
     // -'Mock output' and 'Advanced' sections should be displayed below 'Settings'
     // -'Custom settings' section should be displayed below 'General' section.
     await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
-    await io.myAccountPage.delay(2000);
+    await io.homePage.loadingTime();
     expect(await page.screenshot()).toMatchSnapshot("TC_C119817 LOOKUP.png");
     await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
-    await io.myAccountPage.delay(2000);
+    await io.homePage.loadingTime();
     //-'Launch form builder' button should be displayed in 'Settings' section
     const buttonDis1 = await page.$(selectors.flowBuilderPagePO.SETTING);
     expect(await buttonDis1.screenshot()).toMatchSnapshot("TC_C119817_Lookup_launchFormBuilder.png");
@@ -113,7 +113,7 @@ test.describe("TC_C119817", () => {
     await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, JSON.stringify(C119817.customSetting));
     await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.CUSTOM_ERROR, 'The·"displayAfter"·and·"useAsPrimaryInterface"·properties·are·incompatible·with·each·other.·To·proceed·further,·remove·one·of·the·properties.¶');
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
-    await io.myAccountPage.delay(2000);
+    await io.homePage.loadingTime();
     // -'Simple/HTTP' toggle at the very top of the bubble drawers (i.e. for HTTP based connectors) should be hidden
     await io.flowBuilder.waitForElementAttached(selectors.importPagePO.ADVANCED);
     await io.flowBuilder.waitForElementAttached(selectors.importPagePO.ADVANCED);
@@ -131,11 +131,11 @@ test.describe("TC_C119817", () => {
     // -'Mock output' and 'Advanced' sections should be displayed below 'Settings'
     // -'Custom settings' section should be displayed below 'General' section.
     await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
-    await io.myAccountPage.delay(2000);
+    await io.homePage.loadingTime();
     const Symbol1 = await page.$(selectors.flowBuilderPagePO.RIGHT_DRAWER);
     expect(await Symbol1.screenshot()).toMatchSnapshot("TC_C119817 import.png");
     await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
-    await io.myAccountPage.delay(2000);
+    await io.homePage.loadingTime();
     //-'Launch form builder' button should be displayed in 'Settings' section
     const buttonDis2 = await page.$(selectors.flowBuilderPagePO.SETTING);
     expect(await buttonDis2.screenshot()).toMatchSnapshot("TC_C119817 import launchFormBuilder.png");

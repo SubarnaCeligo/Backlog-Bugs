@@ -25,7 +25,7 @@ test.describe("TC_C119802_C119803", () => {
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.SECURE_LISTENER);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.GENERAL_URL);
-        await io.myAccountPage.delay(3000);
+        await io.homePage.loadingTime();
         const Symbol1 = await page.$(selectors.flowBuilderPagePO.RIGHT_DRAWER);
         expect(await Symbol1.screenshot()).toMatchSnapshot("TC_C119802.png");
 
@@ -42,7 +42,7 @@ test.describe("TC_C119802_C119803", () => {
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.SECURE_LISTENER);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.GENERAL_URL);
-        await io.myAccountPage.delay(3000);
+        await io.homePage.loadingTime();
         const Symbol = await page.$(selectors.flowBuilderPagePO.RIGHT_DRAWER);
         expect(await Symbol.screenshot()).toMatchSnapshot("TC_C119803.png");
     });
