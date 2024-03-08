@@ -1,0 +1,73 @@
+{
+  "qa__api_tdata": [
+    {
+      "skipRetries": false,
+      "name": "Webhook Listner - FTP Test",
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "resourceType": "webhook",
+            "type": "webhook",
+            "webhook": {
+              "provider": "custom",
+              "password": "Account123",
+              "username": "Account",
+              "verify": "basic"
+            },
+            "assistantMetadata": {},
+            "name": "test_web",
+            "sampleData": false,
+            "sandbox": false
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "_id": "6576f6f592551f778dc48052",
+            "createdAt": "2023-12-11T11:48:05.708Z",
+            "lastModified": "2023-12-12T12:00:08.877Z",
+            "name": "FTP import",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "icaeb586a7",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+              "fileName": "TestS3Export-{{timestamp}}.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "io.auto.qa/BVAutoFTP",
+              "fileName": "TestS3Export-{{timestamp}}.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "_id": "test_652e15d26819f54a81ada56f",
+        "name": "Webhook Listner - FTP Test",
+        "disabled": true,
+        "skipRetries": false,
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID",
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
