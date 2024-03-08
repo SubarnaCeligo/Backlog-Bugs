@@ -11,6 +11,7 @@ test.describe("C112075_C112076_C112077_C112078_C112079", () => {
   test("C112075 Verify the 3 fields when we select HAMAC signature method from Dropdown", async ({io, page}) => {
       await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
       await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
+      await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
       await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
       await io.connectionPage.click(selectors.basePagePO.HTTP_2DOT0);
       await io.flowBuilder.loadingTime();
@@ -28,6 +29,7 @@ test.describe("C112075_C112076_C112077_C112078_C112079", () => {
   test("C112076 Verify the Help texts for 3 fields 1)Secret Key 2)Payload 3)Header", async ({io, page}) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
+    await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
     await io.connectionPage.click(selectors.basePagePO.HTTP_2DOT0);
     await io.flowBuilder.loadingTime();
@@ -36,6 +38,7 @@ test.describe("C112075_C112076_C112077_C112078_C112079", () => {
     await io.connectionPage.click(selectors.connectionsPagePO.SIGNATURE_METHOD);
     await io.connectionPage.selectTextfromDropDown(page, "hmac-sha256");
     await io.connectionPage.click(selectors.connectionsPagePO.SECRET_BUTTON);
+    await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.HELP_BUBBLE);
     const secretText = (await io.flowBuilder.getText(
     selectors.connectionsPagePO.HELP_BUBBLE
       )) as string;
@@ -50,6 +53,7 @@ test.describe("C112075_C112076_C112077_C112078_C112079", () => {
   test("C112077 Verify Handle bars are working fine at Payload and Header ", async ({io, page}) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
+    await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
     await io.connectionPage.click(selectors.basePagePO.HTTP_2DOT0);
     await io.flowBuilder.loadingTime();
@@ -74,6 +78,7 @@ test.describe("C112075_C112076_C112077_C112078_C112079", () => {
   test("C112078 Verify the 3 fields when we select RS/PS/ES signature method from Dropdown", async ({io, page}) => {
       await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
       await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
+      await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
       await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
       await io.connectionPage.click(selectors.basePagePO.HTTP_2DOT0);
       await io.flowBuilder.loadingTime();
@@ -91,6 +96,7 @@ test.describe("C112075_C112076_C112077_C112078_C112079", () => {
   test("C112079 Verify the Help Text of Private Key", async ({io, page}) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
+    await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
     await io.connectionPage.click(selectors.basePagePO.HTTP_2DOT0);
     await io.flowBuilder.loadingTime();
@@ -99,6 +105,7 @@ test.describe("C112075_C112076_C112077_C112078_C112079", () => {
     await io.connectionPage.click(selectors.connectionsPagePO.SIGNATURE_METHOD);
     await io.connectionPage.selectTextfromDropDown(page, "ps256");
     await io.connectionPage.click(selectors.connectionsPagePO.PRIVATE_BUTTON);
+    await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.HELP_BUBBLE);
     const secretText = (await io.flowBuilder.getText(
     selectors.connectionsPagePO.HELP_BUBBLE
       )) as string;
@@ -109,5 +116,7 @@ test.describe("C112075_C112076_C112077_C112078_C112079", () => {
         "secrettext name not found"
       );
       await io.connectionPage.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
+
+      await io.homePage.selectTextfromDropDown
   });
 });

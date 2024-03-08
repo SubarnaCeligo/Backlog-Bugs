@@ -10,10 +10,13 @@ test.describe("C113404", () => {
   test("C113404 Verify user able see JWT field in HTTP 2.0 framework", async ({io, page}) => {
       await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
       await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
+      await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
       await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'Gusto');
       await io.connectionPage.click(selectors.connectionsPagePO.GUSTO_CONNECTION);
       await io.flowBuilder.loadingTime();
+      await io.connectionPage.waitForElementAttached(selectors.integrationPagePO.ADDNEWRESOURCE);
       await io.connectionPage.clickByIndex(selectors.integrationPagePO.ADDNEWRESOURCE,1);
+      await io.connectionPage.waitForElementAttached(selectors.basePagePO.HTTP_2DOT0);
       await io.connectionPage.clickByIndex(selectors.basePagePO.HTTP_2DOT0,2);
       const monitorExp = await io.homePage.isVisible("text='Use JWT'");
       await io.assert.expectToBeValue(monitorExp.toString(), 'true', "Value is found");
@@ -21,11 +24,14 @@ test.describe("C113404", () => {
   test("C113405 Verify the signature field and dropdown values", async ({io, page}) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
+    await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'Gusto');
     await io.connectionPage.click(selectors.connectionsPagePO.GUSTO_CONNECTION);
     await io.flowBuilder.loadingTime();
-    await io.connectionPage.clickByIndex(selectors.integrationPagePO.ADDNEWRESOURCE,1);
-    await io.connectionPage.clickByIndex(selectors.basePagePO.HTTP_2DOT0,2);
+    await io.connectionPage.waitForElementAttached(selectors.integrationPagePO.ADDNEWRESOURCE);
+      await io.connectionPage.clickByIndex(selectors.integrationPagePO.ADDNEWRESOURCE,1);
+      await io.connectionPage.waitForElementAttached(selectors.basePagePO.HTTP_2DOT0);
+      await io.connectionPage.clickByIndex(selectors.basePagePO.HTTP_2DOT0,2);
     await io.connectionPage.click(selectors.connectionsPagePO.JWTENABLE);
     await io.connectionPage.click(selectors.connectionsPagePO.JWTSIGNATURE);
     await io.assert.verifyElementDisplayedByText(
@@ -50,10 +56,13 @@ test.describe("C113404", () => {
   test("C113406 Verify the fields when user select HMAC signature method", async ({io, page}) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
+    await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'Gusto');
     await io.connectionPage.click(selectors.connectionsPagePO.GUSTO_CONNECTION);
     await io.flowBuilder.loadingTime();
+    await io.connectionPage.waitForElementAttached(selectors.integrationPagePO.ADDNEWRESOURCE);
     await io.connectionPage.clickByIndex(selectors.integrationPagePO.ADDNEWRESOURCE,1);
+    await io.connectionPage.waitForElementAttached(selectors.basePagePO.HTTP_2DOT0);
     await io.connectionPage.clickByIndex(selectors.basePagePO.HTTP_2DOT0,2);
     await io.connectionPage.click(selectors.connectionsPagePO.JWTENABLE);
     await io.connectionPage.click(selectors.connectionsPagePO.JWTSIGNATURE);
@@ -68,10 +77,13 @@ test.describe("C113404", () => {
   test("C113407 Verify the fields when user select RS/PS/ES signature method", async ({io, page}) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
+    await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'Gusto');
     await io.connectionPage.click(selectors.connectionsPagePO.GUSTO_CONNECTION);
     await io.flowBuilder.loadingTime();
+    await io.connectionPage.waitForElementAttached(selectors.integrationPagePO.ADDNEWRESOURCE);
     await io.connectionPage.clickByIndex(selectors.integrationPagePO.ADDNEWRESOURCE,1);
+    await io.connectionPage.waitForElementAttached(selectors.basePagePO.HTTP_2DOT0);
     await io.connectionPage.clickByIndex(selectors.basePagePO.HTTP_2DOT0,2);
     await io.connectionPage.click(selectors.connectionsPagePO.JWTENABLE);
     await io.connectionPage.click(selectors.connectionsPagePO.JWTSIGNATURE);
@@ -88,6 +100,7 @@ test.describe("C113404", () => {
     await io.homePage.click(selectors.basePagePO.RESOURCES);
     await io.connectionPage.click(selectors.connectionsPagePO.ICLIENTSTAB);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
+    await io.connectionPage.waitForElementAttached(selectors.basePagePO.INPUT_NAME_SELECTOR);
     await io.connectionPage.fill(selectors.basePagePO.INPUT_NAME_SELECTOR,"ICLIENT_DOCSIGN");
     await io.connectionPage.click(selectors.connectionsPagePO.OAUTH2_GRANT_TYPE);
     await io.connectionPage.selectTextfromDropDown(page, "authorizecode");
@@ -114,6 +127,7 @@ test.describe("C113404", () => {
   test("C113411 Verify user is able to create connection using JWT", async ({io, page}) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
+    await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
     await io.connectionPage.click(selectors.basePagePO.HTTP_2DOT0);
     await io.flowBuilder.loadingTime();
@@ -125,14 +139,15 @@ test.describe("C113404", () => {
   test("C113412 Verify user is able to see JWT in edit case", async ({io, page}) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
+    await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
     await io.connectionPage.click(selectors.basePagePO.HTTP_2DOT0);
     await io.flowBuilder.loadingTime();
     await io.connectionPage.click(selectors.connectionsPagePO.SLACK_AUTH_TYPE);
     await io.connectionPage.selectTextfromDropDown(page,"oauth");
     await io.connectionPage.click(selectors.connectionsPagePO.ICLIENT_ID);
-    await io.homePage.waitForElementAttached("text='3PL CENTRAL ICLIENT'")
-    await io.homePage.clickByText("3PL CENTRAL ICLIENT")
+    await io.homePage.waitForElementAttached(".MuiMenu-list");
+    await io.homePage.clickByTextByIndex("3PL", 0);
     await io.connectionPage.click(selectors.connectionsPagePO.EDIT_RESOURCE);
     const monitorExp2 = await io.homePage.isVisible("text='Use JWT'");
      await io.assert.expectToBeValue(monitorExp2.toString(), 'true', "Value is found");
@@ -140,11 +155,13 @@ test.describe("C113404", () => {
   test("C113420 Verify all the send token via dropdown values", async ({io, page}) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
+    await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
     await io.connectionPage.click(selectors.basePagePO.HTTP_2DOT0);
     await io.flowBuilder.loadingTime();
     await io.connectionPage.click(selectors.connectionsPagePO.SLACK_AUTH_TYPE);
     await io.connectionPage.selectTextfromDropDown(page, "oauth");
+    await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CREATE_CONNECTION)
     await io.connectionPage.clickByIndex(selectors.connectionsPagePO.CREATE_CONNECTION,1);
     await io.connectionPage.click(selectors.connectionsPagePO.OAUTH2_GRANT_TYPE);
     await io.connectionPage.selectTextfromDropDown(page, "authorizecode");
@@ -160,11 +177,13 @@ test.describe("C113404", () => {
   test("C113421 Verify the UI when user toggle between three Grant types", async ({io, page}) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
+    await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
     await io.connectionPage.click(selectors.basePagePO.HTTP_2DOT0);
     await io.flowBuilder.loadingTime();
     await io.connectionPage.click(selectors.connectionsPagePO.SLACK_AUTH_TYPE);
     await io.connectionPage.selectTextfromDropDown(page, "oauth");
+    await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CREATE_CONNECTION);
     await io.connectionPage.clickByIndex(selectors.connectionsPagePO.CREATE_CONNECTION,1);
     await io.connectionPage.click(selectors.connectionsPagePO.OAUTH2_GRANT_TYPE);
     const monitorExp12 = await io.homePage.isVisible("text='Authorization code'");

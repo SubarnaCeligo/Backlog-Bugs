@@ -11,18 +11,21 @@ test.describe("TC_C111349_C111342   Verify the message when api failed to fetch 
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP
     );
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
     await io.flowBuilder.clickByText("PostgreSQL");
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.SELECTED_IMPORT_RECORDS);
     await io.flowBuilder.clickByText("Import records into destination application");
     await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
+    await io.flowBuilder.waitForElementAttached(selectors.importPagePO.IMPORT_CREATE_CONNECTION );
     await io.flowBuilder.clickByText("POSTGRE OFFLINE CONNECTION - Offline");
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.waitForElementAttached(selectors.exportsPagePO.NAME);
     await io.flowBuilder.fill(selectors.exportsPagePO.NAME, "offline");
-    await io.flowBuilder.click('[data-test="search-rdbms.bulkInsert.tableName"]');
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.DESTINATIONTABLESEARCHPOSTGRE);
     await io.importsPage.click(selectors.importPagePO.EXPAND_MOCK_RESPONSE);
     await io.flowBuilder.waitForElementAttached(selectors.basePagePO.MUI_CIRCULAR_PROGRESS);
     await page.waitForTimeout(8000);
-    await io.flowBuilder.click('[data-test="search-rdbms.bulkInsert.tableName"]');
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.DESTINATIONTABLESEARCHPOSTGRE);
     await io.flowBuilder.waitForElementAttached('text="Unable to retrieve table list. Enter a new query or refresh the  page."')
     await io.assert.verifyElementDisplayedByText(
       "Unable to retrieve table list. Enter a new query or refresh the  page.",
@@ -30,7 +33,7 @@ test.describe("TC_C111349_C111342   Verify the message when api failed to fetch 
     );
 
 
-    await io.importsPage.click('[id="rdbms.bulkInsert.tableName"]>div>div>button');
+    await io.importsPage.click(selectors.flowBuilderPagePO.DESTINATIONTABLE_HELPTEXT_ICON);
     await io.assert.verifyElementDisplayedByText(`Select a data destination for bulk inserts. You can bulk insert data into a table.`,
           'prefix lookup text is incorrect');
         await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
