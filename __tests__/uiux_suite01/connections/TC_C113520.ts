@@ -262,7 +262,7 @@ test.describe(`C113520_C113521_C113522_C113523_C113524_C113525_C113526`, () => {
     await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
   });
 
-  test.skip(`Auth2.0 supported connector iClient page`, async ({ io, page }) => {
+  test(`Auth2.0 supported connector iClient page`, async ({ io, page }) => {
     //Skipping the test case - HTTP form is not available for GUSTO connection
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
