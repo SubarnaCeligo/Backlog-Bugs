@@ -1,8 +1,8 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe.skip( "Push to APIM for IO listner, MyAPis, Export, Import, Existing API Manager and Push to apim option is not available for custom Webhooks Sandbox", () => {
-    test.skip("MyAPis Sandbox", async ({ io, page, context }) => {
+test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing API Manager and Push to apim option is not available for custom Webhooks Sandbox", () => {
+    test("MyAPis Sandbox", async ({ io, page, context }) => {
         const randomString = "MyAPIS" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.SANDBOX_BUTTON);
@@ -61,7 +61,7 @@ test.describe.skip( "Push to APIM for IO listner, MyAPis, Export, Import, Existi
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
     });
-    test.skip("custom webhook Sandbox", async ({ io, page }) => {
+    test("custom webhook Sandbox", async ({ io, page }) => {
         const randomString = "webhook" +(Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.SANDBOX_BUTTON);
@@ -94,7 +94,7 @@ test.describe.skip( "Push to APIM for IO listner, MyAPis, Export, Import, Existi
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
     });
-    test.skip("IOListner Sandbox", async ({ io, page, context }) => {
+    test("IOListner Sandbox", async ({ io, page, context }) => {
         const randomString = "IOListner" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.SANDBOX_BUTTON);
@@ -129,7 +129,7 @@ test.describe.skip( "Push to APIM for IO listner, MyAPis, Export, Import, Existi
         await io.assert.expectToBeTrue(func, "urls doesn't match")
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
     });
-    test.skip("Export Sandbox", async ({ io, context }) => {
+    test("Export Sandbox", async ({ io, context }) => {
         const randomString = "Export" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.SANDBOX_BUTTON);
@@ -166,7 +166,7 @@ test.describe.skip( "Push to APIM for IO listner, MyAPis, Export, Import, Existi
         await io.assert.expectToBeTrue(func, "urls doesn't match")
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
     });
-    test.skip("Lookup Sandbox", async ({ io, context }) => {
+    test("Lookup Sandbox", async ({ io, context }) => {
         const randomString = "Lookup" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.SANDBOX_BUTTON);
@@ -207,7 +207,7 @@ test.describe.skip( "Push to APIM for IO listner, MyAPis, Export, Import, Existi
         await io.assert.expectToBeTrue(func, "urls doesn't match");
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
     });
-    test.skip("Existing API Manager Sandbox", async ({ io, page, context }) => {
+    test("Existing API Manager Sandbox", async ({ io, page, context }) => {
         const randomString = "EAPIM" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.SANDBOX_BUTTON);
@@ -256,7 +256,7 @@ test.describe.skip( "Push to APIM for IO listner, MyAPis, Export, Import, Existi
         await io.assert.expectToBeTrue(func, "urls doesn't match");
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
     });
-    test.skip("Import Sandbox", async ({ io, page, context }) => {
+    test("Import Sandbox", async ({ io, page, context }) => {
         const randomString = "Import" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.SANDBOX_BUTTON);

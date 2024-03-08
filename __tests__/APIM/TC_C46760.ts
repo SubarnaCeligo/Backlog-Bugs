@@ -90,7 +90,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.flowBuilder.click(selectors.basePagePO.DELETE);
         await io.homePage.loadingTime();
     });
-    test.skip("IOListner", async ({ io, page, context }) => {
+    test("IOListner", async ({ io, page, context }) => {
         const randomString = "IOListner" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
