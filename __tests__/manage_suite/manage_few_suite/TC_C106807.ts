@@ -28,6 +28,9 @@ test.describe("C106807", () => {
 
     await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.POPPER_TAB_HELPERS);
     await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.TREE_ITEM);
+    // C106817 Test to validate that the user is getting the hover text whenever we hover on any item inside the helper
+    await io.flowBuilder.hover(selectors.mappings.MAPPER2DOT0PO.TREE_ITEM, 1);
+    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.RUNTEST_TOOLTIP, 'Returns the absolute value of a number.');
     await io.flowBuilder.clickByIndex(selectors.mappings.MAPPER2DOT0PO.TREE_ITEM, 1);
 
     const textarea = await page.$(selectors.connectionsPagePO.RULE_TEXTAERA);
