@@ -268,6 +268,9 @@ test.describe(`C113520_C113521_C113522_C113523_C113524_C113525_C113526`, () => {
     await io.connectionPage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
     await io.connectionPage.click(selectors.connectionsPagePO.GUSTO_CONNECTION);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH);
+    await io.connectionPage.loadingTime()
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH);
     await io.connectionPage.click(selectors.connectionsPagePO.HTTP_AUTH_TYPE_ID);
     await io.connectionPage.click(selectors.connectionsPagePO.OAUTH);
     await io.flowBuilder.click(selectors.connectionsPagePO.CREATE_ICLIENT);
