@@ -1,5 +1,6 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
+import inputJson from "@testData/manageSuite/C106801.json"
 
 test.describe("C106807", () => {
   test("C106807 C106827 C106773, C106799 Test to validate that the datatype is visible for the items in Fields section  in the access level accounts where ever it is applicable", async ({io, page}) => {
@@ -73,5 +74,21 @@ test.describe("C106807", () => {
     
     await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.POPPER_TAB_ALL);
     io.assert.verifyElementTextByIndex(selectors.mappings.MAPPER2DOT0PO.TREE_ITEM, 'Fields', 0);
+
+
+    // C106801 Test to validate the data type shown for items is changing whenever we change their data type in input json
+    //(For example:-if the user changes the datavalue in the input json from string to boolean, then boolean datatype should be replaced with the str
+    await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.PREVIEWRESOURCE);
+    await page.keyboard.press("Control+A");
+    await page.keyboard.press("Meta+A");
+    await page.keyboard.press('Backspace');
+    await io.flowBuilder.fill(selectors.mappings.MAPPER2DOT0PO.PREVIEWRESOURCE + " " + selectors.flowBuilderPagePO.EM2DOT0PO.ACE_EDITOR_INPUT, JSON.stringify(inputJson, null, 2));
+
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.HTTPREQUSTBODY);
+    await page.keyboard.type('{{');
+    await page.keyboard.press('Control+Space');
+
+    io.assert.verifyElementTextByIndex(selectors.mappings.MAPPER2DOT0PO.TREE_ITEM, 'connectionboolean', 1);
+
   });
 });
