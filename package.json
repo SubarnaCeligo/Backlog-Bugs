@@ -16,10 +16,10 @@
     "trace": "npx playwright show-trace test-results/**/trace.zip",
     "uploadReport": "node uploadReport.js",
     "test-remote": "rm -rf ./allure-results && npx playwright test --project=PLAYWRIGHT --config=node_modules/@celigo/ui-core-automation/dist/playwright.config.js",
+    "test-tags": "rm -rf ./allure-results && npx playwright test --project=PLAYWRIGHT --config=node_modules/@celigo/ui-core-automation/dist/playwright.config.js --grep $TAGS",
     "test:ci": "rm -rf ./allure-results && npx playwright test --project=PLAYWRIGHT --config=node_modules/@celigo/ui-core-automation/dist/playwright.config.js --grep '@ci'",
-    "help": "node --no-warnings index.js",
-    "test-tags": "rm -rf ./allure-results && npx playwright test --project=PLAYWRIGHT --config=node_modules/@celigo/ui-core-automation/dist/playwright.config.js --grep $TAGS"
-  },
+    "help": "node --no-warnings index.js"
+   },
   "keywords": [],
   "author": "B Vinay Kumar",
   "license": "ISC",
@@ -36,7 +36,7 @@
     }
   },
   "devDependencies": {
-    "@celigo/aut-selectors": "^0.2.25",
+    "@celigo/aut-selectors": "^0.2.33",
     "@celigo/ui-core-automation": "^0.2.17",
     "@playwright/test": "1.41.2",
     "allure-playwright": "^2.2.1",
