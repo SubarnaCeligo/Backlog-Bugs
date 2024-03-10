@@ -1,6 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import C119809 from '../../../testData/inputData/FlowBuilder/C119809.json';
+import T27332 from '../../../testData/inputData/FlowBuilder/IO-T27332.json';
 
 test.describe("TC_C119809_C119810_C119811", () => {
     test("TC_C119809_C119810_C119811", async ({ io, page }) => {
@@ -70,5 +71,95 @@ test.describe("TC_C119809_C119810_C119811", () => {
         expect(await page.screenshot()).toMatchSnapshot("TC_C119809_IMPORT.png");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
+    });
+    test("IO-T27332", async ({ io, page }) => {
+        await io.createResourceFromAPI(T27332, "FLOWS");
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
+        await io.flowBuilder.reloadPage();
+        await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+        await io.integrationPage.waitForElementAttached(
+            selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR
+        );
+        await io.flowBuilder.click(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
+        await io.integrationPage.fill(
+            selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
+            "IO-T27332"
+        );
+        //Open the flow
+        await io.flowBuilder.clickByText("IO-T27332");
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
+
+        //Export
+        await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.EXPORT, 0);
+        await io.homePage.loadingTime();
+        // -'Simple/HTTP' toggle at the very top of the bubble drawers (i.e. for HTTP based connectors) should be hidden
+        await io.flowBuilder.waitForElementAttached(selectors.importPagePO.ADVANCED);
+        const toggleSimple = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
+        await io.assert.expectToBeFalse(toggleSimple, "Simple toggle is not visible");
+        const toggleHttp = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
+        await io.assert.expectToBeFalse(toggleHttp, "Http toggle is not hidden");
+        // -Other sections 'How would you like to parse files?' or 'What would you like to export' or any other should be hidden
+        const wouldParse = await io.flowBuilder.isVisible(selectors.exportsPagePO.WHAT_WOULD_YOU_LIKE_TO_EXPORT_TAB);
+        await io.assert.expectToBeFalse(wouldParse, "What would you like to export? is not hidden");
+        const wouldTrn2 = await io.flowBuilder.isVisible(selectors.exportsPagePO.CONFIGURE_EXPORT_TYPE);
+        await io.assert.expectToBeFalse(wouldTrn2, "Configure export type is not hidden");
+        const sortGrpoup = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.WOULD_YOU_LIKE_TO_GROUP_RECORD);
+        await io.assert.expectToBeFalse(sortGrpoup, "Would you like to group records? is not hidden");
+        //-'Custom settings' should be renamed to 'Settings'.
+        const Text = await io.homePage.isVisible("text='Settings'");
+        await io.assert.expectToBeTrue(Text, "Settings name not shown");
+
+        // -'Mock output' and 'Advanced' sections should be displayed below 'Settings'
+        // -'Custom settings' section should be displayed below 'General' section.
+        await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
+        await io.homePage.loadingTime();
+        expect(await page.screenshot()).toMatchSnapshot("IO-T27332.png");
+        await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
+
+        //-'Launch form builder' button should be displayed in 'Settings' section
+        const buttonDis = await page.$(selectors.flowBuilderPagePO.SETTING);
+        expect(await buttonDis.screenshot()).toMatchSnapshot("IO-T27332 launchFormBuilder.png");
+
+        //clicking on launch from builder
+        await io.flowBuilder.click(selectors.basePagePO.LAUNCH_EDITOR);
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
+        await io.flowBuilder.clearTextValue(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
+        await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+        await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
+        await io.flowBuilder.click(selectors.exportsPagePO.WHAT_WOULD_YOU_LIKE_TO_EXPORT_TAB);
+        await io.homePage.loadingTime();
+        expect(await page.screenshot()).toMatchSnapshot("IO-T27332 error.png");
+        await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
+
+        //IMPORT
+        await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.IMPORT, 0);
+        await io.homePage.loadingTime();
+        // -'Simple/HTTP' toggle at the very top of the bubble drawers (i.e. for HTTP based connectors) should be hidden
+        await io.flowBuilder.waitForElementAttached(selectors.importPagePO.ADVANCED);
+        const toggleSimple2 = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
+        await io.assert.expectToBeFalse(toggleSimple2, "Simple toggle is not visible");
+        const toggleHttp2 = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
+        await io.assert.expectToBeFalse(toggleHttp2, "Http toggle is not hidden");
+        // -Other sections 'Configure export type' or 'What would you like to export' or any other should be hidden
+        const fileTransf = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.EXISTINGRECORDSIMPORT);
+        await io.assert.expectToBeFalse(fileTransf, "How would you like the records imported? is not hidden");
+        //-'Custom settings' should be renamed to 'Settings'.
+        const Text2 = await io.homePage.isVisible("text='Settings'");
+        await io.assert.expectToBeTrue(Text2, "Settings name not shown");
+
+        // -'Mock output' and 'Advanced' sections should be displayed below 'Settings'
+        // -'Custom settings' section should be displayed below 'General' section.
+        await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
+        await io.homePage.loadingTime();
+        const Symbol1 = await page.$(selectors.flowBuilderPagePO.RIGHT_DRAWER);
+        expect(await Symbol1.screenshot()).toMatchSnapshot("IO-T27332 import.png");
+        await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
+
+        //-'Launch form builder' button should be displayed in 'Settings' section
+        const buttonDis2 = await page.$(selectors.flowBuilderPagePO.SETTING);
+        expect(await buttonDis2.screenshot()).toMatchSnapshot("IO-T27332 import launchFormBuilder.png");
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
     });
 });
