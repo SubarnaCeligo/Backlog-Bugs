@@ -28,17 +28,23 @@ test.describe("C106846", () => {
 
     await io.flowBuilder.click('button[aria-controls="helpers"]');
     await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.TREE_ITEM);
-    await io.flowBuilder.clickByIndex(selectors.mappings.MAPPER2DOT0PO.TREE_ITEM, 1);
+    await io.flowBuilder.clickByIndex(
+      selectors.mappings.MAPPER2DOT0PO.TREE_ITEM,
+      1
+    );
 
     const textarea = await page.$(selectors.connectionsPagePO.RULE_TEXTAERA);
 
     // verify text is updated
-    const text = await textarea.evaluate((element: HTMLTextAreaElement) => element.value);
+    const text = await textarea.evaluate(
+      (element: HTMLTextAreaElement) => element.value
+    );
     expect(text).toEqual("{{abs ");
 
     // verify the cursor position is at the end i.e, cursor should point at the end of current argument
-    const selectionRange = await textarea.evaluate((element: HTMLTextAreaElement) => element.selectionStart);
+    const selectionRange = await textarea.evaluate(
+      (element: HTMLTextAreaElement) => element.selectionStart
+    );
     expect(selectionRange).toEqual(6);
-
   });
 });
