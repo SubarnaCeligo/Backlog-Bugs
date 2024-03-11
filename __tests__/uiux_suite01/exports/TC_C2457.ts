@@ -1,5 +1,5 @@
 import { test, expect } from "@celigo/ui-core-automation";
-import C2457 from '@testData/flowBuilder/C2457.json';
+import C2457 from '@testData/FlowBuilder/C2457.json';
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("TC_C2457", () => {
