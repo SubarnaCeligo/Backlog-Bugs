@@ -17,6 +17,7 @@
     "uploadReport": "node uploadReport.js",
     "test-remote": "rm -rf ./allure-results && npx playwright test --project=PLAYWRIGHT --config=node_modules/@celigo/ui-core-automation/dist/playwright.config.js",
     "test-tags": "rm -rf ./allure-results && npx playwright test --project=PLAYWRIGHT --config=node_modules/@celigo/ui-core-automation/dist/playwright.config.js --grep $TAGS",
+    "test:non-tags": "rm -rf ./allure-results && npx playwright test --project=PLAYWRIGHT --config=node_modules/@celigo/ui-core-automation/dist/playwright.config.js --grep-invert $TAGS",
     "test:ci": "rm -rf ./allure-results && npx playwright test --project=PLAYWRIGHT --config=node_modules/@celigo/ui-core-automation/dist/playwright.config.js --grep '@ci'",
     "help": "node --no-warnings index.js"
    },
