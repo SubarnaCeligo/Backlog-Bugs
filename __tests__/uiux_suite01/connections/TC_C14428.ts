@@ -14,13 +14,13 @@ test.describe(`C14428 Verify 'none' tile of sandbox, the api (GET /api/tiles) is
 
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
-        await io.homePage.clickByText('C14428 production');
+        await io.homePage.clickByTextByIndex('C14428 production', 0);
         await io.homePage.click(selectors.integrationPagePO.DELETE_INTEGRATION);
         await io.homePage.click(selectors.basePagePO.DELETE_BUTTON);
         await io.homePage.loadingTime();
 
         await io.homePage.click(selectors.homePagePO.SANDBOX_BUTTON);
-        await io.homePage.clickByText('C14428 sandbox');
+        await io.homePage.clickByTextByIndex('C14428 sandbox', 0);
         await io.homePage.click(selectors.integrationPagePO.DELETE_INTEGRATION);
         await io.homePage.click(selectors.basePagePO.DELETE_BUTTON);
         await io.homePage.loadingTime();
@@ -46,7 +46,7 @@ test.describe(`C14428 Verify 'none' tile of sandbox, the api (GET /api/tiles) is
             conn2 = await io.connections.createConnectionViaAPI(production_connection);
         });
 
-        await io.homePage.clickByText("C14428 sandbox");
+        await io.homePage.clickByTextByIndex("C14428 sandbox", 0);
         await io.homePage.click(selectors.basePagePO.CONNECTIONS);
         await io.homePage.clickByText('Register connections');
         await io.homePage.clickByIndex(selectors.myAccountPagePO.ERROR_CHECKBOX, 1);
@@ -65,7 +65,7 @@ test.describe(`C14428 Verify 'none' tile of sandbox, the api (GET /api/tiles) is
             "Verified 'C14428 production' integration tile is visible in the home page wih production environment"
         );
 
-        await io.homePage.clickByText("C14428 production");
+        await io.homePage.clickByTextByIndex("C14428 production", 0);
         await io.homePage.click(selectors.basePagePO.CONNECTIONS);
         await io.homePage.clickByText('Register connections');
         await io.homePage.clickByIndex(selectors.myAccountPagePO.ERROR_CHECKBOX, 1);
