@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import inputJson from "@testData/manageSuite/C106801.json"
 
 test.describe("C106807", () => {
-  test("C106807 C106827 C106773, C106799 Test to validate that the datatype is visible for the items in Fields section  in the access level accounts where ever it is applicable", async ({io, page}) => {
+  test("C106807 C106827 C106773, C106799, C106806, C106785 Test to validate that the datatype is visible for the items in Fields section  in the access level accounts where ever it is applicable", async ({io, page}) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
@@ -47,7 +47,7 @@ test.describe("C106807", () => {
     expect(updatedText.trimEnd()).toEqual('{{a');
 
 
-    // C106773 Test to validate that user is able to invoke dropdown by clicking (Cmnd/Ctrl+space) combination,
+    // C106773, C106785 Test to validate that user is able to invoke dropdown by clicking (Cmnd/Ctrl+space) combination,
     // and validate that user is seeing ""All"", ""Fields"","" Helpers"" options, and user should be able to navigate through each section when dropdown is invoked
 
     // clear all existing text
