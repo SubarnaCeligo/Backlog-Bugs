@@ -21,7 +21,7 @@ test.describe("C106831", () => {
 
     // verify the popper is hidden only when the user types }} i.em the cursor is not nested inside the curly braces
     await page.keyboard.type('}}');
-    await page.waitForTimeout(300);
+    await io.flowBuilder.loadingTime();
     const handlebarsPopper = await page.$(selectors.basePagePO.HANDLEBAR_POPPER);
     expect(handlebarsPopper).toBeNull();
 

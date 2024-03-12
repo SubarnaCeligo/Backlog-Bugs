@@ -54,7 +54,7 @@ test.describe("C106807", () => {
     await page.keyboard.press('Backspace');
     await page.keyboard.press('Backspace');
     await page.keyboard.press('Backspace');
-    await page.waitForTimeout(500);
+    await io.flowBuilder.loadingTime();
     await page.keyboard.press('Control+Space');
 
     const popperTabs = await page.$$(selectors.mappings.MAPPER2DOT0PO.HANDLEBARS + " " + selectors.flowBuilderPagePO.TAB_LIST + ' button');
