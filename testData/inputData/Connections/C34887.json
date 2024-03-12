@@ -1,0 +1,52 @@
+{
+    "type": "http",
+    "name": "Amazon SP Connetion C34887",
+    "assistant": "amazonmws",
+    "enableMicroBatchForOneToMany": true,
+    "http": {
+        "formType": "assistant",
+        "type": "Amazon-Hybrid",
+        "mediaType": "json",
+        "baseURI": "https://sellingpartnerapi-na.amazon.com/",
+        "concurrencyLevel": 25,
+        "targetConcurrencyLevel": 25,
+        "unencrypted": {
+            "marketplaceId": "ATVPDKIKX0DER",
+            "sellingRegion": "northAmerica",
+            "mwsAuthToken": "XXXXX",
+            "sellerId": "XXXXX"
+        },
+        "encrypted": "******",
+        "auth": {
+            "type": "oauth",
+            "failStatusCode": 403,
+            "oauth": {
+                "authURI": "https://sellercentral.amazon.com/apps/authorize/consent",
+                "tokenURI": "https://api.amazon.com/auth/o2/token",
+                "accessTokenPath": "access_token",
+                "grantType": "authorizecode",
+                "useIClientFields": false
+            },
+            "token": {
+                "token": "******",
+                "location": "body",
+                "refreshMediaType": "urlencoded",
+                "refreshToken": "******"
+            }
+        }
+    },
+    "autoRecoverRateLimitErrors": true,
+    "microServices": {
+        "disableRdbms": false,
+        "disableNetSuiteDistributed": false,
+        "disableHttp": false,
+        "disableSalesforce": false,
+        "disableAs2": false
+    },
+    "queues": [
+        {
+            "name": "65771031dced14ac3f3acb2e",
+            "size": 0
+        }
+    ]
+  }

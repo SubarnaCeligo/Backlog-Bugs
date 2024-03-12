@@ -1,12 +1,11 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C106829 Test to validate that user is able to see helper syntax for nested expressions only when the cursor is pointing nested expression", () => {
-  test("C106829 Test to validate that user is able to see helper syntax for nested expressions only when the cursor is pointing nested expression", async ({io, page}) => {
-    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.flowBuilder.click(selectors.basePagePO.TOOLS);
-    await io.homePage.loadingTime();
-    await io.flowBuilder.click(selectors.basePagePO.FLOW_BUILDER);
+test.describe("C106831 Test to validate the auto suggestion feature in moniter account", () => {
+  test("C106831 Test to validate the auto suggestion feature in moniter account", async ({io, page}) => {
+    await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+    await io.flowBuilder.loadingTime();
+    await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'http');
     await io.flowBuilder.click(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH);
@@ -23,7 +22,7 @@ test.describe("C106829 Test to validate that user is able to see helper syntax f
 
     // verify the popper is hidden only when the user types }} i.em the cursor is not nested inside the curly braces
     await page.keyboard.type('}}');
-    await page.waitForTimeout(300);
+    await io.flowBuilder.loadingTime();
     const handlebarsPopper = await page.$(selectors.basePagePO.HANDLEBAR_POPPER);
     expect(handlebarsPopper).toBeNull();
 
