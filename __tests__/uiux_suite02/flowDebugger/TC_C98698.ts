@@ -1,0 +1,20 @@
+import { expect, test } from "@celigo/ui-core-automation";
+import * as selectors from "@celigo/aut-selectors";
+import C98698 from '@testData/FlowDebugger/C98698.json';
+
+test.describe("C98698", () => {
+    test("C98698", async ({ io, page }) => {
+        await io.createResourceFromAPI(C98698, "FLOWS");
+        //Disable the flow
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);
+        await io.assert.verifyElementContainsText(selectors.basePagePO.RESULT_PREVIEW_CONTENT, "{  \"value\": \"81\"}")
+        await io.flowBuilder.click(selectors.importPagePO.SWITCH_TO_MAPPING);
+        await io.assert.verifyElementContainsText(selectors.basePagePO.RESULT_PREVIEW_CONTENT, "");
+        await io.homePage.click(selectors.mappings.MAPPER2DOT0PO.PREVIEW);
+        await io.assert.verifyElementContainsText(selectors.basePagePO.RESULT_PREVIEW_CONTENT, "{  \"value\": \"81\"}")
+    });
+});
