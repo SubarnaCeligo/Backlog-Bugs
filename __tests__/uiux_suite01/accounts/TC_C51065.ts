@@ -1,11 +1,11 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C51065", () => {
+test.describe("C51065 Verify the help text for Require MFA in the Invite User drawer and in the Users table.", () => {
     test("C51065 Verify the help text for Require MFA in the Invite User drawer and in the Users table.", async ({io, page}) => {
         await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
         await io.myAccountPage.click(selectors.myAccountPagePO.USERS);
-        const button = await page.locator('span:has-text("Require MFA") button').first();
+        const button = await page.locator(selectors.myAccountPagePO.REQUIRE_MFA_HELP_BUTTON).first();
         await button.click();
         const helpTextPopup = await page.$(selectors.myAccountPagePO.HELP_BUBBLE);
         const helpText = await helpTextPopup.textContent();

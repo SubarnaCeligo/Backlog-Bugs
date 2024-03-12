@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C104745", () => {
+test.describe("C104745 Verify for Agent dropdown", () => {
   test("C104745 Verify for Agent dropdown", async ({
     io,
     page
@@ -16,7 +16,7 @@ test.describe("C104745", () => {
     await io.flowBuilder.click(selectors.connectionsPagePO.JDBC_CONNECTOR);
     await io.flowBuilder.loadingTime();
 
-    await io.flowBuilder.click('[data-test="_agentId"]');
+    await io.flowBuilder.click(selectors.connectionsPagePO.AGENT_FIELD);
     
     // verify the agents are rendered
     const listbox = await page.$$(selectors.basePagePO.LISTBOX_ROLE + ' li');

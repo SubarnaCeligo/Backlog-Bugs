@@ -1,7 +1,7 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C34887", () => {
+test.describe("C34887 Verify weather Restricted report type checkbox and help text is being displayed as expected for SP-API Connection with /reports/2021-06-30/documents/ in relative URI", () => {
   test("C34887 Verify weather Restricted report type checkbox and help text is being displayed as expected for SP-API Connection with /reports/2021-06-30/documents/ in relative URI", async ({io, page}) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.flowBuilder.click(selectors.basePagePO.TOOLS);

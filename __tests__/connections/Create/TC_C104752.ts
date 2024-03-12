@@ -3,12 +3,12 @@ import * as selectors from "@celigo/aut-selectors";
 
 const connectionName = "jdbc_connection_C104752";
 
-test.describe("C104752", () => {
+test.describe("C104752 Verify test connection for JDBC On-Prem cnnector", () => {
     test.beforeEach(async ({ io }) => {
         await io.connections.deleteConnection(connectionName)
     });
     
-    test("C104752", async ({
+    test("C104752 Verify test connection for JDBC On-Prem cnnector", async ({
         io,
         page,
     }, testInfo) => {

@@ -2,7 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import inputJson from "@testData/manageSuite/C106801.json"
 
-test.describe("C106807", () => {
+test.describe("C106807 Test to validate that the datatype is visible for the items in Fields section  in the access level accounts where ever it is applicable", () => {
   test("C106807 C106827 C106773, C106799, C106806, C106785 Test to validate that the datatype is visible for the items in Fields section  in the access level accounts where ever it is applicable", async ({io, page}) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);

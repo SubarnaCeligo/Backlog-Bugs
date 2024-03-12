@@ -2,7 +2,7 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C103903", () => {
+test.describe("C103903 Verify the Grant type field under Configure OAuth 2.0", () => {
     test("C103903 Verify the Grant type field under Configure OAuth 2.0", async ({ io, page }, testInfo) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);

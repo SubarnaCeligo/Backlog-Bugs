@@ -1,7 +1,7 @@
 import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C100968", () => {
+test.describe("C100968 If user tries to forget password for +1 email then + is removing automatically", () => {
     test("C100968 If user tries to forget password for +1 email then + is removing automatically", async ({io, page}) => {
       await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
       await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
