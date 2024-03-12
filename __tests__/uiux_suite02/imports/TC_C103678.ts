@@ -17,7 +17,7 @@ test.describe("C103678 Verify Help Text for HTTP request body", () => {
     await io.myAccountPage.clickByText("Import records into destination application");
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'HTTP AMAZON CONNECTION');
-    await io.flowBuilder.clickByText('HTTP AMAZON CONNECTION');
+    await io.flowBuilder.clickByTextByIndex('HTTP AMAZON CONNECTION', 0);
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.click(selectors.importPagePO.HTTP_REQUEST_BODY_HELP_BUBBLE);
     await io.connectionPage.waitForElementAttached(selectors.myAccountPagePO.HELP_BUBBLE);
