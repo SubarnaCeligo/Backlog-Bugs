@@ -34,11 +34,12 @@ test.describe("TC_C119817", () => {
     await io.flowBuilder.click(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
     await io.flowBuilder.clearTextValue(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
     await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, JSON.stringify(C119817.customSetting));
-    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.CUSTOM_ERROR, 'The·"displayAfter"·and·"useAsPrimaryInterface"·properties·are·incompatible·with·each·other.·To·proceed·further,·remove·one·of·the·properties.¶');
+    const errorMessage = (await io.homePage.getText(selectors.flowBuilderPagePO.CUSTOM_ERROR)).toString();
+    console.log("ererer",errorMessage)
+    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.CUSTOM_ERROR, 'The·"useAsPrimaryInterface"·and·"displayAfter"·properties·are·incompatible·with·each·other.·If·you·save·without·removing·one·of·the·properties,·the·"useAsPrimaryInterface"·property·takes·the·precedence.¶');
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
     await io.homePage.loadingTime();
     // -'Simple/HTTP' toggle at the very top of the bubble drawers (i.e. for HTTP based connectors) should be hidden
-    await io.flowBuilder.waitForElementAttached(selectors.importPagePO.ADVANCED);
     await io.flowBuilder.waitForElementAttached(selectors.importPagePO.ADVANCED);
     const toggleSimple1 = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
     await io.assert.expectToBeFalse(toggleSimple1, "Simple toggle is not visible");
@@ -71,7 +72,7 @@ test.describe("TC_C119817", () => {
     await io.flowBuilder.click(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
     await io.flowBuilder.clearTextValue(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
     await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, JSON.stringify(C119817.customSetting));
-    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.CUSTOM_ERROR, 'The·"displayAfter"·and·"useAsPrimaryInterface"·properties·are·incompatible·with·each·other.·To·proceed·further,·remove·one·of·the·properties.¶');
+    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.CUSTOM_ERROR, 'The·"useAsPrimaryInterface"·and·"displayAfter"·properties·are·incompatible·with·each·other.·If·you·save·without·removing·one·of·the·properties,·the·"useAsPrimaryInterface"·property·takes·the·precedence.¶');
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
     await io.homePage.loadingTime();
 
@@ -111,7 +112,7 @@ test.describe("TC_C119817", () => {
     await io.flowBuilder.click(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
     await io.flowBuilder.clearTextValue(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
     await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, JSON.stringify(C119817.customSetting));
-    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.CUSTOM_ERROR, 'The·"displayAfter"·and·"useAsPrimaryInterface"·properties·are·incompatible·with·each·other.·To·proceed·further,·remove·one·of·the·properties.¶');
+    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.CUSTOM_ERROR, 'The·"useAsPrimaryInterface"·and·"displayAfter"·properties·are·incompatible·with·each·other.·If·you·save·without·removing·one·of·the·properties,·the·"useAsPrimaryInterface"·property·takes·the·precedence.¶');
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
     await io.homePage.loadingTime();
     // -'Simple/HTTP' toggle at the very top of the bubble drawers (i.e. for HTTP based connectors) should be hidden
