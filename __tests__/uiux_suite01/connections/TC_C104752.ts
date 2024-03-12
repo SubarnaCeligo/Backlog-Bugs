@@ -30,7 +30,6 @@ test.describe("C104752 Verify test connection for JDBC On-Prem cnnector", () => 
         await page.keyboard.type("C:\\Jars");
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.flowBuilder.click('.MuiDialogActions-root .MuiButtonBase-root');
-        await io.flowBuilder.loadingTime();
         await io.assert.verifyElementContainsText(selectors.basePagePO.NOTIFICTION_BAR, 'This connection is currently offline. Re-enter your credentials to bring it back online.');
     });
 });
