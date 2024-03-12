@@ -13,7 +13,7 @@ test.describe("C104745", () => {
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.GROUP_RECORD_FIELD);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.GROUP_RECORD_FIELD);
     await page.keyboard.type("jdbc");
-    await io.flowBuilder.clickByText("JDBC");
+    await io.flowBuilder.click(selectors.connectionsPagePO.JDBC_CONNECTOR);
     await page.waitForTimeout(1000);
     await io.flowBuilder.click('[data-test="_agentId"]');
     
