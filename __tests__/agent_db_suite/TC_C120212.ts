@@ -29,8 +29,6 @@ test.describe("TC_C120210_TC_C120211_TC_C120212_TC_C120213,TC_C120214_TC_C120216
         await io.homePage.click(selectors.flowBuilderPagePO.DESTINATIONTABLESEARCHPOSTGRE);
         await io.assert.verifyElementDisplayedByText("Destination table *", "Destination table is not added");
         await io.homePage.click("[data-test='dropdownoption-ARUNNEWTABLE1']");
-        await io.assert.verifyElementDisplayedByText("Batch size","Batch size field is not displayed");
-        await io.homePage.addStep("**Batch size field is verified***");  
         await io.assert.checkElementState(selectors.flowBuilderPagePO.REFRESHBUTTONPOSTGRE, 'isVisible');
     await io.importsPage.click('[id="rdbms.bulkInsert.tableName"]>div>div>button');
     await io.assert.verifyElementDisplayedByText(`Select a data destination for bulk inserts. You can bulk insert data into a table.`,

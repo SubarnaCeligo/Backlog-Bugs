@@ -16,7 +16,6 @@ test.describe("TC_C120217_C120211 Verify the message when api failed to fetch th
         await io.homePage.addStep("*** Clicked on ORACLE application ***");
         await io.flowBuilder.clickByText("Import records into destination application");
         await io.homePage.addStep("*** Selected import records option ***");
-        //await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "asdf - Offline");
         await io.homePage.addStep("*** Searched for ORACLE CONNECTION ***");
         await io.flowBuilder.clickByText("asdf - Offline");
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
