@@ -2,11 +2,11 @@ import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import T27372 from '../../../testData/inputData/FlowBuilder/T27372.json';
 
-test.describe(`T27371 Verify mapper2 use cases for NoSQLDBwith `, () => {
+test.describe(`T27371 Verify mapper2 use cases for NoSQLDB `, () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
 });
-  test(`T27371 Verify mapper2 use cases for NoSQLDBwith `, async ({
+  test(`T27371 Verify mapper2 use cases for NoSQLDB `, async ({
     io,
     page
   }) => {
