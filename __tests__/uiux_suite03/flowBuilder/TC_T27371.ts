@@ -1,8 +1,11 @@
-import { test, expect } from "@celigo/ui-core-automation";
+import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import T27372 from '../../../testData/inputData/FlowBuilder/T27372.json';
 
 test.describe(`T27371 Verify mapper2 use cases for NoSQLDBwith `, () => {
+  test.beforeEach(async ({ io }) => {
+    await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+});
   test(`T27371 Verify mapper2 use cases for NoSQLDBwith `, async ({
     io,
     page
@@ -34,7 +37,6 @@ test.describe(`T27371 Verify mapper2 use cases for NoSQLDBwith `, () => {
                 case "Static lookup": {
                     await io.mappings.click(selectors.importPagePO.DYNAMICLOOKUP);
                     await page.locator(selectors.mappings.MAPPER2DOT0PO.LOOKUP_NAME).fill("test");
-                    await page.waitForTimeout(8000)
                     await io.homePage.addStep("*** added Static lookup value ***");
                     break;
                 }
