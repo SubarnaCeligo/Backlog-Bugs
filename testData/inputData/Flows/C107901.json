@@ -1,0 +1,90 @@
+{
+  "name": "TC_C107901 Flow",
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "NS_Export",
+        "_connectionId": "NETSUITE CONNECTION",
+        "asynchronous": true,
+        "oneToMany": false,
+        "aiDescription": {
+          "summary": null,
+          "detailed": null,
+          "generatedOn": null
+        },
+        "rawData": "64ff5a3670fd665c5211d1d2af2686d012214573a60044c7249d8c0f",
+        "netsuite": {
+          "type": "restlet",
+          "skipGrouping": true,
+          "statsOnly": false,
+          "restlet": {
+            "recordType": "account",
+            "searchId": "59266",
+            "criteria": [
+              {
+                "field": "name",
+                "operator": "contains",
+                "searchValue": "C107885"
+              }
+            ],
+            "restletVersion": "suiteapp2.0",
+            "markExportedBatchSize": 100
+          },
+          "distributed": {}
+        },
+        "adaptorType": "NetSuiteExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "import",
+        "_connectionId": "GOOGLEDRIVE CONNECTION",
+        "apiIdentifier": "i58ec410a1",
+        "oneToMany": false,
+        "assistant": "googledrive",
+        "sandbox": false,
+        "file": {
+          "fileName": "file-{{timestamp}}.json",
+          "skipAggregation": false,
+          "type": "json"
+        },
+        "http": {
+          "type": "file",
+          "relativeURI": ["/Gdrive_uploads/"],
+          "method": ["POST"],
+          "body": [],
+          "sendPostMappedData": true,
+          "formType": "assistant",
+          "response": {
+            "resourcePath": ["files"]
+          }
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "createFlow": {
+    "name": "TC_C107901 flow",
+    "disabled": true,
+    "pageGenerators": [
+      {
+        "_exportId": "UPDATE WITH NEW EXPORTID",
+        "skipRetries": false
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "_importId": "UPDATE WITH NEW IMPORTID",
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        }
+      }
+    ],
+    "autoResolveMatchingTraceKeys": true
+  }
+}
