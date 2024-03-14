@@ -10,7 +10,7 @@ test.describe("C2758_Verify when the sandbox tile is shared with a non sandbox l
         await io.myAccountPage.clickByText("Production")
     })
     test("C2758_Verify when the sandbox tile is shared with a non sandbox license user the shared tile should be shown in the production account.", async ({ io }) => {
-        await io.myAccountPage.clickByTextByIndex("Sandbox",1)
+        await io.myAccountPage.clickByText("Sandbox")
         await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
         await io.myAccountPage.click(selectors.myAccountPagePO.USERS);
         await io.myAccountPage.clickByText("Invite user")

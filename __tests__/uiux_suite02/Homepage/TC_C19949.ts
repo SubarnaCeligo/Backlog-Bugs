@@ -10,8 +10,6 @@ test.describe("TC_C19949_Verify: Success Graph: the tooltip displays: flow name,
         await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
         await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'TC_C12034_DND');
         await io.integrationPage.clickByText('TC_C12034_DND')
-        await io.flowBuilder.click(selectors.basePagePO.RUNFLOW);
-        await io.flowBuilder.loadingTime();
         // Validating Success Graph,flow name, total success count, time coordinate visible
         await io.assert.verifyElementDisplayedByText('Duration', "Duration column not showing")
         await io.assert.verifyElementDisplayedByText('TC_C12034_DND', "flow name not showing")

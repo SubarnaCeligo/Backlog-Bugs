@@ -10,8 +10,6 @@ test.describe("TC_C23885_Verify in Run history tab the values in Started & Compl
         await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
         await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'TC_C12034_DND');
         await io.integrationPage.clickByText('TC_C12034_DND')
-        await io.flowBuilder.click(selectors.basePagePO.RUNFLOW);
-        await io.flowBuilder.loadingTime();
         await io.homePage.clickByText("Run history");
         // Validating Started & Completed columns displays in standard format
         await io.assert.verifyElementDisplayedByText('Started', "Format not showing")

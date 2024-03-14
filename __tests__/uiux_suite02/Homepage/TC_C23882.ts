@@ -10,8 +10,6 @@ test.describe("TC_C23882_Verify the values in the Run history tab columns", () =
         await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
         await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'TC_C12034_DND');
         await io.integrationPage.clickByText('TC_C12034_DND')
-        await io.flowBuilder.click(selectors.basePagePO.RUNFLOW);
-        await io.flowBuilder.loadingTime();
         await io.homePage.clickByText("Run history");
         // Validating columns displays in the Run history tab
         await io.assert.verifyElementDisplayedByText('Duration', "Duration column not showing")
