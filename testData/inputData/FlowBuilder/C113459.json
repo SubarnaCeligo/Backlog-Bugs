@@ -1,0 +1,79 @@
+{
+    "name": "TC_C113459",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "Http Export",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "_sourceId": "652d1061fa3afc50c88e20cf",
+                "apiIdentifier": "ec179fa173",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "http": {
+                    "relativeURI": "/users",
+                    "method": "GET",
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "users"
+                    }
+                },
+                "test": {
+                    "limit": 13
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "NS BLOB lookup",
+                "_connectionId": "NETSUITE CONNECTION",
+                "apiIdentifier": "ef8fd5ae1f",
+                "asynchronous": true,
+                "isLookup": true,
+                "type": "blob",
+                "oneToMany": false,
+                "sandbox": false,
+                "netsuite": {
+                    "skipGrouping": false,
+                    "statsOnly": false,
+                    "internalId": "1262",
+                    "restlet": {
+                        "criteria": [],
+                        "columns": []
+                    },
+                    "distributed": {
+                        "executionContext": [],
+                        "executionType": []
+                    }
+                },
+                "adaptorType": "NetSuiteExport"
+            }
+        }
+    ],
+    "createFlow": {
+        "name": "TC_C113459",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "export",
+                "_importId": "UPDATE WITH NEW EXPORTID"
+            }
+        ],
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+        ]
+    }
+}

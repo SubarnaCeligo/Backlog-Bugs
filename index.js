@@ -51,8 +51,12 @@ const askFeatureQuestion = () => {
             choices: [
                 "connections",
                 "e2e_flows",
+                "integrationApps",
+                "licenseExpired",
                 "uiux_suite",
                 "agent_db_suite",
+                "transferSBflow",
+                "transfer",
                 "flowbranching",
                 "MFA",
                 "APIM",

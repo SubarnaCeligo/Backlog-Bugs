@@ -1,0 +1,174 @@
+{
+    "name": "TC_C120845",
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "FTP Nested Huge records",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "e06ebc8159",
+                "asynchronous": true,
+                "sandbox": false,
+                "sampleData": {
+                    "name1": "5% Discount",
+                    "name7": "jiren",
+                    "is_group_for_guests": true
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/Shashii"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "filter": {
+                        "type": "expression",
+                        "expression": {
+                            "rules": [
+                                "startswith",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "filename"
+                                    ]
+                                ],
+                                "testingtypes.json"
+                            ],
+                            "version": "1"
+                        },
+                        "rules": [
+                            "startswith",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "filename"
+                                ]
+                            ],
+                            "testingtypes.json"
+                        ],
+                        "version": "1"
+                    }
+                },
+                "transform": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [
+                            []
+                        ],
+                        "version": "1"
+                    },
+                    "rules": [
+                        []
+                    ],
+                    "version": "1"
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "HTTP Bigcommerce lookup",
+                "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+                "apiIdentifier": "e60c8bc095",
+                "asynchronous": true,
+                "isLookup": true,
+                "type": "test",
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "/v3/customers",
+                    "method": "GET",
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "data"
+                    }
+                },
+                "test": {
+                    "limit": 1
+                },
+                "transform": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [
+                            []
+                        ],
+                        "version": "1"
+                    },
+                    "rules": [
+                        []
+                    ],
+                    "version": "1"
+                },
+                "adaptorType": "HTTPExport"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "FTP Nested Results mappings",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "id9b53c46e",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "sfl12.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/Shashii",
+                    "fileName": "sfl12.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ],
+    "createFlow": {
+        "name": "Nested Results Mapping",
+        "disabled": false,
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID",
+                "skipRetries": false
+            }
+        ],
+        "pageProcessors": [
+            {
+                "type": "export",
+                "_exportId": "UPDATE WITH NEW EXPORTID",
+                "responseMapping": {
+                    "fields": [
+                        {
+                            "extract": "errors",
+                            "generate": "errors1"
+                        },
+                        {
+                            "extract": "errors.0.code",
+                            "generate": "errorscode"
+                        },
+                        {
+                            "extract": "errors.0.message",
+                            "generate": "errorsmessage"
+                        }
+                    ],
+                    "lists": []
+                }
+            },
+            {
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID",
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                }
+            }
+        ],
+        "free": false,
+        "autoResolveMatchingTraceKeys": true
+    }
+}

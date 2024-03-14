@@ -1,0 +1,108 @@
+{
+  "qa__api_tdata": [
+    {
+      "skipRetries": false,
+      "name": "NS Listner - HTTP Test",
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "_id": "test_65e05ea4f66234a07046ee93",
+            "name": "NS listner",
+            "_connectionId": "NETSUITE CONNECTION",
+            "apiIdentifier": "e0e5b479ae",
+            "asynchronous": true,
+            "type": "distributed",
+            "oneToMany": false,
+            "sandbox": false,
+            "distributed": {
+                "bearerToken": "******"
+            },
+            "netsuite": {
+                "type": "distributed",
+                "skipGrouping": true,
+                "statsOnly": false,
+                "restlet": {
+                    "markExportedBatchSize": 100,
+                    "columns": [],
+                    "criteria": []
+                },
+                "distributed": {
+                    "recordType": "salesorder",
+                    "executionContext": [
+                        "userinterface",
+                        "webstore"
+                    ],
+                    "disabled": false,
+                    "executionType": [
+                        "create",
+                        "edit",
+                        "xedit"
+                    ],
+                    "sublists": [],
+                    "frameworkVersion": "suiteapp2.0"
+                }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import":{
+            "name": "HTTP import",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "i18df0e6ca",
+            "hooks": {
+                "preMap": {
+                    "_scriptId": "REPLACE_VIA_CODE",
+                    "function": "preMap"
+                }
+            },
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "aiDescription": {
+                "summary": "This explanation describes an import process that uses the HTTP Import adaptor type to send data to a destination application via HTTP requests. The import is named \"AutomationStandalone_yiHrO\" and has a batch size of 1, meaning each request will contain one record. The import does not ignore existing or missing data and does not create multiple records from a single parent record. There are no preMap hooks defined, and the import will not be executed in a sandbox environment. The data will be sent after it has been mapped.",
+                "detailed": "This import is using the HTTP Import adaptor type, which means it will be sending data to a destination application using HTTP requests. The HTTP method specified is POST, indicating that the import will be creating new records in the destination application.\n\nThe import has a name of \"AutomationStandalone_yiHrO\". This is just a unique identifier for the import and does not affect its functionality.\n\nThe import has a batch size of 1, meaning that each HTTP request will contain only one record. This can be adjusted to a higher number if desired.\n\nThe \"ignoreExisting\" field is set to false, which means that the import will not ignore existing data in the destination application. This means that if there are any duplicate records, they will not be skipped and will be imported again, potentially causing duplicates.\n\nThe \"ignoreMissing\" field is also set to false, indicating that the import will not ignore missing data. This means that if any required data is missing, the import will fail and return an error.\n\nThe \"oneToMany\" field is set to false, which means that the import will not create multiple records from a single parent record. This feature is used when a single record needs to create multiple related records, but it is not applicable in this case.\n\nThe import does not have any preMap hooks defined, so there is no custom logic applied to the data before the mapping process.\n\nThe \"sandbox\" field is set to false, indicating that the import will not be executed in a sandbox environment.\n\nThe \"sendPostMappedData\" field is set to true, which means that the import will send the data after it has been mapped. This is the default behavior for HTTP imports.\n\nOverall, this import is using the HTTP Import adaptor type to create new records in the destination application using HTTP POST requests. It does not have any custom logic applied before the mapping process and does not ignore existing or missing data. The batch size is set to 1, meaning that each request will contain only one record."
+            },
+            "http": {
+                "relativeURI": [],
+                "method": [
+                    "POST"
+                ],
+                "body": [],
+                "batchSize": 1,
+                "sendPostMappedData": true,
+                "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "_id": "test_652e15d26819f54a81ada56f",
+        "name": "NS Listner - HTTP Test",
+        "disabled": true,
+        "skipRetries": false,
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID",
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
