@@ -15,9 +15,9 @@ test.describe("T2976 Verify the filter set by the user will persist even if the 
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
 
     // Setting a filter in lineGraph
-    const lineGraphButton = await page.$('[data-test="charts"]');
+    const lineGraphButton = await page.$(selectors.flowBuilderPagePO.LINE_GRAPH_ICON);
     const isLineGraphButtonEnabled = await lineGraphButton.isEnabled();
-    await io.flowBuilder.click('[data-test="charts"]');
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.LINE_GRAPH_ICON);
     await io.flowBuilder.clickByText('Last 30 days');
     await io.flowBuilder.clickByText('Last 7 days');
     await io.flowBuilder.clickByText('Apply');
@@ -36,10 +36,10 @@ test.describe("T2976 Verify the filter set by the user will persist even if the 
 
 
     //Wait for search to complete
-    await io.integrationPage.waitForElementAttached('[data-test="charts"]');
+    await io.integrationPage.waitForElementAttached(selectors.flowBuilderPagePO.LINE_GRAPH_ICON);
 
     //Open the lineGraphs
-    await io.flowBuilder.click('[data-test="charts"]');
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.LINE_GRAPH_ICON);
 
     // Verify the filter
     await io.flowBuilder.clickByText('Last 7 days');
