@@ -1,0 +1,74 @@
+{
+  "name": "TC_T2976",
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "_id": "LineGraphExport",
+        "name": "LineGraphExport",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "e424867c26",
+        "asynchronous": true,
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "/ io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "FTP.json"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json"
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "_id": "LineGraphImport",
+        "name": "LineGraphImport",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "apiIdentifier": "i8c2ca044b",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": [],
+          "method": [
+            "PATCH"
+          ],
+          "body": [],
+          "batchSize": 1,
+          "sendPostMappedData": true,
+          "formType": "http"
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "createFlow": {
+    "name": "TC_T2976",
+    "disabled": false,
+    "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+    "skipRetries": false,
+    "pageProcessors": [
+      {
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        },
+        "type": "import",
+        "_importId": "LineGraphImport"
+      }
+    ],
+    "pageGenerators": [
+      {
+        "_exportId": "LineGraphExport"
+      }
+    ]
+  }
+}
