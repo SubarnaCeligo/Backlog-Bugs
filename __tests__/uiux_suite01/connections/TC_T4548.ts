@@ -12,7 +12,7 @@ test.describe("T4548 Verify that the test ping is successfull for quick base con
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'quickbase');
-    await io.connectionPage.click('[data-test="Quickbase"]');
+    await io.connectionPage.click(selectors.connectionsPagePO.QUICKBASE_CONNECTION);
     await io.flowBuilder.loadingTime();
 
     await io.connectionPage.fill(selectors.connectionsPagePO.NAME_INPUT, T4548.NAME);
