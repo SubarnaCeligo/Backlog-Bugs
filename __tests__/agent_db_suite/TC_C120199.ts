@@ -14,7 +14,7 @@ test.describe(`C120199_C120203_C120215`, () => {
         selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP
     );
     await io.homePage.addStep("*** Clicked on add destination or lookup ***");
-    await io.homePage.click("[data-test= 'Oracle DB (SQL)']");
+    await io.homePage.click(selectors.flowBuilderPagePO.ORACLEDB_APPLICATION);
     await io.homePage.addStep("*** Clicked on ORACLE application ***");
     await io.flowBuilder.clickByText("Import records into destination application");
     await io.homePage.addStep("*** Selected import records option ***");
@@ -31,7 +31,7 @@ test.describe(`C120199_C120203_C120215`, () => {
     await io.homePage.click(selectors.flowBuilderPagePO.DESTINATIONTABLESEARCHPOSTGRE);
     await io.homePage.addStep("*** Clicked on destination table search field ***");
     //C120215
-    await io.homePage.click("[data-test='dropdownoption-ARUNNEWTABLE1']");
+    await io.homePage.click(selectors.flowBuilderPagePO.ORACLEDB_TABLE);
     await io.homePage.addStep("*** Selected A table ***");
     await io.homePage.click(selectors.mappings.MAPPER2DOT0PO.SAVEANDCLOSE);
     await io.homePage.addStep("*** Saved the import ***");
@@ -41,16 +41,7 @@ test.describe(`C120199_C120203_C120215`, () => {
      await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS) 
 await io.flowBuilder.loadingTime();
 await io.homePage.clickByText('Create destination rows [ ] from source record { }');
-let createdes =false;
-try 
-{
-  (await io.assert.verifyElementDisplayedByText("Create destination record { } from source record { }",
-  "'Create destination record { } from source record { }'  dropdown option is not displayed"));
-  createdes = true
-}
-catch (error) {
-  expect(createdes).toBeFalsy();
-}
-
+await io.assert.verifyElementDisplayedByText("Create destination record { } from source record { }",
+  "'Create destination record { } from source record { }'  dropdown option is not displayed");
  });
 });

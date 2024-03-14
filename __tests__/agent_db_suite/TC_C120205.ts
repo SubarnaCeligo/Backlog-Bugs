@@ -14,7 +14,7 @@ test.describe(`TC120204_TC_C120205_TC_C120206_TC_C120207_TC120204`, () => {
             selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP
         );
         await io.homePage.addStep("*** Clicked on add destination or lookup ***");
-        await io.homePage.click("[data-test= 'Oracle DB (SQL)']");
+        await io.homePage.click(selectors.flowBuilderPagePO.ORACLEDB_APPLICATION);
         await io.homePage.addStep("*** Clicked on ORACLE application ***");
         await io.flowBuilder.clickByText("Import records into destination application");
         await io.homePage.addStep("*** Selected import records option ***");
@@ -30,7 +30,7 @@ test.describe(`TC120204_TC_C120205_TC_C120206_TC_C120207_TC120204`, () => {
         await io.homePage.addStep("*** Entered name for the import ***");
         await io.homePage.click(selectors.flowBuilderPagePO.DESTINATIONTABLESEARCHPOSTGRE);
         await io.homePage.addStep("*** Clicked on destination table search field ***");
-        await io.homePage.click("[data-test='dropdownoption-ARUNNEWTABLE1']");
+        await io.homePage.click(selectors.flowBuilderPagePO.ORACLEDB_TABLE);
         await io.homePage.addStep("*** Selected A table ***");
         await io.homePage.click(selectors.mappings.MAPPER2DOT0PO.SAVEANDCLOSE);
         await io.homePage.addStep("*** Saved the import ***");
@@ -65,17 +65,9 @@ test.describe(`TC120204_TC_C120205_TC_C120206_TC_C120207_TC120204`, () => {
     await page.getByText("Handlebars expression", { exact: true }).click();
     await io.homePage.loadingTime()
     await io.flowBuilder.clickByText("Please select")
-    let displaytext = false; 
-try{
 
- (await io.assert.verifyElementDisplayedByText(
+ await io.assert.verifyElementDisplayedByText(
      "Do nothing",
-     "'Do nothing'  dropdown option is not displayed"));
-     displaytext = true;
-}
-   catch(e)
-   {
-     expect(displaytext).toBeFalsy();
-   }
-  });
+     "'Do nothing'  dropdown option is not displayed");
+    });
 })

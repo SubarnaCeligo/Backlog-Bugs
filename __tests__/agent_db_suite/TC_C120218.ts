@@ -12,7 +12,7 @@ test.describe("TC_C120214", () => {
             selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP
         );
         await io.homePage.addStep("*** Clicked on add destination or lookup ***");
-        await io.homePage.click("[data-test= 'Oracle DB (SQL)']");
+        await io.homePage.click(selectors.flowBuilderPagePO.ORACLEDB_APPLICATION);
         await io.homePage.addStep("*** Clicked on ORACLE application ***");
         await io.flowBuilder.clickByText("Import records into destination application");
         await io.homePage.addStep("*** Selected import records option ***");

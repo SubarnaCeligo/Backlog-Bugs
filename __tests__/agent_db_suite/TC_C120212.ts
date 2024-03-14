@@ -12,7 +12,7 @@ test.describe("TC_C120210_TC_C120211_TC_C120212_TC_C120213,TC_C120214_TC_C120216
             selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP
         );
         await io.homePage.addStep("*** Clicked on add destination or lookup ***");
-        await io.homePage.click("[data-test= 'Oracle DB (SQL)']");
+        await io.homePage.click(selectors.flowBuilderPagePO.ORACLEDB_APPLICATION);
         await io.homePage.addStep("*** Clicked on ORACLE application ***");
         await io.flowBuilder.clickByText("Import records into destination application");
         await io.homePage.addStep("*** Selected import records option ***");
@@ -28,7 +28,7 @@ test.describe("TC_C120210_TC_C120211_TC_C120212_TC_C120213,TC_C120214_TC_C120216
         await io.homePage.addStep("*** Opened the import ***");
         await io.homePage.click(selectors.flowBuilderPagePO.DESTINATIONTABLESEARCHPOSTGRE);
         await io.assert.verifyElementDisplayedByText("Destination table *", "Destination table is not added");
-        await io.homePage.click("[data-test='dropdownoption-ARUNNEWTABLE1']");
+        await io.homePage.click(selectors.flowBuilderPagePO.ORACLEDB_TABLE);
         await io.assert.checkElementState(selectors.flowBuilderPagePO.REFRESHBUTTONPOSTGRE, 'isVisible');
     await io.importsPage.click('[id="rdbms.bulkInsert.tableName"]>div>div>button');
     await io.assert.verifyElementDisplayedByText(`Select a data destination for bulk inserts. You can bulk insert data into a table.`,
