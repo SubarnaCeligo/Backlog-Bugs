@@ -30,7 +30,7 @@
       "qa__import": {
         "_id": "LineGraphImport",
         "name": "LineGraphImport",
-        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "_connectionId": "HTTP AMAZON CONNECTION",
         "apiIdentifier": "i8c2ca044b",
         "ignoreExisting": false,
         "ignoreMissing": false,
