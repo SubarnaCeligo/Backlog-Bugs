@@ -29,7 +29,9 @@ test.describe("C34489 - Verify that admin/manage user is able to stop debug on l
 
     await io.importsPage.click(selectors.flowBuilderPagePO.CLOSELOGS);
     await io.mappings.click(selectors.basePagePO.CLOSE);
-    await io.mappings.click(selectors.basePagePO.RUNFLOW);
+    // await io.mappings.click(selectors.basePagePO.RUNFLOW);
+    await io.flowBuilder.click(selectors.basePagePO.ACCOUNT_BUTTON);
+    throw new Error("Test failed by Bhumesh");
 
     // wait for atleast 50 logs to be present
     await page.waitForFunction(
