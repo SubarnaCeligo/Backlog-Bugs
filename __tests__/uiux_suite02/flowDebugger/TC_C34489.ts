@@ -2,7 +2,6 @@ import { expect, links, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import C34489 from '@testData/FlowDebugger/C34489.json';
 
-
 function isWithinPast10Minutes(dateTimeString) {
   const givenDate = new Date(dateTimeString);
   const currentTime = new Date();
@@ -32,15 +31,14 @@ test.describe("C34489 - Verify that admin/manage user is able to stop debug on l
     await io.mappings.click(selectors.basePagePO.CLOSE);
     await io.mappings.click(selectors.basePagePO.RUNFLOW);
 
-    // await page.waitForTimeout(100000000);
-
     // wait for atleast 50 logs to be present
     await page.waitForFunction(
       () => {
-          const element = document.querySelector(selectors.flowBuilderPagePO.VIEW_JOB_ERROR);
+          const element = document.querySelector("[data-test='view-job-error']");
           return element && parseInt(element.innerHTML) > 50;
       },
-      { timeout: 120000 }
+      { timeout: 120000 },
+      
   );
 
     await io.importsPage.click(selectors.importPagePO.CLICKIMPORT);

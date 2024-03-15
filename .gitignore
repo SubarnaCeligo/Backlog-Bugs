@@ -5,6 +5,7 @@ node_modules/
 .DS_Store
 storageState.json
 .npmrc
+package-lock.json
 allure-report/
 allure-results/**
 env/**
