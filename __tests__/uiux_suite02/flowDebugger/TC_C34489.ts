@@ -11,7 +11,7 @@ function isWithinPast10Minutes(dateTimeString) {
   return givenDate > tenMinutesAgo && givenDate <= currentTime;
 }
 
-test.describe("C34489 - Verify that admin/manage user is able to stop debug on listeners", () => {
+test.describe("C34489 - verify the request logs in a list are sorted by timestamp in descending order", () => {
   let id;
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
@@ -21,7 +21,7 @@ test.describe("C34489 - Verify that admin/manage user is able to stop debug on l
     await io.api.deleteFlowViaAPI(id);
   });
 
-  test("C34489 - Verify that admin/manage user is able to stop debug on listeners", async ({
+  test("C34489 - verify the request logs in a list are sorted by timestamp in descending order", async ({
     io,
     page
   }) => {
