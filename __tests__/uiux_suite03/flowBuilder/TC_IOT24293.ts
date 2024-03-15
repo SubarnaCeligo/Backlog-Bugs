@@ -17,8 +17,8 @@ test.describe(`TC_IOT4293 Test to Verify Next button is disabled if we don't hav
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'HTTP');
         await io.flowBuilder.click(selectors.flowBuilderPagePO.HTTP);
         expect(await page.getByText('What would you like to do? *')).toBeVisible();
-        await io.flowBuilder.waitForElementAttached("[data-test='marketplaceResources']");
-         const nextBtn= page.locator("[data-test='save']"); 
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.MARKETPLACE_RESOURCES);
+         const nextBtn= page.locator(selectors.basePagePO.SAVE); 
          await expect(nextBtn).toHaveAttribute('disabled');
     });
 });

@@ -16,7 +16,7 @@ test.describe(`TC_IOT4287 Test to verify Marketplace flow steps field is showing
         await io.assert.verifyElementIsDisplayed("text='Marketplace flow steps'", 'Marketplace flow steps header is not present');
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'HTTP');
         await io.flowBuilder.click(selectors.flowBuilderPagePO.HTTP);
-        await io.flowBuilder.waitForElementAttached ("[data-test='marketplaceResources']")
+        await io.flowBuilder.waitForElementAttached (selectors.flowBuilderPagePO.MARKETPLACE_RESOURCES)
         await io.flowBuilder.waitForElementAttached("text='Marketplace flow steps'");
         await io.assert.verifyElementIsDisplayed("text='Marketplace flow steps'", 'Marketplace flow steps header is not present after selecting the application');
 

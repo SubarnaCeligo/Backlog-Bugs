@@ -17,11 +17,11 @@ test.describe(`TC_IOT4292 Test to verify Next button is activating if we selecte
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'HTTP');
         await io.flowBuilder.click(selectors.flowBuilderPagePO.HTTP);
         expect(await page.getByText('What would you like to do? *')).toBeVisible();
-        await io.flowBuilder.waitForElementAttached("[data-test='marketplaceResources']");
-         const nextBtn= page.locator("[data-test='save']"); 
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.MARKETPLACE_RESOURCES);
+         const nextBtn= page.locator(selectors.basePagePO.SAVE); 
          await expect(nextBtn).toHaveAttribute('disabled');
          (await io.homePage.findElementByDataTest ("marketplaceResources")).click();
-         const nextBtnAfterSave= page.locator("[data-test='save']"); 
+         const nextBtnAfterSave= page.locator(selectors.basePagePO.SAVE); 
          await expect(nextBtnAfterSave).not.toHaveAttribute('disabled');
     });
 });

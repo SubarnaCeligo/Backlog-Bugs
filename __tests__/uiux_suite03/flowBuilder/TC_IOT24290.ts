@@ -18,9 +18,9 @@ test.describe(`TC_IOT4290 Test to verify If the list of flow steps is extensive,
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'HTTP');
         await io.flowBuilder.click(selectors.flowBuilderPagePO.HTTP);
         expect(await page.getByText('What would you like to do? *')).toBeVisible();
-        await io.flowBuilder.waitForElementAttached("[data-test='marketplaceResources']");
-        await io.flowBuilder.waitForElementAttached("[data-test='marketplaceResourcesShowMore']");
-        await io.assert.verifyElementIsDisplayed("[data-test='marketplaceResourcesShowMore']", 'Show more link is not present');
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.MARKETPLACE_RESOURCES);
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.MARKETPLACE_RESOURCES_SHOW_MORE);
+        await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.MARKETPLACE_RESOURCES_SHOW_MORE, 'Show more link is not present');
 
     });
 });

@@ -17,13 +17,13 @@ test.describe(`TC_IOT4291 Test to verify Clicking on 'Show more' is displaying 2
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'HTTP');
         await io.flowBuilder.click(selectors.flowBuilderPagePO.HTTP);
         expect(await page.getByText('What would you like to do? *')).toBeVisible();
-        await io.flowBuilder.waitForElementAttached("[data-test='marketplaceResources']");
-        const dataMarketplaceResourcesCount = await page.locator("[data-test='marketplaceResources']").count();
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.MARKETPLACE_RESOURCES);
+        const dataMarketplaceResourcesCount = await page.locator(selectors.flowBuilderPagePO.MARKETPLACE_RESOURCES).count();
         expect(await (await io.flowBuilder.findElementByDataTest("marketplaceResourcesShowMore")).textContent()).toEqual('Show more');
         (await io.flowBuilder.findElementByDataTest("marketplaceResourcesShowMore")).click();
         await io.flowBuilder.waitForElementAttached("text='Show less'");
         expect(await (await io.flowBuilder.findElementByDataTest("marketplaceResourcesShowMore")).textContent()).toEqual('Show less');
-        const dataMarketplaceResourcesAfterShowlessBtnCount = await page.locator("[data-test='marketplaceResources']").count();
+        const dataMarketplaceResourcesAfterShowlessBtnCount = await page.locator(selectors.flowBuilderPagePO.MARKETPLACE_RESOURCES).count();
         expect(dataMarketplaceResourcesAfterShowlessBtnCount).toBeGreaterThan(dataMarketplaceResourcesCount);
     });
 });
