@@ -3,11 +3,11 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe('TC_T27705_T27706', () => {
     test.beforeEach(async ({ io }) => {
-        // await io.homePage.click(selectors.homePagePO.SANDBOX_BUTTON);
+        await io.homePage.click(selectors.homePagePO.SANDBOX_BUTTON);
       });
     test.afterEach(async ({ io }, testInfo) => {
         await io.connections.deleteConnection(testInfo.attachments?.find(({name}) => name === 'connection_name')?.body);
-        // await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
+        await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
     });
     const createConnStep = async({ io, page, connectionName}) => {
         const creds : {
@@ -37,7 +37,7 @@ test.describe('TC_T27705_T27706', () => {
         await io.homePage.loadingTime();
         const connectionDoc = await io.connections.getConnection(connectionName);
         expect(connectionDoc).not.toBeNull();
-        expect(connectionDoc.sandbox).toEqual(false);
+        expect(connectionDoc.sandbox).toEqual(true);
         expect(connectionDoc.jdbc?.authType).toEqual('wallet');
     };
 
