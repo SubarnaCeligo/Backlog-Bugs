@@ -9,9 +9,7 @@ test.describe(`C22465 Verify the transfer date is correctly populated once the i
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.myAccountPage.click(selectors.homePagePO.TRANSFER);
     await page.waitForSelector("table");
-    await page.pause();
     const att = await page.locator('a:has-text("Transfer Integration")');
-    console.log("this is data",await att.textContent());
     const secondDivElement = await att.locator("div:nth-child(-1)");
     const textContent = await secondDivElement.textContent();
     const timeRegex = /\d{1,2}:\d{2} [apm]{2}/i;
