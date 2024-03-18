@@ -16,7 +16,7 @@ test.describe("TC_C24268_C24269", () => {
       "Line is present"
     );
 
-    await io.connectionPage.click('#existingResource >div>div>div>p>button');
+    await io.connectionPage.click(selectors.flowBuilderPagePO.EXISTING_RESOURCE_HELPTEXT);
     const secretText = (await io.flowBuilder.getText(
       selectors.myAccountPagePO.HELP_BUBBLE
     )) as string;

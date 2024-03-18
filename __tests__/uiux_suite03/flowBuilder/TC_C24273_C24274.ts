@@ -12,7 +12,6 @@ test.describe("TC_C24273_C24274", () => {
       "Or choose from below",
       "Line is present"
     );
-    // await page.pause()
   
 
     await io.myAccountPage.click(selectors.flowBuilderPagePO.ACCOUNT_RESOURCE_SHOWMORE);
@@ -22,7 +21,6 @@ test.describe("TC_C24273_C24274", () => {
     );
     
     let no=page.$$(selectors.flowBuilderPagePO.EXISTING_ACCOUNT_RESOURCE)
-    console.log("no", no)
     let checkGreaterThen25=false
 
       if((await page.$$( selectors.flowBuilderPagePO.EXISTING_ACCOUNT_RESOURCE)).length==25)
