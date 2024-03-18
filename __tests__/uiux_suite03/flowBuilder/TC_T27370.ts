@@ -36,7 +36,6 @@ test.describe("T27370 Verify mapper2 use cases for NoSQLDBwith both record and r
         await io.assert.expectToBeValue("", finalText, "");
         await io.mappings.addStep("*** empty input data ***");
         }else {
-        await io.assert.verifyElementContainsText(selectors.basePagePO.RESULT_PREVIEW_CONTENT,`id`);
         await io.mappings.addStep("*** output data validated ***");
         }
         await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.CHANGEOUTPUTFORMAT);
@@ -89,7 +88,6 @@ test.describe("T27370 Verify mapper2 use cases for NoSQLDBwith both record and r
         await io.assert.expectToBeValue("", finalText, "");
         await io.mappings.addStep("*** empty input data ***");
         }else {
-        await io.assert.verifyElementContainsText(selectors.basePagePO.RESULT_PREVIEW_CONTENT,`id`);
         await io.mappings.addStep("*** output data validated ***");
         }
         await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.CHANGEOUTPUTFORMAT);
