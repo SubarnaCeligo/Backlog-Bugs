@@ -67,7 +67,7 @@ test.describe("T4493 To verify field labels present in REST connection drawer is
     await io.connectionPage.click(selectors.connectionsPagePO.SLACK_AUTH_TYPE);
     await io.connectionPage.selectTextfromDropDown(page, "cookie");
     await io.assert.verifyElementDisplayedByText('Configure cookie auth', 'Configure cookie auth is not displayed');
-    const absoluteURLElement = await page.$('[for="http.auth.cookie.uri"]');
+    const absoluteURLElement = await page.$(selectors.connectionsPagePO.ABSOLUTE_URL_LABEL);
     const absoluteURLLabel = await absoluteURLElement.innerText();
     expect(absoluteURLLabel).toContain("Absolute URL");
     await io.assert.verifyElementDisplayedByText('Override HTTP status code for success', 'Override HTTP status code for success is not displayed');
@@ -83,7 +83,7 @@ test.describe("T4493 To verify field labels present in REST connection drawer is
     await io.connectionPage.click(selectors.connectionsPagePO.SLACK_AUTH_TYPE);
     await io.connectionPage.selectTextfromDropDown(page, "token");
     await io.assert.verifyElementDisplayedByText('Configure token auth', 'Configure token auth is not displayed');
-    const locationElement = await page.$('[for="http.auth.token.location"]');
+    const locationElement = await page.$(selectors.connectionsPagePO.LOCATION_LABEL);
     const locationLabel = await locationElement.innerText();
     expect(locationLabel).toContain("Send token via");
     await io.connectionPage.click(selectors.connectionsPagePO.LOCATION);
@@ -102,14 +102,14 @@ test.describe("T4493 To verify field labels present in REST connection drawer is
     await io.connectionPage.click(selectors.connectionsPagePO.SLACK_AUTH_TYPE);
     await io.connectionPage.selectTextfromDropDown(page, "oauth");
     await io.assert.verifyElementDisplayedByText('Configure OAuth 2.0', 'Configure OAuth 2.0 is not displayed');
-    const oauthClientElement = await page.$('[for="http._iClientId"]');
+    const oauthClientElement = await page.$(selectors.connectionsPagePO.OAUTH_TWO_CLIENT_LABEL);
     const oauthClientLabel = await oauthClientElement.innerText();
     expect(oauthClientLabel).toContain("OAuth 2.0 client");
     await io.assert.verifyElementDisplayedByText('Scope', 'Scope is not displayed');
     await io.connectionPage.clickByIndex(selectors.connectionsPagePO.CREATE_CONNECTION, 1);
     await io.connectionPage.click(selectors.connectionsPagePO.OAUTH2_GRANT_TYPE);
     await io.connectionPage.selectTextfromDropDown(page, "clientcredentials");
-    const oauthLocationElement = await page.$('[for="oauth2.clientCredentialsLocation"]');
+    const oauthLocationElement = await page.$(selectors.connectionsPagePO.CLIENT_LOCATION_LABEL);
     const oauthLocationLabel = await oauthLocationElement.innerText();
     expect(oauthLocationLabel).toContain("Send client credentials via");
     await io.assert.verifyElementDisplayedByText('OAuth 2.0 overrides', 'OAuth 2.0 overrides is not displayed');
