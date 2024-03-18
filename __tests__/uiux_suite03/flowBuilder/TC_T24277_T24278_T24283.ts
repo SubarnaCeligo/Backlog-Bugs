@@ -44,7 +44,6 @@ test.describe("TC_T24277_T24278_T24283 - Verify the connection chosen matches th
 
         //Get Form label
         let formLabel = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.CLONE_RESOURCE_LABEL)).toString();
-        console.log(formLabel);
         await io.assert.expectToContainValue("How would you like to use the existing flow step? *", formLabel, "Form label is not displayed");
 
         //Verify if radio buttons are diplayed
