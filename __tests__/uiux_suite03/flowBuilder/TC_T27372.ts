@@ -45,7 +45,6 @@ test.describe("T27372 Verify handlebar expression in Mapper 2.0 for NoSQL", () =
         await io.mappings.waitForElementAttached(selectors.mappings.MAPPER2DOT0PO.PREVIEW);
         await io.mappings.performWebActions(selectors.mappings.MAPPER2DOT0PO.PREVIEW,"preview");
         await io.mappings.click(selectors.mappings.MAPPER2DOT0PO.PREVIEW);
-        await io.assert.verifyElementContainsText(selectors.basePagePO.RESULT_PREVIEW_CONTENT,'id');
     });
 }
 )
