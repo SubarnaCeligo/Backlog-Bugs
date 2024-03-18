@@ -48,7 +48,7 @@ test.describe("T24284 - Verify user can create export/lookup/import with the 'Us
         //Update name
         const randomNumber = Math.floor(Math.random() * (999 - 100 + 1)) + 100;
         const flow_name = "Use_same_flow_step_testExport_" + randomNumber;
-        const relativeURI = "usersUpdatedConfig)" + randomNumber
+        const relativeURI = "usersUpdatedConfig_" + randomNumber
         await io.flowBuilder.fill(selectors.importPagePO.NAME, flow_name);
 
         //Update Relative URI
