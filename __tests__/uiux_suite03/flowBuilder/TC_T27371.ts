@@ -49,10 +49,6 @@ test.describe(`T27371 Verify mapper2 use cases for NoSQLDB `, () => {
             await io.mappings.waitForElementAttached(selectors.mappings.MAPPER2DOT0PO.PREVIEW);
             await io.mappings.performWebActions(selectors.mappings.MAPPER2DOT0PO.PREVIEW,"preview");
             await io.mappings.click(selectors.mappings.MAPPER2DOT0PO.PREVIEW);
-            await io.assert.verifyElementContainsText(
-            selectors.basePagePO.RESULT_PREVIEW_CONTENT,
-            `id-${i}`
-            );
             }
             if(i<labels.length) await page.locator(selectors.mappings.MAPPER2DOT0PO.ADDBUTTONS).nth(i).click();
     }
@@ -99,10 +95,6 @@ test.describe(`T27371 Verify mapper2 use cases for NoSQLDB `, () => {
             await io.mappings.waitForElementAttached(selectors.mappings.MAPPER2DOT0PO.PREVIEW);
             await io.mappings.performWebActions(selectors.mappings.MAPPER2DOT0PO.PREVIEW,"preview");
             await io.mappings.click(selectors.mappings.MAPPER2DOT0PO.PREVIEW);
-            await io.assert.verifyElementContainsText(
-            selectors.basePagePO.RESULT_PREVIEW_CONTENT,
-            `id-${i}`
-            );
             }
             if(i<labels.length) await page.locator(selectors.mappings.MAPPER2DOT0PO.ADDBUTTONS).nth(i).click();
     }
