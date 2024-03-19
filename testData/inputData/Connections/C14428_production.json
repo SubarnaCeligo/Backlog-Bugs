@@ -1,0 +1,16 @@
+{
+    "type": "ftp",
+    "name": "C14428_production_connection",
+    "offline": true,
+    "sandbox": false,
+    "ftp": {
+      "type": "ftp",
+      "hostURI": "qa.ipaas2.net",
+      "port": 21,
+      "usePassiveMode": true,
+      "userDirectoryIsRoot": false,
+      "useImplicitFtps": false,
+      "requireSocketReUse": false
+    }
+  }
+  

@@ -1,0 +1,45 @@
+{
+  "name": "TC_C29580",
+  "disabled": true,
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "TC_C29580 FTP Export",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "eebcca58d7",
+        "asynchronous": true,
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "/Group-QA/ShritiS"
+        },
+        "file": {
+          "output": "records",
+          "skipDelete": false,
+          "type": "json",
+          "filter": {
+            "type": "expression",
+            "expression": {
+              "rules": [],
+              "version": "1"
+            },
+            "rules": [],
+            "version": "1"
+          }
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ],
+  "createFlow": {
+    "name": "TC_C29580 Flow",
+    "disabled": true,
+    "_integrationId": "64ba67438d9d2a17f3f5b092",
+    "pageGenerators": [
+      {
+        "_exportId": "UPDATE WITH NEW EXPORTID",
+        "skipRetries": false
+      }
+    ],
+    "autoResolveMatchingTraceKeys": true
+  }
+}
