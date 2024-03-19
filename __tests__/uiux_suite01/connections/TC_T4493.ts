@@ -2,12 +2,12 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 
-test.describe("T4493 To verify field labels present in REST connection drawer is Changed as per new modification", () => {
+test.describe("T4493 To verify field labels present in REST connection drawer is Changed as per new modification UI_Backlog", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
 
   });
-  test("T4493 To verify field labels present in REST connection drawer is Changed as per new modification", async ({ io, page }) => {
+  test("T4493 To verify field labels present in REST connection drawer is Changed as per new modification UI_Backlog", async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'REST API (HTTP)');
