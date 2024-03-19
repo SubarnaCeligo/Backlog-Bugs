@@ -1,0 +1,64 @@
+{
+    "name": "T27371",
+    "disabled": true,
+    "autoResolveMatchingTraceKeys": true,
+    "pageGenerators": [
+      {
+          "qa__export": {
+              "_connectionId": "BIGQUERY CONNECTION",
+              "name": "TestBigquery",
+              "assistantMetadata": {},
+              "oneToMany": "false",
+              "rdbms": {
+                  "query": "select * from `1234.IO_TestExport` order by ID desc"
+              },
+              "test": {
+                  "limit": 1
+              },
+              "sandbox": false
+          }
+      }
+  ],
+    "pageProcessors": [
+      {
+          "type": "import",
+          "qa__import": {
+            "_connectionId": "DYNAMODB CONNECTION",
+            "name": "TestDynamo",
+            "assistantMetadata": {},
+            "dynamodb": {
+                "expressionAttributeNames": "{\"#n1\":\"Name\",\"#n2\":\"Id\"}",
+                "method": "putItem",
+                "region": "us-east-1",
+                "tableName": "limit-test"
+            },
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "sandbox": false
+        }
+      }
+  ],
+  "includeStages": false,
+  "createFlow": {
+    "name": "T27371",
+    "disabled": true,
+    "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+    "pageGenerators": [
+        {
+            "_exportId": "UPDATE WITH NEW EXPORTID",
+            "skipRetries": false
+        }
+    ],
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+        }
+    ],
+    "autoResolveMatchingTraceKeys": true
+}
+}
