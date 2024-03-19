@@ -2,12 +2,12 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import T4470 from "@testData/Connections/T4470.json";
 
-test.describe(`T4470`, () => {
+test.describe(`T4470 To verify connections displayed in this route('/api/connections/:_connectionId/tradingPartner') does not display the IA connections in ""Confirm connection changes"" dialog UI_Backlog`, () => {
   test.beforeEach(async ({ io }) => {
     await io.connections.deleteConnection(T4470.importJSON.name);
     await io.myAccountPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
   });
-  test(`T4470`, async ({ io, page }) => {
+  test(`T4470 To verify connections displayed in this route('/api/connections/:_connectionId/tradingPartner') does not display the IA connections in ""Confirm connection changes"" dialog UI_Backlog`, async ({ io, page }) => {
     let connectionJson;
     //Creating Connection 
     await test.step("*** Creating Connection ***", async () => {
