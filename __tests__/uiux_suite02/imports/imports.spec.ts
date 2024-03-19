@@ -21,6 +21,7 @@ var testCases = [
   "CIO27735",
   "CIO27736",
   "CIO27737",
+  "CIO27738",
   "CIO27740",
   "CIO27741",
 ];
