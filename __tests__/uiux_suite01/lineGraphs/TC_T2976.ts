@@ -3,12 +3,12 @@ import * as selectors from "@celigo/aut-selectors";
 import T2976 from "@testData/Flows/TC_T2976.json";
 import { decrypt } from "@celigo/aut-utilities";
 
-test.describe.skip("T2976 Verify the filter set by the user will persist even if the user is logout and login again", () => {
+test.describe.skip("T2976 Verify the filter set by the user will persist even if the user is logout and login again UI_Backlog", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
 
   });
-  test("T2976 Verify the filter set by the user will persist even if the user is logout and login again", async ({ io, page }) => {
+  test("T2976 Verify the filter set by the user will persist even if the user is logout and login again UI_Backlog", async ({ io, page }) => {
     await io.homePage.loadingTime()
     const id = await io.createResourceFromAPI(T2976, "FLOWS");
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
