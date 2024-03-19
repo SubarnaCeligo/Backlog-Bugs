@@ -1,0 +1,131 @@
+{
+    "name": "IO-T27451 FLOW",
+    "disabled": true,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "AutomationStandalone_2B6wH",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "e9a8e5b991",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "http": {
+                    "relativeURI": "/users",
+                    "method": "GET",
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "users",
+                        "twoDArray": {
+                            "doNotNormalize": false,
+                            "hasHeader": false
+                        }
+                    }
+                },
+                "test": {
+                    "limit": 3
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "name": "",
+            "routeRecordsTo": "all_matching_branches",
+            "routeRecordsUsing": "script",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandalone_01yAH",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "apiIdentifier": "i3e64a47de",
+                                "ignoreExisting": false,
+                                "ignoreMissing": false,
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "id",
+                                            "generate": "ID"
+                                        },
+                                        {
+                                            "extract": "email",
+                                            "generate": "EMAIL"
+                                        },
+                                        {
+                                            "extract": "details",
+                                            "generate": "DETAILS"
+                                        }
+                                    ]
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "/organizations"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "body": [],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Branch 1.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "FTP IMPORT",
+                                "_connectionId": "FTP CONNECTION",
+                                "_sourceId": "641414b11d02ff3769ee2014",
+                                "apiIdentifier": "i6c9ee60df",
+                                "oneToMany": false,
+                                "file": {
+                                    "fileName": "Amazon_Orders_SP-API.json",
+                                    "skipAggregation": false,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "/NISHITHAMADDATI",
+                                    "fileName": "Amazon_Orders_SP-API.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "_scriptId": "64f97b093ba8dc60a430ce04",
+                "function": "branching"
+            },
+            "id": "y3JTopsaYL6"
+        }
+    ],
+    "scriptSchema" : {
+        "name": "Branching script",
+        "content": "function branching2 (options) {\n  return [0]\n}"
+    }
+}
