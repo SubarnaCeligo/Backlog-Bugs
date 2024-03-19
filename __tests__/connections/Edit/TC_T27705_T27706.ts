@@ -24,12 +24,12 @@ test.describe('TC_T27705_T27706', () => {
         await io.flowBuilder.waitForElementAttached(name_input);
         const nameFields = await io.homePage.getElementsLength(name_input);
         await io.homePage.fillByIndex(name_input, connectionName, nameFields - 1);
-        await io.homePage.fill('[data-test="jdbc.user"] input', creds.username);
+        await io.homePage.fill(selectors.connectionsPagePO.JDBC_USER_INPUT, creds.username);
         await io.homePage.fill(selectors.connectionsPagePO.JDBC_PASSWORD_INPUT, creds.password);
         const walletCredentials = await page.$(selectors.flowBuilderPagePO.UPLOAD_FILE);
         await walletCredentials.setInputFiles(creds.wallet_zip_location);
         await io.flowBuilder.delay(1000);
-        await io.homePage.click('[data-test="jdbc.serviceName"]');
+        await io.homePage.click(selectors.connectionsPagePO.JDBC_SERVICE_NAME);
         await io.flowBuilder.delay(1000);
         await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.OPTIONLIST);
         await io.homePage.clickByIndex(selectors.connectionsPagePO.OPTIONLIST, 1);
