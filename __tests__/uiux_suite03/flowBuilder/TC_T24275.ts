@@ -5,7 +5,7 @@ test.describe("T24275 - Verify Next button is activating if we select the tile f
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("T24275 - Verify Next button is activating if we select the tile from 'Your existing flow steps'", async ({ io, page }) => {
+    test("@Epic-IO-54539 @Priority-P2 T24275 - Verify Next button is activating if we select the tile from 'Your existing flow steps'", async ({ io, page }) => {
         //Navigate to flow builder page
         await io.homePage.goToMenu("Tools", "Flow builder");
 

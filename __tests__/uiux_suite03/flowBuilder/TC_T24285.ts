@@ -7,7 +7,7 @@ test.describe("T24280 -Verify user can create export/lookup/import with the 'Clo
         //make sure the account has at least one shopify export
         // await io.createResourceFromAPI(exportJson, 'EXPORT');
     });
-    test("T24280 - Verify user can create export/lookup/import with the 'Clone flow step' radio button after updating the configuration.", async ({ io, page }) => {
+    test("@Epic-IO-54539 @Priority-P2 T24280 - Verify user can create export/lookup/import with the 'Clone flow step' radio button after updating the configuration.", async ({ io, page }) => {
        //Navigate to flow builder page
        await io.homePage.goToMenu("Tools", "Flow builder");
 

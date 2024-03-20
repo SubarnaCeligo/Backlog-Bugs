@@ -7,7 +7,7 @@ test.describe("TC_T24276_T27516 - Verify data is pre-filling on the next page if
         //make sure the account has at least one HTTP export
         // await io.createResourceFromAPI(exportJson, 'EXPORT');
     });
-    test("TC_T24276_T27516 - Verify data is pre-filling on the next page if we select the tile from 'Your existing flow steps'", async ({ io, page }) => {
+    test("@Epic-IO-54539 @Priority-P2 TC_T24276_T27516 - Verify data is pre-filling on the next page if we select the tile from 'Your existing flow steps'", async ({ io, page }) => {
         //Navigate to flow builder page
         await io.homePage.goToMenu("Tools", "Flow builder");
 
