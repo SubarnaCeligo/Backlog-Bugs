@@ -1,0 +1,21 @@
+{
+  "importJSON": {
+    "type": "ftp",
+    "name": "Create_Connection_FTP_test_offline_case",
+    "offline": true,
+    "sandbox": false,
+    "ftp": {
+      "type": "ftp",
+      "hostURI": "qa.ipaas2.net",
+      "port": 21,
+      "usePassiveMode": true,
+      "userDirectoryIsRoot": false,
+      "useImplicitFtps": false,
+      "requireSocketReUse": false,
+      "username": "process.env[FTP_IPASS2_USERNAME]",
+      "qa__password": "process.env[FTP_IPASS2_PASSWORD]",
+      "password": "Test@123456"
+    }
+  },
+  "apiJSON": true
+}

@@ -11,6 +11,8 @@ var testCases = [
   "029_Create_Connection_Slack",
   "040_Create_Connection_AS2",
   "C2588",
+  "C26484",
+  "C34887",
   "C59412",
   "C15753",
   "C2245",
@@ -22,7 +24,10 @@ var testCases = [
   "C41045",
   "C21430",
   "C63027",
-  "C32180"
+  "C32180",
+  "C27953",
+  "IO-T4387",
+  "IO-T2943"
 ];
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
 
