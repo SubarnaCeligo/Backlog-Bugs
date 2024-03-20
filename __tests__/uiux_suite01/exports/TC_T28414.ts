@@ -8,10 +8,10 @@ test.describe("T28414_Verify XML parser help for FTP, Gdrive, S3, dropbox with i
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("T28414_Verify XML parser help for FTP with invalid resource path", async ({ io, page, context }) => {
-        await context.grantPermissions(["clipboard-read", "clipboard-write"]);
-
+    test("T28414_Verify XML parser help for FTP with invalid resource path", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
+        await io.homePage.loadingTime();
+        
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
 
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'ftp');
@@ -56,6 +56,8 @@ test.describe("T28414_Verify XML parser help for FTP, Gdrive, S3, dropbox with i
 
     test("T28414_Verify XML parser help for S3 with invalid resource path", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
+        await io.homePage.loadingTime();
+
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
 
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'S3');
@@ -100,6 +102,8 @@ test.describe("T28414_Verify XML parser help for FTP, Gdrive, S3, dropbox with i
 
     test("T28414_Verify XML parser help for Google Drive with invalid resource path", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
+        await io.homePage.loadingTime();
+    
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
 
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'drive');
@@ -144,6 +148,8 @@ test.describe("T28414_Verify XML parser help for FTP, Gdrive, S3, dropbox with i
 
     test("T28414_Verify XML parser help for Dropbox with invalid resource path", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
+        await io.homePage.loadingTime();
+
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
 
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'dropbox');

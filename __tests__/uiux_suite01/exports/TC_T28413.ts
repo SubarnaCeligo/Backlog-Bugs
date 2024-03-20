@@ -10,6 +10,7 @@ test.describe("T28413_Verify XML parser help for FTP, Gdrive, S3, dropbox with p
     });
     test("T28413_Verify XML parser help for FTP with proper resource path", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
+        await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
 
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'ftp');
@@ -41,6 +42,7 @@ test.describe("T28413_Verify XML parser help for FTP, Gdrive, S3, dropbox with p
 
     test("T28413_Verify XML parser help for S3 with proper resource path", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
+        await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
 
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'S3');
@@ -72,6 +74,7 @@ test.describe("T28413_Verify XML parser help for FTP, Gdrive, S3, dropbox with p
 
     test("T28413_Verify XML parser help for Google Drive with proper resource path", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
+        await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
 
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'drive');
@@ -103,6 +106,7 @@ test.describe("T28413_Verify XML parser help for FTP, Gdrive, S3, dropbox with p
 
     test("T28413_Verify XML parser help for Dropbox with proper resource path", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
+        await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
 
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'dropbox');
