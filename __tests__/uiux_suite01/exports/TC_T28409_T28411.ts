@@ -23,7 +23,7 @@ test.describe("T28409_T28411 Verify XML parser for FTP,Gdrive,S3,dropbox when XM
         await io.flowBuilder.click(selectors.basePagePO.LAUNCH_PARSER);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.PREVIEW);
         await io.connectionPage.addStep("Clicking on preview");
-        await expect(page.locator("[data-test='errorAccordionSummary']")).toBeVisible();
+        await expect(page.locator(selectors.exportsPagePO.ERROR_ACCORDION_SUMMARY)).toBeVisible();
     });
     test("Verify XML parser for Gdrive when XML file is invalid", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
@@ -43,7 +43,7 @@ test.describe("T28409_T28411 Verify XML parser for FTP,Gdrive,S3,dropbox when XM
         await io.flowBuilder.click(selectors.basePagePO.LAUNCH_PARSER);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.PREVIEW);
         await io.connectionPage.addStep("Clicking on preview");
-        await expect(page.locator("[data-test='errorAccordionSummary']")).toBeVisible();
+        await expect(page.locator(selectors.exportsPagePO.ERROR_ACCORDION_SUMMARY)).toBeVisible();
     });
     test("Verify XML parser for S3 when XML file is invalid", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
@@ -63,7 +63,7 @@ test.describe("T28409_T28411 Verify XML parser for FTP,Gdrive,S3,dropbox when XM
         await io.flowBuilder.click(selectors.basePagePO.LAUNCH_PARSER);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.PREVIEW);
         await io.connectionPage.addStep("Clicking on preview");
-        await expect(page.locator("[data-test='errorAccordionSummary']")).toBeVisible();
+        await expect(page.locator(selectors.exportsPagePO.ERROR_ACCORDION_SUMMARY)).toBeVisible();
     });
     test("Verify XML parser for dropbox when XML file is invalid", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
@@ -84,6 +84,6 @@ test.describe("T28409_T28411 Verify XML parser for FTP,Gdrive,S3,dropbox when XM
         await io.flowBuilder.click(selectors.basePagePO.LAUNCH_PARSER);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.PREVIEW);
         await io.connectionPage.addStep("Clicking on preview");
-        await expect(page.locator("[data-test='errorAccordionSummary']")).toBeVisible();
+        await expect(page.locator(selectors.exportsPagePO.ERROR_ACCORDION_SUMMARY)).toBeVisible();
     });
 }); 
