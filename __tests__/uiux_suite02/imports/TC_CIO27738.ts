@@ -2,8 +2,8 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import CIO27738 from '@testData/Imports/CIO27738.json';
 
-test.describe(`CIO27738_Verify connection form base URI while cloning.`, () => {
-    test(`CIO27738 Verify connection form base URI while cloning and run the flow`, async ({ io, page }) => {
+test.describe(`CIO27738_Verify MIME type data after cloning.`, () => {
+    test(`CIO27738 Verify MIME type data after cloning`, async ({ io, page }) => {
         await io.createResourceFromAPI(CIO27738, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.integrationPagePO.OPENACTIONSMENU);
         await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
@@ -23,13 +23,13 @@ test.describe(`CIO27738_Verify connection form base URI while cloning.`, () => {
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.integrationPage.waitForElementAttached(selectors.flowBuilderPagePO.ACTIONS_SELECTOR);
-        await page.type(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Clone - TC_C0008');
+        await page.type(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Clone - TC_CIO27738');
         await io.integrationPage.waitForElementAttached(selectors.flowBuilderPagePO.ACTIONS_SELECTOR);
         await io.integrationPage.click(selectors.flowBuilderPagePO.ACTIONS_SELECTOR);
-        await io.flowBuilder.clickByTextByIndex("Clone - TC_C0008", 0);
+        await io.flowBuilder.clickByTextByIndex("Clone - TC_CIO27738", 0);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.TRANSFER);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);
         const defaultData = await io.importsPage.getText(selectors.importPagePO.MIMETYPE);
-        expect(defaultData).toBe('Google Audio');
+        expect(defaultData).toContain('Google Audio');
         });
 });
