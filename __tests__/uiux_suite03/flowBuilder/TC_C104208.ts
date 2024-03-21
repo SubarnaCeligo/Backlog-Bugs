@@ -1,8 +1,8 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C104208 Verify sql query field visible for Use SQL query once per record,Use SQL query once per page of records,Use SQL query on first page only fields in MSSQL import", () => {
-  test("C104208 Verify sql query field visible for Use SQL query once per record,Use SQL query once per page of records,Use SQL query on first page only fields in MSSQL import", async ({ io, page }) => {
+test.describe("C104208 Verify sql query field visible for Use SQL query once per record,Use SQL query once per page of records,Use SQL query on first page only fields in MSSQL import UI_Backlog", () => {
+  test("C104208 Verify sql query field visible for Use SQL query once per record,Use SQL query once per page of records,Use SQL query on first page only fields in MSSQL import UI_Backlog", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
 
