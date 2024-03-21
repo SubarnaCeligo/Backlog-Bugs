@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C45328_Verify whether user is able to vote on features and add suggestions /comments and submit them", () => {
-    test("C45328 Product portal Page.", async ({ io, page }) => {
+    test("C45328_Verify whether user is able to vote on features and add suggestions /comments and submit them UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.click(selectors.homePagePO.HELPER_MENU);
         await io.homePage.click(selectors.basePagePO.PRODUCTPORTAL);

@@ -2,8 +2,8 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 
-test.describe("CONNECTIONS", () => {
-    test("TC_C21430_Online is shown blue instead of green", async ({ io, page },) => {
+test.describe("TC_C21430_Online is shown blue instead of green", () => {
+    test("TC_C21430_Online is shown blue instead of green UI_Backlog", async ({ io, page },) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'netsuite');
