@@ -1,0 +1,100 @@
+{
+  "name": "T22389",
+  "disabled": false,
+  "timezone": "Asia/Calcutta",
+  "_integrationId": "6459f5fc6df4b9686c0b7145",
+  "skipRetries": false,
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "Fulfillment Export",
+        "_connectionId": "FULFILLMENT CONNECTION",
+        "apiIdentifier": "eedc2e8f14",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": "/users/me",
+          "method": "GET",
+          "formType": "http"
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "test import",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "apiIdentifier": "ieb0bb63f3",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "mappings": [
+          {
+            "generate": "test",
+            "dataType": "objectarray",
+            "status": "Active",
+            "buildArrayHelper": [
+              {
+                "extract": "$.children",
+                "sourceDataType": "object",
+                "mappings": [
+                  {
+                    "extract": "$.fName",
+                    "generate": "child1",
+                    "dataType": "string",
+                    "status": "Active",
+                    "sourceDataType": "string"
+                  }
+                ]
+              },
+              {
+                "extract": "$.mother",
+                "sourceDataType": "object",
+                "mappings": [
+                  {
+                    "extract": "$.lName",
+                    "generate": "child1",
+                    "dataType": "string",
+                    "status": "Active",
+                    "sourceDataType": "string"
+                  }
+                ]
+              },
+              {
+                "extract": "$.father",
+                "sourceDataType": "object",
+                "mappings": [
+                  {
+                    "extract": "$.altFirstName",
+                    "generate": "child1",
+                    "dataType": "string",
+                    "status": "Active",
+                    "sourceDataType": "string"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "http": {
+          "relativeURI": [
+            "/post"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [],
+          "batchSize": 1,
+          "sendPostMappedData": true,
+          "formType": "http"
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ]
+}
