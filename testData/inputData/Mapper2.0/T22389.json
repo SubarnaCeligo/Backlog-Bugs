@@ -8,7 +8,7 @@
     {
       "qa__export": {
         "name": "Fulfillment Export",
-        "_connectionId": "FULFILLMENT CONNECTION",
+        "_connectionId": "HTTP ACUMATICA CONNECTION",
         "apiIdentifier": "eedc2e8f14",
         "asynchronous": true,
         "oneToMany": false,
@@ -27,7 +27,7 @@
       "type": "import",
       "qa__import": {
         "name": "test import",
-        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "_connectionId": "HTTP ZENDESK CONNECTION2",
         "apiIdentifier": "ieb0bb63f3",
         "ignoreExisting": false,
         "ignoreMissing": false,

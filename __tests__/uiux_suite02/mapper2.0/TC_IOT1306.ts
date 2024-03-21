@@ -8,9 +8,13 @@ test.describe(`IOT1306 - To verify metadata is getting populated when record typ
     page
   }) => {
     await io.createResourceFromAPI(testData, "FLOWS");
+    await io.connectionPage.addStep("Flow created");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT);
+    await io.connectionPage.addStep("Clicked on Import");
     await io.flowBuilder.click(selectors.mappings.UPDATE);
+    await io.connectionPage.addStep("Clicked on Update");
     await io.importsPage.click(selectors.basePagePO.NETSUITE_INTERNAL_LOOKUP);
+    await io.connectionPage.addStep("Clicked on Netsuite Internal Lookup");
     await io.flowBuilder.click(selectors.flowBranchingPO.GROUP_RULE);
 
     const options = await page.$$(`${selectors.flowBuilderPagePO.FILTER_CONTAINER} option`);
@@ -18,5 +22,6 @@ test.describe(`IOT1306 - To verify metadata is getting populated when record typ
     await expect(length).not.toBe(0);
 
     await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.FILTER_CONTAINER,"Billing Account")
+    await io.connectionPage.addStep("Verified metadata is getting populated when record type is selected as Subscription");
   });
 });

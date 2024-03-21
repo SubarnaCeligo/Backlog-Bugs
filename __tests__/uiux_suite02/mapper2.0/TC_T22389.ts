@@ -8,6 +8,7 @@ test.describe(`T22389 - Validate adding of new rows should be done only if all t
     page
   }) => {
     await io.createResourceFromAPI(testData, "FLOWS");
+    await io.connectionPage.addStep("Flow created");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);
     let destinationFields = page.locator(
       selectors.mappings.MAPPER2DOT0PO.DESTINATIONFIELDS
@@ -15,8 +16,10 @@ test.describe(`T22389 - Validate adding of new rows should be done only if all t
 
     await destinationFields.nth(1).click();
     (await (await destinationFields.nth(1).elementHandle()).$("textarea")).fill('child2');
+    await io.connectionPage.addStep("Updated destination field value to child2");
 
     await io.flowBuilder.clickByText("$.mother");
+    await io.connectionPage.addStep("Clicked on $.mother");
 
     destinationFields = page.locator(
       selectors.flowBuilderPagePO.MAPPER2_DESTINATION_FIELD_TEXT
@@ -27,5 +30,6 @@ test.describe(`T22389 - Validate adding of new rows should be done only if all t
 
     expect(child1).toHaveAttribute('value', 'child1');
     expect(child2).toHaveAttribute('value', 'child2');
+    await io.connectionPage.addStep("Verified adding of new rows for destination fields");
   });
 });

@@ -8,7 +8,7 @@
     {
       "qa__export": {
         "name": "Fulfillment Export",
-        "_connectionId": "FULFILLMENT CONNECTION",
+        "_connectionId": "HTTP ACUMATICA CONNECTION",
         "apiIdentifier": "eedc2e8f14",
         "asynchronous": true,
         "oneToMany": false,
