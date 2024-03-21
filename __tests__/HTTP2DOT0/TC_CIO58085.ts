@@ -8,7 +8,7 @@ test.describe("TC_CIO58085", () => {
     await io.homePage.goToMenu("Resources", "Connections");
     await io.flowBuilder.click(selectors.connectionsPagePO.CREATE_CONNECTION);
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Orderful');
-    await io.flowBuilder.click("[data-test='Orderful']");
+    await io.flowBuilder.click(selectors.connectionsPagePO.ORDERFUL);
     await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.MEDIA_TYPE);
     await io.assert.verifyElementContainsText(selectors.connectionsPagePO.PLAINTEXT, 'Plain text');
@@ -148,5 +148,5 @@ test.describe("TC_CIO58085", () => {
     const successPath = await io.homePage.isVisible(selectors.flowBuilderPagePO.SUCCESSPATH)
     await io.assert.expectToBeValue(successPath.toString(), "false", "Field is present in after Plain text is selected in Override media type for success responses field")
   });
-  
+
 });

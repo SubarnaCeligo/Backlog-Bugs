@@ -43,8 +43,8 @@ test.describe('TC_T27704', () => {
         });
 
         await test.step('*** Uninstalling Integration ***', async () => {
-            await io.flowBuilder.click("[data-test='uninstall']");
-            await io.flowBuilder.click("[data-test='Uninstall']");
+            await io.flowBuilder.click(selectors.integrationPagePO.UNINSTALL);
+            await io.flowBuilder.click(selectors.integrationPagePO.UNINSTALL_CONFIRM);
         });
     });
 });

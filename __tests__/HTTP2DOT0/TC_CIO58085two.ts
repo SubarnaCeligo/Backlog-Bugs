@@ -116,7 +116,7 @@ test("IO58085 Override media type for error responses field should have Plain te
     await io.flowBuilder.click(selectors.connectionsPagePO.PLAINTEXT);
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.NONSTANDARD);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.NONSTANDARD);
-    const pathtoratelimiterror1 = await io.homePage.isVisible(selectors.connectionsPagePO.NON_STANDARD_API_RATE_FAIL_PATH); 
+    const pathtoratelimiterror1 = await io.homePage.isVisible(selectors.connectionsPagePO.NON_STANDARD_API_RATE_FAIL_PATH);
     await io.assert.expectToBeValue(pathtoratelimiterror1.toString(), "false", "Field pathtoratelimit error is present in after Plain text is selected in Override media type for error responses field");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.NONSTANDARD);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.MEDIA_TYPE);
@@ -125,7 +125,7 @@ test("IO58085 Override media type for error responses field should have Plain te
     await io.flowBuilder.click(selectors.connectionsPagePO.DONOTOVERRIDE);
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.NONSTANDARD);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.NONSTANDARD);
-    const pathtoratelimiterror = await io.homePage.isVisible(selectors.connectionsPagePO.NON_STANDARD_API_RATE_FAIL_PATH); 
+    const pathtoratelimiterror = await io.homePage.isVisible(selectors.connectionsPagePO.NON_STANDARD_API_RATE_FAIL_PATH);
     await io.assert.expectToBeValue(pathtoratelimiterror.toString(), "false", "Field pathtoratelimit error is present in after Plain text is selected in media type and in Override media type for error responses is do not override");
   });
   test("IO58085  Path to rate-limit error field removed when Media type is Plain text in http connection form", async ({ io, page }) => {
@@ -139,7 +139,7 @@ test("IO58085 Override media type for error responses field should have Plain te
     await io.flowBuilder.click(selectors.connectionsPagePO.PLAINTEXT);
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.NONSTANDARD);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.NONSTANDARD);
-    const pathtoratelimiterror1 = await io.homePage.isVisible("[data-test='http.rateLimit.failPath']"); 
+    const pathtoratelimiterror1 = await io.homePage.isVisible(selectors.connectionsPagePO.NON_STANDARD_API_RATE_FAIL_PATH);
     await io.assert.expectToBeValue(pathtoratelimiterror1.toString(), "false", "Field pathtoratelimit error is present in after Plain text is selected in Override media type for error responses field");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.NONSTANDARD);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.MEDIA_TYPE);
@@ -148,7 +148,7 @@ test("IO58085 Override media type for error responses field should have Plain te
     await io.flowBuilder.click(selectors.connectionsPagePO.DONOTOVERRIDE);
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.NONSTANDARD);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.NONSTANDARD);
-    const pathtoratelimiterror = await io.homePage.isVisible(selectors.connectionsPagePO.NON_STANDARD_API_RATE_FAIL_PATH); 
+    const pathtoratelimiterror = await io.homePage.isVisible(selectors.connectionsPagePO.NON_STANDARD_API_RATE_FAIL_PATH);
     await io.assert.expectToBeValue(pathtoratelimiterror.toString(), "false", "Field pathtoratelimit error is present in after Plain text is selected in media type and in Override media type for error responses is do not override");
   });
 });

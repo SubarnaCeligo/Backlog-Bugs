@@ -1,4 +1,4 @@
-import { test, expect } from "@celigo/ui-core-automation";
+import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C59644 Verify connection dropdown for imports`, () => {
@@ -8,9 +8,7 @@ test.describe(`C59644 Verify connection dropdown for imports`, () => {
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP
     );
-    
-    //await io.flowBuilder.fill("[data-test='application'] input","Narvar");
-    await io.flowBuilder.click("[data-test='Narvar']");
+    await io.flowBuilder.click(selectors.connectionsPagePO.NARVAR_CONNECTION);
     await io.flowBuilder.clickByText(
       "Import records into destination application"
     );

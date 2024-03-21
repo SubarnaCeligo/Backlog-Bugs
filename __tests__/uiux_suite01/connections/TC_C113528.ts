@@ -35,17 +35,17 @@ test.describe(`C113528_C113529`, () => {
     await io.flowBuilder.clickByTextByIndex('Clone - C113528', 0);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
     await io.connectionPage.addStep("Opening the Cloned flow");
-    await io.flowBuilder.click('[data-test="editNewResource"]');
+    await io.flowBuilder.click(selectors.connectionsPagePO.EDIT_RESOURCE);
     await io.connectionPage.addStep("Opening Export of the cloned flow");
-  
-    await io.flowBuilder.clickByIndex('[data-test="editNewResource"]', 1);
+
+    await io.flowBuilder.clickByIndex(selectors.connectionsPagePO.EDIT_RESOURCE, 1);
     await io.connectionPage.addStep("Opening Iclient");
 
     await io.flowBuilder.click(selectors.connectionsPagePO.OAUTH2_GRANT_TYPE);
     await expect(page.locator(selectors.connectionsPagePO.GRANT_TYPE_PASSWORD)).toBeVisible();
     await io.assert.verifyElementContainsText(selectors.connectionsPagePO.GRANT_TYPE_PASSWORD, "Password credentials");
     await io.connectionPage.addStep("Verified 'Password credentials' grant type is present after cloning the flow");
-  
+
     await expect(page.locator(selectors.connectionsPagePO.OAUTH2_USERNAME)).toBeVisible();
     await expect(page.locator(selectors.connectionsPagePO.OAUTH2_PASSWORD)).toBeVisible();
     await io.connectionPage.addStep("Verified 'Username' and 'Password' fields are present after cloning the flow")

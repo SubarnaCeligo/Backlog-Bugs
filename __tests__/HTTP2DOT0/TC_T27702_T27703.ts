@@ -50,7 +50,7 @@ test.describe('TC_T27702_T27703', () => {
             await io.connectionPage.fill(selectors.connectionsPagePO.NAME_INPUT, "TC_T27702_oracle_Connection");
             await io.connectionPage.fill(selectors.connectionsPagePO.JDBC_PASSWORD_INPUT, 'test');
             await io.connectionPage.click(selectors.basePagePO.SAVE_AND_CLOSE);
-            await io.connectionPage.click("[data-test='cancelTestCall']");
+            await io.connectionPage.click(selectors.connectionsPagePO.CANCEL_TEST_CALL);
             await io.connectionPage.click(selectors.basePagePO.MFA_SAVE);
             await io.homePage.loadingTime();
             const connectionDoc = await io.connections.getConnection("TC_T27702_oracle_Connection");

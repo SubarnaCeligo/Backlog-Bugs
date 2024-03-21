@@ -35,12 +35,11 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
     let  last = await AccountTab1.length - 1;
     let x=AccountTab
     if (!isNotLoggedIn) {
-      // await io.homePage.waitForElementAttached(AccountTab[last]);
       await io.myAccountPage.clickByIndex(AccountTab, last);
       await io.homePage.click(selectors.basePagePO.SIGN_OUT);
     }
     // check for link in email and navigate to that link
-    await page.waitForTimeout(5000);                       
+    await page.waitForTimeout(5000);
     await io.homePage.navigateTo(link.toString());
     await io.homePage.reloadPage();
     await io.homePage.reloadPage();
@@ -96,7 +95,6 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
     let  last1 = await Account1Tab1.length - 1;
 
     if (!isNotLoggedIn1) {
-      // await io.homePage.waitForElementAttached(AccountTab[last]);
       await io.myAccountPage.clickByIndex(Account1Tab, last1);
       await io.homePage.click(selectors.basePagePO.SIGN_OUT);
     }
@@ -108,7 +106,7 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
     //End TC_C1655
 
     // check for link in email and navigate to that link
-   
+
     await page.waitForTimeout(10000);
     await io.homePage.navigateTo(link1.toString());
     await io.loginPage.fill(selectors.loginPagePO.EMAIL, "qaautomation1+emailcheck@celigo.com");

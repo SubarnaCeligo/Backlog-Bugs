@@ -123,7 +123,7 @@ test.describe("IO-58006 scenarios", () => {
     const HTTP6 = await page.$$(selectors.connectionsPagePO.HTTP_CNNECTOR);
     await HTTP6[2].click();
     await io.homePage.loadingTime();
-    await io.assert.expectToBeTrue(await (await page.$("[data-test='enableJWT']")).isVisible(), "HTTP View is not displayed");
+    await io.assert.expectToBeTrue(await (await page.$(selectors.connectionsPagePO.ENABLEJWTHTTP)).isVisible(), "HTTP View is not displayed");
     await io.flowBuilder.fill(selectors.connectionsPagePO.CLIENTSECRET3PL,decrypt('TG9xazJFbVovMno5L2xGNk9COFB3aUh2dzdGbW1IaHA='));
     const saves = await page.$$(selectors.basePagePO.SAVE)
     await saves[2].click();
