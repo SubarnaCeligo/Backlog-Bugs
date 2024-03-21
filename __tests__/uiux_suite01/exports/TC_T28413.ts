@@ -8,7 +8,7 @@ test.describe("T28413_Verify XML parser help for FTP, Gdrive, S3, dropbox with p
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("T28413_Verify XML parser help for FTP with proper resource path", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P2 T28413_Verify XML parser help for FTP with proper resource path", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
@@ -40,7 +40,7 @@ test.describe("T28413_Verify XML parser help for FTP, Gdrive, S3, dropbox with p
         await io.assert.verifyElementTextByIndex(selectors.flowBuilderPagePO.SCRIPT_RESULT_VARIABLES, '\"ns1:OrganizationCode\"', 4);
     });
 
-    test("T28413_Verify XML parser help for S3 with proper resource path", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P2 T28413_Verify XML parser help for S3 with proper resource path", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
@@ -72,7 +72,7 @@ test.describe("T28413_Verify XML parser help for FTP, Gdrive, S3, dropbox with p
         await io.assert.verifyElementTextByIndex(selectors.flowBuilderPagePO.SCRIPT_RESULT_VARIABLES, '\"ns1:OrganizationCode\"', 4);
     });
 
-    test("T28413_Verify XML parser help for Google Drive with proper resource path", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P2 T28413_Verify XML parser help for Google Drive with proper resource path", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
@@ -104,7 +104,7 @@ test.describe("T28413_Verify XML parser help for FTP, Gdrive, S3, dropbox with p
         await io.assert.verifyElementTextByIndex(selectors.flowBuilderPagePO.SCRIPT_RESULT_VARIABLES, '\"ns1:OrganizationCode\"', 4);
     });
 
-    test("T28413_Verify XML parser help for Dropbox with proper resource path", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P2 T28413_Verify XML parser help for Dropbox with proper resource path", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
