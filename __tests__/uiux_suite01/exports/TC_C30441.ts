@@ -3,12 +3,12 @@ import allure from "allure-playwright";
 import * as selectors from "@celigo/aut-selectors";
 import * as NS_FTP from "@testData/Flows/TC_C107885.json"
 
-test.describe("TC_C30441_For an export or import with its connection offline, Verified that ,upon opening the export or import,Connection is offline message is displayed.", () => {
+test.describe("TC_C30441_For an export or import with its connection offline, Verified that ,upon opening the export or import,Connection is offline message is displayed_UI_Backlog", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("TC_C30441_For an export or import with its connection offline, Verified that ,upon opening the export or import,Connection is offline message is displayed.", async ({ io, page }, testInfo) => {
+    test("TC_C30441_For an export or import with its connection offline, Verified that ,upon opening the export or import,Connection is offline message is displayed_UI_Backlog", async ({ io, page }, testInfo) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         //Creating PageProcessor

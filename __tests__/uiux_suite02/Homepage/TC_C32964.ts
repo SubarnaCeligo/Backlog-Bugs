@@ -1,8 +1,8 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe('C32964_To verify io persists the user preference on the integration view', () => {
-    test('Homepage List view', async ({ page, io }) => {
+test.describe('C32964_To verify io persists the user preference on the integration view_UI_Backlog', () => {
+    test('C32964_To verify io persists the user preference on the integration view_UI_Backlog', async ({ page, io }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.click(selectors.homePagePO.LIST_VIEW);
         await io.homePage.waitForElementAttached(`${selectors.flowBuilderPagePO.COLUMNS} ${selectors.connectionsPagePO.ACTIONS_MENU_BUTTON}`)

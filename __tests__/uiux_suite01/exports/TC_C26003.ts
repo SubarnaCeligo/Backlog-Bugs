@@ -1,14 +1,14 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C26003_Verify the Refresh log button is enabled only when there are new entries to display; otherwise, it remains disabled", () => {
+test.describe("C26003_Verify the Refresh log button is enabled only when there are new entries to display; otherwise, it remains disabled_UI_Backlog", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C26003_Verify the Refresh log button is enabled only when there are new entries to display; otherwise, it remains disabled", async ({ io, page }) => {
+    test("C26003_Verify the Refresh log button is enabled only when there are new entries to display; otherwise, it remains disabled_UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);

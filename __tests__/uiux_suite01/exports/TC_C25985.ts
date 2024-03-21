@@ -1,14 +1,14 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C25985_Verify able to click on the 'View debug logs' button and able to access the debug log setting and view debug logs.", () => {
+test.describe("C25985_Verify able to click on the 'View debug logs' button and able to access the debug log setting and view debug logs_UI_Backlog", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C25985_Verify able to click on the 'View debug logs' button and able to access the debug log setting and view debug logs.", async ({ io}) => {
+    test("C25985_Verify able to click on the 'View debug logs' button and able to access the debug log setting and view debug logs_UI_Backlog", async ({ io}) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);

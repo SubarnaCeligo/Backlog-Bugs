@@ -1,8 +1,8 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C27514_Run report drawer - if an integration has a label for child integrations then in run report drawer, when the select the integration name , A drop down box listing all the child integration should be listed under the respective label name", () => {
-    test("C27514_Run report drawer - if an integration has a label for child integrations then in run report drawer, when the select the integration name , A drop down box listing all the child integration should be listed under the respective label name", async ({ io, page }) => {
+test.describe("C27514_Run report drawer - if an integration has a label for child integrations then in run report drawer, when the select the integration name , A drop down box listing all the child integration should be listed under the respective label name_UI_Backlog", () => {
+    test("C27514_Run report drawer - if an integration has a label for child integrations then in run report drawer, when the select the integration name , A drop down box listing all the child integration should be listed under the respective label name_UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Tools", "Reports");

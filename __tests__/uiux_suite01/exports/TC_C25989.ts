@@ -1,14 +1,14 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C25989_verify the debug Last run if the debug has expired. On mouse hover, I can see the date/time it ended in the user's timezone.", () => {
+test.describe("C25989_verify the debug Last run if the debug has expired. On mouse hover, I can see the date/time it ended in the user's timezone_UI_Backlog", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C25989_verify the debug Last run if the debug has expired. On mouse hover, I can see the date/time it ended in the user's timezone.", async ({ io}) => {
+    test("C25989_verify the debug Last run if the debug has expired. On mouse hover, I can see the date/time it ended in the user's timezone_UI_Backlog", async ({ io}) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);

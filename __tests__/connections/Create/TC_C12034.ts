@@ -1,8 +1,8 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe(`C12034_Verify Import and load the export which has 4000+ audit records.`, () => {
-  test(`C12034_Verify Import and load the export which has 4000+ audit records`, async ({ io, page }) => {
+test.describe(`C12034_Verify Import and load the export which has 4000+ audit records_UI_Backlog`, () => {
+  test(`C12034_Verify Import and load the export which has 4000+ audit records_UI_Backlog`, async ({ io, page }) => {
     await io.homePage.navigateTo(process.env.IO_Integration_URL);
     await io.homePage.clickByText("TC_C12034_Flow_DND");
     await io.homePage.click(selectors.connectionsPagePO.ACTIONS_MENU_BUTTON);

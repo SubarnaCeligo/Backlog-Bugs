@@ -1,8 +1,8 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C27653_Verify all the drop down values in all over product must load fine", () => {
-    test("C27653_Verify all the drop down values in all over product must load fine", async ({ io, page }) => {
+test.describe("C27653_Verify all the drop down values in all over product must load fine_UI_Backlog", () => {
+    test("C27653_Verify all the drop down values in all over product must load fine_UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Tools", "Reports");

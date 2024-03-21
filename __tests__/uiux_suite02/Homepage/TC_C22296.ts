@@ -1,8 +1,8 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C22296_Verify market place tiles in different browsers", () => {
-  test("C22296_Verify market place tiles in different browsers", async ({io, page}) => {
+test.describe("C22296_Verify market place tiles in different browsers_UI_Backlog", () => {
+  test("C22296_Verify market place tiles in different browsers_UI_Backlog", async ({io, page}) => {
       await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
       await io.homePage.waitForElementAttached(selectors.basePagePO.MARKETPLACE)
       await io.homePage.goToMenu("Marketplace");

@@ -2,8 +2,8 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import testData from "./transfer.json";
 
-test.describe(`C2758 Verify when the sandbox tile is shared with a non sandbox license user the shared tile should be shown in the production account.`, () => {
-  test(`C2758 Verify when the sandbox tile is shared with a non sandbox license user the shared tile should be shown in the production account.`, async ({
+test.describe(`C2758 Verify when the sandbox tile is shared with a non sandbox license user the shared tile should be shown in the production account_UI_Backlog`, () => {
+  test(`C2758 Verify when the sandbox tile is shared with a non sandbox license user the shared tile should be shown in the production account_UI_Backlog`, async ({
     page,
     io
   }) => {
