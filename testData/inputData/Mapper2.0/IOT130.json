@@ -1,0 +1,52 @@
+{
+  "name": "T22389",
+  "disabled": false,
+  "timezone": "Asia/Calcutta",
+  "_integrationId": "6459f5fc6df4b9686c0b7145",
+  "skipRetries": false,
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "Fulfillment Export",
+        "_connectionId": "HTTP ACUMATICA CONNECTION",
+        "apiIdentifier": "eedc2e8f14",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": "/users/me",
+          "method": "GET",
+          "formType": "http"
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "test import NS 347",
+        "_connectionId": "NETSUITE 347 CONNECTION",
+        "distributed": true,
+        "apiIdentifier": "i4168e1c66",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "lookups": [],
+        "netsuite_da": {
+          "restletVersion": "suiteapp2.0",
+          "operation": "add",
+          "recordType": "subscription",
+          "lookups": [],
+          "mapping": {
+            "fields": [],
+            "lists": []
+          }
+        },
+        "adaptorType": "NetSuiteDistributedImport"
+      }
+    }
+  ]
+}
