@@ -5,7 +5,7 @@ import * as jsonCreds from "@testData/Connections/T27705_T27706.json";
 
 test.describe('TC_T27696_T27705_T27706', () => {
 
-    const createConnectionAndValidate = async({ io, page, connectionName}) => {
+    const createConnectionAndValidate = async ({ io, page, connectionName }) => {
         const creds = replaceENVData(jsonCreds);
         const name_input = selectors.connectionsPagePO.NAME_INPUT;
         await io.flowBuilder.waitForElementAttached(name_input);
@@ -24,54 +24,58 @@ test.describe('TC_T27696_T27705_T27706', () => {
         await io.homePage.loadingTime();
         const connectionDoc = await io.connections.getConnection(connectionName);
         await io.assert.expectNotToBeNull(connectionDoc, "Connection is null");
-        await io.assert.expectToBeTrue(connectionDoc.sandbox, "Connection is not in sandbox.");
         await io.assert.expectToBeValue(connectionDoc.jdbc?.authType, 'wallet', "Connection auth type is not wallet");
     };
 
-    test('IO-T27696 Verify if able to create NSAW connection', async({ io, page }) => {
+    test('IO-T27696 Verify if able to create NSAW connection', async ({ io, page }) => {
         const connectionName = 'TC_T27705_NSAW_Connection_prod';
         await io.homePage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
         await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
         await io.connectionPage.click(selectors.connectionsPagePO.NSAW_CONNECTION);
         await io.assert.verifyElementNotBeFound(selectors.connectionsPagePO.JDBC_AUTH_TYPE);
 
-        await test.step('Creating connection', async() => createConnectionAndValidate({ io, page, connectionName }));
+        await test.step('Creating connection', async () => createConnectionAndValidate({ io, page, connectionName }));
         await io.connections.deleteConnection(connectionName);
     });
 
-    test('IO-T27705 Verify authentication field is not shown for NSAW connector and user is able to create connection in Sandbox', async({ io, page }) => {
+    test('IO-T27705 Verify authentication field is not shown for NSAW connector and user is able to create connection in Sandbox', async ({ io, page }) => {
         const connectionName = 'TC_T27705_NSAW_Connection_sandbox';
+        await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.click(selectors.homePagePO.SANDBOX_BUTTON);
         await io.homePage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
         await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
         await io.connectionPage.click(selectors.connectionsPagePO.NSAW_CONNECTION);
         await io.assert.verifyElementNotBeFound(selectors.connectionsPagePO.JDBC_AUTH_TYPE);
 
-        await test.step('Creating connection', async() => createConnectionAndValidate({ io, page, connectionName }));
+        await test.step('Creating connection', async () => createConnectionAndValidate({ io, page, connectionName }));
+        const connectionDoc = await io.connections.getConnection(connectionName);
+        await io.assert.expectToBeTrue(connectionDoc.sandbox, "Connection is not in sandbox.");
         await io.connections.deleteConnection(connectionName);
         await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
     });
 
-    test('IO-T27706 Verify NSAW connection creation from exports', async({ io, page }) => {
-        const connectionName = 'TC_T27706_NSAW_Connection_exp';
-        await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
-        await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
-        await io.connectionPage.click(selectors.connectionsPagePO.NSAW_CONNECTION);
-        await io.homePage.clickButtonAtTopOfArray(selectors.basePagePO.ADD_NEW_RESOURCE);
+    test('IO-T27706 Verify NSAW connection creation from exports and imports', async ({ io, page }) => {
 
-        await test.step('Creating connection', async() => createConnectionAndValidate({ io, page, connectionName }));
-        await io.connections.deleteConnection(connectionName);
-    });
+        await test.step('Creating connection from exports', async () => {
+            const connectionName = 'TC_T27706_NSAW_Connection_exp';
+            await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
+            await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
+            await io.connectionPage.click(selectors.connectionsPagePO.NSAW_CONNECTION);
+            await io.homePage.clickButtonAtTopOfArray(selectors.basePagePO.ADD_NEW_RESOURCE);
 
+            await test.step('Creating connection', async () => createConnectionAndValidate({ io, page, connectionName }));
+            await io.connections.deleteConnection(connectionName);
+        });
 
-    test('IO-T27706 Verify NSAW connection creation from imports', async({ io, page }) => {
-        const connectionName = 'TC_T27706_NSAW_Connection_imp';
-        await io.homePage.navigateTo(io.data.links.IMPORTS_PAGE_URL);
-        await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
-        await io.connectionPage.click(selectors.connectionsPagePO.NSAW_CONNECTION);
-        await io.homePage.clickButtonAtTopOfArray(selectors.basePagePO.ADD_NEW_RESOURCE);
+        await test.step('Creating connection from imports', async () => {
+            const connectionName = 'TC_T27706_NSAW_Connection_imp';
+            await io.homePage.navigateTo(io.data.links.IMPORTS_PAGE_URL);
+            await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
+            await io.connectionPage.click(selectors.connectionsPagePO.NSAW_CONNECTION);
+            await io.homePage.clickButtonAtTopOfArray(selectors.basePagePO.ADD_NEW_RESOURCE);
 
-        await test.step('Creating connection', async() => createConnectionAndValidate({ io, page, connectionName }));
-        await io.connections.deleteConnection(connectionName);
+            await test.step('Creating connection', async () => createConnectionAndValidate({ io, page, connectionName }));
+            await io.connections.deleteConnection(connectionName);
+        });
     });
 });

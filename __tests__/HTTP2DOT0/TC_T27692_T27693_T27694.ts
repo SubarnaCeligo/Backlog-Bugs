@@ -15,6 +15,7 @@ test.describe('TC_T27692_T27693_T27694', () => {
         await io.assert.verifyElementNotBeFound(selectors.connectionsPagePO.JDBC_AUTH_TYPE);
         await io.flowBuilder.click(selectors.basePagePO.CLOSE);
 
+        await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
         await io.connectionPage.click('[data-test="Oracle Autonomous Database"]');
         // await io.connectionPage.click(selectors.connectionsPagePO.ORACLE_ADW_CONNECTION);
         await io.assert.verifyElementNotBeFound(selectors.connectionsPagePO.JDBC_AUTH_TYPE);
