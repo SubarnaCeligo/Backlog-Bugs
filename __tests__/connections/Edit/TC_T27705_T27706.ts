@@ -1,6 +1,7 @@
 import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import * as creds from "@testData/Connections/T27705_T27706.json";
+import { decrypt, replaceENVData } from "@celigo/aut-utilities";
+import * as jsonCreds from "@testData/Connections/T27705_T27706.json";
 
 test.describe('TC_T27705_T27706', () => {
     test.beforeEach(async ({ io }) => {
@@ -10,12 +11,13 @@ test.describe('TC_T27705_T27706', () => {
         await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
     });
     const createConnectionAndValidate = async({ io, page, connectionName}) => {
+        const creds = replaceENVData(jsonCreds);
         const name_input = selectors.connectionsPagePO.NAME_INPUT;
         await io.flowBuilder.waitForElementAttached(name_input);
         const nameFields = await io.homePage.getElementsLength(name_input);
         await io.homePage.fillByIndex(name_input, connectionName, nameFields - 1);
         await io.homePage.fill(selectors.connectionsPagePO.JDBC_USER_INPUT, creds.username);
-        await io.homePage.fill(selectors.connectionsPagePO.JDBC_PASSWORD_INPUT, creds.password);
+        await io.homePage.fill(selectors.connectionsPagePO.JDBC_PASSWORD_INPUT, decrypt(creds.password));
         const walletCredentials = await page.$(selectors.flowBuilderPagePO.UPLOAD_FILE);
         await walletCredentials.setInputFiles(creds.wallet_zip_location);
         await io.flowBuilder.delay(1000);

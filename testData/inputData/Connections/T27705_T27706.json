@@ -1,5 +1,5 @@
 {
   "username": "ADMIN",
-  "password": "process.ENV[NSAW_PASSWORD]",
+  "password": "process.env[NSAW_PASSWORD]",
   "wallet_zip_location": "testData/inputData/Connections/wallet_nsaw_qa.zip"
 }
