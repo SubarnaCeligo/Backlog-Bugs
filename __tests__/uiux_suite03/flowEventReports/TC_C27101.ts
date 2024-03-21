@@ -14,7 +14,8 @@ test.describe("C27101_In the Date range window of the Run report drawer, we shou
         await page.getByText('TC_C12034_DND').last().click()
         await io.homePage.clickByText('Done');
         await io.homePage.clickByText("Choose date range");
+        await io.homePage.clickByText("Custom");
         // Validating start time and endtime should as selected in the calender
-        await expect(await page.locator(selectors.dashboardPagePO.REPORT_FLOWS)).not.toHaveCSS("3 days", "range");
+        await io.assert.verifyElementDisplayedByText('You can generate a report for up to 3 days of data.', 'Range not available')
     });
 });
