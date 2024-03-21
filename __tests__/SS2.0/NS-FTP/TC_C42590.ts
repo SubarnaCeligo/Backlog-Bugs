@@ -8,7 +8,7 @@ test.describe("TC_C42590_Verify the mapping preview for the custom fields added 
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("TC_C42590_Verify the mapping preview for the custom fields added in Salesforce", async ({ io, page }, testInfo) => {
+    test("TC_C42590_Verify the mapping preview for the custom fields added in Salesforce UI_Backlog", async ({ io, page }, testInfo) => {
         //Creating PageGenerator 
         await test.step("*** Creating PageGenerator ***", async () => {
             await io.pageGenerator(allure, C42590);

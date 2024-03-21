@@ -3,7 +3,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 
-  test("TC_C28883_Verify when the user expands the “Sorting and grouping records” section ,user will see the “Sort records by fields” function first, then the “Group records by fields” function", async ({ io }, testInfo) => {
+  test("TC_C28883_Verify when the user expands the “Sorting and grouping records” section ,user will see the “Sort records by fields” function first, then the “Group records by fields” function UI_Backlog", async ({ io }, testInfo) => {
     await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL)
     await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'FTP');
