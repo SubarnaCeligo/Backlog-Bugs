@@ -1,8 +1,8 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C27101_In the Date range window of the Run report drawer, we should be able to set the start and end time using the calender by dragging the mouse between the dates_UI_Backlog", () => {
-    test("C27101_In the Date range window of the Run report drawer, we should be able to set the start and end time using the calender by dragging the mouse between the dates_UI_Backlog", async ({ io, page }) => {
+test.describe("C27101_In the Date range window of the Run report drawer, we should be able to set the start and end time using the calender by dragging the mouse between the dates", () => {
+    test("C27101_In the Date range window of the Run report drawer, we should be able to set the start and end time using the calender by dragging the mouse between the dates UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Tools", "Reports");

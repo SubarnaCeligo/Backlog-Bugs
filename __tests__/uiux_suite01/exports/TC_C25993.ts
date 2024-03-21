@@ -1,14 +1,14 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C25993_Verify the the duration options are:Next 15 minutes,Next 30 minutes, Next 45 minutes and Next 60 minutes_UI_Backlog", () => {
+test.describe("C25993_Verify the the duration options are:Next 15 minutes,Next 30 minutes, Next 45 minutes and Next 60 minutes", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C25993_Verify the the duration options are:Next 15 minutes,Next 30 minutes, Next 45 minutes and Next 60 minutes_UI_Backlog", async ({ io, page }) => {
+    test("C25993_Verify the the duration options are:Next 15 minutes,Next 30 minutes, Next 45 minutes and Next 60 minutes UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);

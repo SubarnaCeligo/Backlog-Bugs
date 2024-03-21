@@ -4,12 +4,12 @@ import * as selectors from "@celigo/aut-selectors";
 import connectionData from "@testData/Connections/Create/Create_Connection_AS2.json"
 
 
-test.describe("TC_C2245_Verify HTTP Headers field is exposed in the UI page for AS2 imports and able to add them_UI_Backlog", () => {
+test.describe("TC_C2245_Verify HTTP Headers field is exposed in the UI page for AS2 imports and able to add them", () => {
   test.beforeEach(async ({ io }) => {
     await io.connections.deleteConnection(connectionData.importJSON.name)
     await io.myAccountPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
   });
-  test("TC_C2245_Verify HTTP Headers field is exposed in the UI page for AS2 imports and able to add them_UI_Backlog", async ({ io }, testInfo) => {
+  test("TC_C2245_Verify HTTP Headers field is exposed in the UI page for AS2 imports and able to add them UI_Backlog", async ({ io }, testInfo) => {
     let connectionJson;
     //Creating Connection 
     await test.step("*** Creating Connection ***", async () => {

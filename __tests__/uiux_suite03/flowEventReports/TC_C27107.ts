@@ -1,8 +1,8 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C27107_Run report drawer - ‘Child integrations’ multi-select field should support an option to select ‘All’ at the top, and then all the other values in the multi-select field should be alpha sorted in ascending order_UI_Backlog", () => {
-    test("C27107_Run report drawer - ‘Child integrations’ multi-select field should support an option to select ‘All’ at the top, and then all the other values in the multi-select field should be alpha sorted in ascending order_UI_Backlog", async ({ io, page }) => {
+test.describe("C27107_Run report drawer - ‘Child integrations’ multi-select field should support an option to select ‘All’ at the top, and then all the other values in the multi-select field should be alpha sorted in ascending order", () => {
+    test("C27107_Run report drawer - ‘Child integrations’ multi-select field should support an option to select ‘All’ at the top, and then all the other values in the multi-select field should be alpha sorted in ascending order UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Tools", "Reports");

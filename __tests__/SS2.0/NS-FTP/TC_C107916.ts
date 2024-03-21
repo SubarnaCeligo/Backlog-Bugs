@@ -3,12 +3,12 @@ import allure from "allure-playwright";
 import * as selectors from "@celigo/aut-selectors";
 import * as NS_FTP from "@testData/Flows/TC_C107916.json"
 
-test.describe("TC_C107916_Verify syncing dateTime fields in NS SS2.x import flows based on Date format added in the settings (D-MONTH-YYYY hh:mm (24 hours))_UI_Backlog", () => {
+test.describe("TC_C107916_Verify syncing dateTime fields in NS SS2.x import flows based on Date format added in the settings (D-MONTH-YYYY hh:mm (24 hours))", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("TC_C107916_Verify syncing dateTime fields in NS SS2.x import flows based on Date format added in the settings (D-MONTH-YYYY hh:mm (24 hours))_UI_Backlog", async ({ io, page }, testInfo) => {
+    test("TC_C107916_Verify syncing dateTime fields in NS SS2.x import flows based on Date format added in the settings (D-MONTH-YYYY hh:mm (24 hours)) UI_Backlog", async ({ io, page }, testInfo) => {
         //Creating PageGenerator 
         await test.step("*** Creating PageGenerator ***", async () => {
             await io.pageGenerator(allure, NS_FTP);

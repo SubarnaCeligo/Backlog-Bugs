@@ -1,8 +1,8 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C56639_Verify the “+ create iClient” button allows the user to create a new iClient from the resources page when user has different access (admin,manage)_UI_Backlog", () => {
-    test("C56639_Verify the “+ create iClient” button allows the user to create a new iClient from the resources page when user has different access (admin,manage)_UI_Backlog", async ({ io, page }) => {
+test.describe("C56639_Verify the “+ create iClient” button allows the user to create a new iClient from the resources page when user has different access (admin,manage)", () => {
+    test("C56639_Verify the “+ create iClient” button allows the user to create a new iClient from the resources page when user has different access (admin,manage) UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources", "iClients");

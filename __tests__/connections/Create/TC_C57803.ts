@@ -2,8 +2,8 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 
-test.describe("TC_C57803_Verify giving invalid base URI by unselecting the Configure refresh token checkbox and check whether the refresh token is generating or not_UI_Backlog", () => {
-    test("TC_C57803_Verify giving invalid base URI by unselecting the Configure refresh token checkbox and check whether the refresh token is generating or not_UI_Backlog", async ({ io }, testInfo) => {
+test.describe("TC_C57803_Verify giving invalid base URI by unselecting the Configure refresh token checkbox and check whether the refresh token is generating or not", () => {
+    test("TC_C57803_Verify giving invalid base URI by unselecting the Configure refresh token checkbox and check whether the refresh token is generating or not UI_Backlog", async ({ io }, testInfo) => {
         await io.myAccountPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
         //Creating Connection 
         await test.step("*** Creating Connection ***", async () => {

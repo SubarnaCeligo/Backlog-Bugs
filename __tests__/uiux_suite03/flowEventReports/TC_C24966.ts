@@ -1,8 +1,8 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C24966_Monitor All- Verify when clicked on view report details option under the actions drop down of a completed report, the Report details drawer is loaded_UI_Backlog", () => {
-    test("C24966_Monitor All- Verify when clicked on view report details option under the actions drop down of a completed report, the Report details drawer is loaded_UI_Backlog", async ({ io, page }) => {
+test.describe("C24966_Monitor All- Verify when clicked on view report details option under the actions drop down of a completed report, the Report details drawer is loaded", () => {
+    test("C24966_Monitor All- Verify when clicked on view report details option under the actions drop down of a completed report, the Report details drawer is loaded UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Tools", "Reports");

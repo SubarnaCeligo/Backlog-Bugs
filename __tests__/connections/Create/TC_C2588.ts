@@ -3,12 +3,12 @@ import * as selectors from "@celigo/aut-selectors";
 import connectionData from "@testData/Connections/Create/Create_Connection_AS2.json"
 
 
-test.describe("TC_C2588_Verify as2Id and partnerId fields are greyed out while editing AS2 connection_UI_Backlog", () => {
+test.describe("TC_C2588_Verify as2Id and partnerId fields are greyed out while editing AS2 connection", () => {
   test.beforeEach(async ({ io }) => {
     await io.connections.deleteConnection(connectionData.importJSON.name)
     await io.myAccountPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
   });
-  test("TC_C2588_Verify as2Id and partnerId fields are greyed out while editing AS2 connection_UI_Backlog", async ({ io }, testInfo) => {
+  test("TC_C2588_Verify as2Id and partnerId fields are greyed out while editing AS2 connection UI_Backlog", async ({ io }, testInfo) => {
     let connectionJson;
     //Creating Connection 
     await test.step("*** Creating Connection ***", async () => {

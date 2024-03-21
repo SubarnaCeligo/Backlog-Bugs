@@ -1,8 +1,8 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C33011_To verify License is replaced with subscription for the renew/expired tile message_UI_Backlog", () => {
-    test("C33011_To verify License is replaced with subscription for the renew/expired tile message_UI_Backlog", async ({ io,  page }) => {
+test.describe("C33011_To verify License is replaced with subscription for the renew/expired tile message", () => {
+    test("C33011_To verify License is replaced with subscription for the renew/expired tile message UI_Backlog", async ({ io,  page }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "Amazon Connector(Bharath)");
         await io.homePage.addStep("*** Searched for the integration ***");

@@ -1,14 +1,14 @@
 import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C28617_Verify dashboard data for standalone integration for EM 2.0_UI_Backlog", () => {
+test.describe("C28617_Verify dashboard data for standalone integration for EM 2.0", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C28617_Verify dashboard data for standalone integration for EM 2.0_UI_Backlog", async ({ io, page }) => {
+    test("C28617_Verify dashboard data for standalone integration for EM 2.0 UI_Backlog", async ({ io, page }) => {
         await io.integrationPage.clickByText('Standalone flows')
         await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
         await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'TC_C12034_DND');

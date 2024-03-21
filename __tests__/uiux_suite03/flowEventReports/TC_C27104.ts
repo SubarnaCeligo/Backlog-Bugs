@@ -1,8 +1,8 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C27104_In the Date range window of the Run report drawer, we should not be able to set start time that is older than 30 days from current date and time_UI_Backlog", () => {
-    test("C27104_In the Date range window of the Run report drawer, we should not be able to set start time that is older than 30 days from current date and time_UI_Backlog", async ({ io, page }) => {
+test.describe("C27104_In the Date range window of the Run report drawer, we should not be able to set start time that is older than 30 days from current date and time", () => {
+    test("C27104_In the Date range window of the Run report drawer, we should not be able to set start time that is older than 30 days from current date and time UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Tools", "Reports");

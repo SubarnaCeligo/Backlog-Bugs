@@ -1,14 +1,14 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C26008_Verify hover over timestamp should show exact time in user timezone_UI_Backlog", () => {
+test.describe("C26008_Verify hover over timestamp should show exact time in user timezone", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C26008_Verify hover over timestamp should show exact time in user timezone_UI_Backlog", async ({ io}) => {
+    test("C26008_Verify hover over timestamp should show exact time in user timezone UI_Backlog", async ({ io}) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);

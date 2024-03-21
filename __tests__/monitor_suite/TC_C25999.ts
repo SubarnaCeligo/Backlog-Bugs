@@ -1,14 +1,14 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C25999_Verify stop is shown, but should be disabled for the monitor users_UI_Backlog", () => {
+test.describe("C25999_Verify stop is shown, but should be disabled for the monitor users", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C25999_Verify stop is shown, but should be disabled for the monitor users_UI_Backlog", async ({ io }) => {
+    test("C25999_Verify stop is shown, but should be disabled for the monitor users UI_Backlog", async ({ io }) => {
         await io.homePage.clickByText('Automation Flows')
         await io.homePage.clickByText('Create flow')
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);

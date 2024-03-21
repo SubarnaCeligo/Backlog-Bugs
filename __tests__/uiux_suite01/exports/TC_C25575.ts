@@ -1,14 +1,14 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C25575_Verify debug logs drawer is displayed when debug logs button is clicked which is present in top right corner of the webhooks and listener drawer_UI_Backlog", () => {
+test.describe("C25575_Verify debug logs drawer is displayed when debug logs button is clicked which is present in top right corner of the webhooks and listener drawer", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C25575_Verify debug logs drawer is displayed when debug logs button is clicked which is present in top right corner of the webhooks and listener drawer_UI_Backlog", async ({ io, page }) => {
+    test("C25575_Verify debug logs drawer is displayed when debug logs button is clicked which is present in top right corner of the webhooks and listener drawer UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);

@@ -1,8 +1,8 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C27109 Run Report drawer - ‘Child integrations’ cannot be a required field_UI_Backlog", () => {
-  test("C27109 Run Report drawer - ‘Child integrations’ cannot be a required field_UI_Backlog", async ({ io, page }) => {
+test.describe("C27109 Run Report drawer - ‘Child integrations’ cannot be a required field", () => {
+  test("C27109 Run Report drawer - ‘Child integrations’ cannot be a required field UI_Backlog", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
     await io.homePage.goToMenu("Tools", "Reports");
