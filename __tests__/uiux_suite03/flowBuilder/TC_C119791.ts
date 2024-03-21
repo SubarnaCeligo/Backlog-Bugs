@@ -4,8 +4,12 @@ import C119791 from '../../../testData/inputData/FlowBuilder/C119791.json';
 import TC from '../../../testData/inputData/FlowBuilder/C119805.json';
 
 test.describe("TC_C119791_C119793_C119795", () => {
+    let id;
+    test.afterEach(async ({ io, page }) => {
+        await io.api.deleteFlowViaAPI(id);
+    });
     test("C119791_C119793_C119795", async ({ io, page }) => {
-        await io.createResourceFromAPI(C119791, "FLOWS");
+        id = await io.createResourceFromAPI(C119791, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
         await io.flowBuilder.reloadPage();
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
@@ -34,7 +38,6 @@ test.describe("TC_C119791_C119793_C119795", () => {
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
         await io.homePage.loadingTime();
         // -'Simple/HTTP' toggle at the very top of the bubble drawers (i.e. for HTTP based connectors) should be hidden
-        await io.flowBuilder.waitForElementAttached(selectors.importPagePO.ADVANCED);
         await io.flowBuilder.waitForElementAttached(selectors.importPagePO.ADVANCED);
         const toggleSimple = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
         await io.assert.expectToBeFalse(toggleSimple, "Simple toggle is not visible");
@@ -78,7 +81,6 @@ test.describe("TC_C119791_C119793_C119795", () => {
         await io.homePage.loadingTime();
         // -'Simple/HTTP' toggle at the very top of the bubble drawers (i.e. for HTTP based connectors) should be hidden
         await io.flowBuilder.waitForElementAttached(selectors.importPagePO.ADVANCED);
-        await io.flowBuilder.waitForElementAttached(selectors.importPagePO.ADVANCED);
         const toggleSimple1 = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
         await io.assert.expectToBeFalse(toggleSimple1, "Simple toggle is not visible");
         const toggleHttp1 = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
@@ -117,7 +119,6 @@ test.describe("TC_C119791_C119793_C119795", () => {
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
         await io.homePage.loadingTime();
         // -'Simple/HTTP' toggle at the very top of the bubble drawers (i.e. for HTTP based connectors) should be hidden
-        await io.flowBuilder.waitForElementAttached(selectors.importPagePO.ADVANCED);
         await io.flowBuilder.waitForElementAttached(selectors.importPagePO.ADVANCED);
         const toggleSimple2 = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
         await io.assert.expectToBeFalse(toggleSimple2, "Simple toggle is not visible");

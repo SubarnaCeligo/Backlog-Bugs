@@ -5,8 +5,12 @@ import TC from '../../../testData/inputData/FlowBuilder/C119805.json';
 import TC1 from '../../../testData/inputData/FlowBuilder/C119797.json';
 
 test.describe("TC_C119802_C119803", () => {
+    let id;
+    test.afterEach(async ({ io, page }) => {
+        await io.api.deleteFlowViaAPI(id);
+    });
     test("TC_C119802_C119803", async ({ io, page }) => {
-        await io.createResourceFromAPI(C119802, "FLOWS");
+        id = await io.createResourceFromAPI(C119802, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
         //Webhook
         await io.flowBuilder.click(selectors.flowBuilderPagePO.LISTENER);

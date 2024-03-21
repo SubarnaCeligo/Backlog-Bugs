@@ -3,8 +3,12 @@ import * as selectors from "@celigo/aut-selectors";
 import C119808 from '../../../testData/inputData/FlowBuilder/C119808.json';
 
 test.describe("TC_C119808", () => {
+    let id;
+    test.afterEach(async ({ io, page }) => {
+        await io.api.deleteFlowViaAPI(id);
+    });
     test("TC_C119808", async ({ io, page }) => {
-        await io.createResourceFromAPI(C119808, "FLOWS");
+        id = await io.createResourceFromAPI(C119808, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
         await io.flowBuilder.reloadPage();
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);

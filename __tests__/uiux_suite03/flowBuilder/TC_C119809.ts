@@ -4,11 +4,17 @@ import C119809 from '../../../testData/inputData/FlowBuilder/C119809.json';
 import T27332 from '../../../testData/inputData/FlowBuilder/IO-T27332.json';
 
 test.describe("TC_C119809_C119810_C119811", () => {
+    let id; let id1;
+    test.afterEach(async ({ io, page }) => {
+        await io.api.deleteFlowViaAPI(id);
+        await io.api.deleteFlowViaAPI(id1);
+    });
     test("TC_C119809_C119810_C119811", async ({ io, page }) => {
-        await io.createResourceFromAPI(C119809, "FLOWS");
+        id = await io.createResourceFromAPI(C119809, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
         await io.flowBuilder.reloadPage();
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+        await io.flowBuilder.loadingTime();
         await io.integrationPage.waitForElementAttached(
             selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR
         );
@@ -17,6 +23,7 @@ test.describe("TC_C119809_C119810_C119811", () => {
             selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
             "TC_C119809"
         );
+        await io.flowBuilder.loadingTime();
         //Open the flow
         await io.flowBuilder.clickByText("TC_C119809");
 
@@ -73,10 +80,11 @@ test.describe("TC_C119809_C119810_C119811", () => {
 
     });
     test("IO-T27332", async ({ io, page }) => {
-        await io.createResourceFromAPI(T27332, "FLOWS");
+        id1 = await io.createResourceFromAPI(T27332, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
         await io.flowBuilder.reloadPage();
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+        await io.flowBuilder.loadingTime();
         await io.integrationPage.waitForElementAttached(
             selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR
         );
@@ -85,6 +93,7 @@ test.describe("TC_C119809_C119810_C119811", () => {
             selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
             "IO-T27332"
         );
+        await io.flowBuilder.loadingTime();
         //Open the flow
         await io.flowBuilder.clickByText("IO-T27332");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);

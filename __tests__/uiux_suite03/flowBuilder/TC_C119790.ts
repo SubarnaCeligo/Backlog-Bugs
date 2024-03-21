@@ -4,8 +4,14 @@ import C119790 from '../../../testData/inputData/FlowBuilder/C119790.json';
 import TC from '../../../testData/inputData/FlowBuilder/C119805.json';
 
 test.describe("TC_C119790_C119792_C119794", () => {
+    let id; let id1; let id2;
+    test.afterEach(async ({ io, page }) => {
+        await io.api.deleteFlowViaAPI(id);
+        await io.api.deleteFlowViaAPI(id1);
+        await io.api.deleteFlowViaAPI(id2);
+    });
     test("C119790", async ({ io, page }) => {
-        await io.createResourceFromAPI(C119790, "FLOWS");
+        id = await io.createResourceFromAPI(C119790, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
         //Export
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
@@ -46,7 +52,7 @@ test.describe("TC_C119790_C119792_C119794", () => {
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
     });
     test("C119792", async ({ io, page }) => {
-        await io.createResourceFromAPI(C119790, "FLOWS");
+        id1 = await io.createResourceFromAPI(C119790, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
         //Lookup
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.LOOKUP);
@@ -87,7 +93,7 @@ test.describe("TC_C119790_C119792_C119794", () => {
         expect(await buttonDis1.screenshot()).toMatchSnapshot("launchFormBuilder1.png");
     });
     test("C119794", async ({ io, page }) => {
-        await io.createResourceFromAPI(C119790, "FLOWS");
+        id2 = await io.createResourceFromAPI(C119790, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
 
         //IMPORT

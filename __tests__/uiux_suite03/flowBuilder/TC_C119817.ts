@@ -20,10 +20,10 @@ test.describe("TC_C119817", () => {
       selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
       "TC_C119817"
     );
+    await io.flowBuilder.loadingTime();
     //Open the flow
     await io.flowBuilder.clickByText("TC_C119817");
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
-
 
     //Export
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
