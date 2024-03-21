@@ -9,14 +9,18 @@ test.describe('TC_T27692_T27693_T27694', () => {
         await io.homePage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
       });
 
-    test('IO-T27692 Verify authentication field is not shown for NSAW connector while creating connection', async({ io }) => {
+    test('IO-T27692 Verify authentication field is not shown for NSAW & Oracle ADW connectors while creating connections', async({ io }) => {
         await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
         await io.connectionPage.click(selectors.connectionsPagePO.NSAW_CONNECTION);
         await io.assert.verifyElementNotBeFound(selectors.connectionsPagePO.JDBC_AUTH_TYPE);
+        await io.flowBuilder.click(selectors.basePagePO.CLOSE);
 
+        await io.connectionPage.click('[data-test="Oracle Autonomous Database"]');
+        // await io.connectionPage.click(selectors.connectionsPagePO.ORACLE_ADW_CONNECTION);
+        await io.assert.verifyElementNotBeFound(selectors.connectionsPagePO.JDBC_AUTH_TYPE);
     });
 
-    test('IO-T27693 Verify authentication field is not shown while editing Oracle Autonomous Database connection', async({ io }) => {
+    test('IO-T27693 Verify authentication field is not shown while creating & editing Oracle Autonomous Database connection', async({ io }) => {
         const connectionDoc = await io.connections.getConnection(oracleConnction);
         await io.assert.expectNotToBeNull(connectionDoc, "Connection is null");
         await io.assert.expectToBeValue(connectionDoc.jdbc?.authType, 'customjdbc', "Connection auth type is not customjdbc");

@@ -2,16 +2,16 @@ import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import { Flow, Oracle_Connection, NSAW_Connection } from "@testData/Connections/T27708_T27709.json";
 
-test.describe('TC_T27708_T27709', () => {
-    test('TC_T27708_T27709', async ({ io, page }) => {
+test.describe('TC_T27708_T27709_T27695', () => {
+    test('TC_T27708_T27709_T27695', async ({ io, page }) => {
         let flowId;
-        let conn1;
-        let conn2;
+        let oracleConnection;
+        let nsawConnection;
 
         await test.step("*** Creating Flow and Connections ***", async () => {
             flowId = await io.createResourceFromAPI(Flow, "FLOWS");
-            conn1 = await io.connections.createConnectionViaAPI(Oracle_Connection);
-            conn2 = await io.connections.createConnectionViaAPI(NSAW_Connection);
+            oracleConnection = await io.connections.createConnectionViaAPI(Oracle_Connection);
+            nsawConnection = await io.connections.createConnectionViaAPI(NSAW_Connection);
         });
 
         await test.step('IO-T27708 Verify Replace connection from exports & imports form', async () => {
@@ -51,10 +51,15 @@ test.describe('TC_T27708_T27709', () => {
             await io.flowBuilder.click(selectors.basePagePO.CLOSE_RIGHT_DRAWER);
         });
 
+        await test.step('IO-T27695 Verify able to create Oracle connection with customjdbc auth type', async () => {
+            await io.assert.expectToBeValue(oracleConnection.jdbc?.authType, 'customjdbc', "Connection auth type is not customjdbc");
+        });
+
+
         await test.step('*** Deleting Flow and Connections ***', async () => {
             await io.api.deleteFlowViaAPI(flowId);
-            await io.connections.deleteConnection('Oracle_Connection', conn1);
-            await io.connections.deleteConnection('NSAW_Connection', conn2);
+            await io.connections.deleteConnection('Oracle_Connection', oracleConnection);
+            await io.connections.deleteConnection('NSAW_Connection', nsawConnection);
         });
     });
 });
