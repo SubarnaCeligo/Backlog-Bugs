@@ -1,5 +1,5 @@
 import { test, expect } from "@celigo/ui-core-automation";
-import * as BigQuery from "@testData/Connections/Create/Create_BigQuery_Connection.json"
+import  BigQuery from "@testData/Connections/Create/Create_BigQuery_Connection.json"
 
 test.describe("Create Connections", () => {
     test.beforeEach(async ({ io }) => {
