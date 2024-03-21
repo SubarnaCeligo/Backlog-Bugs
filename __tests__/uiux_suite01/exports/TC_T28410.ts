@@ -5,7 +5,7 @@ test.describe("T28410 Verify XML parser for FTP,Gdrive,S3,dropbox if the xml ele
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("Verify XML parser for FTP if the xml element contains xmlns or if the element name contains ':' with proper resource path and Parse strategy as Automatic", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P2 Verify XML parser for FTP if the xml element contains xmlns or if the element name contains ':' with proper resource path and Parse strategy as Automatic", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
@@ -32,7 +32,7 @@ test.describe("T28410 Verify XML parser for FTP,Gdrive,S3,dropbox if the xml ele
         await io.connectionPage.addStep("Clicking on preview");
         await expect(page.locator(selectors.flowBuilderPagePO.AFE_RESULT_PANEL)).toContainText("record");
     });
-    test("Verify XML parser Gdrive if the xml element contains xmlns or if the element name contains ':' with proper resource path and Parse strategy as Automatic", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P2 Verify XML parser Gdrive if the xml element contains xmlns or if the element name contains ':' with proper resource path and Parse strategy as Automatic", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
@@ -59,7 +59,7 @@ test.describe("T28410 Verify XML parser for FTP,Gdrive,S3,dropbox if the xml ele
         await io.connectionPage.addStep("Clicking on preview");
         await expect(page.locator(selectors.flowBuilderPagePO.AFE_RESULT_PANEL)).toContainText("record");
     });
-    test("Verify XML parser S3 if the xml element contains xmlns or if the element name contains ':' with proper resource path and Parse strategy as Automatic", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P2 Verify XML parser S3 if the xml element contains xmlns or if the element name contains ':' with proper resource path and Parse strategy as Automatic", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
@@ -86,7 +86,7 @@ test.describe("T28410 Verify XML parser for FTP,Gdrive,S3,dropbox if the xml ele
         await io.connectionPage.addStep("Clicking on preview");
         await expect(page.locator(selectors.flowBuilderPagePO.AFE_RESULT_PANEL)).toContainText("record");
     });
-    test("Verify XML parser dropbox if the xml element contains xmlns or if the element name contains ':' with proper resource path and Parse strategy as Automatic", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P2 Verify XML parser dropbox if the xml element contains xmlns or if the element name contains ':' with proper resource path and Parse strategy as Automatic", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
