@@ -27,7 +27,7 @@ test.describe("T28414_Verify XML parser help for FTP, Gdrive, S3, dropbox with i
         await io.flowBuilder.click(selectors.exportsPagePO.FILE_TYPE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.XMLVALUE);
         let fileInput1 = await page.$(selectors.basePagePO.UPLOAD_FILE);
-        await fileInput1.setInputFiles("testData/inputData/Exports/TC_T28412_T28413_T28414.xml");
+        await fileInput1.setInputFiles("testData/inputData/Exports/TC_T28413_T28414.xml");
 
         await io.flowBuilder.click(selectors.basePagePO.LAUNCH_PARSER);
         await io.flowBuilder.fillByIndex(selectors.flowBuilderPagePO.RESOUCEPATH, 'Items/ns1:Item', 1);
@@ -73,7 +73,7 @@ test.describe("T28414_Verify XML parser help for FTP, Gdrive, S3, dropbox with i
         await io.flowBuilder.click(selectors.exportsPagePO.FILE_TYPE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.XMLVALUE);
         let fileInput1 = await page.$(selectors.basePagePO.UPLOAD_FILE);
-        await fileInput1.setInputFiles("testData/inputData/Exports/TC_T28412_T28413_T28414.xml");
+        await fileInput1.setInputFiles("testData/inputData/Exports/TC_T28413_T28414.xml");
 
         await io.flowBuilder.click(selectors.basePagePO.LAUNCH_PARSER);
         await io.flowBuilder.fillByIndex(selectors.flowBuilderPagePO.RESOUCEPATH, 'Items/ns1:Item', 1);
@@ -119,7 +119,7 @@ test.describe("T28414_Verify XML parser help for FTP, Gdrive, S3, dropbox with i
         await io.flowBuilder.click(selectors.exportsPagePO.FILE_TYPE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.XMLVALUE);
         let fileInput1 = await page.$(selectors.basePagePO.UPLOAD_FILE);
-        await fileInput1.setInputFiles("testData/inputData/Exports/TC_T28412_T28413_T28414.xml");
+        await fileInput1.setInputFiles("testData/inputData/Exports/TC_T28413_T28414.xml");
 
         await io.flowBuilder.click(selectors.basePagePO.LAUNCH_PARSER);
         await io.flowBuilder.fillByIndex(selectors.flowBuilderPagePO.RESOUCEPATH, 'Items/ns1:Item', 1);
@@ -165,7 +165,7 @@ test.describe("T28414_Verify XML parser help for FTP, Gdrive, S3, dropbox with i
         await io.flowBuilder.click(selectors.exportsPagePO.FILE_TYPE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.XMLVALUE);
         let fileInput1 = await page.$(selectors.basePagePO.UPLOAD_FILE);
-        await fileInput1.setInputFiles("testData/inputData/Exports/TC_T28412_T28413_T28414.xml");
+        await fileInput1.setInputFiles("testData/inputData/Exports/TC_T28413_T28414.xml");
 
         await io.flowBuilder.click(selectors.basePagePO.LAUNCH_PARSER);
         await io.flowBuilder.fillByIndex(selectors.flowBuilderPagePO.RESOUCEPATH, 'Items/ns1:Item', 1);
