@@ -2,8 +2,8 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Mapper2.0/IOT130.json";
 
-test.describe(`IOT1306 - Validate adding of new rows should be done only if all the source tabs has similar structures UI_Backlog`, () => {
-  test(`IOT1306 - Validate adding of new rows should be done only if all the source tabs has similar structures UI_Backlog`, async ({
+test.describe(`IOT1306 - To verify metadata is getting populated when record type is selected as Subscription change order in Netsuite Import flow UI_Backlog`, () => {
+  test(`IOT1306 - To verify metadata is getting populated when record type is selected as Subscription change order in Netsuite Import flow UI_Backlog`, async ({
     io,
     page
   }) => {

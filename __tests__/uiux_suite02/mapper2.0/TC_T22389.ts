@@ -27,7 +27,5 @@ test.describe(`T22389 - Validate adding of new rows should be done only if all t
 
     expect(child1).toHaveAttribute('value', 'child1');
     expect(child2).toHaveAttribute('value', 'child2');
-
-
   });
 });
