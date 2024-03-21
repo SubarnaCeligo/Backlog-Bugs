@@ -1,5 +1,6 @@
 import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
+import * as creds from "@testData/Connections/T27705_T27706.json";
 
 test.describe('TC_T27705_T27706', () => {
     test.beforeEach(async ({ io }) => {
@@ -9,16 +10,6 @@ test.describe('TC_T27705_T27706', () => {
         await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
     });
     const createConnectionAndValidate = async({ io, page, connectionName}) => {
-        const creds : {
-            username: string,
-            password: string,
-            wallet_zip_location: string,
-        } = {
-            username: 'ADMIN',
-            password: '!4I93xCKyjuD#pfH',
-            wallet_zip_location: 'testData/inputData/Connections/wallet_nsaw_qa.zip'
-        };
-
         const name_input = selectors.connectionsPagePO.NAME_INPUT;
         await io.flowBuilder.waitForElementAttached(name_input);
         const nameFields = await io.homePage.getElementsLength(name_input);
