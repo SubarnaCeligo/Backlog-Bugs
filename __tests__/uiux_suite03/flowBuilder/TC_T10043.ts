@@ -1,6 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import T10043 from '../../../testData/inputData/flowBuilder/TC_T10043.json';
+import T10043 from '../../../testData/inputData/FlowBuilder/TC_T10043.json';
 
 test.describe(`T10043 Verify Retry is working as expected for imports with asynchelper Orchestration flow(Multiple PPs) UI_Backlog`, () => {
   test(`T10043 Verify Retry is working as expected for imports with asynchelper Orchestration flow(Multiple PPs) UI_Backlog`, async ({ io, page }) => {

@@ -1,6 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import T2722 from '../../../testData/inputData/flowBuilder/TC_T2722.json';
+import T2722 from '../../../testData/inputData/FlowBuilder/TC_T2722.json';
 
 test.describe(`T2722 Metadata for ""Subscription Line"" record type is not available during Netsuite import flow UI_Backlog`, () => {
   test(`T2722 Metadata for ""Subscription Line"" record type is not available during Netsuite import flow UI_Backlog`, async ({ io, page }) => {
