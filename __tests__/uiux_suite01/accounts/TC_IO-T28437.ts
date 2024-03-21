@@ -14,7 +14,7 @@ test.describe('IO-T28437 Verify the warning message when the user 1 tries to mak
        
          await io.myAccountPage.addStep("Navigated to Accounts Page URL");
          await io.myAccountPage.click(selectors.myAccountPagePO.USERS);
-         await page.pause();
+         await io.myAccountPage.loadingTime();
          await io.myAccountPage.clickByIndex(selectors.myAccountPagePO.OPEN_ACTIONSMENU,1);
          await io.myAccountPage.click(selectors.myAccountPagePO.MAKE_ACCOUNT_OWNER);
        
