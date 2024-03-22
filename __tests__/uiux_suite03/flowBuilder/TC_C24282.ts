@@ -14,7 +14,7 @@ test.describe("TC_C24282", () => {
         await page.waitForTimeout(5000);
        const value = await io.flowBuilder.getText(selectors.flowBuilderPagePO.EXISTING_RESOURCE)
 
-     const func = value.toString().includes("No results found");
+     const func = value.toString().includes("No results found.");
      await io.assert.expectToBeTrue(func, "help text doesn't match")
      
   });
