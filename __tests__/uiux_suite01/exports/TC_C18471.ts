@@ -1,14 +1,14 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C18741_Verify on the resource listing pages update timestamp is shown as expected as a tooltip.", () => {
+test.describe("C18741_Verify on the resource listing pages update timestamp is shown as expected as a tooltip", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C18741_Verify on the resource listing pages update timestamp is shown as expected as a tooltip.", async ({ io, page }) => {
+    test("C18741_Verify on the resource listing pages update timestamp is shown as expected as a tooltip UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.flowBuilder.click(selectors.integrationPagePO.ADDNEWRESOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'netsuite');
