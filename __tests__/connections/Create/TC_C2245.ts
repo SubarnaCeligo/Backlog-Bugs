@@ -18,7 +18,7 @@ test.describe("TC_C2245_Verify HTTP Headers field is exposed in the UI page for 
     await io.homePage.navigateTo(io.data.links.IMPORTS_PAGE_URL)
     await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.homePage.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'AS2');
-    await io.homePage.clickByTextByIndex("AS2", 4);
+    await io.homePage.click(selectors.connectionsPagePO.AS2_CONNECTOR);
     await io.homePage.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.clickByText('Create_Connection_AS2');
     await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'AS2_Import');
