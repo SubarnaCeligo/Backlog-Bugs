@@ -30,8 +30,8 @@ test.describe("TC_C120210_TC_C120211_TC_C120212_TC_C120213,TC_C120214_TC_C120216
         await io.assert.verifyElementDisplayedByText("Destination table *", "Destination table is not added");
         await io.homePage.click(selectors.flowBuilderPagePO.ORACLEDB_TABLE);
         await io.assert.checkElementState(selectors.flowBuilderPagePO.REFRESHBUTTONPOSTGRE, 'isVisible');
-    await io.importsPage.click('[id="rdbms.bulkInsert.tableName"]>div>div>button');
-    await io.assert.verifyElementDisplayedByText(`Select a data destination for bulk inserts. You can bulk insert data into a table.`,
+  await io.importsPage.click(selectors.flowBuilderPagePO.DESTINATIONTABLE_HELPTEXT_ICON);
+ await io.assert.verifyElementDisplayedByText(`Select a data destination for bulk inserts. You can bulk insert data into a table.`,
           'prefix lookup text is incorrect');
         await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
         await io.homePage.addStep("*** Clicked on destination table search field ***");

@@ -61,7 +61,7 @@ test.describe(`TC120204_TC_C120205_TC_C120206_TC_C120207_TC120204`, () => {
       "Fetch Preview is not displayed"
     )
     await io.homePage.clickByIndex(selectors.mappings.MAPPER2DOT0PO.SETTINGSBUTTON,1);
-    await page.getByText("Standard").click();
+    await io.flowBuilder.clickByText("Standard");
     await page.getByText("Handlebars expression", { exact: true }).click();
     await io.homePage.loadingTime()
     await io.flowBuilder.clickByText("Please select")
