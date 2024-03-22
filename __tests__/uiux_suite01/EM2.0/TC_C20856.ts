@@ -1,4 +1,4 @@
-import { test, expect } from "@celigo/ui-core-automation";
+import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import fb from "@testData/flowbranching/fb_ui.json"
 
@@ -23,7 +23,7 @@ test.describe('C20856 Line graph filter applied by the user before logout should
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]+"flowBuilder/"+flowid);
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.PLUS_BUTTONS);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
-    await io.flowBuilder.click('[data-test="Run now"]');
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_NOW);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CHARTS);
     await io.flowBuilder.clickByText('Last 30 days' );
     await io.flowBuilder.clickByText('Last 4 hours' );

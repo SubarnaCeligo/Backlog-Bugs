@@ -1,7 +1,6 @@
-import { test } from "@celigo/ui-core-automation";
+import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import { decrypt } from "@celigo/aut-utilities";
-import { expect } from "@celigo/ui-core-automation";
 
 test.describe("TC_C110068 when user email is changed from profile page, verify Email Notification Generation when clicked on show token for an Agent in Agents Page", () => {
   test.beforeEach(async ({ io }) => {
@@ -32,8 +31,7 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
     let AccountTab=".MuiToolbar-root .MuiSvgIcon-root"
     let AccountTab1=await page.$$(".MuiToolbar-root .MuiSvgIcon-root")
     await page.waitForTimeout(20000);
-    let  last = await AccountTab1.length - 1;
-    let x=AccountTab
+    let  last = AccountTab1.length - 1;
     if (!isNotLoggedIn) {
       await io.myAccountPage.clickByIndex(AccountTab, last);
       await io.homePage.click(selectors.basePagePO.SIGN_OUT);
@@ -52,8 +50,7 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
     await io.homePage.loadingTime()
     await io.homePage.loadingTime()
     await io.homePage.loadingTime()
-   let agentselect= '[data-test="displayAgentToken"]'
-    await io.flowBuilder.click(agentselect);
+    await io.flowBuilder.click(selectors.basePagePO.DISPLAY_AGENT_TOKEN);
     await page.waitForTimeout(10000);
         const agentlink = await io.emailVal.getLinkFromEmail(
       "ALERT: Agent access token was displayed in clear text",true, "pwqa1"
@@ -92,7 +89,7 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
     let Account1Tab=".MuiToolbar-root .MuiSvgIcon-root"
     let Account1Tab1=await page.$$(".MuiToolbar-root .MuiSvgIcon-root")
     await page.waitForTimeout(20000);
-    let  last1 = await Account1Tab1.length - 1;
+    let  last1 = Account1Tab1.length - 1;
 
     if (!isNotLoggedIn1) {
       await io.myAccountPage.clickByIndex(Account1Tab, last1);
