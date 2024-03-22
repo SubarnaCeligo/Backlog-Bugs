@@ -11,7 +11,7 @@ test.describe("C24967_Tile manage- Verify when clicked on view report details op
         const intID = await io.api.loadIntegrations();
         await io.flowBuilder.selectTextfromDropDown(page, intID.get('Automation Flows'))
         await io.homePage.fill(selectors.dashboardPagePO.REPORT_FLOWS, 'TC_C12034_DND')
-        await page.getByText('TC_C12034_DND').last().click()
+        await page.getByText('TC_C12034_DND').click()
         await io.homePage.clickByText('Done');
         await io.homePage.clickByText("Choose date range");
         await io.homePage.clickByText("Last minute");

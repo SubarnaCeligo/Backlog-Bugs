@@ -10,7 +10,8 @@ test.describe("C24619_Verify the behaviour of Retry & Resolve dropdown with <100
         await io.flowBuilder.clickByText("TC_C24619_Flow_DND");
         await io.flowBuilder.click(selectors.basePagePO.RUNFLOW);
         await io.flowBuilder.loadingTime();
-        await io.flowBuilder.reloadPage()
+        await io.flowBuilder.reloadPage();
+        await io.flowBuilder.loadingTime();
         await io.homePage.clickByIndex(selectors.flowBuilderPagePO.ERROR_BUBBLE, 1);
         await io.homePage.clickByIndex(selectors.flowBuilderPagePO.CHECKBOX, 1);
         await io.flowBuilder.clickByText('Retry & next')
