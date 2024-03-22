@@ -30,7 +30,7 @@ test.describe("C99341To validate batch size field with >=1 and <=1000 number typ
   
     await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.FTPBATCHSIZE + ' ~ div','Only numbers allowed');
     await io.flowBuilder.fill(selectors.flowBuilderPagePO.BATCHSIZE, '0');
-    await io.flowBuilder.click(selectors.basePagePO.SAVE);
+    await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.TRANSFER
