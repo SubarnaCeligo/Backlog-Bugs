@@ -2,12 +2,12 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import T3097 from "@testData/Flows/TC_T3097.json";
 
-test.describe("T3097 Custom settings should not be Shrinked once we select script and save in the Form builder UI_Backlog", () => {
+test.describe("T3097 Custom settings should not be Shrinked once we select script and save in the Form builder @author_Kaushik UI_Backlog", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
 
   });
-  test("T3097 Custom settings should not be Shrinked once we select script and save in the Form builder UI_Backlog", async ({ io, page }) => {
+  test("T3097 Custom settings should not be Shrinked once we select script and save in the Form builder @author_Kaushik UI_Backlog", async ({ io, page }) => {
     await io.homePage.loadingTime()
     const id = await io.createResourceFromAPI(T3097, "FLOWS");
 
