@@ -153,7 +153,7 @@ var testCases = [
   "IOT26993",
   "IOT26994",
   "IOT26357",
- // "C117763" - This test case has been removed from April release.,
+  "C117763" ,//- This test case has been removed from April release.,
   "C107021",
   "T24275",
   "T24276_T27516",
