@@ -9,7 +9,7 @@ test.describe("TC_C57803_Verify giving invalid base URI by unselecting the Confi
         await test.step("*** Creating Connection ***", async () => {
             await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
             await io.homePage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'Magento 2');
-            await io.homePage.click(selectors.connectionsPagePO.MAGENTO2_USERNAME);
+            await io.homePage.click(selectors.connectionsPagePO.MAGENTO2_CONNECTOR);
             await io.homePage.click(selectors.basePagePO.HTTP_2DOT0);
             await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'TC_C57803_Connection');
             await io.homePage.clickByTextByIndex('Configure refresh token', 0);
