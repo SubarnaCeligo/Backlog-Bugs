@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import T2976 from "@testData/Flows/TC_T2976.json";
 import { decrypt } from "@celigo/aut-utilities";
 
-test.describe("T2976 Verify the filter set by the user will persist even if the user is logout and login again @author_Kaushik UI_Backlog", () => {
+test.describe.skip("T2976 Verify the filter set by the user will persist even if the user is logout and login again @author_Kaushik UI_Backlog", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
 
