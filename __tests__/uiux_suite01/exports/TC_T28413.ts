@@ -1,14 +1,14 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("T28413_Verify XML parser help for FTP, Gdrive, S3, dropbox with proper resource path", () => {
+test.describe("T28413_T28457_T28458_T28459 Verify XML parser help for FTP, Gdrive, S3, dropbox with proper resource path", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Epic-IO-47338 @Priority-P2 T28413_Verify XML parser help for FTP with proper resource path", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28413 Verify XML parser help for FTP with proper resource path", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
@@ -40,7 +40,7 @@ test.describe("T28413_Verify XML parser help for FTP, Gdrive, S3, dropbox with p
         await io.assert.verifyElementTextByIndex(selectors.flowBuilderPagePO.SCRIPT_RESULT_VARIABLES, '\"ns1:OrganizationCode\"', 4);
     });
 
-    test("@Epic-IO-47338 @Priority-P2 T28413_Verify XML parser help for S3 with proper resource path", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28457 Verify XML parser help for S3 with proper resource path", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
@@ -72,7 +72,7 @@ test.describe("T28413_Verify XML parser help for FTP, Gdrive, S3, dropbox with p
         await io.assert.verifyElementTextByIndex(selectors.flowBuilderPagePO.SCRIPT_RESULT_VARIABLES, '\"ns1:OrganizationCode\"', 4);
     });
 
-    test("@Epic-IO-47338 @Priority-P2 T28413_Verify XML parser help for Google Drive with proper resource path", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28458 Verify XML parser help for Google Drive with proper resource path", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
@@ -104,7 +104,7 @@ test.describe("T28413_Verify XML parser help for FTP, Gdrive, S3, dropbox with p
         await io.assert.verifyElementTextByIndex(selectors.flowBuilderPagePO.SCRIPT_RESULT_VARIABLES, '\"ns1:OrganizationCode\"', 4);
     });
 
-    test("@Epic-IO-47338 @Priority-P2 T28413_Verify XML parser help for Dropbox with proper resource path", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28459 Verify XML parser help for Dropbox with proper resource path", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
