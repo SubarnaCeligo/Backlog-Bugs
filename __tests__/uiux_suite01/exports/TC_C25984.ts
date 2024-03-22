@@ -8,7 +8,7 @@ test.describe("C25984_Verify the View debug logs option is available to only Lis
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C25984_Verify the View debug logs option is available to only Listeners ie. webhook, realtime applications (NS & SF)", async ({ io, page }) => {
+    test("C25984_Verify the View debug logs option is available to only Listeners ie. webhook, realtime applications (NS & SF) UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
