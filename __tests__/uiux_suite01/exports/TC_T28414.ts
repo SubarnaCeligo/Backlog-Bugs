@@ -1,14 +1,14 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("T28414_Verify XML parser help for FTP, Gdrive, S3, dropbox with invalid resource path", () => {
+test.describe("T28414_T28461_T28462_T28463 Verify XML parser help for FTP, Gdrive, S3, dropbox with invalid resource path", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Epic-IO-47338 @Priority-P2 T28414_Verify XML parser help for FTP with invalid resource path", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28414 Verify XML parser help for FTP with invalid resource path", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();
         
@@ -54,7 +54,7 @@ test.describe("T28414_Verify XML parser help for FTP, Gdrive, S3, dropbox with i
         await expect(test).toBe(false); 
     });
 
-    test("@Epic-IO-47338 @Priority-P2 T28414_Verify XML parser help for S3 with invalid resource path", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28461 Verify XML parser help for S3 with invalid resource path", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();
 
@@ -100,7 +100,7 @@ test.describe("T28414_Verify XML parser help for FTP, Gdrive, S3, dropbox with i
         await expect(test).toBe(false); 
     });
 
-    test("@Epic-IO-47338 @Priority-P2 T28414_Verify XML parser help for Google Drive with invalid resource path", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28462 Verify XML parser help for Google Drive with invalid resource path", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();
     
@@ -146,7 +146,7 @@ test.describe("T28414_Verify XML parser help for FTP, Gdrive, S3, dropbox with i
         await expect(test).toBe(false); 
     });
 
-    test("@Epic-IO-47338 @Priority-P2 T28414_Verify XML parser help for Dropbox with invalid resource path", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28463 Verify XML parser help for Dropbox with invalid resource path", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();
 
