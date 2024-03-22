@@ -48,18 +48,19 @@ test.describe("C34489 - verify the request logs in a list are sorted by timestam
 
     await io.importsPage.click(selectors.importPagePO.CLICKIMPORT);
     await io.importsPage.click(selectors.flowBuilderPagePO.VIEW_DEBUG_LOG);
+    await io.importsPage.loadingTime();
 
-    // C34491 When paginate, first log should always be selected by default (request/response panel)
-    await io.assert.verifyElementAttribute(
+   // C34491 When paginate, first log should always be selected by default (request/response panel)
+    await io.assert.verifyElementAttributeContainsText(
       selectors.flowBuilderPagePO.DEBUG_TABLE_FIRST_ROW,
       "class",
-      "MuiTableRow-root Mui-selected MuiTableRow-hover css-1a1kujy"
+      "Mui-selected"
     );
     await io.flowBuilder.click(selectors.basePagePO.IDNEXTPAGE);
-    await io.assert.verifyElementAttribute(
+    await io.assert.verifyElementAttributeContainsText(
       selectors.flowBuilderPagePO.DEBUG_TABLE_FIRST_ROW,
       "class",
-      "MuiTableRow-root Mui-selected MuiTableRow-hover css-1a1kujy"
+      "Mui-selected"
     );
 
     var dateFirst = await page.$(
