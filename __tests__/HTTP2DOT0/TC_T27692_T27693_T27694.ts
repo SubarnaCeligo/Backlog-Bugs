@@ -25,6 +25,7 @@ test.describe('TC_T27692_T27693_T27694', () => {
         await io.assert.expectNotToBeNull(connectionDoc, "Connection is null");
         await io.assert.expectToBeValue(connectionDoc.jdbc?.authType, 'customjdbc', "Connection auth type is not customjdbc");
         await io.homePage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, oracleConnction);
+        await io.homePage.loadingTime();
         await io.homePage.clickByText(oracleConnction);
         await io.assert.verifyElementNotBeFound(selectors.connectionsPagePO.JDBC_AUTH_TYPE);
     });

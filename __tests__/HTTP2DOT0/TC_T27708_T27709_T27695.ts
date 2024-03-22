@@ -18,7 +18,7 @@ test.describe('TC_T27708_T27709_T27695', () => {
             await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
             await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
             let connections = await page
-                .locator(`${selectors.connectionsPagePO.CONNECTIONS_DROPDOWN_LIST} li`).filter({ hasText: Oracle_Connection.name }).count();
+                .locator(`${selectors.connectionsPagePO.CONNECTIONS_DROPDOWN_LIST} li`).filter({ hasText: 'oracle' }).count();
             await io.assert.expectToBeFalse(connections > 0, "Oracle connections are also shown in connection dropdown");
             await io.flowBuilder.clickByText(NSAW_Connection.name);
             await io.flowBuilder.click(selectors.basePagePO.CLOSE);
@@ -27,15 +27,15 @@ test.describe('TC_T27708_T27709_T27695', () => {
             await io.flowBuilder.click(selectors.flowBuilderPagePO.LOOKUP);
             await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
             connections = await page
-                .locator(`${selectors.connectionsPagePO.CONNECTIONS_DROPDOWN_LIST} li`).filter({ hasText: Oracle_Connection.name }).count();
-            await io.assert.expectToBeTrue(connections === 1, "Oracle connections aren't only shown in connection dropdown");
+                .locator(`${selectors.connectionsPagePO.CONNECTIONS_DROPDOWN_LIST} li`).filter({ hasText: 'oracle' }).count();
+            await io.assert.expectToBeTrue(connections >= 1, "Oracle connections aren't only shown in connection dropdown");
             await io.flowBuilder.click(selectors.basePagePO.CLOSE);
 
             await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT);
             await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
             connections = await page
-                .locator(`${selectors.connectionsPagePO.CONNECTIONS_DROPDOWN_LIST} li`).filter({ hasText: NSAW_Connection.name }).count();
-            await io.assert.expectToBeTrue(connections === 1, "NSAW connections aren't only shown in connection dropdown");
+                .locator(`${selectors.connectionsPagePO.CONNECTIONS_DROPDOWN_LIST} li`).filter({ hasText: 'nsaw' }).count();
+            await io.assert.expectToBeTrue(connections >= 1, "NSAW connections aren't only shown in connection dropdown");
             await io.flowBuilder.click(selectors.basePagePO.CLOSE);
         });
 

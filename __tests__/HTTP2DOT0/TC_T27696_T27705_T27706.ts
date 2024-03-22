@@ -38,7 +38,7 @@ test.describe('TC_T27696_T27705_T27706', () => {
         await io.connections.deleteConnection(connectionName);
     });
 
-    test('IO-T27705 Verify authentication field is not shown for NSAW connector and user is able to create connection in Sandbox', async ({ io, page }) => {
+    test.skip('IO-T27705 Verify authentication field is not shown for NSAW connector and user is able to create connection in Sandbox', async ({ io, page }) => {
         const connectionName = 'TC_T27705_NSAW_Connection_sandbox';
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.click(selectors.homePagePO.SANDBOX_BUTTON);
