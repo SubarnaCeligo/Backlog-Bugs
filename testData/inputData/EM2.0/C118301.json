@@ -1,0 +1,13 @@
+{
+    "emails": [
+        "io.auto.qa+remacctaccess@celigo.com"
+    ],
+    "integrationAccessLevel": [
+        {
+            "_integrationId": "65ce353edc10e84e5f313b7f",
+            "accessLevel": "monitor"
+        }
+    ],
+    "accountSSORequired": false,
+    "accountMFARequired": false
+}

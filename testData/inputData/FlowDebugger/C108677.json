@@ -1,0 +1,220 @@
+{
+  "name": "TC_C108677",
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "export",
+        "_connectionId": "NETSUITE CONNECTION",
+        "apiIdentifier": "e7e3515235",
+        "asynchronous": true,
+        "hooks": {
+          "preSavePage": {
+            "_scriptId": "65e04db02f7d62a20b88fd57",
+            "function": "preSavePage"
+          }
+        },
+        "oneToMany": false,
+        "sandbox": false,
+        "mockOutput": {
+          "page_of_records": [
+            {
+              "record": {
+                "id": "103470",
+                "recordType": "account",
+                "Name": "0Account 1",
+                "Display Name": "10.0 0Account 1",
+                "Account Type": "Bank",
+                "Description": "",
+                "Balance": ".00",
+                "Show in Fixed Assets Management": "",
+                "dataURI": "https://tstdrv1143616.app.netsuite.com/app/accounting/account/account.nl?id=103470&compid=TSTDRV1143616"
+              }
+            },
+            {
+              "record": {
+                "id": "103471",
+                "recordType": "account",
+                "Name": "0Account 2",
+                "Display Name": "130.0 0Account 2",
+                "Account Type": "Bank",
+                "Description": "",
+                "Balance": ".00",
+                "Show in Fixed Assets Management": "",
+                "dataURI": "https://tstdrv1143616.app.netsuite.com/app/accounting/account/account.nl?id=103471&compid=TSTDRV1143616"
+              }
+            },
+            {
+              "record": {
+                "id": "656",
+                "recordType": "account",
+                "Name": "Automation_DH",
+                "Display Name": "12345678 Automation_DH",
+                "Account Type": "Bank",
+                "Description": "",
+                "Balance": ".00",
+                "Show in Fixed Assets Management": "",
+                "dataURI": "https://tstdrv1143616.app.netsuite.com/app/accounting/account/account.nl?id=656&compid=TSTDRV1143616"
+              }
+            },
+            {
+              "record": {
+                "id": "81367",
+                "recordType": "account",
+                "Name": "C35126Automation",
+                "Display Name": "1 C35126Automation",
+                "Account Type": "Bank",
+                "Description": "",
+                "Balance": ".00",
+                "Show in Fixed Assets Management": "",
+                "dataURI": "https://tstdrv1143616.app.netsuite.com/app/accounting/account/account.nl?id=81367&compid=TSTDRV1143616"
+              }
+            },
+            {
+              "record": {
+                "id": "103570",
+                "recordType": "account",
+                "Name": "C47503 Automation",
+                "Display Name": "123 C47503 Automation",
+                "Account Type": "Bank",
+                "Description": "",
+                "Balance": ".00",
+                "Show in Fixed Assets Management": "",
+                "dataURI": "https://tstdrv1143616.app.netsuite.com/app/accounting/account/account.nl?id=103570&compid=TSTDRV1143616"
+              }
+            },
+            {
+              "record": {
+                "id": "5",
+                "recordType": "account",
+                "Name": "Cash on Hand",
+                "Display Name": "1008 Cash on Hand",
+                "Account Type": "Bank",
+                "Description": "",
+                "Balance": ".00",
+                "Show in Fixed Assets Management": "",
+                "dataURI": "https://tstdrv1143616.app.netsuite.com/app/accounting/account/account.nl?id=5&compid=TSTDRV1143616"
+              }
+            },
+            {
+              "record": {
+                "id": "1",
+                "recordType": "account",
+                "Name": "Checking",
+                "Display Name": "1000 Checking",
+                "Account Type": "Bank",
+                "Description": "",
+                "Balance": ".00",
+                "Show in Fixed Assets Management": "",
+                "dataURI": "https://tstdrv1143616.app.netsuite.com/app/accounting/account/account.nl?id=1&compid=TSTDRV1143616"
+              }
+            },
+            {
+              "record": {
+                "id": "652",
+                "recordType": "account",
+                "Name": "CS",
+                "Display Name": "111 CS",
+                "Account Type": "Bank",
+                "Description": "",
+                "Balance": ".00",
+                "Show in Fixed Assets Management": "",
+                "dataURI": "https://tstdrv1143616.app.netsuite.com/app/accounting/account/account.nl?id=652&compid=TSTDRV1143616"
+              }
+            },
+            {
+              "record": {
+                "id": "537",
+                "recordType": "account",
+                "Name": "New NS Account",
+                "Display Name": "200311 New NS Account",
+                "Account Type": "Bank",
+                "Description": "",
+                "Balance": "1473.29",
+                "Show in Fixed Assets Management": "",
+                "dataURI": "https://tstdrv1143616.app.netsuite.com/app/accounting/account/account.nl?id=537&compid=TSTDRV1143616"
+              }
+            },
+            {
+              "record": {
+                "id": "3",
+                "recordType": "account",
+                "Name": "Payroll",
+                "Display Name": "1004 Payroll",
+                "Account Type": "Bank",
+                "Description": "",
+                "Balance": ".00",
+                "Show in Fixed Assets Management": "",
+                "dataURI": "https://tstdrv1143616.app.netsuite.com/app/accounting/account/account.nl?id=3&compid=TSTDRV1143616"
+              }
+            }
+          ]
+        },
+        "rawData": "56d6b114e1fc35de5391472c7827449f2b2245d3960316d1ba727273",
+        "netsuite": {
+          "type": "restlet",
+          "skipGrouping": true,
+          "statsOnly": false,
+          "restlet": {
+            "recordType": "account",
+            "searchId": "4648",
+            "restletVersion": "suiteapp2.0",
+            "markExportedBatchSize": 100
+          },
+          "distributed": {}
+        },
+        "adaptorType": "NetSuiteExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "import",
+        "_connectionId": "GOOGLEDRIVE CONNECTION",
+        "apiIdentifier": "i58ec410a1",
+        "oneToMany": false,
+        "assistant": "googledrive",
+        "sandbox": false,
+        "file": {
+          "fileName": "file-{{timestamp}}.json",
+          "skipAggregation": false,
+          "type": "json"
+        },
+        "http": {
+          "type": "file",
+          "relativeURI": ["/Gdrive_uploads/"],
+          "method": ["POST"],
+          "body": [],
+          "sendPostMappedData": true,
+          "formType": "assistant",
+          "response": {
+            "resourcePath": ["files"]
+          }
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "createFlow": {
+    "name": "TC_C1008677 flow",
+    "disabled": true,
+    "pageGenerators": [
+      {
+        "_exportId": "UPDATE WITH NEW EXPORTID",
+        "skipRetries": false
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "_importId": "UPDATE WITH NEW IMPORTID",
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        }
+      }
+    ],
+    "autoResolveMatchingTraceKeys": true
+  }
+}

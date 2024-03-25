@@ -1,0 +1,86 @@
+{
+  "qa__api_tdata": [
+    {
+      "skipRetries": false,
+      "name": "NS - fetch listner log Test",
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "_id": "test_65decf0a3db079027a9badae",
+            "name": "NS export test",
+            "_connectionId": "NETSUITE CONNECTION",
+            "apiIdentifier": "e4ab998337",
+            "asynchronous": true,
+            "hooks": {
+              "preSavePage": {
+                "_scriptId": "REPLACED_VIA_CODE",
+                "function": "preSavePage"
+              }
+            },
+            "oneToMany": false,
+            "sandbox": false,
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "recordType": "salesorder",
+                "searchId": "997",
+                "restletVersion": "suiteapp2.0",
+                "markExportedBatchSize": 100
+              },
+              "distributed": {}
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "_id": "test_65decdf43db079027a9ba050",
+            "name": "http test import",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "ib7edbf881",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+              "relativeURI": [],
+              "method": ["POST"],
+              "body": [],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "_id": "test_652e15d26819f54a81ada56f",
+        "name": "NS - fetch listner log Test",
+        "disabled": true,
+        "skipRetries": false,
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID",
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 import { test, expect } from "@celigo/ui-core-automation";
-import * as FTP from "@testData/Connections/Create/Create_Connection_FTP.json"
+import  FTP from "@testData/Connections/Create/Create_Connection_FTP.json"
 
 test.describe("Create Connections", () => {
     test.beforeEach(async ({ io }) => {

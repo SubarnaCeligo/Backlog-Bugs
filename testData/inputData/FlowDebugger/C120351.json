@@ -1,0 +1,117 @@
+{
+    "name": "TC_C120351",
+    "referencename": "TC_C120351",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Http Export",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "_sourceId": "6576e60085c7d741b3ffe201",
+                        "apiIdentifier": "e0c9e5e2d6",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "http": {
+                            "relativeURI": "/users",
+                            "method": "GET",
+                            "formType": "http",
+                            "response": {
+                                "resourcePath": "users"
+                            }
+                        },
+                        "test": {
+                            "limit": 3
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Salesforce Lookup",
+                        "_connectionId": "SALESFORCE CONNECTION",
+                        "_sourceId": "647853763c7c8f17f684c12c",
+                        "apiIdentifier": "e76e0811b8",
+                        "asynchronous": true,
+                        "isLookup": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "salesforce": {
+                            "type": "soql",
+                            "api": "rest",
+                            "soql": {
+                                "query": "Select Name from Account"
+                            }
+                        },
+                        "adaptorType": "SalesforceExport"
+                    }
+                },
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Create organizations",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "i538d1fc4d",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": [
+                                "/organizations"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C120351",
+                "disabled": false,
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "hooks": {
+                            "postResponseMap": {
+                                "function": "postResponseMap",
+                                "_scriptId": "64ecabf95439c43db5358c19"
+                            }
+                        },
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    },
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}
