@@ -12,7 +12,7 @@ test.describe('Verify if other file providers should not have MIME type', () => 
         await io.importsPage.click(selectors.flowBuilderPagePO.AMAZONS3)
         await io.importsPage.click(selectors.exportsPagePO.CREATE_SELECT_CONNECTION);
         await io.homePage.clickByText('AMAZON S3 CONNECTION')
-        await page.type(selectors.importPagePO.NAME, 'import');
+        await io.flowBuilder.fill(selectors.importPagePO.NAME, 'import');
         await io.homePage.clickByText('Next');
         const mimeType = await io.homePage.isVisible(selectors.importPagePO.MIMETYPE)
         await io.assert.expectToBeValue(mimeType.toString(), "false", "Field MIME type is present for other file provider imports");

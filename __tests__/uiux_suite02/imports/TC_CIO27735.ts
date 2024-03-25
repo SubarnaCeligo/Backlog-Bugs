@@ -12,13 +12,11 @@ test.describe('Verify if google drive import has a MIME type has a default optio
         await io.homePage.clickByText(' Create import')
         await io.importsPage.click(selectors.flowBuilderPagePO.GDRIVE)
         await io.importsPage.click(selectors.exportsPagePO.CREATE_SELECT_CONNECTION);
-        await io.flowBuilder.delay(2000);
-
-         await io.homePage.clickByText('GOOGLEDRIVE CONNECTION')
-         await page.type(selectors.importPagePO.NAME, 'import');
-         await io.homePage.clickByText('Next');
-         const defaultData = await io.importsPage.getText(selectors.importPagePO.MIMETYPE);
-        expect(defaultData).toBe('Do not override');
+        await io.homePage.clickByText('GOOGLEDRIVE CONNECTION')
+        await io.flowBuilder.fill(selectors.importPagePO.NAME, 'import');
+        await io.homePage.clickByText('Next');
+        const defaultData = await io.importsPage.getText(selectors.importPagePO.MIMETYPE);
+        expect(defaultData).toBe('Mime typeDo not override');
     });
   })
 

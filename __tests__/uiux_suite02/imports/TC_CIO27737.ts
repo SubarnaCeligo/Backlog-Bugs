@@ -14,7 +14,7 @@ test.describe('CIO27737 & CIO27739 Verify if MIME type is correctly saved by sav
     await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);
     const defaultData = await io.importsPage.getText(selectors.importPagePO.MIMETYPE);
     expect(defaultData).toContain('Google Audio');
-    await page.type(selectors.importPagePO.NAME, 'import');
+    await io.flowBuilder.fill(selectors.importPagePO.NAME, 'import');
     await io.flowBuilder.clickByText("Save & close");
     await io.flowBuilder.waitForElementAttached(selectors.basePagePO.RUNFLOW);
     await io.flowBuilder.click(selectors.basePagePO.RUNFLOW);

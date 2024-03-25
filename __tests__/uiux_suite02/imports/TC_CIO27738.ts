@@ -23,13 +23,13 @@ test.describe(`CIO27738_Verify MIME type data after cloning.`, () => {
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.integrationPage.waitForElementAttached(selectors.flowBuilderPagePO.ACTIONS_SELECTOR);
-        await page.type(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Clone - TC_CIO27738');
+        await io.flowBuilder.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Clone - TC_CIO27738');
         await io.integrationPage.waitForElementAttached(selectors.flowBuilderPagePO.ACTIONS_SELECTOR);
         await io.integrationPage.click(selectors.flowBuilderPagePO.ACTIONS_SELECTOR);
         await io.flowBuilder.clickByTextByIndex("Clone - TC_CIO27738", 0);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.TRANSFER);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);
         const defaultData = await io.importsPage.getText(selectors.importPagePO.MIMETYPE);
-        expect(defaultData).toContain('Google Audio');
+        expect(defaultData).toBe('Mime typeGoogle Audio');
         });
 });

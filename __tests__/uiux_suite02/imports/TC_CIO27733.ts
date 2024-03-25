@@ -12,7 +12,7 @@ test.describe('Verify if google drive import has a MIME type dropdown', () => {
         await io.importsPage.click(selectors.flowBuilderPagePO.GDRIVE)
         await io.importsPage.click(selectors.exportsPagePO.CREATE_SELECT_CONNECTION);
         await io.homePage.clickByText('GOOGLEDRIVE CONNECTION')
-        await page.type(selectors.importPagePO.NAME, 'import');
+        await io.flowBuilder.fill(selectors.importPagePO.NAME, 'import');
         await io.homePage.clickByText('Next');
         await io.assert.verifyElementIsDisplayed(selectors.importPagePO.MIMETYPE, "MIME type is not displayed");
     });
