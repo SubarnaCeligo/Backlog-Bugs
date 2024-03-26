@@ -16,6 +16,15 @@ test.describe("TC_C24282", () => {
 
      const func = value.toString().includes("No results found.");
      await io.assert.expectToBeTrue(func, "help text doesn't match")
+     await io.exportsPage.click(selectors.importPagePO.IMPORT_CLOSE_DRAWER);
+     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP);
+ 
+     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP);
+ 
+     const valu1 = await io.flowBuilder.getText(selectors.flowBuilderPagePO.EXISTING_RESOURCE)
+
+     const func1 = value.toString().includes("No results found.");
+     await io.assert.expectToBeTrue(func1, "help text doesn't match")
      
   });
 });
