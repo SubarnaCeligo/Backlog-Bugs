@@ -47,6 +47,7 @@ test.describe(`T10043 Verify Retry is working as expected for imports with async
     await io.importsPage.click(selectors.importPagePO.FEEDTYPE);
     await io.importsPage.clickByText("POST_FLAT_FILE_INVLOADER_DATA");
     await io.importsPage.click(selectors.basePagePO.SAVE_AND_CLOSE);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.reloadPage();
     await io.flowBuilder.loadingTime();
 
