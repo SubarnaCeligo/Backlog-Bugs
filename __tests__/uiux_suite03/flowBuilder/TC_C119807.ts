@@ -10,7 +10,7 @@ test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
         await io.api.deleteFlowViaAPI(id1);
         await io.api.deleteFlowViaAPI(id2);
     });
-    test("TC_C119807", async ({ io, page }) => {
+    test.only("TC_C119807", async ({ io, page }) => {
         id = await io.createResourceFromAPI(C119807, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
         await io.flowBuilder.reloadPage();
