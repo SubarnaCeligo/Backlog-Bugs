@@ -8,6 +8,7 @@ test.describe("C112080_C112081_C112082_C2112083_C112089", () => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   
   });
+  
   test("C112080 Verify user able to give all the secret key,payload,header values", async ({io, page}) => {
       await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
       await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
@@ -110,9 +111,11 @@ test.describe("C112080_C112081_C112082_C2112083_C112089", () => {
       "Connection creation error"
     );
   });
+  
   test("C112089 Verify the handlebar at payload & JWT headers", async ({io, page}) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL)
     await io.homePage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL)
+    await io.homePage.loadingTime()
     await io.homePage.waitForElementAttached("text='GITHUB DND'")
     await io.homePage.clickByText("GITHUB DND")
     await io.flowBuilder.loadingTime();
@@ -121,6 +124,7 @@ test.describe("C112080_C112081_C112082_C2112083_C112089", () => {
     await io.connectionPage.click(selectors.connectionsPagePO.GENERAL);
     await io.connectionPage.click(selectors.connectionsPagePO.APPLICATION_DETAILS);
     await io.connectionPage.click(selectors.connectionsPagePO.CONFIGURE_AUTHENTICATION);
+    await io.homePage.loadingTime()
     await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
     await io.connectionPage.fill(selectors.connectionsPagePO.SETTINGS_INLINE,'{"iss":"495629","aud":"test","exp":"7764","typ":"test","alg":"rsa256"}');
     await io.connectionPage.click(selectors.connectionsPagePO.CONFIGURE_AUTHENTICATION);
