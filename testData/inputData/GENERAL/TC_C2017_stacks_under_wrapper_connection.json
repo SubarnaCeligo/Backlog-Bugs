@@ -1,7 +1,0 @@
-{
-    "name": "Don't use",
-    "type": "server",
-    "server": {
-        "hostURI": "abc.abc"
-    }
-}
