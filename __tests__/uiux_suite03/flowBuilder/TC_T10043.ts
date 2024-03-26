@@ -44,13 +44,14 @@ test.describe(`T10043 Verify Retry is working as expected for imports with async
     await io.assert.verifyElementContainsText('tbody tr:nth-child(1) td:nth-child(5)', "Success");
     await io.assert.verifyElementContainsText('tbody tr:nth-child(2) td:nth-child(5)', "errors");
     await io.flowBuilder.click('[data-test="Import"]');
-    await io.exportsPage.fill(selectors.exportsPagePO.HTTP_RELATIVE_URI, '/feeds/2021-06-30/documents');
-    await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
-    await io.flowBuilder.loadingTime();
+    await io.importsPage.click(selectors.importPagePO.FEEDTYPE);
+    await io.importsPage.clickByText("POST_FLAT_FILE_INVLOADER_DATA");
+    await io.importsPage.click(selectors.basePagePO.SAVE_AND_CLOSE);
     await io.flowBuilder.reloadPage();
     await io.flowBuilder.loadingTime();
 
     await io.flowBuilder.addStep("Retrying the flow");
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ERROR_BUBBLE);
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.ERROR_BUBBLE, 1);
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2DOT0PO.RETRY_JOBS_DROPDOWN);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2DOT0PO.RETRY_JOBS_DROPDOWN);
