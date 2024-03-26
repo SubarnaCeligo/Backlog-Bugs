@@ -35,7 +35,6 @@ test.describe("T284932 - Verify that encrypted data containing escape characters
 
         //Enter payload
         await io.exportsPage.fill(selectors.flowBuilderPagePO.HTTP_BODY_INPUT, '{"key" : "{{connection.http.encrypted.key}}"}');
-        // ('[id="http.body"] .ace_text-input'
         await io.exportsPage.click(selectors.exportsPagePO.MUI_COMPONENT_SELECT_TYPE);
         await io.exportsPage.waitForElementAttached(selectors.flowBuilderPagePO.LIMITTYPE);
         await io.exportsPage.click(selectors.flowBuilderPagePO.LIMITTYPE);
