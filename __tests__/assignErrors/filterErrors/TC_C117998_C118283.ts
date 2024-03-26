@@ -2,11 +2,11 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import _ from 'lodash';
 
-test.describe("C117999_C118000 Verify if user filter section is added to filter dialog ", () => {
+test.describe("C117998_C118283 Verify if user filter section is added to filter dialog ", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("C117999_C118000 Verify if user filter section is added to filter dialog", async ({
+  test("@Epic-IO-38602 @Priority-P2 @Zephyr-IO-T20052 @Env-All C117998_C118283 Verify if user filter section is added to filter dialog", async ({
     io,
     page,
   }) => {
