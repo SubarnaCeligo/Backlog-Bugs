@@ -6,7 +6,7 @@ test.describe("C118281_C118282 Verify user email is displayed on filter UI when 
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
 
   });
-  test("@Epic-IO-38602 Priority-P2 @Zephyr-IO-T20063 @Env-All C118281 Verify user email is displayed on filter UI when an error is assigned to non IO user", async ({
+  test("@Epic-IO-38602 @Priority-P2 @Zephyr-IO-T20063 @Env-All C118281 Verify user email is displayed on filter UI when an error is assigned to non IO user", async ({
     io,
     page,
   }) => {
@@ -38,7 +38,7 @@ test.describe("C118281_C118282 Verify user email is displayed on filter UI when 
     await io.assert.expectToBeTrue(isEmailDisplayed, "io.auto.qa+assignpending@celigo.com not found");
 
   });
-  test("@Epic-IO-38602 Priority-P2 @Zephyr-IO-T20064 @Env-All C118282 Verify if longer usernames/email or usernames with special character are displayed properly on filter user section", async ({
+  test("@Epic-IO-38602 @Priority-P2 @Zephyr-IO-T20064 @Env-All C118282 Verify if longer usernames/email or usernames with special character are displayed properly on filter user section", async ({
     io,
     page,
   }) => {
