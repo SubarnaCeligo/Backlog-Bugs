@@ -8,6 +8,8 @@ test.describe(`C63003 Verify connection dropdown while clonning flow`, () => {
     page
   }) => {
     await io.createResourceFromAPI(testData, "FLOWS");
+    //wait for the flow to load
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
     await io.flowBuilder.clickByIndex(
       selectors.connectionsPagePO.ACTIONS_MENU_BUTTON,
       0

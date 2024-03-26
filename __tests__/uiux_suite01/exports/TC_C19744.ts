@@ -8,7 +8,7 @@ test.describe("C19744_All the AFE panels should open on the right side of the pa
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C19744_All the AFE panels should open on the right side of the page", async ({ io, page }) => {
+    test("C19744_All the AFE panels should open on the right side of the page UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'netsuite');

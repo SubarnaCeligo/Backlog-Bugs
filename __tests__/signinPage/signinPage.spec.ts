@@ -24,7 +24,14 @@ var testCases = [
   "C65744",
   "C67037",
   "C67038",
-  "C61932"
+  "C61932",
+  "C100968",
+  "C59779",
+  "C62667",
+  "C2714",
+  "C1516",
+  "C39973",
+  "C62659"
 ];
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
 (async () => {

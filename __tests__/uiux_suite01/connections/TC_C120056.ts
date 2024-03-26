@@ -11,7 +11,7 @@ test.describe(`TC_C120056`, () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL)
     await io.homePage.clickByText("Automation Flows")
     await io.homePage.waitForElementAttached("text='TC_C120056'")
-    await io.homePage.clickByText("TC_C120056")
+    await io.homePage.clickByTextByIndex("TC_C120056", 0);
     await io.flowBuilder.loadingTime();
     await io.homePage.clickByIndex(
       selectors.connectionsPagePO.ACTIONS_MENU_BUTTON,
