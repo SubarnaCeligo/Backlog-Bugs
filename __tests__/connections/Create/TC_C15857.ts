@@ -3,8 +3,8 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 
-test.describe("CONNECTIONS", () => {
-    test("TC_C15857_Verify For OAuth connection Call back URL in the EU instance should be https://eu.integrator.io/connection/oauth2callback", async ({ io }, testInfo) => {
+test.describe("TC_C15857_Verify For OAuth connection Call back URL in the EU instance should be 'https://eu.integrator.io/connection/oauth2callback'", () => {
+    test("TC_C15857_Verify For OAuth connection Call back URL in the EU instance should be 'https://eu.integrator.io/connection/oauth2callback' UI_Backlog", async ({ io }, testInfo) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources", "iClients");

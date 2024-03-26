@@ -1,8 +1,8 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C27111_Run report drawer- If the integration I select in the ‘Integration’ field has a parent + child structure, then we need to show a ‘Child integrations’ multi-select field.", () => {
-    test("C27111_Run report drawer- If the integration I select in the ‘Integration’ field has a parent + child structure, then we need to show a ‘Child integrations’ multi-select field.", async ({ io, page }) => {
+test.describe("C27111_Run report drawer- If the integration I select in the ‘Integration’ field has a parent + child structure, then we need to show a ‘Child integrations’ multi-select field", () => {
+    test("C27111_Run report drawer- If the integration I select in the ‘Integration’ field has a parent + child structure, then we need to show a ‘Child integrations’ multi-select field UI_Backlog #STAGING Only", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Tools", "Reports");

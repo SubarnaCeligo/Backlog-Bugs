@@ -5,15 +5,16 @@ test.describe("C26246_Verify the Resolved graph UI with different browsers", () 
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C26246_Verify the Resolved graph UI with different browsers", async ({ io, page, }) => {
+    test("C26246_Verify the Resolved graph UI with different browsers UI_Backlog", async ({ io, page, }) => {
         await io.homePage.navigateTo(process.env.IO_Integration_URL);
         await io.homePage.clickByText("TC_C26246_Flow_DND");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW)
         await io.flowBuilder.loadingTime()
         await io.flowBuilder.reloadPage()
-        await io.flowBuilder.clickByText('1 error')
+        await io.flowBuilder.loadingTime();
+        await io.homePage.clickByIndex(selectors.flowBuilderPagePO.ERROR_BUBBLE, 1);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER)
-        await io.flowBuilder.clickByText('1 error')
+        await io.homePage.clickByIndex(selectors.flowBuilderPagePO.ERROR_BUBBLE, 1);
         await io.flowBuilder.clickByText('Resolve & next')
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER)
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CHARTS)

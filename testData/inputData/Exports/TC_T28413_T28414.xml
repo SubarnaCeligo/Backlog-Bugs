@@ -1,0 +1,752 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Items xmlns="http://xmlns.oracle.com/apps/scm/productModel/common/publicationService/" >
+<ns1:Item xmlns:ns16="http://xmlns.oracle.com/apps/scm/productModel/items/flex/item/" xmlns:ns17="http://xmlns.oracle.com/apps/scm/productModel/items/flex/itemGdf/" xmlns:ns0="http://xmlns.oracle.com/adf/svc/types/" xmlns:ns4="http://xmlns.oracle.com/apps/scm/productCatalogManagement/advancedItems/flex/egoItemEff/item/categories/" xmlns:ns5="http://xmlns.oracle.com/apps/scm/productModel/items/itemServiceV2/" xmlns:ns8="http://xmlns.oracle.com/apps/scm/productModel/items/itemRelationshipService/" xmlns:ns11="http://xmlns.oracle.com/apps/scm/productModel/items/structures/structureServiceV2/" xmlns:ns1="http://xmlns.oracle.com/apps/scm/productModel/common/publicationService/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:Item">
+   <ns1:ItemId>100001193354120</ns1:ItemId>
+   <ns1:OrganizationId>300000002130092</ns1:OrganizationId>
+   <ns1:OrganizationCode>CAM</ns1:OrganizationCode>
+   <ns1:ItemClass>Inventory Item</ns1:ItemClass>
+   <ns1:Template xsi:nil="true"/>
+   <ns1:ItemNumber>N000082D012A</ns1:ItemNumber>
+   <ns1:ItemDescription>PTP 820 Gas Tube Surge Arrestor END KIT</ns1:ItemDescription>
+   <ns1:ApprovalStatusValue>Approved</ns1:ApprovalStatusValue>
+   <ns1:ItemStatusValue>Production</ns1:ItemStatusValue>
+   <ns1:LifecyclePhaseValue>In Production</ns1:LifecyclePhaseValue>
+   <ns1:StyleItemFlag xsi:nil="true"/>
+   <ns1:StyleItemNumberValue>N000082D012A</ns1:StyleItemNumberValue>
+   <ns1:PublicationTransactionType>UPDATE</ns1:PublicationTransactionType>
+   <ns1:Keyword xsi:nil="true"/>
+   <ns1:IgnoreDuplicateItemFlag xsi:nil="true"/>
+   <ns1:UserItemTypeValue>Finished Good</ns1:UserItemTypeValue>
+   <ns1:PackTypeValue xsi:nil="true"/>
+   <ns1:LongDescription>PTP 820 Gas Tube Surge Arrestor END KIT</ns1:LongDescription>
+   <ns1:FormattedDescription xsi:nil="true"/>
+   <ns1:PrimaryUOMValue>Each</ns1:PrimaryUOMValue>
+   <ns1:TrackingUnitofMeasure>Primary</ns1:TrackingUnitofMeasure>
+   <ns1:UOMPricingValue>Primary</ns1:UOMPricingValue>
+   <ns1:TransactionConversionValue>Both</ns1:TransactionConversionValue>
+   <ns1:SecondaryUnitofMeasureValue xsi:nil="true"/>
+   <ns1:DefaultingControlValue xsi:nil="true"/>
+   <ns1:PositiveDeviationFactor>0</ns1:PositiveDeviationFactor>
+   <ns1:NegativeDeviationFactor>0</ns1:NegativeDeviationFactor>
+   <ns1:CopyItemAndApplyTemplatesFlag xsi:nil="true"/>
+   <ns1:CopyAssociationsFlag xsi:nil="true"/>
+   <ns1:CopyAttachmentsFlag xsi:nil="true"/>
+   <ns1:CopyCategoriesFlag xsi:nil="true"/>
+   <ns1:CopyFromItemValue xsi:nil="true"/>
+   <ns1:CopyFromRevisionValue xsi:nil="true"/>
+   <ns1:CopyFromVersionValue xsi:nil="true"/>
+   <ns1:CopyOrganizationAssignmentsFlag xsi:nil="true"/>
+   <ns1:VersionId>-1</ns1:VersionId>
+   <ns1:RevisionForVersion xsi:nil="true"/>
+   <ns1:Version xsi:nil="true"/>
+   <ns1:VersionStatus xsi:nil="true"/>
+   <ns1:VersionDescription xsi:nil="true"/>
+   <ns1:VersionPlannedEffectiveDateTime xsi:nil="true"/>
+   <ns1:LastSubmittedNewItemRequest xsi:nil="true"/>
+   <ns1:ChangeNotice xsi:nil="true"/>
+   <ns1:ChangeOrderLineSequenceNumber xsi:nil="true"/>
+   <ns1:StructureItemTypeValue>Standard</ns1:StructureItemTypeValue>
+   <ns1:CreateConfiguredItem xsi:nil="true"/>
+   <ns1:ConfigModelTypeValue>Standard</ns1:ConfigModelTypeValue>
+   <ns1:EffectivityControlValue>Date</ns1:EffectivityControlValue>
+   <ns1:BaseItemValue xsi:nil="true"/>
+   <ns1:AutoCreatedConfigurationFlag>false</ns1:AutoCreatedConfigurationFlag>
+   <ns1:PickComponentsFlag>false</ns1:PickComponentsFlag>
+   <ns1:AssembleToOrderFlag>false</ns1:AssembleToOrderFlag>
+   <ns1:CostingEnabledFlag>true</ns1:CostingEnabledFlag>
+   <ns1:IncludeInRollUpFlag>true</ns1:IncludeInRollUpFlag>
+   <ns1:StandardLotSize xsi:nil="true"/>
+   <ns1:InventoryAssetFlag>true</ns1:InventoryAssetFlag>
+   <ns1:BuildInWIPFlag>true</ns1:BuildInWIPFlag>
+   <ns1:WIPSupplyTypeValue>Push</ns1:WIPSupplyTypeValue>
+   <ns1:WIPSupplyLocatorValue xsi:nil="true"/>
+   <ns1:WIPSupplySubinventoryValue xsi:nil="true"/>
+   <ns1:OvercompletionToleranceTypeValue xsi:nil="true"/>
+   <ns1:OvercompletionToleranceValue xsi:nil="true"/>
+   <ns1:InventoryCarryPenalty xsi:nil="true"/>
+   <ns1:OperationSlackPenalty xsi:nil="true"/>
+   <ns1:RecipeEnabledFlag>false</ns1:RecipeEnabledFlag>
+   <ns1:ProcessQualityEnabledFlag>false</ns1:ProcessQualityEnabledFlag>
+   <ns1:ProcessCostingEnabledFlag>false</ns1:ProcessCostingEnabledFlag>
+   <ns1:ProcessExecutionEnabledFlag>false</ns1:ProcessExecutionEnabledFlag>
+   <ns1:ProcessSupplySubinventoryValue xsi:nil="true"/>
+   <ns1:ProcessSupplyLocatorValue xsi:nil="true"/>
+   <ns1:ProcessYieldSubinventoryValue xsi:nil="true"/>
+   <ns1:ProcessYieldLocatorValue xsi:nil="true"/>
+   <ns1:HazardousMaterialFlag>false</ns1:HazardousMaterialFlag>
+   <ns1:CASNumber xsi:nil="true"/>
+   <ns1:AssetItemTypeValue xsi:nil="true"/>
+   <ns1:AssetActivityCauseValue xsi:nil="true"/>
+   <ns1:AssetActivityShutdownTypeValue xsi:nil="true"/>
+   <ns1:AssetTrackedFlag>false</ns1:AssetTrackedFlag>
+   <ns1:EAMActivityTypeValue xsi:nil="true"/>
+   <ns1:EAMActivitySourceValue xsi:nil="true"/>
+   <ns1:EAMActivityNotificationFlag xsi:nil="true"/>
+   <ns1:AssetClassValue>Equipment</ns1:AssetClassValue>
+   <ns1:ServiceRequestEnabledValue xsi:nil="true"/>
+   <ns1:DefectTrackingOnFlag xsi:nil="true"/>
+   <ns1:ServiceableProductFlag>false</ns1:ServiceableProductFlag>
+   <ns1:CommsActivationReqdFlag xsi:nil="true"/>
+   <ns1:ServiceDurationTypeValue>Open Ended</ns1:ServiceDurationTypeValue>
+   <ns1:ServiceDuration xsi:nil="true"/>
+   <ns1:ServiceDurationPeriodValue xsi:nil="true"/>
+   <ns1:ServiceStartTypeValue>Milestone</ns1:ServiceStartTypeValue>
+   <ns1:ServiceStartDelay>0</ns1:ServiceStartDelay>
+   <ns1:AllowSuspendFlag>false</ns1:AllowSuspendFlag>
+   <ns1:AllowTerminateFlag>false</ns1:AllowTerminateFlag>
+   <ns1:RequiresFulfillmentLocFlag>false</ns1:RequiresFulfillmentLocFlag>
+   <ns1:RequiresItemAssociationFlag>false</ns1:RequiresItemAssociationFlag>
+   <ns1:TrackInstalledBaseFlag xsi:nil="true"/>
+   <ns1:CreateFixedAssetFlag xsi:nil="true"/>
+   <ns1:InstanceClassValue xsi:nil="true"/>
+   <ns1:BillingTypeValue xsi:nil="true"/>
+   <ns1:ServiceBillingEnabledFlag>false</ns1:ServiceBillingEnabledFlag>
+   <ns1:RecoveredPartDispositionValue xsi:nil="true"/>
+   <ns1:InventoryItemFlag>true</ns1:InventoryItemFlag>
+   <ns1:StockEnabledFlag>true</ns1:StockEnabledFlag>
+   <ns1:MaterialTransactionEnabledFlag>true</ns1:MaterialTransactionEnabledFlag>
+   <ns1:ReservableFlag>true</ns1:ReservableFlag>
+   <ns1:CheckMaterialShortageFlag>false</ns1:CheckMaterialShortageFlag>
+   <ns1:RevisionQuantityControlFlag>false</ns1:RevisionQuantityControlFlag>
+   <ns1:BulkPickedFlag>false</ns1:BulkPickedFlag>
+   <ns1:LotControlValue>No lot control</ns1:LotControlValue>
+   <ns1:StartingLotPrefix xsi:nil="true"/>
+   <ns1:StartingLotNumber xsi:nil="true"/>
+   <ns1:MaturityDays xsi:nil="true"/>
+   <ns1:HoldDays xsi:nil="true"/>
+   <ns1:LotExpirationControlValue>No shelf life control</ns1:LotExpirationControlValue>
+   <ns1:ShelfLifeDays>0</ns1:ShelfLifeDays>
+   <ns1:RetestInterval xsi:nil="true"/>
+   <ns1:ExpirationActionValue xsi:nil="true"/>
+   <ns1:ExpirationActionInterval xsi:nil="true"/>
+   <ns1:ChildLotEnabledFlag>false</ns1:ChildLotEnabledFlag>
+   <ns1:ChildLotFormatValidationFlag>false</ns1:ChildLotFormatValidationFlag>
+   <ns1:CopyLotAttributeFlag>false</ns1:CopyLotAttributeFlag>
+   <ns1:ChildLotPrefix xsi:nil="true"/>
+   <ns1:ChildLotStartingNumber xsi:nil="true"/>
+   <ns1:ChildLotParent xsi:nil="true"/>
+   <ns1:LotTranslateEnabledFlag>false</ns1:LotTranslateEnabledFlag>
+   <ns1:LotSplitEnabledFlag>false</ns1:LotSplitEnabledFlag>
+   <ns1:LotDivisibleFlag>false</ns1:LotDivisibleFlag>
+   <ns1:LotSubstitutionEnabledFlag xsi:nil="true"/>
+   <ns1:LotMergeEnabledFlag>false</ns1:LotMergeEnabledFlag>
+   <ns1:GradeControlFlag>false</ns1:GradeControlFlag>
+   <ns1:DefaultGradeValue xsi:nil="true"/>
+   <ns1:SerialGenerationValue>No serial number control</ns1:SerialGenerationValue>
+   <ns1:SerialStartingPrefix xsi:nil="true"/>
+   <ns1:SerialStartingNumber xsi:nil="true"/>
+   <ns1:NegativeMeasurementError xsi:nil="true"/>
+   <ns1:PositiveMeasurementError xsi:nil="true"/>
+   <ns1:CycleCountEnabledFlag>false</ns1:CycleCountEnabledFlag>
+   <ns1:LotStatusEnabledFlag>false</ns1:LotStatusEnabledFlag>
+   <ns1:SerialStatusEnabledFlag>false</ns1:SerialStatusEnabledFlag>
+   <ns1:DefaultLotStatusValue xsi:nil="true"/>
+   <ns1:DefaultSerialStatusValue xsi:nil="true"/>
+   <ns1:RestrictSubinventoriesFlag>false</ns1:RestrictSubinventoriesFlag>
+   <ns1:RestrictLocatorsFlag>false</ns1:RestrictLocatorsFlag>
+   <ns1:StockLocatorControlValue>No control</ns1:StockLocatorControlValue>
+   <ns1:DimensionUOMValue xsi:nil="true"/>
+   <ns1:UnitWidthQuantity xsi:nil="true"/>
+   <ns1:UnitLengthQuantity xsi:nil="true"/>
+   <ns1:UnitHeightQuantity xsi:nil="true"/>
+   <ns1:WeightUOMValue xsi:nil="true"/>
+   <ns1:UnitWeightQuantity xsi:nil="true"/>
+   <ns1:VolumeUOMValue xsi:nil="true"/>
+   <ns1:UnitVolumeQuantity xsi:nil="true"/>
+   <ns1:ContainerItemFlag xsi:nil="true"/>
+   <ns1:ContainerTypeValue xsi:nil="true"/>
+   <ns1:MaximumLoadWeight xsi:nil="true"/>
+   <ns1:VehicleItemFlag xsi:nil="true"/>
+   <ns1:InternalVolume xsi:nil="true"/>
+   <ns1:MinimumFillPercent xsi:nil="true"/>
+   <ns1:WarehouseEquipmentFlag>false</ns1:WarehouseEquipmentFlag>
+   <ns1:EventFlag xsi:nil="true"/>
+   <ns1:CollateralFlag xsi:nil="true"/>
+   <ns1:CustomerOrderFlag>true</ns1:CustomerOrderFlag>
+   <ns1:CustomerOrderEnabledFlag>true</ns1:CustomerOrderEnabledFlag>
+   <ns1:ATPComponentsValue>None</ns1:ATPComponentsValue>
+   <ns1:PickingRuleValue xsi:nil="true"/>
+   <ns1:RMAInspectionRequiredFlag>false</ns1:RMAInspectionRequiredFlag>
+   <ns1:EligibilityRuleFlag xsi:nil="true"/>
+   <ns1:InternalOrderFlag>false</ns1:InternalOrderFlag>
+   <ns1:InternalOrderEnabledFlag>false</ns1:InternalOrderEnabledFlag>
+   <ns1:ReturnableFlag>false</ns1:ReturnableFlag>
+   <ns1:ATPValue>None</ns1:ATPValue>
+   <ns1:FinancingAllowedFlag xsi:nil="true"/>
+   <ns1:SalesProductTypeValue xsi:nil="true"/>
+   <ns1:TransactionEnabledFlag>true</ns1:TransactionEnabledFlag>
+   <ns1:OrderManagementIndivisibleFlag xsi:nil="true"/>
+   <ns1:DefaultSalesOrderSourceTypeValue>Internal</ns1:DefaultSalesOrderSourceTypeValue>
+   <ns1:ElectronicFormatFlag xsi:nil="true"/>
+   <ns1:ShippableFlag>true</ns1:ShippableFlag>
+   <ns1:DefaultShippingOrganizationValue xsi:nil="true"/>
+   <ns1:ShipModelCompleteFlag>false</ns1:ShipModelCompleteFlag>
+   <ns1:DownloadableFlag xsi:nil="true"/>
+   <ns1:OverShipmentTolerance xsi:nil="true"/>
+   <ns1:UnderShipmentTolerance xsi:nil="true"/>
+   <ns1:OverReturnTolerance xsi:nil="true"/>
+   <ns1:UnderReturnTolerance xsi:nil="true"/>
+   <ns1:InvoiceEnabledFlag>true</ns1:InvoiceEnabledFlag>
+   <ns1:AccountingRuleValue xsi:nil="true"/>
+   <ns1:PaymentTermsValue xsi:nil="true"/>
+   <ns1:OutputTaxClassificationCodeValue xsi:nil="true"/>
+   <ns1:InvoicedFlag>true</ns1:InvoicedFlag>
+   <ns1:InvoicingRuleValue xsi:nil="true"/>
+   <ns1:SalesAccountValue xsi:nil="true"/>
+   <ns1:WebStatusValue>Unpublished</ns1:WebStatusValue>
+   <ns1:BackOrderableFlag xsi:nil="true"/>
+   <ns1:OrderableOnWebFlag>false</ns1:OrderableOnWebFlag>
+   <ns1:MinimumLicenseQuantity xsi:nil="true"/>
+   <ns1:InventoryPlanningMethodValue>Not planned</ns1:InventoryPlanningMethodValue>
+   <ns1:PlanningMakeBuyValue>Make</ns1:PlanningMakeBuyValue>
+   <ns1:Planner xsi:nil="true"/>
+   <ns1:SubcontractingComponentValue xsi:nil="true"/>
+   <ns1:MinimumMinmaxQuantity xsi:nil="true"/>
+   <ns1:MaximumMinmaxQuantity xsi:nil="true"/>
+   <ns1:MinimumOrderQuantity xsi:nil="true"/>
+   <ns1:MaximumOrderQuantity xsi:nil="true"/>
+   <ns1:OrderCost xsi:nil="true"/>
+   <ns1:CarryPercentage xsi:nil="true"/>
+   <ns1:ReplenishmentType xsi:nil="true"/>
+   <ns1:SourceOrganizationValue xsi:nil="true"/>
+   <ns1:SourceSubinventoryOrganizationValue xsi:nil="true"/>
+   <ns1:SourceSubinventoryValue xsi:nil="true"/>
+   <ns1:FixedOrderQuantity xsi:nil="true"/>
+   <ns1:FixedDaysSupply xsi:nil="true"/>
+   <ns1:FixedLotSizeMultiplier xsi:nil="true"/>
+   <ns1:ReleaseAuthorizationRequiredValue>Customer</ns1:ReleaseAuthorizationRequiredValue>
+   <ns1:AutomaticallyExpireASNFlag>false</ns1:AutomaticallyExpireASNFlag>
+   <ns1:ConsignedFlag>false</ns1:ConsignedFlag>
+   <ns1:ReplenishmentMinimumOrder xsi:nil="true"/>
+   <ns1:ReplenishmentMaximumOrder xsi:nil="true"/>
+   <ns1:ReplenishmentMinimumDays xsi:nil="true"/>
+   <ns1:MaximumOrder xsi:nil="true"/>
+   <ns1:MaximumDaysOfSupply xsi:nil="true"/>
+   <ns1:VMIFixedOrderQuantity xsi:nil="true"/>
+   <ns1:ForecastTypelValue>Order Forecast</ns1:ForecastTypelValue>
+   <ns1:ForecastHorizon xsi:nil="true"/>
+   <ns1:PlanningMethodValue>MPS Planning</ns1:PlanningMethodValue>
+   <ns1:Pegging>None</ns1:Pegging>
+   <ns1:RoundingControlTypeFlag>true</ns1:RoundingControlTypeFlag>
+   <ns1:CreateSupplyFlag>true</ns1:CreateSupplyFlag>
+   <ns1:CriticalComponentFlag>false</ns1:CriticalComponentFlag>
+   <ns1:PlanningTimeFence>User Defined Time Fence</ns1:PlanningTimeFence>
+   <ns1:DemandTimeFence xsi:nil="true"/>
+   <ns1:ReleaseTimeFence xsi:nil="true"/>
+   <ns1:SubstitutionWindow xsi:nil="true"/>
+   <ns1:ShrinkageRate xsi:nil="true"/>
+   <ns1:ForecastControlValue>Consume and Derive Forecast</ns1:ForecastControlValue>
+   <ns1:AcceptableEarlyDays xsi:nil="true"/>
+   <ns1:PlannedInventoryPointFlag xsi:nil="true"/>
+   <ns1:ExcludeFromBudgetFlag>false</ns1:ExcludeFromBudgetFlag>
+   <ns1:PlanningTimeDays>1</ns1:PlanningTimeDays>
+   <ns1:DemandTimeDays xsi:nil="true"/>
+   <ns1:ReleaseTimeDays xsi:nil="true"/>
+   <ns1:SubstitutionDays xsi:nil="true"/>
+   <ns1:MRPCalculateATPFlag xsi:nil="true"/>
+   <ns1:DRPPlannedFlag>false</ns1:DRPPlannedFlag>
+   <ns1:MaximumInventoryWindow xsi:nil="true"/>
+   <ns1:DaysMaximumInventorySupply xsi:nil="true"/>
+   <ns1:TargetInventoryDaysofSupply xsi:nil="true"/>
+   <ns1:TagetInventoryWindow xsi:nil="true"/>
+   <ns1:RepairLeadtime xsi:nil="true"/>
+   <ns1:RepairYield xsi:nil="true"/>
+   <ns1:PrepositionPointFlag>false</ns1:PrepositionPointFlag>
+   <ns1:RepairProgramValue>Repair Return</ns1:RepairProgramValue>
+   <ns1:PreprocessingDays xsi:nil="true"/>
+   <ns1:PostprocessingDays>0</ns1:PostprocessingDays>
+   <ns1:ProcessingDays xsi:nil="true"/>
+   <ns1:VariableLeadTime xsi:nil="true"/>
+   <ns1:CumulativeTotalLeadTime xsi:nil="true"/>
+   <ns1:FixedLeadTime xsi:nil="true"/>
+   <ns1:CumulativeManufacturingLeadTime xsi:nil="true"/>
+   <ns1:LeadTimeLotSize>1</ns1:LeadTimeLotSize>
+   <ns1:PurchasingFlag>false</ns1:PurchasingFlag>
+   <ns1:UseApprovedSupplierFlag>false</ns1:UseApprovedSupplierFlag>
+   <ns1:NegotiationRequiredFlag xsi:nil="true"/>
+   <ns1:PurchasingInputTaxClassificationValue xsi:nil="true"/>
+   <ns1:UnitOfIssueValue xsi:nil="true"/>
+   <ns1:InvoiceCloseTolerancePercentage xsi:nil="true"/>
+   <ns1:HazardClassValue xsi:nil="true"/>
+   <ns1:AssetCategoryValue xsi:nil="true"/>
+   <ns1:PurchasableFlag>false</ns1:PurchasableFlag>
+   <ns1:AllowItemDescriptionUpdateFlag>true</ns1:AllowItemDescriptionUpdateFlag>
+   <ns1:TaxableFlag>false</ns1:TaxableFlag>
+   <ns1:BuyerOrganizationValue xsi:nil="true"/>
+   <ns1:DefaultBuyerValue xsi:nil="true"/>
+   <ns1:ReceiptCloseTolerancePercentage xsi:nil="true"/>
+   <ns1:UNNumberValue xsi:nil="true"/>
+   <ns1:ListPrice xsi:nil="true"/>
+   <ns1:PriceTolerancePercentage xsi:nil="true"/>
+   <ns1:ExpenseAccountValue xsi:nil="true"/>
+   <ns1:MarketPrice xsi:nil="true"/>
+   <ns1:RoundingFactor xsi:nil="true"/>
+   <ns1:OutsourcedAssemblyFlag xsi:nil="true"/>
+   <ns1:OutsideProcessingFlag xsi:nil="true"/>
+   <ns1:OutsideProcessingUnitTypeValue xsi:nil="true"/>
+   <ns1:MatchApprovalLevelValue xsi:nil="true"/>
+   <ns1:MatchConfigurationOptionValue xsi:nil="true"/>
+   <ns1:ReceiptRountingValue xsi:nil="true"/>
+   <ns1:EnforceShipToLocation xsi:nil="true"/>
+   <ns1:ReceiptDateActionValue xsi:nil="true"/>
+   <ns1:DaysEarlyReceiptAllowed xsi:nil="true"/>
+   <ns1:DaysLateReceiptAllowed xsi:nil="true"/>
+   <ns1:AllowSubstituteReceiptsFlag xsi:nil="true"/>
+   <ns1:AllowUnorderedReceiptsFlag xsi:nil="true"/>
+   <ns1:AllowExpressDeliveryFlag xsi:nil="true"/>
+   <ns1:QuantityReceivedToleranceAction xsi:nil="true"/>
+   <ns1:QuantityReceivedTolerancePercentage xsi:nil="true"/>
+   <ns1:ItemExtensibleFlexfieldCategoryCode>Inventory_Item</ns1:ItemExtensibleFlexfieldCategoryCode>
+   <ns1:ObjectVersionNumber>49</ns1:ObjectVersionNumber>
+   <ns1:CreationDate>2019-05-08T00:57:30.308Z</ns1:CreationDate>
+   <ns1:LastUpdateDate>2023-08-04T16:20:21.914Z</ns1:LastUpdateDate>
+   <ns1:BackToBackEnabledFlag>false</ns1:BackToBackEnabledFlag>
+   <ns1:ContractManufacturingFlag>false</ns1:ContractManufacturingFlag>
+   <ns1:DaysOfCover xsi:nil="true"/>
+   <ns1:DemandPeriod xsi:nil="true"/>
+   <ns1:SafetyStockPlanningMethodValue>Not Planned</ns1:SafetyStockPlanningMethodValue>
+   <ns1:OutsideProcessServiceFlag>false</ns1:OutsideProcessServiceFlag>
+   <ns1:AllowMaintenanceAssetFlag>false</ns1:AllowMaintenanceAssetFlag>
+   <ns1:EnableGenealogyTrackingFlag>false</ns1:EnableGenealogyTrackingFlag>
+   <ns1:CssEnabledFlag>false</ns1:CssEnabledFlag>
+   <ns1:EngineeredItemFlag>false</ns1:EngineeredItemFlag>
+   <ns1:StandardCoverage xsi:nil="true"/>
+   <ns1:ProcurementBusinessUnitName xsi:nil="true"/>
+   <ns1:ForcePurchaseLeadTimeFlag>true</ns1:ForcePurchaseLeadTimeFlag>
+   <ns1:ReplacementTypeValue xsi:nil="true"/>
+   <ns1:BuyerEmailAddress xsi:nil="true"/>
+   <ns1:AssetTrackedValue>Not Tracked</ns1:AssetTrackedValue>
+   <ns1:RequestId>2183385</ns1:RequestId>
+   <ns1:CreatedBy>ram_renga</ns1:CreatedBy>
+   <ns1:CreationDateTime>2019-05-08T00:57:30.308Z</ns1:CreationDateTime>
+   <ns1:LastUpdateDateTime>2023-08-04T16:20:21.914Z</ns1:LastUpdateDateTime>
+   <ns1:LastUpdateLogin>021B5DEE5321D123E0630863500A4B67</ns1:LastUpdateLogin>
+   <ns1:LastUpdatedBy>jje100</ns1:LastUpdatedBy>
+   <ns1:InvoiceMatchOptionValue xsi:nil="true"/>
+   <ns1:HardPeggingLevelValue xsi:nil="true"/>
+   <ns1:CommonSupplyProjectDemandFlag xsi:nil="true"/>
+   <ns1:EnableIotFlag xsi:nil="true"/>
+   <ns1:ExpenditureTypeValue xsi:nil="true"/>
+   <ns1:PackagingStringValue xsi:nil="true"/>
+   <ns1:CreateSupplyAfterDate xsi:nil="true"/>
+   <ns1:CreateFixedAssetValue xsi:nil="true"/>
+   <ns1:UnderCompletionToleranceTypeValue xsi:nil="true"/>
+   <ns1:UnderCompletionToleranceValue xsi:nil="true"/>
+   <ns1:PayloadId>0</ns1:PayloadId>
+   <ns1:DefaultRepairTransactionName xsi:nil="true"/>
+   <ns1:CreatedFromItemId xsi:nil="true"/>
+   <ns1:CreatedFromItemNumber xsi:nil="true"/>
+   <ns1:CreatedFromItemRevision xsi:nil="true"/>
+   <ns1:j_ItemEffCategory xmlns:ns3="http://xmlns.oracle.com/apps/scm/productCatalogManagement/advancedItems/flex/egoItemEff/item/contexts/" xsi:type="ns4:InventoryItem">
+      <ns4:InventoryItemId>100001193354120</ns4:InventoryItemId>
+      <ns4:OrganizationId>300000002130092</ns4:OrganizationId>
+      <ns4:StyleItemId>100001193354120</ns4:StyleItemId>
+      <ns4:MasterOrganizationId>300000002130092</ns4:MasterOrganizationId>
+      <ns4:CategoryCode>Inventory_Item</ns4:CategoryCode>
+      <ns4:StyleItemFlag xsi:nil="true"/>
+      <ns4:TemplateItemFlag>N</ns4:TemplateItemFlag>
+      <ns4:SupplyChainPurchasingAttribute xmlns:ns2="http://xmlns.oracle.com/apps/scm/productCatalogManagement/advancedItems/protectedModel/">
+         <ns2:ContextCode>Supply Chain Purchasing Attributes</ns2:ContextCode>
+         <ns2:CreatedBy>jwo010</ns2:CreatedBy>
+         <ns2:CreationDate>2020-10-05T20:49:42.757Z</ns2:CreationDate>
+         <ns2:EffLineId>300000058303669</ns2:EffLineId>
+         <ns2:InventoryItemId>100001193354120</ns2:InventoryItemId>
+         <ns2:LastUpdateDate>2023-08-04T16:20:21.954Z</ns2:LastUpdateDate>
+         <ns2:LastUpdateLogin>021B5DEE5321D123E0630863500A4B67</ns2:LastUpdateLogin>
+         <ns2:LastUpdatedBy>jje100</ns2:LastUpdatedBy>
+         <ns2:ObjectVersionNumber>6</ns2:ObjectVersionNumber>
+         <ns2:OrganizationId>300000002130092</ns2:OrganizationId>
+         <ns2:CategoryCode>Inventory_Item</ns2:CategoryCode>
+         <ns2:DisplayAcdType>PROD</ns2:DisplayAcdType>
+         <ns3:RaiseEvent>Y</ns3:RaiseEvent>
+         <ns3:IsPersistentAttributeUpdated>false</ns3:IsPersistentAttributeUpdated>
+         <ns3:IsAddedToChildEntitiesMap>false</ns3:IsAddedToChildEntitiesMap>
+         <ns3:IsImportCase>false</ns3:IsImportCase>
+         <ns3:BulkloadRecCreated xsi:nil="true"/>
+         <ns3:StageIntfTableUniqueId xsi:nil="true"/>
+         <ns3:RequestId>2183385</ns3:RequestId>
+         <ns3:purchasePrice>39.2</ns3:purchasePrice>
+         <ns3:RedLinepurchasePrice xsi:nil="true"/>
+         <ns3:vendor>Ceragon Networks Ltd (Ltd-USD)</ns3:vendor>
+         <ns3:RedLinevendor xsi:nil="true"/>
+         <ns3:code>AA-0294-0</ns3:code>
+         <ns3:RedLinecode xsi:nil="true"/>
+         <ns3:vendorPrice>39.2</ns3:vendorPrice>
+         <ns3:RedLinevendorPrice xsi:nil="true"/>
+         <ns3:preferredVendor>Yes</ns3:preferredVendor>
+         <ns3:RedLinepreferredVendor xsi:nil="true"/>
+         <ns3:reorderMultiple>1</ns3:reorderMultiple>
+         <ns3:RedLinereorderMultiple xsi:nil="true"/>
+      </ns4:SupplyChainPurchasingAttribute>
+      <ns4:ImportExportAttributes xmlns:ns2="http://xmlns.oracle.com/apps/scm/productCatalogManagement/advancedItems/protectedModel/">
+         <ns2:ContextCode>Import / Export Attributes</ns2:ContextCode>
+         <ns2:CreatedBy>ram_renga</ns2:CreatedBy>
+         <ns2:CreationDate>2019-05-08T23:42:48.057Z</ns2:CreationDate>
+         <ns2:EffLineId>300000054005774</ns2:EffLineId>
+         <ns2:InventoryItemId>100001193354120</ns2:InventoryItemId>
+         <ns2:LastUpdateDate>2019-06-24T14:26:02.653Z</ns2:LastUpdateDate>
+         <ns2:LastUpdateLogin>8C1396D6AD72F70FE053040C1B0ADCA1</ns2:LastUpdateLogin>
+         <ns2:LastUpdatedBy>c21036</ns2:LastUpdatedBy>
+         <ns2:ObjectVersionNumber>2</ns2:ObjectVersionNumber>
+         <ns2:OrganizationId>300000002130092</ns2:OrganizationId>
+         <ns2:CategoryCode>Inventory_Item</ns2:CategoryCode>
+         <ns2:DisplayAcdType>PROD</ns2:DisplayAcdType>
+         <ns3:RaiseEvent>Y</ns3:RaiseEvent>
+         <ns3:IsPersistentAttributeUpdated>false</ns3:IsPersistentAttributeUpdated>
+         <ns3:IsAddedToChildEntitiesMap>false</ns3:IsAddedToChildEntitiesMap>
+         <ns3:IsImportCase>false</ns3:IsImportCase>
+         <ns3:BulkloadRecCreated xsi:nil="true"/>
+         <ns3:StageIntfTableUniqueId xsi:nil="true"/>
+         <ns3:RequestId xsi:nil="true"/>
+         <ns3:usEccn>5A991.b.7.a</ns3:usEccn>
+         <ns3:RedLineusEccn xsi:nil="true"/>
+         <ns3:euEccn>5A991</ns3:euEccn>
+         <ns3:RedLineeuEccn xsi:nil="true"/>
+         <ns3:exportLicenseException>NLR</ns3:exportLicenseException>
+         <ns3:RedLineexportLicenseException xsi:nil="true"/>
+         <ns3:htsCodeNa>8535.40.0000</ns3:htsCodeNa>
+         <ns3:RedLinehtsCodeNa xsi:nil="true"/>
+         <ns3:htsCodeEmea>8535.40.0090</ns3:htsCodeEmea>
+         <ns3:RedLinehtsCodeEmea xsi:nil="true"/>
+      </ns4:ImportExportAttributes>
+      <ns4:SupplyChainPlanningAttributes xmlns:ns2="http://xmlns.oracle.com/apps/scm/productCatalogManagement/advancedItems/protectedModel/">
+         <ns2:ContextCode>Supply Chain Planning Attributes</ns2:ContextCode>
+         <ns2:CreatedBy>ram_renga</ns2:CreatedBy>
+         <ns2:CreationDate>2019-05-08T21:12:34.106Z</ns2:CreationDate>
+         <ns2:EffLineId>300000053929045</ns2:EffLineId>
+         <ns2:InventoryItemId>100001193354120</ns2:InventoryItemId>
+         <ns2:LastUpdateDate>2023-05-25T16:17:07.442Z</ns2:LastUpdateDate>
+         <ns2:LastUpdateLogin>FC1D390C98C4E372E0530863500ACD5E</ns2:LastUpdateLogin>
+         <ns2:LastUpdatedBy>ctns03</ns2:LastUpdatedBy>
+         <ns2:ObjectVersionNumber>5</ns2:ObjectVersionNumber>
+         <ns2:OrganizationId>300000002130092</ns2:OrganizationId>
+         <ns2:CategoryCode>Inventory_Item</ns2:CategoryCode>
+         <ns2:DisplayAcdType>PROD</ns2:DisplayAcdType>
+         <ns3:RaiseEvent>Y</ns3:RaiseEvent>
+         <ns3:IsPersistentAttributeUpdated>false</ns3:IsPersistentAttributeUpdated>
+         <ns3:IsAddedToChildEntitiesMap>false</ns3:IsAddedToChildEntitiesMap>
+         <ns3:IsImportCase>false</ns3:IsImportCase>
+         <ns3:BulkloadRecCreated xsi:nil="true"/>
+         <ns3:StageIntfTableUniqueId xsi:nil="true"/>
+         <ns3:RequestId xsi:nil="true"/>
+         <ns3:leadTimeCategory>PTP820</ns3:leadTimeCategory>
+         <ns3:RedLineleadTimeCategory xsi:nil="true"/>
+         <ns3:planningType>EOS</ns3:planningType>
+         <ns3:RedLineplanningType xsi:nil="true"/>
+      </ns4:SupplyChainPlanningAttributes>
+      <ns4:LeadTimeAttributes xmlns:ns2="http://xmlns.oracle.com/apps/scm/productCatalogManagement/advancedItems/protectedModel/">
+         <ns2:ContextCode>Lead Time Attributes</ns2:ContextCode>
+         <ns2:CreatedBy>jje100</ns2:CreatedBy>
+         <ns2:CreationDate>2021-12-14T19:57:20.414Z</ns2:CreationDate>
+         <ns2:EffLineId>300000063459930</ns2:EffLineId>
+         <ns2:InventoryItemId>100001193354120</ns2:InventoryItemId>
+         <ns2:LastUpdateDate>2021-12-14T19:57:27.469Z</ns2:LastUpdateDate>
+         <ns2:LastUpdateLogin>D320FC9AFC7B3CB3E0530863500AD6ED</ns2:LastUpdateLogin>
+         <ns2:LastUpdatedBy>jje100</ns2:LastUpdatedBy>
+         <ns2:ObjectVersionNumber>1</ns2:ObjectVersionNumber>
+         <ns2:OrganizationId>300000002130092</ns2:OrganizationId>
+         <ns2:CategoryCode>Inventory_Item</ns2:CategoryCode>
+         <ns2:DisplayAcdType>PROD</ns2:DisplayAcdType>
+         <ns3:RaiseEvent>Y</ns3:RaiseEvent>
+         <ns3:IsPersistentAttributeUpdated>false</ns3:IsPersistentAttributeUpdated>
+         <ns3:IsAddedToChildEntitiesMap>false</ns3:IsAddedToChildEntitiesMap>
+         <ns3:IsImportCase>false</ns3:IsImportCase>
+         <ns3:BulkloadRecCreated xsi:nil="true"/>
+         <ns3:StageIntfTableUniqueId xsi:nil="true"/>
+         <ns3:RequestId>785968</ns3:RequestId>
+         <ns3:leadTimeUsSaleableUps>42</ns3:leadTimeUsSaleableUps>
+         <ns3:RedLineleadTimeUsSaleableUps xsi:nil="true"/>
+         <ns3:leadTimeNlSaleableUps>45</ns3:leadTimeNlSaleableUps>
+         <ns3:RedLineleadTimeNlSaleableUps xsi:nil="true"/>
+         <ns3:leadTimeCnSaleableUps>50</ns3:leadTimeCnSaleableUps>
+         <ns3:RedLineleadTimeCnSaleableUps xsi:nil="true"/>
+      </ns4:LeadTimeAttributes>
+      <ns4:ManufacturerAttributes xmlns:ns2="http://xmlns.oracle.com/apps/scm/productCatalogManagement/advancedItems/protectedModel/">
+         <ns2:ContextCode>Manufacturer Attributes</ns2:ContextCode>
+         <ns2:CreatedBy>ram_renga</ns2:CreatedBy>
+         <ns2:CreationDate>2019-05-08T14:36:24.129Z</ns2:CreationDate>
+         <ns2:EffLineId>300000053890186</ns2:EffLineId>
+         <ns2:InventoryItemId>100001193354120</ns2:InventoryItemId>
+         <ns2:LastUpdateDate>2019-05-08T14:36:24.603Z</ns2:LastUpdateDate>
+         <ns2:LastUpdateLogin>885BE572A43C5060E053040C1B0A3238</ns2:LastUpdateLogin>
+         <ns2:LastUpdatedBy>ram_renga</ns2:LastUpdatedBy>
+         <ns2:ObjectVersionNumber>1</ns2:ObjectVersionNumber>
+         <ns2:OrganizationId>300000002130092</ns2:OrganizationId>
+         <ns2:CategoryCode>Inventory_Item</ns2:CategoryCode>
+         <ns2:DisplayAcdType>PROD</ns2:DisplayAcdType>
+         <ns3:RaiseEvent>Y</ns3:RaiseEvent>
+         <ns3:IsPersistentAttributeUpdated>false</ns3:IsPersistentAttributeUpdated>
+         <ns3:IsAddedToChildEntitiesMap>false</ns3:IsAddedToChildEntitiesMap>
+         <ns3:IsImportCase>false</ns3:IsImportCase>
+         <ns3:BulkloadRecCreated xsi:nil="true"/>
+         <ns3:StageIntfTableUniqueId xsi:nil="true"/>
+         <ns3:RequestId xsi:nil="true"/>
+         <ns3:manufacturer>Ceragon</ns3:manufacturer>
+         <ns3:RedLinemanufacturer xsi:nil="true"/>
+         <ns3:mpn>AA-0294-0</ns3:mpn>
+         <ns3:RedLinempn xsi:nil="true"/>
+      </ns4:ManufacturerAttributes>
+      <ns4:SupplyChainNpiAttributes xmlns:ns2="http://xmlns.oracle.com/apps/scm/productCatalogManagement/advancedItems/protectedModel/">
+         <ns2:ContextCode>Supply Chain NPI Attributes</ns2:ContextCode>
+         <ns2:CreatedBy>ram_renga</ns2:CreatedBy>
+         <ns2:CreationDate>2019-05-08T00:57:31.808Z</ns2:CreationDate>
+         <ns2:EffLineId>300000053808512</ns2:EffLineId>
+         <ns2:InventoryItemId>100001193354120</ns2:InventoryItemId>
+         <ns2:LastUpdateDate>2023-08-28T17:18:33.202Z</ns2:LastUpdateDate>
+         <ns2:LastUpdateLogin>034394F4298D70B6E0630763500A2479</ns2:LastUpdateLogin>
+         <ns2:LastUpdatedBy>jwo010</ns2:LastUpdatedBy>
+         <ns2:ObjectVersionNumber>7</ns2:ObjectVersionNumber>
+         <ns2:OrganizationId>300000002130092</ns2:OrganizationId>
+         <ns2:CategoryCode>Inventory_Item</ns2:CategoryCode>
+         <ns2:DisplayAcdType>PROD</ns2:DisplayAcdType>
+         <ns3:RaiseEvent>Y</ns3:RaiseEvent>
+         <ns3:IsPersistentAttributeUpdated>false</ns3:IsPersistentAttributeUpdated>
+         <ns3:IsAddedToChildEntitiesMap>false</ns3:IsAddedToChildEntitiesMap>
+         <ns3:IsImportCase>false</ns3:IsImportCase>
+         <ns3:BulkloadRecCreated xsi:nil="true"/>
+         <ns3:StageIntfTableUniqueId xsi:nil="true"/>
+         <ns3:RequestId>2020551</ns3:RequestId>
+         <ns3:applyPmHold>No</ns3:applyPmHold>
+         <ns3:RedLineapplyPmHold xsi:nil="true"/>
+         <ns3:pmHoldNotes xsi:nil="true"/>
+         <ns3:RedLinepmHoldNotes xsi:nil="true"/>
+         <ns3:chinaCustomsRegistrationStatus>No</ns3:chinaCustomsRegistrationStatus>
+         <ns3:RedLinechinaCustomsRegistrationStatus xsi:nil="true"/>
+         <ns3:hsCodeChina xsi:nil="true"/>
+         <ns3:RedLinehsCodeChina xsi:nil="true"/>
+         <ns3:itemCategory>Accessory</ns3:itemCategory>
+         <ns3:RedLineitemCategory xsi:nil="true"/>
+         <ns3:nsItemType>Inventory Item</ns3:nsItemType>
+         <ns3:RedLinensItemType xsi:nil="true"/>
+         <ns3:saleUnit>Each</ns3:saleUnit>
+         <ns3:RedLinesaleUnit xsi:nil="true"/>
+         <ns3:countryOfOrigin>China</ns3:countryOfOrigin>
+         <ns3:RedLinecountryOfOrigin xsi:nil="true"/>
+         <ns3:npiLead xsi:nil="true"/>
+         <ns3:RedLinenpiLead xsi:nil="true"/>
+         <ns3:plmLead xsi:nil="true"/>
+         <ns3:RedLineplmLead xsi:nil="true"/>
+         <ns3:programable xsi:nil="true"/>
+         <ns3:RedLineprogramable xsi:nil="true"/>
+         <ns3:forecastable>N000082D012A</ns3:forecastable>
+         <ns3:RedLineforecastable xsi:nil="true"/>
+      </ns4:SupplyChainNpiAttributes>
+      <ns4:CartonPhysicalAttributes xmlns:ns2="http://xmlns.oracle.com/apps/scm/productCatalogManagement/advancedItems/protectedModel/">
+         <ns2:ContextCode>Carton Physical Attributes</ns2:ContextCode>
+         <ns2:CreatedBy>ram_renga</ns2:CreatedBy>
+         <ns2:CreationDate>2019-05-08T21:59:15.174Z</ns2:CreationDate>
+         <ns2:EffLineId>300000053962276</ns2:EffLineId>
+         <ns2:InventoryItemId>100001193354120</ns2:InventoryItemId>
+         <ns2:LastUpdateDate>2019-05-08T21:59:15.653Z</ns2:LastUpdateDate>
+         <ns2:LastUpdateLogin>8867CD4C06418F88E053040C1B0A5C15</ns2:LastUpdateLogin>
+         <ns2:LastUpdatedBy>ram_renga</ns2:LastUpdatedBy>
+         <ns2:ObjectVersionNumber>1</ns2:ObjectVersionNumber>
+         <ns2:OrganizationId>300000002130092</ns2:OrganizationId>
+         <ns2:CategoryCode>Inventory_Item</ns2:CategoryCode>
+         <ns2:DisplayAcdType>PROD</ns2:DisplayAcdType>
+         <ns3:RaiseEvent>Y</ns3:RaiseEvent>
+         <ns3:IsPersistentAttributeUpdated>false</ns3:IsPersistentAttributeUpdated>
+         <ns3:IsAddedToChildEntitiesMap>false</ns3:IsAddedToChildEntitiesMap>
+         <ns3:IsImportCase>false</ns3:IsImportCase>
+         <ns3:BulkloadRecCreated xsi:nil="true"/>
+         <ns3:StageIntfTableUniqueId xsi:nil="true"/>
+         <ns3:RequestId xsi:nil="true"/>
+         <ns3:cartonHeightCm>7</ns3:cartonHeightCm>
+         <ns3:RedLinecartonHeightCm xsi:nil="true"/>
+         <ns3:cartonLengthCm>7</ns3:cartonLengthCm>
+         <ns3:RedLinecartonLengthCm xsi:nil="true"/>
+         <ns3:cartonWidthCm>3</ns3:cartonWidthCm>
+         <ns3:RedLinecartonWidthCm xsi:nil="true"/>
+         <ns3:cartonWeightKg>0.1</ns3:cartonWeightKg>
+         <ns3:RedLinecartonWeightKg xsi:nil="true"/>
+      </ns4:CartonPhysicalAttributes>
+      <ns4:ProductPhysicalAttributes xmlns:ns2="http://xmlns.oracle.com/apps/scm/productCatalogManagement/advancedItems/protectedModel/">
+         <ns2:ContextCode>Product Physical Attributes</ns2:ContextCode>
+         <ns2:CreatedBy>c21036</ns2:CreatedBy>
+         <ns2:CreationDate>2019-08-07T20:19:28.209Z</ns2:CreationDate>
+         <ns2:EffLineId>300000055233500</ns2:EffLineId>
+         <ns2:InventoryItemId>100001193354120</ns2:InventoryItemId>
+         <ns2:LastUpdateDate>2019-08-07T20:19:28.602Z</ns2:LastUpdateDate>
+         <ns2:LastUpdateLogin>8F8D8B4EBA7B20A7E053020C1B0A023C</ns2:LastUpdateLogin>
+         <ns2:LastUpdatedBy>c21036</ns2:LastUpdatedBy>
+         <ns2:ObjectVersionNumber>1</ns2:ObjectVersionNumber>
+         <ns2:OrganizationId>300000002130092</ns2:OrganizationId>
+         <ns2:CategoryCode>Inventory_Item</ns2:CategoryCode>
+         <ns2:DisplayAcdType>PROD</ns2:DisplayAcdType>
+         <ns3:RaiseEvent>Y</ns3:RaiseEvent>
+         <ns3:IsPersistentAttributeUpdated>false</ns3:IsPersistentAttributeUpdated>
+         <ns3:IsAddedToChildEntitiesMap>false</ns3:IsAddedToChildEntitiesMap>
+         <ns3:IsImportCase>false</ns3:IsImportCase>
+         <ns3:BulkloadRecCreated xsi:nil="true"/>
+         <ns3:StageIntfTableUniqueId xsi:nil="true"/>
+         <ns3:RequestId xsi:nil="true"/>
+         <ns3:heightCm>7</ns3:heightCm>
+         <ns3:RedLineheightCm xsi:nil="true"/>
+         <ns3:lengthCm>7</ns3:lengthCm>
+         <ns3:RedLinelengthCm xsi:nil="true"/>
+         <ns3:widthCm>3</ns3:widthCm>
+         <ns3:RedLinewidthCm xsi:nil="true"/>
+         <ns3:weight>0.1</ns3:weight>
+         <ns3:RedLineweight xsi:nil="true"/>
+         <ns3:weightUnits>kg</ns3:weightUnits>
+         <ns3:RedLineweightUnits xsi:nil="true"/>
+         <ns3:moq xsi:nil="true"/>
+         <ns3:RedLinemoq xsi:nil="true"/>
+      </ns4:ProductPhysicalAttributes>
+      <ns4:FinanceAttributes xmlns:ns2="http://xmlns.oracle.com/apps/scm/productCatalogManagement/advancedItems/protectedModel/">
+         <ns2:ContextCode>Finance Attributes</ns2:ContextCode>
+         <ns2:CreatedBy>jje100</ns2:CreatedBy>
+         <ns2:CreationDate>2021-05-25T21:25:40.43Z</ns2:CreationDate>
+         <ns2:EffLineId>300000061223706</ns2:EffLineId>
+         <ns2:InventoryItemId>100001193354120</ns2:InventoryItemId>
+         <ns2:LastUpdateDate>2021-05-25T21:25:41.48Z</ns2:LastUpdateDate>
+         <ns2:LastUpdateLogin>C32EE67A59C4A733E0530763500AC1FC</ns2:LastUpdateLogin>
+         <ns2:LastUpdatedBy>jje100</ns2:LastUpdatedBy>
+         <ns2:ObjectVersionNumber>1</ns2:ObjectVersionNumber>
+         <ns2:OrganizationId>300000002130092</ns2:OrganizationId>
+         <ns2:CategoryCode>Inventory_Item</ns2:CategoryCode>
+         <ns2:DisplayAcdType>PROD</ns2:DisplayAcdType>
+         <ns3:RaiseEvent>Y</ns3:RaiseEvent>
+         <ns3:IsPersistentAttributeUpdated>false</ns3:IsPersistentAttributeUpdated>
+         <ns3:IsAddedToChildEntitiesMap>false</ns3:IsAddedToChildEntitiesMap>
+         <ns3:IsImportCase>false</ns3:IsImportCase>
+         <ns3:BulkloadRecCreated xsi:nil="true"/>
+         <ns3:StageIntfTableUniqueId xsi:nil="true"/>
+         <ns3:RequestId>484644</ns3:RequestId>
+         <ns3:deferredRevenueAccount>36699 Deferred Revenue - Clearing Account</ns3:deferredRevenueAccount>
+         <ns3:RedLinedeferredRevenueAccount xsi:nil="true"/>
+         <ns3:itemRevenueCategory>Inventory Hardware</ns3:itemRevenueCategory>
+         <ns3:RedLineitemRevenueCategory xsi:nil="true"/>
+         <ns3:revenueRecognitionRule>Point in Time (Billing)</ns3:revenueRecognitionRule>
+         <ns3:RedLinerevenueRecognitionRule xsi:nil="true"/>
+         <ns3:revenueRecognitionForecastRule>Point in Time (Billing)</ns3:revenueRecognitionForecastRule>
+         <ns3:RedLinerevenueRecognitionForecastRule xsi:nil="true"/>
+         <ns3:termInMonths>0</ns3:termInMonths>
+         <ns3:RedLinetermInMonths xsi:nil="true"/>
+      </ns4:FinanceAttributes>
+      <ns4:PackagingGeneralAttributes xmlns:ns2="http://xmlns.oracle.com/apps/scm/productCatalogManagement/advancedItems/protectedModel/">
+         <ns2:ContextCode>Packaging General Attributes</ns2:ContextCode>
+         <ns2:CreatedBy>jje100</ns2:CreatedBy>
+         <ns2:CreationDate>2022-08-26T19:21:57.517Z</ns2:CreationDate>
+         <ns2:EffLineId>300000068457174</ns2:EffLineId>
+         <ns2:InventoryItemId>100001193354120</ns2:InventoryItemId>
+         <ns2:LastUpdateDate>2022-08-26T19:39:12.624Z</ns2:LastUpdateDate>
+         <ns2:LastUpdateLogin>E72B03AF033DA2ECE0530863500A8113</ns2:LastUpdateLogin>
+         <ns2:LastUpdatedBy>jje100</ns2:LastUpdatedBy>
+         <ns2:ObjectVersionNumber>2</ns2:ObjectVersionNumber>
+         <ns2:OrganizationId>300000002130092</ns2:OrganizationId>
+         <ns2:CategoryCode>Inventory_Item</ns2:CategoryCode>
+         <ns2:DisplayAcdType>PROD</ns2:DisplayAcdType>
+         <ns3:RaiseEvent>Y</ns3:RaiseEvent>
+         <ns3:IsPersistentAttributeUpdated>false</ns3:IsPersistentAttributeUpdated>
+         <ns3:IsAddedToChildEntitiesMap>false</ns3:IsAddedToChildEntitiesMap>
+         <ns3:IsImportCase>false</ns3:IsImportCase>
+         <ns3:BulkloadRecCreated xsi:nil="true"/>
+         <ns3:StageIntfTableUniqueId xsi:nil="true"/>
+         <ns3:RequestId>1377939</ns3:RequestId>
+         <ns3:additionalPackagingNotes xsi:nil="true"/>
+         <ns3:RedLineadditionalPackagingNotes xsi:nil="true"/>
+         <ns3:totalPackagingWeightKg>0.55</ns3:totalPackagingWeightKg>
+         <ns3:RedLinetotalPackagingWeightKg xsi:nil="true"/>
+      </ns4:PackagingGeneralAttributes>
+      <ns4:PlmAttributes xmlns:ns2="http://xmlns.oracle.com/apps/scm/productCatalogManagement/advancedItems/protectedModel/">
+         <ns2:ContextCode>PLM Attributes</ns2:ContextCode>
+         <ns2:CreatedBy>ram_renga</ns2:CreatedBy>
+         <ns2:CreationDate>2019-05-09T18:05:16.435Z</ns2:CreationDate>
+         <ns2:EffLineId>300000054037361</ns2:EffLineId>
+         <ns2:InventoryItemId>100001193354120</ns2:InventoryItemId>
+         <ns2:LastUpdateDate>2023-06-02T05:55:54.631Z</ns2:LastUpdateDate>
+         <ns2:LastUpdateLogin>FC1CCEBFF0810484E0530763500AE15B</ns2:LastUpdateLogin>
+         <ns2:LastUpdatedBy>sde010</ns2:LastUpdatedBy>
+         <ns2:ObjectVersionNumber>19</ns2:ObjectVersionNumber>
+         <ns2:OrganizationId>300000002130092</ns2:OrganizationId>
+         <ns2:CategoryCode>Inventory_Item</ns2:CategoryCode>
+         <ns2:DisplayAcdType>PROD</ns2:DisplayAcdType>
+         <ns3:RaiseEvent>Y</ns3:RaiseEvent>
+         <ns3:IsPersistentAttributeUpdated>false</ns3:IsPersistentAttributeUpdated>
+         <ns3:IsAddedToChildEntitiesMap>false</ns3:IsAddedToChildEntitiesMap>
+         <ns3:IsImportCase>false</ns3:IsImportCase>
+         <ns3:BulkloadRecCreated xsi:nil="true"/>
+         <ns3:StageIntfTableUniqueId xsi:nil="true"/>
+         <ns3:RequestId>1651645</ns3:RequestId>
+         <ns3:classNoHierarchy>PTP : PTP Accessories : Licensed Microwave Accessories</ns3:classNoHierarchy>
+         <ns3:RedLineclassNoHierarchy xsi:nil="true"/>
+         <ns3:cnSaleableUpsStatus>Not Available</ns3:cnSaleableUpsStatus>
+         <ns3:RedLinecnSaleableUpsStatus xsi:nil="true"/>
+         <ns3:nlSaleableUpsStatus>Obsolete</ns3:nlSaleableUpsStatus>
+         <ns3:RedLinenlSaleableUpsStatus xsi:nil="true"/>
+         <ns3:usSaleableUpsStatus>Obsolete</ns3:usSaleableUpsStatus>
+         <ns3:RedLineusSaleableUpsStatus xsi:nil="true"/>
+         <ns3:esnMacAddressQuantity>0</ns3:esnMacAddressQuantity>
+         <ns3:RedLineesnMacAddressQuantity xsi:nil="true"/>
+         <ns3:msnSerialNumberQty>0</ns3:msnSerialNumberQty>
+         <ns3:RedLinemsnSerialNumberQty xsi:nil="true"/>
+         <ns3:fulfilmentMethod>Stocked</ns3:fulfilmentMethod>
+         <ns3:RedLinefulfilmentMethod xsi:nil="true"/>
+         <ns3:itemSalesGroup>Unavailable For Order</ns3:itemSalesGroup>
+         <ns3:RedLineitemSalesGroup xsi:nil="true"/>
+         <ns3:msrp>115.5</ns3:msrp>
+         <ns3:RedLinemsrp xsi:nil="true"/>
+         <ns3:pricingGroup>Price Group 1</ns3:pricingGroup>
+         <ns3:RedLinepricingGroup xsi:nil="true"/>
+         <ns3:stockRotatableItem>No</ns3:stockRotatableItem>
+         <ns3:RedLinestockRotatableItem xsi:nil="true"/>
+         <ns3:replacementPartNumber>N000082L252A</ns3:replacementPartNumber>
+         <ns3:RedLinereplacementPartNumber xsi:nil="true"/>
+         <ns3:frequency xsi:nil="true"/>
+         <ns3:RedLinefrequency xsi:nil="true"/>
+         <ns3:dealRegistrationItem xsi:nil="true"/>
+         <ns3:RedLinedealRegistrationItem xsi:nil="true"/>
+         <ns3:modelNameTier>Antenna</ns3:modelNameTier>
+         <ns3:RedLinemodelNameTier xsi:nil="true"/>
+         <ns3:mdp xsi:nil="true"/>
+         <ns3:RedLinemdp xsi:nil="true"/>
+      </ns4:PlmAttributes>
+   </ns1:j_ItemEffCategory>
+   <ns1:ItemRevision xmlns:ns6="http://xmlns.oracle.com/apps/scm/productModel/items/flex/itemRevision/" xmlns:ns7="http://xmlns.oracle.com/apps/scm/productCatalogManagement/advancedItems/flex/egoItemEff/itemRevision/categories/">
+      <ns5:RevisionId>300000053808510</ns5:RevisionId>
+      <ns5:ItemId>100001193354120</ns5:ItemId>
+      <ns5:OrganizationId>300000002130092</ns5:OrganizationId>
+      <ns5:RevisionCode>1</ns5:RevisionCode>
+      <ns5:ItemRevisionDescription xsi:nil="true"/>
+      <ns5:RevisionReasonValue xsi:nil="true"/>
+      <ns5:EffectivityDate>2019-05-08T00:57:30Z</ns5:EffectivityDate>
+      <ns5:ImplementationDate>2019-05-08T00:57:30Z</ns5:ImplementationDate>
+      <ns5:EndEffectivityDate xsi:nil="true"/>
+      <ns5:RevisionExtensibleFlexfieldCategoryCode>Inventory_Item</ns5:RevisionExtensibleFlexfieldCategoryCode>
+      <ns5:ObjectVersionNumber>1</ns5:ObjectVersionNumber>
+      <ns5:CreationDateTime>2019-05-08T00:57:31.79Z</ns5:CreationDateTime>
+      <ns5:LastUpdateDateTime>2019-05-08T00:57:33.057Z</ns5:LastUpdateDateTime>
+      <ns5:CreatedBy>ram_renga</ns5:CreatedBy>
+      <ns5:LastUpdateLogin>8856712AEB4B376CE053020C1B0A5AFF</ns5:LastUpdateLogin>
+      <ns5:LastUpdatedBy>ram_renga</ns5:LastUpdatedBy>
+      <ns5:RequestId xsi:nil="true"/>
+      <ns5:ItemRevisionDFF>
+         <ns6:RevisionId>300000053808510</ns6:RevisionId>
+         <ns6:__FLEX_Context xsi:nil="true"/>
+         <ns6:__FLEX_Context_DisplayValue xsi:nil="true"/>
+         <ns6:_FLEX_NumOfSegments>0</ns6:_FLEX_NumOfSegments>
+      </ns5:ItemRevisionDFF>
+      <ns5:ItemRevisionEffCategory xsi:type="ns7:InventoryItem">
+         <ns7:RevisionId>300000053808510</ns7:RevisionId>
+         <ns7:CategoryCode>Inventory_Item</ns7:CategoryCode>
+         <ns7:VersionId>-1</ns7:VersionId>
+      </ns5:ItemRevisionEffCategory>
+   </ns1:ItemRevision>
+   <ns1:ItemDFF>
+      <ns16:InventoryItemId>100001193354120</ns16:InventoryItemId>
+      <ns16:OrganizationId>300000002130092</ns16:OrganizationId>
+      <ns16:__FLEX_Context xsi:nil="true"/>
+      <ns16:__FLEX_Context_DisplayValue xsi:nil="true"/>
+      <ns16:_FLEX_NumOfSegments>0</ns16:_FLEX_NumOfSegments>
+   </ns1:ItemDFF>
+   <ns1:ItemGdf>
+      <ns17:InventoryItemId>100001193354120</ns17:InventoryItemId>
+      <ns17:OrganizationId>300000002130092</ns17:OrganizationId>
+      <ns17:FLEX_PARAM_GLOBAL_COUNTRY_CODE xsi:nil="true"/>
+      <ns17:__FLEX_Context xsi:nil="true"/>
+      <ns17:__FLEX_Context_DisplayValue xsi:nil="true"/>
+      <ns17:_FLEX_NumOfSegments>0</ns17:_FLEX_NumOfSegments>
+   </ns1:ItemGdf>
+</ns1:Item>
+</Items>
