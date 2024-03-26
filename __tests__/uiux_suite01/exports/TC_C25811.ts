@@ -8,7 +8,7 @@ test.describe("C25811_Verify that View listener debug logs drawer is displayed p
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C25811_Verify that View listener debug logs drawer is displayed properly without any overlap issue when sidepane is minimized", async ({ io}) => {
+    test("C25811_Verify that View listener debug logs drawer is displayed properly without any overlap issue when sidepane is minimized UI_Backlog", async ({ io}) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
