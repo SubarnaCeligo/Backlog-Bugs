@@ -10,11 +10,12 @@ test("IO29647", async ({ io, page }) => {
     await io.flowBuilder.click(selectors.flowGroupingPagePO.INSTALLTEMPLATE);
     await io.flowBuilder.clickByText("Install now");
     await io.flowBuilder.loadingTime();
-    await io.flowBuilder.waitForElementAttached('[data-test="Configure"]');
-    await io.flowBuilder.click('[data-test="Configure"]');
+    
+    await io.flowBuilder.waitForElementAttached(selectors.templatePagePO.CONFIGURE);
+    await io.flowBuilder.click(selectors.templatePagePO.CONFIGURE);
 
     await io.assert.verifyElementIsDisplayed(selectors.templatePagePO.FTPGUIDE,'ftp KB guide displayed');
-    await io.flowBuilder.click("[data-test='existing']");
+    await io.flowBuilder.click(selectors.marketplacePagePO.EXISTING);
     await io.flowBuilder.click(selectors.basePagePO.CONNECTION);
     await io.flowBuilder.clickByText("FTP");
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
@@ -30,7 +31,7 @@ test("IO29647", async ({ io, page }) => {
    const element1 = await page.locator(selectors.templatePagePO.ORDERFULTOKEN);
       await element1.scrollIntoViewIfNeeded();
 
-   await io.flowBuilder.fill(selectors.templatePagePO.ORDERFULTOKEN,'d5a50368c52d4db284e0e4ec8c2ca5ab');
+   await io.flowBuilder.fill(selectors.templatePagePO.ORDERFULTOKEN,process.env["HTTP2DOT0.IO_Token_Orderful"]);
    await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
    await io.flowBuilder.click(selectors.integrationPagePO.SETUP_INTEGRATION_INSTALL_BUTTON);
    await io.flowBuilder.click(selectors.basePagePO.CONNECTIONS);

@@ -1,0 +1,234 @@
+{
+    "_id": "65fa82561a4a55475a531080",
+    "lastModified": "2024-03-20T08:47:33.129Z",
+    "name": "DragAndDropMessageTest",
+    "disabled": true,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "_id": "6527e65c77a67b219f5e416b",
+                "name": "103_FTPexport",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "e448143667",
+                "asynchronous": true,
+                "sandbox": false,
+                "sampleData": [
+                    {
+                        "Name": "103.SF Multifield - Account",
+                        "Email": "103sfmulti@gmail.com",
+                        "Phone": "9490992768",
+                        "Fax": "9985541414",
+                        "Add One": "12.4",
+                        "Add two": "19",
+                        "And Field1": "Yes",
+                        "And Field2": "No",
+                        "Avg1": "20",
+                        "Avg2": "30",
+                        "Avg3": "40",
+                        "Base64Encode Username": "103sfmulti@gmail.com",
+                        "Base64Encode Pass": "103sfmulti123",
+                        "Base64Encodehtml Username": "103sfmulti@gmail.com",
+                        "Base64Encodehtml Pass": "103sfmulti123",
+                        "capitalize": "celigo foo bar",
+                        "capitalizeAll": "celigo foo bar",
+                        "Ceil": "8.6",
+                        "compare fieldone": "43",
+                        "compare fieldtwo": "32",
+                        "Contains": [
+                            "BD",
+                            "CD",
+                            "EF"
+                        ],
+                        "DecodeURI": "conn%2Fcall.back%26state%3D12345",
+                        "Divide fieldone": "26",
+                        "Divide fieldtwo": "4",
+                        "People": [
+                            {
+                                "Name": "Rahul"
+                            },
+                            {
+                                "Name": "Lokesh"
+                            },
+                            {
+                                "Name": "Virat"
+                            },
+                            {
+                                "Name": "Kedar"
+                            },
+                            {
+                                "Name": "Ravi"
+                            }
+                        ],
+                        "encodeuri": "htts://integrator.com",
+                        "encodeuri html": "htts://integrator.com",
+                        "Floor": "185.9",
+                        "IfEven": "9",
+                        "Lower Case": "CELIGO FOoBAR",
+                        "Multiply One": "42",
+                        "Multiple Two": "12",
+                        "Neither One": "YES",
+                        "Neither two": "NO",
+                        "Or one": "YES",
+                        "Replace": "intention",
+                        "Round": "16.7",
+                        "Regexreplaceandmatch": "123 3456 678 celigo 32",
+                        "sortnum": [
+                            "34",
+                            "12",
+                            "9"
+                        ],
+                        "sortstring": [
+                            "Ireland",
+                            "Abudabi",
+                            "Venuzuela",
+                            "Switzerland"
+                        ],
+                        "Substract One": "422.5",
+                        "Substract two": "120.3",
+                        "Sum": [
+                            41,
+                            12,
+                            9
+                        ],
+                        "Toexponentail": "23235",
+                        "ToFixed": "123.1234",
+                        "ToPrecision": "12.1234",
+                        "Unless": "9984474745",
+                        "Uppercase": "salesforce import",
+                        "With": {
+                            "withone": "Charles",
+                            "withtwo": "Angels"
+                        },
+                        "Substring": "Get the sub string",
+                        "Join1": "This",
+                        "Join2": "is",
+                        "Join3": "join"
+                    }
+                ],
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports_FileAdaptors",
+                    "fileNameStartsWith": "103SF"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "createdAt": "2024-03-20T06:29:42.402Z",
+    "autoResolveMatchingTraceKeys": true,
+    "routers": [
+        {
+            "name": "",
+            "routeRecordsTo": "first_matching_branch",
+            "routeRecordsUsing": "input_filters",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "inputFilter": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "[Add One]"
+                                ]
+                            ],
+                            "12.4"
+                        ]
+                    },
+                    "pageProcessors": [
+                        {"responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                            "type": "import",
+                            "qa__import": {
+                                "_id": "6572d2ee4180db39cbb74f4c",
+                                "name": "Amazon Orders",
+                                "_connectionId": "FTP CONNECTION",
+                                "_sourceId": "641414b11d02ff3769ee2014",
+                                "apiIdentifier": "i6c9ee60df",
+                                "oneToMany": false,
+                                "file": {
+                                    "fileName": "Amazon_Orders_SP-API.json",
+                                    "skipAggregation": false,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "/NISHITHAMADDATI",
+                                    "fileName": "Amazon_Orders_SP-API.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Branch 1.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "_id": "656e2ff8c04c226c491c7390",
+                                "name": "AutomationStandalone_025hX",
+                                "_connectionId": "FTP CONNECTION",
+                                "apiIdentifier": "i85defc3b6",
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "file": {
+                                    "fileName": "file-{{timestamp}}.json",
+                                    "skipAggregation": false,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "/Group-QA/ShritiS/Import",
+                                    "fileName": "file-{{timestamp}}.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branching"
+            },
+            "id": "ZQEbduTtHLy"
+        }
+    ],
+    "createFlow": {
+        "name": "DragAndDropMessageTest",
+        "disabled": true,
+        "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID",
+                "skipRetries": false
+            }
+        ],
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "autoResolveMatchingTraceKeys": true
+    }
+}
