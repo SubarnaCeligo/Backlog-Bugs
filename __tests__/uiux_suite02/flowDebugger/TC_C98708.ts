@@ -2,8 +2,8 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import C98708 from '@testData/FlowDebugger/C98708.json';
 
-test.describe("C98708 Verify screen should not be unresponsive when clicked on erros from integration page", () => {
-    test("C98708 Verify screen should not be unresponsive when clicked on erros from integration page", async ({ io, page }) => {
+test.describe("@Author-Yashveer C98708 Verify screen should not be unresponsive when clicked on erros from integration page", () => {
+    test("@Zephyr-IO-T1126 @Env-All C98708 Verify screen should not be unresponsive when clicked on erros from integration page", async ({ io, page }) => {
         await io.createResourceFromAPI(C98708, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.basePagePO.RUNFLOW);
         await io.homePage.click(selectors.basePagePO.RUNFLOW);
@@ -24,6 +24,7 @@ test.describe("C98708 Verify screen should not be unresponsive when clicked on e
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.SEARCH, "TC_C98708");
+        await io.myAccountPage.delay(1000);
         await io.homePage.waitForElementAttached('tbody tr');
         await io.flowBuilder.clickButtonByIndex("tbody tr button", 1);
         await io.assert.verifyElementDisplayedByText(
