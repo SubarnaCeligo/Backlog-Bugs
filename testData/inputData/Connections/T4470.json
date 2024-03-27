@@ -1,0 +1,25 @@
+{
+  "expectedJSON": {
+    "ftp": {
+      "password": "******",
+      "port": 21,
+      "hostURI": "qa.ipaas2.net",
+      "usePassiveMode": true,
+      "username": "saikaivalaya@ipaas2.net"
+    },
+    "name": "FTP CONNECTION NOT IN IA",
+    "type": "ftp"
+  },
+  "importJSON": {
+    "ftp": {
+      "password": "Test@123456",
+      "port": 21,
+      "hostURI": "qa.ipaas2.net",
+      "qa__password": "process.env[FTP_IPASS2_PASSWORD]",
+      "usePassiveMode": true,
+      "username": "process.env[FTP_IPASS2_USERNAME]"
+    },
+    "name": "FTP CONNECTION NOT IN IA",
+    "type": "ftp"
+  }
+}
