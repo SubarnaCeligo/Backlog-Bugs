@@ -8,7 +8,7 @@ test.describe(`C50900 Verify the "Don't allow trusted devices" check box`, () =>
   }) => {
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
     await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
-    await io.homePage.click(selectors.basePagePO.MY_PROFILE_BUTTON);
+    await io.homePage.clickByText('Profile');
     await io.homePage.click(selectors.myAccountPagePO.SECURITY);
     await io.homePage.click(selectors.myAccountPagePO.MFA);
     await page

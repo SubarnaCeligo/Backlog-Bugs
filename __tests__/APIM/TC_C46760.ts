@@ -90,7 +90,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.flowBuilder.click(selectors.basePagePO.DELETE);
         await io.homePage.loadingTime();
     });
-    test.skip("IOListner", async ({ io, page, context }) => {
+    test("IOListner", async ({ io, page, context }) => {
         const randomString = "IOListner" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
@@ -99,7 +99,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.INTEGRATORAPPLICATION);
-        await io.flowBuilder.click(selectors.exportsPagePO.WEBHOOK);
+        await io.flowBuilder.click(selectors.exportsPagePO.WEBHOOK_SELECT);
         await io.flowBuilder.fill(selectors.importPagePO.NAME, randomString);
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.homePage.loadingTime();
@@ -172,7 +172,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.SELECT_LOOKUP);
         await io.flowBuilder.click(selectors.exportsPagePO.CREATE_SELECT_CONNECTION);
-        await io.flowBuilder.clickByText("http conn");
+        await io.flowBuilder.clickByTextByIndex("http conn", 0);
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.flowBuilder.fill(selectors.importPagePO.NAME, randomString);
         await io.flowBuilder.click(selectors.exportsPagePO.LOOKUP.HTTP_METHOD);
@@ -213,7 +213,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.SELECT_LOOKUP);
         await io.flowBuilder.click(selectors.exportsPagePO.CREATE_SELECT_CONNECTION);
-        await io.flowBuilder.clickByText("http conn");
+        await io.flowBuilder.clickByTextByIndex("http conn", 0);
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.flowBuilder.fill(selectors.importPagePO.NAME, randomString);
         await io.flowBuilder.click(selectors.exportsPagePO.LOOKUP.HTTP_METHOD);
@@ -237,6 +237,11 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await page.setDefaultTimeout(5000);
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APIMFLOW, randomString);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMPUSH);
+        await io.homePage.loadingTime();
+        await page.setDefaultTimeout(10000);
+        await io.homePage.isPageLoaded()
+        await io.homePage.loadingTime();
+        await io.homePage.isPageReady()
         await io.homePage.loadingTime();
         const allPages = context.pages();
         await allPages[1].bringToFront();

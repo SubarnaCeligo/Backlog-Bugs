@@ -9,8 +9,8 @@ test.describe(
       page
     }) => {
        await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL)
-       await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_SELECTOR)
-       await io.homePage.clickByIndex(selectors.basePagePO.ACCOUNT_SELECTOR,1)
+       await io.myAccountPage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON)  
+       await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON)
        
        await io.homePage.click(selectors.myAccountPagePO.USERS)
        await io.myAccountPage.clickByText('Invite user')
