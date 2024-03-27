@@ -1,5 +1,5 @@
 import { test, expect } from "@celigo/ui-core-automation";
-import * as connectionData from "@testData/Connections/Create/Create_Connection_AS2.json"
+import  connectionData from "@testData/Connections/Create/Create_Connection_AS2.json"
 
 
 test.describe("CONNECTIONS", () => {

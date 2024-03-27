@@ -5,7 +5,7 @@ test.describe("C98851 Verify user is able create a connection from export,import
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C98851 Verify user is able create a connection from export", async ({ io, page }) => {
+    test("C98851 Verify user is able create a connection from export UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
