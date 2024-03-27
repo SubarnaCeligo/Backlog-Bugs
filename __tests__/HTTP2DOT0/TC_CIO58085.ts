@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("TC_CIO58085", () => {
-  test("IO58085 framework2.0 changes for plaintext epic", async ({ io, page }) => {
+  test("@Env-QA IO58085 framework2.0 changes for plaintext epic", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Resources", "Connections");
@@ -14,7 +14,7 @@ test.describe("TC_CIO58085", () => {
     await io.assert.verifyElementContainsText(selectors.connectionsPagePO.PLAINTEXT, 'Plain text');
 
   });
-  test("IO58085  Related fields should removed when Media type is Plain text", async ({ io, page }) => {
+  test("@Env-QA IO58085  Related fields should removed when Media type is Plain text", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Resources", "Connections");
@@ -45,7 +45,7 @@ test.describe("TC_CIO58085", () => {
     await io.assert.expectToBeValue(authFailPath.toString(), "false", "Field authFailPath is present in after Plain text is selected in Override media type for error responses field");
     await io.assert.expectToBeValue(limitFailpath.toString(), "false", "Field limitFailpath is present in after Plain text is selected in Override media type for error responses field");
   });
-  test("IO58085  Related fields should present when Media type is Plain text and override media types are JSON or XML", async ({ io, page }) => {
+  test("@Env-QA IO58085  Related fields should present when Media type is Plain text and override media types are JSON or XML", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Resources", "Connections");
@@ -76,7 +76,7 @@ test.describe("TC_CIO58085", () => {
     await io.assert.expectToBeValue(errorPath.toString(), "true", "Field errorPath is not present")
     await io.assert.expectToBeValue(authFailPath.toString(), "true", "Field authFailPath is not present")
   });
-  test("IO58085  Related fields should show when Media type is Plain text and override media type for error responses is JSON or XML", async ({ io, page }) => {
+  test("@Env-QA IO58085  Related fields should show when Media type is Plain text and override media type for error responses is JSON or XML", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Resources", "Connections");
@@ -103,7 +103,7 @@ test.describe("TC_CIO58085", () => {
     await io.assert.expectToBeValue(errorPath.toString(), "true", "Field errorPath is not present")
     await io.assert.expectToBeValue(authFailPath.toString(), "true", "Field authFailPath is not present")
   });
-  test("IO58085  Related fields should show when Media type is Plain text and override media type for success responses is JSON or XML", async ({ io, page }) => {
+  test("@Env-QA IO58085  Related fields should show when Media type is Plain text and override media type for success responses is JSON or XML", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Resources", "Connections");
@@ -124,7 +124,7 @@ test.describe("TC_CIO58085", () => {
     const successPath = await io.homePage.isVisible(selectors.flowBuilderPagePO.SUCCESSPATH)
     await io.assert.expectToBeValue(successPath.toString(), "true", "Field is not present in after JSON is selected in Override media type for success responses field")
   });
-  test("IO58085 Override media type for success responses field should have Plain text option", async ({ io, page }) => {
+  test("@Env-QA IO58085 Override media type for success responses field should have Plain text option", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Resources", "Connections");
@@ -135,7 +135,7 @@ test.describe("TC_CIO58085", () => {
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OVERRIDE_MEDIA_SUCCESS_RESPONSE);
     await io.assert.verifyElementContainsText(selectors.connectionsPagePO.PLAINTEXT, 'Plain text');
   });
-  test("IO58085 When Override media type for success responses field is Plain text then remove related fields", async ({ io, page }) => {
+  test("@Env-QA IO58085 When Override media type for success responses field is Plain text then remove related fields", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Resources", "Connections");
