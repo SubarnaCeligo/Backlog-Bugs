@@ -4,7 +4,7 @@ import * as selectors from "@celigo/aut-selectors";
 
 
 test.describe("@Author-ShritiS Verify that mock output is retained once it is saved and reopened.", () => {
-    test("@Bug-IO-70825 @Priority-P2 @Zephyr-IO-T28606 @Env-All Verify that mock output is retained once it is saved and reopened.", async ({io, page}) => {
+    test("@Bug-IO-73285 @Priority-P2 @Zephyr-IO-T28606 @Env-All Verify that mock output is retained once it is saved and reopened.", async ({io, page}) => {
 
         //Create a flow with export imports containing mock output
         let flowId = await io.createResourceFromAPI(testData, 'FLOWS');
