@@ -8,7 +8,7 @@ test.describe("C113404", () => {
     await io.homePage.loadingTime()
   });
 
-  test("@Env-All C113404 Verify user able see JWT field in HTTP 2.0 framework", async ({ io, page }) => {
+  test("C113404 Verify user able see JWT field in HTTP 2.0 framework", async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.homePage.loadingTime()
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
@@ -24,9 +24,7 @@ test.describe("C113404", () => {
     const monitorExp = await io.homePage.isVisible("text='Use JWT'");
     await io.assert.expectToBeValue(monitorExp.toString(), 'true', "Value is found");
   });
-
-
-  test("@@Env-All C113405 Verify the signature field and dropdown values", async ({ io, page }) => {
+  test("C113405 Verify the signature field and dropdown values", async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
@@ -59,7 +57,7 @@ test.describe("C113404", () => {
     );
   });
 
-  test("@Env-All C113406 Verify the fields when user select HMAC signature method", async ({ io, page }) => {
+  test("C113406 Verify the fields when user select HMAC signature method", async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
@@ -82,7 +80,7 @@ test.describe("C113404", () => {
     await io.assert.expectToBeValue(monitorExp2.toString(), 'true', "Value is found");
   });
 
-  test("@@Env-All C113407 Verify the fields when user select RS/PS/ES signature method", async ({ io, page }) => {
+  test("C113407 Verify the fields when user select RS/PS/ES signature method", async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
@@ -104,7 +102,7 @@ test.describe("C113404", () => {
     await io.assert.expectToBeValue(monitorExp2.toString(), 'true', "Value is found");
   });
 
-  test("@Env-All C113408 Verify user able to create iclient through connection>>iclient", async ({ io, page }) => {
+  test("C113408 Verify user able to create iclient through connection>>iclient", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.click(selectors.basePagePO.RESOURCES);
     await io.connectionPage.click(selectors.connectionsPagePO.ICLIENTSTAB);
@@ -133,8 +131,7 @@ test.describe("C113404", () => {
     await io.connectionPage.selectTextfromDropDown(page, "Bearer");
     await io.connectionPage.click(selectors.basePagePO.SAVE_AND_CLOSE);
   });
-
-  test("@Env-All C113411 Verify user is able to create connection using JWT", async ({ io, page }) => {
+  test("C113411 Verify user is able to create connection using JWT", async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
@@ -146,7 +143,7 @@ test.describe("C113404", () => {
     await io.connectionPage.click(selectors.connectionsPagePO.ICLIENT_ID);
     await io.connectionPage.selectTextfromDropDown(page, "ICLIENT_DOCSIGN_DND");
   });
-  test("@Env-All C113412 Verify user is able to see JWT in edit case", async ({ io, page }) => {
+  test("C113412 Verify user is able to see JWT in edit case", async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
@@ -162,7 +159,7 @@ test.describe("C113404", () => {
     const monitorExp2 = await io.homePage.isVisible("text='Use JWT'");
     await io.assert.expectToBeValue(monitorExp2.toString(), 'true', "Value is found");
   });
-  test("@Env-All C113420 Verify all the send token via dropdown values", async ({ io, page }) => {
+  test("C113420 Verify all the send token via dropdown values", async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
@@ -184,7 +181,7 @@ test.describe("C113404", () => {
     const monitorExp14 = await io.homePage.isVisible("text='URL parameter'");
     await io.assert.expectToBeValue(monitorExp14.toString(), 'true', "Value is found");
   });
-  test("@Env-All C113421 Verify the UI when user toggle between three Grant types", async ({ io, page }) => {
+  test("C113421 Verify the UI when user toggle between three Grant types", async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
