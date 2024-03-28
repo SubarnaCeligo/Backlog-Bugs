@@ -4,7 +4,7 @@ import TC from '../../../testData/inputData/FlowBuilder/C119812.json';
 
 test.describe("TC_C119812_C119813_C119814", () => {
   let id;
-  test("TC_C119812_C119813", async ({ io, page }) => {
+  test("@Epic-IO-63762  @Priority-P2  @Zephyr-T24242 @Zephyr-T24243", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     id = await io.connMap.get("ZENDESK CONNECTION");
     TC.export._connectionId = id;
@@ -102,7 +102,7 @@ test.describe("TC_C119812_C119813_C119814", () => {
     expect(await buttonDis1.screenshot()).toMatchSnapshot("TC_C119812 launchFormBuilder.png");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
   });
-  test("TC_C119814", async ({ io, page }) => {
+  test("@Epic-IO-63762  @Priority-P2  @Zephyr-T24244", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     id = await io.connMap.get("NETSUITE CONNECTION");
     TC.import._connectionId = id;

@@ -3,14 +3,14 @@ import * as selectors from "@celigo/aut-selectors";
 import C119790 from '../../../testData/inputData/FlowBuilder/C119790.json';
 import TC from '../../../testData/inputData/FlowBuilder/C119805.json';
 
-test.describe("TC_C119790_C119792_C119794", () => {
+test.describe("T24220_T24222_T24224", () => {
     let id; let id1; let id2;
     test.afterEach(async ({ io, page }) => {
         await io.api.deleteFlowViaAPI(id);
         await io.api.deleteFlowViaAPI(id1);
         await io.api.deleteFlowViaAPI(id2);
     });
-    test("C119790", async ({ io, page }) => {
+    test("@Epic-IO-63762  @Priority-P2  @Zephyr-T24220", async ({ io, page }) => {
         id = await io.createResourceFromAPI(C119790, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
         //Export
@@ -51,7 +51,7 @@ test.describe("TC_C119790_C119792_C119794", () => {
         expect(await buttonDis.screenshot()).toMatchSnapshot("launchFormBuilder.png");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
     });
-    test("C119792", async ({ io, page }) => {
+    test("@Epic-IO-63762  @Priority-P2  @Zephyr-T24222", async ({ io, page }) => {
         id1 = await io.createResourceFromAPI(C119790, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
         //Lookup
@@ -92,7 +92,7 @@ test.describe("TC_C119790_C119792_C119794", () => {
         const buttonDis1 = await page.$(selectors.flowBuilderPagePO.SETTING);
         expect(await buttonDis1.screenshot()).toMatchSnapshot("launchFormBuilder1.png");
     });
-    test("C119794", async ({ io, page }) => {
+    test("@Epic-IO-63762  @Priority-P2  @Zephyr-T24224", async ({ io, page }) => {
         id2 = await io.createResourceFromAPI(C119790, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
 

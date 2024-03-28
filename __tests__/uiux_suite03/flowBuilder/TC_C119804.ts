@@ -14,7 +14,7 @@ test.describe("TC_C119804", () => {
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
         await io.flowBuilder.waitForElementAttached(selectors.basePagePO.LAUNCH_EDITOR);
     });
-    test("TC_C119804", async ({ io, page }) => {
+    test("@Epic-IO-63762  @Priority-P2  @Zephyr-T24234 Verify user is able to add 'useAsPrimaryInterface' value under custom form displayed under Settings of Integration", async ({ io, page }) => {
         await io.createResourceFromAPI(C119804, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
         await io.flowBuilder.reloadPage();

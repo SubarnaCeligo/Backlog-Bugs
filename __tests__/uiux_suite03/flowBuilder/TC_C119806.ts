@@ -7,7 +7,7 @@ test.describe("TC_C119806", () => {
     test.afterEach(async ({ io, page }) => {
         await io.api.deleteFlowViaAPI(id);
     });
-    test("TC_C119806", async ({ io, page }) => {
+    test("@Epic-IO-63762  @Priority-P2  @Zephyr-T24236 Verify user is able to add 'useAsPrimaryInterface' value under custom form displayed underCustom Settings of Flow", async ({ io, page }) => {
         id = await io.createResourceFromAPI(C119806, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
         await io.flowBuilder.reloadPage();

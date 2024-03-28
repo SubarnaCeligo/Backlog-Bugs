@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import TC from "@testData/flowbranching/IO-T27451.json"
 
-test.describe('C117329', () => {
+test.describe('@Bug-IO-67538  @Priority-P2 @Zephyr-IO-T27451 Verify On moving from javascript mode to rules mode, test run results errors dont clear up', () => {
     let branchScript; let id;
     test.beforeEach(async ({ io, page  }) => {
         branchScript = await io.api.createScriptViaAPI(TC.scriptSchema);
@@ -11,7 +11,7 @@ test.describe('C117329', () => {
         await io.api.deleteFlowViaAPI(id);
         await io.api.deleteScriptViaAPI(branchScript);
     });
-    test('C117329', async ({ io, page }) => {
+    test('@Bug-IO-67538  @Priority-P2 @Zephyr-IO-T27451 Verify On moving from javascript mode to rules mode, test run results errors dont clear up', async ({ io, page }) => {
         TC.routers[0].script._scriptId = branchScript;
         id = await io.flowbranching.createFlowBranchFromAPI(TC);
         await io.flowBuilder.navigateTo(

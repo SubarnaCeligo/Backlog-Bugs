@@ -9,7 +9,7 @@ test.describe("TC_C119802_C119803", () => {
     test.afterEach(async ({ io, page }) => {
         await io.api.deleteFlowViaAPI(id);
     });
-    test("TC_C119802_C119803", async ({ io, page }) => {
+    test("@Epic-IO-63762  @Priority-P1  @Zephyr-T24232 @Zephyr-T24233", async ({ io, page }) => {
         id = await io.createResourceFromAPI(C119802, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
         //Webhook

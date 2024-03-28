@@ -10,7 +10,7 @@ test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
         await io.api.deleteFlowViaAPI(id1);
         await io.api.deleteFlowViaAPI(id2);
     });
-    test.only("TC_C119807", async ({ io, page }) => {
+    test.only("@Epic-IO-63762  @Priority-P2  @Zephyr-T24237", async ({ io, page }) => {
         id = await io.createResourceFromAPI(C119807, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
         await io.flowBuilder.reloadPage();
@@ -81,7 +81,7 @@ test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
         expect(await page.screenshot()).toMatchSnapshot("TC_C119807_IMPORT.png");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
     });
-    test("IO-T27037_IO-T27038", async ({ io, page }) => {
+    test("@Epic-IO-63762  @Priority-P2  @Zephyr-T27037 @Zephyr-T27038", async ({ io, page }) => {
         id1 = await io.createResourceFromAPI(C119807.newFlow, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
         await io.flowBuilder.reloadPage();
@@ -183,7 +183,7 @@ test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
         expect(await Symbosl.screenshot()).toMatchSnapshot("IO-T27037 import.png");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
     });
-    test("IO-T27039", async ({ io, page }) => {
+    test("IO-T27039 @Epic-IO-63762  @Priority-P2  @Zephyr-T27039", async ({ io, page }) => {
         id2 = await io.createResourceFromAPI(TC, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
         await io.flowBuilder.reloadPage();
