@@ -1,0 +1,69 @@
+{
+  "name": "flow-C34490",
+  "disabled": false,
+  "timezone": "Asia/Calcutta",
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "test-export-C34490",
+        "_connectionId": "BIGQUERY CONNECTION",
+        "apiIdentifier": "e14376ade7",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "rdbms": {
+          "query": "select * from `ioqa-342912.1234.Mock_Table` LIMIT 500"
+        },
+        "adaptorType": "RDBMSExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "test-import-C34490",
+        "parsers": [],
+        "_connectionId": "HTTP AMAZON CONNECTION",
+        "apiIdentifier": "i09892d4ce",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": ["/ticket.json"],
+          "method": ["POST"],
+          "body": ["{\"name\":\"New\"}"],
+          "batchSize": 1,
+          "sendPostMappedData": true,
+          "formType": "http"
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "createFlow": {
+    "_id": "test_65f19eee40829c83d74e7af3",
+    "name": "C34490",
+    "disabled": false,
+    "_integrationId": "603ce75ac4fec33283691f43",
+    "skipRetries": false,
+    "pageProcessors": [
+      {
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        },
+        "type": "import",
+        "_importId": "UPDATE WITH NEW IMPORTID"
+      }
+    ],
+    "pageGenerators": [
+      {
+        "_exportId": "UPDATE WITH NEW EXPORTID"
+      }
+    ]
+  }
+}

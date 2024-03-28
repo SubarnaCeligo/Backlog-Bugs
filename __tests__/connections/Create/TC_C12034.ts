@@ -13,14 +13,14 @@ test.describe(`C12034_Verify Import and load the export which has 4000+ audit re
     await io.flowBuilder.clickByTextByIndex("Configure", 0);
     await io.flowBuilder.clickByText('Use existing connection');
     await io.flowBuilder.clickByText("Please select");
-    await io.flowBuilder.clickByTextByIndex("FTP connection", 1);
+    await io.flowBuilder.clickByTextByIndex("AmazonS3 Connection", 1);
     await io.flowBuilder.clickByText("Done");
     await io.flowBuilder.clickByTextByIndex("Configure", 0);
     await io.flowBuilder.clickByText('Use existing connection');
     await io.flowBuilder.clickByText("Please select");
     await io.flowBuilder.clickByTextByIndex("TC_C12034_Connection_DND", 1);
     await io.flowBuilder.clickByText("Done");
-    await io.flowBuilder.clickByText("Unassigned");
+    // await io.flowBuilder.clickByText("Unassigned");
     await io.flowBuilder.clickByText("Last updated");
     await io.flowBuilder.clickByTextByIndex("Clone - TC_C12034_Flow_DND", 0);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);

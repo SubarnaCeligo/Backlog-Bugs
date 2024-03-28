@@ -8,8 +8,10 @@ test.describe("C27109 Run Report drawer - ‘Child integrations’ cannot be a r
     await io.homePage.goToMenu("Tools", "Reports");
     await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.homePage.clickByText('Choose integration');
-    await io.homePage.clickByTextByIndex('Standalone flows', 1);
+    const intID = await io.api.loadIntegrations();
+    await io.flowBuilder.selectTextfromDropDown(page, intID.get('Automation Flows'))
     await io.homePage.fill(selectors.dashboardPagePO.REPORT_FLOWS, 'TC_C12034_DND')
+    await page.getByText('TC_C12034_DND').click()
     await io.homePage.clickByText('Done');
     await io.homePage.clickByText("Choose date range");
     await io.homePage.clickByText("Last minute");
