@@ -22,8 +22,7 @@ test.describe("TC_C120099", () => {
         await io.homePage.click(selectors.flowBuilderPagePO.DESTINATIONTABLESEARCHPOSTGRE);
         await io.homePage.addStep("*** Clicked on destination table search field ***");
         await page.pause();
-       await io.flowBuilder.clickByText("Automation");
-        //await io.flowBuilder.selectTextfromDropDown(page, "Automation");
+        await io.flowBuilder.clickByText("Automation");
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.ADD_DATA_PROCESSOR);
@@ -40,20 +39,19 @@ test.describe("TC_C120099", () => {
         await io.flowBuilder.clickByText("Handlebars expression");
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.clickByText("Please select")
-       let displaytext = false; 
-try{
+        let displaytext = false;
+        try {
 
-    (await io.assert.verifyElementDisplayedByText(
-        "Do nothing",
-        "'Do nothing'  dropdown option is not displayed"));
-        displaytext = true;
-}
-      catch(e)
-      {
+            (await io.assert.verifyElementDisplayedByText(
+                "Do nothing",
+                "'Do nothing'  dropdown option is not displayed"));
+            displaytext = true;
+        }
+        catch (e) {
+            expect(displaytext).toBeFalsy();
+        }
         expect(displaytext).toBeFalsy();
-      }
-      expect(displaytext).toBeFalsy();
-      
+
 
     });
 });
