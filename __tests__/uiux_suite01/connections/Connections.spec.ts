@@ -1,5 +1,7 @@
 import { filterTestCases } from "@celigo/aut-utilities";
 var testCases = [
+  "C99341",
+  "C103075",
   "C107375",
   "C107377",
   "C107378",

@@ -6,6 +6,7 @@ test.describe("C106830 Test to validate the auto suggestion feature in sandbox e
     io,
     page
   }) => {
+    // This also same as C106784: Test to validate the auto suggestion feature in sandbox environment
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.flowBuilder.click(selectors.homePagePO.SANDBOX_BUTTON);
