@@ -1,5 +1,6 @@
 import { filterTestCases } from "@celigo/aut-utilities";
 var testCases = [
+  "C34437",
   "C106452",
   "C108514",
   "C108670",
@@ -87,7 +88,7 @@ var testCases = [
 
   "C119625",
   "C113459",
- 
+
 
   "C117739",
   "C117738",
@@ -153,8 +154,9 @@ var testCases = [
   "IOT26993",
   "IOT26994",
   "IOT26357",
-  "C117763" ,//- This test case has been removed from April release.,
+  "IO70947",
   "C107021",
+  "T3097",
   "T24275",
   "T24276_T27516",
   "T24277_T24278_T24283",
@@ -162,6 +164,8 @@ var testCases = [
   "T24280",
   "T24284",
   "T24285",
+  "T2722",
+  "T10043",
   "T26974",
   "T26975",
   "T26976",
@@ -172,6 +176,8 @@ var testCases = [
   "C24619",
   "C42440",
   "C107001",
+  "T28451",
+  "T28606"
 
 
 ];

@@ -35,7 +35,7 @@ test.describe("TC_C120099", () => {
         await io.assert.verifyElementDisplayedByText('Auto-populate destination fields', "Field is not displayed properly");
         await io.flowBuilder.clickByText("Auto-populate destination fields");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_AUTOPOPULATE_MESSAGE_POPUP);
-        await io.flowBuilder.clickByIndex("[data-test^='fieldMappingSettings']", 3);
+        await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.SETTINGS_MARIADB, 3);
         await io.flowBuilder.clickByText("Standard");
         await io.flowBuilder.clickByText("Handlebars expression");
         await io.flowBuilder.loadingTime();

@@ -8,8 +8,10 @@ test.describe("TC_C20808_Verify for, Safari browser: EM 2.0: Error drawer: Searc
     test("C20808_Verify for, Safari browser: EM 2.0: Error drawer: Search box: Entered text should visible clearly without getting cut out at button UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.flowBuilder.loadingTime();
-        await io.flowBuilder.clickByText("TC_C51620_Flow_DND");
+        await io.flowBuilder.clickByText("TC_C20808_Flow_DND");
         await io.flowBuilder.click(selectors.basePagePO.RUNFLOW);
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.reloadPage()
         await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.flowBuilderPagePO.ERROR_BUBBLE);
         await io.flowBuilder.loadingTime();

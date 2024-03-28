@@ -18,7 +18,7 @@ test.describe("TC_C15753_Verify Export Preview Panel is shown for As2 Exports", 
     await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL)
     await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.homePage.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'AS2');
-    await io.homePage.clickByText("AS2");
+    await io.homePage.click(selectors.connectionsPagePO.AS2_CONNECTOR);
     await io.homePage.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.clickByText('Create_Connection_AS2');
     await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'AS2_Export');
