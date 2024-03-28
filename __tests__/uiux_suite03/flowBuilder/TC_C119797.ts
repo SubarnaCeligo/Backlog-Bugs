@@ -7,7 +7,7 @@ test.describe("TC_C119797_C119798_C119799", () => {
     test.afterEach(async ({ io, page }) => {
         await io.api.deleteFlowViaAPI(id);
     });
-    test("@Epic-IO-63762  @Priority-P2  @Zephyr-T24227 @Zephyr-T24228 @Zephyr-T24229", async ({ io, page }) => {
+    test("@Epic-IO-63762  @Priority-P2  @Zephyr-T24227 @Zephyr-T24228 @Zephyr-T24229 @Env-All", async ({ io, page }) => {
         id = await io.createResourceFromAPI(TC, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
 

@@ -6,7 +6,7 @@ test.describe(`TC_C119815_C119816`, () => {
     await io.api.deleteIntegrationRecursively("TC_C119816_Delete");
     await io.api.deleteIntegrationRecursively("Clone - TC_C119816_Delete");
   });
-  test(`@Epic-IO-63762  @Priority-P2  @Zephyr-T24245 @Zephyr-T24246`, async ({ page, io }) => {
+  test(`@Epic-IO-63762  @Priority-P2  @Zephyr-T24245 @Zephyr-T24246 @Env-All`, async ({ page, io }) => {
     //TC_C119816 Verify on installing the integration user is able to see Export/Lookup/Import having 'useAsPrimaryInterface' set to true under custom form displayed under Custom Settings of Export/Lookup/Import
     await io.homePage.navigateTo(`${io.data.links.HOME_PAGE_URL}/installIntegration`);
     await io.homePage.addStep(

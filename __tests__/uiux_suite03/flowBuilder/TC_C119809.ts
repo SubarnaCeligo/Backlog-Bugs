@@ -9,7 +9,7 @@ test.describe("TC_C119809_C119810_C119811", () => {
         await io.api.deleteFlowViaAPI(id);
         await io.api.deleteFlowViaAPI(id1);
     });
-    test("@Priority-P2  @Zephyr-T24239 @Zephyr-T24240 @Zephyr-T24241", async ({ io, page }) => {
+    test("@Priority-P2  @Zephyr-T24239 @Zephyr-T24240 @Zephyr-T24241 @Env-All", async ({ io, page }) => {
         id = await io.createResourceFromAPI(C119809, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
         await io.flowBuilder.reloadPage();
@@ -79,7 +79,7 @@ test.describe("TC_C119809_C119810_C119811", () => {
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
     });
-    test("@Epic-IO-63762  @Priority-P2  @Zephyr-T27332", async ({ io, page }) => {
+    test("@Epic-IO-63762  @Priority-P2  @Zephyr-T27332 @Env-All", async ({ io, page }) => {
         id1 = await io.createResourceFromAPI(T27332, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
         await io.flowBuilder.reloadPage();

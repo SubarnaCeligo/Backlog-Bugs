@@ -10,7 +10,7 @@ test.describe("T24220_T24222_T24224", () => {
         await io.api.deleteFlowViaAPI(id1);
         await io.api.deleteFlowViaAPI(id2);
     });
-    test("@Epic-IO-63762  @Priority-P2  @Zephyr-T24220", async ({ io, page }) => {
+    test("@Epic-IO-63762  @Priority-P2  @Zephyr-T24220 @Env-All ", async ({ io, page }) => {
         id = await io.createResourceFromAPI(C119790, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
         //Export
@@ -51,7 +51,7 @@ test.describe("T24220_T24222_T24224", () => {
         expect(await buttonDis.screenshot()).toMatchSnapshot("launchFormBuilder.png");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
     });
-    test("@Epic-IO-63762  @Priority-P2  @Zephyr-T24222", async ({ io, page }) => {
+    test("@Epic-IO-63762  @Priority-P2  @Zephyr-T24222 @Env-All ", async ({ io, page }) => {
         id1 = await io.createResourceFromAPI(C119790, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
         //Lookup
@@ -92,7 +92,7 @@ test.describe("T24220_T24222_T24224", () => {
         const buttonDis1 = await page.$(selectors.flowBuilderPagePO.SETTING);
         expect(await buttonDis1.screenshot()).toMatchSnapshot("launchFormBuilder1.png");
     });
-    test("@Epic-IO-63762  @Priority-P2  @Zephyr-T24224", async ({ io, page }) => {
+    test("@Epic-IO-63762  @Priority-P2  @Zephyr-T24224 @Env-All ", async ({ io, page }) => {
         id2 = await io.createResourceFromAPI(C119790, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
 
