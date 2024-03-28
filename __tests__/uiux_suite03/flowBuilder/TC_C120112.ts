@@ -5,7 +5,7 @@ test.describe("C120112   Verify the message when api failed to fetch the table",
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("Verify the message when api failed to fetch the table", async ({ io, page }) => {
+  test("@Zephyr-IO-T10098 @Env-All Verify the message when api failed to fetch the table", async ({ io, page }) => {
     await page.pause();
     await io.exportsPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
     await io.homePage.goToMenu("Tools", "Flow builder");

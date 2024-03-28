@@ -8,7 +8,7 @@ test.describe('C20856 Line graph filter applied by the user before logout should
   test.beforeEach(async ({ io }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test('C20856 Line graph filter applied by the user before logout should be applicable irrespective of the session', async ({
+  test('@Zephyr-IO-T2976 @Env-All C20856 Line graph filter applied by the user before logout should be applicable irrespective of the session', async ({
     io,
     page
   }) => {

@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C51655 from "@testData/EM2.0/TC_C51655.json";
 
 test.describe("C69561 Search bar is distorted on Error windows", () => {
-  test("C69561 Search bar is distorted on Error windows", async ({
+  test("@Zephyr-IO-T25936 @Env-All C69561 Search bar is distorted on Error windows", async ({
     io,
     page
   }) => {
