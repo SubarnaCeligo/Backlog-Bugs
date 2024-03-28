@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("T24261_T24262_T24263_T24264_T24265_T24266_T24267 verifying create from scratch button functionality", () => {
-    test("@Epic-IO-54540 @Priority-P2 @Zephyr-T24261 @Zephyr-T24262 @Zephyr-T24263 @Zephyr-T24264 @Zephyr-T24265 @Zephyr-T24266 @Zephyr-T24267  verifying create from scratch button functionality", async ({ io, page }) => {
+    test("@Epic-IO-54540 @Priority-P2 @Zephyr-T24261 @Zephyr-T24262 @Zephyr-T24263 @Zephyr-T24264 @Zephyr-T24265 @Zephyr-T24266 @Zephyr-T24267 @ENV-All verifying create from scratch button functionality", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         // export
@@ -16,8 +16,8 @@ test.describe("T24261_T24262_T24263_T24264_T24265_T24266_T24267 verifying create
         await expect(
             page.locator(selectors.importPagePO.CLICKPREVIEW)
           ).toBeDisabled();
-        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "ZENDESK CONNECTION");
-        await io.homePage.clickByText("ZENDESK CONNECTION");
+        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "HTTP Zendesk Connection Test");
+        await io.homePage.clickByText("HTTP Zendesk Connection Test");
         await expect(
             page.locator(selectors.importPagePO.CLICKPREVIEW)
           ).not.toBeDisabled();
@@ -43,8 +43,8 @@ test.describe("T24261_T24262_T24263_T24264_T24265_T24266_T24267 verifying create
         await expect(
             page.locator(selectors.importPagePO.CLICKPREVIEW)
           ).toBeDisabled();
-        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "ZENDESK CONNECTION");
-        await io.homePage.clickByText("ZENDESK CONNECTION");
+        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "HTTP Zendesk Connection Test");
+        await io.homePage.clickByText("HTTP Zendesk Connection Test");
         await expect(
             page.locator(selectors.importPagePO.CLICKPREVIEW)
           ).not.toBeDisabled();
@@ -67,8 +67,8 @@ test.describe("T24261_T24262_T24263_T24264_T24265_T24266_T24267 verifying create
         await expect(
             page.locator(selectors.importPagePO.CLICKPREVIEW)
           ).toBeDisabled();
-        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "ZENDESK CONNECTION");
-        await io.homePage.clickByText("ZENDESK CONNECTION");
+        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "HTTP Zendesk Connection Test");
+        await io.homePage.clickByText("HTTP Zendesk Connection Test");
         await expect(
             page.locator(selectors.importPagePO.CLICKPREVIEW)
           ).not.toBeDisabled();
