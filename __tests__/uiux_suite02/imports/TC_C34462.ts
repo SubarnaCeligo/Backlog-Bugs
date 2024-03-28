@@ -36,9 +36,9 @@ test.describe("@Author-ashu-g TC_C34462 Verify whether the debugger is enabled t
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Http');
         await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
         await io.flowBuilder.click(selectors.connectionsPagePO.IMPORT_RECORDS);
-        await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
-        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'HTTP ZENDESK CONNECTION');
-        await io.flowBuilder.clickByText('HTTP ZENDESK CONNECTION');
+        await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
+        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "HTTP ZENDESK CONNECTION");
+        await io.homePage.clickByText("HTTP ZENDESK CONNECTION");
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.flowBuilder.fill(selectors.basePagePO.INPUT_NAME_SELECTOR, 'TC_C34462');
         await io.flowBuilder.click(selectors.importPagePO.SELECTHTTPMETHOD);
