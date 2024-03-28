@@ -7,6 +7,7 @@ test.describe("TC_C51605 Verify help text for [Simple | HTTP] toggle button for 
     page
   }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+    await io.homePage.loadingTime()
     await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP
@@ -17,12 +18,10 @@ test.describe("TC_C51605 Verify help text for [Simple | HTTP] toggle button for 
     );
     await io.flowBuilder.clickByText("Loop Returns");
     await io.flowBuilder.click(selectors.connectionsPagePO.IMPORT_RECORDS);
+    await io.flowBuilder.clickByText("Create from scratch")
+    await io.flowBuilder.loadingTime()
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
-    await io.flowBuilder.fill(
-      selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,
-      "HTTP LOOP RETURNS CONNECTION"
-    );
-    await io.flowBuilder.clickByText("HTTP LOOP RETURNS CONNECTION");
+    await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.click(".MuiToggleButtonGroup-root ~ button");
     await io.assert.verifyElementText(

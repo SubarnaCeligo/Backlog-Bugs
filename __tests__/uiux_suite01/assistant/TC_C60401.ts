@@ -4,10 +4,13 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe("C60401 Verify whether data types(select,integer) are supporting for path parameters in 2.0(ex:ADP) for resource type Talent and api endpoint Get specific talent of a worker", () => {
     test("C60401 Verify whether data types(select,integer) are supporting for path parameters in 2.0(ex:ADP) for resource type Talent and api endpoint Get specific talent of a worker", async ({io, page}) => {
       await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+      await io.homePage.loadingTime()
       await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
       await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
       await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'ADP');
       await io.flowBuilder.click(selectors.connectionsPagePO.ADP_CONNECTION);
+      await io.flowBuilder.clickByText("Create from scratch")
+      await io.flowBuilder.loadingTime()
       await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
       await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,'ADP CONNECTION');
       await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);

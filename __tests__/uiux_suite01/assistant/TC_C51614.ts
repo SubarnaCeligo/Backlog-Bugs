@@ -8,15 +8,19 @@ test.describe(" C51614 Verify the name field under lookups", () => {
 
   test(" Verify the name field under lookups", async ({ io, page }) => {
     await io.homePage.clickByText("Tools")
-    await io.homePage.clickByText( "Flow builder");
+    await io.homePage.clickByText("Flow builder");
     await io.flowBuilder.click(selectors.basePagePO.LOOKUP_ADD_BUTTON);
+    await io.flowBuilder.fill(
+      selectors.settingsPagePO.APP_NAME_INPUT,
+      "Loop Returns"
+    );
     await io.flowBuilder.click(selectors.connectionsPagePO.LOOP_RETURN_CONNECTION);
-
     await page.getByRole("menuitem").nth(2).click();
+    await io.flowBuilder.clickByText("Create from scratch")
+    await io.flowBuilder.loadingTime()
     await io.flowBuilder.click(selectors.basePagePO.CONNECTION_DROPDOWN);
     await io.flowBuilder.clickByText("Loop Returns NoVer");
-    await io.flowBuilder.clickByText("Next");
-
+    await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
     await io.flowBuilder.waitForElementAttached(selectors.basePagePO.NAME_ID);
 
     await io.assert.verifyElementContainsText(

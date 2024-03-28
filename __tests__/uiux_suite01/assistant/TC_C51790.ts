@@ -8,6 +8,11 @@ test.describe(`C51790 Verify 'Can't Find' Link under connection form when toggle
   }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
+    await io.flowBuilder.fill(
+      selectors.settingsPagePO.APP_NAME_INPUT,
+      "litmos"
+    );
+    await io.connectionPage.loadingTime()
     await io.connectionPage.click(selectors.connectionsPagePO.LITMOS_CONNECTION);
     await io.assert.verifyElementDisplayedByText(
       "Can't find?",
