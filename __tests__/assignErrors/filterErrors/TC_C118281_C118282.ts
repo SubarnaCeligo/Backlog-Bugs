@@ -6,7 +6,7 @@ test.describe("C118281_C118282 Verify user email is displayed on filter UI when 
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
 
   });
-  test("C118281 Verify user email is displayed on filter UI when an error is assigned to non IO user", async ({
+  test("@Epic-IO-38602 @Priority-P2 @Zephyr-IO-T20063 @Env-All C118281 Verify user email is displayed on filter UI when an error is assigned to non IO user", async ({
     io,
     page,
   }) => {
@@ -38,7 +38,7 @@ test.describe("C118281_C118282 Verify user email is displayed on filter UI when 
     await io.assert.expectToBeTrue(isEmailDisplayed, "io.auto.qa+assignpending@celigo.com not found");
 
   });
-  test("C118282 Verify if longer usernames/email or usernames with special character are displayed properly on filter user section", async ({
+  test("@Epic-IO-38602 @Priority-P2 @Zephyr-IO-T20064 @Env-All C118282 Verify if longer usernames/email or usernames with special character are displayed properly on filter user section", async ({
     io,
     page,
   }) => {
@@ -68,9 +68,7 @@ test.describe("C118281_C118282 Verify user email is displayed on filter UI when 
     //Verify long user names are displayed.
     await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
     await io.flowBuilder.fill(selectors.filterErrorTag.ARIALABELSEARCHUSER, "User WithLongUserNameTestWithLongUserN")
-    await io.flowBuilder.waitForElementAttached('text="User WithLongUserNameTestWithLongUse"');
-    const isEmailDisplayed = await io.flowBuilder.isVisible('text="User WithLongUserNameTestWithLongUse"');
-    await io.assert.expectToBeValue(isEmailDisplayed.toString(), 'true', "User WithLongUserNameTestWithLongUse not found");
-
+    const userNames = (await io.flowBuilder.getText(selectors.em2DotOLineGraphPO.ASSIGNEE_NAME)).toString();
+    await io.assert.expectToContainValue('User WithLongUserNameTest', userNames, 'User With long name not found')
   });
 });

@@ -8,7 +8,7 @@ test.describe("C25574_Verify 'debug logs' button is displayed in top right of th
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C25574_Verify 'debug logs' button is displayed in top right of the webhooks and listener drawer", async ({ io }) => {
+    test("C25574_Verify 'debug logs' button is displayed in top right of the webhooks and listener drawer UI_Backlog", async ({ io }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);

@@ -1,0 +1,25 @@
+{
+    "adaptorType": "HTTPConnection",
+    "application": "HTTP",
+    "type": "http",
+    "autoRecoverRateLimitErrors": true,
+    "connectionFormView": "false",
+    "http": {
+        "auth": {
+            "type": "custom"
+        },
+        "baseURI": "http://http-mock-server-1150979527.us-east-1.elb.amazonaws.com/",
+        "concurrencyLevel": 25,
+        "encrypted": {
+            "key": "This is a string that includes all common escape characters:\n\tNew line (\\n)\n\tTab (\\t)\n\tBackslash (\\\\)\n\tSingle quote (\\')\n\tDouble quote (\\\")\n\tCarriage return (\\r)\n\tFormfeed (\\f)\n\tBackspace (\\b)\n\tUnicode (\\uXXXX)\n\tOctal (\\XXX)\n\tHexadecimal (\\xXX)"
+        },
+        "formType": "http",
+        "mediaType": "json",
+        "targetConcurrencyLevel": 25,
+        "unencrypted": {
+            "field": "value"
+        }
+    },
+    "name": "TestMOC",
+    "sandbox": false
+}
