@@ -23,8 +23,6 @@ test.describe('C20856 Line graph filter applied by the user before logout should
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]+"flowBuilder/"+flowid);
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.PLUS_BUTTONS);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
-    // await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW)
-   // await io.flowBuilder.click('[data-test="Run now"]');
     await io.flowBuilder.click(selectors.flowBuilderPagePO.LINE_GRAPH_ICON);
     await io.flowBuilder.clickByText('Last 30 days' );
     await io.flowBuilder.clickByText('Last 4 hours' );
