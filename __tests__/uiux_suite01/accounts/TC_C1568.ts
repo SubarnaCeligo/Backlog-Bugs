@@ -6,7 +6,7 @@ test.describe('Verify we should not allow integration level manage access once A
         await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     });
 
-    test('Verify we should not allow integration level manage access once ALL integrations are given manage access ', async ({ io, page }) => {
+    test('C1568 Verify we should not allow integration level manage access once ALL integrations are given manage access ', async ({ io, page }) => {
         await io.homePage.loadingTime()
         await io.myAccountPage.clickByText("Users");
         await io.myAccountPage.clickByText("Invite user");
