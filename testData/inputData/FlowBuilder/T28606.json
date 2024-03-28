@@ -1,0 +1,156 @@
+{
+    "name": "MockOutputRetentionTest",
+    "disabled": true,
+    "autoResolveMatchingTraceKeys": true,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "_id": "65f95640ea9a3d3e7fe96233",
+                "name": "Test",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "e0366491de",
+                "asynchronous": true,
+                "sandbox": false,
+                "parsers": [
+                    {
+                        "version": "1",
+                        "type": "xml",
+                        "rules": {
+                            "V0_json": false,
+                            "trimSpaces": false,
+                            "stripNewLineChars": false
+                        }
+                    }
+                ],
+                "mockOutput": {
+                    "page_of_records": [
+                        {
+                            "record": {
+                                "ns17:InventoryItemId": "100001193354120",
+                                "ns17:OrganizationId": "300000002130092",
+                                "ns17:FLEX_PARAM_GLOBAL_COUNTRY_CODE": {
+                                    "xsi:nil": "true"
+                                },
+                                "ns17:__FLEX_Context": {
+                                    "xsi:nil": "true"
+                                },
+                                "ns17:__FLEX_Context_DisplayValue": {
+                                    "xsi:nil": "true"
+                                },
+                                "ns17:_FLEX_NumOfSegments": "0"
+                            }
+                        }
+                    ]
+                },
+                "sampleData": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Items xmlns=\"http://xmlns.oracle.com/apps/scm/productModel/common/publicationService/\" >\n<ns1:Item xmlns:ns16=\"http://xmlns.oracle.com/apps/scm/productModel/items/flex/item/\" xmlns:ns17=\"http://xmlns.oracle.com/apps/scm/productModel/items/flex/itemGdf/\" xmlns:ns0=\"http://xmlns.oracle.com/adf/svc/types/\" xmlns:ns4=\"http://xmlns.oracle.com/apps/scm/productCatalogManagement/advancedItems/flex/egoItemEff/item/categories/\" xmlns:ns5=\"http://xmlns.oracle.com/apps/scm/productModel/items/itemServiceV2/\" xmlns:ns8=\"http://xmlns.oracle.com/apps/scm/productModel/items/itemRelationshipService/\" xmlns:ns11=\"http://xmlns.oracle.com/apps/scm/productModel/items/structures/structureServiceV2/\" xmlns:ns1=\"http://xmlns.oracle.com/apps/scm/productModel/common/publicationService/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:type=\"ns1:Item\">\n   <ns1:ItemGdf>\n      <ns17:InventoryItemId>100001193354120</ns17:InventoryItemId>\n      <ns17:OrganizationId>300000002130092</ns17:OrganizationId>\n      <ns17:FLEX_PARAM_GLOBAL_COUNTRY_CODE xsi:nil=\"true\"/>\n      <ns17:__FLEX_Context xsi:nil=\"true\"/>\n      <ns17:__FLEX_Context_DisplayValue xsi:nil=\"true\"/>\n      <ns17:_FLEX_NumOfSegments>0</ns17:_FLEX_NumOfSegments>\n   </ns1:ItemGdf>\n</ns1:Item>\n</Items>",
+                "ftp": {
+                    "directoryPath": "/Group-QA/ShritiS"
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "xml",
+                    "xml": {
+                        "resourcePath": "/Items/ns1:Item/ns1:ItemGdf"
+                    },
+                    "filter": {
+                        "type": "expression",
+                        "expression": {
+                            "version": "1",
+                            "rules": [
+                                "contains",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "filename"
+                                    ]
+                                ],
+                                "test1"
+                            ]
+                        },
+                        "rules": [
+                            "contains",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "filename"
+                                ]
+                            ],
+                            "test1"
+                        ],
+                        "version": "1"
+                    }
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "_id": "65f975ba4b2a0f0f2b7d74ee",
+                "name": "FTP Import",
+                "sampleData": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Items xmlns=\"http://xmlns.oracle.com/apps/scm/productModel/common/publicationService/\" >\n<ns1:Item xmlns:ns16=\"http://xmlns.oracle.com/apps/scm/productModel/items/flex/item/\" xmlns:ns17=\"http://xmlns.oracle.com/apps/scm/productModel/items/flex/itemGdf/\" xmlns:ns0=\"http://xmlns.oracle.com/adf/svc/types/\" xmlns:ns4=\"http://xmlns.oracle.com/apps/scm/productCatalogManagement/advancedItems/flex/egoItemEff/item/categories/\" xmlns:ns5=\"http://xmlns.oracle.com/apps/scm/productModel/items/itemServiceV2/\" xmlns:ns8=\"http://xmlns.oracle.com/apps/scm/productModel/items/itemRelationshipService/\" xmlns:ns11=\"http://xmlns.oracle.com/apps/scm/productModel/items/structures/structureServiceV2/\" xmlns:ns1=\"http://xmlns.oracle.com/apps/scm/productModel/common/publicationService/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:type=\"ns1:Item\">\n   <ns1:ItemGdf>\n      <ns17:InventoryItemId>100001193354120</ns17:InventoryItemId>\n      <ns17:OrganizationId>300000002130092</ns17:OrganizationId>\n      <ns17:FLEX_PARAM_GLOBAL_COUNTRY_CODE xsi:nil=\"true\"/>\n      <ns17:__FLEX_Context xsi:nil=\"true\"/>\n      <ns17:__FLEX_Context_DisplayValue xsi:nil=\"true\"/>\n      <ns17:_FLEX_NumOfSegments>0</ns17:_FLEX_NumOfSegments>\n   </ns1:ItemGdf>\n</ns1:Item>\n</Items>",
+                "mockResponse": [
+                    {
+                        "id": "1234567890",
+                        "errors": [],
+                        "_json": {
+                            "id": "1234567890",
+                            "mockResponse": "Replace mockResponse key and value with destination data. You may be able to refer to your destination app's API for examples."
+                        },
+                        "statusCode": 200,
+                        "ignored": false,
+                        "dataURI": "",
+                        "_headers": {
+                            "content-type": "application/json; charset=utf-8"
+                        }
+                    }
+                ],
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "ie359b4481",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "file-{{timestamp}}.xml",
+                    "skipAggregation": false,
+                    "type": "xml",
+                    "xml": {
+                        "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Items xmlns=\"http://xmlns.oracle.com/apps/scm/productModel/common/publicationService/\">\n  {{#each batch_of_records}}\n  <ns1:Item xmlns:ns16=\"http://xmlns.oracle.com/apps/scm/productModel/items/flex/item/\" xmlns:ns17=\"http://xmlns.oracle.com/apps/scm/productModel/items/flex/itemGdf/\" xmlns:ns0=\"http://xmlns.oracle.com/adf/svc/types/\" xmlns:ns4=\"http://xmlns.oracle.com/apps/scm/productCatalogManagement/advancedItems/flex/egoItemEff/item/categories/\" xmlns:ns5=\"http://xmlns.oracle.com/apps/scm/productModel/items/itemServiceV2/\" xmlns:ns8=\"http://xmlns.oracle.com/apps/scm/productModel/items/itemRelationshipService/\" xmlns:ns11=\"http://xmlns.oracle.com/apps/scm/productModel/items/structures/structureServiceV2/\" xmlns:ns1=\"http://xmlns.oracle.com/apps/scm/productModel/common/publicationService/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:type=\"ns1:Item\">\n    <ns1:ItemGdf>\n      <ns17:InventoryItemId>{{record.ns17:InventoryItemId}}</ns17:InventoryItemId>\n      <ns17:OrganizationId>{{record.ns17:OrganizationId}}</ns17:OrganizationId>\n      <ns17:FLEX_PARAM_GLOBAL_COUNTRY_CODE xsi:nil=\"{{record.ns17:FLEX_PARAM_GLOBAL_COUNTRY_CODE.xsi:nil}}\"/>\n      <ns17:__FLEX_Context xsi:nil=\"{{record.ns17:__FLEX_Context.xsi:nil}}\"/>\n      <ns17:__FLEX_Context_DisplayValue xsi:nil=\"{{record.ns17:__FLEX_Context_DisplayValue.xsi:nil}}\"/>\n      <ns17:_FLEX_NumOfSegments>{{record.ns17:_FLEX_NumOfSegments}}</ns17:_FLEX_NumOfSegments>\n    </ns1:ItemGdf>\n  </ns1:Item>\n  {{/each}}\n</Items>"
+                    }
+                },
+                "ftp": {
+                    "directoryPath": "/Group-QA/ShritiS/Import",
+                    "fileName": "file-{{timestamp}}.xml"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ],
+    "includeStages": false,
+    "createFlow": {
+        "name": "MockOutputRetentionTest",
+        "disabled": true,
+        "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID",
+                "skipRetries": false
+            }
+        ],
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "autoResolveMatchingTraceKeys": true
+    }
+}
