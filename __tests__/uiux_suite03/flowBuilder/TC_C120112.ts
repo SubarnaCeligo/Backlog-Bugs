@@ -19,11 +19,11 @@ test.describe("C120112   Verify the message when api failed to fetch the table",
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.waitForElementAttached(selectors.exportsPagePO.NAME);
     await io.flowBuilder.fill(selectors.exportsPagePO.NAME, "offline");
-    await io.flowBuilder.click('[data-test="search-rdbms.bulkInsert.tableName"]');
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.ORACLEDB_BULKINSERT );
     await io.importsPage.click(selectors.importPagePO.EXPAND_MOCK_RESPONSE);
     await io.flowBuilder.waitForElementAttached(selectors.basePagePO.MUI_CIRCULAR_PROGRESS);
     await page.waitForTimeout(8000);
-    await io.flowBuilder.click('[data-test="search-rdbms.bulkInsert.tableName"]');
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.ORACLEDB_BULKINSERT );
     await io.flowBuilder.waitForElementAttached('text="Unable to retrieve table list. Enter a new query or refresh the  page."')
     await io.assert.verifyElementDisplayedByText(
       "Unable to retrieve table list. Enter a new query or refresh the  page.",
@@ -31,7 +31,7 @@ test.describe("C120112   Verify the message when api failed to fetch the table",
     );
 
 
-    await io.importsPage.click('[id="rdbms.bulkInsert.tableName"]>div>div>button');
+    await io.importsPage.click(selectors.flowBuilderPagePO.DESTINATIONTABLE_HELPTEXT_ICON);
     await io.assert.verifyElementDisplayedByText(`Select a data destination for bulk inserts. You can bulk insert data into a table.`,
           'prefix lookup text is incorrect');
         await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);

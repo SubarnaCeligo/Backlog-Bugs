@@ -18,7 +18,7 @@ test.describe("C120220,C120111,C120110,C120109,C120108,C120107,C120105,C120104,C
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.flowBuilder.waitForElementAttached(selectors.exportsPagePO.NAME);
         await io.flowBuilder.fill(selectors.exportsPagePO.NAME, "MariaDB");
-        await io.assert.checkElementState("[data-test='bulk_insert']",'isChecked');
+        await io.assert.checkElementState(selectors.importPagePO.MARIADB_INSERT_BULK,'isChecked');
         await io.assert.verifyElementDisplayedByText("Use bulk insert SQL query (recommended)", "option is not displayed");
         await io.assert.verifyElementDisplayedByText("Use SQL query once per record", "option is not visible");
         await io.assert.verifyElementDisplayedByText("Use SQL query once per page of records", "option is not visible");
