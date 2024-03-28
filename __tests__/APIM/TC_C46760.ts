@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing API Manager and Push to apim option is not available for custom Webhooks", () => {
+test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API Manager and Push to apim option is not available for custom Webhooks", () => {
     test("MyAPis", async ({ io, page, context }) => {
         const randomString = "MyAPIS" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
@@ -60,7 +60,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.assert.expectToBeTrue(func, "urls doesn't match")
     });
     test("custom webhook", async ({ io, page }) => {
-        const randomString = "webhook" +(Math.random() + 1).toString(36).substring(7);
+        const randomString = "webhook" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
         await io.flowBuilder.click(selectors.basePagePO.RESOURCES);
@@ -169,11 +169,12 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.FLOW_BUILDER);
         await io.flowBuilder.click(selectors.mappings.ADD_IMPORT);
+        await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'HTTP');
         await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.SELECT_LOOKUP);
+        await io.flowBuilder.clickByText("Create from scratch");
         await io.flowBuilder.click(selectors.exportsPagePO.CREATE_SELECT_CONNECTION);
         await io.flowBuilder.clickByTextByIndex("http conn", 0);
-        await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.flowBuilder.fill(selectors.importPagePO.NAME, randomString);
         await io.flowBuilder.click(selectors.exportsPagePO.LOOKUP.HTTP_METHOD);
         await io.flowBuilder.click(selectors.exportsPagePO.HTTP_METHOD_GET);
@@ -210,11 +211,12 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.FLOW_BUILDER);
         await io.flowBuilder.click(selectors.mappings.ADD_IMPORT);
+        await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'HTTP');
         await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.SELECT_LOOKUP);
+        await io.flowBuilder.clickByText("Create from scratch");
         await io.flowBuilder.click(selectors.exportsPagePO.CREATE_SELECT_CONNECTION);
         await io.flowBuilder.clickByTextByIndex("http conn", 0);
-        await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.flowBuilder.fill(selectors.importPagePO.NAME, randomString);
         await io.flowBuilder.click(selectors.exportsPagePO.LOOKUP.HTTP_METHOD);
         await io.flowBuilder.click(selectors.exportsPagePO.HTTP_METHOD_GET);
@@ -237,11 +239,6 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await page.setDefaultTimeout(5000);
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APIMFLOW, randomString);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMPUSH);
-        await io.homePage.loadingTime();
-        await page.setDefaultTimeout(10000);
-        await io.homePage.isPageLoaded()
-        await io.homePage.loadingTime();
-        await io.homePage.isPageReady()
         await io.homePage.loadingTime();
         const allPages = context.pages();
         await allPages[1].bringToFront();
@@ -289,5 +286,5 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         const func = currentUrl.toString().includes(expectedUrl)
         await io.assert.expectToBeTrue(func, "urls doesn't match")
     });
-  }
+}
 );
