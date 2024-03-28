@@ -18,7 +18,7 @@ test.describe("TC_C32180_Verify XML editor is being displayed when the file type
     await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL)
     await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.homePage.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'AS2');
-    await io.homePage.clickByText("AS2");
+    await io.homePage.click(selectors.connectionsPagePO.AS2_CONNECTOR);
     await io.homePage.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.clickByText('Create_Connection_AS2');
     await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'AS2_Export');
