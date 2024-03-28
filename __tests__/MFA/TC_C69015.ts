@@ -2,7 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C59015 My User section under MFA doesn't collapse properly.", () => {
-    test("C59015 My User section under MFA doesn't collapse properly.", async ({io, page}) => {
+    test("@Env-QA C59015 My User section under MFA doesn't collapse properly.", async ({io, page}) => {
         await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
         await io.myAccountPage.click(selectors.myAccountPagePO.SECURITY);
         await io.myAccountPage.click(selectors.myAccountPagePO.MFA);
