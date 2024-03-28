@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("TC_C34462 Verify whether the debugger is enabled then the remaining time must be shown on the panel", () => {
+test.describe("@Author-ashu-g TC_C34462 Verify whether the debugger is enabled then the remaining time must be shown on the panel", () => {
     test.afterEach(async ({ io }) => {
         // Delete the created flow and import
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSELOGS);
@@ -28,7 +28,7 @@ test.describe("TC_C34462 Verify whether the debugger is enabled then the remaini
         await io.homePage.loadingTime();
     });
   
-    test("TC_C34462 Verify whether the debugger is enabled then the remaining time must be shown on the panel", async ({ io, page }) => {
+    test("@Epic-IO-20147 @Priority-P1 @Zephyr-IO-T6146 @Env-All TC_C34462 Verify whether the debugger is enabled then the remaining time must be shown on the panel", async ({ io, page }) => {
         // create import
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.goToMenu("Tools", "Flow builder");
