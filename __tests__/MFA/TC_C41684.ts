@@ -20,7 +20,7 @@ test.describe("C41684 verify empty state messaging for existing user", () => {
         await io.assert.expectToBeTrue(noExportText, "No export message not shown");
         await io.assert.expectToBeTrue(exportsText, "Exports text not shown");
     });
-    test("@Env-QA Agents page check", async ({io, page}) => {
+    test("Agents page check", async ({io, page}) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources","Agents");
