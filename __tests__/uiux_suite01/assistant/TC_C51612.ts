@@ -6,7 +6,7 @@ test.describe(" C51612 Verify the name field under imports @smoke", () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
 
-  test(" Verify the name field under imports", async ({ io, page }) => {
+  test("@Env-QA Verify the name field under imports", async ({ io, page }) => {
     await io.homePage.clickByText("Resources")
     await io.homePage.clickByText("Imports");
     await io.importsPage.clickByText("Create import");
