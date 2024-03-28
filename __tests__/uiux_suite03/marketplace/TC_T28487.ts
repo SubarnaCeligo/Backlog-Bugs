@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("IO-T28487 Verify user is able to edit flow group in Template", () => {
-  test("@Bug-IO-72269 @Priority-P2 @Zephyr-IO-T28487 Verify user is able to edit flow group in Template", async ({ io, page }) => {
+  test("@Bug-IO-72269 @Priority-P2 @Zephyr-IO-T28487 @Env-All Verify user is able to edit flow group in Template", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.flowBuilder.delay(10000);
     await io.flowBuilder.loadingTime();

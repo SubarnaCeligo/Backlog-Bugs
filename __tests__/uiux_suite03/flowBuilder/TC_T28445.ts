@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import TC from '../../../testData/inputData/FlowBuilder/T28445.json';
 
 test.describe("IO-T28445", () => {
-    test("@Bug-IO-66814  @Priority-P2  @Zephyr-T28445", async ({ io, page, context}) => {
+    test("@Bug-IO-66814  @Priority-P2  @Zephyr-T28445 @Env-All", async ({ io, page, context}) => {
         await io.createResourceFromAPI(TC, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
         //Clicking on mapping
