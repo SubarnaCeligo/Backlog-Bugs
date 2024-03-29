@@ -19,7 +19,7 @@ test.describe(" C51614 Verify the name field under lookups", () => {
     await io.flowBuilder.clickByText("Create from scratch")
     await io.flowBuilder.loadingTime()
     await io.flowBuilder.click(selectors.basePagePO.CONNECTION_DROPDOWN);
-    await io.flowBuilder.clickByText("Loop Returns NoVer");
+    await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
     await io.flowBuilder.waitForElementAttached(selectors.basePagePO.NAME_ID);
 
