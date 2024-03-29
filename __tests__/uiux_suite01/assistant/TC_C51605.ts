@@ -23,7 +23,7 @@ test.describe("TC_C51605 Verify help text for [Simple | HTTP] toggle button for 
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
-    await io.flowBuilder.click(".MuiToggleButtonGroup-root ~ button");
+    await io.flowBuilder.click(selectors.importPagePO.QUESTION_MARK);
     await io.assert.verifyElementText(
       selectors.mappings.TOOLTIP,
       "Formview• Simple form helps you to quickly configure the resources by displaying only the required minimum fields.• HTTP form allows you to view and/or modify application specific resources at the universal HTTP connector level.Was this helpful?"
