@@ -2,7 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C41699 Verify the empty state messaging after closing the create connection tab", () => {
-    test("Imports page check", async ({io, page}) => {
+    test("@Env-QA @Env-IAQA Imports page check", async ({io, page}) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources","Imports");
@@ -13,7 +13,7 @@ test.describe("C41699 Verify the empty state messaging after closing the create 
         await io.assert.expectToBeTrue(noImportText, "No import message not shown");
         await io.assert.expectToBeTrue(importsText, "Imports text not shown");
     });
-    test("Exports page check", async ({io, page}) => {
+    test("@Env-QA @Env-IAQA Exports page check", async ({io, page}) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources","Exports");
@@ -24,7 +24,7 @@ test.describe("C41699 Verify the empty state messaging after closing the create 
         await io.assert.expectToBeTrue(noExportText, "No export message not shown");
         await io.assert.expectToBeTrue(exportsText, "Exports text not shown");
     });
-    test("Agents page check", async ({io, page}) => {
+    test("@Env-QA @Env-IAQA Agents page check", async ({io, page}) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources","Agents");
