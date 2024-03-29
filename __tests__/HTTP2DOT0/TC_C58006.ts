@@ -9,6 +9,7 @@ test.describe("IO-58006 scenarios", () => {
     context
   }) => {
     const randomString = "http" + (Math.random() + 1).toString(36).substring(7);
+    await io.flowBuilder.loadingTime();
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     // connection page validation
     await io.homePage.loadingTime();
@@ -27,13 +28,15 @@ test.describe("IO-58006 scenarios", () => {
       selectors.connectionsPagePO.CLIENTS_ID,
       decrypt("MjExOWY2MWItMzgyNS00NTM0LTliMmUtOWYxZTBhNjNjYWFj")
     );
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.fill(
       selectors.connectionsPagePO.CLIENTSECRET3PL,
       decrypt("TG9xazJFbVovMno5L2xGNk9COFB3aUh2dzdGbW1IaHA=")
     );
+    await io.flowBuilder.loadingTime();
     const save = await page.$$(selectors.basePagePO.SAVE);
     await save[1].click();
-    await io.homePage.loadingTime();
+    await io.flowBuilder.loadingTime();
     await io.assert.expectToBeTrue(
       await (await page.$(selectors.connectionsPagePO.CLIENTS_ID)).isVisible(),
       "Saved in Simple View Mode"
