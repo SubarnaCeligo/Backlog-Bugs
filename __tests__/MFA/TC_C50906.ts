@@ -9,7 +9,7 @@ test.describe("C50906 Verify the message shown when the account settings are sav
         await io.myAccountPage.fill(selectors.myAccountPagePO.TRUSTED_DEVICE_FOR_PERIOD_INPUT, '1');
         await io.myAccountPage.fill(selectors.myAccountPagePO.TRUSTED_DEVICE_FOR_PERIOD_INPUT, '2');
         await io.myAccountPage.click(selectors.basePagePO.MFA_SAVE);
-        await page.locator(selectors.basePagePO.NOTIFICATION).waitFor({state: "visible"});
-        await expect(page.locator(selectors.basePagePO.NOTIFICATION)).toBeVisible();
+        await page.locator(selectors.basePagePO.NOTIFICATION_ID).waitFor({state: "visible"});
+        await expect(page.locator(selectors.basePagePO.NOTIFICATION_ID)).toBeVisible();
     });
 });
