@@ -13,7 +13,7 @@ test.describe("C57327 C50895 C50907", () => {
             await io.homePage.click(selectors.basePagePO.SIGN_OUT);
         }
     })
-    test("C57327 C50895 C50907", async ({io, page}) => {
+    test("@Env-QA @Env-IAQA C57327 C50895 C50907", async ({io, page}) => {
         await io.homePage.waitForElementAttached(selectors.loginPagePO.EMAIL);
         await io.signInPage.fill(selectors.loginPagePO.EMAIL, process.env["IO_UserName"]);
         await io.signInPage.fill(selectors.loginPagePO.PASSWORD, decrypt(process.env["IO_Password"]));
