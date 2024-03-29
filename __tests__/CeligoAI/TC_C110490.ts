@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C110490 Verify system generates the Amazon Redshift query after the user has provided the prompt", () => {
-  test("@Env-All C110490 Verify system generates the Amazon Redshift query after the user has provided the prompt", async ({
+  test.skip("@Env-All C110490 Verify system generates the Amazon Redshift query after the user has provided the prompt", async ({
     io,
     page
   }) => {

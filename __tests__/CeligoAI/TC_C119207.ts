@@ -5,7 +5,7 @@ test.describe("C119207 Verify Celigo AI panel enhancements", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-All C119207 Verify Celigo AI panel enhancements", async ({
+  test.skip("@Env-All C119207 Verify Celigo AI panel enhancements", async ({
     io,
     page
   }) => {

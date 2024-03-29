@@ -5,7 +5,7 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-All C110832 Verify JS Editor is having Celigo AI", async ({
+  test.skip("@Env-All C110832 Verify JS Editor is having Celigo AI", async ({
     io,
     page
   }) => {

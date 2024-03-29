@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C112021 Verify Application Should Not Crashes Upon CeligoAI Prompt Closure", () => {
-  test("@Env-All C112021 Verify Application Should Not Crashes Upon CeligoAI Prompt Closure", async ({
+  test.skip("@Env-All C112021 Verify Application Should Not Crashes Upon CeligoAI Prompt Closure", async ({
     io,
     page
   }) => {

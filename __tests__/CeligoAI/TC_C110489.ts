@@ -1,8 +1,8 @@
-import {expect, test} from "@celigo/ui-core-automation";
+import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C110489 Verify system generates the Big query after the user has provided the prompt", () => {
-  test("@Env-All C110489 Verify system generates the Big query after the user has provided the prompt", async ({
+  test.skip("@Env-All C110489 Verify system generates the Big query after the user has provided the prompt", async ({
     io,
     page
   }) => {

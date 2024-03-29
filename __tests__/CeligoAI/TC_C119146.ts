@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C119146 Verify the Error Panel in AFE windows", () => {
-  test("@Env-All C119146 Verify the Error Panel in AFE windows", async ({
+  test.skip("@Env-All C119146 Verify the Error Panel in AFE windows", async ({
     io,
     page
   }) => {

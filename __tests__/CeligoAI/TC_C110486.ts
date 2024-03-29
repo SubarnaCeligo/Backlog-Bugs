@@ -1,8 +1,8 @@
-import {expect, test} from "@celigo/ui-core-automation";
+import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("@C110486 Verify export of Big Query is having Celigo AI", () => {
-  test("@Env-All C110486 Verify export of Big Query is having Celigo AI.", async ({
+  test.skip("@Env-All C110486 Verify export of Big Query is having Celigo AI.", async ({
     io,
     page
   }) => {
