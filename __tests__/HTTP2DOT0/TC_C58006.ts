@@ -12,9 +12,8 @@ test.describe("IO-58006 scenarios", () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     // connection page validation
     await io.homePage.loadingTime();
-    await io.flowBuilder.click(selectors.basePagePO.RESOURCES);
-    await io.homePage.loadingTime();
-    await io.flowBuilder.click(selectors.basePagePO.CONNECTIONS);
+    await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
+    await io.homePage.goToMenu("Resources", "Connections");
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.homePage.loadingTime();
@@ -190,8 +189,6 @@ test.describe("IO-58006 scenarios", () => {
       await (await page.$(selectors.connectionsPagePO.CLIENTS_ID)).isVisible(),
       "Saved in Simple View Mode"
     );
-    // const HTTP6 = await page.$$(selectors.connectionsPagePO.HTTP_CNNECTOR);
-    // await HTTP6[2].click();
     await io.flowBuilder.clickButtonByIndex(
       selectors.connectionsPagePO.HTTP_CNNECTOR,
       1

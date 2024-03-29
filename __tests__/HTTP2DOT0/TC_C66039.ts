@@ -13,6 +13,9 @@ test.describe("TC_C66039 To verify that the Path is available in help text for a
     page
   }) => {
     flowId = await io.createResourceFromAPI(Flow, "FLOWS");
+    await io.homePage.navigateTo(
+      process.env["IO_Integration_URL"] + "flowBuilder/" + flowId
+    );
     await io.flowBuilder.loadingTime();
     //Export
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);

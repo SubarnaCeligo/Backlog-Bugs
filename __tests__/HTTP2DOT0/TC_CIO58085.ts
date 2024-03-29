@@ -15,7 +15,9 @@ test.describe("TC_CIO58085", () => {
       "Orderful"
     );
     await io.flowBuilder.click("[data-test='Orderful']");
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.MEDIA_TYPE);
     await io.assert.verifyElementContainsText(
       selectors.connectionsPagePO.PLAINTEXT,
@@ -35,11 +37,16 @@ test.describe("TC_CIO58085", () => {
       "Orderful"
     );
     await io.flowBuilder.click(selectors.connectionsPagePO.ORDERFUL);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.MEDIA_TYPE);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.connectionsPagePO.PLAINTEXT);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.MEDIATYPESUCCESSRESP);
     await io.flowBuilder.click(selectors.connectionsPagePO.DONOTOVERRIDE);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.MEDIATYPEERRORRESP);
     await io.flowBuilder.click(selectors.connectionsPagePO.DONOTOVERRIDE);
     await io.flowBuilder.waitForElementAttached(
@@ -108,16 +115,20 @@ test.describe("TC_CIO58085", () => {
       "Orderful"
     );
     await io.flowBuilder.click(selectors.connectionsPagePO.ORDERFUL);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.MEDIA_TYPE);
     await io.flowBuilder.click(selectors.connectionsPagePO.PLAINTEXT);
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.OVERRIDE_MEDIA_ERROR_RESPONSE
     );
     await io.connectionPage.click(selectors.flowBuilderPagePO.JSON);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.OVERRIDE_MEDIA_SUCCESS_RESPONSE
     );
+    await io.flowBuilder.loadingTime();
     await io.connectionPage.click(selectors.flowBuilderPagePO.XMLVALUE);
     await io.flowBuilder.waitForElementAttached(
       selectors.exportsPagePO.NON_STANDARD_API_TAB
@@ -127,6 +138,7 @@ test.describe("TC_CIO58085", () => {
       selectors.flowBuilderPagePO.NONSTANDARD
     );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.NONSTANDARD);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.waitForElementAttached(
       selectors.flowBuilderPagePO.HOWTOTESTCONN
     );
@@ -185,9 +197,13 @@ test.describe("TC_CIO58085", () => {
       "Orderful"
     );
     await io.flowBuilder.click(selectors.connectionsPagePO.ORDERFUL);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.MEDIA_TYPE);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.connectionsPagePO.PLAINTEXT);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.OVERRIDE_MEDIA_ERROR_RESPONSE
     );
@@ -196,10 +212,12 @@ test.describe("TC_CIO58085", () => {
       selectors.exportsPagePO.NON_STANDARD_API_TAB
     );
     await io.connectionPage.click(selectors.exportsPagePO.NON_STANDARD_API_TAB);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.waitForElementAttached(
       selectors.flowBuilderPagePO.NONSTANDARD
     );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.NONSTANDARD);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.waitForElementAttached(
       selectors.flowBuilderPagePO.HOWTOTESTCONN
     );
@@ -242,6 +260,7 @@ test.describe("TC_CIO58085", () => {
     page
   }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.flowBuilder.loadingTime();
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Resources", "Connections");
     await io.flowBuilder.click(selectors.connectionsPagePO.CREATE_CONNECTION);
@@ -250,16 +269,22 @@ test.describe("TC_CIO58085", () => {
       "Orderful"
     );
     await io.flowBuilder.click(selectors.connectionsPagePO.ORDERFUL);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.MEDIA_TYPE);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.connectionsPagePO.PLAINTEXT);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.OVERRIDE_MEDIA_SUCCESS_RESPONSE
     );
+    await io.flowBuilder.loadingTime();
     await io.connectionPage.click(selectors.flowBuilderPagePO.JSON);
     await io.flowBuilder.waitForElementAttached(
       selectors.exportsPagePO.NON_STANDARD_API_TAB
     );
+    await io.flowBuilder.loadingTime();
     await io.connectionPage.click(selectors.exportsPagePO.NON_STANDARD_API_TAB);
     await io.flowBuilder.waitForElementAttached(
       selectors.flowBuilderPagePO.NONSTANDARD
@@ -291,7 +316,9 @@ test.describe("TC_CIO58085", () => {
       "Orderful"
     );
     await io.flowBuilder.click(selectors.connectionsPagePO.ORDERFUL);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.OVERRIDE_MEDIA_SUCCESS_RESPONSE
     );
@@ -313,11 +340,15 @@ test.describe("TC_CIO58085", () => {
       "Orderful"
     );
     await io.flowBuilder.click(selectors.connectionsPagePO.ORDERFUL);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.OVERRIDE_MEDIA_SUCCESS_RESPONSE
     );
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.connectionsPagePO.PLAINTEXT);
+    await io.flowBuilder.loadingTime();
     const successPath = await io.homePage.isVisible(
       selectors.flowBuilderPagePO.SUCCESSPATH
     );
