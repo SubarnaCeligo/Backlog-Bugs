@@ -14,7 +14,6 @@ test.describe('C28400 Running flows tab -Verify the pagination is shown correctl
       await io.homePage.loadingTime();
       await io.flowBuilder.runAllFlows(50);
       await io.homePage.click(selectors.flowBuilderPagePO.DASHBOARD);
-      await io.homePage.loadingTime();
       await io.assert.verifyElementDisplayedByText("1 - 50 of 50","Count is not expected"); 
     });
 });
