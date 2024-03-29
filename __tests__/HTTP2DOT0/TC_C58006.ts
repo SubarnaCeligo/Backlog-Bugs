@@ -205,6 +205,7 @@ test.describe("IO-58006 scenarios", () => {
       selectors.connectionsPagePO.CLIENTSECRET3PL,
       decrypt("TG9xazJFbVovMno5L2xGNk9COFB3aUh2dzdGbW1IaHA=")
     );
+    await io.flowBuilder.loadingTime();
     const saves = await page.$$(selectors.basePagePO.SAVE);
     await saves[2].click();
     await io.homePage.loadingTime();
