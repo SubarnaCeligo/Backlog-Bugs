@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C119632 Verify the Celigo AI functionality working fine for MySQL", () => {
-  test.skip("@Env-All C119632 Verify the Celigo AI functionality working fine for MySQL", async ({
+  test.skip("@Env-QA @Env-IAQA C119632 Verify the Celigo AI functionality working fine for MySQL", async ({
     io,
     page
   }) => {

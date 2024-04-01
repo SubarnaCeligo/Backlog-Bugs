@@ -5,7 +5,7 @@ test.describe("C115168 Verify the flow description Celigo AI", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test.skip("@Env-QA C115168 Verify the flow description Celigo AI", async ({
+  test("@Env-QA @Env-IAQA C115168 Verify the flow description Celigo AI", async ({
     io,
     page
   }) => {

@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C110485 Verify export of MS SQL is having Celigo AI", () => {
-  test.skip("@Env-All C110485 Verify export of MS SQL is having Celigo AI.", async ({
+  test.skip("@Env-QA @Env-IAQA C110485 Verify export of MS SQL is having Celigo AI.", async ({
     io,
     page
   }) => {

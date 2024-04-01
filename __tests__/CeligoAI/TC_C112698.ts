@@ -5,7 +5,7 @@ test.describe("C112698 Verify Mapper2.0 is having Celigo AI", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test.skip("@Env-All C112698 Verify Mapper2.0 is having Celigo AI", async ({
+  test("@Env-QA @Env-IAQA C112698 Verify Mapper2.0 is having Celigo AI", async ({
     io,
     page
   }) => {

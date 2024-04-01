@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C119633 Verify the Celigo AI functionality working fine for Postgre SQL", () => {
-  test.skip("@Env-All C119633 Verify the Celigo AI functionality working fine for Postgre SQL", async ({
+  test.skip("@Env-QA @Env-IAQA C119633 Verify the Celigo AI functionality working fine for Postgre SQL", async ({
     io,
     page
   }) => {
