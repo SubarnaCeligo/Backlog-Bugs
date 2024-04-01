@@ -6,7 +6,7 @@ test.describe("TC_T28432_Test to validate checkbox is not visible in HTTP export
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Epic-IO-37655 @Priority-P2 @Zephyr-T28432 @author_Sagna TC_T28432", async ({ io, page }) => {
+    test("@Epic-IO-37655 @Priority-P2 @Zephyr-T28432 @Env-QA @author_Sagna TC_T28432", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources","Connections");

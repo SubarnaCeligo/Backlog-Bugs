@@ -5,7 +5,7 @@ test.describe("TC_T28427_T28433_T28435_Test to validate checkbox is visible in H
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Epic-IO-37655 @Priority-P2 @Zephyr-T28427_T28433_T28435 @author_Sagna TC_T28427_T28433_T28435", async ({ io, page }) => {
+    test("@Epic-IO-37655 @Priority-P2 @Zephyr-T28427_T28433_T28435 @Env-QA @author_Sagna TC_T28427_T28433_T28435", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources","Exports");
