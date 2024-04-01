@@ -1,0 +1,84 @@
+{
+  "name": "TC_T2722",
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "FTP Export",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "eebcca58d7",
+        "asynchronous": true,
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "/Group-QA/ShritiS"
+        },
+        "file": {
+          "output": "records",
+          "skipDelete": true,
+          "type": "json",
+          "filter": {
+            "type": "expression",
+            "expression": {
+              "rules": [],
+              "version": "1"
+            },
+            "rules": [],
+            "version": "1"
+          }
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "Netsuite Import",
+        "_connectionId": "NETSUITE 347 CONNECTION",
+        "distributed": true,
+        "apiIdentifier": "i14c32d110",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "lookups": [],
+        "netsuite_da": {
+          "restletVersion": "suiteapp2.0",
+          "operation": "update",
+          "recordType": "subscriptionline",
+          "internalIdLookup": {
+            "expression": "[\"sampleField\",\"is\",\"{{{name1}}}\"]"
+          },
+          "lookups": [],
+          "mapping": {
+            "fields": [],
+            "lists": []
+          }
+        },
+        "adaptorType": "NetSuiteDistributedImport"
+      }
+    }
+  ],
+  "createFlow": {
+    "name": "TC_T2722",
+    "disabled": true,
+    "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+    "pageGenerators": [
+      {
+        "_exportId": "UPDATE WITH NEW EXPORTID",
+        "skipRetries": false
+      }
+    ],
+    "pageProcessors": [
+      {
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        },
+        "type": "import",
+        "_importId": "UPDATE WITH NEW IMPORTID"
+      }
+    ],
+    "autoResolveMatchingTraceKeys": true
+  }
+}
