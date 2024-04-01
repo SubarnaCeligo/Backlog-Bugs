@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("TC_C24282", () => {
-  test("TC_C24282", async ({ io, page }) => {
+  test("@Epic-IO-54539 @Priority-P2 @Zephyr-T24282 @Env-STAGING C24282", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
 

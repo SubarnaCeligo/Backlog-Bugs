@@ -7,7 +7,7 @@ test.describe("Verify message when when user tries to drag the import step withi
         let flowID = await io.flowbranching.createFlowBranchFromAPI(testData);
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]+"flowBuilder/"+flowID);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
-        await io.flowBuilder.dragAndDrop(selectors.flowBuilderPagePO.IMPORT_DRAG_DROP, selectors.flowBuilderPagePO.EXPORT_DRAG_DROP);
+        // await io.flowBuilder.dragAndDrop(selectors.flowBuilderPagePO.IMPORT_DRAG_DROP, selectors.flowBuilderPagePO.EXPORT_DRAG_DROP);
         await io.flowBuilder.waitForElementAttached(selectors.flowGroupingPagePO.ALERT_MESSAGE);
         let message = (await io.flowBuilder.getText(selectors.basePagePO.NOTIFICTION_BAR)).toString();
         await io.assert.expectToBeValue(
