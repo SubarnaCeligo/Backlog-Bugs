@@ -5,10 +5,7 @@ test.describe("C119207 Verify Celigo AI panel enhancements", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-QA @Env-IAQA C119207 Verify Celigo AI panel enhancements", async ({
-    io,
-    page
-  }) => {
+  test("C119207 Verify Celigo AI panel enhancements", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.clickByText("Filter_DND");
     await io.flowBuilder.waitForElementAttached(

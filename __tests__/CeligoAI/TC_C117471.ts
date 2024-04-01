@@ -5,7 +5,7 @@ test.describe("C117471 Verify the Celigo AI behaviour for IA's", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-IAQA C117471 Verify the Celigo AI behaviour for IA's", async ({
+  test("C117471 Verify the Celigo AI behaviour for IA's", async ({
     io,
     page
   }) => {

@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C110488 Verify system generates the MS SQL query after the user has provided the prompt", () => {
-  test.skip("@Env-QA @Env-IAQA C110488 Verify system generates the MS SQL query after the user has provided the prompt", async ({
+  test("C110488 Verify system generates the MS SQL query after the user has provided the prompt", async ({
     io,
     page
   }) => {

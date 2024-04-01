@@ -5,7 +5,7 @@ test.describe("C117451 Verify the Persist resource descriptions Celigo AI", () =
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-QA @Env-IAQA C117451 Verify the Persist resource descriptions Celigo AI", async ({
+  test("C117451 Verify the Persist resource descriptions Celigo AI", async ({
     io,
     page
   }) => {

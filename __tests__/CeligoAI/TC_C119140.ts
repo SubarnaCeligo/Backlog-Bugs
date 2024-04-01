@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C119140 Verify the Reset template,query and script button in AFE windows", () => {
-  test.skip("@Env-QA @Env-IAQA C119140  Verify the Reset template,query and script button in AFE windows", async ({
+  test("C119140  Verify the Reset template,query and script button in AFE windows", async ({
     io,
     page
   }) => {
