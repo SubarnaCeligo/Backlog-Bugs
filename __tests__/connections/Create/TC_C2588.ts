@@ -15,6 +15,7 @@ test.describe("TC_C2588_Verify as2Id and partnerId fields are greyed out while e
       connectionJson = await io.connections.createOrEditConnection(connectionData)
     });
     //Validating id and partner greyed out
+    await io.myAccountPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.homePage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, 'Create_Connection_AS2');
     await io.homePage.clickByText("Create_Connection_AS2");
     await io.assert.verifyElementNotToBeClickable(selectors.connectionsPagePO.AS2_APPLICATION_NAME)

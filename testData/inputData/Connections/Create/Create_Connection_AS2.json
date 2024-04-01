@@ -3,28 +3,28 @@
         "type": "as2",
         "name": "Create_Connection_AS2",
         "as2": {
-            "as2Id": "crAS2id",
-            "partnerId": "crAs2partnerId2",
+            "as2Id": "as2testui",
+            "partnerId": "test",
             "unencrypted": {
                 "userPublicKey": "123",
                 "partnerCertificate": "123"
             },
             "partnerStationInfo": {
-                "as2URI": "https://www.invalid.com",
+                "as2URI": "https://google.com",
                 "mdn": {
-                    "mdnSigning": "SHA1"
+                    "mdnSigning": "NONE"
                 },
-                "signing": "SHA1",
-                "encryptionType": "3DES",
+                "signing": "MD5",
+                "encryptionType": "DES",
                 "encoding": "base64",
                 "auth": {}
             },
             "userStationInfo": {
                 "mdn": {
-                    "mdnSigning": "SHA1"
+                    "mdnSigning": "MD5"
                 },
-                "signing": "SHA1",
-                "encryptionType": "DES",
+                "signing": "MD5",
+                "encryptionType": "3DES",
                 "encoding": "base64"
             }
         }

@@ -1,5 +1,5 @@
 import { test, expect } from "@celigo/ui-core-automation";
-import * as AmazonRedshift from "@testData/Connections/Create/Create_Connection_AmazonRedshift.json"
+import AmazonRedshift from "@testData/Connections/Create/Create_Connection_AmazonRedshift.json"
 test.describe("Create Connections", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);

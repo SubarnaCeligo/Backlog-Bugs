@@ -10,9 +10,8 @@ test.describe("CONNECTIONS", () => {
     await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'narvar');
     await page.keyboard.press("Enter");
-    await io.flowBuilder.click(selectors.connectionsPagePO.API_TYPE_HELP_BUBBLE);
-    const helpBubble = await page.$(selectors.myAccountPagePO.HELP_BUBBLE);
-    const text = await helpBubble.innerText();
-    expect(text).toContain("This application supports multiple APIs. Select the specific API you would like to use for this connection.");
+    await io.flowBuilder.loadingTime()
+    await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.HELP_TEXT_ICON, 2);
+    await io.assert.verifyElementDisplayedByText("This application supports multiple APIs. Select the specific API you would like to use for this connection.", "Text not showing")
   });
 });

@@ -11,6 +11,7 @@ test.describe("TC_C15857_Verify For OAuth connection Call back URL in the EU ins
         await io.homePage.addStep("Reloading the page");
         await io.homePage.reloadPage();
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.SEARCH, "TC_C15857_Iclient_DND");
+        await io.homePage.loadingTime();
         await io.homePage.clickByText("TC_C15857_Iclient_DND");
         // Validating callback URL visible
         await io.assert.verifyElementAttributeContainsText(selectors.dashboardPagePO.REDIRECT_URL, 'value', 'io/connection/oauth2callback')

@@ -4,11 +4,14 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe(`C12034_Verify Import and load the export which has 4000+ audit records_`, () => {
   test(`C12034_Verify Import and load the export which has 4000+ audit records UI_Backlog`, async ({ io, page }) => {
     await io.homePage.navigateTo(process.env.IO_Integration_URL);
+    await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
+    await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'TC_C12034_Flow_DND');
     await io.homePage.clickByText("TC_C12034_Flow_DND");
     await io.homePage.click(selectors.connectionsPagePO.ACTIONS_MENU_BUTTON);
     await io.flowBuilder.clickByText("Clone flow");
     await io.flowBuilder.clickByText("Please select");
-    await io.flowBuilder.clickByIndex(selectors.basePagePO.MENU_ITEM, 1);
+    const intID = await io.api.loadIntegrations();
+    await io.flowBuilder.selectTextfromDropDown(page, intID.get('Automation Flows'))
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLONE_FLOW_BUTTON);
     await io.flowBuilder.clickByTextByIndex("Configure", 0);
     await io.flowBuilder.clickByText('Use existing connection');
