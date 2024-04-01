@@ -4,7 +4,7 @@ test.describe(`C33283 Verify the help text of the new checkbox named Show timest
     test.beforeEach(async ({ io }) => {
         await io.homePage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
       });
-    test(`C33283 Verify the help text of the new checkbox named Show timestamps as relative is displayed correctly.`, async({io,page}) => {
+    test(`@Env-All C33283 Verify the help text of the new checkbox named Show timestamps as relative is displayed correctly.`, async({io,page}) => {
          await io.myAccountPage.click("#showRelativeDateTime >div>button")
          //selectors.integrationPagePO.RELATIVE_DATE_TIME_HELP_BUTTON
          await io.homePage.loadingTime()
