@@ -10,6 +10,7 @@ test.describe(" C51612 Verify the name field under imports @smoke", () => {
     await io.homePage.clickByText("Resources")
     await io.homePage.clickByText("Imports");
     await io.importsPage.clickByText("Create import");
+    await io.homePage.loadingTime()
     await io.importsPage.click(selectors.connectionsPagePO.LOOP_RETURN_CONNECTION);
     await io.importsPage.loadingTime()
     await io.importsPage.click(selectors.basePagePO.CONNECTION_DROPDOWN);
