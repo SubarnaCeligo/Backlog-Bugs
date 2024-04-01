@@ -6,7 +6,7 @@ test.describe(`TC_IOT4292 Test to verify Next button is activating if we selecte
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("IOT4292", async ({ io, page }) => {
+    test("@Epic-IO-56742 @Priority-P2 @Zephyr-IO-T4292", async ({ io, page }) => {
         await io.homePage.loadingTime();
         await io.homePage.clickByText("Create");
         await io.homePage.click(selectors.homePagePO.CREATEFLOW);

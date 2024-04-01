@@ -6,7 +6,7 @@ test.describe(`TC_IOT4286 Test to Verify the Help text and Header label for Mark
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("IOT4286", async ({ io, page }) => {
+    test("@Epic-IO-56742 @Priority-P2 @Zephyr-IO-T4286", async ({ io, page }) => {
         await io.homePage.loadingTime();
 
         await io.homePage.clickByText("Create");
