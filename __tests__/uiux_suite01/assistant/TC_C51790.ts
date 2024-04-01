@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C51790 Verify 'Can't Find' Link under connection form when toggle is under simple`, () => {
-  test(`@Env-QA @Env-STAGING @Env-All C51790 Verify 'Can't Find' Link under connection form when toggle is under simple`, async ({
+  test(`@Env-All C51790 Verify 'Can't Find' Link under connection form when toggle is under simple`, async ({
     io,
     page
   }) => {
