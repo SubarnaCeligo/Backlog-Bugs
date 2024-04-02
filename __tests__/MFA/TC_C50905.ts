@@ -10,6 +10,8 @@ test.describe("C50905 Verify that only the owner/admin should be able to define 
     await io.myAccountPage.click(selectors.myAccountPagePO.MFA);
     await io.myAccountPage.fill(selectors.myAccountPagePO.TRUSTED_DEVICE_FOR_PERIOD_INPUT, "");
     await io.myAccountPage.fill(selectors.myAccountPagePO.TRUSTED_DEVICE_FOR_PERIOD_INPUT, "5");
+    await io.myAccountPage.loadingTime()
+    await io.homePage.waitForElementAttached(selectors.basePagePO.MFA_SAVE);
     await io.myAccountPage.click(selectors.basePagePO.MFA_SAVE);
     expect(await page.locator(selectors.myAccountPagePO.TRUSTED_DEVICE_FOR_PERIOD_INPUT).getAttribute('value')).toBe("5");
   });
