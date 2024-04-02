@@ -1,8 +1,8 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-
-test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing API Manager and Push to apim option is not available for custom Webhooks", () => {
-    test("MyAPis", async ({ io, page, context }) => {
+test.describe.configure({mode:"serial"})
+test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API Manager and Push to apim option is not available for custom Webhooks", () => {
+    test("@Env-QA @Env-STAGING MyAPis", async ({ io, page, context }) => {
         const randomString = "MyAPIS" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
@@ -59,8 +59,8 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         const func = currentUrl.toString().includes(expectedUrl)
         await io.assert.expectToBeTrue(func, "urls doesn't match")
     });
-    test("custom webhook", async ({ io, page }) => {
-        const randomString = "webhook" +(Math.random() + 1).toString(36).substring(7);
+    test("@Env-QA @Env-STAGING custom webhook", async ({ io, page }) => {
+        const randomString = "webhook" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
         await io.flowBuilder.click(selectors.basePagePO.RESOURCES);
@@ -90,7 +90,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.flowBuilder.click(selectors.basePagePO.DELETE);
         await io.homePage.loadingTime();
     });
-    test("IOListner", async ({ io, page, context }) => {
+    test("@Env-QA @Env-STAGING IOListner", async ({ io, page, context }) => {
         const randomString = "IOListner" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
@@ -99,7 +99,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.INTEGRATORAPPLICATION);
-        await io.flowBuilder.click(selectors.exportsPagePO.WEBHOOK);
+        await io.flowBuilder.click(selectors.exportsPagePO.WEBHOOK_SELECT);
         await io.flowBuilder.fill(selectors.importPagePO.NAME, randomString);
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.homePage.loadingTime();
@@ -124,7 +124,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         const func = currentUrl.toString().includes(expectedUrl)
         await io.assert.expectToBeTrue(func, "urls doesn't match")
     });
-    test("Export", async ({ io, context }) => {
+    test("@Env-QA @Env-STAGING Export", async ({ io, context }) => {
         const randomString = "Export" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
@@ -160,7 +160,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         const func = currentUrl.toString().includes(expectedUrl)
         await io.assert.expectToBeTrue(func, "urls doesn't match")
     });
-    test("Lookup", async ({ io, context }) => {
+    test("@Env-QA @Env-STAGING Lookup", async ({ io, context }) => {
         const randomString = "Lookup" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
@@ -169,11 +169,12 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.FLOW_BUILDER);
         await io.flowBuilder.click(selectors.mappings.ADD_IMPORT);
+        await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'HTTP');
         await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.SELECT_LOOKUP);
+        await io.flowBuilder.clickByText("Create from scratch");
         await io.flowBuilder.click(selectors.exportsPagePO.CREATE_SELECT_CONNECTION);
-        await io.flowBuilder.clickByText("http conn");
-        await io.flowBuilder.click(selectors.basePagePO.SAVE);
+        await io.flowBuilder.clickByText("http connection");
         await io.flowBuilder.fill(selectors.importPagePO.NAME, randomString);
         await io.flowBuilder.click(selectors.exportsPagePO.LOOKUP.HTTP_METHOD);
         await io.flowBuilder.click(selectors.exportsPagePO.HTTP_METHOD_GET);
@@ -201,7 +202,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.assert.expectToBeTrue(func, "urls doesn't match");
 
     });
-    test("Existing API Manager", async ({ io, page, context }) => {
+    test("@Env-QA @Env-STAGING Existing API Manager", async ({ io, page, context }) => {
         const randomString = "EAPIM" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
@@ -210,11 +211,12 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.FLOW_BUILDER);
         await io.flowBuilder.click(selectors.mappings.ADD_IMPORT);
+        await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'HTTP');
         await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.SELECT_LOOKUP);
+        await io.flowBuilder.clickByText("Create from scratch");
         await io.flowBuilder.click(selectors.exportsPagePO.CREATE_SELECT_CONNECTION);
-        await io.flowBuilder.clickByText("http conn");
-        await io.flowBuilder.click(selectors.basePagePO.SAVE);
+        await io.flowBuilder.clickByText("http connection");
         await io.flowBuilder.fill(selectors.importPagePO.NAME, randomString);
         await io.flowBuilder.click(selectors.exportsPagePO.LOOKUP.HTTP_METHOD);
         await io.flowBuilder.click(selectors.exportsPagePO.HTTP_METHOD_GET);
@@ -249,7 +251,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         const func = currentUrl.toString().includes(expectedUrl)
         await io.assert.expectToBeTrue(func, "urls doesn't match");
     });
-    test("Import", async ({ io, page, context }) => {
+    test("@Env-QA @Env-STAGING Import", async ({ io, page, context }) => {
         const randomString = "Import" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
@@ -287,5 +289,5 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         const func = currentUrl.toString().includes(expectedUrl)
         await io.assert.expectToBeTrue(func, "urls doesn't match")
     });
-  }
+}
 );
