@@ -1,11 +1,11 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe(`TC_T26356_Changing the implementation for uploading template zip.`, () => {
+test.describe(`@Author_sagna123 TC_T26356_Changing the implementation for uploading template zip.`, () => {
     test.beforeEach(async ({ io }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test(`@Priority-P2 @Zephyr-T26356 @Env-QA TC_T26356 @author_Sagna`, async ({
+    test(`@Priority-P2 @Zephyr-IO-T26356 @Env-QA`, async ({
         io,
         page
     }) => {
