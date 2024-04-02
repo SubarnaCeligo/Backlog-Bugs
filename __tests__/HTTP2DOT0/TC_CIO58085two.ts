@@ -115,6 +115,7 @@ test.describe("TC_CIO58085two", () => {
       "Orderful"
     );
     await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.ORDERFUL);
     await io.flowBuilder.click(selectors.connectionsPagePO.ORDERFUL);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
