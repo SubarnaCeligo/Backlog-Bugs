@@ -10,6 +10,7 @@ test.describe("TC_CIO58085two", () => {
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Resources", "Connections");
     await io.flowBuilder.click(selectors.connectionsPagePO.CREATE_CONNECTION);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.fill(
       selectors.settingsPagePO.APP_NAME_INPUT,
       "Orderful"
@@ -36,6 +37,7 @@ test.describe("TC_CIO58085two", () => {
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Resources", "Connections");
     await io.flowBuilder.click(selectors.connectionsPagePO.CREATE_CONNECTION);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.fill(
       selectors.settingsPagePO.APP_NAME_INPUT,
       "Orderful"
@@ -107,6 +109,7 @@ test.describe("TC_CIO58085two", () => {
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Resources", "Connections");
     await io.flowBuilder.click(selectors.connectionsPagePO.CREATE_CONNECTION);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.fill(
       selectors.settingsPagePO.APP_NAME_INPUT,
       "Orderful"
@@ -138,7 +141,9 @@ test.describe("TC_CIO58085two", () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Resources", "Connections");
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.connectionsPagePO.CREATE_CONNECTION);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.fill(
       selectors.settingsPagePO.APP_NAME_INPUT,
       "Orderful"
@@ -199,7 +204,9 @@ test.describe("TC_CIO58085two", () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Resources", "Connections");
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.connectionsPagePO.CREATE_CONNECTION);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.fill(
       selectors.settingsPagePO.APP_NAME_INPUT,
       "Orderful"
@@ -233,12 +240,14 @@ test.describe("TC_CIO58085two", () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Resources", "Connections");
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.connectionsPagePO.CREATE_CONNECTION);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.fill(
       selectors.settingsPagePO.APP_NAME_INPUT,
       "Orderful"
     );
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.connectionsPagePO.ORDERFUL);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
@@ -266,7 +275,9 @@ test.describe("TC_CIO58085two", () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Resources", "Connections");
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.connectionsPagePO.CREATE_CONNECTION);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.fill(
       selectors.settingsPagePO.APP_NAME_INPUT,
       "Orderful"
@@ -325,6 +336,7 @@ test.describe("TC_CIO58085two", () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Resources", "Connections");
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.connectionsPagePO.CREATE_CONNECTION);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, "Http");

@@ -19,10 +19,15 @@ test.describe("IO-58006 scenarios", () => {
     await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.connectionsPagePO.THREEPL_CONNECTION);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.fill(selectors.importPagePO.NAME, randomString);
+    await io.flowBuilder.loadingTime();
     const edit = await page.$$(selectors.basePagePO.ADD_NEW_RESOURCE);
+    await io.flowBuilder.loadingTime();
     await edit[1].click();
+    await io.flowBuilder.loadingTime();
     const name = await page.$$(selectors.importPagePO.NAME);
+    await io.flowBuilder.loadingTime();
     await name[1].fill(randomString);
     await io.flowBuilder.fill(
       selectors.connectionsPagePO.CLIENTS_ID,
