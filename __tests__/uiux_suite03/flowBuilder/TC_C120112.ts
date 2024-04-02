@@ -5,16 +5,19 @@ test.describe("C120112   Verify the message when api failed to fetch the table",
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Zephyr-IO-T10098 @Env-All Verify the message when api failed to fetch the table", async ({ io, page }) => {
+  test("@Zephyr-IO-T10098 @Env-QA @Env-IAQA Verify the message when api failed to fetch the table", async ({ io, page }) => {
     await page.pause();
     await io.exportsPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
     await io.homePage.goToMenu("Tools", "Flow builder");
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP
     );
-    await io.flowBuilder.clickByText("MariaDB");
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.GROUP_RECORD_FIELD );
+        await io.flowBuilder.clickByText('MariaDB');
     await io.flowBuilder.clickByText("Import records into destination application");
+    await io.flowBuilder.clickByText('Create from scratch');
     await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
+    
     await io.flowBuilder.clickByText("MariaDBOffline - Offline");
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.waitForElementAttached(selectors.exportsPagePO.NAME);

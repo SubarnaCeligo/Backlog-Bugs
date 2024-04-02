@@ -5,15 +5,18 @@ test.describe("C120220,C120111,C120110,C120109,C120108,C120107,C120105,C120104,C
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Zephyr-IO-T10099 @Zephyr-IO-T10097 @Zephyr-IO-T10096 @Zephyr-IO-T10095 @Zephyr-IO-T10094 @Zephyr-IO-T10093 @Zephyr-IO-T10092 @Zephyr-IO-T10091 @Zephyr-IO-T10090 @Zephyr-IO-T10089 @Env-All ", async ({ io, page }) => {
+    test("@Zephyr-IO-T10099 @Zephyr-IO-T10097 @Zephyr-IO-T10096 @Zephyr-IO-T10095 @Zephyr-IO-T10094 @Zephyr-IO-T10093 @Zephyr-IO-T10092 @Zephyr-IO-T10091 @Zephyr-IO-T10090 @Zephyr-IO-T10089 @Env-QA @Env-IAQA ", async ({ io, page }) => {
         await io.homePage.loadingTime();
         await io.homePage.goToMenu("Tools", "Flow builder");
         await io.flowBuilder.click(
           selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP
         );
-        await io.flowBuilder.clickByText("MariaDB");
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.GROUP_RECORD_FIELD );
+        await io.flowBuilder.clickByText('MariaDB');
         await io.flowBuilder.clickByText("Import records into destination application");
+        await io.flowBuilder.clickByText('Create from scratch');
         await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
+
         await io.flowBuilder.clickByText("MariaDBCred");
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.flowBuilder.waitForElementAttached(selectors.exportsPagePO.NAME);
