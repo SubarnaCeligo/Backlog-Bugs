@@ -3,8 +3,8 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/monitorSuite/monitor_all_manage_few.json";
 
 
-test.describe(`C21309 Verify the connections of a monitored tiles should not be listed while creating new flow under manage tile.`, () => {
-  test(`C21309 Verify the connections of a monitored tiles should not be listed while creating new flow under manage tile.`, async ({
+test.describe(`@Bug-IO-19259  @Priority-P2  @Zephyr-T6954 @Env-All Verify the connections of a monitored tiles should not be listed while creating new flow under manage tile.`, () => {
+  test(`@Bug-IO-19259  @Priority-P2  @Zephyr-T6954 @Env-All Verify the connections of a monitored tiles should not be listed while creating new flow under manage tile.`, async ({
     page,
     io
   }) => {

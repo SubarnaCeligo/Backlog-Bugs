@@ -56,6 +56,7 @@ test.describe("TC_C119791_C119793_C119795", () => {
 
         // -'Mock output' and 'Advanced' sections should be displayed below 'Settings'
         // -'Custom settings' section should be displayed below 'General' section.
+        await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.homePage.loadingTime();
         expect(await page.screenshot()).toMatchSnapshot("TC_C119791.png");
@@ -94,6 +95,7 @@ test.describe("TC_C119791_C119793_C119795", () => {
 
         // -'Mock output' and 'Advanced' sections should be displayed below 'Settings'
         // -'Custom settings' section should be displayed below 'General' section.
+        await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.homePage.loadingTime();
         const Symbol = await page.$(selectors.flowBuilderPagePO.RIGHT_DRAWER);
@@ -135,6 +137,7 @@ test.describe("TC_C119791_C119793_C119795", () => {
 
         // -'Mock output' and 'Advanced' sections should be displayed below 'Settings'
         // -'Custom settings' section should be displayed below 'General' section.
+        await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.homePage.loadingTime();
         const Symbol1 = await page.$(selectors.flowBuilderPagePO.RIGHT_DRAWER);

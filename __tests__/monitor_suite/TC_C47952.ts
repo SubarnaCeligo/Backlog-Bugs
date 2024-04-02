@@ -1,8 +1,8 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C47952 Use this account for SSO dropdown in security tab should show Account names not the owner names", () => {
-    test("C47952 Use this account for SSO dropdown in security tab should show Account names not the owner names", async ({ io, page }) => {
+test.describe("@Bug-IO-27016  @Priority-P2  @Zephyr-T5136 @Env-All Use this account for SSO dropdown in security tab should show Account names not the owner names", () => {
+    test("@Bug-IO-27016  @Priority-P2  @Zephyr-T5136 @Env-All Use this account for SSO dropdown in security tab should show Account names not the owner names", async ({ io, page }) => {
         await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
         await io.myAccountPage.loadingTime();
         var expectedName = (await io.flowBuilder.getTextFromElement(selectors.flowBuilderPagePO.NAME)).toString();

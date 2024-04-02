@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import TC from "@testData/monitorSuite/C118391.json";
 
-test.describe("TC_C118391_C118392_C118749 - Assign cases in monitor account", () => {
+test.describe("@Epic-IO-38600  @Priority-P2 @Zephyr-T20092 @Zephyr-T20098 @Zephyr-T20091 @Env-All  Assign cases in monitor account", () => {
     let id;
     test.beforeEach(async ({ io }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
@@ -11,7 +11,7 @@ test.describe("TC_C118391_C118392_C118749 - Assign cases in monitor account", ()
         await io.api.deleteFlowViaAPI(id);
     });
 
-    test("TC_C118391_C118392_C118749 - Assign cases in monitor account", async ({ io, page }) => {
+    test("@Epic-IO-38600  @Priority-P2 @Zephyr-T20092 @Zephyr-T20098 @Zephyr-T20091 @Env-All  Assign cases in monitor account", async ({ io, page }) => {
         var flows = await io.api.createImpOrExpAndFlowsThruAPI(TC);
         id = flows.get(TC.name)["flowId"];
         await io.api.checkJobStatusFromAPI(

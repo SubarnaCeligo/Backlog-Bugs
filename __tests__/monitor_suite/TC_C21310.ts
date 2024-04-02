@@ -2,8 +2,8 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/monitorSuite/monitor_all_manage_few.json";
 
- test.describe(`C21310 Tile level user is allowed to create a flow which uses an export or an import to which the user doesn't have access`, () => {
-  test(`C21310 Tile level user is allowed to create a flow which uses an export or an import to which the user doesn't have access`, async ({
+ test.describe(`@Bug-IO-19259  @Priority-P2  @Zephyr-T6955 @Env-All Tile level user is allowed to create a flow which uses an export or an import to which the user doesn't have access`, () => {
+  test(`@Bug-IO-19259  @Priority-P2  @Zephyr-T6955 @Env-All Tile level user is allowed to create a flow which uses an export or an import to which the user doesn't have access`, async ({
     io
   }) => {
     const res = await io.api.putCall(

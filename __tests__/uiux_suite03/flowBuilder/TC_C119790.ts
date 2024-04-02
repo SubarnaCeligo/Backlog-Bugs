@@ -41,6 +41,7 @@ test.describe("T24220_T24222_T24224", () => {
 
         // -'Mock output' and 'Advanced' sections should be displayed below 'Settings'
         // -'Custom settings' section should be displayed below 'General' section.
+        await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.homePage.loadingTime();
         expect(await page.screenshot()).toMatchSnapshot("Export_UX.png");
@@ -83,6 +84,7 @@ test.describe("T24220_T24222_T24224", () => {
 
         // -'Mock output' and 'Advanced' sections should be displayed below 'Settings'
         // -'Custom settings' section should be displayed below 'General' section.
+        await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.homePage.loadingTime();
         expect(await page.screenshot()).toMatchSnapshot("LOOKUP_UX.png");
@@ -124,6 +126,7 @@ test.describe("T24220_T24222_T24224", () => {
 
         // -'Mock output' and 'Advanced' sections should be displayed below 'Settings'
         // -'Custom settings' section should be displayed below 'General' section.
+        await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.homePage.loadingTime();
         expect(await page.screenshot()).toMatchSnapshot("IMPORT_UX.png");

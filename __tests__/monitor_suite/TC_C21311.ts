@@ -4,8 +4,8 @@ import testData from "@testData/monitorSuite/monitor_all_manage_few.json";
 
 
 
-test.describe(`C21311 Verify Connections and Exports & Imports of monitored tiles should not be displayed while creating flows in the managed tile`, () => {
-  test(`C21311 Verify Connections and Exports & Imports of monitored tiles should not be displayed while creating flows in the managed tile`, async ({
+test.describe(`@Bug-IO-19265  @Priority-P2  @Zephyr-T6956 @Env-All Verify Connections and Exports & Imports of monitored tiles should not be displayed while creating flows in the managed tile`, () => {
+  test(`@Bug-IO-19265  @Priority-P2  @Zephyr-T6956 @Env-All Verify Connections and Exports & Imports of monitored tiles should not be displayed while creating flows in the managed tile`, async ({
     page,
     io
   }) => {

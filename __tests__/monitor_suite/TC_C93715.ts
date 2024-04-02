@@ -2,8 +2,8 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/monitorSuite/monitor_all.json";
 
-test.describe('C93715 Validate user is getting auto-fill of funtion stub while creating "postResponseMap" script through flow builder page (Tile level access)', () => {
-  test('C93715 Validate user is getting auto-fill of funtion stub while creating "postResponseMap" script through flow builder page (Tile level access)', async ({ io, page }) => {
+test.describe('@Epic-IO-27779  @Priority-P2  @Zephyr-T22682 @Env-All Validate user is getting auto-fill of funtion stub while creating "postResponseMap" script through flow builder page (Tile level access)', () => {
+  test('@Epic-IO-27779  @Priority-P2  @Zephyr-T22682 @Env-All Validate user is getting auto-fill of funtion stub while creating "postResponseMap" script through flow builder page (Tile level access)', async ({ io, page }) => {
     const res = await io.api.putCall(
       `v1/ashares/${process.env.IO_Ashare_ID}`,
       testData
