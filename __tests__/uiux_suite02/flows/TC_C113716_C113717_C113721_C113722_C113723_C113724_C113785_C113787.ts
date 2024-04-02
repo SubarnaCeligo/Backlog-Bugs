@@ -23,7 +23,8 @@ test.describe(`TC_C113716_C113717_C113721_C113722_C113723_C113724_C113785_C11378
   await io.flowBuilder.loadingTime();
   await io.flowBuilder.click(selectors.importPagePO.ADVANCED); 
   await io.flowBuilder.loadingTime();
-  await io.homePage.clickByIndex(selectors.flowBuilderPagePO.GEAR_ICON, 42);
+  // await io.homePage.clickByIndex(selectors.flowBuilderPagePO.GEAR_ICON, 42);
+  await page.getByRole('button', { name: 'Test run results' }).click();
   const contents = (await io.importsPage.getText(selectors.importPagePO.TEST_RESULTS_CONTENTS)).toString();
   let status=false
   const recordString = 'Record 1,Line 1,Line 2,Record 2,Line 1,Line 2,Line 3,Record 3';

@@ -4,6 +4,7 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe(`C53277 Verify the new "Name" filed in the “Add branching” drawer`, () => {
   test.beforeEach(async ({ io }) => {
     await io.flowBuilder.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
+    await io.homePage.loadingTime()
   });
 
   test(`C53277 Verify the new "Name" filed in the “Add branching” drawer`, async ({
@@ -11,6 +12,7 @@ test.describe(`C53277 Verify the new "Name" filed in the “Add branching” dra
     page
   }) => {
     await io.homePage.goToMenu("Tools", "Flow builder");
+    await io.homePage.loadingTime()
     const plusButtonsSelector = selectors.flowBuilderPagePO.PLUS_BUTTONS;
     await io.flowBuilder.waitForElementAttached(plusButtonsSelector);
     await io.flowBuilder.clickByIndex(plusButtonsSelector, 0);
@@ -25,6 +27,7 @@ test.describe(`C53277 Verify the new "Name" filed in the “Add branching” dra
       ""
     );
     await io.flowBuilder.clickByText("Save");
+    await io.homePage.loadingTime()
     await expect(page.getByText("Branch 1.1").first()).toBeVisible({
       timeout: 10000
     });

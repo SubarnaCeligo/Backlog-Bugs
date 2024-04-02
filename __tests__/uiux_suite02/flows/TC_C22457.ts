@@ -4,6 +4,7 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe("C22457 Should be able to click on all the types of resources on the left side such as connections,exports,imports.", () => {
   test("Exports check", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
+    await io.homePage.loadingTime()
     await io.homePage.goToMenu("Resources");
     await io.assert.verifyElementIsDisplayed(
       selectors.basePagePO.EXPORTS,
@@ -21,6 +22,7 @@ test.describe("C22457 Should be able to click on all the types of resources on t
 
   test("Imports check", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
+    await io.homePage.loadingTime()
     await io.homePage.goToMenu("Resources");
     await io.assert.verifyElementIsDisplayed(
       selectors.basePagePO.EXPORTS,
@@ -38,6 +40,7 @@ test.describe("C22457 Should be able to click on all the types of resources on t
 
   test("Connections check", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
+    await io.homePage.loadingTime()
     await io.homePage.goToMenu("Resources");
     await io.assert.verifyElementIsDisplayed(
       selectors.basePagePO.EXPORTS,
@@ -55,6 +58,7 @@ test.describe("C22457 Should be able to click on all the types of resources on t
 
   test("Agents check", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
+    await io.homePage.loadingTime()
     await io.homePage.goToMenu("Resources");
     await io.assert.verifyElementIsDisplayed(
       selectors.basePagePO.EXPORTS,
@@ -72,6 +76,7 @@ test.describe("C22457 Should be able to click on all the types of resources on t
 
   test("iClients check", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
+    await io.homePage.loadingTime()
     await io.homePage.goToMenu("Resources");
     await io.assert.verifyElementIsDisplayed(
       selectors.basePagePO.EXPORTS,
@@ -89,6 +94,7 @@ test.describe("C22457 Should be able to click on all the types of resources on t
 
   test("API Tokens check", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
+    await io.homePage.loadingTime()
     await io.homePage.goToMenu("Resources");
     await io.assert.verifyElementIsDisplayed(
       selectors.basePagePO.EXPORTS,
@@ -106,6 +112,7 @@ test.describe("C22457 Should be able to click on all the types of resources on t
 
   test("Recycle bin check", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
+    await io.homePage.loadingTime()
     await io.homePage.goToMenu("Resources");
     await io.assert.verifyElementIsDisplayed(
       selectors.basePagePO.EXPORTS,

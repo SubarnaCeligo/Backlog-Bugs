@@ -18,6 +18,8 @@ test.describe(`C59978 To verify that the browser URL while creating a new flow s
       "Branch C59978"
     );
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
+      await io.homePage.loadingTime()
+      await io.homePage.loadingTime()
     await page
       .locator("span")
       .filter({ hasText: "Branch C59978" })

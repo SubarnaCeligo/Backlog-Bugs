@@ -11,8 +11,11 @@ test.describe(`C33161 Verify When changes have been made but not yet saved, show
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP
     );
-    await io.flowBuilder.clickByText("REST API (HTTP)");
+    // await io.flowBuilder.clickByText("REST API (HTTP)");
+    await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, "REST API (HTTP)");
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.RESTAPIHTTP);
     await io.flowBuilder.clickByText("Look up additional files (per record)");
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
     await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.clickByText("3PL CONNECTION");
     await io.flowBuilder.click(selectors.basePagePO.SAVE);

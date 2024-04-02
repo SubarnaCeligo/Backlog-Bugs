@@ -12,7 +12,7 @@ test.describe(`C106448  Verify Parsed output label`, () => {
     await expect(await page.locator(selectors.importPagePO.PARSED_OUTPUT)).not.toHaveCSS("cursor", "pointer");
     await io.assert.verifyElementAttributeContainsText(selectors.importPagePO.PARSED_OUTPUT, 'class', 'Mui-disabled');
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
-    await io.flowBuilder.click(selectors.flowBuilderPagePO.FITVIEW);
+    await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.FITVIEW);
     await io.flowBuilder.addStep("Verified Parsed output label for Salesforce adaptor");
 
     //MongoDB

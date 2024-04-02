@@ -8,6 +8,7 @@ test.describe(`C59979 To verify that the FlowBuilder should work as expected.`, 
     page
   }) => {
     const id = await io.createResourceFromAPI(testData, "FLOWS");
+    await io.homePage.loadingTime()
     await io.api.runBatchFlowViaAPI("C59979", id);
     await io.flowBuilder.addStep("Ran the flow via API");
     const lastRun = page.getByText("Last run");
@@ -16,6 +17,7 @@ test.describe(`C59979 To verify that the FlowBuilder should work as expected.`, 
     } catch (error) {
       console.log("error", error);
     }
+    await io.homePage.loadingTime()
     await expect(lastRun).toBeVisible();
     await io.flowBuilder.addStep("Verified the flow ran successfully");
   });

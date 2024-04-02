@@ -4,6 +4,8 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe("TC_C20808_Verify for, Safari browser: EM 2.0: Error drawer: Search box: Entered text should visible clearly without getting cut out at button UI_Backlog", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.flowBuilder.loadingTime();
+        
     });
     test("C20808_Verify for, Safari browser: EM 2.0: Error drawer: Search box: Entered text should visible clearly without getting cut out at button UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
