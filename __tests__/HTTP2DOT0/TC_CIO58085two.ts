@@ -1,6 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-test.describe.configure({mode: 'serial'});
+
 test.describe("TC_CIO58085two", () => {
   test("@Env-All IO58085 Override media type for error responses field should have Plain text option", async ({
     io,
