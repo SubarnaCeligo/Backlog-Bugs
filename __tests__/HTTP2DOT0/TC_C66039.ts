@@ -1,16 +1,22 @@
 import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
+import Flow from "@testData/HTTP2DOT0/TC_C66039_flow.json";
 
 test.describe("TC_C66039 To verify that the Path is available in help text for api version, endpoint and Resource", () => {
-  test("C66039 To verify that the Path is available in help text for api version, endpoint and Resource", async ({
+  let flowId;
+  test.afterEach(async ({ io }) => {
+    await io.api.deleteFlowViaAPI(flowId);
+  });
+
+  test("@Env-All C66039 To verify that the Path is available in help text for api version, endpoint and Resource", async ({
     io,
     page
   }) => {
-    await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+    flowId = await io.createResourceFromAPI(Flow, "FLOWS");
+    await io.homePage.navigateTo(
+      process.env["IO_Integration_URL"] + "flowBuilder/" + flowId
+    );
     await io.flowBuilder.loadingTime();
-    await io.flowBuilder.clickByText("TC_C66039_Flow_DND");
-    await io.flowBuilder.loadingTime();
-
     //Export
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
     await io.flowBuilder.click(selectors.importPagePO.CONNECTION_QUESTION_MARK);
