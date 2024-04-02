@@ -1,7 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-test.describe.configure({mode: 'serial'});
-
+test.describe.configure({mode: "serial"})
 test.describe("TC_CIO58085", () => {
   test("@Env-All IO58085 framework2.0 changes for plaintext epic", async ({
     io,
