@@ -8,17 +8,15 @@ test.describe("TC_C120099", () => {
     test("@Zephyr-IO-T10086 @Env-QA @Env-IAQA ", async ({ io, page }) => {
 
         await io.homePage.loadingTime();
-        console.log(process.env["IO_UserName"])
-        console.log(process.env["IO_Password"])
         await io.homePage.goToMenu("Tools", "Flow builder");
-        await page.pause();
+
         await io.flowBuilder.click(
             selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP
         );
-        await io.flowBuilder.click(selectors.flowBuilderPagePO.GROUP_RECORD_FIELD );
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.GROUP_RECORD_FIELD);
         await io.flowBuilder.clickByText('MariaDB');
-       
-        
+
+
         await io.flowBuilder.clickByText("Import records into destination application");
         await io.flowBuilder.clickByText('Create from scratch');
         await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
@@ -28,7 +26,6 @@ test.describe("TC_C120099", () => {
         await io.flowBuilder.fill(selectors.exportsPagePO.NAME, "MariaDB");
         await io.homePage.click(selectors.flowBuilderPagePO.DESTINATIONTABLESEARCHPOSTGRE);
         await io.homePage.addStep("*** Clicked on destination table search field ***");
-        await page.pause();
         await io.flowBuilder.clickByText("Automation");
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
         await io.flowBuilder.loadingTime();

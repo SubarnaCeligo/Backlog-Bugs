@@ -23,7 +23,6 @@ test.describe("TC_T28545", () => {
         flowMap = await io.api.createImpOrExpAndFlowsThruAPI(IO_T4959, false);
         await io.flowBuilder.navigateTo(process.env.IO_Integration_URL + "flowBuilder/" + flowMap.get(IO_T4959.qa__api_tdata[0].name)['flowId']);
 
-        await page.pause();
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT_HOOK);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_HOOK);
