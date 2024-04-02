@@ -40,6 +40,7 @@ test.describe("IO-58006 scenarios", () => {
     );
     await io.flowBuilder.loadingTime();
     const save = await page.$$(selectors.basePagePO.SAVE);
+    await io.flowBuilder.loadingTime();
     await save[1].click();
     await io.flowBuilder.loadingTime();
     await io.assert.expectToBeTrue(
