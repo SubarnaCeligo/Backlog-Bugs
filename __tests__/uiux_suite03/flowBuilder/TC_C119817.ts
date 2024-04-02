@@ -54,6 +54,7 @@ test.describe("TC_C119817", () => {
     // -'Mock output' and 'Advanced' sections should be displayed below 'Settings'
     // -'Custom settings' section should be displayed below 'General' section.
     await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
+    await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
     await io.homePage.loadingTime();
     expect(await page.screenshot()).toMatchSnapshot("TC_C119817 export.png");
     await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
@@ -94,6 +95,7 @@ test.describe("TC_C119817", () => {
     // -'Mock output' and 'Advanced' sections should be displayed below 'Settings'
     // -'Custom settings' section should be displayed below 'General' section.
     await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
+    await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
     await io.homePage.loadingTime();
     expect(await page.screenshot()).toMatchSnapshot("TC_C119817 LOOKUP.png");
     await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
@@ -132,6 +134,7 @@ test.describe("TC_C119817", () => {
     // -'Mock output' and 'Advanced' sections should be displayed below 'Settings'
     // -'Custom settings' section should be displayed below 'General' section.
     await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
+    await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
     await io.homePage.loadingTime();
     const Symbol1 = await page.$(selectors.flowBuilderPagePO.RIGHT_DRAWER);
     expect(await Symbol1.screenshot()).toMatchSnapshot("TC_C119817 import.png");
