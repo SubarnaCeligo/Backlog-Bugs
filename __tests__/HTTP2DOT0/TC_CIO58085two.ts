@@ -9,21 +9,22 @@ test.describe("TC_CIO58085two", () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Resources", "Connections");
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CREATE_CONNECTION);
     await io.flowBuilder.click(selectors.connectionsPagePO.CREATE_CONNECTION);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.settingsPagePO.APP_NAME_INPUT);
     await io.flowBuilder.fill(
       selectors.settingsPagePO.APP_NAME_INPUT,
       "Orderful"
     );
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.ORDERFUL);
     await io.flowBuilder.click(selectors.connectionsPagePO.ORDERFUL);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.HTTP_CNNECTOR);
     await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.OVERRIDE_MEDIA_ERROR_RESPONSE);
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.OVERRIDE_MEDIA_ERROR_RESPONSE
     );
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.PLAINTEXT);
     await io.assert.verifyElementContainsText(
       selectors.connectionsPagePO.PLAINTEXT,
       "Plain text"
@@ -36,33 +37,31 @@ test.describe("TC_CIO58085two", () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Resources", "Connections");
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CREATE_CONNECTION);
     await io.flowBuilder.click(selectors.connectionsPagePO.CREATE_CONNECTION);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.settingsPagePO.APP_NAME_INPUT);
     await io.flowBuilder.fill(
       selectors.settingsPagePO.APP_NAME_INPUT,
       "Orderful"
     );
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.ORDERFUL);
     await io.flowBuilder.click(selectors.connectionsPagePO.ORDERFUL);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.HTTP_CNNECTOR);
     await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.OVERRIDE_MEDIA_ERROR_RESPONSE);
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.OVERRIDE_MEDIA_ERROR_RESPONSE
     );
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.PLAINTEXT);
     await io.flowBuilder.click(selectors.connectionsPagePO.PLAINTEXT);
-    await io.flowBuilder.loadingTime();
     await io.flowBuilder.waitForElementAttached(
       selectors.exportsPagePO.NON_STANDARD_API_TAB
     );
     await io.connectionPage.click(selectors.exportsPagePO.NON_STANDARD_API_TAB);
-    await io.flowBuilder.loadingTime();
     await io.flowBuilder.waitForElementAttached(
       selectors.flowBuilderPagePO.NONSTANDARD
     );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.NONSTANDARD);
-    await io.flowBuilder.loadingTime();
     await io.flowBuilder.waitForElementAttached(
       selectors.flowBuilderPagePO.HOWTOTESTCONN
     );
@@ -108,28 +107,28 @@ test.describe("TC_CIO58085two", () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Resources", "Connections");
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CREATE_CONNECTION);
     await io.flowBuilder.click(selectors.connectionsPagePO.CREATE_CONNECTION);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.settingsPagePO.APP_NAME_INPUT);
     await io.flowBuilder.fill(
       selectors.settingsPagePO.APP_NAME_INPUT,
       "Orderful"
     );
-    await io.flowBuilder.loadingTime();
     await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.ORDERFUL);
     await io.flowBuilder.click(selectors.connectionsPagePO.ORDERFUL);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.HTTP_CNNECTOR);
     await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.AUTH_TYPE);
     await io.connectionPage.click(selectors.connectionsPagePO.AUTH_TYPE);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CUSTOM);
     await io.connectionPage.click(selectors.connectionsPagePO.CUSTOM);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.REFRESH_TOKEN_CUSTOM);
     await io.connectionPage.click(
       selectors.connectionsPagePO.REFRESH_TOKEN_CUSTOM
     );
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.REFRESH_MEDIATYPE);
     await io.connectionPage.click(selectors.connectionsPagePO.REFRESH_MEDIATYPE);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.PLAINTEXT);
     await io.assert.verifyElementContainsText(
       selectors.connectionsPagePO.PLAINTEXT,
       "Plain text"
@@ -142,40 +141,36 @@ test.describe("TC_CIO58085two", () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Resources", "Connections");
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CREATE_CONNECTION);
     await io.flowBuilder.click(selectors.connectionsPagePO.CREATE_CONNECTION);
-    await io.flowBuilder.loadingTime();
     await io.flowBuilder.fill(
       selectors.settingsPagePO.APP_NAME_INPUT,
       "Orderful"
     );
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.ORDERFUL);
     await io.flowBuilder.click(selectors.connectionsPagePO.ORDERFUL);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.HTTP_CNNECTOR);
     await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.AUTH_TYPE);
     await io.connectionPage.click(selectors.connectionsPagePO.AUTH_TYPE);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CUSTOM);
     await io.connectionPage.click(selectors.connectionsPagePO.CUSTOM);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.REFRESH_TOKEN_CUSTOM);
     await io.connectionPage.click(
       selectors.connectionsPagePO.REFRESH_TOKEN_CUSTOM
     );
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.REFRESH_MEDIATYPE);
     await io.connectionPage.click(selectors.connectionsPagePO.REFRESH_MEDIATYPE);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.PLAINTEXT);
     await io.flowBuilder.click(selectors.connectionsPagePO.PLAINTEXT);
-    await io.flowBuilder.loadingTime();
     await io.flowBuilder.waitForElementAttached(
       selectors.exportsPagePO.NON_STANDARD_API_TAB
     );
     await io.connectionPage.click(selectors.exportsPagePO.NON_STANDARD_API_TAB);
-    await io.flowBuilder.loadingTime();
     await io.flowBuilder.waitForElementAttached(
       selectors.flowBuilderPagePO.NONSTANDARD
     );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.NONSTANDARD);
-    await io.flowBuilder.loadingTime();
     await io.flowBuilder.waitForElementAttached(
       selectors.flowBuilderPagePO.HOWTOTESTCONN
     );
@@ -205,26 +200,26 @@ test.describe("TC_CIO58085two", () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Resources", "Connections");
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CREATE_CONNECTION);
     await io.flowBuilder.click(selectors.connectionsPagePO.CREATE_CONNECTION);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.settingsPagePO.APP_NAME_INPUT);
     await io.flowBuilder.fill(
       selectors.settingsPagePO.APP_NAME_INPUT,
       "Orderful"
     );
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.ORDERFUL);
     await io.flowBuilder.click(selectors.connectionsPagePO.ORDERFUL);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.HTTP_CNNECTOR);
     await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.MEDIA_TYPE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.MEDIA_TYPE);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.PLAINTEXT);
     await io.flowBuilder.click(selectors.connectionsPagePO.PLAINTEXT);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.OVERRIDE_MEDIA_ERROR_RESPONSE);
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.OVERRIDE_MEDIA_ERROR_RESPONSE
     );
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.OPTIONLIST);
     const textArrayErrorResponse = await io.flowBuilder.getText(
       selectors.connectionsPagePO.OPTIONLIST
     );
@@ -241,25 +236,26 @@ test.describe("TC_CIO58085two", () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Resources", "Connections");
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CREATE_CONNECTION);
     await io.flowBuilder.click(selectors.connectionsPagePO.CREATE_CONNECTION);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.settingsPagePO.APP_NAME_INPUT);
     await io.flowBuilder.fill(
       selectors.settingsPagePO.APP_NAME_INPUT,
       "Orderful"
     );
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.ORDERFUL);
     await io.flowBuilder.click(selectors.connectionsPagePO.ORDERFUL);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.HTTP_CNNECTOR);
     await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.MEDIA_TYPE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.MEDIA_TYPE);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.PLAINTEXT);
     await io.flowBuilder.click(selectors.connectionsPagePO.PLAINTEXT);
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.OVERRIDE_MEDIA_SUCCESS_RESPONSE);
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.OVERRIDE_MEDIA_SUCCESS_RESPONSE
     );
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.OPTIONLIST);
     const textArraySuccessResponse = await io.flowBuilder.getText(
       selectors.connectionsPagePO.OPTIONLIST
     );
@@ -276,27 +272,26 @@ test.describe("TC_CIO58085two", () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Resources", "Connections");
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CREATE_CONNECTION);
     await io.flowBuilder.click(selectors.connectionsPagePO.CREATE_CONNECTION);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.settingsPagePO.APP_NAME_INPUT);
     await io.flowBuilder.fill(
       selectors.settingsPagePO.APP_NAME_INPUT,
       "Orderful"
     );
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.ORDERFUL);
     await io.flowBuilder.click(selectors.connectionsPagePO.ORDERFUL);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.HTTP_CNNECTOR);
     await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.MEDIATYPEERRORRESP);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.MEDIATYPEERRORRESP);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.PLAINTEXT);
     await io.flowBuilder.click(selectors.connectionsPagePO.PLAINTEXT);
-    await io.flowBuilder.loadingTime();
     await io.flowBuilder.waitForElementAttached(
       selectors.flowBuilderPagePO.NONSTANDARD
     );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.NONSTANDARD);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.NON_STANDARD_API_RATE_FAIL_PATH);
     const pathtoratelimiterror1 = await io.homePage.isVisible(
       selectors.connectionsPagePO.NON_STANDARD_API_RATE_FAIL_PATH
     );
@@ -306,21 +301,21 @@ test.describe("TC_CIO58085two", () => {
       "false",
       "Field pathtoratelimit error is present in after Plain text is selected in Override media type for error responses field"
     );
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.NONSTANDARD);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.NONSTANDARD);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.MEDIA_TYPE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.MEDIA_TYPE);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.PLAINTEXT);
     await io.flowBuilder.click(selectors.connectionsPagePO.PLAINTEXT);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.MEDIATYPEERRORRESP);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.MEDIATYPEERRORRESP);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.DONOTOVERRIDE);
     await io.flowBuilder.click(selectors.connectionsPagePO.DONOTOVERRIDE);
-    await io.flowBuilder.loadingTime();
     await io.flowBuilder.waitForElementAttached(
       selectors.flowBuilderPagePO.NONSTANDARD
     );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.NONSTANDARD);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.NON_STANDARD_API_RATE_FAIL_PATH);
     const pathtoratelimiterror = await io.homePage.isVisible(
       selectors.connectionsPagePO.NON_STANDARD_API_RATE_FAIL_PATH
     );
@@ -338,20 +333,19 @@ test.describe("TC_CIO58085two", () => {
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Resources", "Connections");
     await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CREATE_CONNECTION);
     await io.flowBuilder.click(selectors.connectionsPagePO.CREATE_CONNECTION);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.settingsPagePO.APP_NAME_INPUT);
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, "Http");
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.HTTP_CNNECTOR);
     await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.MEDIATYPEERRORRESP);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.MEDIATYPEERRORRESP);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.PLAINTEXT);
     await io.flowBuilder.click(selectors.connectionsPagePO.PLAINTEXT);
-    await io.flowBuilder.loadingTime();
     await io.flowBuilder.waitForElementAttached(
       selectors.flowBuilderPagePO.NONSTANDARD
     );
-    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.NONSTANDARD);
     const pathtoratelimiterror1 = await io.homePage.isVisible(
       "[data-test='http.rateLimit.failPath']"
@@ -361,21 +355,21 @@ test.describe("TC_CIO58085two", () => {
       "false",
       "Field pathtoratelimit error is present in after Plain text is selected in Override media type for error responses field"
     );
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.NONSTANDARD);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.NONSTANDARD);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.MEDIA_TYPE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.MEDIA_TYPE);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.PLAINTEXT);
     await io.flowBuilder.click(selectors.connectionsPagePO.PLAINTEXT);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.MEDIATYPEERRORRESP);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.MEDIATYPEERRORRESP);
-    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.DONOTOVERRIDE);
     await io.flowBuilder.click(selectors.connectionsPagePO.DONOTOVERRIDE);
     await io.flowBuilder.waitForElementAttached(
       selectors.flowBuilderPagePO.NONSTANDARD
     );
-    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.NONSTANDARD);
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.NON_STANDARD_API_RATE_FAIL_PATH);
     const pathtoratelimiterror = await io.homePage.isVisible(
       selectors.connectionsPagePO.NON_STANDARD_API_RATE_FAIL_PATH
     );
