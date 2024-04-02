@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing API Manager and Push to apim option is not available for custom Webhooks Sandbox", () => {
-    test("MyAPis Sandbox", async ({ io, page, context }) => {
+    test("@Env-QA @Env-STAGING MyAPis Sandbox", async ({ io, page, context }) => {
         const randomString = "MyAPIS" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.SANDBOX_BUTTON);
@@ -55,13 +55,14 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await allPages[1].bringToFront();
         await allPages[1].waitForLoadState();
         const currentUrl = await allPages[1].url();
+        await io.flowBuilder.delay(2000);
         const expectedUrl = 'integrator.io/#!/environments/';
         const func = currentUrl.toString().includes(expectedUrl)
         await io.assert.expectToBeTrue(func, "urls doesn't match")
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
     });
-    test("custom webhook Sandbox", async ({ io, page }) => {
+    test("@Env-QA @Env-STAGING custom webhook Sandbox", async ({ io, page }) => {
         const randomString = "webhook" +(Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.SANDBOX_BUTTON);
@@ -94,7 +95,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
     });
-    test("IOListner Sandbox", async ({ io, page, context }) => {
+    test("@Env-QA @Env-STAGING IOListner Sandbox", async ({ io, page, context }) => {
         const randomString = "IOListner" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.SANDBOX_BUTTON);
@@ -129,7 +130,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.assert.expectToBeTrue(func, "urls doesn't match")
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
     });
-    test("Export Sandbox", async ({ io, context }) => {
+    test("@Env-QA @Env-STAGING Export Sandbox", async ({ io, context }) => {
         const randomString = "Export" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.SANDBOX_BUTTON);
@@ -166,7 +167,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.assert.expectToBeTrue(func, "urls doesn't match")
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
     });
-    test("Lookup Sandbox", async ({ io, context }) => {
+    test("@Env-QA @Env-STAGING Lookup Sandbox", async ({ io, context }) => {
         const randomString = "Lookup" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.SANDBOX_BUTTON);
@@ -207,7 +208,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.assert.expectToBeTrue(func, "urls doesn't match");
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
     });
-    test("Existing API Manager Sandbox", async ({ io, page, context }) => {
+    test("@Env-QA @Env-STAGING Existing API Manager Sandbox", async ({ io, page, context }) => {
         const randomString = "EAPIM" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.SANDBOX_BUTTON);
@@ -256,7 +257,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.assert.expectToBeTrue(func, "urls doesn't match");
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
     });
-    test("Import Sandbox", async ({ io, page, context }) => {
+    test("@Env-QA @Env-STAGING Import Sandbox", async ({ io, page, context }) => {
         const randomString = "Import" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.SANDBOX_BUTTON);
