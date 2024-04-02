@@ -373,7 +373,6 @@ test.describe("TC_CIO58085", () => {
     );
     await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.PLAINTEXT);
     await io.flowBuilder.click(selectors.connectionsPagePO.PLAINTEXT);
-    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.SUCCESSPATH);
     const successPath = await io.homePage.isVisible(
       selectors.flowBuilderPagePO.SUCCESSPATH
     );

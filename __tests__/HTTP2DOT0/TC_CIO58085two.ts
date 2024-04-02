@@ -219,7 +219,6 @@ test.describe("TC_CIO58085two", () => {
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.OVERRIDE_MEDIA_ERROR_RESPONSE
     );
-    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.OPTIONLIST);
     const textArrayErrorResponse = await io.flowBuilder.getText(
       selectors.connectionsPagePO.OPTIONLIST
     );
@@ -255,7 +254,6 @@ test.describe("TC_CIO58085two", () => {
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.OVERRIDE_MEDIA_SUCCESS_RESPONSE
     );
-    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.OPTIONLIST);
     const textArraySuccessResponse = await io.flowBuilder.getText(
       selectors.connectionsPagePO.OPTIONLIST
     );
@@ -291,7 +289,6 @@ test.describe("TC_CIO58085two", () => {
       selectors.flowBuilderPagePO.NONSTANDARD
     );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.NONSTANDARD);
-    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.NON_STANDARD_API_RATE_FAIL_PATH);
     const pathtoratelimiterror1 = await io.homePage.isVisible(
       selectors.connectionsPagePO.NON_STANDARD_API_RATE_FAIL_PATH
     );
@@ -315,7 +312,6 @@ test.describe("TC_CIO58085two", () => {
       selectors.flowBuilderPagePO.NONSTANDARD
     );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.NONSTANDARD);
-    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.NON_STANDARD_API_RATE_FAIL_PATH);
     const pathtoratelimiterror = await io.homePage.isVisible(
       selectors.connectionsPagePO.NON_STANDARD_API_RATE_FAIL_PATH
     );
@@ -369,7 +365,6 @@ test.describe("TC_CIO58085two", () => {
       selectors.flowBuilderPagePO.NONSTANDARD
     );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.NONSTANDARD);
-    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.NON_STANDARD_API_RATE_FAIL_PATH);
     const pathtoratelimiterror = await io.homePage.isVisible(
       selectors.connectionsPagePO.NON_STANDARD_API_RATE_FAIL_PATH
     );
