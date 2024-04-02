@@ -2,11 +2,11 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import { decrypt } from "@celigo/aut-utilities";
 
-test.describe("TC_T28432_Test to validate checkbox is not visible in HTTP export/lookups if we have exportSuccessMediaType is do not override and connectionSuccessMediaType is do not override and connectionMediaType is other than json", () => {
+test.describe("@Author_sagna123 TC_T28432_Test to validate checkbox is not visible in HTTP export/lookups if we have exportSuccessMediaType is do not override and connectionSuccessMediaType is do not override and connectionMediaType is other than json", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Epic-IO-37655 @Priority-P2 @Zephyr-T28432 @Env-QA @author_Sagna TC_T28432", async ({ io, page }) => {
+    test("@Epic-IO-37655 @Priority-P2 @Zephyr-IO-T28432 @Env-QA", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources","Connections");

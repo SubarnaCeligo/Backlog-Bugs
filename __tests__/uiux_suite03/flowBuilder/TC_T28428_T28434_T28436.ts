@@ -1,11 +1,11 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("TC_T28428_T28434_T28436_Test to validate checkbox is not visible in HTTP export/lookups if we have exportSuccessMediaType value other than json or do not override", () => {
+test.describe("@Author_sagna123 TC_T28428_T28434_T28436_Test to validate checkbox is not visible in HTTP export/lookups if we have exportSuccessMediaType value other than json or do not override", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Epic-IO-37655 @Priority-P2 @Sanity @Zephyr-T28428_T28434_T28436 @Env-QA @author_Sagna TC_T28428_T28434_T28436", async ({ io, page }) => {
+    test("@Epic-IO-37655 @Priority-P2 @Sanity @Zephyr-IO-T28428 @Zephyr-IO-T28434 @Zephyr-IO-T28436 @Env-QA", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources","Exports");
