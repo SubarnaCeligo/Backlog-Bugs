@@ -8,7 +8,7 @@ test.describe("E2E Flows", () => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("TC_C23023_FTP_To_FTP_skipagg_Zip.ts-SF/", async ({
+    test("@Env-all TC_C23023_FTP_To_FTP_skipagg_Zip.ts-SF/", async ({
         io
     }, testInfo) => {
 

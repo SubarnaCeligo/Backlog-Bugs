@@ -7,7 +7,7 @@ test.describe("E2E Flows", () => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("TC_C37478_FTP_InvalidHandlebarErrorValidation", async ({
+    test("@Env-all TC_C37478_FTP_InvalidHandlebarErrorValidation", async ({
         io
     }, testInfo) => {
         //Creating PageGenerator 

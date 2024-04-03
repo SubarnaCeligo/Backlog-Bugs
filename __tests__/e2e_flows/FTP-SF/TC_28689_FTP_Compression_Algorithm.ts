@@ -8,7 +8,7 @@ test.describe("E2E Flows", () => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("TC28689_FTP_Compression_Algorithm", async ({
+    test("@Env-all TC28689_FTP_Compression_Algorithm", async ({
         io
     }, testInfo) => {
         //Creating PageGenerator 

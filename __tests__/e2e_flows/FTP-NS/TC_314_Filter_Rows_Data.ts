@@ -7,7 +7,7 @@ test.describe("E2E Flows", () => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("TC_314_Filter_Rows_Data", async ({
+    test("@Env-all TC_314_Filter_Rows_Data", async ({
         io
     }, testInfo) => {
         //Creating PageGenerator 

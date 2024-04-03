@@ -6,7 +6,7 @@ test.describe("E2E Flows", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("TC_487_FTP_SortByFields_Descending_To_FTP_Import", async ({
+    test("@Env-all TC_487_FTP_SortByFields_Descending_To_FTP_Import", async ({
         io
     }, testInfo) => {
         //Creating PageGenerator 

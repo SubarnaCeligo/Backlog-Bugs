@@ -8,7 +8,7 @@ test.describe("E2E Flows", () => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("TC_C25871_FTP_EDI_RowDelimeter_CR", async ({
+    test("@Env-all TC_C25871_FTP_EDI_RowDelimeter_CR", async ({
         io
     }, testInfo) => {
 

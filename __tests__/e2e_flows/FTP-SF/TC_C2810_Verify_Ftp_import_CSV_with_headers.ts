@@ -8,7 +8,7 @@ test.describe("E2E Flows", () => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("TC_C2810_Verify_Ftp_import_CSV_with_headers", async ({
+    test("@Env-all TC_C2810_Verify_Ftp_import_CSV_with_headers", async ({
         io
     }, testInfo) => {
         //Creating PageGenerator 

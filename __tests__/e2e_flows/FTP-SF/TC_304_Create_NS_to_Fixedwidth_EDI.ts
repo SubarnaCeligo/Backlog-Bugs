@@ -6,7 +6,7 @@ test.describe("E2E Flows", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("TC_304_Create_NS_to_Fixedwidth_EDI", async ({
+    test("@Env-all TC_304_Create_NS_to_Fixedwidth_EDI", async ({
         io
     }, testInfo) => {
         //Creating PageGenerator 

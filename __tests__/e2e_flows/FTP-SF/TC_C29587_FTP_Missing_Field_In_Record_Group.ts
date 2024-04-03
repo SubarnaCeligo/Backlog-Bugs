@@ -8,7 +8,7 @@ test.describe("E2E Flows", () => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("TC_C29587_FTP_Missing_Field_In_Record_Group", async ({
+    test("@Env-all TC_C29587_FTP_Missing_Field_In_Record_Group", async ({
         io
     }, testInfo) => {
 

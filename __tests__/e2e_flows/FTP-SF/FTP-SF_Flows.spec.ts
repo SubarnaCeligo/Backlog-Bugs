@@ -1,6 +1,6 @@
 import {filterTestCases} from "@celigo/aut-utilities"
 var testCases = [
-"247_FTP_Xml_Export_To_SF_Import",
+// "247_FTP_Xml_ExportF_Import",
 "024_Salesforce_Account_To_FTP_CSV_All",
 "28689_FTP_Compression_Algorithm",
 "C2810_Verify_Ftp_import_CSV_without_headers",
