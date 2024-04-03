@@ -7,7 +7,7 @@ test.describe("C53344 Verify Base URI is not present in Shopify Connection page"
       await io.homePage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
       });
 
-      test ("Verify Base URI is not present in Shopify Connection page", async ({io,page}) => {
+      test ("@Env-All Verify Base URI is not present in Shopify Connection page", async ({io,page}) => {
  
         await io.connectionPage.clickByText('Create connection')
         await io.connectionPage.click(selectors.connectionsPagePO.SHOPIFY_CONNECTION)

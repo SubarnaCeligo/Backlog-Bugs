@@ -2,7 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("Netsuiteversions", () => {
-  test("Netsuiteversions", async ({io, page}) => {
+  test("@Env-All Netsuiteversions", async ({io, page}) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
       await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
       await io.homePage.goToMenu("Resources", "Connections");

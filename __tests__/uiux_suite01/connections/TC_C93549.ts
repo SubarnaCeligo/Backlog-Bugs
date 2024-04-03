@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C93549", () => {
-  test("C93549 Verify Logo for MariaDB connector in connectors list and connection page.[Imports]", async ({
+  test("@Env-All C93549 Verify Logo for MariaDB connector in connectors list and connection page.[Imports]", async ({
     io,
     page
   }) => {

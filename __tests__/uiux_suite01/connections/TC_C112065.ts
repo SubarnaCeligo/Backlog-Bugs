@@ -8,7 +8,7 @@ test.describe("C112065_C112066_C112067_C112068_C112069", () =>
 
 });
 
-  test("C112065 Verify the JWT bearer under Auth type dropdown", async ({io, page}) => {
+  test("@Env-All C112065 Verify the JWT bearer under Auth type dropdown", async ({io, page}) => {
       await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
       await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
       await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
@@ -18,7 +18,7 @@ test.describe("C112065_C112066_C112067_C112068_C112069", () =>
       const monitorExp = await io.homePage.isVisible("text='JWT bearer'");
       await io.assert.expectToBeValue(monitorExp.toString(), 'true', "Value is found");
   });
-  test("C112066 Verify the Help text of Auth type in HTTP connectiion page", async ({io, page}) => {
+  test("@Env-All C112066 Verify the Help text of Auth type in HTTP connectiion page", async ({io, page}) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
@@ -28,7 +28,7 @@ test.describe("C112065_C112066_C112067_C112068_C112069", () =>
     const monitorExp1 = await io.homePage.isVisible("text='JWT bearer'");
       await io.assert.expectToBeValue(monitorExp1.toString(), 'true', "Value is found")
   });
-  test("C112067 Verify Configure JWT bearer section is added after Auth type", async ({io, page}) => {
+  test("@Env-All C112067 Verify Configure JWT bearer section is added after Auth type", async ({io, page}) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
@@ -39,7 +39,7 @@ test.describe("C112065_C112066_C112067_C112068_C112069", () =>
     const monitorExp2 = await io.homePage.isVisible("text='Configure JWT bearer'");
     await io.assert.expectToBeValue(monitorExp2.toString(), 'true', "Value is found");
   });
-  test("C112068 Verify signature method and send token via fields are added under Configure JWT bearer section", async ({io, page}) => {
+  test("@Env-All C112068 Verify signature method and send token via fields are added under Configure JWT bearer section", async ({io, page}) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
@@ -52,7 +52,7 @@ test.describe("C112065_C112066_C112067_C112068_C112069", () =>
     const monitorExp4 = await io.homePage.isVisible("text='Send token via'");
     await io.assert.expectToBeValue(monitorExp4.toString(), 'true', "Value is found");
   });
-  test("C112069 Verify the default value of Signature method", async ({io, page}) => {
+  test("@Env-All C112069 Verify the default value of Signature method", async ({io, page}) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');

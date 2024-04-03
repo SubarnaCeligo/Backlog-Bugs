@@ -8,7 +8,7 @@ test.describe("C2044 Verify that Commerce category should be displayed in the 'R
 test.afterEach(async ({ io }) => {
   await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
 });
-  test("C2044 Verify that Commerce category should be displayed in the 'Record Type' drop-down in the NS Export Page.", async ({ io, page }) => {
+  test("@Env-All C2044 Verify that Commerce category should be displayed in the 'Record Type' drop-down in the NS Export Page.", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW);
     await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);

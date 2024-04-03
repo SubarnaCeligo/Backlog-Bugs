@@ -8,7 +8,7 @@ test.describe("C53345 Verify Base URI is not present in UPS Edit Connection page
       });
       
 
-      test ("Verify Base URI is not present in UPS Edit Connection page", async ({io,page}) => {
+      test ("@Env-All Verify Base URI is not present in UPS Edit Connection page", async ({io,page}) => {
         
         await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
         await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);

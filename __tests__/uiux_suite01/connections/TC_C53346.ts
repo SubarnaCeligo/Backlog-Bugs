@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C53346 Verify Base URI is not present in Shopify Edit Connection page", () => {
-  test("C53346 Verify Base URI is not present in Shopify Edit Connection page", async ({
+  test("@Env-All C53346 Verify Base URI is not present in Shopify Edit Connection page", async ({
     io,
     page
   }) => {
