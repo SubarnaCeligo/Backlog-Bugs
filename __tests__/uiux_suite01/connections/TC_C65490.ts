@@ -8,6 +8,7 @@ test.describe("C65490 Verify Export for Parse files", () => {
       await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
       await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'van');
       await io.flowBuilder.click(selectors.connectionsPagePO.VAN_CONNECTION);
+      await io.flowBuilder.clickByText("Create from scratch")
       await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
       await io.flowBuilder.clickByText('VAN CONNECTION');
       await io.flowBuilder.click(selectors.basePagePO.SAVE);

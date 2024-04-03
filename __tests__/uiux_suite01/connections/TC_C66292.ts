@@ -8,6 +8,7 @@ test.describe(`C66292 Verify the Canceled by dropdown will auto adjust to displa
     page
   }) => {
     await io.createResourceFromAPI(testData, "FLOWS");
+    await io.flowBuilder.loadingTime()
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
     await page.getByLabel("Cancel flow run").click();
     await io.flowBuilder.addStep("Clicked on Cancel flow run");

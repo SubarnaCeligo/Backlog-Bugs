@@ -12,36 +12,40 @@ test.describe("TC_C111338  Verify old UI should be shown for all the new imports
       selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP
     );
     await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
+    await io.homePage.loadingTime()
+    await io.flowBuilder.fill(
+      selectors.settingsPagePO.APP_NAME_INPUT,
+      "PostgreSQL"
+    );
     await io.flowBuilder.clickByText("PostgreSQL");
-    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.SELECTED_IMPORT_RECORDS);
-    await io.flowBuilder.clickByText("Import records into destination application");
+    await io.flowBuilder.click(selectors.connectionsPagePO.IMPORT_RECORDS);
+    await io.flowBuilder.clickByText("Create from scratch")
     await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.waitForElementAttached(selectors.importPagePO.IMPORT_CREATE_CONNECTION);
     await io.flowBuilder.clickByText("POSTGRESQL ONPREMISE CONNECTION - Offline");
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.waitForElementAttached(selectors.exportsPagePO.NAME);
     await io.flowBuilder.fill(selectors.exportsPagePO.NAME, "offline");
-  let isOldUI = false;
-    try
-  {
-    await io.assert.verifyElementDisplayedByText(
-      "Insert",
-      "'Insert is not present in Old UI"
-    );
-    await io.assert.verifyElementDisplayedByText(
-      "Update",
-      "Update is not present in Old UI"
-    );
-    await io.assert.verifyElementDisplayedByText(
-      "Insert or Update",
-      "Insert or Update is not present in Old UI"
-    );
-    isOldUI = true
-  }
-  catch(e){
+    let isOldUI = false;
+    try {
+      await io.assert.verifyElementDisplayedByText(
+        "Insert",
+        "'Insert is not present in Old UI"
+      );
+      await io.assert.verifyElementDisplayedByText(
+        "Update",
+        "Update is not present in Old UI"
+      );
+      await io.assert.verifyElementDisplayedByText(
+        "Insert or Update",
+        "Insert or Update is not present in Old UI"
+      );
+      isOldUI = true
+    }
+    catch (e) {
+      expect(isOldUI).toBeTruthy();
+    }
     expect(isOldUI).toBeTruthy();
-  }
-  expect(isOldUI).toBeTruthy();
   });
 }
 )

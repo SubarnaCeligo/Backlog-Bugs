@@ -8,12 +8,16 @@ test.describe(`C59644 Verify connection dropdown for imports`, () => {
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP
     );
-    
-    //await io.flowBuilder.fill("[data-test='application'] input","Narvar");
-    await io.flowBuilder.click("[data-test='Narvar']");
+    await io.homePage.loadingTime()
+    await io.flowBuilder.fill(
+      selectors.settingsPagePO.APP_NAME_INPUT,
+      "Narvar"
+    );
+    await io.flowBuilder.clickByText("Narvar");
     await io.flowBuilder.clickByText(
       "Import records into destination application"
     );
+    await io.flowBuilder.clickByText("Create from scratch")
     await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
     await page.getByText("API type").first().waitFor({ state: "visible" });
     const connectionText = (await io.flowBuilder.getText(

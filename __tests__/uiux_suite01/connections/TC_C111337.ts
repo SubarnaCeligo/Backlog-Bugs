@@ -11,39 +11,44 @@ test.describe("TC_C111337 Verify new UI should be shown for all the new imports 
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP
     );
+    await io.flowBuilder.loadingTime()
+    await io.flowBuilder.fill(
+      selectors.settingsPagePO.APP_NAME_INPUT,
+      "PostgreSQL"
+    );
     await io.flowBuilder.clickByText("PostgreSQL");
-    await io.flowBuilder.clickByText("Import records into destination application");
+    await io.flowBuilder.click(selectors.connectionsPagePO.IMPORT_RECORDS);
+    await io.flowBuilder.clickByText("Create from scratch")
     await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.clickByText("POSTGRE OFFLINE CONNECTION - Offline");
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.waitForElementAttached(selectors.exportsPagePO.NAME);
     await io.flowBuilder.fill(selectors.exportsPagePO.NAME, "offline");
-  let isNewUI = false;
-    try
-  {
-    await io.assert.verifyElementDisplayedByText(
-      "Use bulk insert SQL query (recommended)",
-      "'Insert is not present in New UI"
-    );
-    await io.assert.verifyElementDisplayedByText(
-      "Use SQL query once per record",
-      "Use SQL query once per record is not present in New UI"
-    );
-    await io.assert.verifyElementDisplayedByText(
-      "Use SQL query once per page of records",
-      "Use SQL query once per page of records is not present in New UI"
-    );
-    await io.assert.verifyElementDisplayedByText(
-      "Use SQL query on first page only",
-      "Use SQL query on first page only is not present in New UI"
-    );
-    
-    isNewUI = true
-  }
-  catch(e){
+    let isNewUI = false;
+    try {
+      await io.assert.verifyElementDisplayedByText(
+        "Use bulk insert SQL query (recommended)",
+        "'Insert is not present in New UI"
+      );
+      await io.assert.verifyElementDisplayedByText(
+        "Use SQL query once per record",
+        "Use SQL query once per record is not present in New UI"
+      );
+      await io.assert.verifyElementDisplayedByText(
+        "Use SQL query once per page of records",
+        "Use SQL query once per page of records is not present in New UI"
+      );
+      await io.assert.verifyElementDisplayedByText(
+        "Use SQL query on first page only",
+        "Use SQL query on first page only is not present in New UI"
+      );
+
+      isNewUI = true
+    }
+    catch (e) {
+      expect(isNewUI).toBeTruthy();
+    }
     expect(isNewUI).toBeTruthy();
-  }
-  expect(isNewUI).toBeTruthy();
   });
 }
 )

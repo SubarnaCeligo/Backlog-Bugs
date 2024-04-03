@@ -12,11 +12,20 @@ test.describe("C103075 Verify the advance section in simple view", () => {
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP
     );
-    await page.keyboard.type("Personio");
-    await page.keyboard.press("Enter");
-    await io.flowBuilder.clickByText(
-      "Transfer files into destination application"
+    await io.homePage.loadingTime()
+    await io.flowBuilder.fill(
+      selectors.settingsPagePO.APP_NAME_INPUT,
+      "Personio"
     );
+    await io.flowBuilder.clickByText("Personio");
+    await io.flowBuilder.click(selectors.connectionsPagePO.IMPORT_RECORDS);
+    await io.flowBuilder.clickByText("Create from scratch")
+    await io.flowBuilder.loadingTime()
+    // await page.keyboard.type("Personio");
+    // await page.keyboard.press("Enter");
+    // await io.flowBuilder.clickByText(
+    //   "Transfer files into destination application"
+    // );
     await io.flowBuilder.click(selectors.basePagePO.CONNECTION_DROPDOWN);
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONDROP0);
     await io.flowBuilder.click(selectors.basePagePO.SAVE);

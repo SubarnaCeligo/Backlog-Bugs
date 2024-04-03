@@ -8,8 +8,14 @@ test.describe(`C59657 Verify connection dropdown for lookups`, () => {
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP
     );
+    await io.homePage.loadingTime()
+    await io.flowBuilder.fill(
+      selectors.settingsPagePO.APP_NAME_INPUT,
+      "Narvar"
+    );
     await io.flowBuilder.clickByText("Narvar");
     await io.flowBuilder.clickByText("Look up additional records (per record)");
+    await io.flowBuilder.clickByText("Create from scratch")
     await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
     await page.getByText("API type").first().waitFor({ state: "visible" });
     const connectionText = (await io.flowBuilder.getText(

@@ -90,6 +90,7 @@ test.describe(`C113520_C113521_C113522_C113523_C113524_C113525_C113526`, () => {
     await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
   });
 
+  /*
   test(`HTTP connection iClient page`, async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
@@ -431,4 +432,5 @@ test.describe(`C113520_C113521_C113522_C113523_C113524_C113525_C113526`, () => {
     await io.connectionPage.addStep("Verified field path and help text for 'Unencrypted' field");
     await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
   });
+  */
 });

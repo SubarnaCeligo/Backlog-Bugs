@@ -9,6 +9,8 @@ test.describe("C9473 Accounting period lookup is not displayed in record type fo
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'netsuite');
     await io.flowBuilder.click(selectors.connectionsPagePO.NETSUITE_CONNECTION);
     await io.flowBuilder.click(selectors.connectionsPagePO.IMPORT_RECORDS)
+    await io.flowBuilder.clickByText("Create from scratch")
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN)
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,'NS 737 Conection');
     await io.flowBuilder.clickByTextByIndex('NS 737 Conection', 0);
