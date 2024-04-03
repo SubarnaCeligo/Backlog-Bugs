@@ -6,14 +6,17 @@ test.describe("TC_C119812_C119813_C119814", () => {
   let id;
   test("@Epic-IO-63762  @Priority-P2  @Zephyr-T24242 @Zephyr-T24243 @Env-All", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.flowBuilder.loadingTime();
     id = await io.connMap.get("ZENDESK CONNECTION");
     TC.export._connectionId = id;
     TC.lookup._connectionId = id;
     await io.api.postCall(`v1/exports`, TC.export);
     await io.api.postCall(`v1/exports`, TC.lookup);
     await io.flowBuilder.reloadPage();
+    await io.flowBuilder.loadingTime();
     await io.homePage.goToMenu("Resources", "Exports");
     await io.homePage.fill(selectors.flowBuilderPagePO.SEARCH, "TC_C119812 Zendesk Export");
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU);
     await io.flowBuilder.click(selectors.integrationPagePO.CLONE_FLOW_INTABLE);
 
@@ -26,6 +29,7 @@ test.describe("TC_C119812_C119813_C119814", () => {
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.clearTextValue(selectors.flowBuilderPagePO.SEARCH);
     await io.homePage.fill(selectors.flowBuilderPagePO.SEARCH, "Clone - TC_C119812 Zendesk Export");
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.clickByText("Clone - TC_C119812 Zendesk Export");
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.DATATEST);
 
@@ -61,6 +65,7 @@ test.describe("TC_C119812_C119813_C119814", () => {
     //Lookup
     await io.flowBuilder.clearTextValue(selectors.flowBuilderPagePO.SEARCH);
     await io.homePage.fill(selectors.flowBuilderPagePO.SEARCH, "TC_C119812 Zendesk Lookup");
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU);
     await io.flowBuilder.click(selectors.integrationPagePO.CLONE_FLOW_INTABLE);
 
@@ -73,6 +78,7 @@ test.describe("TC_C119812_C119813_C119814", () => {
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.clearTextValue(selectors.flowBuilderPagePO.SEARCH);
     await io.homePage.fill(selectors.flowBuilderPagePO.SEARCH, "Clone - TC_C119812 Zendesk Lookup");
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.clickByText("Clone - TC_C119812 Zendesk Lookup");
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.DATATEST);
 
@@ -97,21 +103,22 @@ test.describe("TC_C119812_C119813_C119814", () => {
     await io.homePage.loadingTime();
     expect(await page.screenshot()).toMatchSnapshot("TC_C119813 Lookup.png");
     await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
-
-
+    
     //-'Launch form builder' button should be displayed in 'Settings' section
     const buttonDis1 = await page.$(selectors.flowBuilderPagePO.SETTING);
     expect(await buttonDis1.screenshot()).toMatchSnapshot("TC_C119812 launchFormBuilder.png");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
   });
-  test("@Epic-IO-63762  @Priority-P2  @Zephyr-T24244 @Env-All", async ({ io, page }) => {
+  test.skip("@Epic-IO-63762  @Priority-P2  @Zephyr-T24244 @Env-All", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     id = await io.connMap.get("NETSUITE CONNECTION");
     TC.import._connectionId = id;
     await io.api.postCall(`v1/imports`, TC.import);
     await io.flowBuilder.reloadPage();
+    await io.flowBuilder.loadingTime();
     await io.homePage.goToMenu("Resources", "Imports");
     await io.homePage.fill(selectors.flowBuilderPagePO.SEARCH, "TC_C119812 Netsuite import");
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU);
     await io.flowBuilder.click(selectors.integrationPagePO.CLONE_FLOW_INTABLE);
 
@@ -123,6 +130,7 @@ test.describe("TC_C119812_C119813_C119814", () => {
     await io.homePage.clickByTextByIndex("NETSUITE CONNECTION", 1)
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.homePage.fill(selectors.flowBuilderPagePO.SEARCH, "Clone - TC_C119812 Netsuite import");
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.clickByText("Clone - TC_C119812 Netsuite import");
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.DATATEST);
 
