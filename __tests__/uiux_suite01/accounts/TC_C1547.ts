@@ -7,7 +7,7 @@ test.describe("C1547 Verify 'Invite User' button is shown when clicked on Users 
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
   });
 
-  test("C1547 Verify 'Invite User' button is shown when clicked on Users option in my account page", async ({
+  test("@Env-All C1547 Verify 'Invite User' button is shown when clicked on Users option in my account page", async ({
     io
   }) => {
     await io.myAccountPage.click(selectors.myAccountPagePO.USERS);
