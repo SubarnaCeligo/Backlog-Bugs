@@ -103,13 +103,13 @@ test.describe("TC_C119812_C119813_C119814", () => {
     await io.homePage.loadingTime();
     expect(await page.screenshot()).toMatchSnapshot("TC_C119813 Lookup.png");
     await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
-    
+
     //-'Launch form builder' button should be displayed in 'Settings' section
     const buttonDis1 = await page.$(selectors.flowBuilderPagePO.SETTING);
     expect(await buttonDis1.screenshot()).toMatchSnapshot("TC_C119812 launchFormBuilder.png");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
   });
-  test.skip("@Epic-IO-63762  @Priority-P2  @Zephyr-T24244 @Env-All", async ({ io, page }) => {
+  test("@Epic-IO-63762  @Priority-P2  @Zephyr-T24244 @Env-All", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     id = await io.connMap.get("NETSUITE CONNECTION");
     TC.import._connectionId = id;
