@@ -5,7 +5,7 @@ test.describe("C119145 Verify the Reset template,query and script button in AFE 
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("C119145  Verify the Reset template,query and script button in AFE windows for Monitor User", async ({ io, page }) => {
+  test("@Env=all C119145  Verify the Reset template,query and script button in AFE windows for Monitor User", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.clickByText('C32362_DND');
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);

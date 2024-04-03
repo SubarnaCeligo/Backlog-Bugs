@@ -4,7 +4,7 @@ import testData from "@testData/monitorSuite/monitor_all.json";
 
 
 test.describe('C93697 Validate that user is not able to see "postResponseMap" function in “Insert function stub” field while creating a script (Monitor)', () => {
-  test('C93697 Validate that user is not able to see "postResponseMap" function in “Insert function stub” field while creating a script (Monitor)', async ({io,page}) => {
+  test('@Env=all C93697 Validate that user is not able to see "postResponseMap" function in “Insert function stub” field while creating a script (Monitor)', async ({io,page}) => {
     const res = await io.api.putCall(
         `v1/ashares/${process.env.IO_Ashare_ID}`,
         testData

@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/monitorSuite/monitor_all.json";
 
 test.describe(`C24937 Monitor All- Verify able to filter report results by status`, () => {
-  test(`C24937 Monitor All- Verify able to filter report results by status`, async ({
+  test(`@Env=all C24937 Monitor All- Verify able to filter report results by status`, async ({
     page,
     io
   }) => {

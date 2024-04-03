@@ -5,7 +5,7 @@ import testData from "@testData/monitorSuite/monitor_all.json";
 test.describe('C93701 Validate that user is able to see "formInit" function wherever “Insert function stub” field is present.(Monitor)', () => {
    
      
-    test('C93701 Validate that user is able to see "formInit" function wherever “Insert function stub” field is present.(Monitor)', async ({
+    test('@Env=all C93701 Validate that user is able to see "formInit" function wherever “Insert function stub” field is present.(Monitor)', async ({
       io,
       page
     }) => {

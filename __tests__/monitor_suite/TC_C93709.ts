@@ -5,7 +5,7 @@ import testData from "@testData/monitorSuite/monitor_all.json";
 
 
 test.describe('C93709 Validate user is able to create "formInit" script through flow builder page (Monitor)', () => {
-    test('C93709 Validate user is able to create "formInit" script through flow builder page (Monitor)', async({io,page}) => {
+    test('@Env=all C93709 Validate user is able to create "formInit" script through flow builder page (Monitor)', async({io,page}) => {
         const res = await io.api.putCall(
             `v1/ashares/${process.env.IO_Ashare_ID}`,
             testData

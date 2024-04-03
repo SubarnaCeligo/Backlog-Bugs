@@ -10,7 +10,7 @@ test.describe('C93720 Validate user is able to see default function name as "for
           );
               await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
             });
-    test('C93720 Validate user is able to see default function name as "formInit" instead of "main" for form builder(Monitor)', async({io,page}) => {
+    test('@Env=all C93720 Validate user is able to see default function name as "formInit" instead of "main" for form builder(Monitor)', async({io,page}) => {
   
      const isResourceVisible = await io.homePage.isVisible(selectors.basePagePO.RESOURCES);
         if(isResourceVisible){

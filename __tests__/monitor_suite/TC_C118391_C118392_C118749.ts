@@ -5,7 +5,7 @@ test.describe("TC_C118391_C118392_C118749 - Assign cases in monitor account", ()
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("TC_C118391_C118392_C118749 - Assign cases in monitor account", async ({ io, page }) => {
+    test("@Env=all TC_C118391_C118392_C118749 - Assign cases in monitor account", async ({ io, page }) => {
 
         //Navigate to default integration
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);

@@ -5,7 +5,7 @@ test.describe(`TC_C41561 To verify create pull button is not displayed under "Re
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test(`C41561 To verify create pull button is not displayed under "Revisions" tab for Templates(users who has Integration level monitor access)`, async ({
+  test(`@Env=all C41561 To verify create pull button is not displayed under "Revisions" tab for Templates(users who has Integration level monitor access)`, async ({
     page,
     io
   }) => {

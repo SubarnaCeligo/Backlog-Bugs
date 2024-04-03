@@ -9,7 +9,7 @@ test.describe("C25999_Verify stop is shown, but should be disabled for the monit
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C25999_Verify stop is shown, but should be disabled for the monitor users UI_Backlog", async ({ io }) => {
+    test("@Env=all C25999_Verify stop is shown, but should be disabled for the monitor users UI_Backlog", async ({ io }) => {
     const res = await io.api.putCall( `v1/ashares/${process.env.IO_Ashare_ID}`,testData);
       await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
       await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);

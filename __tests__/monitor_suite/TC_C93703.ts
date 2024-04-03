@@ -11,7 +11,7 @@ test.describe('C93703 Validate that user is able to see "formInit" function wher
           );
       await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test('C93703 Validate that user is able to see "formInit" function wherever “Insert function stub” field is present.(Tile level access)', async ({
+    test('@Env=all C93703 Validate that user is able to see "formInit" function wherever “Insert function stub” field is present.(Tile level access)', async ({
       io,
       page
     }) => {
