@@ -30,8 +30,10 @@ test.describe(`C12034_Verify Import and load the export which has 4000+ audit re
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_ENABLE);
     await io.flowBuilder.click(selectors.basePagePO.RUNFLOW);
     await io.homePage.loadingTime()
+    await io.homePage.loadingTime()
     // Wait for the status to change from 'Completing...' to 'Completed'
     await page.waitForSelector(`${selectors.flowBuilderPagePO.IMPORT_RUN_COMPLETION_STATUS}:has-text("Completed")`);
+    await io.homePage.loadingTime()
     //verify success count and run status for export
     let completedStatusExport = await page.locator(selectors.flowBuilderPagePO.RUN_COMPLETION_STATUS).nth(0).textContent();
     expect(completedStatusExport).toEqual('Completed');
