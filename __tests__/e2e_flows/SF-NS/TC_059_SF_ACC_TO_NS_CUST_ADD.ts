@@ -7,7 +7,7 @@ test.describe("E2E Flows", () => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
     
-    test("TC_059_SF_ACC_TO_NS_CUST_ADD", async ({
+    test("@Env-all TC_059_SF_ACC_TO_NS_CUST_ADD", async ({
         io
     }, testInfo) => {
         //Creating PageGenerator 
