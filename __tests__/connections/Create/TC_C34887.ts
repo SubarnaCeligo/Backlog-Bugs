@@ -18,7 +18,7 @@ test.describe("C34887 Verify weather Restricted report type checkbox and help te
     await page.keyboard.press('Enter');
     await io.flowBuilder.clickByText("Create from scratch");
     await io.flowBuilder.click(selectors.basePagePO.CONNECTION_DROPDOWN);
-    await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONDROP0);
+    await io.flowBuilder.clickByText("AMAZON SELLER CENTRAL CONNECTION");
     await io.homePage.loadingTime();
     await io.flowBuilder.clickByText('Marketplace Web Service API (MWS)');
     await io.flowBuilder.clickByText('Selling Partner API (SP-API)');

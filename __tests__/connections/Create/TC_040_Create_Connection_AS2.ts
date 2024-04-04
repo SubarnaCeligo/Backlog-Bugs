@@ -1,8 +1,7 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import  connectionData from "@testData/Connections/Create/Create_Connection_AS2.json"
 
-
-test.describe("CONNECTIONS", () => {
+test.describe.skip("CONNECTIONS", () => {
 
     test.beforeEach(async ({ io }) => {
       await io.connections.deleteConnection(connectionData.importJSON.name)

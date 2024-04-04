@@ -23,7 +23,7 @@ test.describe("TC_C2245_Verify HTTP Headers field is exposed in the UI page for 
     await io.flowBuilder.clickByText('Create_Connection_AS2');
     await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'AS2_Import');
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
-    await io.homePage.clickByText("Please select");
+    await io.homePage.click(selectors.exportsPagePO.FILE_TYPE);
     await io.homePage.clickByText("JSON");
     // Validating able to add headers
     await io.homePage.fill(selectors.connectionsPagePO.AS2_HEADER_NAME, 'Name');

@@ -11,7 +11,7 @@ test.describe("CONNECTIONS", () => {
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'narvar');
     await page.keyboard.press("Enter");
     await io.flowBuilder.loadingTime()
-    await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.HELP_TEXT_ICON, 2);
+    await io.flowBuilder.click('[id="http._httpConnectorApiId"] Button');
     await io.assert.verifyElementDisplayedByText("This application supports multiple APIs. Select the specific API you would like to use for this connection.", "Text not showing")
   });
 });
