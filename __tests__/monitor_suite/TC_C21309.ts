@@ -4,7 +4,7 @@ import testData from "@testData/monitorSuite/monitor_all_manage_few.json";
 
  
 test.describe(`C21309 Verify the connections of a monitored tiles should not be listed while creating new flow under manage tile.`, () => {
-  test(`@Env=all C21309 Verify the connections of a monitored tiles should not be listed while creating new flow under manage tile.`, async ({
+  test(`C21309 Verify the connections of a monitored tiles should not be listed while creating new flow under manage tile.`, async ({
     page,
     io
   }) => {

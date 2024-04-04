@@ -11,7 +11,7 @@ test.describe('C93707 Validate that user is able to see "postResponseMap" functi
           );
       await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test('@Env=all C93707 Validate that user is able to see "postResponseMap" function wherever “Insert function stub” field is present.(Tile level access)', async ({
+    test('C93707 Validate that user is able to see "postResponseMap" function wherever “Insert function stub” field is present.(Tile level access)', async ({
       io,
       page
     }) => {

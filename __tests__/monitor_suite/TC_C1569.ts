@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/monitorSuite/monitor_few_manage_few.json";
 
 test.describe(`C1569 Verify If same document is under two integrations with different access levels then the higher access level will take precedence`, () => {
-  test(`@Env=all C1569 Verify If same document is under two integrations with different access levels then the higher access level will take precedence`, async ({
+  test(`C1569 Verify If same document is under two integrations with different access levels then the higher access level will take precedence`, async ({
     page,
     io
   }) => {

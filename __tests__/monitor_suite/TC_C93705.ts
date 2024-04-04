@@ -11,7 +11,7 @@ import testData from "@testData/monitorSuite/monitor_all.json";
           );
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
       });
-      test('@Env=all C93705 Validate that user is able to see "postResponseMap" function wherever “Insert function stub” field is present.(Monitor)', async ({
+      test('C93705 Validate that user is able to see "postResponseMap" function wherever “Insert function stub” field is present.(Monitor)', async ({
         io,
         page
       }) => {

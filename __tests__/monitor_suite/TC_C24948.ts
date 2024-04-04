@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/monitorSuite/monitor_all_manage_few.json";
 
 test.describe(`C24948 Monitor all and manage few - Verify able to filter report results by flow`, () => {
-  test(`@Env=all C24948 Monitor all and manage few - Verify able to filter report results by flow`, async ({
+  test(`C24948 Monitor all and manage few - Verify able to filter report results by flow`, async ({
     page,
     io
   }) => {

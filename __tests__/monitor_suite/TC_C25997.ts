@@ -6,7 +6,7 @@ test.describe("C25997 - Verify that monitor user is not able to stop debug on li
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env=all C25997 - Verify that monitor user is not able to start/stop debug on listeners", async ({ io, page }) => {
+  test("C25997 - Verify that monitor user is not able to start/stop debug on listeners", async ({ io, page }) => {
 
     //Set the monitor permissions for the account
     const res = await io.api.putCall(

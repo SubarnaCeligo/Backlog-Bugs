@@ -4,7 +4,7 @@ import testData from "@testData/monitorSuite/monitor_all.json";
 
 test.describe('C93713 Validate user is getting auto-fill of funtion stub while creating "postResponseMap" script through flow builder page (Monitor)', () => {
    
-    test('@Env=all C93713 Validate user is getting auto-fill of funtion stub while creating "postResponseMap" script through flow builder page (Monitor)', async({io,page}) => {
+    test('C93713 Validate user is getting auto-fill of funtion stub while creating "postResponseMap" script through flow builder page (Monitor)', async({io,page}) => {
         const res = await io.api.putCall(
             `v1/ashares/${process.env.IO_Ashare_ID}`,
             testData

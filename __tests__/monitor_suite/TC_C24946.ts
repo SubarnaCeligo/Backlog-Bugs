@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/monitorSuite/monitor_few.json";
 
 test.describe(`C24946 Tile Monitor - Verify able to filter report results by flow`, () => {
-  test(`@Env=all C24946 Tile Monitor - Verify able to filter report results by flow`, async ({
+  test(`C24946 Tile Monitor - Verify able to filter report results by flow`, async ({
     page,
     io
   }) => {

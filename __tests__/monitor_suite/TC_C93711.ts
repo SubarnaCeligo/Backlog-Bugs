@@ -5,7 +5,7 @@ import testData from "@testData/monitorSuite/monitor_all.json";
 
 
 test.describe('C93711 Validate user is not able to create "formInit" script through flow builder page (Tile level access)', () => {
-    test('@Env=all C93711 Validate user is not able to create "formInit" script through flow builder page (Tile level access)', async({io,page}) => {
+    test('C93711 Validate user is not able to create "formInit" script through flow builder page (Tile level access)', async({io,page}) => {
         const res = await io.api.putCall(
             `v1/ashares/${process.env.IO_Ashare_ID}`,
             testData

@@ -5,7 +5,7 @@ test.describe("C119151 Verify the Error Panel in AFE windows for Monitor User", 
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env=all C119151 Verify the Error Panel in AFE windows for Monitor User", async ({ io }) => {
+  test("C119151 Verify the Error Panel in AFE windows for Monitor User", async ({ io }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.clickByText('C32362_DND');
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
