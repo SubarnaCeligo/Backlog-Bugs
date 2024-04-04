@@ -2,7 +2,7 @@ import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C43526 - Verify import preview panel for import mapping with array field", () => {
-  test("@Epic-IO-23131 @Env-All @Zephyr/IO-T561 @Priority-P2 C43526 - Verify import preview panel for import mapping with array field", async ({ io }) => {
+  test("@Epic-IO-23131 @Env-All @Zephyr-IO-T561 @Priority-P2 C43526 - Verify import preview panel for import mapping with array field", async ({ io }) => {
 
     //Navigate to default integration
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
