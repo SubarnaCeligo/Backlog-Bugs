@@ -4,7 +4,7 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe('C101084 To verify that the user will get error message when user provides the same email in change email operation', () => {
 
-    test("C101084 To verify that the user will get error message when user provides the same email in change email operation", async ({
+    test("@Env-All C101084 To verify that the user will get error message when user provides the same email in change email operation", async ({
         io,
         page
       }) => {

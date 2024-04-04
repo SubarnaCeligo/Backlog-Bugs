@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C25555 Verify UI validation is present on the form itself", () => {
-  test("C25555 Verify UI validation is present on the form itself", async ({
+  test("@Env-All C25555 Verify UI validation is present on the form itself", async ({
     io,
     page
   }) => {
