@@ -9,8 +9,6 @@ test.describe("IO-T28495 ", () => {
     });
     test("@Env-QA @Zephyr-IO-T28495", async ({ io, page }) => {
         const id = await io.createResourceFromAPI(C1465, "FLOWS");
-
-        await page.pause();
 await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR)
 await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT_TRANSFORMATION);
 await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_TRANSFORMATION);

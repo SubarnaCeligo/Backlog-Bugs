@@ -43,18 +43,21 @@ test.describe("TC_C120099", () => {
         await io.flowBuilder.clickByText("Handlebars expression");
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.clickByText("Please select")
-        let displaytext = false;
-        try {
+        expect(await io.assert.verifyElementDisplayedByText(
+            "Do nothing",
+            "'Do nothing'  dropdown option is not displayed")).toBeFalsy();
+        // let displaytext = false;
+        // try {
 
-            (await io.assert.verifyElementDisplayedByText(
-                "Do nothing",
-                "'Do nothing'  dropdown option is not displayed"));
-            displaytext = true;
-        }
-        catch (e) {
-            expect(displaytext).toBeFalsy();
-        }
-        expect(displaytext).toBeFalsy();
+        //     (await io.assert.verifyElementDisplayedByText(
+        //         "Do nothing",
+        //         "'Do nothing'  dropdown option is not displayed"));
+        //     displaytext = true;
+        // }
+        // catch (e) {
+        //     expect(displaytext).toBeFalsy();
+        // }
+        // expect(displaytext).toBeFalsy();
 
 
     });

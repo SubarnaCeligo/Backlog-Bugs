@@ -1,14 +1,14 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import DateTime from '@testData/Exports/T28495.json'
-import C1465 from '@testData/email_validations/C1465.json'
+import C20688 from '@testData/email_validations/C20688.json'
 
 test.describe("FlowBuilder custom settings launch builder", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
     test("@Env-QA @Zephyr-IO-T28495", async ({ io, page }) => {
-        const id = await io.createResourceFromAPI(C1465, "FLOWS");
+        const id = await io.createResourceFromAPI(C20688, "FLOWS");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_BUBBLE);
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.flowBuilder.click(selectors.basePagePO.LAUNCH_EDITOR);

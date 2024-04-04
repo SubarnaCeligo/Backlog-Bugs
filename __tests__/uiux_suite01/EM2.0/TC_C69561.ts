@@ -9,7 +9,6 @@ test.describe("C69561 Search bar is distorted on Error windows", () => {
   }) => {
     const errorFlowId = await io.createResourceFromAPI(C51655, "FLOWS");
     await io.api.runBatchFlowViaAPI("TC_C51655", errorFlowId);
-    await page.pause();
     const lastRun = page.getByText("Last run");
     await lastRun.waitFor({ state: "visible", timeout: 300000 });
     await io.flowBuilder.clickByTextByIndex("11 errors", 1);

@@ -24,7 +24,6 @@ test.describe("C120112   Verify the message when api failed to fetch the table",
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ORACLEDB_BULKINSERT );
     await io.importsPage.click(selectors.importPagePO.EXPAND_MOCK_RESPONSE);
     await io.flowBuilder.waitForElementAttached(selectors.basePagePO.MUI_CIRCULAR_PROGRESS);
-    await page.waitForTimeout(8000);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ORACLEDB_BULKINSERT );
     await io.flowBuilder.waitForElementAttached('text="Unable to retrieve table list. Enter a new query or refresh the  page."')
     await io.assert.verifyElementDisplayedByText(
