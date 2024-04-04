@@ -6,7 +6,7 @@ test.describe(`C112086 Verify the JWT bearer connection while cloning `, () => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   
   });
-test(`C112086 Verify the JWT bearer connection while cloning`, async ({
+test(`@Env-QA C112086 Verify the JWT bearer connection while cloning`, async ({
     io,
     page
   }) => {
