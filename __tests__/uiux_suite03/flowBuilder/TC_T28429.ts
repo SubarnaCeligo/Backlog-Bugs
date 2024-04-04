@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import { decrypt } from "@celigo/aut-utilities";
 
-test.describe("@Author_sagna123 TC_T28429_Test to validate checkbox is visible in HTTP export/lookup if we have exportSuccessMediaType is do not override and connectionSuccessMediaType is json", () => {
+test.describe("@Author_sagna123 TC_T28429_Test to validate checkbox is visible in HTTP export/lookup if we have exportSuccessMediaType is do not override and connectionSuccessMediaType is do not override and connectionMediaType is json", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
@@ -16,7 +16,7 @@ test.describe("@Author_sagna123 TC_T28429_Test to validate checkbox is visible i
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'HTTP');
         await io.homePage.click(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH);
         await io.homePage.addStep("*** Selected HTTP application ***");
-        await io.homePage.fill(selectors.basePagePO.NAME, "HTTP CONNECTION WITH DO NOT OVERRIDE AS SUCCESS MEDIA TYPE");
+        await io.homePage.fill(selectors.basePagePO.NAME, "HTTP CONNECTION WITH DO NOT OVERRIDE AS SUCCESS MEDIA TYPE AND JSON AS MEDIA TYPE1");
         await io.homePage.addStep("*** Clicked on 'name' field and gave a name to our connection ***");
         await io.homePage.fill(selectors.connectionsPagePO.MAGENTO2_BASE_URI, "https://d3v-celigolabs.zendesk.com/");
         await io.homePage.addStep("*** Typed base URI ***");
@@ -42,10 +42,10 @@ test.describe("@Author_sagna123 TC_T28429_Test to validate checkbox is visible i
         await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH);
         await io.homePage.addStep("*** Selected HTTP application ***");
-        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "HTTP CONNECTION WITH DO NOT OVERRIDE AS SUCCESS MEDIA TYPE");
-        await io.homePage.addStep("*** Searched for HTTP CONNECTION WITH DO NOT OVERRIDE AS SUCCESS MEDIA TYPE ***");
-        await io.homePage.clickByText('HTTP CONNECTION WITH DO NOT OVERRIDE AS SUCCESS MEDIA TYPE');
-        await io.homePage.addStep("*** Selected HTTP CONNECTION WITH DO NOT OVERRIDE AS SUCCESS MEDIA TYPE ***");
+        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "HTTP CONNECTION WITH DO NOT OVERRIDE AS SUCCESS MEDIA TYPE AND JSON AS MEDIA TYPE1");
+        await io.homePage.addStep("*** Searched for HTTP CONNECTION WITH DO NOT OVERRIDE AS SUCCESS MEDIA TYPE AND JSON AS MEDIA TYPE1 ***");
+        await io.homePage.clickByText('HTTP CONNECTION WITH DO NOT OVERRIDE AS SUCCESS MEDIA TYPE AND JSON AS MEDIA TYPE1');
+        await io.homePage.addStep("*** Selected HTTP CONNECTION WITH DO NOT OVERRIDE AS SUCCESS MEDIA TYPE AND JSON AS MEDIA TYPE1 ***");
         await io.homePage.click(selectors.basePagePO.ADD_NAME);
         await page.keyboard.press('/');
         await io.homePage.addStep("*** Clicked on 'name' field and gave a name to our export ***");
@@ -66,17 +66,23 @@ test.describe("@Author_sagna123 TC_T28429_Test to validate checkbox is visible i
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources","Connections");
         await io.homePage.addStep("*** Navigated back to connection page ***");
-        await io.homePage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, "HTTP CONNECTION WITH DO NOT OVERRIDE AS SUCCESS MEDIA TYPE");
+        await io.homePage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, "HTTP CONNECTION WITH DO NOT OVERRIDE AS SUCCESS MEDIA TYPE AND JSON AS MEDIA TYPE1");
         await io.homePage.loadingTime()
         await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
         await io.homePage.loadingTime()
+        await io.homePage.loadingTime();
         await io.homePage.click(selectors.connectionsPagePO.DELETE_CONNECTION);
+        await io.homePage.loadingTime()
         await io.homePage.loadingTime()
         await io.homePage.click(selectors.basePagePO.DELETE);
         await io.homePage.loadingTime()
         await io.homePage.loadingTime()
+        await io.homePage.loadingTime()
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
+        await io.homePage.loadingTime()
         await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ADD_NEW_RESOURCE);
+        await io.homePage.loadingTime()
+        await io.homePage.loadingTime()
         await io.homePage.addStep("*** Deleted the existing connection ***");
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.addStep("*** Navigated back to home page ***");

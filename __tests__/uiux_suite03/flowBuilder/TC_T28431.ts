@@ -70,13 +70,19 @@ test.describe("@Author_sagna123 TC_T28431_Test to validate checkbox is visible i
         await io.homePage.loadingTime()
         await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
         await io.homePage.loadingTime()
+        await io.homePage.loadingTime();
         await io.homePage.click(selectors.connectionsPagePO.DELETE_CONNECTION);
+        await io.homePage.loadingTime()
         await io.homePage.loadingTime()
         await io.homePage.click(selectors.basePagePO.DELETE);
         await io.homePage.loadingTime()
         await io.homePage.loadingTime()
+        await io.homePage.loadingTime()
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
+        await io.homePage.loadingTime()
         await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ADD_NEW_RESOURCE);
+        await io.homePage.loadingTime()
+        await io.homePage.loadingTime()
         await io.homePage.addStep("*** Deleted the existing connection ***");
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.addStep("*** Navigated back to home page ***");
