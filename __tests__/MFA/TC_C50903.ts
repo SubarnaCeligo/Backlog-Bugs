@@ -4,7 +4,7 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe(
   "C50903 Verify that user should be able to select either of MFA or SSO in invite user page",
   () => {
-    test("@Env-QA @Env-IAQA C50903 Verify that user should be able to select either of MFA or SSO in invite user page", async ({
+    test("@Env-All C50903 Verify that user should be able to select either of MFA or SSO in invite user page", async ({
       io,
       page
     }) => {

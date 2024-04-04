@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`IO-T2943 Verify enterprise grid scopes is removed from the slack connection"`, () => {
-  test(`Verify enterprise grid scopes is removed from the slack connection"`, async ({
+  test(`@Env-All Verify enterprise grid scopes is removed from the slack connection"`, async ({
     page,
     io
   }) => {

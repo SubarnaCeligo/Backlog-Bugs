@@ -240,6 +240,7 @@ test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APIMFLOW, randomString);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMPUSH);
         await io.homePage.loadingTime();
+        await io.homePage.loadingTime();
         const allPages = context.pages();
         await allPages[1].bringToFront();
         await allPages[1].waitForLoadState();
