@@ -10,6 +10,7 @@ test.describe("C112070_C112071_C112072_C112073_C112074", () => {
       await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
       await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
       await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
+      await io.connectionPage.waitForElementAttached(selectors.basePagePO.HTTP_2DOT0)
       await io.connectionPage.click(selectors.basePagePO.HTTP_2DOT0);
       await io.flowBuilder.loadingTime();
       await io.connectionPage.click(selectors.connectionsPagePO.GENERAL);
@@ -57,10 +58,12 @@ test.describe("C112070_C112071_C112072_C112073_C112074", () => {
         "RSA-SHA512","error if val not found"
       );
   });
+  
   test("@Env-All C112071 Verify send token via field dropdown values", async ({io, page}) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
+    await io.connectionPage.waitForElementAttached(selectors.basePagePO.HTTP_2DOT0)
     await io.connectionPage.click(selectors.basePagePO.HTTP_2DOT0);
     await io.flowBuilder.loadingTime();
     await io.connectionPage.click(selectors.connectionsPagePO.SLACK_AUTH_TYPE);
@@ -77,6 +80,7 @@ test.describe("C112070_C112071_C112072_C112073_C112074", () => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
+    await io.connectionPage.waitForElementAttached(selectors.basePagePO.HTTP_2DOT0)
     await io.connectionPage.click(selectors.basePagePO.HTTP_2DOT0);
     await io.flowBuilder.loadingTime();
     await io.connectionPage.click(selectors.connectionsPagePO.SLACK_AUTH_TYPE);
@@ -92,6 +96,7 @@ test.describe("C112070_C112071_C112072_C112073_C112074", () => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
+    await io.connectionPage.waitForElementAttached(selectors.basePagePO.HTTP_2DOT0)
     await io.connectionPage.click(selectors.basePagePO.HTTP_2DOT0);
     await io.flowBuilder.loadingTime();
     await io.connectionPage.click(selectors.connectionsPagePO.SLACK_AUTH_TYPE);
@@ -112,6 +117,7 @@ test.describe("C112070_C112071_C112072_C112073_C112074", () => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
+    await io.connectionPage.waitForElementAttached(selectors.basePagePO.HTTP_2DOT0)
     await io.connectionPage.click(selectors.basePagePO.HTTP_2DOT0);
     await io.flowBuilder.loadingTime();
     await io.connectionPage.click(selectors.connectionsPagePO.SLACK_AUTH_TYPE);
@@ -121,4 +127,5 @@ test.describe("C112070_C112071_C112072_C112073_C112074", () => {
     const monitorExp21 = await io.homePage.isVisible("text='Parameter name'");
     await io.assert.expectToBeValue(monitorExp21.toString(), 'true', "Value is found");
   });
+  
 });

@@ -10,7 +10,7 @@ test.describe("Verify labels of default fields in Amazon Redshift connection for
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'Amazon');
-
+    await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.AMAZON_REDSHIFT)
     await io.connectionPage.click(selectors.connectionsPagePO.AMAZON_REDSHIFT);
 
     const default_database_name = (await io.connectionPage.getText(selectors.connectionsPagePO.DEFAULT_DB_NAME_LABEL)) as string;

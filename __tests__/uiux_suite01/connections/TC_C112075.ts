@@ -13,6 +13,7 @@ test.describe("C112075_C112076_C112077_C112078_C112079", () => {
       await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
       await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
       await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
+      await io.connectionPage.waitForElementAttached(selectors.basePagePO.HTTP_2DOT0)
       await io.connectionPage.click(selectors.basePagePO.HTTP_2DOT0);
       await io.flowBuilder.loadingTime();
       await io.connectionPage.click(selectors.connectionsPagePO.SLACK_AUTH_TYPE);
@@ -31,6 +32,7 @@ test.describe("C112075_C112076_C112077_C112078_C112079", () => {
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
+    await io.connectionPage.waitForElementAttached(selectors.basePagePO.HTTP_2DOT0)
     await io.connectionPage.click(selectors.basePagePO.HTTP_2DOT0);
     await io.flowBuilder.loadingTime();
     await io.connectionPage.click(selectors.connectionsPagePO.SLACK_AUTH_TYPE);
@@ -55,6 +57,7 @@ test.describe("C112075_C112076_C112077_C112078_C112079", () => {
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
+    await io.connectionPage.waitForElementAttached(selectors.basePagePO.HTTP_2DOT0)
     await io.connectionPage.click(selectors.basePagePO.HTTP_2DOT0);
     await io.flowBuilder.loadingTime();
     await io.connectionPage.click(selectors.connectionsPagePO.SLACK_AUTH_TYPE);
@@ -80,6 +83,7 @@ test.describe("C112075_C112076_C112077_C112078_C112079", () => {
       await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
       await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
       await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
+      await io.connectionPage.waitForElementAttached(selectors.basePagePO.HTTP_2DOT0)
       await io.connectionPage.click(selectors.basePagePO.HTTP_2DOT0);
       await io.flowBuilder.loadingTime();
       await io.connectionPage.click(selectors.connectionsPagePO.SLACK_AUTH_TYPE);
@@ -98,6 +102,7 @@ test.describe("C112075_C112076_C112077_C112078_C112079", () => {
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
+    await io.connectionPage.waitForElementAttached(selectors.basePagePO.HTTP_2DOT0)
     await io.connectionPage.click(selectors.basePagePO.HTTP_2DOT0);
     await io.flowBuilder.loadingTime();
     await io.connectionPage.click(selectors.connectionsPagePO.SLACK_AUTH_TYPE);

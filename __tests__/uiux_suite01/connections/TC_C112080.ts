@@ -13,6 +13,7 @@ test.describe("C112080_C112081_C112082_C2112083_C112089", () => {
       await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
       await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
       await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
+      await io.connectionPage.waitForElementAttached(selectors.basePagePO.HTTP_2DOT0)
       await io.connectionPage.click(selectors.basePagePO.HTTP_2DOT0);
       await io.flowBuilder.loadingTime();
       await io.connectionPage.click(selectors.connectionsPagePO.GENERAL);
@@ -29,6 +30,7 @@ test.describe("C112080_C112081_C112082_C2112083_C112089", () => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
+    await io.connectionPage.waitForElementAttached(selectors.basePagePO.HTTP_2DOT0)
     await io.connectionPage.click(selectors.basePagePO.HTTP_2DOT0);
     await io.flowBuilder.loadingTime();
     await io.connectionPage.click(selectors.connectionsPagePO.GENERAL);
@@ -45,6 +47,7 @@ test.describe("C112080_C112081_C112082_C2112083_C112089", () => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
+    await io.connectionPage.waitForElementAttached(selectors.basePagePO.HTTP_2DOT0)
     await io.connectionPage.click(selectors.basePagePO.HTTP_2DOT0);
     await io.flowBuilder.loadingTime();
     await io.connectionPage.click(selectors.connectionsPagePO.GENERAL);
@@ -63,6 +66,7 @@ test.describe("C112080_C112081_C112082_C2112083_C112089", () => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
+    await io.connectionPage.waitForElementAttached(selectors.basePagePO.HTTP_2DOT0)
     await io.connectionPage.click(selectors.basePagePO.HTTP_2DOT0);
     await io.flowBuilder.loadingTime();
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_NAME,"GITHUB TEST");
