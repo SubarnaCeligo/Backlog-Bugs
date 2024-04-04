@@ -8,9 +8,6 @@ test.describe("C42087 @Epic-IO-19524 @Env-All @Zephyr/IO-T5642 Test to verify th
     await io.flowBuilder.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Clone - C42087-rename_DND');
     await io.flowBuilder.clickByText('Clone - C42087-rename_DND');
     await io.flowBuilder.clickByText("Revisions");
-    // await io.flowBuilder.click('[text="Results per page:"] ~ div');
-    // await page.waitForTimeout(600000)
-    // await io.flowBuilder.clickByIndex(selectors.basePagePO.SEARCH, 3);
     await io.flowBuilder.clickByText("50");
     await io.flowBuilder.clickByText("10");
     await io.flowBuilder.click(selectors.basePagePO.IDNEXTPAGE);
