@@ -7,7 +7,7 @@ test.describe.skip("CONNECTIONS", () => {
       await io.connections.deleteConnection(connectionData.importJSON.name)
       await io.myAccountPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     });
-    test("TC_040_Create_Connection_AS2", async ({
+    test("@Env-All TC_040_Create_Connection_AS2", async ({
       io
     }, testInfo) => {
       let connectionJson;

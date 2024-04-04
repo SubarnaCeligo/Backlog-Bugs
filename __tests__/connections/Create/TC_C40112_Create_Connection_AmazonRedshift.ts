@@ -5,7 +5,7 @@ test.describe("Create Connections", () => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.connections.deleteConnection(AmazonRedshift.importJSON.name)
     });
-    test("TC_C40112_Create_Connection_AmazonRedshift", async ({
+    test("@Env-All TC_C40112_Create_Connection_AmazonRedshift", async ({
         io
     }, testInfo) => {
         let actualJson;

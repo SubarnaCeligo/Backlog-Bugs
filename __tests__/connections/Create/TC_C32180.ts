@@ -9,7 +9,7 @@ test.describe("TC_C32180_Verify XML editor is being displayed when the file type
     await io.connections.deleteConnection(connectionData.importJSON.name)
     await io.myAccountPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
   });
-  test("TC_C32180_Verify XML editor is being displayed when the file type is selected as XML in the AS2 export UI_Backlog", async ({ io }, testInfo) => {
+  test("@Env-All TC_C32180_Verify XML editor is being displayed when the file type is selected as XML in the AS2 export UI_Backlog", async ({ io }, testInfo) => {
     let connectionJson;
     //Creating Connection 
     await test.step("*** Creating Connection ***", async () => {

@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 
 
 test.describe.skip("TC_C57803_Verify giving invalid base URI by unselecting the Configure refresh token checkbox and check whether the refresh token is generating or not", () => {
-    test("TC_C57803_Verify giving invalid base URI by unselecting the Configure refresh token checkbox and check whether the refresh token is generating or not UI_Backlog", async ({ io }, testInfo) => {
+    test("@Env-All TC_C57803_Verify giving invalid base URI by unselecting the Configure refresh token checkbox and check whether the refresh token is generating or not UI_Backlog", async ({ io }, testInfo) => {
         await io.myAccountPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
         //Creating Connection 
         await test.step("*** Creating Connection ***", async () => {

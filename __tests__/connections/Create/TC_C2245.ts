@@ -9,7 +9,7 @@ test.describe("TC_C2245_Verify HTTP Headers field is exposed in the UI page for 
     await io.connections.deleteConnection(connectionData.importJSON.name)
     await io.myAccountPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
   });
-  test("TC_C2245_Verify HTTP Headers field is exposed in the UI page for AS2 imports and able to add them UI_Backlog", async ({ io }, testInfo) => {
+  test("@Env-All TC_C2245_Verify HTTP Headers field is exposed in the UI page for AS2 imports and able to add them UI_Backlog", async ({ io }, testInfo) => {
     let connectionJson;
     //Creating Connection 
     await test.step("*** Creating Connection ***", async () => {

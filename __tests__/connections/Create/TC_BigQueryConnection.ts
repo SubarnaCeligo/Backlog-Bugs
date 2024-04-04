@@ -6,7 +6,7 @@ test.describe("Create Connections", () => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.connections.deleteConnection(BigQuery.importJSON.name)
     });
-    test("BigQueryConnection", async ({
+    test("@Env-All BigQueryConnection", async ({
         io
     }, testInfo) => {
         let actualJson;

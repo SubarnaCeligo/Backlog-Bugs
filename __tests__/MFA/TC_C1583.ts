@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe.skip("C1583 Verify Transfer Ownership notification shows the integration name", () => {
-  test("@Env-QA @Env-IAQA C1583 Verify Transfer Ownership notification shows the integration name", async ({
+  test("@Env-All C1583 Verify Transfer Ownership notification shows the integration name", async ({
     io,
     page
   }) => {

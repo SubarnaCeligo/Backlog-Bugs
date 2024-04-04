@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("CONNECTIONS", () => {
-  test("C63027 Verify help text for multi-type API connections", async ({
+  test("@Env-All C63027 Verify help text for multi-type API connections", async ({
     io,
     page
   }) => {
