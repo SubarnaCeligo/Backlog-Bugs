@@ -5,7 +5,7 @@ test.describe("C45328_Verify whether user is able to vote on features and add su
     test("C45328_Verify whether user is able to vote on features and add suggestions /comments and submit them UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.loadingTime()
-        await io.homePage.goToMenu("celigo-help-center", "Product portal")
+        await io.homePage.selectTabInHelperMenu("Product portal")
         await io.homePage.loadingTime()
         const iframe = page.frameLocator(selectors.homePagePO.IFRAME_PRODUCT_PORTAL);
         await iframe.locator("[data-testid='PortalNewIdea-Button']").click();

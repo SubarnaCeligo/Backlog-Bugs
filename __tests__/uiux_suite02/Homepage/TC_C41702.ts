@@ -23,8 +23,7 @@ test.describe("C41702_verify the images are loading properly if we transition fr
         await io.homePage.loadingTime()
         // Validating app not crashed while clicked tokens
         await io.assert.verifyElementDisplayedByText('Create API token', "App crashed")
-        await io.homePage.goToMenu("Resources");
-        await io.homePage.clickByText( "Recycle bin")
+        await io.homePage.goToMenu("Resources","Recycle bin");
         await io.homePage.loadingTime()
         // Validating app not crashed while clicked recycle bin
         await io.assert.verifyElementDisplayedByText('Deleted date', "App crashed")

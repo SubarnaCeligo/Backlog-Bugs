@@ -7,7 +7,9 @@ test.describe("C102562 Verify for items at the bottom of navigation bar with sub
     page
   }) => {
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
-    await io.homePage.click(selectors.homePagePO.PROFILE_MENU);
+    await io.homePage.click(selectors.homePagePO.HOME_PROFILE_MENU);
+    await io.homePage.click(selectors.myAccountPagePO.PROFILE);
+    await io.homePage.loadingTime()
     await io.homePage.addStep("Hovered over 'Account'");
     const subMenuTopMargin = await page
       .locator(selectors.homePagePO.PROFILE_MENU)

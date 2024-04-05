@@ -5,7 +5,7 @@ test.describe("C59380 To verify that the Celigo University is not available in Q
     test("C59380 To verify that the Celigo University is not available in QA,STAGING,QAPROD and IAQA.", async ({io, page}) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.addStep('Hovering on Help to see sub options');
-        await io.homePage.hover(selectors.basePagePO.HELP);
+        await io.homePage.click(selectors.homePagePO.HELPER_MENU);
         const isCeligoUniversityVisible = await io.homePage.isVisible(':has-test("Celigo university")');
         await io.assert.expectToBeValue('false', isCeligoUniversityVisible.toString(), "Celigo university is displayed");
     });
