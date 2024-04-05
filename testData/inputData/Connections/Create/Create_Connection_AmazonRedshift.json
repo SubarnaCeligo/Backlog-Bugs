@@ -32,7 +32,7 @@
                 "aws": {
                     "accessKeyId": "AKIASXM4V7ZFRT6PT6OB",
                     "secretAccessKey": "******",
-                    "qa__secretAccessKey": "process.ENV[AMAZON_REDSHIFT_ACCESS_KEY]"
+                    "qa__secretAccessKey": "V3d1S1ByQWN0WXFyV1MxaS9qUVpTVmVoVStvSERNWWZxcXZvQ25HbQ=="
                 },
                 "clusterIdentifier": "integrator-dev-cluster",
                 "region": "us-east-1"

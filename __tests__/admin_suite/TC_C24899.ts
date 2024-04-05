@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "./admin.json";
 
 test.describe(`C24899 Monitor tile - Verify Reports Listing page should Contain Report type filter to the right.`, () => {
-  test(`Env-QA C24899 Monitor tile - Verify Reports Listing page should Contain Report type filter to the right.`, async ({
+  test(`@Env-All C24899 Monitor tile - Verify Reports Listing page should Contain Report type filter to the right.`, async ({
     page,
     io
   }) => {
@@ -14,6 +14,7 @@ test.describe(`C24899 Monitor tile - Verify Reports Listing page should Contain 
     await io.homePage.navigateTo(
       process.env["IO_UI_CONNECTOR_URL"] + "reports/eventreports"
     );
+    await io.flowBuilder.loadingTime();
     await io.assert.verifyElementDisplayedByText(
       "Flow events",
       "Report type filter is not displayed"

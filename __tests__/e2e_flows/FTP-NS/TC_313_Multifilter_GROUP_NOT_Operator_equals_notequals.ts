@@ -8,7 +8,7 @@ test.describe("E2E Flows", () => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("TC_313_Multifilter_GROUP_NOT_Operator_equals_notequals", async ({
+    test("@Env-All TC_313_Multifilter_GROUP_NOT_Operator_equals_notequals", async ({
         io
     }, testInfo) => {
         //Creating PageGenerator 
