@@ -8,7 +8,7 @@ test.describe("E2E Flows", () => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("TC_C2661_FTP_FTP_EDI_Verify_Composite_Element", async ({
+    test("@Env-All TC_C2661_FTP_FTP_EDI_Verify_Composite_Element", async ({
         io
     }, testInfo) => {
         //Creating PageGenerator 
