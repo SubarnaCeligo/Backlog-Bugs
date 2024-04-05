@@ -29,7 +29,6 @@ test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
 
         //Export
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
-        await io.flowBuilder.click(selectors.flowBuilderPagePO.DATATEST);
         //clicking on launch from builder
         await io.flowBuilder.click(selectors.basePagePO.LAUNCH_EDITOR);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
@@ -39,16 +38,13 @@ test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
-        await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.flowBuilder.click(selectors.exportsPagePO.WHAT_WOULD_YOU_LIKE_TO_EXPORT_TAB);
-        await io.flowBuilder.click(selectors.exportsPagePO.CONFIGURE_EXPORT_TYPE);
         await io.homePage.loadingTime();
         expect(await page.screenshot()).toMatchSnapshot("TC_C119807_EXPORT.png");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
         //Lookup
         await io.flowBuilder.click(selectors.flowBuilderPagePO.LOOKUP);
-        await io.flowBuilder.click(selectors.flowBuilderPagePO.DATATEST);
         //clicking on launch from builder
         await io.flowBuilder.click(selectors.basePagePO.LAUNCH_EDITOR);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
@@ -57,18 +53,14 @@ test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
         await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, JSON.stringify(C119807.customSetting));
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
         await io.homePage.loadingTime();
-
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
-        await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.flowBuilder.click(selectors.exportsPagePO.WHAT_WOULD_YOU_LIKE_TO_EXPORT_TAB);
-        await io.flowBuilder.click(selectors.exportsPagePO.CONFIGURE_EXPORT_TYPE);
         await io.homePage.loadingTime();
         expect(await page.screenshot()).toMatchSnapshot("TC_C119807_LOOKUP.png");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
         // IMPORT
         await io.flowBuilder.click(selectors.importPagePO.CLICKIMPORT);
-        await io.flowBuilder.click(selectors.flowBuilderPagePO.DATATEST);
         //clicking on launch from builder
         await io.flowBuilder.click(selectors.basePagePO.LAUNCH_EDITOR);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
@@ -78,7 +70,6 @@ test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
-        await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXISTINGRECORDSIMPORT);
         await io.homePage.loadingTime();
         expect(await page.screenshot()).toMatchSnapshot("TC_C119807_IMPORT.png");
@@ -124,6 +115,7 @@ test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
         await io.flowBuilder.clearTextValue(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
         await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, JSON.stringify("dd"));
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+        await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.homePage.loadingTime();
         expect(await page.screenshot()).toMatchSnapshot("IO-T27037 export.png");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
@@ -152,6 +144,7 @@ test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
         await io.flowBuilder.clearTextValue(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
         await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, JSON.stringify("dd"));
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+        await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.myAccountPage.delay(5000);
         expect(await page.screenshot()).toMatchSnapshot("IO-T27037 LOOKUP.png");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
@@ -181,6 +174,7 @@ test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
         await io.flowBuilder.clearTextValue(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
         await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, JSON.stringify("dd"));
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+        await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.homePage.loadingTime();
         const Symbosl = await page.$(selectors.flowBuilderPagePO.RIGHT_DRAWER);
         expect(await Symbosl.screenshot()).toMatchSnapshot("IO-T27037 import.png");
@@ -205,7 +199,6 @@ test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
 
         //Export
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
-        await io.flowBuilder.click(selectors.flowBuilderPagePO.DATATEST);
         //clicking on launch from builder
         await io.flowBuilder.click(selectors.basePagePO.LAUNCH_EDITOR);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
@@ -215,11 +208,9 @@ test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
-
         await io.homePage.loadingTime();
         expect(await page.screenshot()).toMatchSnapshot("IO-T27039 export.png");
         //clicking on launch from builder
-        await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.flowBuilder.click(selectors.basePagePO.LAUNCH_EDITOR);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
@@ -227,7 +218,6 @@ test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
         await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, JSON.stringify(TC.customSetting1));
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
-
         await io.homePage.loadingTime();
         expect(await page.screenshot()).toMatchSnapshot("IO-T27039_1 export.png");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);

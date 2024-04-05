@@ -44,7 +44,6 @@ test.describe("TC_C119802_C119803", () => {
         await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, JSON.stringify(TC1.CustomJson));
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
         //No section should be hidden
-        await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.SECURE_LISTENER);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.GENERAL_URL);

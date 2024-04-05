@@ -43,7 +43,6 @@ test.describe("TC_C119800_C119801", () => {
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
         //No section should be hidden
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
-        await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CONFIGREALEXPORT);
         await io.homePage.loadingTime();
         expect(await page.screenshot()).toMatchSnapshot("TC_C119801.png");

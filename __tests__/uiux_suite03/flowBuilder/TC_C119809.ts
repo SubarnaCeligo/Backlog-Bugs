@@ -30,7 +30,6 @@ test.describe("TC_C119809_C119810_C119811", () => {
 
         //Export
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
-        await io.flowBuilder.click(selectors.flowBuilderPagePO.DATATEST);
         //clicking on launch from builder
         await io.flowBuilder.click(selectors.basePagePO.LAUNCH_EDITOR);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
@@ -47,7 +46,6 @@ test.describe("TC_C119809_C119810_C119811", () => {
 
         //Lookup
         await io.flowBuilder.click(selectors.flowBuilderPagePO.LOOKUP);
-        await io.flowBuilder.click(selectors.flowBuilderPagePO.DATATEST);
         //clicking on launch from builder
         await io.flowBuilder.click(selectors.basePagePO.LAUNCH_EDITOR);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
@@ -64,7 +62,6 @@ test.describe("TC_C119809_C119810_C119811", () => {
 
         //IMPORT
         await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT);
-        await io.flowBuilder.click(selectors.flowBuilderPagePO.DATATEST);
         //clicking on launch from builder
         await io.flowBuilder.click(selectors.basePagePO.LAUNCH_EDITOR);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
