@@ -8,7 +8,7 @@ test.describe("E2E Flows", () => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("@Env-all TC_223_Create_118_FTP_to_FTP_MultifieldExpressions", async ({
+    test("@Env-All TC_223_Create_118_FTP_to_FTP_MultifieldExpressions", async ({
         io
     }, testInfo) => {
 

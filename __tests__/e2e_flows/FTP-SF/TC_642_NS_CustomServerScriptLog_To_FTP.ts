@@ -6,7 +6,7 @@ test.describe("E2E Flows", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Env-all TC_642_NS_CustomServerScriptLog_To_FTP", async ({
+    test("@Env-All TC_642_NS_CustomServerScriptLog_To_FTP", async ({
         io
     }, testInfo) => {
         //Creating PageGenerator 

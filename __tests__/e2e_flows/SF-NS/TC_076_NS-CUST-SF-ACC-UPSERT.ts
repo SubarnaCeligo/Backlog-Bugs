@@ -8,7 +8,7 @@ test.describe("E2E Flows", () => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("@Env-all TC_076_NS-CUST-SF-ACC-UPSERT", async ({
+    test("@Env-All TC_076_NS-CUST-SF-ACC-UPSERT", async ({
         io
     }, testInfo) => {
         //Creating PageGenerator 

@@ -13,7 +13,7 @@ test.describe("Verify resume button for script debugger in NS export and HTTP im
         await io.api.deleteFlowViaAPI(flowMap.get('NS - fetch listner log Test')['flowId']);
         await io.api.deleteScriptViaAPI(preSavePage);
     });
-    test("@Env-all Verify we can resume the paused logs by clicking resume button for script debugger on FB page", async ({ 
+    test("@Env-All Verify we can resume the paused logs by clicking resume button for script debugger on FB page", async ({ 
         io, page
     }, testInfo) => {
         //Jira - https://celigo.atlassian.net/browse/IOAUT-7521

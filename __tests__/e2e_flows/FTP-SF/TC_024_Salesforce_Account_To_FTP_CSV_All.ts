@@ -7,7 +7,7 @@ test.describe("E2E Flows", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Env-all TC_024_Salesforce_Account_To_FTP_CSV_All", async ({
+    test("@Env-All TC_024_Salesforce_Account_To_FTP_CSV_All", async ({
         io
     }, testInfo) => {
         //Creating PageGenerator 

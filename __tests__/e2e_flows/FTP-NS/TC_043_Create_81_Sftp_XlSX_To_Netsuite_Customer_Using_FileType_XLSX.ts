@@ -7,7 +7,7 @@ test.describe("E2E Flows", () => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("@Env-all TC_043_Create_81_Sftp_XlSX_To_Netsuite_Customer_Using_FileType_XLSX", async ({
+    test("@Env-All TC_043_Create_81_Sftp_XlSX_To_Netsuite_Customer_Using_FileType_XLSX", async ({
         io
     },testInfo) => {
         //Creating PageGenerator 

@@ -7,7 +7,7 @@ test.describe("E2E Flows", () => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("@Env-all TC_708_Skip_Row_Validation", async ({
+    test("@Env-All TC_708_Skip_Row_Validation", async ({
         io
     }, testInfo) => {
         //Creating PageGenerator 

@@ -8,7 +8,7 @@ test.describe("E2E Flows", () => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("@Env-all TC_247_FTP_Xml_Export_To_SF_Import", async ({
+    test("@Env-All TC_247_FTP_Xml_Export_To_SF_Import", async ({
         io
     }, testInfo) => {
         //Creating PageGenerator

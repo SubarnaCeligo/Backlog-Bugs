@@ -6,7 +6,7 @@ test.describe("E2E Flows", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Env-all TC_303_Create_NS_to_EDI_Macy_870", async ({
+    test("@Env-All TC_303_Create_NS_to_EDI_Macy_870", async ({
         io
     }, testInfo) => {
         //Creating PageGenerator 
