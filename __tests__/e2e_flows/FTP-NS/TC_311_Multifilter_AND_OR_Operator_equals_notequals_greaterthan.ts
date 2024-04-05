@@ -8,7 +8,7 @@ test.describe("E2E Flows", () => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("TC_311_Multifilter_AND_OR_Operator_equals_notequals_greaterthan", async ({
+    test("@Env-All TC_311_Multifilter_AND_OR_Operator_equals_notequals_greaterthan", async ({
         io
     }, testInfo) => {
         //Creating PageGenerator 
