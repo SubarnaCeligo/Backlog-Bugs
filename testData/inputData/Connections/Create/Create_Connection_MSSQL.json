@@ -4,10 +4,10 @@
         "name": "Create_Connection_Mssql",
         "rdbms": {
             "type": "mssql",
-            "host": "integrator-staging.database.windows.net",
-            "database": "integrator-staging-qa",
+            "host": "ms-sql-sql-server-2017.cu9ep4kmgkck.us-east-1.rds.amazonaws.com",
+            "database": "componentTestsDB",
             "version": "Azure",
-            "user": "celigoqa",
+            "user": "admin",
             "password": "******"
         }
     },
@@ -16,12 +16,12 @@
         "name": "Create_Connection_Mssql",
         "rdbms": {
             "type": "mssql",
-            "host": "integrator-staging.database.windows.net",
-            "database": "integrator-staging-qa",
+            "host": "ms-sql-sql-server-2017.cu9ep4kmgkck.us-east-1.rds.amazonaws.com",
+            "database": "componentTestsDB",
             "version": "Azure",
-            "user": "process.env[MSSQL_USERNAME]",
+            "user": "admin",
             "password": "******",
-            "qa__password": "process.env[MSSQL_PASSWORD]"
+            "qa__password": "bkxLNEJnR0RXWXdM"
         }
     }
 }
