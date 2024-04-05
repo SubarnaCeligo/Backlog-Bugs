@@ -8,7 +8,7 @@ test.describe("CONNECTIONS", () => {
       await io.connections.deleteConnection(connectionData.importJSON.name)
       await io.myAccountPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     });
-    test("TC_017_Create_Connection_HTTP_Basic_JSON_Zendesk", async ({
+    test("@Env-All TC_017_Create_Connection_HTTP_Basic_JSON_Zendesk", async ({
       io
     }, testInfo) => {
       let connectionJson;

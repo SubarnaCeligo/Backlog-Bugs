@@ -6,7 +6,7 @@ test.describe("Create Connections", () => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.connections.deleteConnection(FTP.importJSON.name)
     });
-    test("TC_003_Create_Connection_FTP", async ({
+    test("@Env-All TC_003_Create_Connection_FTP", async ({
         io
     }, testInfo) => {
         let actualJson;

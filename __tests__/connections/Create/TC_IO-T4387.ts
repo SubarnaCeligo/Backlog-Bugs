@@ -8,7 +8,7 @@ test.describe("TC_IO-T4387", () => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.connections.deleteConnection(bodyOffline.name)
   });
-  test("Verify when the offline connection is made online, success colour is changed to green.", async ({
+  test("@Env-All Verify when the offline connection is made online, success colour is changed to green.", async ({
     io,
     page
   }) => {
