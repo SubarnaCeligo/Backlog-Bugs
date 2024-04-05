@@ -10,7 +10,7 @@ test.describe("C102560 Verify caret is showing for items where we have sub menu"
     await io.homePage.loadingTime()
     await expect(
       page
-        .locator(selectors.basePagePO.ACCOUNT)
+        .locator(selectors.homePagePO.PROFILE_MENU)
         .locator(selectors.basePagePO.RIGHT_CARET)
     ).toBeVisible();
     await io.homePage.addStep("Verified caret is visible for Account");
