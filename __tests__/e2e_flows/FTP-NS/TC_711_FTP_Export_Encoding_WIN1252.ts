@@ -7,7 +7,7 @@ test.describe("E2E Flows", () => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("TC_711_FTP_Export_Encoding_WIN1252", async ({
+    test("@Env-All TC_711_FTP_Export_Encoding_WIN1252", async ({
         io
     }, testInfo) => {
         //Creating PageGenerator 
