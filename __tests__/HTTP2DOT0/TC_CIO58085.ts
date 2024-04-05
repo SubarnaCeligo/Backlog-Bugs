@@ -50,7 +50,6 @@ test.describe("TC_CIO58085", () => {
       selectors.settingsPagePO.APP_NAME_INPUT,
       "Orderful"
     );
-    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.ORDERFUL);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.connectionsPagePO.ORDERFUL);
     await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.HTTP_CNNECTOR);
