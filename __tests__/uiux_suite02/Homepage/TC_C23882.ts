@@ -6,6 +6,7 @@ test.describe("TC_C23882_Verify the values in the Run history tab columns", () =
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
     test("TC_C23882_Verify the values in the Run history tab columns UI_Backlog", async ({ io, page }) => {
+        await io.homePage.loadingTime()
         await io.integrationPage.clickByText('Standalone flows')
         await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
         await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'TC_C12034_DND');

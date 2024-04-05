@@ -7,6 +7,7 @@ test.describe("C102560 Verify caret is showing for items where we have sub menu"
     page
   }) => {
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
+    await io.homePage.loadingTime()
     await expect(
       page
         .locator(selectors.basePagePO.ACCOUNT)

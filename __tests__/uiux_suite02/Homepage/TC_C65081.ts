@@ -7,6 +7,7 @@ test.describe('C65081 Verify "My account" option moved from the top navigation b
     page
   }) => {
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
+    await io.homePage.loadingTime()
     const topNav = page.locator(selectors.basePagePO.TOP_MENUBAR_DIV_SELECTOR);
     const leftNav = page.locator(selectors.basePagePO.LEFT_NAV);
     const myAccount = page.locator(selectors.basePagePO.ACCOUNT);
