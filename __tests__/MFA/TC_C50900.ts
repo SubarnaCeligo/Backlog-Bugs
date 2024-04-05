@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C50900 Verify the "Don't allow trusted devices" check box`, () => {
-  test(`@Env-QA @Env-IAQA C50900 Verify the "Don't allow trusted devices" check box`, async ({
+  test(`@Env-All C50900 Verify the "Don't allow trusted devices" check box`, async ({
     io,
     page
   }) => {

@@ -5,7 +5,7 @@ test.describe("Create Connections", () => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.connections.deleteConnection(MSSQL.importJSON.name)
     });
-    test("TC_027_Create_Connection_Mssql", async ({
+    test("@Env-All TC_027_Create_Connection_Mssql", async ({
         io
     }, testInfo) => {
         let actualJson;
