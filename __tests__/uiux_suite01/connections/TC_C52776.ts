@@ -9,7 +9,7 @@ test.describe("C52776 Verify the Name, Store name and helptexts are displaying a
 
       await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
       await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Shopify');
-      await io.flowBuilder.clickByText("shopify")
+      await io.flowBuilder.clickByText("Shopify")
       await io.flowBuilder.loadingTime()
       await io.assert.verifyElementText(selectors.connectionsPagePO.MUI_HTTP_AUTH_TYPE, 'Basic');
       await io.assert.verifyElementContainsText(selectors.basePagePO.NAME_ID, 'Name your connection');

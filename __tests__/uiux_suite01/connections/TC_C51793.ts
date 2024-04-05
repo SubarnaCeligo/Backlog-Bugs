@@ -5,6 +5,7 @@ test.describe("C51793 Verify the help guide is shown once user click on Cant fin
     test("@Env-All C51793 Verify the help guide is shown once user click on Cant find  link when toggle is under simple   ", async ({io, page}) => {
       await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL)
       await io.connectionPage.clickByText("Create connection")
+      await io.connectionPage.waitForElementAttached(selectors.basePagePO.JAZZHR_SELECTOR)
       await io.connectionPage.click(selectors.basePagePO.JAZZHR_SELECTOR)
       const expectedUrl = "https://docs.celigo.com/hc/en-us/articles/4414650330139#Client-Info";
       const anchor = await page.locator('a:has-text("Can\'t find?")').nth(0);

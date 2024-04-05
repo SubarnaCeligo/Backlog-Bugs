@@ -14,6 +14,7 @@ test.afterEach(async ({ io }) => {
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Zendesk Support');
     await io.flowBuilder.clickByText('Zendesk Support');
+    await io.flowBuilder.clickByText("Create from scratch")
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,'ZENDESK CONNECTION');
     await io.flowBuilder.clickByTextByIndex('ZENDESK CONNECTION', 0);

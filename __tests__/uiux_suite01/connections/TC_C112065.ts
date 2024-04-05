@@ -48,6 +48,7 @@ test.describe("C112065_C112066_C112067_C112068_C112069", () =>
   test("@Env-All C112068 Verify signature method and send token via fields are added under Configure JWT bearer section", async ({io, page}) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
+    await io.homePage.loadingTime()
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
     await io.connectionPage.waitForElementAttached(selectors.basePagePO.HTTP_2DOT0)
     await io.connectionPage.click(selectors.basePagePO.HTTP_2DOT0);

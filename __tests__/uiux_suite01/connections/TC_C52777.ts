@@ -8,7 +8,7 @@ test.describe("C52777 Verify the new info banner and links under the banner are 
     await io.homePage.goToMenu("Resources", "Connections");
     await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Shopify');
-    await io.flowBuilder.clickByText("shopify")
+    await io.flowBuilder.clickByText("Shopify")
     await io.flowBuilder.click(selectors.connectionsPagePO.MUI_HTTP_AUTH_TYPE);
     await io.flowBuilder.click(selectors.connectionsPagePO.OAUTH);
     // await io.assert.verifyElementText(`${selectors.connectionsPagePO.SHOPIFY_FORM_HEADER_LINK} ${selectors.loginPagePO.CLIENT_SNACKBAR}`, 'Shopify recommends creating connections directly from the Shopify App Store');

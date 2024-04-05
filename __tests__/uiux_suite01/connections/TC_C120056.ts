@@ -7,7 +7,7 @@ test.describe(`TC_C120056`, () => {
     io,
     page
   }) => {
-    await io.createResourceFromAPI(C120056, "FLOWS");
+   var k =  await io.createResourceFromAPI(C120056, "FLOWS");
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL)
     await io.homePage.clickByText("Automation Flows")
     await io.homePage.waitForElementAttached("text='TC_C120056'")

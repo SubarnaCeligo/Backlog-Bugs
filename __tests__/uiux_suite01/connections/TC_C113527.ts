@@ -15,6 +15,7 @@ test.describe(`C113527 Verify user is able to create connection using Password c
     await io.connectionPage.click(selectors.flowBuilderPagePO.FULFILLMENT);
 
     // await io.connectionPage.clickByText("Fulfillment.com");
+    await io.connectionPage.waitForElementAttached(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH)
     await io.connectionPage.click(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH);
     await io.connectionPage.loadingTime();
     await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.BASE_URI_INPUT);

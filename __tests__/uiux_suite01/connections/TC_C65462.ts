@@ -19,6 +19,7 @@ test.describe("C65462 Verify routing rules", () => {
       await io.flowBuilder.click(selectors.connectionsPagePO.LUMBEREDI810);
       await io.flowBuilder.waitForElementAttached('button:has-text("Launch")');
       await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+      await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.AS2_ROUTING)
       await io.assert.verifyElementIsDisplayed(selectors.connectionsPagePO.AS2_ROUTING, 'Routing icon not visible on export');
   });
 });
