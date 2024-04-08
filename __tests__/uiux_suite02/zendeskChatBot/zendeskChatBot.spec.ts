@@ -9,7 +9,7 @@ var testCases = [
   // "C55930",
   // "C55934",
   // "C55936"
-  // These test cases are obselete, will delete these files once they are removed from zephyr.
+  // These test cases are obselete, will delete these files once they are removed from zephyr scale.
 ];
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
 (async () => {
