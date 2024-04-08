@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 
 
 test.describe("TC_C27953", () => {
-    test("TC_C27953 To verify field labels present in HTTP connection drawer is Changed as per new modification", async ({ io, page }) => {
+    test("@Env-All TC_C27953 To verify field labels present in HTTP connection drawer is Changed as per new modification", async ({ io, page }) => {
         await io.myAccountPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
 
         await io.flowBuilder.click(selectors.connectionsPagePO.CREATE_CONNECTION);

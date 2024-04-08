@@ -12,7 +12,7 @@ test.describe.skip("C63261 Verify 'Learn More' link on MFA page pointing to a co
       await io.homePage.click(selectors.basePagePO.SIGN_OUT);
     }
   });
-  test("C63261 Verify 'Learn More' link on MFA page pointing to a correct KB article.", async ({
+  test("@Env-All C63261 Verify 'Learn More' link on MFA page pointing to a correct KB article.", async ({
     io,
     page
   }) => {

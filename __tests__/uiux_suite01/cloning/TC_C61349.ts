@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Connections/Narvar.json";
 
 test.describe(`C61349 Verify url displayed upon hovering is same as the page is redirected to upon clicking`, () => {
-  test(`C61349 Verify url displayed upon hovering is same as the page is redirected to upon clicking`, async ({
+  test(`@Env-All C61349 Verify url displayed upon hovering is same as the page is redirected to upon clicking`, async ({
     page,
     io
   }) => {

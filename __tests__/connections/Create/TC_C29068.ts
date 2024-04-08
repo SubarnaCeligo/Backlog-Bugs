@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 
 
 test.describe("TC_C29068_Verify that Hybrid connection (SP-API and MWS) connection can be successfully saved without providing the Seller ID", () => {
-    test("TC_C29068_Verify that Hybrid connection (SP-API and MWS) connection can be successfully saved without providing the Seller ID UI_Backlog", async ({ io }, testInfo) => {
+    test("@Env-All TC_C29068_Verify that Hybrid connection (SP-API and MWS) connection can be successfully saved without providing the Seller ID UI_Backlog", async ({ io }, testInfo) => {
         await io.myAccountPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
         //Creating Connection 
         await test.step("*** Creating Connection ***", async () => {

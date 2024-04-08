@@ -8,7 +8,7 @@ test.describe("CONNECTIONS", () => {
       await io.connections.deleteConnection(connectionData.importJSON.name)
       await io.myAccountPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     });
-    test("TC_029_Create_Connection_Slack", async ({
+    test("@Env-All TC_029_Create_Connection_Slack", async ({
       io
     }, testInfo) => {
       let connectionJson;
