@@ -1,0 +1,116 @@
+{
+    "name": "TC_C118391",
+    "referencename": "TC_C118391",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Loop Export Export",
+                        "_connectionId": "LOOP RETURN CONNECTION",
+                        "_sourceId": "6548bd5ce1af6c6a8af52f70",
+                        "apiIdentifier": "e0fdb4aaf2",
+                        "asynchronous": true,
+                        "assistant": "loopreturns",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": "/whitelists?page={{{export.http.paging.page}}}",
+                            "method": "GET",
+                            "requestMediaType": "json",
+                            "successMediaType": "json",
+                            "errorMediaType": "json",
+                            "_httpConnectorVersionId": "639184209998e4b191badcb2",
+                            "_httpConnectorResourceId": "639184209998e4b191badcb3",
+                            "_httpConnectorEndpointId": "639184209998e4b191badcb6",
+                            "formType": "assistant",
+                            "paging": {
+                                "method": "page",
+                                "page": 1
+                            },
+                            "response": {
+                                "resourcePath": "data"
+                            }
+                        },
+                        "test": {
+                            "limit": 10
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "POSTGRE",
+                        "_connectionId": "POSTGRESQL CONNECTION",
+                        "_sourceId": "6576fb812fa9007710913ea2",
+                        "apiIdentifier": "i24c0146ab",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "mappings": [
+                            {
+                                "dataType": "objectarray",
+                                "status": "Active",
+                                "buildArrayHelper": [
+                                    {
+                                        "extract": "$",
+                                        "sourceDataType": "object",
+                                        "mappings": [
+                                            {
+                                                "generate": "id",
+                                                "dataType": "string",
+                                                "hardCodedValue": "id",
+                                                "status": "Active",
+                                                "sourceDataType": "string"
+                                            },
+                                            {
+                                                "generate": "test",
+                                                "dataType": "string",
+                                                "status": "Draft",
+                                                "sourceDataType": "string"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "rdbms": {
+                            "query": [],
+                            "queryType": [
+                                "bulk_insert"
+                            ],
+                            "bulkInsert": {
+                                "tableName": "QA_Automation.public.CUSTOMERS"
+                            }
+                        },
+                        "adaptorType": "RDBMSImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C118391",
+                "disabled": false,
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}
