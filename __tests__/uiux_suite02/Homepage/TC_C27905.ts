@@ -5,6 +5,7 @@ test.describe("C27905_Verify App is not crashed when connection tab is opened in
     test("C27905_Verify App is not crashed when connection tab is opened in standalone flows UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.goToMenu("Resources", "Connections");
+        await io.homePage.loadingTime()
         // Validating app not crashed while clicked connections
         await io.assert.verifyElementDisplayedByText('Create connection', "App crashed")
     });

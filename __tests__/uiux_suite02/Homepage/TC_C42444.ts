@@ -8,6 +8,7 @@ test.describe("C42444_Verify Request upgrade button changes for Integrator type 
         await io.myAccountPage.loadingTime()
         await io.homePage.click(selectors.homePagePO.UPGRADE_BUTTON);
         await io.homePage.clickByText("Submit request");
+        await io.myAccountPage.loadingTime()
         // Validating text showing correctly 
         await io.assert.verifyElementDisplayedByText('You have already submitted an upgrade request. We will be in touch soon.', 'Message not showing')
     });

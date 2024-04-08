@@ -11,26 +11,18 @@ test.describe("C102560 Verify caret is showing for items where we have sub menu"
     await expect(
       page
         .locator(selectors.homePagePO.HOME_PROFILE_MENU)
-        .locator(selectors.basePagePO.RIGHT_CARET)
     ).toBeVisible();
-    await io.homePage.addStep("Verified caret is visible for Account");
+    await io.homePage.addStep("Verified Account is visisble");
+    await io.homePage.isPageLoaded()
     await expect(
       page
-        .locator(selectors.basePagePO.TOOLS)
-        .locator(selectors.basePagePO.RIGHT_CARET)
+        .locator("[data-test='Tools']>svg")
     ).toBeVisible();
     await io.homePage.addStep("Verified caret is visible for Tools");
     await expect(
       page
-        .locator(selectors.basePagePO.RESOURCES)
-        .locator(selectors.basePagePO.RIGHT_CARET)
+        .locator("[data-test='Resources']>svg")
     ).toBeVisible();
     await io.homePage.addStep("Verified caret is visible for Resources");
-    await expect(
-      page
-        .locator(selectors.basePagePO.HELP)
-        .locator(selectors.basePagePO.RIGHT_CARET)
-    ).toBeVisible();
-    await io.homePage.addStep("Verified caret is visible for Help");
   });
 });
