@@ -5,8 +5,9 @@ test.describe("C112698 Verify Mapper2.0 is having Celigo AI", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("C112698 Verify Mapper2.0 is having Celigo AI", async ({ io, page }) => {
+  test("@Env-QA C112698 Verify Mapper2.0 is having Celigo AI", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.clickByText('TC47946_DND');
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
     //IMPORT_MAPPING 

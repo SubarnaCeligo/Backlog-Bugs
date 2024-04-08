@@ -2,10 +2,14 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C119146 Verify the Error Panel in AFE windows", () => {
-  test("C119146 Verify the Error Panel in AFE windows", async ({ io, page }) => {
+  test("@Env-All C119146 Verify the Error Panel in AFE windows", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
-    await io.flowBuilder.clickByText('ErrorPanel_DND');
-    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
+    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.clickByText("ErrorPanel_DND");
+    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(
+      selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR
+    );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.OPEN_HANDLEBARS_EDITOR);
     await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.OPENAI.RESET_TEMPLATE, "Reset template is not displayed")
@@ -17,7 +21,7 @@ test.describe("C119146 Verify the Error Panel in AFE windows", () => {
       "Celigo AI Placeholder is not displayed"
     )
     //C119158
-    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'xyz');
+    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'xygz1234');
     await io.flowBuilder.loadingTime();
     await page.keyboard.press('Enter');
     await io.flowBuilder.loadingTime();
