@@ -8,7 +8,7 @@ test.describe("T4548 Verify that the test ping is successfull for quick base con
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
 
   });
-  test("T4548 Verify that the test ping is successfull for quick base connection ,when valid details are given to validate the conenction UI_Backlog", async ({ io, page }) => {
+  test("@Env-All T4548 Verify that the test ping is successfull for quick base connection ,when valid details are given to validate the conenction UI_Backlog", async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'quickbase');

@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Connections/C68717.json";
 
 test.describe(`C68717 Verify user is able to create connection for NS JDBC connector(Basic auth) from previously created export/lookup`, () => {
-  test(`C68717 Verify user is able to create connection for NS JDBC connector(Basic auth) from previously created export/lookup`, async ({
+  test(`@Env-All C68717 Verify user is able to create connection for NS JDBC connector(Basic auth) from previously created export/lookup`, async ({
     io,
     page
   }) => {

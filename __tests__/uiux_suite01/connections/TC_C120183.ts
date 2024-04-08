@@ -7,7 +7,7 @@ test.describe(`C120183_C120190`, () => {
         await io.connections.deleteConnection("HTTP CONNECTION DON't USE THIS CONNECTION");
         await io.myAccountPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     });
-    test(`C120183_C120190`, async ({ io, page }) => {
+    test(`@Env-All C120183_C120190`, async ({ io, page }) => {
         await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
         await io.connectionPage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
         await io.connectionPage.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
@@ -31,7 +31,7 @@ test.describe(`C120183_C120190`, () => {
         );
         await io.connectionPage.click(selectors.flowBuilderPagePO.CLOSE);
     });
-    test(`C120183_1_C120190`, async ({ io, page }) => {
+    test(`@Env-All C120183_1_C120190`, async ({ io, page }) => {
         await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
         await io.connectionPage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
         await io.connectionPage.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
