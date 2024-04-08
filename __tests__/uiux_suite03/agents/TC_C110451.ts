@@ -17,6 +17,6 @@ test.describe("C110451 Verify user is able to download the agent on Linux machin
      await io.homePage.clickByText("Linux");
      const download = await page.waitForEvent('download');
      const suggestedFileName = download.suggestedFilename()
-     expect(download.suggestedFilename()).toBe("agent-linux.AppImage");
+     expect(download.suggestedFilename()).toBe("agent-linux.run");
     });
 });
