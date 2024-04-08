@@ -10,11 +10,12 @@ test.describe("C26029_When debugger is on, refresh got enabled after new entry, 
     });
     test("C26029_When debugger is on, refresh got enabled after new entry, user clicks on refresh logs, now refresh button should be disabled, (send a new log entry), again refresh button would be enabled UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+        await io.homePage.loadingTime()
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'webhook');
         await io.flowBuilder.clickByText('Webhook');
-        await io.flowBuilder.click(selectors.basePagePO.SAVE);
+        await io.flowBuilder.clickByText("Create from scratch")
         await io.flowBuilder.fill(selectors.connectionsPagePO.NAME_INPUT, 'TC_C26029');
         await io.flowBuilder.clickByText('Please select');
         await io.flowBuilder.clickByText('Basic');

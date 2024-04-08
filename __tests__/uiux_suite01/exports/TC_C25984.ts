@@ -10,11 +10,14 @@ test.describe("C25984_Verify the View debug logs option is available to only Lis
     });
     test("C25984_Verify the View debug logs option is available to only Listeners ie. webhook, realtime applications (NS & SF) UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+        await io.homePage.loadingTime()
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'netsuite');
         await io.flowBuilder.click(selectors.connectionsPagePO.NETSUITE_CONNECTION);
         await io.flowBuilder.clickByText('Listen for real-time data from source application');
+        await io.flowBuilder.clickByText("Create from scratch")
+        await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN)
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'NETSUITE CONNECTION');
         await io.flowBuilder.clickByText('NETSUITE CONNECTION');

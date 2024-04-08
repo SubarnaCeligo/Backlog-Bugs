@@ -14,7 +14,7 @@ test.describe("C26003_Verify the Refresh log button is enabled only when there a
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'webhook');
         await io.flowBuilder.clickByText('Webhook');
-        await io.flowBuilder.click(selectors.basePagePO.SAVE);
+        await io.flowBuilder.clickByText("Create from scratch")
         await io.flowBuilder.fill(selectors.connectionsPagePO.NAME_INPUT, 'TC_C26003');
         await io.flowBuilder.clickByText('Please select');
         await io.flowBuilder.clickByText('Basic');

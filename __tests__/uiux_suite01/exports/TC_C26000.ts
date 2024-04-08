@@ -14,7 +14,7 @@ test.describe("C26000_verify start debug option is shown when the debug duration
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'webhook');
         await io.flowBuilder.clickByText('Webhook');
-        await io.flowBuilder.click(selectors.basePagePO.SAVE);
+        await io.flowBuilder.clickByText("Create from scratch")
         await io.flowBuilder.fill(selectors.connectionsPagePO.NAME_INPUT, 'TC_C26000');
         await io.flowBuilder.clickByText('Please select');
         await io.flowBuilder.clickByText('Basic');

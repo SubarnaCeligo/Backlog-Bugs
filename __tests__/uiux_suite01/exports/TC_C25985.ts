@@ -14,7 +14,7 @@ test.describe("C25985_Verify able to click on the 'View debug logs' button and a
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'webhook');
         await io.flowBuilder.clickByText('Webhook');
-        await io.flowBuilder.click(selectors.basePagePO.SAVE);
+        await io.flowBuilder.clickByText("Create from scratch")
         await io.flowBuilder.fill(selectors.connectionsPagePO.NAME_INPUT, 'TC_C25985');
         await io.flowBuilder.clickByText('Please select');
         await io.flowBuilder.clickByText('Basic');

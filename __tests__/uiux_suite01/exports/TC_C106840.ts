@@ -15,7 +15,9 @@ test.describe("C106840_Test to validate that the user is getting help text, help
         await io.flowBuilder.click(selectors.connectionsPagePO.GRAPHQL_CONNECTOR);
         await io.flowBuilder.clickByIndex(selectors.basePagePO.ADD_NEW_RESOURCE, 1);
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.GRAPHQL_QUERY, 1);
-        await io.flowBuilder.fillByIndex(selectors.flowBuilderPagePO.EM2DOT0PO.ACE_EDITOR_INPUT, '{{', 4);
+        await io.flowBuilder.waitForElementAttached("#rule>.ace_text-input")
+        await io.flowBuilder.fill("#rule>.ace_text-input", '{{');
+       
         // User able to edit the expression
         await io.flowBuilder.clickByText('Numeric');
         await io.flowBuilder.clickByText('abs');

@@ -14,7 +14,7 @@ test.describe("C25993_Verify the the duration options are:Next 15 minutes,Next 3
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'webhook');
         await io.flowBuilder.clickByText('Webhook');
-        await io.flowBuilder.click(selectors.basePagePO.SAVE);
+        await io.flowBuilder.clickByText("Create from scratch")
         await io.flowBuilder.fill(selectors.connectionsPagePO.NAME_INPUT, 'TC_C25993');
         await io.flowBuilder.clickByText('Please select');
         await io.flowBuilder.clickByText('Basic');
