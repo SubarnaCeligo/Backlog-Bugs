@@ -7,7 +7,7 @@ test.describe(`TC_C111326_C111327`, () => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
 
   });
-  test("TC_C111326_C111327", async ({io, page}) => {
+  test("@Env-All TC_C111326_C111327", async ({io, page}) => {
     await io.homePage.loadingTime()
     const id = await io.createResourceFromAPI(testData, "FLOWS");
     await io.homePage.loadingTime()
