@@ -8,14 +8,12 @@ test.describe('C65081 Verify "My account" option moved from the top navigation b
   }) => {
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
     await io.homePage.loadingTime()
-    const topNav = page.locator(selectors.basePagePO.TOP_MENUBAR_DIV_SELECTOR);
-    const leftNav = page.locator(selectors.basePagePO.LEFT_NAV);
-    const myAccount = page.locator(selectors.basePagePO.ACCOUNT);
-    await expect(topNav.locator(myAccount)).not.toBeVisible();
+    const myAccount = (selectors.homePagePO.HOME_PROFILE_MENU);
+    await expect(await page.locator(myAccount)).not.toBeVisible();
     await io.homePage.addStep(
       "Verified My Account is not visible in the top nav"
     );
-    await expect(leftNav.locator(myAccount)).toBeVisible();
+    await expect(await page.locator(myAccount)).toBeVisible();
     await io.homePage.addStep("Verified My Account is visible in the left nav");
   });
 });

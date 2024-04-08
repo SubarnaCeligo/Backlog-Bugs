@@ -7,6 +7,6 @@ test.describe("C59380 To verify that the Celigo University is not available in Q
         await io.homePage.addStep('Hovering on Help to see sub options');
         await io.homePage.click(selectors.homePagePO.HELPER_MENU);
         const isCeligoUniversityVisible = await io.homePage.isVisible(':has-test("Celigo university")');
-        await io.assert.expectToBeValue('false', isCeligoUniversityVisible.toString(), "Celigo university is displayed");
+        await io.assert.expectToBeFalse(isCeligoUniversityVisible, "Celigo university is displayed");
     });
   });

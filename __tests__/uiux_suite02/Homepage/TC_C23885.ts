@@ -9,6 +9,7 @@ test.describe("TC_C23885_Verify in Run history tab the values in Started & Compl
         
         await io.homePage.loadingTime()
         await io.integrationPage.clickByText('Standalone flows')
+        await io.homePage.loadingTime()
         await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
         await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'TC_C12034_DND');
         await io.integrationPage.clickByText('TC_C12034_DND')
