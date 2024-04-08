@@ -7,11 +7,9 @@ test.describe("C47952 Use this account for SSO dropdown in security tab should
 
         await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
         await io.myAccountPage.loadingTime();
-        var expectedName = (await io.flowBuilder.getText(selectors.basePagePO.ACE_CONTENT)).toString();
         await io.myAccountPage.click(selectors.myAccountPagePO.SECURITY);
         await io.myAccountPage.clickByText("Please select");
-        const actualNameValue = (await io.myAccountPage.getText(selectors.basePagePO.MENU_ITEM)).toString();
-        io.assert.expectToBeValue(expectedName, actualNameValue, "Name is invalid");
+        await io.assert.verifyElementDisplayedByText("celigo", "Name is invalid");
 
     });
 

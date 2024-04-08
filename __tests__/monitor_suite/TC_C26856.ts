@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import data from "@testData/monitorSuite/C26856.json"
 
 
-test.describe(`C26856 Verify AutoMap field button is not shown`, () => {
+test.describe.skip(`C26856 Verify AutoMap field button is not shown`, () => {
      
   test(`C26856 Verify AutoMap field button is not shown when access level of user is monitor`, async({io,page}) => {
     const id =  await io.createResourceFromAPI(

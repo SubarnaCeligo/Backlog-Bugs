@@ -32,7 +32,7 @@ test.describe("C25997 - Verify that monitor user is not able to stop debug on li
 
     //Verify if debug option is disabled
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.REFRESH_RESOURCE);
-    await io.assert.verifyElementAttributeContainsText(selectors.flowBuilderPagePO.REFRESH_RESOURCE, 'class', "Mui-disabled");
+    await io.assert.verifyElementAttributeContainsText(selectors.flowBuilderPagePO.REFRESH_LOG, 'class', "Mui-disabled");
 
   });
 
