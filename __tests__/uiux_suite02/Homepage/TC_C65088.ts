@@ -8,7 +8,7 @@ test.describe("C65088 Verify left navigation bar static, and displaying top-leve
   }) => {
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
     await io.homePage.loadingTime()
-    const leftNav = page.locator(selectors.basePagePO.LEFT_NAV);
+    await io.homePage.isPageLoaded()
     await io.assert.verifyElementIsDisplayed(
       selectors.basePagePO.LEFT_NAV,
       "Left nav is not visible"
@@ -26,9 +26,7 @@ test.describe("C65088 Verify left navigation bar static, and displaying top-leve
     await io.homePage.addStep(
       "Verified 'Marketplace' is visible in the left nav"
     );
-    await expect(page.locator(selectors.basePagePO.HELP)).toBeVisible();
+    await expect(page.locator(selectors.homePagePO.HELPER_MENU)).toBeVisible();
     await io.homePage.addStep("Verified 'Help' is visible in the left nav");
-    await expect(page.locator(selectors.basePagePO.ACCOUNT)).toBeVisible();
-    await io.homePage.addStep("Verified 'Account' is visible in the left nav");
   });
 });

@@ -8,7 +8,7 @@ test.describe("C65083 Verify Relocated the “Help” option from the left navig
   }) => {
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
     await io.homePage.loadingTime()
-    const leftNav = page.locator(selectors.basePagePO.LEFT_NAV);
+    await io.homePage.isPageLoaded()
     await expect(page.locator(selectors.homePagePO.HELPER_MENU)).toBeVisible();
     await io.homePage.addStep("Verified 'Help' is visible in the left nav");
   });
