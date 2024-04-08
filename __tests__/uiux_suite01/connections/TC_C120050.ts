@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 test.describe("TC_C120050", () => {
-  test("C120050 Override media type for success responses field should have Plain text option", async ({ io, page }) => {
+  test("@Env-All C120050 Override media type for success responses field should have Plain text option", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Resources", "Connections");

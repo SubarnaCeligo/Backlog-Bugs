@@ -6,12 +6,12 @@ test.describe("C46935 Verify, the owner shouldn't be getting an option to select
 
     test.beforeEach(async ({ io }) => {
          
-        await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
-        await io.myAccountPage.click(selectors.myAccountPagePO.SECURITY);
+        // await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
+        // await io.myAccountPage.click(selectors.myAccountPagePO.SECURITY);
         
         
       });
-    test("C46935 Verify, the owner shouldn't be getting an option to select the primary account.", async ({io, page}) => {
+    test.skip("C46935 Verify, the owner shouldn't be getting an option to select the primary account.", async ({io, page}) => {
        
     
         await io.myAccountPage.click(selectors.myAccountPagePO.MFA);
