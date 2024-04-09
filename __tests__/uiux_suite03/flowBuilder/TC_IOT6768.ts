@@ -1,12 +1,12 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe(`TC_44911 Verify the  help text of the newly added Feed type field`, () => {
+test.describe(`@Author-MayankOmar IO-T6768 Verify the  help text of the newly added Feed type field`, () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
 
-  test("44911", async ({ io, page }) => {
+  test("IO-T6768 @Epic-IO-62193 @Zephyr-IO-T6768 @Env-QA Verify the  help text of the newly added Feed type field", async ({ io, page }) => {
     await io.homePage.addStep("*** Navigated to home page ***");
     await io.homePage.loadingTime();
     await io.homePage.goToMenu("Resources", "Imports");
