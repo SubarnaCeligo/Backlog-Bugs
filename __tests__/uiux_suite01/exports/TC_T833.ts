@@ -51,6 +51,7 @@ test.describe(`@Author_sagna123 TC_T833 Verify user is able to edit/delete the R
     await io.homePage.addStep("*** Saved related list ***");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EDIT_RELATED_LIST);
     await io.homePage.addStep("*** Clicked on edit related list ***");
+    await io.myAccountPage.waitForElementAttached(selectors.flowBuilderPagePO.OPENACTIONSMENUATREFFEILD);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENACTIONSMENUATREFFEILD);
     await io.homePage.addStep("*** Clicked on actions button ***");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMPUSHOPTION);
@@ -66,6 +67,7 @@ test.describe(`@Author_sagna123 TC_T833 Verify user is able to edit/delete the R
     await io.homePage.addStep("*** EDITED related list ***");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EDIT_RELATED_LIST);
     await io.homePage.addStep("*** Clicked on edit related list ***");
+    await io.myAccountPage.waitForElementAttached(selectors.flowBuilderPagePO.OPENACTIONSMENUATREFFEILD);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENACTIONSMENUATREFFEILD);
     await io.homePage.addStep("*** Clicked on actions button ***");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CONFIRM_FLOW_GROUP_DELETE);
