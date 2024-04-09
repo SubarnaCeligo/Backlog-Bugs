@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 test.describe("TC_C120048", () => {
-  test("C120048  Related fields should show when Media type is Plain text and override media type for success responses is JSON or XML", async ({ io, page }) => {
+  test("@Env-All C120048  Related fields should show when Media type is Plain text and override media type for success responses is JSON or XML", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Resources", "Connections");

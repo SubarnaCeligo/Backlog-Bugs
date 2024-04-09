@@ -1,6 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-test.describe.configure({mode:"serial"})
+
 test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API Manager and Push to apim option is not available for custom Webhooks", () => {
     test("@Env-QA @Env-STAGING MyAPis", async ({ io, page, context }) => {
         const randomString = "MyAPIS" + (Math.random() + 1).toString(36).substring(7);
@@ -242,6 +242,7 @@ test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMREFRESHSELECT);
         await page.setDefaultTimeout(9000);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMPUSH);
+        await io.homePage.loadingTime();
         await io.homePage.loadingTime();
         const allPages = context.pages();
         await allPages[1].bringToFront();
