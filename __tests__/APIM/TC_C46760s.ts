@@ -239,6 +239,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMEXISTING);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMREFRESHSELECT);
         await io.assert.expectToBeTrue(await (await page.$(selectors.flowBuilderPagePO.APIMREFRESHSELECT)).isVisible(), "refresh select is not visible");
+        await io.homePage.loadingTime();
         const pushtoapim = await page.$(selectors.flowBuilderPagePO.APIMPUSH);
         const pushoapim1 = await pushtoapim.isDisabled();
         await io.assert.expectToBeTrue(pushoapim1, "Push to APIM is not disabled");
@@ -248,6 +249,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMREFRESHSELECT);
         await page.setDefaultTimeout(5000);
+        await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMPUSH);
         await io.homePage.loadingTime();
         const allPages = context.pages();
