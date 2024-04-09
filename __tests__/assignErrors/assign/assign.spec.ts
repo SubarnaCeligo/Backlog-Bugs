@@ -24,7 +24,7 @@ var testCases = [
     "C118390",
     "C118395_C118396",
     "C118397"
-    //This suite is dedicated to assign error epic which is using a dediacted account, please do not add new cases here
+    //This suite is dedicated to assign error epic which is using a dediacted account, please do not add new cases here.
   ];
     var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
     (async () => {
