@@ -14,7 +14,6 @@ test.describe(`@http`, () => {
     await io.importsPage.clickByText("Create import");
     await io.homePage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, "HTTP");
     await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
-        // await page.pause()
 
         await io.flowBuilder.loadingTime();
 
@@ -24,7 +23,6 @@ test.describe(`@http`, () => {
         await page.keyboard.press('/');
         await io.homePage.addStep("*** Clicked on 'name' field and gave a name to our import ***");
         await io.importsPage.clickByText("Next");
-        // await page.pause()
         await io.assert.verifyElementIsDisplayed(selectors.importPagePO.ADVANCED, 'Advance section not present');
       await io.flowBuilder.click(selectors.importPagePO.ADVANCED);
       await io.flowBuilder.click("[id='idLockTemplate'] [data-test='help-text-icon']");
