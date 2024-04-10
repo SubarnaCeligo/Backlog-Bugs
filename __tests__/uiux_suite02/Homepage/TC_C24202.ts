@@ -7,6 +7,8 @@ test.describe("TC_C24202_Verify the Run history tab in different browsers", () =
     });
     test("TC_C24202_Verify the Run history tab in different browsers UI_Backlog", async ({ io, page }) => {
         await io.homePage.loadingTime()
+        await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON)
+        await io.homePage.isPageLoaded()
         await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Standalone');
         await io.homePage.isPageLoaded()
         await io.integrationPage.clickByText('Standalone flows')
