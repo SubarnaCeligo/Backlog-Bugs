@@ -2,15 +2,15 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 
-test.describe("C27079 Verify data-test attribute to the help Icon", () => {
+test.describe("@Author-Sudhanshukumar C27079 Verify data-test attribute to the help Icon", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
       });
-    test("C27079 Verify data-test attribute to the help Icon", async ({ io, page }) => {
+    test("C27079 @Epic-IO-52851 @Zephyr-IO-T27079 @Env-QA Verify data-test attribute to the help Icon", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.OPENAI.FLOW_DESCRIPTION_BUTTON);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-        // Imports in Resources C115185
+        // Imports in Resources 
         await io.homePage.goToMenu("Resources", "Imports");
         await io.flowBuilder.loadingTime();
         await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.OPENAI.FLOW_DESCRIPTION_BUTTON, "Flow description is not displayed");

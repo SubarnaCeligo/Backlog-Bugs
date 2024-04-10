@@ -9,7 +9,7 @@ test.describe("TC_C15753_Verify Export Preview Panel is shown for As2 Exports", 
     await io.connections.deleteConnection(connectionData.importJSON.name)
     await io.myAccountPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
   });
-  test("TC_C15753_Verify Export Preview Panel is shown for As2 Exports UI_Backlog", async ({ io }, testInfo) => {
+  test("@Env-All TC_C15753_Verify Export Preview Panel is shown for As2 Exports UI_Backlog", async ({ io }, testInfo) => {
     let connectionJson;
     //Creating Connection 
     await test.step("*** Creating Connection ***", async () => {

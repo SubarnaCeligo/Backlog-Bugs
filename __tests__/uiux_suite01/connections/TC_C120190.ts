@@ -7,7 +7,7 @@ test.describe(`C120190_C120193`, () => {
     test.afterEach(async ({ io }) => {
         await io.api.deleteConnectionViaName("TC_C120190 3PL CONNECTION DON't USE");
     });
-    test(`C120190`, async ({ io, page }) => {
+    test(`@Env-All C120190`, async ({ io, page }) => {
         await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
         await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CREATE_CONNECTION);
         await io.homePage.fill(selectors.flowBuilderPagePO.SEARCH, "HTTP ZENDESK CONNECTION");
@@ -18,7 +18,7 @@ test.describe(`C120190_C120193`, () => {
         await io.assert.expectToBeValue(element.toString(), 'false', "Element is present")
         await io.connectionPage.click(selectors.flowBuilderPagePO.CLOSE);
     });
-    test(`C120190_1_C120193`, async ({ io, page }) => {
+    test(`@Env-All C120190_1_C120193`, async ({ io, page }) => {
         await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
         let connID1 = await io.api.postCall("v1/connections", C120190.Connections);
         connID = connID1._id

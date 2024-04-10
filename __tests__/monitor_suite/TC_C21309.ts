@@ -2,9 +2,9 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/monitorSuite/monitor_all_manage_few.json";
 
- 
-test.describe(`C21309 Verify the connections of a monitored tiles should not be listed while creating new flow under manage tile.`, () => {
-  test(`C21309 Verify the connections of a monitored tiles should not be listed while creating new flow under manage tile.`, async ({
+
+test.describe(`@Bug-IO-19259  @Priority-P2  @Zephyr-T6954 @Env-All Verify the connections of a monitored tiles should not be listed while creating new flow under manage tile.`, () => {
+  test(`@Bug-IO-19259  @Priority-P2  @Zephyr-T6954 @Env-All Verify the connections of a monitored tiles should not be listed while creating new flow under manage tile.`, async ({
     page,
     io
   }) => {
@@ -15,12 +15,12 @@ test.describe(`C21309 Verify the connections of a monitored tiles should not be 
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL)
     await io.homePage.clickByText('Automation Flows')
     await io.homePage.clickByText('Create flow')
-    await io.homePage.click(selectors.basePagePO.ADD_SOURCE_BUTTON)
-    await io.homePage.click(selectors.connectionsPagePO.FTP_CONNECTION)
-    await io.homePage.click(selectors.basePagePO.CONNECTION_DROPDOWN)
+    await io.homePage.click(selectors.basePagePO.ADD_SOURCE_BUTTON);
+    await io.homePage.click(selectors.flowBuilderPagePO.GROUP_RECORD_FIELD);
+    await io.homePage.click(selectors.connectionsPagePO.FTP_CONNECTION);
+    await io.homePage.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
+    await io.homePage.click(selectors.basePagePO.CONNECTION_DROPDOWN);
     const monitorExp = await io.homePage.isVisible("text='MONITOR CONNECTION'")
     await io.assert.expectToBeValue(monitorExp.toString(), 'false', "Value is found")
-    
-
   });
 });

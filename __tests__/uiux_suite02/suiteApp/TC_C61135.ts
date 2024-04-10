@@ -6,12 +6,11 @@ test.describe(`C61135 Verify the Install link functionality displayed for the In
     page,
     io
   }) => {
-    await io.homePage.navigateTo(
-      `${io.data.links.HOME_PAGE_URL}/installIntegration`
-    );
+    await io.homePage.navigateTo(`${io.data.links.HOME_PAGE_URL}/installIntegration`);
     await io.homePage.addStep(
       "Navigated to install integration page (/home/installIntegration)"
     );
+    await io.flowBuilder.loadingTime();
     await page.getByText("Loading").waitFor({ state: "hidden" });
     const fileChooserPromise = page.waitForEvent("filechooser");
     await io.homePage.clickByText("Choose file");
@@ -19,6 +18,7 @@ test.describe(`C61135 Verify the Install link functionality displayed for the In
     await fileChooser.setFiles("testData/inputData/SuiteApp/C61135.zip");
     await io.homePage.addStep("Uploaded integration zip file");
     await io.homePage.clickByText("Install integration");
+    await io.flowBuilder.loadingTime();
     await io.homePage.click(selectors.basePagePO.DIALOG_PROCEED_BUTTON);
     await page.getByLabel("breadcrumb").getByText("Home").click();
     await io.homePage.addStep("Clicked 'Home' from breadcrumb");

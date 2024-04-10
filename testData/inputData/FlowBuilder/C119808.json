@@ -1,0 +1,168 @@
+{
+    "name": "TC_C119808",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "Postgresql export",
+                "_connectionId": "POSTGRESQL CONNECTION",
+                "apiIdentifier": "ee65445b1f",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "rdbms": {
+                    "query": "select * from table"
+                },
+                "settingsForm": {
+                    "form": {
+                        "useAsPrimaryInterface": true,
+                        "fieldMap": {
+                            "pathparam": {
+                                "id": "pathparam",
+                                "name": "pathparam",
+                                "type": "text",
+                                "label": "Account number",
+                                "required": true,
+                                "helpText": "Enter an account number, and separate additional values with a comma."
+                            }
+                        },
+                        "layout": {
+                            "fields": [
+                                "pathparam"
+                            ]
+                        }
+                    }
+                },
+                "adaptorType": "RDBMSExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "MySQL Lookup",
+                "_connectionId": "MYSQL CONNECTION",
+                "apiIdentifier": "e2b18f94da",
+                "asynchronous": true,
+                "isLookup": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "rdbms": {
+                    "query": "select * from Grouping_QA"
+                },
+                "settingsForm": {
+                    "form": {
+                        "useAsPrimaryInterface": true,
+                        "fieldMap": {
+                            "pathparam": {
+                                "id": "pathparam",
+                                "name": "pathparam",
+                                "type": "text",
+                                "label": "Account number",
+                                "required": true,
+                                "helpText": "Enter an account number, and separate additional values with a comma."
+                            }
+                        },
+                        "layout": {
+                            "fields": [
+                                "pathparam"
+                            ]
+                        }
+                    }
+                },
+                "adaptorType": "RDBMSExport"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "AutomationStandalone_e2CXi",
+                "_connectionId": "MYSQL CONNECTION",
+                "apiIdentifier": "ifab89b4a8",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "rdbms": {
+                    "query": [
+                        "insert into"
+                    ],
+                    "queryType": [
+                        "INSERT"
+                    ]
+                },
+                "settingsForm": {
+                    "form": {
+                        "useAsPrimaryInterface": true,
+                        "fieldMap": {
+                            "pathparam": {
+                                "id": "pathparam",
+                                "name": "pathparam",
+                                "type": "text",
+                                "label": "Account number",
+                                "required": true,
+                                "helpText": "Enter an account number, and separate additional values with a comma."
+                            }
+                        },
+                        "layout": {
+                            "fields": [
+                                "pathparam"
+                            ]
+                        }
+                    }
+                },
+                "settings": {
+                    "__invalid": true
+                },
+                "adaptorType": "RDBMSImport"
+            }
+        }
+    ],
+    "createFlow": {
+        "name": "TC_C119808",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "export",
+                "_importId": "UPDATE WITH NEW EXPORTID"
+            },
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+        ]
+    },
+    "jsonText": {
+        "fieldMap": {
+            "pathparam": {
+                "id": "pathparam",
+                "name": "pathparam",
+                "type": "text",
+                "label": "Account number",
+                "required": true,
+                "helpText": "Enter an account number, and separate additional values with a comma."
+            }
+        },
+        "layout": {
+            "fields": [
+                "pathparam"
+            ]
+        }
+    }
+}
