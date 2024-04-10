@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C113520_C113521_C113522_C113523_C113524_C113525_C113526`, () => {
-  test(`Normal HTTP 2.0 framework connectors`, async ({ io, page }) => {
+  test(`@Env-All Normal HTTP 2.0 framework connectors`, async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
     //Wait for the page to load
@@ -90,7 +90,8 @@ test.describe(`C113520_C113521_C113522_C113523_C113524_C113525_C113526`, () => {
     await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
   });
 
-  test(`HTTP connection iClient page`, async ({ io, page }) => {
+  
+  test(`@Env-All HTTP connection iClient page`, async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
     await io.connectionPage.click(selectors.importPagePO.HTTP_IMPORT);
@@ -175,7 +176,7 @@ test.describe(`C113520_C113521_C113522_C113523_C113524_C113525_C113526`, () => {
     await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
   });
 
-  test(`REST connection iClient page`, async ({ io, page }) => {
+  test(`@Env-All REST connection iClient page`, async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
     await io.connectionPage.waitForElementAttached(selectors.settingsPagePO.APP_NAME_INPUT);
@@ -262,7 +263,7 @@ test.describe(`C113520_C113521_C113522_C113523_C113524_C113525_C113526`, () => {
     await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
   });
 
-  test(`Auth2.0 supported connector iClient page`, async ({ io, page }) => {
+  test(`@Env-All Auth2.0 supported connector iClient page`, async ({ io, page }) => {
     //Skipping the test case - HTTP form is not available for GUSTO connection
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
@@ -352,7 +353,7 @@ test.describe(`C113520_C113521_C113522_C113523_C113524_C113525_C113526`, () => {
     await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
   });
 
-  test(`Resource iClient Page`, async ({ io, page }) => {
+  test(`@Env-All Resource iClient Page`, async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "iClients");
     await io.connectionPage.click(selectors.integrationPagePO.ADDNEWRESOURCE);
   
@@ -431,4 +432,5 @@ test.describe(`C113520_C113521_C113522_C113523_C113524_C113525_C113526`, () => {
     await io.connectionPage.addStep("Verified field path and help text for 'Unencrypted' field");
     await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
   });
+  
 });

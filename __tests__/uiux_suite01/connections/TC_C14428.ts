@@ -26,7 +26,7 @@ test.describe(`C14428 Verify 'none' tile of sandbox, the api (GET /api/tiles) is
         await io.homePage.loadingTime();
     });
 
-    test(`C14428 Verify 'none' tile of sandbox, the api (GET /api/tiles) is returning the offline connection under 'none' tile of sandbox.`, async ({ io, page }) => {
+    test(`@Env-All C14428 Verify 'none' tile of sandbox, the api (GET /api/tiles) is returning the offline connection under 'none' tile of sandbox.`, async ({ io, page }) => {
         //create integration under sandbox
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.SANDBOX_BUTTON);

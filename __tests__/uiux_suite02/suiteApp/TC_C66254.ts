@@ -14,6 +14,7 @@ test.describe(`C66254 @Bug-IO-34856 @Priority-P1 @Zephyr-IO-T23465 @Env-QA Verif
     await io.flowBuilder.fill(selectors.connectionsPagePO.APP_NAME_INPUT, 'Netsuite');
     await io.flowBuilder.click(selectors.connectionsPagePO.NETSUITE_CONNECTION);
     await io.flowBuilder.click(selectors.connectionsPagePO.REALTIME);
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
     await page.keyboard.type('NETSUITE 347 CONNECTION');
     await io.flowBuilder.clickByText('NETSUITE 347 CONNECTION');
@@ -33,7 +34,6 @@ test.describe(`C66254 @Bug-IO-34856 @Priority-P1 @Zephyr-IO-T23465 @Env-QA Verif
     await io.flowBuilder.clickByText('Yes');
     await io.flowBuilder.clickByIndex(selectors.mappings.MAPPER2DOT0PO.SAVEANDCLOSE, 1);
     await io.assert.verifyElementAttribute(selectors.importPagePO.NETSUITE_DISTRIBUTED_QUALIFIER_NAME, 'value', '["custentity_celigo_sfio_skip_export_to_sf","=",true]');
-
     await io.flowBuilder.click(selectors.importPagePO.NETSUITE_DISTRIBUTED_QUALIFIER);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.clickByText('No');
@@ -42,7 +42,6 @@ test.describe(`C66254 @Bug-IO-34856 @Priority-P1 @Zephyr-IO-T23465 @Env-QA Verif
 
     // C66253 Verify that check box field under Field specific qualification criteria section of Real Time NS export shows T/F for Suite Bundle and Suite App 1.0
     await io.flowBuilder.click(selectors.flowBuilderPagePO.SUITEBUNDLE);
-
     await io.flowBuilder.click(selectors.importPagePO.NETSUITE_DISTRIBUTED_QUALIFIER);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_RULE);

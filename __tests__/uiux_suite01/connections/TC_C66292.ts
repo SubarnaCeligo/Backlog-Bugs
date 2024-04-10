@@ -3,11 +3,12 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Connections/Narvar.json";
 
 test.describe(`C66292 Verify the Canceled by dropdown will auto adjust to display the full character length of the username field`, () => {
-  test(`C66292 Verify the Canceled by dropdown will auto adjust to display the full character length of the username field`, async ({
+  test(`@Env-All C66292 Verify the Canceled by dropdown will auto adjust to display the full character length of the username field`, async ({
     io,
     page
   }) => {
     await io.createResourceFromAPI(testData, "FLOWS");
+    await io.flowBuilder.loadingTime()
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
     await page.getByLabel("Cancel flow run").click();
     await io.flowBuilder.addStep("Clicked on Cancel flow run");

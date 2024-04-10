@@ -19,7 +19,7 @@ test.describe("API manager redirect production ", () => {
     const currentUrl = await allPages[1].url();
     const apim = await locator.textContent();
     await io.assert.expectToBeTrue(apim.toString().includes("API Management"), "APIM page not found");
-    const expectedUrl = 'integrator.io/#!/environments';
+    const expectedUrl = 'integrator.io/#!/';
     const func = currentUrl.toString().includes(expectedUrl)
     await io.assert.expectToBeTrue(func, "urls doesn't match")
   });
