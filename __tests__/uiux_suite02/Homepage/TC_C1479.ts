@@ -7,6 +7,8 @@ test.describe("TC_C1479_Verify the Hour value decreases on Schedule field when d
     });
     test("TC_C1479_Verify the Hour value decreases on Schedule field when dragged back on bar line back to the rectangular box under Every n Hours subtab UI_Backlog", async ({ io, page }) => {
         await io.homePage.loadingTime()
+        await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Standalone');
+        await io.homePage.isPageLoaded()
         await io.integrationPage.clickByText('Standalone flows')
         await io.homePage.loadingTime()
         await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);

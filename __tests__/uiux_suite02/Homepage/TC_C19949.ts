@@ -7,6 +7,8 @@ test.describe("TC_C19949_Verify: Success Graph: the tooltip displays: flow name,
     });
     test("TC_C19949_Verify: Success Graph: the tooltip displays: flow name, the total success count, the time coordinate UI_Backlog", async ({ io, page }) => {
         await io.homePage.loadingTime()
+        await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Standalone');
+        await io.homePage.isPageLoaded()
         await io.integrationPage.clickByText('Standalone flows')
         await io.homePage.loadingTime()
         await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
