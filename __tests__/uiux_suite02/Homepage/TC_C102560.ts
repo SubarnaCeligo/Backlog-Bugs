@@ -8,7 +8,10 @@ test.describe("C102560 Verify caret is showing for items where we have sub menu"
   }) => {
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
     await io.homePage.loadingTime()
-    await io.homePage.click(selectors.basePagePO.DRAWERTOGGLE)
+    let flag = await page.locator("[data-test='Tools']>svg").isVisible()
+    if(!flag){
+      await io.homePage.click(selectors.basePagePO.DRAWERTOGGLE)
+    }
     await expect(
       page
         .locator("[data-test='Tools']>svg")
