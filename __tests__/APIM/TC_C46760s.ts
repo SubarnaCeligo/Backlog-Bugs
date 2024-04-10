@@ -181,7 +181,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.flowBuilder.click(selectors.flowBuilderPagePO.SELECT_LOOKUP);
         await io.flowBuilder.clickByText("Create from scratch");
         await io.flowBuilder.click(selectors.exportsPagePO.CREATE_SELECT_CONNECTION);
-        await io.flowBuilder.clickByText("http connection");
+        await io.flowBuilder.clickByText("http conn");
         await io.flowBuilder.fill(selectors.importPagePO.NAME, randomString);
         await io.flowBuilder.click(selectors.exportsPagePO.LOOKUP.HTTP_METHOD);
         await io.flowBuilder.click(selectors.exportsPagePO.HTTP_METHOD_GET);
