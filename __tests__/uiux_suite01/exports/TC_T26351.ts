@@ -4,9 +4,10 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe(`@http`, () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.homePage.addStep("*** Navigated to home page ***");
     });
   test(`TC_T26351 (1.0) @Zephyr-IO-T26351 @Env-All @Priority-P2`, async ({ io, page }) => {
-    await io.homePage.addStep("*** Navigated to home page ***");
+
 
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.goToMenu("Resources", "Imports");
