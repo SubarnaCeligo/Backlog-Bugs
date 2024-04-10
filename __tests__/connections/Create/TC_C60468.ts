@@ -9,7 +9,7 @@ test.describe("TC_C60468_To verify that the user should be able to download the 
     await io.connections.deleteConnection(connectionData.importJSON.name)
     await io.myAccountPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
   });
-  test("TC_C60468_To verify that the user should be able to download the debug logs for connection even though debug logs are empty UI_Backlog", async ({ io }, testInfo) => {
+  test("@Env-All TC_C60468_To verify that the user should be able to download the debug logs for connection even though debug logs are empty UI_Backlog", async ({ io }, testInfo) => {
     let connectionJson;
     //Creating Connection 
     await test.step("*** Creating Connection ***", async () => {

@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Connections/C63011.json";
 
 test.describe(`C63021 Verify User is able create connection while installing integration.`, () => {
-  test(`C63021 Verify User is able create connection while installing integration.`, async ({
+  test(`@Env-All C63021 Verify User is able create connection while installing integration.`, async ({
     page,
     io
   }) => {

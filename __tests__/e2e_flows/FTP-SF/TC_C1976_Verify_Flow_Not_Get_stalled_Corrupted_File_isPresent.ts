@@ -8,7 +8,7 @@ test.describe("E2E Flows", () => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("TC_C1976_Verify_Flow_Not_Get_stalled_Corrupted_File_isPresent", async ({
+    test("@Env-All TC_C1976_Verify_Flow_Not_Get_stalled_Corrupted_File_isPresent", async ({
         io
     }, testInfo) => {
 

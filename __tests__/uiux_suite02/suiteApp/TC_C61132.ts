@@ -1,14 +1,13 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe(`C61132 Verify the Install link functionality displayed for the Integrator SuiteApp step`, () => {
-  test(`C61132 Verify the Install link functionality displayed for the Integrator SuiteApp step`, async ({
+test.describe(`@Epic-IO-27713  @Priority-P2  @Zephyr-IO-T23139 @Env-All Verify the Install link functionality displayed for the Integrator SuiteApp step`, () => {
+  test(`@Epic-IO-27713  @Priority-P2  @Zephyr-IO-T23139 @Env-All Verify the Install link functionality displayed for the Integrator SuiteApp step`, async ({
     page,
     io
   }) => {
-    await io.homePage.navigateTo(
-      `${io.data.links.HOME_PAGE_URL}/installIntegration`
-    );
+    await io.homePage.navigateTo(`${io.data.links.HOME_PAGE_URL}/installIntegration`);
+    await io.flowBuilder.loadingTime();
     await page.getByText("Loading").waitFor({ state: "hidden" });
     const fileChooserPromise = page.waitForEvent("filechooser");
     await io.homePage.clickByText("Choose file");
@@ -29,8 +28,9 @@ test.describe(`C61132 Verify the Install link functionality displayed for the In
       await io.homePage.clickByText("Please select");
       await page
         .locator(selectors.connectionsPagePO.CONNECTION_LIST_MODAL)
-        .getByText("NETSUITE CONNECTION")
+        .getByText("NETSUITE CONNECTION").first()
         .click();
+      // await io.flowBuilder.clickByTextByIndex("NETSUITE CONNECTION", 0);
       await io.homePage.addStep("Selected 'NETSUITE CONNECTION' from dropdown");
       await io.connectionPage.click(selectors.basePagePO.SAVE);
       await io.assert.verifyElementDisplayedByText(

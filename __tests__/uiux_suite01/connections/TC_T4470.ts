@@ -6,8 +6,9 @@ test.describe(`T4470 To verify connections displayed in this route('/api/connect
   test.beforeEach(async ({ io }) => {
     await io.connections.deleteConnection(T4470.importJSON.name);
     await io.myAccountPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
+    await io.myAccountPage.loadingTime()
   });
-  test(`T4470 To verify connections displayed in this route('/api/connections/:_connectionId/tradingPartner') does not display the IA connections in ""Confirm connection changes"" dialog UI_Backlog`, async ({ io, page }) => {
+  test(`@Env-All T4470 To verify connections displayed in this route('/api/connections/:_connectionId/tradingPartner') does not display the IA connections in ""Confirm connection changes"" dialog UI_Backlog`, async ({ io, page }) => {
     let connectionJson;
     //Creating Connection 
     await test.step("*** Creating Connection ***", async () => {

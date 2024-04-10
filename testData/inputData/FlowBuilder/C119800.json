@@ -1,0 +1,94 @@
+{
+    "name": "TC_C119800",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "NS Listener",
+                "_connectionId": "NETSUITE CONNECTION",
+                "apiIdentifier": "ed973ed238",
+                "asynchronous": true,
+                "type": "distributed",
+                "oneToMany": false,
+                "sandbox": false,
+                "distributed": {
+                    "bearerToken": "******"
+                },
+                "netsuite": {
+                    "type": "distributed",
+                    "skipGrouping": true,
+                    "statsOnly": false,
+                    "restlet": {
+                        "criteria": [],
+                        "columns": [],
+                        "markExportedBatchSize": 100
+                    },
+                    "distributed": {
+                        "recordType": "account",
+                        "executionContext": [
+                            "userinterface",
+                            "webstore"
+                        ],
+                        "disabled": true,
+                        "executionType": [
+                            "create",
+                            "edit",
+                            "xedit"
+                        ],
+                        "sublists": [],
+                        "frameworkVersion": "suiteapp2.0"
+                    }
+                },
+                "adaptorType": "NetSuiteExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "Http Import",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "i14eac495d",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": [
+                        "/users"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "createFlow": {
+        "name": "TC_C119800",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+        ]
+    }
+}

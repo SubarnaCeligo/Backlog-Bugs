@@ -2,14 +2,15 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C52776 Verify the Name, Store name and helptexts are displaying as expected for the basic auth along with the new infobar", () => {
-  test("C52776 Verify the Name, Store name and helptexts are displaying as expected for the basic auth along with the new infobar", async ({io, page}) => {
+  test("@Env-All C52776 Verify the Name, Store name and helptexts are displaying as expected for the basic auth along with the new infobar", async ({io, page}) => {
       await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
       await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
       await io.homePage.goToMenu("Resources", "Connections");
 
       await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
       await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Shopify');
-      await io.flowBuilder.click(selectors.connectionsPagePO.SHOPIFY_CONNECTION);
+      await io.flowBuilder.clickByText("Shopify")
+      await io.flowBuilder.loadingTime()
       await io.assert.verifyElementText(selectors.connectionsPagePO.MUI_HTTP_AUTH_TYPE, 'Basic');
       await io.assert.verifyElementContainsText(selectors.basePagePO.NAME_ID, 'Name your connection');
       await io.assert.verifyElementContainsText(`${selectors.connectionsPagePO.HTTP_AUTH_TYPE_ID} label`, '*');

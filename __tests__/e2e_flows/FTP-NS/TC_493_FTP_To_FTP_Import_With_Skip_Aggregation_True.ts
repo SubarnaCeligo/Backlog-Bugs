@@ -7,7 +7,7 @@ test.describe("E2E Flows", () => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("TC_493_FTP_To_FTP_Import_With_Skip_Aggregation_True", async ({
+    test("@Env-All TC_493_FTP_To_FTP_Import_With_Skip_Aggregation_True", async ({
         io
     }, testInfo) => {
         //Creating PageGenerator 
