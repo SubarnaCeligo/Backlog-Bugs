@@ -10,6 +10,7 @@ test.describe("C25582_Verify the sub header (containing pagination, debugger, re
     });
     test("C25582_Verify the sub header (containing pagination, debugger, refresh logs button) is aligned correctly with proper spacing b/w actions when Celigo side pane is minimized UI_Backlog", async ({ io}) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+        await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW)
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'webhook');

@@ -10,6 +10,7 @@ test.describe("C26026_Verify 'View debug logs' not visible non-RT exports or imp
     });
     test("C26026_Verify 'View debug logs' not visible non-RT exports or imports UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+        await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW)
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'netsuite');

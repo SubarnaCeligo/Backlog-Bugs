@@ -11,6 +11,7 @@ test.describe("C26030_When debugger is on, log out of IO, log in again, open the
     test("C26030_When debugger is on, log out of IO, log in again, open the debug logs, (you shd see debug time remaining), (send a new log entry), refresh should enable after that UI_Backlog", async ({ io }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.loadingTime()
+        await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW)
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'webhook');

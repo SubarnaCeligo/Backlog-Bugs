@@ -4,6 +4,7 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe("C64846 To validate that the NS real time filter should be saved properly based on the NS SS2.0", () => {
     test("C64846 To validate that the NS real time filter should be saved properly based on the NS SS2.0", async ({io, page}) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+        await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW)
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'netsuite');

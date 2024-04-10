@@ -10,6 +10,7 @@ test.describe("C25985_Verify able to click on the 'View debug logs' button and a
     });
     test("C25985_Verify able to click on the 'View debug logs' button and able to access the debug log setting and view debug logs UI_Backlog", async ({ io}) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+        await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW)
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'webhook');
