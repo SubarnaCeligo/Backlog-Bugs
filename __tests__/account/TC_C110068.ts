@@ -45,6 +45,7 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
       false,
       "pwqa1"
     );
+    await io.flowBuilder.loadingTime();
     let AccountTab = ".MuiToolbar-root .MuiSvgIcon-root";
     let AccountTab1 = await page.$$(".MuiToolbar-root .MuiSvgIcon-root");
     await page.waitForTimeout(20000);
@@ -56,7 +57,7 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
       await io.homePage.click(selectors.basePagePO.SIGN_OUT);
     }
     // check for link in email and navigate to that link
-    await page.waitForTimeout(5000);
+    await page.waitForTimeout(15000);
     await io.homePage.navigateTo(link.toString());
     await io.homePage.reloadPage();
     await io.homePage.reloadPage();
@@ -119,13 +120,15 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
 
     // // signin of IO and navigate to login page
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.flowBuilder.loadingTime();
     const isNotLoggedIn1 = await io.loginPage.checkLoginState();
-    await page.waitForTimeout(5000);
+    await page.waitForTimeout(10000);
     const link1 = await io.emailVal.getLinkFromEmail(
       "[qa.staging.integrator.io] Request to change your email",
       false,
       "pwqa1"
     );
+    await io.flowBuilder.loadingTime();
     let Account1Tab = ".MuiToolbar-root .MuiSvgIcon-root";
     let Account1Tab1 = await page.$$(".MuiToolbar-root .MuiSvgIcon-root");
     await page.waitForTimeout(20000);
