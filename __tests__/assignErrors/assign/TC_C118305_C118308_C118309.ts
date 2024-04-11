@@ -19,6 +19,7 @@ test.describe("C118305_C118308_C118309-Verify Assign error flyout when errors as
 
    //Open the flow
    await io.flowBuilder.clickByText("TC_C118305_DND");
+   await io.flowBuilder.loadingTime();
 
    //Open errors dashborad
    await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
