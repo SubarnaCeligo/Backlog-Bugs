@@ -5,7 +5,7 @@ test.describe("C118305_C118308_C118309-Verify Assign error flyout when errors as
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("Verify Assign error flyout when errors assigned to single user are selected ", async ({ io, page }) => {
+  test("@Env-All Verify Assign error flyout when errors assigned to single user are selected ", async ({ io, page }) => {
 
    //Navigate to default integration
    await io.homePage.navigateTo(process.env["IO_Integration_URL"]);

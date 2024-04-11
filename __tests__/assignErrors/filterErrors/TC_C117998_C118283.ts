@@ -45,7 +45,7 @@ test.describe("C117998_C118283 Verify if user filter section is added to filter 
       );
 
     //Verify Sorting 
-    const expectedList = ['Admin User1', 'Custom User1', 'Custom User2','CustomUser NoAccess','Disabled User', 'Manage User', 'Monitor User1', 'Same UserName', 'Same UserName', 'User WithLongUserNameTestWithLongUse'];
+    const expectedList = ['Admin User1', 'Custom User1', 'Custom User2','CustomUser NoAccess','Disabled User', 'Manage User', 'Monitor User1', 'Same UserName', 'Same UserName', 'User WithLongUserNameTestWithLongUserN'];
     const userNames = (await io.flowBuilder.getText(selectors.em2DotOLineGraphPO.ASSIGNEE_NAME)).toString();
     const userNamesArray: string[] = userNames.split(',');
     const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/;
@@ -58,7 +58,5 @@ test.describe("C117998_C118283 Verify if user filter section is added to filter 
     //Remove default entries from array to validate sorting
     actualList.splice(0, 2);
     await io.assert.expectToBeTrue(_.isEqual(expectedList, actualList), 'Users are not sorted');
-
-
   });
 });

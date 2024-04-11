@@ -5,7 +5,7 @@ test.describe("C118312 - Verify Assign error flyout when the there are users in 
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("C118312 - Verify Assign error flyout when the there are users in the account with long usernames", async ({ io, page }) => {
+  test("@Env-All C118312 - Verify Assign error flyout when the there are users in the account with long usernames", async ({ io, page }) => {
 
    //Navigate to default integration
    await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
