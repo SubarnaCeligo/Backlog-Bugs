@@ -24,6 +24,7 @@ test.describe("C118307 - Verify the assignee pill when an error is resolved", ()
 
     //Open the flow
     await io.flowBuilder.clickByText("TC_C118307_DND");
+    await io.flowBuilder.loadingTime();
 
     //Open errors dashborad
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
