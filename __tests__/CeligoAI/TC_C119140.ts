@@ -13,7 +13,7 @@ test.describe("C119140 Verify the Reset template,query and script button in AFE 
     await resetQuery.waitFor({ state: 'visible', timeout: 30000 });
     //Verify Reset query button disabled  C119141 C119140	
     await io.assert.verifyElementAttributeContainsText(selectors.flowBuilderPagePO.OPENAI.RESET_TEMPLATE,"class","Mui-disabled");
-    await io.flowBuilder.clickByText('Celigo AI');
+    await io.flowBuilder.clickByTextByIndex('Celigo AI', 1);
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
       "Celigo AI Placeholder is not displayed"
@@ -64,7 +64,7 @@ test.describe("C119140 Verify the Reset template,query and script button in AFE 
     await resetTemplate.waitFor({ state: 'visible', timeout: 30000 });
     //Verify Reset template button disabled  C119141
     await io.assert.verifyElementAttributeContainsText(selectors.flowBuilderPagePO.OPENAI.RESET_TEMPLATE,"class","Mui-disabled");
-    await io.flowBuilder.clickByText('Celigo AI');
+    await io.flowBuilder.clickByTextByIndex('Celigo AI', 1);
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
       "Celigo AI Placeholder is not displayed"

@@ -15,7 +15,7 @@ test.describe("C119207 Verify Celigo AI panel enhancements", () => {
 
     const celigoAiDragbar = await page.locator(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_DRAG_BAR);
     await expect(celigoAiDragbar).not.toBeVisible();
-    await io.flowBuilder.clickByText('Celigo AI');
+    await io.flowBuilder.clickByTextByIndex('Celigo AI', 1);
     const celigoAiWindow = await page.locator('[style="grid-area: chat;"]');
     const clientHeight = await celigoAiWindow.evaluate(node => node.clientHeight);
     expect(clientHeight).toBeLessThan(200);

@@ -30,7 +30,7 @@ test.describe("C110489 Verify system generates the Big query after the user has 
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
       "Celigo AI is not displayed"
     );
-    await io.flowBuilder.clickByText('Celigo AI');
+    await io.flowBuilder.clickByTextByIndex('Celigo AI', 1);
     await io.flowBuilder.loadingTime();
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,

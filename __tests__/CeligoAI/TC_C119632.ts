@@ -26,7 +26,7 @@ test.describe("C119632 Verify the Celigo AI functionality working fine for MySQL
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
       "Celigo AI is not displayed"
     )
-    await io.flowBuilder.clickByText('Celigo AI');
+    await io.flowBuilder.clickByTextByIndex('Celigo AI', 1);
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
       "Celigo AI Placeholder is not displayed"

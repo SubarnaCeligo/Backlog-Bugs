@@ -49,7 +49,7 @@ test.describe("C117471 Verify the Celigo AI behaviour for IA's", () => {
      await io.flowBuilder.click(selectors.basePagePO.INPUTFILTER);
      await io.flowBuilder.loadingTime();
      await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR, "aria-expanded", "false", 1);
-     await io.flowBuilder.clickByText('Celigo AI');
+     await io.flowBuilder.clickByTextByIndex('Celigo AI', 1);
      await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,"placeholder","Tell me about your filter here... I will apply your request to the existing filter unless you tell me to replace it");   
   });
 });

@@ -15,7 +15,7 @@ test.describe("C119146 Verify the Error Panel in AFE windows", () => {
     await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.OPENAI.RESET_TEMPLATE, "Reset template is not displayed")
     //Verify Reset query button C119149
     await io.assert.verifyElementAttributeContainsText(selectors.flowBuilderPagePO.OPENAI.RESET_TEMPLATE, "class", "Mui-disabled");
-    await io.flowBuilder.clickByText('Celigo AI');
+    await io.flowBuilder.clickByTextByIndex('Celigo AI', 1);
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
       "Celigo AI Placeholder is not displayed"
