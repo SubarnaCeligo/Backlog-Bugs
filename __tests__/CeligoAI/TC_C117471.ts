@@ -15,7 +15,7 @@ test.describe("C117471 Verify the Celigo AI behaviour for IA's", () => {
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.basePagePO.JAVASCRIPTWINDOW);
     await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.OPENAI.RESET_TEMPLATE, "Reset script is not displayed")
-    const resetScript = page.getByText('Reset script').first();
+    const resetScript = await page.getByText('Reset script').nth(0);
     await resetScript.waitFor({ state: 'visible', timeout: 30000 });
     //Verify Reset script button disabled
     await io.assert.verifyElementAttributeContainsText(selectors.flowBuilderPagePO.OPENAI.RESET_TEMPLATE, "class", "Mui-disabled");
