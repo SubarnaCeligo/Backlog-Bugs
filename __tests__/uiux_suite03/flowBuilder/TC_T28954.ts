@@ -1,11 +1,11 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("TC_IO63636_Test mode run for flow with presavepage hook and mock output at import", () => {
+test.describe("TC_T28954_Test mode run for flow with presavepage hook and mock output at import", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("IO63636", async ({ io, page }) => {
+    test("TC_T28954 @Zephyr-IO-T28954 @Env-All", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
         await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "Netsuite - Orderful Warehouse Flows_DND");
