@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C102560 Verify caret is showing for items where we have sub menu", () => {
-  test("C102560 Verify caret is showing for items where we have sub menu", async ({
+  test("@Env-All C102560 Verify caret is showing for items where we have sub menu", async ({
     io,
     page
   }) => {

@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C39971 Verify Left side menu is uncollapsed by default", () => {
-  test("C39971 Verify Left side menu is uncollapsed by default", async ({
+  test("@Env-All C39971 Verify Left side menu is uncollapsed by default", async ({
     io,
     page
   }) => {

@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C41692_Verify Buttons and hyperlinks present on Home screen/connections/imports/exports/agents/api tokens for empty state", () => {
-    test("C41692_Verify Buttons and hyperlinks present on Home screen/connections/imports/exports/agents/api tokens for empty state UI_Backlog", async ({ io, page }) => {
+    test("@Env-All C41692_Verify Buttons and hyperlinks present on Home screen/connections/imports/exports/agents/api tokens for empty state UI_Backlog", async ({ io, page }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.loadingTime()
         // Validating page showing correctly

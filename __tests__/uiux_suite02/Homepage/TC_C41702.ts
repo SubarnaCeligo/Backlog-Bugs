@@ -1,7 +1,7 @@
 import { test } from "@celigo/ui-core-automation";
 
 test.describe("C41702_verify the images are loading properly if we transition from one page to another page", () => {
-    test("C41702_verify the images are loading properly if we transition from one page to another page UI_Backlog", async ({ io }) => {
+    test("@Env-All C41702_verify the images are loading properly if we transition from one page to another page UI_Backlog", async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.goToMenu("Resources", "Connections");
         await io.homePage.loadingTime()
