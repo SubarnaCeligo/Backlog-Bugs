@@ -78,7 +78,7 @@ var testCases = [
   "IO50942",
   "IO51317",
   "IO51323",
-  "IO52927",
+  // "IO52927", // We are making this test case obsolete as we have removed "existing export" checkbox from UI (functionality is changed for this)
   "IO60215",
   "IO60432",
   "C117742",

@@ -15,6 +15,7 @@ test.describe("C106830 Test to validate the auto suggestion feature in sandbox e
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, "http");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH);
+    await io.homePage.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.fill(
       selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,

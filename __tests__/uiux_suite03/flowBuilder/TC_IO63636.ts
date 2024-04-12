@@ -7,12 +7,13 @@ test.describe("TC_IO63636_Test mode run for flow with presavepage hook and mock 
     });
     test("IO63636", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
-        await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "Netsuite - Orderful Warehouse Flows");
+        await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
+        await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "Netsuite - Orderful Warehouse Flows_DND");
         await io.homePage.addStep("*** Searched for the integration ***");
         await io.flowBuilder.loadingTime();
-        await io.homePage.clickByText("Netsuite - Orderful Warehouse Flows");
+        await io.homePage.clickByText("Netsuite - Orderful Warehouse Flows_DND");
         await io.homePage.addStep("*** Opened the integration ***");
-        await io.homePage.clickByText("856 ASN Transfer Orders - AEL Dubai");
+        await io.homePage.clickByText("856 ASN Transfer Orders - AEL Dubai_DND");
         await io.homePage.addStep("*** Opened the flow ***");
         await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
