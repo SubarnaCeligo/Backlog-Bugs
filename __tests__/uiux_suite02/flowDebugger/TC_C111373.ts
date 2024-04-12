@@ -3,8 +3,13 @@ import * as selectors from "@celigo/aut-selectors";
 import C111373 from "@testData/FlowDebugger/C111373.json"
 
 test.describe('C111373_C111374', () => {
+    test.beforeEach(async ({ io }) => {
+        await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+      });
+
     test('C111373_C111374', async ({ io, page }) => {
         const id = await io.createResourceFromAPI(C111373, "FLOWS");
+        await io.homePage.loadingTime()
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         //Disable the flow
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);

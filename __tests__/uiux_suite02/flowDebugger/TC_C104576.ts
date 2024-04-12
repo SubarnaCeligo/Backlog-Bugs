@@ -5,14 +5,16 @@ import TC from '../../../testData/inputData/FlowDebugger/C104576.json';
 test.describe("C104576 Verify error messages when Mock output is populated with empty canonical json", () => {
     test("C104576 Verify error messages when Mock output is populated with empty canonical json", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+        await io.homePage.loadingTime()
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
+        await io.homePage.loadingTime()
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'HTTP');
         await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
+        await io.flowBuilder.clickByText("Create from scratch");
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "HTTP ZENDESK CONNECTION");
         await io.flowBuilder.clickByText('HTTP ZENDESK CONNECTION');
-        await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.MOCK_OUTPUT);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.POPULATE_WITH_CANONICAL_STUB);
         await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.MOCK_OUTPUT_STUB, JSON.stringify(TC.Text));
