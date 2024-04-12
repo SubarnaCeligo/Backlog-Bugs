@@ -3,6 +3,10 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Flows/C120065.json";
 
 test.describe(`TC_C120065_C120066_C120067_C120076_C120078_C120079_C120080_C120068_C120081_C120090_C120092_C120091_C120093_C120094`, () => {
+  test.beforeEach(async ({ io }) => {
+    await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+  });
+
   test(`TC_C120065_C120066_C120067_C120076_C120078_C120079_C120080_C120068_C120081_C120090_C120092_C120091_C120093_C120094`, async ({ io, page }) => {
     await io.createResourceFromAPI(testData, "FLOWS");
 
@@ -36,7 +40,7 @@ test.describe(`TC_C120065_C120066_C120067_C120076_C120078_C120079_C120080_C12006
     await io.connectionPage.addStep("Verified the preview the HTTP request/response in the Preview panel");
 
     // TC_C120066 - Verify if Users have the ability to view all request and response headers in Preview → HTTP request/response → Headers. Please make sure to mask them in both the UI and the BE
-    
+
     await io.flowBuilder.click(selectors.importPagePO.HTTP_REQUEST);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.PREVIEW_RESPONSE_HEADERS_TAB);
 
@@ -114,7 +118,7 @@ test.describe(`TC_C120065_C120066_C120067_C120076_C120078_C120079_C120080_C12006
 
     expect(previewTextSend).toContain("\"_json\": {      \"_raw\": \"File written successfully\"    }");
     await io.connectionPage.addStep("Verified the preview the HTTP request/response in the Preview panel");
-    
+
     await io.flowBuilder.click(selectors.importPagePO.HTTP_REQUEST);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.PREVIEW_RESPONSE_HEADERS_TAB);
 

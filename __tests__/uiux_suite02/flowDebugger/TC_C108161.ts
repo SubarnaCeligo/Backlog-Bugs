@@ -14,7 +14,7 @@ test.describe("When Mock Output is in invalid format, 'Status Code' should be a 
 
         //Select an FTP Connection
         await io.importsPage.click(selectors.basePagePO.CONNECTION_DROPDOWN);
-        await io.importsPage.clickByText('FTP CONNECTION');
+        await io.homePage.selectConnectionDropDown(page, 'FTP CONNECTION');
 
         // Provide a name for the import and click Next
         await io.importsPage.fill(selectors.basePagePO.INPUT_NAME_SELECTOR, "Test TC108160");

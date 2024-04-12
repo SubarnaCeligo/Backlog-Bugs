@@ -8,6 +8,7 @@ test.describe("TC_C65037 Verify Run history tab in the console is grayed out whi
   }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();
+    await io.homePage.fill(selectors.homePagePO.SEARCH_INTEGRATION, "TC_C65037_Flow_DND")
     await io.flowBuilder.clickByText("TC_C65037_Flow_DND");
     await io.flowBuilder.loadingTime();
     await io.assert.checkElementState(
