@@ -5,7 +5,7 @@ test.describe(`TC_C41559 To verify create pull button is not displayed under "Re
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test(`C41559 To verify create pull button is not displayed under "Revisions" tab for DIY integration(users who has Integration level monitor access)`, async ({
+  test(`@Env-All C41559 To verify create pull button is not displayed under "Revisions" tab for DIY integration(users who has Integration level monitor access)`, async ({
     page,
     io
   }) => {

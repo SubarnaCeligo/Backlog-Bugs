@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("TC_C41552 To verify create pull button is not displayed under 'Revisions' tab for Templates(users who has Account level monitor access)", () => {
-  test("C41552 To verify create pull button is not displayed under 'Revisions' tab for Templates(users who has Account level monitor access)", async ({
+  test("@Env-All C41552 To verify create pull button is not displayed under 'Revisions' tab for Templates(users who has Account level monitor access)", async ({
     io,
     page
   }) => {

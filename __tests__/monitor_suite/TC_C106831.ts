@@ -2,7 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C106831 Test to validate the auto suggestion feature in moniter account", () => {
-  test("C106831 Test to validate the auto suggestion feature in moniter account", async ({io, page}) => {
+  test("@Env-All C106831 Test to validate the auto suggestion feature in moniter account", async ({io, page}) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();
     await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
