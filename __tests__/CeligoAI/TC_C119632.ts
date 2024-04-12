@@ -39,7 +39,7 @@ test.describe("C119632 Verify the Celigo AI functionality working fine for MySQL
       "Celigo AI Prompt Thinking is not displayed"
     )
     await expect(
-      page.locator(selectors.flowBuilderPagePO.OPENAI.PROMPT_QUERY).filter({ hasText: "SELECT *" })
+      page.locator(selectors.flowBuilderPagePO.OPENAI.PROMPT_QUERY).filter({ hasText: "SELECT *" }).nth(0)
     ).toBeVisible({ timeout: 50000 });
   });
 });

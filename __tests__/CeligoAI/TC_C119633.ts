@@ -46,7 +46,7 @@ test.describe("C119633 Verify the Celigo AI functionality working fine for Postg
       "Celigo AI Prompt Thinking is not displayed"
     )
     await expect(
-      page.locator(selectors.flowBuilderPagePO.OPENAI.PROMPT_QUERY).filter({ hasText: "SELECT *" })
+      page.locator(selectors.flowBuilderPagePO.OPENAI.PROMPT_QUERY).filter({ hasText: "SELECT *" }).first()
     ).toBeVisible({ timeout: 30000 });
   });
 });
