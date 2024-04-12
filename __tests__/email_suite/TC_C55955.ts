@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe.skip(
+test.describe(
   "C55955 Verify clicking on cancel button in the reset password page is navigating to the signin page",
   () => {
     test.beforeEach("Sign out", async ({ io, page }) => {
@@ -13,7 +13,7 @@ test.describe.skip(
         await io.homePage.click(selectors.basePagePO.SIGN_OUT);
       }
     });
-    test("C55955 Verify clicking on cancel button in the reset password page is navigating to the signin page", async ({
+    test("@Env-All C55955 Verify clicking on cancel button in the reset password page is navigating to the signin page", async ({
       io,
       page
     }) => {

@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe.skip(
+test.describe(
   "C67012 Verify ehe user is able to reset their password if they forget it, and this should not affect the new sign-up process",
   () => {
     test.beforeEach("Sign out", async ({ io, page }) => {
@@ -13,7 +13,7 @@ test.describe.skip(
         await io.homePage.click(selectors.basePagePO.SIGN_OUT);
       }
     });
-    test("C67012 Verify ehe user is able to reset their password if they forget it, and this should not affect the new sign-up process", async ({
+    test("@Env-All C67012 Verify ehe user is able to reset their password if they forget it, and this should not affect the new sign-up process", async ({
       io,
       page
     }) => {

@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe.skip(
+test.describe(
   "C55971 Verify when we use an old password that was set in the last 20 passwords we should get an error in the reset password page",
   () => {
     test.beforeEach("Sign out", async ({ io, page }) => {
@@ -13,7 +13,7 @@ test.describe.skip(
         await io.homePage.click(selectors.basePagePO.SIGN_OUT);
       }
     });
-    test("C55971 Verify when we use an old password that was set in the last 20 passwords we should get an error in the reset password page", async ({
+    test("@Env-All C55971 Verify when we use an old password that was set in the last 20 passwords we should get an error in the reset password page", async ({
       io,
       page
     }) => {

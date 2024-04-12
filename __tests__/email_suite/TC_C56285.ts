@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe.skip(
+test.describe(
   "C56285 Verify if we are able submit a request to provide the password reset link and cancel the request in the forgot password page",
   () => {
     test.beforeEach("Sign out", async ({ io, page }) => {
@@ -13,7 +13,7 @@ test.describe.skip(
         await io.homePage.click(selectors.basePagePO.SIGN_OUT);
       }
     });
-    test("C56285 Verify the user is able to save the newly set password successfully via email reset password link", async ({
+    test("@Env-All C56285 Verify the user is able to save the newly set password successfully via email reset password link", async ({
       io,
       page
     }) => {

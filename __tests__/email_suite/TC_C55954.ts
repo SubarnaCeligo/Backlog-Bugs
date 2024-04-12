@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe.skip(
+test.describe(
   "C55954 Verify that we should get an error message if we try to reset password using the a link which is older and expired",
   () => {
     test.beforeEach("Sign out", async ({ io, page }) => {
@@ -13,7 +13,7 @@ test.describe.skip(
         await io.homePage.click(selectors.basePagePO.SIGN_OUT);
       }
     });
-    test("C55954 Verify that we should get an error message if we try to reset password using the a link which is older and expired", async ({
+    test("@Env-All C55954 Verify that we should get an error message if we try to reset password using the a link which is older and expired", async ({
       io,
       page
     }) => {
