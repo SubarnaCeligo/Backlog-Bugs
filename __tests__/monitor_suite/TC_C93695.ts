@@ -4,7 +4,7 @@ import { test, expect } from "@celigo/ui-core-automation";
     
     
     test.describe('C93695 Validate that user is not able to see "formInit" function in “Insert function stub” field while creating a script (Tile Level)', () => {
-      test('C93695 Validate that user is not able to see "formInit" function in “Insert function stub” field while creating a script (Tile Level)', async ({io,page}) => {
+      test('@Env-All C93695 Validate that user is not able to see "formInit" function in “Insert function stub” field while creating a script (Tile Level)', async ({io,page}) => {
         const res = await io.api.putCall(
             `v1/ashares/${process.env.IO_Ashare_ID}`,
             testData

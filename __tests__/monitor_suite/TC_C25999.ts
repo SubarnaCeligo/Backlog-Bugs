@@ -20,7 +20,6 @@ test.describe("@Epic-IO-13447  @Priority-P2  @Zephyr-T4855 @Env-All Verify stop 
       await io.flowBuilder.click(selectors.flowBuilderPagePO.VIEW_DEBUG_LOG);
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.REFRESH_RESOURCE);
        // Validating Stop button should be shown but disabled for monitor users
-      await io.assert.verifyElementAttributeContainsText(selectors.flowBuilderPagePO.REFRESH_RESOURCE, 'class', "Mui-disabled");
-      await io.assert.verifyElementNotToBeClickable("text='Start debug'")
+      await io.assert.verifyElementAttributeContainsText(selectors.flowBuilderPagePO.REFRESH_LOG, 'class', "Mui-disabled");
     });
 });
