@@ -7,13 +7,14 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("Env-QA TC_C110068 when user email is changed from profile page, verify Email Notification Generation when clicked on show token for an Agent in Agents Page", async ({
+  test("@Env-All TC_C110068 when user email is changed from profile page, verify Email Notification Generation when clicked on show token for an Agent in Agents Page", async ({
     io,
     page
   }) => {
     await io.homePage.loadingTime();
     // navigate to my account page
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
+    await io.flowBuilder.loadingTime();
     await io.myAccountPage.click(selectors.basePagePO.EDIT_EMAIL_BUTTON);
     // Click on edit email button
     await io.myAccountPage.waitForElementAttached(selectors.basePagePO.NEW_EMAIL);
