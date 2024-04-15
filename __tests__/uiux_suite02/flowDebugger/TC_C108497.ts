@@ -22,8 +22,8 @@ test.describe("Verify that existing Netsuite/Salesforce imports have adaptor spe
 
         await io.homePage.isPageLoaded()
        //Get the stub contents
-       const actualStubContents = (await io.importsPage.getText(selectors.importPagePO.STUB_CONTENTS_CSS)).toString();
-       const expectedStubContents = '[,  {,    "id": 478945,,    "statusCode": 200,,    "_json": {,      "id": 478945,    },,    "ignored": false,,    "errors": [],,    "dataURI": "",  },],';
+       const actualStubContents = (await io.importsPage.getText("div"+selectors.basePagePO.ACE_CONTENT)).toString();
+       const expectedStubContents = '[  {    \"id\": 478945,    \"statusCode\": 200,    \"_json\": {      \"id\": 478945    },    \"ignored\": false,    \"errors\": [],    \"dataURI\": \"\"  }]';
        
        // Match with expected stub.
        await io.assert.expectToContainValue(expectedStubContents, actualStubContents, 'Invalid stub contents' );
@@ -43,8 +43,8 @@ test.describe("Verify that existing Netsuite/Salesforce imports have adaptor spe
         await io.homePage.isPageLoaded()
 
          //Get Stub contents
-         const actualStubContents = (await io.importsPage.getText(selectors.importPagePO.STUB_CONTENTS_CSS)).toString();
-         const expectedStubContents = '[,  {,    "statusCode": 200,,    "id": "0010o000037gWmtAAE",,    "_json": {,      "id": "0010o000037gWmtAAE",,      "success": true,    },,    "errors": [],  },],';
+         const actualStubContents = (await io.importsPage.getText("div"+selectors.basePagePO.ACE_CONTENT)).toString();
+         const expectedStubContents = '[  {    \"statusCode\": 200,    \"id\": \"0010o000037gWmtAAE\",    \"_json\": {      \"id\": \"0010o000037gWmtAAE\",      \"success\": true    },    \"errors\": []  }]';
          
          //Match with expected stub.
          await io.assert.expectToContainValue(expectedStubContents, actualStubContents, 'Invalid stub contents' );
@@ -66,7 +66,7 @@ test.describe("Verify that existing Netsuite/Salesforce imports have adaptor spe
 
          //Get Stub contents
          const actualStubContents = (await io.importsPage.getText(selectors.importPagePO.STUB_CONTENTS_CSS)).toString();
-         const expectedStubContents = '[,  {,    "statusCode": 200,,    "id": "0010o000037gWmyAAE",,    "_json": {,      "id": "0010o000037gWmyAAE",,      "success": true,,      "errors": [],    },,    "_headers": {,      "date": "Fri, 25 Aug 2023 11:50:41 GMT",,      "sforce-limit-info": "api-usage=10/15000",    },,    "errors": [],'
+         const expectedStubContents = '[,  {,    \"statusCode\": 200,,    \"id\": \"0010o000037gWmyAAE\",,    \"_json\": {,      \"id\": \"0010o000037gWmyAAE\",,      \"success\": true,,      \"errors\": [],    },,    \"_headers\": {,      \"date\": \"Fri, 25 Aug 2023 11:50:41 GMT\",,      \"sforce-limit-info\": \"api-usage=10/15000\",    },,    \"errors\": []'
          
          //Match with expected stub.
          await io.assert.expectToContainValue(expectedStubContents, actualStubContents, 'Invalid stub contents' );
@@ -87,7 +87,7 @@ test.describe("Verify that existing Netsuite/Salesforce imports have adaptor spe
 
         //Get Stub contents
         const actualStubContents = (await io.importsPage.getText(selectors.importPagePO.STUB_CONTENTS_CSS)).toString();
-        const expectedStubContents ='[,  {,    "statusCode": 200,,    "id": "0010o000037gWjsAAE",,    "_json": [,      {,        "body": [,          {,            "id": "0010o000037gWjsAAE",,            "success": true,,            "errors": [],          },        ],,        "httpHeaders": {},,';
+        const expectedStubContents ='[,  {,    \"statusCode\": 200,,    \"id\": \"0010o000037gWjsAAE\",,    \"_json\": [,      {,        \"body\": [,          {,            \"id\": \"0010o000037gWjsAAE\",,            \"success\": true,,            \"errors\": [],          },        ],,        \"httpHeaders\": {},';
         // Match with expected stub.
         await io.assert.expectToContainValue(expectedStubContents, actualStubContents, 'Invalid stub contents' );
     });
