@@ -6,7 +6,7 @@ test.describe("C25997 - Verify that monitor user is not able to stop debug on li
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("C25997 - Verify that monitor user is not able to start/stop debug on listeners", async ({ io, page }) => {
+  test("@Env-All C25997 - Verify that monitor user is not able to start/stop debug on listeners", async ({ io, page }) => {
 
     //Set the monitor permissions for the account
     const res = await io.api.putCall(
@@ -32,7 +32,7 @@ test.describe("C25997 - Verify that monitor user is not able to stop debug on li
 
     //Verify if debug option is disabled
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.REFRESH_RESOURCE);
-    await io.assert.verifyElementAttributeContainsText(selectors.flowBuilderPagePO.REFRESH_RESOURCE, 'class', "Mui-disabled");
+    await io.assert.verifyElementAttributeContainsText(selectors.flowBuilderPagePO.REFRESH_LOG, 'class', "Mui-disabled");
 
   });
 
