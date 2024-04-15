@@ -6,7 +6,7 @@ test.describe(`C27978 Verify 'What would you like to export?' drawer label is up
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
   });
 
-  test(`C27978 Verify 'What would you like to export?' drawer label is updated as expected in REST/HTTP lookup additional files`, async ({
+  test(`@Priority-P2 @Zephyr-IO-T2682 @Env-All C27978`, async ({
     io,
     page
   }) => {

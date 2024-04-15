@@ -7,7 +7,7 @@ test.describe(`C53278 Verfiy by adding a name for the router in the “Add branc
     await io.homePage.loadingTime()
   });
 
-  test(`C53278 Verfiy by adding a name for the router in the “Add branching” drawer`, async ({
+  test(`@Priority-P2 @Zephyr-IO-T15760 @Env-All C53278`, async ({
     io,
     page
   }) => {

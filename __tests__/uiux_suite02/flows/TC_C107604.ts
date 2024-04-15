@@ -2,8 +2,8 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import testMode from "@testData/Flows/C107604.json"
 
-test.describe("C107604_C107606", () => {
-  test("C107604 Verify drop-down in the HTTP Import when transferring files to the destination application.", async ({io, page}) => {
+test.describe("C107604_C107606 Verify drop-down in the HTTP Import when transferring files to the destination application.", () => {
+  test("@Priority-P2 @Zephyr-IO-T1658 @Env-All C107604", async ({io, page}) => {
       await io.createResourceFromAPI(testMode, "FLOWS");
       await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);
       const helpBubble =selectors.myAccountPagePO.HELP_BUBBLE;

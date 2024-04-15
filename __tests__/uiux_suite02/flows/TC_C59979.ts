@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Flows/C59979.json";
 
 test.describe(`C59979 To verify that the FlowBuilder should work as expected.`, () => {
-  test(`C59979 To verify that the FlowBuilder should work as expected.`, async ({
+  test(`@Priority-P2 @Zephyr-IO-T3099 @Env-All C59979`, async ({
     io,
     page
   }) => {

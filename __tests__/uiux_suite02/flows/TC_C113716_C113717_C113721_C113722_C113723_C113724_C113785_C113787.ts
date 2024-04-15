@@ -6,7 +6,7 @@ test.describe(`TC_C113716_C113717_C113721_C113722_C113723_C113724_C113785_C11378
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
 });
-  test(`TC_C113716_C113717_C113721_C113722_C113723_C113724_C113785_C113787 To verify flow debugger for ns lookups`, async ({
+  test(`@Epic-IO-41202 @Priority-P2 @Zephyr-IO-T14714 @Zephyr-IO-T14715 @Zephyr-IO-T14709 @Zephyr-IO-T14716 @Zephyr-IO-T14717 @Zephyr-IO-T14718 @Zephyr-IO-T14719 @Zephyr-IO-T14721  @Env-All TC_C113716_C113717_C113721_C113722_C113723_C113724_C113785_C113787`, async ({
     io,
     page
   }) => {

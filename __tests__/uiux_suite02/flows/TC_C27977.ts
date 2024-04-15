@@ -6,7 +6,7 @@ test.describe(`C27977 Verify the fields in 'Non-standard API response patterns' 
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
   });
 
-  test(`C27977 Verify the fields in 'Non-standard API response patterns' section are updated as per requirement in HTTP/REST lookup additional files`, async ({
+  test(`@Priority-P2 @Zephyr-IO-T2681 @Env-All C27977`, async ({
     io,
     page
   }) => {

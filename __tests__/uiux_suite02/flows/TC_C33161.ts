@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C33161 Verify When changes have been made but not yet saved, show 3 buttons - Save, Save & close, and Close for create lookup page`, () => {
-  test(`C33161 Verify When changes have been made but not yet saved, show 3 buttons - Save, Save & close, and Close for create lookup page`, async ({
+  test(`@Priority-P2 @Zephyr-IO-T2621 @Env-All C33161`, async ({
     io,
     page
   }) => {

@@ -7,7 +7,7 @@ test.describe("C24620_Verify the behaviour of Retry & Resolve dropdown with >100
         await io.flowBuilder.loadingTime();
 
     });
-    test("C24620_Verify the behaviour of Retry & Resolve dropdown with >1000 errors on Monitor whole account user UI_Backlog", async ({ io, page, }) => {
+    test("@Priority-P2 @Zephyr-IO-T7214 @Env-All C24620", async ({ io, page, }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.clickByText("TC_C24620_Flow_DND");

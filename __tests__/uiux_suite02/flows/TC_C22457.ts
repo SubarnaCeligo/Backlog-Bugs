@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C22457 Should be able to click on all the types of resources on the left side such as connections,exports,imports.", () => {
-  test("Exports check", async ({ io, page }) => {
+  test("@Priority-P2 @Zephyr-IO-T7021 @Env-All C22457", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
     await io.homePage.loadingTime()
     await io.homePage.goToMenu("Resources");

@@ -6,7 +6,7 @@ test.describe(`C33167 Verify When there are unsaved changes and user tries to cl
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
   });
 
-  test(`C33167 Verify When there are unsaved changes and user tries to close the drawer, it should trigger the Leave popup dialouge for edit lookup page`, async ({
+  test(`@Priority-P2 @Zephyr-IO-T2626 @Env-All C33167`, async ({
     io,
     page
   }) => {

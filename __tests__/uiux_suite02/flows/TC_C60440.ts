@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C60440 To verify that the integration is loading as expected from dashboard page", () => {
-    test("C60440 To verify that the integration is loading as expected from dashboard pag", async ({io, page}) => {
+    test("@Priority-P2 @Zephyr-IO-T15068  @Env-All C60440", async ({io, page}) => {
         await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
         await io.homePage.loadingTime()
         await io.homePage.click(selectors.basePagePO.DASHBOARD);

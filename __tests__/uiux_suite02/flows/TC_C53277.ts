@@ -7,7 +7,7 @@ test.describe(`C53277 Verify the new "Name" filed in the “Add branching” dra
     await io.homePage.loadingTime()
   });
 
-  test(`C53277 Verify the new "Name" filed in the “Add branching” drawer`, async ({
+  test(`@Priority-P2 @Zephyr-IO-T15761 @Env-All C53277`, async ({
     io,
     page
   }) => {
