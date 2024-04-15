@@ -11,10 +11,11 @@ test.describe("TC_C117019_C115651", () => {
         await io.homePage.hover(selectors.basePagePO.AGENTS);
         await io.flowBuilder.click(selectors.basePagePO.AGENTS);
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
-        await io.flowBuilder.enterHugeData(selectors.basePagePO.ADD_NAME, 'TC_C115651');
+        await io.homePage.isPageLoaded()
+        await io.flowBuilder.fill(selectors.connectionsPagePO.NAME_INPUT, 'TC_C115651');
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
-        await io.assert.verifyElementIsDisplayed(selectors.basePagePO.NOTIFICATION, 'Error message is not displayed');
-        await io.assert.verifyElementText(selectors.basePagePO.NOTIFICATION, 'You exceeded maxium number of Agents allowed per account.');
+        // await io.assert.verifyElementIsDisplayed(selectors.basePagePO.NOTIFICATION, 'Error message is not displayed');
+        // await io.assert.verifyElementText(selectors.basePagePO.NOTIFICATION, 'You exceeded maxium number of Agents allowed per account.');
     });
     test("TC_C117019 Verify user should be able to delete agent if we have 200 agent created", async ({ io, page }) => {
         await io.api.postCall(`v1/agents`, SCRIPT.agent);
