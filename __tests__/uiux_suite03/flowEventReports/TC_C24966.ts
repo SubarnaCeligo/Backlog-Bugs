@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C24966_Monitor All- Verify when clicked on view report details option under the actions drop down of a completed report, the Report details drawer is loaded", () => {
-    test("C24966_Monitor All- Verify when clicked on view report details option under the actions drop down of a completed report, the Report details drawer is loaded UI_Backlog", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T4349 (1.0) C24966_Monitor All- Verify when clicked on view report details option under the actions drop down of a completed report, the Report details drawer is loaded UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Tools", "Reports");
@@ -10,8 +10,14 @@ test.describe("C24966_Monitor All- Verify when clicked on view report details op
         await io.homePage.clickByText('Choose integration');
         const intID = await io.api.loadIntegrations();
         await io.flowBuilder.selectTextfromDropDown(page, intID.get('Automation Flows'))
-        await io.homePage.fill(selectors.dashboardPagePO.REPORT_FLOWS, 'TC_C12034_DND')
-        await page.getByText('TC_C12034_DND').click()
+        await io.homePage.fill(selectors.dashboardPagePO.REPORT_FLOWS, 'TC_C12034_Flow_DND')
+        var flowId = await io.api.getFlowId("TC_C12034_Flow_DND");
+        console.log(flowId);
+        
+        var flowIdlocator;
+        flowIdlocator = "[data-test="+ "'"+flowId +"'"+"]";
+        console.log(flowIdlocator)
+        await io.homePage.click(flowIdlocator);
         await io.homePage.clickByText('Done');
         await io.homePage.clickByText("Choose date range");
         await io.homePage.clickByText("Last minute");
