@@ -455,15 +455,11 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
           await page.mouse.wheel(0, 600);
       }
     await importPostAggHook.waitFor({ state: 'visible', timeout: 30000 });
-    // await io.flowBuilder.clickByTextByIndex("Close", 1);
     await page.waitForTimeout(5000);
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER, 1);
     await io.flowBuilder.click(selectors.basePagePO.DISCARD_CHANGES);
-    // await io.flowBuilder.clickByText("Discard changes");
-    // await io.flowBuilder.clickByTextByIndex("Close", 0);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER);
     await page.waitForTimeout(5000);
-    // await io.flowBuilder.clickByText("Discard changes");
     await io.flowBuilder.click(selectors.basePagePO.DISCARD_CHANGES);
 
      //PlayGround C110850
