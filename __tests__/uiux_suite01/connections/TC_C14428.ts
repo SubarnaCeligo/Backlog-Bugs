@@ -49,6 +49,7 @@ test.describe(`C14428 Verify 'none' tile of sandbox, the api (GET /api/tiles) is
         await io.homePage.clickByTextByIndex("C14428 sandbox", 0);
         await io.homePage.click(selectors.basePagePO.CONNECTIONS);
         await io.homePage.clickByText('Register connections');
+        await io.homePage.waitForElementAttached(selectors.myAccountPagePO.ERROR_CHECKBOX)
         await io.homePage.clickByIndex(selectors.myAccountPagePO.ERROR_CHECKBOX, 1);
         await io.homePage.click(selectors.exportsPagePO.REGISTERCONNECTION);
 
@@ -68,6 +69,7 @@ test.describe(`C14428 Verify 'none' tile of sandbox, the api (GET /api/tiles) is
         await io.homePage.clickByTextByIndex("C14428 production", 0);
         await io.homePage.click(selectors.basePagePO.CONNECTIONS);
         await io.homePage.clickByText('Register connections');
+        await io.homePage.waitForElementAttached(selectors.myAccountPagePO.ERROR_CHECKBOX);
         await io.homePage.clickByIndex(selectors.myAccountPagePO.ERROR_CHECKBOX, 1);
         await io.homePage.click(selectors.exportsPagePO.REGISTERCONNECTION);
 

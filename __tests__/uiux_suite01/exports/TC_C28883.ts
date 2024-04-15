@@ -10,7 +10,8 @@ import * as selectors from "@celigo/aut-selectors";
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'FTP');
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FTP);
     await io.flowBuilder.click(selectors.basePagePO.CONNECTION);
-    await io.homePage.clickByTextByIndex("FTP connection",1)
+    await io. flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,"FTP CONNECTION")
+    await io.homePage.clickByText("FTP CONNECTION")
     await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'FTP_Export');
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     // Validating sort/group records available

@@ -19,8 +19,8 @@ test.afterEach(async ({ io }) => {
     await io.flowBuilder.clickByText("Create from scratch")
     await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN)
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
-    await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,'NS 737 Conection');
-    await io.flowBuilder.clickByTextByIndex('NS 737 Conection', 0);
+    await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,'NETSUITE CONNECTION');
+    await io.flowBuilder.clickByTextByIndex('NETSUITE CONNECTION', 0);
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.fill(selectors.flowBuilderPagePO.EXPORT_RECORDTYPE_ADD,'Customer Categ');
     
