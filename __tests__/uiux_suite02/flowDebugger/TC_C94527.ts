@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C94527 from '@testData/FlowDebugger/C94527.json';
 
 test.describe("C94517_C94527_C94525_C94521_C94529_C94533_C94528_C94531_C94526_C94519_C94532", () => {
-    test("C94517_C94527_C94525_C94521_C94529_C94533_C94528_C94531_C94526_C94519_C94532", async ({ io, page }) => {
+    test("@Env-All C94517_C94527_C94525_C94521_C94529_C94533_C94528_C94531_C94526_C94519_C94532", async ({ io, page }) => {
         await io.createResourceFromAPI(C94527, "FLOWS");
         //Disable the flow
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);

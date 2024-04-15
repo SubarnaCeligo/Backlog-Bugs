@@ -72,7 +72,7 @@ test.describe("Verify that existing Netsuite/Salesforce imports have adaptor spe
          await io.assert.expectToContainValue(expectedStubContents, actualStubContents, 'Invalid stub contents' );
 
     });
-    test("Verify that existing Salesforce COMPOSITE import has adaptor specific stub when Mock Output is repopulated.", async ({io, page}) => {
+    test("@Env-All Verify that existing Salesforce COMPOSITE import has adaptor specific stub when Mock Output is repopulated.", async ({io, page}) => {
         
        //Create a flow with Salesforce COMPOSITE import 
        await io.createResourceFromAPI(C108497_SF_COMPOSITE, "FLOWS");

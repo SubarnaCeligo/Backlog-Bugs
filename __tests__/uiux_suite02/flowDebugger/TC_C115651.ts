@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import SCRIPT from "@testData/FlowDebugger/C115651.json"
 
 test.describe("TC_C117019_C115651", () => {
-    test("TC_C115651 Verify proper error message should show while creating more than 200 agent", async ({ io, page }) => {
+    test("@Env-All TC_C115651 Verify proper error message should show while creating more than 200 agent", async ({ io, page }) => {
         await io.api.postCall(`v1/agents`, SCRIPT.agent);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.homePagePO.TILE_VIEW);
@@ -17,7 +17,7 @@ test.describe("TC_C117019_C115651", () => {
         // await io.assert.verifyElementIsDisplayed(selectors.basePagePO.NOTIFICATION, 'Error message is not displayed');
         // await io.assert.verifyElementText(selectors.basePagePO.NOTIFICATION, 'You exceeded maxium number of Agents allowed per account.');
     });
-    test("TC_C117019 Verify user should be able to delete agent if we have 200 agent created", async ({ io, page }) => {
+    test("@Env-All TC_C117019 Verify user should be able to delete agent if we have 200 agent created", async ({ io, page }) => {
         await io.api.postCall(`v1/agents`, SCRIPT.agent);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.homePagePO.TILE_VIEW);

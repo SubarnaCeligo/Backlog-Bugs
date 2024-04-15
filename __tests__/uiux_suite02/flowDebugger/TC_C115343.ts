@@ -9,7 +9,7 @@ test.describe('C115343', () => {
         playload.showRelativeDateTime = true;
         const resp = await io.api.putCall('v1/preferences',playload);
     });
-    test('C115343 Verify [UX] Test run debug log page not showing properly aligned', async ({ io, page }) => {
+    test('@Env-All C115343 Verify [UX] Test run debug log page not showing properly aligned', async ({ io, page }) => {
         const id = await io.createResourceFromAPI(C115343, "FLOWS");
         //Disable the flow
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);

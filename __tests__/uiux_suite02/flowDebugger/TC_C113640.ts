@@ -6,7 +6,7 @@ test.describe('C113640', () => {
     test.beforeEach(async ({ io }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test('C113640', async ({ io, page }) => {
+    test('@Env-All C113640', async ({ io, page }) => {
         const id = await io.createResourceFromAPI(C113640, "FLOWS");
         //Disable the flow
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);

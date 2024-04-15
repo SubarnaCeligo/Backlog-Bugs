@@ -9,7 +9,7 @@ test.describe('C111378_C111377_C111376_C111375', () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
       });
-    test('C111378', async ({ io, page }) => {
+    test('@Env-All C111378', async ({ io, page }) => {
         const id = await io.createResourceFromAPI(C111378, "FLOWS");
         //Disable the flow
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
@@ -45,7 +45,7 @@ test.describe('C111378_C111377_C111376_C111375', () => {
         await io.assert.verifyElementDisplayedByText('Other', 'Other field not found');
 
     });
-    test('C111377', async ({ io, page }) => {
+    test('@Env-All C111377', async ({ io, page }) => {
         const id = await io.createResourceFromAPI(C111377, "FLOWS");
         //Disable the flow
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
@@ -79,7 +79,7 @@ test.describe('C111378_C111377_C111376_C111375', () => {
         //Other
         await io.assert.verifyElementDisplayedByText('Other', 'Other field not found');
     });
-    test('C111376', async ({ io, page }) => {
+    test('@Env-All C111376', async ({ io, page }) => {
         const id = await io.createResourceFromAPI(C111376, "FLOWS");
         //Disable the flow
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
@@ -115,7 +115,7 @@ test.describe('C111378_C111377_C111376_C111375', () => {
         await io.assert.verifyElementDisplayedByText('Other', 'Other field not found');
 
     });
-    test('C111375', async ({ io, page }) => {
+    test('@Env-All C111375', async ({ io, page }) => {
         const id = await io.createResourceFromAPI(C111375, "FLOWS");
         //Disable the flow
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);

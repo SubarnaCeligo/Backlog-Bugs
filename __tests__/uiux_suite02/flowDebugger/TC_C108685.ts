@@ -12,7 +12,7 @@ test.describe("TC_C108685 Verify Editing / reordering / restructuring input and 
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowViaAPI(id);
   });
-  test("C108685 Verify Editing / reordering / restructuring input and output filter should clear test run results.", async ({
+  test("@Env-All C108685 Verify Editing / reordering / restructuring input and output filter should clear test run results.", async ({
     io,
     page
   }) => {

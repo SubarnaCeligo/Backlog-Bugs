@@ -4,7 +4,7 @@ import C111357 from '../../../testData/inputData/FlowDebugger/C111357.json';
 
 
 test.describe("C111357, C111406, C110859, C110837, C112229, C111403, C111405, C111323, C110859 verify items populate under 'path to many' if there are no json array fields in the resource - lookup", () => {
-    test("C111357, C111406, C110859, C110837 verify items populate under 'path to many' if there are no json array fields in the resource - lookup", async ({io, page}) => {
+    test("@Env-All C111357, C111406, C110859, C110837 verify items populate under 'path to many' if there are no json array fields in the resource - lookup", async ({io, page}) => {
 
         //create a flow having json resource in export FTP
         await io.createResourceFromAPI(C111357, "FLOWS");
@@ -62,7 +62,7 @@ test.describe("C111357, C111406, C110859, C110837, C112229, C111403, C111405, C1
         
     });
     
-    test("C112229, C111403, C111405 verify items populate under 'path to many' if there are no json array fields in the resource", async ({io, page}) => {
+    test("@Env-All C112229, C111403, C111405 verify items populate under 'path to many' if there are no json array fields in the resource", async ({io, page}) => {
 
         //create a flow having json resource in export FTP
         await io.createResourceFromAPI(C111357, "FLOWS");
@@ -111,7 +111,7 @@ test.describe("C111357, C111406, C110859, C110837, C112229, C111403, C111405, C1
         
     });
 
-    test("C111323, C110859  verify items populate under 'path to many' if there are no json array fields in the resource", async ({io, page}) => {
+    test("@Env-All C111323, C110859  verify items populate under 'path to many' if there are no json array fields in the resource", async ({io, page}) => {
 
         //create a flow having json resource in export FTP
         await io.createResourceFromAPI(C111357, "FLOWS");

@@ -4,7 +4,7 @@ import C111321 from '../../../testData/inputData/FlowDebugger/C111321.json';
 
 
 test.describe("C111321, C110854, C110846, C111404 verify items populate under 'path to many' if there are array fields in the resource", () => {
-    test("C111321, C110854, C110846, C111404 verify items populate under 'path to many' if there are  array fields in the resource", async ({io, page},testInfo) => {
+    test("@Env-All C111321, C110854, C110846, C111404 verify items populate under 'path to many' if there are  array fields in the resource", async ({io, page},testInfo) => {
 
         //create a flow having json resource in export FTP
         await io.createResourceFromAPI(C111321, "FLOWS");

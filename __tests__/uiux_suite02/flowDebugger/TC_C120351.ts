@@ -12,7 +12,7 @@ test.describe('C120351_C120693', () => {
         await io.api.deleteFlowViaAPI(flowId);
         await io.api.deleteScriptViaAPI(postResponseMap);
     });
-    test('C120351_C120693', async ({ io, page }) => {
+    test('@Env-All C120351_C120693', async ({ io, page }) => {
         C120351.qa__api_tdata[0].createFlow.pageProcessors[0].hooks.postResponseMap._scriptId = postResponseMap;
         var flows = await io.api.createImpOrExpAndFlowsThruAPI(C120351);
         flowId = flows.get(C120351.name)["flowId"];

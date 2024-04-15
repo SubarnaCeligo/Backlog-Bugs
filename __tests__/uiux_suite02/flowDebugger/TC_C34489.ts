@@ -21,7 +21,7 @@ test.describe("C34489 - verify the request logs in a list are sorted by timestam
     await io.api.deleteFlowViaAPI(id);
   });
 
-  test("C34489 - verify the request logs in a list are sorted by timestamp in descending order", async ({
+  test("@Env-All C34489 - verify the request logs in a list are sorted by timestamp in descending order", async ({
     io,
     page
   }) => {

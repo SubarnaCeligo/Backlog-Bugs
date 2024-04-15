@@ -18,7 +18,7 @@ test.describe('C115532_C115729', () => {
         await io.api.deleteScriptViaAPI(preMap);
         await io.api.deleteScriptViaAPI(filterScript);
     });
-    test('C115532_C115729', async ({ io, page }) => {
+    test('@Env-All C115532_C115729', async ({ io, page }) => {
         C115532.pageProcessors[0].qa__import.hooks.preMap._scriptId = preMap;
         C115532.pageProcessors[0].qa__import.hooks.postMap._scriptId = postMap;
         C115532.pageProcessors[0].qa__import.hooks.postSubmit._scriptId = postSubmit;

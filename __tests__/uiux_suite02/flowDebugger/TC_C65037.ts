@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("TC_C65037 Verify Run history tab in the console is grayed out while in test mode i.e. when a flow is switched off.", () => {
-  test("C65037 Verify Run history tab in the console is grayed out while in test mode i.e. when a flow is switched off.", async ({
+  test("@Env-All C65037 Verify Run history tab in the console is grayed out while in test mode i.e. when a flow is switched off.", async ({
     io,
     page
   }) => {

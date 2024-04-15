@@ -7,7 +7,7 @@ test.describe(`TC_C120065_C120066_C120067_C120076_C120078_C120079_C120080_C12006
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
 
-  test(`TC_C120065_C120066_C120067_C120076_C120078_C120079_C120080_C120068_C120081_C120090_C120092_C120091_C120093_C120094`, async ({ io, page }) => {
+  test(`@Env-All TC_C120065_C120066_C120067_C120076_C120078_C120079_C120080_C120068_C120081_C120090_C120092_C120091_C120093_C120094`, async ({ io, page }) => {
     await io.createResourceFromAPI(testData, "FLOWS");
 
     // TC_C120068 - Verify if The parsed response should be available for the next steps within the flow builder

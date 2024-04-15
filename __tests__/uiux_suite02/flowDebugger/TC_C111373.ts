@@ -7,7 +7,7 @@ test.describe('C111373_C111374', () => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
       });
 
-    test('C111373_C111374', async ({ io, page }) => {
+    test('@Env-All C111373_C111374', async ({ io, page }) => {
         const id = await io.createResourceFromAPI(C111373, "FLOWS");
         await io.homePage.loadingTime()
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
