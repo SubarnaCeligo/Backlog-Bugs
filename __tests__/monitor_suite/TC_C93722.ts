@@ -11,7 +11,7 @@ import testData from "@testData/monitorSuite/monitor_all.json";
           );
                 await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
               });
-      test('C937322 Validate user is able to see default function name as "formInit" instead of "main" for form builder(Tile level access)', async({io,page}) => {
+      test('@Env-All C937322 Validate user is able to see default function name as "formInit" instead of "main" for form builder(Tile level access)', async({io,page}) => {
     
          const isResourceVisible = await io.homePage.isVisible(selectors.basePagePO.RESOURCES);
           if(isResourceVisible){
