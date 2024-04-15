@@ -6,6 +6,9 @@ import C111376 from "@testData/FlowDebugger/C111376.json"
 import C111375 from "@testData/FlowDebugger/C111375.json"
 
 test.describe('C111378_C111377_C111376_C111375', () => {
+    test.beforeEach(async ({ io }) => {
+        await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+      });
     test('C111378', async ({ io, page }) => {
         const id = await io.createResourceFromAPI(C111378, "FLOWS");
         //Disable the flow

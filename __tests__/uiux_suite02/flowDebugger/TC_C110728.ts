@@ -21,7 +21,9 @@ test.describe("C110728_C110729_C110730_C110732", () => {
         //TC_C110729 Verify user should be able to edit a stub
         await io.flowBuilder.doubleClick(selectors.flowBuilderPagePO.MOCK_OUTPUT_STUB);
         await io.flowBuilder.clearTextValue(selectors.flowBuilderPagePO.MOCK_OUTPUT_STUB);
+        await io.homePage.isPageLoaded()
         await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.MOCK_OUTPUT_STUB, JSON.stringify(C110728.editedStub));
+        await io.homePage.isPageLoaded()
         const stubEdit = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.MOCK_OUTPUT_STUB)).toString();
         await io.assert.expectToContainValue('{\"page_of_records\":[{\"record\":{\"blobKey\":\"Testing\"}}]}', stubEdit, "Stub is not showing properly");
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
@@ -32,6 +34,7 @@ test.describe("C110728_C110729_C110730_C110732", () => {
 
         //TC_C110730 Clicking â€œPopulate with canonical stubâ€? loads stub and auto-places it into the â€œMock outputâ€? field, replacing existing stub in the mock output field
         await io.flowBuilder.click(selectors.flowBuilderPagePO.POPULATE_WITH_CANONICAL_STUB);
+        await io.homePage.isPageLoaded()
         const stub1 = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.MOCK_OUTPUT_STUB)).toString();
         await io.assert.expectToContainValue('{  "page_of_records": [    {      "record": {        "blobKey": "Replace me"      }    }  ]}', stub1, "Stub is not showing properly");
 
@@ -43,6 +46,7 @@ test.describe("C110728_C110729_C110730_C110732", () => {
         await io.flowBuilder.click('[data-test="id"]');
         await io.flowBuilder.click(selectors.flowBuilderPagePO.NOTIFICATION_CLOSE_SELECT);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.POPULATE_WITH_CANONICAL_STUB);
+        await io.homePage.isPageLoaded()
         const stub2 = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.MOCK_OUTPUT_STUB)).toString();
         await io.assert.expectToContainValue('{  "page_of_records": [    {      "rows": [        {          "blobKey": "Replace me"        }      ]    }  ]}', stub2, "Stub is not showing properly");
     });

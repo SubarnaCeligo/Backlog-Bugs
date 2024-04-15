@@ -11,7 +11,7 @@ test.describe("Verify that existing Netsuite/Salesforce imports have adaptor spe
   
         //Create a flow with Netsuite import
         await io.createResourceFromAPI(C108497_NS, "FLOWS");
-
+        await io.homePage.loadingTime()
         //Go to Import page
         await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT);
 
@@ -20,6 +20,7 @@ test.describe("Verify that existing Netsuite/Salesforce imports have adaptor spe
         await io.importsPage.click(selectors.importPagePO.EXPAND_MOCK_RESPONSE);
         await io.importsPage.click(selectors.importPagePO.POPULATE_CANONICAL_STUB);
 
+        await io.homePage.isPageLoaded()
        //Get the stub contents
        const actualStubContents = (await io.importsPage.getText(selectors.importPagePO.STUB_CONTENTS_CSS)).toString();
        const expectedStubContents = '[,  {,    "id": 478945,,    "statusCode": 200,,    "_json": {,      "id": 478945,    },,    "ignored": false,,    "errors": [],,    "dataURI": "",  },],';
@@ -32,13 +33,14 @@ test.describe("Verify that existing Netsuite/Salesforce imports have adaptor spe
        
         //Create a flow with Salesforce SOAP import 
         await io.createResourceFromAPI(C108497_SF_SOAP, "FLOWS");
-
+        await io.homePage.loadingTime()
         //Go to Import page
         await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT);
 
         //Expand the Mock Output section and click on Populate canonical stub
         await io.importsPage.click(selectors.importPagePO.EXPAND_MOCK_RESPONSE);
         await io.importsPage.click(selectors.importPagePO.POPULATE_CANONICAL_STUB);
+        await io.homePage.isPageLoaded()
 
          //Get Stub contents
          const actualStubContents = (await io.importsPage.getText(selectors.importPagePO.STUB_CONTENTS_CSS)).toString();
@@ -53,13 +55,14 @@ test.describe("Verify that existing Netsuite/Salesforce imports have adaptor spe
         
         //Create a flow with Salesforce REST import 
         await io.createResourceFromAPI(C108497_SF_REST, "FLOWS");
-
+        await io.homePage.loadingTime()
         //Go to Import page
         await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT);
 
         //Expand the Mock Output section and click on Populate canonical stub
         await io.importsPage.click(selectors.importPagePO.EXPAND_MOCK_RESPONSE);
         await io.importsPage.click(selectors.importPagePO.POPULATE_CANONICAL_STUB);
+        await io.homePage.isPageLoaded()
 
          //Get Stub contents
          const actualStubContents = (await io.importsPage.getText(selectors.importPagePO.STUB_CONTENTS_CSS)).toString();
@@ -73,13 +76,14 @@ test.describe("Verify that existing Netsuite/Salesforce imports have adaptor spe
         
        //Create a flow with Salesforce COMPOSITE import 
        await io.createResourceFromAPI(C108497_SF_COMPOSITE, "FLOWS");
-
+       await io.homePage.loadingTime()
        //Go to Import page
        await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT);
         
         //Expand the Mock Output section and click on Populate canonical stub
         await io.importsPage.click(selectors.importPagePO.EXPAND_MOCK_RESPONSE);
         await io.importsPage.click(selectors.importPagePO.POPULATE_CANONICAL_STUB);
+        await io.homePage.isPageLoaded()
 
         //Get Stub contents
         const actualStubContents = (await io.importsPage.getText(selectors.importPagePO.STUB_CONTENTS_CSS)).toString();
