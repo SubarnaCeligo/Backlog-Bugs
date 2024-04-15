@@ -14,8 +14,8 @@ test.describe("C67038 Verify if the error message is shown when the user tries t
     }
   })
     test("C67038 Verify if the error message is shown when the user tries to signup using google with an invalid email", async ({io, page}) => {
-      await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_ICON);
-      await io.homePage.click(selectors.basePagePO.ACCOUNT_ICON);
+      await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
+    await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
       await io.homePage.click(selectors.basePagePO.SIGN_OUT);
       await io.homePage.click(selectors.loginPagePO.SIGNUP_SIGNIN_FOOTER);
       await io.homePage.clickByText('Sign up with Google');

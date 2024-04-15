@@ -17,8 +17,8 @@ test.describe("C67008 Verify error messages displayed in a user-friendly manner 
     io,
     page
   }) => {
-    await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_ICON);
-    await io.homePage.click(selectors.basePagePO.ACCOUNT_ICON);
+    await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
+    await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.click(selectors.basePagePO.SIGN_OUT);
     await io.homePage.click(selectors.loginPagePO.SIGNUP_SIGNIN_FOOTER);
     await io.homePage.click(selectors.loginPagePO.SIGN_UP_BUTTON);

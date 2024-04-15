@@ -19,8 +19,8 @@ test.describe(
       io,
       page
     }) => {
-      await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_ICON);
-      await io.homePage.click(selectors.basePagePO.ACCOUNT_ICON);
+      await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
+      await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
       await io.homePage.click(selectors.basePagePO.SIGN_OUT);
       await io.assert.verifyElementDisplayedByText(
         "Sign in with Google",

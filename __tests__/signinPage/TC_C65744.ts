@@ -14,8 +14,8 @@ test.describe("C65744 Verify that the user should not be able to signin to the I
     }
   })
     test("C65744 Verify that the user should not be able to signin to the IO account if the signup has failed for some reason.", async ({io, page}) => {
-      await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_ICON);
-      await io.homePage.click(selectors.basePagePO.ACCOUNT_ICON);
+      await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
+      await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
       await io.homePage.click(selectors.basePagePO.SIGN_OUT);
       await io.homePage.click(selectors.loginPagePO.SIGNUP_SIGNIN_FOOTER);
       await io.homePage.clickByText('Sign up with Google');
