@@ -13,17 +13,13 @@ test.describe("C24966_Monitor All,C24967 Tile manage,C24968_Tile monitor- Verify
      
         await io.flowBuilder.selectDropDownWithSplChar('Automation Flows');
        
-        await page.pause();
         await io.homePage.fill(selectors.dashboardPagePO.REPORT_FLOWS, 'TC_C12034_Flow_DND')
     
        var flowId = await io.api.getFlowId("TC_C12034_Flow_DND");
-       console.log(flowId);
-       
        var flowIdlocator;
-       flowIdlocator = "[data-test="+ "'"+flowId +"'"+"]";
-       console.log(flowIdlocator)
+       flowIdlocator = "[data-test="+ "'"+flowId +"'"+"]"; //as the data-test is dynamic so unable to create data-test via selector class
        await io.homePage.click(flowIdlocator);
-    //    (await io.flowBuilder.findElementByDataTest(flowId)).click();
+   
 
     
         await io.homePage.clickByText('Done');
