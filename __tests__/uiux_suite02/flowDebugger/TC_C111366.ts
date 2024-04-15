@@ -13,7 +13,7 @@ test.describe('C111366', () => {
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_LOG);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
-        await io.flowBuilderDashboard.waitForFlowToComplete()
+        await io.homePage.loadingTime()
         const lastRun = page.getByText('Last run');
         await lastRun.waitFor({ state: 'visible', timeout: 180000 });
 

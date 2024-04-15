@@ -23,6 +23,7 @@ test.describe('C120351_C120693', () => {
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
+        await io.homePage.loadingTime()
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
 
         //TC_C120693

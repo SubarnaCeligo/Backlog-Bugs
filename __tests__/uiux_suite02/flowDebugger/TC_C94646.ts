@@ -16,6 +16,7 @@ test.describe("C94646_C94645", () => {
     await io.flowBuilder.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
     await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'TC_C94646');
     await io.flowBuilder.clickByTextByIndex('TC_C94646', 0);
+    await io.homePage.loadingTime()
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT);
