@@ -33,6 +33,7 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
       selectors.basePagePO.CHANGE_EMAIL
     );
     await io.myAccountPage.click(selectors.basePagePO.CHANGE_EMAIL);
+    await page.waitForTimeout(10000);
     await io.myAccountPage.waitForElementAttached(
       selectors.basePagePO.CLOSE_BUTTON
     );
@@ -71,6 +72,7 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
       decrypt(process.env["IO_Password"])
     );
     await io.loginPage.click(selectors.basePagePO.SUBMIT);
+    await page.waitForTimeout(10000);
 
     //click on agent token and validate
     await io.homePage.goToMenu("Resources", "Agents");

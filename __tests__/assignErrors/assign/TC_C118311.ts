@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe.skip("C118311 - Verify that error assignment is retained when a user removes the step and then adds it again in the same flow", () => {
+test.describe("C118311 - Verify that error assignment is retained when a user removes the step and then adds it again in the same flow", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
