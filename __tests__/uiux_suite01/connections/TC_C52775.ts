@@ -11,9 +11,9 @@ test.describe(`C52775 Verify the Shopify connector is defaulting to the basic au
         await io.connectionPage.clickByText("Create connection")
         await io.connectionPage.waitForElementAttached(selectors.settingsPagePO.APP_NAME_INPUT)
         await io.connectionPage.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Shopify');
-        await io.connectionPage.click(selectors.connectionsPagePO.SHOPIFY_CONNECTION)
-        await io.assert.verifyElementContainsText(selectors.connectionsPagePO.AUTH_TYPE,"Basic")
-        await io.assert.verifyElementIsDisplayed( selectors.connectionsPagePO.VERSION_TYPE,"API version")
-        await io.assert.verifyElementIsDisplayed(selectors.connectionsPagePO.STORE_NAME,"Store name")
+        await io.flowBuilder.click("[data-test*='hopify']")
+        await io.assert.verifyElementContainsText(selectors.connectionsPagePO.AUTH_TYPE,"OAuth 2.0")
+        await io.assert.verifyElementIsDisplayed( "[for='http._httpConnectorVersionId']","API version")
+        await io.assert.verifyElementIsDisplayed("[for='settings.storeName']","Store name")
     });
 });

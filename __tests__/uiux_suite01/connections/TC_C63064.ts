@@ -9,6 +9,10 @@ test.describe(`C63064 Verify in connection if user selected one api type in simp
   }) => {
     await io.homePage.navigateTo(process.env.IO_UI_CONNECTOR_URL + "connections");
     await io.connectionPage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
+    await io.flowBuilder.fill(
+      selectors.settingsPagePO.APP_NAME_INPUT,
+      "Narvar"
+    );
     await io.connectionPage.click(selectors.connectionsPagePO.NARVAR_CONNECTION);
     await io.connectionPage.click(
       selectors.connectionsPagePO.NARVAR_RMA_CONNECTION
@@ -30,6 +34,7 @@ test.describe(`C63064 Verify in connection if user selected one api type in simp
     );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.NARVAR_RMA_CONNECTION)
     await expect(
       page
         .locator(selectors.connectionsPagePO.NARVAR_RMA_CONNECTION)

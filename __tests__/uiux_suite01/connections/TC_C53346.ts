@@ -12,6 +12,8 @@ test.describe("C53346 Verify Base URI is not present in Shopify Edit Connection 
     );
     if (!isConnectionsVisible) await io.homePage.clickByText("Resources");
     await io.homePage.click(selectors.basePagePO.CONNECTIONS);
+    await io.homePage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR)
+    await io.homePage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR,"SHOPIFY CONNECTION")
     await io.connectionPage.clickByText("SHOPIFY CONNECTION");
     await expect(page.getByText("Base URI")).not.toBeVisible();
   });

@@ -15,7 +15,7 @@ test.describe("C106836_Test to validate that the user is getting help text, help
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'GraphQL');
         await io.flowBuilder.clickByText('GraphQL');
         await io.flowBuilder.loadingTime()
-        await io.flowBuilder.clickByIndex("[aria-label='Open handlebars editor']",1);
+        await io.flowBuilder.click("button[data-test='graphql.query']");
         await io.homePage.loadingTime()
         await io.flowBuilder.fillByIndex(selectors.flowBuilderPagePO.EM2DOT0PO.ACE_EDITOR_INPUT, '{{', 4);
         // User able to edit the expression
