@@ -28,6 +28,7 @@ test.describe(`C63064 Verify in connection if user selected one api type in simp
       "celigo-test-2"
     );
     await io.connectionPage.click(selectors.basePagePO.SAVE);
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH);
     await io.assert.verifyElementDisplayedByText(
       "Your connection is working great! Nice Job!",
       "Connection creation error"
