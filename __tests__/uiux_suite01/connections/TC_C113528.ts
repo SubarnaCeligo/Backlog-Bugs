@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Flows/C113528.json";
 
 test.describe(`C113528_C113529`, () => {
-  test(`@Env-All C113528_C113529`, async ({ io, page }) => {
+  test(`C113528_C113529`, async ({ io, page }) => {
     const id = await io.createResourceFromAPI(testData, "FLOWS");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
     const lastRun = page.getByText('Last run');

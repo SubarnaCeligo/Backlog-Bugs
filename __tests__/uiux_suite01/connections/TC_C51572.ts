@@ -8,7 +8,7 @@ test.describe("C51572 To verify that the user should be able to create the Amazo
 test.afterEach(async ({ io }) => {
   await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
 });
-  test("@Env-All C51572 To verify that the user should be able to create the Amazon/Salesforce oauth2.0 connection successfully.", async ({ io, page }) => {
+  test("C51572 To verify that the user should be able to create the Amazon/Salesforce oauth2.0 connection successfully.", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);

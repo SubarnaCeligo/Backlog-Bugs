@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Connections/Narvar.json";
 
 test.describe(`C63062 Verify while editing connection through export/import/lookup,`, () => {
-  test(`@Env-All C63062 Verify while editing connection through export/import/lookup,`, async ({
+  test(`C63062 Verify while editing connection through export/import/lookup,`, async ({
     io,
     page
   }) => {

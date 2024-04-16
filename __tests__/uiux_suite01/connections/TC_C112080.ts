@@ -115,7 +115,7 @@ test.describe("C112080_C112081_C112082_C2112083_C112089", () => {
       "Connection creation error"
     );
   });
-  test("@Env-All C112089 Verify the handlebar at payload & JWT headers", async ({io, page}) => {
+  test("C112089 Verify the handlebar at payload & JWT headers", async ({io, page}) => {
     await io.homePage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL)
     await io.homePage.loadingTime()
     await io.homePage.waitForElementAttached("text='GITHUB DND'")

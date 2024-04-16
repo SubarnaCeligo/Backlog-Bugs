@@ -4,7 +4,7 @@ import flow from "@testData/Connections/Narvar.json";
 import testData from "@testData/Connections/C63011.json";
 
 test.describe(`C63024 Verify user is able to create connection from already created export/lookup and import`, () => {
-  test(`@Env-All C63024 Verify user is able to create connection from already created export/lookup and import`, async ({
+  test(`C63024 Verify user is able to create connection from already created export/lookup and import`, async ({
     page,
     io
   }) => {

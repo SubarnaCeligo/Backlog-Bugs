@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Connections/Narvar.json";
 
 test.describe(`C59658 Verify connection dropdown for edit exports`, () => {
-  test(`@Env-All C59658 Verify connection dropdown for edit exports`, async ({
+  test(`C59658 Verify connection dropdown for edit exports`, async ({
     io,
     page
   }) => {
