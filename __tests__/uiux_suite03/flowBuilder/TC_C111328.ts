@@ -5,7 +5,7 @@ test.describe("TC_C111328", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("TC_C111328", async ({ io, page }) => {
+    test("TC_C111328 @Zephyr-IO-T8853 @Env-All @Priority-P2", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.flowBuilder.loadingTime();
         await io.homePage.goToMenu("Tools", "Flow builder");
@@ -14,20 +14,23 @@ test.describe("TC_C111328", () => {
             selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP
         );
         await io.homePage.addStep("*** Clicked on add destination or lookup ***");
+        await io.homePage.click(selectors.flowBuilderPagePO.APPLICATION);
+        await io.homePage.addStep("*** Clicked on Application serach field ***");
         await io.homePage.click(selectors.flowBuilderPagePO.POSTGRESQL_APPLICATION);
         await io.homePage.addStep("*** Clicked on POSTGRE application ***");
         await io.flowBuilder.clickByText("Import records into destination application");
         await io.homePage.addStep("*** Selected import records option ***");
-        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "POSTGRESQL CONNECTION");
-        await io.homePage.addStep("*** Searched for POSTGRESQL CONNECTION ***");
-        await io.homePage.clickByText('POSTGRESQL CONNECTION');
-        await io.homePage.addStep("*** Selected  POSTGRE connection ***");
-        await io.flowBuilder.click(selectors.basePagePO.SAVE);
-        await io.homePage.addStep("*** Clicked on next button ***");
+        await io.homePage.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
+        await io.homePage.addStep("*** Clciked on create from scratch option ***");
         await io.homePage.click(selectors.basePagePO.ADD_NAME);
         await io.homePage.addStep("*** Clicked on name field ***");
         await page.keyboard.press('/');
         await io.homePage.addStep("*** Entered name for the import ***");
+        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "POSTGRESQL CONNECTION");
+        await io.homePage.addStep("*** Searched for POSTGRESQL CONNECTION ***");
+        await io.homePage.clickByText('POSTGRESQL CONNECTION');
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.flowBuilderPagePO.DESTINATIONTABLESEARCHPOSTGRE);
         await io.homePage.addStep("*** Clicked on destination table search field ***");
         await io.homePage.clickByText('Agent');
