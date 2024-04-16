@@ -5,7 +5,7 @@ test.describe("TC_C113933", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("TC_C113933 @Zephyr-IO-T14165 @Env-All", async ({ io, page }) => {
+    test("TC_C113933 @Zephyr-IO-T14165 @Env-All @Priority-P2", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.goToMenu("Tools", "Flow builder");
         await io.homePage.addStep("*** Navigated to flow builder page ***");

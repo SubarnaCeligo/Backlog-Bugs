@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C106830 Test to validate the auto suggestion feature in sandbox environment", () => {
-  test("C106830 @Zephyr-IO-T23879 @Env-All Test to validate the auto suggestion feature in sandbox environment", async ({
+  test("C106830 @Zephyr-IO-T23879 @Env-All @Priority-P2 Test to validate the auto suggestion feature in sandbox environment", async ({
     io,
     page
   }) => {
