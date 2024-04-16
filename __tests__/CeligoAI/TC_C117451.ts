@@ -5,7 +5,7 @@ test.describe("C117451 Verify the Persist resource descriptions Celigo AI", () =
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-All C117451 Verify the Persist resource descriptions Celigo AI", async ({ io, page }) => {
+  test("@Env-QA C117451 Verify the Persist resource descriptions Celigo AI", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.OPENAI.FLOW_DESCRIPTION_BUTTON);
     //Persist Flow Description not Occur on Integration page C117461

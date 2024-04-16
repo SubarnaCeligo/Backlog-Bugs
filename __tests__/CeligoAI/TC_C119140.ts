@@ -2,7 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C119140 Verify the Reset template,query and script button in AFE windows", () => {
-  test("@Env-All C119140  Verify the Reset template,query and script button in AFE windows", async ({io, page}) => {
+  test("@Env-QA C119140  Verify the Reset template,query and script button in AFE windows", async ({io, page}) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.clickByText('Reset_DND');
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
