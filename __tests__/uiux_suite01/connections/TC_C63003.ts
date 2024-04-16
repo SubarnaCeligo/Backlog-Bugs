@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Connections/Narvar.json";
 
 test.describe(`C63003 Verify connection dropdown while clonning flow`, () => {
-  test(`@Env-All C63003 Verify connection dropdown while clonning flow`, async ({
+  test(`@Env-QA C63003 Verify connection dropdown while clonning flow`, async ({
     io,
     page
   }) => {

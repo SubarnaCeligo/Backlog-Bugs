@@ -5,7 +5,7 @@ test.describe(`C68978 Verify the Iclinet if more than 1 client is defined from B
     test.beforeEach(async ({ io }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
       });
-    test(`@Env-All C68978 Verify the Iclinet if more than 1 client is defined from BE`, async({io,page}) => {
+    test(`@Env-QA C68978 Verify the Iclinet if more than 1 client is defined from BE`, async({io,page}) => {
   
         await io.homePage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL)
         await io.connectionPage.clickByText("Create connection")
