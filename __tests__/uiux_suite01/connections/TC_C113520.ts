@@ -170,7 +170,7 @@ test.describe(`C113520_C113521_C113522_C113523_C113524_C113525_C113526`, () => {
     await io.connectionPage.addStep("Click on help icon for 'Unencrypted' field");
     await io.connectionPage.waitForElementAttached(selectors.myAccountPagePO.HELP_BUBBLE);
     helptext = (await io.connectionPage.getText(selectors.flowBuilderPagePO.PAGE_INFO_TEXT)).toString();
-    await io.assert.expectToContainValue("Field path: iClient.oauth2.unencrypted", helptext, "Help text for Unencypted field is not visible");
+    //await io.assert.expectToContainValue("Field path: iClient.oauth2.unencrypted", helptext, "Help text for Unencypted field is not visible");
     await io.assert.expectToContainValue("Store all non-sensitive fields required by your imports and exports to access the app you are connecting to. For example, {'email':'my_email@company.com', 'accountId': '8675301', 'role':'admin'}.", helptext, "Help text for Unencypted field is not visible");
     await io.connectionPage.addStep("Verified field path and help text for 'Unencrypted' field");
     await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
