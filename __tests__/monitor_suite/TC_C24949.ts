@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/monitorSuite/monitor_few_manage_few.json";
 
 test.describe(`C24949 Tile few Manage and few monitor - Verify able to filter report results by endtime`, () => {
-  test(`C24949 Tile few Manage and few monitor - Verify able to filter report results by endtime`, async ({
+  test(`@Env-All C24949 Tile few Manage and few monitor - Verify able to filter report results by endtime`, async ({
     page,
     io
   }) => {
