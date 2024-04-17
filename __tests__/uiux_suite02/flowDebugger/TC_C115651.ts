@@ -15,7 +15,8 @@ test.describe("TC_C117019_C115651", () => {
         await io.flowBuilder.fill(selectors.connectionsPagePO.NAME_INPUT, 'TC_C115651');
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
         // await io.assert.verifyElementIsDisplayed(selectors.basePagePO.NOTIFICATION, 'Error message is not displayed');
-        // await io.assert.verifyElementText(selectors.basePagePO.NOTIFICATION, 'You exceeded maxium number of Agents allowed per account.');
+        let error = await io.flowBuilder.isVisible('You exceeded maxium number of Agents allowed per account.');
+        await io.assert.expectToBeTrue(error, "Error message is not displayed")
     });
     test("@Env-All TC_C117019 Verify user should be able to delete agent if we have 200 agent created", async ({ io, page }) => {
         await io.api.postCall(`v1/agents`, SCRIPT.agent);

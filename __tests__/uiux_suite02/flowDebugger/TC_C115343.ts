@@ -21,6 +21,6 @@ test.describe('C115343', () => {
         await io.flowBuilder.click(selectors.flowBuilderPagePO.VIEW_DEBUG_LOG);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.TEST_RUN_DEBUG_LOGS);
         await io.flowBuilder.delay(1000);
-        expect(await page.screenshot()).toMatchSnapshot("Debug_log.png");
+        expect(await page.screenshot()).toMatchSnapshot("Debug-log-PLAYWRIGHT-darwin.png");
     });
 });

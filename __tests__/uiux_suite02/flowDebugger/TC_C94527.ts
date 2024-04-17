@@ -75,9 +75,12 @@ test.describe("C94517_C94527_C94525_C94521_C94529_C94533_C94528_C94531_C94526_C9
         await io.flowBuilder.click(selectors.flowBuilderPagePO.HANDLEBARS_TEMPLATE);
         await io.flowBuilder.doubleClick(selectors.flowBuilderPagePO.HANDLEBAR);
         await io.flowBuilder.clearTextValue(selectors.flowBuilderPagePO.HANDLEBAR);
+        await io.homePage.loadingTime()
         await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.HANDLEBAR, "{{record.id}}");
+        await io.homePage.loadingTime()
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+        await io.homePage.loadingTime()
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);
