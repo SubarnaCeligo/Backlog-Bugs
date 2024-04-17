@@ -1,7 +1,7 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C53345 Verify Base URI is not present in UPS Edit Connection page", () => {
+test.describe("@Zephyr-IO-T16953 C53345 Verify Base URI is not present in UPS Edit Connection page", () => {
 
     test.beforeEach(async ({ io }) => {
         await io.homePage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);

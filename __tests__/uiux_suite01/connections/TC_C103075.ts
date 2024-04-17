@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C103075 Verify the advance section in simple view", () => {
-  test("C103075 Verify the advance section in simple view", async ({
+  test("@Zephyr-IO-T24475 C103075 Verify the advance section in simple view", async ({
     io,
     page
   }) => {

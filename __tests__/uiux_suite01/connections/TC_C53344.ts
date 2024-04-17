@@ -1,7 +1,7 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C53344 Verify Base URI is not present in Shopify Connection page", () => {
+test.describe("@Zephyr-IO-T16952 C53344 Verify Base URI is not present in Shopify Connection page", () => {
 
     test.beforeEach(async ({ io }) => {
       await io.homePage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);

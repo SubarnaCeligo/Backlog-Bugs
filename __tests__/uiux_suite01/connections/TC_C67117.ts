@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C67117 Verify There should be a horizontal line above the control, see the mock`, () => {
-  test(`C67117 Verify There should be a horizontal line above the control, see the mock`, async ({
+  test(`@Zephyr-IO-T21662 C67117 Verify There should be a horizontal line above the control, see the mock`, async ({
     io,
     page
   }) => {

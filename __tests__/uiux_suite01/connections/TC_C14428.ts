@@ -4,7 +4,7 @@ import sandbox_connection from "@testData/Connections/C14428_sandbox.json";
 import production_connection from "@testData/Connections/C14428_production.json";
 
 
-test.describe(`C14428 Verify 'none' tile of sandbox, the api (GET /api/tiles) is returning the offline connection under 'none' tile of sandbox.`, () => {
+test.describe(`@Zephyr-IO-T4046 C14428 Verify 'none' tile of sandbox, the api (GET /api/tiles) is returning the offline connection under 'none' tile of sandbox.`, () => {
     let conn1, conn2;
 
     test.afterEach(async ({ io, page }) => {
