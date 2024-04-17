@@ -11,6 +11,8 @@ test.describe(`C28982 Verify Connection status is displaying correctly in create
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
     await io.flowBuilder.delay(2000);
     await io.flowBuilder.clickByText("HTTP");
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH)
+    await io.homePage.loadingTime()
     await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.clickByText("3PL CONNECTION");
     const statusDot = page.getByRole("status");
