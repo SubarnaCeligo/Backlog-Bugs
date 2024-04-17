@@ -8,7 +8,9 @@ test.describe(`C59978 To verify that the browser URL while creating a new flow s
     context
   }) => {
     await io.flowBuilder.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
+    await io.homePage.loadingTime()
     await io.homePage.goToMenu("Tools", "Flow builder");
+    await io.homePage.loadingTime()
     const plusButtonsSelector = selectors.flowBuilderPagePO.PLUS_BUTTONS;
     await io.flowBuilder.waitForElementAttached(plusButtonsSelector);
     await io.flowBuilder.clickByIndex(plusButtonsSelector, 0);
@@ -18,8 +20,7 @@ test.describe(`C59978 To verify that the browser URL while creating a new flow s
       "Branch C59978"
     );
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
-      await io.homePage.loadingTime()
-      await io.homePage.loadingTime()
+    await io.homePage.loadingTime()
     await page
       .locator("span")
       .filter({ hasText: "Branch C59978" })
@@ -27,7 +28,9 @@ test.describe(`C59978 To verify that the browser URL while creating a new flow s
     await io.flowBuilder.delay(2000);
     const url = new URL(page.url());
     const newPage = await context.newPage();
+    await newPage.bringToFront()
     await newPage.goto(url.href);
+    await io.homePage.loadingTime()
     await expect(
       newPage.locator("span").filter({ hasText: "Branch C59978" })
     ).toBeVisible({
