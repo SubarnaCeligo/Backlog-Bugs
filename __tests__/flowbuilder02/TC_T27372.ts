@@ -1,6 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
-import T27372 from '../../../testData/inputData/FlowBuilder/T27372.json';
-import T27371 from '../../../testData/inputData/FlowBuilder/T27371.json';
+import T27372 from '../../testData/inputData/FlowBuilder/T27372.json';
+import T27371 from '../../testData/inputData/FlowBuilder/T27371.json';
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("T27372 Verify handlebar expression in Mapper 2.0 for NoSQL", () => {

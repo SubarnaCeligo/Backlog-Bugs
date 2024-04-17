@@ -1,8 +1,8 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C119800 from '../../../testData/inputData/FlowBuilder/C119800.json';
-import TC from '../../../testData/inputData/FlowBuilder/C119805.json';
-import TC1 from '../../../testData/inputData/FlowBuilder/C119797.json';
+import C119800 from '../../testData/inputData/FlowBuilder/C119800.json';
+import TC from '../../testData/inputData/FlowBuilder/C119805.json';
+import TC1 from '../../testData/inputData/FlowBuilder/C119797.json';
 
 test.describe("TC_C119800_C119801", () => {
     let id;

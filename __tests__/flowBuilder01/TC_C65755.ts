@@ -1,6 +1,6 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C27545 from '../../../testData/inputData/Flows/C27545.json'
+import C27545 from '../../testData/inputData/Flows/C27545.json'
 
 test.describe("C65755 Verify that the Delta Preview window is closed when user clicks on Cancel Button", () => {
   test("C65755 Verify that the Delta Preview window is closed when user clicks on Cancel Button", async ({io, page}) => {

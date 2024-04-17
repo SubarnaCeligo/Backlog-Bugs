@@ -1,6 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C110682 from '../../../testData/inputData/FlowBuilder/C110682.json';
+import C110682 from '../../testData/inputData/FlowBuilder/C110682.json';
 
 
 test.describe("Verify that the mini map is hidden by default when a flow is opened", () => {

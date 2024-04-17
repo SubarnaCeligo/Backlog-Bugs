@@ -1,5 +1,5 @@
 import {expect, test} from "@celigo/ui-core-automation";
-import testData from "../../../testData/inputData/FlowBuilder/T28451.json";
+import testData from "../../testData/inputData/FlowBuilder/T28451.json";
 import * as selectors from "@celigo/aut-selectors";
 import { flowBranching } from "@celigo/ui-core-automation/dist/src/controller/featureController/FlowBranching";
 test.describe("Verify message when when user tries to drag the import step within a branched flow", () => {

@@ -1,6 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C119808 from '../../../testData/inputData/FlowBuilder/C119808.json';
+import C119808 from '../../testData/inputData/FlowBuilder/C119808.json';
 
 test.describe("TC_C119808", () => {
     let id;

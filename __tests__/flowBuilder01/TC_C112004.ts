@@ -1,6 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C112004 from '../../../testData/inputData/FlowBuilder/C112004.json';
+import C112004 from '../../testData/inputData/FlowBuilder/C112004.json';
 
 
 test.describe("Verify that a flow cannot be disabled from Integration page while it is still running", () => {

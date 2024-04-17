@@ -1,6 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C110715 from '../../../testData/inputData/FlowBuilder/C110715.json';
+import C110715 from '../../testData/inputData/FlowBuilder/C110715.json';
 
 
 test.describe("Verify the contents of delete confirmation dialog when a disabled flow is being deleted from Integration Builder page.", () => {

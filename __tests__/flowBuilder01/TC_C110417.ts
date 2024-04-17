@@ -1,6 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C110417 from '../../../testData/inputData/flowBuilder/C110417.json';
+import C110417 from '../../testData/inputData/flowBuilder/C110417.json';
 
 test.describe("C110417)", () => {
     test("C110417)", async ({ io, page }) => {

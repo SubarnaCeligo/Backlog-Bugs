@@ -1,6 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import IO70947 from '../../../testData/inputData/FlowBuilder/IO70947.json';
+import IO70947 from '../../testData/inputData/FlowBuilder/IO70947.json';
 
 test.describe(`IO70947 The default value in the “Action to take…” options should be “Please select”. The “Do nothing” option should be removed for DB imports only in case of Handlebar Expression`, () => {
   test.beforeEach(async ({ io }) => {

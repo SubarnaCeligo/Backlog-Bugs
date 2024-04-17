@@ -1,6 +1,5 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import data5 from "@testData/Flows/C63512.json"
 
 test.describe("C104953 MY API is mistakenly referring to MY API basics page in Functions and Scripts Help Texts UI_Backlog", () => {
   test("C104953 MY API is mistakenly referring to MY API basics page in Functions and Scripts Help Texts UI_Backlog", async ({ io, page }) => {

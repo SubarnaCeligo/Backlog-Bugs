@@ -1,6 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C111781 from '../../../testData/inputData/FlowBuilder/C111781.json';
+import C111781 from '../../testData/inputData/FlowBuilder/C111781.json';
 
 
 test.describe("Verify BETA label is not displayed for TEST MODE", () => {

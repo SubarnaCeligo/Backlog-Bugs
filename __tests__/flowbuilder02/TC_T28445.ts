@@ -1,6 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import TC from '../../../testData/inputData/FlowBuilder/T28445.json';
+import TC from '../../testData/inputData/FlowBuilder/T28445.json';
 
 test.describe("IO-T28445", () => {
     test("@Bug-IO-66814  @Priority-P2  @Zephyr-T28445 @Env-All", async ({ io, page, context}) => {

@@ -1,6 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C110379 from '../../../testData/inputData/FlowBuilder/C110379.json';
+import C110379 from '../../testData/inputData/FlowBuilder/C110379.json';
 
 
 test.describe("Validate the hover text of 'Enable flow' button on Flow Builder UI", () => {

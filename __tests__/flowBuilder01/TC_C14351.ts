@@ -1,5 +1,5 @@
 import { test, expect } from "@celigo/ui-core-automation";
-import C14351 from '../../../testData/inputData/FlowBuilder/C14351.json';
+import C14351 from '../../testData/inputData/FlowBuilder/C14351.json';
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("Verify user should not see alert 133- XSS in debug tab of Flow builder page", () => {

@@ -1,6 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C110682 from '../../../testData/inputData/FlowBuilder/C110682.json';
+import C110682 from '../../testData/inputData/FlowBuilder/C110682.json';
 
 
 test.describe("Verify the positioning of map controls and the map on flow builder page", () => {

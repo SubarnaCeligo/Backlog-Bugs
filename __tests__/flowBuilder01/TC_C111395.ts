@@ -1,6 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C111395 from '../../../testData/inputData/FlowBuilder/C111395.json';
+import C111395 from '../../testData/inputData/FlowBuilder/C111395.json';
 
 
 test.describe("Verify that flow deletion is not allowed for enabled running flows on Flow Builder page", () => {

@@ -1,6 +1,6 @@
 import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import T27371 from '../../../testData/inputData/FlowBuilder/T27371.json';
+import T27371 from '../../testData/inputData/FlowBuilder/T27371.json';
 
 test.describe("T27368 Check for NoSqlDbs if the mapper 2.0 is enabled and getting saved and persisted ", () => {
     test.beforeEach(async ({ io }) => {

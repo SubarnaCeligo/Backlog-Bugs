@@ -1,6 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C106452 from '../../../testData/inputData/Flows/C106452.json';
+import C106452 from '../../testData/inputData/Flows/C106452.json';
 
 test.describe("C106452_C106453 Verified new icon(Bubble close icon)", () => {
     test("C106452_C106453 Verified new icon(Bubble close icon)", async ({ io, page }) => {

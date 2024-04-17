@@ -1,6 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C111312 from '../../../testData/inputData/FlowBuilder/C111312.json';
+import C111312 from '../../testData/inputData/FlowBuilder/C111312.json';
 
 
 test.describe("C111312_C111389_Verify that flow deletion is not allowed for enabled flows on a specific Integration page", () => {

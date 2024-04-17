@@ -1,6 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C110690 from '../../../testData/inputData/FlowBuilder/C110690.json';
+import C110690 from '../../testData/inputData/FlowBuilder/C110690.json';
 
 
 test.describe("Verify that the map is hidden when hide map(X) icon is clicked.", () => {

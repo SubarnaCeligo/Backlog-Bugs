@@ -1,6 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C110682 from '../../../testData/inputData/FlowBuilder/C110682.json';
+import C110682 from '../../testData/inputData/FlowBuilder/C110682.json';
 
 
 test.describe("Verify the the map icon in controls when the map is visible on the page and when the map is hidden.", () => {
