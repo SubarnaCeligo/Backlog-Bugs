@@ -10,6 +10,7 @@ test.describe("C120845-Verify that data configured through mock at different lev
 
     await io.homePage.loadingTime();
     await io.homePage.loadingTime();
+    await io.homePage.isPageLoaded()
     await io.flowBuilder.clickByIndex('[data-test="addDataProcessor"]', 1);
     await io.homePage.click(
       selectors.mappings.DEFAULT_MAPPING_TYPE.RESPONSE_MAPPING
