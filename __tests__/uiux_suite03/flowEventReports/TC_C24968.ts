@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C24966_Monitor All,C24967 Tile manage,C24968_Tile monitor- Verify when clicked on view report details option under the actions drop down of a completed report, the Report details drawer is loaded,", () => {
-    test("@Zephyr-IO-T4351 (1.0) @Env-All C24968_Tile monitor- Verify when clicked on view report details option under the actions drop down of a completed report, the Report details drawer is loaded UI_Backlog", async ({ io, page }) => {
+    test("@Zephyr-IO-T4351 @Priority-P2 @Env-All C24968_Tile monitor- Verify when clicked on view report details option under the actions drop down of a completed report, the Report details drawer is loaded UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Tools", "Reports");

@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C24967_Tile manage- Verify when clicked on view report details option under the actions drop down of a completed report, the Report details drawer is loaded", () => {
-    test("@Zephyr-IO-T4350 (1.0) @Env-All C24967_Tile manage- Verify when clicked on view report details option under the actions drop down of a completed report, the Report details drawer is loaded UI_Backlog", async ({ io, page }) => {
+    test("@Zephyr-IO-T4350 @Priority-P2 @Env-All C24967_Tile manage- Verify when clicked on view report details option under the actions drop down of a completed report, the Report details drawer is loaded UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Tools", "Reports");
@@ -15,6 +15,7 @@ test.describe("C24967_Tile manage- Verify when clicked on view report details op
         var flowId = await io.api.getFlowId("TC_C12034_Flow_DND");
         var flowIdlocator;
         flowIdlocator = "[data-test="+ "'"+flowId +"'"+"]"; //as the data-test is dynamic so unable to create data-test via selector class
+
         await io.homePage.click(flowIdlocator);
         await io.homePage.clickByText('Done');
         await io.homePage.clickByText("Choose date range");
