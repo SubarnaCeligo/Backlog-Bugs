@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`IO-T27292 Verify the user is able to see the existing "Access token path" moved from "Configure token auth" field to “OAuth 2.0 overrides” field`, () => {
-  test('@Env-All @Zephyr-IO-T27292  Verify the user is able to see the existing "Access token path" moved from "Configure token auth" field to “OAuth 2.0 overrides” field', async ({
+  test('@Env-All @Zephyr-IO-T27292 @Priority-P2  Verify the user is able to see the existing "Access token path" moved from "Configure token auth" field to “OAuth 2.0 overrides” field', async ({
     io,
     page
   }) => {
