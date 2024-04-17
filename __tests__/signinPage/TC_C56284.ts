@@ -1,30 +1,35 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
+import { decrypt } from "@celigo/aut-utilities";
 
-test.describe.skip(
-  "C56284 Verify all the available fields in the Forgot your password?(/request-reset) page",
-  () => {
-    test("C56284 Verify all the available fields in the Forgot your password?(/request-reset) page", async ({
-      io,
-      page
-    }) => {
-      await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-      await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT);
-      await page.hover(selectors.basePagePO.ACCOUNT);
-      await io.homePage.click(selectors.basePagePO.SIGN_OUT);
-      await io.signInPage.click(selectors.loginPagePO.FORGOT_PASSWORD);
-      await io.assert.verifyElementDisplayedByText(
-        "Forgot your password?",
-        "'Forgot your password?' text is not displayed"
-      );
-      await io.assert.verifyElementIsDisplayed(
-        selectors.loginPagePO.EMAIL_ID,
-        "Email field is not displayed"
-      );
-      await io.assert.verifyElementIsDisplayed(
-        selectors.basePagePO.SUBMIT,
-        "Submit button is not displayed"
-      );
-    });
-  }
+test.describe("C56284 Verify all the available fields in the Forgot your password?(/request-reset) page", () => {
+  test.beforeEach('check sign out', async ({ io, page }) => {
+    await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+    const isNotLoggedIn = await io.loginPage.checkLoginState();
+    if (!isNotLoggedIn) {
+      await io.homePage.waitForElementAttached(selectors.loginPagePO.EMAIL);
+      await io.signInPage.fill(selectors.loginPagePO.EMAIL, process.env["IO_UserName"]);
+      await io.signInPage.fill(selectors.loginPagePO.PASSWORD, decrypt(process.env["IO_Password"]));
+      await io.signInPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
+    }
+  })
+  test("C56284 Verify all the available fields in the Forgot your password?(/request-reset) page", async ({ io, page }) => {
+    await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
+    await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
+    await io.homePage.click(selectors.basePagePO.SIGN_OUT);
+    await io.signInPage.click(selectors.loginPagePO.FORGOT_PASSWORD);
+    await io.assert.verifyElementDisplayedByText(
+      "Forgot your password?",
+      "'Forgot your password?' text is not displayed"
+    );
+    await io.assert.verifyElementIsDisplayed(
+      selectors.loginPagePO.EMAIL_ID,
+      "Email field is not displayed"
+    );
+    await io.assert.verifyElementIsDisplayed(
+      selectors.basePagePO.SUBMIT,
+      "Submit button is not displayed"
+    );
+  });
+}
 );

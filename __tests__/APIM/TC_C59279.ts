@@ -12,6 +12,8 @@ test.describe("API manager redirect production ", () => {
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMANAGER);
     await io.homePage.loadingTime();
+    await io.homePage.loadingTime();
+    await page.waitForTimeout(5000);
     const allPages = context.pages();
     await allPages[1].bringToFront();
     await allPages[1].waitForLoadState();
@@ -19,7 +21,7 @@ test.describe("API manager redirect production ", () => {
     const currentUrl = await allPages[1].url();
     const apim = await locator.textContent();
     await io.assert.expectToBeTrue(apim.toString().includes("API Management"), "APIM page not found");
-    const expectedUrl = 'integrator.io/#!/';
+    const expectedUrl = 'integrator.io/#!/production/';
     const func = currentUrl.toString().includes(expectedUrl)
     await io.assert.expectToBeTrue(func, "urls doesn't match")
   });
