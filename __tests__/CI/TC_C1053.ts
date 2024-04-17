@@ -6,6 +6,7 @@ test.describe(`C1053 Verify on clicking "Signin with Google" asks to login to go
     io
   }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.flowBuilder.loadingTime();
     await io.homePage.click(selectors.homePagePO.SANDBOX_BUTTON);
     // await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT);
     // await io.homePage.hover(selectors.basePagePO.ACCOUNT_ICON);
