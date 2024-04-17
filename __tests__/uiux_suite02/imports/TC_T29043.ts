@@ -29,11 +29,5 @@ test.describe("@Authoor-Shriti S T29043-Verify that placeholder for Blob key pat
         await io.flowBuilder.waitForElementAttached(selectors.importPagePO.BLOB_KEY_PATH);
         await io.assert.verifyElementAttribute(selectors.importPagePO.BLOB_KEY_PATH, 'placeholder', 'Blob key path');
 
-
-
-
-
-
-
     });
 });
