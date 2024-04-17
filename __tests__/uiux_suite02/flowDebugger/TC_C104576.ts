@@ -18,6 +18,7 @@ test.describe("C104576 Verify error messages when Mock output is populated with 
         await io.flowBuilder.click(selectors.flowBuilderPagePO.MOCK_OUTPUT);
         // await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.POPULATE_WITH_CANONICAL_STUB);
         await io.flowBuilder.isPageLoaded()
+        await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.MOCK_OUTPUT_STUB)
         await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.MOCK_OUTPUT_STUB, JSON.stringify(TC.Text));
         await io.flowBuilder.isPageLoaded()
         // await io.flowBuilder.waitForElementAttached(selectors.basePagePO.VALUE_MUST_BE_PROVIDED_ERROR);
