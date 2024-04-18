@@ -1,7 +1,7 @@
 import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("@Authoor-Shriti S T29043-Verify that placeholder for Blob key path is sentence cased.", () => {
+test.describe("@Author-Shriti S T29043-Verify that placeholder for Blob key path is sentence cased.", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
