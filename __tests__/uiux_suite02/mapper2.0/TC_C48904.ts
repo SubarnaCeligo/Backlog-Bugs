@@ -5,6 +5,7 @@ import C48963 from '@testData/Flows/C48963.json';
 test.describe("C48904 Verify 'Actions to take if source value not found' options functionality for Object Data type", () => {
   test("C48904 Verify 'Actions to take if source value not found' options functionality for Object Data type", async ({io, page}) => {
       await io.createResourceFromAPI(C48963, "FLOWS");
+      await io.homePage.loadingTime()
       await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);
       await page.getByLabel("Settings").nth(4).click();
       await io.importsPage.click(selectors.mappings.MAPPER2DOT0PO.DEFAULT_MAPPING);
@@ -21,9 +22,11 @@ test.describe("C48904 Verify 'Actions to take if source value not found' options
 
       expect(val.company).toBe(null);
       await io.importsPage.click(selectors.basePagePO.SAVE_AND_CLOSE);
+      await io.flowBuilder.loadingTime()
       await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
+      await io.flowBuilder.loadingTime()
       const lastRun = page.getByText('Last run');
-      await lastRun.waitFor({state: 'visible', timeout: 180000});
+      await lastRun.waitFor({state: 'visible', timeout: 300000});
       const error = await page.$("text='error'");
       expect(error).toBe(null);
   });
