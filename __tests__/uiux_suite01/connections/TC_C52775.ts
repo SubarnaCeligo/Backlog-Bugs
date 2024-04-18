@@ -10,9 +10,9 @@ test.describe(`C52775 Verify the Shopify connector is defaulting to the basic au
         await io.connectionPage.clickByText("Create connection")
         await io.connectionPage.waitForElementAttached(selectors.settingsPagePO.APP_NAME_INPUT)
         await io.connectionPage.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Shopify');
-        await io.flowBuilder.click("[data-test*='hopify']")
+        await io.flowBuilder.click(selectors.connectionsPagePO.SHOPIFY_CONNECTION_1)
         await io.assert.verifyElementContainsText(selectors.connectionsPagePO.AUTH_TYPE,"OAuth 2.0")
-        await io.assert.verifyElementIsDisplayed( "[for='http._httpConnectorVersionId']","API version")
-        await io.assert.verifyElementIsDisplayed("[for='settings.storeName']","Store name")
+        await io.assert.verifyElementIsDisplayed( selectors.connectionsPagePO.HTTP_CONNECTOR_VERSIONID,"API version")
+        await io.assert.verifyElementIsDisplayed(selectors.connectionsPagePO.STORE_LABLE,"Store name")
     });
 });

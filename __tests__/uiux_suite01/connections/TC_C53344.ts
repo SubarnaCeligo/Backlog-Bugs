@@ -10,7 +10,7 @@ test.describe("@Zephyr-IO-T16952 C53344 Verify Base URI is not present in Shopif
       test ("@Env-All Verify Base URI is not present in Shopify Connection page", async ({io,page}) => {
  
         await io.connectionPage.clickByText('Create connection') 
-        await io.flowBuilder.click("[data-test*='hopify']")
+        await io.flowBuilder.click(selectors.connectionsPagePO.SHOPIFY_CONNECTION_1)
         const usernameFieldSelector = selectors.connectionsPagePO.MOCK_BASEURL; // Replace with the actual selector
       
         // Use page.$() to check if the username field element is present
