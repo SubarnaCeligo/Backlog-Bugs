@@ -17,6 +17,7 @@ test.describe("C62760 TO verify that the iFrame is loading fine when user log ou
     await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.click(selectors.homePagePO.SIGN_OUT)
+    await io.homePage.loadingTime();
     expect(await page.locator("iframe[title='Announcement']")).toBeVisible();
   });
 });

@@ -14,6 +14,6 @@ test.describe("C65744 Verify that the user should not be able to signin to the I
       await io.homePage.clickByTextByIndex('Next', 0);
       await io.homePage.fill(selectors.loginPagePO.PASSWD, decrypt('SU9xYUAxMjM0NTY='));
       await io.homePage.clickByTextByIndex('Next',0);
-      await io.assert.verifyElementDisplayedByText('qaautomation1@celigo.com', 'No error message');
+      await io.assert.verifyElementDisplayedByText('Couldn’t find your Google Account', 'No error message');
     });
   });
