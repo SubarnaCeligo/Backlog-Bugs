@@ -23,6 +23,6 @@ test.describe("C67037 Verify if the error message is shown when the user tries t
     await io.homePage.clickByTextByIndex('Next', 0);
     await io.homePage.fill(selectors.loginPagePO.PASSWD, decrypt('SU9xYUAxMjM0NTY='));
     await io.homePage.clickByTextByIndex('Next',0);
-    await io.assert.verifyElementDisplayedByText('qaautomation1@celigo.com', 'No error message');
+    await io.assert.verifyElementDisplayedByText('Couldn’t find your Google Account', 'No error message');
   });
 });
