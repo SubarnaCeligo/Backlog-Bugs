@@ -7,7 +7,7 @@ test.describe("C107605", () => {
       await io.createResourceFromAPI(testMode, "FLOWS");
       await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);
       await io.flowBuilder.loadingTime();
-      await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
+      // await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
       const helpBubble =selectors.myAccountPagePO.HELP_BUBBLE;
       const helptext_close = selectors.connectionsPagePO.HELPTEXT_CLOSE;
       const blobFormat = selectors.flowBuilderPagePO.BLOB_FORMAT;
