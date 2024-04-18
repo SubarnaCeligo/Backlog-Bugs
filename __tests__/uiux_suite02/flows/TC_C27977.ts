@@ -32,7 +32,11 @@ test.describe(`C27977 Verify the fields in 'Non-standard API response patterns' 
       "/"
     );
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+    await io.homePage.loadingTime();
+    await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);
+    await io.homePage.loadingTime();
+    await io.homePage.loadingTime();
     await io.flowBuilder.clickByText("Non-standard API response patterns");
     await io.assert.verifyElementDisplayedByText(
       "Path to file in HTTP response body",

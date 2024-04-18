@@ -10,6 +10,11 @@ test.describe("C24620_Verify the behaviour of Retry & Resolve dropdown with >100
     test("@Priority-P2 @Zephyr-IO-T7214 @Env-All C24620", async ({ io, page, }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.flowBuilder.loadingTime();
+        // await page.pause();
+
+        await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
+        await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,"TC_C24620_Flow_DND");
+        await io.integrationPage.waitForElementAttached(selectors.flowBuilderPagePO.ACTIONS_SELECTOR);
         await io.flowBuilder.clickByText("TC_C24620_Flow_DND");
         await io.flowBuilder.click(selectors.basePagePO.RUNFLOW);
         await io.flowBuilder.loadingTime();

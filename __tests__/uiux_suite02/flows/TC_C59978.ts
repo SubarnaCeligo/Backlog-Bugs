@@ -21,6 +21,7 @@ test.describe(`C59978 To verify that the browser URL while creating a new flow s
     );
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.homePage.loadingTime()
+    await io.homePage.loadingTime()
     await page
       .locator("span")
       .filter({ hasText: "Branch C59978" })
@@ -30,6 +31,7 @@ test.describe(`C59978 To verify that the browser URL while creating a new flow s
     const newPage = await context.newPage();
     await newPage.bringToFront()
     await newPage.goto(url.href);
+    await io.homePage.loadingTime()
     await io.homePage.loadingTime()
     await expect(
       newPage.locator("span").filter({ hasText: "Branch C59978" })
