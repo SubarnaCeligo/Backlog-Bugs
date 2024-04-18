@@ -6,29 +6,29 @@ test.describe(
   () => {
     test.beforeEach("Sign out", async ({ io, page }) => {
       await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+      await io.homePage.loadingTime();
       const isNotLoggedIn = await io.loginPage.checkLoginState();
       if (!isNotLoggedIn) {
-        await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT);
-        await io.homePage.hover(selectors.basePagePO.ACCOUNT);
+        await io.flowBuilder.click(selectors.basePagePO.ACCOUNT_BUTTON);
         await io.homePage.click(selectors.basePagePO.SIGN_OUT);
       }
     });
-    test("@Env-All C55953 Verify the user is able to save the newly set password successfully via email reset password link", async ({
+    test("@Env-QA @Env-IAQA C55953 Verify the user is able to save the newly set password successfully via email reset password link", async ({
       io,
       page
     }) => {
-      await io.homePage.navigateTo(
-        process.env.IO_UI_CONNECTOR_URL +
-          "request-reset?email=" +
-          process.env.IO_EMAIL_ACCOUNT
-      );
+      await io.homePage.navigateTo(process.env.IO_UI_CONNECTOR_URL + "request-reset");
+      await io.homePage.loadingTime();
+      await io.homePage.fill(selectors.homePagePO.EMAIL, "qaautomation1+emailsuite@celigo.com");
       await io.homePage.click(selectors.basePagePO.SUBMIT);
+      const webLink = new URL(process.env.IO_UI_CONNECTOR_URL);
       // Delay for new email to be sent, otherwise picks up old email
       await page.waitForTimeout(5000);
       const link = await io.emailVal.getLinkFromEmail(
-        "[staging.integrator.io] Request to reset your password"
+        `[${webLink.host}] Request to reset your password`, false, "pwqa1"
       );
       await io.homePage.navigateTo(link.toString());
+      await io.homePage.loadingTime();
       await io.homePage.fill(selectors.loginPagePO.PASSWORD, "123");
       await io.assert.verifyElementIsDisplayed(
         "#pageInfo",
@@ -49,10 +49,7 @@ test.describe(
         "text"
       );
       await io.homePage.getByRoleClick("button", "Save");
-      await io.loginPage.fill(
-        selectors.loginPagePO.EMAIL,
-        "qaautomation1@celigo.com"
-      );
+      await io.loginPage.fill(selectors.loginPagePO.EMAIL, "qaautomation1+emailsuite@celigo.com");
       await io.loginPage.fill(selectors.loginPagePO.PASSWORD, randomString);
       await io.loginPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
       const regex = /home$/;
