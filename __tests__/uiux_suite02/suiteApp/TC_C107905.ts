@@ -8,7 +8,7 @@ test.describe("TC_C107905_Verify syncing dateTime fields in NS SS2.x import flow
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("TC_C107905_Verify syncing dateTime fields in NS SS2.x import flows based on Date format added in the settings (D/M/YYYY hh:mm AM/PM) UI_Backlog", async ({ io, page }, testInfo) => {
+    test("@Env-All TC_C107905_Verify syncing dateTime fields in NS SS2.x import flows based on Date format added in the settings (D/M/YYYY hh:mm AM/PM) UI_Backlog", async ({ io, page }, testInfo) => {
         //Creating PageGenerator 
         await test.step("*** Creating PageGenerator ***", async () => {
             await io.pageGenerator(allure, NS_FTP);
