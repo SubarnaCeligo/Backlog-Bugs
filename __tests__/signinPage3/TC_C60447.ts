@@ -16,6 +16,7 @@ test.describe("C60447 To verify that the user is able to view masked/unmasked pa
   test("@Env-All @Zephyr-IO-T1111 C60447 To verify that the user is able to view masked/unmasked password on Password field.", async ({ io, page }) => {
     await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
+    await io.homePage.click(selectors.basePagePO.SIGN_OUT);
     await io.loginPage.waitForElementAttached(selectors.loginPagePO.PASSWORD);
     let passwordField = page.locator(selectors.loginPagePO.PASSWORD);
     expect(await passwordField.getAttribute('type')).toBe('password');
