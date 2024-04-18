@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import { decrypt } from "@celigo/aut-utilities";
 
-test.describe("C57330 Verify if the user is logged out we should be navigating to signin page as expected", () => {
+test.describe("C62760 TO verify that the iFrame is loading fine when user log outs from IO account", () => {
   test.beforeEach('check sign out', async ({ io, page }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     const isNotLoggedIn = await io.loginPage.checkLoginState();
@@ -13,12 +13,10 @@ test.describe("C57330 Verify if the user is logged out we should be navigating t
       await io.signInPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
     }
   })
-  test("C57330 Verify if the user is logged out we should be navigating to signin page as expected", async ({ io, page }) => {
+  test("C62760TO verify that the iFrame is loading fine when user log outs from IO account", async ({ io, page }) => {
     await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
-    await io.homePage.click(selectors.basePagePO.SIGN_OUT);
-    await io.assert.verifyElementIsDisplayed(selectors.basePagePO.SUBMIT, 'Sign in button is not displayed after sign out');
-    await io.assert.verifyElementIsDisplayed(selectors.loginPagePO.EMAIL_ID, 'Email input is not displayed after sign out');
-    await io.assert.verifyElementIsDisplayed(selectors.loginPagePO.PASSWORD_ID, 'Password input is not displayed after sign out');
+    await io.homePage.click(selectors.homePagePO.SIGN_OUT)
+    expect(await page.locator("iframe[title='Announcement']")).toBeVisible();
   });
 });

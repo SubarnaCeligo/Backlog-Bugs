@@ -31,8 +31,8 @@ test.describe(
         "'Name is required.' text is not displayed"
       );
       await io.assert.verifyElementDisplayedByText(
-        "Business email is required.",
-        "'Business email is required.' text is not displayed"
+        "Email is required.",
+        "Email is required.' text is not displayed"
       );
       await io.assert.verifyElementDisplayedByText(
         "You must agree to the Terms of Service / Service Subscription Agreement and Privacy Policy to continue.",

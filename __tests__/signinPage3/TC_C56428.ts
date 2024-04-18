@@ -23,8 +23,8 @@ test.describe("C56428 Verify refreshing on signin/ request reset/ forgot passwor
       await io.homePage.addStep("Reloading the page");
       await io.homePage.reloadPage();
       await io.assert.verifyElementIsDisplayed(selectors.basePagePO.SUBMIT, "Sign in is not displayed");
-      await io.assert.verifyElementIsDisplayed(selectors.loginPagePO.EMAIL_ID, "Email is not displayed");
-      await io.assert.verifyElementIsDisplayed(selectors.loginPagePO.PASSWORD_ID, "Password is not displayed");
+      await io.assert.verifyElementIsDisplayed(selectors.loginPagePO.EMAIL, "Email is not displayed");
+      await io.assert.verifyElementIsDisplayed(selectors.loginPagePO.PASSWORD, "Password is not displayed");
     });
 
     await test.step("Forgot password page", async () => {

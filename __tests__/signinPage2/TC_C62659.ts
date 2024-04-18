@@ -14,7 +14,6 @@ test.describe("C62659_To verify that the Iframe is loaded from Sign in Page for 
     }
   })
   test("C62659_To verify that the Iframe is loaded from Sign in Page for IO UI_Backlog", async ({ io, page }) => {
-    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.click(selectors.basePagePO.SIGN_OUT);

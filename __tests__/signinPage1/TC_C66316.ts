@@ -19,9 +19,7 @@ test.describe("C66316 Verify Sign up with Google is the first option and the sig
     await io.homePage.click(selectors.basePagePO.SIGN_OUT);
     await io.loginPage.clickByText('Sign up');
     await io.loginPage.waitForElementAttached('#root');
-    const contentsDiv = page.locator(':nth-match(#root div div div div, 6)');
-    const upperDiv = contentsDiv.locator('div div').nth(0);
-    const upperDivText = await upperDiv.locator('button').innerText();
-    await io.assert.expectToContainValue('Sign up with Google', upperDivText, 'Upper div does not contain sign up with google');
+    const contentsDiv = await page.locator('#root [type="submit"]').nth(0).innerText();
+    await io.assert.expectToContainValue('Sign up with Google', contentsDiv, 'Upper div does not contain sign up with google');
   });
 });
