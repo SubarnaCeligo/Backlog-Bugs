@@ -192,6 +192,7 @@ test.describe("IO-58006 scenarios", () => {
       await (await page.$(selectors.connectionsPagePO.CLIENTS_ID)).isVisible(),
       "Saved in Simple View Mode"
     );
+    await io.homePage.loadingTime();
     await io.flowBuilder.clickButtonByIndex(
       selectors.connectionsPagePO.HTTP_CNNECTOR,
       1

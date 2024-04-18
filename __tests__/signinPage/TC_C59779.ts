@@ -7,17 +7,17 @@ test.describe("TC_C59779 Verify the hyperlinks for Terms of Service / Service Su
     page
   }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.homePage.waitForElementAttached(
-      selectors.basePagePO.ACCOUNT_SELECTOR
-    );
-    const isLoggedIn = await io.loginPage.checkLoginState();
-    if (!isLoggedIn) {
-      await io.myAccountPage.clickByIndex(
-        selectors.basePagePO.ACCOUNT_SELECTOR,
-        1
-      );
-      await io.homePage.click(selectors.basePagePO.SIGN_OUT);
-    }
+    // await io.homePage.waitForElementAttached(
+    //   selectors.basePagePO.ACCOUNT_SELECTOR
+    // );
+    // const isLoggedIn = await io.loginPage.checkLoginState();
+    // if (!isLoggedIn) {
+    //   await io.myAccountPage.clickByIndex(
+    //     selectors.basePagePO.ACCOUNT_SELECTOR,
+    //     1
+    //   );
+    //   await io.homePage.click(selectors.basePagePO.SIGN_OUT);
+    // }
     await io.flowBuilder.loadingTime();
     await io.homePage.click(selectors.loginPagePO.SIGNUP_SIGNIN_FOOTER);
     await io.flowBuilder.loadingTime();

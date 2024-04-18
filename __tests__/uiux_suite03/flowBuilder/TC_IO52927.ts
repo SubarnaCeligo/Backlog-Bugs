@@ -16,14 +16,11 @@ test.describe("TC_IO52927", () => {
         await io.homePage.addStep("*** Searched for FTP ***");
         await io.homePage.clickByText('FTP');
         await io.homePage.addStep("*** Selected FTP application ***");
+        await io.homePage.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "FTP CONNECTION");
         await io.homePage.addStep("*** Searched for FTP connection ***");
         await io.homePage.clickByText('FTP CONNECTION');
         await io.homePage.addStep("*** Selected the FTP connection ***");
-        await io.flowBuilder.click(selectors.exportsPagePO.CHECK_EXISTING_EXPORT);
-        await io.homePage.addStep("*** Clicked on existing export checkbox ***");
-        await io.homePage.clickByText('103_FTPexport');
-        await io.homePage.addStep("*** Selected an existing export ***");
         await io.flowBuilder.clearTextValue(selectors.connectionsPagePO.CONNECTION_INPUT);
         await io.homePage.addStep("*** Removed first connection ***");
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "MONITOR CONNECTION");

@@ -7,7 +7,7 @@ test.describe("T4493 To verify field labels present in REST connection drawer is
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
 
   });
-  test("T4493 To verify field labels present in REST connection drawer is Changed as per new modification @author_Kaushik UI_Backlog", async ({ io, page }) => {
+  test("@Env-All T4493 To verify field labels present in REST connection drawer is Changed as per new modification @author_Kaushik UI_Backlog", async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'REST API (HTTP)');

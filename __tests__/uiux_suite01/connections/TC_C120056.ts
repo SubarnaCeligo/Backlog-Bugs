@@ -3,11 +3,11 @@ import * as selectors from "@celigo/aut-selectors";
 import C120056 from '../../../testData/inputData/Connections/C120056.json'
 
 test.describe(`TC_C120056`, () => {
-  test(`C120056  Verify cloned integration has the Plain text option for media type`, async ({
+  test(`@Env-All C120056  Verify cloned integration has the Plain text option for media type`, async ({
     io,
     page
   }) => {
-    await io.createResourceFromAPI(C120056, "FLOWS");
+   var k =  await io.createResourceFromAPI(C120056, "FLOWS");
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL)
     await io.homePage.clickByText("Automation Flows")
     await io.homePage.waitForElementAttached("text='TC_C120056'")

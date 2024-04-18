@@ -8,7 +8,7 @@ test.describe("C2044 Verify that Commerce category should be displayed in the 'R
 test.afterEach(async ({ io }) => {
   await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
 });
-  test("C2044 Verify that Commerce category should be displayed in the 'Record Type' drop-down in the NS Export Page.", async ({ io, page }) => {
+  test("@Env-All C2044 Verify that Commerce category should be displayed in the 'Record Type' drop-down in the NS Export Page.", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW);
     await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
@@ -16,6 +16,8 @@ test.afterEach(async ({ io }) => {
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'netsuite');
     await io.flowBuilder.click(selectors.connectionsPagePO.NETSUITE_CONNECTION);
     await io.flowBuilder.clickByText('Export records from source application');
+    await io.flowBuilder.clickByText("Create from scratch")
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN)
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,'NS 737 Conection');
     await io.flowBuilder.clickByTextByIndex('NS 737 Conection', 0);
