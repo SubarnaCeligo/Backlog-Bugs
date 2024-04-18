@@ -17,6 +17,9 @@ test.describe(`C59979 To verify that the FlowBuilder should work as expected.`, 
     } catch (error) {
       console.log("error", error);
     }
+    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.reloadPage()
+    await io.flowBuilder.loadingTime();
     await io.homePage.loadingTime()
     await expect(lastRun).toBeVisible();
     await io.flowBuilder.addStep("Verified the flow ran successfully");
