@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C57431 Verify the success message in the forgot password page after we submit the password reset request by providing the email id of the user", () => {
-  test("C57431 Verify the success message in the forgot password page after we submit the password reset request by providing the email id of the user", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T17016 C57431 Verify the success message in the forgot password page after we submit the password reset request by providing the email id of the user", async ({ io, page }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);

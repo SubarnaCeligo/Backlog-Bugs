@@ -4,7 +4,7 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe(
   "C58439 Verify if we are entering to /signin we are navigating to homepage when there is an active session in the browser",
   () => {
-    test("C58439 Verify if we are entering to /signin we are navigating to homepage when there is an active session in the browser", async ({
+    test("@Env-All @Zephyr-IO-T1010 C58439 Verify if we are entering to /signin we are navigating to homepage when there is an active session in the browser", async ({
       io,
       page
     }) => {

@@ -13,7 +13,7 @@ test.describe("C67038 Verify if the error message is shown when the user tries t
       await io.signInPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
     }
   })
-    test("C67038 Verify if the error message is shown when the user tries to signup using google with an invalid email", async ({io, page}) => {
+    test("@Env-All @Zephyr-IO-T17835 C67038 Verify if the error message is shown when the user tries to signup using google with an invalid email", async ({io, page}) => {
       await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
       await io.homePage.click(selectors.basePagePO.SIGN_OUT);

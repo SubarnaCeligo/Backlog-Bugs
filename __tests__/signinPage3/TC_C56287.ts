@@ -15,7 +15,7 @@ test.describe(
         await io.signInPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
       }
     })
-    test("C56287 Verify if the user is navigating to signup page (/signup?) by clicking on the link in the sign in page", async ({
+    test("@Env-All @Zephyr-IO-T1103 C56287 Verify if the user is navigating to signup page (/signup?) by clicking on the link in the sign in page", async ({
       io,
       page
     }) => {

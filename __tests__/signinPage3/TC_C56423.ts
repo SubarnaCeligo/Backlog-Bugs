@@ -15,7 +15,7 @@ test.describe(
         await io.signInPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
       }
     })
-    test("C56423 Verify the error message are displayed when signup is clicked without clicking the mandatory fields in signup page", async ({
+    test("@Env-All @Zephyr-IO-T1105 C56423 Verify the error message are displayed when signup is clicked without clicking the mandatory fields in signup page", async ({
       io,
       page
     }) => {;

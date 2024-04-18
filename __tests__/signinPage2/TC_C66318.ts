@@ -15,7 +15,7 @@ test.describe(
         await io.signInPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
       }
     })
-    test("C66318 Verify Sign in via Google option is shown in profile page for EU domain", async ({
+    test("@Env-All @Zephyr-IO-T20896 C66318 Verify Sign in via Google option is shown in profile page for EU domain", async ({
       io,
       page
     }) => {

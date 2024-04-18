@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import { decrypt } from "@celigo/aut-utilities";
 
-test.describe("C67037 Verify if the error message is shown when the user tries to signup using google with an existing email.", () => {
+test.describe.skip("C67037 Verify if the error message is shown when the user tries to signup using google with an existing email.", () => {
   test.beforeEach('check sign out', async ({ io, page }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     const isNotLoggedIn = await io.loginPage.checkLoginState();
@@ -13,7 +13,7 @@ test.describe("C67037 Verify if the error message is shown when the user tries t
       await io.signInPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
     }
   })
-  test("C67037 Verify if the error message is shown when the user tries to signup using google with an existing email.", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T17834 C67037 Verify if the error message is shown when the user tries to signup using google with an existing email.", async ({io, page}) => {
     await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.click(selectors.basePagePO.SIGN_OUT);

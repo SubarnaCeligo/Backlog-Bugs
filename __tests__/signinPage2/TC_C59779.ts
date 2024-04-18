@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("TC_C59779 Verify the hyperlinks for Terms of Service / Service Subscription Agreement and Privacy Policy in sign up page", () => {
-  test("TC_C59779 Verify the hyperlinks for Terms of Service / Service Subscription Agreement and Privacy Policy in sign up page", async ({
+  test("@Env-All @Zephyr-IO-T1381 TC_C59779 Verify the hyperlinks for Terms of Service / Service Subscription Agreement and Privacy Policy in sign up page", async ({
     io,
     page
   }) => {

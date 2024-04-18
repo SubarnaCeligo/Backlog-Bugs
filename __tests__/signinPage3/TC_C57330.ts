@@ -13,7 +13,7 @@ test.describe("C57330 Verify if the user is logged out we should be navigating t
       await io.signInPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
     }
   })
-  test("C57330 Verify if the user is logged out we should be navigating to signin page as expected", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T17014 C57330 Verify if the user is logged out we should be navigating to signin page as expected", async ({ io, page }) => {
     await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.click(selectors.basePagePO.SIGN_OUT);

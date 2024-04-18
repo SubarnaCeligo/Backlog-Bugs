@@ -14,7 +14,7 @@ test.describe("C56428 Verify refreshing on signin/ request reset/ forgot passwor
     }
   });
 
-  test("Sign in page", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T17010 C56428 Sign in page", async ({ io, page }) => {
     await test.step("Sign in page", async () => {
       await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
       await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);

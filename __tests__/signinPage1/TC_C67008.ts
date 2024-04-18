@@ -13,7 +13,7 @@ test.describe("C67008 Verify error messages displayed in a user-friendly manner 
       await io.signInPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
     }
   })
-  test("C67008 Verify error messages displayed in a user-friendly manner if any issues arise during the sign-up process or subsequent logins", async ({
+  test("@Env-All @Zephyr-IO-T22167 C67008 Verify error messages displayed in a user-friendly manner if any issues arise during the sign-up process or subsequent logins", async ({
     io,
     page
   }) => {

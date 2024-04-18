@@ -13,7 +13,7 @@ test.describe("C100968 If user tries to forget password for +1 email then + is r
       await io.signInPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
     }
   })
-    test("C100968 If user tries to forget password for +1 email then + is removing automatically", async ({io, page}) => {
+    test("@Env-All @Zephyr-IO-T25639 C100968 If user tries to forget password for +1 email then + is removing automatically", async ({io, page}) => {
       await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
       await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
       await io.homePage.click(selectors.basePagePO.SIGN_OUT);

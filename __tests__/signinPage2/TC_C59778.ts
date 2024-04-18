@@ -15,7 +15,7 @@ test.describe(
         await io.signInPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
       }
     })
-    test("C59778 Verify terms of service link is a single link in sign up page", async ({
+    test("@Env-All @Zephyr-IO-T1380 C59778 Verify terms of service link is a single link in sign up page", async ({
       io,
       page
     }) => {

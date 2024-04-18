@@ -13,7 +13,7 @@ test.describe("C56284 Verify all the available fields in the Forgot your passwor
       await io.signInPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
     }
   })
-  test("C56284 Verify all the available fields in the Forgot your password?(/request-reset) page", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T1101 C56284 Verify all the available fields in the Forgot your password?(/request-reset) page", async ({ io, page }) => {
     await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.click(selectors.basePagePO.SIGN_OUT);

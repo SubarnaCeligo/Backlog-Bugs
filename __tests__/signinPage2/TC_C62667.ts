@@ -13,7 +13,7 @@ test.describe("C62667_To verify that the iFrame is loaded for Sign up page", () 
       await io.signInPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
     }
   })
-  test("C62667_To verify that the iFrame is loaded for Sign up page UI_Backlog", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T1115 C62667_To verify that the iFrame is loaded for Sign up page UI_Backlog", async ({ io, page }) => {
     await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.click(selectors.basePagePO.SIGN_OUT);

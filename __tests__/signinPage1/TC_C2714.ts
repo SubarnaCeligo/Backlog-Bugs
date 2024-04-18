@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C2714_Verify What's New? link on the Product header navigates to latest release notes document", () => {
-  test("C2714_Verify What's New? link on the Product header navigates to latest release notes document UI_Backlog", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T874 C2714_Verify What's New? link on the Product header navigates to latest release notes document UI_Backlog", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();
     await io.homePage.click(selectors.homePagePO.HELP_CENTER);

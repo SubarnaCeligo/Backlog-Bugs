@@ -4,7 +4,7 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe(
   "C56283 Verify clicking on the forgot password page from signin page is navigating to the forgot password page(/request-reset)",
   () => {
-    test("C56283 Verify clicking on the forgot password page from signin page is navigating to the forgot password page(/request-reset)", async ({
+    test("@Env-All @Zephyr-IO-T1100 C56283 Verify clicking on the forgot password page from signin page is navigating to the forgot password page(/request-reset)", async ({
       io,
       page
     }) => {

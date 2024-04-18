@@ -13,7 +13,7 @@ test.describe("C59777 Verify clicking on sign out page redirects to sign in page
       await io.signInPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
     }
   })
-  test("C59777 Verify clicking on sign out page redirects to sign in page", async ({
+  test("@Env-All @Zephyr-IO-T1379 C59777 Verify clicking on sign out page redirects to sign in page", async ({
     io,
     page
   }) => {

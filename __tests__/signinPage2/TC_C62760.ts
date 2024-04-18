@@ -13,11 +13,11 @@ test.describe("C62760 TO verify that the iFrame is loading fine when user log ou
       await io.signInPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
     }
   })
-  test("C62760TO verify that the iFrame is loading fine when user log outs from IO account", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T1116 C62760 TO verify that the iFrame is loading fine when user log outs from IO account", async ({ io, page }) => {
     await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.click(selectors.homePagePO.SIGN_OUT)
     await io.homePage.loadingTime();
-    expect(await page.locator("iframe[title='Announcement']")).toBeVisible();
+    expect(await page.locator(selectors.loginPagePO.IFRAME)).toBeVisible();
   });
 });

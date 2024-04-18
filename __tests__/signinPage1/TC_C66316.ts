@@ -13,7 +13,7 @@ test.describe("C66316 Verify Sign up with Google is the first option and the sig
       await io.signInPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
     }
   })
-  test("C66316 Verify Sign up with Google is the first option and the sign up form is the second option on the page", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T20895 C66316 Verify Sign up with Google is the first option and the sign up form is the second option on the page", async ({ io, page }) => {
     await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.click(selectors.basePagePO.SIGN_OUT);

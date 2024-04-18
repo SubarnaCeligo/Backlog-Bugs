@@ -13,7 +13,7 @@ test.describe("C66306 Verify Sign up with Google is enabled on NA Sign up page",
       await io.signInPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
     }
   })
-  test("C66306 Verify Sign up with Google is enabled on NA Sign up page", async ({
+  test("@Env-All @Zephyr-IO-T20887 C66306 Verify Sign up with Google is enabled on NA Sign up page", async ({
     io,
     page
   }) => {
