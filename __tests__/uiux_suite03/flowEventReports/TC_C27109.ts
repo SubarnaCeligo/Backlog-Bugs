@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C27109 Run Report drawer - ‘Child integrations’ cannot be a required field", () => {
-  test("C27109 Run Report drawer - ‘Child integrations’ cannot be a required field UI_Backlog", async ({ io, page }) => {
+  test("@Zephyr- IO-T4374 @Priority-P2 @Env-All C27109 Run Report drawer - ‘Child integrations’ cannot be a required field UI_Backlog", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
     await io.homePage.goToMenu("Tools", "Reports");
@@ -11,7 +11,12 @@ test.describe("C27109 Run Report drawer - ‘Child integrations’ cannot be a r
     const intID = await io.api.loadIntegrations();
     await io.flowBuilder.selectTextfromDropDown(page, intID.get('Automation Flows'))
     await io.homePage.fill(selectors.dashboardPagePO.REPORT_FLOWS, 'TC_C12034_DND')
-    await page.getByText('TC_C12034_DND').click()
+ 
+    var flowId = await io.api.getFlowId("TC_C12034_Flow_DND");
+    var flowIdlocator;
+    flowIdlocator = "[data-test="+ "'"+flowId +"'"+"]"; //as the data-test is dynamic so unable to create data-test via selector class
+    await io.homePage.click(flowIdlocator);
+
     await io.homePage.clickByText('Done');
     await io.homePage.clickByText("Choose date range");
     await io.homePage.clickByText("Last minute");
