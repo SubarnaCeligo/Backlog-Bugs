@@ -2,13 +2,13 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C52777 Verify the new info banner and links under the banner are navigating their respective pages as specified on the links", () => {
-  test("@Env-All C52777 Verify the new info banner and links under the banner are navigating their respective pages as specified on the links", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T1122  C52777 Verify the new info banner and links under the banner are navigating their respective pages as specified on the links", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
     await io.homePage.goToMenu("Resources", "Connections");
     await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Shopify');
-    await io.flowBuilder.clickByText("Shopify")
+    await io.flowBuilder.click(selectors.connectionsPagePO.SHOPIFY_CONNECTION_1)
     await io.flowBuilder.click(selectors.connectionsPagePO.MUI_HTTP_AUTH_TYPE);
     await io.flowBuilder.click(selectors.connectionsPagePO.OAUTH);
     // await io.assert.verifyElementText(`${selectors.connectionsPagePO.SHOPIFY_FORM_HEADER_LINK} ${selectors.loginPagePO.CLIENT_SNACKBAR}`, 'Shopify recommends creating connections directly from the Shopify App Store');

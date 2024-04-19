@@ -8,7 +8,7 @@ test.describe("C112075_C112076_C112077_C112078_C112079", () => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   
   });
-  test("@Env-All C112075 Verify the 3 fields when we select HAMAC signature method from Dropdown", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T14658 C112075 Verify the 3 fields when we select HAMAC signature method from Dropdown", async ({io, page}) => {
       await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
       await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
       await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
@@ -27,7 +27,7 @@ test.describe("C112075_C112076_C112077_C112078_C112079", () => {
       const monitorExp2 = await io.homePage.isVisible("text='JWT headers'");
       await io.assert.expectToBeValue(monitorExp2.toString(), 'true', "Value is found");
   });
-  test("@Env-All C112076 Verify the Help texts for 3 fields 1)Secret Key 2)Payload 3)Header", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T14659 C112076 Verify the Help texts for 3 fields 1)Secret Key 2)Payload 3)Header", async ({io, page}) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
@@ -52,7 +52,7 @@ test.describe("C112075_C112076_C112077_C112078_C112079", () => {
       );
 
   });
-  test("@Env-All C112077 Verify Handle bars are working fine at Payload and Header ", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T14660 C112077 Verify Handle bars are working fine at Payload and Header ", async ({io, page}) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
@@ -78,7 +78,7 @@ test.describe("C112075_C112076_C112077_C112078_C112079", () => {
     await io.homePage.fill(selectors.connectionsPagePO.RULE_TEXTAERA, "test");
     await io.connectionPage.clickByIndex(selectors.basePagePO.SAVE_AND_CLOSE,1);
   });
-  test("@Env-All C112078 Verify the 3 fields when we select RS/PS/ES signature method from Dropdown", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T14661 C112078 Verify the 3 fields when we select RS/PS/ES signature method from Dropdown", async ({io, page}) => {
       await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
       await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
       await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
@@ -97,7 +97,7 @@ test.describe("C112075_C112076_C112077_C112078_C112079", () => {
       const monitorExp2 = await io.homePage.isVisible("text='JWT headers'");
       await io.assert.expectToBeValue(monitorExp2.toString(), 'true', "Value is found");
   });
-  test("@Env-All C112079 Verify the Help Text of Private Key", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T14662 C112079 Verify the Help Text of Private Key", async ({io, page}) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);

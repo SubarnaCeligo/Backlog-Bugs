@@ -8,7 +8,7 @@ test.describe("C61932_App crash should not happen if we change IO url something 
         await page.goto('https://qaprod.staging.integrator.io');
         // Validating successfully navigated
         await io.assert.verifyElementIsDisplayed(selectors.basePagePO.SUBMIT, 'Sign in button is not displayed after sign out');
-        await io.assert.verifyElementIsDisplayed(selectors.loginPagePO.EMAIL_ID, 'Email input is not displayed after sign out');
-        await io.assert.verifyElementIsDisplayed(selectors.loginPagePO.PASSWORD_ID, 'Password input is not displayed after sign out');
+        await io.assert.verifyElementIsDisplayed(selectors.loginPagePO.EMAIL, 'Email input is not displayed after sign out');
+        await io.assert.verifyElementIsDisplayed(selectors.loginPagePO.PASSWORD, 'Password input is not displayed after sign out');
     });
 });

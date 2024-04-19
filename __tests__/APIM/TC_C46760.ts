@@ -51,11 +51,13 @@ test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API
         await io.assert.expectToBeTrue(openspecname.toString().includes("OpenAPI Specification (OAS)"), "OpenAPI Specification name doesn't match");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMPUSH);
         await io.homePage.loadingTime();
+        await io.homePage.loadingTime()
+        await page.waitForTimeout(5000);
         const allPages = context.pages();
         await allPages[1].bringToFront();
         await allPages[1].waitForLoadState();
         const currentUrl = await allPages[1].url();
-        const expectedUrl = 'integrator.io/#!/environments/';
+        const expectedUrl = 'integrator.io/#!/production/';
         const func = currentUrl.toString().includes(expectedUrl)
         await io.assert.expectToBeTrue(func, "urls doesn't match")
     });
@@ -116,15 +118,17 @@ test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APIMFLOW, randomString);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMPUSH);
         await io.homePage.loadingTime();
+        await io.homePage.loadingTime()
+        await page.waitForTimeout(5000);
         const allPages = context.pages();
         await allPages[1].bringToFront();
         await allPages[1].waitForLoadState();
         const currentUrl = await allPages[1].url();
-        const expectedUrl = 'integrator.io/#!/environments/';
+        const expectedUrl = 'integrator.io/#!/production/';
         const func = currentUrl.toString().includes(expectedUrl)
         await io.assert.expectToBeTrue(func, "urls doesn't match")
     });
-    test("@Env-QA @Env-STAGING Export", async ({ io, context }) => {
+    test("@Env-QA @Env-STAGING Export", async ({ io, context, page }) => {
         const randomString = "Export" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
@@ -152,15 +156,17 @@ test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APIMFLOW, randomString);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMPUSH);
         await io.homePage.loadingTime();
+        await io.homePage.loadingTime()
+        await page.waitForTimeout(5000);
         const allPages = context.pages();
         await allPages[1].bringToFront();
         await allPages[1].waitForLoadState();
         const currentUrl = await allPages[1].url();
-        const expectedUrl = 'integrator.io/#!/environments/';
+        const expectedUrl = 'integrator.io/#!/production/';
         const func = currentUrl.toString().includes(expectedUrl)
         await io.assert.expectToBeTrue(func, "urls doesn't match")
     });
-    test("@Env-QA @Env-STAGING Lookup", async ({ io, context }) => {
+    test("@Env-QA @Env-STAGING Lookup", async ({ io, context, page }) => {
         const randomString = "Lookup" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
@@ -173,7 +179,8 @@ test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API
         await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.SELECT_LOOKUP);
         await io.flowBuilder.clickByText("Create from scratch");
-        await io.flowBuilder.click(selectors.exportsPagePO.CREATE_SELECT_CONNECTION);
+        await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
+        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'http connection');
         await io.flowBuilder.clickByText("http connection");
         await io.flowBuilder.fill(selectors.importPagePO.NAME, randomString);
         await io.flowBuilder.click(selectors.exportsPagePO.LOOKUP.HTTP_METHOD);
@@ -193,11 +200,13 @@ test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APIMFLOW, randomString);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMPUSH);
         await io.homePage.loadingTime();
+        await io.homePage.loadingTime()
+        await page.waitForTimeout(5000);
         const allPages = context.pages();
         await allPages[1].bringToFront();
         await allPages[1].waitForLoadState();
         const currentUrl = await allPages[1].url();
-        const expectedUrl = 'integrator.io/#!/environments/';
+        const expectedUrl = 'integrator.io/#!/production/';
         const func = currentUrl.toString().includes(expectedUrl)
         await io.assert.expectToBeTrue(func, "urls doesn't match");
 
@@ -215,7 +224,8 @@ test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API
         await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.SELECT_LOOKUP);
         await io.flowBuilder.clickByText("Create from scratch");
-        await io.flowBuilder.click(selectors.exportsPagePO.CREATE_SELECT_CONNECTION);
+        await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
+        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'http connection');
         await io.flowBuilder.clickByText("http connection");
         await io.flowBuilder.fill(selectors.importPagePO.NAME, randomString);
         await io.flowBuilder.click(selectors.exportsPagePO.LOOKUP.HTTP_METHOD);
@@ -244,11 +254,12 @@ test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMPUSH);
         await io.homePage.loadingTime();
         await io.homePage.loadingTime();
+        await page.waitForTimeout(5000);
         const allPages = context.pages();
         await allPages[1].bringToFront();
         await allPages[1].waitForLoadState();
         const currentUrl = await allPages[1].url();
-        const expectedUrl = 'integrator.io/#!/environments/';
+        const expectedUrl = 'integrator.io/#!/production/';
         const func = currentUrl.toString().includes(expectedUrl)
         await io.assert.expectToBeTrue(func, "urls doesn't match");
     });
@@ -282,11 +293,13 @@ test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APIMFLOW, randomString);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMPUSH);
         await io.homePage.loadingTime();
+        await io.homePage.loadingTime()
+        await page.waitForTimeout(5000);
         const allPages = context.pages();
         await allPages[1].bringToFront();
         await allPages[1].waitForLoadState();
         const currentUrl = await allPages[1].url();
-        const expectedUrl = 'integrator.io/#!/environments/';
+        const expectedUrl = 'integrator.io/#!/production/';
         const func = currentUrl.toString().includes(expectedUrl)
         await io.assert.expectToBeTrue(func, "urls doesn't match")
     });

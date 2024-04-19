@@ -8,7 +8,7 @@ test.describe("C77905 To verify that the user should be able to create the Amazo
 test.afterEach(async ({ io }) => {
   await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
 });
-  test("@Env-All C77905 To verify that the user should be able to create the Amazon/Salesforce oauth2.0 connection successfully.", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T22129 C77905 To verify that the user should be able to create the Amazon/Salesforce oauth2.0 connection successfully.", async ({ io, page }) => {
     let x=await io.connections.getConnection("AMAZON SP API CONNECTION");
     let authorizationUrl = await io.api.getCall("v1/connection/" + x._id + "/oauth2");
     await io.exportsPage.navigateTo(authorizationUrl.authorizationUrl);
