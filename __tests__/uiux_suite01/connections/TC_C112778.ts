@@ -5,7 +5,7 @@ test.describe("C112778 - Verify the 'Create destination / lookup'(export bubble)
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Env-All C112778 - Verify the 'Create destination / lookup'(export bubble) page on flow builder screen when the search criteria does not yield any results.", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T14109 C112778 - Verify the 'Create destination / lookup'(export bubble) page on flow builder screen when the search criteria does not yield any results.", async ({ io, page }) => {
         //Navigate to Tools ->Flow Builder page and click on 'Create destination / lookup'(export bubble)
         await io.homePage.click(selectors.basePagePO.TOOLS);
         await io.homePage.waitForElementAttached(selectors.basePagePO.FLOW_BUILDER);

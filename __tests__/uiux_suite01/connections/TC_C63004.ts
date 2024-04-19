@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C63004 Verify connection dropdown while installing integration`, () => {
-  test(`@Env-All C63004 Verify connection dropdown while installing integration`, async ({
+  test(`@Env-All @Zephyr-IO-T21795 C63004 Verify connection dropdown while installing integration`, async ({
     io,
     page
   }) => {

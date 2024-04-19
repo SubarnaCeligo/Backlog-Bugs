@@ -6,7 +6,7 @@ test.describe("C112070_C112071_C112072_C112073_C112074", () => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   
   });
-  test("@Env-All C112070 Verify the Dropdown values of Signature Method", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T14653 C112070 Verify the Dropdown values of Signature Method", async ({io, page}) => {
       await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
       await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
       await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
