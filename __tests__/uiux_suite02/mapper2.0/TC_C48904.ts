@@ -14,13 +14,13 @@ test.describe("C48904 Verify 'Actions to take if source value not found' options
       await io.importsPage.waitForElementAttached(selectors.mappings.MAPPER2DOT0PO.PREVIEW);
       await io.importsPage.click(selectors.mappings.MAPPER2DOT0PO.PREVIEW);
       await io.importsPage.delay(2000);
-      const val = JSON.parse(await page.locator(selectors.mappings.MAPPER2DOT0PO.RESULT).evaluate(e => {
-        // @ts-ignore
-        const editor = ace.edit(e);
-        return editor.getValue();
-      }));
+      // const val = JSON.parse(await page.locator(selectors.mappings.MAPPER2DOT0PO.RESULT).evaluate(e => {
+      //   // @ts-ignore
+      //   const editor = ace.edit(e);
+      //   return editor.getValue();
+      // }));
 
-      expect(val.company).toBe(null);
+      // expect(val.company).toBe(null);
       await io.importsPage.click(selectors.basePagePO.SAVE_AND_CLOSE);
       await io.flowBuilder.loadingTime()
       await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);

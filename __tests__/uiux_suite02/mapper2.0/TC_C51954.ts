@@ -4,7 +4,10 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe("C51954 Verify monitor user should be able to collapse and expand the mappings", () => {
   test("C51954 Verify monitor user should be able to collapse and expand the mappings", async ({io, page}) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+    await io.homePage.loadingTime()
+    await io.homePage.fill(selectors.homePagePO.SEARCH_INTEGRATION_WDIO, "Mapping_DND")
     await io.flowBuilder.clickByText('Mapping_DND');
+    await io.homePage.loadingTime()
     await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);
     await io.flowBuilder.click(selectors.basePagePO.EXPAND_ALL);
     let rowNumber = (await page.locator('.rc-tree-treenode.rc-tree-treenode-switcher-open').all()).length;
