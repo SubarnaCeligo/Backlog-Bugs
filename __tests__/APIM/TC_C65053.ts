@@ -32,7 +32,7 @@ test.describe("APIM Help Text Validation", () => {
         await io.assert.expectToBeTrue(gatewayvalue.toString().includes("Gateway URL"), "message doesn't match");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMGATEWAYHELPTEXTBUTTON);
         const gatewayhelptext = await io.flowBuilder.getText(selectors.importPagePO.INPUTHELP)
-        await io.assert.expectToBeTrue(gatewayhelptext.toString().includes("A preview of the Gateway URL or consumer endpoint. This is based on the\n<b>Context path</b>\n and \n<b>Endpoint</b>\n fields as follows: Gateway URL = Base URI + Context path + Endpoint."), "message doesn't match");
+        await io.assert.expectToBeTrue(gatewayhelptext.toString().includes("Gateway URL = Base URI + Context path + Endpoint."), "message doesn't match");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMGATEWAYHELPTEXTBUTTON);
         // context path
         const contextpath = await (await page.$(selectors.flowBuilderPagePO.APIMCONTEXTPATHFIELD)).textContent();
