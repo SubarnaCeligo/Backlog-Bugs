@@ -32,7 +32,7 @@ test.describe('verify user must be able to save the mapper 2.0 mappings exist if
 
            await io.flowBuilder.clickByText("Destination record field (HTTP)");
 
-           await io.flowBuilder.clickByText("Save")
+           await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE)
 
            await page.waitForSelector("#notistack-snackbar");
 

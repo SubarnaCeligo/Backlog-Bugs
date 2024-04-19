@@ -5,7 +5,7 @@ test.describe("C51954 Verify monitor user should be able to collapse and expand 
   test("C51954 Verify monitor user should be able to collapse and expand the mappings", async ({io, page}) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.homePage.loadingTime()
-    await io.homePage.fill(selectors.homePagePO.SEARCH_INTEGRATION_WDIO, "Mapping_DND")
+    await io.homePage.fill(selectors.flowBuilderPagePO.SEARCH, "Mapping_DND")
     await io.flowBuilder.clickByText('Mapping_DND');
     await io.homePage.loadingTime()
     await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);
