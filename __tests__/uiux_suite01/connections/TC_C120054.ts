@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 test.describe("TC_C120054", () => {
-  test("@Env-All C120054 Override media type field should have Plain text option inside Configure refresh token section", async ({ io, page }) => {
+  test("@Env-All  @Zephyr-IO-T18655 C120054 Override media type field should have Plain text option inside Configure refresh token section", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Resources", "Connections");
