@@ -5,7 +5,7 @@ test.describe("C112777 - Verify the standalone 'Create export' page when the sea
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C112777 - Verify the standalone 'Create export' page when the search criteria does not yield any results.", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T14108 C112777 - Verify the standalone 'Create export' page when the search criteria does not yield any results.", async ({ io, page }) => {
         //Navigate to Exports page and click on 'Create export'
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.exportsPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);

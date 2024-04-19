@@ -1,11 +1,11 @@
 import { test, expect } from "@celigo/ui-core-automation";
-import * as DynamoDB from "@testData/Connections/Create/Create_Connection_DynamoDB.json"
+import  DynamoDB from "@testData/Connections/Create/Create_Connection_DynamoDB.json"
 test.describe("Create Connections", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.connections.deleteConnection(DynamoDB.importJSON.name)
     });
-    test("TC_037_Create_Connection_DynamoDB", async ({
+    test("@Env-All TC_037_Create_Connection_DynamoDB", async ({
         io
     }, testInfo) => {
         let actualJson;

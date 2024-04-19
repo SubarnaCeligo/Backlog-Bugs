@@ -5,7 +5,7 @@ test.describe("C112776 - Verify the 'Create source' page on flow builder screen 
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C112776 - Verify the 'Create source' page on flow builder screen when the search criteria does not yield any results.", async ({ io, page }) => {
+    test("@Env-All  @Zephyr-IO-T14107 C112776 - Verify the 'Create source' page on flow builder screen when the search criteria does not yield any results.", async ({ io, page }) => {
         //Navigate to Tools -> Flow bUilder
         await io.homePage.click(selectors.basePagePO.TOOLS);
         await io.homePage.waitForElementAttached(selectors.basePagePO.FLOW_BUILDER);

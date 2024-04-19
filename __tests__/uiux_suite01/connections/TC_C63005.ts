@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C63005 Verify connection dropdown list`, () => {
-  test(`C63005 Verify connection dropdown list`, async ({ io, page }) => {
+  test(`@Env-QA @Zephyr-IO-T21796 C63005 Verify connection dropdown list`, async ({ io, page }) => {
     await io.flowBuilder.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
     await io.homePage.goToMenu("Tools", "Flow builder");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
@@ -10,6 +10,8 @@ test.describe(`C63005 Verify connection dropdown list`, () => {
     await io.connectionPage.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Happy Returns');
     await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.HAPPY_RETURNS_CONNECTION);
     await io.connectionPage.click(selectors.connectionsPagePO.HAPPY_RETURNS_CONNECTION);
+    await io.flowBuilder.clickByText("Create from scratch")
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN)
     await io.connectionPage.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
     await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);
     await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_NAME_DROPDOWN);

@@ -2,10 +2,11 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C106830 Test to validate the auto suggestion feature in sandbox environment", () => {
-  test("C106830 Test to validate the auto suggestion feature in sandbox environment", async ({
+  test("C106830 @Zephyr-IO-T23879 @Env-All @Priority-P2 Test to validate the auto suggestion feature in sandbox environment", async ({
     io,
     page
   }) => {
+    // This also same as C106784: Test to validate the auto suggestion feature in sandbox environment
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.flowBuilder.click(selectors.homePagePO.SANDBOX_BUTTON);
@@ -14,6 +15,7 @@ test.describe("C106830 Test to validate the auto suggestion feature in sandbox e
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, "http");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH);
+    await io.homePage.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.fill(
       selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,

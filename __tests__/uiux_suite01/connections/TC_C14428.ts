@@ -4,7 +4,7 @@ import sandbox_connection from "@testData/Connections/C14428_sandbox.json";
 import production_connection from "@testData/Connections/C14428_production.json";
 
 
-test.describe(`C14428 Verify 'none' tile of sandbox, the api (GET /api/tiles) is returning the offline connection under 'none' tile of sandbox.`, () => {
+test.describe(`@Zephyr-IO-T4046 C14428 Verify 'none' tile of sandbox, the api (GET /api/tiles) is returning the offline connection under 'none' tile of sandbox.`, () => {
     let conn1, conn2;
 
     test.afterEach(async ({ io, page }) => {
@@ -26,7 +26,7 @@ test.describe(`C14428 Verify 'none' tile of sandbox, the api (GET /api/tiles) is
         await io.homePage.loadingTime();
     });
 
-    test(`C14428 Verify 'none' tile of sandbox, the api (GET /api/tiles) is returning the offline connection under 'none' tile of sandbox.`, async ({ io, page }) => {
+    test(`@Env-All C14428 Verify 'none' tile of sandbox, the api (GET /api/tiles) is returning the offline connection under 'none' tile of sandbox.`, async ({ io, page }) => {
         //create integration under sandbox
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.SANDBOX_BUTTON);
@@ -49,6 +49,7 @@ test.describe(`C14428 Verify 'none' tile of sandbox, the api (GET /api/tiles) is
         await io.homePage.clickByTextByIndex("C14428 sandbox", 0);
         await io.homePage.click(selectors.basePagePO.CONNECTIONS);
         await io.homePage.clickByText('Register connections');
+        await io.homePage.waitForElementAttached(selectors.myAccountPagePO.ERROR_CHECKBOX)
         await io.homePage.clickByIndex(selectors.myAccountPagePO.ERROR_CHECKBOX, 1);
         await io.homePage.click(selectors.exportsPagePO.REGISTERCONNECTION);
 
@@ -68,6 +69,7 @@ test.describe(`C14428 Verify 'none' tile of sandbox, the api (GET /api/tiles) is
         await io.homePage.clickByTextByIndex("C14428 production", 0);
         await io.homePage.click(selectors.basePagePO.CONNECTIONS);
         await io.homePage.clickByText('Register connections');
+        await io.homePage.waitForElementAttached(selectors.myAccountPagePO.ERROR_CHECKBOX);
         await io.homePage.clickByIndex(selectors.myAccountPagePO.ERROR_CHECKBOX, 1);
         await io.homePage.click(selectors.exportsPagePO.REGISTERCONNECTION);
 

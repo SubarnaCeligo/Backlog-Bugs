@@ -5,7 +5,7 @@ test.describe("Verify the hyperlink within the help text of Default cluster name
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("Verify the hyperlink within the help text of Default cluster name in Amazon Redshift connection form", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T23963 Verify the hyperlink within the help text of Default cluster name in Amazon Redshift connection form", async ({ io, page }) => {
 
     // Click on 'Create connection', Select 'Amazon Redshift'
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);

@@ -7,7 +7,7 @@ test.describe('C53073 Verify the "Data retention up to 180 days" field is added 
         await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
       });
      
-    test('C53073 Verify the "Data retention up to 180 days" field is added in the subscriptions page under the features included section for a free tier account', async ({
+    test('@Env-All C53073 Verify the "Data retention up to 180 days" field is added in the subscriptions page under the features included section for a free tier account', async ({
       io,
       page
     }) => {

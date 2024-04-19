@@ -7,7 +7,7 @@ test.describe("E2E Flows", () => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("TC_701_FTP_TO_FTPimport_Dir_path_as_handlebar", async ({
+    test("@Env-All TC_701_FTP_TO_FTPimport_Dir_path_as_handlebar", async ({
         io
     }, testInfo) => {
         //Creating PageGenerator 

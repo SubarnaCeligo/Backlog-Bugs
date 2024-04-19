@@ -1,5 +1,5 @@
 import { test, expect } from "@celigo/ui-core-automation";
-import * as connectionData from "@testData/Connections/Create/Create_Connection_REST_Token.json"
+import  connectionData from "@testData/Connections/Create/Create_Connection_REST_Token.json"
 
 
 test.describe("CONNECTIONS", () => {
@@ -8,7 +8,7 @@ test.describe("CONNECTIONS", () => {
       await io.connections.deleteConnection(connectionData.importJSON.name)
       await io.myAccountPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     });
-    test("Create_Connection_REST_Token", async ({
+    test("@Env-All Create_Connection_REST_Token", async ({
       io
     }, testInfo) => {
       let connectionJson;

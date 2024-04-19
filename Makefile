@@ -1,5 +1,5 @@
 ENV=qa
-FEATURE=signinPage
+FEATURE=CI
 
 build:
 	rm -rf ./node_modules

@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C107921  On create connection page For OAuth2.0 authentication auth change "User scope" label to "User scopes"`, () => {
-  test(`C107921  On create connection page For OAuth2.0 authentication auth change "User scope" label to "User scopes"`, async ({
+  test(`@Env-All @Zephyr-IO-T25656 C107921  On create connection page For OAuth2.0 authentication auth change "User scope" label to "User scopes"`, async ({
     page,
     io
   }) => {

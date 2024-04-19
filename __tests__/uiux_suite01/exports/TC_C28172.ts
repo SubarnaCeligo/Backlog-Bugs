@@ -7,6 +7,7 @@ test.describe(`C28172 Verify export type dropdown values are updated in HTTP/RES
     page
   }) => {
     await io.flowBuilder.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
+    await io.homePage.loadingTime()
     await io.homePage.goToMenu("Tools", "Flow builder");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
     await io.flowBuilder.clickByText("HTTP");

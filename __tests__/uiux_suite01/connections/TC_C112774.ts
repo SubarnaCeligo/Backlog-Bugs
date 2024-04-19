@@ -5,7 +5,7 @@ test.describe("C112774 - Verify the standalone 'Create import' page when the sea
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C112774 - Verify the standalone 'Create import' page when the search criteria does not yield any results.", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T14106 C112774 - Verify the standalone 'Create import' page when the search criteria does not yield any results.", async ({ io, page }) => {
         //Navigate to imports page and click on 'Create import'
         await io.homePage.navigateTo(io.data.links.IMPORTS_PAGE_URL);
         await io.importsPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);

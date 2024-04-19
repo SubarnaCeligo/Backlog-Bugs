@@ -8,7 +8,7 @@ test.describe("E2E Flows", () => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("TC_251_FTP_JSON_To_Salesforce_Account_Multifield", async ({
+    test("@Env-All TC_251_FTP_JSON_To_Salesforce_Account_Multifield", async ({
         io
     }, testInfo) => {
         //Creating PageGenerator 
