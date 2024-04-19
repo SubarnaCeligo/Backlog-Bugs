@@ -56,7 +56,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await allPages[1].waitForLoadState();
         const currentUrl = await allPages[1].url();
         await io.flowBuilder.delay(10000);
-        const expectedUrl = 'integrator.io/#!/environments/';
+        const expectedUrl = 'integrator.io/#!/sandbox/';
         const func = currentUrl.toString().includes(expectedUrl)
         await io.assert.expectToBeTrue(func, "urls doesn't match")
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
@@ -127,7 +127,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await allPages[1].bringToFront();
         await allPages[1].waitForLoadState();
         const currentUrl = await allPages[1].url();
-        const expectedUrl = 'integrator.io/#!/environments/';
+        const expectedUrl = 'integrator.io/#!/sandbox/';
         const func = currentUrl.toString().includes(expectedUrl)
         await io.assert.expectToBeTrue(func, "urls doesn't match")
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
@@ -164,7 +164,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await allPages[1].bringToFront();
         await allPages[1].waitForLoadState();
         const currentUrl = await allPages[1].url();
-        const expectedUrl = 'integrator.io/#!/environments/';
+        const expectedUrl = 'integrator.io/#!/sandbox/';
         const func = currentUrl.toString().includes(expectedUrl)
         await io.assert.expectToBeTrue(func, "urls doesn't match")
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
@@ -206,7 +206,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await allPages[1].bringToFront();
         await allPages[1].waitForLoadState();
         const currentUrl = await allPages[1].url();
-        const expectedUrl = 'integrator.io/#!/environments/';
+        const expectedUrl = 'integrator.io/#!/sandbox/';
         const func = currentUrl.toString().includes(expectedUrl)
         await io.assert.expectToBeTrue(func, "urls doesn't match");
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
@@ -245,7 +245,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await allPages[1].bringToFront();
         await allPages[1].waitForLoadState();
         const currentUrl = await allPages[1].url();
-        const expectedUrl = 'integrator.io/#!/environments/';
+        const expectedUrl = 'integrator.io/#!/sandbox/';
         const func = currentUrl.toString().includes(expectedUrl)
         await io.assert.expectToBeTrue(func, "urls doesn't match")
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
