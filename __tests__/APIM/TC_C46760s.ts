@@ -50,14 +50,12 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         const openspecname = await io.flowBuilder.getText(selectors.flowBuilderPagePO.APIMOPENSPECWARNINGTITLE);
         await io.assert.expectToBeTrue(openspecname.toString().includes("OpenAPI Specification (OAS)"), "OpenAPI Specification name doesn't match");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMPUSH);
-        await io.homePage.loadingTime();
-        await io.homePage.loadingTime();
-        await io.homePage.loadingTime();
+        await io.flowBuilder.delay(15000);
         const allPages = context.pages();
         await allPages[1].bringToFront();
         await allPages[1].waitForLoadState();
         const currentUrl = await allPages[1].url();
-        await io.flowBuilder.delay(2000);
+        await io.flowBuilder.delay(10000);
         const expectedUrl = 'integrator.io/#!/environments/';
         const func = currentUrl.toString().includes(expectedUrl)
         await io.assert.expectToBeTrue(func, "urls doesn't match")
@@ -124,9 +122,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.flowBuilder.click(selectors.importPagePO.HTTPPOSTMETHOD);
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APIMFLOW, randomString);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMPUSH);
-        await io.homePage.loadingTime();
-        await io.homePage.loadingTime();
-        await io.homePage.loadingTime();
+        await io.flowBuilder.delay(15000);
         const allPages = context.pages();
         await allPages[1].bringToFront();
         await allPages[1].waitForLoadState();
@@ -163,9 +159,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.flowBuilder.click(selectors.importPagePO.HTTPPOSTMETHOD);
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APIMFLOW, randomString);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMPUSH);
-        await io.homePage.loadingTime();
-        await io.homePage.loadingTime();
-        await io.homePage.loadingTime();
+        await io.flowBuilder.delay(15000);
         const allPages = context.pages();
         await allPages[1].bringToFront();
         await allPages[1].waitForLoadState();
@@ -207,9 +201,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.flowBuilder.click(selectors.importPagePO.HTTPDELETEMETHOD);
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APIMFLOW, randomString);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMPUSH);
-        await io.homePage.loadingTime();
-        await io.homePage.loadingTime();
-        await io.homePage.loadingTime();
+        await io.flowBuilder.delay(15000);
         const allPages = context.pages();
         await allPages[1].bringToFront();
         await allPages[1].waitForLoadState();
@@ -248,9 +240,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.flowBuilder.click(selectors.importPagePO.HTTPPOSTMETHOD);
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APIMFLOW, randomString);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMPUSH);
-        await io.homePage.loadingTime();
-        await io.homePage.loadingTime();
-        await io.homePage.loadingTime();
+        await io.flowBuilder.delay(15000);
         const allPages = context.pages();
         await allPages[1].bringToFront();
         await allPages[1].waitForLoadState();
