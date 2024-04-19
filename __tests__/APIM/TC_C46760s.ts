@@ -50,6 +50,9 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         const openspecname = await io.flowBuilder.getText(selectors.flowBuilderPagePO.APIMOPENSPECWARNINGTITLE);
         await io.assert.expectToBeTrue(openspecname.toString().includes("OpenAPI Specification (OAS)"), "OpenAPI Specification name doesn't match");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMPUSH);
+        await io.homePage.loadingTime();
+        await io.homePage.loadingTime()
+        await page.waitForTimeout(5000);
         await io.flowBuilder.delay(15000);
         const allPages = context.pages();
         await allPages[1].bringToFront();
@@ -123,6 +126,9 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APIMFLOW, randomString);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMPUSH);
         await io.flowBuilder.delay(15000);
+        await io.homePage.loadingTime();
+        await io.homePage.loadingTime()
+        await page.waitForTimeout(5000);
         const allPages = context.pages();
         await allPages[1].bringToFront();
         await allPages[1].waitForLoadState();
@@ -132,7 +138,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.assert.expectToBeTrue(func, "urls doesn't match")
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
     });
-    test("@Env-QA @Env-STAGING Export Sandbox", async ({ io, context }) => {
+    test("@Env-QA @Env-STAGING Export Sandbox", async ({ io, context, page }) => {
         const randomString = "Export" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.SANDBOX_BUTTON);
@@ -160,6 +166,9 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APIMFLOW, randomString);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMPUSH);
         await io.flowBuilder.delay(15000);
+        await io.homePage.loadingTime();
+        await io.homePage.loadingTime()
+        await page.waitForTimeout(5000);
         const allPages = context.pages();
         await allPages[1].bringToFront();
         await allPages[1].waitForLoadState();
@@ -169,7 +178,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.assert.expectToBeTrue(func, "urls doesn't match")
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
     });
-    test("@Env-QA @Env-STAGING Lookup Sandbox", async ({ io, context }) => {
+    test("@Env-QA @Env-STAGING Lookup Sandbox", async ({ io, context, page }) => {
         const randomString = "Lookup" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.SANDBOX_BUTTON);
@@ -201,6 +210,9 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.flowBuilder.click(selectors.importPagePO.HTTPDELETEMETHOD);
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APIMFLOW, randomString);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMPUSH);
+        await io.homePage.loadingTime();
+        await io.homePage.loadingTime()
+        await page.waitForTimeout(5000);
         await io.flowBuilder.delay(15000);
         const allPages = context.pages();
         await allPages[1].bringToFront();
@@ -241,6 +253,9 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APIMFLOW, randomString);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMPUSH);
         await io.flowBuilder.delay(15000);
+        await io.homePage.loadingTime();
+        await io.homePage.loadingTime()
+        await page.waitForTimeout(5000);
         const allPages = context.pages();
         await allPages[1].bringToFront();
         await allPages[1].waitForLoadState();
