@@ -6,7 +6,7 @@ test.describe("C53141 Verify the guide link in import mappings for IA's", () => 
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime()
     await io.homePage.fill(selectors.homePagePO.SEARCH_INTEGRATION_WDIO, "HTTP_DND")
-    await io.homePage.clickByText('HTTP_DND');
+    await io.homePage.clickByText('http_DND');
     await io.homePage.loadingTime()
     await io.homePage.click(selectors.homePagePO.ADD_MAPPING);
     await io.assert.verifyElementAttributeContainsText(selectors.mappings.MAPPER2DOT0PO.MAPPER2GUIDE, 'href', 'https://docs.celigo.com/hc/en-us/articles/4536629083035-Mapper-2-0');
