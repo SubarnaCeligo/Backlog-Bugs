@@ -3,7 +3,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C26466 GDrive - Verify if 'Enable PGP cryptographic' checkbox is unchecked by default", () => {
-    test("@Env-All C26466 GDrive - Verify if 'Enable PGP cryptographic' checkbox is unchecked by default", async ({ io, page }, testInfo) => {
+    test("@Zephyr-T11957 @Env-All @Priority-P2 C26466 GDrive - Verify if 'Enable PGP cryptographic' checkbox is unchecked by default", async ({ io, page }, testInfo) => {
         await io.homePage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources", "Connections");
