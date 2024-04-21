@@ -16,7 +16,7 @@ test.describe("C48963 Verify 'Actions to take if source value not found' options
       const val = JSON.parse(await page.locator(selectors.mappings.MAPPER2DOT0PO.RESULT).evaluate(e => {
         // @ts-ignore
         const editor = ace.edit(e);
-        return editor.getValue();
+        return editor.getAttribute("value");
       }));
       expect(val.company).toBe(null);
 

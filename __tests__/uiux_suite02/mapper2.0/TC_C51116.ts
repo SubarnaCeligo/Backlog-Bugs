@@ -8,7 +8,8 @@ test.describe("C51116 Verify mapper settings page new field 'Source record field
     await io.homePage.fill(selectors.homePagePO.SEARCH_INTEGRATION_WDIO, "HTTP_DND")
     await io.homePage.clickByText('HTTP_DND');
     await io.homePage.loadingTime()
-    await io.homePage.click('aria-label="Edit mapping"');
+    await io.homePage.click('[aria-label="Edit mapping"]');
+    await io.homePage.loadingTime()
     await io.homePage.click(selectors.mappings.MAPPER2DOT0PO.SETTINGSBUTTON);
     await io.assert.verifyElementIsDisplayed(selectors.mappings.MAPPER2DOT0PO.SOURCE_FIELD, 'Source record field is not displayed');
   });

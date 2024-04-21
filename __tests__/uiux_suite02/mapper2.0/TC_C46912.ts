@@ -34,15 +34,16 @@ test.describe('verify user must be able to save the mapper 2.0 mappings exist if
 
            await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE)
 
-           await page.waitForSelector("#notistack-snackbar");
+          //  await page.waitForSelector("#notistack-snackbar");
 
-           const messageText = await page.textContent("#notistack-snackbar");
+          //  const messageText = await page.textContent("#notistack-snackbar");
+           
 
     // Expected message
     const expectedMessage = "Mapper 1.0: Source field value not entered for destination field(s): Text you want to type";
-
+    await io.assert.verifyElementDisplayedByText(expectedMessage, " Error message is not displayed")
     // Compare the actual message with the expected message
-    expect(messageText).toBe(expectedMessage);
+    // expect(messageText).toBe(expectedMessage);
         
       });  
       
