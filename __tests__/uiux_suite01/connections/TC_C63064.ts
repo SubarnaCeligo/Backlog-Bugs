@@ -3,12 +3,16 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Connections/C63011.json";
 
 test.describe(`C63064 Verify in connection if user selected one api type in simple and move it to HTTP and then switch the toggle back to simple then check whether prevuiously selcted api type is persisted or not`, () => {
-  test(`@Env-All C63064 Verify in connection if user selected one api type in simple and move it to HTTP and then switch the toggle back to simple then check whether prevuiously selcted api type is persisted or not`, async ({
+  test(`@Zephyr-IO-T21825 C63064 Verify in connection if user selected one api type in simple and move it to HTTP and then switch the toggle back to simple then check whether prevuiously selcted api type is persisted or not`, async ({
     page,
     io
   }) => {
     await io.homePage.navigateTo(process.env.IO_UI_CONNECTOR_URL + "connections");
     await io.connectionPage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
+    await io.flowBuilder.fill(
+      selectors.settingsPagePO.APP_NAME_INPUT,
+      "Narvar"
+    );
     await io.connectionPage.click(selectors.connectionsPagePO.NARVAR_CONNECTION);
     await io.connectionPage.click(
       selectors.connectionsPagePO.NARVAR_RMA_CONNECTION
@@ -28,8 +32,12 @@ test.describe(`C63064 Verify in connection if user selected one api type in simp
       "Your connection is working great! Nice Job!",
       "Connection creation error"
     );
+    await io.flowBuilder.loadingTime()
     await io.flowBuilder.click(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH);
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH)
     await io.flowBuilder.click(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
+    await io.flowBuilder.loadingTime()
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.NARVAR_RMA_CONNECTION)
     await expect(
       page
         .locator(selectors.connectionsPagePO.NARVAR_RMA_CONNECTION)
