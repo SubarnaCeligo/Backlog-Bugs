@@ -1,7 +1,7 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("@Epic-IO-54540  @Priority-P2  @Zephyr-IO-T27537 @Env-IAQA", () => {
+test.describe("@Epic-IO-54540  @Priority-P2  @Zephyr-IO-T27537 @Env-All", () => {
     test("@Epic-IO-54540  @Priority-P2  @Zephyr-IO-T27537 @Env-All", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.loadingTime()
@@ -19,7 +19,7 @@ test.describe("@Epic-IO-54540  @Priority-P2  @Zephyr-IO-T27537 @Env-IAQA", () =>
         const label = await io.homePage.isVisible("text='Transfer files out of source application'")
         await io.assert.expectToBeTrue(label, "Field value not found");
     });
-    test("@Epic-IO-54540  @Priority-P2  @Zephyr-IO-T28261 @Env-IAQA", async ({ io, page }) => {
+    test("@Epic-IO-54540  @Priority-P2  @Zephyr-IO-T28261 @Env-All", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.loadingTime()
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);

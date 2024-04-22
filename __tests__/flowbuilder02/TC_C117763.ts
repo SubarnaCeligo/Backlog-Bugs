@@ -7,7 +7,7 @@ test.describe("C117763", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test.skip("@Epic-IO-34019 @Zephyr-IO-T24304 C117763", async ({ io, page }) => {
+    test.skip("@Epic-IO-34019 @Env-All @Priority-P2 @Zephyr-IO-T24304 C117763", async ({ io, page }) => {
         await io.homePage.loadingTime();
         await io.homePage.goToMenu("Tools", "Flow builder");
         await io.flowBuilder.click(

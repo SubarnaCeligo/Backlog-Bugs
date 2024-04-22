@@ -7,7 +7,7 @@ test.describe(`T27371 Verify mapper2 use cases for NoSQLDB `, () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
 });
-  test(`Verify mapper2 use cases for MongoDB `, async ({
+  test(`Verify mapper2 use cases for MongoDB @Env-All @Priority-P2`, async ({
     io,
     page
   }) => {

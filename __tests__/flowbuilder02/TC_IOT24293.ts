@@ -6,7 +6,7 @@ test.describe(`TC_IOT4293 Test to Verify Next button is disabled if we don't hav
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("@Epic-IO-56742 @Priority-P2 @Zephyr-IO-T24293 @Env-STAGING", async ({ io, page }) => {
+    test("@Epic-IO-56742 @Priority-P2 @Zephyr-IO-T24293 @Env-All", async ({ io, page }) => {
         await io.homePage.loadingTime();
         await io.homePage.clickByText("Create");
         await io.homePage.click(selectors.homePagePO.CREATEFLOW);

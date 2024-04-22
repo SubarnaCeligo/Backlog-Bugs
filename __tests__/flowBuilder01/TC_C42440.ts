@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C42440_Verify changes to Renew button on IA tiles and confirmation messages", () => {
-    test("C42440_Verify changes to Renew button on IA tiles and confirmation messages UI_Backlog", async ({ io,  page }) => {
+    test("C42440_Verify changes to Renew button on IA tiles and confirmation messages UI_Backlog @Env-All @Priority-P2", async ({ io,  page }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "Amazon Connector(Bharath)");
         await io.homePage.clickByText("Request to buy");

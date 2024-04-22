@@ -6,7 +6,7 @@ test.describe(`IO70947 The default value in the “Action to take…” options 
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
 });
-  test(`IO70947`, async ({
+  test(`IO70947 @Env-All @Priority-P2`, async ({
     io,
     page
   }) => {

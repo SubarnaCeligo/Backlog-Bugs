@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C110416 from '../../testData/inputData/flowBuilder/C110416.json';
 
 test.describe("C110416_110410_110424_110425)", () => {
-    test("C110416_110410_110424_110425)", async ({ io, page }) => {
+    test("C110416_110410_110424_110425) @Env-All @Priority-P2", async ({ io, page }) => {
         const id = await io.createResourceFromAPI(C110416, "FLOWS");
         const response = await io.api.getCall("v1/flows/" + id);
         const exportId = response.pageGenerators[0]._exportId

@@ -7,7 +7,7 @@ test.describe(`TC_IOT4290 Test to verify If the list of flow steps is extensive,
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("@Epic-IO-56742 @Priority-P2 @Zephyr-IO-T24290 @Env-STAGING", async ({ io, page }) => {
+    test("@Epic-IO-56742 @Priority-P2 @Zephyr-IO-T24290 @Env-All", async ({ io, page }) => {
         await io.homePage.loadingTime();
         await io.homePage.clickByText("Create");
         await io.homePage.click(selectors.homePagePO.CREATEFLOW);

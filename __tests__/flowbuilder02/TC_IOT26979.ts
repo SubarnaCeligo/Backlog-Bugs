@@ -7,7 +7,7 @@ test.describe(`TC_IOT26979  Test to validate that field "First record contains h
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("IOT26979", async ({ io }) => {
+    test("IOT26979 @Env-All @Priority-P2", async ({ io }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.loadingTime();
         await io.homePage.goToMenu("Resources","Exports");

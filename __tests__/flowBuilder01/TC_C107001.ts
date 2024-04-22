@@ -5,7 +5,7 @@ test.describe("C107001_Verify sorting column If a user navigates to the next bat
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C107001_Verify sorting column If a user navigates to the next batch of 1000 errors and applies new sorting UI_Backlog", async ({ io, page, }) => {
+    test("C107001_Verify sorting column If a user navigates to the next batch of 1000 errors and applies new sorting UI_Backlog @Env-All @Priority-P2", async ({ io, page, }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.flowBuilder.clickByText("TC_C107001_Flow_DND");
         await io.flowBuilder.click(selectors.basePagePO.RUNFLOW);

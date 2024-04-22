@@ -5,7 +5,7 @@ test.describe("@Author_sagna123 TC_T28428_T28434_T28436_Test to validate checkbo
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Epic-IO-37655 @Priority-P2 @Sanity @Zephyr-IO-T28428 @Zephyr-IO-T28434 @Zephyr-IO-T28436 @Env-QA", async ({ io, page }) => {
+    test("@Epic-IO-37655 @Priority-P2 @Sanity @Zephyr-IO-T28428 @Zephyr-IO-T28434 @Zephyr-IO-T28436 @Env-All", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources","Exports");

@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C119625 from '../../testData/inputData/FlowBuilder/C119625.json';
 
 test.describe("TC_C119625", () => {
-    test("C119625", async ({ io, page }) => {
+    test("C119625 @Env-All @Priority-P2", async ({ io, page }) => {
         await io.createResourceFromAPI(C119625, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ADD_DATA_PROCESSOR);
         //Output filter

@@ -5,7 +5,7 @@ test.describe("TC_IO52927", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("TC_IO52927", async ({ io, page }) => {
+    test("TC_IO52927 @Env-All @Priority-P2", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.goToMenu("Tools", "Flow builder");
         await io.homePage.addStep("*** Navigated back to flow builder page ***");

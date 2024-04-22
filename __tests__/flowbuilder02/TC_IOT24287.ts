@@ -6,7 +6,7 @@ test.describe(`TC_IOT4287 Test to verify Marketplace flow steps field is showing
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("@Epic-IO-56742 @Priority-P2 @Zephyr-IO-T24287 @Env-STAGING", async ({ io }) => {
+    test("@Epic-IO-56742 @Priority-P2 @Zephyr-IO-T24287 @Env-All", async ({ io }) => {
         await io.homePage.loadingTime();
         await io.homePage.clickByText("Create");
         await io.homePage.click(selectors.homePagePO.CREATEFLOW);

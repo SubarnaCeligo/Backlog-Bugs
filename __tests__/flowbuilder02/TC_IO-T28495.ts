@@ -7,7 +7,7 @@ test.describe("FlowBuilder custom settings launch builder", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Env-QA @Zephyr-IO-T28495", async ({ io, page }) => {
+    test("@Env-All @Priority-P2 @Zephyr-IO-T28495", async ({ io, page }) => {
         const id = await io.createResourceFromAPI(C20688, "FLOWS");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_BUBBLE);
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);

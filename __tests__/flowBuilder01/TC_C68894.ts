@@ -5,7 +5,7 @@ import { decrypt } from "@celigo/aut-utilities";
 import { downloadFileFromS3 } from "@celigo/aut-utilities";
 
 test.describe("C68894_C68896", () => {
-    test("C68894", async ({ io, page }) => {
+    test("C68894 @Env-All @Priority-P2", async ({ io, page }) => {
         await downloadFileFromS3("automationcreds", "AES_certificate.pfx");
         await downloadFileFromS3("automationcreds", "AES_private.key");
         await downloadFileFromS3("automationcreds", "AES_certificate.crt");
@@ -57,7 +57,7 @@ test.describe("C68894_C68896", () => {
         await io.connectionPage.click(selectors.connectionsPagePO.DELETE_CONNECTION);
         await io.connectionPage.click(selectors.basePagePO.DELETE);
     });
-    test("C68896", async ({ io, page }) => {
+    test("C68896 @Env-All @Priority-P2", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL)
         await io.connectionPage.clickByText("Create connection")
         await io.connectionPage.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
