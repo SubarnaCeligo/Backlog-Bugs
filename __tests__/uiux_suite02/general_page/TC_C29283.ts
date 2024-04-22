@@ -7,8 +7,6 @@ test.describe('Verify Auto-scroll to show form errors', () => {
     });
   
     test('Verify Auto-scroll to show form errors', async({io,page}) => {
-    
-        
         await io.homePage.clickByText('Create import')
         await io.importsPage.click(selectors.importPagePO.FTP_IMPORT)
         await io.importsPage.click(selectors.basePagePO.CONNECTION_DROPDOWN)
