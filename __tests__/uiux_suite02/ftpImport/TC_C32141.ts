@@ -10,10 +10,9 @@ test.describe("TC_C32141", () => {
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Http');
     await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
     await io.flowBuilder.click(selectors.connectionsPagePO.IMPORT_RECORDS);
+    await io.flowBuilder.clickByText("Create from scratch");
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'HTTP ZENDESK CONNECTION');
-    await io.flowBuilder.clickByText('HTTP ZENDESK CONNECTION');
-    await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.fill(selectors.basePagePO.INPUT_NAME_SELECTOR, 'TC_C32141');
     await io.flowBuilder.click(selectors.exportsPagePO.HTTP_METHOD);
     await io.flowBuilder.click(selectors.exportsPagePO.COMPOSITE_METHOD);

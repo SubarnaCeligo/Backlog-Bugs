@@ -12,6 +12,7 @@ test.describe(`C77805 Validate User is able to see the vertical line when downlo
            'FLOWS'
          );
          await io.api.runBatchFlowViaAPI('C77805', id);
+         await io.homePage.loadingTime()
          const lastRun = page.getByText('Last run')
          await lastRun.waitFor({state: 'visible', timeout: 360000});
          await io.flowBuilder.clickByTextByIndex("1 error", 1);

@@ -9,6 +9,7 @@ test.describe("C112084 User should able to run the flow successfully", () => {
     await io.homePage.clickByText("JWTGITHUB_DND")
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
+    await io.homePage.loadingTime()
     await io.assert.verifyElementDisplayedByText(
       "Last run",
       "Last run is not displayed"

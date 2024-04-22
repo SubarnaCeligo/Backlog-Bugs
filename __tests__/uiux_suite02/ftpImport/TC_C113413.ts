@@ -10,6 +10,7 @@ test("C113413 User should able to run the flow successfully", async ({io, page})
     await io.homePage.clickByText("JWTDOCUSIGN_DND")
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
+    await io.homePage.loadingTime()
     await io.assert.verifyElementDisplayedByText(
       "Last run",
       "Last run is not displayed"

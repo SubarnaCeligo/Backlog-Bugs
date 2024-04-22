@@ -7,7 +7,9 @@ test.describe('Verify Auto-scroll to show form errors', () => {
     });
   
     test('Verify Auto-scroll to show form errors', async({io,page}) => {
+        await io.homePage.loadingTime()
         await io.homePage.clickByText('Create import')
+        await io.homePage.fill(selectors.flowBuilderPagePO.APP_NAME_INPUT, "FTP")
         await io.importsPage.click(selectors.importPagePO.FTP_IMPORT)
         await io.importsPage.click(selectors.basePagePO.CONNECTION_DROPDOWN)
         await io.homePage.selectConnectionDropDown(page, "FTP CONNECTION")
