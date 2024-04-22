@@ -10,11 +10,12 @@ test.describe("C25989_verify the debug Last run if the debug has expired. On mou
     });
     test("C25989_verify the debug Last run if the debug has expired. On mouse hover, I can see the date/time it ended in the user's timezone UI_Backlog", async ({ io}) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+        await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW)
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'webhook');
         await io.flowBuilder.clickByText('Webhook');
-        await io.flowBuilder.click(selectors.basePagePO.SAVE);
+        await io.flowBuilder.clickByText("Create from scratch")
         await io.flowBuilder.fill(selectors.connectionsPagePO.NAME_INPUT, 'TC_C25989');
         await io.flowBuilder.clickByText('Please select');
         await io.flowBuilder.clickByText('Basic');

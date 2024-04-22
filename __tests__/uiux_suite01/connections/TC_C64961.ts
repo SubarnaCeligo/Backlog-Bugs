@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C63015 Verify API Type Radio button should be always blue`, () => {
-  test(`@Env-All C63015 Verify API Type Radio button should be always blue`, async ({
+  test(`@Env-All @Zephyr-IO-T21806 C63015 Verify API Type Radio button should be always blue`, async ({
     page,
     io
   }) => {

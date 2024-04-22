@@ -7,7 +7,7 @@ test.describe(`C120190_C120193`, () => {
     test.afterEach(async ({ io }) => {
         await io.api.deleteConnectionViaName("TC_C120190 3PL CONNECTION DON't USE");
     });
-    test(`@Env-All C120190`, async ({ io, page }) => {
+    test(`@Env-All @Zephyr-IO-T18204 C120190`, async ({ io, page }) => {
         await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
         await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CREATE_CONNECTION);
         await io.homePage.fill(selectors.flowBuilderPagePO.SEARCH, "HTTP ZENDESK CONNECTION");
