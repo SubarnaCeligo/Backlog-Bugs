@@ -32,7 +32,7 @@ test.describe("C118312 - Verify Assign error flyout when the there are users in 
    await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGNEE_NAME_LIST);
    const userNames =  await io.flowBuilder.getText(selectors.em2DotOLineGraphPO.ASSIGNEE_NAME_LIST);
    let userNameArray = []
-   await userNameArray.push(userNames);
+   userNameArray.push(userNames.toString().trim());
    await io.assert.expectToBeValueInArray(userNameArray, 'User WithLongUserNameTestWithLongUserNameTest', 'Long user names not displyed.');
   });
 });

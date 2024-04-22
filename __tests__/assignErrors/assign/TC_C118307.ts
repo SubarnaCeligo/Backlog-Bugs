@@ -27,7 +27,8 @@ test.describe("C118307 - Verify the assignee pill when an error is resolved", ()
     await page.waitForTimeout(10000);
 
     //Open errors dashborad
-    await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
+    // await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
+    await io.flowBuilder.clickByTextByIndex("1 error", 0);
     await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
 
     //Assign errors
@@ -54,6 +55,5 @@ test.describe("C118307 - Verify the assignee pill when an error is resolved", ()
       hoverText,
       'Pending hovertext is not displayed upon hovering'
     );
-
   });
 });
