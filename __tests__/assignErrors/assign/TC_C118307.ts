@@ -28,6 +28,7 @@ test.describe("C118307 - Verify the assignee pill when an error is resolved", ()
 
     //Open errors dashborad
     await io.flowBuilder.clickByTextByIndex("1 error", 0);
+    await page.waitForTimeout(5000);
     
     //Assign errors
     await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX, 1);
