@@ -18,19 +18,7 @@ test.describe("C60115 To verify that the user is able to load integration from d
     await io.homePage.loadingTime()
     await io.homePage.clickByText("Open in Flow Builder");
     await io.homePage.loadingTime()
-    const flowBuilderText = await page.evaluate(() => {
-      const pElement = document.querySelector(
-        ".MuiBreadcrumbs-li p.MuiTypography-body2"
-      );
-      return pElement ? pElement.textContent : null;
-    });
-
-    // Use an assertion library to check if the text is as expected
-    const expectedText = "Flow builder";
-    io.assert.expectToBeValue(
-      expectedText,
-      flowBuilderText,
-      "unable to find locator"
-    );
+    await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.PAGE_GENERATOR, "unable to find locator")
+    await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.PAGE_PROCESSOR, "unable to find locator")
   });
 });

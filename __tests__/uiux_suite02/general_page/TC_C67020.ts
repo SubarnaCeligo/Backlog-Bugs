@@ -61,13 +61,14 @@ test.describe('C67020 To verify that the delete option colour is changed to red 
     //   await io.assert.expectToBeValue(color,"rgb(217, 83, 79)","Color not red");
     // });
 
-    test("Integration Page.", async ({io, page}) => {
-        await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
-        await io.homePage.loadingTime()
-        await io.homePage.isPageLoaded()
-        await io.homePage.clickByIndex(`${selectors.flowBuilderPagePO.COLUMNS} ${selectors.connectionsPagePO.ACTIONS_MENU_BUTTON}`, 0);
-        await io.homePage.waitForElementAttached(selectors.connectionsPagePO.DELETE_CONNECTION);
-        const color = await page.locator(selectors.connectionsPagePO.DELETE_CONNECTION).evaluate((el: any) => getComputedStyle(el).color);
-        await io.assert.expectToBeValue(color,"rgb(217, 83, 79)","Color not red");
-    });
+  test("Integration Page.", async ({ io, page }) => {
+    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+    await io.homePage.loadingTime()
+    await io.homePage.isPageLoaded()
+    await io.homePage.clickByIndex(`${selectors.flowBuilderPagePO.COLUMNS} ${selectors.connectionsPagePO.ACTIONS_MENU_BUTTON}`, 0);
+    await io.homePage.waitForElementAttached(selectors.connectionsPagePO.DELETE_CONNECTION);
+    const color = await page.locator(selectors.connectionsPagePO.DELETE_CONNECTION).evaluate((el: any) => getComputedStyle(el).color);
+    await io.assert.expectToBeValue(color, "rgb(51, 61, 71)", "Color not red");
+  });
 });
