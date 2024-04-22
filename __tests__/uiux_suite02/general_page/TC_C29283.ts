@@ -10,8 +10,7 @@ test.describe('Verify Auto-scroll to show form errors', () => {
         await io.homePage.clickByText('Create import')
         await io.importsPage.click(selectors.importPagePO.FTP_IMPORT)
         await io.importsPage.click(selectors.basePagePO.CONNECTION_DROPDOWN)
-        await io.importsPage.waitForElementAttached("text='FTP CONNECTION'")
-        await io.importsPage.clickByText("FTP CONNECTION")
+        await io.homePage.selectConnectionDropDown(page, "FTP CONNECTION")
         await io.importsPage.clickByText("Next")
         await io.importsPage.waitForElementAttached( selectors.basePagePO.VALUE_MUST_BE_PROVIDED_ERROR)
         const errorMessage = await page.$eval(selectors.basePagePO.VALUE_MUST_BE_PROVIDED_ERROR, element => element.textContent);
