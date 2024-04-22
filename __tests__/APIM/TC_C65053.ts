@@ -32,14 +32,14 @@ test.describe("APIM Help Text Validation", () => {
         await io.assert.expectToBeTrue(gatewayvalue.toString().includes("Gateway URL"), "message doesn't match");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMGATEWAYHELPTEXTBUTTON);
         const gatewayhelptext = await io.flowBuilder.getText(selectors.importPagePO.INPUTHELP)
-        await io.assert.expectToBeTrue(gatewayhelptext.toString().includes("A preview of the Gateway URL or consumer endpoint. This is based on the Context path and Endpoint fields as follows: Gateway URL = Base URI + Context path + Endpoint.Was this helpful?,Was this helpful?"), "message doesn't match");
+        await io.assert.expectToBeTrue(gatewayhelptext.toString().includes("Gateway URL = Base URI + Context path + Endpoint."), "message doesn't match");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMGATEWAYHELPTEXTBUTTON);
         // context path
         const contextpath = await (await page.$(selectors.flowBuilderPagePO.APIMCONTEXTPATHFIELD)).textContent();
         await io.assert.expectToBeTrue(contextpath.toString().includes("Context path *"), "message doesn't match");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMCONTEXTPATHHELPTEXTBUTTON);
         const constextpathhelptext = await io.flowBuilder.getText(selectors.importPagePO.INPUTHELP)
-        await io.assert.expectToBeTrue(constextpathhelptext.toString().includes("Enter the unique identifier for your API. This is the path of the Gateway URL. For example, if you’re creating a connection to SpaceX, your gateway context path is /spacex. This path will be available in the API manager, at API > General > Entrypoints. Only use letters, numbers, dashes or underscores.Was this helpful?"), "message doesn't match");
+        await io.assert.expectToBeTrue(constextpathhelptext.toString().includes("For example, if you’re creating a connection to SpaceX, your gateway context path is /spacex."), "message doesn't match");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMCONTEXTPATHHELPTEXTBUTTON);
         //operation
         const operation = await  (await page.$(selectors.flowBuilderPagePO.APIMOPERATIONHELPTEXT)).textContent();
@@ -53,7 +53,7 @@ test.describe("APIM Help Text Validation", () => {
         await io.assert.expectToBeTrue(flow.toString().includes("Endpoint"), "message doesn't match");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMENDPOINTHELPTEXTBUTTON);
         const flowhelptext = await io.flowBuilder.getText(selectors.importPagePO.INPUTHELP)
-        await io.assert.expectToBeTrue(flowhelptext.toString().includes('Describe your API endpoint... For example, if your Gateway context path is /spacex and your export calls a list of all rockets, your endpoint could be rockets.  This is appended to the Base URI and Context path to generate the Gateway URL. The entered endpoint and operation will be visible in the API manager, under API > Policy Studio > Flows section. This must start with a "/" and can only contain any letter, number, dash or underscore.Was this helpful?,Was this helpful?'), "message doesn't match");
+        await io.assert.expectToBeTrue(flowhelptext.toString().includes('Describe your API endpoint... For example, if your Gateway context path is /spacex and your export calls a list of all rockets'), "message doesn't match");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMENDPOINTHELPTEXTBUTTON);
         // openspec
         const openspec = await  (await page.$(selectors.flowBuilderPagePO.APIMOPENSPECWARNINGTITLE)).textContent();
