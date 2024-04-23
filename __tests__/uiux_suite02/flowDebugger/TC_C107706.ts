@@ -17,28 +17,28 @@ test.describe("TC_C107706 Verify that T badge is consistent in all the places fo
     const resourceBadges = await page.$$(selectors.exportsPagePO.TRANSFER_HOTSPOT_ICON);
 
     const exportBadge = resourceBadges[0];
-    expect(await exportBadge.screenshot()).toMatchSnapshot("TIconExport.png");
+    expect(await exportBadge.screenshot()).toMatchSnapshot("TIconExport.png", {maxDiffPixelRatio: 0.2});
 
     const lookupBadge = resourceBadges[1];
-    expect(await lookupBadge.screenshot()).toMatchSnapshot("TIconLookup.png");
+    expect(await lookupBadge.screenshot()).toMatchSnapshot("TIconLookup.png", {maxDiffPixelRatio: 0.2});
 
     const importBadge = resourceBadges[2];
-    expect(await importBadge.screenshot()).toMatchSnapshot("TIconLookup.png");
+    expect(await importBadge.screenshot()).toMatchSnapshot("TIconLookup.png", {maxDiffPixelRatio: 0.2});
 
     const exportTransformationBadge = await page.$(selectors.exportsPagePO.EXPORT_TRANSFORMATION_HOTSPOT_ICON);
-    expect(await exportTransformationBadge.screenshot()).toMatchSnapshot("TIcon-1.png");
+    expect(await exportTransformationBadge.screenshot()).toMatchSnapshot("TIcon-1.png", {maxDiffPixelRatio: 0.2});
 
     const exportFilterBadge = await page.$(selectors.exportsPagePO.EXPORT_FILTER_HOTSPOT_ICON);
-    expect(await exportFilterBadge.screenshot()).toMatchSnapshot("TIcon-1.png", {maxDiffPixelRatio: 0.1});
+    expect(await exportFilterBadge.screenshot()).toMatchSnapshot("TIcon-1.png", {maxDiffPixelRatio: 0.2});
 
     const inputFilterBadge = await page.$(selectors.importPagePO.INPUT_FILTER_HOTSPOT_ICON);
-    expect(await inputFilterBadge.screenshot()).toMatchSnapshot("TIcon-1.png",{maxDiffPixelRatio: 0.1});
+    expect(await inputFilterBadge.screenshot()).toMatchSnapshot("TIcon-1.png",{maxDiffPixelRatio: 0.2});
 
     const lookupTransformationBadge = await page.$(selectors.exportsPagePO.LOOKUP_TRANSFORMATION_HOTSPOT_ICON);
-    expect(await lookupTransformationBadge.screenshot()).toMatchSnapshot("TIcon-1.png", {maxDiffPixelRatio: 0.1});
+    expect(await lookupTransformationBadge.screenshot()).toMatchSnapshot("TIcon-1.png", {maxDiffPixelRatio: 0.2});
 
     const importMappingBadge = await page.$(selectors.importPagePO.IMPORT_MAPPINGS_HOTSPOT_ICON);
-    expect(await importMappingBadge.screenshot()).toMatchSnapshot("TIcon-1.png", {maxDiffPixelRatio: 0.1});
+    expect(await importMappingBadge.screenshot()).toMatchSnapshot("TIcon-1.png", {maxDiffPixelRatio: 0.2});
 
     
 

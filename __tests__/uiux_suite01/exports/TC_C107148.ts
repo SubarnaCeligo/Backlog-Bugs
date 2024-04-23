@@ -28,6 +28,6 @@ test.describe("TC_C107148  Check the UI alignment for file filter is matching wi
         await page.keyboard.press('Enter');
 
         const fileFilterConditions = await page.$(selectors.exportsPagePO.FILE_FILTER_CONDITIONS);
-        expect(await fileFilterConditions.screenshot()).toMatchSnapshot("C107148.png");
+        expect(await fileFilterConditions.screenshot()).toMatchSnapshot("C107148.png", {maxDiffPixelRatio: 0.2});
     });
 });

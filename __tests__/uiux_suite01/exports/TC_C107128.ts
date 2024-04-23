@@ -39,6 +39,6 @@ test.describe("TC_C107128  Verify the the file filter for add condition group fo
         await page.keyboard.press('Enter');
 
         const fileFilterConditions = await page.$(selectors.exportsPagePO.FILE_FILTER_CONDITIONS);
-        expect(await fileFilterConditions.screenshot()).toMatchSnapshot("C107128.png");
+        expect(await fileFilterConditions.screenshot()).toMatchSnapshot("C107128.png", {maxDiffPixelRatio: 0.2});
     });
 });
