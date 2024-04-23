@@ -5,7 +5,7 @@ test.describe("C118280 Verify the filter feature on resolved errors section by a
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("Verify the filter feature on resolved errors section by applying both user and tag filter", async ({
+  test("@Env-QA @Env-IAQA Verify the filter feature on resolved errors section by applying both user and tag filter", async ({
     io,
     page,
   }) => {
