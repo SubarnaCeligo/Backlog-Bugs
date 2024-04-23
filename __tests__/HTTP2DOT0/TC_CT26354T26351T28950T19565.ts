@@ -154,8 +154,8 @@ test("@Env-All T28950 Verify success and error values are saved when media type 
     await io.homePage.loadingTime()
     await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
     await io.homePage.loadingTime();
-     await io.flowBuilder.click("[data-test='delete']");
-    await io.flowBuilder.click("[data-test='Delete']");
+    await io.flowBuilder.click(selectors.connectionsPagePO.DELETE_CONNECTION);
+    await io.flowBuilder.click(selectors.basePagePO.DELETE);
     
 
    });
