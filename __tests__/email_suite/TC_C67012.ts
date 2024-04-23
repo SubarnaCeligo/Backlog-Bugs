@@ -1,32 +1,34 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import { decrypt } from '@celigo/aut-utilities';
 
 test.describe.skip(
   "C67012 Verify ehe user is able to reset their password if they forget it, and this should not affect the new sign-up process",
   () => {
     test.beforeEach("Sign out", async ({ io, page }) => {
       await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-      await io.homePage.loadingTime();
       const isNotLoggedIn = await io.loginPage.checkLoginState();
       if (!isNotLoggedIn) {
-        await io.flowBuilder.click(selectors.basePagePO.ACCOUNT_BUTTON);
+        await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT);
+        await io.homePage.hover(selectors.basePagePO.ACCOUNT);
         await io.homePage.click(selectors.basePagePO.SIGN_OUT);
       }
     });
-    test("@Env-All C67012 Verify the user is able to reset their password if they forget it, and this should not affect the new sign-up process", async ({
+    test("@Env-All C67012 Verify ehe user is able to reset their password if they forget it, and this should not affect the new sign-up process", async ({
       io,
       page
     }) => {
-      await io.homePage.navigateTo(process.env.IO_UI_CONNECTOR_URL + "request-reset");
-      await io.flowBuilder.loadingTime();
-      await io.homePage.fill(selectors.homePagePO.EMAIL, "qaautomation1+emailsuite@celigo.com");
+      await io.homePage.navigateTo(
+        process.env.IO_UI_CONNECTOR_URL +
+          "request-reset?email=" +
+          (process.env.IO_EMAIL_ACCOUNT ?? "qaautomation1@celigo.com")
+      );
       await io.homePage.click(selectors.basePagePO.SUBMIT);
       // Delay for new email to be sent, otherwise picks up old email
       await page.waitForTimeout(5000);
-      const webLink = new URL(process.env.IO_UI_CONNECTOR_URL);
-      const link = await io.emailVal.getLinkFromEmail(`[${webLink.host}] Request to reset your password`, false, "pwqa1");
-      await io.homePage.navigateTo(link.toString());
+      const link = (await io.emailVal.getLinkFromEmail(
+        "[staging.integrator.io] Request to reset your password"
+      )) as string;
+      await io.homePage.navigateTo(link);
       await io.homePage.fill(selectors.loginPagePO.PASSWORD, "123");
       await io.assert.verifyElementIsDisplayed(
         selectors.basePagePO.PAGE_INFO,
@@ -50,7 +52,7 @@ test.describe.skip(
 
       await io.loginPage.fill(
         selectors.loginPagePO.EMAIL,
-        "qaautomation1+emailsuite@celigo.com"
+        "qaautomation1@celigo.com"
       );
       await io.loginPage.fill(selectors.loginPagePO.PASSWORD, randomString);
       await io.loginPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
