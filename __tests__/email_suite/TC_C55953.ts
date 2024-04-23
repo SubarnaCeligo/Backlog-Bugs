@@ -13,7 +13,7 @@ test.describe.skip(
         await io.homePage.click(selectors.basePagePO.SIGN_OUT);
       }
     });
-    test("@Env-All C55953 Verify the user is able to save the newly set password successfully via email reset password link", async ({
+    test("C55953 Verify the user is able to save the newly set password successfully via email reset password link", async ({
       io,
       page
     }) => {
