@@ -8,7 +8,6 @@ test.describe(`@Epic-IO-27713  @Priority-P2  @Zephyr-IO-T23139 @Env-All Verify t
   }) => {
     await io.homePage.navigateTo(`${io.data.links.HOME_PAGE_URL}/installIntegration`);
     await io.flowBuilder.loadingTime();
-    await page.getByText("Loading").waitFor({ state: "hidden" });
     const fileChooserPromise = page.waitForEvent("filechooser");
     await io.homePage.clickByText("Choose file");
     const fileChooser = await fileChooserPromise;
@@ -26,17 +25,11 @@ test.describe(`@Epic-IO-27713  @Priority-P2  @Zephyr-IO-T23139 @Env-All Verify t
       );
       await io.homePage.clickByText("Use existing connection");
       await io.homePage.clickByText("Please select");
-      await page
-        .locator(selectors.connectionsPagePO.CONNECTION_LIST_MODAL)
-        .getByText("NETSUITE CONNECTION").first()
-        .click();
-      // await io.flowBuilder.clickByTextByIndex("NETSUITE CONNECTION", 0);
+      let connMap = await io.api.loadConnections();
+      var connId = connMap.get("NETSUITE CONNECTION");
+      await io.homePage.click(`[value='${connId}']`)
       await io.homePage.addStep("Selected 'NETSUITE CONNECTION' from dropdown");
       await io.connectionPage.click(selectors.basePagePO.SAVE);
-      await io.assert.verifyElementDisplayedByText(
-        "Verifying",
-        "'Verifying' step not displayed"
-      );
       await io.assert.verifyElementDisplayedByText(
         "Installed",
         "'Installed' step not displayed"

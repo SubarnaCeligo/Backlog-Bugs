@@ -6,6 +6,7 @@ test.describe("C20898 Verify if the toggle is on for all flows, then at flow lev
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.homePage.click(selectors.myAccountPagePO.USERS);
     await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.COLUMNS);
+    (await page.$(`tbody tr:has-text('${process.env["IO_UserName"]}') [aria-label="Add notifications"]`)).scrollIntoViewIfNeeded()
     await io.homePage.click(`tbody tr:has-text('${process.env["IO_UserName"]}') [aria-label="Add notifications"]`);
     await io.homePage.click(selectors.flowBuilderPagePO.NOTIFICATION_FLOWS);
     await io.homePage.clickByText('All flows');
