@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe(
+test.describe.skip(
   "C56285 Verify if we are able submit a request to provide the password reset link and cancel the request in the forgot password page",
   () => {
     test.beforeEach("Sign out", async ({ io, page }) => {

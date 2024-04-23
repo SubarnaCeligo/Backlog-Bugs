@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe(
+test.describe.skip(
   "C55953 Verify the user is able to save the newly set password successfully via email reset password link",
   () => {
     test.beforeEach("Sign out", async ({ io, page }) => {

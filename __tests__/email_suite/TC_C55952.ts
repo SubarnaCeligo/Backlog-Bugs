@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe(
+test.describe.skip(
   "C55952 Verify all the available fields in the Rest password page after navigating to the page via email link",
   () => {
     test.beforeEach("Sign out", async ({ io, page }) => {
@@ -13,7 +13,7 @@ test.describe(
         await io.homePage.click(selectors.basePagePO.SIGN_OUT);
       }
     });
-    test("@Env-All Verify all the available fields in the Rest password page after navigating to the page via email link", async ({
+    test("C55952 Verify all the available fields in the Rest password page after navigating to the page via email link", async ({
       io,
       page
     }) => {

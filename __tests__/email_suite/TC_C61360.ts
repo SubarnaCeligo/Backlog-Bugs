@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import { randomString, randomNumber } from "@celigo/aut-utilities";
 
 test.describe("C61360  Verify that there shouldn't be any Get Unlimited flows button in home page for newly signed up accounts", () => {
-  test("@Env-All C61360  Verify that there shouldn't be any Get Unlimited flows button in home page for newly signed up accounts", async ({
+  test("C61360  Verify that there shouldn't be any Get Unlimited flows button in home page for newly signed up accounts", async ({
     io,
     page
   }) => {

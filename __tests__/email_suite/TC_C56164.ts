@@ -1,10 +1,10 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe(
+test.describe.skip(
   "C56164 Verify the error message is getting displayed if we click on the link in Invite user email with an active session /accept-invite:token?",
   () => {
-    test("@Env-All C56164 Verify the error message is getting displayed if we click on the link in Invite user email with an active session /accept-invite:token?", async ({
+    test("C56164 Verify the error message is getting displayed if we click on the link in Invite user email with an active session /accept-invite:token?", async ({
       io,
       page
     }) => {

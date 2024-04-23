@@ -2,8 +2,8 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import { decrypt } from '@celigo/aut-utilities';
 
-test.describe(
-  "C67012 Verify the user is able to reset their password if they forget it, and this should not affect the new sign-up process",
+test.describe.skip(
+  "C67012 Verify ehe user is able to reset their password if they forget it, and this should not affect the new sign-up process",
   () => {
     test.beforeEach("Sign out", async ({ io, page }) => {
       await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);

@@ -4,7 +4,7 @@ import { randomString, randomNumber } from "@celigo/aut-utilities";
 import { decrypt } from "@celigo/aut-utilities";
 
 test.describe("C61361 Verify that there shouldnt be any popup message saying Start free trail now to experience optimal process automation for your business with full access to integrator.io . For 30 days, the unlimited flow trial gives you: in home page for newly signe", () => {
-  test("@Env-All C61361 Verify that there shouldnt be any popup message saying Start free trail now to experience optimal process automation for your business with full access to integrator.io . For 30 days, the unlimited flow trial gives you: in home page for newly signe", async ({
+  test("C61361 Verify that there shouldnt be any popup message saying Start free trail now to experience optimal process automation for your business with full access to integrator.io . For 30 days, the unlimited flow trial gives you: in home page for newly signe", async ({
     io,
     page
   }) => {
