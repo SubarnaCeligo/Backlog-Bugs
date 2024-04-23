@@ -58,6 +58,7 @@ test.describe("C112698 Verify Mapper2.0 is having Celigo AI", () => {
     await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.CHANGEOUTPUTFORMAT);
     await io.flowBuilder.clickByText("Create destination rows [ ] from source record { }");
     await io.flowBuilder.loadingTime();
+    await page.waitForTimeout(5000);
     await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","false",1);
   });
 });
