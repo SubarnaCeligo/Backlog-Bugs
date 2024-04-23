@@ -5,7 +5,7 @@ test.describe("C112698 Verify Mapper2.0 is having Celigo AI", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-QA @Zephyr-IO-T14690 C112698 Verify Mapper2.0 is having Celigo AI", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T14690 C112698 Verify Mapper2.0 is having Celigo AI", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.clickByText('TC47946_DND');
@@ -34,7 +34,7 @@ test.describe("C112698 Verify Mapper2.0 is having Celigo AI", () => {
     await expect(page.locator(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW)).toHaveAttribute('data-popper-placement', 'top');
     await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW, 'Auto-map populates known field mappings for destination fields that have not yet been configured. Auto-map doesn’t overwrite mapping values that you have already set up manually. For example, if you have already mapped firstName in the destination field, then auto-map will preserve your configuration for firstName and only add field mappings for the remaining destination fields.');
     await io.flowBuilder.clickByIndex(selectors.connectionsPagePO.HELPTEXT_CLOSE,0);
-    await io.flowBuilder.clickByTextByIndex('Celigo AI', 1);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
      //Placeholder C115221
      const placeholderText = page.getByPlaceholder('Tell me about your mapping here... I will apply your request to the existing mapping unless you tell me to replace it').first();
      await placeholderText.waitFor({ state: 'visible', timeout: 30000 });

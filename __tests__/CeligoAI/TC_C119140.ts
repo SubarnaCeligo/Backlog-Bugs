@@ -2,7 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C119140 Verify the Reset template,query and script button in AFE windows", () => {
-  test("@Env-QA @Zephyr-IO-T18851 C119140  Verify the Reset template,query and script button in AFE windows", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T18851 C119140  Verify the Reset template,query and script button in AFE windows", async ({io, page}) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.clickByText('Reset_DND');
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
@@ -13,7 +13,7 @@ test.describe("C119140 Verify the Reset template,query and script button in AFE 
     await resetQuery.waitFor({ state: 'visible', timeout: 30000 });
     //Verify Reset query button disabled  C119141 C119140	
     await io.assert.verifyElementAttributeContainsText(selectors.flowBuilderPagePO.OPENAI.RESET_TEMPLATE,"class","Mui-disabled");
-    await io.flowBuilder.clickByTextByIndex('Celigo AI', 1);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
       "Celigo AI Placeholder is not displayed"
@@ -64,7 +64,7 @@ test.describe("C119140 Verify the Reset template,query and script button in AFE 
     await resetTemplate.waitFor({ state: 'visible', timeout: 30000 });
     //Verify Reset template button disabled  C119141
     await io.assert.verifyElementAttributeContainsText(selectors.flowBuilderPagePO.OPENAI.RESET_TEMPLATE,"class","Mui-disabled");
-    await io.flowBuilder.clickByTextByIndex('Celigo AI', 1);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
       "Celigo AI Placeholder is not displayed"
