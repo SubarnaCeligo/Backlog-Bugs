@@ -14,7 +14,7 @@ test.describe("TC_C107706 Verify that T badge is consistent in all the places fo
 
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
     
-    const resourceBadges = await page.$$('[data-test="Transfer"] .MuiBadge-badge');
+    const resourceBadges = await page.$$(selectors.exportsPagePO.TRANSFER_HOTSPOT_ICON);
 
     const exportBadge = resourceBadges[0];
     expect(await exportBadge.screenshot()).toMatchSnapshot("TIconExport.png");
@@ -31,10 +31,10 @@ test.describe("TC_C107706 Verify that T badge is consistent in all the places fo
     const exportFilterBadge = await page.$(selectors.exportsPagePO.EXPORT_FILTER_HOTSPOT_ICON);
     expect(await exportFilterBadge.screenshot()).toMatchSnapshot("TIcon-1.png", {maxDiffPixelRatio: 0.1});
 
-    const inputFilterBadge = await page.$('[data-test="inputFilter"] .MuiBadge-badge');
+    const inputFilterBadge = await page.$(selectors.importPagePO.INPUT_FILTER_HOTSPOT_ICON);
     expect(await inputFilterBadge.screenshot()).toMatchSnapshot("TIcon-1.png",{maxDiffPixelRatio: 0.1});
 
-    const lookupTransformationBadge = await page.$('[data-test="lookupTransformation"] .MuiBadge-badge');
+    const lookupTransformationBadge = await page.$(selectors.exportsPagePO.LOOKUP_TRANSFORMATION_HOTSPOT_ICON);
     expect(await lookupTransformationBadge.screenshot()).toMatchSnapshot("TIcon-1.png", {maxDiffPixelRatio: 0.1});
 
     const importMappingBadge = await page.$(selectors.importPagePO.IMPORT_MAPPINGS_HOTSPOT_ICON);
