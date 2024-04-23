@@ -11,6 +11,7 @@ test.describe(`C33162 Verify save saveAndClose close button are present in foote
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP
     );
+    await io.homePage.fill(selectors.flowBuilderPagePO.APP_NAME_INPUT, "REST API (HTTP)")
     await io.flowBuilder.clickByText("REST API (HTTP)");
     await io.flowBuilder.clickByText("Look up additional files (per record)");
     await io.flowBuilder.clickByText("Create from scratch");
