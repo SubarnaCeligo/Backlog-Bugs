@@ -5,7 +5,7 @@ test.describe("C118298 - Verify the assignee pill when the invited non-IO user h
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("C118298 - Verify the assignee pill when the invited non-IO user has dismissed the invite", async ({ io, page }) => {
+  test("@Env-All C118298 - Verify the assignee pill when the invited non-IO user has dismissed the invite", async ({ io, page }) => {
 
     //Navigate to default integration
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);

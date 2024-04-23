@@ -5,7 +5,7 @@ test.describe("C118278 Verify filtering by a specific user returns errors assign
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("Verify filtering by a specific user returns errors assigned to the specific user", async ({
+  test("@Env-All Verify filtering by a specific user returns errors assigned to the specific user", async ({
     io,
     page,
   }) => {

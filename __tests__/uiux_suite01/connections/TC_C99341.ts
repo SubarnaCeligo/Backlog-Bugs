@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C99341To validate batch size field with >=1 and <=1000 number type", () => {
-  test("@Env-All C99341 To validate batch size field with >=1 and <=1000 number type", async ({
+  test("@Env-All @Zephyr-IO-T25377 C99341 To validate batch size field with >=1 and <=1000 number type", async ({
     io,
     page
   }) => {
