@@ -2,7 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C119821", () => {
-    test("@Env-All C119821", async ({io, page}) => {
+    test("@Env-All @Zephyr-IO-T20108 C119821", async ({io, page}) => {
         await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
         await io.myAccountPage.click(selectors.myAccountPagePO.SECURITY);
         await io.homePage.waitForElementAttached(selectors.basePagePO.BREADCRUMB);

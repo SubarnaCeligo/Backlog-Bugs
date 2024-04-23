@@ -2,7 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C110488 Verify system generates the MS SQL query after the user has provided the prompt", () => {
-  test("@Env-QA C110488 Verify system generates the MS SQL query after the user has provided the prompt", async ({io, page}) => {
+  test("@Env-QA @Zephyr-IO-T25482 C110488 Verify system generates the MS SQL query after the user has provided the prompt", async ({io, page}) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();
     await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);

@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C112021 Verify Application Should Not Crashes Upon CeligoAI Prompt Closure", () => {
-  test("@Env-QA C112021 Verify Application Should Not Crashes Upon CeligoAI Prompt Closure", async ({ io, page }) => {
+  test("@Env-QA @Zephyr-IO-T25485 C112021 Verify Application Should Not Crashes Upon CeligoAI Prompt Closure", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();
     await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);

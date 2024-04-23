@@ -5,7 +5,7 @@ test.describe("C118296 - Batch action - Verify 'Assign error' dropdown when no e
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-All C118296 - Batch action - Verify 'Assign error' dropdown when no errors are selected", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T20070 C118296 - Batch action - Verify 'Assign error' dropdown when no errors are selected", async ({ io, page }) => {
     //Navigate to default integration
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
 

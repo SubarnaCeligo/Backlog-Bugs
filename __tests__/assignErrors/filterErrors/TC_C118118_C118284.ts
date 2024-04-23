@@ -1,11 +1,11 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C118118 Verify filtering by 'Myself' returns only errors assigned to the logged in user and Verify filter persistence when the user navigates to other tabs and returns to open errors tab", () => {
+test.describe("C118118_C118284 Verify filtering by 'Myself' returns only errors assigned to the logged in user and Verify filter persistence when the user navigates to other tabs and returns to open errors tab", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-All C118118	Verify filtering by 'Myself' returns only errors assigned to the logged in user ", async ({
+  test("@Env-All @Zephyr-IO-T20058 @Zephyr-IO-T20066 C118118_C118284	Verify filtering by 'Myself' returns only errors assigned to the logged in user ", async ({
     io,
     page,
   }) => {

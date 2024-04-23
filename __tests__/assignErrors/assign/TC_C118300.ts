@@ -5,7 +5,7 @@ test.describe("C118300 - Verify the assignee pill when the user is disabled", ()
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-All C118300 - Verify the assignee pill when the user is disabled", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T20074 C118300 - Verify the assignee pill when the user is disabled", async ({ io, page }) => {
 
     //Navigate to default integration
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);

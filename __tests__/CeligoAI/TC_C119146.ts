@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C119146 Verify the Error Panel in AFE windows", () => {
-  test("@Env-QA C119146 Verify the Error Panel in AFE windows", async ({ io, page }) => {
+  test("@Env-QA @Zephyr-IO-T18858 C119146 Verify the Error Panel in AFE windows", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.clickByText("ErrorPanel_DND");

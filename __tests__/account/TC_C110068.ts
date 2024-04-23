@@ -7,7 +7,7 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-All TC_C110068 when user email is changed from profile page, verify Email Notification Generation when clicked on show token for an Agent in Agents Page", async ({
+  test("@Env-All @Zephyr-IO-T10059 TC_C110068 when user email is changed from profile page, verify Email Notification Generation when clicked on show token for an Agent in Agents Page", async ({
     io,
     page
   }) => {
@@ -95,6 +95,7 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
     await io.homePage.loadingTime();
     // navigate to my account page
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
+    await io.homePage.loadingTime();
     await io.myAccountPage.click(selectors.basePagePO.EDIT_EMAIL_BUTTON);
     // Click on edit email button
     await io.myAccountPage.waitForElementAttached(selectors.basePagePO.NEW_EMAIL);
@@ -120,6 +121,7 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
 
     // // signin of IO and navigate to login page
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.loadingTime();
     const isNotLoggedIn1 = await io.loginPage.checkLoginState();
     await page.waitForTimeout(5000);
     const link1 = await io.emailVal.getLinkFromEmail(
@@ -127,14 +129,9 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
       false,
       "pwqa1"
     );
-    let Account1Tab = ".MuiToolbar-root .MuiSvgIcon-root";
-    let Account1Tab1 = await page.$$(".MuiToolbar-root .MuiSvgIcon-root");
     await page.waitForTimeout(20000);
-    let last1 = (await Account1Tab1.length) - 1;
-
     if (!isNotLoggedIn1) {
-      // await io.homePage.waitForElementAttached(AccountTab[last]);
-      await io.myAccountPage.clickByIndex(Account1Tab, last1);
+      await io.flowBuilder.click(selectors.basePagePO.ACCOUNT_BUTTON);
       await io.homePage.click(selectors.basePagePO.SIGN_OUT);
     }
 
@@ -154,6 +151,7 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
 
     await page.waitForTimeout(10000);
     await io.homePage.navigateTo(link1.toString());
+    await io.homePage.loadingTime();
     await io.loginPage.fill(
       selectors.loginPagePO.EMAIL,
       "qaautomation1+emailcheck@celigo.com"
