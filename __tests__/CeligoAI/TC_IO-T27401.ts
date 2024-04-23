@@ -10,6 +10,7 @@ test.describe("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Author-
     page
   }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+    await io.homePage.loadingTime();
     await io.flowBuilder.clickByText("Automapper_DND");
     await io.flowBuilder.waitForElementAttached(
       selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR
@@ -25,6 +26,7 @@ test.describe("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Author-
       2
     );
     await io.flowBuilder.click(selectors.importPagePO.AUTO_POPULATE_MAPPINGS);
+    await io.homePage.loadingTime();
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.AUTOMAPPER_TOOL,
       "Auto mapper tool is not displayed"
@@ -40,6 +42,7 @@ test.describe("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Author-
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.OPENAI.AUTOMAPPER_TOOL
     );
+    await io.homePage.loadingTime();
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.AUTOMAP_BUTTON,
       "Auto map option is not displayed"
@@ -50,6 +53,7 @@ test.describe("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Author-
       selectors.flowBuilderPagePO.HELP_TEXT_ICON,
       7
     );
+    await io.homePage.loadingTime();
     const value = await io.flowBuilder.getText(selectors.importPagePO.INPUTHELP);
     const expectedvalue =
       "Auto-map all selected un-mapped destination fields i.e. the ones that do not have source field added. When auto-map is clicked, all options that modify the existing destination structure will be disabled. Close auto-map to go back to mappings.";
@@ -94,6 +98,7 @@ test.describe("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Author-
       selectors.flowBuilderPagePO.OPENAI.AUTOMAP_CHECKBOX,
       1
     );
+    await io.homePage.loadingTime();
     await io.assert.verifyElementAttributeContainsText(
       selectors.flowBuilderPagePO.OPENAI.AUTOMAP_CHECKBOX,
       "class",
@@ -158,14 +163,16 @@ test.describe("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Author-
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.OPENAI.AUTOMAPPER_CLOSE
     );
-
+    await io.homePage.loadingTime();
     //IO-T27416 IO-T27418 Verify user is able to map all fields using auto map tool
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.OPENAI.AUTOMAPPER_TOOL
     );
+    await io.homePage.loadingTime();
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.OPENAI.AUTOMAP_SELECTALL_CHECKBOX
     );
+    await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.AUTOMAP_BUTTON);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.loadingTime();
