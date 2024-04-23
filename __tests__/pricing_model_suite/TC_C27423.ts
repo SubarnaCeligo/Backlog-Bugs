@@ -9,23 +9,21 @@ test.describe("C27423 Verify the endpoint under subscription page when it dont e
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.myAccountPage.click(selectors.myAccountPagePO.SUBSCRIPTION);
     await page.waitForLoadState();
-    const progressBars = await page
-      .locator(selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR)
-      .all();
-    progressBars.forEach(async row => {
-      const items = await row.locator("span").all();
-      items.forEach(async item => {
-        const color = await item.evaluate(
-          el => getComputedStyle(el).backgroundColor
-        );
-        if (color) {
-          await io.assert.expectToBeValue(
-            color,
-            "rgb(29, 118, 199)",
-            "The status is not correctly colored"
-          );
-        }
-      });
-    });
+
+    const bgColorList = await io.homePage.getBackgroundColors(
+      selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR
+    );
+    await io.assert.expectArrayToBeInArray(
+      bgColorList,
+      [
+        "rgb(29, 118, 199)",
+        "rgb(29, 118, 199)",
+        "rgb(29, 118, 199)",
+        "rgb(29, 118, 199)",
+        "rgb(29, 118, 199)",
+        "rgb(29, 118, 199)"
+      ],
+      "The status is not correctly colored"
+    );
   });
 });
