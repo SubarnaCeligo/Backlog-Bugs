@@ -4,63 +4,137 @@
       {
         "type": "export",
         "qa__export": {
-          "name": "Shopify customer export",
-          "_connectionId": "SHOPIFY CONNECTION",
+          "_id": "662218b4c90a4554af891741",
+          "createdAt": "2024-04-19T07:09:40.698Z",
+          "lastModified": "2024-04-19T07:09:40.738Z",
+          "name": "AutomationStandalone_Uy0nZ",
+          "_connectionId": "FTP CONNECTION",
+          "apiIdentifier": "e8760b5c46",
           "asynchronous": true,
-          "assistant": "shopify",
-          "assistantMetadata": {
-            "resource": "customer",
-            "version": "v2",
-            "operation": "searches_forcustomersthatmatchasuppliedquery"
+          "sandbox": false,
+          "ftp": {
+              "directoryPath": "/io.auto.qa/JK3"
           },
-          "http": {
-            "relativeURI": "/customers/search.json?query=first_name:C23737",
-            "method": "GET",
-            "paging": {
-              "method": "linkheader",
-              "lastPageStatusCode": 404,
-              "linkHeaderRelation": "next"
-            },
-            "response": {
-              "resourcePath": "customers"
-            }
+          "file": {
+              "output": "records",
+              "skipDelete": true,
+              "type": "json"
           },
-          "rawData": "603ce5ede9250226dcea4608dda6230d547e4261bcf2b129528d1898",
-          "rest": {
-            "relativeURI": "/customers/search.json?query=first_name:C23737",
-            "method": "GET",
-            "resourcePath": "customers",
-            "pagingMethod": "linkheader",
-            "allowUndefinedResource": false,
-            "linkHeaderRelation": "next"
-          },
-          "adaptorType": "RESTExport"
-        }
+          "adaptorType": "FTPExport"
+      }
       }
     ],
     "pageProcessors": [
       {
         "type": "import",
-        "qa__import": {
-          "name": "HTTP import",
-          "application": "zendesk support",
-          "parsers": [],
-          "_connectionId": "HTTP ZENDESK CONNECTION",
+        "qa__import":{
+          "_id": "662218b5fc6ec004f76ee306",
+          "createdAt": "2024-04-19T07:09:41.121Z",
+          "lastModified": "2024-04-19T07:10:22.126Z",
+          "name": "AutomationStandalone_PxtO7",
+          "_connectionId": "BIGCOMMERCE CONNECTION",
+          "apiIdentifier": "i89b53fe7e",
           "ignoreExisting": false,
           "ignoreMissing": false,
           "oneToMany": false,
+          "assistant": "bigcommerce",
           "sandbox": false,
-          "lookups": [],
-          "http": {
-            "relativeURI": ["/ticket.json"],
-            "method": ["POST"],
-            "body": ["{\"name\":\"New\"}"],
-            "batchSize": 1,
-            "sendPostMappedData": true,
-            "formType": "http"
+          "assistantMetadata": {
+              "resource": "customers",
+              "version": "v3",
+              "operation": "create_customers"
           },
-          "adaptorType": "HTTPImport"
-        }
+          "mapping": {
+              "fields": [
+                  {
+                      "generate": "last_name"
+                  },
+                  {
+                      "generate": "first_name"
+                  },
+                  {
+                      "generate": "email"
+                  }
+              ]
+          },
+          "mappings": [
+              {
+                  "extract": "xyz{{random length 6}}@gmail.com",
+                  "generate": "email",
+                  "dataType": "string",
+                  "default": null,
+                  "status": "Active",
+                  "sourceDataType": "string"
+              },
+              {
+                  "extract": "$.first_name",
+                  "generate": "first_name",
+                  "dataType": "string",
+                  "default": null,
+                  "status": "Active",
+                  "sourceDataType": "string"
+              },
+              {
+                  "extract": "$.last_name",
+                  "generate": "last_name",
+                  "dataType": "string",
+                  "status": "Active",
+                  "sourceDataType": "string"
+              },
+              {
+                  "extract": "$.company",
+                  "generate": "company",
+                  "dataType": "string",
+                  "default": null,
+                  "status": "Active",
+                  "sourceDataType": "string"
+              }
+          ],
+          "http": {
+              "relativeURI": [
+                  "/v3/customers"
+              ],
+              "method": [
+                  "POST"
+              ],
+              "body": [
+                  "[ { {{#each data.[0]}}{{#if @index}},{{/if}}\"{{@key}}\": {{{jsonSerialize this}}} {{/each}} } ]"
+              ],
+              "batchSize": 1,
+              "requestMediaType": "json",
+              "successMediaType": "json",
+              "errorMediaType": "json",
+              "strictHandlebarEvaluation": true,
+              "sendPostMappedData": false,
+              "formType": "assistant",
+              "response": {
+                  "resourceIdPath": [
+                      null
+                  ]
+              }
+          },
+          "rest": {
+              "relativeURI": [
+                  "/v3/customers"
+              ],
+              "method": [
+                  "POST"
+              ],
+              "body": [
+                  "[ { {{#each data}}{{#if @index}},{{/if}}\"{{@key}}\": {{{jsonSerialize this}}} {{/each}} } ]"
+              ],
+              "responseIdPath": [
+                  null
+              ],
+              "successPath": [
+                  null
+              ],
+              "successValues": [
+                  null
+              ]
+          },
+          "adaptorType": "RESTImport"
+      }
       }
     ],
     "createFlow": {
