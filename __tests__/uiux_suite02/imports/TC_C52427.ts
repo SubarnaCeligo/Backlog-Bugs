@@ -9,9 +9,9 @@ test.describe("C52427 For NS SS2.0 - Verify shipping address sub record is shown
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'netsuite');
     await io.flowBuilder.click(selectors.connectionsPagePO.NETSUITE_CONNECTION);
     await io.flowBuilder.click(selectors.connectionsPagePO.IMPORT_RECORDS);
+    await io.flowBuilder.clickByText("Create from scratch");
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
-    await io.flowBuilder.clickByText('NETSUITE CONNECTION');
-    await io.flowBuilder.click(selectors.basePagePO.SAVE);
+    await io.homePage.selectConnectionDropDown(page, 'NETSUITE CONNECTION');
 
     await io.flowBuilder.fill(selectors.importPagePO.NETSUITE_RECORD_TYPE, 'Subsidia');
     await io.flowBuilder.click(selectors.importPagePO.NETSUITE_RECORD_TYPE);
