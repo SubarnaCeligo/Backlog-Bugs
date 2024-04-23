@@ -9,6 +9,7 @@ test.describe("C117448 Verify Filter is having Celigo AI", () => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.clickByText('Filter_DND');
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
     //EXPORT_FILTER 
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR, 0);
@@ -51,8 +52,40 @@ test.describe("C117448 Verify Filter is having Celigo AI", () => {
       "Default layout is not column view"
     );
     await io.flowBuilder.click(selectors.playgroundPO.SELECTED_COLUMN_VIEW);
+    (await page.$(selectors.flowBuilderPagePO.EM2DOT0PO.ACE_EDITOR_INPUT)).focus();
+    await page.keyboard.press('Control+A');
+    await page.keyboard.press('Meta+A');
+    await io.flowBuilder.loadingTime();
+    await page.evaluate(() => {
+      // @ts-ignore
+      const editor = ace.edit("data"); 
+      editor.setValue("");
+    });
+    await io.flowBuilder.loadingTime();
+    (await page.$(selectors.flowBuilderPagePO.EM2DOT0PO.ACE_EDITOR_INPUT)).fill(`{
+      "record": {
+        "id": 1,
+        "title": "iPhone 9",
+        "description": "An apple mobile which is nothing like apple",
+        "price": 549,
+        "discountPercentage": 12.96,
+        "rating": 4.69,
+        "stock": 94,
+        "brand": "Apple",
+        "category": "smartphones"
+      },
+      "settings": {
+        "integration": {},
+        "flow": {},
+        "flowGrouping": {},
+        "connection": {},
+        "iClient": {},
+        "export": {}
+      }
+    }`);
 
     // Invalid Prompt C117466
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
     await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'Simply');
     await io.flowBuilder.loadingTime();
     await page.keyboard.press('Enter');

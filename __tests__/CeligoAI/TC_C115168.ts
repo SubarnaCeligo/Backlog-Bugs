@@ -100,6 +100,7 @@ test.describe("C115168 Verify the flow description Celigo AI", () => {
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.ClOSE_BUTTON);
     //Export in FLowBuilder C115184
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
+    await io.homePage.loadingTime();
     await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.OPENAI.CELIGOAI_GENERATEDBUTTON, "CeligoAI Generated Button is not displayed");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.CELIGOAI_GENERATEDBUTTON);
     const exportFlowDisc = page.getByText('Export description').first();

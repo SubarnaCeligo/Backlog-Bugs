@@ -9,6 +9,7 @@ test.describe("C112698 Verify Mapper2.0 is having Celigo AI", () => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.clickByText('TC47946_DND');
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
     //IMPORT_MAPPING 
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR, 1);
@@ -16,6 +17,7 @@ test.describe("C112698 Verify Mapper2.0 is having Celigo AI", () => {
     await io.flowBuilder.loadingTime();
     //IMPORT_MAPPING Mapper1.0 Celigo AI Not Displayed C112699
     await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.MAPPER1DOT0BUTTON);
+    await io.flowBuilder.loadingTime();
     const isCeligoAINotVisibleInMapper1 = !(await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT));
     await io.assert.expectToBeTrue(isCeligoAINotVisibleInMapper1, "Celigo AI Not Visible for Mapper 1.0");
     //Verify Celigo AI are in collapsed state and disabled. C112701 C112698 C112756
