@@ -5,7 +5,7 @@ test.describe("C118293 - Verify that 'Assign error' button is added on the top b
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("C118293 -Verify that 'Assign error' button is added on the top bar, error details section and is visible upon hovering on any row", async ({ io, page }) => {
+  test("@Env-All C118293 -Verify that 'Assign error' button is added on the top bar, error details section and is visible upon hovering on any row", async ({ io, page }) => {
 
     //Navigate to default integration
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);

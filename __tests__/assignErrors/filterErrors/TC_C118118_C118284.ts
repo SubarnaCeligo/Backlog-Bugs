@@ -5,7 +5,7 @@ test.describe("C118118 Verify filtering by 'Myself' returns only errors assigned
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("C118118	Verify filtering by 'Myself' returns only errors assigned to the logged in user ", async ({
+  test("@Env-All C118118	Verify filtering by 'Myself' returns only errors assigned to the logged in user ", async ({
     io,
     page,
   }) => {

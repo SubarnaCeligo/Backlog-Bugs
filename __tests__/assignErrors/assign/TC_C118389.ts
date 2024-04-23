@@ -6,7 +6,7 @@ test.describe("C118388 - Verify that admin/owner users with invitation feature e
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("C118388 - Verify that admin/owner users with invitation feature enabled/disabled is able to assign errors to an existing user who does not have access to the integration(platform should auto assign monitor access", async ({ io, page }) => {
+  test("@Env-All C118388 - Verify that admin/owner users with invitation feature enabled/disabled is able to assign errors to an existing user who does not have access to the integration(platform should auto assign monitor access", async ({ io, page }) => {
 
     //Navigate to default integration
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
