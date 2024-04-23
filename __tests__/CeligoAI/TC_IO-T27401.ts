@@ -5,7 +5,7 @@ test.describe("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Author-
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Epic-IO-69823 @Priority-P2 @Zephyr-IO-T27406 @Zephyr-IO-T27402 @Zephyr-IO-T27405 @Zephyr-IO-T27403 @Zephyr-IO-T27404 @Zephyr-IO-T27407 @Zephyr-IO-T27408 @Zephyr-IO-T27412 @Zephyr-IO-T27409 @Zephyr-IO-T27410 @Zephyr-IO-T27411 @Zephyr-IO-T27413 @Zephyr-IO-T27414 @Zephyr-IO-T27415 @Zephyr-IO-T27419 @Zephyr-IO-T27420 @Zephyr-IO-T27416 @Zephyr-IO-T27418 @Env-All", async ({
+  test("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Epic-IO-69823 @Priority-P2 @Zephyr-IO-T27406 @Zephyr-IO-T27402 @Zephyr-IO-T27405 @Zephyr-IO-T27403 @Zephyr-IO-T27404 @Zephyr-IO-T27407 @Zephyr-IO-T27408 @Zephyr-IO-T27412 @Zephyr-IO-T27409 @Zephyr-IO-T27410 @Zephyr-IO-T27411 @Zephyr-IO-T27413 @Zephyr-IO-T27414 @Zephyr-IO-T27415 @Zephyr-IO-T27419 @Zephyr-IO-T27420 @Zephyr-IO-T27416 @Zephyr-IO-T27418 @Env-QA", async ({
     io,
     page
   }) => {
@@ -63,6 +63,7 @@ test.describe("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Author-
       selectors.connectionsPagePO.HELPTEXT_CLOSE
     );
     await io.flowBuilder.loadingTime();
+    await io.homePage.loadingTime();
 
     //IO-T27404 Verify the other buttons are disabled when auto mapper is active
     await io.assert.verifyElementAttributeContainsText(
@@ -117,7 +118,9 @@ test.describe("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Author-
       selectors.flowBuilderPagePO.OPENAI.AUTOMAP_CHECKBOX,
       6
     );
+    await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.basePagePO.EXPAND_ALL);
+    await io.homePage.loadingTime();
     await io.assert.verifyElementAttributeContainsText(
       selectors.flowBuilderPagePO.OPENAI.AUTOMAP_CHECKBOX,
       "class",
@@ -140,6 +143,7 @@ test.describe("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Author-
       selectors.flowBuilderPagePO.OPENAI.AUTOMAPPER_TOOL
     );
     await io.flowBuilder.loadingTime();
+    await io.homePage.loadingTime();
     await io.assert.verifyElementAttributeContainsText(
       selectors.flowBuilderPagePO.OPENAI.AUTOMAP_CHECKBOX,
       "class",
@@ -164,6 +168,7 @@ test.describe("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Author-
       selectors.flowBuilderPagePO.OPENAI.AUTOMAPPER_CLOSE
     );
     await io.homePage.loadingTime();
+    await io.homePage.loadingTime();
     //IO-T27416 IO-T27418 Verify user is able to map all fields using auto map tool
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.OPENAI.AUTOMAPPER_TOOL
@@ -172,6 +177,7 @@ test.describe("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Author-
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.OPENAI.AUTOMAP_SELECTALL_CHECKBOX
     );
+    await io.homePage.loadingTime();
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.AUTOMAP_BUTTON);
     await io.flowBuilder.loadingTime();
