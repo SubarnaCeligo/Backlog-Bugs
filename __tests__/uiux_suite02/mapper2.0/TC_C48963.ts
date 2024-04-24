@@ -10,15 +10,14 @@ test.describe("C48963 Verify 'Actions to take if source value not found' options
       await io.importsPage.click(selectors.mappings.MAPPER2DOT0PO.DEFAULT_MAPPING);
       await io.importsPage.click(selectors.mappings.MAPPER2DOT0PO.USE_NULL);
       await io.importsPage.click(selectors.basePagePO.SAVE_AND_CLOSE);
+      await io.homePage.loadingTime()
       await io.importsPage.waitForElementAttached(selectors.mappings.MAPPER2DOT0PO.PREVIEW);
-      await io.importsPage.click(selectors.mappings.MAPPER2DOT0PO.PREVIEW);
+      await page.dblclick(selectors.mappings.MAPPER2DOT0PO.PREVIEW);
       await io.importsPage.delay(2000);
-      const val = JSON.parse(await page.locator(selectors.mappings.MAPPER2DOT0PO.RESULT).evaluate(e => {
-        // @ts-ignore
-        const editor = ace.edit(e);
-        return editor.getAttribute("value");
-      }));
-      expect(val.company).toBe(null);
+      await io.homePage.loadingTime()
+      let result = await page.locator(selectors.mappings.MAPPER2DOT0PO.RESULT + " .ace_content").textContent()
+      let companyvalue = JSON.parse(result)
+      expect(companyvalue.company).toBe(null);
 
   });
 });
