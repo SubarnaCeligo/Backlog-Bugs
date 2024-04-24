@@ -5,7 +5,7 @@ test.describe("C118387_C118393-Verify batch reassign feature when errors assigne
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-All C118387_C118393-Verify batch reassign feature when errors assigned to a single user are selected at once. ", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T20087 @Zephyr-IO-T20093 C118387_C118393-Verify batch reassign feature when errors assigned to a single user are selected at once. ", async ({ io, page }) => {
 
     //387- Verify clicking on 'Assign to me' during bulk action assigns all the selected errors to logged in user
     //Navigate to default integration

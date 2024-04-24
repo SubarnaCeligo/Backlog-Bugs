@@ -2,11 +2,11 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import reqBodyPUT from "@testData/EM2.0/C118389.json"
 
-test.describe("C118388 - Verify that admin/owner users with invitation feature enabled/disabled is able to assign errors to an existing user who does not have access to the integration(platform should auto assign monitor access", () => {
+test.describe("C118389 - Verify that admin/owner users with invitation feature enabled/disabled is able to assign errors to an existing user who does not have access to the integration(platform should auto assign monitor access", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-All C118388 - Verify that admin/owner users with invitation feature enabled/disabled is able to assign errors to an existing user who does not have access to the integration(platform should auto assign monitor access", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T20089 C118389 - Verify that admin/owner users with invitation feature enabled/disabled is able to assign errors to an existing user who does not have access to the integration(platform should auto assign monitor access", async ({ io, page }) => {
 
     //Navigate to default integration
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);

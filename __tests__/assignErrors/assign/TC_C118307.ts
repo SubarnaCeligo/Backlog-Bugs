@@ -5,7 +5,7 @@ test.describe("C118307 - Verify the assignee pill when an error is resolved", ()
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-All C118307 - Verify the assignee pill when an error is resolved", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T20081 C118307 - Verify the assignee pill when an error is resolved", async ({ io, page }) => {
 
     //Navigate to default integration
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);

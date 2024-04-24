@@ -63,6 +63,7 @@ test.describe("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Author-
       selectors.connectionsPagePO.HELPTEXT_CLOSE
     );
     await io.flowBuilder.loadingTime();
+    await io.homePage.loadingTime();
 
     //IO-T27404 Verify the other buttons are disabled when auto mapper is active
     await io.assert.verifyElementAttributeContainsText(
@@ -117,7 +118,9 @@ test.describe("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Author-
       selectors.flowBuilderPagePO.OPENAI.AUTOMAP_CHECKBOX,
       6
     );
+    await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.basePagePO.EXPAND_ALL);
+    await io.homePage.loadingTime();
     await io.assert.verifyElementAttributeContainsText(
       selectors.flowBuilderPagePO.OPENAI.AUTOMAP_CHECKBOX,
       "class",
@@ -140,6 +143,7 @@ test.describe("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Author-
       selectors.flowBuilderPagePO.OPENAI.AUTOMAPPER_TOOL
     );
     await io.flowBuilder.loadingTime();
+    await io.homePage.loadingTime();
     await io.assert.verifyElementAttributeContainsText(
       selectors.flowBuilderPagePO.OPENAI.AUTOMAP_CHECKBOX,
       "class",
@@ -164,6 +168,7 @@ test.describe("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Author-
       selectors.flowBuilderPagePO.OPENAI.AUTOMAPPER_CLOSE
     );
     await io.homePage.loadingTime();
+    await io.homePage.loadingTime();
     //IO-T27416 IO-T27418 Verify user is able to map all fields using auto map tool
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.OPENAI.AUTOMAPPER_TOOL
@@ -172,6 +177,7 @@ test.describe("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Author-
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.OPENAI.AUTOMAP_SELECTALL_CHECKBOX
     );
+    await io.homePage.loadingTime();
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.AUTOMAP_BUTTON);
     await io.flowBuilder.loadingTime();
