@@ -3,11 +3,11 @@ import * as selectors from "@celigo/aut-selectors";
 import testMode from "@testData/Flows/C107605.json";
 
 test.describe("C107605", () => {
-  test("C107605 Verify  drop-down in the HTTP Import when transferring files to the destination application for HTTP 2.0 framework", async ({io, page}) => {
+  test("@Priority-P2 @Zephyr-IO-T1659 @Env-All C107605", async ({io, page}) => {
       await io.createResourceFromAPI(testMode, "FLOWS");
       await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);
       await io.flowBuilder.loadingTime();
-      await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
+      // await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
       const helpBubble =selectors.myAccountPagePO.HELP_BUBBLE;
       const helptext_close = selectors.connectionsPagePO.HELPTEXT_CLOSE;
       const blobFormat = selectors.flowBuilderPagePO.BLOB_FORMAT;

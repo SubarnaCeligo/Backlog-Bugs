@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C28982 Verify Connection status is displaying correctly in create export/ import form`, () => {
-  test(`C28982 Verify Connection status is displaying correctly in create export/ import form`, async ({
+  test(`@Priority-P2 @Zephyr-IO-T14722 @Env-All C28982`, async ({
     io,
     page
   }) => {

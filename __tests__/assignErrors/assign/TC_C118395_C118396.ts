@@ -5,7 +5,7 @@ test.describe("C118395_C118396 - Verify batch unassignment for errors assigned t
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("C118395_C118396 - Verify batch unassignment for errors assigned to a single user ", async ({ io, page }) => {
+  test("@Env-All C118395_C118396 - Verify batch unassignment for errors assigned to a single user ", async ({ io, page }) => {
 
     //Navigate to default integration
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);

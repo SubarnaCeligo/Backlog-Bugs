@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Flows/C106448.json";
 
 test.describe(`C106448  Verify Parsed output label`, () => {
-  test(`C106448 Verify Parsed output label`, async ({ io, page }) => {
+  test(`@Priority-P2 @Zephyr-IO-T23733 @Env-All C106448`, async ({ io, page }) => {
     const id = await io.createResourceFromAPI(testData, "FLOWS");
     //Salesforce
     await io.homePage.loadingTime()

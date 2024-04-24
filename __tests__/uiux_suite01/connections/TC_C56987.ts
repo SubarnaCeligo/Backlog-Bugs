@@ -6,7 +6,7 @@ import * as selectors from "@celigo/aut-selectors";
 
 
 test.describe("C56987 Verify the seller central URL that UI is navigating to is as expected when we select the marketplace as Belgium", () => {
-    test("@Env-All C56987 Verify the seller central URL that UI is navigating to is as expected when we select the marketplace as Belgium", async ({io, page}) => {
+    test("@Env-All @Zephyr-IO-T6791 C56987 Verify the seller central URL that UI is navigating to is as expected when we select the marketplace as Belgium", async ({io, page}) => {
     
       await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
       let isConnectionsVisible = await io.homePage.isVisible(

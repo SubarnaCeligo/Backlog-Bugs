@@ -1,8 +1,8 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe(`C97060 App crash should not happen when user edits the connector defined custom settings`, () => {
-  test(`@Env-All C97060 App crash should not happen when user edits the connector defined custom settings`, async ({
+test.describe(`@Zephyr-IO-T1150 C97060 App crash should not happen when user edits the connector defined custom settings`, () => {
+  test(`C97060 App crash should not happen when user edits the connector defined custom settings`, async ({
     io,
     page
   }) => {

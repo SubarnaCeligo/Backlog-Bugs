@@ -12,8 +12,9 @@ test.describe("API manager redirect production ", () => {
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMANAGER);
     await io.homePage.loadingTime();
-    await io.homePage.loadingTime();
+    await io.homePage.loadingTime()
     await page.waitForTimeout(5000);
+    await io.flowBuilder.delay(15000);
     const allPages = context.pages();
     await allPages[1].bringToFront();
     await allPages[1].waitForLoadState();
