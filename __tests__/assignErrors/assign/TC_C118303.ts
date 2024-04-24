@@ -5,7 +5,7 @@ test.describe("C118303 - Verify user's entry 'Assign error' page when the user h
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("C118303 - Verify user's entry 'Assign error' page when the user has not yet accepted the invite", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T20077 C118303 - Verify user's entry 'Assign error' page when the user has not yet accepted the invite", async ({ io, page }) => {
 
     //Navigate to default integration
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);

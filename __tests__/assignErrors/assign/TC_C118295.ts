@@ -5,7 +5,7 @@ test.describe("C118295 - Verify the search feature on Assign error screen", () =
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("C118295 - Verify the search feature on Assign error screen", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T20069 C118295 - Verify the search feature on Assign error screen", async ({ io, page }) => {
 
     //Navigate to default integration
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);

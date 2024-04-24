@@ -248,6 +248,9 @@ test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API
         await io.flowBuilder.loadingTime();
         await page.setDefaultTimeout(5000);
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APIMFLOW, randomString);
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMREFRESHSELECT);
+        await page.setDefaultTimeout(9000);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMPUSH);
         await io.homePage.loadingTime();
         await io.homePage.loadingTime();

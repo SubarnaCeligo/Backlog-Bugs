@@ -5,7 +5,7 @@ test.describe("C118306 - Verify Assign error flyout when errors assigned to mult
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("C118306 - Verify Assign error flyout when errors assigned to multiple users are selected ", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T20080 C118306 - Verify Assign error flyout when errors assigned to multiple users are selected ", async ({ io, page }) => {
 
   //Navigate to default integration
   await io.homePage.navigateTo(process.env["IO_Integration_URL"]);

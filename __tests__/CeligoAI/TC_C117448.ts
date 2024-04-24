@@ -5,9 +5,11 @@ test.describe("C117448 Verify Filter is having Celigo AI", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("C117448 Verify Filter is having Celigo AI", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T18803 C117448 Verify Filter is having Celigo AI", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.clickByText('Filter_DND');
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
     //EXPORT_FILTER 
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR, 0);
@@ -26,7 +28,7 @@ test.describe("C117448 Verify Filter is having Celigo AI", () => {
     await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW, 'Provide instructions for Celigo AI to generate a Filter rules for you. ');
     await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW, 'Note: Your instructions will not be saved after you exit the editor window.');
     await io.flowBuilder.clickByIndex(selectors.connectionsPagePO.HELPTEXT_CLOSE, 0);
-    await io.flowBuilder.clickByText('Celigo AI');
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
 
     await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,"placeholder","Tell me about your filter here... I will apply your request to the existing filter unless you tell me to replace it");
     await io.assert.verifyElementIsDisplayed(
@@ -50,12 +52,46 @@ test.describe("C117448 Verify Filter is having Celigo AI", () => {
       "Default layout is not column view"
     );
     await io.flowBuilder.click(selectors.playgroundPO.SELECTED_COLUMN_VIEW);
+    (await page.$(selectors.flowBuilderPagePO.EM2DOT0PO.ACE_EDITOR_INPUT)).focus();
+    await page.keyboard.press('Control+A');
+    await page.keyboard.press('Meta+A');
+    await io.flowBuilder.loadingTime();
+    await page.evaluate(() => {
+      // @ts-ignore
+      const editor = ace.edit("data"); 
+      editor.setValue("");
+    });
+    await io.flowBuilder.loadingTime();
+    (await page.$(selectors.flowBuilderPagePO.EM2DOT0PO.ACE_EDITOR_INPUT)).fill(`{
+      "record": {
+        "id": 1,
+        "title": "iPhone 9",
+        "description": "An apple mobile which is nothing like apple",
+        "price": 549,
+        "discountPercentage": 12.96,
+        "rating": 4.69,
+        "stock": 94,
+        "brand": "Apple",
+        "category": "smartphones"
+      },
+      "settings": {
+        "integration": {},
+        "flow": {},
+        "flowGrouping": {},
+        "connection": {},
+        "iClient": {},
+        "export": {}
+      }
+    }`);
 
     // Invalid Prompt C117466
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
     await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'Simply');
     await io.flowBuilder.loadingTime();
     await page.keyboard.press('Enter');
     await io.flowBuilder.loadingTime();
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.ERROR_CODEPANEL);
+    // await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.EM2DOT0PO.ACE_EDITOR_INPUT, 0);
     const promptErrorMsg = page.getByText('Invalid prompt - Please provide relevant prompt.').first();
     await promptErrorMsg.waitFor({ state: 'visible', timeout: 30000 });
     await io.flowBuilder.loadingTime();
@@ -94,7 +130,7 @@ test.describe("C117448 Verify Filter is having Celigo AI", () => {
 
     //Valid Prompt for filter C117459
     await io.flowBuilder.loadingTime();
-    await io.flowBuilder.clickByText('Celigo AI');
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
     await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'Filter by price less than 500');
     await io.flowBuilder.loadingTime();
     await page.keyboard.press('Enter');
@@ -163,7 +199,7 @@ test.describe("C117448 Verify Filter is having Celigo AI", () => {
       }
     }`);
     await io.flowBuilder.loadingTime();
-    await io.flowBuilder.clickByText('Celigo AI');
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
     await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'filter by where item quantity is 2, amount is less than 160 and customerId is C12345');
     await io.flowBuilder.loadingTime();
     await page.keyboard.press('Enter');
