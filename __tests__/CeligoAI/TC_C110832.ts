@@ -5,7 +5,7 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-QA C110832 Verify JS Editor is having Celigo AI", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T14176 C110832 Verify JS Editor is having Celigo AI", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.clickByText('TC47946_DND');
@@ -33,7 +33,7 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
     await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW, 'Provide instructions for Celigo AI to generate a Javascript code for you. ');
     await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW, 'Note: Your instructions will not be saved after you exit the editor window.');
     await io.flowBuilder.clickByIndex(selectors.connectionsPagePO.HELPTEXT_CLOSE, 0);
-    await io.flowBuilder.clickByTextByIndex('Celigo AI', 1);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
     //C111479
     
     const placeholderText = page.getByPlaceholder('Tell me about your function here... I will apply your request to the existing function unless you tell me to replace it').first();
@@ -96,7 +96,7 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
     );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.SCRIPT_LIST_DROPDOWN_ID);
     await io.flowBuilder.clickByTextByIndex("Branching script", 1);
-    await io.flowBuilder.clickByTextByIndex('Celigo AI', 1);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
       "Celigo AI Placeholder is not displayed"
@@ -132,7 +132,7 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
       "Celigo AI is not displayed"
     );
-    await io.flowBuilder.clickByTextByIndex('Celigo AI', 1);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
       "Celigo AI Placeholder is not displayed"
@@ -222,7 +222,7 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
     )
     await io.flowBuilder.click(selectors.flowBuilderPagePO.SCRIPT_LIST_DROPDOWN_ID);
     await io.flowBuilder.clickByTextByIndex("Branching script", 1);
-    await io.flowBuilder.clickByTextByIndex('Celigo AI', 1);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
       "Celigo AI Placeholder is not displayed"
@@ -259,7 +259,7 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
     )
     await io.flowBuilder.click(selectors.flowBuilderPagePO.SCRIPT_LIST_DROPDOWN_ID);
     await io.flowBuilder.clickByTextByIndex("Branching script", 1);
-    await io.flowBuilder.clickByTextByIndex('Celigo AI', 1);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
       "Celigo AI Placeholder is not displayed"
@@ -295,7 +295,7 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
       "Celigo AI is not displayed"
     );
-    await io.flowBuilder.clickByTextByIndex('Celigo AI', 1);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
       "Celigo AI Placeholder is not displayed"
@@ -330,7 +330,7 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
       "Celigo AI is not displayed"
     );
-    await io.flowBuilder.clickByTextByIndex('Celigo AI', 1);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
       "Celigo AI Placeholder is not displayed"
@@ -361,7 +361,7 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
       "Celigo AI is not displayed"
     );
-    await io.flowBuilder.clickByTextByIndex('Celigo AI', 1);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
       "Celigo AI Placeholder is not displayed"
@@ -395,7 +395,7 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
      )
      await io.flowBuilder.click(selectors.flowBuilderPagePO.SCRIPT_LIST_DROPDOWN_ID);
      await io.flowBuilder.clickByTextByIndex("Branching script", 1);
-     await io.flowBuilder.clickByTextByIndex('Celigo AI', 1);
+     await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
      await io.assert.verifyElementIsDisplayed(
        selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
        "Celigo AI Placeholder is not displayed"
@@ -433,7 +433,7 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
       "Celigo AI is not displayed"
     );
-    await io.flowBuilder.clickByTextByIndex('Celigo AI', 1);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
       "Celigo AI Placeholder is not displayed"
@@ -479,7 +479,7 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
     );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.SCRIPT_LIST_DROPDOWN_ID);
     await io.flowBuilder.clickByTextByIndex("Branching script", 1);
-    await io.flowBuilder.clickByTextByIndex('Celigo AI', 0);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
       "Celigo AI Placeholder is not displayed"
@@ -509,7 +509,7 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
 
     //Check not able to give prompt more than 1024 character C113467
     await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.FUNCTION_NAME, 'function');
-    await io.flowBuilder.clickByTextByIndex('Celigo AI', 0);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
     await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'Simply type the number of characters into the box that says "Enter Number" below the "Characters" box. Our characters to words converter will automatically update to give you a range of two numbers, a low estimate of words and a high estimate.Simply type the number of characters into the box that says "Enter Number" below the "Characters" box. Our characters to words converter will automatically update to give you a range of two numbers, a low estimate of words and a high estimate.Simply type the number of characters into the box that says "Enter Number" below the"Characters" box. Our characters to words converter will automatically update to give you a range of two numbers, a low estimate of words and a high estimate.Simply type the number of characters into the box that says "Enter Number" below the "Characters" box. Our characters to words converter will automatically update to give you a range of two numbers, a low estimate of words and a high estimate.Simply type the number of characters into the box tskds');
     await page.keyboard.press('Enter');
     await io.flowBuilder.loadingTime();
