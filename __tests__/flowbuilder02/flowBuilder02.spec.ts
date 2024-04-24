@@ -1,6 +1,6 @@
 import { filterTestCases } from "@celigo/aut-utilities";
 var testCases = [
-  // "IO52927", // We are making this test case obsolete as we have removed "existing export" checkbox from UI (functionality is changed for this)
+  "IO52927", // We are making this test case obsolete as we have removed "existing export" checkbox from UI (functionality is changed for this)
   "IO50904",
   "IO50942",
   "IO51317",
@@ -332,7 +332,8 @@ var testCases = [
   "T27537",
   "T29031",
   "IOT6768",
-  "IO-T29045"
+  "IO-T29045",
+  "IO-T29359"
 ];
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
 (async () => {
