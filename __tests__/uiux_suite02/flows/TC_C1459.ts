@@ -10,7 +10,7 @@ test.describe(`C1459 Verify User should not select multiple flows and also "All 
     io,
     page
   }) => {
-    await io.homePage.clickByText("Automation Flows");
+    await io.homePage.clickByText("TC_C1459_DND");
     await io.flowBuilder.click(selectors.integrationPagePO.NOTIFICATIONS_TAB);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.NOTIFICATION_FLOWS);
     const flowsList = await page.$$(selectors.flowBuilderPagePO.FLOWS_LIST);

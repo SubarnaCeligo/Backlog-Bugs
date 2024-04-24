@@ -1,9 +1,9 @@
 import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import testData from '../../../testData/inputData/FlowDebugger/TC_C112786.json';
+import testData from '../../../testData/inputData/FlowDebugger/TC_C113932.json';
 
-test.describe("TC_C112786- Lookup in NS import is being reset after configuring conditional mapping(advanced lookup)", () => {
-    test("TC_C112786- Lookup in NS import is being reset after configuring conditional mapping(advanced lookup)", async ({ io, page }) => {
+test.describe("TC_C113932 Lookup in NS import is being reset after configuring conditional mapping(advanced lookup)", () => {
+    test("@Priority-P2 @Zephyr-IO-T14722 @Env-All C113932", async ({ io, page }) => {
 
         await io.createResourceFromAPI(testData, "FLOWS");
 
@@ -23,7 +23,8 @@ test.describe("TC_C112786- Lookup in NS import is being reset after configuring 
   await io.flowBuilder.click(selectors.importPagePO.ADVANCED); 
   await io.flowBuilder.loadingTime();
   await io.flowBuilder.click(selectors.importPagePO.ADVANCED); 
-  await io.homePage.clickByIndex(selectors.flowBuilderPagePO.GEAR_ICON, 43); 
+  await page.getByRole('button', { name: 'Test run results' }).click();
+//   await io.homePage.clickByIndex(selectors.flowBuilderPagePO.GEAR_ICON, 43); 
   const contents = (await io.importsPage.getText(selectors.importPagePO.TEST_RESULTS_CONTENTS)).toString();
   let status=false
   const recordString = 'Record 1,Line 1,Line 2,Record 2,Line 1,Line 2,Line 3,Record 3';

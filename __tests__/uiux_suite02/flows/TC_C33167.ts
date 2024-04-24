@@ -6,7 +6,7 @@ test.describe(`C33167 Verify When there are unsaved changes and user tries to cl
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
   });
 
-  test(`C33167 Verify When there are unsaved changes and user tries to close the drawer, it should trigger the Leave popup dialouge for edit lookup page`, async ({
+  test(`@Priority-P2 @Zephyr-IO-T2626 @Env-All C33167`, async ({
     io,
     page
   }) => {
@@ -15,8 +15,12 @@ test.describe(`C33167 Verify When there are unsaved changes and user tries to cl
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP
     );
-    await io.flowBuilder.clickByText("REST API (HTTP)");
+    // await io.flowBuilder.clickByText("REST API (HTTP)");
+
+    await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, "REST API (HTTP)");
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.RESTAPIHTTP);
     await io.flowBuilder.clickByText("Look up additional files (per record)");
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
     await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.clickByText("3PL CONNECTION");
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
@@ -29,6 +33,8 @@ test.describe(`C33167 Verify When there are unsaved changes and user tries to cl
       "/"
     );
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+    await io.homePage.loadingTime()
+    await io.homePage.loadingTime()
     await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);
     await io.flowBuilder.fill(selectors.flowBuilderPagePO.DESCRIPTION, "test");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
