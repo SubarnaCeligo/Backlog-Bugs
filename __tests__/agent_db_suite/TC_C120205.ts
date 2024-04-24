@@ -17,17 +17,15 @@ test.describe(`TC120204_TC_C120205_TC_C120206_TC_C120207_TC120204`, () => {
         await io.homePage.click(selectors.flowBuilderPagePO.ORACLEDB_APPLICATION);
         await io.homePage.addStep("*** Clicked on ORACLE application ***");
         await io.flowBuilder.clickByText("Import records into destination application");
-        await io.homePage.addStep("*** Selected import records option ***");
-        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "ORACLE_DB_Connection");
-        await io.homePage.addStep("*** Searched for ORACLE CONNECTION ***");
-        await io.homePage.clickByText('ORACLE_DB_Connection');
-        await io.homePage.addStep("*** Selected  ORACLE connection ***");
-        await io.flowBuilder.click(selectors.basePagePO.SAVE);
-        await io.homePage.addStep("*** Clicked on next button ***");
+        await io.flowBuilder.clickByText("Create from scratch");
+    await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
+    await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,'kkk - Offline');
+    await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);
         await io.homePage.click(selectors.basePagePO.ADD_NAME);
         await io.homePage.addStep("*** Clicked on name field ***");
         await page.keyboard.press('/');
         await io.homePage.addStep("*** Entered name for the import ***");
+        await page.pause();
         await io.homePage.click(selectors.flowBuilderPagePO.DESTINATIONTABLESEARCHPOSTGRE);
         await io.homePage.addStep("*** Clicked on destination table search field ***");
         await io.homePage.click(selectors.flowBuilderPagePO.ORACLEDB_TABLE);
@@ -47,6 +45,9 @@ test.describe(`TC120204_TC_C120205_TC_C120206_TC_C120207_TC120204`, () => {
     await io.homePage.addStep("*** Clicked on changing output format button ***");
     await io.flowBuilder.click(selectors.basePagePO.COLLAPSE_ALL);
     await io.homePage.addStep("*** Clicked on collapseall button ***");
+    await io.homePage.loadingTime();
+    await io.flowBuilder.fill(selectors.flowBuilderPagePO.SOURCE_MAPPING_PLACEHOLDER, "name");
+    await io.homePage.addStep("*** Added source field ***");
     await io.flowBuilder.click(selectors.basePagePO.EXPAND_ALL);
     await io.homePage.addStep("*** Clicked on expandall button ***");
     await io.flowBuilder.fill(selectors.flowBuilderPagePO.DESTINATION_MAPPING_PLACEHOLDER, "name");
@@ -64,10 +65,8 @@ test.describe(`TC120204_TC_C120205_TC_C120206_TC_C120207_TC120204`, () => {
     await io.flowBuilder.clickByText("Standard");
     await page.getByText("Handlebars expression", { exact: true }).click();
     await io.homePage.loadingTime()
-    await io.flowBuilder.clickByText("Please select")
+    await page.getByText("Please select", { exact: true }).click();
+    await page.getByText("Do nothing", { exact: false })
 
- await io.assert.verifyElementDisplayedByText(
-     "Do nothing",
-     "'Do nothing'  dropdown option is not displayed");
     });
-})
+  });

@@ -15,12 +15,10 @@ test.describe("TC_C120208_TC_C120209 Verify new UI should be shown for all the n
     await io.homePage.addStep("*** Clicked on ORACLE application ***");
     await io.flowBuilder.clickByText("Import records into destination application");
     await io.homePage.addStep("*** Selected import records option ***");
-    await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "ORACLE_DB_Connection");
-    await io.homePage.addStep("*** Searched for ORACLE CONNECTION ***");
-    await io.homePage.clickByText('ORACLE_DB_Connection');
-    await io.homePage.addStep("*** Selected  ORACLE connection ***");
-    await io.flowBuilder.click(selectors.basePagePO.SAVE);
-    await io.homePage.addStep("*** Clicked on next button ***");
+    await io.flowBuilder.clickByText("Create from scratch");
+    await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
+    await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,'kkk - Offline');
+    await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);
     await io.flowBuilder.waitForElementAttached(selectors.exportsPagePO.NAME);
     await io.flowBuilder.fill(selectors.exportsPagePO.NAME, "NEW");
     await io.assert.checkElementState(selectors.importPagePO.MARIADB_INSERT_BULK,'isChecked');

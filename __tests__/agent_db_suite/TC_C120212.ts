@@ -16,11 +16,10 @@ test.describe("TC_C120210_TC_C120211_TC_C120212_TC_C120213,TC_C120214_TC_C120216
         await io.homePage.addStep("*** Clicked on ORACLE application ***");
         await io.flowBuilder.clickByText("Import records into destination application");
         await io.homePage.addStep("*** Selected import records option ***");
-        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "ORACLE_DB_Connection");
-        await io.homePage.addStep("*** Searched for ORACLE CONNECTION ***");
-        await io.homePage.clickByText('ORACLE_DB_Connection');
-        await io.homePage.addStep("*** Selected  ORACLE connection ***");
-        await io.flowBuilder.click(selectors.basePagePO.SAVE);
+        await io.flowBuilder.clickByText("Create from scratch");
+        await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
+        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,'kkk - Offline');
+        await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);    
         await io.homePage.click(selectors.basePagePO.ADD_NAME);
         await page.keyboard.press('/');
         await io.homePage.addStep("*** Clicked on 'name' field and gave a name to our import ***");
