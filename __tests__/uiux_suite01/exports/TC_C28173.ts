@@ -7,6 +7,7 @@ test.describe(`C28173 Verify the message “Add {{lastExportDateTime}} to either
     page
   }) => {
     await io.flowBuilder.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
+    await io.homePage.loadingTime()
     await io.homePage.goToMenu("Tools","Flow builder");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
     await io.flowBuilder.delay(2000);

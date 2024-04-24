@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Connections/Narvar.json";
 
 test.describe(`C66292 Verify the Canceled by dropdown will auto adjust to display the full character length of the username field`, () => {
-  test(`@Env-All C66292 Verify the Canceled by dropdown will auto adjust to display the full character length of the username field`, async ({
+  test(`@Env-All @Zephyr-IO-T20420 C66292 Verify the Canceled by dropdown will auto adjust to display the full character length of the username field`, async ({
     io,
     page
   }) => {

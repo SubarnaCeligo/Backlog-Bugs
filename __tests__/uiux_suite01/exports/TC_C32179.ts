@@ -9,6 +9,7 @@ test.describe("TC_C32179", () => {
   });
   test("TC_C32179 Verify we are able to upload any sample file of any type for the AS2", async ({ io, page}, testInfo) => {
     await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL)
+    await io.homePage.loadingTime()
     await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.homePage.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'AS2');
     await io.homePage.clickByText("AS2");

@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 test.describe("TC_C120045", () => {
-  test("@Env-All C120045  Related fields should removed when Media type is Plain text", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T18647 C120045  Related fields should removed when Media type is Plain text", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Resources", "Connections");

@@ -8,7 +8,7 @@ test.describe("C53063 Verify that the 30 and 60 days option is enable for licens
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
   });
 
-  test("Env-QA C53063 Verify that the 30 and 60 days option is enable for license types Professional tire", async ({
+  test("@Env-All @Zephyr-IO-T14552 C53063 Verify that the 30 and 60 days option is enable for license types Professional tire", async ({
     io,
     page
   }) => {

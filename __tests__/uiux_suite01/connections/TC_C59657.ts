@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C59657 Verify connection dropdown for lookups`, () => {
-  test(`@Env-All C59657 Verify connection dropdown for lookups`, async ({ io, page }) => {
+  test(`@Env-All @Zephyr-IO-T21788 C59657 Verify connection dropdown for lookups`, async ({ io, page }) => {
     await io.flowBuilder.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
     await io.homePage.goToMenu("Tools", "Flow builder");
     await io.flowBuilder.click(
