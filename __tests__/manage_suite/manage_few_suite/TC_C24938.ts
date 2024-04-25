@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "./manage_few.json";
 
 test.describe(`C24938 Tile Manage - Verify able to filter report results by status`, () => {
-  test(`C24938 Tile Manage - Verify able to filter report results by status`, async ({
+  test(`@Env-All @Zephyr-IO-T4322 C24938 Tile Manage - Verify able to filter report results by status`, async ({
     page,
     io
   }) => {
