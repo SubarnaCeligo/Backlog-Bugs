@@ -6,6 +6,7 @@ import NS from "@testData/Flows/edit/FTP-NS/TC_C30397_FTP_NS_mapping_setting.jso
 test.describe("Edit Flows", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.loadingTime();
   });
   test("TC_C30397_FTP_NS_mapping_setting", async ({
     io
