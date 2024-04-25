@@ -23,10 +23,14 @@ test.describe("TC_C98712 On moving from javascript mode to rules mode, test run 
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
 
+        await io.homePage.addStep("*** Clicking on output filter ***")
         await io.flowBuilder.click(selectors.basePagePO.OUTPUTFILTER);
+
+        await io.homePage.addStep("*** Clicking on rules ***")
         await io.flowBuilder.clickByText('Rules');
         await io.homePage.loadingTime();
 
+        await io.homePage.addStep("*** Validating no test run results message ***")
         const noTestRunMessage = await page.locator(':text("No results to show since rules were not used in the last test run. Switch to JavaScript to see test run results.")').isVisible();
         expect(noTestRunMessage).toBeTruthy();
 
