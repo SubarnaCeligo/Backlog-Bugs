@@ -23,7 +23,7 @@ test.describe(
       await io.homePage.fill(selectors.homePagePO.EMAIL, "qaautomation1+emailsuite@celigo.com");
       await io.homePage.click(selectors.basePagePO.SUBMIT);
       // Delay for new email to be sent, otherwise picks up old email
-      await page.waitForTimeout(5000);
+      await page.waitForTimeout(8000);
       const webLink = new URL(process.env.IO_UI_CONNECTOR_URL);
       const link = await io.emailVal.getLinkFromEmail(`[${webLink.host}] Request to reset your password`, false, "pwqa1");
       await io.homePage.navigateTo(link.toString());
