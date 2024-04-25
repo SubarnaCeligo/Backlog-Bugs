@@ -5,7 +5,7 @@ import testData from "./mfa.json";
 
 
 test.describe(`C51042 Verify if the help link on the left side is redirected to MFA article in the help center when the MFA setup is incomplete.`, () => {
-  test(`C51042 Verify if the help link on the left side is redirected to MFA article in the help center when the MFA setup is incomplete.`, async ({
+  test(`@Env-All @Zephyr-IO-T19649 C51042 Verify if the help link on the left side is redirected to MFA article in the help center when the MFA setup is incomplete.`, async ({
     page,
     io
   }) => {

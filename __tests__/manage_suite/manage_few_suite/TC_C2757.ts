@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "./manage_few.json";
 
 test.describe(`C2757 Verify the production shared tiles are not shown in the sandbox account`, () => {
-  test(`C2757 Verify the production shared tiles are not shown in the sandbox account`, async ({
+  test(`@Env-All @Zephyr-IO-T6939 C2757 Verify the production shared tiles are not shown in the sandbox account`, async ({
     page,
     io
   }) => {

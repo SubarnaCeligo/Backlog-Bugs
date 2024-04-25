@@ -4,7 +4,7 @@ import testData from "./manage_all.json";
 
 
 test.describe(`C2014 Verify PG,PP-export&import created in account level manage user are shown up in list of "exports&imports" in that account.`, () => {
-  test(`C2014 Verify PG,PP-export&import created in account level manage user are shown up in list of "exports&imports" in that account.`, async ({
+  test(`@Env-All @Zephyr-IO-T6916 C2014 Verify PG,PP-export&import created in account level manage user are shown up in list of "exports&imports" in that account.`, async ({
     page,
     io
   }) => {
