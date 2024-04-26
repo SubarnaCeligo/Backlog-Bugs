@@ -21,8 +21,10 @@ test.describe("@Author-Yashveer C98708 Verify screen should not be unresponsive 
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
+        await io.flowBuilder.loadingTime();
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+        await io.flowBuilder.loadingTime();
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.SEARCH, "TC_C98708");
         await io.myAccountPage.delay(1000);
         await io.homePage.waitForElementAttached('tbody tr');

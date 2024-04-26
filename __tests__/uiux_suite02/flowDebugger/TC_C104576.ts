@@ -19,6 +19,7 @@ test.describe("C104576 Verify error messages when Mock output is populated with 
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.POPULATE_WITH_CANONICAL_STUB);
         await io.flowBuilder.isPageLoaded()
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.MOCK_OUTPUT_STUB)
+        await io.myAccountPage.delay(1000);
         await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.MOCK_OUTPUT_STUB, JSON.stringify(TC.Text));
         await io.flowBuilder.isPageLoaded()
         await io.flowBuilder.waitForElementAttached(selectors.basePagePO.VALUE_MUST_BE_PROVIDED_ERROR);
@@ -26,6 +27,7 @@ test.describe("C104576 Verify error messages when Mock output is populated with 
         await io.assert.expectToContainValue('All mock data records must contain at least one key-value pair.', errorMsg, "Error is not showing properly");
         await io.flowBuilder.doubleClick(selectors.flowBuilderPagePO.MOCK_OUTPUT_STUB);
         await io.flowBuilder.clearTextValue(selectors.flowBuilderPagePO.MOCK_OUTPUT_STUB);
+        await io.myAccountPage.delay(1000);
         await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.MOCK_OUTPUT_STUB, JSON.stringify(TC.Text1));
         await io.flowBuilder.isPageLoaded()
         await io.flowBuilder.waitForElementAttached(selectors.basePagePO.VALUE_MUST_BE_PROVIDED_ERROR);

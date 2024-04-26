@@ -47,6 +47,8 @@ test.describe("C111321, C110854, C110846, C111404 verify items populate under 'p
         //run the flow
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
         await io.homePage.loadingTime()
+        await io.homePage.isPageLoaded()
+        await io.homePage.isPageReady()
         // Wait for the status to change from 'Completing...' to 'Completed'
         await page.waitForSelector(`${selectors.flowBuilderPagePO.IMPORT_RUN_COMPLETION_STATUS}:has-text("Completed")`);
 

@@ -14,6 +14,8 @@ test.describe('C111366', () => {
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
         await io.homePage.loadingTime()
+        await io.homePage.isPageLoaded()
+        await io.homePage.isPageReady()
         const lastRun = page.getByText('Last run');
         await lastRun.waitFor({ state: 'visible', timeout: 180000 });
 
@@ -21,7 +23,9 @@ test.describe('C111366', () => {
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
+        await io.homePage.loadingTime()
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
+        await io.homePage.loadingTime()
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
 
         //TC_C111366 Users should be able to access test run debug logs in addition to the debug logs related to live calls made to the application.

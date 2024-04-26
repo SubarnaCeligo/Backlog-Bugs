@@ -37,6 +37,9 @@ test.describe("C111357, C111406, C110859, C110837, C112229, C111403, C111405, C1
 
         //run the flow
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
+        await io.homePage.loadingTime()
+        await io.homePage.isPageLoaded()
+        await io.homePage.isPageReady()
         // Wait for the status to change from 'Completing...' to 'Completed'
         await page.waitForSelector(`${selectors.flowBuilderPagePO.IMPORT_RUN_COMPLETION_STATUS}:has-text("Completed")`);
 
@@ -136,6 +139,9 @@ test.describe("C111357, C111406, C110859, C110837, C112229, C111403, C111405, C1
 
         //run the flow
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
+        await io.homePage.loadingTime()
+        await io.homePage.isPageLoaded()
+        await io.homePage.isPageReady()
         // Wait for the status to change from 'Completing...' to 'Completed'
         await page.waitForSelector(`${selectors.flowBuilderPagePO.IMPORT_RUN_COMPLETION_STATUS}:has-text("Completed")`);
 
