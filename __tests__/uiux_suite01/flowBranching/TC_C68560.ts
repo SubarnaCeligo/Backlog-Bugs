@@ -55,6 +55,7 @@ test.describe(`C68560 Verify user is upload the ntegration zip file having one l
     );
     await io.homePage.clickByText("Use existing connection");
     await io.homePage.clickByText("Please select");
+    await io.homePage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_LIST_MODAL)
     await page
       .locator(selectors.connectionsPagePO.CONNECTION_LIST_MODAL)
       .getByText("FTP CONNECTION")

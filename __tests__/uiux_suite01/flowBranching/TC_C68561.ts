@@ -47,6 +47,7 @@ test.describe(`C68561 Verify user is upload the integration zip file having Mult
             );
             await io.homePage.clickByText("Use existing connection");
             await io.homePage.clickByText("Please select");
+            await io.homePage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_LIST_MODAL)
             await page
               .locator(selectors.connectionsPagePO.CONNECTION_LIST_MODAL)
               .getByText("HTTP MIVA CONNECTION")

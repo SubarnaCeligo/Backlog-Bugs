@@ -9,6 +9,7 @@ test.describe("C107972 Showing the 'Save the changes' pop up when we are seeing 
       await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.PLUS_BUTTONS, 0);
       await io.flowBuilder.clickByText('Add branching');
       await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+      await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EDIT_BRANCHING);
       await io.flowBuilder.click(selectors.flowBuilderPagePO.EDIT_BRANCHING);
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.BRANCH_TOGGLE);
       await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.BRANCH_TOGGLE, 0);

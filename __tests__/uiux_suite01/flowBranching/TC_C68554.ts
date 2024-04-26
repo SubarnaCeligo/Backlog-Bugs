@@ -9,6 +9,7 @@ test.describe(`C68554 Verify Existing Import/Export suggestion drop down display
   
        await io.homePage.clickByText("Tools")
        await io.homePage.clickByText("Flow builder")
+       await io.homePage.loadingTime()
        await io.flowBuilder.clickByText("Add source")
        await io.flowBuilder.click(selectors.importPagePO.HTTP_IMPORT)
        await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN)
