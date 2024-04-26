@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "./manage_all.json";
 
 test.describe(`C1560 Veirfy,Generating and uploading a template zip file in user account of manage access`, () => {
-  test(`C1560 Veirfy,Generating and uploading a template zip file in user account of manage access`, async ({
+  test(`@Env-All @Zephyr-IO-T6894 C1560 Veirfy,Generating and uploading a template zip file in user account of manage access`, async ({
     page,
     io
   }) => {
