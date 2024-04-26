@@ -12,7 +12,7 @@ test.describe("C68531 Verify user is not able to name the branch as blank", () =
         await page.locator(selectors.flowBuilderPagePO.BRANCH_NAME).nth(0).click({clickCount: 3});
         await page.keyboard.press('Backspace');
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
-        await io.assert.verifyElementIsDisplayed(selectors.basePagePO.NOTIFICATION, 'Notification did not appear');
-        await io.assert.verifyElementText(selectors.basePagePO.NOTIFICATION, 'A branch name is required.');
+        await io.assert.verifyElementIsDisplayed("[role='alert']", 'Notification did not appear');
+        await io.assert.verifyElementText("[role='alert']", 'A branch name is required.');
     });
   });
