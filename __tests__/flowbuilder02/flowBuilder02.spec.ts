@@ -1,6 +1,6 @@
 import { filterTestCases } from "@celigo/aut-utilities";
 var testCases = [
-  "IO52927", // We are making this test case obsolete as we have removed "existing export" checkbox from UI (functionality is changed for this)
+  // "IO52927", // We are making this test case obsolete as we have removed "existing export" checkbox from UI (functionality is changed for this)
   "IO50904",
   "IO50942",
   "IO51317",
