@@ -106,6 +106,7 @@ test.describe("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Author-
       "Mui-checked",
       0
     );
+    await page.waitForTimeout(5000);
     await io.assert.verifyElementAttributeContainsText(
       selectors.flowBuilderPagePO.OPENAI.AUTOMAP_CHECKBOX,
       "class",
@@ -127,6 +128,7 @@ test.describe("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Author-
       "Mui-checked",
       7
     );
+    await page.waitForTimeout(10000);
     await io.assert.verifyElementAttributeContainsText(
       selectors.flowBuilderPagePO.OPENAI.AUTOMAP_CHECKBOX,
       "class",
@@ -150,12 +152,14 @@ test.describe("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Author-
       "Mui-disabled",
       0
     );
+    await page.waitForTimeout(10000);
     await io.assert.verifyElementAttribute(
       selectors.flowBuilderPagePO.SOURCE_MAPPING_PLACEHOLDER,
       "value",
       "$.name",
       0
     );
+    await page.waitForTimeout(10000);
     await io.assert.verifyElementAttribute(
       selectors.flowBuilderPagePO.SOURCE_MAPPING_PLACEHOLDER,
       "value",
@@ -182,12 +186,14 @@ test.describe("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Author-
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.AUTOMAP_BUTTON);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.loadingTime();
+    await page.waitForTimeout(10000);
     await io.assert.verifyElementAttribute(
       selectors.flowBuilderPagePO.SOURCE_MAPPING_PLACEHOLDER,
       "value",
       "$.isStudent",
       2
     );
+    await page.waitForTimeout(5000);
     await io.assert.verifyElementAttribute(
       selectors.flowBuilderPagePO.SOURCE_MAPPING_PLACEHOLDER,
       "value",
