@@ -12,6 +12,7 @@ test.describe(
         await io.flowBuilder.click(selectors.basePagePO.ACCOUNT_BUTTON);
         await io.homePage.click(selectors.basePagePO.SIGN_OUT);
       }
+      await page.waitForTimeout(300000);
     });
     test("@Env-All C55971 Verify when we use an old password that was set in the last 20 passwords we should get an error in the reset password page", async ({
       io,

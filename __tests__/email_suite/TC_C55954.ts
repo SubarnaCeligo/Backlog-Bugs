@@ -13,6 +13,7 @@ test.describe(
         await io.flowBuilder.click(selectors.basePagePO.ACCOUNT_BUTTON);
         await io.homePage.click(selectors.basePagePO.SIGN_OUT);
       }
+      await page.waitForTimeout(300000);
     });
     test("@Env-All C55954 Verify that we should get an error message if we try to reset password using the a link which is older and expired", async ({
       io,

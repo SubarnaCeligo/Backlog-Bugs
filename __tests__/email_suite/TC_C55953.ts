@@ -12,8 +12,9 @@ test.describe(
         await io.flowBuilder.click(selectors.basePagePO.ACCOUNT_BUTTON);
         await io.homePage.click(selectors.basePagePO.SIGN_OUT);
       }
+      await page.waitForTimeout(300000);
     });
-    test("@Env-QA @Env-IAQA C55953 Verify the user is able to save the newly set password successfully via email reset password link", async ({
+    test("@Env-All C55953 Verify the user is able to save the newly set password successfully via email reset password link", async ({
       io,
       page
     }) => {

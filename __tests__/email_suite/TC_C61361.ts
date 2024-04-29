@@ -15,6 +15,7 @@ test.describe("C61361 Verify that there shouldnt be any popup message saying Sta
       await io.flowBuilder.click(selectors.basePagePO.ACCOUNT_BUTTON);
       await io.homePage.click(selectors.basePagePO.SIGN_OUT);
     }
+    await page.waitForTimeout(300000);
     await io.signInPage.navigateTo(process.env.IO_UI_CONNECTOR_URL + "signup");
     await io.homePage.loadingTime();
     await io.signInPage.fill(selectors.basePagePO.NAME, "Test Auto");

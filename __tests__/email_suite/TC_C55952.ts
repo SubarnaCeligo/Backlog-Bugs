@@ -12,6 +12,7 @@ test.describe(
         await io.flowBuilder.click(selectors.basePagePO.ACCOUNT_BUTTON);
         await io.homePage.click(selectors.basePagePO.SIGN_OUT);
       }
+      await page.waitForTimeout(300000);
     });
     test("@Env-All Verify all the available fields in the Rest password page after navigating to the page via email link", async ({
       io,
