@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "./manage_all.json";
 
 test.describe(`C24936 Manage All- Verify able to filter report results by status`, () => {
-  test(`C24936 Manage All- Verify able to filter report results by status`, async ({
+  test(`@Env-All @Zephyr-IO-T4320 C24936 Manage All- Verify able to filter report results by status`, async ({
     page,
     io
   }) => {

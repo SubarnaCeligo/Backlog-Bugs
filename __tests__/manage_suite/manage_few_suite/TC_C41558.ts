@@ -2,7 +2,7 @@ import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("TC_C41558 To verify create pull button is displayed under 'Revisions' tab for Templates(users who has Integration level manage access)", () => {
-  test("C41558 To verify create pull button is displayed under 'Revisions' tab for Templates(users who has Integration level manage access)", async ({
+  test("@Env-All @Zephyr-IO-T439 C41558 To verify create pull button is displayed under 'Revisions' tab for Templates(users who has Integration level manage access)", async ({
     io
   }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
