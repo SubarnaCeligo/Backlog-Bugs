@@ -9,7 +9,6 @@ test.describe(
       page
     }) => {
       await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-      await page.waitForTimeout(300000);
       await io.homePage.loadingTime();
       await io.homePage.navigateTo(process.env.IO_UI_CONNECTOR_URL + "request-reset");
       await io.homePage.fill(selectors.homePagePO.EMAIL, "qaautomation1+emailsuite@celigo.com");

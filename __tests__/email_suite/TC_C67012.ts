@@ -13,7 +13,6 @@ test.describe(
         await io.flowBuilder.click(selectors.basePagePO.ACCOUNT_BUTTON);
         await io.homePage.click(selectors.basePagePO.SIGN_OUT);
       }
-      await page.waitForTimeout(300000);
     });
     test("@Env-All C67012 Verify the user is able to reset their password if they forget it, and this should not affect the new sign-up process", async ({
       io,
@@ -24,7 +23,7 @@ test.describe(
       await io.homePage.fill(selectors.homePagePO.EMAIL, "qaautomation1+emailsuite@celigo.com");
       await io.homePage.click(selectors.basePagePO.SUBMIT);
       // Delay for new email to be sent, otherwise picks up old email
-      await page.waitForTimeout(15000);
+      await page.waitForTimeout(5000);
       const webLink = new URL(process.env.IO_UI_CONNECTOR_URL);
       const link = await io.emailVal.getLinkFromEmail(`[${webLink.host}] Request to reset your password`, false, "pwqa1");
       await io.homePage.navigateTo(link.toString());
