@@ -2,9 +2,9 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(
-  "C55951 Verify when clicked on reset password link in(/reset-password:token?) in forgot password email error should be thrown if there is an active session in browser",
+  "C55951_C56164",
   () => {
-    test("@Env-All C55951 Verify when clicked on reset password link in(/reset-password:token?) in forgot password email error should be thrown if there is an active session in browser", async ({
+    test("@Env-All C55951 Verify when clicked on reset password link in(/reset-password:token?) in forgot password email error should be thrown if there is an active session in browser and /accept-invite:token?", async ({
       io,
       page
     }) => {
