@@ -8,9 +8,13 @@ test.describe("C65961 Verify UI throws an error message if the Path is wrong for
     page
   }) => {
     const id = await io.createResourceFromAPI(C65961, "FLOWS");
+    await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT)
     await io.homePage.click(selectors.flowBuilderPagePO.EXPORT);
+    await io.homePage.waitForElementAttached(selectors.basePagePO.CUSTOM_SETTING);
     await io.homePage.click(selectors.basePagePO.CUSTOM_SETTING);
+    await io.homePage.waitForElementAttached(selectors.basePagePO.LAUNCH_EDITOR);
     await io.homePage.click(selectors.basePagePO.LAUNCH_EDITOR);
+    await io.homePage.waitForElementAttached(selectors.basePagePO.ERROR_ID);
     const text = await io.exportsPage.getText(selectors.basePagePO.ERROR_ID);
     const func = text.includes(
       "The·field·path·set·in·displayAfter·does·not·exist:·export.assistantMetadata.pathParams.whitelist_id¶"
