@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "./manage_few.json";
 
 test.describe(`C24894 Manage tile - Verify Reports Listing page should Contain Report type filter to the right.`, () => {
-  test(`C24894 Manage tile - Verify Reports Listing page should Contain Report type filter to the right.`, async ({
+  test(`@Env-All @Zephyr-IO-T4292 C24894 Manage tile - Verify Reports Listing page should Contain Report type filter to the right.`, async ({
     page,
     io
   }) => {

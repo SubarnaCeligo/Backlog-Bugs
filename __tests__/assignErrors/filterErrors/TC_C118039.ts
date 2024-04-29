@@ -6,7 +6,7 @@ test.describe("C118039 Verify that clicking on 'Clear filter' button closes the 
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
  
-test("C118039 Verify that clicking on 'Clear filter' button closes the filter dropdown and checks 'All errors'", async ({
+test("@Env-All @Zephyr-IO-T20057 C118039 Verify that clicking on 'Clear filter' button closes the filter dropdown and checks 'All errors'", async ({
   io,
   page,
 }) => {

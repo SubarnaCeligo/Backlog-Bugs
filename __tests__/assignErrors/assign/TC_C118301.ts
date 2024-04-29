@@ -15,7 +15,7 @@ test.describe("C118301 - Verify the assignee pill when the user is removed from 
     //Invite user with 2 integration access
     const id = await io.api.inviteUserThruApi(reqBodyPOST);
   });
-  test("C118301 - Verify the assignee pill when the user is removed from the integration", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T20075 C118301 - Verify the assignee pill when the user is removed from the integration", async ({ io, page }) => {
 
     //Navigate to default integration
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);

@@ -5,8 +5,9 @@ test.describe("C115168 Verify the flow description Celigo AI", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("C115168 Verify the flow description Celigo AI", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T15233 C115168 Verify the flow description Celigo AI", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.OPENAI.FLOW_DESCRIPTION_BUTTON);
     //Flow Description on Integration page C115168 C115169
     await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.OPENAI.FLOW_DESCRIPTION_BUTTON, "Flow description is not displayed");
@@ -99,6 +100,7 @@ test.describe("C115168 Verify the flow description Celigo AI", () => {
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.ClOSE_BUTTON);
     //Export in FLowBuilder C115184
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
+    await io.homePage.loadingTime();
     await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.OPENAI.CELIGOAI_GENERATEDBUTTON, "CeligoAI Generated Button is not displayed");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.CELIGOAI_GENERATEDBUTTON);
     const exportFlowDisc = page.getByText('Export description').first();

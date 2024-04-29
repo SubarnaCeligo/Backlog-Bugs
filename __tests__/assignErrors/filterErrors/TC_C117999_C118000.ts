@@ -5,7 +5,7 @@ test.describe("C117998_C118000 Verify the search feature with a successful/unsuc
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("Verify the search feature with a successful search", async ({
+  test("@Env-All @Zephyr-IO-T20052 @Zephyr-IO-T20054 Verify the search feature with a successful search", async ({
     io,
     page,
   }) => {

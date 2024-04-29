@@ -5,7 +5,7 @@ test.describe("C118304 - Verify the assign error feature when user tries invite 
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("C118304 - Verify the assign error feature when user tries invite a user who already exists in the account ", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T20078 C118304 - Verify the assign error feature when user tries invite a user who already exists in the account ", async ({ io, page }) => {
 
    //Navigate to default integration
    await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
