@@ -6,6 +6,7 @@ import {decrypt} from "@celigo/aut-utilities";
 
 test.describe("C57327 C50895 C50907", () => {
     test.beforeEach('check sign out', async({io, page}) => {
+        await io.flowBuilder.delay(1000 * 60 * 1)
         await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
         const isNotLoggedIn = await io.loginPage.checkLoginState();
         if(!isNotLoggedIn){
