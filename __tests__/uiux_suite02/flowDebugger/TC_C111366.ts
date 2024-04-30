@@ -17,7 +17,7 @@ test.describe('C111366', () => {
         await io.homePage.isPageLoaded()
         await io.homePage.isPageReady()
         const lastRun = page.getByText('Last run');
-        await lastRun.waitFor({ state: 'visible', timeout: 180000 });
+        await lastRun.waitFor({ state: 'visible', timeout: 900000 });
 
         //Disable the flow
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);

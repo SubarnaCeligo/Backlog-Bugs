@@ -20,15 +20,15 @@ test.describe("C104576 Verify error messages when Mock output is populated with 
         await io.flowBuilder.isPageLoaded()
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.MOCK_OUTPUT_STUB)
         await io.myAccountPage.delay(1000);
-        await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.MOCK_OUTPUT_STUB, JSON.stringify(TC.Text));
+        await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.MOCKOUTPUTFIELD, JSON.stringify(TC.Text));
         await io.flowBuilder.isPageLoaded()
         await io.flowBuilder.waitForElementAttached(selectors.basePagePO.VALUE_MUST_BE_PROVIDED_ERROR);
         const errorMsg = (await io.flowBuilder.getText(selectors.basePagePO.VALUE_MUST_BE_PROVIDED_ERROR)).toString();
         await io.assert.expectToContainValue('All mock data records must contain at least one key-value pair.', errorMsg, "Error is not showing properly");
-        await io.flowBuilder.doubleClick(selectors.flowBuilderPagePO.MOCK_OUTPUT_STUB);
-        await io.flowBuilder.clearTextValue(selectors.flowBuilderPagePO.MOCK_OUTPUT_STUB);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.MOCKOUTPUTFIELD);
+        await io.flowBuilder.clearTextValue(selectors.flowBuilderPagePO.MOCKOUTPUTFIELD);
         await io.myAccountPage.delay(1000);
-        await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.MOCK_OUTPUT_STUB, JSON.stringify(TC.Text1));
+        await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.MOCKOUTPUTFIELD, JSON.stringify(TC.Text1));
         await io.flowBuilder.isPageLoaded()
         await io.flowBuilder.waitForElementAttached(selectors.basePagePO.VALUE_MUST_BE_PROVIDED_ERROR);
         const errorMsg1 = (await io.flowBuilder.getText(selectors.basePagePO.VALUE_MUST_BE_PROVIDED_ERROR)).toString();

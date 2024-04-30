@@ -20,8 +20,7 @@ test.describe("C111397, C111313, C111314, C111318, C111396, C111316, C111399, C1
           await io.flowBuilder.clickByText("Create from scratch");
           await io.homePage.loadingTime()
         await io.importsPage.click(selectors.basePagePO.CONNECTION_DROPDOWN);
-        await io.importsPage.getByRoleClick("option","3PL CONNECTION");
-        await io.importsPage.clickByText("Next")
+        await io.importsPage.selectConnectionDropDown(page,"3PL CONNECTION");
 
         await io.importsPage.fill(selectors.basePagePO.INPUT_NAME_SELECTOR, "Test IO-34461");
         await io.importsPage.clickByText("Yes (advanced)");

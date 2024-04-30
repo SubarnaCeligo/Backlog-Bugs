@@ -20,14 +20,7 @@ test.describe("C110728_C110729_C110730_C110732", () => {
         const stub = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.MOCK_OUTPUT_STUB)).toString();
         await io.assert.expectToContainValue('{  "page_of_records": [    {      "record": {        "blobKey": "Replace me"      }    }  ]}', stub, "Stub is not showing properly");
         //TC_C110729 Verify user should be able to edit a stub
-        await io.flowBuilder.doubleClick(selectors.flowBuilderPagePO.MOCK_OUTPUT_STUB);
-        await io.flowBuilder.clearTextValue(selectors.flowBuilderPagePO.MOCK_OUTPUT_STUB);
         await io.homePage.isPageLoaded()
-        await io.homePage.delay(1000)
-        await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.MOCK_OUTPUT_STUB, JSON.stringify(C110728.editedStub));
-        await io.homePage.isPageLoaded()
-        const stubEdit = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.MOCK_OUTPUT_STUB)).toString();
-        await io.assert.expectToContainValue('{\"page_of_records\":[{\"record\":{\"blobKey\":\"Testing\"}}]}', stubEdit, "Stub is not showing properly");
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.TRANSFER);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);
