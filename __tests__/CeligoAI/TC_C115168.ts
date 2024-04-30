@@ -137,12 +137,13 @@ test.describe("C115168 Verify the flow description Celigo AI", () => {
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU, 0);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.CREATE_FLOWGROUP);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.FLOWGROUP_NAME);
-    let flowGroupName = `FlowGroup${randomString(10) + randomNumber(10)}`
+    let flowGroupName = `FlowGroup${randomString(10) + randomNumber(10)}`;
     await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.FLOWGROUP_NAME, flowGroupName);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.OPENAI.FLOWGROUP_CHECKBOX, 4);
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.OPENAI.FLOWGROUP_CHECKBOX, 5);
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+    await io.flowBuilder.clickByTextByIndex(flowGroupName, 0);
     await io.flowBuilder.loadingTime();
     await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.OPENAI.FLOW_DESCRIPTION_BUTTON, "Flow description is not displayed");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.FLOWGROUP_UNASSIGNED);
