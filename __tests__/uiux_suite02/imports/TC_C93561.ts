@@ -8,7 +8,7 @@ test.describe(`C93561 HTTP request body is not retaining the data for 2.0 framew
   }) => {
     await io.importsPage.navigateTo(io.data.links.IMPORTS_PAGE_URL);
     await io.importsPage.click(selectors.exportsPagePO.ADD_NEW_RESOURCE);
-    await io.importsPage.click('[data-test="Orderful"]');
+    await io.importsPage.click(selectors.connectionsPagePO.ORDERFUL);
     await io.importsPage.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
     await io.exportsPage.click(
       selectors.connectionsPagePO.CONNECTION_OPTION_TEXT
