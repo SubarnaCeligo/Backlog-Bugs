@@ -1,4 +1,4 @@
-import {expect, test} from "@celigo/ui-core-automation";
+import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("TC_C119823", () => {
@@ -7,12 +7,6 @@ test.describe("TC_C119823", () => {
         await io.homePage.clickByText("Automation Flows")
         await io.myAccountPage.click(selectors.integrationPagePO.USERSTAB);
         await io.homePage.clickByText("Invite user");
-        let check= '[data-test="assigneeNameInMenuList"]'
-
-        await io.assert.verifyElementIsDisplayed(
-            check,
-            "user do not exist"
-          )
-
+        await io.assert.verifyElementIsDisplayed(selectors.em2DotOLineGraphPO.ASSIGNEE_NAME_LIST,"user do not exist");
         });
     });
