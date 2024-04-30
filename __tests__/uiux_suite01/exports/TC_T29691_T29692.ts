@@ -20,8 +20,6 @@ test.describe("TC_T29691_T29692_Test to validate user is able to see 'Azure Syna
         const src = await azuresynapseImage?.getAttribute("src");
         const height = await azuresynapseImage?.evaluate((node) => (node as HTMLImageElement).height);
         const width = await azuresynapseImage?.evaluate((node) => (node as HTMLImageElement).width);
-        // need selectors PR
-        // checking for image src and minimum height and width to verify it is rendered correctly
         expect(src).toContain("azuresynapse.png");
         expect(height).toBeGreaterThan(10);
         expect(width).toBeGreaterThan(10);
