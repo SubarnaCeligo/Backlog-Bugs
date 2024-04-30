@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Connections/Narvar.json";
 
 test.describe(`C63002 Verify connection dropdown at Aliases tab`, () => {
-  test(`C63002 Verify connection dropdown at Aliases tab`, async ({
+  test(`@Env-All @Zephyr-IO-T21793 C63002 Verify connection dropdown at Aliases tab`, async ({
     io,
     page
   }) => {

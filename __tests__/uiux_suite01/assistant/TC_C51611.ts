@@ -2,9 +2,10 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C51611 Verify the name field for under connection", () => {
-    test("C51611 Verify the name field for under connection   ", async ({io, page}) => {
+    test("@Env-All C51611 Verify the name field for under connection   ", async ({io, page}) => {
       await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL)
       await io.connectionPage.clickByText("Create connection")
+      await io.homePage.loadingTime()
       await io.connectionPage.click(selectors.connectionsPagePO.LOOP_RETURN_CONNECTION)
       const labelName = await io.connectionPage.isVisible("text='Name your connection'")
       await io.assert.expectToBeTrue(labelName, "Name your connection field is not present")

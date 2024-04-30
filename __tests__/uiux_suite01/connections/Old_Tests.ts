@@ -8,7 +8,7 @@ test.describe("Connections Page Test Cases", () => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
   });
 
-  test("C57810 Verify whether the page is showing the proper readable error , when the connection goes to offline", async ({
+  test("@Env-All C57810 Verify whether the page is showing the proper readable error , when the connection goes to offline", async ({
     io
   }) => {
     await io.createResourceFromAPI(C57810, "CONNECTION");

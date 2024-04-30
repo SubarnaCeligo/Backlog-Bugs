@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "./mfa.json";
 
 test.describe(`C50882 Verify a shared user with MFA required and had set on the account and also MFA verified should be able to switch the accounts`, () => {
-  test(`C50882 Verify a shared user with MFA required and had set on the account and also MFA verified should be able to switch the accounts`, async ({
+  test(`@Env-All @Zephyr-IO-T19607 C50882 Verify a shared user with MFA required and had set on the account and also MFA verified should be able to switch the accounts`, async ({
     page,
     io
   }) => {

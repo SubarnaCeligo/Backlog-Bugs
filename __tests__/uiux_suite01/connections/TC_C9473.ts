@@ -2,13 +2,15 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C9473 Accounting period lookup is not displayed in record type for users with 2FA Role", () => {
-  test("C9473 Accounting period lookup is not displayed in record type for users with 2FA Role", async ({io, page}) => {
+  test("@Env-QA @Zephyr-IO-T2726 C9473 Accounting period lookup is not displayed in record type for users with 2FA Role", async ({io, page}) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP);
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'netsuite');
     await io.flowBuilder.click(selectors.connectionsPagePO.NETSUITE_CONNECTION);
     await io.flowBuilder.click(selectors.connectionsPagePO.IMPORT_RECORDS)
+    await io.flowBuilder.clickByText("Create from scratch")
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN)
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,'NS 737 Conection');
     await io.flowBuilder.clickByTextByIndex('NS 737 Conection', 0);

@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/monitorSuite/monitor_few_manage_few.json";
 
 test.describe(`C24895 Manage few and Monitor few - Verify Reports Listing page should Contain Report type filter to the right.`, () => {
-  test(`C24895 Manage few and Monitor few - Verify Reports Listing page should Contain Report type filter to the right.`, async ({
+  test(`@Env-All C24895 Manage few and Monitor few - Verify Reports Listing page should Contain Report type filter to the right.`, async ({
     page,
     io
   }) => {

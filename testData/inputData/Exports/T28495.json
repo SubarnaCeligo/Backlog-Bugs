@@ -1,0 +1,17 @@
+{
+    "fieldMap": {
+      "datetime": {
+        "id": "datetime",
+        "name": "datetime",
+        "type": "datetime",
+        "label": "Date/time",
+        "doNotAllowFutureDates": true,
+        "skipTimezoneConversion": false
+      }
+    },
+    "layout": {
+      "fields": [
+        "datetime"
+      ]
+    }
+  }

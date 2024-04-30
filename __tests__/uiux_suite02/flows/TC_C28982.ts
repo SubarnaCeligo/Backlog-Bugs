@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C28982 Verify Connection status is displaying correctly in create export/ import form`, () => {
-  test(`C28982 Verify Connection status is displaying correctly in create export/ import form`, async ({
+  test(`@Priority-P2 @Zephyr-IO-T14722 @Env-All C28982`, async ({
     io,
     page
   }) => {
@@ -10,7 +10,10 @@ test.describe(`C28982 Verify Connection status is displaying correctly in create
     await io.homePage.goToMenu("Tools", "Flow builder");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
     await io.flowBuilder.delay(2000);
-    await io.flowBuilder.clickByText("HTTP");
+    // await io.flowBuilder.clickByText("HTTP");
+    await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, "HTTP");
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.HTTP);
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
     await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.clickByText("3PL CONNECTION");
     const statusDot = page.getByRole("status");

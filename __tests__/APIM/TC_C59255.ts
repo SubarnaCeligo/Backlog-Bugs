@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe( "Help text for Token", () => {
-    test("Help text for Token", async ({ io, page, context }) => {
+    test("@Env-QA @Env-STAGING Help text for Token", async ({ io, page, context }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
         await io.homePage.loadingTime();

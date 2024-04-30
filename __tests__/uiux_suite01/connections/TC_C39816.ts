@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C39816 To Verify Anaplan Logo on Connection form", () => {
-  test("C39816 To Verify Anaplan Logo on Connection form", async ({
+  test("@Env-All @Zephyr-IO-T11736  C39816 To Verify Anaplan Logo on Connection form", async ({
     io,
     page
   }) => {

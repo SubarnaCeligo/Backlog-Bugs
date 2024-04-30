@@ -2,16 +2,17 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C93549", () => {
-  test("C93549 Verify Logo for MariaDB connector in connectors list and connection page.[Imports]", async ({
+  test("@Env-All @Zephyr-IO-T7885 C93549 Verify Logo for MariaDB connector in connectors list and connection page.[Imports]", async ({
     io,
     page
   }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await page.click(selectors.basePagePO.RESOURCES);
+    //await page.click(selectors.basePagePO.RESOURCES);
     await io.homePage.goToMenu("Resources", "Connections");
+    await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ADD_NEW_RESOURCE)
     await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
-    const mariaDBImage = await page.waitForSelector(selectors.connectionsPagePO.MARIADB_IMAGE)
-    
+    await page.waitForSelector(selectors.connectionsPagePO.MARIADB_IMAGE)
+    const mariaDBImage = await page.$(selectors.connectionsPagePO.MARIADB_IMAGE)
     const src = await mariaDBImage?.getAttribute("src");
     const height = await mariaDBImage?.evaluate((node) => (node as HTMLImageElement).height);
     const width = await mariaDBImage?.evaluate((node) => (node as HTMLImageElement).width);

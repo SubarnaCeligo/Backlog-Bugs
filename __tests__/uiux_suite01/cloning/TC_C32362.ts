@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Connections/Narvar.json";
 
 test.describe(`C32362 Verify cloned integration has the updated flow after updating the settings`, () => {
-  test(`C32362 Verify cloned integration has the updated flow after updating the settings`, async ({
+  test(`@Env-QA C32362 Verify cloned integration has the updated flow after updating the settings`, async ({
     io,
     page
   }) => {

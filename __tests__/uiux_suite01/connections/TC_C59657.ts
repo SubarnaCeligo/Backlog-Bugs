@@ -2,14 +2,20 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C59657 Verify connection dropdown for lookups`, () => {
-  test(`C59657 Verify connection dropdown for lookups`, async ({ io, page }) => {
+  test(`@Env-All @Zephyr-IO-T21788 C59657 Verify connection dropdown for lookups`, async ({ io, page }) => {
     await io.flowBuilder.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
     await io.homePage.goToMenu("Tools", "Flow builder");
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP
     );
+    await io.homePage.loadingTime()
+    await io.flowBuilder.fill(
+      selectors.settingsPagePO.APP_NAME_INPUT,
+      "Narvar"
+    );
     await io.flowBuilder.clickByText("Narvar");
     await io.flowBuilder.clickByText("Look up additional records (per record)");
+    await io.flowBuilder.clickByText("Create from scratch")
     await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
     await page.getByText("API type").first().waitFor({ state: "visible" });
     const connectionText = (await io.flowBuilder.getText(
