@@ -21,8 +21,8 @@ test.describe("C56827 Verify purge all logs of the script option is disabled whe
         await io.flowBuilder.clickByText('More');
         await io.flowBuilder.click(selectors.flowBuilderPagePO.PURGE_SCRIPT_LOGS);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.PURGE_ALL_LOGS);
-        await io.assert.verifyElementIsDisplayed(selectors.basePagePO.NOTIFICATION, 'Purge log sucess notification not displayed');
-        await io.assert.verifyElementText(selectors.basePagePO.NOTIFICATION, 'All logs of this script successfully purged.');
+        await io.assert.verifyElementIsDisplayed("[role='alert']", 'Purge log sucess notification not displayed');
+        await io.assert.verifyElementText("[role='alert']", 'All logs of this script successfully purged.');
         executionLogRows = await page.locator(`${selectors.basePagePO.MUI_TABLE_BODY_ROOT} tr`).all();
         await io.assert.expectToBeValue('0', (executionLogRows.length).toString(), 'All Logs not purged');
     });
