@@ -38,19 +38,25 @@ test.describe(`C68563 Verify user is upload the integration zip file having Mult
             );
             await io.homePage.clickByText("Use existing connection");
             await io.homePage.clickByText("Please select");
-            await page
-              .locator(selectors.connectionsPagePO.CONNECTION_LIST_MODAL)
-              .getByText("FTP CONNECTION").first()
-              .click();
+            // await page
+            //   .locator(selectors.connectionsPagePO.CONNECTION_LIST_MODAL)
+            //   .getByText("FTP CONNECTION").first()
+            //   .click();
+            let connMap = await io.api.loadConnections();
+            var connId = connMap.get("FTP CONNECTION");
+            await io.connectionPage.selectTextfromDropDown(page, connId)
               await io.connectionPage.click(selectors.basePagePO.SAVE);
             await io.homePage.click(selectors.basePagePO.INSTALL);
-            await io.homePage.clickByTextByIndex('C68563',2);
+            await io.homePage.loadingTime()
+            await io.homePage.clickByText('C68563',2);
             const linkUrl = await page.url();
             const match = linkUrl.match(/\/integrations\/(\w+)\/flowBuilder\/(\w+)/);
             testdata.firstString = match[1];
             testdata.secondString = match[2];
             await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-            await io.homePage.fill(selectors.marketplacePagePO.SEARCH_INTEGRATION,'C68563' )
+            await io.homePage.loadingTime()
+            await io.homePage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR)
+            await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,'C68563' )
             await io.homePage.waitForElementAttached("text='C68563'")
             const flow = await io.homePage.isVisible("text='C68563'")
             await io.assert.expectToBeValue(flow.toString(),'true', "Template flow not found")
