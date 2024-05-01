@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import { Flow, Oracle_Connection, NSAW_Connection } from "@testData/Connections/T27708_T27709.json";
 
 test.describe('TC_T27708_T27709_T27695', () => {
-    test('TC_T27708_T27709_T27695', async ({ io, page }) => {
+    test('@Env-All TC_T27708_T27709_T27695', async ({ io, page }) => {
         let flowId;
         let oracleConnection;
         let nsawConnection;
