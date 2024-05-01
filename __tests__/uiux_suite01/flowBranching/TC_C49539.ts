@@ -4,6 +4,7 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe("C49539 Verify the limit of 25 router under flow branching", () => {
   test("C49539 Verify the limit of 25 router under flow branching", async ({io, page}) => {
       await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+      await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW);
       await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.PLUS_BUTTONS);
       for(let i = 0; i < 25; i++){

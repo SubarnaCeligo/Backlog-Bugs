@@ -4,6 +4,7 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe("C107972 Showing the 'Save the changes' pop up when we are seeing the filters in 'Edit Branching'", () => {
     test("C107972 Showing the 'Save the changes' pop up when we are seeing the filters in 'Edit Branching'", async ({io, page}) => {
       await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+      await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW);
       await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.PLUS_BUTTONS);
       await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.PLUS_BUTTONS, 0);
