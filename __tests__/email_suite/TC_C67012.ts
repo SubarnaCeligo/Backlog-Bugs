@@ -13,6 +13,7 @@ test.describe(
         await io.flowBuilder.click(selectors.basePagePO.ACCOUNT_BUTTON);
         await io.homePage.click(selectors.basePagePO.SIGN_OUT);
       }
+      await io.flowBuilder.delay(1000 * 60 * 8);
     });
     test("@Env-All C67012 Verify the user is able to reset their password if they forget it, and this should not affect the new sign-up process", async ({
       io,

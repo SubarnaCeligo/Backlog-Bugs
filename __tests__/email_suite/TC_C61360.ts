@@ -14,6 +14,7 @@ test.describe("C61360  Verify that there shouldn't be any Get Unlimited flows bu
       await io.flowBuilder.click(selectors.basePagePO.ACCOUNT_BUTTON);
       await io.homePage.click(selectors.basePagePO.SIGN_OUT);
     }
+    await io.flowBuilder.delay(1000 * 60 * 8);
     await io.signInPage.navigateTo(process.env.IO_UI_CONNECTOR_URL + "signup");
     await io.homePage.loadingTime();
     await io.signInPage.fill(selectors.basePagePO.NAME, "Test Auto");
