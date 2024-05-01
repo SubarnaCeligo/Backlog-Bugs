@@ -16,7 +16,7 @@ test.describe("C68107 Verify application does not crash when user saves the un-n
         await page.keyboard.press('Backspace');
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.flowBuilder.addStep('Verifing error notification to occur when saving branch with no name');
-        await io.assert.verifyElementIsDisplayed("[role='alert']", 'Notification did not appear');
-        await io.assert.verifyElementText("[role='alert']", 'A branch name is required.');
+        await io.assert.verifyElementIsDisplayed(selectors.flowGroupingPagePO.ALERT_MESSAGE, 'Notification did not appear');
+        await io.assert.verifyElementText(selectors.flowGroupingPagePO.ALERT_MESSAGE, 'A branch name is required.');
     });
   });
