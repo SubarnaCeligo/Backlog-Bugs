@@ -15,7 +15,7 @@ test("IO29647", async ({ io, page }) => {
     await io.flowBuilder.click(selectors.templatePagePO.CONFIGURE);
 
     await io.assert.verifyElementIsDisplayed(selectors.templatePagePO.FTPGUIDE,'ftp KB guide displayed');
-    await io.flowBuilder.click(selectors.marketplacePagePO.EXISTING);
+    await io.flowBuilder.click(selectors.connectionsPagePO.EXISTING);
     await io.flowBuilder.click(selectors.basePagePO.CONNECTION);
     await io.flowBuilder.clickByText("FTP");
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
@@ -31,7 +31,7 @@ test("IO29647", async ({ io, page }) => {
    const element1 = await page.locator(selectors.templatePagePO.ORDERFULTOKEN);
       await element1.scrollIntoViewIfNeeded();
 
-   await io.flowBuilder.fill(selectors.templatePagePO.ORDERFULTOKEN,process.env["HTTP2DOT0.IO_Token_Orderful"]);
+   await io.flowBuilder.fill(selectors.templatePagePO.ORDERFULTOKEN,process.env["IO_Token_Orderful"]);
    await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
    await io.flowBuilder.click(selectors.integrationPagePO.SETUP_INTEGRATION_INSTALL_BUTTON);
    await io.flowBuilder.click(selectors.basePagePO.CONNECTIONS);
