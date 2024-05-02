@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import { randomString, randomNumber } from "@celigo/aut-utilities";
 
 test.describe(
-  "C55952_C55953_C55954_C55955_C55971_C67012",
+  "C55952_C55953_C55971_C67012_C55954",
   () => {
     let link;
     test.beforeEach("Sign out", async ({ io, page }) => {
@@ -26,7 +26,7 @@ test.describe(
       await io.homePage.navigateTo(link.toString());
       await io.homePage.loadingTime();
     });
-    test("@Env-All C55953_C55952_C55971_C67012 Verify the user is able to save the newly set password successfully via email reset password link &  Verify all the available fields in the Rest password page after navigating to the page via email link & Verify when we use an old password that was set in the last 20 passwords we should get an error in the reset password page & Verify the user is able to reset their password if they forget it, and this should not affect the new sign-up process", async ({
+    test("@Env-All C55953_C55952_C55971_C67012_C55954 Verify the user is able to save the newly set password successfully via email reset password link &  Verify all the available fields in the Rest password page after navigating to the page via email link & Verify when we use an old password that was set in the last 20 passwords we should get an error in the reset password page & Verify the user is able to reset their password if they forget it, and this should not affect the new sign-up process & Verify that we should get an error message if we try to reset password using the a link which is older and expired", async ({
       io,
       page
     }) => {
@@ -91,17 +91,12 @@ test.describe(
         "URL doesn't contain home"
       );
       await io.homePage.addStep("Verified user is able to login successfully");
-    });
-    test("@Env-All C55954 Verify that we should get an error message if we try to reset password using the a link which is older and expired", async ({
-      io,
-      page
-    }) => {
-      const password = "C!e" + randomString(5) + randomNumber(5);
-      await io.homePage.navigateTo(link.toString());
       await io.homePage.loadingTime();
-      await io.homePage.fill(selectors.loginPagePO.PASSWORD, password);
-      await io.homePage.clickByTextByIndex("Save", 0);
-      await page.waitForTimeout(10000);
+      
+      //Verify that we should get an error message if we try to reset password using the a link which is older and expired
+      await io.flowBuilder.click(selectors.basePagePO.ACCOUNT_BUTTON);
+      await io.homePage.click(selectors.basePagePO.SIGN_OUT);
+      await io.homePage.loadingTime();
       await io.homePage.navigateTo(link.toString());
       await io.homePage.loadingTime();
       await io.assert.verifyElementDisplayedByText(
