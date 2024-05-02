@@ -1,0 +1,78 @@
+{
+    "name": "C24621_Retry_and_Resolve_Errors",
+    "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "_id": "650993ee423b065da85c6475",
+            "createdAt": "2023-09-19T12:28:30.710Z",
+            "lastModified": "2023-09-19T12:28:30.840Z",
+            "name": "zendesk_lookup",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "_sourceId": "6433c902d46544517c7be851",
+            "apiIdentifier": "e228a84d7f",
+            "asynchronous": true,
+            "isLookup": true,
+            "oneToMany": false,
+            "http": {
+                "relativeURI": "api/v2/users",
+                "method": "GET",
+                "formType": "http",
+                "response": {
+                    "twoDArray": {
+                        "doNotNormalize": true
+                    }
+                }
+            },
+            "adaptorType": "HTTPExport"
+        }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "_id": "662b5f8e4d545b3aa71aa0e4",
+            "createdAt": "2024-04-26T08:02:22.295Z",
+            "lastModified": "2024-04-26T08:02:22.355Z",
+            "name": "FTP Import",
+            "_connectionId": "FTP CONNECTION",
+            "_sourceId": "6597a24ed9bf360f8dabd08a",
+            "apiIdentifier": "id777dcf57",
+            "oneToMany": false,
+            "file": {
+                "fileName": "file-{{timestamp}}.json",
+                "skipAggregation": false,
+                "type": "json"
+            },
+            "ftp": {
+                "directoryPath": "/Group-QA/ShritiS/Import",
+                "fileName": "file-{{timestamp}}.json"
+            },
+            "adaptorType": "FTPImport"
+        }
+        }
+      ],
+      
+      "createFlow": {
+        "name": "TC_C25461",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+}
