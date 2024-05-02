@@ -166,6 +166,7 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
     console.log(`${testInfo.status}`);
     if (testInfo.status == "failed") {
       await io.homePage.navigateTo(process.env["IOURL"]);
+      await io.homePage.delay(1000 * 60 * 4);
       await io.homePage.loadingTime();
       await io.loginPage.fill(
         selectors.loginPagePO.EMAIL,
