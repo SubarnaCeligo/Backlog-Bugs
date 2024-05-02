@@ -7,6 +7,7 @@ test.describe("C66307 Verify Sign up with Google is enabled on EU Sign up page",
     page
   }) => {
     await io.homePage.navigateTo("https://eu.integrator.io/signup");
+    await io.homePage.loadingTime()
     await io.assert.verifyElementDisplayedByText(
       "Sign up with Google",
       "Sign up with Google is not displayed"
