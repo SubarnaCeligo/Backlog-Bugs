@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(
-  "C56285 Verify if we are able submit a request to provide the password reset link and cancel the request in the forgot password page",
+  "C56285_C55955 Verify if we are able submit a request to provide the password reset link and cancel the request in the forgot password page & Verify clicking on cancel button in the reset password page is navigating to the signin page",
   () => {
     test.beforeEach("Sign out", async ({ io, page }) => {
       await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
@@ -13,7 +13,7 @@ test.describe(
         await io.homePage.click(selectors.basePagePO.SIGN_OUT);
       }
     });
-    test("@Env-All C56285 Verify the user is able to save the newly set password successfully via email reset password link and Verify the user is able to cancel and redirected to signin page", async ({
+    test("@Env-All C56285_C55955 Verify the user is able to save the newly set password successfully via email reset password link and Verify the user is able to cancel and redirected to signin page & Verify clicking on cancel button in the reset password page is navigating to the signin page", async ({
       io,
       page
     }) => {

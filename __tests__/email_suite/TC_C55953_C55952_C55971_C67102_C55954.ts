@@ -109,14 +109,5 @@ test.describe(
         "Expired link error message is not displayed"
       );
     });
-    test("@Env-All C55955 Verify clicking on cancel button in the reset password page is navigating to the signin page", async ({
-      io,
-      page
-    }) => {
-      await io.flowBuilder.clickByTextByIndex("Cancel", 0);
-      const regex = /signin$/;
-      await page.waitForURL(regex);
-      await io.assert.expectToContainValue("signin", page.url(),"URL doesn't contain signin");
-    });
   }
 );
