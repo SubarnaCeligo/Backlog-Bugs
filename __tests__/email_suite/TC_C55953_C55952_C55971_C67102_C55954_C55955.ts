@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import { randomString, randomNumber } from "@celigo/aut-utilities";
 
 test.describe(
-  "C55952_C55953_C55954_C55955_C55971",
+  "C55952_C55953_C55954_C55955_C55971_C67012",
   () => {
     let link;
     test.beforeEach("Sign out", async ({ io, page }) => {
@@ -26,10 +26,12 @@ test.describe(
       await io.homePage.navigateTo(link.toString());
       await io.homePage.loadingTime();
     });
-    test("@Env-All C55952 Verify all the available fields in the Rest password page after navigating to the page via email link", async ({
+    test("@Env-All C55953_C55952_C55971_C67012 Verify the user is able to save the newly set password successfully via email reset password link &  Verify all the available fields in the Rest password page after navigating to the page via email link & Verify when we use an old password that was set in the last 20 passwords we should get an error in the reset password page & Verify the user is able to reset their password if they forget it, and this should not affect the new sign-up process", async ({
       io,
       page
     }) => {
+      //Verify all the available fields in the Rest password page after navigating to the page via email link
+      
       await io.assert.verifyElementIsDisplayed(
         selectors.basePagePO.CELIGO_LOGO,
         "Celigo logo is not displayed"
@@ -46,14 +48,21 @@ test.describe(
         "Cancel",
         "Cancel button is not displayed"
       );
-    });
-    test("@Env-All C55953 Verify the user is able to save the newly set password successfully via email reset password link", async ({
-      io,
-      page
-    }) => {
+
+      //Verify when we use an old password that was set in the last 20 passwords we should get an error in the reset password page
+      
+      await io.homePage.fill(selectors.loginPagePO.PASSWORD, "Celigo@123");
+      await io.homePage.getByRoleClick("button", "Save");
+      await io.assert.verifyElementDisplayedByText(
+        "You are not allowed to choose a password that matches with the previous 20 passwords. Please choose another password.",
+        "Reused password error message is not displayed"
+      );
+
+      //Verify the user is able to save the newly set password successfully via email reset password link & Verify the user is able to reset their password if they forget it, and this should not affect the new sign-up process
+      
       await io.homePage.fill(selectors.loginPagePO.PASSWORD, "123");
       await io.assert.verifyElementIsDisplayed(
-        "#pageInfo",
+        selectors.basePagePO.PAGE_INFO,
         "Password tooltip is not displayed"
       );
       const randomString = "Celigo1" + Math.random().toString(36).substring(7);
@@ -108,17 +117,6 @@ test.describe(
       const regex = /signin$/;
       await page.waitForURL(regex);
       await io.assert.expectToContainValue("signin", page.url(),"URL doesn't contain signin");
-    });
-    test("@Env-All C55971 Verify when we use an old password that was set in the last 20 passwords we should get an error in the reset password page", async ({
-      io,
-      page
-    }) => {
-      await io.homePage.fill(selectors.loginPagePO.PASSWORD, "Celigo@123");
-      await io.homePage.getByRoleClick("button", "Save");
-      await io.assert.verifyElementDisplayedByText(
-        "You are not allowed to choose a password that matches with the previous 20 passwords. Please choose another password.",
-        "Reused password error message is not displayed"
-      );
     });
   }
 );
