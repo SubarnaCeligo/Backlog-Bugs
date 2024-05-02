@@ -12,7 +12,7 @@ test.describe(`C61021 Verify the prompt displayed on selecting ‘SuiteBundle Su
     await io.importsPage.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
     await io.importsPage.fill(
       selectors.exportsPagePO.CONNECTIONS_DROPDOWN,
-      "NS No SA SB"
+      "NETSUITE CONNECTION"
     );
     await io.exportsPage.click(
       selectors.connectionsPagePO.CONNECTION_OPTION_TEXT
