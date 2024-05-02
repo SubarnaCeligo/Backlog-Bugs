@@ -1,7 +1,6 @@
-import { test } from "@celigo/ui-core-automation";
+import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import { decrypt } from "@celigo/aut-utilities";
-import { expect } from "@celigo/ui-core-automation";
 
 test.describe("TC_C110068 when user email is changed from profile page, verify Email Notification Generation when clicked on show token for an Agent in Agents Page", () => {
   test.beforeEach(async ({ io }) => {
@@ -72,12 +71,11 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
     await io.homePage.loadingTime();
 
     //click on agent token and validate
-    await io.homePage.goToMenu("Resources", "Agents");
-    await io.homePage.loadingTime();
-    await io.homePage.loadingTime();
-    await io.homePage.loadingTime();
-    let agentselect = '[data-test="displayAgentToken"]';
-    await io.flowBuilder.click(agentselect);
+    await io.homePage.goToMenu("Resources","Agents");
+    await io.homePage.loadingTime()
+    await io.homePage.loadingTime()
+    await io.homePage.loadingTime()
+    await io.flowBuilder.click(selectors.basePagePO.DISPLAY_AGENT_TOKEN);
     await page.waitForTimeout(10000);
     const agentlink = await io.emailVal.getLinkFromEmail(
       "ALERT: Agent access token was displayed in clear text",

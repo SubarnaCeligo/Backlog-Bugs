@@ -15,7 +15,7 @@ test.describe(`C2014 Verify PG,PP-export&import created in account level manage 
     await io.homePage.navigateTo(
       io.data.links.HOME_PAGE_URL
     );
-
+    await io.flowBuilder.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Automation Flows');
     await io.homePage.clickByText("Automation Flows")
     await io.homePage.clickByText('Create flow')
     await io.homePage.click(selectors.basePagePO.ADD_SOURCE_BUTTON)
