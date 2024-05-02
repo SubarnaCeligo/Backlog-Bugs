@@ -6,6 +6,7 @@ test.describe("C94517_C94527_C94525_C94521_C94529_C94533_C94528_C94531_C94526_C9
     test("@Env-All C94517_C94527_C94525_C94521_C94529_C94533_C94528_C94531_C94526_C94519_C94532", async ({ io, page }) => {
         await io.createResourceFromAPI(C94527, "FLOWS");
         //Disable the flow
+        await io.homePage.loadingTime()
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
@@ -89,11 +90,12 @@ test.describe("C94517_C94527_C94525_C94521_C94529_C94533_C94528_C94531_C94526_C9
         await io.flowBuilder.click(selectors.flowBuilderPagePO.NS_FILE_INTERNALID);
         await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.TEST_RUN_RESULT_TAB, 'Test run result tab is not displayed');
         await io.homePage.addStep('Verified Test run result tab is displayed');
-
+        await io.homePage.loadingTime()
 
         //TC_C94531 Verify Empty state message when AFE1.0 is selected but 1.0 template has no content and there are no result to show
         await io.flowBuilder.click(selectors.flowBuilderPagePO.AFE_ONE_DOT_ZERO);
         await io.homePage.addStep('Clicking on AFE 1.0');
+        await io.homePage.loadingTime()
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EMPTY_STATE_MESSAGE);
         const msg1 = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.EMPTY_STATE_MESSAGE)).toString();
         const masg1 = JSON.stringify(msg1);
