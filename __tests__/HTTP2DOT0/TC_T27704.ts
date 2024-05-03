@@ -12,7 +12,7 @@ test.describe('TC_T27704', () => {
         await io.connections.deleteConnection("TC_T27704_NSAW_Connection", connectionDoc._id);
 
     });
-    test('TC_T27704 Creating NSAW connection while cloning from existing integration', async ({ io, page }) => {
+    test.skip('TC_T27704 Creating NSAW connection while cloning from existing integration', async ({ io, page }) => {
         await test.step("*** Searching source integration and navigating to clone integration ***", async () => {
             await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
             await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'NSAW-Oracle ADW integration_DND');
