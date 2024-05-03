@@ -5,8 +5,8 @@ test.describe("C53149 Verify import mappings for IA's with monitor permissions",
   test("C53149 Verify import mappings for IA's with monitor permissions", async ({io, page}) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime()
-    await io.homePage.fill(selectors.homePagePO.SEARCH_INTEGRATION_WDIO, "HTTP_DND")
-    await io.homePage.clickByText('HTTP_DND');
+    await io.homePage.fill(selectors.homePagePO.SEARCH_INTEGRATION_WDIO, "HTTP_DND_UIUX")
+    await io.homePage.clickByText('HTTP_DND_UIUX');
     await io.homePage.loadingTime()
     await io.homePage.click(selectors.homePagePO.ADD_MAPPING);
     await io.homePage.loadingTime()
