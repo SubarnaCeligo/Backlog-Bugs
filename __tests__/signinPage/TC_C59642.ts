@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C58439 Verify after clicking on "https://www.celigo.com/platform/free\-trial/" Link User is re-directing to "https://integrator.io/signup" Page.`, () => {
-  test(`@Env-All @Zephyr-IO-T1112 C58439 Verify after clicking on "https://www.celigo.com/platform/free\-trial/" Link User is re-directing to "https://integrator.io/signup" Page.`, async ({
+  test(`@Env-All @Zephyr-IO-T1112 C59642 Verify after clicking on "https://www.celigo.com/platform/free\-trial/" Link User is re-directing to "https://integrator.io/signup" Page.`, async ({
     io,
     page
   }) => {
