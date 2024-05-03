@@ -4,27 +4,53 @@
         {
           "type": "export",
           "qa__export": {
-            "_id": "650993ee423b065da85c6475",
-            "createdAt": "2023-09-19T12:28:30.710Z",
-            "lastModified": "2023-09-19T12:28:30.840Z",
-            "name": "zendesk_lookup",
-            "_connectionId": "HTTP ZENDESK CONNECTION",
-            "_sourceId": "6433c902d46544517c7be851",
-            "apiIdentifier": "e228a84d7f",
+            "_id": "662a8245b4da91239229a9ea",
+            "createdAt": "2024-04-25T16:18:13.828Z",
+            "lastModified": "2024-04-25T16:18:13.865Z",
+            "name": "AutomationStandalone_DnRXG",
+            "_connectionId": "FTP CONNECTION",
+            "_sourceId": "662a273a265efa2565018987",
+            "apiIdentifier": "e7ec6cdaba",
             "asynchronous": true,
-            "isLookup": true,
-            "oneToMany": false,
-            "http": {
-                "relativeURI": "api/v2/users",
-                "method": "GET",
-                "formType": "http",
-                "response": {
-                    "twoDArray": {
-                        "doNotNormalize": true
-                    }
+            "sandbox": false,
+            "ftp": {
+                "directoryPath": "/io.auto.qa/BVAutoFTP"
+            },
+            "file": {
+                "output": "records",
+                "skipDelete": true,
+                "type": "json",
+                "filter": {
+                    "type": "expression",
+                    "expression": {
+                        "version": "1",
+                        "rules": [
+                            "contains",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "filename"
+                                ]
+                            ],
+                            "NoArrayFieldsIO-34461"
+                        ]
+                    },
+                    "rules": [
+                        "contains",
+                        [
+                            "string",
+                            [
+                                "extract",
+                                "filename"
+                            ]
+                        ],
+                        "NoArrayFieldsIO-34461"
+                    ],
+                    "version": "1"
                 }
             },
-            "adaptorType": "HTTPExport"
+            "adaptorType": "FTPExport"
         }
         }
       ],
@@ -32,21 +58,22 @@
         {
           "type": "import",
           "qa__import": {
-            "_id": "662b5f8e4d545b3aa71aa0e4",
-            "createdAt": "2024-04-26T08:02:22.295Z",
-            "lastModified": "2024-04-26T08:02:22.355Z",
-            "name": "FTP Import",
+            "_id": "662a8245b4da91239229a9f3",
+            "createdAt": "2024-04-25T16:18:13.888Z",
+            "lastModified": "2024-04-25T16:18:13.924Z",
+            "name": "AutomationStandalone_csr4f",
             "_connectionId": "FTP CONNECTION",
-            "_sourceId": "6597a24ed9bf360f8dabd08a",
-            "apiIdentifier": "id777dcf57",
-            "oneToMany": false,
+            "_sourceId": "662a273db4da9123922401f9",
+            "apiIdentifier": "i689e84ff2",
+            "oneToMany": true,
+            "sandbox": false,
             "file": {
                 "fileName": "file-{{timestamp}}.json",
                 "skipAggregation": false,
                 "type": "json"
             },
             "ftp": {
-                "directoryPath": "/Group-QA/ShritiS/Import",
+                "directoryPath": "io.auto.qa/BVAutoFTP",
                 "fileName": "file-{{timestamp}}.json"
             },
             "adaptorType": "FTPImport"
