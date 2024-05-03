@@ -12,6 +12,7 @@ test.describe(
       await io.homePage.loadingTime();
       await io.homePage.navigateTo(process.env.IO_UI_CONNECTOR_URL + "request-reset");
       await io.homePage.loadingTime();
+      await io.homePage.delay(1000 * 60 * 3);
       await io.homePage.fill(selectors.homePagePO.EMAIL, "qaautomation1+emailsuite@celigo.com");
       await io.homePage.click(selectors.basePagePO.SUBMIT);
       const webLink = new URL(process.env.IO_UI_CONNECTOR_URL);

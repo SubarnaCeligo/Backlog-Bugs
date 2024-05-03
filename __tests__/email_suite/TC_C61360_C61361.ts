@@ -14,6 +14,7 @@ test.describe("C61360_C61361", () => {
       await io.flowBuilder.click(selectors.basePagePO.ACCOUNT_BUTTON);
       await io.homePage.click(selectors.basePagePO.SIGN_OUT);
     }
+    await io.homePage.delay(1000 * 60 * 3);
     await io.signInPage.navigateTo(process.env.IO_UI_CONNECTOR_URL + "signup");
     await io.homePage.loadingTime();
     await io.signInPage.fill(selectors.basePagePO.NAME, "Test Auto");

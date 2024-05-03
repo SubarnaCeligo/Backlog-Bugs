@@ -14,6 +14,7 @@ test.describe(
         await io.flowBuilder.click(selectors.basePagePO.ACCOUNT_BUTTON);
         await io.homePage.click(selectors.basePagePO.SIGN_OUT);
       }
+      await io.homePage.delay(1000 * 60 * 3);
       await io.homePage.navigateTo(process.env.IO_UI_CONNECTOR_URL + "request-reset");
       await io.homePage.loadingTime();
       await io.homePage.fill(selectors.homePagePO.EMAIL, "qaautomation1+emailsuite@celigo.com");
