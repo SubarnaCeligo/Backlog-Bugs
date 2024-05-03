@@ -47,6 +47,7 @@ test.describe(
         "type",
         "text"
       );
+      await io.homePage.delay(1000 * 60 * 3);
       await io.homePage.getByRoleClick("button", "Save");
       await io.loginPage.fill(selectors.loginPagePO.EMAIL, "qaautomation1+emailsuite@celigo.com");
       await io.loginPage.fill(selectors.loginPagePO.PASSWORD, randomString);
@@ -67,6 +68,7 @@ test.describe(
       }
       await io.homePage.navigateTo(process.env.IO_UI_CONNECTOR_URL + "request-reset");
       await io.homePage.loadingTime();
+      await io.homePage.delay(1000 * 60 * 3);
       await io.homePage.fill(selectors.homePagePO.EMAIL, "qaautomation1+emailsuite@celigo.com");
       await io.homePage.click(selectors.basePagePO.SUBMIT);
       const webLink1 = new URL(process.env.IO_UI_CONNECTOR_URL);
@@ -86,5 +88,12 @@ test.describe(
       );
       await io.homePage.addStep("Verified user is redirected to signin page");
     });
+    test.afterEach("signin into main account",async ({page, io}) => {
+      await io.homePage.navigateTo(process.env["IOURL"]);
+      await io.homePage.loadingTime();
+      await io.loginPage.fill(selectors.loginPagePO.EMAIL, process.env["IO_UserName"]);
+      await io.loginPage.fill(selectors.loginPagePO.PASSWORD, process.env["IO_Password"]);
+      await io.loginPage.click(selectors.loginPagePO.SIGN_IN_BUTTON); 
+    })
   }
 );

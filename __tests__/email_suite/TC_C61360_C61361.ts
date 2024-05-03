@@ -40,4 +40,12 @@ test.describe("C61360_C61361", () => {
     const msg1 = await io.homePage.isVisible("text='Start free trail now to experience optimal process automation for your business with full access to integrator.io . For 30 days, the unlimited flow trial gives you'")
     await io.assert.expectToBeValue(msg1.toString(),"false", "above msg is popped up");
   });
+  
+  test.afterEach("signin into main account",async ({page, io}) => {
+    await io.homePage.navigateTo(process.env["IOURL"]);
+    await io.homePage.loadingTime();
+    await io.loginPage.fill(selectors.loginPagePO.EMAIL, process.env["IO_UserName"]);
+    await io.loginPage.fill(selectors.loginPagePO.PASSWORD, process.env["IO_Password"]);
+    await io.loginPage.click(selectors.loginPagePO.SIGN_IN_BUTTON); 
+  })
 });

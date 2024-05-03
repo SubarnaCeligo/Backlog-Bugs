@@ -53,6 +53,7 @@ test.describe(
       //Verify when we use an old password that was set in the last 20 passwords we should get an error in the reset password page
       
       await io.homePage.fill(selectors.loginPagePO.PASSWORD, "Celigo@123");
+      await io.homePage.delay(1000 * 60 * 2);
       await io.homePage.getByRoleClick("button", "Save");
       await io.assert.verifyElementDisplayedByText(
         "You are not allowed to choose a password that matches with the previous 20 passwords. Please choose another password.",
@@ -80,6 +81,7 @@ test.describe(
         "type",
         "text"
       );
+      await io.homePage.delay(1000 * 60 * 3);
       await io.homePage.getByRoleClick("button", "Save");
       await io.loginPage.fill(selectors.loginPagePO.EMAIL, "qaautomation1+emailsuite@celigo.com");
       await io.loginPage.fill(selectors.loginPagePO.PASSWORD, randomString);
@@ -105,5 +107,13 @@ test.describe(
         "Expired link error message is not displayed"
       );
     });
+
+    test.afterEach("signin into main account",async ({page, io}) => {
+      await io.homePage.navigateTo(process.env["IOURL"]);
+      await io.homePage.loadingTime();
+      await io.loginPage.fill(selectors.loginPagePO.EMAIL, process.env["IO_UserName"]);
+      await io.loginPage.fill(selectors.loginPagePO.PASSWORD, process.env["IO_Password"]);
+      await io.loginPage.click(selectors.loginPagePO.SIGN_IN_BUTTON); 
+    })
   }
 );
