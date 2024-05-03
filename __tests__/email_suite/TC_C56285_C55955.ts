@@ -72,7 +72,7 @@ test.describe(
       await io.homePage.fill(selectors.homePagePO.EMAIL, "qaautomation1+emailsuite@celigo.com");
       await io.homePage.click(selectors.basePagePO.SUBMIT);
       const webLink1 = new URL(process.env.IO_UI_CONNECTOR_URL);
-      await page.waitForTimeout(8000);
+      await page.waitForTimeout(5000);
       const link1 = await io.emailVal.getLinkFromEmail(
         `[${webLink1.host}] Request to reset your password`, false, "pwqa1"
       );
@@ -86,14 +86,12 @@ test.describe(
         page.url(),
         "URL doesn't contain signin"
       );
-      await io.homePage.addStep("Verified user is redirected to signin page");
-    });
-    test.afterEach("signin into main account",async ({page, io}) => {
       await io.homePage.navigateTo(process.env["IOURL"]);
       await io.homePage.loadingTime();
       await io.loginPage.fill(selectors.loginPagePO.EMAIL, process.env["IO_UserName"]);
       await io.loginPage.fill(selectors.loginPagePO.PASSWORD, process.env["IO_Password"]);
       await io.loginPage.click(selectors.loginPagePO.SIGN_IN_BUTTON); 
-    })
+      await io.homePage.addStep("Verified user is redirected to signin page");
+    });
   }
 );

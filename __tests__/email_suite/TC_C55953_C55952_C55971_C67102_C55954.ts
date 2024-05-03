@@ -106,14 +106,11 @@ test.describe(
         "The reset password link is no longer valid. Enter your email address to receive a link to reset your password.",
         "Expired link error message is not displayed"
       );
-    });
-
-    test.afterEach("signin into main account",async ({page, io}) => {
       await io.homePage.navigateTo(process.env["IOURL"]);
       await io.homePage.loadingTime();
       await io.loginPage.fill(selectors.loginPagePO.EMAIL, process.env["IO_UserName"]);
       await io.loginPage.fill(selectors.loginPagePO.PASSWORD, process.env["IO_Password"]);
       await io.loginPage.click(selectors.loginPagePO.SIGN_IN_BUTTON); 
-    })
+    });
   }
 );
