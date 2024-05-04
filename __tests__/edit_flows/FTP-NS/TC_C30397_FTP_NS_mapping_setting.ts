@@ -8,7 +8,7 @@ test.describe("Edit Flows", () => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();
   });
-  test("TC_C30397_FTP_NS_mapping_setting", async ({
+  test("@Env-All TC_C30397_FTP_NS_mapping_setting", async ({
     io
   }, testInfo) => {
     var exportValidation, flowID, importValidation
