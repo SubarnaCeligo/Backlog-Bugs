@@ -14,7 +14,8 @@ test.describe("Edit Flows", () => {
     var exportValidation, flowID, importValidation
     //*Flow Creation
     await test.step("*** Create flow through API ***", async () => {
-      flowID = await io.api.createFlowFromAPI(NS.qa__dataVerification.importJSON)
+      flowID = await io.api.createFlowFromAPI(NS.qa__dataVerification.importJSON);
+      await io.flowBuilder.loadingTime();
     });
     //Edit Page Generator 
     await test.step("*** Edit Page Generator ***", async () => {
