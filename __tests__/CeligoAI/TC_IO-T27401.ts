@@ -13,6 +13,7 @@ test.describe("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Author-
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.homePage.loadingTime();
     await io.flowBuilder.clickByText("Automapper_DND");
+    await io.homePage.loadingTime();
     await io.flowBuilder.waitForElementAttached(
       selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR
     );
@@ -20,26 +21,31 @@ test.describe("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Author-
       selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR,
       1
     );
+    await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.clickByIndex(
       selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU,
       2
     );
+    await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.importPagePO.AUTO_POPULATE_MAPPINGS);
     await io.homePage.loadingTime();
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.AUTOMAPPER_TOOL,
       "Auto mapper tool is not displayed"
     );
+    await io.homePage.loadingTime();
 
     //IO-T27406 Verify the checkboxes are not displayed when auto mapper tool is not selected
     const isCheckboxDisplayed = !(await io.flowBuilder.isVisible(
       selectors.flowBuilderPagePO.OPENAI.AUTOMAP_SELECTALL_CHECKBOX
     ));
+    await io.homePage.loadingTime();
     await io.assert.expectToBeTrue(isCheckboxDisplayed, "Checkbox is displayed");
 
     //IO-T27402 IO-T27405 Verify auto mapping option is displayed when clicked on auto mapper tool
+    await io.homePage.loadingTime();
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.OPENAI.AUTOMAPPER_TOOL
     );
@@ -50,6 +56,7 @@ test.describe("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Author-
     );
 
     //IO-T27403 Verify the help text for the auto-mapping
+    await io.homePage.loadingTime();
     await io.flowBuilder.clickByIndex(
       selectors.flowBuilderPagePO.HELP_TEXT_ICON,
       7
@@ -60,6 +67,7 @@ test.describe("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Author-
       "Auto-map all selected un-mapped destination fields i.e. the ones that do not have source field added. When auto-map is clicked, all options that modify the existing destination structure will be disabled. Close auto-map to go back to mappings.";
     const func = value.toString().includes(expectedvalue);
     await io.assert.expectToBeTrue(func, "help text doesn't match");
+    await io.homePage.loadingTime();
     await io.flowBuilder.click(
       selectors.connectionsPagePO.HELPTEXT_CLOSE
     );
@@ -77,6 +85,7 @@ test.describe("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Author-
       "class",
       "Mui-disabled"
     );
+    await io.homePage.loadingTime();
 
     //IO-T27407 IO-T27408 Verify the checkboxes are displayed for all the fields when auto mapper is active
     await io.assert.verifyElementIsDisplayed(
@@ -90,12 +99,14 @@ test.describe("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Author-
       "class",
       "Mui-disabled"
     );
+    await io.homePage.loadingTime();
 
     //IO-T27409 Verify user is able to select single and multiple checkboxes
     await io.flowBuilder.clickByIndex(
       selectors.flowBuilderPagePO.OPENAI.AUTOMAP_CHECKBOX,
       0
     );
+    await io.homePage.loadingTime();
     await io.flowBuilder.clickByIndex(
       selectors.flowBuilderPagePO.OPENAI.AUTOMAP_CHECKBOX,
       1
