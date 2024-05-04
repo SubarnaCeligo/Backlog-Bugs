@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import { randomString, randomNumber } from "@celigo/aut-utilities";
 
 test.describe("C61360_C61361", () => {
-  test("@Env-All @IO-T22225 @IO-T22218 C61360_C61361  Verify that there shouldn't be any Get Unlimited flows button in home page for newly signed up accounts &  Verify that there shouldnt be any popup message saying Start free trail now to experience optimal process automation for your business with full access to integrator.io . For 30 days, the unlimited flow trial gives you: in home page for newly signe", async ({
+  test("@Env-All @Zephyr-IO-T22225 @Zephyr-IO-T22218 C61360_C61361  Verify that there shouldn't be any Get Unlimited flows button in home page for newly signed up accounts &  Verify that there shouldnt be any popup message saying Start free trail now to experience optimal process automation for your business with full access to integrator.io . For 30 days, the unlimited flow trial gives you: in home page for newly signe", async ({
     io,
     page
   }) => {
