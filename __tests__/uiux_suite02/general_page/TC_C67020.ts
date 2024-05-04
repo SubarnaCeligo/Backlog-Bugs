@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe('C67020 To verify that the delete option colour is changed to red colour', () => {
-  test('Homepage tile view', async ({page,io}) => {
+  test('@Env-All Homepage tile view', async ({page,io}) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime()
     await io.homePage.clickByIndex(`:has-text("Automation Flows") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`, 0);
@@ -10,7 +10,7 @@ test.describe('C67020 To verify that the delete option colour is changed to red 
     await io.assert.expectToBeValue(color,"rgb(217, 83, 79)","Color not red");
   });
 
-  test('Homepage List view', async ({page,io}) => {
+  test('@Env-All Homepage List view', async ({page,io}) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime()
     await io.homePage.click(selectors.homePagePO.LIST_VIEW);
@@ -22,7 +22,7 @@ test.describe('C67020 To verify that the delete option colour is changed to red 
     await io.homePage.click(selectors.homePagePO.TILE_VIEW);
   }); 
 
-  test("Connections Page.", async ({io, page}) => {
+  test("@Env-All Connections Page.", async ({io, page}) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.goToMenu("Resources","Connections");
         await io.homePage.waitForElementAttached(`${selectors.flowBuilderPagePO.COLUMNS} ${selectors.connectionsPagePO.ACTIONS_MENU_BUTTON}`);
@@ -31,7 +31,7 @@ test.describe('C67020 To verify that the delete option colour is changed to red 
         const color = await page.locator(selectors.connectionsPagePO.DELETE_CONNECTION).evaluate((el: any) => getComputedStyle(el).color);
         await io.assert.expectToBeValue(color,"rgb(217, 83, 79)","Color not red");
     });
-    test("Imports Page.", async ({io, page}) => {
+    test("@Env-All Imports Page.", async ({io, page}) => {
       await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
       await io.homePage.loadingTime()
       await io.homePage.goToMenu("Resources","Imports");
@@ -41,7 +41,7 @@ test.describe('C67020 To verify that the delete option colour is changed to red 
       const color = await page.locator(selectors.connectionsPagePO.DELETE_CONNECTION).evaluate((el: any) => getComputedStyle(el).color);
       await io.assert.expectToBeValue(color,"rgb(217, 83, 79)","Color not red");
     });
-    test("Exports Page.", async ({io, page}) => {
+    test("@Env-All Exports Page.", async ({io, page}) => {
       await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
       await io.homePage.goToMenu("Resources","Exports");
       await io.homePage.waitForElementAttached(`${selectors.flowBuilderPagePO.COLUMNS} ${selectors.connectionsPagePO.ACTIONS_MENU_BUTTON}`);
@@ -61,7 +61,7 @@ test.describe('C67020 To verify that the delete option colour is changed to red 
     //   await io.assert.expectToBeValue(color,"rgb(217, 83, 79)","Color not red");
     // });
 
-  test("Integration Page.", async ({ io, page }) => {
+  test("@Env-All Integration Page.", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.homePage.loadingTime()

@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Mapper2.0/C51986.json";
 
 test.describe(`C51986 Verify vertical line must be added to source row`, () => {
-  test(`C51986 Verify vertical line must be added to source row`, async ({
+  test(`@Env-All C51986 Verify vertical line must be added to source row`, async ({
     io,
     page
   }) => {

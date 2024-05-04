@@ -2,7 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C63190", () => {
-  test("C63190 If the internet goes offline, then a proper error message should display instead of unknown error", async ({io, page, context}) => {
+  test("@Env-All C63190 If the internet goes offline, then a proper error message should display instead of unknown error", async ({io, page, context}) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await page.click(selectors.basePagePO.RESOURCES);
     await io.homePage.goToMenu("Resources","Connections");

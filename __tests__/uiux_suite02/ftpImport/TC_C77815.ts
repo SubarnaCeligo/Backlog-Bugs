@@ -4,7 +4,7 @@ import data from "@testData/FtpImport/C77815.json"
 
 
 test.describe(`C77815 Validate User is not seeing the vertical line when download retry data option is not available (Manager account)`, () => {
-    test(`C77815 Validate User is not seeing the vertical line when download retry data option is not available (Manager account)`, async ({
+    test(`@Env-All C77815 Validate User is not seeing the vertical line when download retry data option is not available (Manager account)`, async ({
       io,
       page
     }) => {

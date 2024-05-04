@@ -4,7 +4,7 @@ import data from "@testData/FtpImport/C77832.json"
 
 
 test.describe(`C77832 Validate User is not seeing the more actions when download retry data option is not available (Administer  account)`, () => {
-    test(`C77832 Validate User is not seeing the more actions when download retry data option is not available (Administer  account)`, async ({
+    test(`@Env-All C77832 Validate User is not seeing the more actions when download retry data option is not available (Administer  account)`, async ({
       io,
       page
     }) => {

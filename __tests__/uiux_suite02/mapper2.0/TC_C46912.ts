@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C46915 from "@testData/Flows/C46915.json"
 
 test.describe('verify user must be able to save the mapper 2.0 mappings exist if there are no valid mappings in mapper 1.0', () => { 
-    test("verify user must be able to save the mapper 2.0 mappings exist if there are no valid mappings in mapper 1.0", async ({ io, page }) => {
+    test("@Env-All verify user must be able to save the mapper 2.0 mappings exist if there are no valid mappings in mapper 1.0", async ({ io, page }) => {
         
           await io.createResourceFromAPI(
             C46915,

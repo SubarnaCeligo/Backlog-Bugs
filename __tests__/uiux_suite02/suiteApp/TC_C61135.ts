@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C61135 Verify the Install link functionality displayed for the Integrator SuiteApp step`, () => {
-  test(`C61135 Verify the Install link functionality displayed for the Integrator SuiteApp step`, async ({
+  test(`@Env-All C61135 Verify the Install link functionality displayed for the Integrator SuiteApp step`, async ({
     page,
     io
   }) => {

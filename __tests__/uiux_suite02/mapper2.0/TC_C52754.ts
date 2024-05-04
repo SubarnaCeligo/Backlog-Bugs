@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C52754 Verify search functionality when user searches a child destination field`, () => {
-  test(`C52754 Verify search functionality when user searches a child destination field`, async ({
+  test(`@Env-All C52754 Verify search functionality when user searches a child destination field`, async ({
     io,
     page
   }) => {

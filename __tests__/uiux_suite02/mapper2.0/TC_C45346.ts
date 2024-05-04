@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C45346 from "@testData/Mapper2.0/C45346.json";
 
 test.describe("C45346 Verify the text displayed in the  Source field Drop down", () => {
-  test("C45346 Verify the text displayed in the  Source field Drop down", async ({
+  test("@Env-All C45346 Verify the text displayed in the  Source field Drop down", async ({
     io,
     page
   }) => {

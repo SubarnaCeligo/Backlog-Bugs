@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import data from "@testData/FtpImport/C77814.json"
 
 test.describe(`C77814 Validate User is able to see the more actions icon when download retry data option is available (Manager account)`, () => {
-    test(`C77814 Validate User is able to see the more actions icon when download retry data option is available (Manager account)`, async ({
+    test(`@Env-All C77814 Validate User is able to see the more actions icon when download retry data option is available (Manager account)`, async ({
       io,
       page
     }) => {

@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C53141 Verify the guide link in import mappings for IA's", () => {
-  test("C53141 Verify the guide link in import mappings for IA's", async ({io, page}) => {
+  test("@Env-All C53141 Verify the guide link in import mappings for IA's", async ({io, page}) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime()
     await io.homePage.fill(selectors.homePagePO.SEARCH_INTEGRATION_WDIO, "HTTP_DND_UIUX")

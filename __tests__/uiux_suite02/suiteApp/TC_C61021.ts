@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C61021 Verify the prompt displayed on selecting ‘SuiteBundle SuiteScript 1.0 (to be deprecated)’ option of NetSuite API Version’ options while creating new NS import`, () => {
-  test(`C61021 Verify the prompt displayed on selecting ‘SuiteBundle SuiteScript 1.0 (to be deprecated)’ option of NetSuite API Version’ options while creating new NS import`, async ({
+  test(`@Env-All C61021 Verify the prompt displayed on selecting ‘SuiteBundle SuiteScript 1.0 (to be deprecated)’ option of NetSuite API Version’ options while creating new NS import`, async ({
     io,
     page
   }) => {

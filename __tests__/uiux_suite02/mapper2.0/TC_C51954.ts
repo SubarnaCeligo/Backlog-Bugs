@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C51954 Verify monitor user should be able to collapse and expand the mappings", () => {
-  test("C51954 Verify monitor user should be able to collapse and expand the mappings", async ({io, page}) => {
+  test("@Env-All C51954 Verify monitor user should be able to collapse and expand the mappings", async ({io, page}) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.homePage.loadingTime()
     await io.homePage.fill(selectors.flowBuilderPagePO.SEARCH, "Mapping_DND")
