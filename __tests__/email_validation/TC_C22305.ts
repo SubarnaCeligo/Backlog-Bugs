@@ -12,7 +12,7 @@ test.describe("C22305 Verify email notification navigation for user account whic
       );
     });
 
-    test("C22305 Verify email notification navigation for user account which has only monitor access for all integrations", async ({io, page}) => {
+    test("@Env-STAGING @Zephyr-IO-T295 C22305 Verify email notification navigation for user account which has only monitor access for all integrations", async ({io, page}) => {
       const id = await io.createResourceFromAPI(C22305, "FLOWS");
       const res1 = await io.api.putCall(
         `v1/ashares/${process.env.IO_Ashare_ID}`,
@@ -23,10 +23,10 @@ test.describe("C22305 Verify email notification navigation for user account whic
       await io.flowBuilder.click(`${selectors.flowBuilderPagePO.NOTIFY_ME_ON_FLOW_ERROR} ${selectors.basePagePO.VALUE_TRUE}`);
       await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
       await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
-      const lastRun = page.getByText('Last run');
-      await lastRun.waitFor({state: 'visible', timeout: 180000});
+      await io.homePage.loadingTime()
+      await io.homePage.reloadPage()
       await io.flowBuilder.delay(1000 * 60 * 15);
-      const res = await io.emailVal.getLinkFromEmail("1 new error: TC_C22305",true);
+      const res = await io.emailVal.getLinkFromEmail("1 new error: TC_C22305",true, "pwqa1");
       await io.homePage.navigateTo(res[2].split('>')[0]);
       await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
       await io.myAccountPage.waitForElementAttached(selectors.loginPagePO.EMAIL_ID)

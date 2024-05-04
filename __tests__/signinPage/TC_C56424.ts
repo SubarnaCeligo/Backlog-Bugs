@@ -6,6 +6,7 @@ test.describe("C56424 Verify if the page is refreshed and if the session is not 
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.homePagePO.INTEGRATION_TILES); 
         await io.homePage.reloadPage();
+        await io.homePage.loadingTime()
         await io.assert.verifyElementIsDisplayed(selectors.homePagePO.INTEGRATION_TILES, 'Did not land to homepage on reload');
     });
   });
