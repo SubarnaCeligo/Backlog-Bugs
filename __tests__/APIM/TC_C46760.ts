@@ -137,6 +137,7 @@ test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API
         await io.flowBuilder.click(selectors.basePagePO.EXPORTS);
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
+        await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'slack');
         await io.flowBuilder.click(selectors.connectionsPagePO.SLACK_CONNECTION);
         await io.flowBuilder.click(selectors.exportsPagePO.CREATE_SELECT_CONNECTION);
         await io.flowBuilder.clickByText("Slack Connection");
@@ -274,6 +275,7 @@ test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API
         await io.flowBuilder.click(selectors.basePagePO.IMPORTS);
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
+        await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'slack');
         await io.flowBuilder.click(selectors.connectionsPagePO.SLACK_CONNECTION);
         await io.flowBuilder.click(selectors.exportsPagePO.CREATE_SELECT_CONNECTION);
         await io.flowBuilder.clickByText("Slack Connection");
