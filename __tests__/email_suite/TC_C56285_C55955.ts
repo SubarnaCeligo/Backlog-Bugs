@@ -14,7 +14,7 @@ test.describe(
       }
       await io.homePage.delay(1000 * 60 * 3);
     });
-    test("@Env-All C56285_C55955 Verify the user is able to save the newly set password successfully via email reset password link and Verify the user is able to cancel and redirected to signin page & Verify clicking on cancel button in the reset password page is navigating to the signin page", async ({
+    test("@Env-All @IO-T1004 @IO-T1102 C56285_C55955 Verify the user is able to save the newly set password successfully via email reset password link and Verify the user is able to cancel and redirected to signin page & Verify clicking on cancel button in the reset password page is navigating to the signin page", async ({
       io,
       page
     }) => {

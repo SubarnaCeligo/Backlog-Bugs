@@ -27,7 +27,7 @@ test.describe(
       await io.homePage.navigateTo(link.toString());
       await io.homePage.loadingTime();
     });
-    test("@Env-All C55953_C55952_C55971_C67012_C55954 Verify the user is able to save the newly set password successfully via email reset password link &  Verify all the available fields in the Rest password page after navigating to the page via email link & Verify when we use an old password that was set in the last 20 passwords we should get an error in the reset password page & Verify the user is able to reset their password if they forget it, and this should not affect the new sign-up process & Verify that we should get an error message if we try to reset password using the a link which is older and expired", async ({
+    test("@Env-All @IO-T984 @IO-T983 @IO-T1081 @IO-T987 @IO-T1085 @IO-T22171 @IO-T985 @IO-T1083 C55953_C55952_C55971_C67012_C55954 Verify the user is able to save the newly set password successfully via email reset password link &  Verify all the available fields in the Rest password page after navigating to the page via email link & Verify when we use an old password that was set in the last 20 passwords we should get an error in the reset password page & Verify the user is able to reset their password if they forget it, and this should not affect the new sign-up process & Verify that we should get an error message if we try to reset password using the a link which is older and expired", async ({
       io,
       page
     }) => {
