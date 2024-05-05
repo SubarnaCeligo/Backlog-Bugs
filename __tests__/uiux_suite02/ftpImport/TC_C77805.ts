@@ -17,7 +17,7 @@ test.describe(`C77805 Validate User is able to see the vertical line when downlo
          await lastRun.waitFor({state: 'visible', timeout: 360000});
          await io.flowBuilder.clickByTextByIndex("1 error", 0);
          await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FTP_BRIDGE_ERROR_MORE_BUTTON);
-         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.FTP_BRIDGE_ERROR_MORE_BUTTON,1);
+         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.FTP_BRIDGE_ERROR_MORE_BUTTON,2);
          await io.flowBuilder.waitForElementAttached(':has-text("Download retry data")');
          await io.assert.verifyElementText(selectors.basePagePO.MENU_ITEM, 'Download retry data');
     });

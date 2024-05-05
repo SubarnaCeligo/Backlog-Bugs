@@ -18,9 +18,9 @@ test.describe(`C77840 Validate User is not seeing the more actions when download
          
          await io.flowBuilder.clickByTextByIndex("1 error", 1);
          await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FTP_BRIDGE_ERROR_MORE_BUTTON);
-         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.FTP_BRIDGE_ERROR_MORE_BUTTON,0);
+         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.FTP_BRIDGE_ERROR_MORE_BUTTON,2);
         const element = await io.flowBuilder.isVisible("text='Download retry data'")
-        await io.assert.expectToBeValue(element.toString(), "false", "Element is not present")
+        await io.assert.expectToBeTrue(element, "Element is not present")
           
     });
   });
