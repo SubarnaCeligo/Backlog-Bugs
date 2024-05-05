@@ -56,25 +56,27 @@
     "pageProcessors": [{
       "type": "import",
       "qa__import": {
-          "name": "TC1660_Import",
+          "name": "FTP Import",
+          "parsers": [],
           "_connectionId": "FTP CONNECTION",
-          "_sourceId": "6515518b5d648951d10864f6",
-          "apiIdentifier": "i2d21f6c0c",
+          "apiIdentifier": "if47d966b0",
           "oneToMany": false,
+          "sandbox": false,
           "file": {
-              "fileName": "file-{{timestamp}}.json",
+              "fileName": "test656.json",
               "skipAggregation": false,
               "type": "json"
+               
           },
           "ftp": {
-              "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPimport",
-              "fileName": "file-{{timestamp}}.json"
+              "directoryPath": "/test",
+              "fileName":"test656.json"
           },
-          "adaptorType": "FTPImport"        
+          "adaptorType": "FTPImport"
       }
   }],
     "createFlow": {
-      "name": "TC_C63406",
+      "name": "TC_C77840",
       "disabled": false,
       "_integrationId": "603ce75ac4fec33283691f43",
       "skipRetries": false,

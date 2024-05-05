@@ -16,8 +16,8 @@ test.describe(`C77823 Validate User is not seeing the vertical line when downloa
          await lastRun.waitFor({state: 'visible', timeout: 360000});
          
          await io.flowBuilder.clickByTextByIndex("1 error", 1);
-        const element = await io.flowBuilder.isVisible(selectors.basePagePO.MENU_ITEM)
-        await io.assert.expectToBeValue(element.toString(), "false", "Element is not present")
+         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FTP_BRIDGE_ERROR_MORE_BUTTON);
+         await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.FTP_BRIDGE_ERROR_MORE_BUTTON,"Element is present")
           
     });
   });
