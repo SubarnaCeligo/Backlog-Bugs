@@ -7,6 +7,7 @@ test.describe("C23442 EM1.0 Timestamp on run dashboard does not follow user time
         const errorFlowId = await io.createResourceFromAPI(C51656, "FLOWS");
         await io.homePage.loadingTime()
         await io.api.runBatchFlowViaAPI('TC_C51656', errorFlowId);
+        await io.homePage.loadingTime()
         const lastRun = page.getByText('Last run')
         await lastRun.waitFor({state: 'visible',timeout:18000});
         const runConsoleRows = await page.$$('table tbody tr');

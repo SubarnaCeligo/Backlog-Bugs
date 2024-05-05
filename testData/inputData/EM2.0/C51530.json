@@ -4,34 +4,53 @@
         {
           "type": "export",
           "qa__export": {
-            "_id": "662b5f8e4d545b3aa71aa0d9",
-            "createdAt": "2024-04-26T08:02:22.204Z",
-            "lastModified": "2024-04-26T08:02:53.752Z",
-            "name": "Acumatica Exp",
-            "_connectionId": "HTTP ZENDESK CONNECTION",
-            "_sourceId": "65b0de96cb787f6a337c9e0e",
-            "apiIdentifier": "ec130e7b42",
+            "_id": "662a8245b4da91239229a9ea",
+            "createdAt": "2024-04-25T16:18:13.828Z",
+            "lastModified": "2024-04-25T16:18:13.865Z",
+            "name": "AutomationStandalone_DnRXG",
+            "_connectionId": "FTP CONNECTION",
+            "_sourceId": "662a273a265efa2565018987",
+            "apiIdentifier": "e7ec6cdaba",
             "asynchronous": true,
-            "type": "test",
-            "oneToMany": false,
-            "aiDescription": {
-                "summary": "The \"Acumatica Exp\" export is of type \"test\" and is configured to retrieve data from the \"/Customer\" endpoint of an application using a GET request. It is not set to retrieve multiple records at once and is not configured to run in a sandbox environment. During testing, it is limited to retrieving only 1 record.",
-                "detailed": "This export is named \"Acumatica Exp\" and it is of type \"test\". The export is not set to retrieve multiple records at once (oneToMany is set to false) and it is not configured to run in a sandbox environment (sandbox is set to false).\n\nThe export uses the HTTP adaptor type and specifies that it will make a GET request to the \"/Customer\" endpoint of the connected application. The HTTP method is set to \"GET\" and the formType is set to \"http\".\n\nDuring testing, the export is limited to retrieving only 1 record (test.limit is set to 1).\n\nOverall, this export is configured to retrieve data from the \"Customer\" endpoint of an application using a GET request, and it is limited to retrieving only 1 record during testing."
+            "sandbox": false,
+            "ftp": {
+                "directoryPath": "/io.auto.qa/BVAutoFTP"
             },
-            "http": {
-                "relativeURI": "/Customer",
-                "method": "GET",
-                "formType": "http",
-                "response": {
-                    "twoDArray": {
-                        "doNotNormalize": true
-                    }
+            "file": {
+                "output": "records",
+                "skipDelete": true,
+                "type": "json",
+                "filter": {
+                    "type": "expression",
+                    "expression": {
+                        "version": "1",
+                        "rules": [
+                            "contains",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "filename"
+                                ]
+                            ],
+                            "NoArrayFieldsIO-34461"
+                        ]
+                    },
+                    "rules": [
+                        "contains",
+                        [
+                            "string",
+                            [
+                                "extract",
+                                "filename"
+                            ]
+                        ],
+                        "NoArrayFieldsIO-34461"
+                    ],
+                    "version": "1"
                 }
             },
-            "test": {
-                "limit": 1
-            },
-            "adaptorType": "HTTPExport"
+            "adaptorType": "FTPExport"
         }
         }
       ],
@@ -39,21 +58,22 @@
         {
           "type": "import",
           "qa__import": {
-            "_id": "662b5f8e4d545b3aa71aa0e4",
-            "createdAt": "2024-04-26T08:02:22.295Z",
-            "lastModified": "2024-04-26T08:02:22.355Z",
-            "name": "FTP Import",
+            "_id": "662a8245b4da91239229a9f3",
+            "createdAt": "2024-04-25T16:18:13.888Z",
+            "lastModified": "2024-04-25T16:18:13.924Z",
+            "name": "AutomationStandalone_csr4f",
             "_connectionId": "FTP CONNECTION",
-            "_sourceId": "6597a24ed9bf360f8dabd08a",
-            "apiIdentifier": "id777dcf57",
-            "oneToMany": false,
+            "_sourceId": "662a273db4da9123922401f9",
+            "apiIdentifier": "i689e84ff2",
+            "oneToMany": true,
+            "sandbox": false,
             "file": {
                 "fileName": "file-{{timestamp}}.json",
                 "skipAggregation": false,
                 "type": "json"
             },
             "ftp": {
-                "directoryPath": "/Group-QA/ShritiS/Import",
+                "directoryPath": "io.auto.qa/BVAutoFTP",
                 "fileName": "file-{{timestamp}}.json"
             },
             "adaptorType": "FTPImport"
@@ -61,7 +81,7 @@
         }
       ],
       "createFlow": {
-        "name": "TC_C25461",
+        "name": "TC_51530",
         "disabled": false,
         "_integrationId": "603ce75ac4fec33283691f43",
         "skipRetries": false,

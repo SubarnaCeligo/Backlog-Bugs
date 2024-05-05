@@ -5,141 +5,84 @@
       {
         "type": "export",
         "qa__export": {
-          "_id": "662218b4c90a4554af891741",
-          "createdAt": "2024-04-19T07:09:40.698Z",
-          "lastModified": "2024-04-19T07:09:40.738Z",
-          "name": "AutomationStandalone_Uy0nZ",
-          "_connectionId": "FTP CONNECTION",
-          "apiIdentifier": "e8760b5c46",
-          "asynchronous": true,
-          "sandbox": false,
-          "ftp": {
-              "directoryPath": "/io.auto.qa/JK3"
-          },
-          "file": {
-              "output": "records",
-              "skipDelete": true,
-              "type": "json"
-          },
-          "adaptorType": "FTPExport"
-      }
+            "_id": "662a8245b4da91239229a9ea",
+            "createdAt": "2024-04-25T16:18:13.828Z",
+            "lastModified": "2024-04-25T16:18:13.865Z",
+            "name": "AutomationStandalone_DnRXG",
+            "_connectionId": "FTP CONNECTION",
+            "_sourceId": "662a273a265efa2565018987",
+            "apiIdentifier": "e7ec6cdaba",
+            "asynchronous": true,
+            "sandbox": false,
+            "ftp": {
+                "directoryPath": "/io.auto.qa/BVAutoFTP"
+            },
+            "file": {
+                "output": "records",
+                "skipDelete": true,
+                "type": "json",
+                "filter": {
+                    "type": "expression",
+                    "expression": {
+                        "version": "1",
+                        "rules": [
+                            "contains",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "filename"
+                                ]
+                            ],
+                            "NoArrayFieldsIO-34461"
+                        ]
+                    },
+                    "rules": [
+                        "contains",
+                        [
+                            "string",
+                            [
+                                "extract",
+                                "filename"
+                            ]
+                        ],
+                        "NoArrayFieldsIO-34461"
+                    ],
+                    "version": "1"
+                }
+            },
+            "adaptorType": "FTPExport"
+        }
       }
     ],
     "pageProcessors": [
       {
         "type": "import",
-        "qa__import":{
-          "_id": "662218b5fc6ec004f76ee306",
-          "createdAt": "2024-04-19T07:09:41.121Z",
-          "lastModified": "2024-04-19T07:10:22.126Z",
-          "name": "AutomationStandalone_PxtO7",
-          "_connectionId": "BIGCOMMERCE CONNECTION",
-          "apiIdentifier": "i89b53fe7e",
-          "ignoreExisting": false,
-          "ignoreMissing": false,
-          "oneToMany": false,
-          "assistant": "bigcommerce",
-          "sandbox": false,
-          "assistantMetadata": {
-              "resource": "customers",
-              "version": "v3",
-              "operation": "create_customers"
-          },
-          "mapping": {
-              "fields": [
-                  {
-                      "generate": "last_name"
-                  },
-                  {
-                      "generate": "first_name"
-                  },
-                  {
-                      "generate": "email"
-                  }
-              ]
-          },
-          "mappings": [
-              {
-                  "extract": "xyz{{random length 6}}@gmail.com",
-                  "generate": "email",
-                  "dataType": "string",
-                  "default": null,
-                  "status": "Active",
-                  "sourceDataType": "string"
-              },
-              {
-                  "extract": "$.first_name",
-                  "generate": "first_name",
-                  "dataType": "string",
-                  "default": null,
-                  "status": "Active",
-                  "sourceDataType": "string"
-              },
-              {
-                  "extract": "$.last_name",
-                  "generate": "last_name",
-                  "dataType": "string",
-                  "status": "Active",
-                  "sourceDataType": "string"
-              },
-              {
-                  "extract": "$.company",
-                  "generate": "company",
-                  "dataType": "string",
-                  "default": null,
-                  "status": "Active",
-                  "sourceDataType": "string"
-              }
-          ],
-          "http": {
-              "relativeURI": [
-                  "/v3/customers"
-              ],
-              "method": [
-                  "POST"
-              ],
-              "body": [
-                  "[ { {{#each data.[0]}}{{#if @index}},{{/if}}\"{{@key}}\": {{{jsonSerialize this}}} {{/each}} } ]"
-              ],
-              "batchSize": 1,
-              "requestMediaType": "json",
-              "successMediaType": "json",
-              "errorMediaType": "json",
-              "strictHandlebarEvaluation": true,
-              "sendPostMappedData": false,
-              "formType": "assistant",
-              "response": {
-                  "resourceIdPath": [
-                      null
-                  ]
-              }
-          },
-          "rest": {
-              "relativeURI": [
-                  "/v3/customers"
-              ],
-              "method": [
-                  "POST"
-              ],
-              "body": [
-                  "[ { {{#each data}}{{#if @index}},{{/if}}\"{{@key}}\": {{{jsonSerialize this}}} {{/each}} } ]"
-              ],
-              "responseIdPath": [
-                  null
-              ],
-              "successPath": [
-                  null
-              ],
-              "successValues": [
-                  null
-              ]
-          },
-          "adaptorType": "RESTImport"
-      }
+        "qa__import": {
+            "_id": "662a8245b4da91239229a9f3",
+            "createdAt": "2024-04-25T16:18:13.888Z",
+            "lastModified": "2024-04-25T16:18:13.924Z",
+            "name": "AutomationStandalone_csr4f",
+            "_connectionId": "FTP CONNECTION",
+            "_sourceId": "662a273db4da9123922401f9",
+            "apiIdentifier": "i689e84ff2",
+            "oneToMany": true,
+            "sandbox": false,
+            "file": {
+                "fileName": "file-{{timestamp}}.json",
+                "skipAggregation": false,
+                "type": "json"
+            },
+            "ftp": {
+                "directoryPath": "io.auto.qa/BVAutoFTP",
+                "fileName": "file-{{timestamp}}.json"
+            },
+            "adaptorType": "FTPImport"
+        }
       }
     ],
     "createFlow": {
-      "name": "TC_001_C23737",
+      "name": "C51653",
       "disabled": false,
       "_integrationId": "603ce75ac4fec33283691f43",
       "skipRetries": false,
