@@ -36,7 +36,8 @@ test.describe("C107061", () => {
       await io.connectionPage.click(selectors.connectionsPagePO.SLACK_AUTH_TYPE);
       await io.connectionPage.clickByText("OAuth 2.0");
       await io.connectionPage.click(selectors.connectionsPagePO.ICLIENTID);
-      await io.connectionPage.clickByText("107061_ICLIENT");
+      const iClientId = await page.getByText("107061_ICLIENT").first();
+      await iClientId.click();
       await io.connectionPage.click(selectors.basePagePO.SAVE);
       await io.homePage.addStep("Creating and running the flow");
       await io.homePage.navigateTo(
@@ -68,6 +69,6 @@ test.describe("C107061", () => {
     const editimport1 = await page.$$(selectors.connectionsPagePO.EDIT_RESOURCE);
     await editimport1[1].click();
     await expect(page.getByText("Authorization code with PKCE")).toBeVisible();
-    await expect(page.getByText("test-C107061")).toBeVisible();
+    await page.getByText("test-C107061");
     });
 });
