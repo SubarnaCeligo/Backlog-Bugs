@@ -40,8 +40,10 @@ test.describe("C112021 Verify Application Should Not Crashes Upon CeligoAI Promp
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR,
       "Celigo AI Prompt Thinking is not displayed"
-    )
+    );
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER);
+    await io.flowBuilder.loadingTime();
     await expect(page.locator(selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR)).toBeHidden({ timeout: 30000 });
     await io.flowBuilder.loadingTime();
     await io.assert.verifyElementIsDisplayed(
