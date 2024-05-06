@@ -11,6 +11,24 @@ test.describe("C57330 Verify if the user is logged out we should be navigating t
       await io.signInPage.fill(selectors.loginPagePO.EMAIL, process.env["IO_UserName"]);
       await io.signInPage.fill(selectors.loginPagePO.PASSWORD, decrypt(process.env["IO_Password"]));
       await io.signInPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
+      const maxWaitTime = 30000;
+      const startTime = Date.now();
+      let errorMessage;
+      let match;
+      while (!match && (Date.now() - startTime) < maxWaitTime) {
+          await page.waitForTimeout(2000); 
+          const pageContent = await page.content();
+          const errorMessageRegex = /Please try again after (\d+) seconds/;
+          match = pageContent.match(errorMessageRegex);
+          if (match && match[1]) {
+              errorMessage = match[0];
+          }
+      }
+      if (errorMessage) {
+          const waitSeconds = parseInt(match[1]);
+          await page.waitForTimeout(waitSeconds * 1000);
+          await io.signInPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
+      }
     }
   })
   test("@Env-All @Zephyr-IO-T17014 C57330 Verify if the user is logged out we should be navigating to signin page as expected", async ({ io, page }) => {
