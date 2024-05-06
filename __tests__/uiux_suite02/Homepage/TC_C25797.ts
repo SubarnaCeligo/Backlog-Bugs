@@ -6,8 +6,10 @@ test.describe("C25797_To verify the Preview label is displayed in the template t
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.MARKETPLACE)
     await io.homePage.goToMenu("Marketplace");
-    await io.homePage.fill(selectors.homePagePO.SEARCH_MARKETPLACE, 'orderful-recharge new http template');
+    await io.homePage.fill(selectors.homePagePO.SEARCH_MARKETPLACE, 'Orderful - NetSuite');
     // Validating preview dislayed
-    await io.assert.verifyElementDisplayedByText('Preview', "Preview not visible")
+    await io.homePage.loadingTime()
+    await io.homePage.waitForElementAttached(selectors.homePagePO.INSTALL_TEMPLATE)
+    await io.assert.verifyElementContainsText(selectors.homePagePO.INSTALL_TEMPLATE, "Preview")
   });
 });

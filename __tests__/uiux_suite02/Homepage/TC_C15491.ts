@@ -7,9 +7,12 @@ test.describe("C15491_Verify Images are shown for applications ( constantcontact
       await io.homePage.loadingTime()
       await io.homePage.waitForElementAttached(selectors.basePagePO.MARKETPLACE)
       await io.homePage.goToMenu("Marketplace");
-      await io.homePage.fill(selectors.homePagePO.SEARCH_MARKETPLACE, 'orderful');
+      await io.homePage.fill(selectors.homePagePO.SEARCH_MARKETPLACE, 'Orderful - NetSuite');
      // Validating Images are shown for applications
-     await io.assert.verifyElementDisplayedByText('Orderful IA test', "It's not visible")
+     await io.homePage.loadingTime()
+     await io.homePage.waitForElementAttached('[type="connector"] > p> span')
+     let connectors = await io.homePage.getText('[type="connector"] > p> span')
+     await io.assert.expectToContainValue( "Orderful - NetSuite", connectors.toString(), "Connector not found")
      
   });
 });
