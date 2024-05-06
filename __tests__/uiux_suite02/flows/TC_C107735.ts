@@ -6,7 +6,7 @@ test.describe(`C107735`, () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
 });
-  test(`@Env-All @Priority-P2 C107735 check for Error tag can be deleted`, async ({
+  test(`@Env-All @Zephyr-IO-T24122 C107735 check for Error tag can be deleted`, async ({
     io,
     page
   }) => {
@@ -28,9 +28,9 @@ test.describe(`C107735`, () => {
     await io.homePage.click(selectors.flowBuilderPagePO.ERROR_BUBBLE);
     await io.homePage.addStep("*** Opened Error page ***");
     await page.locator(selectors.flowBuilderPagePO.ERROR_TAG).nth(2).click();
-    await io.flowBuilder.fill('[placeholder="Type a new tag for your account"]', "107735C");
-    await io.flowBuilder.click('[data-test="createTag"]');
-    await page.locator('[data-test="deleteTag"]').first().click();
+    await io.flowBuilder.fill(selectors.flowBuilderPagePO.ERROR_TAG_PLACEHOLDER, "107735C");
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CREATE_ERROR_TAG);
+    await page.locator(selectors.flowBuilderPagePO.DELETE_ERROR_TAG).first().click();
     await io.flowBuilder.click(selectors.basePagePO.DELETE);
     await page.locator(selectors.flowBuilderPagePO.ERROR_TAG).nth(2).click();
     await expect(page.getByText("107735C")).not.toBeVisible();
