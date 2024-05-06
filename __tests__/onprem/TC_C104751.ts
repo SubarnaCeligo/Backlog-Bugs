@@ -8,7 +8,7 @@ test.describe("TC_C104751 Verify test connection for JDBC On-Prem cnnector", () 
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Zephyr-IO-24824 @Env-Staging @Priority-P2 TC_C104751 Verify test connection for JDBC On-Prem cnnector", async ({ io, page }, testInfo) => {
+  test("@Zephyr-IO-24824 @Env-Staging-QA @Priority-P2 TC_C104751 Verify test connection for JDBC On-Prem cnnector", async ({ io, page }, testInfo) => {
     await io.homePage.loadingTime()
     // navigate to my connection page
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
@@ -20,6 +20,8 @@ test.describe("TC_C104751 Verify test connection for JDBC On-Prem cnnector", () 
     await io.flowBuilder.click(selectors.basePagePO.ADD_NAME);
     await page.keyboard.type(connectionName);
     await io.flowBuilder.click(selectors.connectionsPagePO.AGENT_FIELD);
+    await page.keyboard.press("ArrowDown");
+    await page.keyboard.press("ArrowDown");
     await page.keyboard.press("ArrowDown");
     await page.keyboard.press("ArrowDown");
     await page.keyboard.press("Enter");
