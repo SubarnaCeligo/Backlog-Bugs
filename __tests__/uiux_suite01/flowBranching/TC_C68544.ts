@@ -2,10 +2,9 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C68544 Verify real time call is not made on previewing the look up with POST request (Reported issue-IO-34586)", () => {
-  test("C68544 Verify real time call is not made on previewing the look up with POST request (Reported issue-IO-34586)  ", async ({ io, page }) => {
+  test("@Env-All C68544 Verify real time call is not made on previewing the look up with POST request (Reported issue-IO-34586)  ", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL)
     await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
-    await io.homePage.clickByText("Automation Flows")
     await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
     await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'TC_C68544_DND');
     await io.integrationPage.delay(2000); // wait for the search to complete

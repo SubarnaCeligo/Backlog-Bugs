@@ -2,7 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C107972 Showing the 'Save the changes' pop up when we are seeing the filters in 'Edit Branching'", () => {
-    test("C107972 Showing the 'Save the changes' pop up when we are seeing the filters in 'Edit Branching'", async ({io, page}) => {
+    test("@Env-All C107972 Showing the 'Save the changes' pop up when we are seeing the filters in 'Edit Branching'", async ({io, page}) => {
       await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
       await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW);
       await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);

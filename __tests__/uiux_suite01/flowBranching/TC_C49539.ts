@@ -2,7 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C49539 Verify the limit of 25 router under flow branching", () => {
-  test("C49539 Verify the limit of 25 router under flow branching", async ({io, page}) => {
+  test("@Env-All C49539 Verify the limit of 25 router under flow branching", async ({io, page}) => {
       await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
       await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW);
       await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);

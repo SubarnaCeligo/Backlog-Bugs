@@ -2,7 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C47992 Verify the merging and add branch functionality for monitor access", () => {
-    test("C47992 Verify the merging and add branch functionality for monitor access", async ({io, page}) => {
+    test("@Env-All C47992 Verify the merging and add branch functionality for monitor access", async ({io, page}) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.loadingTime()
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW);

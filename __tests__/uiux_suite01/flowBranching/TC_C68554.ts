@@ -5,7 +5,8 @@ test.describe(`C68554 Verify Existing Import/Export suggestion drop down display
     test.beforeEach(async ({ io }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
       });
-    test(`C68554 Verify Existing Import/Export suggestion drop down display while creating new Import/Export forall connectors-IO-34880`, async({io,page}) => {
+      // this test scenario is not valid now 
+    test.skip(`C68554 Verify Existing Import/Export suggestion drop down display while creating new Import/Export forall connectors-IO-34880`, async({io,page}) => {
        await io.homePage.clickByText("Tools")
        await io.homePage.clickByText("Flow builder")
        await io.homePage.loadingTime()

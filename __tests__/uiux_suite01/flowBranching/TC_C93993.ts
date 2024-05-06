@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C93992 from '@testData/Flows/C93992.json';
 
 test.describe("C93993 Verify 'Script is required'/'Function is required' validations on output filter", () => {
-    test("C93993 Verify 'Script is required'/'Function is required' validations on output filter", async ({io, page}) => {
+    test("@Env-All C93993 Verify 'Script is required'/'Function is required' validations on output filter", async ({io, page}) => {
         var id = await io.createResourceFromAPI(C93992, "FLOWS");
         await io.flowBuilder.addStep('Waiting for add data processor icon and clicking it');
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
