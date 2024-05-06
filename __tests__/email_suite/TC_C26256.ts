@@ -31,7 +31,6 @@ test.describe( "Verify the email notifications received when SSO Client has been
         await io.homePage.loadingTime();
         await io.myAccountPage.click(selectors.basePagePO.MFA_SAVE);
 
-
         let validateKeywords=await io.emailVal.validateKeywordsInMail(
             "[integrator.io] SSO setting has been modified", ['to see the latest SSO configuration'],"pwqa1",
           );
