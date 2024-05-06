@@ -9,7 +9,7 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
     page
   }, testInfo) => {
     let signInLink = await page.url();
-    if (signInLink.search(/signin$/)) {
+    if (signInLink.matchAll(/signin$/)) {
       await io.loginPage.fill(
         selectors.loginPagePO.EMAIL,
         "qaautomation1+emailcheck5@celigo.com"
@@ -67,7 +67,7 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
         decrypt(process.env["IO_Password"])
       );
       await io.loginPage.click(selectors.basePagePO.SUBMIT);
-      await testInfo.retry;
+      testInfo.retry;
     }
     await io.homePage.loadingTime();
     // navigate to my account page
@@ -107,8 +107,8 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
       false,
       "pwqa1"
     );
+    await io.flowBuilder.delay(1000 * 60 * 2);
     await io.homePage.loadingTime();
-    await page.waitForTimeout(10000);
     if (!isNotLoggedIn) {
       await io.flowBuilder.click(selectors.basePagePO.ACCOUNT_BUTTON);
       await io.homePage.click(selectors.basePagePO.SIGN_OUT);
@@ -189,7 +189,7 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
       false,
       "pwqa1"
     );
-    await page.waitForTimeout(20000);
+    await io.flowBuilder.delay(1000 * 60 * 2);
     if (!isNotLoggedIn) {
       await io.flowBuilder.click(selectors.basePagePO.ACCOUNT_BUTTON);
       await io.homePage.click(selectors.basePagePO.SIGN_OUT);
