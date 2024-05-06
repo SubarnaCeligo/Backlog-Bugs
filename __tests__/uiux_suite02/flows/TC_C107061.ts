@@ -6,7 +6,7 @@ test.describe("C107061", () => {
       await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
       await io.homePage.loadingTime()
     });
-    test("@Env-QA @Env-STAGING  @Zephyr-IO-T23913 C107061 Verify the fields of export when installed using ZIP using PKCE", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T23913 C107061 Verify the fields of export when installed using ZIP using PKCE", async ({ io, page }) => {
       await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
       await io.homePage.click(selectors.basePagePO.RESOURCES);
       await io.connectionPage.click(selectors.connectionsPagePO.ICLIENTSTAB);
