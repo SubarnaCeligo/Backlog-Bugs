@@ -1,0 +1,243 @@
+{
+    "name": "TC_C108678",
+    "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "test s3 export",
+            "_connectionId": "S3 CONNECTION",
+            "apiIdentifier": "e0c844bdcb",
+            "asynchronous": true,
+            "mockOutput": {
+              "page_of_records": [
+                {
+                  "record": {
+                    "Path": "testing flow branching",
+                    "id": "81",
+                    "name": "Gautham",
+                    "accountsearchdisplayname": "1000 Checking",
+                    "accountsearchdisplaynamecopy": "Checking",
+                    "acctnumber": "1000",
+                    "accttype": "Bank",
+                    "balance": "3092950.74",
+                    "displaynamewithhierarchy": "1000 Checking",
+                    "fullname": "Checking",
+                    "includechildren": "F",
+                    "inventory": "F",
+                    "isinactive": "F",
+                    "issummary": "F",
+                    "lastmodifieddate": "2019-07-21T08:11:05Z",
+                    "reconcilewithmatching": "F",
+                    "revalue": "T",
+                    "subsidiary": "1"
+                  }
+                }
+              ]
+            },
+            "s3": {
+              "region": "us-east-1",
+              "bucket": "restapiautomationimports",
+              "keyStartsWith": "automations3import.csv"
+            },
+            "file": {
+              "output": "records",
+              "skipDelete": true,
+              "type": "csv",
+              "csv": {
+                "columnDelimiter": ",",
+                "rowDelimiter": "\n",
+                "hasHeaderRow": true,
+                "trimSpaces": true,
+                "rowsToSkip": 0
+              }
+            },
+            "transform": {
+              "type": "expression",
+              "expression": {
+                "version": "1",
+                "rules": [
+                  [
+                    {
+                      "extract": "id",
+                      "generate": "id"
+                    }
+                  ]
+                ]
+              },
+              "rules": [
+                [
+                  {
+                    "extract": "id",
+                    "generate": "id"
+                  }
+                ]
+              ],
+              "version": "1"
+            },
+            "hooks": {
+                "preSavePage": {
+                    "_scriptId": "65206cb2e4ee7c0df0db130a",
+                    "function": "preSavePage"
+                }
+            },
+            "adaptorType": "S3Export"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "S3 lookup",
+            "_connectionId": "S3 CONNECTION",
+            "_sourceId": "648c11c79ac2520955483eb2",
+            "apiIdentifier": "edaa63ba9a",
+            "asynchronous": true,
+            "isLookup": true,
+            "type": "blob",
+            "mockOutput": {
+              "page_of_records": [
+                {
+                  "record": {
+                    "success": true,
+                    "fileMeta": {
+                      "fileName": "automations3import.csv",
+                      "lastModifiedTime": "2023-06-15T19:56:46.000Z"
+                    },
+                    "blobKey": "770f94d1ecb54b67b7e5dffb78305f1c"
+                  }
+                }
+              ]
+            },
+            "s3": {
+              "region": "us-east-1",
+              "bucket": "restapiautomationimports",
+              "keyStartsWith": "automations3import.csv"
+            },
+            "file": {
+              "output": "blobKeys",
+              "skipDelete": true
+            },
+            "transform": {
+              "type": "expression",
+              "expression": {
+                "version": "1",
+                "rules": [
+                  [
+                    {
+                      "extract": "success",
+                      "generate": "true"
+                    }
+                  ]
+                ]
+              },
+              "rules": [
+                [
+                  {
+                    "extract": "success",
+                    "generate": "true"
+                  }
+                ]
+              ],
+              "version": "1"
+            },
+            "inputFilter": {
+              "type": "expression",
+              "expression": {
+                "version": "1",
+                "rules": [
+                  "equals",
+                  [
+                    "string",
+                    [
+                      "extract",
+                      "id"
+                    ]
+                  ],
+                  "81"
+                ]
+              },
+              "rules": [
+                "equals",
+                [
+                  "string",
+                  [
+                    "extract",
+                    "id"
+                  ]
+                ],
+                "81"
+              ],
+              "version": "1"
+            },
+            "adaptorType": "S3Export"
+          }},
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "test import s3",
+            "_connectionId": "S3 CONNECTION",
+            "apiIdentifier": "i94579faac",
+            "oneToMany": false,
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "id",
+                  "generate": "value"
+                }
+              ]
+            },
+            "file": {
+              "fileName": "file-{{timestamp}}.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "s3": {
+              "region": "us-east-1",
+              "bucket": "kaivalyaqa",
+              "fileKey": "file-{{timestamp}}.json"
+            },
+            "adaptorType": "S3Import"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C98698",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "_exportId": "65ead8cda858396a6b2a8dfe",
+            "responseMapping": {
+              "fields": [
+                {
+                  "extract": "data",
+                  "generate": "data"
+                }
+              ],
+              "lists": []
+            },
+            "type": "export"
+          },
+          {
+            "responseMapping": {
+              "fields": [
+                {
+                  "extract": "id",
+                  "generate": "newId"
+                }
+              ],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+  }

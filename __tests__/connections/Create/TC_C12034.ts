@@ -29,30 +29,34 @@ test.describe(`C12034_Verify Import and load the export which has 4000+ audit re
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_ENABLE);
     await io.flowBuilder.click(selectors.basePagePO.RUNFLOW);
-    await io.homePage.loadingTime()
-    await io.homePage.loadingTime()
-    // Wait for the status to change from 'Completing...' to 'Completed'
-    await page.waitForSelector(`${selectors.flowBuilderPagePO.IMPORT_RUN_COMPLETION_STATUS}:has-text("Completed")`);
-    await io.homePage.loadingTime()
-    //verify success count and run status for export
-    let completedStatusExport = await page.locator(selectors.flowBuilderPagePO.RUN_COMPLETION_STATUS).nth(0).textContent();
-    expect(completedStatusExport).toEqual('Completed');
-    await test.step("C12034", async () => {
-      if (completedStatusExport == 'Completed') {
-        let successStatus = await page.locator(selectors.flowBuilderPagePO.JOB_ERRORS).nth(0).textContent();
-        expect(successStatus).toEqual('Success');
-        let successCount = await page.locator(selectors.flowBuilderPagePO.RUN_SUCCESS_COUNT).nth(0).textContent();
-        expect(successCount).toEqual('4000');
+    await waitForCompletionStatus(page, selectors);
+    async function waitForCompletionStatus(page, selectors) {
+      const completedStatusSelector = `${selectors.flowBuilderPagePO.IMPORT_RUN_COMPLETION_STATUS}:has-text("Completed")`;
+      const completedStatusElement = await page.waitForSelector(completedStatusSelector, { timeout: 60000 }).catch(() => null);
+      if (completedStatusElement) {
+        let completedStatusExport = await page.locator(selectors.flowBuilderPagePO.RUN_COMPLETION_STATUS).nth(0).textContent();
+        expect(completedStatusExport).toEqual('Completed');
+        await test.step("C12034", async () => {
+          if (completedStatusExport == 'Completed') {
+            let successStatus = await page.locator(selectors.flowBuilderPagePO.JOB_ERRORS).nth(0).textContent();
+            expect(successStatus).toEqual('Success');
+            let successCount = await page.locator(selectors.flowBuilderPagePO.RUN_SUCCESS_COUNT).nth(0).textContent();
+            expect(successCount).toEqual('4000');
+          }
+        });
+      } else {
+        await waitForCompletionStatus(page, selectors);
       }
-      //verify success count and run status for import
-      let completedStatusImport = await page.locator(selectors.flowBuilderPagePO.RUN_COMPLETION_STATUS).nth(1).textContent();
-      expect(completedStatusImport).toEqual('Completed');
-      if (completedStatusImport == 'Completed') {
-        let successStatus = await page.locator(selectors.flowBuilderPagePO.JOB_ERRORS).nth(1).textContent();
-        expect(successStatus).toEqual('Success');
-        let successCount = await page.locator(selectors.flowBuilderPagePO.RUN_SUCCESS_COUNT).nth(1).textContent();
-        expect(successCount).toEqual('4000');
-      }
-    });
+    }
+    //verify success count and run status for import
+    let completedStatusImport = await page.locator(selectors.flowBuilderPagePO.RUN_COMPLETION_STATUS).nth(1).textContent();
+    expect(completedStatusImport).toEqual('Completed');
+    if (completedStatusImport == 'Completed') {
+      let successStatus = await page.locator(selectors.flowBuilderPagePO.JOB_ERRORS).nth(1).textContent();
+      expect(successStatus).toEqual('Success');
+      let successCount = await page.locator(selectors.flowBuilderPagePO.RUN_SUCCESS_COUNT).nth(1).textContent();
+      expect(successCount).toEqual('4000');
+    }
+    // });
   });
 })

@@ -10,6 +10,7 @@ test.describe('C93713 Validate user is getting auto-fill of funtion stub while c
       testData
     );
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+    await io.homePage.loadingTime()
     await io.flowBuilder.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
     await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "C68510_DND");
     await io.flowBuilder.clickByText('C68510_DND');

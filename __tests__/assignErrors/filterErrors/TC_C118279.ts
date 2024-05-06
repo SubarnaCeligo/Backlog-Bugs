@@ -5,7 +5,7 @@ test.describe("C118279 Verify the filter feature on open errors section by apply
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("Verify the filter feature on open errors section by applying both user and tag filter", async ({
+  test("@Env-All @Zephyr-IO-T20061 C118279 Verify the filter feature on open errors section by applying both user and tag filter", async ({
     io,
     page,
   }) => {

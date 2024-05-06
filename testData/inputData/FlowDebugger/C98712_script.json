@@ -1,0 +1,6 @@
+{
+    "outputFilter": {
+        "name": "Filter",
+        "content": "\nfunction filter (options) {\n console.log(\"Output filter\")\n  return options; \n}"
+    }
+}

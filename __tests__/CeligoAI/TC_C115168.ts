@@ -1,12 +1,14 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
+import { randomString, randomNumber } from "@celigo/aut-utilities";
 
 test.describe("C115168 Verify the flow description Celigo AI", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("C115168 Verify the flow description Celigo AI", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T15233 C115168 Verify the flow description Celigo AI", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.OPENAI.FLOW_DESCRIPTION_BUTTON);
     //Flow Description on Integration page C115168 C115169
     await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.OPENAI.FLOW_DESCRIPTION_BUTTON, "Flow description is not displayed");
@@ -99,6 +101,7 @@ test.describe("C115168 Verify the flow description Celigo AI", () => {
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.ClOSE_BUTTON);
     //Export in FLowBuilder C115184
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
+    await io.homePage.loadingTime();
     await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.OPENAI.CELIGOAI_GENERATEDBUTTON, "CeligoAI Generated Button is not displayed");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.CELIGOAI_GENERATEDBUTTON);
     const exportFlowDisc = page.getByText('Export description').first();
@@ -134,17 +137,19 @@ test.describe("C115168 Verify the flow description Celigo AI", () => {
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU, 0);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.CREATE_FLOWGROUP);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.FLOWGROUP_NAME);
-    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.FLOWGROUP_NAME, 'FlowGroup');
+    let flowGroupName = `FlowGroup${randomString(10) + randomNumber(10)}`;
+    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.FLOWGROUP_NAME, flowGroupName);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.OPENAI.FLOWGROUP_CHECKBOX, 4);
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.OPENAI.FLOWGROUP_CHECKBOX, 5);
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+    await io.flowBuilder.clickByTextByIndex(flowGroupName, 0);
     await io.flowBuilder.loadingTime();
     await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.OPENAI.FLOW_DESCRIPTION_BUTTON, "Flow description is not displayed");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.FLOWGROUP_UNASSIGNED);
     await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.OPENAI.FLOW_DESCRIPTION_BUTTON, "Flow description is not displayed");
     //Remove FLow Group
-    await io.flowBuilder.clickByTextByIndex("FlowGroup", 0);
+    await io.flowBuilder.clickByTextByIndex(flowGroupName, 0);
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU, 0);
     await io.flowBuilder.click(selectors.flowGroupingPagePO.EDIT_FG);
     await io.flowBuilder.clickByTextByIndex("Delete flow group", 0);

@@ -5,7 +5,7 @@ test.describe("C117451 Verify the Persist resource descriptions Celigo AI", () =
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("C117451 Verify the Persist resource descriptions Celigo AI", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T18796 C117451 Verify the Persist resource descriptions Celigo AI", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.OPENAI.FLOW_DESCRIPTION_BUTTON);
     //Persist Flow Description not Occur on Integration page C117461
@@ -18,11 +18,11 @@ test.describe("C117451 Verify the Persist resource descriptions Celigo AI", () =
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.FLOW_DESCRIPTION_BUTTON);
     await io.flowBuilder.loadingTime();
     let elements = await page.$(selectors.flowBuilderPagePO.OPENAI.CONTENT);
-    let isVisible = await page.evaluate((el) => {
+    await io.flowBuilder.loadingTime();
+    let isVisible = await page.evaluate(el => {
       const { top, bottom } = el.getBoundingClientRect();
-      const vHeight = (window.innerHeight || document.documentElement.clientHeight);
-
-      return ((top > 0 || bottom > 0) && top < vHeight);
+      const vHeight = window.innerHeight || document.documentElement.clientHeight;
+      return (top > 0 || bottom > 0) && top < vHeight;
     }, elements);
     expect(isVisible).toBeFalsy();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.ClOSE_BUTTON);
