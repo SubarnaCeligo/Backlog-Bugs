@@ -10,6 +10,7 @@ test.describe("C25797_To verify the Preview label is displayed in the template t
     // Validating preview dislayed
     await io.homePage.loadingTime()
     await io.homePage.waitForElementAttached(selectors.homePagePO.INSTALL_TEMPLATE)
-    await io.assert.verifyElementContainsText(selectors.homePagePO.INSTALL_TEMPLATE, "Preview")
+    let preview = await page.locator(selectors.homePagePO.INSTALL_TEMPLATE).first()
+    await io.assert.expectToContainValue( "Preview",await preview.textContent(), "Preview Button not visisble")
   });
 });
