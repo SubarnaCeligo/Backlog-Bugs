@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe('Test to validate user is able to add import mappings, hooks, input filer to "Azure Synapse" import on flow builder page', () => {
-  test("@Env-QA @Epic- IO-65860 @Zephyr-IO-T29716 @Priority-P2 " , async ({
+  test("@Env-QA @Epic-IO-65860 @Zephyr-IO-T29716 @Priority-P2 " , async ({
     io,
     page
   }) => {
