@@ -55,6 +55,7 @@ test.describe("C117451 Verify the Persist resource descriptions Celigo AI", () =
     await io.flowBuilder.loadingTime();
     await feedback.waitFor({ state: 'visible', timeout: 30000 });
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.ClOSE_BUTTON);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.CELIGOAI_GENERATEDBUTTON);
     await io.flowBuilder.loadingTime();
     await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.OPENAI.CONTENT,
