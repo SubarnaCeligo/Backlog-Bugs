@@ -12,7 +12,7 @@ const admin = {
 }
 
 test.describe("C27421 Verify the subscription page for different license type(Free tier,professional ,Enterprise) for admin", () => {
-  test("@Zephyr-IO-T27423 @Env-QA @Priority-P2 Verify the subscription page for different license type professional for admin", async ({
+  test("@Zephyr-IO-T27421 @Env-QA @Priority-P2 Verify the subscription page for different license type professional for admin", async ({
     io,
     page
   }) => {
@@ -26,7 +26,7 @@ test.describe("C27421 Verify the subscription page for different license type(Fr
 
     await io.api.putCall(
       `v1/test/licenses/${platformLicense._id}`,
-      {...getLicensePayload(platformLicense), tier: 'professional'}
+      {...getLicensePayload(platformLicense), tier: 'professional', "apiManagement": true, "expires": "2044-04-10T13:14:33.363Z"}
     );
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.myAccountPage.click(selectors.myAccountPagePO.SUBSCRIPTION);
@@ -65,7 +65,7 @@ test.describe("C27421 Verify the subscription page for different license type(Fr
   
       await io.api.putCall(
         `v1/test/licenses/${platformLicense._id}`,
-        {...getLicensePayload(platformLicense), tier: 'enterprise'}
+        {...getLicensePayload(platformLicense), tier: 'enterprise', "apiManagement": true, "expires": "2044-04-10T13:14:33.363Z"}
       );
       await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
       await io.myAccountPage.click(selectors.myAccountPagePO.SUBSCRIPTION);
@@ -104,7 +104,7 @@ test.describe("C27421 Verify the subscription page for different license type(Fr
   
       await io.api.putCall(
         `v1/test/licenses/${platformLicense._id}`,
-        {...getLicensePayload(platformLicense), tier: 'free', sandbox: false}
+        {...getLicensePayload(platformLicense), tier: 'free', sandbox: false, "apiManagement": true, "expires": "2044-04-10T13:14:33.363Z"}
       );
       await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
       await io.myAccountPage.click(selectors.myAccountPagePO.SUBSCRIPTION);

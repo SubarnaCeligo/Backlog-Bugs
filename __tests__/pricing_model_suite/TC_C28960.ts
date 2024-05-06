@@ -12,7 +12,7 @@ test.describe("C28960 Verify upgrade pop-up for concurency after clicking on req
 
     await io.api.putCall(
       `v1/test/licenses/${platformLicense._id}`,
-      {...getLicensePayload(platformLicense), concurrency: 10, sandbox: false}
+      {...getLicensePayload(platformLicense), concurrency: 10, sandbox: false, "apiManagement": true, "expires": "2044-04-10T13:14:33.363Z"}
     );
 
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);

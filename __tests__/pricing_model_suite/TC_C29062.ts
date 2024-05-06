@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import { getLicensePayload } from "@celigo/aut-utilities";
 
 test.describe("C29062 Verify the Concurrency level under HTTP connection should be set as per the BE concurrency value if we select the Please select in the dropdown of Target concurrency.", () => {
-  test("C29062 @Zephyr-IO-T27422 @Env-QA @Priority-P2 Verify the Concurrency level under HTTP connection should be set as per the BE concurrency value if we select the Please select in the dropdown of Target concurrency.", async ({
+  test("C29062 @Zephyr-IO-T29062 @Env-QA @Priority-P2 Verify the Concurrency level under HTTP connection should be set as per the BE concurrency value if we select the Please select in the dropdown of Target concurrency.", async ({
     io,
   }) => {
     const licenses = await io.api.getCall("v1/licenses");
@@ -11,7 +11,7 @@ test.describe("C29062 Verify the Concurrency level under HTTP connection should 
 
     await io.api.putCall(
       `v1/test/licenses/${platformLicense._id}`,
-      {...getLicensePayload(platformLicense), concurrency: 12, expires: "2024-07-02T00:00:00.000", sandbox: false}
+      {...getLicensePayload(platformLicense), concurrency: 12, expires: "2024-07-02T00:00:00.000", sandbox: false, "apiManagement": true}
     );
     await io.homePage.reloadPage();
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);

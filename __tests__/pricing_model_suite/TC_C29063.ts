@@ -12,7 +12,7 @@ test.describe("C29063 Verify the concurrency levels while cloning a flow.", () =
 
     await io.api.putCall(
       `v1/test/licenses/${platformLicense._id}`,
-      {...getLicensePayload(platformLicense), "concurrency": 12, "sandbox": false, "tier": "professional"}
+      {...getLicensePayload(platformLicense), "concurrency": 12, "sandbox": false, "tier": "professional", "apiManagement": true, "expires": "2044-04-10T13:14:33.363Z"}
     );
     await io.homePage.reloadPage();
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
