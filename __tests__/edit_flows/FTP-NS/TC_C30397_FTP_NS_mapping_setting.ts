@@ -6,14 +6,16 @@ import NS from "@testData/Flows/edit/FTP-NS/TC_C30397_FTP_NS_mapping_setting.jso
 test.describe("Edit Flows", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.loadingTime();
   });
-  test("TC_C30397_FTP_NS_mapping_setting", async ({
+  test("@Env-All TC_C30397_FTP_NS_mapping_setting", async ({
     io
   }, testInfo) => {
     var exportValidation, flowID, importValidation
     //*Flow Creation
     await test.step("*** Create flow through API ***", async () => {
-      flowID = await io.api.createFlowFromAPI(NS.qa__dataVerification.importJSON)
+      flowID = await io.api.createFlowFromAPI(NS.qa__dataVerification.importJSON);
+      await io.flowBuilder.loadingTime();
     });
     //Edit Page Generator 
     await test.step("*** Edit Page Generator ***", async () => {
