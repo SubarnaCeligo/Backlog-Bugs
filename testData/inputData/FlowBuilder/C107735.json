@@ -1,0 +1,63 @@
+{
+    "name": "C107735",
+    "disabled": true,
+    "autoResolveMatchingTraceKeys": true,
+    "pageGenerators": [
+      {
+          "qa__export": {
+            "_connectionId": "BIGQUERY CONNECTION",
+            "name": "TestBigquery",
+            "assistantMetadata": {},
+            "oneToMany": "false",
+            "rdbms": {
+                "query": "select * from `1234.IO_TestExport1` order by ID desc"
+            },
+            "test": {
+                "limit": 1
+            },
+            "sandbox": false
+        }
+      }
+  ],
+    "pageProcessors": [
+      {
+          "type": "import",
+          "qa__import": {
+              "_connectionId": "MONGODB CONNECTION",
+              "name": "testMongo",
+              "assistantMetadata": {},
+              "ignoreExisting": false,
+              "mongodb": {
+                  "collection": "Vikram",
+                  "lookupType": "",
+                  "method": "insertMany"
+              },
+              "oneToMany": "false",
+              "sandbox": false
+          }
+      }
+  ],
+  "includeStages": false,
+  "createFlow": {
+    "name": "C107735",
+    "disabled": true,
+    "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+    "pageGenerators": [
+        {
+            "_exportId": "UPDATE WITH NEW EXPORTID",
+            "skipRetries": false
+        }
+    ],
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+        }
+    ],
+    "autoResolveMatchingTraceKeys": true
+}
+}
