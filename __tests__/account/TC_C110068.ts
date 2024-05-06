@@ -4,12 +4,16 @@ import { decrypt } from "@celigo/aut-utilities";
 import { expect } from "@celigo/ui-core-automation";
 
 test.describe("TC_C110068 when user email is changed from profile page, verify Email Notification Generation when clicked on show token for an Agent in Agents Page", async () => {
+  test.beforeEach(async ({ io }) => {
+    await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.flowBuilder.loadingTime();
+  });
   test("@Env-All @Zephyr-IO-T10059 TC_C110068 when user email is changed from profile page, verify Email Notification Generation when clicked on show token for an Agent in Agents Page", async ({
     io,
     page
   }, testInfo) => {
     let signInLink = await page.url();
-    if (signInLink.matchAll(/signin$/)) {
+    if (signInLink.endsWith("signin")) {
       await io.loginPage.fill(
         selectors.loginPagePO.EMAIL,
         "qaautomation1+emailcheck5@celigo.com"
@@ -18,7 +22,11 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
         selectors.loginPagePO.PASSWORD,
         decrypt(process.env["IO_Password"])
       );
+      await io.flowBuilder.delay(1000 * 60 * 2);
       await io.loginPage.click(selectors.basePagePO.SUBMIT);
+      if (testInfo.status == "failed"){
+        testInfo.retry;
+      }
       await io.homePage.loadingTime();
       await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
       await io.homePage.loadingTime();
