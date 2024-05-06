@@ -55,7 +55,7 @@ test.describe("C107061", () => {
     );
     await io.homePage.clickByText("Use existing connection");
     await io.homePage.clickByText("Please select");
-    await io.connectionPage.clickByText("CONNECTION_C107061 - Offline");
+    await page.getByText("CONNECTION_C107061",{exact: false}).first().click();
     await io.connectionPage.click(selectors.basePagePO.SAVE);
     await io.homePage.click(
       selectors.integrationPagePO.SETUP_INTEGRATION_INSTALL_BUTTON
