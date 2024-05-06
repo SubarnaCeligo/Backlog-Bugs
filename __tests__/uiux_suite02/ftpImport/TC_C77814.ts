@@ -14,7 +14,8 @@ test.describe(`C77814 Validate User is able to see the more actions icon when do
          await io.api.runBatchFlowViaAPI('C77805', id);
          const lastRun = page.getByText('Last run')
          await lastRun.waitFor({state: 'visible', timeout: 360000});
-         await io.flowBuilder.clickByTextByIndex("1 error", 1);
+         await io.homePage.delay(30000)
+         await io.flowBuilder.clickByTextByIndex("1 error", 0);
          await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FTP_BRIDGE_ERROR_MORE_BUTTON);
          await io.assert.verifyElementIsDisplayed( selectors.flowBuilderPagePO.FTP_BRIDGE_ERROR_MORE_BUTTON,"Element is present") 
     });
