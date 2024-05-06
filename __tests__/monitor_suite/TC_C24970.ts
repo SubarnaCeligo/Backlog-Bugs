@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/monitorSuite/monitor_all_manage_few.json";
 
 test.describe(`C24970 Monitor all and manage few- Verify when clicked on view report details option under the actions drop down of a completed report, the Report details drawer is loaded`, () => {
-  test(`C24970 Monitor all and manage few- Verify when clicked on view report details option under the actions drop down of a completed report, the Report details drawer is loaded`, async ({
+  test(`@Env-All C24970 Monitor all and manage few- Verify when clicked on view report details option under the actions drop down of a completed report, the Report details drawer is loaded`, async ({
     page,
     io
   }) => {

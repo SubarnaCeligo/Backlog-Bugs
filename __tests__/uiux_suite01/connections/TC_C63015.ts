@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C63015 Verify user is able to see API Type field with description, name, and radio input`, () => {
-  test(`C63015 Verify user is able to see API Type field with description, name, and radio input`, async ({
+  test(`@Env-All @Zephyr-IO-T21806 C63015 Verify user is able to see API Type field with description, name, and radio input`, async ({
     page,
     io
   }) => {

@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Connections/C63011.json";
 
 test.describe(`C63011 Verify User is able create connection while cloning integration.`, () => {
-  test(`C63011 Verify User is able create connection while cloning integration.`, async ({
+  test(`@Env-All @Zephyr-IO-T21802 C63011 Verify User is able create connection while cloning integration.`, async ({
     page,
     io
   }) => {

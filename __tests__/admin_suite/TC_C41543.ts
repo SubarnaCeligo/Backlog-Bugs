@@ -5,7 +5,7 @@ test.describe(`TC_C41543 To verify create pull button is displayed under "Revisi
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test(`C41543 To validate create pull button is displayed under Revisions tab`, async ({
+  test(`@Env-All @Zephyr-IO-T424 C41543 To validate create pull button is displayed under Revisions tab`, async ({
     page,
     io
   }) => {
@@ -26,7 +26,5 @@ test.describe(`TC_C41543 To verify create pull button is displayed under "Revisi
     );
     await io.flowBuilder.click(selectors.homePagePO.DELETE_INTEGRATION);
     await io.flowBuilder.click(selectors.basePagePO.DELETE);
-    await io.flowBuilder.clickByText("TC_C41543 Integration");
-    await io.flowBuilder.click(selectors.integrationPagePO.DELETE_INTEGRATION);
   });
 });

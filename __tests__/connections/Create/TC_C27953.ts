@@ -3,16 +3,14 @@ import * as selectors from "@celigo/aut-selectors";
 
 
 test.describe("TC_C27953", () => {
-    test("TC_C27953 To verify field labels present in HTTP connection drawer is Changed as per new modification", async ({ io, page }) => {
+    test("@Env-All TC_C27953 To verify field labels present in HTTP connection drawer is Changed as per new modification", async ({ io, page }) => {
         await io.myAccountPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
-
         await io.flowBuilder.click(selectors.connectionsPagePO.CREATE_CONNECTION);
+        await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'HTTP');
         await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
-
         await io.flowBuilder.click(selectors.exportsPagePO.NON_STANDARD_API_TAB);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.NONSTANDARD);
         await io.flowBuilder.click(selectors.connectionsPagePO.HOW_TO_TESTCONNECTION);
-
         const httpConfigObject = [
             {
                 label: "Base URI *",

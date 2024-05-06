@@ -2,12 +2,13 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C65490 Verify Export for Parse files", () => {
-  test("C65490 Verify Export for Parse files", async ({io, page}) => {
+  test("@Env-QA @Zephyr-IO-T21560 C65490 Verify Export for Parse files", async ({io, page}) => {
       await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
       await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
       await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
       await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'van');
       await io.flowBuilder.click(selectors.connectionsPagePO.VAN_CONNECTION);
+      await io.flowBuilder.clickByText("Create from scratch")
       await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
       await io.flowBuilder.clickByText('VAN CONNECTION');
       await io.flowBuilder.click(selectors.basePagePO.SAVE);

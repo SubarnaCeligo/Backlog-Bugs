@@ -8,13 +8,15 @@ test.describe("C26026_Verify 'View debug logs' not visible non-RT exports or imp
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C26026_Verify 'View debug logs' not visible non-RT exports or imports", async ({ io, page }) => {
+    test("C26026_Verify 'View debug logs' not visible non-RT exports or imports UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+        await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW)
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'netsuite');
         await io.flowBuilder.click(selectors.connectionsPagePO.NETSUITE_CONNECTION);
         await io.flowBuilder.clickByText('Export records from source application');
+        await io.flowBuilder.clickByText("Create from scratch")
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'NETSUITE CONNECTION');
         await io.flowBuilder.clickByText('NETSUITE CONNECTION');
@@ -34,6 +36,7 @@ test.describe("C26026_Verify 'View debug logs' not visible non-RT exports or imp
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'netsuite');
         await io.flowBuilder.click(selectors.connectionsPagePO.NETSUITE_CONNECTION);
         await io.flowBuilder.clickByText("Import records into destination application");
+        await io.flowBuilder.clickByText("Create from scratch")
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'NETSUITE CONNECTION');
         await io.flowBuilder.clickByText('NETSUITE CONNECTION');

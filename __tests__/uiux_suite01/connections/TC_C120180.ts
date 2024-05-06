@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C120180_C120181_C120182_C120184_C120185_C120186_C120187_C120188`, () => {
-    test(`C120180_C120181_C120182_C120184_C120185_C120186_C120187_C120188`, async ({ io, page }) => {
+    test(`@Env-All @Zephyr-IO-T18194 C120180_C120181_C120182_C120184_C120185_C120186_C120187_C120188`, async ({ io, page }) => {
         await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
         await io.connectionPage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
         await io.connectionPage.click(selectors.connectionsPagePO.HTTP_CNNECTOR);

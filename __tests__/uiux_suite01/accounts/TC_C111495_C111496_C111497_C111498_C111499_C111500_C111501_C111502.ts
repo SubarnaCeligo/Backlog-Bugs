@@ -6,11 +6,10 @@ test.describe("TC_C111495_C111496_C111497_C111498_C111499_C111500_C111501_C11150
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
   });
 
-  test("TC_C111495_C111496_C111497_C111498_C111499_C111500_C111501_C111502", async ({
+  test("@Env-All TC_C111495_C111496_C111497_C111498_C111499_C111500_C111501_C111502", async ({
     io,
     page
   }) => {
-    // let companyName='[data-test="company"] input'
     let companyName = selectors.loginPagePO.COMPANY;
 
     await io.myAccountPage.click(selectors.myAccountPagePO.PROFILE);

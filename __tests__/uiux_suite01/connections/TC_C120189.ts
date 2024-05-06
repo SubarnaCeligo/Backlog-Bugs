@@ -7,7 +7,7 @@ test.describe(`C120189_C120195_C120196`, () => {
         await io.connections.deleteConnection("3PL CONNECTION DON't USE");
         await io.myAccountPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     });
-    test(`C120189_C120195_C120196`, async ({ io, page }) => {
+    test(`@Env-All @Zephyr-IO-T18203 C120189_C120195_C120196`, async ({ io, page }) => {
         await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
         await io.connectionPage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
         await io.connectionPage.click(selectors.connectionsPagePO.HTTP_CNNECTOR);

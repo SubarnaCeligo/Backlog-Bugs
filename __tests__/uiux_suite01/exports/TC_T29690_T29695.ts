@@ -1,0 +1,56 @@
+import { expect, test } from "@celigo/ui-core-automation";
+import * as selectors from "@celigo/aut-selectors";
+
+test.describe("@Author_sagna123 TC_T29690_T29695_Test to validate 'Save', 'Save & Close', 'Close', 'Preview' buttons are working fine", () => {
+    test.beforeEach(async ({ io }) => {
+        await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+    });
+    test("@Epic-IO-65860 @Priority-P2 @Zephyr-IO-T29690 @Zephyr-IO-T29695 @Env-QA", async ({ io, page }) => {
+        await io.homePage.addStep("*** Navigated to home page ***");
+        await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
+        await io.homePage.goToMenu("Resources","Exports");
+        await io.homePage.addStep("*** Navigated back to export page ***");
+        await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
+        await io.homePage.addStep("*** Clicked on create export***");
+        await io.homePage.click(selectors.connectionsPagePO.AZURE_SYNAPSE);
+        await io.homePage.addStep("*** Clicked on Azure synapse connection ***");
+        await io.homePage.click(selectors.basePagePO.CONNECTION);
+        await io.homePage.addStep("*** Clicked on connection dropdown ***");
+        await io.homePage.clickByText("AZURE SYNAPSE CONNECTOR");
+        await io.homePage.addStep("*** Selected the connection ***");
+        await io.homePage.click(selectors.basePagePO.ADD_NAME);
+        await page.keyboard.press('/');
+        await page.keyboard.press('@');
+        await page.keyboard.press('#');
+        await page.keyboard.press('$');
+        await io.homePage.addStep("*** Clicked on 'name' field and gave a name to our export ***");
+        await io.flowBuilder.click(selectors.basePagePO.SAVE);
+        await io.homePage.addStep("*** Opened the export ***");
+        await io.flowBuilder.click(selectors.exportsPagePO.QUERY1);
+        await page.keyboard.press('/');
+        await page.keyboard.press('@');
+        await page.keyboard.press('#');
+        await page.keyboard.press('$');
+        await io.homePage.addStep("*** Filled SQL query ***");
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.TYPE);
+        await io.homePage.addStep("*** Clicked on export type dropdown ***");
+        await io.homePage.clickByText("All - always export all data");
+        await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+        await io.homePage.loadingTime();
+        await io.homePage.loadingTime();
+        await io.homePage.loadingTime();
+        await io.homePage.addStep("*** Created a export  ***");
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU);
+        await io.homePage.addStep("*** Clicked on actions menu  ***");
+        await io.flowBuilder.click(selectors.connectionsPagePO.DELETE_CONNECTION);
+        await io.homePage.addStep("*** Clicked on delete button  ***");
+        await io.flowBuilder.click(selectors.basePagePO.DELETE);
+        await io.homePage.addStep("*** Confirmed  delete of Azure synapse export  ***");
+        await io.homePage.loadingTime();
+        await io.homePage.loadingTime();
+        await io.homePage.loadingTime();
+        await io.homePage.loadingTime();
+        await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.homePage.addStep("*** Navigated back to home page ***");
+    });
+});

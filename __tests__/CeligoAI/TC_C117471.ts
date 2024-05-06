@@ -5,7 +5,7 @@ test.describe("C117471 Verify the Celigo AI behaviour for IA's", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("C117471 Verify the Celigo AI behaviour for IA's", async ({ io, page }) => {
+  test("@Env-IAQA @Zephyr-IO-T18816 C117471 Verify the Celigo AI behaviour for IA's", async ({ io, page }) => {
     await io.homePage.goToMenu("Home");
     await io.flowBuilder.clickByText('BigCommerce - NetSuite');
     await io.flowBuilder.clickByText('BigCommerce Customer to NetSuite Customer Add/Update [QA_Store_1]');
@@ -15,7 +15,7 @@ test.describe("C117471 Verify the Celigo AI behaviour for IA's", () => {
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.basePagePO.JAVASCRIPTWINDOW);
     await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.OPENAI.RESET_TEMPLATE, "Reset script is not displayed")
-    const resetScript = page.getByText('Reset script').first();
+    const resetScript = await page.getByText('Reset script').nth(0);
     await resetScript.waitFor({ state: 'visible', timeout: 30000 });
     //Verify Reset script button disabled
     await io.assert.verifyElementAttributeContainsText(selectors.flowBuilderPagePO.OPENAI.RESET_TEMPLATE, "class", "Mui-disabled");
@@ -49,7 +49,7 @@ test.describe("C117471 Verify the Celigo AI behaviour for IA's", () => {
      await io.flowBuilder.click(selectors.basePagePO.INPUTFILTER);
      await io.flowBuilder.loadingTime();
      await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR, "aria-expanded", "false", 1);
-     await io.flowBuilder.clickByText('Celigo AI');
+     await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
      await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,"placeholder","Tell me about your filter here... I will apply your request to the existing filter unless you tell me to replace it");   
   });
 });

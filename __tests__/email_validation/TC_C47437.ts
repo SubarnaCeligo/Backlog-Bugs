@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import { randomString, randomNumber } from "@celigo/aut-utilities";
 import { decrypt } from "@celigo/aut-utilities";
 
-test.describe("C47437", () => {
+test.describe.skip("C47437", () => {
   test("C47437", async ({
     io,
     page

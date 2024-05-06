@@ -4,13 +4,13 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe(
   "C50903 Verify that user should be able to select either of MFA or SSO in invite user page",
   () => {
-    test("C50903 Verify that user should be able to select either of MFA or SSO in invite user page", async ({
+    test("@Env-All C50903 Verify that user should be able to select either of MFA or SSO in invite user page", async ({
       io,
       page
     }) => {
        await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL)
-       await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_SELECTOR)
-       await io.homePage.clickByIndex(selectors.basePagePO.ACCOUNT_SELECTOR,1)
+       await io.myAccountPage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON)  
+       await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON)
        
        await io.homePage.click(selectors.myAccountPagePO.USERS)
        await io.myAccountPage.clickByText('Invite user')

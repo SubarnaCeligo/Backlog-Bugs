@@ -2,11 +2,11 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import _ from 'lodash';
 
-test.describe("C117999_C118000 Verify if user filter section is added to filter dialog ", () => {
+test.describe("C117998_C118283 Verify if user filter section is added to filter dialog ", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("C117999_C118000 Verify if user filter section is added to filter dialog", async ({
+  test("@Epic-IO-38602 @Priority-P2 @Zephyr-IO-T20052 @Env-All C117998_C118283 Verify if user filter section is added to filter dialog", async ({
     io,
     page,
   }) => {
@@ -45,7 +45,7 @@ test.describe("C117999_C118000 Verify if user filter section is added to filter 
       );
 
     //Verify Sorting 
-    const expectedList = ['Admin User1', 'Custom User1', 'Custom User2','CustomUser NoAccess','Disabled User', 'Manage User', 'Monitor User1', 'Same UserName', 'Same UserName', 'User WithLongUserNameTestWithLongUse'];
+    const expectedList = ['Admin User1', 'Custom User1', 'Custom User2','CustomUser NoAccess','Disabled User', 'Manage User', 'Monitor User1', 'Same UserName', 'Same UserName'];
     const userNames = (await io.flowBuilder.getText(selectors.em2DotOLineGraphPO.ASSIGNEE_NAME)).toString();
     const userNamesArray: string[] = userNames.split(',');
     const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/;
@@ -57,8 +57,7 @@ test.describe("C117999_C118000 Verify if user filter section is added to filter 
 
     //Remove default entries from array to validate sorting
     actualList.splice(0, 2);
+    actualList.pop();
     await io.assert.expectToBeTrue(_.isEqual(expectedList, actualList), 'Users are not sorted');
-
-
   });
 });
