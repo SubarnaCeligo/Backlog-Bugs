@@ -11,8 +11,18 @@ test.describe("C57431 Verify the success message in the forgot password page aft
       await io.signInPage.fill(selectors.loginPagePO.EMAIL, process.env["IO_UserName"]);
       await io.signInPage.fill(selectors.loginPagePO.PASSWORD, decrypt(process.env["IO_Password"]));
       await io.signInPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
+      await page.waitForTimeout(2000);
+      const pageContent = await page.content();
+      const errorMessageRegex = /Please try again after (\d+) seconds/;
+      const match = pageContent.match(errorMessageRegex);
+
+      if (match && match[1]) {
+        const waitSeconds = parseInt(match[1]);
+        await page.waitForTimeout(waitSeconds * 1000);
+      }
     }
   })
+
   test("@Env-All @Zephyr-IO-T17016 C57431 Verify the success message in the forgot password page after we submit the password reset request by providing the email id of the user", async ({ io, page }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
