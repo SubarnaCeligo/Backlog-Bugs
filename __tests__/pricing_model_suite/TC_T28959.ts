@@ -24,8 +24,16 @@ test.describe("T28959 Verify upgrade pop-up for audit log after clicking on requ
     await io.myAccountPage.click(selectors.myAccountPagePO.AUDIT_LOG);
     await page.waitForLoadState("load", { timeout: 60000 });
 
+    //  Verifying Cancel Button
     await page.locator(selectors.basePagePO.NOTIFICTION_BAR).locator("a").click();
 
+    await io.homePage.click(selectors.mappings.MAPPER2DOT0PO.CLOSEBUTTON);
+    await io.assert.verifyElementNotBeFound(
+      selectors.flowGroupingPagePO.ALERT_MESSAGE
+    );
+
+    //  Verifying Submit request Button
+    await page.locator(selectors.basePagePO.NOTIFICTION_BAR).locator("a").click();
     await io.homePage.click(selectors.basePagePO.SUBMIT_REQUEST);
 
     await io.assert.verifyElementIsDisplayed(
