@@ -11,6 +11,7 @@ test.describe("C50858 Verify the displayed screen by clicking on the error count
     const lastRun = page.getByText('Last run')
     await lastRun.waitFor({ state: 'visible', timeout: 180000 });
     await io.flowBuilder.reloadPage()
+    await io.flowBuilder.loadingTime()
     await io.flowBuilder.clickByTextByIndex('1 error', 1)
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2DOT0PO.TOGGLE_VIEW_DROPDOWN);

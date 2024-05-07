@@ -11,6 +11,8 @@ test.describe(`C51662 Verify the default view of the Error details drawer`, () =
     await io.api.runBatchFlowViaAPI("C51662", id);
     const lastRun = page.getByText("Last run");
     await lastRun.waitFor({ state: "visible" });
+    await io.flowBuilder.reloadPage()
+    await io.flowBuilder.loadingTime()
     await page.getByText("1 error").nth(1).click();
     const tabListLocator = page.getByRole("tablist").nth(1);
     const firstTabInTablist = tabListLocator.locator("button").first();
