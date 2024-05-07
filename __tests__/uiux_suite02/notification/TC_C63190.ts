@@ -8,7 +8,7 @@ test.describe("C63190", () => {
     await io.homePage.goToMenu("Resources","Connections");
     await io.homePage.goToMenu("Resources","Exports");
     await io.homePage.goToMenu("Resources","Imports");
-    await page.waitForTimeout(1000);
+    await io.homePage.loadingTime();
 
     // Simulating network offline event. Works only on chromium based browsers
     const client = await context.newCDPSession(page);

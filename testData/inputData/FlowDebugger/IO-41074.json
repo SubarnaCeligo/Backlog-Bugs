@@ -9,7 +9,7 @@
         "asynchronous": true,
         "hooks": {
           "preSavePage": {
-            "_scriptId": "652e8c68dadc8e536d600c79",
+            "_scriptId": "",
             "function": "preSavePage"
           }
         },
