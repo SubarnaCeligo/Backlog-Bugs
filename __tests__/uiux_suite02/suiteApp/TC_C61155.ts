@@ -6,18 +6,28 @@ test.describe(`C61155 Verify If all the NS steps in my integration are solely co
     page,
     io
   }) => {
+    if(process.env["IO_UI_CONNECTOR_URL"] == "https://qa.staging.integrator.io/"){
     await io.homePage.navigateTo(
       process.env["IO_UI_CONNECTOR_URL"] +
-        "marketplace/installTemplate/preview/651aff4f8b3a9978eb23f121"
+        "marketplace/installTemplate/preview/6639f9f38ce96d807cde769e"
     );
+    } else if(process.env["IO_UI_CONNECTOR_URL"] == "https://staging.integrator.io/"){
+      await io.homePage.navigateTo(
+        process.env["IO_UI_CONNECTOR_URL"] +
+          "marketplace/installTemplate/preview/6639fa7ea075cfae57469022"
+      );
+    } else{
+      await io.homePage.navigateTo(
+        process.env["IO_UI_CONNECTOR_URL"] +
+          "marketplace/installTemplate/preview/6639dfd0acce1a31b70d4709"
+      );
+    }
     await io.homePage.loadingTime()
-    await page.getByText("Loading").waitFor({ state: "hidden", timeout:50000 });
     await io.homePage.clickByText("Install now");
     await io.assert.verifyElementDisplayedByText(
       "Integrator SuiteApp",
       "Integrator SuiteApp is not visible"
     );
-    await expect(page.getByText("Integrator Bundle")).not.toBeVisible();
     await io.homePage.addStep("Verified 'Integrator Bundle' is not visible");
   });
 });

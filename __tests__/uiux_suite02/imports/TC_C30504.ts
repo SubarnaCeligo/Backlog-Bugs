@@ -8,10 +8,13 @@ test.describe(`C30504 Verify export fields are populated for NS subrecord import
     page
   }) => {
     await io.createResourceFromAPI(testData, "FLOWS");
+    await io.homePage.loadingTime()
     await page.getByLabel("Define options").nth(1).click();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);
+    await io.homePage.loadingTime()
     await page.getByText("(Subrecord)").click();
     await io.flowBuilder.addStep("Clicked on subrecord");
+    await io.homePage.loadingTime()
     await io.flowBuilder.click(
       selectors.mappings.MAPPER1DOT0PO.DESTINATION_INPUT
     );
