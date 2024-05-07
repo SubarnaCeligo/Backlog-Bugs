@@ -7,7 +7,9 @@ test.describe(`C58439 Verify after clicking on "https://www.celigo.com/platform/
     page
   }) => {
     await io.homePage.navigateTo("https://staging.celigo.com/platform");
+    await io.homePage.loadingTime();
     await io.homePage.clickByTextByIndex('Free Trial', 0)
+    await io.homePage.loadingTime();
     await io.homePage.addStep("Clicked on Free Trial Link");
     await io.assert.expectToContainValue(
       "https://integrator.io/signup",

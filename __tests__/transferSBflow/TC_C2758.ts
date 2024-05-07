@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "./transfer.json";
 
 test.describe(`C2758 Verify when the sandbox tile is shared with a non sandbox license user the shared tile should be shown in the production account`, () => {
-  test(`C2758 Verify when the sandbox tile is shared with a non sandbox license user the shared tile should be shown in the production account`, async ({
+  test(`@Env-All @Zephyr-IO-T6940 C2758 Verify when the sandbox tile is shared with a non sandbox license user the shared tile should be shown in the production account`, async ({
     page,
     io
   }) => {
