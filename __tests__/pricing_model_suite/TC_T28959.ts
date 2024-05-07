@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import { getLicensePayload } from "@celigo/aut-utilities";
 
 test.describe("T28959 Verify upgrade pop-up for audit log after clicking on request upgrade.", () => {
-  test("T28959 @Zephyr-IO-T28959 @Env-All @Priority-P2 Verify upgrade pop-up for audit log after clicking on request upgrade.", async ({
+  test("T28959 @Zephyr-IO-T28959 @Env-qa @Priority-P2 Verify upgrade pop-up for audit log after clicking on request upgrade.", async ({
     io,
     page
   }) => {
