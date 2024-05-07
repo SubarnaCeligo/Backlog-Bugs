@@ -10,7 +10,7 @@
             "assistantMetadata": {},
             "oneToMany": "false",
             "rdbms": {
-                "query": "select * from `1234.IO_TestExport1` order by ID desc"
+                "query": "select * from `1234.testsetstset` order by ID desc"
             },
             "test": {
                 "limit": 1
