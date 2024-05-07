@@ -18,7 +18,7 @@ test.describe('Test to validate the colour grading, font, sentence case of newly
     await io.connectionPage.addStep("Filled the search area to search for the connection with the required name");
     await io.assert.verifyElementIsDisplayed(selectors.connectionsPagePO.AZURE_SYNAPSE, "Element not displayed");
     await io.connectionPage.addStep("Validated the display for 'Microsoft Azure Synapse Analytics' ");
-    await io.flowBuilder.clickByText("Microsoft Azure Synapse Analytics");
+    await io.connectionPage.click(selectors.connectionsPagePO.AZURE_SYNAPSE);
     await io.connectionPage.addStep("Selected the Azure Synapse connector");
     await io.assert.verifyElementAttributeContainsText(selectors.connectionsPagePO.APPLICATION,'value','Microsoft Azure Synapse Analytics');
     await io.connectionPage.addStep('validated user is able to see "Azure Synapse" selected at "Application" field after selecting the connector and it is hard coded')
