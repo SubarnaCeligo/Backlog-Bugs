@@ -38,7 +38,8 @@ test.describe("T29065 Verify the audit log retention for different license type 
 
     await io.api.putCall(`v1/test/licenses/${payloadFormat._id}`, {
       ...payloadFormat,
-      tier: "professional"
+      tier: "professional",
+      sandbox: true
     });
 
     await io.homePage.reloadPage();
@@ -53,7 +54,8 @@ test.describe("T29065 Verify the audit log retention for different license type 
 
     await io.api.putCall(`v1/test/licenses/${payloadFormat._id}`, {
       ...payloadFormat,
-      tier: "enterprise"
+      tier: "enterprise",
+      sandbox: true
     });
 
     await io.homePage.reloadPage();
