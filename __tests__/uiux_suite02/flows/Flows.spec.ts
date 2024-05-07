@@ -26,6 +26,7 @@ var testCases = [
   'C60440',
   "C20808",
   "C24620",
+  "C107735",
   "C107061",
   // "C115891" Duplicate test case
 ];
