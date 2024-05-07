@@ -9,11 +9,16 @@ test.describe("C27422 Verify the endpoint under subscription page when it exceed
   }) => {
     const licenses = await io.api.getCall("v1/licenses");
     const platformLicense = licenses.find(l => l.type === "platform");
+    const payloadFormat = {
+      ...getLicensePayload(platformLicense),
+      expires: "2044-04-10T13:14:33.363Z",
+      apiManagement: true
+    };
 
-    await io.api.putCall(
-      `v1/test/licenses/${platformLicense._id}`,
-      {...getLicensePayload(platformLicense), numEndpoints: 1}
-    );
+    await io.api.putCall(`v1/test/licenses/${platformLicense._id}`, {
+      ...payloadFormat,
+      numEndpoints: 1
+    });
 
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.myAccountPage.click(selectors.myAccountPagePO.SUBSCRIPTION);
@@ -22,12 +27,16 @@ test.describe("C27422 Verify the endpoint under subscription page when it exceed
     const bgColorList = await io.homePage.getBackgroundColors(
       selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR
     );
-    
+
     await io.api.putCall(
       `v1/test/licenses/${platformLicense._id}`,
-      getLicensePayload(platformLicense)
+      payloadFormat
     );
-    
-    await io.assert.expectToBeValueInArray(bgColorList, "rgb(255, 60, 60)", "The status is not correctly colored");
+
+    await io.assert.expectToBeValueInArray(
+      bgColorList,
+      "rgb(255, 60, 60)",
+      "The status is not correctly colored"
+    );
   });
 });
