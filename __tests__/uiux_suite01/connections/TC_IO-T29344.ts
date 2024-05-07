@@ -33,7 +33,7 @@ test.describe('Test to validate user is able to see the "Azure Synapse" logo at 
     await io.connectionPage.addStep("Filled the search area to search for the connection with the required name");
     await io.assert.verifyElementIsDisplayed(selectors.connectionsPagePO.AZURE_SYNAPSE, "Element not displayed");
     await io.connectionPage.addStep("Validated the display for 'Microsoft Azure Synapse Analytics' ");
-    await io.flowBuilder.clickByText("Microsoft Azure Synapse Analytics");
+    await io.connectionPage.click(selectors.connectionsPagePO.AZURE_SYNAPSE);
     const azureImage = await page.waitForSelector(selectors.connectionsPagePO.AZURE_SYNAPSE_LOGO);
     
     const src = await azureImage?.getAttribute("src");

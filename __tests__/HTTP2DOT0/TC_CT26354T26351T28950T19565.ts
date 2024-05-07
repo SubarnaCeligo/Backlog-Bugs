@@ -112,7 +112,7 @@ test("@Env-All T28950 Verify success and error values are saved when media type 
       "[name='/http/baseURI']","https://google.com"
     );
     await io.flowBuilder.fill(
-      "[name='/name']", "HTTP PLAINTEXT"
+      "[name='/name']", "CT28950"
     );
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
     await io.flowBuilder.loadingTime();
@@ -121,7 +121,7 @@ test("@Env-All T28950 Verify success and error values are saved when media type 
     await io.homePage.goToMenu("Resources", "Connections");
     await io.flowBuilder.loadingTime();
 
-    await io.flowBuilder.clickByText("HTTP PLAINTEXT");
+    await io.flowBuilder.clickByText("CT28950");
 
     await io.flowBuilder.click(selectors.exportsPagePO.NON_STANDARD_API_TAB);
 
@@ -209,7 +209,7 @@ test("@Env-All T19565 Verify xml file in AFE", async ({
   await io.flowBuilder.clickByText("Create from scratch");
   await io.homePage.loadingTime();
   await io.flowBuilder.click(selectors.basePagePO.CONNECTION);
-  await io.flowBuilder.clickByText("HTTP XML Parser Connection");
+  await io.flowBuilder.clickByText("CT19565");
   await io.homePage.loadingTime();
   await io.flowBuilder.click(selectors.exportsPagePO.HTTP_BODY);
   await io.homePage.loadingTime();
@@ -237,7 +237,7 @@ test("@Env-All T19565 Verify xml file in AFE", async ({
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Resources", "Connections");
     await io.flowBuilder.loadingTime();
-    await io.homePage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, "HTTP XML Parser Connection");
+    await io.homePage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, "CT19565");
     await io.homePage.loadingTime()
     await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
     await io.homePage.loadingTime();
