@@ -39,7 +39,7 @@ test.describe("C110728_C110729_C110730_C110732", () => {
         await io.flowBuilder.click(selectors.flowBuilderPagePO.WOULD_YOU_LIKE_TO_GROUP_RECORD);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.GROUP_RECORD_FIELD_INPUT);
         await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.GROUP_RECORD_FIELD_INPUT, "id");
-        await io.flowBuilder.click('[data-test="id"]');
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.GROUPBYID);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.NOTIFICATION_CLOSE_SELECT);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.POPULATE_WITH_CANONICAL_STUB);
         await io.homePage.isPageLoaded()

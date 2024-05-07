@@ -10,8 +10,7 @@ test.describe("C120845-Verify that data configured through mock at different lev
 
     await io.homePage.loadingTime();
     await io.homePage.loadingTime();
-    await io.homePage.isPageLoaded()
-    await io.flowBuilder.clickByIndex('[data-test="addDataProcessor"]', 1);
+    await io.flowBuilder.clickByIndex(selectors.basePagePO.ADD_DATA_PROCESSOR, 1);
     await io.homePage.click(
       selectors.mappings.DEFAULT_MAPPING_TYPE.RESPONSE_MAPPING
     );
@@ -67,7 +66,7 @@ test.describe("C120845-Verify that data configured through mock at different lev
     await io.assert.expectToContainValue("errorsaray", jsonData, "errorsmessage");
 
     await io.flowBuilder.clickByIndex(selectors.basePagePO.CLOSE_RIGHT_DRAWER,1);
-    
+
     await io.homePage.loadingTime();
     await io.homePage.loadingTime();
     await io.flowBuilder.clickByIndex(selectors.basePagePO.ADD_DATA_PROCESSOR, 2);

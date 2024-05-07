@@ -27,7 +27,7 @@ test.describe("TC_C117019_C115651", () => {
         await io.flowBuilder.click(selectors.basePagePO.AGENTS);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU);
         await io.flowBuilder.click(selectors.integrationPagePO.DELETE_FLOW);
-        await io.flowBuilder.click('[data-test="Delete"]');
+        await io.flowBuilder.click(selectors.basePagePO.DELETE);
         await io.api.postCall(`v1/agents`, SCRIPT.agent);
     });
 });

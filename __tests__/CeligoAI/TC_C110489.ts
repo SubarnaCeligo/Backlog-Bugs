@@ -2,7 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C110489 Verify system generates the Big query after the user has provided the prompt", () => {
-  test("@Env-QA C110489 Verify system generates the Big query after the user has provided the prompt", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T25483 C110489 Verify system generates the Big query after the user has provided the prompt", async ({io, page}) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();
     await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
@@ -30,7 +30,7 @@ test.describe("C110489 Verify system generates the Big query after the user has 
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
       "Celigo AI is not displayed"
     );
-    await io.flowBuilder.clickByTextByIndex('Celigo AI', 1);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
     await io.flowBuilder.loadingTime();
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
@@ -42,6 +42,7 @@ test.describe("C110489 Verify system generates the Big query after the user has 
       selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR,
       "Celigo AI Prompt Thinking is not displayed"
     );
+    await io.flowBuilder.loadingTime();
     await expect(
       page.locator(selectors.flowBuilderPagePO.OPENAI.PROMPT_QUERY).filter({ hasText: "SELECT *" })
     ).toBeVisible({ timeout: 40000 });

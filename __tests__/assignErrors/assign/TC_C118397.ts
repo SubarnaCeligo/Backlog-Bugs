@@ -5,7 +5,7 @@ test.describe("C118397 - Verify batch unassign feature when errors assigned to m
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-All C118397 - Verify batch unassign feature when errors assigned to multiple users are selected at once.", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T20096 C118397 - Verify batch unassign feature when errors assigned to multiple users are selected at once.", async ({ io, page }) => {
 
     //Navigate to default integration
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);

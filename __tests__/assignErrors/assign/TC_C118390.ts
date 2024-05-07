@@ -5,7 +5,7 @@ test.describe("C118390 - Verify that admin/owner users with invitation feature e
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-All C118390 - Verify that admin/owner users with invitation feature enabled/disabled is able to assign errors to new/non-IO user ", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T20090 C118390 - Verify that admin/owner users with invitation feature enabled/disabled is able to assign errors to new/non-IO user ", async ({ io, page }) => {
 
     //Navigate to default integration
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);

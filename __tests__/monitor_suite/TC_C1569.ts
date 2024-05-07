@@ -13,6 +13,7 @@ test.describe(`@Bug-IO-  @Priority-P2  @Zephyr-T6901 @Env-QA Verify If same docu
     );
 
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL)
+    await io.flowBuilder.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Automation Flows');
     await io.homePage.clickByText("Automation Flows")
     await io.homePage.clickByText('Create flow')
     await io.homePage.click(selectors.basePagePO.ADD_SOURCE_BUTTON)

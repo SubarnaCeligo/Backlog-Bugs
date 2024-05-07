@@ -9,6 +9,9 @@ test.describe('@Epic-IO-27779  @Priority-P2  @Zephyr-T22682 @Env-All Validate us
       testData
     );
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+    await io.homePage.loadingTime()
+    await io.flowBuilder.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
+    await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "C68510_DND");
     await io.flowBuilder.clickByText('C68510_DND');
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR, 0);

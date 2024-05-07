@@ -3,14 +3,14 @@ import * as selectors from "@celigo/aut-selectors";
 import { decrypt } from "@celigo/aut-utilities";
 import { expect } from "@celigo/ui-core-automation";
 
-test.describe("TC_C110068 when user email is changed from profile page, verify Email Notification Generation when clicked on show token for an Agent in Agents Page", () => {
-  test.beforeEach(async ({ io }) => {
+test.describe("TC_C110068 when user email is changed from profile page, verify Email Notification Generation when clicked on show token for an Agent in Agents Page", async () => {
+  test.beforeEach(async ({ io }, testInfo) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-All TC_C110068 when user email is changed from profile page, verify Email Notification Generation when clicked on show token for an Agent in Agents Page", async ({
+  test("@Env-All @Zephyr-IO-T10059 TC_C110068 when user email is changed from profile page, verify Email Notification Generation when clicked on show token for an Agent in Agents Page", async ({
     io,
     page
-  }) => {
+  }, testInfo) => {
     await io.homePage.loadingTime();
     // navigate to my account page
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
@@ -45,7 +45,7 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
     let envurl = url.host;
     console.log("Remaining URL:", envurl);
     const link = await io.emailVal.getLinkFromEmail(
-      "["+envurl+"] Request to change your email",
+      "[" + envurl + "] Request to change your email",
       false,
       "pwqa1"
     );
@@ -76,9 +76,10 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
     await io.homePage.loadingTime();
     await io.homePage.loadingTime();
     await io.homePage.loadingTime();
-    let agentselect = '[data-test="displayAgentToken"]';
-    await io.flowBuilder.click(agentselect);
+    await io.flowBuilder.waitForElementAttached(selectors.basePagePO.DISPLAY_AGENT_TOKEN);
+    await io.flowBuilder.click(selectors.basePagePO.DISPLAY_AGENT_TOKEN);
     await page.waitForTimeout(10000);
+
     const agentlink = await io.emailVal.getLinkFromEmail(
       "ALERT: Agent access token was displayed in clear text",
       true,
@@ -95,6 +96,7 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
     await io.homePage.loadingTime();
     // navigate to my account page
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
+    await io.homePage.loadingTime();
     await io.myAccountPage.click(selectors.basePagePO.EDIT_EMAIL_BUTTON);
     // Click on edit email button
     await io.myAccountPage.waitForElementAttached(selectors.basePagePO.NEW_EMAIL);
@@ -120,21 +122,16 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
 
     // // signin of IO and navigate to login page
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-    const isNotLoggedIn1 = await io.loginPage.checkLoginState();
+    await io.homePage.loadingTime();
     await page.waitForTimeout(5000);
     const link1 = await io.emailVal.getLinkFromEmail(
-      "["+envurl+"] Request to change your email",
+      "[" + envurl + "] Request to change your email",
       false,
       "pwqa1"
     );
-    let Account1Tab = ".MuiToolbar-root .MuiSvgIcon-root";
-    let Account1Tab1 = await page.$$(".MuiToolbar-root .MuiSvgIcon-root");
     await page.waitForTimeout(20000);
-    let last1 = (await Account1Tab1.length) - 1;
-
-    if (!isNotLoggedIn1) {
-      // await io.homePage.waitForElementAttached(AccountTab[last]);
-      await io.myAccountPage.clickByIndex(Account1Tab, last1);
+    if (!isNotLoggedIn) {
+      await io.flowBuilder.click(selectors.basePagePO.ACCOUNT_BUTTON);
       await io.homePage.click(selectors.basePagePO.SIGN_OUT);
     }
 
@@ -154,6 +151,7 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
 
     await page.waitForTimeout(10000);
     await io.homePage.navigateTo(link1.toString());
+    await io.homePage.loadingTime();
     await io.loginPage.fill(
       selectors.loginPagePO.EMAIL,
       "qaautomation1+emailcheck@celigo.com"
