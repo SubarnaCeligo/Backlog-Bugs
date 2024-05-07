@@ -11,17 +11,17 @@ test.describe("C22277 Email notification em 2.0- app crashing while clicking on 
       );
     });
 
-    test("C22277 Email notification em 2.0- app crashing while clicking on navigation links", async ({io, page}) => {
+    test("@Env-STAGING @Zephyr-IO-T292 C22277 Email notification em 2.0- app crashing while clicking on navigation links", async ({io, page}) => {
       const id = await io.createResourceFromAPI(C22277, "FLOWS");
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_SETTINGS);
       await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_SETTINGS);
       await io.flowBuilder.click(`${selectors.flowBuilderPagePO.NOTIFY_ME_ON_FLOW_ERROR} ${selectors.basePagePO.VALUE_TRUE}`);
       await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
       await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
-      const lastRun = page.getByText('Last run');
-      await lastRun.waitFor({state: 'visible', timeout: 180000});
+      await io.homePage.loadingTime()
+      await io.homePage.reloadPage()
       await io.flowBuilder.delay(1000 * 60 * 15);
-      const res = await io.emailVal.getLinkFromEmail("1 new error: TC_C22277",true);
+      const res = await io.emailVal.getLinkFromEmail("1 new error: TC_C22277",true, "pwqa1");
       await io.homePage.navigateTo(res[2].split('>')[0]);
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RESOLVED_ERRORS_TAB);
       await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.RESOLVED_ERRORS_TAB, 'The app crashed while clicking on the link in the email notification')
