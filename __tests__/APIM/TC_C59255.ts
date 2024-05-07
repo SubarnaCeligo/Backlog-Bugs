@@ -18,6 +18,7 @@ test.describe( "Help text for Token", () => {
         await io.assert.expectToBeTrue(func, "help text doesn't match")
         await io.flowBuilder.click(selectors.homePagePO.SANDBOX_BUTTON);
         await io.homePage.loadingTime();
+        await io.homePage.reloadPage()
         await io.flowBuilder.click(selectors.basePagePO.RESOURCES);
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.API_TOKENS);
