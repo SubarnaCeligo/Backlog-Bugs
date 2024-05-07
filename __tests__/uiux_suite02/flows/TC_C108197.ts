@@ -51,7 +51,6 @@ test.describe("C108197", () => {
     await page.locator('a:has-text("C107061")').nth(1).click();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
     await io.flowBuilder.click(selectors.connectionsPagePO.EDIT_RESOURCE);
-    await io.homePage.loadingTime();
-    await io.flowBuilder.delay(5000);
+    expect(page.locator(selectors.connectionsPagePO.REFRESH_TOKEN)).toBeVisible();
     });
 });
