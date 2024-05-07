@@ -12,7 +12,7 @@ test.describe("TC_C108693 Verify Hotspot icons for handelbars after the test run
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowViaAPI(id);
   });
-  test("@Env-All C108693 Verify Hotspot icons for handelbars after the test runs", async ({
+  test("@Env-All @Zephyr-IO-T23952 C108693 Verify Hotspot icons for handelbars after the test runs", async ({
     io,
     page
   }) => {

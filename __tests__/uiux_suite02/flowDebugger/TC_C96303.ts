@@ -2,7 +2,7 @@ import {test, expect} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C96303 Verify checkbox field type criteria gets cleared when user toggles between the API versions while creating NS real time export", () => {
-    test("@Env-All C96303 Verify checkbox field type criteria gets cleared when user toggles between the API versions while creating NS real time export", async ({io, page}) => {
+    test("@Env-All @Zephyr-IO-T23463 C96303 Verify checkbox field type criteria gets cleared when user toggles between the API versions while creating NS real time export", async ({io, page}) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);

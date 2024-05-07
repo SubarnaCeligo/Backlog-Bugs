@@ -4,7 +4,7 @@ import C111369 from "@testData/FlowDebugger/C111369.json";
 import C113428 from "@testData/FlowDebugger/C113428.json";
 
 test.describe('C111369_C113428', () => {
-    test('@Env-All C111369', async ({ io, page }) => {
+    test('@Env-All @Zephyr-IO-T14388 C111369', async ({ io, page }) => {
         const id = await io.createResourceFromAPI(C111369, "FLOWS");
         //Disable the flow
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
@@ -20,7 +20,7 @@ test.describe('C111369_C113428', () => {
         await io.assert.expectToContainValue("404", errorStatus, 'Error is not showing');
 
     });
-    test('@Env-All C113428 Debug log must be captured for Blob lookups.', async ({ io, page }) => {
+    test('@Env-All @Zephyr-IO-T14409 C113428 Debug log must be captured for Blob lookups.', async ({ io, page }) => {
         const id = await io.createResourceFromAPI(C113428, "FLOWS");
         //Disable the flow
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);

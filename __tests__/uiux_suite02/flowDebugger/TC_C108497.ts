@@ -7,7 +7,7 @@ import C108497_SF_COMPOSITE from '../../../testData/inputData/FlowDebugger/C1084
 
 
 test.describe("Verify that existing Netsuite/Salesforce imports have adaptor specific stub when Mock Output is repopulated.", () => {
-    test("Verify that existing Netsuite import has adaptor specific stub when Mock Output is repopulated.", async ({io, page}) => {
+    test("@Env-All @Zephyr-IO-T24104 Verify that existing Netsuite import has adaptor specific stub when Mock Output is repopulated.", async ({io, page}) => {
   
         //Create a flow with Netsuite import
         await io.createResourceFromAPI(C108497_NS, "FLOWS");

@@ -16,7 +16,7 @@ test.describe('C113073', () => {
         await io.api.deleteScriptViaAPI(postMap);
         await io.api.deleteScriptViaAPI(preMap);
     });
-    test('@Env-All C113073', async ({ io, page }) => {
+    test('@Env-All @Zephyr-IO-T14404 C113073', async ({ io, page }) => {
         C113073.pageProcessors[0].qa__import.hooks.preMap._scriptId = preMap;
         C113073.pageProcessors[0].qa__import.hooks.postMap._scriptId = postMap;
         C113073.pageProcessors[0].qa__import.hooks.postSubmit._scriptId = postSubmit;

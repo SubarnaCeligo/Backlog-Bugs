@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import TC from '../../../testData/inputData/FlowDebugger/C104576.json';
 
 test.describe("C104576 Verify error messages when Mock output is populated with empty canonical json", () => {
-    test("@Env-All C104576 Verify error messages when Mock output is populated with empty canonical json", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T24649 C104576 Verify error messages when Mock output is populated with empty canonical json", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.loadingTime()
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);

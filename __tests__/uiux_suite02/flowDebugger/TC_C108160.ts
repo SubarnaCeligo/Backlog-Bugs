@@ -5,7 +5,7 @@ test.describe("TC_C108160 - Error message should not contain 'Learn More' when m
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Env-All TC_C108160 - Error message should not contain 'Learn More' when mock output is in invalid format", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T24099 TC_C108160 - Error message should not contain 'Learn More' when mock output is in invalid format", async ({ io, page }) => {
         //Click on Create Import, select FTP
         await io.homePage.navigateTo(io.data.links.IMPORTS_PAGE_URL);
         await io.homePage.clickByText('Create import');

@@ -6,7 +6,7 @@ test.describe("C108690 Verify the save and close buttons once we edit any flow",
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
   // Validate the Notification Error Text
-  test("@Env-All C108690 Verify the Notifications Error Text Message", async ({
+  test("@Env-All @Zephyr-IO-T23949 C108690 Verify the Notifications Error Text Message", async ({
     io,
     page
   }) => {

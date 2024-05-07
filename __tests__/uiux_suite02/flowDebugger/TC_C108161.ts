@@ -5,7 +5,7 @@ test.describe("When Mock Output is in invalid format, 'Status Code' should be a 
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Env-All When Mock Output is in invalid format, 'Status Code' should be a hyperlink", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T24100 When Mock Output is in invalid format, 'Status Code' should be a hyperlink", async ({ io, page }) => {
 
         //Click on Create Import, select FTP
         await io.homePage.navigateTo(io.data.links.IMPORTS_PAGE_URL);

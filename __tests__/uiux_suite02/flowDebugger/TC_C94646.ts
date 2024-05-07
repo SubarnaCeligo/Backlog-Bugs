@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C94646 from '@testData/FlowDebugger/C94646.json';
 
 test.describe("C94646_C94645", () => {
-  test("@Env-All C94646_C94645", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T14136 @Zephyr-IO-T14135 C94646_C94645", async ({ io, page }) => {
     await io.createResourceFromAPI(C94646, "FLOWS");
     //Disable the flow
     await io.homePage.loadingTime()

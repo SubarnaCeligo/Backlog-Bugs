@@ -12,7 +12,7 @@ test.describe("TC_C108688 Verify Editing any flow resources should clear test ru
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowViaAPI(id);
   });
-  test("@Env-All C108688 Verify Editing any flow resources should clear test run results.", async ({
+  test("@Env-All @Zephyr-IO-T23947 C108688 Verify Editing any flow resources should clear test run results.", async ({
     io,
     page
   }) => {

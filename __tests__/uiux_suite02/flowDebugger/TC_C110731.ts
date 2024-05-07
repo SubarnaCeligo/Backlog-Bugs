@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C110731 from '../../../testData/inputData/FlowDebugger/C110731.json';
 
 test.describe("TC_C110731 Verify user should be able to run flow in Test mode after editing stub", () => {
-    test("@Env-All TC_C110731 Verify user should be able to run flow in Test mode after editing stub", async ({io, page}) => {
+    test("@Env-All @Zephyr-IO-T14152 TC_C110731 Verify user should be able to run flow in Test mode after editing stub", async ({io, page}) => {
         await io.createResourceFromAPI(C110731, "FLOWS");
 
         //Disable the flow

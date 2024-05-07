@@ -4,7 +4,7 @@ import C115861 from '../../../testData/inputData/FlowDebugger/C115861.json';
 
 
 test.describe("C115861", () => {
-    test("@Env-All C115861", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T24356 C115861", async ({ io, page }) => {
         //Create a flow
         await io.createResourceFromAPI(C115861, "FLOWS");
         //Disable the flow
