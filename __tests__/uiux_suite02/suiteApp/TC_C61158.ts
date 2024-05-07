@@ -25,6 +25,7 @@ test.describe(`C61158 Verify If some of the NS steps are configured to use suite
       );
     }
     await io.homePage.loadingTime()
+    await page.getByText("Loading Template...").waitFor({ state: "hidden", timeout: 50000 });
     await io.homePage.clickByText("Install now");
     await io.homePage.loadingTime()
     await io.assert.verifyElementDisplayedByText(

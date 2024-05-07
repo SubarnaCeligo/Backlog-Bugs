@@ -23,6 +23,7 @@ test.describe(`C61155 Verify If all the NS steps in my integration are solely co
       );
     }
     await io.homePage.loadingTime()
+    await page.getByText("Loading Template...").waitFor({ state: "hidden", timeout: 50000 });
     await io.homePage.clickByText("Install now");
     await io.assert.verifyElementDisplayedByText(
       "Integrator SuiteApp",
