@@ -22,8 +22,6 @@ test.describe("TC_C104751 Verify test connection for JDBC On-Prem cnnector", () 
     await io.flowBuilder.click(selectors.connectionsPagePO.AGENT_FIELD);
     await page.keyboard.press("ArrowDown");
     await page.keyboard.press("ArrowDown");
-    await page.keyboard.press("ArrowDown");
-    await page.keyboard.press("ArrowDown");
     await page.keyboard.press("Enter");
     await io.flowBuilder.fill(selectors.connectionsPagePO.JDBC_HOST_INPUT, "jdbc:sqlserver://ms-sql-sql-server-2017.cu9ep4kmgkck.us-east-1.rds.amazonaws.com;encrypt=false;databaseName=componentTestsDB");
     await page.keyboard.press("Tab");
