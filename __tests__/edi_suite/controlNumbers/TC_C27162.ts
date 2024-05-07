@@ -22,7 +22,7 @@ test.describe("@Author-SaiPhanindra TC_27162", () => {
     await io.flowBuilder.click(selectors.homePagePO.EDI_FORMAT);
     await io.flowBuilder.clickByText("Generic-004020-810-Purchase order");
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
-    await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
     await test.step("*** Enable and run the Flow *** ", async () => {
