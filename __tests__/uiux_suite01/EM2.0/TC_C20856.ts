@@ -1,10 +1,10 @@
-import { test, expect } from "@celigo/ui-core-automation";
+import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import fb from "@testData/flowbranching/fb_ui.json"
 
 
 test.describe('C20856 Line graph filter applied by the user before logout should be applicable irrespective of the session', () => {
-   
+
   test.beforeEach(async ({ io }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
@@ -44,6 +44,6 @@ test.describe('C20856 Line graph filter applied by the user before logout should
 
     await io.flowBuilder.click(selectors.flowBuilderPagePO.LINE_GRAPH_ICON);
     await io.assert.verifyElementDisplayedByText('Last 4 hours', 'Unable to see 4 hours filter for line graph which is selected before logout');
-   
+
   });
 });

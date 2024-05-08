@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Flows/C106448.json";
 
 test.describe(`C106448  Verify Parsed output label`, () => {
-  test(`C106448 Verify Parsed output label`, async ({ io, page }) => {
+  test(`@Priority-P2 @Zephyr-IO-T23733 @Env-All C106448`, async ({ io, page }) => {
     const id = await io.createResourceFromAPI(testData, "FLOWS");
     //Salesforce
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT);
@@ -12,7 +12,7 @@ test.describe(`C106448  Verify Parsed output label`, () => {
     await expect(await page.locator(selectors.importPagePO.PARSED_OUTPUT)).not.toHaveCSS("cursor", "pointer");
     await io.assert.verifyElementAttributeContainsText(selectors.importPagePO.PARSED_OUTPUT, 'class', 'Mui-disabled');
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
-    await io.flowBuilder.click(selectors.flowBuilderPagePO.FITVIEW);
+    await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.FITVIEW);
     await io.flowBuilder.addStep("Verified Parsed output label for Salesforce adaptor");
 
     //MongoDB

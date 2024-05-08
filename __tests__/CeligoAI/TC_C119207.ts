@@ -5,7 +5,7 @@ test.describe("C119207 Verify Celigo AI panel enhancements", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("C119207 Verify Celigo AI panel enhancements", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T18882 C119207 Verify Celigo AI panel enhancements", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.clickByText('Filter_DND');
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
@@ -15,7 +15,7 @@ test.describe("C119207 Verify Celigo AI panel enhancements", () => {
 
     const celigoAiDragbar = await page.locator(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_DRAG_BAR);
     await expect(celigoAiDragbar).not.toBeVisible();
-    await io.flowBuilder.clickByText('Celigo AI');
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
     const celigoAiWindow = await page.locator('[style="grid-area: chat;"]');
     const clientHeight = await celigoAiWindow.evaluate(node => node.clientHeight);
     expect(clientHeight).toBeLessThan(200);

@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "./manage_all.json";
 
 test.describe(`C1560 Veirfy,Generating and uploading a template zip file in user account of manage access`, () => {
-  test(`C1560 Veirfy,Generating and uploading a template zip file in user account of manage access`, async ({
+  test(`@Env-All @Zephyr-IO-T6894 C1560 Veirfy,Generating and uploading a template zip file in user account of manage access`, async ({
     page,
     io
   }) => {
@@ -25,6 +25,8 @@ test.describe(`C1560 Veirfy,Generating and uploading a template zip file in user
       await io.homePage.clickByText("Install integration");
       await io.homePage.click(selectors.basePagePO.DIALOG_PROCEED_BUTTON);
       await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+      await io.homePage.loadingTime();
+      await io.flowBuilder.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'TC100370_FTP_TO_FTP');
       await io.homePage.waitForElementAttached("text='TC100370_FTP_TO_FTP'")
       const flow = await io.homePage.isVisible("text='TC100370_FTP_TO_FTP'")
       await io.assert.expectToBeValue(flow.toString(),'true', "Template flow not found")
