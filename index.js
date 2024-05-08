@@ -65,7 +65,6 @@ const askFeatureQuestion = () => {
                 "manage_suite",
                 "monitor_suite",
                 "CeligoAI",
-                "onprem",
                 
             ],
             message: "Please Select A Feature:",
