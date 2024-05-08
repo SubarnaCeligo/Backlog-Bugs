@@ -24,7 +24,6 @@ test.describe("C53063 Verify that the 30 and 60 days option is enable for licens
         selectors.loginPagePO.PASSWORD,
         decrypt(process.env["IO_Password"])
       );
-      await io.flowBuilder.delay(1000 * 60 * 2);
       await io.loginPage.click(selectors.basePagePO.SUBMIT);
       await page.waitForTimeout(10000);
       let rateLimitErrorsVisibility = await page
@@ -34,7 +33,7 @@ test.describe("C53063 Verify that the 30 and 60 days option is enable for licens
         let rateLimitErrors = await io.flowBuilder.getTextFromElement(
           '[id="error-icon"]~div'
         );
-        let rateLimitErrorTime = await String(rateLimitErrors).search(/[0-9]/);
+        let rateLimitErrorTime = await String(rateLimitErrors).match(/\d/g).join("");
         await io.flowBuilder.delay(1000 * Number(rateLimitErrorTime));
         await io.loginPage.click(selectors.basePagePO.SUBMIT);
         await io.flowBuilder.loadingTime();
