@@ -1,10 +1,10 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-test.describe("TC_C120208_TC_C120209 Verify new UI should be shown for all the new imports ", () => {
+test.describe("TC_T19402_TC_T19403 Verify new UI should be shown for all the new imports ", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("TC_C120208_TC_C120209 Verify new UI should be shown for all the new imports ", async ({ io, page }) => {
+  test("@Zephyr-IO-T19403_T19403 @Env-ALL @Priority-P2 Verify new UI should be shown for all the new imports ", async ({ io, page }) => {
     await io.homePage.loadingTime();
     await io.homePage.goToMenu("Tools", "Flow builder");
     await io.flowBuilder.click(
@@ -17,7 +17,7 @@ test.describe("TC_C120208_TC_C120209 Verify new UI should be shown for all the n
     await io.homePage.addStep("*** Selected import records option ***");
     await io.flowBuilder.clickByText("Create from scratch");
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
-    await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,'kkk - Offline');
+    await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,'ONPREM');
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);
     await io.flowBuilder.waitForElementAttached(selectors.exportsPagePO.NAME);
     await io.flowBuilder.fill(selectors.exportsPagePO.NAME, "NEW");

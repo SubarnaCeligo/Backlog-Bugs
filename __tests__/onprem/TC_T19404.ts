@@ -1,11 +1,11 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("TC_C120210_TC_C120211_TC_C120212_TC_C120213,TC_C120214_TC_C120216", () => {
+test.describe("TC_T19404_TC_T19405_TC_T19406_TC_T19407_TC_T19408_TC_T19410", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("TC_C120212", async ({ io, page }) => {
+    test("@Zephyr-IO-T19405_T19406_T19407_T19408_T19410 @Env-ALL @Priority-P2", async ({ io, page }) => {
         await io.homePage.loadingTime();
         await io.homePage.goToMenu("Tools", "Flow builder");
         await io.flowBuilder.click(
@@ -18,7 +18,7 @@ test.describe("TC_C120210_TC_C120211_TC_C120212_TC_C120213,TC_C120214_TC_C120216
         await io.homePage.addStep("*** Selected import records option ***");
         await io.flowBuilder.clickByText("Create from scratch");
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
-        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,'kkk - Offline');
+        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,'ONPREM');
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);    
         await io.homePage.click(selectors.basePagePO.ADD_NAME);
         await page.keyboard.press('/');

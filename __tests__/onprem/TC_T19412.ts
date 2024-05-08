@@ -1,11 +1,11 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("TC_C120218", () => {
+test.describe("TC_T19412", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("TC_C120218", async ({ io, page }) => {
+    test("@Zephyr-IO-T19412 @Env-ALL @Priority-P2 ", async ({ io, page }) => {
         await io.homePage.loadingTime();
         await io.homePage.goToMenu("Tools", "Flow builder");
         await io.flowBuilder.click(
@@ -18,7 +18,7 @@ test.describe("TC_C120218", () => {
         await io.homePage.addStep("*** Selected import records option ***");
         await io.flowBuilder.clickByText("Create from scratch");
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
-        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,'kkk - Offline');
+        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,'ONPREM');
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);    
         await io.homePage.addStep("*** Clicked on next button ***");
         await io.flowBuilder.waitForElementAttached(selectors.exportsPagePO.NAME);

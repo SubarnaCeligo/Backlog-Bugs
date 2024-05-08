@@ -2,12 +2,12 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/database/C120205.json";
 
-test.describe(`TC120204_TC_C120205_TC_C120206_TC_C120207_TC120204`, () => {
+test.describe(`TC_T19398_TC_T19399_TC_T19400_TC_T19401_TC_T19398`, () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
 
   });
-  test("TC120204_TC_C120205_TC_C120206_TC_C120207_TC120204", async ({io, page}) => {
+  test("@Zephyr-IO-T19398_T19399_T19400_T19401_T19398 @Env-ALL @Priority-P2", async ({io, page}) => {
     await io.homePage.loadingTime();
         await io.homePage.goToMenu("Tools", "Flow builder");
         await io.flowBuilder.click(
@@ -19,13 +19,13 @@ test.describe(`TC120204_TC_C120205_TC_C120206_TC_C120207_TC120204`, () => {
         await io.flowBuilder.clickByText("Import records into destination application");
         await io.flowBuilder.clickByText("Create from scratch");
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
-    await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,'kkk - Offline');
+    await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,'ONPREM');
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);
         await io.homePage.click(selectors.basePagePO.ADD_NAME);
         await io.homePage.addStep("*** Clicked on name field ***");
         await page.keyboard.press('/');
         await io.homePage.addStep("*** Entered name for the import ***");
-        await page.pause();
+        // await page.pause();
         await io.homePage.click(selectors.flowBuilderPagePO.DESTINATIONTABLESEARCHPOSTGRE);
         await io.homePage.addStep("*** Clicked on destination table search field ***");
         await io.homePage.click(selectors.flowBuilderPagePO.ORACLEDB_TABLE);

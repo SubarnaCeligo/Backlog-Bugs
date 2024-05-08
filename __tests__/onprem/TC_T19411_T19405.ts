@@ -1,11 +1,11 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("TC_C120217_C120211 Verify the message when api failed to fetch the table", () => {
-  test.beforeEach(async ({ io }) => {
+test.describe("TC_T19411_T19405  Verify the message when api failed to fetch the table", () => {
+ test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("Verify the message when api failed to fetch the table", async ({ io, page }) => {
+  test(" @Zephyr-IO-T19411_T19405 @Env-ALL @Priority-P2 Verify the message when api failed to fetch the table", async ({ io, page }) => {
     await io.homePage.loadingTime();
         await io.homePage.goToMenu("Tools", "Flow builder");
         await io.flowBuilder.click(
@@ -18,7 +18,7 @@ test.describe("TC_C120217_C120211 Verify the message when api failed to fetch th
         await io.homePage.addStep("*** Selected import records option ***");
         await io.flowBuilder.clickByText("Create from scratch");
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
-        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,'asdf - Offline');
+        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,'TESTONPREM');
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);
     await io.flowBuilder.waitForElementAttached(selectors.exportsPagePO.NAME);
     await io.flowBuilder.fill(selectors.exportsPagePO.NAME, "offline");
