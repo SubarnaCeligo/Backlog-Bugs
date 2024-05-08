@@ -64,7 +64,8 @@ const askFeatureQuestion = () => {
                 "HTTP2DOT0",
                 "manage_suite",
                 "monitor_suite",
-                "CeligoAI"
+                "CeligoAI",
+                "onprem",
                 
             ],
             message: "Please Select A Feature:",
