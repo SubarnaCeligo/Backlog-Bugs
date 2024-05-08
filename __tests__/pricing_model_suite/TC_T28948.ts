@@ -15,6 +15,9 @@ test.describe("T28948 Verify the audit log retention if user set the value from 
       apiManagement: true
     };
 
+    await io.homePage.addStep(
+      "Updating license to enterprise tier with 2 years audit log retention period."
+    );
     await io.api.putCall(`v1/test/licenses/${payloadFormat._id}`, {
       ...payloadFormat,
       tier: "enterprise",
@@ -47,6 +50,9 @@ test.describe("T28948 Verify the audit log retention if user set the value from 
       }
     }
     await startDate.click();
+    await io.homePage.addStep(
+      "Selected start date as 2 years before from today."
+    );
 
     for (let i = 0; i < 24; i++) {
       await io.flowBuilder.click(selectors.flowBuilderPagePO.CALENDAR_NEXT);
@@ -65,10 +71,13 @@ test.describe("T28948 Verify the audit log retention if user set the value from 
       endDate = button;
     }
     await endDate.click();
+    await io.homePage.addStep("Selected end date as today.");
 
+    await io.homePage.addStep("Capturing api request for requesting audit logs.");
     const req = page.waitForRequest(request =>
       request.url().includes("/api/audit/signedURL")
     );
+    await io.homePage.addStep("Clicking Download button.");
     await page.locator("button").filter({ hasText: "Download" }).last().click();
 
     const finalReq = await req;
@@ -79,7 +88,11 @@ test.describe("T28948 Verify the audit log retention if user set the value from 
     expect(today - fromDate).toBeGreaterThanOrEqual(
       1000 * 60 * 60 * 24 * 365 * 2
     );
+    await io.homePage.addStep(
+      "Verified. Able to request audit logs of 2 years from UI."
+    );
 
+    await io.homePage.addStep("Reverting license changes.");
     await io.api.putCall(`v1/test/licenses/${payloadFormat._id}`, payloadFormat);
   });
 });

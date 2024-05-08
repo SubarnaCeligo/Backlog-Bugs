@@ -19,30 +19,45 @@ test.describe("T28959 Verify upgrade pop-up for audit log after clicking on requ
       ...payloadFormat,
       tier: "standard"
     });
+    await io.homePage.addStep(
+      "Updating license to standard tier to show request upgrade notification."
+    );
 
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.myAccountPage.click(selectors.myAccountPagePO.AUDIT_LOG);
     await page.waitForLoadState("load", { timeout: 60000 });
 
     //  Verifying Cancel Button
+    await io.homePage.addStep(
+      "Clicking on 'Upgrade your account' link from inline notification."
+    );
     await page.locator(selectors.basePagePO.NOTIFICTION_BAR).locator("a").click();
 
+    await io.homePage.addStep("Verifying dialog box is opened.");
     await io.homePage.click(selectors.mappings.MAPPER2DOT0PO.CLOSEBUTTON);
+    await io.homePage.addStep("Verifying snackbar is not displayed.");
     await io.assert.verifyElementNotBeFound(
       selectors.flowGroupingPagePO.ALERT_MESSAGE
     );
 
     //  Verifying Submit request Button
+    await io.homePage.addStep(
+      "Clicking on 'Upgrade your account' link from inline notification."
+    );
     await page.locator(selectors.basePagePO.NOTIFICTION_BAR).locator("a").click();
+    await io.homePage.addStep("Verifying dialog box is opened.");
     await io.homePage.click(selectors.basePagePO.SUBMIT_REQUEST);
 
+    await io.homePage.addStep(
+      "Verifying snackbar is displayed with confirmation message."
+    );
     await io.assert.verifyElementIsDisplayed(
       selectors.flowGroupingPagePO.ALERT_MESSAGE,
       "Confirmation message not displayed."
     );
 
     //  Reverting license changes
-
+    await io.homePage.addStep("Reverting license changes.");
     await io.api.putCall(`v1/test/licenses/${payloadFormat._id}`, payloadFormat);
   });
 });

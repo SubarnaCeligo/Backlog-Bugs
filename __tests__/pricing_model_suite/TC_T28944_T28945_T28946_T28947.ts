@@ -20,6 +20,7 @@ test.describe("T28944_T28945_T28946_T28947 Verify the audit log retention for al
 
     //  ------------------------Free Tier--------------------------   //
 
+    await io.homePage.addStep("Updating license to free tier.");
     await io.api.putCall(`v1/test/licenses/${payloadFormat._id}`, {
       ...payloadFormat,
       tier: "free"
@@ -33,9 +34,11 @@ test.describe("T28944_T28945_T28946_T28947 Verify the audit log retention for al
       selectors.basePagePO.NOTIFICTION_BAR
     );
     expect(upgradeNotificationText_free).toEqual(upgradeNotificationText);
+    await io.homePage.addStep("Verified. Info message displayed for free tier.");
 
     //  ------------------------Standard Tier-------------------------   //
 
+    await io.homePage.addStep("Updating license to standard tier.");
     await io.api.putCall(`v1/test/licenses/${payloadFormat._id}`, {
       ...payloadFormat,
       tier: "standard"
@@ -46,9 +49,13 @@ test.describe("T28944_T28945_T28946_T28947 Verify the audit log retention for al
       selectors.basePagePO.NOTIFICTION_BAR
     );
     expect(upgradeNotificationText_standard).toEqual(upgradeNotificationText);
+    await io.homePage.addStep(
+      "Verified. Info message displayed for standard tier."
+    );
 
     //  ---------------------Professional Tier---------------------------   //
 
+    await io.homePage.addStep("Updating license to professional tier.");
     await io.api.putCall(`v1/test/licenses/${payloadFormat._id}`, {
       ...payloadFormat,
       tier: "professional"
@@ -59,9 +66,13 @@ test.describe("T28944_T28945_T28946_T28947 Verify the audit log retention for al
       selectors.basePagePO.NOTIFICTION_BAR
     );
     expect(upgradeNotificationText_professional).toEqual(upgradeNotificationText);
+    await io.homePage.addStep(
+      "Verified. Info message displayed for professional tier."
+    );
 
     //  --------------------Enterprise Tier------------------------------   //
 
+    await io.homePage.addStep("Updating license to enterprise tier.");
     await io.api.putCall(`v1/test/licenses/${payloadFormat._id}`, {
       ...payloadFormat,
       tier: "enterprise"
@@ -69,9 +80,12 @@ test.describe("T28944_T28945_T28946_T28947 Verify the audit log retention for al
 
     await io.homePage.reloadPage();
     expect(page.getByText(upgradeNotificationText)).not.toBeVisible();
+    await io.homePage.addStep(
+      "Verified. Info message NOT displayed for enterprise tier."
+    );
 
     //  Reverting license changes
-
+    await io.homePage.addStep("Reverting license changes.");
     await io.api.putCall(`v1/test/licenses/${payloadFormat._id}`, payloadFormat);
   });
 });
