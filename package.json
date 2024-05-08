@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@celigo/aut-selectors": "^0.3.7",
-    "@celigo/ui-core-automation": "^0.2.41",
+    "@celigo/ui-core-automation": "^0.2.42",
     "@celigo/aut-utilities":"^0.0.99",
     "@playwright/test": "1.41.2",
     "allure-playwright": "^2.2.1",
@@ -52,6 +52,7 @@
     "figlet": "^1.7.0",
     "husky": "^4.3.8",
     "inquirer": "^7.1.0",
+    "superagent": "^9.0.2",
     "viewport-dimensions": "^0.2.0"
   }
 }
