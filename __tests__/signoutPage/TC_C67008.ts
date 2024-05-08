@@ -11,6 +11,24 @@ test.describe("C67008 Verify error messages displayed in a user-friendly manner 
       await io.signInPage.fill(selectors.loginPagePO.EMAIL, process.env["IO_UserName"]);
       await io.signInPage.fill(selectors.loginPagePO.PASSWORD, decrypt(process.env["IO_Password"]));
       await io.signInPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
+      const maxWaitTime = 30000;
+      const startTime = Date.now();
+      let errorMessage;
+      let match;
+      while (!match && (Date.now() - startTime) < maxWaitTime) {
+          await page.waitForTimeout(2000); 
+          const pageContent = await page.content();
+          const errorMessageRegex = /Please try again after (\d+) seconds/;
+          match = pageContent.match(errorMessageRegex);
+          if (match && match[1]) {
+              errorMessage = match[0];
+          }
+      }
+      if (errorMessage) {
+          const waitSeconds = parseInt(match[1]);
+          await page.waitForTimeout(waitSeconds * 1000);
+          await io.signInPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
+      }
     }
   })
   test("@Env-All @Zephyr-IO-T22167 C67008 Verify error messages displayed in a user-friendly manner if any issues arise during the sign-up process or subsequent logins", async ({
