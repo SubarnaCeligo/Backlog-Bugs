@@ -14,6 +14,7 @@ test.describe(`C24898 Manage All - Verify Reports Listing page should Contain Re
     await io.homePage.navigateTo(
       process.env["IO_UI_CONNECTOR_URL"] + "reports/eventreports"
     );
+    await io.homePage.loadingTime();
     await io.assert.verifyElementDisplayedByText(
       "Flow events",
       "Report type filter is not displayed"

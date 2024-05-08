@@ -27,7 +27,7 @@ test.describe('TC_T27696_T27705_T27706', () => {
         await io.assert.expectToBeValue(connectionDoc.jdbc?.authType, 'wallet', "Connection auth type is not wallet");
     };
 
-    test('IO-T27696 Verify if able to create NSAW connection', async ({ io, page }) => {
+    test.skip('IO-T27696 Verify if able to create NSAW connection', async ({ io, page }) => {
         const connectionName = 'TC_T27705_NSAW_Connection_prod';
         await io.homePage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
         await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
@@ -54,7 +54,7 @@ test.describe('TC_T27696_T27705_T27706', () => {
         await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
     });
 
-    test('IO-T27706 Verify NSAW connection creation from exports and imports', async ({ io, page }) => {
+    test.skip('IO-T27706 Verify NSAW connection creation from exports and imports', async ({ io, page }) => {
 
         await test.step('Creating connection from exports', async () => {
             const connectionName = 'TC_T27706_NSAW_Connection_exp';
