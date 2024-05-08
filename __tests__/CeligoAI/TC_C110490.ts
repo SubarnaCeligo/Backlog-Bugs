@@ -41,6 +41,7 @@ test.describe("C110490 Verify system generates the Amazon Redshift query after t
       selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR,
       "Celigo AI Prompt Thinking is not displayed"
     );
+    await io.flowBuilder.loadingTime();
     await expect(
       page.locator(selectors.flowBuilderPagePO.OPENAI.PROMPT_QUERY).filter({ hasText: "SELECT *" })
     ).toBeVisible({ timeout: 40000 });

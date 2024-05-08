@@ -42,6 +42,7 @@ test.describe("C110489 Verify system generates the Big query after the user has 
       selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR,
       "Celigo AI Prompt Thinking is not displayed"
     );
+    await io.flowBuilder.loadingTime();
     await expect(
       page.locator(selectors.flowBuilderPagePO.OPENAI.PROMPT_QUERY).filter({ hasText: "SELECT *" })
     ).toBeVisible({ timeout: 40000 });

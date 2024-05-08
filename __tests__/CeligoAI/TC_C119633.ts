@@ -44,7 +44,8 @@ test.describe("C119633 Verify the Celigo AI functionality working fine for Postg
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR,
       "Celigo AI Prompt Thinking is not displayed"
-    )
+    );
+    await page.waitForTimeout(5000);
     await expect(
       page.locator(selectors.flowBuilderPagePO.OPENAI.PROMPT_QUERY).filter({ hasText: "SELECT *" }).first()
     ).toBeVisible({ timeout: 30000 });
