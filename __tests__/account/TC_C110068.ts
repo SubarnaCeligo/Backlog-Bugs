@@ -93,7 +93,7 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
         let rateLimitErrors = await page
           .locator("[id='error-icon'] ~ div")
           .textContent();
-        let rateLimitErrorTime = await String(rateLimitErrors).search(/[0-9]/);
+        let rateLimitErrorTime = await String(rateLimitErrors).match(/\d/g).join("");
         await io.flowBuilder.delay(1000 * Number(rateLimitErrorTime));
         await io.loginPage.click(selectors.basePagePO.SUBMIT);
       }
@@ -163,7 +163,7 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
       let rateLimitErrors = await page
         .locator("[id='error-icon'] ~ div")
         .textContent();
-      let rateLimitErrorTime = await String(rateLimitErrors).search(/[0-9]/);
+      let rateLimitErrorTime = await String(rateLimitErrors).match(/\d/g).join("");
       await io.flowBuilder.delay(1000 * Number(rateLimitErrorTime));
       await io.loginPage.click(selectors.basePagePO.SUBMIT);
     }
@@ -267,8 +267,9 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
       let rateLimitErrors = await page
         .locator("[id='error-icon'] ~ div")
         .textContent();
-      let rateLimitErrorTime = await String(rateLimitErrors).search(/[0-9]/);
-      await io.flowBuilder.delay(1000 * Number(rateLimitErrorTime));
+      let rateLimitErrorTime = await String(rateLimitErrors).match(/\d/g);
+      let rateLimitErrorTime1 = rateLimitErrorTime.join("");
+      await io.flowBuilder.delay(1000 * Number(rateLimitErrorTime1));
       await io.loginPage.click(selectors.basePagePO.SUBMIT);
     }
   });
