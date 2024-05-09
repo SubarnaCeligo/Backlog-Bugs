@@ -12,6 +12,9 @@ test.describe("TC_IO74286_Unable to see the refresh button for selecting the acc
         await io.flowBuilder.loadingTime();
         await io.homePage.clickByText("Payout to Reconciliation");
         await io.homePage.addStep("*** Opened the integration ***");
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.integrationPagePO.SELECTCHILDBUTTON);
         await io.homePage.addStep("*** Clicked on child button ***");
         await io.flowBuilder.loadingTime();
