@@ -1,0 +1,78 @@
+{
+    "name": "TC_CIO27738",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "6459f5fc6df4b9686c0b7145",
+    "skipRetries": false,
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "name": "Fulfillment Export",
+          "_connectionId": "FULFILLMENT CONNECTION",
+          "apiIdentifier": "eedc2e8f14",
+          "asynchronous": true,
+          "oneToMany": false,
+          "sandbox": false,
+          "http": {
+            "relativeURI": "/users/me",
+            "method": "GET",
+            "formType": "http"
+          },
+          "adaptorType": "HTTPExport"
+        }
+      }
+    ],
+      "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "Drive import",
+                "application": "GOOGLEDRIVE",
+                "parsers": [
+
+                ],
+                "_connectionId": "GOOGLEDRIVE CONNECTION",
+                "apiIdentifier": "i69345dc8e",
+                "oneToMany": false,
+                "assistant": "googledrive",
+                "sandbox": false,
+                "file": {
+                    "fileName": "abc.csv",
+                    "skipAggregation": false,
+                    "type": "csv",
+                    "csv": {
+                        "rowDelimiter": "\n",
+                        "columnDelimiter": ",",
+                        "includeHeader": true,
+                        "wrapWithQuotes": false,
+                        "replaceTabWithSpace": false,
+                        "replaceNewlineWithSpace": false,
+                        "customHeaderRows": [],
+                        "truncateLastRowDelimiter": false
+                    }
+                },
+                "http": {
+                    "type": "file",
+                    "relativeURI": [
+                        "/"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "sendPostMappedData": true,
+                    "formType": "assistant",
+                    "response": {
+                        "resourcePath": [
+                            "files"
+                        ]
+                    }
+                },
+                "settings": {
+                    "overrideGDriveMimeType": "application/vnd.google-apps.audio"
+                },
+                "adaptorType": "HTTPImport"
+              }
+          }
+      ]
+}
