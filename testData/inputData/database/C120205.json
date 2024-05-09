@@ -1,0 +1,66 @@
+{
+    "name": "TC_C120205",
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "new posts",
+            "_connectionId": "ORACLE_DB_Connection",
+            "oneToMany": false,
+            "sandbox": false,
+            "mappings": [
+              {
+                  "dataType": "objectarray",
+                  "status": "Active",
+                  "buildArrayHelper": [
+                      {
+                          "extract": "$.name",
+                          "sourceDataType": "object",
+                          "mappings": [
+                              {
+                                  "extract": "$.name",
+                                  "generate": "!Customer_City",
+                                  "dataType": "string",
+                                  "status": "Active",
+                                  "sourceDataType": "string"
+                              }
+                          ]
+                      }
+                  ]
+              }
+          ],
+            "rdbms": {
+                "query": [],
+                "queryType": [
+                    "bulk_insert"
+                ],
+                "bulkInsert": {
+                    "tableName": "EMPLOYEE"
+                }
+            },
+            "adaptorType": "RDBMSImport"
+        }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C21052",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+}
