@@ -18,8 +18,8 @@ test.describe("C117448 Verify Filter is having Celigo AI", () => {
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_FILTER);
     await page.waitForTimeout(1000);
     //Verify Celigo AI are in collapsed state and disabled.
-    await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-disabled","true");
-    await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","false");
+    await expect(page.locator(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR).nth(1)).toBeDisabled();
+    await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","false", 1);
     
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
@@ -261,10 +261,10 @@ test.describe("C117448 Verify Filter is having Celigo AI", () => {
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR, 1);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.INPUT_FILTER);
-    await io.flowBuilder.loadingTime();
+    
     //Verify Celigo AI are in collapsed state and disabled.
+    await expect(page.locator(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR).nth(1)).toBeDisabled();
     await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","false", 1);
-    await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-disabled","true", 1);
     
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,

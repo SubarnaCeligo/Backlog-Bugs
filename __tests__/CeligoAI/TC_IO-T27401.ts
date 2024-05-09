@@ -141,7 +141,8 @@ test.describe("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Author-
       "Mui-checked",
       7
     );
-    await page.waitForTimeout(10000);
+    await io.homePage.loadingTime();
+    await io.homePage.loadingTime();
     await io.assert.verifyElementAttributeContainsText(
       selectors.flowBuilderPagePO.OPENAI.AUTOMAP_CHECKBOX,
       "class",
