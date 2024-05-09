@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S Verify that clicking on Integration name hyperli
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Epic-IO-31713 @Priority-P2 @Zephyr-IO-T29019 @Zephyr-IO-T29022 Verify that clicking on Integration name hyperlink navigates to integration page", async ({ io, page }) => {
+  test("@Env-QA @Epic-IO-31713 @Priority-P2 @Zephyr-IO-T29019 @Zephyr-IO-T29022 Verify that clicking on Integration name hyperlink navigates to integration page", async ({ io, page }) => {
 
     //Go to Dashboard
     await io.myAccountPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "dashboard");

@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("@Author-Shriti S Verify that EDI activity can be filtered using multiple FA status.", () => {
+test.describe("@Env-QA @Author-Shriti S Verify that EDI activity can be filtered using multiple FA status.", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });

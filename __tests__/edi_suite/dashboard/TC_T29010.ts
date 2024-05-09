@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S Verify default sorting on EDI Documents dashboar
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Epic-IO-31713 @Priority-P2 @Zephyr-IO-T29010 Verify default sorting on EDI Documents dashboard", async ({ io, page }) => {
+  test("@Env-QA @Epic-IO-31713 @Priority-P2 @Zephyr-IO-T29010 Verify default sorting on EDI Documents dashboard", async ({ io, page }) => {
 
     //Go to Dashboard
     await io.myAccountPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "dashboard");
