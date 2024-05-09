@@ -12,7 +12,7 @@ test.describe(`C32362 Verify cloned integration has the updated flow after updat
     await io.homePage.click(selectors.connectionsPagePO.ACTIONS_MENU_BUTTON);
     await io.flowBuilder.clickByText("Clone flow");
     await io.flowBuilder.clickByText("Please select");
-    let menuitem = await page.locator(selectors.basePagePO.MENU_ITEM).first(); 
+    let menuitem = await page.locator(selectors.basePagePO.MENU_ITEM).first();
     const buttonBoundingBox = await menuitem.boundingBox();
     if (buttonBoundingBox) {
       const x = buttonBoundingBox.x + buttonBoundingBox.width / 2;
@@ -56,7 +56,7 @@ test.describe(`C32362 Verify cloned integration has the updated flow after updat
     await io.homePage.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.loadingTime();
     await io.homePage.clickByTextByIndex("Clone - C32362_DND", 0);
-    await io.homePage.click('[data-test="connections"]');
+    await io.homePage.click(selectors.flowBuilderPagePO.NOTIFICATION_CONNECTIONS);
     await io.assert.verifyElementDisplayedByText(
       "347 NS CONNECTION",
       "347 NS CONNECTION step is not displayed"

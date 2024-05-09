@@ -9,7 +9,7 @@
       {
         "qa__export": {
             "name": "AAA_C2660_export",
-            "_connectionId": "HTTP ZENDESK CONNECTION2",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
             "apiIdentifier": "e4901ece0f",
             "asynchronous": true,
             "type": "test",
@@ -38,7 +38,7 @@
         "qa__import": {
             "name": "AutomationStandalone_1Wg98",
             "parsers": [],
-            "_connectionId": "HTTP ZENDESK CONNECTION2",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
             "apiIdentifier": "i6397669bc",
             "ignoreExisting": false,
             "ignoreMissing": false,

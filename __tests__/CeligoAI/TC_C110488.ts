@@ -42,6 +42,7 @@ test.describe("C110488 Verify system generates the MS SQL query after the user h
       selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR,
       "Celigo AI Prompt Thinking is not displayed"
     );
+    await io.homePage.loadingTime();
     await expect(
       page.locator(selectors.flowBuilderPagePO.OPENAI.PROMPT_QUERY).filter({ hasText: "SELECT *" })
     ).toBeVisible({ timeout: 40000 });

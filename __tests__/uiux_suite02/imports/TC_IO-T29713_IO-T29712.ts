@@ -1,0 +1,39 @@
+import { expect, test } from "@celigo/ui-core-automation";
+import * as selectors from "@celigo/aut-selectors";
+
+test.describe('Test to validate "Save", "Save & Close", "Close", buttons are working fine', () => {
+    test("@Env-QA @Epic-IO-65860 @Zephyr-IO-T29713 @Zephyr-IO-T29712 @Priority-P2", async ({
+        io,
+        page
+    }) => {
+
+        await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.homePage.addStep("Navigated to home page");
+        await page.click(selectors.basePagePO.RESOURCES);
+        await io.homePage.goToMenu("Resources", "Imports");
+        await io.homePage.addStep("Clicked the Resources Tab from menu and then clicked the imports tab and navigated to the imports page.");
+        await io.flowBuilder.click(selectors.integrationPagePO.ADDNEWRESOURCE);
+        await io.connectionPage.addStep("Clicked on Create import icon");
+        await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Azure');
+        await io.connectionPage.addStep("Filled the search area to search for the connection with the required name");
+        await io.assert.verifyElementIsDisplayed(selectors.connectionsPagePO.AZURE_SYNAPSE, "Element not displayed");
+        await io.connectionPage.addStep("Validated the display for 'Microsoft Azure Synapse Analytics' ");
+        await io.connectionPage.click(selectors.connectionsPagePO.AZURE_SYNAPSE);
+        await io.connectionPage.addStep("Selected the Azure Synapse connector");
+        await io.importsPage.click(selectors.exportsPagePO.CREATE_SELECT_CONNECTION);
+        await io.importsPage.selectConnectionDropDown(page, 'AzureConnectionCred_T29698');
+        await io.importsPage.fill(selectors.connectionsPagePO.CONNECTION_NAME, "AzureSynapseImports");
+        await io.importsPage.click(selectors.basePagePO.SAVE);
+        await io.homePage.click(selectors.importPagePO.DESTINATION_TABLE_SEARCH);
+        await io.homePage.addStep("*** Clicked on destination table search field ***");
+        await io.homePage.click(selectors.importPagePO.DESTINATION_TABLENAME_SEARCH_INPUT);
+        await io.homePage.fill(selectors.importPagePO.DESTINATION_TABLENAME_SEARCH_INPUT,"automation_agents_restapi");
+        await io.flowBuilder.clickByText('automation_agents_restapi');
+        await io.homePage.addStep("*** Verified we are getting 'ramDB.dbo.automation_agents_restapi' as table name ***");
+        await io.importsPage.click(selectors.basePagePO.SAVE);
+        await io.importsPage.addStep("Import has been saved");
+        await io.importsPage.click(selectors.basePagePO.CLOSE);
+    
+
+    });
+});
