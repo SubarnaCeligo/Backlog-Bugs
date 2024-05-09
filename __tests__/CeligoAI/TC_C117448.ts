@@ -15,14 +15,15 @@ test.describe("C117448 Verify Filter is having Celigo AI", () => {
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR, 0);
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_FILTER);
+    await page.waitForTimeout(1000);
     //Verify Celigo AI are in collapsed state and disabled.
-    await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","false", 1);
     await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-disabled","true", 1);
+    await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","false", 1);
     
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
       "Celigo AI is not displayed"
-    )
+    );
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT);
     await io.flowBuilder.loadingTime();

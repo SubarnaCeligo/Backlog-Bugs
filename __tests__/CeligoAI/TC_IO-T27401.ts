@@ -36,6 +36,7 @@ test.describe("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Author-
       "Auto mapper tool is not displayed"
     );
     await io.homePage.loadingTime();
+    await io.homePage.loadingTime();
 
     //IO-T27406 Verify the checkboxes are not displayed when auto mapper tool is not selected
     const isCheckboxDisplayed = !(await io.flowBuilder.isVisible(
@@ -86,7 +87,7 @@ test.describe("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Author-
       "Mui-disabled"
     );
     await io.homePage.loadingTime();
-
+    await io.homePage.loadingTime();
     //IO-T27407 IO-T27408 Verify the checkboxes are displayed for all the fields when auto mapper is active
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.AUTOMAP_SELECTALL_CHECKBOX,
@@ -189,6 +190,7 @@ test.describe("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Author-
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.OPENAI.AUTOMAPPER_TOOL
     );
+    await io.homePage.loadingTime();
     await io.homePage.loadingTime();
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.OPENAI.AUTOMAP_SELECTALL_CHECKBOX
