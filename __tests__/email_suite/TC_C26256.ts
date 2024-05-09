@@ -1,8 +1,8 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe( "Verify the email notifications received when SSO Client has been modified.", () => {
-    test("@Env-QA @Env-STAGING Verify the email notifications received when SSO Client has been modified.", async ({ io, page, context }) => {
+test.describe( "C26256 Verify the email notifications received when SSO Client has been modified.", () => {
+    test("@Zephyr-IO-T4999 @Env-QA @Env-All @Priority-P2 C26256 Verify the email notifications received when SSO Client has been modified.", async ({ io, page, context }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
 
         await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);        
