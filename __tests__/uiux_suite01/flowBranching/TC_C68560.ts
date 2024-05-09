@@ -62,7 +62,7 @@ test.describe(`C68560 Verify user is upload the ntegration zip file having one l
 
     await io.homePage.click(selectors.basePagePO.INSTALL);
     await io.homePage.loadingTime()
-    await io.homePage.clickByText("TC100370_FTP_TO_FTP");
+    await io.homePage.click("//a[contains(text(), 'TC100370_FTP_TO_FTP')]");
     const linkUrl = await page.url();
     const match = linkUrl.match(/\/integrations\/(\w+)\/flowBuilder\/(\w+)/);
     testdata.firstString = match[1];
@@ -75,12 +75,15 @@ test.describe(`C68560 Verify user is upload the ntegration zip file having one l
       selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
       "TC100370_FTP_TO_FTP"
     );
-    await io.homePage.waitForElementAttached("text='TC100370_FTP_TO_FTP'");
-    const flow = await io.homePage.isVisible("text='TC100370_FTP_TO_FTP'");
-    await io.assert.expectToBeValue(
-      flow.toString(),
-      "true",
-      "Template flow not found"
-    );
+    //Commenting below code as per the BUG https://celigo.atlassian.net/browse/IO-78629 
+    // only integration would be shown not the flows in home page, this is expected behaviour
+    
+    // await io.homePage.waitForElementAttached("text='TC100370_FTP_TO_FTP'");
+    // const flow = await io.homePage.isVisible("text='TC100370_FTP_TO_FTP'");
+    // await io.assert.expectToBeValue(
+    //   flow.toString(),
+    //   "true",
+    //   "Template flow not found"
+    // );
   });
 });

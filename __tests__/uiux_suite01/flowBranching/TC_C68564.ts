@@ -48,7 +48,8 @@ test.describe(`C68564 Verify user is upload the integration zip file having one 
     await io.connectionPage.click(selectors.basePagePO.SAVE);
     await io.homePage.click(selectors.basePagePO.INSTALL);
     await io.homePage.loadingTime()
-    await io.homePage.clickByText('C68564');
+    // await io.homePage.clickByText('C68564');
+    await io.homePage.click("//a[contains(text(), 'C68564')]");
     const linkUrl = await page.url();
     const match = linkUrl.match(/\/integrations\/(\w+)\/flowBuilder\/(\w+)/);
     testdata.firstString = match[1];
@@ -57,9 +58,12 @@ test.describe(`C68564 Verify user is upload the integration zip file having one 
     await io.homePage.loadingTime()
     await io.homePage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR)
     await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'C68564')
-    await io.homePage.waitForElementAttached("text='C68564'")
-    const flow = await io.homePage.isVisible("text='C68564'")
-    await io.assert.expectToBeValue(flow.toString(), 'true', "Template flow not found")
+    //Commenting below code as per the BUG https://celigo.atlassian.net/browse/IO-78629 
+    // only integration would be shown not the flows in home page, this is expected behaviour
+    
+    // await io.homePage.waitForElementAttached("text='C68564'")
+    // const flow = await io.homePage.isVisible("text='C68564'")
+    // await io.assert.expectToBeValue(flow.toString(), 'true', "Template flow not found")
   });
 });
 
