@@ -4,6 +4,7 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe("C117448 Verify Filter is having Celigo AI", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.flowBuilder.loadingTime();
   });
   test("@Env-All @Zephyr-IO-T18803 C117448 Verify Filter is having Celigo AI", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
