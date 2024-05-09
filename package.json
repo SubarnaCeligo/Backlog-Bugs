@@ -19,7 +19,8 @@
     "test-tags": "npx playwright test --project=PLAYWRIGHT --config=node_modules/@celigo/ui-core-automation/dist/playwright.config.js --grep $TAGS",
     "test:non-tags": "npx playwright test --project=PLAYWRIGHT --config=node_modules/@celigo/ui-core-automation/dist/playwright.config.js --grep-invert $TAGS",
     "test:ci": "rm -rf ./allure-results && npx playwright test --project=PLAYWRIGHT --config=node_modules/@celigo/ui-core-automation/dist/playwright.config.js --grep '@ci'",
-    "help": "node --no-warnings index.js"
+    "help": "node --no-warnings index.js",
+    "zephyr": "tsc && node ./node_modules/@celigo/aut-utilities/dist/src/zephyr/zephyrdriver.js"
   },
   "keywords": [],
   "author": "B Vinay Kumar",
@@ -37,8 +38,9 @@
     }
   },
   "devDependencies": {
-    "@celigo/aut-selectors": "^0.2.88",
-    "@celigo/ui-core-automation": "^0.2.38",
+    "@celigo/aut-selectors": "^0.3.14",
+    "@celigo/aut-utilities": "^0.0.99",
+    "@celigo/ui-core-automation": "^0.2.42",
     "@playwright/test": "1.41.2",
     "allure-playwright": "^2.2.1",
     "inquirer-search-list": "^1.2.6",
@@ -50,6 +52,7 @@
     "figlet": "^1.7.0",
     "husky": "^4.3.8",
     "inquirer": "^7.1.0",
+    "uuid": "^9.0.1",
     "viewport-dimensions": "^0.2.0"
   }
 }

@@ -11,8 +11,7 @@ test.describe("C111397, C111313, C111314, C111318, C111396, C111316, C111399, C1
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.PLUS_BUTTONS);
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.PLUS_BUTTONS, 0);
         await page.getByRole('menuitem', { name: 'Add destination / lookup' }).click();
-        await io.flowBuilder.click("[data-test=HTTP]");
-        //await page.pause();
+        await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
         await io.flowBuilder.clickByText(
             "Look up additional records (per record)"
           );
@@ -35,7 +34,7 @@ test.describe("C111397, C111313, C111314, C111318, C111396, C111316, C111399, C1
 
         await test.step("C111396, C111399, C111397", async () => {
             const option = await page.waitForSelector(`${selectors.flowBuilderPagePO.PATH_TO_MANY_OPTIONS}:has-text("user.items")`);
-            await option.click(); 
+            await option.click();
             await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.ONE_TO_MANY, 'value', 'user.items');
         });
 
@@ -47,5 +46,5 @@ test.describe("C111397, C111313, C111314, C111318, C111396, C111316, C111399, C1
         });
 
     });
-    
+
 });

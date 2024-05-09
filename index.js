@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const {getSubFolders} = require("@celigo/aut-utilities")
+const { getSubFolders } = require("@celigo/aut-utilities")
 const inquirer = require("inquirer");
 const chalk = require("chalk");
 const figlet = require("figlet");
@@ -64,8 +64,9 @@ const askFeatureQuestion = () => {
                 "HTTP2DOT0",
                 "manage_suite",
                 "monitor_suite",
-                "CeligoAI"
-                
+                "CeligoAI",
+                "pricing_model_suite",
+                "onprem"
             ],
             message: "Please Select A Feature:",
         }
@@ -116,12 +117,12 @@ const run = async () => {
             const answers = await askSuiteQuestion(suites);
             const { SUITENAME } = answers;
             suite = SUITENAME;
-            if(suite == "RUN ALL SUITES"){
+            if (suite == "RUN ALL SUITES") {
                 suite = "";
             }
         }
         try {
-            execSync("ENV=dev" + " FEATURE="+feature+ " SUITE=" +suite+ " npm run test", {
+            execSync("ENV=dev" + " FEATURE=" + feature + " SUITE=" + suite + " npm run test", {
                 stdio: "inherit",
             });
         } catch (error) {

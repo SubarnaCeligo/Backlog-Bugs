@@ -5,7 +5,7 @@ test.describe("C118307 - Verify the assignee pill when an error is resolved", ()
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("C118307 - Verify the assignee pill when an error is resolved", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T20081 C118307 - Verify the assignee pill when an error is resolved", async ({ io, page }) => {
 
     //Navigate to default integration
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
@@ -16,14 +16,15 @@ test.describe("C118307 - Verify the assignee pill when an error is resolved", ()
     );
     await io.integrationPage.fill(
       selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
-      "TC_C118307_DND"
+      "TC_C118307_DND_01_DND"
     );
 
     //Wait for search to complete
     await io.integrationPage.waitForElementAttached(selectors.flowBuilderPagePO.ACTIONS_SELECTOR);
 
     //Open the flow
-    await io.flowBuilder.clickByText("TC_C118307_DND");
+    await io.flowBuilder.clickByText("TC_C118307_DND_01_DND");
+    await page.waitForTimeout(10000);
 
     //Open errors dashborad
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
@@ -53,6 +54,5 @@ test.describe("C118307 - Verify the assignee pill when an error is resolved", ()
       hoverText,
       'Pending hovertext is not displayed upon hovering'
     );
-
   });
 });
