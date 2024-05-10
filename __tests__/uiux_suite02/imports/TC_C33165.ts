@@ -9,7 +9,7 @@ test.describe(`C33165 Verify When changes have been made but not yet saved, show
     await io.importsPage.navigateTo(io.data.links.IMPORTS_PAGE_URL);
     await io.importsPage.click(selectors.exportsPagePO.ADD_NEW_RESOURCE);
     await io.homePage.fill(selectors.flowBuilderPagePO.APP_NAME_INPUT, "REST API (HTTP)")
-    await io.importsPage.clickByText("REST API (HTTP)");
+    await io.importsPage.clickByText(selectors.connectionsPagePO.RESTAPI_HTTP);
     await io.importsPage.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
     await io.importsPage.clickByText("3PL CONNECTION");
     await page.locator(selectors.exportsPagePO.NAME).fill("C33165");

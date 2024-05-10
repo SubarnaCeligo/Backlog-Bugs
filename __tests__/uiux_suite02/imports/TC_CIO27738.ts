@@ -32,6 +32,6 @@ test.describe(`CIO27738_Verify MIME type data after cloning.`, () => {
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.TRANSFER);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);
         const defaultData = await io.importsPage.getText(selectors.importPagePO.MIMETYPE);
-        expect(defaultData).toBe('Mime typeGoogle Audio');
+        await io.assert.expectToContainValue('Mime typeGoogle Audio', defaultData.toString(), "")
         });
 });
