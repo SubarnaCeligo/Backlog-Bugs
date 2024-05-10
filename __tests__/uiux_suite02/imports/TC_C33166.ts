@@ -8,7 +8,11 @@ test.describe(`C33166 Verify save saveAndClose close button are present in foote
     page
   }) => {
     await io.flowBuilder.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
-    await io.flowBuilder.clickByText("Automation Flows");
+    await io.homePage.loadingTime()
+    await io.homePage.fill(selectors.homePagePO.SEARCH_INTEGRATION_WDIO, "Automation Flows")
+    await io.homePage.clickByText("Automation Flows")
+    await io.homePage.loadingTime()
+    await io.homePage.fill(selectors.flowBuilderPagePO.SEARCH, "C33166")
     const testCase = page.getByText("C33166").first();
     try {
       await testCase.waitFor({ state: "visible", timeout: 5000 });
