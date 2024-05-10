@@ -3,15 +3,13 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C68492 Verify user is able to clone the integration from Sandbox env. having multiple flows with enabled scheduling", () =>{
 
-    test("@Env-QA C68492 Verify user is able to clone the integration from Sandbox env. having multiple flows with enabled scheduling", async({
+    test("@Env-All C68492 Verify user is able to clone the integration from Sandbox env. having multiple flows with enabled scheduling", async({
                io,
                 page
               }) => {
                 
               await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL)
               await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,"TC_C68492_DND")
-              // await io.homePage.waitForElementAttached(`:has-text("TC_C68492_DND") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
-              // await io.homePage.click(`tbody tr:has-text("TC_C68492_DND") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
               await io.integrationPage.waitForElementAttached("[data-test='openActionsMenu']");
               await io.flowBuilder.clickByText('TC_C68492_DND');
               await io.homePage.click(selectors.homePagePO.CLONE_INTEGRATION)

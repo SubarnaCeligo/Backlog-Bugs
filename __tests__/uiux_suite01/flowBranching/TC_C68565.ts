@@ -2,7 +2,6 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import testdata from "./testdata.json"
 
-
 test.describe(`C68565 Verify user is upload the integration zip file having linear flow (with input/output/mapping/hooks defined) in the template ad able to install the template`, () => {
   test.beforeEach(async ({ io }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
@@ -16,7 +15,7 @@ test.describe(`C68565 Verify user is upload the integration zip file having line
     );
 
   });
-  test(`C68565 Verify user is upload the integration zip file having linear flow (with input/output/mapping/hooks defined) in the template ad able to install the template`, async ({
+  test(`@Env-All C68565 Verify user is upload the integration zip file having linear flow (with input/output/mapping/hooks defined) in the template ad able to install the template`, async ({
     io,
     page
   }) => {

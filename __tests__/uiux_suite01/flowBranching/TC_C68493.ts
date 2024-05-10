@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C68493 Verify user is able to clone the integration from Sandbox env. having multiple flows with enabled scheduling", () => {
-  test("@Env-QA C68493 Verify user is able to clone the integration from Sandbox env. having multiple flows with enabled scheduling", async ({
+  test("@Env-all C68493 Verify user is able to clone the integration from Sandbox env. having multiple flows with enabled scheduling", async ({
     io, page
   }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);

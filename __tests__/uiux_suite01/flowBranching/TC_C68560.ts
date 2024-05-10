@@ -13,7 +13,7 @@ test.describe(`C68560 Verify user is upload the ntegration zip file having one l
     );
   });
 
-  test(`C68560 Verify user is upload the ntegration zip file having one linear flow in the template and able to install the template`, async ({
+  test(`@Env-All C68560 Verify user is upload the ntegration zip file having one linear flow in the template and able to install the template`, async ({
     io,
     page
   }) => {

@@ -15,7 +15,7 @@ test.describe(`C68561 Verify user is upload the integration zip file having Mult
     );
 
   });
-  test(`C68561 Verify user is upload the integration zip file having Multiple branched flows in the template and able to install the template`, async ({
+  test(`@Env-All C68561 Verify user is upload the integration zip file having Multiple branched flows in the template and able to install the template`, async ({
     io,
     page
   }) => {

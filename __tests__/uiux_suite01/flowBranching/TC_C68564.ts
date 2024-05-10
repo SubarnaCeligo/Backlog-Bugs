@@ -16,7 +16,7 @@ test.describe(`C68564 Verify user is upload the integration zip file having one 
     );
 
   });
-  test(`C68564 Verify user is upload the integration zip file having one branched flow (with input/output/mapping/hooks defined) in the template ad able to install the template`, async ({
+  test(`@Env-All C68564 Verify user is upload the integration zip file having one branched flow (with input/output/mapping/hooks defined) in the template ad able to install the template`, async ({
     io,
     page
   }) => {
