@@ -41,7 +41,7 @@ test.describe("@Author-ShritiS T284932 - Verify that encrypted data containing e
 
         //Preview
         await io.exportsPage.click(selectors.importPagePO.FETCH_PREVIEW);
-
+        await io.exportsPage.loadingTime()
         //Verify if preview data is masked.
         await io.exportsPage.waitForElementAttached(selectors.exportsPagePO.HTTPREQUEST);
         await io.exportsPage.click(selectors.exportsPagePO.HTTPREQUEST);

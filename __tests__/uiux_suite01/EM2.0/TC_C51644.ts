@@ -11,6 +11,8 @@ test.describe(`C51644 Verify the error rows table header fields displayed in the
     await io.api.runBatchFlowViaAPI("C51644", id);
     const lastRun = page.getByText("Last run");
     await lastRun.waitFor({ state: "visible" });
+    await io.flowBuilder.reloadPage()
+    await io.flowBuilder.loadingTime()
     await page.getByText("1 error").nth(1).click();
     await expect(page.getByText("Message", { exact: true })).toBeVisible({
       timeout: 10000
