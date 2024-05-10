@@ -5,7 +5,7 @@ test.describe('Verify if other file providers should not have MIME type', () => 
     test.beforeEach(async ({ io }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test('Verify if other file providers should not have MIME type ', async({io,page}) => {
+    test('@Env-All Verify if other file providers should not have MIME type ', async({io,page}) => {
         await io.homePage.click(selectors.basePagePO.RESOURCES);
         await io.homePage.clickByText('Imports')
         await io.homePage.clickByText(' Create import')

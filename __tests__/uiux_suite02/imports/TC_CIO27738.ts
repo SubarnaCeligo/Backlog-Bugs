@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import CIO27738 from '@testData/Imports/CIO27738.json';
 
 test.describe(`CIO27738_Verify MIME type data after cloning.`, () => {
-    test(`CIO27738 Verify MIME type data after cloning`, async ({ io, page }) => {
+    test(`@Env-All CIO27738 Verify MIME type data after cloning`, async ({ io, page }) => {
         await io.createResourceFromAPI(CIO27738, "FLOWS");
         await io.homePage.loadingTime()
         

@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C52427 For NS SS2.0 - Verify shipping address sub record is shown for subsidiary record", () => {
-  test("C52427 For NS SS2.0 - Verify shipping address sub record is shown for subsidiary record", async ({io, page}) => {
+  test("@Env-All C52427 For NS SS2.0 - Verify shipping address sub record is shown for subsidiary record", async ({io, page}) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP);

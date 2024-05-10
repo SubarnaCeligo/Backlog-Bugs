@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C30482_Verify support for record type 'price plan' in search criteria and import as well`, () => {
-  test(`C30482_Verify support for record type 'price plan' in search criteria and import as well UI_Backlog`, async ({ io, page}) => {
+  test(`@Env-All C30482_Verify support for record type 'price plan' in search criteria and import as well UI_Backlog`, async ({ io, page}) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP);

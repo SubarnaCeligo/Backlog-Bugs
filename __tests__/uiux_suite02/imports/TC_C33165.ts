@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C33165 Verify When changes have been made but not yet saved, show 3 buttons - Save, Save & close, and Close for edit lookup page`, () => {
-  test(`C33165 Verify When changes have been made but not yet saved, show 3 buttons - Save, Save & close, and Close for edit lookup page`, async ({
+  test(`@Env-All C33165 Verify When changes have been made but not yet saved, show 3 buttons - Save, Save & close, and Close for edit lookup page`, async ({
     io,
     page
   }) => {
