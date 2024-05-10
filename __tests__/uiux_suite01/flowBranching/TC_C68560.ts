@@ -13,7 +13,7 @@ test.describe(`C68560 Verify user is upload the ntegration zip file having one l
     );
   });
 
-  test(`C68560 Verify user is upload the ntegration zip file having one linear flow in the template and able to install the template`, async ({
+  test(`@Env-All C68560 Verify user is upload the ntegration zip file having one linear flow in the template and able to install the template`, async ({
     io,
     page
   }) => {
@@ -55,31 +55,35 @@ test.describe(`C68560 Verify user is upload the ntegration zip file having one l
     );
     await io.homePage.clickByText("Use existing connection");
     await io.homePage.clickByText("Please select");
-    await page
-      .locator(selectors.connectionsPagePO.CONNECTION_LIST_MODAL)
-      .getByText("FTP CONNECTION")
-      .first()
-      .click();
+    let connMap = await io.api.loadConnections();
+    var connId = connMap.get("FTP CONNECTION");
+    await io.connectionPage.selectTextfromDropDown(page, connId)
     await io.connectionPage.click(selectors.basePagePO.SAVE);
 
     await io.homePage.click(selectors.basePagePO.INSTALL);
-    await io.homePage.clickByTextByIndex("TC100370_FTP_TO_FTP", 2);
+    await io.homePage.loadingTime()
+    await io.homePage.click("//a[contains(text(), 'TC100370_FTP_TO_FTP')]");
     const linkUrl = await page.url();
     const match = linkUrl.match(/\/integrations\/(\w+)\/flowBuilder\/(\w+)/);
     testdata.firstString = match[1];
     testdata.secondString = match[2];
 
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.loadingTime()
+    await io.homePage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR)
     await io.homePage.fill(
-      selectors.marketplacePagePO.SEARCH_INTEGRATION,
+      selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
       "TC100370_FTP_TO_FTP"
     );
-    await io.homePage.waitForElementAttached("text='TC100370_FTP_TO_FTP'");
-    const flow = await io.homePage.isVisible("text='TC100370_FTP_TO_FTP'");
-    await io.assert.expectToBeValue(
-      flow.toString(),
-      "true",
-      "Template flow not found"
-    );
+    //Commenting below code as per the BUG https://celigo.atlassian.net/browse/IO-78629 
+    // only integration would be shown not the flows in home page, this is expected behaviour
+    
+    // await io.homePage.waitForElementAttached("text='TC100370_FTP_TO_FTP'");
+    // const flow = await io.homePage.isVisible("text='TC100370_FTP_TO_FTP'");
+    // await io.assert.expectToBeValue(
+    //   flow.toString(),
+    //   "true",
+    //   "Template flow not found"
+    // );
   });
 });
