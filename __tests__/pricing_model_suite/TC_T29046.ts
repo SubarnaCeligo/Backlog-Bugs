@@ -28,7 +28,7 @@ test.describe("T29046 Verify the flow entitlements for platform license for sand
     await page.waitForLoadState("load", { timeout: 60000 });
 
     await io.homePage.addStep("Verifying Endpoints Entitlements.");
-    await page.locator(selectors.connectionsPagePO.FIX_CONNECTION).nth(3);
+    await page.locator(selectors.connectionsPagePO.FIX_CONNECTION).nth(3).click();
     let url = await page.url();
     expect(url).toMatch(/\/sandbox\/endpoints$/);
     await io.myAccountPage.click(
@@ -36,7 +36,7 @@ test.describe("T29046 Verify the flow entitlements for platform license for sand
     );
 
     await io.homePage.addStep("Verifying Flow Entitlements.");
-    await page.locator(selectors.connectionsPagePO.FIX_CONNECTION).nth(3);
+    await page.locator(selectors.connectionsPagePO.FIX_CONNECTION).nth(4).click();
     url = await page.url();
     expect(url).toMatch(/\/sandbox\/flows$/);
     await io.myAccountPage.click(
