@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("T7901_Verify Logo for MariaDB connector in connectors list and connection page.[Exports]", () => {
-    test("T7901_Verify Logo for MariaDB connector in connectors list and connection page.[Exports]", async ({ io, page }) => {
+    test("@Zephyr-IO-T7901 @Env-All @Priority-P3 T7901_Verify Logo for MariaDB connector in connectors list and connection page.[Exports]", async ({ io, page }) => {
       await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
       //await page.click(selectors.basePagePO.RESOURCES);
       await io.homePage.goToMenu("Resources", "Connections");
