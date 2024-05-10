@@ -1,6 +1,6 @@
 {
     "expectedJSON": {
-        "type": "http",
+        "type": "rest",
         "name": "Create_Connection_Slack",
         "assistant": "slack",
         "http": {
