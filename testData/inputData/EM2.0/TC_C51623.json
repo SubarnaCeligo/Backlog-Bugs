@@ -1,0 +1,104 @@
+{
+    "name": "TC_51623",
+    "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "_id": "662a8245b4da91239229a9ea",
+            "createdAt": "2024-04-25T16:18:13.828Z",
+            "lastModified": "2024-04-25T16:18:13.865Z",
+            "name": "AutomationStandalone_DnRXG",
+            "_connectionId": "FTP CONNECTION",
+            "_sourceId": "662a273a265efa2565018987",
+            "apiIdentifier": "e7ec6cdaba",
+            "asynchronous": true,
+            "sandbox": false,
+            "ftp": {
+                "directoryPath": "/io.auto.qa/BVAutoFTP"
+            },
+            "file": {
+                "output": "records",
+                "skipDelete": true,
+                "type": "json",
+                "filter": {
+                    "type": "expression",
+                    "expression": {
+                        "version": "1",
+                        "rules": [
+                            "contains",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "filename"
+                                ]
+                            ],
+                            "NoArrayFieldsIO-34461"
+                        ]
+                    },
+                    "rules": [
+                        "contains",
+                        [
+                            "string",
+                            [
+                                "extract",
+                                "filename"
+                            ]
+                        ],
+                        "NoArrayFieldsIO-34461"
+                    ],
+                    "version": "1"
+                }
+            },
+            "adaptorType": "FTPExport"
+        }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "_id": "662a8245b4da91239229a9f3",
+            "createdAt": "2024-04-25T16:18:13.888Z",
+            "lastModified": "2024-04-25T16:18:13.924Z",
+            "name": "AutomationStandalone_csr4f",
+            "_connectionId": "FTP CONNECTION",
+            "_sourceId": "662a273db4da9123922401f9",
+            "apiIdentifier": "i689e84ff2",
+            "oneToMany": true,
+            "sandbox": false,
+            "file": {
+                "fileName": "file-{{timestamp}}.json",
+                "skipAggregation": false,
+                "type": "json"
+            },
+            "ftp": {
+                "directoryPath": "io.auto.qa/BVAutoFTP",
+                "fileName": "file-{{timestamp}}.json"
+            },
+            "adaptorType": "FTPImport"
+        }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_51623",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+}

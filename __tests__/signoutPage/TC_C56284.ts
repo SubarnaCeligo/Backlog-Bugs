@@ -16,18 +16,20 @@ test.describe("C56284 Verify all the available fields in the Forgot your passwor
       let errorMessage;
       let match;
       while (!match && (Date.now() - startTime) < maxWaitTime) {
-          await page.waitForTimeout(2000); 
-          const pageContent = await page.content();
-          const errorMessageRegex = /Please try again after (\d+) seconds/;
-          match = pageContent.match(errorMessageRegex);
-          if (match && match[1]) {
-              errorMessage = match[0];
-          }
+        await page.waitForTimeout(2000);
+        const pageContent = await page.content();
+        const errorMessageRegex = /Please try again after (\d+) seconds/;
+        match = pageContent.match(errorMessageRegex);
+        if (match && match[1]) {
+          errorMessage = match[0];
+        }
       }
       if (errorMessage) {
-          const waitSeconds = parseInt(match[1]);
-          await page.waitForTimeout(waitSeconds * 1000);
-          await io.signInPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
+        const waitSeconds = parseInt(match[1]);
+        await page.waitForTimeout(waitSeconds * 1000);
+        console.log('Waiting time is', waitSeconds)
+        await io.signInPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
+        console.log('After successfully wait clicked signin')
       }
     }
   })

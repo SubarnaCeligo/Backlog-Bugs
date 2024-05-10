@@ -11,6 +11,8 @@ test.describe("C52048 Verify the Resolved errors tab, when no results are return
     await io.api.runBatchFlowViaAPI("C52048", id);
     const lastRun = page.getByText("Last run");
     await lastRun.waitFor({ state: "visible" });
+    await io.flowBuilder.reloadPage()
+    await io.flowBuilder.loadingTime()
     await page.getByText("1 error").nth(1).click();
     await io.flowBuilder.clickByText("Resolved errors");
     const classification = await page.getByText("Classification").elementHandle();

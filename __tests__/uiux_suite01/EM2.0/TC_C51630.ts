@@ -15,6 +15,8 @@ test.describe(`C51630 Verify the "Previous" & "Next" options in the "Error detai
     await io.api.runBatchFlowViaAPI("C51630", id);
     const lastRun = page.getByText("Last run");
     await lastRun.waitFor({ state: "visible" });
+    await io.flowBuilder.reloadPage()
+    await io.flowBuilder.loadingTime()
     await page.getByText("1 error").nth(1).click();
     await expect(
       page.locator(selectors.flowBuilderPagePO.PREVIOUS_ERROR_BUTTON)

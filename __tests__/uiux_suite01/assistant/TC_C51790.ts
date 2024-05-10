@@ -12,7 +12,7 @@ test.describe(`C51790 Verify 'Can't Find' Link under connection form when toggle
       selectors.settingsPagePO.APP_NAME_INPUT,
       "litmos"
     );
-    await io.connectionPage.loadingTime()
+    await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.LITMOS_CONNECTION);
     await io.connectionPage.click(selectors.connectionsPagePO.LITMOS_CONNECTION);
     await io.assert.verifyElementDisplayedByText(
       "Can't find?",
