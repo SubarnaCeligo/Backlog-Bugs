@@ -29,8 +29,7 @@ test.describe("C118280 Verify the filter feature on resolved errors section by a
 
     //Open errors dashborad
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
-    await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
-
+    await io.homePage.loadingTime();
     //Assign errors
     await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX, 1);
     await io.flowBuilder.click(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
