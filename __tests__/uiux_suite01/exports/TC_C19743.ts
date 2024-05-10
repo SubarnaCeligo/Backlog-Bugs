@@ -20,6 +20,7 @@ test.describe("C19743_Export Panel: Color code Export panel request/response/out
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         // Validating preview text panel colors
         await io.flowBuilder.clickByText('Preview');
+        await io.flowBuilder.loadingTime()
         const previewColor= page.getByText("source").last();
         await expect(previewColor).toHaveCSS("color", "rgb(200, 40, 41)");
     });

@@ -6,7 +6,9 @@ test.describe("C56565 Verify when (input, textarea, date) fieldType is selected 
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.homePage.loadingTime()
     await io.homePage.loadingTime()
+    await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW);
     await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_SOURCE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Confluence cloud');
     await io.flowBuilder.click(selectors.connectionsPagePO.CONFLUENCE_CLOUD_CONNECTION);
@@ -16,7 +18,7 @@ test.describe("C56565 Verify when (input, textarea, date) fieldType is selected 
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.reloadPage();
-    await io.homePage.loadingTime()
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_SOURCE)
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
     await io.homePage.loadingTime()
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Confluence cloud');

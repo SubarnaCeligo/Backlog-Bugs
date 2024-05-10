@@ -8,6 +8,8 @@ test.describe("C51643 Verify the default view by clicking on the Error count in 
         await io.api.runBatchFlowViaAPI('TC_C51643', errorFlowId);
         const lastRun = page.getByText('Last run')
         await lastRun.waitFor({state: 'visible', timeout: 180000});
+        await io.homePage.reloadPage()
+        await io.homePage.loadingTime()
         await io.flowBuilder.clickByTextByIndex("1 error", 1);
         await expect(page.locator(selectors.flowBuilderPagePO.EM2DOT0PO.OPEN_ERRORS)).toHaveAttribute('aria-selected', 'true');
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2DOT0PO.OPEN_ERRORS_TABLE_ROWS);
