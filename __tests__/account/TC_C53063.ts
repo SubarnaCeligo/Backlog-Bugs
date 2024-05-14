@@ -31,7 +31,7 @@ test.describe("C53063 Verify that the 30 and 60 days option is enable for licens
         .isVisible();
       if (rateLimitErrorsVisibility) {
         let rateLimitErrors = await page.locator('[id="error-icon"]~div').textContent();
-        let rateLimitErrorTime = Number(String(rateLimitErrors).match(/\d/g).join(""));
+        let rateLimitErrorTime = parseInt(String(rateLimitErrors).match(/\d/g).join(""));
         await io.flowBuilder.delay(1000 * rateLimitErrorTime);
         await io.loginPage.click(selectors.basePagePO.SUBMIT);
         await io.flowBuilder.loadingTime();
