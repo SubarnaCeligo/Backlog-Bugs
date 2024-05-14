@@ -36,16 +36,21 @@ test.describe("C34489 - verify the request logs in a list are sorted by timestam
     await io.mappings.click(selectors.basePagePO.RUNFLOW);
 
     // wait for atleast 50 logs to be present
-    await page.waitForFunction(
-      () => {
-        const element: HTMLDivElement = document.querySelector(
-          "[data-test='account-dashboard-open-errors']"
-        );
-        return element && parseInt(element.innerText) > 50;
-      },
-      { timeout: 1200000 }
-    );
-
+    // await page.waitForFunction(
+    //   () => {
+    //     const element: HTMLDivElement = document.querySelector(
+    //       ""
+    //     );
+    //     return element && parseInt(element.innerText) > 50;
+    //   },
+    //   { timeout: 1200000 }
+    // );
+    await io.homePage.loadingTime()
+    await page.getByText("Run in progress").waitFor({ state: "hidden", timeout:360000 });
+    let error = await page.$$("td> button")
+    let errorText = await error[1].textContent()
+    errorText.replace(" errors", "")
+    await expect(errorText).toBeGreaterThan(50)
     await io.importsPage.click(selectors.importPagePO.CLICKIMPORT);
     await io.importsPage.click(selectors.flowBuilderPagePO.VIEW_DEBUG_LOG);
     await io.importsPage.loadingTime();

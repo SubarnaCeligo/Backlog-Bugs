@@ -9,7 +9,7 @@ test.describe(`TC_C120065_C120066_C120067_C120076_C120078_C120079_C120080_C12006
 
   test(`@Env-All  @Zephyr-IO-T18666 TC_C120065_C120066_C120067_C120076_C120078_C120079_C120080_C120068_C120081_C120090_C120092_C120091_C120093_C120094`, async ({ io, page }) => {
     await io.createResourceFromAPI(testData, "FLOWS");
-
+    await io.homePage.loadingTime()
     // TC_C120068 - Verify if The parsed response should be available for the next steps within the flow builder
     await io.flowBuilder.click(selectors.exportsPagePO.EXPORT_ADDPROCESSOR_BUTTON);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_TRANSFORMATION);
