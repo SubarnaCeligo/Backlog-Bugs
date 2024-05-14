@@ -31,7 +31,7 @@ test.describe(`@Author-ashu-g TC_C23450 Trying to create a connection at the exp
     await io.homePage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
     await io.homePage.fillByIndex(selectors.basePagePO.NAME, 'Zendesk Manage Connection TC_C23450', 1);
     await io.homePage.click(selectors.flowBuilderPagePO.ZENDESKSUPPORT);
-    await io.homePage.fill("[data-test='settings.subdomain'] input", 'celigoqa');
+    await io.homePage.fill(selectors.connectionsPagePO.ZENDESK_SUBDOMAIN, 'celigoqa');
     await io.homePage.fill(selectors.connectionsPagePO.USERNAME, 'username');
     await io.homePage.fill(selectors.connectionsPagePO.PASSWORD, 'test');
     await io.homePage.click(selectors.basePagePO.SAVE_AND_CLOSE);
