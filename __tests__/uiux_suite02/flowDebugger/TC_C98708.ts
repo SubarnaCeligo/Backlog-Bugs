@@ -5,6 +5,7 @@ import C98708 from '@testData/FlowDebugger/C98708.json';
 test.describe("@Author-Yashveer C98708 Verify screen should not be unresponsive when clicked on erros from integration page", () => {
     test("@Zephyr-IO-T1126 @Env-All C98708 Verify screen should not be unresponsive when clicked on erros from integration page", async ({ io, page }) => {
         await io.createResourceFromAPI(C98708, "FLOWS");
+        await io.flowBuilder.loadingTime();
         await io.flowBuilder.waitForElementAttached(selectors.basePagePO.RUNFLOW);
         await io.homePage.click(selectors.basePagePO.RUNFLOW);
         await io.homePage.addStep("*** Running the flow ***");
