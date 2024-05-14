@@ -51,6 +51,7 @@ test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API
         const openspecname = await io.flowBuilder.getText(selectors.flowBuilderPagePO.APIMOPENSPECWARNINGTITLE);
         await io.assert.expectToBeTrue(openspecname.toString().includes("OpenAPI Specification (OAS)"), "OpenAPI Specification name doesn't match");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMPUSH);
+        await io.flowBuilder.delay(15000);
         await io.homePage.loadingTime();
         await io.homePage.loadingTime()
         await page.waitForTimeout(5000);
@@ -67,7 +68,9 @@ test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API
         const uniqueString = uuidv4()
 
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
+        await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.RESOURCES);
         await io.flowBuilder.click(selectors.basePagePO.EXPORTS);
         await io.homePage.loadingTime();
@@ -100,7 +103,9 @@ test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API
         const uniqueString = uuidv4()
 
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
+        await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.RESOURCES);
         await io.flowBuilder.click(selectors.basePagePO.EXPORTS);
         await io.homePage.loadingTime();
@@ -123,6 +128,7 @@ test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API
         await io.flowBuilder.click(selectors.importPagePO.HTTPPOSTMETHOD);
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APIMFLOW, uniqueString);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMPUSH);
+        await io.flowBuilder.delay(15000);
         await io.homePage.loadingTime();
         await io.homePage.loadingTime()
         await page.waitForTimeout(5000);
@@ -139,7 +145,9 @@ test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API
         const uniqueString = uuidv4()
 
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
+        await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.RESOURCES);
         await io.flowBuilder.click(selectors.basePagePO.EXPORTS);
         await io.homePage.loadingTime();
@@ -164,6 +172,7 @@ test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API
         await io.flowBuilder.click(selectors.importPagePO.HTTPPOSTMETHOD);
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APIMFLOW, uniqueString);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMPUSH);
+        await io.flowBuilder.delay(15000);
         await io.homePage.loadingTime();
         await io.homePage.loadingTime()
         await page.waitForTimeout(5000);
@@ -180,6 +189,7 @@ test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API
         const uniqueString = uuidv4()
 
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.TOOLS);
@@ -210,6 +220,7 @@ test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API
         await io.flowBuilder.click(selectors.importPagePO.HTTPDELETEMETHOD);
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APIMFLOW, uniqueString);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMPUSH);
+        await io.flowBuilder.delay(15000);
         await io.homePage.loadingTime();
         await io.homePage.loadingTime()
         await page.waitForTimeout(5000);
@@ -265,6 +276,7 @@ test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMREFRESHSELECT);
         await page.setDefaultTimeout(9000);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMPUSH);
+        await io.flowBuilder.delay(15000);
         await io.homePage.loadingTime();
         await io.homePage.loadingTime();
         await page.waitForTimeout(5000);
@@ -308,6 +320,7 @@ test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API
         await io.flowBuilder.click(selectors.importPagePO.HTTPPOSTMETHOD);
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APIMFLOW, uniqueString);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.APIMPUSH);
+        await io.flowBuilder.delay(15000);
         await io.homePage.loadingTime();
         await io.homePage.loadingTime()
         await page.waitForTimeout(5000);

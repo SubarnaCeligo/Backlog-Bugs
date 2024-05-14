@@ -1,8 +1,8 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe( "Verify the email notifications received when SSO Client has been modified.", () => {
-    test("@Env-QA @Env-STAGING Verify the email notifications received when SSO Client has been modified.", async ({ io, page, context }) => {
+test.describe( "C26256 Verify the email notifications received when SSO Client has been modified.", () => {
+    test("@Zephyr-IO-T4999 @Env-All @Priority-P2 C26256 Verify the email notifications received when SSO Client has been modified.", async ({ io, page, context }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
 
         await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);        
@@ -30,7 +30,6 @@ test.describe( "Verify the email notifications received when SSO Client has been
         await io.flowBuilder.fill(selectors.basePagePO.ORGIDPINPUT,"abc12");
         await io.homePage.loadingTime();
         await io.myAccountPage.click(selectors.basePagePO.MFA_SAVE);
-
 
         let validateKeywords=await io.emailVal.validateKeywordsInMail(
             "[integrator.io] SSO setting has been modified", ['to see the latest SSO configuration'],"pwqa1",

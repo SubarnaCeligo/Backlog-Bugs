@@ -4,9 +4,11 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe("C119207 Verify Celigo AI panel enhancements", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.flowBuilder.loadingTime();
   });
   test("@Env-All @Zephyr-IO-T18882 C119207 Verify Celigo AI panel enhancements", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.clickByText('Filter_DND');
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
 
@@ -42,8 +44,8 @@ test.describe("C119207 Verify Celigo AI panel enhancements", () => {
     await page.keyboard.press('Enter');
     await page.keyboard.press('Tab');
     await page.keyboard.type('test');
-
-    await (page.locator(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR).nth(-1)).click();
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
+    // await (page.locator(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR).nth(-1)).click();
     await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,"placeholder","Tell me about your function here... I will apply your request to the existing function unless you tell me to replace it");
 
     await io.flowBuilder.click(selectors.flowBuilderPagePO.SCRIPT_LIST_DROPDOWN_ID);

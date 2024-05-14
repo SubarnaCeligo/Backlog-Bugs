@@ -6,6 +6,7 @@ test.describe("TC_T833 Verify user is able to edit/delete the Related lists in S
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Tools", "Flow builder");
+    await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.ADD_SOURCE);
     await io.homePage.click(selectors.flowBuilderPagePO.ADD_SOURCE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.APPLICATION);
     await io.flowBuilder.clickByTextByIndex("Salesforce", 0, { exact: false });
