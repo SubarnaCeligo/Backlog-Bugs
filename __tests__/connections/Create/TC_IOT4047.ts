@@ -25,6 +25,8 @@ test.describe(`@Author-MayankOmar IO-T4047  verify 'none' tile of production, th
     await io.homePage.click(selectors.homePagePO.SANDBOX_BUTTON);
     await io.homePage.addStep("*** Navigated to Sandbox Env ***");
     await io.connectionPage.verifyConnectionData(io,page, "HTTP CONNECTION PRODUCTION NEW");
+    await io.homePage.loadingTime();
+    await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
   });
 
     test("IO-T4047 @Epic-IO-62000 @Zephyr-IO-T4047  @Env-All Verify after adding a connection on Standalone flow in Sandbox environment  does not reflect in Production environment ", async ({
@@ -42,5 +44,7 @@ test.describe(`@Author-MayankOmar IO-T4047  verify 'none' tile of production, th
       await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
       await io.homePage.addStep("*** Navigated to Production Env ***");
       await io.connectionPage.verifyConnectionData(io, page, "HTTP CONNECTION SANDBOX NEW");
+      await io.homePage.loadingTime();
+      await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
     });
 });
