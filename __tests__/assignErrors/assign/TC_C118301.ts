@@ -19,6 +19,7 @@ test.describe("C118301 - Verify the assignee pill when the user is removed from 
 
     //Navigate to default integration
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+    await io.homePage.loadingTime();
 
     // Search for a flow
     await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
@@ -29,7 +30,18 @@ test.describe("C118301 - Verify the assignee pill when the user is removed from 
 
     //Open the flow
     await io.flowBuilder.clickByText('TC_C118301_DND');
-
+    await io.homePage.loadingTime();
+    let accountErrorsDashBoardIsDisplayed = await page.locator(
+      selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
+    );
+    if (accountErrorsDashBoardIsDisplayed.isHidden()) {
+      await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
+      await io.flowBuilder.delay(1000 * 60 * 4);
+      await accountErrorsDashBoardIsDisplayed.waitFor({
+        state: "visible",
+        timeout: 180000
+      });
+    }
     //Open errors dashborad
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
 
@@ -87,6 +99,5 @@ test.describe("C118301 - Verify the assignee pill when the user is removed from 
     //Delete user from the account
     const endPoint = "v1/ashares/" + UserId
     await io.api.deleteCall(endPoint);
-
   });
 });

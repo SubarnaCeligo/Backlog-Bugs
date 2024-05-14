@@ -4,6 +4,7 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe("C118277 Verify filtering by 'Unassigned' returns only unassigned errors", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.flowBuilder.loadingTime();
   });
   test("@Env-All @Zephyr-IO-T20059 C118277 Verify filtering by 'Unassigned' returns only unassigned errors", async ({
     io,
@@ -11,6 +12,7 @@ test.describe("C118277 Verify filtering by 'Unassigned' returns only unassigned 
   }) => {
     //Navigate to default integration
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+    await io.flowBuilder.loadingTime();
 
     // Search for a flow
     await io.integrationPage.waitForElementAttached(
@@ -23,7 +25,19 @@ test.describe("C118277 Verify filtering by 'Unassigned' returns only unassigned 
 
     //Open the flow
     await io.flowBuilder.clickByText("Filter_Automation04_DND");
+    await io.homePage.loadingTime();
 
+    let accountErrorsDashBoardIsDisplayed = await page.locator(
+      selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
+    );
+    if (accountErrorsDashBoardIsDisplayed.isHidden()) {
+      await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
+      await io.flowBuilder.delay(1000 * 60 * 4);
+      await accountErrorsDashBoardIsDisplayed.waitFor({
+        state: "visible",
+        timeout: 180000
+      });
+    }
     //Open errors dashborad
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
 

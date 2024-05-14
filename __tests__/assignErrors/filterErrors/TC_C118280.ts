@@ -1,33 +1,34 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
+import C118280 from "@testData/assignErrors/C118280.json"
 
 test.describe("C118280 Verify the filter feature on resolved errors section by applying both user and tag filter", () => {
+  let flowId;
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.loadingTime();
   });
+
+  test.afterEach(async ({ io }) => {
+    await io.api.deleteFlowViaAPI(flowId);
+  });
+
   test("@Env-All @Zephyr-IO-T20062 C118280 Verify the filter feature on resolved errors section by applying both user and tag filter", async ({
     io,
     page,
   }) => {
-    //Navigate to default integration
-    await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
-  
-    // Search for a flow
-    await io.integrationPage.waitForElementAttached(
-      selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR
-    );
-    await io.integrationPage.fill(
-      selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
-      "Filter_Automation02_ResolvedErrors_DND"
-    );
+    flowId = await io.createResourceFromAPI(C118280, "FLOWS");
+    await io.homePage.navigateTo(process.env["IO_Integration_URL"] + "flowBuilder/" + flowId);
 
-    //Wait for search to complete
-    await io.integrationPage.waitForElementAttached(selectors.flowBuilderPagePO.ACTIONS_SELECTOR);
+    await io.flowBuilder.loadingTime();
 
-    //Open the flow
-    await io.flowBuilder.clickByText("Filter_Automation02_ResolvedErrors_DND");
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
 
-    //Open errors dashborad
+    await io.flowBuilder.delay(1000 * 60 * 4);
+
+    //Open errors dashboard
+    let dashboard = page.locator(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
+    await dashboard.waitFor({state: 'visible', timeout: 180000});
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
     await io.homePage.loadingTime();
     //Assign errors
@@ -47,7 +48,6 @@ test.describe("C118280 Verify the filter feature on resolved errors section by a
 
     // await page.pause();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RESOLVED_ERRORS_TAB);
-    await io.flowBuilder.reloadPage();
 
     //Click on Filter Icon
     await io.flowBuilder.waitForElementAttached(selectors.filterErrorTag.ARIALABELFILTERERROR);
@@ -60,11 +60,8 @@ test.describe("C118280 Verify the filter feature on resolved errors section by a
     await io.flowBuilder.clickByText("Apply");
     await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL);
 
-    const isTagDisplayed = await io.flowBuilder.isVisible('text="Admin_Tag"');
-    await io.assert.expectToBeTrue(isTagDisplayed, "Admin_Tag not displayed");
-    const isUserDisplayed = await io.flowBuilder.isVisible('text="Assign Error Owner"');
-    await io.assert.expectToBeTrue(isUserDisplayed, "Assign Error Owner not displayed");
-
-
+    await io.assert.verifyElementTextByIndex(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL, "Assign Error Owner", 0);
+    const isUserDisplayed = await io.flowBuilder.isVisible('text=Admin');
+    await io.assert.expectToBeTrue(isUserDisplayed, "Admin Tag not displayed");
   });
 });

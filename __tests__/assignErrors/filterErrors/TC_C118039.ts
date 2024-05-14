@@ -4,6 +4,7 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe("C118039 Verify that clicking on 'Clear filter' button closes the filter dropdown and checks 'All errors'", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.flowBuilder.loadingTime();
   });
  
 test("@Env-All @Zephyr-IO-T20057 C118039 Verify that clicking on 'Clear filter' button closes the filter dropdown and checks 'All errors'", async ({
@@ -12,6 +13,7 @@ test("@Env-All @Zephyr-IO-T20057 C118039 Verify that clicking on 'Clear filter' 
 }) => {
   //Navigate to default integration
   await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+  await io.flowBuilder.loadingTime();
 
   // Search for a flow
   await io.integrationPage.waitForElementAttached(
@@ -24,6 +26,19 @@ test("@Env-All @Zephyr-IO-T20057 C118039 Verify that clicking on 'Clear filter' 
  
   //Open the flow
   await io.flowBuilder.clickByText("Filter_Automation02_DND");
+  await io.homePage.loadingTime();
+
+  let accountErrorsDashBoardIsDisplayed = await page.locator(
+    selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
+  );
+  if (accountErrorsDashBoardIsDisplayed.isHidden()) {
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
+    await io.flowBuilder.delay(1000 * 60 * 4);
+    await accountErrorsDashBoardIsDisplayed.waitFor({
+      state: "visible",
+      timeout: 180000
+    });
+  }
 
   //Open errors dashborad
   await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);

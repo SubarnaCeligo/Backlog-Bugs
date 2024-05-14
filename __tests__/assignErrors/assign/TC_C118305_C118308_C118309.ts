@@ -4,6 +4,7 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe("C118305_C118308_C118309-Verify Assign error flyout when errors assigned to single user are selected ", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.loadingTime();
   });
   test("@Env-All @Zephyr-IO-T20079 @Zephyr-IO-T20082 @Zephyr-IO-T20083 Verify Assign error flyout when errors assigned to single user are selected ", async ({ io, page }) => {
 
@@ -19,7 +20,19 @@ test.describe("C118305_C118308_C118309-Verify Assign error flyout when errors as
 
    //Open the flow
    await io.flowBuilder.clickByText("TC_C118305_DND");
+   await io.homePage.loadingTime();
    await io.flowBuilder.loadingTime();
+   let accountErrorsDashBoardIsDisplayed = await page.locator(
+    selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
+  );
+  if (accountErrorsDashBoardIsDisplayed.isHidden()) {
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
+    await io.flowBuilder.delay(1000 * 60 * 4);
+    await accountErrorsDashBoardIsDisplayed.waitFor({
+      state: "visible",
+      timeout: 180000
+    });
+  }
 
    //Open errors dashborad
    await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);

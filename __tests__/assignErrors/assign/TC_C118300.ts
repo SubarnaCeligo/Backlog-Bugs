@@ -4,11 +4,13 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe("C118300 - Verify the assignee pill when the user is disabled", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.loadingTime();
   });
   test("@Env-All @Zephyr-IO-T20074 C118300 - Verify the assignee pill when the user is disabled", async ({ io, page }) => {
 
     //Navigate to default integration
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+    await io.homePage.loadingTime();
 
     // Search for a flow
     await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
@@ -19,6 +21,18 @@ test.describe("C118300 - Verify the assignee pill when the user is disabled", ()
 
     //Open the flow
     await io.flowBuilder.clickByText('TC_C118300_DND');
+    await io.homePage.loadingTime();
+    let accountErrorsDashBoardIsDisplayed = await page.locator(
+      selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
+    );
+    if (accountErrorsDashBoardIsDisplayed.isHidden()) {
+      await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
+      await io.flowBuilder.delay(1000 * 60 * 4);
+      await accountErrorsDashBoardIsDisplayed.waitFor({
+        state: "visible",
+        timeout: 180000
+      });
+    }
 
     //Open errors dashborad
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
@@ -62,6 +76,5 @@ test.describe("C118300 - Verify the assignee pill when the user is disabled", ()
     await io.flowBuilder.click(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
     await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
     await io.flowBuilder.clickByText('Clear assignment');
-
   });
 });
