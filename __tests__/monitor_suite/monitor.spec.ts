@@ -1,7 +1,6 @@
 import { filterTestCases } from "@celigo/aut-utilities";
 var testCases = [
   "C1569",
-  "C21309",
   "C106831",
   "C24939",
   "C24946",
@@ -17,6 +16,10 @@ var testCases = [
   "C24948",
   "C24950",
   "C24970",
+  "C1560",
+  "C21309",
+  "C21310",
+  // "C21311", //Not valid with new UI changes so commenting this
   "C93693",
   "C93697",
   "C93701",
