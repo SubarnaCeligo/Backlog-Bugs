@@ -3,8 +3,12 @@ import * as selectors from "@celigo/aut-selectors";
 import C51628 from '@testData/EM2.0/C51628.json';
 
 test.describe("C51628 Verify the displayed buttons by editing the retry data in the 'Error details' drawer>'Edit retry data'tab", () => {
+  let id
+  test.afterEach(async ({ io }) => {
+      await io.api.deleteFlowsWithId(id)
+  });
   test("C51628 Verify the displayed buttons by editing the retry data in the 'Error details' drawer>'Edit retry data'tab", async ({io, page}) => {
-      const id = await io.createResourceFromAPI(C51628,"FLOWS");
+      id = await io.createResourceFromAPI(C51628,"FLOWS");
       await io.api.runBatchFlowViaAPI('TC_C51628', id);
       const lastRun = page.getByText('Last run');
       await lastRun.waitFor({state: 'visible', timeout: 180000});

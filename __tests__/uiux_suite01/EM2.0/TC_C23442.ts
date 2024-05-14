@@ -3,8 +3,15 @@ import * as selectors from "@celigo/aut-selectors";
 import C51656 from "@testData/EM2.0/TC_ C51656.json"
 
 test.describe("C23442 EM1.0 Timestamp on run dashboard does not follow user time preference setting", () => {
+    let errorFlowId
+    test.afterEach(async ({ io }) => {
+       let status =  await io.api.deleteFlowsWithId(errorFlowId)
+       console.log(status)
+       
+    });
+
     test("C23442 EM1.0 Timestamp on run dashboard does not follow user time preference setting", async ({io, page}) => {
-        const errorFlowId = await io.createResourceFromAPI(C51656, "FLOWS");
+        errorFlowId = await io.createResourceFromAPI(C51656, "FLOWS");
         await io.homePage.loadingTime()
         await io.api.runBatchFlowViaAPI('TC_C51656', errorFlowId);
         await io.homePage.loadingTime()

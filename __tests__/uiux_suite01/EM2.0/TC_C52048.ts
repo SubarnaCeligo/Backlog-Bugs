@@ -3,11 +3,15 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/EM2.0/C52048.json";
 
 test.describe("C52048 Verify the Resolved errors tab, when no results are returned for filter selections", () => {
+  let id
+  test.afterEach(async ({ io }) => {
+    await io.api.deleteFlowsWithId(id)
+  });
   test("C52048 Verify the Resolved errors tab, when no results are returned for filter selections", async ({
     io,
     page
   }) => {
-    const id = await io.createResourceFromAPI(testData, "FLOWS");
+    id = await io.createResourceFromAPI(testData, "FLOWS");
     await io.api.runBatchFlowViaAPI("C52048", id);
     const lastRun = page.getByText("Last run");
     await lastRun.waitFor({ state: "visible" });

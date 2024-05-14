@@ -3,6 +3,10 @@ import * as selectors from "@celigo/aut-selectors";
 import C50859 from '@testData/Flows/C50859.json';
 
 test.describe("C50859 Verify the displayed default page in 'Error Dashboard' when there is no error in the flow", () => {
+    let errorFlowId
+    test.afterEach(async ({ io }) => {
+      await io.api.deleteFlowsWithId(errorFlowId)
+    });
     test("C50859 Verify the displayed default page in 'Error Dashboard' when there is no error in the flow", async ({io, page}) => {
         const id = await io.createResourceFromAPI(C50859, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C50859', id);

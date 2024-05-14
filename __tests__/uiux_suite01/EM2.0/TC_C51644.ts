@@ -3,11 +3,15 @@ import * as selectors from "@celigo/aut-selectors";
 import flowJSON from "@testData/EM2.0/C51644.json"
 
 test.describe(`C51644 Verify the error rows table header fields displayed in the New View`, () => {
+  let id
+  test.afterEach(async ({ io }) => {
+    await io.api.deleteFlowsWithId(id)
+  });
   test(`C51644 Verify the error rows table header fields displayed in the New View`, async ({
     io,
     page
   }) => {
-    const id = await io.createResourceFromAPI(flowJSON, "FLOWS");
+    id = await io.createResourceFromAPI(flowJSON, "FLOWS");
     await io.api.runBatchFlowViaAPI("C51644", id);
     const lastRun = page.getByText("Last run");
     await lastRun.waitFor({ state: "visible" });

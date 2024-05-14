@@ -4,6 +4,10 @@ import flowJSON from "@testData/EM2.0/C51669.json";
 
 
 test.describe(`C51669 Verify by closing the "Error details" drawer without saving the changes made on "Edit Retry data"tab`, () => {
+  let id
+  test.afterEach(async ({ io }) => {
+    await io.api.deleteFlowsWithId(id)
+  });  
   test(`C51669 Verify by closing the "Error details" drawer without saving the changes made on "Edit Retry data"tab`, async ({
     io,
     page
@@ -11,7 +15,7 @@ test.describe(`C51669 Verify by closing the "Error details" drawer without savin
     // await io.flowBuilder.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");
     // await io.flowBuilder.clickByText("Automation Flows");
     // await io.flowBuilder.clickByText("C51669");
-    const id = await io.createResourceFromAPI(flowJSON, "FLOWS");
+    id = await io.createResourceFromAPI(flowJSON, "FLOWS");
     await io.api.runBatchFlowViaAPI("C51669", id);
     const lastRun = page.getByText("Last run");
     await lastRun.waitFor({ state: "visible" });

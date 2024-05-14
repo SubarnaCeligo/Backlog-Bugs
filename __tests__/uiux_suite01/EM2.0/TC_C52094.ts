@@ -1,13 +1,17 @@
-import {expect, test} from "@celigo/ui-core-automation";
+import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import C52094 from "@testData/EM2.0/C52094.json"
 
 test.describe("C52094 Verify the 'Add to Batch' check box option in both 'Current View' & 'New view'", () => {
-    test("C52094 Verify the 'Add to Batch' check box option in both 'Current View' & 'New view'", async ({io, page}) => {
-        const errorFlowId = await io.createResourceFromAPI(C52094, "FLOWS");
+    let errorFlowId
+    test.afterEach(async ({ io }) => {
+        await io.api.deleteFlowsWithId(errorFlowId)
+    });
+    test("C52094 Verify the 'Add to Batch' check box option in both 'Current View' & 'New view'", async ({ io, page }) => {
+        errorFlowId = await io.createResourceFromAPI(C52094, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C52094', errorFlowId);
         const lastRun = page.getByText('Last run')
-        await lastRun.waitFor({state: 'visible', timeout: 180000});
+        await lastRun.waitFor({ state: 'visible', timeout: 180000 });
         await io.flowBuilder.reloadPage()
         await io.flowBuilder.loadingTime()
         await io.flowBuilder.clickByTextByIndex("1 error", 1);

@@ -3,8 +3,12 @@ import * as selectors from "@celigo/aut-selectors";
 import C51643 from "@testData/EM2.0/C51643.json"
 
 test.describe("C51643 Verify the default view by clicking on the Error count in the (within a flow bubble, flow step drawer, run console, or run history)", () => {
+    let errorFlowId
+    test.afterEach(async ({ io }) => {
+        await io.api.deleteFlowsWithId(errorFlowId)
+    });
     test("C51643 Verify the default view by clicking on the Error count in the (within a flow bubble, flow step drawer, run console, or run history)", async ({io, page}) => {
-        const errorFlowId = await io.createResourceFromAPI(C51643, "FLOWS");
+        errorFlowId = await io.createResourceFromAPI(C51643, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51643', errorFlowId);
         const lastRun = page.getByText('Last run')
         await lastRun.waitFor({state: 'visible', timeout: 180000});

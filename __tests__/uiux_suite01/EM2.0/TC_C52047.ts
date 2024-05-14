@@ -3,8 +3,12 @@ import * as selectors from "@celigo/aut-selectors";
 import C51661 from '@testData/EM2.0/TC_C51661.json';
 
 test.describe("C52047 Verify the Open errors tab, when no results are returned for filter selections in both Current View & New View", () => {
+    let id
+    test.afterEach(async ({ io }) => {
+        await io.api.deleteFlowsWithId(id)
+    });
     test("C52047 Verify the Open errors tab, when no results are returned for filter selections in both Current View & New View", async ({io, page}) => {
-        const id = await io.createResourceFromAPI(C51661,"FLOWS");
+        id = await io.createResourceFromAPI(C51661,"FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51661', id);
         const lastRun = page.getByText('Last run');
         await lastRun.waitFor({state: 'visible',timeout:60000*3});

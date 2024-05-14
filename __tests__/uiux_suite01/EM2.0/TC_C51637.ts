@@ -3,8 +3,12 @@ import * as selectors from "@celigo/aut-selectors";
 import C51637 from '@testData/EM2.0/C51637.json';
 
 test.describe("C51637 Verify the drawer title, tab titles and tab order in the 'Resolved Error' drawer", () => {
-    test("C51637 Verify the drawer title, tab titles and tab order in the 'Resolved Error' drawer", async ({io, page}) => {
-        const errorFlowId = await io.createResourceFromAPI(C51637, "FLOWS");
+  let errorFlowId
+  test.afterEach(async ({ io }) => {
+      await io.api.deleteFlowsWithId(errorFlowId)
+  }); 
+  test("C51637 Verify the drawer title, tab titles and tab order in the 'Resolved Error' drawer", async ({io, page}) => {
+        errorFlowId = await io.createResourceFromAPI(C51637, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51637', errorFlowId);
         const lastRun = page.getByText('Last run')
         await lastRun.waitFor({state: 'visible', timeout: 180000});

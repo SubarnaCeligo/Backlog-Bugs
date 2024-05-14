@@ -9,8 +9,12 @@ test.describe("C107439_C106998 Verify the Sort Errors in new error view in Ascen
     playload.showRelativeDateTime = false;
     const resp = await io.api.putCall('v1/preferences',playload);
   });
+  let errorFlowId
+  test.afterEach(async ({ io }) => {
+    await io.api.deleteFlowsWithId(errorFlowId)
+  });
   test("C107439_C106998 Verify user can able to toggle sorting arrow and view changes", async ({ io, page }) => {
-    const errorFlowId = await io.createResourceFromAPI(C107439, "FLOWS");
+    errorFlowId = await io.createResourceFromAPI(C107439, "FLOWS");
     await io.api.runBatchFlowViaAPI('TC_C107439', errorFlowId);
     const lastRun = page.getByText('Last run')
     await lastRun.waitFor({ state: 'visible', timeout: 180000 });

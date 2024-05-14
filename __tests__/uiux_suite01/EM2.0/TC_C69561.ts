@@ -3,11 +3,15 @@ import * as selectors from "@celigo/aut-selectors";
 import C51655 from "@testData/EM2.0/TC_C51655.json";
 
 test.describe("C69561 Search bar is distorted on Error windows", () => {
+  let errorFlowId
+  test.afterEach(async ({ io }) => {
+    await io.api.deleteFlowsWithId(errorFlowId)
+  });
   test("@Zephyr-IO-T25936 @Env-QA C69561 Search bar is distorted on Error windows", async ({
     io,
     page
   }) => {
-    const errorFlowId = await io.createResourceFromAPI(C51655, "FLOWS");
+    errorFlowId = await io.createResourceFromAPI(C51655, "FLOWS");
     await io.api.runBatchFlowViaAPI("TC_C51655", errorFlowId);
     const lastRun = page.getByText("Last run");
     await lastRun.waitFor({ state: "visible", timeout: 300000 });
