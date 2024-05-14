@@ -22,7 +22,7 @@ test.describe('C111364_C111365_C111367_C111368_C111370', () => {
         //TC_C111365 Verify Separate sections are provided to differentiate between live calls and test run logs.
         const Symbol = await page.$(selectors.flowBuilderPagePO.SECTION);
         await Symbol.waitForElementState("stable")
-        expect(await Symbol.screenshot()).toMatchSnapshot("SeparateSection.png", {});
+        expect(await Symbol.screenshot()).toMatchSnapshot("SeparateSection.png", {threshold: 0.2});
         await io.homePage.addStep('Verified Separate sections should be provided to differentiate between live calls and test run logs.');
         const debugLogs = (await io.importsPage.getText(selectors.flowBuilderPagePO.DEBUG_LOGS)).toString();
         await io.assert.expectToContainValue("Debug logs", debugLogs, 'Label not showing');
