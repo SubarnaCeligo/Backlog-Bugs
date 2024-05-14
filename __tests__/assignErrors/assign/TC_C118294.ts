@@ -32,10 +32,11 @@ test.describe("C118294 - Verify the elements of 'Assign error' flyout", () => {
         state: "visible",
         timeout: 180000
       });
-      await io.flowBuilder.click(
-        selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
-      );
     }
+    await io.flowBuilder.click(
+      selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
+    );
+    await io.homePage.loadingTime();
     await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
 
     //Click on Assign error button on top bar
