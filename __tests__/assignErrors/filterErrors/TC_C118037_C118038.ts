@@ -25,16 +25,18 @@ test.describe("C118037_C118038 Verify that 'Clear filter' button is disabled whe
     await io.flowBuilder.clickByText("Filter_Automation01_DND");
     await io.homePage.loadingTime();
 
-    let accountErrorsDashBoardIsDisplayed = await page.locator(
-      selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
-    );
-    if (accountErrorsDashBoardIsDisplayed.isHidden()) {
+    let accountErrorsDashBoardIsDisplayed = await page
+      .locator(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS)
+      .isHidden();
+    if (accountErrorsDashBoardIsDisplayed) {
       await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
       await io.flowBuilder.delay(1000 * 60 * 4);
-      await accountErrorsDashBoardIsDisplayed.waitFor({
-        state: "visible",
-        timeout: 180000
-      });
+      await page
+        .locator(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS)
+        .waitFor({
+          state: "visible",
+          timeout: 180000
+        });
     }
 
     //Open errors dashborad
@@ -78,6 +80,20 @@ test.describe("C118037_C118038 Verify that 'Clear filter' button is disabled whe
 
     //Open the flow
     await io.flowBuilder.clickByText("Filter_Automation01_DND");
+    await io.homePage.loadingTime();
+    let accountErrorsDashBoardIsDisplayed = await page
+      .locator(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS)
+      .isHidden();
+    if (accountErrorsDashBoardIsDisplayed) {
+      await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
+      await io.flowBuilder.delay(1000 * 60 * 4);
+      await page
+        .locator(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS)
+        .waitFor({
+          state: "visible",
+          timeout: 180000
+        });
+    }
 
     //Open errors dashborad
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);

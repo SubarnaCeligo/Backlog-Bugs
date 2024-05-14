@@ -22,24 +22,13 @@ test.describe("C118297 - Verify the assignee pill when the invited non-IO user h
     //Open the flow
     await io.flowBuilder.clickByText('TC_C118297_DND');
     await io.homePage.loadingTime();
-    let accountErrorsDashBoardIsDisplayed = await page.locator(
-      selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
-    );
-    if (accountErrorsDashBoardIsDisplayed.isHidden()) {
+    let accountErrorsDashBoardIsDisplayed = await page.locator(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS).isHidden();
+    if (accountErrorsDashBoardIsDisplayed) {
       await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
       await io.flowBuilder.delay(1000 * 60 * 4);
-      await accountErrorsDashBoardIsDisplayed.waitFor({
-        state: "visible",
-        timeout: 180000
-      });
-      await io.flowBuilder.click(
-        selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
-      );
-    } else {
-      await io.flowBuilder.click(
-        selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
-      );
-    }
+      await page.locator(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS).waitFor({state: "visible", timeout: 180000});
+    } 
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
     await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
 
     //Click on Assign error button on top bar
@@ -65,6 +54,5 @@ test.describe("C118297 - Verify the assignee pill when the invited non-IO user h
     await io.flowBuilder.click(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
     await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
     await io.flowBuilder.clickByText('Clear assignment');
-
   });
 });

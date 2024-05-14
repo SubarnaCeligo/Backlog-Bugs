@@ -27,16 +27,18 @@ test.describe("C117998_C118000 Verify the search feature with a successful/unsuc
     await io.flowBuilder.clickByText("Filter_Automation01_DND");
     await io.homePage.loadingTime();
 
-    let accountErrorsDashBoardIsDisplayed = await page.locator(
-      selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
-    );
-    if (accountErrorsDashBoardIsDisplayed.isHidden()) {
+    let accountErrorsDashBoardIsDisplayed = await page
+      .locator(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS)
+      .isHidden();
+    if (accountErrorsDashBoardIsDisplayed) {
       await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
       await io.flowBuilder.delay(1000 * 60 * 4);
-      await accountErrorsDashBoardIsDisplayed.waitFor({
-        state: "visible",
-        timeout: 180000
-      });
+      await page
+        .locator(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS)
+        .waitFor({
+          state: "visible",
+          timeout: 180000
+        });
     }
 
     //Open errors dashborad

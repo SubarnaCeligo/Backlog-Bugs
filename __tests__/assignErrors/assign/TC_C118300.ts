@@ -24,14 +24,11 @@ test.describe("C118300 - Verify the assignee pill when the user is disabled", ()
     await io.homePage.loadingTime();
     let accountErrorsDashBoardIsDisplayed = await page.locator(
       selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
-    );
-    if (accountErrorsDashBoardIsDisplayed.isHidden()) {
+    ).isHidden();
+    if (accountErrorsDashBoardIsDisplayed) {
       await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
       await io.flowBuilder.delay(1000 * 60 * 4);
-      await accountErrorsDashBoardIsDisplayed.waitFor({
-        state: "visible",
-        timeout: 180000
-      });
+      await page.locator(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS).waitFor({state: "visible",timeout: 180000});
     }
 
     //Open errors dashborad

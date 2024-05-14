@@ -24,22 +24,15 @@ test.describe("C118298 - Verify the assignee pill when the invited non-IO user h
     await io.homePage.loadingTime();
     let accountErrorsDashBoardIsDisplayed = await page.locator(
       selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
-    );
-    if (accountErrorsDashBoardIsDisplayed.isHidden()) {
+    ).isHidden();
+    if (accountErrorsDashBoardIsDisplayed) {
       await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
       await io.flowBuilder.delay(1000 * 60 * 4);
-      await accountErrorsDashBoardIsDisplayed.waitFor({
-        state: "visible",
-        timeout: 180000
-      });
-      await io.flowBuilder.click(
-        selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
-      );
-    } else {
-      await io.flowBuilder.click(
-        selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
-      );
+      await page.locator(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS).waitFor({state: "visible", timeout: 180000});
     }
+    await io.flowBuilder.click(
+      selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
+    );
     //Assign one error to a user who has dismissed the invite
     await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
     await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX, 1);
@@ -63,7 +56,6 @@ test.describe("C118298 - Verify the assignee pill when the invited non-IO user h
       hoverText,
       'Hovertext did not appear'
     );
-
     //Clear all assignments
     await io.flowBuilder.reloadPage();
     await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
@@ -71,9 +63,5 @@ test.describe("C118298 - Verify the assignee pill when the invited non-IO user h
     await io.flowBuilder.click(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
     await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
     await io.flowBuilder.clickByText('Clear assignment');
-
-
-
-
   });
 });

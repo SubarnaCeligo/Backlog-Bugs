@@ -22,16 +22,18 @@ test.describe("C118395_C118396 - Verify batch unassignment for errors assigned t
     await io.flowBuilder.clickByText('TC_C118395_C118396_DND');
     await io.homePage.loadingTime();
 
-    let accountErrorsDashBoardIsDisplayed = await page.locator(
-      selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
-    );
-    if (accountErrorsDashBoardIsDisplayed.isHidden()) {
+    let accountErrorsDashBoardIsDisplayed = await page
+      .locator(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS)
+      .isHidden();
+    if (accountErrorsDashBoardIsDisplayed) {
       await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
       await io.flowBuilder.delay(1000 * 60 * 4);
-      await accountErrorsDashBoardIsDisplayed.waitFor({
-        state: "visible",
-        timeout: 180000
-      });
+      await page
+        .locator(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS)
+        .waitFor({
+          state: "visible",
+          timeout: 180000
+        });
     }
 
     //Open errors dashborad

@@ -4,6 +4,7 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe("C118293 - Verify that 'Assign error' button is added on the top bar, error details section and is visible upon hovering on any row", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.flowBuilder.loadingTime();
   });
   test("@Env-All @Zephyr-IO-T20067 C118293 -Verify that 'Assign error' button is added on the top bar, error details section and is visible upon hovering on any row", async ({
     io,
@@ -11,6 +12,7 @@ test.describe("C118293 - Verify that 'Assign error' button is added on the top b
   }) => {
     //Navigate to default integration
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+    await io.flowBuilder.loadingTime();
 
     // Search for a flow
     await io.integrationPage.waitForElementAttached(
@@ -29,13 +31,13 @@ test.describe("C118293 - Verify that 'Assign error' button is added on the top b
     //Open the flow
     await io.flowBuilder.clickByText("Filter_Automation01_DND");
     await io.flowBuilder.loadingTime();
-    let accountErrorsDashBoardIsDisplayed = await page.locator(
+    const accountErrorsDashBoardIsDisplayed = await page.locator(
       selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
-    );
-    if (accountErrorsDashBoardIsDisplayed.isHidden()) {
+    ).isHidden();
+    if (accountErrorsDashBoardIsDisplayed) {
       await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
       await io.flowBuilder.delay(1000 * 60 * 4);
-      await accountErrorsDashBoardIsDisplayed.waitFor({
+      await page.locator(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS).waitFor({
         state: "visible",
         timeout: 180000
       });

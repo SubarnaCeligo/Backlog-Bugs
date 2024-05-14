@@ -24,11 +24,11 @@ test.describe("C118303 - Verify user's entry 'Assign error' page when the user h
     await io.homePage.loadingTime();
     let accountErrorsDashBoardIsDisplayed = await page.locator(
       selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
-    );
-    if (accountErrorsDashBoardIsDisplayed.isHidden()) {
+    ).isHidden();
+    if (accountErrorsDashBoardIsDisplayed) {
       await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
       await io.flowBuilder.delay(1000 * 60 * 4);
-      await accountErrorsDashBoardIsDisplayed.waitFor({
+      await page.locator(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS).waitFor({
         state: "visible",
         timeout: 180000
       });
