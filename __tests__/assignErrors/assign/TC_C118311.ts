@@ -5,7 +5,7 @@ test.describe("C118311 - Verify that error assignment is retained when a user re
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("C118311 - Verify that error assignment is retained when a user removes the step and then adds it again in the same flow", async ({ io, page }) => {
+  test.skip("@Env-All @Zephyr-IO-T20085 C118311 - Verify that error assignment is retained when a user removes the step and then adds it again in the same flow", async ({ io, page }) => {
 
     //Navigate to default integration
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);

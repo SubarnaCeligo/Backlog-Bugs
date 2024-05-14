@@ -5,7 +5,7 @@ test.describe("C118306 - Verify Assign error flyout when errors assigned to mult
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("C118306 - Verify Assign error flyout when errors assigned to multiple users are selected ", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T20080 C118306 - Verify Assign error flyout when errors assigned to multiple users are selected ", async ({ io, page }) => {
 
   //Navigate to default integration
   await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
@@ -36,7 +36,7 @@ test.describe("C118306 - Verify Assign error flyout when errors assigned to mult
   await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX, 2);
   await io.flowBuilder.click(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
   await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
-  await io.flowBuilder.clickByText('Manage User');
+  await io.flowBuilder.clickByTextByIndex('Manage User', 0);
   await io.homePage.clickByText("Assign");
   await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL);
   await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX, 2);

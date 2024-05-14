@@ -1,11 +1,13 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe.skip("C59659 Verify sample url link for Sign up Page", () => {
-  test("C59659 Verify sample url link for Sign up Page", async ({ io, page }) => {
+test.describe("C59659 Verify sample url link for Sign up Page", () => {
+  test("@Env-All @Zephyr-IO-T1113 C59659 Verify sample url link for Sign up Page", async ({ io, page }) => {
     await io.homePage.navigateTo(
       "https://www.celigo.com/integrations/hubspot-netsuite/"
     );
+    await io.homePage.loadingTime()
+    await io.homePage.clickByText('Accept')
     await page.locator("a").filter({ hasText: "Try for free" }).click();
     await io.homePage.addStep("Clicked on 'Try for free' button");
     await page.waitForURL(/^https:\/\/integrator\.io\/signup/);

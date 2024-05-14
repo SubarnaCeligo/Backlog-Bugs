@@ -5,7 +5,7 @@ test.describe("Verify the helptext for Default database name & Default cluster n
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-All Verify the helptext for Default database name & Default cluster name in Amazon Redshift connection form", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T23962 Verify the helptext for Default database name & Default cluster name in Amazon Redshift connection form", async ({ io, page }) => {
     
     // Click on 'Create connection', Select 'Amazon Redshift'
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);

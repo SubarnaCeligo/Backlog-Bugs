@@ -2,9 +2,10 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C93992 Verify 'Script is required'/'Function is required' validations on branching filter", () => {
-    test("C93992 Verify 'Script is required'/'Function is required' validations on branching filter", async ({io, page}) => {
+    test("@Env-All C93992 Verify 'Script is required'/'Function is required' validations on branching filter", async ({io, page}) => {
         await io.flowBuilder.addStep('Navigating to automation flows integration and clicking on create flow');
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+        await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.flowBuilder.addStep('Adding branch in the new flow');
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.PLUS_BUTTONS);

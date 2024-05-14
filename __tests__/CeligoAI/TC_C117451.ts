@@ -4,9 +4,11 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe("C117451 Verify the Persist resource descriptions Celigo AI", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.flowBuilder.loadingTime();
   });
-  test("C117451 Verify the Persist resource descriptions Celigo AI", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T18796 C117451 Verify the Persist resource descriptions Celigo AI", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.OPENAI.FLOW_DESCRIPTION_BUTTON);
     //Persist Flow Description not Occur on Integration page C117461
     await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.OPENAI.FLOW_DESCRIPTION_BUTTON, "Flow description is not displayed");
@@ -18,11 +20,11 @@ test.describe("C117451 Verify the Persist resource descriptions Celigo AI", () =
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.FLOW_DESCRIPTION_BUTTON);
     await io.flowBuilder.loadingTime();
     let elements = await page.$(selectors.flowBuilderPagePO.OPENAI.CONTENT);
-    let isVisible = await page.evaluate((el) => {
+    await io.flowBuilder.loadingTime();
+    let isVisible = await page.evaluate(el => {
       const { top, bottom } = el.getBoundingClientRect();
-      const vHeight = (window.innerHeight || document.documentElement.clientHeight);
-
-      return ((top > 0 || bottom > 0) && top < vHeight);
+      const vHeight = window.innerHeight || document.documentElement.clientHeight;
+      return (top > 0 || bottom > 0) && top < vHeight;
     }, elements);
     expect(isVisible).toBeFalsy();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.ClOSE_BUTTON);
@@ -47,6 +49,7 @@ test.describe("C117451 Verify the Persist resource descriptions Celigo AI", () =
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.ClOSE_BUTTON);
     //C117456 Export Persist
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
+    await io.flowBuilder.loadingTime();
     await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.OPENAI.CELIGOAI_GENERATEDBUTTON, "CeligoAI Generated Button is not displayed");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.CELIGOAI_GENERATEDBUTTON);
     await io.flowBuilder.loadingTime();
@@ -55,6 +58,7 @@ test.describe("C117451 Verify the Persist resource descriptions Celigo AI", () =
     await io.flowBuilder.loadingTime();
     await feedback.waitFor({ state: 'visible', timeout: 30000 });
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.ClOSE_BUTTON);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.CELIGOAI_GENERATEDBUTTON);
     await io.flowBuilder.loadingTime();
     await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.OPENAI.CONTENT,
@@ -64,6 +68,7 @@ test.describe("C117451 Verify the Persist resource descriptions Celigo AI", () =
     await io.exportsPage.click(selectors.importPagePO.IMPORT_CLOSE_DRAWER);
     //C117457 Import Persist
     await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT);
+    await io.flowBuilder.loadingTime();
     await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.OPENAI.CELIGOAI_GENERATEDBUTTON, "CeligoAI Generated Button is not displayed");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.CELIGOAI_GENERATEDBUTTON);
     await io.flowBuilder.loadingTime();
@@ -72,6 +77,7 @@ test.describe("C117451 Verify the Persist resource descriptions Celigo AI", () =
     await io.flowBuilder.loadingTime();
     await feedback.waitFor({ state: 'visible', timeout: 30000 });
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.ClOSE_BUTTON);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.CELIGOAI_GENERATEDBUTTON);
     await io.flowBuilder.loadingTime();
     await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.OPENAI.CONTENT,
@@ -81,6 +87,7 @@ test.describe("C117451 Verify the Persist resource descriptions Celigo AI", () =
     await io.exportsPage.click(selectors.importPagePO.IMPORT_CLOSE_DRAWER);
     //Not Retain Description After page change C117469
     await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT);
+    await io.flowBuilder.loadingTime();
     await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.OPENAI.CELIGOAI_GENERATEDBUTTON, "CeligoAI Generated Button is not displayed");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.CELIGOAI_GENERATEDBUTTON);
     await io.flowBuilder.loadingTime();
