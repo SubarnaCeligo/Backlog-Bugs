@@ -7,8 +7,8 @@ test.describe("C59659 Verify sample url link for Sign up Page", () => {
       "https://www.celigo.com/integrations/hubspot-netsuite/"
     );
     await io.homePage.loadingTime()
-    await io.homePage.clickByText('Accept')
-    await page.locator("a").filter({ hasText: "Try for free" }).click();
+    // await io.homePage.clickByText('Accept')
+    await page.locator("a").filter({ hasText: "Try for free" }).first().click();
     await io.homePage.addStep("Clicked on 'Try for free' button");
     await page.waitForURL(/^https:\/\/integrator\.io\/signup/);
     await io.assert.expectToContainValue(
