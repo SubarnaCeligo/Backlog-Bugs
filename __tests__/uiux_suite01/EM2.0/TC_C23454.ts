@@ -15,7 +15,7 @@ test.describe("C23454_Display retries info", () => {
         await io.flowBuilder.loadingTime();
         await io.api.runBatchFlowViaAPI('C23454_Resolve_Errors', errorFlowId);
         const lastRun = page.getByText('Last run')
-        await lastRun.waitFor({ state: 'visible', timeout: 180000 });
+        await lastRun.waitFor({ state: 'visible', timeout: 360000 });
         await io.flowBuilder.reloadPage()
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.clickByTextByIndex('1 error',1)

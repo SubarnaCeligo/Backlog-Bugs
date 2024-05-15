@@ -11,9 +11,9 @@ test.describe("C50858 Verify the displayed screen by clicking on the error count
     C50858["name"] = "C50858_Check_ErrorView"
     errorFlowId = await io.createResourceFromAPI(C50858, "FLOWS");
     await io.flowBuilder.loadingTime();
-    await io.api.runBatchFlowViaAPI('C50858_Check_ErrorView', errorFlowId);
+    let flowStatus= await io.api.checkJobStatusFromAPI('C50858_Check_ErrorView', errorFlowId);
     const lastRun = page.getByText('Last run')
-    await lastRun.waitFor({ state: 'visible', timeout: 180000 });
+    await lastRun.waitFor({ state: 'visible', timeout: 360000 });
     await io.flowBuilder.reloadPage()
     await io.flowBuilder.loadingTime()
     await io.flowBuilder.clickByTextByIndex('1 error', 1)

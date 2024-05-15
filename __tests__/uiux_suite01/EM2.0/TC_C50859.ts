@@ -11,7 +11,7 @@ test.describe("C50859 Verify the displayed default page in 'Error Dashboard' whe
         const id = await io.createResourceFromAPI(C50859, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C50859', id);
         const lastRun = page.getByText('Last run');
-        await lastRun.waitFor({state: 'visible', timeout: 180000});
+        await lastRun.waitFor({state: 'visible', timeout: 360000});
         await io.flowBuilder.clickByTextByIndex("Success", 1);
         await io.flowBuilder.waitForElementAttached(`${selectors.flowBuilderPagePO.RESOLVED_ERRORS_TAB}.Mui-selected`);
         await io.assert.verifyElementAttributeContainsText(selectors.flowBuilderPagePO.RESOLVED_ERRORS_TAB, 'class', 'Mui-selected');

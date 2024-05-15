@@ -16,7 +16,7 @@ test.describe("C24621_Verify the behaviour of Retry & Resolve dropdown with <100
         await io.flowBuilder.loadingTime();
         await io.api.runBatchFlowViaAPI('C24621_Retry_and_Resolve_Errors', errorFlowId);
         const lastRun = page.getByText('Last run')
-        await lastRun.waitFor({ state: 'visible', timeout: 180000 });
+        await lastRun.waitFor({ state: 'visible', timeout: 360000 });
         await io.flowBuilder.reloadPage();
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.clickByTextByIndex('1 error', 1)

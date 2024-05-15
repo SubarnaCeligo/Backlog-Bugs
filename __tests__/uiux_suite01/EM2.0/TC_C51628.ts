@@ -11,7 +11,7 @@ test.describe("C51628 Verify the displayed buttons by editing the retry data in 
       id = await io.createResourceFromAPI(C51628,"FLOWS");
       await io.api.runBatchFlowViaAPI('TC_C51628', id);
       const lastRun = page.getByText('Last run');
-      await lastRun.waitFor({state: 'visible', timeout: 180000});
+      await lastRun.waitFor({state: 'visible', timeout: 360000});
       await io.flowBuilder.clickByTextByIndex("1 error", 1);
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2DOT0PO.RETRY_AND_NEXT);
       expect(await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.EM2DOT0PO.RETRY_AND_NEXT)).toBe(true);

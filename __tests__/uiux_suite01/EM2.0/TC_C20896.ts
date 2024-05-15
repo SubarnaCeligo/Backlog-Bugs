@@ -9,6 +9,7 @@ test.describe("C20896 Verify user can able to toggle notification at flow level"
     });
     test("C20896 Verify user can able to toggle notification at flow level", async ({ io, page }) => {
         id = await io.createResourceFromAPI(C20896, "FLOWS");
+        await io.flowBuilder.loadingTime()
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_SETTINGS);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_SETTINGS);
         await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.NOTIFY_ME_ON_FLOW_ERROR, "Notify me of flow error not present");

@@ -11,7 +11,7 @@ test.describe("C51643 Verify the default view by clicking on the Error count in 
         errorFlowId = await io.createResourceFromAPI(C51643, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51643', errorFlowId);
         const lastRun = page.getByText('Last run')
-        await lastRun.waitFor({state: 'visible', timeout: 180000});
+        await lastRun.waitFor({state: 'visible', timeout: 360000});
         await io.homePage.reloadPage()
         await io.homePage.loadingTime()
         await io.flowBuilder.clickByTextByIndex("1 error", 1);

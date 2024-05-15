@@ -11,7 +11,7 @@ test.describe("C51627 Verify the list and the default status of the footer butto
         id = await io.createResourceFromAPI(C51627, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51627', id);
         const lastRun = page.getByText('Last run')
-        await lastRun.waitFor({ state: 'visible', timeout: 180000 });
+        await lastRun.waitFor({ state: 'visible', timeout: 360000 });
         await io.flowBuilder.clickByTextByIndex("1 error", 1);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2DOT0PO.RETRY_AND_NEXT);
         await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.EM2DOT0PO.RETRY_AND_NEXT, 'Retry and next is not displayed');

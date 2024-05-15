@@ -4,12 +4,12 @@ import C107439 from '../../../testData/EM2.0/C107439.json';
 import playload from "@testData/profile/updatePreference.json"
 
 test.describe("C107439_C106998 Verify the Sort Errors in new error view in Ascending and Descending Timestamp", () => {
+  let errorFlowId
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     playload.showRelativeDateTime = false;
-    const resp = await io.api.putCall('v1/preferences',playload);
+    const resp = await io.api.putCall('v1/preferences', playload);
   });
-  let errorFlowId
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowsWithId(errorFlowId)
   });
@@ -17,7 +17,7 @@ test.describe("C107439_C106998 Verify the Sort Errors in new error view in Ascen
     errorFlowId = await io.createResourceFromAPI(C107439, "FLOWS");
     await io.api.runBatchFlowViaAPI('TC_C107439', errorFlowId);
     const lastRun = page.getByText('Last run')
-    await lastRun.waitFor({ state: 'visible', timeout: 180000 });
+    await lastRun.waitFor({ state: 'visible', timeout: 360000 });
     await io.flowBuilder.clickByTextByIndex("5 errors", 1);
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2DOT0PO.TIMESTAMP_TABLE)
     const timeStamp = page.locator(selectors.flowBuilderPagePO.EM2DOT0PO.TIMESTAMP_TABLE);

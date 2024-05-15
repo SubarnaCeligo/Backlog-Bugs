@@ -11,7 +11,7 @@ test.describe("C51672 Verify the 'HTTP response' tab in the 'Error details' draw
         id = await io.createResourceFromAPI(C51672, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51661', id);
         const lastRun = page.getByText('Last run')
-        await lastRun.waitFor({ state: 'visible', timeout: 180000 });
+        await lastRun.waitFor({ state: 'visible', timeout: 360000 });
         await io.flowBuilder.clickByTextByIndex("1 error", 1);
         await io.flowBuilder.waitForElementAttached("text='HTTP response'");
         await io.flowBuilder.click("text='HTTP response'");

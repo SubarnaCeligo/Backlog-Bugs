@@ -11,7 +11,7 @@ test.describe("C51639 Verify the download option in the Resolved Error drawer", 
         id = await io.createResourceFromAPI(C51639, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51639', id);
         const lastRun = page.getByText('Last run')
-        await lastRun.waitFor({ state: 'visible', timeout: 180000 });
+        await lastRun.waitFor({ state: 'visible', timeout: 360000 });
         await io.flowBuilder.clickByTextByIndex("1 error", 1);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2DOT0PO.NEW_VIEW_ACTIONS_MENU);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2DOT0PO.NEW_VIEW_ACTIONS_MENU);

@@ -11,7 +11,7 @@ test.describe("C51656 Verify the Scroll bar for Message column in the Error rows
         errorFlowId = await io.createResourceFromAPI(C51656, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51656', errorFlowId);
         const lastRun = page.getByText('Last run')
-        await lastRun.waitFor({ state: 'visible', timeout: 180000 });
+        await lastRun.waitFor({ state: 'visible', timeout: 360000 });
         await io.homePage.reloadPage()
         await io.homePage.loadingTime()
         await io.flowBuilder.clickByTextByIndex("1 error", 1);

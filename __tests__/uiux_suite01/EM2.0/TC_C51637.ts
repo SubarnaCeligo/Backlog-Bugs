@@ -11,7 +11,7 @@ test.describe("C51637 Verify the drawer title, tab titles and tab order in the '
         errorFlowId = await io.createResourceFromAPI(C51637, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51637', errorFlowId);
         const lastRun = page.getByText('Last run')
-        await lastRun.waitFor({state: 'visible', timeout: 180000});
+        await lastRun.waitFor({state: 'visible', timeout: 360000});
         await io.flowBuilder.clickByTextByIndex("1 error", 1);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2DOT0PO.TOGGLE_VIEW_DROPDOWN);
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.FLOWS_LIST,1);

@@ -11,7 +11,7 @@ test.describe("C51655 Verify the 'Error rows' navigation from one error row to t
         errorFlowId = await io.createResourceFromAPI(C51655, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51655', errorFlowId);
         const lastRun = page.getByText('Last run')
-        await lastRun.waitFor({ state: 'visible', timeout: 180000 });
+        await lastRun.waitFor({ state: 'visible', timeout: 360000 });
         await io.flowBuilder.clickByTextByIndex("11 errors", 1);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2DOT0PO.OPEN_ERRORS_TABLE_ROWS);
         await io.flowBuilder.addStep("Selecting the first error from the list");

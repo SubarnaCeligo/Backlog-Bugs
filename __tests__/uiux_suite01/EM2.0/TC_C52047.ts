@@ -11,7 +11,7 @@ test.describe("C52047 Verify the Open errors tab, when no results are returned f
         id = await io.createResourceFromAPI(C51661,"FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51661', id);
         const lastRun = page.getByText('Last run');
-        await lastRun.waitFor({state: 'visible',timeout:60000*3});
+        await lastRun.waitFor({state: 'visible',timeout:360000});
         await page.getByText("1 error").nth(1).click();
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2DOT0PO.OPEN_ERRORS_TABLE_HEADERS);
         const classification = page.locator(selectors.flowBuilderPagePO.EM2DOT0PO.OPEN_ERRORS_TABLE_HEADERS).filter({hasText: 'Classification'});

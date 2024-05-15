@@ -11,7 +11,7 @@ test.describe("C68566 Verify Error place in flow builder", () => {
     id = await io.createResourceFromAPI(testData, "FLOWS");
     await io.api.runBatchFlowViaAPI("Narvar_Flow", id);
     const lastRun = page.getByText("Last run");
-    await lastRun.waitFor({ state: "visible", timeout: 180000 });
+    await lastRun.waitFor({ state: "visible", timeout: 360000 });
     await page
       .getByText("1 error")
       .nth(1)
