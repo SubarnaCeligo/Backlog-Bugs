@@ -43,7 +43,7 @@ test.describe("@Author-Sudhanshukumar C27068 Verify the application name is appe
         await io.exportsPage.loadingTime();
         await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.OPENAI.FLOW_DESCRIPTION_BUTTON, "Flow description is not displayed");
         await io.exportsPage.click(selectors.homePagePO.SEARCH_INTEGRATION);
-        await io.exportsPage.fill(selectors.homePagePO.SEARCH_INTEGRATION, "zendesk s");
+        await io.exportsPage.fill(selectors.homePagePO.SEARCH_INTEGRATION, "zendesk");
         await io.exportsPage.loadingTime();
         await io.exportsPage.clickByIndex(selectors.flowBuilderPagePO.CONNECTION_TABLE, 0);
         await io.exportsPage.loadingTime();
@@ -60,6 +60,7 @@ test.describe("@Author-Sudhanshukumar C27068 Verify the application name is appe
         await io.exportsPage.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'BIGQUERY CONNECTION');
         await io.exportsPage.clickByText('BIGQUERY CONNECTION');
         await io.exportsPage.fill(selectors.basePagePO.INPUT_NAME_SELECTOR, "BIGQUERY");
+        await io.exportsPage.fill('[id="rdbms.query"] > textarea', "select * from customer")
         await io.exportsPage.click(selectors.basePagePO.SAVE);
         await io.exportsPage.loadingTime();
         const exportCreateUrl = await io.homePage.getCurrentUrl();

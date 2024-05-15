@@ -25,7 +25,7 @@ test.describe(`C61135 Verify the Install link functionality displayed for the In
     await io.homePage.addStep("Clicked 'Home' from breadcrumb");
     await page
       .locator(selectors.homePagePO.INTEGRATION_TILES)
-      .filter({ hasText: "Continue setup >61130_DND" })
+      .filter({ hasText: "Continue setup >" } && {hasText: "61130_DND"})
       .last()
       .locator("button")
       .first()
