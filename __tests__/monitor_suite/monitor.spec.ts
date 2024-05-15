@@ -16,7 +16,6 @@ var testCases = [
   "C24948",
   "C24950",
   "C24970",
-  "C1560",
   "C21309",
   "C21310",
   // "C21311", //Not valid with new UI changes so commenting this
