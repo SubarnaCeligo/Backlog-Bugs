@@ -35,7 +35,7 @@ test.describe("@Author-Sudhanshukumar C27068 Verify the application name is appe
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.homePage.loadingTime();
         const importCreateUrl = await io.homePage.getCurrentUrl();
-        await io.assert.expectToContainValue("?app=amazonredshift", importCreateUrl, "Appended URL not present")
+        await io.assert.expectToContainValue("?app=redshiftdatawarehouse", importCreateUrl, "Appended URL not present")
         await io.importsPage.click(selectors.importPagePO.IMPORT_CLOSE_DRAWER);
 
         // Exports in Resources
