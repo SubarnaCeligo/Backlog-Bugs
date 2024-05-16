@@ -12,6 +12,7 @@ test.describe("C118301 - Verify the assignee pill when the user is removed from 
   });
 
   test.beforeEach(async ({ io }) => {
+    flowId = await io.createResourceFromAPI(flow, "FLOWS");
     // Get default integration ID
     reqBodyPOST.integrationAccessLevel[0]._integrationId = process.env["IO_Integration_ID"];
 
@@ -24,7 +25,6 @@ test.describe("C118301 - Verify the assignee pill when the user is removed from 
   });
   test("@Env-All @Zephyr-IO-T20075 C118301 - Verify the assignee pill when the user is removed from the integration", async ({ io, page }) => {
 
-    flowId = await io.createResourceFromAPI(flow, "FLOWS");
     await io.homePage.navigateTo(
       process.env["IO_Integration_URL"] + "flowBuilder/" + flowId
     );
@@ -41,7 +41,7 @@ test.describe("C118301 - Verify the assignee pill when the user is removed from 
       selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
     );
     await io.homePage.loadingTime();
-    
+
     //Assign one error to a user
     await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
     await io.flowBuilder.reloadPage();

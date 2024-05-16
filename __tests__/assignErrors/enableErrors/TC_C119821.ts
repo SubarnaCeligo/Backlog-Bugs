@@ -5,6 +5,7 @@ import flow from "@testData/assignErrors/C118388_C118394.json";
 test.describe("C119821", () => {
   let flowId;
   test("@Env-All @Zephyr-IO-T20108 C119821", async ({ io, page }) => {
+    flowId = await io.createResourceFromAPI(flow, "FLOWS");
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.flowBuilder.loadingTime();
     await io.myAccountPage.click(selectors.myAccountPagePO.SECURITY);
@@ -19,7 +20,7 @@ test.describe("C119821", () => {
       // enable is true
       await io.myAccountPage.click(selectors.basePagePO.ENABLESSO);
     }
-    flowId = await io.createResourceFromAPI(flow, "FLOWS");
+    
     await io.homePage.navigateTo(
       process.env["IO_Integration_URL"] + "flowBuilder/" + flowId
     );
