@@ -10,6 +10,7 @@ test.describe("C118302 - Verify the assignee pill when the user is removed from 
     await io.api.deleteFlowViaAPI(flowId);
   });
   test.beforeEach(async ({ io }) => {
+    flowId = await io.createResourceFromAPI(flow, "FLOWS");
     // Get default integration ID
     reqBody.integrationAccessLevel[0]._integrationId = process.env["IO_Integration_ID"];
 
@@ -19,7 +20,6 @@ test.describe("C118302 - Verify the assignee pill when the user is removed from 
   });
   test("@Env-All @Zephyr-IO-T20076 C118302 - Verify the assignee pill when the user is removed from the account", async ({ io, page }) => {
 
-    flowId = await io.createResourceFromAPI(flow, "FLOWS");
     await io.homePage.navigateTo(
       process.env["IO_Integration_URL"] + "flowBuilder/" + flowId
     );
