@@ -1,7 +1,14 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
+import flow from "@testData/assignErrors/Filter_Automation02.json";
 
 test.describe("C118039 Verify that clicking on 'Clear filter' button closes the filter dropdown and checks 'All errors'", () => {
+  let flowId;
+
+  test.afterEach(async ({ io }) => {
+    await io.api.deleteFlowViaAPI(flowId);
+  });
+
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.flowBuilder.loadingTime();
@@ -12,37 +19,20 @@ test.describe("C118039 Verify that clicking on 'Clear filter' button closes the 
     page
   }) => {
     //Navigate to default integration
-    await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+    flowId = await io.createResourceFromAPI(flow, "FLOWS");
+    await io.homePage.navigateTo(
+      process.env["IO_Integration_URL"] + "flowBuilder/" + flowId
+    );
     await io.flowBuilder.loadingTime();
-
-    // Search for a flow
-    await io.integrationPage.waitForElementAttached(
-      selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR
-    );
-    await io.integrationPage.fill(
-      selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
-      "Filter_Automation02_DND"
-    );
-
-    //Open the flow
-    await io.flowBuilder.clickByText("Filter_Automation02_DND");
-    await io.homePage.loadingTime();
-
-    let accountErrorsDashBoardIsDisplayed = await page
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
+    await io.flowBuilder.delay(1000 * 60 * 4);
+    await page
       .locator(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS)
-      .isHidden();
-    if (accountErrorsDashBoardIsDisplayed) {
-      await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
-      await io.flowBuilder.delay(1000 * 60 * 4);
-      await page
-        .locator(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS)
-        .waitFor({
-          state: "visible",
-          timeout: 180000
-        });
-    }
+      .waitFor({
+        state: "visible",
+        timeout: 180000
+      });
 
-    //Open errors dashborad
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
     );

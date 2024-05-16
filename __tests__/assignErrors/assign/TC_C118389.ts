@@ -1,8 +1,10 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import reqBodyPUT from "@testData/EM2.0/C118389.json";
+import flow from "@testData/assignErrors/C118388_C118394.json";
 
 test.describe("C118389 - Verify that admin/owner users with invitation feature enabled/disabled is able to assign errors to an existing user who does not have access to the integration(platform should auto assign monitor access", () => {
+  let flowId;
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.flowBuilder.loadingTime();
@@ -11,45 +13,23 @@ test.describe("C118389 - Verify that admin/owner users with invitation feature e
     io,
     page
   }) => {
-    //Navigate to default integration
-    await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+    flowId = await io.createResourceFromAPI(flow, "FLOWS");
+    await io.homePage.navigateTo(
+      process.env["IO_Integration_URL"] + "flowBuilder/" + flowId
+    );
     await io.flowBuilder.loadingTime();
-
-    // Search for a flow
-    await io.integrationPage.waitForElementAttached(
-      selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR
-    );
-    await io.integrationPage.fill(
-      selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
-      "TC_C118389_DND"
-    );
-    //Wait for search to complete
-    await io.integrationPage.waitForElementAttached(
-      selectors.flowBuilderPagePO.ACTIONS_SELECTOR
-    );
-
-    //Open the flow
-    await io.flowBuilder.clickByText("TC_C118389_DND");
-    await io.homePage.loadingTime();
-
-    let accountErrorsDashBoardIsDisplayed = await page
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
+    await io.flowBuilder.delay(1000 * 60 * 4);
+    await page
       .locator(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS)
-      .isHidden();
-    if (accountErrorsDashBoardIsDisplayed) {
-      await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
-      await io.flowBuilder.delay(1000 * 60 * 4);
-      await page
-        .locator(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS)
-        .waitFor({
-          state: "visible",
-          timeout: 180000
-        });
-    }
-
-    //Open errors dashborad
+      .waitFor({
+        state: "visible",
+        timeout: 180000
+      });
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
     );
+
     await io.flowBuilder.waitForElementAttached(
       selectors.em2DotOLineGraphPO.ASSIGN_ERRORS
     );
@@ -96,17 +76,6 @@ test.describe("C118389 - Verify that admin/owner users with invitation feature e
       assigneePills,
       "Errors are not reassigned"
     );
-
-    //Clear all assignments
-    await io.flowBuilder.clickButtonByIndex(
-      selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX,
-      0
-    );
-    await io.flowBuilder.click(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
-    await io.flowBuilder.waitForElementAttached(
-      selectors.basePagePO.ARROW_POPPER
-    );
-    await io.flowBuilder.clickByText("Clear assignment");
   });
 
   test.afterEach(async ({ io }) => {
@@ -124,5 +93,6 @@ test.describe("C118389 - Verify that admin/owner users with invitation feature e
     reqBodyPUT.integrationAccessLevel[0]._integrationId = integration_Id;
     const endPoint = "v1/ashares/" + UserId;
     await io.api.putCall(endPoint, reqBodyPUT);
+    await io.api.deleteFlowViaAPI(flowId);
   });
 });

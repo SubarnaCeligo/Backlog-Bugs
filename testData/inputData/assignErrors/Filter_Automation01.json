@@ -1,0 +1,80 @@
+{
+  "name": "Filter_Automation01",
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "Sqlexport",
+        "_connectionId": "MYSQL CONNECTION",
+        "apiIdentifier": "e144a64050",
+        "asynchronous": true,
+        "oneToMany": false,
+        "rdbms": {
+          "query": "Select * from Employee limit 1"
+        },
+        "adaptorType": "RDBMSExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "sqlLookuptest",
+        "_connectionId": "MYSQL CONNECTION",
+        "apiIdentifier": "e5e0a1ef17",
+        "asynchronous": true,
+        "isLookup": true,
+        "oneToMany": false,
+        "rdbms": {
+          "query": "Select * from Employee limit 3"
+        },
+        "transform": {
+          "type": "expression",
+          "expression": {
+            "version": "1",
+            "rules": [
+              [
+                {
+                  "extract": "dsfdgtr",
+                  "generate": "r"
+                }
+              ]
+            ]
+          },
+          "rules": [
+            [
+              {
+                "extract": "dsfdgtr",
+                "generate": "r"
+              }
+            ]
+          ],
+          "version": "1"
+        },
+        "adaptorType": "RDBMSExport"
+      }
+    }
+  ],
+  "createFlow": {
+    "name": "Filter_Automation01 Flow",
+    "disabled": false,
+    "_integrationId": "",
+    "skipRetries": false,
+    "pageProcessors": [
+      {
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        },
+        "type": "export",
+        "_importId": "UPDATE WITH NEW EXPORTID"
+      }
+    ],
+    "pageGenerators": [
+      {
+        "_exportId": "UPDATE WITH NEW EXPORTID"
+      }
+    ]
+  }
+}

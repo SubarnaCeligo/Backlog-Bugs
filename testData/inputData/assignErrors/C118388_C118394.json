@@ -1,0 +1,135 @@
+{
+    "name": "C118387_C118393 Flow",
+    "_integrationId": "",
+    "pageGenerators": [
+      {
+        "qa__export": {
+            "name": "shopify_order",
+            "_connectionId": "SHOPIFY CONNECTION",
+            "apiIdentifier": "e8782e13ee",
+            "asynchronous": true,
+            "assistant": "shopify",
+            "oneToMany": false,
+            "sandbox": false,
+            "assistantMetadata": {
+                "resource": "order",
+                "version": "v2",
+                "operation": "receive_asingleorder"
+            },
+            "http": {
+                "relativeURI": "/orders/6154917575.json",
+                "method": "GET",
+                "headers": [],
+                "successMediaType": "json",
+                "errorMediaType": "json",
+                "isRest": false,
+                "formType": "assistant",
+                "response": {
+                    "resourcePath": "order"
+                }
+            },
+            "rest": {
+                "relativeURI": "/orders/6154917575.json",
+                "method": "GET",
+                "headers": [],
+                "resourcePath": "order",
+                "allowUndefinedResource": false
+            },
+            "adaptorType": "RESTExport"
+        }
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+            "name": "one-to-many import",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "i3357a2e59",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": true,
+            "pathToMany": "line_items",
+            "assistant": "zendesk",
+            "sandbox": false,
+            "assistantMetadata": {
+                "resource": "users_api",
+                "version": "v2",
+                "operation": "create_users_api"
+            },
+            "lookups": [],
+            "http": {
+                "relativeURI": [
+                    "/users.json"
+                ],
+                "method": [
+                    "POST"
+                ],
+                "body": [
+                    null
+                ],
+                "headers": [],
+                "batchSize": 1,
+                "requestMediaType": "json",
+                "successMediaType": "json",
+                "errorMediaType": "json",
+                "strictHandlebarEvaluation": true,
+                "sendPostMappedData": true,
+                "isRest": false,
+                "formType": "assistant",
+                "lookups": [],
+                "response": {
+                    "resourceIdPath": [
+                        null
+                    ]
+                }
+            },
+            "rest": {
+                "relativeURI": [
+                    "/users.json"
+                ],
+                "method": [
+                    "POST"
+                ],
+                "body": [
+                    null
+                ],
+                "headers": [],
+                "responseIdPath": [
+                    null
+                ],
+                "successPath": [
+                    null
+                ],
+                "successValues": [
+                    null
+                ],
+                "lookups": []
+            },
+            "adaptorType": "RESTImport"
+        }
+      }
+    ],
+    "createFlow": {
+      "name": "C118387_C118393 Flow",
+      "disabled": true,
+      "pageGenerators": [
+        {
+          "_exportId": "UPDATE WITH NEW EXPORTID",
+          "skipRetries": false
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "_importId": "UPDATE WITH NEW IMPORTID",
+          "responseMapping": {
+            "fields": [],
+            "lists": []
+          }
+        }
+      ],
+      "autoResolveMatchingTraceKeys": true
+    }
+  }
+  

@@ -1,49 +1,40 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
+import flow from "@testData/assignErrors/C118299.json";
 
 test.describe("C118278 Verify filtering by a specific user returns errors assigned to the specific user", () => {
+  let flowId;
+
+  test.afterEach(async ({ io }) => {
+    await io.api.deleteFlowViaAPI(flowId);
+  });
+  
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.homePage.loadingTime();
+    await io.flowBuilder.loadingTime();
   });
+
   test("@Env-All @Zephyr-IO-T20060 C118278 Verify filtering by a specific user returns errors assigned to the specific user", async ({
     io,
     page,
   }) => {
-    //Navigate to default integration
-    await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+    flowId = await io.createResourceFromAPI(flow, "FLOWS");
+    await io.homePage.navigateTo(
+      process.env["IO_Integration_URL"] + "flowBuilder/" + flowId
+    );
     await io.flowBuilder.loadingTime();
-
-    // Search for a flow
-    await io.integrationPage.waitForElementAttached(
-      selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR
-    );
-    await io.integrationPage.fill(
-      selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
-      "Filter_Automation05_DND"
-    );
- 
-    //Open the flow
-    await io.flowBuilder.clickByText("Filter_Automation05_DND");
-    await io.homePage.loadingTime();
-
-    let accountErrorsDashBoardIsDisplayed = await page
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
+    await io.flowBuilder.delay(1000 * 60 * 4);
+    await page
       .locator(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS)
-      .isHidden();
-    if (accountErrorsDashBoardIsDisplayed) {
-      await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
-      await io.flowBuilder.delay(1000 * 60 * 4);
-      await page
-        .locator(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS)
-        .waitFor({
-          state: "visible",
-          timeout: 180000
-        });
-    }
-
-    //Open errors dashborad
-    await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
-
+      .waitFor({
+        state: "visible",
+        timeout: 180000
+      });
+    await io.flowBuilder.click(
+      selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
+    );
+    await io.flowBuilder.loadingTime();
     //Assign one error to a user
     await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
     await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX, 2);

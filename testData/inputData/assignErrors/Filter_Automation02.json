@@ -1,0 +1,100 @@
+{
+  "name": "Filter_Automation02 Flow",
+  "_integrationId": "",
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "exp",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "e58a291338",
+        "asynchronous": true,
+        "type": "blob",
+        "ftp": {
+          "directoryPath": "/io.auto.qa/shakeer_test/EDI"
+        },
+        "file": {
+          "output": "blobKeys",
+          "skipDelete": true,
+          "filter": {
+            "type": "expression",
+            "expression": {
+              "version": "1",
+              "rules": [
+                "startswith",
+                ["string", ["extract", "filename"]],
+                "TC_C67315.json"
+              ]
+            },
+            "rules": [
+              "startswith",
+              ["string", ["extract", "filename"]],
+              "TC_C67315.json"
+            ],
+            "version": "1"
+          }
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "impo",
+        "_connectionId": "POSTGRESQL CONNECTION",
+        "apiIdentifier": "if64083295",
+        "oneToMany": false,
+        "mappings": [
+          {
+            "dataType": "objectarray",
+            "status": "Draft",
+            "buildArrayHelper": [
+              {
+                "sourceDataType": "string",
+                "mappings": [
+                  {
+                    "extract": "name",
+                    "generate": "name",
+                    "dataType": "string",
+                    "status": "Active",
+                    "sourceDataType": "string"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "rdbms": {
+          "query": [],
+          "queryType": ["bulk_insert"],
+          "bulkInsert": {
+            "tableName": "QA_Automation.public.CUSTOMERS"
+          }
+        },
+        "adaptorType": "RDBMSImport"
+      }
+    }
+  ],
+  "createFlow": {
+    "name": "Filter_Automation02 flow",
+    "disabled": true,
+    "pageGenerators": [
+      {
+        "_exportId": "UPDATE WITH NEW EXPORTID",
+        "skipRetries": false
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "_importId": "UPDATE WITH NEW IMPORTID",
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        }
+      }
+    ],
+    "autoResolveMatchingTraceKeys": true
+  }
+}

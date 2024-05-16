@@ -1,49 +1,40 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
+import flow from "@testData/assignErrors/C118299.json";
 
 test.describe("C118118_C118284 Verify filtering by 'Myself' returns only errors assigned to the logged in user and Verify filter persistence when the user navigates to other tabs and returns to open errors tab", () => {
+  let flowId;
+
+  test.afterEach(async ({ io }) => {
+    await io.api.deleteFlowViaAPI(flowId);
+  });
+
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.flowBuilder.loadingTime();
   });
+
   test("@Env-All @Zephyr-IO-T20058 @Zephyr-IO-T20066 C118118_C118284	Verify filtering by 'Myself' returns only errors assigned to the logged in user ", async ({
     io,
     page,
   }) => {
-    //Navigate to default integration
-    await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+    flowId = await io.createResourceFromAPI(flow, "FLOWS");
+    await io.homePage.navigateTo(
+      process.env["IO_Integration_URL"] + "flowBuilder/" + flowId
+    );
     await io.flowBuilder.loadingTime();
-
-    // Search for a flow
-    await io.integrationPage.waitForElementAttached(
-      selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR
-    );
-    await io.integrationPage.fill(
-      selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
-      "Filter_Automation03_DND"
-    );
-
-    //Open the flow
-    await io.flowBuilder.clickByText("Filter_Automation03_DND");
-    await io.homePage.loadingTime();
-
-    let accountErrorsDashBoardIsDisplayed = await page
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
+    await io.flowBuilder.delay(1000 * 60 * 4);
+    await page
       .locator(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS)
-      .isHidden();
-    if (accountErrorsDashBoardIsDisplayed) {
-      await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
-      await io.flowBuilder.delay(1000 * 60 * 4);
-      await page
-        .locator(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS)
-        .waitFor({
-          state: "visible",
-          timeout: 180000
-        });
-    }
-
-    //Open errors dashborad
-    await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
-
+      .waitFor({
+        state: "visible",
+        timeout: 180000
+      });
+    await io.flowBuilder.click(
+      selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
+    );
+    await io.flowBuilder.loadingTime();    
     //Assign two errors to a user
     await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
     await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX, 1);
@@ -76,10 +67,10 @@ test.describe("C118118_C118284 Verify filtering by 'Myself' returns only errors 
     await io.assert.expectToBeValue(assigneePillsRetained, 'Assign Error Owner,Assign Error Owner', 'Myself filter did not work');
 
     //Clear all assignments
-    await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX, 0);
-    await io.flowBuilder.click(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
-    await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
-    await io.flowBuilder.clickByText('Clear assignment');
+    // await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX, 0);
+    // await io.flowBuilder.click(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
+    // await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
+    // await io.flowBuilder.clickByText('Clear assignment');
 
   });
 });
