@@ -7,7 +7,7 @@ test.describe("C51655 Verify the 'Error rows' navigation from one error row to t
     test.afterEach(async ({ io }) => {
         await io.api.deleteFlowsWithId(errorFlowId)
     });
-    test("C51655 Verify the 'Error rows' navigation from one error row to the next using up/down arrow keys on the keyboard.", async ({ io, page }) => {
+    test("@Zephyr-IO-T19807 C51655 Verify the 'Error rows' navigation from one error row to the next using up/down arrow keys on the keyboard.", async ({ io, page }) => {
         errorFlowId = await io.createResourceFromAPI(C51655, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51655', errorFlowId);
         const lastRun = page.getByText('Last run')

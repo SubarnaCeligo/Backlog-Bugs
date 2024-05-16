@@ -7,7 +7,7 @@ test.describe("C51661 Verify the 'Error details' header fields displayed in the 
     test.afterEach(async ({ io }) => {
         await io.api.deleteFlowsWithId(errorFlowId)
     });  
-  test("C51661 Verify the 'Error details' header fields displayed in the New View", async ({io, page}) => {
+  test("@Zephyr-IO-T19813 C51661 Verify the 'Error details' header fields displayed in the New View", async ({io, page}) => {
         errorFlowId = await io.createResourceFromAPI(C51661, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51661', errorFlowId);
         const lastRun = page.getByText('Last run')

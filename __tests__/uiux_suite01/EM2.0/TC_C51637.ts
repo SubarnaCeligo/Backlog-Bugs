@@ -7,7 +7,7 @@ test.describe("C51637 Verify the drawer title, tab titles and tab order in the '
   test.afterEach(async ({ io }) => {
       await io.api.deleteFlowsWithId(errorFlowId)
   }); 
-  test("C51637 Verify the drawer title, tab titles and tab order in the 'Resolved Error' drawer", async ({io, page}) => {
+  test("@Zephyr-IO-T19789 C51637 Verify the drawer title, tab titles and tab order in the 'Resolved Error' drawer", async ({io, page}) => {
         errorFlowId = await io.createResourceFromAPI(C51637, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51637', errorFlowId);
         const lastRun = page.getByText('Last run')

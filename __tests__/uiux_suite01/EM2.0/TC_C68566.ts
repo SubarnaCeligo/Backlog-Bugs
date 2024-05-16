@@ -7,7 +7,7 @@ test.describe("C68566 Verify Error place in flow builder", () => {
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowsWithId(id)
   });
-  test("C68566 Verify Error place in flow builder", async ({ io, page }) => {
+  test("@Zephyr-IO-T25931 C68566 Verify Error place in flow builder", async ({ io, page }) => {
     id = await io.createResourceFromAPI(testData, "FLOWS");
     await io.api.runBatchFlowViaAPI("Narvar_Flow", id);
     const lastRun = page.getByText("Last run");

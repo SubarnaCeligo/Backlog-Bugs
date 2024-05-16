@@ -7,7 +7,7 @@ test.describe("C50858 Verify the displayed screen by clicking on the error count
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowsWithId(errorFlowId)
   });
-  test("C50858 Verify the displayed screen by clicking on the error count from the following pages within a flow bubble, flow step drawer, run console,and run history", async ({ io, page }) => {
+  test("@Zephyr-IO-T7550 C50858 Verify the displayed screen by clicking on the error count from the following pages within a flow bubble, flow step drawer, run console,and run history", async ({ io, page }) => {
     C50858["name"] = "C50858_Check_ErrorView"
     errorFlowId = await io.createResourceFromAPI(C50858, "FLOWS");
     await io.flowBuilder.loadingTime();

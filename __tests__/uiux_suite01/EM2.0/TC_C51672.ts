@@ -7,7 +7,7 @@ test.describe("C51672 Verify the 'HTTP response' tab in the 'Error details' draw
     test.afterEach(async ({ io }) => {
         await io.api.deleteFlowsWithId(id)
     });
-    test("C51672 Verify the 'HTTP response' tab in the 'Error details' drawer", async ({ io, page }) => {
+    test("@Zephyr-IO-T19824 C51672 Verify the 'HTTP response' tab in the 'Error details' drawer", async ({ io, page }) => {
         id = await io.createResourceFromAPI(C51672, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51661', id);
         const lastRun = page.getByText('Last run')

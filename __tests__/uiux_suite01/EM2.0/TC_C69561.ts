@@ -7,7 +7,7 @@ test.describe("C69561 Search bar is distorted on Error windows", () => {
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowsWithId(errorFlowId)
   });
-  test("@Zephyr-IO-T25936 @Env-QA C69561 Search bar is distorted on Error windows", async ({
+  test("@Zephyr-IO-T25936 C69561 Search bar is distorted on Error windows", async ({
     io,
     page
   }) => {
