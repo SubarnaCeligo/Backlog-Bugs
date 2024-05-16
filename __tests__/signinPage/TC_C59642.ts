@@ -8,7 +8,8 @@ test.describe(`C58439 Verify after clicking on "https://www.celigo.com/platform/
   }) => {
     await io.homePage.navigateTo("https://staging.celigo.com/platform");
     await io.homePage.loadingTime();
-    await io.homePage.clickByTextByIndex('Free Trial', 0)
+    await page.locator("a").filter({ hasText: "Try for free" }).first().click();
+    await io.homePage.addStep("Clicked on 'Try for free' button");
     await io.homePage.loadingTime();
     await io.homePage.addStep("Clicked on Free Trial Link");
     await io.assert.expectToContainValue(
