@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C107439 from '../../../testData/EM2.0/C107439.json';
 import playload from "@testData/profile/updatePreference.json"
 
-test.describe("@Zephyr-IO-IO-T1657 @Zephyr-IO--IO-T1653 C107439_C106998 Verify the Sort Errors in new error view in Ascending and Descending Timestamp", () => {
+test.describe("C107439_C106998 Verify the Sort Errors in new error view in Ascending and Descending Timestamp", () => {
   let errorFlowId
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
@@ -13,7 +13,7 @@ test.describe("@Zephyr-IO-IO-T1657 @Zephyr-IO--IO-T1653 C107439_C106998 Verify t
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowsWithId(errorFlowId)
   });
-  test("@Env-QA @Env-STAGING C107439_C106998 Verify user can able to toggle sorting arrow and view changes", async ({ io, page }) => {
+  test("@Zephyr-IO-IO-T1657 @Zephyr-IO--IO-T1653 @Env-QA @Env-STAGING C107439_C106998 Verify user can able to toggle sorting arrow and view changes", async ({ io, page }) => {
     errorFlowId = await io.createResourceFromAPI(C107439, "FLOWS");
     await io.api.runBatchFlowViaAPI('TC_C107439', errorFlowId);
     const lastRun = page.getByText('Last run')
