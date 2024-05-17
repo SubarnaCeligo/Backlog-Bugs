@@ -9,7 +9,7 @@ test.describe(`@Author-ashu-g TC_C23450 Trying to create a connection at the exp
     await io.connections.deleteConnection('Zendesk Manage Connection TC_C23450');
   });
 
-  test(`@Bug-IO-19381 @Priority-P2 @Zephyr-IO-T4706 @Env-QA TC_C23450 Trying to create a connection at the export/import step is not working for integration with manage permissions`, async ({
+  test(`@Bug-IO-19381 @Priority-P2 @Zephyr-IO-T4706 @Env-All TC_C23450 Trying to create a connection at the export/import step is not working for integration with manage permissions`, async ({
     page,
     io
   }) => {
