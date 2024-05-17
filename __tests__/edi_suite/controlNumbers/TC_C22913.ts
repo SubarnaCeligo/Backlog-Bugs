@@ -5,7 +5,7 @@ test.describe("@Author-RajVikram TC_22913", () => {
   test.beforeEach(async ({ io, }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Epic-IO-74526 @Priority-P3 @Env-ALL @Zephyr-IO-T5393", async ({
+  test("@Epic-IO-74526 @Priority-P3 @Env-All @Zephyr-IO-T5393", async ({
     io,page
   }, testInfo) => {
   
