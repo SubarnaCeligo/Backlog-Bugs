@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S Verify that clicking on Integration name hyperli
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-QA @Epic-IO-31713 @Priority-P2 @Zephyr-IO-T29018 @Zephyr-IO-T29022 Verify that clicking on Integration name hyperlink navigates to integration page", async ({ io, page }) => {
+  test("@Env-QA @Epic-IO-31713 @Priority-P2 @Zephyr-IO-T29018 Verify that clicking on Integration name hyperlink navigates to integration page", async ({ io, page }) => {
 
     //Go to Dashboard
     await io.myAccountPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "dashboard");
@@ -34,7 +34,7 @@ test.describe("@Author-Shriti S Verify that clicking on Integration name hyperli
 
     //Get the filtered integration name
     await io.homePage.clickByIndex(selectors.dashboardPagePO.INTEGRATION_HYPERLINK, 0);
-
+    await io.assert.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW)
     await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.CREATEFLOW, 'Integration page did not open');
     await io.assert.verifyElementIsDisplayed(selectors.templatePagePO.FLOWS, 'Integration page did not open');
 

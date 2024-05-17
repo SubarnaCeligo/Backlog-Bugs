@@ -35,6 +35,7 @@ test.describe("@Author-Shriti S Verify that clicking on error hyperlink on flows
     await io.homePage.clickByIndex(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS, 0);
 
     //Verify if errors page is displayed
+    await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.SCRIPTEDITORHEADER);
     let pageHeader = (await io.homePage.getText(selectors.flowBuilderPagePO.SCRIPTEDITORHEADER)).toString();
     await io.assert.expectToContainValue("Errors:", pageHeader, 'Errors page did not open');
     await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.RESOLVE_JOBS,'Errors page did not open' );

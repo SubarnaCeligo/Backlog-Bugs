@@ -23,7 +23,7 @@ test.describe("@Author-Shriti S Verify sorting on other sortable columns on docu
     await io.homePage.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
 
     //Get all available filter values
-    await io.homePage.clickByText('Last 30 days');
+    await io.homePage.clickByText('Last 180 days');
     await io.homePage.clickByText('Apply');
     await io.homePage.loadingTime();
 

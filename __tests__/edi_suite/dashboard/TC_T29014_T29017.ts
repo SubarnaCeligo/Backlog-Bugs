@@ -23,6 +23,7 @@ test.describe("@Author-Shriti S Verify that entries on Flows dashboard are pagin
     await io.homePage.waitForElementAttached(selectors.dashboardPagePO.FLOWS);
     await io.homePage.click(selectors.dashboardPagePO.FLOWS);
     await io.homePage.waitForElementAttached(selectors.dashboardPagePO.FILTER_BUTTON);
+    await io.homePage.loadingTime();
 
     //Verify default pagination
     let numOfRowsString = (await io.homePage.getText(selectors.dashboardPagePO.ROWS)).toString();

@@ -29,7 +29,7 @@ test.describe("@Author-Shriti S Verify that EDI flows can be filtered using date
     await io.homePage.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
 
     //Get all available filter values
-    await io.homePage.clickByText('Last 30 days');
+    await io.homePage.clickByText('Last 180 days');
     await io.homePage.clickByText('Apply');
     await io.homePage.loadingTime();
 
@@ -55,7 +55,7 @@ test.describe("@Author-Shriti S Verify that EDI flows can be filtered using date
     // Convert the difference to days, add 1 to include current day
     const daysDifference = timeDifference / (1000 * 60 * 60 * 24);
 
-    await io.assert.expectToBeTrue((Math.round(daysDifference) <= 30), 'Last 30 days data is not displayed');
+    await io.assert.expectToBeTrue((Math.round(daysDifference) <= 180), 'Last 180 days data is not displayed');
 
 
   });

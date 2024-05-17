@@ -21,7 +21,7 @@ test.describe("@Author-Shriti S Verify that EDI activity can be filtered using s
     //Click on date filter
     await io.homePage.click(selectors.myAccountPagePO.DATEFILTER);
     await io.homePage.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
-    await io.homePage.clickByText('Last 30 days');
+    await io.homePage.clickByText('Last 180 days');
     await io.homePage.clickByText('Apply');
     await io.homePage.loadingTime();
 
