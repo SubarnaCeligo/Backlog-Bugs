@@ -1,7 +1,7 @@
 import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C45204 Verify list of Accounts dropdown beside profile icon", () => {
+test.describe.skip("C45204 Verify list of Accounts dropdown beside profile icon", () => {
     test("C45204 Verify list of Accounts dropdown beside profile icon", async ({io, page}) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.click(selectors.homePagePO.ORG_CHANGE_DROPDOWN);

@@ -26,7 +26,13 @@ var testCases = [
   'C60440',
   "C20808",
   "C24620",
+<<<<<<< playwright-test
   "C32654",
+=======
+  "C107735",
+  "C107061",
+  "C108197",
+>>>>>>> playwright-ts
   // "C115891" Duplicate test case
 ];
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
