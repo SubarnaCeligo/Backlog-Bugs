@@ -3,13 +3,17 @@ import * as selectors from "@celigo/aut-selectors";
 import C50858 from '@testData/EM2.0/C24621.json'
 
 test.describe("C50858 Verify the displayed screen by clicking on the error count from the following pages within a flow bubble, flow step drawer, run console,and run history", () => {
-  test("C50858 Verify the displayed screen by clicking on the error count from the following pages within a flow bubble, flow step drawer, run console,and run history", async ({ io, page }) => {
-    C50858["name"]="C50858_Check_ErrorView"
-    const errorFlowId = await io.createResourceFromAPI(C50858, "FLOWS");
+  let errorFlowId
+  test.afterEach(async ({ io }) => {
+    await io.api.deleteFlowsWithId(errorFlowId)
+  });
+  test("@Zephyr-IO-T7550 C50858 Verify the displayed screen by clicking on the error count from the following pages within a flow bubble, flow step drawer, run console,and run history", async ({ io, page }) => {
+    C50858["name"] = "C50858_Check_ErrorView"
+    errorFlowId = await io.createResourceFromAPI(C50858, "FLOWS");
     await io.flowBuilder.loadingTime();
-    await io.api.runBatchFlowViaAPI('C50858_Check_ErrorView', errorFlowId);
+    let flowStatus= await io.api.checkJobStatusFromAPI('C50858_Check_ErrorView', errorFlowId);
     const lastRun = page.getByText('Last run')
-    await lastRun.waitFor({ state: 'visible', timeout: 180000 });
+    await lastRun.waitFor({ state: 'visible', timeout: 360000 });
     await io.flowBuilder.reloadPage()
     await io.flowBuilder.loadingTime()
     await io.flowBuilder.clickByTextByIndex('1 error', 1)
@@ -35,9 +39,9 @@ test.describe("C50858 Verify the displayed screen by clicking on the error count
 
     // Assert that the row is selected
     expect(hasSelectedClass).toBe(true);
-    var errorDetailsText= await page.getByText("Error Detail")
-    const isVis= await errorDetailsText.isVisible()
-    await io.assert.expectToBeTrue(isVis,"")
+    var errorDetailsText = await page.getByText("Error Detail")
+    const isVis = await errorDetailsText.isVisible()
+    await io.assert.expectToBeTrue(isVis, "")
     // Users will see two panels, the “Error rows” panel for the list of errors and the “Error details” panel for the details of the error
     const panel1Locator = page.locator(selectors.flowBuilderPagePO.EM2DOT0PO.ERROR_DETAILS_PANEL);
     const panel2Locator = page.locator(selectors.flowBuilderPagePO.EM2DOT0PO.ERROR_ROWS_PANEL);

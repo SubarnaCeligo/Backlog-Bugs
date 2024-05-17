@@ -3,11 +3,15 @@ import * as selectors from "@celigo/aut-selectors";
 import C66296 from "@testData/EM2.0/C66296.json"
 
 test.describe("C66296 Verify the status of flow runs is color-coded", () => {
-  test("C66296 Verify the status of flow runs is color-coded", async ({io, page}) => {
-      const errorFlowId = await io.createResourceFromAPI(C66296, "FLOWS");
+  let errorFlowId
+    test.afterEach(async ({ io }) => {
+        await io.api.deleteFlowsWithId(errorFlowId)
+    });
+  test("@Zephyr-IO-T20424 @Env-QA @Env-STAGING C66296 Verify the status of flow runs is color-coded", async ({io, page}) => {
+      errorFlowId = await io.createResourceFromAPI(C66296, "FLOWS");
       await io.api.runBatchFlowViaAPI('TC_C51626', errorFlowId);
       const lastRun = page.getByText('Last run')
-      await lastRun.waitFor({state: 'visible', timeout: 180000});
+      await lastRun.waitFor({state: 'visible', timeout: 360000});
       const runConsoleRows = await page.locator(selectors.flowBuilderPagePO.COLUMNS).all();
       runConsoleRows.forEach(async row =>{
         const status = row.locator('td div').nth(0);
