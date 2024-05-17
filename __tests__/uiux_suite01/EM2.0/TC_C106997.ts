@@ -4,7 +4,7 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe('C106997_C106995_C106996 Validate that the sort dropdwon when specific column(Message, Code, Source, Classification) is selected', () => {
 
 
-  test('@Zephyr-IO-T1652-IO-T1650-IO-T1651 C106997_C106995_C106996 Validate that user is able to sort dropdwon when specific column(Message, Code, Source, Classification) is selected', async ({
+  test('@Zephyr-IO-T1652 @Zephyr-IO-T1650 @Zephyr-IO-T1651 C106997_C106995_C106996 Validate that user is able to sort dropdwon when specific column(Message, Code, Source, Classification) is selected', async ({
     io,
     page
   }) => {

@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C107439 from '../../../testData/EM2.0/C107439.json';
 import playload from "@testData/profile/updatePreference.json"
 
-test.describe("@Zephyr-IO-IO-T1657-IO-T1653 C107439_C106998 Verify the Sort Errors in new error view in Ascending and Descending Timestamp", () => {
+test.describe("@Zephyr-IO-IO-T1657 @Zephyr-IO--IO-T1653 C107439_C106998 Verify the Sort Errors in new error view in Ascending and Descending Timestamp", () => {
   let errorFlowId
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
