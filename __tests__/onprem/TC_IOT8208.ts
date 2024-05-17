@@ -1,8 +1,8 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-const connectionName = "jdbc_connection_IOT2808";
-const connectionNameEdited = "jdbc_connection_edited_IOT2808";
+const connectionName = "jdbc_connection_IOT2808_DND";
+const connectionNameEdited = "jdbc_connection_edited_IOT2808_DND";
 
 
 test.describe("C104757 Verify editing connection for JDBC on-Prem using MYSQL", () => {
@@ -10,7 +10,7 @@ test.describe("C104757 Verify editing connection for JDBC on-Prem using MYSQL", 
         await io.connections.deleteConnection(connectionNameEdited)
     });
     
-    test("@Env-QA @Zephyr-IO-T8208 C104757 Verify editing connection for JDBC on-Prem using MYSQL and verify edit connection ", async ({
+    test("@Env-ALL @Zephyr-IO-T8208 C104757 Verify editing connection for JDBC on-Prem using MYSQL and verify edit connection ", async ({
         io,
         page,
     }, testInfo) => {
