@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 
 
 test.describe("TC_C36996_Verify that Google Bigquery is displayed in the connections tab", () => {
-    test("@Env-All TC_C36996_Verify that Google BigQuery is displayed under databases section in the connections dropdown", async ({ io, page },) => {
+    test("@Env-All @Zephyr-IO-T9350 C36996_Verify that Google BigQuery is displayed under databases section in the connections dropdown", async ({ io, page },) => {
         await io.myAccountPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
         await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
         await io.homePage.addStep('Clicked on Add New Resource');
