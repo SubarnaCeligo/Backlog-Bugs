@@ -8,10 +8,10 @@ test.describe("C34887 verifying the presence of Restricted report type checkbox 
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Amazon Seller Central');
         await io.connectionPage.click(selectors.flowBuilderPagePO.AMAZONSELLER);
+        await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,'AMAZON SP API');
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);
-        await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.exportsPage.fill(
             selectors.exportsPagePO.NAME,
             "Export"
