@@ -10,7 +10,7 @@ test.describe("C104757 Verify editing connection for JDBC on-Prem using MYSQL", 
         await io.connections.deleteConnection(connectionNameEdited)
     });
     
-    test("@Env-ALL @Zephyr-IO-T8208 C104757 Verify editing connection for JDBC on-Prem using MYSQL and verify edit connection ", async ({
+    test("@Env-All @Zephyr-IO-T8208 C104757 Verify editing connection for JDBC on-Prem using MYSQL and verify edit connection ", async ({
         io,
         page,
     }, testInfo) => {
