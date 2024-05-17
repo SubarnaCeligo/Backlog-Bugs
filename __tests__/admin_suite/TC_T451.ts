@@ -22,7 +22,7 @@ test.describe(`IO_T451 To verify Pull from Integration dropdown field in both pr
     await io.myAccountPage.loadingTime();
     await io.flowBuilder.clickByText("Revisions");
     await io.flowBuilder.click(selectors.integrationPagePO.CREATE_PULL);
-    const childIntegration = await io.flowBuilder.getText("#react-select-2-listbox div div div div:nth-child(1)");
+    const childIntegration = await io.flowBuilder.getText(selectors.integrationPagePO.CHILD_INTEGRATION_NAME);
     expect(childIntegration).toBe("IO_T451 Integration");
   });
 });

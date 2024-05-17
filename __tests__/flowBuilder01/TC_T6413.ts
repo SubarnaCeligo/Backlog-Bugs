@@ -9,7 +9,7 @@ test("C113413 User should able to run the flow successfully", async ({io, page})
     await io.homePage.waitForElementAttached("text='JWTDOCUSIGN_DND'")
     await io.homePage.clickByText("JWTDOCUSIGN_DND")
     await io.flowBuilder.loadingTime();
-    const autoResolvedErrorCount = await io.flowBuilder.getText("tbody > tr:nth-child(1) > td:nth-child(6)")
+    const autoResolvedErrorCount = await io.flowBuilder.getText(selectors.flowBuilderPagePO.AUTORESOLVED)
     expect(autoResolvedErrorCount).toBe("1")
 });
 });
