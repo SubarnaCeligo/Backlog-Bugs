@@ -1,28 +1,32 @@
 import { test, expect } from "@celigo/ui-core-automation";
+import * as selectors from "@celigo/aut-selectors";
+import TC_C102875 from '../../../testData/inputData/FlowBuilder/C102875.json';
+import TC_C119790 from '../../../testData/inputData/FlowBuilder/C119790.json';
 
 test.describe(`C32654 Verify Drawer title ,mapping screen layout for Response mapper and Lookup results mapper`, () => {
-  test.beforeEach(async ({ io }) => {
-    await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+  let id;
+  test.afterEach(async ({ io, page }) => {
+      await io.api.deleteFlowViaAPI(id);
   });
 
   test(`C32654 Verify Drawer title for Lookup results mapper`, async ({
     io,
     page
   }) => {
-    await io.flowBuilder.clickByText("Branching2_Scheduling_DND");
-    const inputDestinationSelector = `[data-test="pp-650993ee423b065da85c6475"] [data-test="addDataProcessor"]`;
-    await io.flowBuilder.waitForElementAttached(inputDestinationSelector);
-    await io.flowBuilder.click(inputDestinationSelector);
-    await io.flowBuilder.click('[data-test="pp-650993ee423b065da85c6475"] [data-test="responseMapping"]');
-    await expect(page.getByText('Edit results mapping')).toBeVisible();
+    id = await io.createResourceFromAPI(TC_C102875, "FLOWS");
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.DATA_PROCESSOR);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.DATA_PROCESSOR);
+    await io.flowBuilder.click(selectors.mappings.DEFAULT_MAPPING_TYPE.RESPONSE_MAPPING);
+    await expect(page.getByText('Edit response mapping')).toBeVisible();
   });
 
   test('C32654 Verify Drawer title for Response mapper', async ({ io, page }) => { 
-    await io.flowBuilder.clickByText("C32362_DND");
-    const inputDestinationSelector = `[data-test="pp-6553377445378803cf8c0c36"] [data-test="addDataProcessor"]`;
-    await io.flowBuilder.waitForElementAttached(inputDestinationSelector);
-    await io.flowBuilder.click(inputDestinationSelector);
-    await io.flowBuilder.click('[data-test="pp-6553377445378803cf8c0c36"] [data-test="responseMapping"]');
-    await expect(page.getByText('Edit response mapping')).toBeVisible();
+    id = await io.createResourceFromAPI(TC_C119790, "FLOWS");
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.DATA_PROCESSOR);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.DATA_PROCESSOR);
+    await io.flowBuilder.click(selectors.mappings.DEFAULT_MAPPING_TYPE.RESPONSE_MAPPING);
+    await expect(page.getByText('Edit results mapping')).toBeVisible();
   });
 });
