@@ -5,7 +5,7 @@ test.describe(`IO_T451 To verify Pull from Integration dropdown field in both pr
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test(`IO_T451 To verify Pull from Integration dropdown field in both production and sandbox account(Admin access)`, async ({
+  test(`@Env-All @Zephyr-IO_T451 C41570 To verify Pull from Integration dropdown field in both production and sandbox account(Admin access)`, async ({
     page,
     io
   }) => {

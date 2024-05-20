@@ -4,11 +4,11 @@ import { decrypt } from "@celigo/aut-utilities";
 
 const connectionName = "jdbc_connection_C104753";
 
-test.describe(`TC_C104753 Verify "save","save and close" and "close" while creating JBDC On-Prem connection`, () => {
+test.describe(`C104753 Verify "save","save and close" and "close" while creating JBDC On-Prem connection`, () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test(`TC_C104753 Verify "save","save and close" and "close" while creating JBDC On-Prem connection`, async ({ io, page }, testInfo) => {
+  test(`@Env-All @Zephyr-IO-T8205 C104753 Verify "save","save and close" and "close" while creating JBDC On-Prem connection`, async ({ io, page }, testInfo) => {
     await io.homePage.loadingTime()
     // navigate to my connection page
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);

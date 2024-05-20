@@ -2,8 +2,8 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 
-test.describe("C112084 User should able to run the flow successfully", () => {
-test("C113413 User should able to run the flow successfully", async ({io, page}) => {
+test.describe("C29032 Auto-resolved feature will be counted in the auto-resolved column", () => {
+test("@Env-All @Zephyr- IO-T6413 C29032 Auto-resolved feature will be counted in the auto-resolved column", async ({io, page}) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL)
     await io.homePage.clickByText("Automation Flows")
     await io.homePage.waitForElementAttached("text='JWTDOCUSIGN_DND'")

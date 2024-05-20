@@ -5,7 +5,7 @@ test.describe("C29041_Account Dashboard - Completed flows - Completed date range
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C29041 Account Dashboard - Completed flows - Completed date range's Custom time frame cannot be less than 1 hour", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T6434 C29041 Account Dashboard - Completed flows - Completed date range's Custom time frame cannot be less than 1 hour", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.isVisible(selectors.integrationPagePO.DASHBOARD_TAB);
         await io.homePage.click(selectors.integrationPagePO.DASHBOARD_TAB);
