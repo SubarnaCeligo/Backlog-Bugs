@@ -8,6 +8,7 @@ test.describe("T10034", () => {
         await io.homePage.loadingTime();
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.IMPORT);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT);
+        await io.flowBuilder.waitForElementAttached(selectors.importPagePO.FEEDOPTIONSHELP);
         await io.flowBuilder.click(selectors.importPagePO.FEEDOPTIONSHELP);
         await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.HELP_BUBBLE);
         const helpText = (await io.flowBuilder.getText(
