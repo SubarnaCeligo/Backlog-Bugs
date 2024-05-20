@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S TC_T28968-Verify that default FA Listerer is aut
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Epic-IO-36129 @Env-QA @Priority-P2 @Zephyr-T28968 Verify that default FA Listerer is auto selected in the FA dropdown.", async ({ io, page }) => {
+  test("@Epic-IO-36129 @Env-All @Priority-P2 @Zephyr-T28968 Verify that default FA Listerer is auto selected in the FA dropdown.", async ({ io, page }) => {
     //Go to Exports
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
 
