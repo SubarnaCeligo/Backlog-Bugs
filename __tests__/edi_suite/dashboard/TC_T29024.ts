@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S Verify that clicking on error hyperlink on flows
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-QA @Epic-IO-31713 @Priority-P2 @Zephyr-IO-T29024 Verify that clicking on error hyperlink on flows dashboard opens error console.", async ({ io, page }) => {
+  test("@Env-All @Epic-IO-31713 @Priority-P2 @Zephyr-IO-T29024 Verify that clicking on error hyperlink on flows dashboard opens error console.", async ({ io, page }) => {
 
      //Go to Dashboard
     await io.myAccountPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "dashboard");
@@ -35,6 +35,7 @@ test.describe("@Author-Shriti S Verify that clicking on error hyperlink on flows
     await io.homePage.clickByIndex(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS, 0);
 
     //Verify if errors page is displayed
+    await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.SCRIPTEDITORHEADER);
     let pageHeader = (await io.homePage.getText(selectors.flowBuilderPagePO.SCRIPTEDITORHEADER)).toString();
     await io.assert.expectToContainValue("Errors:", pageHeader, 'Errors page did not open');
     await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.RESOLVE_JOBS,'Errors page did not open' );
