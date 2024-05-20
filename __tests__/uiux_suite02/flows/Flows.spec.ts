@@ -34,5 +34,5 @@ var testCases = [
 ];
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
 (async () => {
-  await filterTestCases(['C32654'], flakycases, "flows");
+  await filterTestCases(testCases, flakycases, "flows");
 })();

@@ -9,7 +9,7 @@ test.describe(`C32654 Verify Drawer title ,mapping screen layout for Response ma
       await io.api.deleteFlowViaAPI(id);
   });
 
-  test(`C32654 Verify Drawer title for Lookup results mapper`, async ({
+  test(`@Env-All @Zephyr-IO-T5898 C32654 Verify Drawer title for Lookup results mapper`, async ({
     io,
     page
   }) => {
@@ -21,7 +21,7 @@ test.describe(`C32654 Verify Drawer title ,mapping screen layout for Response ma
     await expect(page.getByText('Edit response mapping')).toBeVisible();
   });
 
-  test('C32654 Verify Drawer title for Response mapper', async ({ io, page }) => { 
+  test('@Env-All @Zephyr-IO-T5898 C32654 Verify Drawer title for Response mapper', async ({ io, page }) => { 
     id = await io.createResourceFromAPI(TC_C119790, "FLOWS");
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.DATA_PROCESSOR);
