@@ -8,7 +8,7 @@ test.describe("TC_C103070 Verify Based on the selection from the simple view, th
         await io.homePage.loadingTime();
     });
 
-    test("@Zephyr-T24471 @Env-All @Priority-P2 TC_C103070 Verify Based on the selection from the simple view, the details  will be automatically updated in the HTTP view.", async ({ io, page }) => {
+    test("@Zephyr-IO-T24471 @Env-All @Priority-P2 TC_C103070 Verify Based on the selection from the simple view, the details  will be automatically updated in the HTTP view.", async ({ io, page }) => {
         await io.flowBuilder.clickByTextByIndex('Create flow', 0);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP);
 
