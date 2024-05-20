@@ -7,7 +7,7 @@ test.describe(`C14612 Verify Template name is displayed in URL while installing 
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
 
-  test(`@Zephyr-IO-T3846 @Env-All @Priority-P2 C14612 Verify Template name is displayed in URL while installing template`, async ({
+  test(`@Zephyr-IO-T3846 @Env-IAQA @Priority-P2 C14612 Verify Template name is displayed in URL while installing template`, async ({
     io,
     page
   }) => {
