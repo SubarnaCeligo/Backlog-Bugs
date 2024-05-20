@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S Verify all the elements of EDI Dashboard", () =>
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-QA @Epic-IO-31713 @Priority-P1 @Zephyr-IO-T28999 @Zephyr-IO-T29000 @Zephyr-IO-T29004 @Zephyr-IO-T29029 Verify all the elements of EDI Dashboard", async ({ io, page }) => {
+  test("@Env-All @Epic-IO-31713 @Priority-P1 @Zephyr-IO-T28999 @Zephyr-IO-T29000 @Zephyr-IO-T29004 @Zephyr-IO-T29029 Verify all the elements of EDI Dashboard", async ({ io, page }) => {
 
     await io.homePage.addStep("IO-T28999 - Verify that 'EDI activity' tab is added to IO Dashboard");
     //Go to Dashboard
@@ -42,7 +42,7 @@ test.describe("@Author-Shriti S Verify all the elements of EDI Dashboard", () =>
     let buttons = (await io.homePage.getText(selectors.dashboardPagePO.DATE_FILTER_POPUP)).toString();
     //Verify values of buttons
     await io.homePage.addStep("T29029 - Verify that the date range filter on EDI dashboard is as per the account's data retention period.")
-    await io.assert.expectToBeValue('Today,Last 24 hours,Last 36 hours,Last 7 days,Last 15 days,Last 30 days,Custom', buttons, 'Date filters are not displayed');
+    await io.assert.expectToBeValue('Today,Last 24 hours,Last 36 hours,Last 7 days,Last 15 days,Last 30 days,Last 60 days,Last 90 days,Last 180 days,Custom', buttons, 'Date filters are not displayed');
     await io.homePage.clickByText("Cancel");
 
     // 3. A dropdown for pagination should be displayed.
