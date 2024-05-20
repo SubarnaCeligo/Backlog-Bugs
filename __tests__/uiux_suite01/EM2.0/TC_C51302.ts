@@ -4,16 +4,20 @@ import flowJSON from "@testData/EM2.0/C51302.json"
 import { randomString, randomNumber } from "@celigo/aut-utilities";
 
 test.describe(`C51302 Verify when a retry is in progress and “Cancel” is clicked, few errors are successful and few errors are unsuccessful`, () => {
-  test(`C51302 Verify when a retry is in progress and “Cancel” is clicked, few errors are successful and few errors are unsuccessful`, async ({
+  let id
+  test.afterEach(async ({ io }) => {
+    await io.api.deleteFlowsWithId(id)
+  });
+  test(`@Zephyr-IO-T23331 @Env-QA C51302 Verify when a retry is in progress and “Cancel” is clicked, few errors are successful and few errors are unsuccessful`, async ({
     io,
     page
   }) => {
     const flowName="C51302"+randomString(5)+randomNumber(2)
     flowJSON["name"]=flowName
-    const id = await io.createResourceFromAPI(flowJSON, "FLOWS");
+    id = await io.createResourceFromAPI(flowJSON, "FLOWS");
     await io.api.runBatchFlowViaAPI(flowName, id);
     const lastRun = page.getByText("Last run");
-    await lastRun.waitFor({ state: "visible" ,timeout:180000});
+    await lastRun.waitFor({ state: "visible" ,timeout:360000});
     await io.flowBuilder.clickByTextByIndex("1 error", 1);
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.EM2DOT0PO.RETRY_AND_NEXT

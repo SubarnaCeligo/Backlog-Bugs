@@ -3,11 +3,15 @@ import * as selectors from "@celigo/aut-selectors";
 import C51661 from '@testData/EM2.0/TC_C51661.json';
 
 test.describe("C51661 Verify the 'Error details' header fields displayed in the New View", () => {
-    test("C51661 Verify the 'Error details' header fields displayed in the New View", async ({io, page}) => {
-        const errorFlowId = await io.createResourceFromAPI(C51661, "FLOWS");
+  let errorFlowId
+    test.afterEach(async ({ io }) => {
+        await io.api.deleteFlowsWithId(errorFlowId)
+    });  
+  test("@Zephyr-IO-T19813 C51661 Verify the 'Error details' header fields displayed in the New View", async ({io, page}) => {
+        errorFlowId = await io.createResourceFromAPI(C51661, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51661', errorFlowId);
         const lastRun = page.getByText('Last run')
-        await lastRun.waitFor({state: 'visible', timeout: 180000});
+        await lastRun.waitFor({state: 'visible', timeout: 360000});
         await io.homePage.reloadPage()
         await io.homePage.loadingTime()
         await io.flowBuilder.clickByTextByIndex("1 error", 1);

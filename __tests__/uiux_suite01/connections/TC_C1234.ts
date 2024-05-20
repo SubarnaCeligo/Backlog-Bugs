@@ -10,7 +10,6 @@ test.describe("C39816 To Verify Anaplan Logo on Connection form", () => {
     await page.click(selectors.basePagePO.RESOURCES);
     await io.homePage.goToMenu("Resources", "Connections");
     await io.flowBuilder.click(selectors.connectionsPagePO.CREATE_CONNECTION);
-    await page.pause();
 
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Azure');
     await io.assert.verifyElementIsDisplayed("[data-test='Microsoft Azure Synapse Analytics']", "Element not displayed");
