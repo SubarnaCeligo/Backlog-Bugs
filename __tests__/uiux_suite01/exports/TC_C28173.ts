@@ -12,12 +12,14 @@ test.describe(`C28173 Verify the message “Add {{lastExportDateTime}} to either
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
     await io.flowBuilder.delay(2000);
     await io.flowBuilder.clickByText("HTTP");
-    await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
+    await io.flowBuilder.clickByText("Create from scratch")
+    await io.flowBuilder.click(selectors.exportsPagePO.CREATE_SELECT_CONNECTION);
+    await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, '3PL CONNECTION');
     await io.flowBuilder.clickByText("3PL CONNECTION");
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.delay(2000);
     await io.flowBuilder.click(selectors.exportsPagePO.EXPORT_TYPE_DROPDOWN);
-    await io.flowBuilder.clickByText("Delta – export only modified data");
+    await io.flowBuilder.clickByText("Delta - export only modified data");
     const message = page.getByText(
       "Add {{lastExportDateTime}} to either the relative URI or HTTP request body to complete the setup."
     );

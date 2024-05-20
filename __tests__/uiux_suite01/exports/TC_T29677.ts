@@ -27,6 +27,7 @@ test.describe("@Author_sagna123 TC_T29677_Test to validate user is able to 'Name
         await io.homePage.addStep("*** Checked name field help text  ***");
         await io.flowBuilder.click(selectors.exportsPagePO.DESCRIPTION_HELP_TEXT);
         await io.homePage.addStep("*** Checked description field help text ***");
+        await io.homePage.waitForElementAttached(selectors.exportsPagePO.CONNECTION_HELP_TEXT)
         await io.flowBuilder.click(selectors.exportsPagePO.CONNECTION_HELP_TEXT);
         await io.homePage.addStep("*** Checked connection field help text ***");
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);

@@ -12,7 +12,9 @@ test.describe(`C28172 Verify export type dropdown values are updated in HTTP/RES
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
     await io.flowBuilder.clickByText("HTTP");
     await io.flowBuilder.addStep("Selected 'HTTP' option");
-    await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
+    await io.flowBuilder.clickByText("Create from scratch")
+    await io.flowBuilder.click(selectors.exportsPagePO.CREATE_SELECT_CONNECTION);
+    await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, '3PL CONNECTION');
     await io.flowBuilder.addStep("Clicked on 'connections' dropdown");
     await io.flowBuilder.clickByText("3PL CONNECTION");
     await io.flowBuilder.addStep("Selected '3PL CONNECTION' option");
@@ -20,16 +22,16 @@ test.describe(`C28172 Verify export type dropdown values are updated in HTTP/RES
     await io.flowBuilder.addStep("Clicked on 'save' button");
     await io.flowBuilder.click(selectors.exportsPagePO.EXPORT_TYPE_DROPDOWN);
     await io.flowBuilder.addStep("Clicked on 'export type' dropdown");
-    await expect(page.getByText("All – always export all data")).toBeVisible();
+    await expect(page.getByText("All - always export all data")).toBeVisible();
     await io.flowBuilder.addStep("Verified 'All' option is visible");
     await expect(
-      page.getByText("Delta – export only modified data")
+      page.getByText("Delta - export only modified data")
     ).toBeVisible();
     await io.flowBuilder.addStep("Verified 'Delta' option is visible");
-    await expect(page.getByText("Once – export records only once")).toBeVisible();
+    await expect(page.getByText("Once - export records only once")).toBeVisible();
     await io.flowBuilder.addStep("Verified 'Once' option is visible");
     await expect(
-      page.getByText("Limit – export a set number of records")
+      page.getByText("Limit - export a set number of records")
     ).toBeVisible();
     await io.flowBuilder.addStep("Verified 'Limit' option is visible");
   });

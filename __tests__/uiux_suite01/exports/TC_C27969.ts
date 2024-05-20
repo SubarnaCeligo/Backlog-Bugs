@@ -32,8 +32,8 @@ test.describe(`C27969 Verify the fields in 'Non-standard API response patterns' 
     }, selectors.exportsPagePO.NON_STANDARD_API_TAB_CONTENT);
 
     const firstId = divList[0];
-    const secondId = divList[3];
-    const thirdId = divList[4];
+    const secondId = divList[4];
+    const thirdId = divList[5];
 
     await io.assert.expectToBeValue(
       "http.response.resourcePath",
