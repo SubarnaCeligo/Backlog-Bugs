@@ -17,14 +17,13 @@ test.describe(`C22465 Verify the transfer date is correctly populated once the i
     let getData = 0;
     for (let i = 0; i < tbl.length - 1; i++) {
       const cellText = await tbl[i].textContent();
-      console.log("this is  status ", cellText);
       if (cellText === "Accepted") {
         getData = i
         break;
       }
     }
     const cellText = await tbl[getData + 1].textContent();
-    const timeRegex = /\d{1,2}\/\d{1,2}\/\d{4} \d{2}:\d{2}:\d{2}/;
+    const timeRegex = /\d{1,2}\/\d{1,2}\/\d{4} \d{1,2}:\d{1,2}:\d{2,2}/;
     const isValidTimeFormat = timeRegex.test(cellText);
     await io.assert.expectToBeTrue(isValidTimeFormat, "Invalid time format");
   });

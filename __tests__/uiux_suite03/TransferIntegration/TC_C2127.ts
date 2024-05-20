@@ -22,7 +22,6 @@ test.describe(`C2127 Verify Transfer list must be updated with lastmodified at t
     let result = false
     for (let i = 0; i < tbl.length - 1; i++) {
       const cellText = await tbl[i].textContent();
-      console.log("this is  status ", cellText);
       if (cellText === "Canceled") {
         result = true
         break;
