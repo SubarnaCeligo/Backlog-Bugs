@@ -8,8 +8,8 @@ test.describe("C112080_C112081_C112082_C2112083_C112089", () => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   
   });
-  
-  test("@Env-All C112080 Verify user able to give all the secret key,payload,header values", async ({io, page}) => {
+  //Skipped as per discussion with TC Owner and QA team
+  test.skip("@Env-All @Zephyr-IO-T14663 C112080 Verify user able to give all the secret key,payload,header values", async ({io, page}) => {
       await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
       await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
       await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
@@ -26,7 +26,7 @@ test.describe("C112080_C112081_C112082_C2112083_C112089", () => {
       await io.connectionPage.enterHugeData(selectors.connectionsPagePO.JWT_PAYLOAD,'testt');
       await io.connectionPage.enterHugeData(selectors.connectionsPagePO.HEADERS_BUTTON,'test');
   });
-  test("@Env-All C112081 Verify the payload and Header field values", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T14664 C112081 Verify the payload and Header field values", async ({io, page}) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
@@ -43,7 +43,7 @@ test.describe("C112080_C112081_C112082_C2112083_C112089", () => {
     let payload = (await io.connectionPage.getText(selectors.connectionsPagePO.JWT_PAYLOAD)).toString();
     await io.assert.expectToContainValue('{"exp":"expiration-as-integer","sub":"{sub}","iss":"{iss}","aud":"{aud}"}',payload, 'Payload is not displayed');
   });
-  test("@Env-All C112082 Verify secret key as masked while user entering", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T14665 C112082 Verify secret key as masked while user entering", async ({io, page}) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
@@ -62,7 +62,7 @@ test.describe("C112080_C112081_C112082_C2112083_C112089", () => {
     // await io.assert.checkSnapshot(selectors.importPagePO.PASSWORD,"C112082.png"); -- Screenshot comparision fails most of the times due to 2-3 pixel difference
     await io.assert.verifyElementAttribute(selectors.connectionsPagePO.SECRET_KEY_INPUT , 'type', 'password');
   });
-  test("@Env-All C112083 Verify user able to create connection using JWT bearer HTTP connection", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T14666 C112083 Verify user able to create connection using JWT bearer HTTP connection", async ({io, page}) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
@@ -115,7 +115,7 @@ test.describe("C112080_C112081_C112082_C2112083_C112089", () => {
       "Connection creation error"
     );
   });
-  test("@Env-All C112089 Verify the handlebar at payload & JWT headers", async ({io, page}) => {
+  test("@Zephyr-IO-T14670 C112089 Verify the handlebar at payload & JWT headers", async ({io, page}) => {
     await io.homePage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL)
     await io.homePage.loadingTime()
     await io.homePage.waitForElementAttached("text='GITHUB DND'")

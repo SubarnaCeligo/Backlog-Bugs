@@ -11,18 +11,18 @@ test.describe("C22310 Verify unsubscribe link for user accounts whether navigati
       );
     });
 
-    test("C22310 Verify unsubscribe link for user accounts whether navigating to particular integration", async ({io, page}) => {
+    test("@Env-STAGING @Zephyr-IO-T297 C22310 Verify unsubscribe link for user accounts whether navigating to particular integration", async ({io, page}) => {
       const id = await io.createResourceFromAPI(C22310, "FLOWS");
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_SETTINGS);
       await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_SETTINGS);
       await io.flowBuilder.click(`${selectors.flowBuilderPagePO.NOTIFY_ME_ON_FLOW_ERROR} ${selectors.basePagePO.VALUE_TRUE}`);
       await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
       await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
-      const lastRun = page.getByText('Last run');
-      await lastRun.waitFor({state: 'visible', timeout: 180000});
+      await io.homePage.loadingTime()
+      await io.homePage.reloadPage()
       console.log("Waiting for 15 minutes");
       await io.flowBuilder.delay(1000 * 60 * 15);
-      const res = await io.emailVal.getLinkFromEmail("1 new error: TC_C22310",true);
+      const res = await io.emailVal.getLinkFromEmail("1 new error: TC_C22310",true, "pwqa1");
       await io.homePage.navigateTo(res[5].split('\\')[0]);
       await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
       await io.myAccountPage.waitForElementAttached(selectors.loginPagePO.EMAIL_ID)

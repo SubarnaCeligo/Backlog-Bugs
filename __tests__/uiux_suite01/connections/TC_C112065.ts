@@ -8,7 +8,7 @@ test.describe("C112065_C112066_C112067_C112068_C112069", () =>
 
 });
 
-  test("@Env-All C112065 Verify the JWT bearer under Auth type dropdown", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T14648 C112065 Verify the JWT bearer under Auth type dropdown", async ({io, page}) => {
       await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
       await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
       await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');

@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 test.describe("TC_C120053", () => {
-  test("@Env-All C120053 When Override media type for error responses field is Plain text then remove related fields", async ({ io, page }) => {
+  test("@Env-All  @Zephyr-IO-T18654 C120053 When Override media type for error responses field is Plain text then remove related fields", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Resources", "Connections");

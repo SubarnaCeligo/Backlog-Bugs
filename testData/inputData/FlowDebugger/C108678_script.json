@@ -1,0 +1,6 @@
+{
+    "preSavePage": {
+        "name": "Pre save page script",
+        "content": "\nfunction preSavePage (options) {\n console.log(\"Presave page script\")\n  return options; \n}"
+    }
+}

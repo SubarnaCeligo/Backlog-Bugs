@@ -2,7 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C69565 Verify App does not crash when user saves the un-named branch", () => {
-    test("C69565 Verify App does not crash when user saves the un-named branch", async ({io, page}) => {
+    test("@Env-All C69565 Verify App does not crash when user saves the un-named branch", async ({io, page}) => {
       await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
       await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.PLUS_BUTTONS);

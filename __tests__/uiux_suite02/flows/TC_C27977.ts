@@ -6,7 +6,7 @@ test.describe(`C27977 Verify the fields in 'Non-standard API response patterns' 
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
   });
 
-  test(`C27977 Verify the fields in 'Non-standard API response patterns' section are updated as per requirement in HTTP/REST lookup additional files`, async ({
+  test(`@Priority-P2 @Zephyr-IO-T2681 @Env-All C27977`, async ({
     io,
     page
   }) => {
@@ -15,8 +15,11 @@ test.describe(`C27977 Verify the fields in 'Non-standard API response patterns' 
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP
     );
-    await io.flowBuilder.clickByText("REST API (HTTP)");
+    // await io.flowBuilder.clickByText("REST API (HTTP)");
+    await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, "REST API (HTTP)");
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.RESTAPIHTTP);
     await io.flowBuilder.clickByText("Look up additional files (per record)");
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
     await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.clickByText("3PL CONNECTION");
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
@@ -29,7 +32,11 @@ test.describe(`C27977 Verify the fields in 'Non-standard API response patterns' 
       "/"
     );
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+    await io.homePage.loadingTime();
+    await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);
+    await io.homePage.loadingTime();
+    await io.homePage.loadingTime();
     await io.flowBuilder.clickByText("Non-standard API response patterns");
     await io.assert.verifyElementDisplayedByText(
       "Path to file in HTTP response body",

@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C59977 from '@testData/Flows/C59977.json'
 
 test.describe("C59977 Verify Post response map is persisted for flow with routers and without routers", () => {
-    test("C59977 Verify Post response map is persisted for flow with routers and without routers", async ({io, page}) => {
+    test("@Env-All C59977 Verify Post response map is persisted for flow with routers and without routers", async ({io, page}) => {
         const id = await io.createResourceFromAPI(C59977, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR, 1);

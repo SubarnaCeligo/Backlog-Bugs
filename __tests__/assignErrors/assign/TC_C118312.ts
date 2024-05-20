@@ -5,7 +5,7 @@ test.describe("C118312 - Verify Assign error flyout when the there are users in 
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("C118312 - Verify Assign error flyout when the there are users in the account with long usernames", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T20086 C118312 - Verify Assign error flyout when the there are users in the account with long usernames", async ({ io, page }) => {
 
    //Navigate to default integration
    await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
@@ -31,11 +31,8 @@ test.describe("C118312 - Verify Assign error flyout when the there are users in 
    await io.flowBuilder.fill(selectors.filterErrorTag.ARIALABELSEARCHUSER, 'User WithLongUserName');
    await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGNEE_NAME_LIST);
    const userNames =  await io.flowBuilder.getText(selectors.em2DotOLineGraphPO.ASSIGNEE_NAME_LIST);
-   await io.assert.expectToBeValueInArray(userNames, 'User WithLongUserNameTestWithLongUserNameTest', 'Long user names not displyed.');
-  
-
-   
-
-    
+   let userNameArray = []
+   userNameArray.push(userNames.toString().trim());
+   await io.assert.expectToBeValueInArray(userNameArray, 'User WithLongUserNameTestWithLongUserNameTest', 'Long user names not displyed.');
   });
 });

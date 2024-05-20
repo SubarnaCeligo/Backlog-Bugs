@@ -4,9 +4,9 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe(`C113414 Verify the JWT token while cloning the flow`, () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
-  
+
   });
-test(`@Env-All C113414 Verify the JWT token while cloning the flow`, async ({
+  test(`@Env-All C113414 Verify the JWT token while cloning the flow`, async ({
     io,
     page
   }) => {
@@ -21,16 +21,18 @@ test(`@Env-All C113414 Verify the JWT token while cloning the flow`, async ({
     );
     await io.flowBuilder.clickByText("Clone flow");
     await io.flowBuilder.click(selectors.integrationPagePO.SELECT_DESTINATION_INTEGRATION);
-    await io.flowBuilder.selectTextfromDropDown(page,"none");
+    await io.flowBuilder.selectTextfromDropDown(page, "none");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLONE_FLOW_BUTTON);
     await io.flowBuilder.click(selectors.templatePagePO.CONFIGURE);
     await io.flowBuilder.click(selectors.connectionsPagePO.EXISTING);
     await io.flowBuilder.click(selectors.basePagePO.CONNECTION);
-   await io.homePage.clickByTextByIndex("FTP CONNECTION",1)
+    let connMap = await io.api.loadConnections();
+    var connId = connMap.get("FTP CONNECTION");
+    await io.homePage.selectTextfromDropDown(page, connId)
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.click(selectors.templatePagePO.CONFIGURE);
     await io.flowBuilder.click(selectors.connectionsPagePO.EXISTING);
     await io.flowBuilder.click(selectors.basePagePO.CONNECTION);
-    await io.connectionPage.clickByTextByIndex("CONNECTION_DOCSIGN",1);
+    await io.connectionPage.clickByTextByIndex("CONNECTION_DOCSIGN", 1);
   });
 });
