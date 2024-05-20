@@ -4,7 +4,7 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe("IO_T6148 Verfiy List of logs can be paginated to see the next 50 requests.", () => {
     let flowMap;
-    test("@Env-All @Zephyr-IO_T6148 C34464 Verfiy List of logs can be paginated to see the next 50 requests.", async ({
+    test("@Env-QA @Zephyr-IO_T6148 C34464 Verfiy List of logs can be paginated to see the next 50 requests.", async ({
         io, page
     }, testInfo) => {
         flowMap = await io.api.createImpOrExpAndFlowsThruAPI(IO_T6148, false);
