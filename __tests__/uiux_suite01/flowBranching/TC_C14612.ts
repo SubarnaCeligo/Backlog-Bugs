@@ -29,7 +29,6 @@ test.describe(`C14612 Verify Template name is displayed in URL while installing 
     await io.homePage.clickByText("Please select");
     let conn = await io.api.getCall("v1/connections");
     let connsId = conn.find((conn) => conn.name === "http3hn4d");
-    console.log("connsId", connsId._id);
 
     await io.connectionPage.click(`[data-value="${connsId._id}"]`);
 
