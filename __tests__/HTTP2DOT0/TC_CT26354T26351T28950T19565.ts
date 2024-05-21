@@ -150,7 +150,7 @@ test("@Env-All T28950 Verify success and error values are saved when media type 
 
    
    
-    await io.homePage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, "HTTP PLAINTEXT");
+    await io.homePage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, "CT28950");
     await io.homePage.loadingTime()
     await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
     await io.homePage.loadingTime();
@@ -177,7 +177,7 @@ test("@Env-All T19565 Verify xml file in AFE", async ({
   await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
   await io.homePage.loadingTime();
   const ConnName = await page.$$(selectors.exportsPagePO.BQNAME);
-  ConnName[1].fill("HTTP XML Parser Connection");
+  ConnName[1].fill("CT19565");
   await io.flowBuilder.fill(selectors.importPagePO.HTTP_BASEURI, "https://5634b9e3-4bde-425a-adba-c5a031019b7a.mock.pstmn.io");
   await io.flowBuilder.click(selectors.flowBuilderPagePO.MEDIA_TYPE);
   await io.flowBuilder.clickByText("XML");

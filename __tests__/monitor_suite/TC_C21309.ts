@@ -14,8 +14,10 @@ test.describe(`@Bug-IO-19259  @Priority-P2  @Zephyr-T6954 @Env-All Verify the co
     );
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL)
     await io.flowBuilder.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Automation Flows');
-    await io.homePage.clickByText('Automation Flows')
-    await io.homePage.clickByText('Create flow')
+    await io.flowBuilder.loadingTime();
+    await io.homePage.clickByText('Automation Flows');
+    await io.flowBuilder.loadingTime();
+    await io.homePage.clickByText('Create flow');
     await io.homePage.click(selectors.basePagePO.ADD_SOURCE_BUTTON);
     await io.homePage.click(selectors.flowBuilderPagePO.GROUP_RECORD_FIELD);
     await io.homePage.click(selectors.connectionsPagePO.FTP_CONNECTION);

@@ -3,14 +3,18 @@ import * as selectors from "@celigo/aut-selectors";
 import C65961 from "@testData/Flows/C65961.json";
 
 test.describe("C65961 Verify UI throws an error message if the Path is wrong for DisplayAfter, and Verify that the UI throws error only in simple view if the Path is wrong in custom settings", () => {
-  test("C65961 Verify UI throws an error message if the Path is wrong for DisplayAfter, and Verify that the UI throws error only in simple view if the Path is wrong in custom settings", async ({
+  test("@Env-QA @Env-IAQA C65961 Verify UI throws an error message if the Path is wrong for DisplayAfter, and Verify that the UI throws error only in simple view if the Path is wrong in custom settings", async ({
     io,
     page
   }) => {
     const id = await io.createResourceFromAPI(C65961, "FLOWS");
+    await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT)
     await io.homePage.click(selectors.flowBuilderPagePO.EXPORT);
+    await io.homePage.waitForElementAttached(selectors.basePagePO.CUSTOM_SETTING);
     await io.homePage.click(selectors.basePagePO.CUSTOM_SETTING);
+    await io.homePage.waitForElementAttached(selectors.basePagePO.LAUNCH_EDITOR);
     await io.homePage.click(selectors.basePagePO.LAUNCH_EDITOR);
+    await io.homePage.waitForElementAttached(selectors.basePagePO.ERROR_ID);
     const text = await io.exportsPage.getText(selectors.basePagePO.ERROR_ID);
     const func = text.includes(
       "The·field·path·set·in·displayAfter·does·not·exist:·export.assistantMetadata.pathParams.whitelist_id¶"

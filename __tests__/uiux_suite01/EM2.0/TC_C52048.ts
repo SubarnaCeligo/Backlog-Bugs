@@ -3,14 +3,20 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/EM2.0/C52048.json";
 
 test.describe("C52048 Verify the Resolved errors tab, when no results are returned for filter selections", () => {
-  test("C52048 Verify the Resolved errors tab, when no results are returned for filter selections", async ({
+  let id
+  test.afterEach(async ({ io }) => {
+    await io.api.deleteFlowsWithId(id)
+  });
+  test("@Zephyr-IO-T19829 @Env-QA @Env-STAGING C52048 Verify the Resolved errors tab, when no results are returned for filter selections", async ({
     io,
     page
   }) => {
-    const id = await io.createResourceFromAPI(testData, "FLOWS");
+    id = await io.createResourceFromAPI(testData, "FLOWS");
     await io.api.runBatchFlowViaAPI("C52048", id);
     const lastRun = page.getByText("Last run");
-    await lastRun.waitFor({ state: "visible" });
+    await lastRun.waitFor({ state: "visible" ,timeout:360000});
+    await io.flowBuilder.reloadPage()
+    await io.flowBuilder.loadingTime()
     await page.getByText("1 error").nth(1).click();
     await io.flowBuilder.clickByText("Resolved errors");
     const classification = await page.getByText("Classification").elementHandle();

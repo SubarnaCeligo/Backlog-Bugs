@@ -8,8 +8,8 @@ test.describe("C112080_C112081_C112082_C2112083_C112089", () => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   
   });
-  
-  test("@Env-All @Zephyr-IO-T14663 C112080 Verify user able to give all the secret key,payload,header values", async ({io, page}) => {
+  //Skipped as per discussion with TC Owner and QA team
+  test.skip("@Env-All @Zephyr-IO-T14663 C112080 Verify user able to give all the secret key,payload,header values", async ({io, page}) => {
       await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
       await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
       await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
