@@ -1,6 +1,5 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import flow from "@testData/assignErrors/C118299.json";
 
 test.describe("C118307 - Verify the assignee pill when an error is resolved", () => {
   let flowId;

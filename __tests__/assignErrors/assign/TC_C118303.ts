@@ -1,14 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import flow from "@testData/assignErrors/Filter_Automation01.json";
 
 test.describe("C118303 - Verify user's entry 'Assign error' page when the user has not yet accepted the invite", () => {
-  let flowId;
-
-  test.afterEach(async ({ io }) => {
-    await io.api.deleteFlowViaAPI(flowId);
-  });
-
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });

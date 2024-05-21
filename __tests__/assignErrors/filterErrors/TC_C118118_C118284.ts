@@ -1,14 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import flow from "@testData/assignErrors/C118299.json";
 
 test.describe("C118118_C118284 Verify filtering by 'Myself' returns only errors assigned to the logged in user and Verify filter persistence when the user navigates to other tabs and returns to open errors tab", () => {
-  let flowId;
-
-  test.afterEach(async ({ io }) => {
-    await io.api.deleteFlowViaAPI(flowId);
-  });
-
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });

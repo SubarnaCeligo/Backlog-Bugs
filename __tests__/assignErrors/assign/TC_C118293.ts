@@ -1,14 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import flow from "@testData/assignErrors/Filter_Automation01.json";
 
 test.describe("C118293 - Verify that 'Assign error' button is added on the top bar, error details section and is visible upon hovering on any row", () => {
-  let flowId;
-
-  test.afterEach(async ({ io }) => {
-    await io.api.deleteFlowViaAPI(flowId);
-  });
-
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.flowBuilder.loadingTime();

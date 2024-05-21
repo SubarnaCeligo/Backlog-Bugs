@@ -1,6 +1,5 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import flow from "@testData/assignErrors/Filter_Automation02.json";
 
 test.describe("C118306 - Verify Assign error flyout when errors assigned to multiple users are selected ", () => {
   let flowId;

@@ -1,14 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import flow from "@testData/assignErrors/Filter_Automation02.json";
 
 test.describe("C118304 - Verify the assign error feature when user tries invite a user who already exists in the account ", () => {
-  let flowId;
-
-  test.afterEach(async ({ io }) => {
-    await io.api.deleteFlowViaAPI(flowId);
-  });
-
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });

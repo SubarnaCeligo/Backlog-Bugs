@@ -1,9 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import flow from "@testData/assignErrors/C118388_C118394.json";
 
 test.describe("C118395_C118396 - Verify batch unassignment for errors assigned to a single user ", () => {
-  let flowId;
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });

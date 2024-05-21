@@ -1,16 +1,9 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import reqBody from "@testData/EM2.0/C118301.json";
-import flow from "@testData/assignErrors/C118299.json";
 
 test.describe("C118302 - Verify the assignee pill when the user is removed from the account", () => {
-  let flowId;
-
-  test.afterEach(async ({ io }) => {
-    await io.api.deleteFlowViaAPI(flowId);
-  });
   test.beforeEach(async ({ io }) => {
-    flowId = await io.createResourceFromAPI(flow, "FLOWS");
     // Get default integration ID
     reqBody.integrationAccessLevel[0]._integrationId = process.env["IO_Integration_ID"];
 

@@ -1,10 +1,8 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import reqBodyPUT from "@testData/EM2.0/C118389.json";
-import flow from "@testData/assignErrors/C118388_C118394.json";
 
 test.describe("C118389 - Verify that admin/owner users with invitation feature enabled/disabled is able to assign errors to an existing user who does not have access to the integration(platform should auto assign monitor access", () => {
-  let flowId;
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
@@ -85,6 +83,5 @@ test.describe("C118389 - Verify that admin/owner users with invitation feature e
     reqBodyPUT.integrationAccessLevel[0]._integrationId = integration_Id;
     const endPoint = "v1/ashares/" + UserId;
     await io.api.putCall(endPoint, reqBodyPUT);
-    await io.api.deleteFlowViaAPI(flowId);
   });
 });

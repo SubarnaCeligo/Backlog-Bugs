@@ -1,9 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import flow from "@testData/assignErrors/C118388_C118394.json";
 
 test.describe("C118390 - Verify that admin/owner users with invitation feature enabled/disabled is able to assign errors to new/non-IO user ", () => {
-  let flowId;
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
@@ -62,6 +60,5 @@ test.describe("C118390 - Verify that admin/owner users with invitation feature e
     //Delete user from the account
     const endPoint = "v1/ashares/" + UserId
     await io.api.deleteCall(endPoint);
-    await io.api.deleteFlowViaAPI(flowId);
   });
 });
