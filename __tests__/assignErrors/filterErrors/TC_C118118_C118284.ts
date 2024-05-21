@@ -17,23 +17,24 @@ test.describe("C118118_C118284 Verify filtering by 'Myself' returns only errors 
     io,
     page,
   }) => {
-    flowId = await io.createResourceFromAPI(flow, "FLOWS");
-    await io.homePage.navigateTo(
-      process.env["IO_Integration_URL"] + "flowBuilder/" + flowId
+    //Navigate to default integration
+    await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+
+    // Search for a flow
+    await io.integrationPage.waitForElementAttached(
+      selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR
     );
-    await io.flowBuilder.loadingTime();
-    await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
-    await io.flowBuilder.delay(1000 * 60 * 4);
-    await page
-      .locator(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS)
-      .waitFor({
-        state: "visible",
-        timeout: 180000
-      });
-    await io.flowBuilder.click(
-      selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
+    await io.integrationPage.fill(
+      selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
+      "Filter_Automation03_DND"
     );
-    await io.flowBuilder.loadingTime();    
+
+    //Open the flow
+    await io.flowBuilder.clickByText("Filter_Automation03_DND");
+
+    //Open errors dashborad
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
+
     //Assign two errors to a user
     await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
     await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX, 1);
@@ -66,10 +67,10 @@ test.describe("C118118_C118284 Verify filtering by 'Myself' returns only errors 
     await io.assert.expectToBeValue(assigneePillsRetained, 'Assign Error Owner,Assign Error Owner', 'Myself filter did not work');
 
     //Clear all assignments
-    // await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX, 0);
-    // await io.flowBuilder.click(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
-    // await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
-    // await io.flowBuilder.clickByText('Clear assignment');
+    await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX, 0);
+    await io.flowBuilder.click(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
+    await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
+    await io.flowBuilder.clickByText('Clear assignment');
 
   });
 });

@@ -11,30 +11,31 @@ test.describe("C118281_C118282 Verify user email is displayed on filter UI when 
 
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.flowBuilder.loadingTime();
   });
 
   test("@Epic-IO-38602 @Priority-P2 @Zephyr-IO-T20063 @Env-All C118281 Verify user email is displayed on filter UI when an error is assigned to non IO user", async ({
     io,
     page,
   }) => {
-    flowId = await io.createResourceFromAPI(flow, "FLOWS");
-    await io.homePage.navigateTo(
-      process.env["IO_Integration_URL"] + "flowBuilder/" + flowId
+     //Navigate to default integration
+    await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+
+    // Search for a flow
+    await io.integrationPage.waitForElementAttached(
+      selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR
     );
-    await io.flowBuilder.loadingTime();
-    await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
-    await io.flowBuilder.delay(1000 * 60 * 4);
-    await page
-      .locator(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS)
-      .waitFor({
-        state: "visible",
-        timeout: 180000
-      });
-    await io.flowBuilder.click(
-      selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
+    await io.integrationPage.fill(
+      selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
+      "Filter_Automation01_DND"
     );
-    await io.flowBuilder.loadingTime();
+
+    //Open the flow
+    await io.flowBuilder.clickByText("Filter_Automation01_DND");
+
+    //Open errors dashborad
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
+    await io.flowBuilder.waitForElementAttached('[aria-label="Assign errors"]');
+
     //Click on Filter Icon
     await io.flowBuilder.click(selectors.filterErrorTag.ARIALABELFILTERERROR);
 

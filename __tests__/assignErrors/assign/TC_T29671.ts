@@ -1,33 +1,28 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import flow from "@testData/assignErrors/Filter_Automation01.json";
 
 test.describe("@Author - Shriti S T29671 - Verify that Clear assignment button is not shown when an unassigned error is selected", () => {
-  let flowId;
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test.afterEach(async ({ io }) => {
-    await io.api.deleteFlowViaAPI(flowId);
-  });
   test("@Env-All @Priority-P3 @Zephyr-IO-T29671 - Verify that Clear assignment button is not shown when an unassigned error is selected.", async ({ io, page }) => {
 
-    flowId = await io.createResourceFromAPI(flow, "FLOWS");
-    await io.homePage.navigateTo(
-      process.env["IO_Integration_URL"] + "flowBuilder/" + flowId
-    );
-    await io.flowBuilder.loadingTime();
-    await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
-    await io.flowBuilder.delay(1000 * 60 * 4);
-    await page
-      .locator(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS)
-      .waitFor({
-        state: "visible",
-        timeout: 180000
-      });
-    await io.flowBuilder.click(
-      selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
-    );    
+    //Navigate to default integration
+    await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+
+    // Search for a flow
+    await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
+    await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Filter_Automation01_DND');
+    
+    //Wait for search to complete
+    await io.integrationPage.waitForElementAttached(selectors.flowBuilderPagePO.ACTIONS_SELECTOR);
+ 
+    //Open the flow
+    await io.flowBuilder.clickByText('Filter_Automation01_DND');
+
+    //Open errors dashborad
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
+
     //Hover on any error
     await io.flowBuilder.hover(selectors.em2DotOLineGraphPO.SELECTED_ERROR)
 

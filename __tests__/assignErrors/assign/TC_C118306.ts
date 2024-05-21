@@ -11,29 +11,21 @@ test.describe("C118306 - Verify Assign error flyout when errors assigned to mult
 
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.flowBuilder.loadingTime();
   });
-  test("@Env-All @Zephyr-IO-T20080 C118306 - Verify Assign error flyout when errors assigned to multiple users are selected ", async ({
-    io,
-    page
-  }) => {
-    flowId = await io.createResourceFromAPI(flow, "FLOWS");
-    await io.homePage.navigateTo(
-      process.env["IO_Integration_URL"] + "flowBuilder/" + flowId
-    );
-    await io.flowBuilder.loadingTime();
-    await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
-    await io.flowBuilder.delay(1000 * 60 * 4);
-    await page
-      .locator(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS)
-      .waitFor({
-        state: "visible",
-        timeout: 180000
-      });
-    await io.flowBuilder.click(
-      selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
-    );
-    await io.flowBuilder.loadingTime();
+  test("@Env-All @Zephyr-IO-T20080 C118306 - Verify Assign error flyout when errors assigned to multiple users are selected ", async ({ io, page }) => {
+
+  //Navigate to default integration
+  await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+
+  // Search for a flow
+  await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
+  await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,"TC_C118306_DND");
+
+  //Wait for search to complete
+  await io.integrationPage.waitForElementAttached(selectors.flowBuilderPagePO.ACTIONS_SELECTOR);
+
+  //Open the flow
+  await io.flowBuilder.clickByText("TC_C118306_DND");
 
     //Assign two errors to a user
     await io.flowBuilder.waitForElementAttached(

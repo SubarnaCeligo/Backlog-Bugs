@@ -1,13 +1,9 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import flow from "@testData/assignErrors/C118388_C118394.json";
 
 test.describe("C119819", () => {
-  let flowId;
   test("@Env-All @Zephyr-IO-T20106 C119819", async ({ io, page }) => {
-    flowId = await io.createResourceFromAPI(flow, "FLOWS");
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
-    await io.flowBuilder.loadingTime();
     await io.myAccountPage.click(selectors.myAccountPagePO.SECURITY);
     await io.homePage.waitForElementAttached(selectors.basePagePO.BREADCRUMB);
     let invite = selectors.homePagePO.INVITATION_TAB;
@@ -20,18 +16,26 @@ test.describe("C119819", () => {
       // enable is true
       await io.myAccountPage.click(selectors.basePagePO.ENABLESSO);
     }
-    await io.homePage.navigateTo(
-      process.env["IO_Integration_URL"] + "flowBuilder/" + flowId
+    //Navigate to default integration
+    await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+
+    // Search for a flow
+    await io.integrationPage.waitForElementAttached(
+      selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR
     );
-    await io.flowBuilder.loadingTime();
-    await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
-    await io.flowBuilder.delay(1000 * 60 * 4);
-    await page
-      .locator(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS)
-      .waitFor({
-        state: "visible",
-        timeout: 180000
-      });
+    await io.integrationPage.fill(
+      selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
+      "TC_C118390_DND"
+    );
+    //Wait for search to complete
+    await io.integrationPage.waitForElementAttached(
+      selectors.flowBuilderPagePO.ACTIONS_SELECTOR
+    );
+
+    //Open the flow
+    await io.flowBuilder.clickByText("TC_C118390_DND");
+
+    //Open errors dashborad
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
     );
@@ -87,6 +91,5 @@ test.describe("C119819", () => {
     //Delete user from the account
     const endPoint = "v1/ashares/" + UserId;
     await io.api.deleteCall(endPoint);
-    await io.api.deleteFlowViaAPI(flowId);
   });
 });
