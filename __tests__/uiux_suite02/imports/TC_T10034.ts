@@ -11,13 +11,10 @@ test.describe("T10034", () => {
         await io.flowBuilder.waitForElementAttached(selectors.importPagePO.FEEDOPTIONSHELP);
         await io.flowBuilder.click(selectors.importPagePO.FEEDOPTIONSHELP);
         await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.HELP_BUBBLE);
-         const element = await page.$(selectors.connectionsPagePO.HELP_BUBBLE);
-        await element.scrollIntoViewIfNeeded();
         const helpText = (await io.flowBuilder.getText(
         selectors.connectionsPagePO.HELP_BUBBLE
           )) as string;
-    
-            await io.assert.expectToContainValue(
+        await io.assert.expectToContainValue(
             `Additional options to control the feed. These vary by feed type`,
             helpText,
             "Help text missing in import"
