@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import data4 from "@testData/Flows/C25947.json"
 
 test.describe(`C26858 Verify if message There are no new fields to auto-map is shown in case no more additional fields are suggested`, () => {
-  test(`C26858 Verify There are no new fields to auto-map is shown in case no more additional fields are suggested`, async ({
+  test(`@Zephyr-IO-T5280 C26858 Verify There are no new fields to auto-map is shown in case no more additional fields are suggested`, async ({
     io
   }) => {
     const id = await io.createResourceFromAPI(data4, "FLOWS");
