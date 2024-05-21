@@ -6,7 +6,7 @@ test.describe("@Author-SaiPhanindra TC_27162", () => {
   test.beforeEach(async ({ io, }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Epic-IO-46279 @Priority-P2 @Env-QA @Zephyr-IO-27162", async ({
+  test("@Epic-IO-46279 @Priority-P2 @Env-All @Zephyr-IO-27162", async ({
     io,page
   }, testInfo) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
