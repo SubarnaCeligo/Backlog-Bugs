@@ -25,33 +25,26 @@ test("@Env-All @Zephyr-IO-T20057 C118039 Verify that clicking on 'Clear filter' 
   //Open the flow
   await io.flowBuilder.clickByText("Filter_Automation02_DND");
 
-    await io.flowBuilder.click(
-      selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
-    );
+  //Open errors dashborad
+  await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
 
-    //Click on Filter Icon
-    await io.flowBuilder.click(selectors.filterErrorTag.ARIALABELFILTERERROR);
+  //Click on Filter Icon
+  await io.flowBuilder.click(selectors.filterErrorTag.ARIALABELFILTERERROR);
 
-    //Apply a filter
-    await io.flowBuilder.waitForElementAttached(
-      selectors.basePagePO.ARROW_POPPER
-    );
-    await io.flowBuilder.clickByText("Myself");
-    await io.flowBuilder.click(selectors.filterErrorTag.APPLYYAGSSELECTOR);
-    await io.flowBuilder.click(selectors.filterErrorTag.ARIALABELFILTERERROR);
+  //Apply a filter
+  await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
+  await io.flowBuilder.clickByText("Myself");
+  await io.flowBuilder.click( selectors.filterErrorTag.APPLYYAGSSELECTOR);
+  await io.flowBuilder.click(selectors.filterErrorTag.ARIALABELFILTERERROR);
 
-    //Validate the checkbox
-    await io.flowBuilder.waitForElementAttached(
-      selectors.basePagePO.ARROW_POPPER
-    );
-    await io.flowBuilder.click(selectors.filterErrorTag.CLEARTAGSSELECTOR);
-    await io.flowBuilder.click(selectors.filterErrorTag.ARIALABELFILTERERROR);
-    await io.flowBuilder.waitForElementAttached(
-      selectors.basePagePO.ARROW_POPPER
-    );
-    const isChecked = await page
-      .locator(selectors.filterErrorTag.ALLERRORSCHECKBOX)
-      .isChecked();
-    await io.assert.expectToBeTrue(isChecked, "All errors checked");
-  });
+  //Validate the checkbox
+  await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
+  await io.flowBuilder.click(selectors.filterErrorTag.CLEARTAGSSELECTOR);
+  await io.flowBuilder.click(selectors.filterErrorTag.ARIALABELFILTERERROR);
+  await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
+  const isChecked = await page.locator(selectors.filterErrorTag.ALLERRORSCHECKBOX).isChecked();
+  await io.assert.expectToBeTrue(isChecked, 'All errors checked');
+  
+  
+});
 });
