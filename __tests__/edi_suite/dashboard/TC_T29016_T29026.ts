@@ -15,7 +15,7 @@ test.describe("@Author-Shriti S Verify Refresh feature on Completed EDI flows da
   await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.CANCEL_FLOW_RUN);
   });
 
-  test("@Env-QA @Epic-IO-31713 @Priority-P2 @Zephyr-IO-T29016 @Zephyr-IO-T29026 Verify Refresh feature on Completed EDI flows dashboard.", async ({ io, page }) => {
+  test("@Env-All @Epic-IO-31713 @Priority-P2 @Zephyr-IO-T29016 @Zephyr-IO-T29026 Verify Refresh feature on Completed EDI flows dashboard.", async ({ io, page }) => {
     
     //Go to Dashboard
     await io.myAccountPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "dashboard");
