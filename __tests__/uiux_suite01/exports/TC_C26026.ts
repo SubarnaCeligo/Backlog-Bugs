@@ -8,7 +8,7 @@ test.describe("C26026_Verify 'View debug logs' not visible non-RT exports or imp
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C26026_Verify 'View debug logs' not visible non-RT exports or imports UI_Backlog", async ({ io, page }) => {
+    test("@Env-All C26026_Verify 'View debug logs' not visible non-RT exports or imports UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW)
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);

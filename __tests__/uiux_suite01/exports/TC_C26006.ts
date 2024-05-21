@@ -8,7 +8,7 @@ test.describe("C26006_verify the request logs in a list are sorted by timestamp 
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C26006_verify the request logs in a list are sorted by timestamp in descending order UI_Backlog", async ({ io, page }) => {
+    test("@Env-All C26006_verify the request logs in a list are sorted by timestamp in descending order UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW)
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);

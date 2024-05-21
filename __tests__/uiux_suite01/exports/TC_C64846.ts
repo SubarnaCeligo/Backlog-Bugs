@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C64846 To validate that the NS real time filter should be saved properly based on the NS SS2.0", () => {
-    test("C64846 To validate that the NS real time filter should be saved properly based on the NS SS2.0", async ({io, page}) => {
+    test("@Env-All C64846 To validate that the NS real time filter should be saved properly based on the NS SS2.0", async ({io, page}) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW)
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
@@ -12,7 +12,6 @@ test.describe("C64846 To validate that the NS real time filter should be saved p
         await io.flowBuilder.click(selectors.connectionsPagePO.REALTIME);
         await io.flowBuilder.clickByText("Create from scratch")
         await io.flowBuilder.click(selectors.exportsPagePO.CREATE_SELECT_CONNECTION);
-   //     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,"NS 737 Conection");
         await io.flowBuilder.clickByText('NS 737 Conection');
         await io.flowBuilder.click(selectors.basePagePO.SAVE);

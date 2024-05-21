@@ -8,7 +8,7 @@ test.describe("T28414_T28461_T28462_T28463 Verify XML parser help for FTP, Gdriv
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28414 Verify XML parser help for FTP with invalid resource path", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28414 @Env-All Verify XML parser help for FTP with invalid resource path", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();
         

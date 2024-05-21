@@ -8,7 +8,7 @@ test.describe("C25988_Verify the debug remaining time is shown if the debug is s
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C25988_Verify the debug remaining time is shown if the debug is still running UI_Backlog", async ({ io, page }) => {
+    test("@Env-All C25988_Verify the debug remaining time is shown if the debug is still running UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW)
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);

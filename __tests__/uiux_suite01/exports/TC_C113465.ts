@@ -5,7 +5,7 @@ import C113465 from '@testData/Exports/C113465.json'
 
 test.describe("C113466, C113465, C113464, C113463, 113462, C113461, C113460 verify Prefix text box for S3 export", () => { 
 
-    test("C113466, C113465, C113464, C113463, 113462, C113461, C113460 verify Prefix text box for S3 export", async ({ io, page }) => {
+    test("@Env-All C113466, C113465, C113464, C113463, 113462, C113461, C113460 verify Prefix text box for S3 export", async ({ io, page }) => {
       await io.createResourceFromAPI(C113465, "FLOWS");
       //verify if flow is enabled
       let flowToggle = await page.locator(selectors.flowBuilderPagePO.FLOW_ON_OFF).isChecked();

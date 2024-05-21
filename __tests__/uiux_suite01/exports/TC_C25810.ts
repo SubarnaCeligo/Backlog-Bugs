@@ -8,7 +8,7 @@ test.describe("C25810_Verify that View listener debug logs drawer is displayed p
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C25810_Verify that View listener debug logs drawer is displayed properly without any overlap issue UI_Backlog", async ({ io}) => {
+    test("@Env-All C25810_Verify that View listener debug logs drawer is displayed properly without any overlap issue UI_Backlog", async ({ io}) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW)
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);

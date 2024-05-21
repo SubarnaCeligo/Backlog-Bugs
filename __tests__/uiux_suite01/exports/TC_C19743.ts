@@ -8,7 +8,7 @@ test.describe("C19743_Export Panel: Color code Export panel request/response/out
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C19743_Export Panel: Color code Export panel request/response/output like in the AFEs UI_Backlog", async ({ io, page }) => {
+    test("@Env-All C19743_Export Panel: Color code Export panel request/response/output like in the AFEs UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'netsuite');

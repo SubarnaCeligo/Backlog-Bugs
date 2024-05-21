@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C28173 Verify the message “Add {{lastExportDateTime}} to either the relative URI or HTTP request body to complete the setup.” is displayed if export type is delta selected in HTTP/REST export`, () => {
-  test(`C28173 Verify the message “Add {{lastExportDateTime}} to either the relative URI or HTTP request body to complete the setup.” is displayed if export type is delta selected in HTTP/REST export`, async ({
+  test(`@Env-All C28173 Verify the message “Add {{lastExportDateTime}} to either the relative URI or HTTP request body to complete the setup.” is displayed if export type is delta selected in HTTP/REST export`, async ({
     io,
     page
   }) => {

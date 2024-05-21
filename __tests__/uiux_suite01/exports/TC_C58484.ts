@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import data from "@testData/Flows/C58484.json"
 
 test.describe(`C58484 UI-Box - mapping fields are not shown for Box import if sample file is uploaded`, () => {
-    test(`C58484 UI-Box - mapping fields are not shown for Box import if sample file is uploaded`, async ({
+    test(`@Env-All C58484 UI-Box - mapping fields are not shown for Box import if sample file is uploaded`, async ({
       io,
       page
     }) => {

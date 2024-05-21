@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C22828 Verify Online or offline connection - to always show, and not disappear after some time", () => {
 
-  test("C22828 Verify Online or offline connection - to always show, and not disappear after some time", async ({ io, page }) => {
+  test("@Env-All C22828 Verify Online or offline connection - to always show, and not disappear after some time", async ({ io, page }) => {
     await io.exportsPage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
     await io.exportsPage.waitForElementAttached(selectors.exportsPagePO.ADD_NEW_RESOURCE);
     await io.exportsPage.waitForElementAttached(selectors.flowBuilderPagePO.OPENAI.FLOW_DESCRIPTION_BUTTON);

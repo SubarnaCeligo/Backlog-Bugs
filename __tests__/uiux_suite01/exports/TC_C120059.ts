@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Flows/C120059.json";
 
 test.describe(`C120059_C120061_C120063_C120082_C120069_120070_C120072_C120074_C120060_C120062_C120064_C120071_C120073_C120075`, () => {
-  test(`C120059_C120061_C120063_C120082_C120069_120070_C120072_C120074_C120060_C120062_C120064_C120071_C120073_C120075`, async ({ io, page }) => {
+  test(`@Env-All C120059_C120061_C120063_C120082_C120069_120070_C120072_C120074_C120060_C120062_C120064_C120071_C120073_C120075`, async ({ io, page }) => {
     await io.createResourceFromAPI(testData, "FLOWS");
 
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);

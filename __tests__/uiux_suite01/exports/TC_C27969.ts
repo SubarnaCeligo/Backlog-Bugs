@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C27969 Verify the fields in 'Non-standard API response patterns' section are updated as per requirement in REST export and Lookups`, () => {
-  test(`C27969 Verify the fields in 'Non-standard API response patterns' section are updated as per requirement in REST export and Lookups`, async ({
+  test(`@Env-All C27969 Verify the fields in 'Non-standard API response patterns' section are updated as per requirement in REST export and Lookups`, async ({
     io,
     page
   }) => {

@@ -8,7 +8,7 @@ test.describe("C25582_Verify the sub header (containing pagination, debugger, re
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C25582_Verify the sub header (containing pagination, debugger, refresh logs button) is aligned correctly with proper spacing b/w actions when Celigo side pane is minimized UI_Backlog", async ({ io}) => {
+    test("@Env-All C25582_Verify the sub header (containing pagination, debugger, refresh logs button) is aligned correctly with proper spacing b/w actions when Celigo side pane is minimized UI_Backlog", async ({ io}) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW)
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);

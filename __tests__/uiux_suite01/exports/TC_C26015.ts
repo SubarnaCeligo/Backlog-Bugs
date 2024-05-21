@@ -8,7 +8,7 @@ test.describe("C26015_Verify a confirmation popup is shown that I want to delete
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C26015_Verify a confirmation popup is shown that I want to delete the entry before the system deletes the entry UI_Backlog", async ({ io, page }) => {
+    test("@Env-All C26015_Verify a confirmation popup is shown that I want to delete the entry before the system deletes the entry UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW)
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);

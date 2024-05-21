@@ -8,7 +8,7 @@ test.describe("C25995_Verify when a debug period has NOT expired, and user selec
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C25995_Verify when a debug period has NOT expired, and user selected a new debug duration, it should overide the old one UI_Backlog", async ({ io, page }) => {
+    test("@Env-All C25995_Verify when a debug period has NOT expired, and user selected a new debug duration, it should overide the old one UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW)
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
