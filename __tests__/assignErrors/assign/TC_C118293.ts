@@ -4,7 +4,6 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe("C118293 - Verify that 'Assign error' button is added on the top bar, error details section and is visible upon hovering on any row", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.flowBuilder.loadingTime();
   });
   test("@Env-All @Zephyr-IO-T20067 C118293 -Verify that 'Assign error' button is added on the top bar, error details section and is visible upon hovering on any row", async ({ io, page }) => {
 

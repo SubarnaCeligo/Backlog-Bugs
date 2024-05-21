@@ -5,11 +5,8 @@ test.describe("C118298 - Verify the assignee pill when the invited non-IO user h
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
+  test("@Env-All @Zephyr-IO-T20072 C118298 - Verify the assignee pill when the invited non-IO user has dismissed the invite", async ({ io, page }) => {
 
-  test("@Env-All @Zephyr-IO-T20072 C118298 - Verify the assignee pill when the invited non-IO user has dismissed the invite", async ({
-    io,
-    page
-  }) => {
     //Navigate to default integration
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
 
@@ -27,71 +24,39 @@ test.describe("C118298 - Verify the assignee pill when the invited non-IO user h
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
 
     //Assign one error to a user who has dismissed the invite
-    await io.flowBuilder.waitForElementAttached(
-      selectors.em2DotOLineGraphPO.ASSIGN_ERRORS
-    );
-    await io.flowBuilder.clickButtonByIndex(
-      selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX,
-      1
-    );
+    await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
+    await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX, 1);
     await io.flowBuilder.click(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
-    await io.flowBuilder.waitForElementAttached(
-      selectors.basePagePO.ARROW_POPPER
-    );
-    await io.flowBuilder.fill(
-      selectors.filterErrorTag.ARIALABELSEARCHUSER,
-      "io.auto.qa+assigndismisseduser@celigo.com"
-    );
-    await io.flowBuilder.clickByText(
-      "Pending - io.auto.qa+assigndismisseduser@celigo.com"
-    );
+    await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
+    await io.flowBuilder.fill(selectors.filterErrorTag.ARIALABELSEARCHUSER, 'io.auto.qa+assigndismisseduser@celigo.com');
+    await io.flowBuilder.clickByText('Pending - io.auto.qa+assigndismisseduser@celigo.com');
     await io.homePage.clickByText("Assign");
-    await io.flowBuilder.waitForElementAttached(
-      selectors.em2DotOLineGraphPO.ASSIGNEE_PILL
-    );
+    await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL);
 
     //Get assignee pill
-    const assigneePill = (
-      await io.flowBuilder.getText(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL)
-    ).toString();
-    await io.assert.expectToContainValue(
-      "Pending - ",
-      assigneePill,
-      "Error is not assigned"
-    );
+    const assigneePill = (await io.flowBuilder.getText(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL)).toString();
+    await io.assert.expectToContainValue('Pending - ', assigneePill, 'Error is not assigned');
 
     //Verify hovertex
-    await io.flowBuilder.hover(
-      selectors.em2DotOLineGraphPO.ASSIGNEE_PILL,
-      0,
-      false
-    );
-    await io.flowBuilder.waitForElementAttached(
-      selectors.em2DotOLineGraphPO.ASSIGNEE_PILL_HOVERTEXT
-    );
-    const hoverText = (
-      await io.flowBuilder.getText(
-        selectors.em2DotOLineGraphPO.ASSIGNEE_PILL_HOVERTEXT
-      )
-    ).toString();
+    await io.flowBuilder.hover(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL, 0, false);
+    await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL_HOVERTEXT);
+    const hoverText = (await io.flowBuilder.getText(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL_HOVERTEXT)).toString();
     await io.assert.expectToContainValue(
-      "The assigned user has not yet accepted their invitation to this account.",
+      'The assigned user has not yet accepted their invitation to this account.',
       hoverText,
-      "Hovertext did not appear"
+      'Hovertext did not appear'
     );
+
     //Clear all assignments
     await io.flowBuilder.reloadPage();
-    await io.flowBuilder.waitForElementAttached(
-      selectors.em2DotOLineGraphPO.ASSIGN_ERRORS
-    );
-    await io.flowBuilder.clickButtonByIndex(
-      selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX,
-      0
-    );
+    await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
+    await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX, 0);
     await io.flowBuilder.click(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
-    await io.flowBuilder.waitForElementAttached(
-      selectors.basePagePO.ARROW_POPPER
-    );
-    await io.flowBuilder.clickByText("Clear assignment");
+    await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
+    await io.flowBuilder.clickByText('Clear assignment');
+
+
+
+
   });
 });

@@ -4,7 +4,6 @@ import reqBodyPOST from "@testData/EM2.0/C118300_POST.json"
 import reqBodyPUT from "@testData/EM2.0/C118300_PUT.json"
 
 test.describe("C118301 - Verify the assignee pill when the user is removed from the integration", () => {
-
   test.beforeEach(async ({ io }) => {
     // Get default integration ID
     reqBodyPOST.integrationAccessLevel[0]._integrationId = process.env["IO_Integration_ID"];

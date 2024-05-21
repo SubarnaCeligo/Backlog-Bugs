@@ -23,63 +23,31 @@ test.describe("C118395_C118396 - Verify batch unassignment for errors assigned t
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
     await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
 
-    await io.flowBuilder.waitForElementAttached(
-      selectors.em2DotOLineGraphPO.ASSIGN_ERRORS
-    );
     //Assign one error to a user
-    await io.flowBuilder.clickButtonByIndex(
-      selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX,
-      1
-    );
-    await io.flowBuilder.clickButtonByIndex(
-      selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX,
-      2
-    );
+    await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX, 1);
+    await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX, 2);
     await io.flowBuilder.click(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
-    await io.flowBuilder.waitForElementAttached(
-      selectors.basePagePO.ARROW_POPPER
-    );
-    await io.flowBuilder.clickByText("Assign to me");
-    await io.flowBuilder.waitForElementAttached(
-      selectors.em2DotOLineGraphPO.ASSIGNEE_PILL
-    );
+    await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
+    await io.flowBuilder.clickByText('Assign to me');
+    await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL);
     await io.flowBuilder.reloadPage();
-    await io.flowBuilder.waitForElementAttached(
-      selectors.em2DotOLineGraphPO.ASSIGNEE_PILL
-    );
+    await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL);
 
     //Verify if error is assigned
-    const assigneePills = (
-      await io.flowBuilder.getText(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL)
-    ).toString();
-    await io.assert.expectToBeValue(
-      "Assign Error Owner,Assign Error Owner",
-      assigneePills,
-      "Errors not assigned"
-    );
+    const assigneePills = (await io.flowBuilder.getText(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL)).toString();
+    await io.assert.expectToBeValue('Assign Error Owner,Assign Error Owner', assigneePills, 'Errors not assigned');
 
     //Clear assignment
-    await io.flowBuilder.clickButtonByIndex(
-      selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX,
-      1
-    );
-    await io.flowBuilder.clickButtonByIndex(
-      selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX,
-      2
-    );
+    await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX, 1);
+    await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX, 2);
     await io.flowBuilder.click(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
-    await io.flowBuilder.waitForElementAttached(
-      selectors.basePagePO.ARROW_POPPER
-    );
-    await io.flowBuilder.clickByText("Clear assignment");
+    await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
+    await io.flowBuilder.clickByText('Clear assignment');
     await io.flowBuilder.reloadPage();
 
-    const assigneePillVisible = await io.flowBuilder.isVisible(
-      selectors.em2DotOLineGraphPO.ASSIGNEE_PILL
-    );
-    await io.assert.expectToBeFalse(
-      assigneePillVisible,
-      "Assignee pill is not removed after unassignment"
-    );
+    const assigneePillVisible = await io.flowBuilder.isVisible(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL);
+    await io.assert.expectToBeFalse(assigneePillVisible, 'Assignee pill is not removed after unassignment');
+
+
   });
 });

@@ -23,9 +23,6 @@ test.describe("C118390 - Verify that admin/owner users with invitation feature e
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
     await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
 
-    await io.flowBuilder.waitForElementAttached(
-      selectors.em2DotOLineGraphPO.ASSIGN_ERRORS
-    );
     //Assign one error to a user
     await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX, 1);
     await io.flowBuilder.click(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
@@ -60,5 +57,6 @@ test.describe("C118390 - Verify that admin/owner users with invitation feature e
     //Delete user from the account
     const endPoint = "v1/ashares/" + UserId
     await io.api.deleteCall(endPoint);
+
   });
 });

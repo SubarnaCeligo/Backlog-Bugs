@@ -5,7 +5,6 @@ test.describe("C118297 - Verify the assignee pill when the invited non-IO user h
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-
   test("@Env-All @Zephyr-IO-T20071 C118297 - Verify the assignee pill when the invited non-IO user has not accepted the invite yet", async ({ io, page }) => {
 
     //Navigate to default integration
@@ -48,5 +47,6 @@ test.describe("C118297 - Verify the assignee pill when the invited non-IO user h
     await io.flowBuilder.click(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
     await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
     await io.flowBuilder.clickByText('Clear assignment');
+
   });
 });

@@ -5,7 +5,6 @@ test.describe("C118299 - Verify the assignee pill when the invited non-IO user h
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  
   test("@Env-All @Zephyr-IO-T20073 C118299 - Verify the assignee pill when the invited non-IO user has accepted the invite", async ({ io, page }) => {
 
 
@@ -38,5 +37,14 @@ test.describe("C118299 - Verify the assignee pill when the invited non-IO user h
 
    const assignee = (await io.flowBuilder.getText(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL)).toString();
    await io.assert.expectToBeValue('Manage User', assignee, 'Error not assigned - Pill is not showing user name');
+
+   //Clear all assignments
+   await io.flowBuilder.reloadPage();
+   await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
+   await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX, 0);
+   await io.flowBuilder.click(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
+   await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
+   await io.flowBuilder.clickByText('Clear assignment');
+
   });
 });

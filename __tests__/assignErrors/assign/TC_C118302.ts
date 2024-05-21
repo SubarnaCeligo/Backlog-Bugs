@@ -1,6 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import reqBody from "@testData/EM2.0/C118301.json";
+import reqBody from "@testData/EM2.0/C118301.json"
 
 test.describe("C118302 - Verify the assignee pill when the user is removed from the account", () => {
   test.beforeEach(async ({ io }) => {

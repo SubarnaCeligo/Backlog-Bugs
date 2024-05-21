@@ -2,34 +2,46 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C119821", () => {
-    test("@Env-All @Zephyr-IO-T20108 C119821", async ({io, page}) => {
-        await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
-        await io.myAccountPage.click(selectors.myAccountPagePO.SECURITY);
-        await io.homePage.waitForElementAttached(selectors.basePagePO.BREADCRUMB);
-       let invite=selectors.homePagePO.INVITATION_TAB
-        await io.myAccountPage.click(invite);
-        const isEnabled = await page.$eval(selectors.basePagePO.ENABLESSO, (element) => element.hasAttribute("Mui-disable"));
-        console.log("true or false "+isEnabled);
-        if(isEnabled!=false)
-        {
-            // enable is true
-            await io.myAccountPage.click(selectors.basePagePO.ENABLESSO);
-        }
-                //Navigate to default integration
+  test("@Env-All @Zephyr-IO-T20108 C119821", async ({ io, page }) => {
+    await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
+    await io.myAccountPage.click(selectors.myAccountPagePO.SECURITY);
+    await io.homePage.waitForElementAttached(selectors.basePagePO.BREADCRUMB);
+    let invite = selectors.homePagePO.INVITATION_TAB;
+    await io.myAccountPage.click(invite);
+    const isEnabled = await page.$eval(selectors.basePagePO.ENABLESSO, element =>
+      element.hasAttribute("Mui-disable")
+    );
+    console.log("true or false " + isEnabled);
+    if (isEnabled != false) {
+      // enable is true
+      await io.myAccountPage.click(selectors.basePagePO.ENABLESSO);
+    }
+    //Navigate to default integration
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
 
-    // Search for a flow 
-    await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
-    await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'TC_C118390_DND');
+    // Search for a flow
+    await io.integrationPage.waitForElementAttached(
+      selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR
+    );
+    await io.integrationPage.fill(
+      selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
+      "TC_C118390_DND"
+    );
     //Wait for search to complete
-    await io.integrationPage.waitForElementAttached(selectors.flowBuilderPagePO.ACTIONS_SELECTOR);
+    await io.integrationPage.waitForElementAttached(
+      selectors.flowBuilderPagePO.ACTIONS_SELECTOR
+    );
 
     //Open the flow
-    await io.flowBuilder.clickByText('TC_C118390_DND');
+    await io.flowBuilder.clickByText("TC_C118390_DND");
 
     //Open errors dashborad
-    await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
-    await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
+    await io.flowBuilder.click(
+      selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
+    );
+    await io.flowBuilder.waitForElementAttached(
+      selectors.em2DotOLineGraphPO.ASSIGN_ERRORS
+    );
 
     //Assign one error to a user
     await io.flowBuilder.clickButtonByIndex(

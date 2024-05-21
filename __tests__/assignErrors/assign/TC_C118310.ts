@@ -5,7 +5,6 @@ test.describe("C118310 - [UI]Verify invite feature with an invalid email ID", ()
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-
   test("@Env-All @Zephyr-IO-T20084 C118310 - Verify invite feature with an invalid email ID", async ({ io, page }) => {
 
     //Navigate to default integration

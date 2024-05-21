@@ -24,84 +24,43 @@ test.describe("C118388_C118394 -Verify batch reassign feature when errors assign
     await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
 
     //Assign one error to a user
-    await io.flowBuilder.clickButtonByIndex(
-      selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX,
-      1
-    );
+    await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX, 1);
     await io.flowBuilder.click(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
-    await io.flowBuilder.waitForElementAttached(
-      selectors.basePagePO.ARROW_POPPER
-    );
-    await io.flowBuilder.clickByText("Assign to me");
-    await io.flowBuilder.waitForElementAttached(
-      selectors.em2DotOLineGraphPO.ASSIGNEE_PILL
-    );
-    await io.flowBuilder.clickButtonByIndex(
-      selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX,
-      1
-    );
-
+    await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
+    await io.flowBuilder.clickByText('Assign to me');
+    await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL);
+    await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX, 1);
+    
     //Assign one error to a another user who has access to integration
-    await io.flowBuilder.clickButtonByIndex(
-      selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX,
-      2
-    );
+    await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX, 2);
     await io.flowBuilder.click(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
-    await io.flowBuilder.waitForElementAttached(
-      selectors.basePagePO.ARROW_POPPER
-    );
-    await io.flowBuilder.clickByText("Admin User1");
+    await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
+    await io.flowBuilder.clickByText('Admin User1');
     await io.homePage.clickByText("Assign");
-    await io.flowBuilder.waitForElementAttached(
-      selectors.em2DotOLineGraphPO.ASSIGNEE_PILL
-    );
+    await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL);
     await io.flowBuilder.reloadPage();
-    await io.flowBuilder.waitForElementAttached(
-      selectors.em2DotOLineGraphPO.ASSIGNEE_PILL
-    );
+    await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL);
 
     //Select both errors
-    await io.flowBuilder.clickButtonByIndex(
-      selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX,
-      1
-    );
-    await io.flowBuilder.clickButtonByIndex(
-      selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX,
-      2
-    );
+    await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX, 1);
+    await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX, 2);
     await io.flowBuilder.click(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
-    await io.flowBuilder.waitForElementAttached(
-      selectors.basePagePO.ARROW_POPPER
-    );
+    await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
 
-    const message = (
-      await io.flowBuilder.getText(selectors.flowBuilderPagePO.PAGE_INFO_TEXT)
-    ).toString();
-    await io.assert.expectToContainValue(
-      message,
-      "The selected errors are not assigned to the same user. ,Assigning a user here will replace the existing assigned user on all selected errors.",
-      "Warning message is not displayed"
-    );
+    const message = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.PAGE_INFO_TEXT)).toString();
+    await io.assert.expectToContainValue(message, 
+    'The selected errors are not assigned to the same user. ,Assigning a user here will replace the existing assigned user on all selected errors.',
+    'Warning message is not displayed');
 
-    await io.flowBuilder.clickByText("Manage User");
+    await io.flowBuilder.clickByText('Manage User');
     await io.flowBuilder.clickByText("Assign");
-    await io.flowBuilder.waitForElementAttached(
-      selectors.em2DotOLineGraphPO.ASSIGNEE_PILL
-    );
+    await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL);
     await io.flowBuilder.reloadPage();
-    await io.flowBuilder.waitForElementAttached(
-      selectors.em2DotOLineGraphPO.ASSIGNEE_PILL
-    );
+    await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL);
 
     //Verify if all errors are reassigned
-    const assigneePills = (
-      await io.flowBuilder.getText(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL)
-    ).toString();
-    await io.assert.expectToBeValue(
-      "Manage User,Manage User",
-      assigneePills,
-      "Errors are mot reassigned"
-    );
+    const assigneePills = (await io.flowBuilder.getText(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL)).toString();
+    await io.assert.expectToBeValue("Manage User,Manage User", assigneePills,'Errors are mot reassigned');
 
     //Clear all assignments
     await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX, 0);
