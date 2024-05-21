@@ -12,7 +12,9 @@ test.describe("T29046 Verify the flow entitlements for platform license for sand
     const payloadFormat = {
       ...getLicensePayload(platformLicense),
       expires: "2044-04-10T13:14:33.363Z",
-      apiManagement: true
+      apiManagement: true,
+      "numSandboxEndpoints": 100,
+    "numSandboxFlows": 100,
     };
     await io.homePage.addStep(
       "Updating license to standard tier and enabled sandbox."
