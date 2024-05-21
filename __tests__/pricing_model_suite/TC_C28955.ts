@@ -31,7 +31,7 @@ test.describe("C28955 Verify the Concurrency level under HTTP connection should 
     await io.flowBuilder.click(selectors.integrationPagePO.EDIT);
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.importPagePO.ADVANCED);
-    await io.connectionPage.click(selectors.connectionsPagePO.HTTP_TARGET_CONCURRENCY_LEVEL);
+    await io.connectionPage.click(selectors.connectionsPagePO.CONCURRENCYLEVEL);
     const maxConcurrencyLevel = await io.connectionPage.selectTextfromDropDown(page, "10");
     const inValidconcurrencyLevel = await io.connectionPage.selectTextfromDropDown(page, "11");
     expect(maxConcurrencyLevel).toBe(true);
