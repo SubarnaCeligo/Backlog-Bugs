@@ -5,7 +5,7 @@ test.describe("@Author-SaiPhanindra C271623_T27164_T27165_T27166", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Epic-IO-46279 @Env-QA @Priority-P2 @Zephyr-IO-27163 @Zephyr-IO-T27164 @Zephyr-IO-T27165 @Zephyr-IO-T27165", async ({
+  test("@Epic-IO-46279 @Env-All @Priority-P2 @Zephyr-IO-27163 @Zephyr-IO-T27164 @Zephyr-IO-T27165 @Zephyr-IO-T27165", async ({
     io,page
   }, testInfo) => {
 
