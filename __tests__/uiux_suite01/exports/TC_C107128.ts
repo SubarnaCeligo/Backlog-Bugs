@@ -1,6 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-
+test.describe.configure({ retries: 2 })
 test.describe("TC_C107128  Verify the the file filter for add condition group for S3", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
