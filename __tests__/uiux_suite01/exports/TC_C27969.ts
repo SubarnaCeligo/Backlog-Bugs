@@ -13,6 +13,7 @@ test.describe(`C27969 Verify the fields in 'Non-standard API response patterns' 
     await io.exportsPage.addStep("Selected 'REST API (HTTP)' option");
     await io.exportsPage.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
     await io.exportsPage.addStep("Clicked on 'connections' dropdown");
+    await io.exportsPage.fill(selectors.exportsPagePO.CONNECTIONS_DROPDOWN,"3PL CONNECTION");
     await io.exportsPage.clickByText("3PL CONNECTION");
     await io.exportsPage.addStep("Selected '3PL CONNECTION' option");
     await page.locator(selectors.exportsPagePO.NAME).fill("C27969");

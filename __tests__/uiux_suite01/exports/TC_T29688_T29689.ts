@@ -33,9 +33,9 @@ test.describe("@Author_sagna123 TC_T29688_T29689_Test to validate 'Data URI temp
         await io.homePage.addStep("*** Checked DATA URI template help text ***");
         await io.flowBuilder.click(selectors.exportsPagePO.DATA_URI_TEMPLATE_HELP_TEXT);
         await io.homePage.addStep("*** Checked DATA URI template help text ***");
-        await io.flowBuilder.click(selectors.exportsPagePO.OVERRIDE_TRACE_KEY_TEMPLATE_HELP_TEXT);
+        await io.flowBuilder.click(selectors.exportsPagePO.OVERRIDE_KEY_TEMPLATE_HELP_BUBBLE);
         await io.homePage.addStep("*** Checked Override trace key template help text ***");
-        await io.flowBuilder.click(selectors.exportsPagePO.OVERRIDE_TRACE_KEY_TEMPLATE_HELP_TEXT);
+        await io.flowBuilder.click(selectors.exportsPagePO.OVERRIDE_KEY_TEMPLATE_HELP_BUBBLE);
         await io.homePage.addStep("*** Checked Override trace key templat  help text ***");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.DATAURITEMPLATE);
         await io.homePage.addStep("*** Clicked on DATAURI template handle bar ***");
