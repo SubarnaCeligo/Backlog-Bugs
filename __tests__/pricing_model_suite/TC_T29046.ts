@@ -13,8 +13,6 @@ test.describe("T29046 Verify the flow entitlements for platform license for sand
       ...getLicensePayload(platformLicense),
       expires: "2044-04-10T13:14:33.363Z",
       apiManagement: true,
-      "numSandboxEndpoints": 100,
-    "numSandboxFlows": 100,
     };
     await io.homePage.addStep(
       "Updating license to standard tier and enabled sandbox."
@@ -22,7 +20,9 @@ test.describe("T29046 Verify the flow entitlements for platform license for sand
     await io.api.putCall(`v1/test/licenses/${payloadFormat._id}`, {
       ...payloadFormat,
       tier: "standard",
-      sandbox: true
+      sandbox: true,
+      numSandboxEndpoints: 10,
+      numSandboxFlows: 10,
     });
 
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);

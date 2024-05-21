@@ -37,5 +37,7 @@ test.describe("C28955 Verify the Concurrency level under HTTP connection should 
     expect(maxConcurrencyLevel).toBe(true);
     expect(inValidconcurrencyLevel).toBe(false);
     await io.flowBuilder.clickByText('Auto-recover rate limit errors');
+    await io.connectionPage.fill(selectors.connectionsPagePO.PASSWORD, 'test');
+    await io.connectionPage.click(selectors.basePagePO.SAVE_AND_CLOSE);
   });
 });
