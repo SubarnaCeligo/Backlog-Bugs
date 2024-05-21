@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C65759 from "@testData/Flows/C65759.json"
 
 test.describe("C65759 Verify that the LastExportDateTime is working as expected when User switches to other Export type to Delta Export", () => {
-    test("@Env-All C65759 Verify that the LastExportDateTime is working as expected when User switches to other Export type to Delta Export", async ({io, page}) => {
+    test("@Env-All @Zephyr-IO-T24332 C65759 Verify that the LastExportDateTime is working as expected when User switches to other Export type to Delta Export", async ({io, page}) => {
         await io.createResourceFromAPI(C65759, "FLOWS");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
         await io.flowBuilder.click(selectors.exportsPagePO.EXPORT_TYPE_DROPDOWN);

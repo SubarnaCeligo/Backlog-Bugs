@@ -8,7 +8,7 @@ test.describe("C26009_Verify hover over timestamp should show exact time in user
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Env-All C26009_Verify hover over timestamp should show exact time in user timezone UI_Backlog", async ({ io}) => {
+    test("@Env-All @Zephyr-IO-T4865 C26009_Verify hover over timestamp should show exact time in user timezone UI_Backlog", async ({ io}) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW)
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);

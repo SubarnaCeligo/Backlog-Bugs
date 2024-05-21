@@ -3,7 +3,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 
-  test("@Env-All TC_C28883_Verify when the user expands the “Sorting and grouping records” section ,user will see the “Sort records by fields” function first, then the “Group records by fields” function UI_Backlog", async ({ io }, testInfo) => {
+  test("@Env-All @Zephyr-IO-T11647 TC_C28883_Verify when the user expands the “Sorting and grouping records” section ,user will see the “Sort records by fields” function first, then the “Group records by fields” function UI_Backlog", async ({ io }, testInfo) => {
     await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL)
     await io.homePage.loadingTime()
     await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);

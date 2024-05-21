@@ -8,7 +8,7 @@ test.describe("C106840_Test to validate that the user is getting help text, help
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Env-All C106840_Test to validate that the user is getting help text, help syntax, able to edit the expression, and should be able to select any item from the Fields section and include it in the expression -->>GraphQL Connection/export/import/lookup UI_Backlog", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T1645 C106840_Test to validate that the user is getting help text, help syntax, able to edit the expression, and should be able to select any item from the Fields section and include it in the expression -->>GraphQL Connection/export/import/lookup UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'GraphQL');

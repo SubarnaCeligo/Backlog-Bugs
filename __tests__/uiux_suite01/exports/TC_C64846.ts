@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C64846 To validate that the NS real time filter should be saved properly based on the NS SS2.0", () => {
-    test("@Env-All C64846 To validate that the NS real time filter should be saved properly based on the NS SS2.0", async ({io, page}) => {
+    test("@Env-All @Zephyr-IO-T26341 C64846 To validate that the NS real time filter should be saved properly based on the NS SS2.0", async ({io, page}) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW)
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);

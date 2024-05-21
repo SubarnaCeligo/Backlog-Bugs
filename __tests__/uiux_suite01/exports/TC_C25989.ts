@@ -8,7 +8,7 @@ test.describe("C25989_verify the debug Last run if the debug has expired. On mou
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Env-All C25989_verify the debug Last run if the debug has expired. On mouse hover, I can see the date/time it ended in the user's timezone UI_Backlog", async ({ io}) => {
+    test("@Env-All @Zephyr-IO-T4846 C25989_verify the debug Last run if the debug has expired. On mouse hover, I can see the date/time it ended in the user's timezone UI_Backlog", async ({ io}) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW)
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);

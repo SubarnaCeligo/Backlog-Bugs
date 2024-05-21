@@ -8,7 +8,7 @@ test.describe("C26029_When debugger is on, refresh got enabled after new entry, 
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Env-All C26029_When debugger is on, refresh got enabled after new entry, user clicks on refresh logs, now refresh button should be disabled, (send a new log entry), again refresh button would be enabled UI_Backlog", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T4883 C26029_When debugger is on, refresh got enabled after new entry, user clicks on refresh logs, now refresh button should be disabled, (send a new log entry), again refresh button would be enabled UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.loadingTime()
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW)

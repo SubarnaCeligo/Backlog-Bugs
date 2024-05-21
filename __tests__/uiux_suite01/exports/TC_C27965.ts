@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C27965 Verify the fields in 'What would you like to export?' section are updated as per requirement in REST export and Lookups`, () => {
-  test(`@Env-All C27965 Verify the fields in 'What would you like to export?' section are updated as per requirement in REST export and Lookups`, async ({
+  test(`@Env-All @Zephyr-IO-T2675 C27965 Verify the fields in 'What would you like to export?' section are updated as per requirement in REST export and Lookups`, async ({
     io,
     page
   }) => {

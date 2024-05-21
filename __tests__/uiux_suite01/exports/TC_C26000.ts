@@ -8,7 +8,7 @@ test.describe("C26000_verify start debug option is shown when the debug duration
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Env-All C26000_verify start debug option is shown when the debug duration is expired or not set UI_Backlog", async ({ io}) => {
+    test("@Env-All @Zephyr-IO-T4856 C26000_verify start debug option is shown when the debug duration is expired or not set UI_Backlog", async ({ io}) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW)
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);

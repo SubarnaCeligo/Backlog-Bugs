@@ -8,7 +8,7 @@ test.describe("C26004_Verify when clicked on close button  x on the drawer, I am
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Env-All C26004_Verify when clicked on close button  x on the drawer, I am back on the edit listener configuration page UI_Backlog", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T4860 C26004_Verify when clicked on close button  x on the drawer, I am back on the edit listener configuration page UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.loadingTime()
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);

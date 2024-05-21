@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C28172 Verify export type dropdown values are updated in HTTP/REST and all other exports and lookups`, () => {
-  test(`@Env-All C28172 Verify export type dropdown values are updated in HTTP/REST and all other exports and lookups`, async ({
+  test(`@Env-All @Zephyr-IO-T2683 C28172 Verify export type dropdown values are updated in HTTP/REST and all other exports and lookups`, async ({
     io,
     page
   }) => {

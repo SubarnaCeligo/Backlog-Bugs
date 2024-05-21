@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C67232 from "@testData/Flows/C67232.json"
 
 test.describe("C67232 Verify Red errored window is not displayed on 'Rule' section when there is an error on Script side of Transformation filter", () => {
-    test("@Env-All C67232 Verify Red errored window is not displayed on 'Rule' section when there is an error on Script side of Transformation filter", async ({io, page}) => {
+    test("@Env-All @Zephyr-IO-T5272 C67232 Verify Red errored window is not displayed on 'Rule' section when there is an error on Script side of Transformation filter", async ({io, page}) => {
         await io.createResourceFromAPI(C67232, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR,1);
