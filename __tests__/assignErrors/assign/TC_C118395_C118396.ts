@@ -6,7 +6,6 @@ test.describe("C118395_C118396 - Verify batch unassignment for errors assigned t
   let flowId;
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.flowBuilder.loadingTime();
   });
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowViaAPI(flowId);

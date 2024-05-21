@@ -34,34 +34,20 @@ test.describe("C118293 - Verify that 'Assign error' button is added on the top b
       selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
     );
     //Verify Assign error button is added on top bar
-    await io.flowBuilder.waitForElementAttached(
-      selectors.em2DotOLineGraphPO.ASSIGN_ERRORS
-    );
-    await io.assert.verifyElementIsDisplayed(
-      selectors.em2DotOLineGraphPO.ASSIGN_ERRORS,
-      "Assign button not visible on top bar"
-    );
+    await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
+    await io.assert.verifyElementIsDisplayed(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS, 'Assign button not visible on top bar');
 
-    //Verify Assign error button is added on error details section
-    await io.flowBuilder.waitForElementAttached(
-      selectors.em2DotOLineGraphPO.ASSIGN_ERRORDETAIL
-    );
-    await io.assert.verifyElementIsDisplayed(
-      selectors.em2DotOLineGraphPO.ASSIGN_ERRORDETAIL,
-      "Assign button not visible on Error Details section"
-    );
+    //Verify Assign error button is added on error details section 
+    await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGN_ERRORDETAIL);
+    await io.assert.verifyElementIsDisplayed(selectors.em2DotOLineGraphPO.ASSIGN_ERRORDETAIL, 'Assign button not visible on Error Details section');
 
     //Hover on any error
-    await io.flowBuilder.hover(selectors.em2DotOLineGraphPO.SELECTED_ERROR);
+    await io.flowBuilder.hover(selectors.em2DotOLineGraphPO.SELECTED_ERROR)
 
     //Click on Assign error button and verify if it opens assign error dialog
-    await io.flowBuilder.clickButtonByIndex(
-      selectors.em2DotOLineGraphPO.ASSIGN_BUTTON_HOVER,
-      1
-    );
-    await io.assert.verifyElementIsDisplayed(
-      selectors.filterErrorTag.ARIALABELSEARCHUSER,
-      "Assign error button did not appear upon hovering"
-    );
+    await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.ASSIGN_BUTTON_HOVER, 1);
+    await io.assert.verifyElementIsDisplayed(selectors.filterErrorTag.ARIALABELSEARCHUSER, 'Assign error button did not appear upon hovering');
+
+
   });
 });

@@ -11,7 +11,6 @@ test.describe("C118118_C118284 Verify filtering by 'Myself' returns only errors 
 
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.flowBuilder.loadingTime();
   });
 
   test("@Env-All @Zephyr-IO-T20058 @Zephyr-IO-T20066 C118118_C118284	Verify filtering by 'Myself' returns only errors assigned to the logged in user ", async ({

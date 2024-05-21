@@ -67,8 +67,11 @@ test.describe("C118280 Verify the filter feature on resolved errors section by a
     await io.flowBuilder.clickByText("Apply");
     await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL);
 
-    await io.assert.verifyElementTextByIndex(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL, "Assign Error Owner", 0);
-    const isUserDisplayed = await io.flowBuilder.isVisible('text=Admin');
-    await io.assert.expectToBeTrue(isUserDisplayed, "Admin Tag not displayed");
+    const isTagDisplayed = await io.flowBuilder.isVisible('text="Admin_Tag"');
+    await io.assert.expectToBeTrue(isTagDisplayed, "Admin_Tag not displayed");
+    const isUserDisplayed = await io.flowBuilder.isVisible('text="Assign Error Owner"');
+    await io.assert.expectToBeTrue(isUserDisplayed, "Assign Error Owner not displayed");
+
+
   });
 });

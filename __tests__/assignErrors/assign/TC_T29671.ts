@@ -6,7 +6,6 @@ test.describe("@Author - Shriti S T29671 - Verify that Clear assignment button i
   let flowId;
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.flowBuilder.loadingTime();
   });
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowViaAPI(flowId);

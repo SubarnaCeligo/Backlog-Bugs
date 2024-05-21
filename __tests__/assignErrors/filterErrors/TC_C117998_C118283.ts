@@ -12,7 +12,6 @@ test.describe("C117998_C118283 Verify if user filter section is added to filter 
 
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.flowBuilder.loadingTime();
   });
   
   test("@Epic-IO-38602 @Priority-P2 @Zephyr-IO-T20052 @Env-All C117998_C118283 Verify if user filter section is added to filter dialog", async ({

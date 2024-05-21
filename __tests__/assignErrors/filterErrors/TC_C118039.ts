@@ -11,7 +11,6 @@ test.describe("C118039 Verify that clicking on 'Clear filter' button closes the 
 
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.flowBuilder.loadingTime();
   });
 
   test("@Env-All @Zephyr-IO-T20057 C118039 Verify that clicking on 'Clear filter' button closes the filter dropdown and checks 'All errors'", async ({

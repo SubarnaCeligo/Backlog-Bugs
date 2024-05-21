@@ -6,7 +6,6 @@ test.describe("C118390 - Verify that admin/owner users with invitation feature e
   let flowId;
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.flowBuilderDashboard.loadingTime();
   });
   test("@Env-All @Zephyr-IO-T20090 C118390 - Verify that admin/owner users with invitation feature enabled/disabled is able to assign errors to new/non-IO user ", async ({ io, page }) => {
     flowId = await io.createResourceFromAPI(flow, "FLOWS");

@@ -11,7 +11,6 @@ test.describe("C118037_C118038 Verify that 'Clear filter' button is disabled whe
 
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.flowBuilder.loadingTime();
   });
   
   test("@Env-All @Zephyr-IO-T20055 C118037 Verify that 'Clear filter' button is disabled when 'All errors' is selected", async ({

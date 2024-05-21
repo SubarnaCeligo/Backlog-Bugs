@@ -96,5 +96,6 @@ test.describe("C118301 - Verify the assignee pill when the user is removed from 
     //Delete user from the account
     const endPoint = "v1/ashares/" + UserId
     await io.api.deleteCall(endPoint);
+
   });
 });

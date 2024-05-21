@@ -11,7 +11,6 @@ test.describe("C118277 Verify filtering by 'Unassigned' returns only unassigned 
 
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.flowBuilder.loadingTime();
   });
 
   test("@Env-All @Zephyr-IO-T20059 C118277 Verify filtering by 'Unassigned' returns only unassigned errors", async ({

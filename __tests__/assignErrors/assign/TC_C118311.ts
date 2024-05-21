@@ -4,13 +4,11 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe("C118311 - Verify that error assignment is retained when a user removes the step and then adds it again in the same flow", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.homePage.loadingTime();
   });
   test.skip("@Env-All @Zephyr-IO-T20085 C118311 - Verify that error assignment is retained when a user removes the step and then adds it again in the same flow", async ({ io, page }) => {
 
     //Navigate to default integration
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
-    await io.flowBuilder.loadingTime();
 
     // Search for a flow
     await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);

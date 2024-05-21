@@ -11,7 +11,6 @@ test.describe("C118296 - Batch action - Verify 'Assign error' dropdown when no e
 
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.flowBuilder.loadingTime();
   });
 
   test("@Env-All @Zephyr-IO-T20070 C118296 - Batch action - Verify 'Assign error' dropdown when no errors are selected", async ({
