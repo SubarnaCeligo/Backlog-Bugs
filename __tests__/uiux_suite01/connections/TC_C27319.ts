@@ -13,12 +13,13 @@ test.describe("TC_C27319 Verify the logs are shown correctly when scripts and co
     // Search for a flow
     await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
     await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Branching_Scheduling_DND');
+    await io.flowBuilder.clickByText('Branching_Scheduling_DND');
     
     // Wait for search to complete
     await io.integrationPage.waitForElementAttached(selectors.flowBuilderPagePO.ACTIONS_SELECTOR);
  
     // Open the flow
-    await io.flowBuilder.clickByText('Branching_Scheduling_DND');
+    await io.flowBuilder.clickByText('C27319');
 
     // Open connections tab
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.CONNECTIONS_TAB);
