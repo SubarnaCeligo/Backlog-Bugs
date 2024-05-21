@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S TC_T28965-Verify that selecting File type’ = �
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Epic-IO-36129 @Env-QA @Priority-P1 @Zephyr-T28965 @Zephyr-IO-T28967 Verify that selecting File type’ = ‘EDI X12' in an export shows 'Send functional acknowledgement' checkbox", async ({ io, page }) => {
+  test("@Epic-IO-36129 @Env-All @Priority-P1 @Zephyr-T28965 @Zephyr-IO-T28967 Verify that selecting File type’ = ‘EDI X12' in an export shows 'Send functional acknowledgement' checkbox", async ({ io, page }) => {
     await io.homePage.addStep("For FTP")
     //Go to Exports
     await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);

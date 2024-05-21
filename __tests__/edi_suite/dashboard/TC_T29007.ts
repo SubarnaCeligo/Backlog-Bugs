@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S Verify that EDI documents can be filtered using 
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-QA @Epic-IO-31713 @Priority-P2 @Zephyr-IO-T29007 Verify that EDI documents can be filtered using date range filter.", async ({ io, page }) => {
+  test("@Env-All @Epic-IO-31713 @Priority-P2 @Zephyr-IO-T29007 Verify that EDI documents can be filtered using date range filter.", async ({ io, page }) => {
 
     //Go to Dashboard
     await io.myAccountPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "dashboard");
@@ -23,7 +23,7 @@ test.describe("@Author-Shriti S Verify that EDI documents can be filtered using 
     await io.homePage.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
 
     //Get all available filter values
-    await io.homePage.clickByText('Last 30 days');
+    await io.homePage.clickByText('Last 180 days');
     await io.homePage.clickByText('Apply');
     await io.homePage.loadingTime();
 
@@ -51,7 +51,7 @@ test.describe("@Author-Shriti S Verify that EDI documents can be filtered using 
 
     console.log(daysDifference);
 
-    await io.assert.expectToBeTrue((Math.round(daysDifference) <= 30), 'Last 30 days data is not displayed');
+    await io.assert.expectToBeTrue((Math.round(daysDifference) <= 180), 'Last 180 days data is not displayed');
 
 
   });
