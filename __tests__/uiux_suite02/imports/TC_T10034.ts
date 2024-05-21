@@ -2,8 +2,8 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import C63001 from '@testData/Flows/C63001.json';
 
-test.describe("T10034", () => {
-    test("@Zephyr-IO-T10034", async ({io, page}) => {
+test.describe("C62999 TO verify the position and help text of the newly added UPLOAD_VAT_INVOICE field", () => {
+    test("@Env-All @Zephyr-IO-T10034 C62999 TO verify the position and help text of the newly added UPLOAD_VAT_INVOICE field", async ({io, page}) => {
         await io.createResourceFromAPI(C63001, "FLOWS");
         await io.homePage.loadingTime();
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.IMPORT);
