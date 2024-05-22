@@ -8,7 +8,7 @@ test.describe("C1968_Verify error file in diagnostics zip", () => {
     //Navigate to default integration
     await io.homePage.navigateTo(process.env.IO_Integration_URL);
     // Search for a flow
-    await io.homePage.clickByText("TC_C26246_Flow_DND");
+    await io.homePage.clickByText("C68514_1_DND");
     await io.flowBuilder.clickByText("More");
     // Validating able to download error diagnostics
     await io.flowBuilder.clickByText("Download diagnostics");
