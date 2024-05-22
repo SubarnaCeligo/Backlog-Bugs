@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Flows/C120059.json";
 
 test.describe(`C120059_C120061_C120063_C120082_C120069_120070_C120072_C120074_C120060_C120062_C120064_C120071_C120073_C120075`, () => {
-  test(`@Env-All @Zephyr-IO-T18660 C120059_C120061_C120063_C120082_C120069_120070_C120072_C120074_C120060_C120062_C120064_C120071_C120073_C120075`, async ({ io, page }) => {
+  test(`@Env-All @Zephyr-IO-T18660 @Zephyr-IO-T18662  @Zephyr-IO-T18664 @Zephyr-IO-T18683 @Zephyr-IO-T18670 @Zephyr-IO-T18671 @Zephyr-IO-T18673 @Zephyr-IO-T18675 @Zephyr-IO-T18661 @Zephyr-IO-T18663 @Zephyr-IO-T18665 @Zephyr-IO-T18672 @Zephyr-IO-T18674 @Zephyr-IO-T18676 C120059_C120061_C120063_C120082_C120069_120070_C120072_C120074_C120060_C120062_C120064_C120071_C120073_C120075`, async ({ io, page }) => {
     await io.createResourceFromAPI(testData, "FLOWS");
 
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
