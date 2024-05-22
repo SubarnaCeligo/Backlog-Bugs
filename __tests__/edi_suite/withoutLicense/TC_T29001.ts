@@ -15,7 +15,7 @@ test.describe("@Author-Shriti S Verify that users without EDI license cannot acc
     payload.type = type;
     await io.api.putCall(endPoint, payload);
   });
-  test("@Epic-IO-31713 @Env-QA @Priority-P2 @Zephyr-IO-T29001 Verify that users without EDI license cannot access EDI Dashboard.", async ({ io, page }) => {
+  test("@Epic-IO-31713 @Env-All @Priority-P2 @Zephyr-IO-T29001 Verify that users without EDI license cannot access EDI Dashboard.", async ({ io, page }) => {
 
     // //Go to Dashboard
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);

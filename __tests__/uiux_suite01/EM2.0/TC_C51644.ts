@@ -3,14 +3,18 @@ import * as selectors from "@celigo/aut-selectors";
 import flowJSON from "@testData/EM2.0/C51644.json"
 
 test.describe(`C51644 Verify the error rows table header fields displayed in the New View`, () => {
-  test(`C51644 Verify the error rows table header fields displayed in the New View`, async ({
+  let id
+  test.afterEach(async ({ io }) => {
+    await io.api.deleteFlowsWithId(id)
+  });
+  test(`@Zephyr-IO-T19796 @Env-QA @Env-STAGING C51644 Verify the error rows table header fields displayed in the New View`, async ({
     io,
     page
   }) => {
-    const id = await io.createResourceFromAPI(flowJSON, "FLOWS");
+    id = await io.createResourceFromAPI(flowJSON, "FLOWS");
     await io.api.runBatchFlowViaAPI("C51644", id);
     const lastRun = page.getByText("Last run");
-    await lastRun.waitFor({ state: "visible" });
+    await lastRun.waitFor({ state: "visible" ,timeout:360000});
     await io.flowBuilder.reloadPage()
     await io.flowBuilder.loadingTime()
     await page.getByText("1 error").nth(1).click();

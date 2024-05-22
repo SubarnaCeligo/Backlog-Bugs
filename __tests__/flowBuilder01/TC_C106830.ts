@@ -24,7 +24,6 @@ test.describe("C106830 Test to validate the auto suggestion feature in sandbox e
     await io.flowBuilder.click(
       selectors.connectionsPagePO.CONNECTION_OPTION_TEXT
     );
-    await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.click(selectors.importPagePO.HTTP_RELATIVEURI);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.HTTPREQUSTBODY);
 
@@ -49,5 +48,8 @@ test.describe("C106830 Test to validate the auto suggestion feature in sandbox e
     // C106447 Verify for handlebars AFE. numbering feature is available.
     // We verify the numbering feature by checking if the editor is Ace editor as it has line numbers
     await io.assert.verifyElementAttribute(selectors.connectionsPagePO.RULE_TEXTAERA, 'class', 'ace_text-input');
+    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
+    await io.homePage.addStep("*** Navigated to Production Env ***");
   });
 });
