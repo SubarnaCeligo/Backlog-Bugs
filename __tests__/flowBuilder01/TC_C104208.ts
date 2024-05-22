@@ -12,12 +12,10 @@ test.describe("C104208 Verify sql query field visible for Use SQL query once per
     await io.flowBuilder.clickByText(
       "Import records into destination application"
     );
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'MSSQL CONNECTION');
     await io.flowBuilder.clickByText('MSSQL CONNECTION');
-    await io.flowBuilder.click(selectors.basePagePO.SAVE);
-    await io.flowBuilder.fill(selectors.basePagePO.INPUT_NAME_SELECTOR, 'MSSQL');
-    await expect(page.locator(selectors.importPagePO.QUERYOPENHANDLEBAR)).not.toBeVisible();
 
     await io.flowBuilder.clickByText(
       "Use SQL query once per record"
