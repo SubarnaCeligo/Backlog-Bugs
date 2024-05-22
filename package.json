@@ -20,7 +20,7 @@
     "test:non-tags": "npx playwright test --project=PLAYWRIGHT --config=node_modules/@celigo/ui-core-automation/dist/playwright.config.js --grep-invert $TAGS",
     "test:ci": "rm -rf ./allure-results && npx playwright test --project=PLAYWRIGHT --config=node_modules/@celigo/ui-core-automation/dist/playwright.config.js --grep '@ci'",
     "help": "node --no-warnings index.js",
-    "zephyr": "tsc && node ./node_modules/@celigo/aut-utilities/dist/src/zephyr/zephyrdriver.js"
+    "zephyr": "node ./node_modules/@celigo/aut-utilities/dist/src/zephyr/zephyrdriver.js"
   },
   "keywords": [],
   "author": "B Vinay Kumar",
