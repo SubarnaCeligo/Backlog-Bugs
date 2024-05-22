@@ -3,9 +3,8 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C45328_Verify whether user is able to vote on features and add suggestions /comments and submit them", () => {
     test("C45328_Verify whether user is able to vote on features and add suggestions /comments and submit them UI_Backlog", async ({ io, page }) => {
-        await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-        await io.homePage.click(selectors.homePagePO.HELPER_MENU);
-        await io.homePage.click(selectors.basePagePO.PRODUCTPORTAL);
+        await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);;
+        await io.myAccountPage.navigateTo('/productPortal');
         await io.homePage.loadingTime()
         const iframe = page.frameLocator(selectors.homePagePO.IFRAME_PRODUCT_PORTAL);
         await iframe.getByText("Submit idea").click();

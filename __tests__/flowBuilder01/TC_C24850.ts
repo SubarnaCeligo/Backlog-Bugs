@@ -10,7 +10,7 @@ test.describe("C24850 Verify that the flow event report results are sorted by th
           await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
           await io.homePage.waitForElementAttached(selectors.basePagePO.INTEGRATION_ID);
           await io.homePage.clickByIndex(selectors.basePagePO.INTEGRATION_ID,0);
-          await io.homePage.click('[role="menuitem"]:has-text("Automation Flows")');
+          await io.homePage.click('[role="menuitem"]:has-text("Standalone Flows")');
           await io.homePage.clickByText('Choose flows');
           await io.homePage.waitForElementAttached(selectors.exportsPagePO.PRIVATE_SWITCH_BASE_ROOT);
           await io.homePage.clickByIndex(selectors.exportsPagePO.PRIVATE_SWITCH_BASE_ROOT, 0);
@@ -27,6 +27,5 @@ test.describe("C24850 Verify that the flow event report results are sorted by th
           let nextDate = new Date(`${await reportist[i+1].innerText()}`);
           await io.assert.expectToBeTrue(curDate>nextDate, 'The list is not sorted according to timestamp');
         }
-  
     });
   });
