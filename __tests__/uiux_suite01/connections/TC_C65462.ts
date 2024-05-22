@@ -9,7 +9,9 @@ test.describe("C65462 Verify routing rules", () => {
       await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'van');
       await io.flowBuilder.click(selectors.connectionsPagePO.VAN_CONNECTION);
       await io.flowBuilder.clickByText("Create from scratch")
-      await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
+      await io.flowBuilder.waitForElementAttached(selectors.exportsPagePO.CREATE_SELECT_CONNECTION)
+      await io.flowBuilder.click(selectors.exportsPagePO.CREATE_SELECT_CONNECTION);
+      await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,'VAN CONNECTION');
       await io.flowBuilder.clickByText('VAN CONNECTION');
       await io.flowBuilder.click(selectors.basePagePO.SAVE);
       await io.flowBuilder.fill(selectors.importPagePO.NAME,'van_test_export')
@@ -19,6 +21,7 @@ test.describe("C65462 Verify routing rules", () => {
       await io.flowBuilder.click(selectors.connectionsPagePO.LUMBEREDI810);
       await io.flowBuilder.waitForElementAttached('button:has-text("Launch")');
       await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+      await io.flowBuilder.loadingTime()
       await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.AS2_ROUTING)
       await io.assert.verifyElementIsDisplayed(selectors.connectionsPagePO.AS2_ROUTING, 'Routing icon not visible on export');
   });
