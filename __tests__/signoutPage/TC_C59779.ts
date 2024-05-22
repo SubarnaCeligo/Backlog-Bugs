@@ -27,7 +27,7 @@ test.describe("TC_C59779 Verify the hyperlinks for Terms of Service / Service Su
     const page1 = await io.homePage.switchWindow();
     await io.flowBuilder.loadingTime();
     await expect((await page1.title()).toString()).toBe(
-      "Terms of Service - Celigo"
+      "Terms of Service – Celigo"
     );
     await page1.close();
     await io.homePage.switchWindow();
@@ -36,7 +36,7 @@ test.describe("TC_C59779 Verify the hyperlinks for Terms of Service / Service Su
     const page2 = await io.homePage.switchWindow();
     await io.flowBuilder.loadingTime();
     expect((await page2.title()).toString()).toBe(
-      "Celigo Privacy and Cookie Policy - Celigo"
+      "Privacy – Celigo"
     );
   });
 });
