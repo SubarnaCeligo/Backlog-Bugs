@@ -60,7 +60,6 @@ test.describe("@Author-Sudhanshukumar C27068 Verify the application name is appe
         await io.exportsPage.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'BIGQUERY CONNECTION');
         await io.exportsPage.clickByText('BIGQUERY CONNECTION');
         await io.exportsPage.fill(selectors.basePagePO.INPUT_NAME_SELECTOR, "BIGQUERY");
-        await io.exportsPage.fill('[id="rdbms.query"] > textarea', "select * from customer")
         await io.exportsPage.click(selectors.basePagePO.SAVE);
         await io.exportsPage.loadingTime();
         const exportCreateUrl = await io.homePage.getCurrentUrl();
