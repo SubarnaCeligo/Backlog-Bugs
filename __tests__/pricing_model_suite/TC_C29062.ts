@@ -22,7 +22,6 @@ test.describe("C29062 Verify the Concurrency level under HTTP connection should 
     await io.flowBuilder.click(selectors.integrationPagePO.EDIT);
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.importPagePO.ADVANCED);
-    await io.flowBuilder.clickByText('Auto-recover rate limit errors');
     await io.connectionPage.click(selectors.connectionsPagePO.HTTP_TARGET_CONCURRENCY_LEVEL);
     const concurrencyLevel = await io.connectionPage.getText(selectors.flowBuilderPagePO.SUBLIST_A);
     await io.api.putCall(

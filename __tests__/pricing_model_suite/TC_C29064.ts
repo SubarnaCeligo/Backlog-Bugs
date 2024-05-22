@@ -22,7 +22,6 @@ test.describe("C29064 Verify the concurrency limit for different license type Fr
     await io.flowBuilder.click(selectors.integrationPagePO.EDIT);
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.importPagePO.ADVANCED);
-    await io.flowBuilder.clickByText('Auto-recover rate limit errors');
     await io.connectionPage.click(selectors.connectionsPagePO.HTTP_TARGET_CONCURRENCY_LEVEL);
     const concurrencyLevel = await io.connectionPage.getElementOrIndex(selectors.flowBuilderPagePO.SUBLIST_A, 11);
     await io.api.putCall(
