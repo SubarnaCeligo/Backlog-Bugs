@@ -6,7 +6,7 @@ test.describe("C60115 To verify that the user is able to load integration from d
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
 
-  test("@Env-All C60115 To verify that the user is able to load integration from dev playground page.", async ({
+  test("@Env-All @Zephyr-IO-T1618 C60115 To verify that the user is able to load integration from dev playground page.", async ({
     io,
     page
   }) => {

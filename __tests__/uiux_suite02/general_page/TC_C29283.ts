@@ -6,7 +6,7 @@ test.describe('Verify Auto-scroll to show form errors', () => {
         await io.homePage.navigateTo(io.data.links.IMPORTS_PAGE_URL);
     });
   
-    test('@Env-All Verify Auto-scroll to show form errors', async({io,page}) => {
+    test('@Env-All @Zephyr-IO-T2266 Verify Auto-scroll to show form errors', async({io,page}) => {
         await io.homePage.loadingTime()
         await io.homePage.clickByText('Create import')
         await io.homePage.fill(selectors.flowBuilderPagePO.APP_NAME_INPUT, "FTP")

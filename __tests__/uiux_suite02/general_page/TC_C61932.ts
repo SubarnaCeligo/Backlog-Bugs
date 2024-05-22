@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C61932 App crash should not happen if we change IO url something like 'https://qa.staging.integrator.io///[https://qaprod.staging.integrator.io] ' based on the current environment", () => {
-  test("@Env-All C61932 App crash should not happen if we change IO url something like 'https://qa.staging.integrator.io///[https://qaprod.staging.integrator.io] ' based on the current environment", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T2222 C61932 App crash should not happen if we change IO url something like 'https://qa.staging.integrator.io///[https://qaprod.staging.integrator.io] ' based on the current environment", async ({io, page}) => {
       await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
       await io.homePage.loadingTime()
       await io.homePage.waitForElementAttached(selectors.homePagePO.TILE_VIEW);
