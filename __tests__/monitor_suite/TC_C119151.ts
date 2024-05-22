@@ -7,6 +7,7 @@ test.describe("C119151 Verify the Error Panel in AFE windows for Monitor User", 
   });
   test("@Env-All C119151 Verify the Error Panel in AFE windows for Monitor User", async ({ io }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+    await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'C32362_DND');
     await io.flowBuilder.clickByText('C32362_DND');
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR, 0);

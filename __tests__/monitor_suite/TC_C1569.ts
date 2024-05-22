@@ -22,7 +22,9 @@ test.describe(`@Bug-IO-  @Priority-P2  @Zephyr-T6901 @Env-All Verify If same doc
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'FTP');
     await io.homePage.click(selectors.connectionsPagePO.FTP_CONNECTION)
     await io.homePage.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
+    await io.exportsPage.waitForElementAttached(selectors.basePagePO.CONNECTION_DROPDOWN);
     await io.homePage.click(selectors.basePagePO.CONNECTION_DROPDOWN);
+    await io.exportsPage.fill(selectors.basePagePO.CONNECTION_DROPDOWN, "FTP CONNECTION");
     await io.flowBuilder.loadingTime();
     const monitorExp = await io.homePage.isVisible("text='FTP CONNECTION'");
     await io.homePage.addStep("FTP CONNECTION is present in both monitor and manage accese integrations");
