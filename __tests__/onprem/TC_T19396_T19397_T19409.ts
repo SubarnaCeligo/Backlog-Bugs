@@ -7,7 +7,7 @@ test.describe(`TC_T19396_TC_T19397TC__T19409`, () => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
 
   });
-  test("@Zephyr-IO-T19396_T19396_T19397_T19409 @Env-ALL @Priority-P2", async ({io, page}) => {
+  test("@Zephyr-IO-T19396_T19396_T19397_T19409 @Env-All @Priority-P2", async ({io, page}) => {
     await io.homePage.loadingTime();
     await io.homePage.goToMenu("Tools", "Flow builder");
     await io.flowBuilder.click(
