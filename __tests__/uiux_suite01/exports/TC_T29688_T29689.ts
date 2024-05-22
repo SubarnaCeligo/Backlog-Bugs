@@ -8,7 +8,7 @@ test.describe("@Author_sagna123 TC_T29688_T29689_Test to validate 'Data URI temp
     test("@Epic-IO-65860 @Priority-P2 @Zephyr-IO-T29688 @Zephyr-IO-T29689 @Env-QA", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
-        await io.homePage.goToMenu("Resources","Exports");
+        await io.homePage.goToMenu("Resources", "Exports");
         await io.homePage.addStep("*** Navigated back to export page ***");
         await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
         await io.homePage.addStep("*** Clicked on create export***");
@@ -33,9 +33,9 @@ test.describe("@Author_sagna123 TC_T29688_T29689_Test to validate 'Data URI temp
         await io.homePage.addStep("*** Checked DATA URI template help text ***");
         await io.flowBuilder.click(selectors.exportsPagePO.DATA_URI_TEMPLATE_HELP_TEXT);
         await io.homePage.addStep("*** Checked DATA URI template help text ***");
-        await io.flowBuilder.click(selectors.exportsPagePO.OVERRIDE_TRACE_KEY_TEMPLATE_HELP_TEXT);
+        await io.flowBuilder.click(selectors.exportsPagePO.OVERRIDE_KEY_TEMPLATE_HELP_BUBBLE);
         await io.homePage.addStep("*** Checked Override trace key template help text ***");
-        await io.flowBuilder.click(selectors.exportsPagePO.OVERRIDE_TRACE_KEY_TEMPLATE_HELP_TEXT);
+        await io.flowBuilder.click(selectors.exportsPagePO.OVERRIDE_KEY_TEMPLATE_HELP_BUBBLE);
         await io.homePage.addStep("*** Checked Override trace key templat  help text ***");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.DATAURITEMPLATE);
         await io.homePage.addStep("*** Clicked on DATAURI template handle bar ***");
