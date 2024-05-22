@@ -63,7 +63,7 @@ test.describe("@Author-Sudhanshukumar C27068 Verify the application name is appe
         await io.exportsPage.click(selectors.basePagePO.SAVE);
         await io.exportsPage.loadingTime();
         const exportCreateUrl = await io.homePage.getCurrentUrl();
-        await io.assert.expectToContainValue("?app=googlebigquery", exportCreateUrl, "Appended URL not present")
+        await io.assert.expectToContainValue("?app=bigquerydatawarehouse", exportCreateUrl, "Appended URL not present")
         await io.exportsPage.click(selectors.importPagePO.IMPORT_CLOSE_DRAWER);
         // Connections in Resources IO-T27071
         await io.homePage.goToMenu("Resources", "Connections");
