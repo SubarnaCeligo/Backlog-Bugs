@@ -4,7 +4,7 @@ import { getLicensePayload } from "@celigo/aut-utilities";
 import testMode from "@testData/Flows/C107604.json"
 
 test.describe("T29351 Verify user is able to enable the flow if disable overage set from true to false)", () => {
-  test("T29351 @Zephyr-IO-T29351 @Env-QA @Priority-P2 Verify user is able to enable the flow if disable overage set from true to false", async ({
+  test("T29351 @Zephyr-IO-T29351  @Env-All @Priority-P2 Verify user is able to enable the flow if disable overage set from true to false", async ({
     io,
     page
   }) => {

@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import { getLicensePayload } from "@celigo/aut-utilities";
 
 test.describe("C29068 Verify the concurrency limit if user set the value from API.", () => {
-  test("C29068 @Zephyr-IO-T29068 @Env-QA @Priority-P2 Verify the concurrency limit if user set the value from API.", async ({
+  test("C29068 @Zephyr-IO-T29068  @Env-All @Priority-P2 Verify the concurrency limit if user set the value from API.", async ({
     io,
     page,
   }) => {

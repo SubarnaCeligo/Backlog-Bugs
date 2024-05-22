@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import { getLicensePayload } from "@celigo/aut-utilities";
 
 test.describe("C28955 Verify the Concurrency level under HTTP connection should be set as per the BE concurrency value if auto-retry checkbox is not checked.", () => {
-  test("C28955 @Zephyr-IO-T28955 @Env-QA @Priority-P2 Verify the Concurrency level under HTTP connection should be set as per the BE concurrency value if auto-retry checkbox is not checked.", async ({
+  test("C28955 @Zephyr-IO-T28955  @Env-All @Priority-P2 Verify the Concurrency level under HTTP connection should be set as per the BE concurrency value if auto-retry checkbox is not checked.", async ({
     io,
     page,
   }) => {
@@ -24,22 +24,11 @@ test.describe("C28955 Verify the Concurrency level under HTTP connection should 
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.importPagePO.ADVANCED);
     await io.flowBuilder.clickByText('Auto-recover rate limit errors');
-    // await io.connectionPage.fill(selectors.connectionsPagePO.PASSWORD, 'test');
-    // await io.connectionPage.click(selectors.basePagePO.SAVE_AND_CLOSE);
-    // await io.homePage.loadingTime();
-    // await io.homePage.click(`tbody tr:has-text("sssss") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
-    // await io.flowBuilder.click(selectors.integrationPagePO.EDIT);
     await io.homePage.loadingTime();
-    // await io.flowBuilder.click(selectors.importPagePO.ADVANCED);
     await io.connectionPage.click(selectors.connectionsPagePO.CONCURRENCYLEVEL);
     const maxConcurrencyLevel = await io.connectionPage.selectTextfromDropDown(page, "10");
     const inValidconcurrencyLevel = await io.connectionPage.selectTextfromDropDown(page, "11");
     expect(maxConcurrencyLevel).toBe(true);
     expect(inValidconcurrencyLevel).toBe(false);
-    // await io.homePage.loadingTime();
-    // await io.flowBuilder.clickByText('Auto-recover rate limit errors');
-    // await io.connectionPage.fill(selectors.connectionsPagePO.PASSWORD, 'test');
-    // await io.homePage.loadingTime();
-    // await io.connectionPage.click(selectors.basePagePO.SAVE_AND_CLOSE);
-  });
+});
 });

@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import { getLicensePayload } from "@celigo/aut-utilities";
 
 test.describe("T29724 Verify the license entitlement notification message)", () => {
-  test("T29724 @Zephyr-IO-T29724 @Env-QA @Priority-P2 Verify the license entitlement notification message", async ({
+  test("T29724 @Zephyr-IO-T29724  @Env-All @Priority-P2 Verify the license entitlement notification message", async ({
     io,
     page
   }) => {

@@ -6,7 +6,7 @@ test.describe("T28742_T28743_T28737_T28736 Verify the license Entitlements notif
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-   test("T28742_T28743_T28737_T28736 @Zephyr-IO-T28742 @Env-QA @Priority-P2 Verify the license Entitlements notification whenever the endpoints and flow usage has been exceeded for professional tier", async ({
+   test("T28742_T28743_T28737_T28736 @Zephyr-IO-T28742  @Env-All @Priority-P2 Verify the license Entitlements notification whenever the endpoints and flow usage has been exceeded for professional tier", async ({
     io,
     page
   }) => {
@@ -27,7 +27,7 @@ test.describe("T28742_T28743_T28737_T28736 Verify the license Entitlements notif
   await io.assert.verifyElementIsDisplayed(selectors.homePagePO.DIALOG, "We will contact you to discuss your business needs and recommend an ideal subscription plan.");
   await io.homePage.click(selectors.mappings.MAPPER2DOT0PO.CLOSEBUTTON);
   });
-  test("@Zephyr-IO-T28743 @Env-QA @Priority-P2 Verify the license Entitlements notification whenever the endpoints and flow usage has been exceeded for enterprise tier", async ({
+  test("@Zephyr-IO-T28743  @Env-All @Priority-P2 Verify the license Entitlements notification whenever the endpoints and flow usage has been exceeded for enterprise tier", async ({
     io,
     page
   }) => {
@@ -49,7 +49,7 @@ test.describe("T28742_T28743_T28737_T28736 Verify the license Entitlements notif
   await io.assert.verifyElementIsDisplayed(selectors.homePagePO.DIALOG, "We will contact you to discuss your business needs and recommend an ideal subscription plan.");
   await io.homePage.click(selectors.mappings.MAPPER2DOT0PO.CLOSEBUTTON);
   });
-  test("@Zephyr-IO-T28737 @Env-QA @Priority-P2 Verify the license Entitlements notification whenever the endpoints and flow usage has been exceeded for standard tier", async ({
+  test("@Zephyr-IO-T28737  @Env-All @Priority-P2 Verify the license Entitlements notification whenever the endpoints and flow usage has been exceeded for standard tier", async ({
     io,
     page
   }) => {
@@ -70,7 +70,7 @@ test.describe("T28742_T28743_T28737_T28736 Verify the license Entitlements notif
   await io.assert.verifyElementIsDisplayed(selectors.homePagePO.DIALOG, "We will contact you to discuss your business needs and recommend an ideal subscription plan.");
   await io.homePage.click(selectors.mappings.MAPPER2DOT0PO.CLOSEBUTTON);
   });
-  test("@Zephyr-IO-T28735 @Env-QA @Priority-P2 Verify the license Entitlements notification whenever the endpoints and flow usage has been exceeded for free tier", async ({
+  test("@Zephyr-IO-T28735  @Env-All @Priority-P2 Verify the license Entitlements notification whenever the endpoints and flow usage has been exceeded for free tier", async ({
     io,
     page
   }) => {
