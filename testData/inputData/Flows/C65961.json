@@ -5,7 +5,7 @@
           "type": "export",
           "qa__export": {
             "name": "Loop Export 1",
-    "_connectionId": "Loop Returns",
+    "_connectionId": "Loop Returns NoVer",
     "_sourceId": "649990f336f89d18aecd451f",
     "apiIdentifier": "e8245ff927",
     "asynchronous": true,

@@ -7,7 +7,6 @@ test.describe(`C113527 Verify user is able to create connection using Password c
     await io.connectionPage.click(
       selectors.connectionsPagePO.CREATE_CONNECTION
     );
-    await page.pause();
     //Wait for the page to load
     await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.APP_NAME_INPUT);
     await io.connectionPage.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Fulfillment.com');

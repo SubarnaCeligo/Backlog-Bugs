@@ -8,7 +8,7 @@ test.describe("C18741_Verify on the resource listing pages update timestamp is s
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C18741_Verify on the resource listing pages update timestamp is shown as expected as a tooltip UI_Backlog", async ({ io, page }) => {
+    test("@Env-All C18741_Verify on the resource listing pages update timestamp is shown as expected as a tooltip UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.flowBuilder.click(selectors.integrationPagePO.ADDNEWRESOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'netsuite');

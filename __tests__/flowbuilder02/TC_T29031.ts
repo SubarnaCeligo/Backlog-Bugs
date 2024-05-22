@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S T29031- Verify that the cursor focus on the 'App
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Priority-P2 @Env-QA @Zephyr-IO-T29031 Verify that the cursor focus on the 'Application' field is getting set by default on create export/import/lookup page", async ({ io, page }) => {
+    test("@Priority-P2 @Env-All @Zephyr-IO-T29031 Verify that the cursor focus on the 'Application' field is getting set by default on create export/import/lookup page", async ({ io, page }) => {
         await io.homePage.goToMenu("Tools", "Flow builder");
 
         //Add Export

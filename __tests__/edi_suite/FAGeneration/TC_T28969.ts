@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S TC_T28969-Verify the FA listener dropdown when t
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Epic-IO-36129 @Env-QA @Priority-P2 @Zephyr-T28969 Verify the FA listener dropdown when there are no FA listeners in the integration.", async ({ io, page }) => {
+  test("@Epic-IO-36129 @Env-All @Priority-P2 @Zephyr-T28969 Verify the FA listener dropdown when there are no FA listeners in the integration.", async ({ io, page }) => {
     //Go to Exports
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
 

@@ -4,37 +4,53 @@
       {
         "type": "export",
         "qa__export": {
-          "name": "Shopify customer export",
-          "_connectionId": "SHOPIFY CONNECTION",
-          "asynchronous": true,
-          "assistant": "shopify",
-          "assistantMetadata": {
-            "resource": "customer",
-            "version": "v2",
-            "operation": "searches_forcustomersthatmatchasuppliedquery"
-          },
-          "http": {
-            "relativeURI": "/customers/search.json?query=first_name:C23737",
-            "method": "GET",
-            "paging": {
-              "method": "linkheader",
-              "lastPageStatusCode": 404,
-              "linkHeaderRelation": "next"
+            "_id": "662a8245b4da91239229a9ea",
+            "createdAt": "2024-04-25T16:18:13.828Z",
+            "lastModified": "2024-04-25T16:18:13.865Z",
+            "name": "AutomationStandalone_DnRXG",
+            "_connectionId": "FTP CONNECTION",
+            "_sourceId": "662a273a265efa2565018987",
+            "apiIdentifier": "e7ec6cdaba",
+            "asynchronous": true,
+            "sandbox": false,
+            "ftp": {
+                "directoryPath": "/io.auto.qa/BVAutoFTP"
             },
-            "response": {
-              "resourcePath": "customers"
-            }
-          },
-          "rawData": "603ce5ede9250226dcea4608dda6230d547e4261bcf2b129528d1898",
-          "rest": {
-            "relativeURI": "/customers/search.json?query=first_name:C23737",
-            "method": "GET",
-            "resourcePath": "customers",
-            "pagingMethod": "linkheader",
-            "allowUndefinedResource": false,
-            "linkHeaderRelation": "next"
-          },
-          "adaptorType": "RESTExport"
+            "file": {
+                "output": "records",
+                "skipDelete": true,
+                "type": "json",
+                "filter": {
+                    "type": "expression",
+                    "expression": {
+                        "version": "1",
+                        "rules": [
+                            "contains",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "filename"
+                                ]
+                            ],
+                            "NoArrayFieldsIO-34461"
+                        ]
+                    },
+                    "rules": [
+                        "contains",
+                        [
+                            "string",
+                            [
+                                "extract",
+                                "filename"
+                            ]
+                        ],
+                        "NoArrayFieldsIO-34461"
+                    ],
+                    "version": "1"
+                }
+            },
+            "adaptorType": "FTPExport"
         }
       }
     ],
@@ -42,24 +58,25 @@
       {
         "type": "import",
         "qa__import": {
-          "name": "HTTP import",
-          "application": "zendesk support",
-          "parsers": [],
-          "_connectionId": "HTTP ZENDESK CONNECTION",
-          "ignoreExisting": false,
-          "ignoreMissing": false,
-          "oneToMany": false,
-          "sandbox": false,
-          "lookups": [],
-          "http": {
-            "relativeURI": ["/ticket.json"],
-            "method": ["POST"],
-            "body": ["{\"name\":\"New\"}"],
-            "batchSize": 1,
-            "sendPostMappedData": true,
-            "formType": "http"
-          },
-          "adaptorType": "HTTPImport"
+            "_id": "662a8245b4da91239229a9f3",
+            "createdAt": "2024-04-25T16:18:13.888Z",
+            "lastModified": "2024-04-25T16:18:13.924Z",
+            "name": "AutomationStandalone_csr4f",
+            "_connectionId": "FTP CONNECTION",
+            "_sourceId": "662a273db4da9123922401f9",
+            "apiIdentifier": "i689e84ff2",
+            "oneToMany": true,
+            "sandbox": false,
+            "file": {
+                "fileName": "file-{{timestamp}}.json",
+                "skipAggregation": false,
+                "type": "json"
+            },
+            "ftp": {
+                "directoryPath": "io.auto.qa/BVAutoFTP",
+                "fileName": "file-{{timestamp}}.json"
+            },
+            "adaptorType": "FTPImport"
         }
       }
     ],

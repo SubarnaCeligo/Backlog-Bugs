@@ -29,7 +29,9 @@ test.describe(
           if (errorMessage) {
               const waitSeconds = parseInt(match[1]);
               await page.waitForTimeout(waitSeconds * 1000);
+              console.log('Waiting time is', waitSeconds )
               await io.signInPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
+              console.log('After successfully wait clicked signin')
           }
       }
   })
