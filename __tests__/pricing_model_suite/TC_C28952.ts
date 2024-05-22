@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import { getLicensePayload } from "@celigo/aut-utilities";
 
 test.describe("C28952 Verify the audit log retention, ßconcurrency for expired license account.", () => {
-  test("C28952 @Zephyr-IO-T28952 @Env-QA @Priority-P2 Verify the audit log retention, concurrency for expired license account.", async ({
+  test("C28952 @Zephyr-IO-T28952  @Env-All @Priority-P2 Verify the audit log retention, concurrency for expired license account.", async ({
     io,
     page
   }) => {
