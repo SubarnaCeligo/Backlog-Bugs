@@ -8,7 +8,7 @@ test.describe("IO-T6794", () => {
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Bug-IO-25819 @Env-ALL @Priority-P3 @Zephyr-IO-T6794 Verify the double quotes under handel bar expression for search and query parameter", async ({ io, page }) => {
+    test("@Bug-IO-25819 @Env-All @Priority-P3 @Zephyr-IO-T6794 Verify the double quotes under handel bar expression for search and query parameter", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.exportsPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
         await io.exportsPage.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Amazon Seller Central');
