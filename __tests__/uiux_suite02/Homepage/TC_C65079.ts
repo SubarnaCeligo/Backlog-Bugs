@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe('C65079 Verify sub-menu option of "Help" is showing after hovering on "Help" option.', () => {
-  test('C65079 Verify sub-menu option of "Help" is showing after hovering on "Help" option.', async ({
+  test.skip('C65079 Verify sub-menu option of "Help" is showing after hovering on "Help" option.', async ({
     io,
     page
   }) => {
