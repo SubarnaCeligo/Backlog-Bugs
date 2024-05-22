@@ -12,7 +12,7 @@ test.describe("C29063 Verify the concurrency levels while cloning a flow.", () =
 
     await io.api.putCall(
       `v1/test/licenses/${platformLicense._id}`,
-      {...getLicensePayload(platformLicense), "concurrency": 2, "sandbox": false, "tier": "professional", "apiManagement": true, "expires": "2044-04-10T13:14:33.363Z"}
+      {...getLicensePayload(platformLicense), "concurrency": 12, "sandbox": false, "tier": "professional", "apiManagement": true, "expires": "2044-04-10T13:14:33.363Z"}
     );
     await io.homePage.reloadPage();
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
@@ -38,8 +38,8 @@ test.describe("C29063 Verify the concurrency levels while cloning a flow.", () =
     const element = await page.locator(elementSelector);
     await element.scrollIntoViewIfNeeded();
     await io.flowBuilder.click(elementSelector);
-    await io.connectionPage.click(selectors.connectionsPagePO.FTP_TARGET_CONCURRENCY_LEVEL);
-    const maxConcurrencyLevel = await io.connectionPage.selectTextfromDropDown(page, "2");
+    await io.connectionPage.click(selectors.connectionsPagePO.HTTP_TARGET_CONCURRENCY_LEVEL);
+    const maxConcurrencyLevel = await io.connectionPage.selectTextfromDropDown(page, "12");
     expect(maxConcurrencyLevel).toBe(true);
     await io.connectionPage.clickByText("request an upgrade.", { tag: "a" });
     await io.assert.verifyElementIsDisplayed(selectors.homePagePO.DIALOG, "We will contact you to discuss your business needs and recommend an ideal subscription plan.");
