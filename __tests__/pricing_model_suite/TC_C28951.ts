@@ -47,7 +47,7 @@ test.describe("C28951 Verify the concurrency limit for different license type(Fr
     const concurrencyLevel = await io.connectionPage.getElementsLength(selectors.flowBuilderPagePO.SUBLIST_A);
     expect(concurrencyLevel).toBe(5);
   });
-  test("@Zephyr-IO-T28951 @Env-QA @Priority-P2 Verify the concurrency limit for different license type free for Sandbox account", async ({
+  test("@Zephyr-IO-T28951  @Env-All @Priority-P2 Verify the concurrency limit for different license type Standard for Sandbox account", async ({
     io,
   }) => {
     await io.homePage.reloadPage();
@@ -56,7 +56,7 @@ test.describe("C28951 Verify the concurrency limit for different license type(Fr
 
     await io.api.putCall(
       `v1/test/licenses/${platformLicense._id}`,
-      {...getLicensePayload(platformLicense), tier: 'free', sandbox: true, "apiManagement": true, "expires": "2044-04-10T13:14:33.363Z"}
+      {...getLicensePayload(platformLicense), tier: 'standard', sandbox: true, "apiManagement": true, "expires": "2044-04-10T13:14:33.363Z"}
     );
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.click(selectors.homePagePO.SANDBOX_BUTTON);

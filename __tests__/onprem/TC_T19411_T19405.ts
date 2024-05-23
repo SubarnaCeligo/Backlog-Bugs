@@ -5,7 +5,7 @@ test.describe("TC_T19411_T19405  Verify the message when api failed to fetch the
  test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test(" @Zephyr-IO-T19411_T19405 @Env-ALL @Priority-P2 Verify the message when api failed to fetch the table", async ({ io, page }) => {
+  test(" @Zephyr-IO-T19411_T19405 @Env-All @Priority-P2 Verify the message when api failed to fetch the table", async ({ io, page }) => {
     await io.homePage.loadingTime();
         await io.homePage.goToMenu("Tools", "Flow builder");
         await io.flowBuilder.click(
