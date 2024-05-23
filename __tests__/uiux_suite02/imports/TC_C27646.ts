@@ -8,7 +8,7 @@ test.describe("C27646 Verify back arrow should not be displayed in Create Lookup
   test.afterEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("C27646 Verify back arrow should not be displayed in Create Lookup drawer on HTTP lookups UI_Backlog", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T9665 C27646 Verify back arrow should not be displayed in Create Lookup drawer on HTTP lookups UI_Backlog", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP);
