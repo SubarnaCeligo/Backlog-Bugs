@@ -8,7 +8,7 @@ test.describe("C25987_verify when I am on the 'View debug logs' page, I can see 
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C25987_verify when I am on the 'View debug logs' page, I can see debug run status UI_Backlog", async ({ io}) => {
+    test("@Env-All @Zephyr-IO-T4844  C25987_verify when I am on the 'View debug logs' page, I can see debug run status UI_Backlog", async ({ io}) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW)
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);

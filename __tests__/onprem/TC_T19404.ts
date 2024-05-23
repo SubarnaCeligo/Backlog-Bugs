@@ -5,7 +5,7 @@ test.describe("TC_T19404_TC_T19405_TC_T19406_TC_T19407_TC_T19408_TC_T19410", () 
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Zephyr-IO-T19405_T19406_T19407_T19408_T19410 @Env-ALL @Priority-P2", async ({ io, page }) => {
+    test("@Zephyr-IO-T19405_T19406_T19407_T19408_T19410 @Env-All @Priority-P2", async ({ io, page }) => {
         await io.homePage.loadingTime();
         await io.homePage.goToMenu("Tools", "Flow builder");
         await io.flowBuilder.click(

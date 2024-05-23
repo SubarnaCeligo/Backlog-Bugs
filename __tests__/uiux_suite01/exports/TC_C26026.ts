@@ -8,7 +8,7 @@ test.describe("C26026_Verify 'View debug logs' not visible non-RT exports or imp
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C26026_Verify 'View debug logs' not visible non-RT exports or imports UI_Backlog", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T4880 C26026_Verify 'View debug logs' not visible non-RT exports or imports UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW)
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
@@ -17,7 +17,7 @@ test.describe("C26026_Verify 'View debug logs' not visible non-RT exports or imp
         await io.flowBuilder.click(selectors.connectionsPagePO.NETSUITE_CONNECTION);
         await io.flowBuilder.clickByText('Export records from source application');
         await io.flowBuilder.clickByText("Create from scratch")
-        await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
+        await io.flowBuilder.click(selectors.exportsPagePO.CREATE_SELECT_CONNECTION);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'NETSUITE CONNECTION');
         await io.flowBuilder.clickByText('NETSUITE CONNECTION');
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
@@ -28,6 +28,7 @@ test.describe("C26026_Verify 'View debug logs' not visible non-RT exports or imp
         await io.homePage.click(selectors.flowBuilderPagePO.EXPORTTYPE);
         await io.flowBuilder.clickByText('All - always export all data');
         await io.homePage.click(selectors.basePagePO.SAVE_AND_CLOSE);
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
         // Validating view debug not available in non-RT exports
         await expect(await page.locator(selectors.flowBuilderPagePO.EXPORT)).not.toHaveCSS("debug", "flowStepLogs");
@@ -47,6 +48,7 @@ test.describe("C26026_Verify 'View debug logs' not visible non-RT exports or imp
         await io.flowBuilder.clickByText('Account');
         await io.flowBuilder.clickByText('Add');
         await io.homePage.click(selectors.basePagePO.SAVE_AND_CLOSE);
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.IMPORT);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT);
         // Validating view debug not available in non-RT imports
         await expect(await page.locator(selectors.flowBuilderPagePO.IMPORT)).not.toHaveCSS("debug", "flowStepLogs");

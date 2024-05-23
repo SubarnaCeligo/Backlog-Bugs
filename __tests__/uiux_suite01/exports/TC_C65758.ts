@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C65758 from "@testData/Flows/C65758.json"
 
 test.describe("C65758 Verify that the LastExportedDateTime is updated across all the AFE editors including Hooks, Handlebars", () => {
-    test("C65758 Verify that the LastExportedDateTime is updated across all the AFE editors including Hooks, Handlebars", async ({io, page}) => {
+    test("@Env-All @Zephyr-IO-T24331 C65758 Verify that the LastExportedDateTime is updated across all the AFE editors including Hooks, Handlebars", async ({io, page}) => {
         await io.createResourceFromAPI(C65758, "FLOWS");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
         await io.flowBuilder.click(selectors.exportsPagePO.EXPORT_TYPE_DROPDOWN);

@@ -5,7 +5,7 @@ test.describe("@Author_sagna123 TC_T29677_Test to validate user is able to 'Name
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Epic-IO-65860 @Priority-P2 @Zephyr-IO-T29677 @Env-QA", async ({ io, page }) => {
+    test("@Epic-IO-65860 @Priority-P2 @Zephyr-IO-T29677 @Env-All", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources","Exports");
@@ -25,8 +25,15 @@ test.describe("@Author_sagna123 TC_T29677_Test to validate user is able to 'Name
         await io.homePage.addStep("*** Opened the export ***");
         await io.flowBuilder.click(selectors.exportsPagePO.NAME_HELP_TEXT);
         await io.homePage.addStep("*** Checked name field help text  ***");
+        await io.flowBuilder.click(selectors.exportsPagePO.NAME_HELP_TEXT);
+        await io.homePage.addStep("*** Checked name field help text  ***");
         await io.flowBuilder.click(selectors.exportsPagePO.DESCRIPTION_HELP_TEXT);
         await io.homePage.addStep("*** Checked description field help text ***");
+        await io.flowBuilder.click(selectors.exportsPagePO.DESCRIPTION_HELP_TEXT);
+        await io.homePage.addStep("*** Checked description field help text ***");
+        await io.homePage.waitForElementAttached(selectors.exportsPagePO.CONNECTION_HELP_TEXT)
+        await io.flowBuilder.click(selectors.exportsPagePO.CONNECTION_HELP_TEXT);
+        await io.homePage.addStep("*** Checked connection field help text ***");
         await io.flowBuilder.click(selectors.exportsPagePO.CONNECTION_HELP_TEXT);
         await io.homePage.addStep("*** Checked connection field help text ***");
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
