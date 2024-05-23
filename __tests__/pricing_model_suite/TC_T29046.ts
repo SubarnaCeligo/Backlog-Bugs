@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import { getLicensePayload } from "@celigo/aut-utilities";
 
 test.describe("T29046 Verify the flow entitlements for platform license for sandbox account.", () => {
-  test("T29046 @Zephyr-IO-T29046 @Env-qa,iaqa @Priority-P2 Verify the flow entitlements for platform license for sandbox account.", async ({
+  test("T29046 @Zephyr-IO-T29046  @Env-All,iaqa @Priority-P2 Verify the flow entitlements for platform license for sandbox account.", async ({
     io,
     page
   }) => {
@@ -12,7 +12,7 @@ test.describe("T29046 Verify the flow entitlements for platform license for sand
     const payloadFormat = {
       ...getLicensePayload(platformLicense),
       expires: "2044-04-10T13:14:33.363Z",
-      apiManagement: true
+      apiManagement: true,
     };
     await io.homePage.addStep(
       "Updating license to standard tier and enabled sandbox."
@@ -20,7 +20,9 @@ test.describe("T29046 Verify the flow entitlements for platform license for sand
     await io.api.putCall(`v1/test/licenses/${payloadFormat._id}`, {
       ...payloadFormat,
       tier: "standard",
-      sandbox: true
+      sandbox: true,
+      numSandboxEndpoints: 10,
+      numSandboxFlows: 10,
     });
 
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
