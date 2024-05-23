@@ -18,8 +18,8 @@ test.describe("C27646 Verify back arrow should not be displayed in Create Lookup
     await io.homePage.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
     await io.homePage.loadingTime()
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
-    await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'HTTP connection');
-    await io.flowBuilder.clickByTextByIndex('HTTP connection', 0);
+    await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'HTTP CONNECTION');
+    await io.flowBuilder.clickByTextByIndex('HTTP CONNECTION', 0);
     await io.flowBuilder.click(selectors.exportsPagePO.HTTP_BODY);
     await io.connectionPage.waitForElementAttached(selectors.mappings.CREATELOOKUP);
     await io.flowBuilder.click(selectors.mappings.CREATELOOKUP)

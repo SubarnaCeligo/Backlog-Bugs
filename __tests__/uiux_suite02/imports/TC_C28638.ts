@@ -18,14 +18,14 @@ test.describe("C28638 Verify all the field values are saved in the HTTP/REST loo
     await io.homePage.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
     await io.homePage.loadingTime()
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
-    await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'HTTP connection');
-    await io.flowBuilder.clickByTextByIndex('HTTP connection', 0);
+    await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'HTTP CONNECTION');
+    await io.flowBuilder.clickByTextByIndex('HTTP CONNECTION', 0);
     await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'TC_C28638_Connection');
     await io.flowBuilder.click(selectors.importPagePO.SELECTHTTPMETHOD);
     await io.flowBuilder.click(selectors.importPagePO.HTTPPOSTMETHOD);
     await io.homePage.fill(selectors.flowBuilderPagePO.HEADER_NAME, 'Name');
     await io.homePage.fill(selectors.flowBuilderPagePO.HEADER_VALUE, 'TC_C28638');
-     // Validating able to save all headers values
+    // Validating able to save all headers values
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
   });
 }); 
