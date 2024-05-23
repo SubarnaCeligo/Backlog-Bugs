@@ -5,7 +5,7 @@ test.describe(`@Author_sagna123 TC_T833 Verify user is able to edit/delete the R
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-  test(`TC_T833 @Bug-IO-71585 Verify user is able to edit/delete the Related lists in Salesforce Real time Export @Zephyr-IO-T833 @Env-All @Priority-P2`, async ({ io, page }) => {
+  test(`@Env-All TC_T833 @Bug-IO-71585 Verify user is able to edit/delete the Related lists in Salesforce Real time Export @Zephyr-IO-T833 @Env-All @Priority-P2`, async ({ io, page }) => {
     await io.homePage.addStep("*** Navigated to home page ***");
     await io.homePage.goToMenu("Tools", "Flow builder");
     await io.homePage.addStep("*** Navigated to Flow builder page ***");

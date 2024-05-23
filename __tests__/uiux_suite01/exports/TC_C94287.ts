@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C94287 Verify user should be able to see the connection dropdown`, () => {
-  test(`C94287 Verify user should be able to see the connection dropdown`, async ({
+  test(`@Env-All @Zephyr-IO-T2345 C94287 Verify user should be able to see the connection dropdown`, async ({
     io,
     page
   }) => {
