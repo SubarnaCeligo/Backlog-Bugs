@@ -17,7 +17,7 @@ test.describe('C67020 To verify that the delete option colour is changed to red 
     await page.locator(selectors.homePagePO.LIST_VIEW).waitFor({ state: 'visible', timeout: 90000 });
     await io.homePage.click(selectors.homePagePO.LIST_VIEW);
     await io.homePage.loadingTime()
-    await io.homePage.clickByIndex(`${selectors.flowBuilderPagePO.COLUMNS} ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`, 0);
+    await io.homePage.clickByIndex(`${selectors.flowBuilderPagePO.COLUMNS} ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`, 1);
     await io.homePage.waitForElementAttached(selectors.homePagePO.DELETE_INTEGRATION);
     const color = await page.locator(selectors.homePagePO.DELETE_INTEGRATION).evaluate((el: any) => getComputedStyle(el).color);
     await io.assert.expectToBeValue(color,"rgb(217, 83, 79)","Color not red");
