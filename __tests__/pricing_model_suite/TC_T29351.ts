@@ -26,6 +26,7 @@ test.describe("T29351 Verify user is able to enable the flow if disable overage 
      }
     );
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.loadingTime()
     await io.homePage.waitForElementAttached(selectors.homePagePO.INTEGRATION_TILES);
     await io.flowBuilder.clickByText("Automation_flows");   
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
