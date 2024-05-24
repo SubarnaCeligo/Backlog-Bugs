@@ -7,7 +7,7 @@ test.describe("TC_C66287 Verify the display text will auto adjust to the full ch
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowViaAPI(flowId);
   });
-  test("C66287 Verify the display text will auto adjust to the full character length of the username field", async ({
+  test("@Zephyr-IO-T20415 @Env-All C66287 Verify the display text will auto adjust to the full character length of the username field", async ({
     io,
     page
   }) => {

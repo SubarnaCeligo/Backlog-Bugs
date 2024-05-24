@@ -1,7 +1,7 @@
 import { test, expect } from "@celigo/ui-core-automation";
 
 test.describe("C102890 Verify 'Frequently selected' and 'All Application A->Z' filter content is scrollable inside the container", () => {
-  test("@Env-All C102890 Verify 'Frequently selected' and 'All Application A->Z' filter content is scrollable inside the container ", async ({
+  test("@Zephyr-IO-T23719 @Env-All C102890 Verify 'Frequently selected' and 'All Application A->Z' filter content is scrollable inside the container ", async ({
     io,
     page
   }) => {
