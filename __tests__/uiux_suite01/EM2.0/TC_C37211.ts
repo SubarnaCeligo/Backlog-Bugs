@@ -13,6 +13,7 @@ test.describe("C37211_Verify the run console tab should show the connection brok
         await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
         await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'TC_Broken_Connection_DND');
         await io.integrationPage.clickByText('TC_Broken_Connection_DND')
+        await io.flowBuilder.loadingTime();
         await io.integrationPage.clickByIndex(selectors.flowBuilderPagePO.TRANSFER, 0)
         await io.integrationPage.click(selectors.connectionsPagePO.EDIT_RESOURCE)
         await io.flowBuilder.loadingTime();
