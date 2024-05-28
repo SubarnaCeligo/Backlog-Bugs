@@ -21,10 +21,18 @@ test.describe("T29046 Verify the flow entitlements for platform license for sand
       ...payloadFormat,
       tier: "standard",
       sandbox: true,
-      numSandboxEndpoints: 10,
-      numSandboxFlows: 10,
+      numSandboxEndpoints: 1,
+      numSandboxFlows: 1,
     });
-
+    
+    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.loadingTime()
+    await io.homePage.waitForElementAttached(selectors.homePagePO.INTEGRATION_TILES);
+    await io.flowBuilder.clickByText("Automation_flows");   
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
+    await io.homePage.loadingTime()
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_ENABLE);
+    await io.homePage.loadingTime()
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.myAccountPage.click(selectors.myAccountPagePO.SUBSCRIPTION);
     await page.waitForLoadState("load", { timeout: 60000 });

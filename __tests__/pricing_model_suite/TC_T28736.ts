@@ -58,10 +58,10 @@ test.describe("T28736 Verify the license Entitlements notification for Free tier
       const bgColorList = await io.homePage.getBackgroundColors(
         selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR
       );
-      await io.api.putCall(
-        `v1/test/licenses/${platformLicense._id}`,
-        getLicensePayload(platformLicense)
-      );
+      // await io.api.putCall(
+      //   `v1/test/licenses/${platformLicense._id}`,
+      //   getLicensePayload(platformLicense)
+      // );
       await io.assert.expectArrayToBeInArray(
         bgColorList,
         [

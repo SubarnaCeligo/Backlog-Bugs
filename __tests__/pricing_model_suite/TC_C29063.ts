@@ -42,7 +42,9 @@ test.describe("C29063 Verify the concurrency levels while cloning a flow.", () =
     const maxConcurrencyLevel = await io.connectionPage.selectTextfromDropDown(page, "12");
     expect(maxConcurrencyLevel).toBe(true);
     await io.homePage.loadingTime();
-    await io.connectionPage.clickByText("request an upgrade.", { tag: "a" });
+    await io.connectionPage.click(selectors.connectionsPagePO.HTTP_TARGET_CONCURRENCY_LEVEL);
+    await io.homePage.loadingTime();
+    await io.connectionPage.clickByText("request an upgrade.", { tag: "a" });  
     await io.assert.verifyElementIsDisplayed(selectors.homePagePO.DIALOG, "We will contact you to discuss your business needs and recommend an ideal subscription plan.");
     await io.homePage.click(selectors.mappings.MAPPER2DOT0PO.CLOSEBUTTON);
     await io.api.putCall(
