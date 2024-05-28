@@ -54,14 +54,9 @@ test.describe("T28736 Verify the license Entitlements notification for Free tier
       await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
       await io.myAccountPage.click(selectors.myAccountPagePO.SUBSCRIPTION);
       await page.waitForLoadState();
-  
       const bgColorList = await io.homePage.getBackgroundColors(
         selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR
       );
-      // await io.api.putCall(
-      //   `v1/test/licenses/${platformLicense._id}`,
-      //   getLicensePayload(platformLicense)
-      // );
       await io.assert.expectArrayToBeInArray(
         bgColorList,
         [
@@ -73,6 +68,10 @@ test.describe("T28736 Verify the license Entitlements notification for Free tier
           "rgb(29, 118, 199)"
         ],
         "The status is not correctly colored"
+      );
+      await io.api.putCall(
+        `v1/test/licenses/${platformLicense._id}`,
+        getLicensePayload(platformLicense)
       );
   });
 });

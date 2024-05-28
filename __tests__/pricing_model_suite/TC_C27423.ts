@@ -41,5 +41,9 @@ test.describe("C27423 Verify the endpoint under subscription page when it dont e
       ],
       "The status is not correctly colored"
     );
+    await io.api.putCall(
+      `v1/test/licenses/${platformLicense._id}`,
+      getLicensePayload(platformLicense)
+    );
   });
 });

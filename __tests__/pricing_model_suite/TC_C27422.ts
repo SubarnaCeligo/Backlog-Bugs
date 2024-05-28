@@ -18,7 +18,8 @@ test.describe("C27422 Verify the endpoint under subscription page when it exceed
 
     await io.api.putCall(`v1/test/licenses/${platformLicense._id}`, {
       ...payloadFormat,
-      numEndpoints: 1
+      numEndpoints: 1,
+      numFlows:1
     });
 
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
@@ -28,16 +29,14 @@ test.describe("C27422 Verify the endpoint under subscription page when it exceed
     const bgColorList = await io.homePage.getBackgroundColors(
       selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR
     );
-
-    await io.api.putCall(
-      `v1/test/licenses/${platformLicense._id}`,
-      payloadFormat
-    );
-
     await io.assert.expectToBeValueInArray(
       bgColorList,
       "rgb(255, 60, 60)",
       "The status is not correctly colored"
+    );
+    await io.api.putCall(
+      `v1/test/licenses/${platformLicense._id}`,
+      payloadFormat
     );
   });
 });

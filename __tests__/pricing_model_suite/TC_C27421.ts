@@ -30,8 +30,8 @@ test.describe("C27421 Verify the subscription page for different license type(Fr
         tier: 'professional', 
         "apiManagement": true, 
         "expires": "2044-04-10T13:14:33.363Z",
-        numSandboxEndpoints: 1,
-        numSandboxFlows: 1,}
+        numEndpoints: 1,
+         numFlows:1}
     );
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.myAccountPage.click(selectors.myAccountPagePO.SUBSCRIPTION);
@@ -39,10 +39,6 @@ test.describe("C27421 Verify the subscription page for different license type(Fr
 
     const bgColorList = await io.homePage.getBackgroundColors(
       selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR
-    );
-    await io.api.putCall(
-      `v1/test/licenses/${platformLicense._id}`,
-      getLicensePayload(platformLicense)
     );
     await io.assert.expectArrayToBeInArray(
       bgColorList,
@@ -79,10 +75,6 @@ test.describe("C27421 Verify the subscription page for different license type(Fr
       const bgColorList = await io.homePage.getBackgroundColors(
         selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR
       );
-      await io.api.putCall(
-        `v1/test/licenses/${platformLicense._id}`,
-        getLicensePayload(platformLicense)
-      );
       await io.assert.expectArrayToBeInArray(
         bgColorList,
         [
@@ -95,5 +87,10 @@ test.describe("C27421 Verify the subscription page for different license type(Fr
         ],
         "The status is not correctly colored"
       );
+      await io.api.putCall(
+        `v1/test/licenses/${platformLicense._id}`,
+        getLicensePayload(platformLicense)
+      );
     });
+    
 });

@@ -21,6 +21,8 @@ test.describe("T29724 Verify the license entitlement notification message)", () 
       tier: 'professional', 
       numEndpoints: 1,
       numFlows:1,
+      numSandboxEndpoints: 1,
+      numSandboxFlows: 1,
      }
     );
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
@@ -52,9 +54,7 @@ test.describe("T29724 Verify the license entitlement notification message)", () 
     await io.api.putCall(
       `v1/test/licenses/${platformLicense._id}`,
      { ...payloadFormat,
-      tier: 'free', 
-      numEndpoints: 1,
-      numFlows:1,
+      tier: 'free'
      }
     );
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
