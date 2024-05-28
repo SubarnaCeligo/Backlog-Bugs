@@ -7,8 +7,10 @@ test.describe("TC_CT26354T26351T28950T19565", () => {
     page
   }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.flowBuilder.loadingTime();
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Resources", "Connections");
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.waitForElementAttached(
       selectors.connectionsPagePO.CREATE_CONNECTION
     );
@@ -40,11 +42,14 @@ test.describe("TC_CT26354T26351T28950T19565", () => {
       "Configure refreshtoken is not checked"
     );
   });
+
+
   test("@Env-All CT26351 Verify help text for concurrency ID lock template", async ({
     io,
     page
   }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.flowBuilder.loadingTime();
     await io.homePage.clickByText("Create");
     await io.flowBuilder.loadingTime();
     await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
@@ -82,14 +87,17 @@ test.describe("TC_CT26354T26351T28950T19565", () => {
       "helptext not found"
     );
   });
+
+
   test("@Env-All T28950 Verify success and error values are saved when media type is plain text", async ({
     io,
     page
   }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.homePage.clickByText("Create");
     await io.flowBuilder.loadingTime();
-    await io.homePage.click("[data-test='createConnection']");
+    await io.homePage.clickByTextByIndex("Create", 0);
+    await io.flowBuilder.loadingTime();
+    await io.homePage.click(selectors.homePagePO.CREATE_CONNECTION);
     await io.flowBuilder.loadingTime();
 
     await io.flowBuilder.waitForElementAttached(
@@ -171,11 +179,13 @@ test.describe("TC_CT26354T26351T28950T19565", () => {
       "CT28950"
     );
     await io.homePage.loadingTime();
-    await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
+    await io.homePage.clickByIndex(selectors.integrationPagePO.OPENACTIONSMENU, 0);
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.connectionsPagePO.DELETE_CONNECTION);
     await io.flowBuilder.click(selectors.basePagePO.DELETE);
   });
+
+
   test("@Env-All T19565 Verify xml file in AFE", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.flowBuilder.loadingTime();
@@ -186,6 +196,7 @@ test.describe("TC_CT26354T26351T28950T19565", () => {
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
     await io.homePage.loadingTime();
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, "HTTP");
+    await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
     await io.flowBuilder.clickByText("Create from scratch");
     await io.flowBuilder.fill(selectors.exportsPagePO.BQNAME, "HTTP XML Parser");
@@ -228,6 +239,7 @@ test.describe("TC_CT26354T26351T28950T19565", () => {
     );
     await io.homePage.loadingTime();
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, "HTTP");
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.SELECTED_IMPORT_RECORDS
@@ -236,12 +248,13 @@ test.describe("TC_CT26354T26351T28950T19565", () => {
     await io.flowBuilder.clickByText("Create from scratch");
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.basePagePO.CONNECTION);
+    await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, "CT19565");
     await io.flowBuilder.clickByTextByIndex("CT19565", 0);
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.exportsPagePO.HTTP_BODY);
     await io.homePage.loadingTime();
     await io.homePage.loadingTime();
-    await io.assert.verifyElementContainsText("[id='data']", "abc1234");
+    await io.assert.verifyElementContainsText(selectors.mappings.MAPPER2DOT0PO.PREVIEWRESOURCE, "abc1234");
     const Cancel1 = await page.$$(selectors.basePagePO.CLOSE);
     await Cancel1[1].click();
     await io.flowBuilder.click(selectors.basePagePO.CLOSE);
@@ -257,11 +270,10 @@ test.describe("TC_CT26354T26351T28950T19565", () => {
       "HTTP XML parser"
     );
     await io.homePage.loadingTime();
-    await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
+    await io.homePage.clickByIndex(selectors.integrationPagePO.OPENACTIONSMENU, 0);
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.connectionsPagePO.DELETE_CONNECTION);
     await io.flowBuilder.click(selectors.basePagePO.DELETE);
-    await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Resources", "Connections");
     await io.flowBuilder.loadingTime();
     await io.homePage.fill(
@@ -269,11 +281,9 @@ test.describe("TC_CT26354T26351T28950T19565", () => {
       "CT19565"
     );
     await io.homePage.loadingTime();
-    await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
+    await io.homePage.clickByIndex(selectors.integrationPagePO.OPENACTIONSMENU, 0);
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.connectionsPagePO.DELETE_CONNECTION);
     await io.flowBuilder.click(selectors.basePagePO.DELETE);
-
-    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
 });
