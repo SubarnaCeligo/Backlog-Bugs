@@ -17,20 +17,21 @@ test("@Env-All IO29647", async ({ io, page }) => {
     await io.assert.verifyElementIsDisplayed(selectors.templatePagePO.FTPGUIDE,'ftp KB guide displayed');
     await io.flowBuilder.click(selectors.connectionsPagePO.EXISTING);
     await io.flowBuilder.click(selectors.basePagePO.CONNECTION);
-    await io.flowBuilder.clickByText("FTP");
+    await io.flowBuilder.clickByTextByIndex("FTP CONNECTION", 0);
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
 
 
-    await io.flowBuilder.click(selectors.integrationPagePO.SETUP_INTEGRATION_CONFIGURE_BUTTON);
-    await io.flowBuilder.loadingTime();
-    await io.assert.verifyElementIsDisplayed(selectors.templatePagePO.ORDERFULGUIDE,'orderful KB article guide displayed');
+   await io.flowBuilder.click(selectors.integrationPagePO.SETUP_INTEGRATION_CONFIGURE_BUTTON);
+   await io.flowBuilder.loadingTime();
+   await io.flowBuilder.click(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
+   await io.assert.verifyElementIsDisplayed(selectors.templatePagePO.ORDERFULGUIDE,'orderful KB article guide displayed');
    await io.assert.verifyElementIsDisplayed(selectors.basePagePO.HTTP_2DOT0,'HTTP toggle not displayed');
    await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH,'Simple toggle not displayed');
    await io.flowBuilder.click(selectors.basePagePO.HTTP_2DOT0);
    await io.flowBuilder.loadingTime();
    const element1 = await page.locator(selectors.templatePagePO.ORDERFULTOKEN);
-      await element1.scrollIntoViewIfNeeded();
-
+   await element1.scrollIntoViewIfNeeded();
+   await element1.click();
    await io.flowBuilder.fill(selectors.templatePagePO.ORDERFULTOKEN,process.env["IO_Token_Orderful"]);
    await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
    await io.flowBuilder.click(selectors.integrationPagePO.SETUP_INTEGRATION_INSTALL_BUTTON);

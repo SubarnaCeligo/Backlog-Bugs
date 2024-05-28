@@ -5,7 +5,7 @@ test.describe("TC_T28415_T28438_T28439_T28440 Verify XML parser for FTP,Gdrive,S
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28415 Verify XML parser for FTP for diff file size", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28415 @Env-All Verify XML parser for FTP for diff file size", async ({ io, page }) => {
         
         //Navigate to exports page
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);

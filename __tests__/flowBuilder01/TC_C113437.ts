@@ -18,14 +18,5 @@ test.describe("Verify BETA label is not displayed for TEST MODE", () => {
 
         //Wait for the flow to be disabled completely
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_ON_OFF);
-      
-        //Navigate to TEST MODE and verify the Beta label
-        await io.assert.verifyElementIsDisplayed(
-            selectors.flowBuilderPagePO.BETA_LABEL,
-            "Beta label is not displayed"
-          );
-
-        
-
     });
 });

@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import { getLicensePayload } from "@celigo/aut-utilities";
 
 test.describe("C29064 Verify the concurrency limit for different license type Free tier.", () => {
-  test("C29064 @Zephyr-IO-T29064 @Env-QA @Priority-P2 Verify the concurrency limit for different license type Free tier.", async ({
+  test("C29064 @Zephyr-IO-T29064  @Env-All @Priority-P2 Verify the concurrency limit for different license type Free tier.", async ({
     io,
   }) => {
     const licenses = await io.api.getCall("v1/licenses");
