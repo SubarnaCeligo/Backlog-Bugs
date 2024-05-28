@@ -5,7 +5,7 @@ test.describe(`TC_C41557 To verify create pull button is displayed under ""Revis
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test(`@Env-All C41557 To verify create pull button is displayed under ""Revisions"" tab for Integration App(users who has Integration level manage access)`, async ({
+  test(`@Zephyr-IO-T438 @Env-All C41557 To verify create pull button is displayed under ""Revisions"" tab for Integration App(users who has Integration level manage access)`, async ({
     page,
     io
   }) => {

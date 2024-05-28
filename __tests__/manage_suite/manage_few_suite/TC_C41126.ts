@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`TC_C41126 Test to verify that user with manage access is able to install an integration`, () => {
-  test(`@Env-All C41126 Test to verify that user with manage access is able to install an integration`, async ({
+  test(`@Zephyr-IO-T327 @Env-All C41126 Test to verify that user with manage access is able to install an integration`, async ({
     page,
     io
   }) => {

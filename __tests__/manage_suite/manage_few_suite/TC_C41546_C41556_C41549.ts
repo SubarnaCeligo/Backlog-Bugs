@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("TC_C41546_C41556_C41549 To verify create pull button is displayed under 'Revisions' tab for DIY integration(users who has Account level manage access)", () => {
-  test("@Env-All C41546_C41556_C41549 To verify create pull button is displayed under 'Revisions' tab for DIY integration(users who has Account level manage access)", async ({
+  test("@Zephyr-IO-T427 @Zephyr-IO-T437 @Zephyr-IO-T430 @Env-All C41546_C41556_C41549 To verify create pull button is displayed under 'Revisions' tab for DIY integration(users who has Account level manage access)", async ({
     io,
     page
   }) => {
