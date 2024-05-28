@@ -12,6 +12,7 @@ test.describe("C27423 Verify the endpoint under subscription page when it dont e
     const platformLicense = licenses.find(l => l.type === "platform");
     const payloadFormat = {
       ...getLicensePayload(platformLicense),
+      tier: 'enterprise',
       expires: "2044-04-10T13:14:33.363Z",
       apiManagement: true
     };

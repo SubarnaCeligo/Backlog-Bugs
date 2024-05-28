@@ -26,7 +26,12 @@ test.describe("C27421 Verify the subscription page for different license type(Fr
 
     await io.api.putCall(
       `v1/test/licenses/${platformLicense._id}`,
-      {...getLicensePayload(platformLicense), tier: 'professional', "apiManagement": true, "expires": "2044-04-10T13:14:33.363Z"}
+      {...getLicensePayload(platformLicense), 
+        tier: 'professional', 
+        "apiManagement": true, 
+        "expires": "2044-04-10T13:14:33.363Z",
+        numSandboxEndpoints: 1,
+        numSandboxFlows: 1,}
     );
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.myAccountPage.click(selectors.myAccountPagePO.SUBSCRIPTION);
@@ -47,7 +52,7 @@ test.describe("C27421 Verify the subscription page for different license type(Fr
         "rgb(29, 118, 199)",
         "rgb(29, 118, 199)",
         "rgb(29, 118, 199)",
-        "rgb(29, 118, 199)"
+        "rgb(29, 118, 199)",
       ],
       "The status is not correctly colored"
     );
@@ -86,7 +91,7 @@ test.describe("C27421 Verify the subscription page for different license type(Fr
           "rgb(29, 118, 199)",
           "rgb(29, 118, 199)",
           "rgb(29, 118, 199)",
-          "rgb(29, 118, 199)"
+          "rgb(29, 118, 199)",
         ],
         "The status is not correctly colored"
       );
