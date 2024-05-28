@@ -31,6 +31,7 @@ test.describe("T28959 Verify upgrade pop-up for audit log after clicking on requ
     await io.homePage.addStep(
       "Clicking on 'Upgrade your account' link from inline notification."
     );
+    await io.homePage.loadingTime();
     await page.locator(selectors.basePagePO.NOTIFICTION_BAR).locator("a").click();
 
     await io.homePage.addStep("Verifying dialog box is opened.");

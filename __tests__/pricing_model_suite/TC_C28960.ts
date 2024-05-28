@@ -24,6 +24,7 @@ test.describe("C28960 Verify upgrade pop-up for concurency after clicking on req
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.importPagePO.ADVANCED);
     await io.connectionPage.click(selectors.connectionsPagePO.HTTP_TARGET_CONCURRENCY_LEVEL);
+    await io.homePage.loadingTime();
     await io.connectionPage.clickByText("request an upgrade.", { tag: "a" });   
     await io.assert.verifyElementIsDisplayed(selectors.homePagePO.DIALOG, "We will contact you to discuss your business needs and recommend an ideal subscription plan.");
     await io.homePage.click(selectors.basePagePO.SUBMIT_REQUEST);

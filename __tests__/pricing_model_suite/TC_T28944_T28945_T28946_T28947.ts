@@ -45,6 +45,7 @@ test.describe("T28944_T28945_T28946_T28947 Verify the audit log retention for al
     });
 
     await io.homePage.reloadPage();
+    await io.homePage.loadingTime();
     const upgradeNotificationText_standard = await io.myAccountPage.getText(
       selectors.basePagePO.NOTIFICTION_BAR
     );
@@ -62,6 +63,7 @@ test.describe("T28944_T28945_T28946_T28947 Verify the audit log retention for al
     });
 
     await io.homePage.reloadPage();
+    await io.homePage.loadingTime();
     const upgradeNotificationText_professional = await io.myAccountPage.getText(
       selectors.basePagePO.NOTIFICTION_BAR
     );
@@ -79,6 +81,7 @@ test.describe("T28944_T28945_T28946_T28947 Verify the audit log retention for al
     });
 
     await io.homePage.reloadPage();
+    await io.homePage.loadingTime();
     expect(page.getByText(upgradeNotificationText)).not.toBeVisible();
     await io.homePage.addStep(
       "Verified. Info message NOT displayed for enterprise tier."

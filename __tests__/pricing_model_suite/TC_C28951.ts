@@ -18,6 +18,7 @@ test.describe("C28951 Verify the concurrency limit for different license type(Fr
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.basePagePO.RESOURCES);
     await io.flowBuilder.click(selectors.basePagePO.CONNECTIONS);
+    await io.homePage.loadingTime();
     await io.homePage.click(`tbody tr:has-text("ftp") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
     await io.flowBuilder.click(selectors.integrationPagePO.EDIT);
     await io.homePage.loadingTime();
@@ -40,6 +41,7 @@ test.describe("C28951 Verify the concurrency limit for different license type(Fr
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.basePagePO.RESOURCES);
     await io.flowBuilder.click(selectors.basePagePO.CONNECTIONS);
+    await io.homePage.loadingTime();
     await io.homePage.click(`tbody tr:has-text("ftp") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
     await io.flowBuilder.click(selectors.integrationPagePO.EDIT);
     await io.homePage.loadingTime();
@@ -63,6 +65,7 @@ test.describe("C28951 Verify the concurrency limit for different license type(Fr
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.basePagePO.RESOURCES);
     await io.flowBuilder.click(selectors.basePagePO.CONNECTIONS);
+    await io.homePage.loadingTime();
     await io.homePage.click(`tbody tr:has-text("ftp") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
     await io.flowBuilder.click(selectors.integrationPagePO.EDIT);
     await io.homePage.loadingTime();
