@@ -15,7 +15,9 @@ test.describe("T29065 Verify the audit log retention for different license type 
     const payloadFormat = {
       ...getLicensePayload(platformLicense),
       expires: "2044-04-10T13:14:33.363Z",
-      apiManagement: true
+      apiManagement: true,
+      numSandboxEndpoints: 2,
+      numSandboxFlows: 2,
     };
 
     await io.homePage.addStep(

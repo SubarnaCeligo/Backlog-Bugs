@@ -24,8 +24,11 @@ test.describe("T29046 Verify the flow entitlements for platform license for sand
       numSandboxEndpoints: 1,
       numSandboxFlows: 1,
     });
-    
+
+
+    await io.homePage.addStep("Switching to sandbox mode.");
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.click(selectors.homePagePO.SANDBOX_BUTTON);
     await io.homePage.loadingTime()
     await io.homePage.waitForElementAttached(selectors.homePagePO.INTEGRATION_TILES);
     await io.flowBuilder.clickByText("Automation_flows");   
@@ -52,7 +55,15 @@ test.describe("T29046 Verify the flow entitlements for platform license for sand
     await io.myAccountPage.click(
       selectors.integrationPagePO.CLOSE_RIGHT_DRAWER_BUTTON
     );
-
+    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.loadingTime()
+    await io.homePage.waitForElementAttached(selectors.homePagePO.INTEGRATION_TILES);
+    await io.flowBuilder.clickByText("Automation_flows");   
+    await io.homePage.loadingTime()
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
+    await io.homePage.loadingTime()
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
     await io.homePage.addStep("Reverting license changes.");
     await io.api.putCall(`v1/test/licenses/${payloadFormat._id}`, payloadFormat);
   });
