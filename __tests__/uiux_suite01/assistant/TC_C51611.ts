@@ -7,6 +7,7 @@ test.describe("C51611 Verify the name field for under connection", () => {
       await io.connectionPage.clickByText("Create connection")
       await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.LOOP_RETURN_CONNECTION)
       await io.connectionPage.click(selectors.connectionsPagePO.LOOP_RETURN_CONNECTION)
+      await io.connectionPage.loadingTime()
       const labelName = await io.connectionPage.isVisible("text='Name your connection'")
       await io.assert.expectToBeTrue(labelName, "Name your connection field is not present")
        
