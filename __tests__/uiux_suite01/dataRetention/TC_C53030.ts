@@ -7,7 +7,9 @@ test.describe("C53030 Verify that the 30 days option is enable for for license t
         await io.myAccountPage.click(selectors.myAccountPagePO.DATA_RETENTION);
         await io.myAccountPage.click(selectors.myAccountPagePO.DATA_RETENTION_PERIOD);
         await io.assert.verifyElementAttributeContainsText(selectors.myAccountPagePO.THIRTY_DAYS, 'class', 'Mui-selected');
-        await io.assert.verifyElementAttributeContainsText(selectors.myAccountPagePO.ONEEIGHTY_DAYS, 'class','Mui-disabled');
-        await io.assert.verifyElementText(selectors.myAccountPagePO.ONEEIGHTY_DAYS, '180 days - upgrade required');
+        await io.assert.verifyElementText(selectors.myAccountPagePO.THIRTY_DAYS, '30 days');
+        await io.assert.verifyElementText(selectors.myAccountPagePO.SIXTY_DAYS, '60 days');
+        await io.assert.verifyElementText(selectors.myAccountPagePO.NINETY_DAYS, '90 days');
+        await io.assert.verifyElementText(selectors.myAccountPagePO.ONEEIGHTY_DAYS, '180 days');
     });
   });
