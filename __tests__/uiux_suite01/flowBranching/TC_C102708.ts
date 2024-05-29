@@ -11,6 +11,7 @@ test.describe("C102708 Showing the 'Save the changes' pop up when we are seeing 
       await page.getByRole('menuitem', { name: 'Add branching' }).click();
       await io.flowBuilder.waitForElementAttached(selectors.basePagePO.SAVE_AND_CLOSE);
       await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+      await io.flowBuilder.loadingTime()
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EDIT_BRANCHING)
       await io.flowBuilder.click(selectors.flowBuilderPagePO.EDIT_BRANCHING);
       await io.assert.verifyElementAttributeContainsText(selectors.basePagePO.SAVE, 'class', 'Mui-disabled');

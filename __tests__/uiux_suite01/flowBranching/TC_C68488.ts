@@ -23,6 +23,7 @@ test.describe('C68488 Verify no error message is displayed when user uninstall a
           await io.homePage.click(selectors.basePagePO.UNINSTALL_BUTTON)
           await io.homePage.waitForElementAttached(selectors.basePagePO.UNINSTALL_BUTTON2)
           await io.homePage.click(selectors.basePagePO.UNINSTALL_BUTTON2)
+          await io.homePage.loadingTime()
           const text = await io.homePage.isVisible('text="My integrations"')
           await io.assert.expectToBeTrue(text, "Text is found")
     
