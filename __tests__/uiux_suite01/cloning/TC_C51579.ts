@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C51579_Verify connection form base URI while cloning`, () => {
-    test(`@Env-QA @ENA-STAGING C51579_Verify connection form base URI while cloning UI_Backlog`, async ({ io }) => {
+    test(`@Env-QA @Env-STAGING C51579_Verify connection form base URI while cloning UI_Backlog`, async ({ io }) => {
         await io.homePage.navigateTo(process.env.IO_Integration_URL);
         await io.homePage.clickByText("TC_C108690_Flow_DND");
         await io.homePage.click(selectors.connectionsPagePO.ACTIONS_MENU_BUTTON);
