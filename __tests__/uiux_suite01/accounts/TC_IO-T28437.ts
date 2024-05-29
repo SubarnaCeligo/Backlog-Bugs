@@ -7,7 +7,8 @@ test.describe('IO-T28437 Verify the warning message when the user 1 tries to mak
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL); 
       });
-      test('@Zephyr-IO-T28437 @Env-All IO-T28437 Verify the warning message when the user 1 tries to makeowner account for user 2 when already user 3 is pending to accept owner account request', async ({
+      //skipping this scenario as per discussion with @Subrna this test will be moved to another locations
+      test.skip('@Zephyr-IO-T28437 @Env-All IO-T28437 Verify the warning message when the user 1 tries to makeowner account for user 2 when already user 3 is pending to accept owner account request', async ({
         io,
         page
       }) => {
