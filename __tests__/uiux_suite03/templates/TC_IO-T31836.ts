@@ -12,7 +12,7 @@ test.describe(`@Author_MaheshNivruttiSutar IO-T31836 Verify user should be able 
         await io.homePage.addStep("Navigated to templates page");
         await io.homePage.clickByText("Create template");
         await io.flowBuilder.loadingTime();
-        await io.flowBuilder.fill('input[name="/name"]', "NS JDBC TEMPLATE");
+        await io.flowBuilder.fill(selectors.basePagePO.INPUT_NAME_SELECTOR, "NS JDBC TEMPLATE");
         await io.homePage.addStep("*** Adding template name ***");
         await io.flowBuilder.fill(selectors.templatePagePO.CONTACT_MAIL, process.env["IO_UserName"]);
         await io.homePage.addStep("*** Adding contact email ***");
