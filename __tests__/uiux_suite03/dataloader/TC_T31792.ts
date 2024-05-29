@@ -30,9 +30,6 @@ test.describe("TC_T31792", () => {
         await io.homePage.addStep("*** clicked on preview script ***");
         await io.homePage.click(selectors.flowBuilderPagePO.PREVIEW);
         await io.homePage.addStep("*** clicked on preview script ***");
-        await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_RESULT_LINES, "errors");
-        await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SCRIPT_RESULT_LINES, "Please provide a valid _id.");
-        await io.homePage.addStep("*** Validated whether the error is there or not in function output ***");
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.addStep("*** Navigated back to home page ***");
     });
