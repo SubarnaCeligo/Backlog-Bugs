@@ -11,6 +11,7 @@ test.describe("TC_CT26354T26351T28950T19565", () => {
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Resources", "Connections");
     await io.flowBuilder.loadingTime();
+    await io.homePage.hover(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.flowBuilder.waitForElementAttached(
       selectors.connectionsPagePO.CREATE_CONNECTION
     );
@@ -96,9 +97,7 @@ test.describe("TC_CT26354T26351T28950T19565", () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.flowBuilder.loadingTime();
     await io.homePage.clickByTextByIndex("Create", 0);
-    await io.flowBuilder.loadingTime();
     await io.homePage.click(selectors.homePagePO.CREATE_CONNECTION);
-    await io.flowBuilder.loadingTime();
 
     await io.flowBuilder.waitForElementAttached(
       selectors.settingsPagePO.APP_NAME_INPUT
@@ -119,9 +118,7 @@ test.describe("TC_CT26354T26351T28950T19565", () => {
     await io.flowBuilder.waitForElementAttached(
       selectors.connectionsPagePO.CUSTOM
     );
-    await io.flowBuilder.loadingTime();
     await io.connectionPage.click(selectors.connectionsPagePO.CUSTOM);
-    await io.flowBuilder.loadingTime();
 
     await io.flowBuilder.click(
       "[data-test='Non-standard API response patterns']"
@@ -140,6 +137,7 @@ test.describe("TC_CT26354T26351T28950T19565", () => {
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Resources", "Connections");
     await io.flowBuilder.loadingTime();
+    await io.homePage.hover(selectors.basePagePO.ACCOUNT_BUTTON);
 
     await io.flowBuilder.clickByTextByIndex("CT28950", 0);
 
@@ -178,7 +176,6 @@ test.describe("TC_CT26354T26351T28950T19565", () => {
       selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR,
       "CT28950"
     );
-    await io.homePage.loadingTime();
     await io.homePage.clickByIndex(selectors.integrationPagePO.OPENACTIONSMENU, 0);
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.connectionsPagePO.DELETE_CONNECTION);
@@ -190,13 +187,10 @@ test.describe("TC_CT26354T26351T28950T19565", () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.basePagePO.TOOLS);
-    await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.basePagePO.FLOW_BUILDER);
-    await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
     await io.homePage.loadingTime();
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, "HTTP");
-    await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
     await io.flowBuilder.clickByText("Create from scratch");
     await io.flowBuilder.fill(selectors.exportsPagePO.BQNAME, "HTTP XML Parser");
@@ -265,24 +259,22 @@ test.describe("TC_CT26354T26351T28950T19565", () => {
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Resources", "Exports");
     await io.flowBuilder.loadingTime();
+    await io.homePage.hover(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.fill(
       selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR,
       "HTTP XML parser"
     );
-    await io.homePage.loadingTime();
     await io.homePage.clickByIndex(selectors.integrationPagePO.OPENACTIONSMENU, 0);
-    await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.connectionsPagePO.DELETE_CONNECTION);
     await io.flowBuilder.click(selectors.basePagePO.DELETE);
     await io.homePage.goToMenu("Resources", "Connections");
     await io.flowBuilder.loadingTime();
+    await io.homePage.hover(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.fill(
       selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR,
       "CT19565"
     );
-    await io.homePage.loadingTime();
     await io.homePage.clickByIndex(selectors.integrationPagePO.OPENACTIONSMENU, 0);
-    await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.connectionsPagePO.DELETE_CONNECTION);
     await io.flowBuilder.click(selectors.basePagePO.DELETE);
   });
