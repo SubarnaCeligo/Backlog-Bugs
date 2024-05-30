@@ -5,7 +5,7 @@ import * as selectors from "@celigo/aut-selectors";
  
 test.describe('C68488 Verify no error message is displayed when user uninstall an integration during installation.', () => {
 
-    test("@Env-All C68488 Verify no error message is displayed when user uninstall an integration during installation.", async ({
+    test("@Env-All @Zephyr-IO-T17392 C68488 Verify no error message is displayed when user uninstall an integration during installation.", async ({
         io,
         page
       }) => {

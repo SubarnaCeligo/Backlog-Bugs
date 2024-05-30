@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C117329 from "@testData/flowbranching/C117329.json"
 
 test.describe('C117329', () => {
-    test('C117329', async ({ io, page }) => {
+    test('@Zephyr-IO-T24359 C117329', async ({ io, page }) => {
         const id = await io.flowbranching.createFlowBranchFromAPI(C117329);
         await io.flowBuilder.navigateTo(
             process.env.IO_Integration_URL + "flowBuilder/" + id

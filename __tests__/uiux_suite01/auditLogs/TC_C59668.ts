@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Connections/Narvar.json";
 
 test.describe(`C59668 Verify Click to view label should be named to View in Audit log`, () => {
-  test(`@Env-All C59668 Verify Click to view label should be named to View in Audit log`, async ({
+  test(`@Env-All @Zephyr-IO-T5329 C59668 Verify Click to view label should be named to View in Audit log`, async ({
     io,
     page
   }) => {

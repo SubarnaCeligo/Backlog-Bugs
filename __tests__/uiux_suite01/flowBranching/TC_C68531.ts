@@ -2,7 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C68531 Verify user is not able to name the branch as blank", () => {
-    test("@Env-All C68531 Verify user is not able to name the branch as blank", async ({io, page}) => {
+    test("@Env-All @Zephyr-IO-T17433 C68531 Verify user is not able to name the branch as blank", async ({io, page}) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
