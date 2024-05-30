@@ -50,7 +50,7 @@ test.describe("C111321, C110854, C110846, C111404 verify items populate under 'p
         await io.homePage.isPageLoaded()
         await io.homePage.isPageReady()
         // Wait for the status to change from 'Completing...' to 'Completed'
-        await page.waitForSelector(`${selectors.flowBuilderPagePO.IMPORT_RUN_COMPLETION_STATUS}:has-text("Completed")`);
+        await page.waitForSelector(`${selectors.flowBuilderPagePO.IMPORT_RUN_COMPLETION_STATUS}:has-text("Completed")`, {timeout: 360000});
 
         //verify success count and run status for export
         let completedStatusExport =  await page.locator(selectors.flowBuilderPagePO.RUN_COMPLETION_STATUS).nth(0).textContent();

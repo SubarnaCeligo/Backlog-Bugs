@@ -9,7 +9,8 @@ test.describe("C112351", () => {
         await io.homePage.loadingTime()
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
-        await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.RUNTEST_BUTTON, 0);
+        // await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.RUNTEST_BUTTON, 0);
+        await page.locator(selectors.flowBuilderPagePO.RUNTEST_BUTTON).first().click()
         await io.homePage.loadingTime()
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
         var rows = await page.$(selectors.flowBuilderPagePO.JOB_ERRORS);

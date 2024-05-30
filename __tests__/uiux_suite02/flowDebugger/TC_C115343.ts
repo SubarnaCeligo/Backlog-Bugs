@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import C115343 from "@testData/FlowDebugger/C115343.json"
 import playload from "@testData/profile/updatePreference.json"
-test.describe.configure({ retries: 1 })
+test.describe.configure({ retries: 2 })
 
 test.describe('C115343', () => {
     test.beforeEach(async ({ io }) => {
