@@ -13,6 +13,8 @@ test.describe("IO-41074", () => {
       selectors.flowBuilderPagePO.EXPORT_HOOK
     );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_HOOK);
+    await io.flowBuilder.click(selectors.basePagePO.SCRIPT_DEBUGGER_SELECTOR)
+    await io.flowBuilder.clickByTextByIndex("Branching script", 1)
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.EDIT_SCRIPT_LABEL_SELECTOR
     );
