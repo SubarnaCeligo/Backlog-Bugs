@@ -330,7 +330,7 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
       "Celigo AI is not displayed"
     );
-    await io.flowBuilder.click('div[id="scriptId"]');
+    await io.flowBuilder.click(selectors.dashboardPagePO.SCRIPT_ID);
     let branchingScript = page.getByText("Branching script");
     await branchingScript.last().click();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
