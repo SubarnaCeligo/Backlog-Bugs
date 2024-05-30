@@ -6,7 +6,7 @@ test.describe("T28944_T28945_T28946_T28947 Verify the audit log retention for al
   const upgradeNotificationText =
     "More options available - Upgrade your account for longer audit log periods.";
 
-  test("T28944_T28945_T28946_T28947 @Zephyr-IO-T28944 @Zephyr-IO-T28945 @Zephyr-IO-T28946 @Zephyr-IO-T28947 @Env-qa @Priority-P2 Verify the audit log retention for all tiers.", async ({
+  test("T28944_T28945_T28946_T28947 @Zephyr-IO-T28944 @Zephyr-IO-T28945 @Zephyr-IO-T28946 @Zephyr-IO-T28947  @Env-All @Priority-P2 Verify the audit log retention for all tiers.", async ({
     io,
     page
   }) => {

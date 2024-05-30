@@ -5,7 +5,7 @@ test.describe("@Author_sagna123 TC_T29678_Test to validate user is able to edit 
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Epic-IO-65860 @Priority-P2 @Zephyr-IO-T29678 @Env-QA", async ({ io, page }) => {
+    test("@Epic-IO-65860 @Priority-P2 @Zephyr-IO-T29678 @Env-All", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources","Exports");

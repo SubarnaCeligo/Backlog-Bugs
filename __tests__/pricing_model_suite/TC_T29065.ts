@@ -6,7 +6,7 @@ test.describe("T29065 Verify the audit log retention for different license type 
   const upgradeNotificationText =
     "More options available - Upgrade your account for longer audit log periods.";
 
-  test("T29065 @Zephyr-IO-T29065 @Env-qa @Priority-P2 Verify the audit log retention for different license type ( Standard, Professional, Enterprise ) for Sandbox account.", async ({
+  test("T29065 @Zephyr-IO-T29065  @Env-All @Priority-P2 Verify the audit log retention for different license type ( Standard, Professional, Enterprise ) for Sandbox account.", async ({
     io,
     page
   }) => {
