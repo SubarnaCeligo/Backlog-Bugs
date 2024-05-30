@@ -47,11 +47,8 @@ test("@Env-All IO29647", async ({ io, page }) => {
    await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.MEDIA_TYPE,'Mediatype displayed in http view');
    await io.flowBuilder.click(selectors.basePagePO.CLOSE);
    await io.flowBuilder.click(selectors.flowGroupingPagePO.FLOWS);
-   await io.flowBuilder.loadingTime();
    await io.flowBuilder.click(selectors.flowBuilderPagePO.ACTIONSMENUINFLOW);
-   await io.flowBuilder.loadingTime();
    await io.flowBuilder.click(selectors.connectionsPagePO.DELETE_CONNECTION);
-   await io.flowBuilder.loadingTime();
    await io.flowBuilder.click(selectors.basePagePO.DELETE);
    await io.flowBuilder.click(selectors.homePagePO.DELETE_INTEGRATION);
    await io.flowBuilder.click(selectors.basePagePO.DELETE);
