@@ -1,6 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import TC from '@testData/flowBuilder/T31943.json';
+import TC from '../../testData/inputData/FlowBuilder/T31943.json';
 
 test.describe("@Author_MaheshNivruttiSutar Verify setting should not wiped out If we just added a rule, don’t save, then change the input json data.", () => {
     test.describe.configure({ retries: 2 })
