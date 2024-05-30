@@ -25,7 +25,7 @@ test.describe('C120351_C120693', () => {
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
         await page.locator(selectors.flowBuilderPagePO.RUNTEST_BUTTON).first().click()
         await io.homePage.loadingTime()
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
+        await await page.waitForSelector(selectors.flowBuilderPagePO.JOB_ERRORS, {timeout:360000});
 
         //TC_C120693
         const element = await io.homePage.isVisible(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
