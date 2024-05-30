@@ -9,10 +9,8 @@ test("@Env-All IO29647", async ({ io, page }) => {
     await io.flowBuilder.click(selectors.basePagePO.MARKETPLACE);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.fill(selectors.templatePagePO.MARKETPLACE,'HTTP2.0');
-    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowGroupingPagePO.INSTALLTEMPLATE);
     await io.flowBuilder.clickByText("Install now");
-    await io.flowBuilder.loadingTime();
     
     await io.flowBuilder.waitForElementAttached(selectors.templatePagePO.CONFIGURE);
     await io.flowBuilder.click(selectors.templatePagePO.CONFIGURE);
