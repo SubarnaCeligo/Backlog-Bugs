@@ -11,7 +11,7 @@ test.describe("T731 Selecting an existing SF export which doesn't have package d
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Salesforce');
     await io.flowBuilder.click(selectors.importPagePO.SALESFORCE_IMPORT);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.REALTIME_EXPORT_TYPE);
-    await io.flowBuilder.clickByText("Create from scratch")
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH)
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'SALESFORCE CONNECTION');
     await io.flowBuilder.clickByText('SALESFORCE CONNECTION');

@@ -16,7 +16,7 @@ test.describe(" C51614 Verify the name field under lookups", () => {
     );
     await io.flowBuilder.click(selectors.connectionsPagePO.LOOP_RETURN_CONNECTION);
     await page.getByRole("menuitem").nth(2).click();
-    await io.flowBuilder.clickByText("Create from scratch")
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH)
     await io.flowBuilder.loadingTime()
     await io.flowBuilder.click(selectors.basePagePO.CONNECTION_DROPDOWN);
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);

@@ -11,7 +11,7 @@ test.describe("C98851 Verify user is able create a connection from export,import
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'ware2go');
         await io.flowBuilder.click(selectors.connectionsPagePO.WARE2GO_CONNECTION);
-        await io.flowBuilder.clickByText("Create from scratch");
+        await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
         await io.flowBuilder.click(selectors.integrationPagePO.ADDNEWRESOURCE);
         await io.flowBuilder.click(selectors.connectionsPagePO.WARE2GO_ACCOUNTTYPE);
         await io.connectionPage.selectTextfromDropDown(page, "Production");
@@ -34,7 +34,7 @@ test.describe("C98851 Verify user is able create a connection from export,import
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'ware2go');
         await io.flowBuilder.click(selectors.connectionsPagePO.WARE2GO_CONNECTION);
         await io.myAccountPage.clickByText("Import records into destination application");
-        await io.flowBuilder.clickByText("Create from scratch");
+        await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
         await io.flowBuilder.waitForElementAttached(selectors.integrationPagePO.ADDNEWRESOURCE)
         await io.flowBuilder.click(selectors.integrationPagePO.ADDNEWRESOURCE);
         await io.flowBuilder.click(selectors.connectionsPagePO.WARE2GO_ACCOUNTTYPE);
@@ -56,7 +56,7 @@ test.describe("C98851 Verify user is able create a connection from export,import
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'ware2go');
         await io.flowBuilder.click(selectors.connectionsPagePO.WARE2GO_CONNECTION);
         await io.myAccountPage.clickByText("Look up additional records (per record)");
-        await io.flowBuilder.clickByText("Create from scratch");
+        await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
         await io.flowBuilder.click(selectors.integrationPagePO.ADDNEWRESOURCE);
         await io.flowBuilder.click(selectors.connectionsPagePO.WARE2GO_ACCOUNTTYPE);
         await io.connectionPage.selectTextfromDropDown(page, "Production");

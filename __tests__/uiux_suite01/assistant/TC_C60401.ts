@@ -9,7 +9,7 @@ test.describe("C60401 Verify whether data types(select,integer) are supporting f
       await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
       await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'ADP');
       await io.flowBuilder.click(selectors.connectionsPagePO.ADP_CONNECTION);
-      await io.flowBuilder.clickByText("Create from scratch")
+      await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH)
       await io.flowBuilder.loadingTime()
       await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
       await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,'ADP CONNECTION');

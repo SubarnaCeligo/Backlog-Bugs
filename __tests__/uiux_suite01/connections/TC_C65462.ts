@@ -8,7 +8,7 @@ test.describe("C65462 Verify routing rules", () => {
       await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
       await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'van');
       await io.flowBuilder.click(selectors.connectionsPagePO.VAN_CONNECTION);
-      await io.flowBuilder.clickByText("Create from scratch")
+      await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH)
       await io.flowBuilder.waitForElementAttached(selectors.exportsPagePO.CREATE_SELECT_CONNECTION)
       await io.flowBuilder.click(selectors.exportsPagePO.CREATE_SELECT_CONNECTION);
       await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,'VAN CONNECTION');

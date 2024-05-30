@@ -18,7 +18,7 @@ test.describe("TC_C51605 Verify help text for [Simple | HTTP] toggle button for 
     );
     await io.flowBuilder.clickByText("Loop Returns");
     await io.flowBuilder.click(selectors.connectionsPagePO.IMPORT_RECORDS);
-    await io.flowBuilder.clickByText("Create from scratch")
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
     await io.flowBuilder.loadingTime()
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);

@@ -15,7 +15,7 @@ test.describe(`C68554 Verify Existing Import/Export suggestion drop down display
        await io.flowBuilder.loadingTime()
        await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'HTTP');
        await io.flowBuilder.click(selectors.importPagePO.HTTP_IMPORT)
-       await io.flowBuilder.clickByText("Create from scratch");
+       await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
        await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN)
        await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN)
        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, "HTTP ZENDESK CONNECTION")

@@ -19,7 +19,7 @@ test.describe("C103075 Verify the advance section in simple view", () => {
     );
     await io.flowBuilder.clickByText("Personio");
     await io.flowBuilder.click(selectors.connectionsPagePO.IMPORT_RECORDS);
-    await io.flowBuilder.clickByText("Create from scratch")
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH)
     await io.flowBuilder.loadingTime()
     await io.flowBuilder.fill(selectors.basePagePO.CONNECTION_DROPDOWN,"Personio");
     await io.flowBuilder.click(selectors.basePagePO.CONNECTION_DROPDOWN);
