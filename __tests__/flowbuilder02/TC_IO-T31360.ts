@@ -14,7 +14,7 @@ test.describe("@Author_MaheshNivruttiSutar Verify label updated properly", () =>
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'HTTP');
         await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
         await io.homePage.loadingTime();
-        const createNew = await io.flowBuilder.isVisible("text='Create new'")
+        const createNew = await io.flowBuilder.isVisible("text='Create flow step'")
         await io.assert.expectToBeTrue(createNew, "Label is not Updated");
         const cloneEXi = await io.flowBuilder.isVisible("text='Clone or reuse an existing flow step from your account'")
         await io.assert.expectToBeTrue(cloneEXi, "Label is not Updated")
