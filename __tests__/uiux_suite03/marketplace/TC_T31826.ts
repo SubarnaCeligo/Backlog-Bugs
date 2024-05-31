@@ -15,6 +15,7 @@ test.describe("@Author-Shriti S Verify the search results and app counts message
     
     //Filter by IAs
     await io.marketplacePage.clickByText("By type");
+    await io.mappings.loadingTime();
 
     await io.marketplacePage.waitForElementAttached(selectors.marketplacePagePO.INTEGRATION_APPS);
     await io.marketplacePage.click(selectors.marketplacePagePO.INTEGRATION_APPS);
