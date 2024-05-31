@@ -11,7 +11,7 @@ test.describe("C110490 Verify system generates the Amazon Redshift query after t
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.REDSHIFT);
     await io.flowBuilder.loadingTime();
-    await io.flowBuilder.clickByText("Create from scratch");
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
     await io.flowBuilder.fill(
       selectors.basePagePO.INPUT_NAME_SELECTOR,
       "Amazon Redshift AI"
@@ -34,7 +34,7 @@ test.describe("C110490 Verify system generates the Amazon Redshift query after t
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
       "Celigo AI Placeholder is not displayed"
     );
-    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'Get the customer details');
+    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'get customer details from CUSTOMERS table');
     await io.flowBuilder.loadingTime();
     await page.keyboard.press('Enter');
     await io.assert.verifyElementIsDisplayed(
@@ -43,7 +43,7 @@ test.describe("C110490 Verify system generates the Amazon Redshift query after t
     );
     await io.flowBuilder.loadingTime();
     await expect(
-      page.locator(selectors.flowBuilderPagePO.OPENAI.PROMPT_QUERY).filter({ hasText: "SELECT *" })
+      page.locator(selectors.flowBuilderPagePO.OPENAI.PROMPT_QUERY).filter({ hasText: "SELECT *" }).first()
     ).toBeVisible({ timeout: 40000 });
   });
 });
