@@ -35,7 +35,7 @@ test.describe("C2816 Credential should be scoped to a valid region, not 'us-west
 //   })
 
   test("@Env-All @Zephyr-IO-T1059 C2816 Credential should be scoped to a valid region, not 'us-west-1'", async ({ io, page }) => {
-    // await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     // await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
     // await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
     // await io.homePage.click(selectors.basePagePO.SIGN_OUT);
