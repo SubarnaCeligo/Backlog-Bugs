@@ -14,6 +14,7 @@ test.describe("@Author-Shriti S Verify the search results and app counts message
     await io.marketplacePage.waitForElementAttached(selectors.marketplacePagePO.SEARCH_MARKETPLACE);
     //Filter by templates
     await io.marketplacePage.clickByText("By type");
+    await io.mappings.loadingTime();
 
     await io.marketplacePage.waitForElementAttached(selectors.marketplacePagePO.TEMPLATES);
     await io.marketplacePage.click(selectors.marketplacePagePO.TEMPLATES);
