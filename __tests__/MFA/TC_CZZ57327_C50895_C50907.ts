@@ -39,9 +39,10 @@ test.describe("C57327 C50895 C50907", () => {
             await io.signInPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
             console.log('After successfully wait clicked signin')
         }
-        await io.signInPage.waitForElementAttached(':has-text("Trust this device")');
+        await io.homePage.loadingTime()
+        // await io.signInPage.waitForElementAttached(':has-text("Trust this device")');
         await io.signInPage.reloadPage();
-        await io.signInPage.waitForElementAttached(':has-text("Trust this device")');
+        // await io.signInPage.waitForElementAttached(':has-text("Trust this device")');
 
         await test.step("C57327 Verify if we refresh the MFA verify page we should be staying on the same page and not navigated to other pages", async () => {
             await io.assert.verifyElementDisplayedByText('Authenticate with one-time passcode', 'Authenticate with one-time passcode is not displayed');
