@@ -23,8 +23,6 @@ test.describe("C22854 Verify CSV file launcher", () => {
       selectors.exportsPagePO.FILE_TYPE
     );
 
-    
-    // await io.flowBuilder.clickByText('Please select');
     await io.flowBuilder.clickByText('CSV (or any delimited text file)');
     await io.flowBuilder.clickByText('Launch');
 
