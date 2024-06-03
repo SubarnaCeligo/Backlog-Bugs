@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C68492 Verify user is able to clone the integration from Sandbox env. having multiple flows with enabled scheduling", () =>{
 
-    test("@Env-All C68492 Verify user is able to clone the integration from Sandbox env. having multiple flows with enabled scheduling", async({
+    test("@Env-All @Zephyr-IO-T17396 C68492 Verify user is able to clone the integration from Sandbox env. having multiple flows with enabled scheduling", async({
                io,
                 page
               }) => {
