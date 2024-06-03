@@ -103,6 +103,7 @@ test.describe("C117451 Verify the Persist resource descriptions Celigo AI", () =
     // Imports in Resources C117468
     await io.homePage.goToMenu("Resources", "Imports");
     await io.flowBuilder.loadingTime();
+    await io.homePage.hover(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.OPENAI.FLOW_DESCRIPTION_BUTTON, "Flow description is not displayed");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.FLOW_DESCRIPTION_BUTTON);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.COPY_BUTTON);
@@ -116,6 +117,7 @@ test.describe("C117451 Verify the Persist resource descriptions Celigo AI", () =
     // Exports in Resources C117467
     await io.homePage.goToMenu("Resources", "Exports");
     await io.flowBuilder.loadingTime();
+    await io.homePage.hover(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.OPENAI.FLOW_DESCRIPTION_BUTTON, "Flow description is not displayed");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.FLOW_DESCRIPTION_BUTTON);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.COPY_BUTTON);

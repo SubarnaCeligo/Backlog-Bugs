@@ -6,7 +6,7 @@ test.describe(`C113414 Verify the JWT token while cloning the flow`, () => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
 
   });
-  test(`@Env-All C113414 Verify the JWT token while cloning the flow`, async ({
+  test(`@Env-All @Zephyr-IO-T15078 C113414 Verify the JWT token while cloning the flow`, async ({
     io,
     page
   }) => {

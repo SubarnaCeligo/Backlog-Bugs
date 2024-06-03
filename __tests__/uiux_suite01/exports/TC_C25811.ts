@@ -14,7 +14,7 @@ test.describe("C25811_Verify that View listener debug logs drawer is displayed p
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'webhook');
         await io.flowBuilder.clickByText('Webhook');
-        await io.flowBuilder.clickByText("Create from scratch")
+        await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH)
         await io.flowBuilder.fill(selectors.connectionsPagePO.NAME_INPUT, 'TC_C25811');
         await io.flowBuilder.clickByText('Please select');
         await io.flowBuilder.clickByText('Basic');

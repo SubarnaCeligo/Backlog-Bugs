@@ -8,7 +8,7 @@ test.describe("C119632 Verify the Celigo AI functionality working fine for MySQL
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'MySQL');
     await io.flowBuilder.click(selectors.flowBuilderPagePO.MYSQL);
-    await io.flowBuilder.clickByText("Create from scratch");
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
     await io.flowBuilder.fill(
       selectors.basePagePO.INPUT_NAME_SELECTOR,
       "MYSQL AI"
@@ -31,7 +31,7 @@ test.describe("C119632 Verify the Celigo AI functionality working fine for MySQL
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
       "Celigo AI Placeholder is not displayed"
     )
-    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'Get the customer details');
+    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'get customer details from Customer table');
     await io.flowBuilder.loadingTime();
     await page.keyboard.press('Enter');
     await io.assert.verifyElementIsDisplayed(

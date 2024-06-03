@@ -12,7 +12,7 @@ test.describe("C110488 Verify system generates the MS SQL query after the user h
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.MICROSOFT_SQL);
     await io.flowBuilder.loadingTime();
-    await io.flowBuilder.clickByText("Create from scratch");
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
     await io.flowBuilder.fill(
       selectors.basePagePO.INPUT_NAME_SELECTOR,
       "MSSQL AI"
@@ -44,7 +44,7 @@ test.describe("C110488 Verify system generates the MS SQL query after the user h
     );
     await io.homePage.loadingTime();
     await expect(
-      page.locator(selectors.flowBuilderPagePO.OPENAI.PROMPT_QUERY).filter({ hasText: "SELECT *" })
+      page.locator(selectors.flowBuilderPagePO.OPENAI.PROMPT_QUERY).filter({ hasText: "SELECT *" }).first()
     ).toBeVisible({ timeout: 40000 });
   });
 });
