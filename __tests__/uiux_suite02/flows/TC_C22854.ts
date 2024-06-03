@@ -17,9 +17,8 @@ test.describe("C22854 Verify CSV file launcher", () => {
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, "FTP");
     await io.flowBuilder.click(selectors.connectionsPagePO.FTP_CONNECTION);
     await io.flowBuilder.clickByText("Create flow step");
-    await io.flowBuilder.click(selectors.basePagePO.SAVE);
 
-    await io.homePage.waitForElementAttached(
+    await io.homePage.click(
       selectors.exportsPagePO.FILE_TYPE
     );
 
@@ -31,7 +30,8 @@ test.describe("C22854 Verify CSV file launcher", () => {
     await io.homePage.addStep("*** Clicked on CSV parser options ***");
     await io.homePage.clickByText('Sample CSV file');
     await io.homePage.addStep("*** Clicked on Sample CSV file ***");
-    await io.homePage.clickByText('Parsed output');
+
+    await io.homePage.clickByTextByIndex('Parsed output', 1);
     await io.homePage.addStep("*** Clicked on Parsed output ***");
   });
 });
