@@ -29,7 +29,7 @@ test.describe("@Author-SaiPhanindra IO-T31811_IO-T31824_IO-T31809_IO-T31812", ()
             // text is not present as expecte
             await io.assert.expectToBeTrue(
                 valid,
-                "Child Integration Name is not displayed"
+                "text is not present as expected"
               );
 
         }
@@ -38,6 +38,9 @@ test.describe("@Author-SaiPhanindra IO-T31811_IO-T31824_IO-T31809_IO-T31812", ()
             element.hasAttribute('aria-pressed')
         );
         await expect(checkDefault).toBeTruthy();
-
+        await io.assert.expectToBeTrue(
+            checkDefault,
+            "text is not present as expected"
+          );
     });
 });
