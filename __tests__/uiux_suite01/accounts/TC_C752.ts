@@ -8,7 +8,7 @@ test.describe("C752 Verify Change password with invalid current pass and valid n
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
   });
 
-  test("@Env-All C752 Verify Change password with invalid current pass and valid new pass - should show error messsage @smoke", async ({
+  test("@Env-All @Zephyr-IO-T1401 C752 Verify Change password with invalid current pass and valid new pass - should show error messsage @smoke", async ({
     io
   }) => {
     await io.myAccountPage.changePassword(C752);
