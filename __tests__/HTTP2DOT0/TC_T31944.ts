@@ -11,8 +11,8 @@ test.describe("Support bulk API cases", () => {
     await io.flowBuilder.waitForElementAttached(selectors.importPagePO.SALESFORCE_IMPORT);
     await io.homePage.click(selectors.importPagePO.SALESFORCE_IMPORT);
     await io.homePage.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
-    await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'SALESFORECE CONNECTION');
-    await io.flowBuilder.clickByText('SALESFORECE CONNECTION');
+    await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'SALESFORCE');
+    await io.flowBuilder.clickByText('SALESFORCE');
     await io.flowBuilder.fill(selectors.importPagePO.NAME, 'Test export');
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.connectionPage.addStep("Creating Salesforce export");
