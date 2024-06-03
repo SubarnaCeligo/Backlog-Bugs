@@ -22,10 +22,15 @@ test.describe("C96888 Verify CSV file launcher", () => {
     );
 
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.RECORD_TYPE);
+    await io.flowBuilder.fill(`${selectors.flowBuilderPagePO.RECORD_TYPE} input`, 'Account')
+    await io.flowBuilder.clickByText("Update");
+    await io.flowBuilder.click(selectors.basePagePO.NETSUITE_INTERNAL_LOOKUP);
+    await io.flowBuilder.clickByText("Add filter");
+    await io.homePage.loadingTime();
+    await page.selectOption(selectors.mappings.RULEFILTERCONTAINER + ' select', 'Formula (Text)');
 
-    await io.flowBuilder.clickByText("Add");
-    await io.flowBuilder.clickByText("Ignore existing records");
-    await io.flowBuilder.click(selectors.importPagePO.IMPORT_LOOKUP_T_ICON);
-
+    const Symbol = await page.$(selectors.flowBuilderPagePO.FILTER_CONTENT + ' .rules-group-body');
+    expect(await Symbol.screenshot()).toMatchSnapshot("C96888-PLAYWRIGHT-darwin.png");
   });
 });
