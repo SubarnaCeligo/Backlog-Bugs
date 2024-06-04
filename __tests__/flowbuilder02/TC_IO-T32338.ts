@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import TC from '../../testData/inputData/FlowBuilder/T32338.json';
 
 test.describe("@Author_MaheshNivruttiSutar Verify is able to create graphql blob import thorough create from scratch", () => {
-    test("@Bug-IO-80221 @Env-QA @Priority-P2 @Zephyr-IO-T32021", async ({ io, page }) => {
+    test("@Bug-IO-81590 @Env-QA @Priority-P2 @Zephyr-IO-T32338", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP);

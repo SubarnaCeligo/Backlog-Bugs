@@ -34,9 +34,9 @@ test.describe("@Author_MaheshNivruttiSutar Verify section should be hidden if we
         //clicking on launch from builder
         await io.flowBuilder.click(selectors.basePagePO.LAUNCH_EDITOR);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
-        await io.flowBuilder.click('[id="code"] .ace_content');
-        await io.flowBuilder.clearTextValue('[id="code"] .ace_content');
-        await io.flowBuilder.enterHugeData('[id="code"] .ace_content', (TC.script.content));
+        await io.flowBuilder.click(selectors.templatePagePO.SCRIPT_STUB);
+        await io.flowBuilder.clearTextValue(selectors.templatePagePO.SCRIPT_STUB);
+        await io.flowBuilder.enterHugeData(selectors.templatePagePO.SCRIPT_STUB, (TC.script.content));
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
         await io.homePage.loadingTime();
         // -'Simple/HTTP' toggle at the very top of the bubble drawers (i.e. for HTTP based connectors) should be hidden
