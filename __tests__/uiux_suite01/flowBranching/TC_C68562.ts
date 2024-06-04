@@ -15,7 +15,7 @@ test.describe(`C68562 Verify user is upload the integration zip file having Mult
     );
 
   });
-  test(`@Env-All C68562 Verify user is upload the integration zip file having Multiple linear flows in the template and able to install the template`, async ({
+  test(`@Env-All @Zephyr-IO-T17463 C68562 Verify user is upload the integration zip file having Multiple linear flows in the template and able to install the template`, async ({
     io,
     page
   }) => {

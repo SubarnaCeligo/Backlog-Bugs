@@ -275,6 +275,7 @@ test.describe("C117448 Verify Filter is having Celigo AI", () => {
     await io.flowBuilder.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Tools", "Playground");
     await io.flowBuilder.loadingTime();
+    await io.flowBuilder.hover(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.flowBuilder.waitForElementAttached(
       selectors.playgroundPO.HANDLEBARS_EDITOR
     );

@@ -17,7 +17,7 @@ test.describe("C25984_Verify the View debug logs option is available to only Lis
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'netsuite');
         await io.flowBuilder.click(selectors.connectionsPagePO.NETSUITE_CONNECTION);
         await io.flowBuilder.clickByText('Listen for real-time data from source application');
-        await io.flowBuilder.clickByText("Create from scratch")
+        await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH)
         await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN)
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'NETSUITE CONNECTION');

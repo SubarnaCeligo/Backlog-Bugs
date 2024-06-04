@@ -12,7 +12,7 @@ test.describe(`C28172 Verify export type dropdown values are updated in HTTP/RES
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
     await io.flowBuilder.clickByText("HTTP");
     await io.flowBuilder.addStep("Selected 'HTTP' option");
-    await io.flowBuilder.clickByText("Create from scratch")
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH)
     await io.flowBuilder.click(selectors.exportsPagePO.CREATE_SELECT_CONNECTION);
     await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, '3PL CONNECTION');
     await io.flowBuilder.addStep("Clicked on 'connections' dropdown");
