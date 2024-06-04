@@ -1,0 +1,10 @@
+{
+    "qa__api_tdata": [
+        {
+            "createIntegrations": {
+                "name": "IO-T32021_Del",
+                "sandbox": false
+            }
+        }
+    ]
+}
