@@ -6,6 +6,7 @@ test.describe("IO-T23721 Verify IA/Template logo is showing properly in placehol
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.MARKETPLACE)
     await io.homePage.goToMenu("Marketplace");
+    await io.homePage.loadingTime();
     await io.homePage.fill(selectors.homePagePO.SEARCH_MARKETPLACE, 'Magento 2 - NetSuite');
     await io.homePage.clickByText("By type");
     await io.homePage.click(selectors.marketplacePagePO.INTEGRATION_APP_TYPE);
