@@ -27,6 +27,7 @@ test.describe("TC_C108402 Verify tags attached to errors are displayed in errors
     const downloadPromise = page.waitForEvent('download');
     await io.flowBuilder.clickByTextByIndex("Download errors", 0);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2DOT0PO.DOWNLOAD_ERRORS);
+    await io.flowBuilder.loadingTime();
     const download = await downloadPromise;
 
     // Wait for the download process to complete and save the downloaded file somewhere.
