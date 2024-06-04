@@ -12,7 +12,7 @@ test.describe(`C28173 Verify the message “Add {{lastExportDateTime}} to either
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
     await io.flowBuilder.delay(2000);
     await io.flowBuilder.clickByText("HTTP");
-    await io.flowBuilder.clickByText("Create from scratch")
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH)
     await io.flowBuilder.click(selectors.exportsPagePO.CREATE_SELECT_CONNECTION);
     await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, '3PL CONNECTION');
     await io.flowBuilder.clickByText("3PL CONNECTION");

@@ -13,11 +13,13 @@ test.afterEach(async ({ io }) => {
     await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Zendesk Support');
-    await io.flowBuilder.clickByText('Zendesk Support');
-    await io.flowBuilder.clickByText("Create from scratch")
-    await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
+    await io.flowBuilder.clickByText('Zendesk');
+    await io.flowBuilder.loadingTime()
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH)
+    await io.flowBuilder.waitForElementAttached(selectors.exportsPagePO.CREATE_SELECT_CONNECTION)
+    await io.flowBuilder.click(selectors.exportsPagePO.CREATE_SELECT_CONNECTION);
     await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,'ZENDESK CONNECTION');
-    await io.flowBuilder.clickByTextByIndex('ZENDESK CONNECTION', 0);
+    await io.flowBuilder.clickByText('ZENDESK CONNECTION');
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FORMVIEW)
     await io.flowBuilder.clickByText('REST API');

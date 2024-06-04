@@ -12,7 +12,7 @@ test.describe(`C63010 Verify connection dropdown list`, () => {
       "Narvar"
     );
     await io.flowBuilder.clickByText("Narvar");
-    await io.flowBuilder.clickByText("Create from scratch")
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH)
     await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
     const connectionText = (await io.flowBuilder.getText(
       selectors.connectionsPagePO.CONNECTION_OPTION_TEXT

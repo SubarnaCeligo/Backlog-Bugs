@@ -6,7 +6,7 @@ test.describe("TC_C111495_C111496_C111497_C111498_C111499_C111500_C111501_C11150
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
   });
 
-  test("@Env-All TC_C111495_C111496_C111497_C111498_C111499_C111500_C111501_C111502", async ({
+  test("@Env-All @Zephyr-IO-T13763 @Zephyr-IO-T13764  @Zephyr-IO-T13765 @Zephyr-IO-T13766 @Zephyr-IO-T13767 @Zephyr-IO-T13768 @Zephyr-IO-T13769 @Zephyr-IO-T13770  TC_C111495_C111496_C111497_C111498_C111499_C111500_C111501_C111502", async ({
     io,
     page
   }) => {
