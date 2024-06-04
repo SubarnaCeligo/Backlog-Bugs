@@ -9,8 +9,7 @@ test.describe("C96888 Verify Filter's rows are properly aligned for NS import on
   }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();
-    await io.homePage.click(selectors.basePagePO.RESOURCES);
-    await io.homePage.clickByText('Imports');
+    await io.homePage.goToMenu("Resources", "Imports");
     await io.flowBuilder.click(selectors.integrationPagePO.ADDNEWRESOURCE);
     await io.connectionPage.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Netsuite');
     await io.connectionPage.click(selectors.connectionsPagePO.NETSUITE_CONNECTION);
