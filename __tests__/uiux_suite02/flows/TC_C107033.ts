@@ -1,8 +1,8 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C107033 Verify CSV file launcher", () => {
-  test("@Env-QA @Zephyr-IO-T21560 C107033 Verify CSV file launcher", async ({
+test.describe("C107033 Check the UI alignment for file filter is matching with Figma or not", () => {
+  test("@Env-QA @Zephyr-IO-T21560 C107033 Check the UI alignment for file filter is matching with Figma or not", async ({
     io,
     page
   }) => {

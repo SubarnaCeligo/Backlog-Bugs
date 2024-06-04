@@ -1,12 +1,13 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C96888 Verify CSV file launcher", () => {
-  test("@Env-QA @Zephyr-IO-T21560 C65490 Verify CSV file launcher", async ({
+test.describe("C96888 Verify Filter's rows are properly aligned for NS import on How can we find existing records? field", () => {
+  test("@Env-QA @Zephyr-IO-T21560 C96888 Verify Filter's rows are properly aligned for NS import on How can we find existing records? field", async ({
     io,
     page
   }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.loadingTime();
     await io.homePage.click(selectors.basePagePO.RESOURCES);
     await io.homePage.clickByText('Imports');
     await io.flowBuilder.click(selectors.integrationPagePO.ADDNEWRESOURCE);
@@ -20,7 +21,7 @@ test.describe("C96888 Verify CSV file launcher", () => {
       selectors.connectionsPagePO.NAME_INPUT,
       "C96888"
     );
-
+    await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RECORD_TYPE);
     await io.flowBuilder.fill(`${selectors.flowBuilderPagePO.RECORD_TYPE} input`, 'Account')
@@ -29,7 +30,7 @@ test.describe("C96888 Verify CSV file launcher", () => {
     await io.flowBuilder.clickByText("Add filter");
     await io.homePage.loadingTime();
     await page.selectOption(selectors.mappings.RULEFILTERCONTAINER + ' select', 'Formula (Text)');
-
+    await io.homePage.loadingTime();
     const Symbol = await page.$(selectors.flowBuilderPagePO.FILTER_CONTENT + ' .rules-group-body');
     expect(await Symbol.screenshot()).toMatchSnapshot("C96888-PLAYWRIGHT-darwin.png");
   });
