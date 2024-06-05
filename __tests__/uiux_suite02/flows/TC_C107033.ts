@@ -2,8 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C107033 Check the UI alignment for file filter is matching with Figma or not", () => {
-  // test.describe.configure({ retries: 2 });
-  test("@Env-QA @Zephyr-IO-T21560 C107033 Check the UI alignment for file filter is matching with Figma or not", async ({
+  test("@Env-QA @Zephyr-IO-T23779 C107033 Check the UI alignment for file filter is matching with Figma or not", async ({
     io,
     page
   }) => {
