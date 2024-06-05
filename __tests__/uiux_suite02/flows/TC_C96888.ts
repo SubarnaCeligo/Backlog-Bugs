@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C96888 Verify Filter's rows are properly aligned for NS import on How can we find existing records? field", () => {
-  test.describe.configure({ retries: 2 });
+  // test.describe.configure({ retries: 2 });
   test("@Env-QA @Zephyr-IO-T21560 C96888 Verify Filter's rows are properly aligned for NS import on How can we find existing records? field", async ({
     io,
     page
@@ -30,7 +30,7 @@ test.describe("C96888 Verify Filter's rows are properly aligned for NS import on
     await io.flowBuilder.click(selectors.basePagePO.NETSUITE_INTERNAL_LOOKUP);
 
     if (!(await page.isVisible(selectors.flowBranchingPO.LOGICRULES_CONTAINER))) {
-      await io.flowBuilder.clickByText("Add filter");
+      await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_RULE);
       await io.homePage.loadingTime();
     }
 
@@ -38,6 +38,7 @@ test.describe("C96888 Verify Filter's rows are properly aligned for NS import on
     await page.selectOption(selectors.mappings.RULEFILTERCONTAINER + ' select', 'Formula (Text)');
     await io.homePage.loadingTime();
     const Symbol = await page.$(selectors.flowBuilderPagePO.FILTER_CONTENT + ' .rules-group-body');
+    await page.waitForTimeout(500);
     expect(await Symbol.screenshot()).toMatchSnapshot("C96888-PLAYWRIGHT-darwin.png", { threshold: 0.1, maxDiffPixelRatio: 0.1});
   });
 });
