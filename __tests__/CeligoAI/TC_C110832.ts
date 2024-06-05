@@ -58,7 +58,7 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR,
       "Celigo AI Prompt Thinking is not displayed"
-    )
+    );
     const exportFunction = page.getByText('function transform').nth(0);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.JAVASCRIPT_PANEL);
     while (!(await exportFunction.isVisible())) {
@@ -305,7 +305,7 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
     const explainImportPremapDisabled = await page.$$(selectors.flowBuilderPagePO.OPENAI.EXPLAIN_SELECTION);
     expect(await explainImportPremapDisabled[0].getAttribute('class')).toContain('Mui-disabled');
     await io.flowBuilder.loadingTime();
-    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'Get testmode');
+    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'Get testMode');
     await page.keyboard.press('Enter');
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR,
@@ -330,6 +330,9 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
       "Celigo AI is not displayed"
     );
+    await io.flowBuilder.click(selectors.dashboardPagePO.SCRIPT_ID);
+    let branchingScript = page.getByText("Branching script");
+    await branchingScript.last().click();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
@@ -340,7 +343,7 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
     const explainImportPostmapDisabled = await page.$$(selectors.flowBuilderPagePO.OPENAI.EXPLAIN_SELECTION);
     expect(await explainImportPostmapDisabled[0].getAttribute('class')).toContain('Mui-disabled');
     await io.flowBuilder.loadingTime();
-    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'Get testmode');
+    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'Get testMode');
     await page.keyboard.press('Enter');
     const importPostHook = page.getByText('function postMap');
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.JAVASCRIPT_PANEL);

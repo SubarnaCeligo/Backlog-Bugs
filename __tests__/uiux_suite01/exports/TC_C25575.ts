@@ -15,7 +15,7 @@ test.describe("C25575_Verify debug logs drawer is displayed when debug logs butt
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'webhook');
         await io.flowBuilder.clickByText('Webhook');
-        await io.flowBuilder.clickByText("Create from scratch")
+        await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH)
         await io.flowBuilder.fill(selectors.connectionsPagePO.NAME_INPUT, 'TC_C25575');
         await io.flowBuilder.clickByText('Please select');
         await io.flowBuilder.clickByText('Basic');

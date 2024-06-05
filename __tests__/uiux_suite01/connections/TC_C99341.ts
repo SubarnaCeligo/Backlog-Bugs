@@ -20,7 +20,7 @@ test.describe("C99341To validate batch size field with >=1 and <=1000 number typ
     );
     await io.flowBuilder.clickByText("FTP");
     await io.flowBuilder.click(selectors.connectionsPagePO.TRANSFER_FILES);
-    await io.flowBuilder.clickByText("Create from scratch")
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH)
     await io.flowBuilder.click(selectors.basePagePO.CONNECTION_DROPDOWN);
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONDROP0);
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
