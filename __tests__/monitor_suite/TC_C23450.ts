@@ -27,6 +27,7 @@ test.describe(`@Author-ashu-g TC_C23450 Trying to create a connection at the exp
     await io.homePage.clickByText('Create flow');
     await io.homePage.click(selectors.basePagePO.ADD_SOURCE_BUTTON);
     await io.homePage.fill(selectors.connectionsPagePO.APP_NAME_INPUT, 'HTTP');
+    await io.homePage.loadingTime();
     await io.homePage.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
     await io.homePage.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
     
