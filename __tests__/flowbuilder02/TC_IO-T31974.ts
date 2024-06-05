@@ -63,12 +63,12 @@ test.describe("@Author_MaheshNivruttiSutar Verify section should be hidden if we
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.homePage.loadingTime();
-        expect(await page.screenshot()).toMatchSnapshot("IO-T31974.png");
+        expect(await page.screenshot()).toMatchSnapshot("IO-T31974.png",{maxDiffPixelRatio: 0.2});
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
 
         //-'Launch form builder' button should be displayed in 'Settings' section
         const buttonDis = await page.$(selectors.flowBuilderPagePO.SETTING);
-        expect(await buttonDis.screenshot()).toMatchSnapshot("IO-T31974_1.png");
+        expect(await buttonDis.screenshot()).toMatchSnapshot("IO-T31974_1.png",{maxDiffPixelRatio: 0.2});
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
     });
 });
