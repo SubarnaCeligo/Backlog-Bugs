@@ -24,14 +24,14 @@ test.describe("C96888 Verify Filter's rows are properly aligned for NS import on
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RECORD_TYPE);
-    await io.flowBuilder.fill(`${selectors.flowBuilderPagePO.RECORD_TYPE} input`, 'Account')
-    await io.flowBuilder.clickByText("Update");
+    await io.flowBuilder.fill(`${selectors.flowBuilderPagePO.RECORD_TYPE} input`, 'Account');
+    await io.flowBuilder.clickByText("Account");
+    await io.flowBuilder.click(selectors.mappings.UPDATE);
     await io.flowBuilder.click(selectors.basePagePO.NETSUITE_INTERNAL_LOOKUP);
-
-  
 
     if (!(await page.isVisible(selectors.flowBranchingPO.LOGICRULES_CONTAINER))) {
       await io.flowBuilder.clickByText("Add filter");
+      await io.homePage.loadingTime();
     }
 
     await io.homePage.loadingTime();
