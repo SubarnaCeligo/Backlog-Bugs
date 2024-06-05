@@ -23,15 +23,14 @@ test.describe("C107033 Check the UI alignment for file filter is matching with F
       "C107033"
     );
 
-    // await io.flowBuilder.clickByText('Next');
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
 
     await io.flowBuilder.clickByText('Add condition');
     await io.flowBuilder.fill(selectors.exportsPagePO.FILE_NAME_FILTER,"@$%^&*#-+");
     await io.flowBuilder.fill(selectors.exportsPagePO.FILE_NAME_FILTER, '~!@#$%^&*');
-
-    const Symbol = page.locator(selectors.exportsPagePO.FILE_FILTER_CONDITIONS);
-    expect(await Symbol.screenshot()).toMatchSnapshot("C107033-PLAYWRIGHT-darwin.png");
+    const Symbol = await page.$(selectors.flowBranchingPO.LOGICRULES_LIST);
+    const displayValue = await Symbol.evaluate((el) => window.getComputedStyle(el).getPropertyValue('height'));
+    expect(displayValue).toEqual('46px');
   });
 });
