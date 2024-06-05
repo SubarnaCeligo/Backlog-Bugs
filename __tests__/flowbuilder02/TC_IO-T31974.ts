@@ -33,7 +33,7 @@ test.describe("@Author_MaheshNivruttiSutar Verify section should be hidden if we
         await io.flowBuilder.click(selectors.flowBuilderPagePO.DATATEST);
         //clicking on launch from builder
         await io.flowBuilder.click(selectors.basePagePO.LAUNCH_EDITOR);
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
+        await io.flowBuilder.waitForElementAttached(selectors.templatePagePO.SCRIPT_STUB);
         await io.flowBuilder.click(selectors.templatePagePO.SCRIPT_STUB);
         await io.flowBuilder.clearTextValue(selectors.templatePagePO.SCRIPT_STUB);
         await io.flowBuilder.enterHugeData(selectors.templatePagePO.SCRIPT_STUB, (TC.script.content));
