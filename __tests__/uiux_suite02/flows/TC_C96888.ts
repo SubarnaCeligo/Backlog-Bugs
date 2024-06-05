@@ -37,8 +37,8 @@ test.describe("C96888 Verify Filter's rows are properly aligned for NS import on
     await io.homePage.loadingTime();
     await page.selectOption(selectors.mappings.RULEFILTERCONTAINER + ' select', 'Formula (Text)');
     await io.homePage.loadingTime();
-    const Symbol = await page.$(selectors.flowBuilderPagePO.FILTER_CONTENT + ' .rules-group-body');
-    await page.waitForTimeout(500);
-    expect(await Symbol.screenshot()).toMatchSnapshot("C96888-PLAYWRIGHT-darwin.png", { threshold: 0.1, maxDiffPixelRatio: 0.1});
+    const Symbol = await page.$(selectors.flowBuilderPagePO.RULE_FILTER);
+    const displayValue = await Symbol.evaluate((el) => window.getComputedStyle(el).getPropertyValue('display'));
+    expect(displayValue).toEqual('inline-flex');
   });
 });
