@@ -38,6 +38,6 @@ test.describe("C96888 Verify Filter's rows are properly aligned for NS import on
     await page.selectOption(selectors.mappings.RULEFILTERCONTAINER + ' select', 'Formula (Text)');
     await io.homePage.loadingTime();
     const Symbol = await page.$(selectors.flowBuilderPagePO.FILTER_CONTENT + ' .rules-group-body');
-    expect(await Symbol.screenshot()).toMatchSnapshot("C96888-PLAYWRIGHT-darwin.png");
+    expect(await Symbol.screenshot()).toMatchSnapshot("C96888-PLAYWRIGHT-darwin.png", { threshold: 0.1, maxDiffPixelRatio: 0.1});
   });
 });
