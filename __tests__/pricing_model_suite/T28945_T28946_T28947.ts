@@ -3,8 +3,8 @@ import * as selectors from "@celigo/aut-selectors";
 import { getLicensePayload } from "@celigo/aut-utilities";
 
 test.describe("T28945_T28946_T28947 Verify the audit log retention for all tiers.", () => {
-  // const upgradeNotificationText =
-  //   "More options available - Upgrade your account for longer audit log periods.";
+  const upgradeNotificationText =
+    "More options available - Upgrade your account for longer audit log periods.";
 
   // test("T28944_T28945_T28946_T28947 @Zephyr-IO-T28944 @Env-All @Priority-P2 Verify the audit log retention for free tiers.", async ({
   //   io,
