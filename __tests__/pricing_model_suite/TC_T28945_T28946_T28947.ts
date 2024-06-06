@@ -65,7 +65,7 @@ test.describe("T28945_T28946_T28947 Verify the audit log retention for all tiers
       "Verified. Info message displayed for standard tier."
     );
   });
-    test(" @Zephyr-IO-T28746  @Env-All @Priority-P2 Verify the audit log retention for Professional tiers", async ({
+    test("@Zephyr-IO-T28746  @Env-All @Priority-P2 Verify the audit log retention for Professional tiers", async ({
       io,page
     }) => {
       await io.homePage.reloadPage();
@@ -88,7 +88,7 @@ test.describe("T28945_T28946_T28947 Verify the audit log retention for all tiers
       "Verified. Info message displayed for professional tier."
     );
   });
-    test(" @Zephyr-IO-T28747  @Env-All @Priority-P2 Verify the audit log retention for Enterprise tiers", async ({
+    test("@Zephyr-IO-T28747  @Env-All @Priority-P2 Verify the audit log retention for Enterprise tiers", async ({
       io,
       page
     }) => {
