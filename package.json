@@ -47,6 +47,7 @@
     "playwright": "1.41.2"
   },
   "dependencies": {
+    "adm-zip": "^0.5.14",
     "atob": "^2.1.2",
     "chalk": "^4.0.0",
     "csv-parser": "^3.0.0",

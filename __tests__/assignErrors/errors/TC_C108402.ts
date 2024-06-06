@@ -10,7 +10,7 @@ test.describe("TC_C108402 Verify tags attached to errors are displayed in errors
     await io.api.deleteFlowViaAPI(id);
   });
 
-  test("@Zephyr-IO-IO-IO-T24150 @Env-All C108402 Verify tags attached to errors are displayed in errors csv file", async ({
+  test("@Zephyr-IO-T24150 @Env-All C108402 Verify tags attached to errors are displayed in errors csv file", async ({
     io,
     page
   }) => {
