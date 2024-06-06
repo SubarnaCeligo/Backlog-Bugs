@@ -25,7 +25,8 @@ test.describe("T28944_T28945_T28946_T28947 Verify the audit log retention for al
       ...payloadFormat,
       tier: "free"
     });
-
+    await io.homePage.reloadPage();
+    await io.homePage.loadingTime();
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.myAccountPage.click(selectors.myAccountPagePO.AUDIT_LOG);
     await page.waitForLoadState("load", { timeout: 60000 });
@@ -72,7 +73,7 @@ test.describe("T28944_T28945_T28946_T28947 Verify the audit log retention for al
       const platformLicense = licenses.find(l => l.type === "platform");
       await io.api.putCall(
         `v1/test/licenses/${platformLicense._id}`,
-        {...getLicensePayload(platformLicense),"apiManagement": true,expires: "2044-04-10T13:14:33.363Z",tier: 'professional', numEndpoints: 1,"disableOverage": false}
+        {...getLicensePayload(platformLicense),"apiManagement": true,expires: "2044-04-10T13:14:33.363Z",tier: 'professional', numEndpoints: 7,"numFlows": 101,"disableOverage": false}
       );
     //  ---------------------Professional Tier---------------------------   //
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
