@@ -40,8 +40,7 @@ test.describe("T28944_T28945_T28946_T28947 Verify the audit log retention for al
         await io.api.putCall(`v1/test/licenses/${payloadFormat._id}`, payloadFormat);
   });
     test("@Zephyr-IO-T28745  @Env-All @Priority-P2 Verify the audit log retention for standard tiers", async ({
-      io,
-      page
+      io,page
     }) => {
       await io.homePage.reloadPage();
       const licenses = await io.api.getCall("v1/licenses");
@@ -53,6 +52,10 @@ test.describe("T28944_T28945_T28946_T28947 Verify the audit log retention for al
     //  ------------------------Standard Tier-------------------------   //
     await io.homePage.reloadPage();
     await io.homePage.loadingTime();
+    await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
+    await io.myAccountPage.click(selectors.myAccountPagePO.AUDIT_LOG);
+    await page.waitForLoadState("load", { timeout: 60000 });
+
     const upgradeNotificationText_standard = await io.myAccountPage.getText(
       selectors.basePagePO.NOTIFICTION_BAR
     );
@@ -62,8 +65,7 @@ test.describe("T28944_T28945_T28946_T28947 Verify the audit log retention for al
     );
   });
     test(" @Zephyr-IO-T28746  @Env-All @Priority-P2 Verify the audit log retention for Professional tiers", async ({
-      io,
-      page
+      io,page
     }) => {
       await io.homePage.reloadPage();
       const licenses = await io.api.getCall("v1/licenses");
@@ -73,9 +75,10 @@ test.describe("T28944_T28945_T28946_T28947 Verify the audit log retention for al
         {...getLicensePayload(platformLicense),"apiManagement": true,expires: "2044-04-10T13:14:33.363Z",tier: 'professional', numEndpoints: 1,"disableOverage": false}
       );
     //  ---------------------Professional Tier---------------------------   //
-
-    await io.homePage.reloadPage();
-    await io.homePage.loadingTime();
+    await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
+    await io.myAccountPage.click(selectors.myAccountPagePO.AUDIT_LOG);
+    await page.waitForLoadState("load", { timeout: 60000 });
+  await io.homePage.loadingTime();
     const upgradeNotificationText_professional = await io.myAccountPage.getText(
       selectors.basePagePO.NOTIFICTION_BAR
     );

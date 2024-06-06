@@ -17,7 +17,9 @@ test.describe("T28959 Verify upgrade pop-up for audit log after clicking on requ
 
     await io.api.putCall(`v1/test/licenses/${payloadFormat._id}`, {
       ...payloadFormat,
-      tier: "standard"
+      tier: "standard",
+      numEndpoints: 6,
+      numFlows: 100
     });
     await io.homePage.addStep(
       "Updating license to standard tier to show request upgrade notification."
