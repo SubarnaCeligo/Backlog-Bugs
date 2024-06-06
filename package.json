@@ -38,8 +38,8 @@
     }
   },
   "devDependencies": {
-    "@celigo/aut-selectors": "^0.3.40",
-    "@celigo/aut-utilities": "^0.1.4",
+    "@celigo/aut-selectors": "^0.3.45",
+    "@celigo/aut-utilities": "^0.1.5",
     "@celigo/ui-core-automation": "^0.2.46",
     "@playwright/test": "1.41.2",
     "allure-playwright": "^2.2.1",
