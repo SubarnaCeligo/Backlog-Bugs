@@ -70,11 +70,12 @@ test.describe("T29724 Verify the license entitlement notification message)", () 
       "Sandbox is not displayed"
       );
       expect(Sanbox).toBeUndefined(); 
-
+      await io.homePage.loadingTime()
               await io.assert.verifyElementDisplayedByText(
                   "Endpoint apps:",
                   "Endpoint apps: is not displayed"
                   );
+      await io.homePage.loadingTime()
                   await io.assert.verifyElementDisplayedByText(
                       "Enabled flows:",
                       "Enabled flows: is not displayed"
