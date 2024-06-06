@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C61135 Verify the Install link functionality displayed for the Integrator SuiteApp step`, () => {
-  test(`@Env-All C61135 Verify the Install link functionality displayed for the Integrator SuiteApp step`, async ({
+  test(`@Env-All @Zephyr-IO-T23141 C61135 Verify the Install link functionality displayed for the Integrator SuiteApp step`, async ({
     page,
     io
   }) => {
@@ -25,12 +25,12 @@ test.describe(`C61135 Verify the Install link functionality displayed for the In
     await io.homePage.addStep("Clicked 'Home' from breadcrumb");
     await page
       .locator(selectors.homePagePO.INTEGRATION_TILES)
-      .filter({ hasText: "Continue setup >" } && {hasText: "61130_DND"})
+      .filter({ hasText: "Continue setup >" } && {hasText: "61130_UIUX_SUITE02"})
       .last()
       .locator("button")
       .first()
       .click();
-    await io.homePage.addStep("Clicked 'Continue setup >61130_DND'");
+    await io.homePage.addStep("Clicked 'Continue setup >61130_UIUX_SUITE02'");
     await io.assert.verifyElementDisplayedByText(
       "Integrator SuiteApp",
       "'Integrator SuiteApp' step not displayed"
