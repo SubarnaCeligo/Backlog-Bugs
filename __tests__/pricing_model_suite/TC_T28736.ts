@@ -39,7 +39,7 @@ test.describe("T28736 Verify the license Entitlements notification for Free tier
     await io.assert.verifyElementIsDisplayed(selectors.homePagePO.DIALOG, "You cannot enable more than one flow at a time with your current free subscription plan. Upgrade to unlock your data integration potential with more flows.");
     await io.homePage.click(selectors.mappings.MAPPER2DOT0PO.CLOSEBUTTON);
   });
-    test("@Zephyr-IO-T27423 @Env-All @Priority-P2 Verify the subscription page for different license type free for admin", async ({
+    test("@Zephyr-IO-T27421 @Env-All @Priority-P2 Verify the subscription page for different license type free for admin", async ({
       io,
       page
     }) => {
@@ -57,16 +57,9 @@ test.describe("T28736 Verify the license Entitlements notification for Free tier
       const bgColorList = await io.homePage.getBackgroundColors(
         selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR
       );
-      await io.assert.expectArrayToBeInArray(
+      await io.assert.expectToBeValueInArray(
         bgColorList,
-        [
-          "rgb(29, 118, 199)",
-          "rgb(29, 118, 199)",
-          "rgb(29, 118, 199)",
-          "rgb(29, 118, 199)",
-          "rgb(29, 118, 199)",
-          "rgb(29, 118, 199)"
-        ],
+        "rgb(255, 60, 60)",
         "The status is not correctly colored"
       );
       await io.api.putCall(

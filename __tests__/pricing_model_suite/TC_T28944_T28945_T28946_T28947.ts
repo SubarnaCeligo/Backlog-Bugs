@@ -6,7 +6,7 @@ test.describe("T28944_T28945_T28946_T28947 Verify the audit log retention for al
   const upgradeNotificationText =
     "More options available - Upgrade your account for longer audit log periods.";
 
-  test("T28944_T28945_T28946_T28947 @Zephyr-IO-T28944 @Zephyr-IO-T28945 @Zephyr-IO-T28946 @Zephyr-IO-T28947  @Env-All @Priority-P2 Verify the audit log retention for all tiers.", async ({
+  test("T28944_T28945_T28946_T28947 @Zephyr-IO-T28944 @Env-All @Priority-P2 Verify the audit log retention for free tiers.", async ({
     io,
     page
   }) => {
@@ -35,15 +35,22 @@ test.describe("T28944_T28945_T28946_T28947 Verify the audit log retention for al
     );
     expect(upgradeNotificationText_free).toEqual(upgradeNotificationText);
     await io.homePage.addStep("Verified. Info message displayed for free tier.");
-
+        //  Reverting license changes
+        await io.homePage.addStep("Reverting license changes.");
+        await io.api.putCall(`v1/test/licenses/${payloadFormat._id}`, payloadFormat);
+  });
+    test("@Zephyr-IO-T28742  @Env-All @Priority-P2 Verify the audit log retention for free tiers", async ({
+      io,
+      page
+    }) => {
+      await io.homePage.reloadPage();
+      const licenses = await io.api.getCall("v1/licenses");
+      const platformLicense = licenses.find(l => l.type === "platform");
+      await io.api.putCall(
+        `v1/test/licenses/${platformLicense._id}`,
+        {...getLicensePayload(platformLicense),"apiManagement": true,expires: "2044-04-10T13:14:33.363Z",tier: 'standard', numEndpoints: 6,numFlows: 1000,"disableOverage": false}
+      );
     //  ------------------------Standard Tier-------------------------   //
-
-    await io.homePage.addStep("Updating license to standard tier.");
-    await io.api.putCall(`v1/test/licenses/${payloadFormat._id}`, {
-      ...payloadFormat,
-      tier: "standard"
-    });
-
     await io.homePage.reloadPage();
     await io.homePage.loadingTime();
     const upgradeNotificationText_standard = await io.myAccountPage.getText(
@@ -53,14 +60,19 @@ test.describe("T28944_T28945_T28946_T28947 Verify the audit log retention for al
     await io.homePage.addStep(
       "Verified. Info message displayed for standard tier."
     );
-
+  });
+    test(" @Zephyr-IO-T28742  @Env-All @Priority-P2 Verify the audit log retention for free tiers", async ({
+      io,
+      page
+    }) => {
+      await io.homePage.reloadPage();
+      const licenses = await io.api.getCall("v1/licenses");
+      const platformLicense = licenses.find(l => l.type === "platform");
+      await io.api.putCall(
+        `v1/test/licenses/${platformLicense._id}`,
+        {...getLicensePayload(platformLicense),"apiManagement": true,expires: "2044-04-10T13:14:33.363Z",tier: 'professional', numEndpoints: 1,"disableOverage": false}
+      );
     //  ---------------------Professional Tier---------------------------   //
-
-    await io.homePage.addStep("Updating license to professional tier.");
-    await io.api.putCall(`v1/test/licenses/${payloadFormat._id}`, {
-      ...payloadFormat,
-      tier: "professional"
-    });
 
     await io.homePage.reloadPage();
     await io.homePage.loadingTime();
@@ -71,14 +83,22 @@ test.describe("T28944_T28945_T28946_T28947 Verify the audit log retention for al
     await io.homePage.addStep(
       "Verified. Info message displayed for professional tier."
     );
-
+  });
+    test(" @Zephyr-IO-T28742  @Env-All @Priority-P2 Verify the audit log retention for free tiers", async ({
+      io,
+      page
+    }) => {
+      await io.homePage.reloadPage();
+      const licenses = await io.api.getCall("v1/licenses");
+      const platformLicense = licenses.find(l => l.type === "platform");
+      await io.api.putCall(
+        `v1/test/licenses/${platformLicense._id}`,
+        {...getLicensePayload(platformLicense),"apiManagement": true,expires: "2044-04-10T13:14:33.363Z",tier: 'enterprise', numEndpoints: 1,"disableOverage": false}
+      );
     //  --------------------Enterprise Tier------------------------------   //
 
     await io.homePage.addStep("Updating license to enterprise tier.");
-    await io.api.putCall(`v1/test/licenses/${payloadFormat._id}`, {
-      ...payloadFormat,
-      tier: "enterprise"
-    });
+  
 
     await io.homePage.reloadPage();
     await io.homePage.loadingTime();
@@ -86,9 +106,5 @@ test.describe("T28944_T28945_T28946_T28947 Verify the audit log retention for al
     await io.homePage.addStep(
       "Verified. Info message NOT displayed for enterprise tier."
     );
-
-    //  Reverting license changes
-    await io.homePage.addStep("Reverting license changes.");
-    await io.api.putCall(`v1/test/licenses/${payloadFormat._id}`, payloadFormat);
   });
 });

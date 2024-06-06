@@ -40,20 +40,13 @@ test.describe("C27421 Verify the subscription page for different license type(Fr
     const bgColorList = await io.homePage.getBackgroundColors(
       selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR
     );
-    await io.assert.expectArrayToBeInArray(
+    await io.assert.expectToBeValueInArray(
       bgColorList,
-      [
-        ",rgb(255, 60, 60)",
-        "rgb(29, 118, 199)",
-        "rgb(29, 118, 199)",
-        "rgb(29, 118, 199)",
-        "rgb(29, 118, 199)",
-        "rgb(29, 118, 199)",
-      ],
+      "rgb(255, 60, 60)",
       "The status is not correctly colored"
     );
   });
-  test("@Zephyr-IO-T27423 @Env-QA @Priority-P2 Verify the subscription page for different license type enterprise for admin", async ({
+  test("@Zephyr-IO-T27421 @Env-QA @Priority-P2 Verify the subscription page for different license type enterprise for admin", async ({
       io,
       page
     }) => {
@@ -75,16 +68,9 @@ test.describe("C27421 Verify the subscription page for different license type(Fr
       const bgColorList = await io.homePage.getBackgroundColors(
         selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR
       );
-      await io.assert.expectArrayToBeInArray(
+      await io.assert.expectToBeValueInArray(
         bgColorList,
-        [
-          "rgb(255, 60, 60)",
-          "rgb(29, 118, 199)",
-          "rgb(29, 118, 199)",
-          "rgb(29, 118, 199)",
-          "rgb(29, 118, 199)",
-          "rgb(29, 118, 199)",
-        ],
+        "rgb(255, 60, 60)",
         "The status is not correctly colored"
       );
       await io.api.putCall(

@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import { getLicensePayload } from "@celigo/aut-utilities";
 
 test.describe("C28960 Verify upgrade pop-up for concurency after clicking on request upgrade.", () => {
-  test("C28960 @Zephyr-IO-T28960  @Env-All @Priority-P2 Verify upgrade pop-up for concurency after clicking on request upgrade.", async ({
+  test("T27421  @Zephyr-IO-T28960  @Env-All @Priority-P2 Verify upgrade pop-up for concurency after clicking on request upgrade.", async ({
     io,
   }) => {
     await io.homePage.reloadPage();
