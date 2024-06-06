@@ -39,7 +39,7 @@ test.describe("T28944_T28945_T28946_T28947 Verify the audit log retention for al
         await io.homePage.addStep("Reverting license changes.");
         await io.api.putCall(`v1/test/licenses/${payloadFormat._id}`, payloadFormat);
   });
-    test("@Zephyr-IO-T28742  @Env-All @Priority-P2 Verify the audit log retention for free tiers", async ({
+    test("@Zephyr-IO-T28745  @Env-All @Priority-P2 Verify the audit log retention for standard tiers", async ({
       io,
       page
     }) => {
@@ -61,7 +61,7 @@ test.describe("T28944_T28945_T28946_T28947 Verify the audit log retention for al
       "Verified. Info message displayed for standard tier."
     );
   });
-    test(" @Zephyr-IO-T28742  @Env-All @Priority-P2 Verify the audit log retention for free tiers", async ({
+    test(" @Zephyr-IO-T28746  @Env-All @Priority-P2 Verify the audit log retention for Professional tiers", async ({
       io,
       page
     }) => {
@@ -84,7 +84,7 @@ test.describe("T28944_T28945_T28946_T28947 Verify the audit log retention for al
       "Verified. Info message displayed for professional tier."
     );
   });
-    test(" @Zephyr-IO-T28742  @Env-All @Priority-P2 Verify the audit log retention for free tiers", async ({
+    test(" @Zephyr-IO-T28747  @Env-All @Priority-P2 Verify the audit log retention for Enterprise tiers", async ({
       io,
       page
     }) => {
