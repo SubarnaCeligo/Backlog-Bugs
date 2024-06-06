@@ -1,8 +1,8 @@
-import { test } from "@celigo/ui-core-automation";
+import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import { decrypt } from "@celigo/aut-utilities";
 
-test.describe("C1054 Verify on clicking Signin with Google asks to select the google account if multiple google accounts are logged in", () => {
+test.describe("C1058 Verify integrator.io reset password link sent to given email", () => {
   test.beforeEach('check sign out', async ({ io, page }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     const isNotLoggedIn = await io.loginPage.checkLoginState();
@@ -33,15 +33,14 @@ test.describe("C1054 Verify on clicking Signin with Google asks to select the go
       }
     }
   })
-    test("@Env-All @Zephyr-IO-T930 C1054 Verify on clicking Signin with Google asks to select the google account if multiple google accounts are logged in", async ({io, page}) => {
-      await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
-      await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
-      await io.homePage.click(selectors.basePagePO.SIGN_OUT);
-      await io.homePage.waitForElementAttached(selectors.loginPagePO.EMAIL);
-      await io.homePage.clickByText('Sign in with Google');
-      await io.homePage.fill(selectors.loginPagePO.IDENTIFIER_ID, 'qaautomation1@celigo.com');
-      await io.homePage.clickByTextByIndex('Next', 0);
-      await io.homePage.fill(selectors.importPagePO.PASSWORD, 'IOqa@123456');
-      await io.homePage.clickByText('Next');
-    });
+
+  test("@Env-All @Zephyr-IO-T1032 C1058 Verify integrator.io reset password link sent to given email'", async ({ io, page }) => {
+    await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
+    await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
+    await io.homePage.click(selectors.basePagePO.SIGN_OUT);
+    await io.signInPage.click(selectors.loginPagePO.FORGOT_PASSWORD);
+    await io.signInPage.fill(selectors.loginPagePO.EMAIL_ID, process.env["IO_UserName"]);
+    await io.assert.verifyJSElementValue(selectors.loginPagePO.EMAIL_ID, process.env["IO_UserName"])
   });
+});
