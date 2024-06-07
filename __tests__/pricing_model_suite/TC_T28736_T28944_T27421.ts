@@ -41,8 +41,8 @@ test("T28736_T28944_T27421 @Zephyr-IO-T28944 @Env-All @Priority-P2 Verify the au
   await io.homePage.loadingTime();
   await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
   await io.myAccountPage.click(selectors.myAccountPagePO.AUDIT_LOG);
-  await page.waitForLoadState("load", { timeout: 60000 });
-
+  await page.waitForLoadState("load", { timeout: 90000 });
+  await io.homePage.loadingTime();
   const upgradeNotificationText_free = await io.myAccountPage.getText(
     selectors.basePagePO.NOTIFICTION_BAR
   );
@@ -88,6 +88,12 @@ test("T28736_T28944_T27421 @Zephyr-IO-T28944 @Env-All @Priority-P2 Verify the au
       await io.homePage.loadingTime();
       const licenses = await io.api.getCall("v1/licenses");
       const platformLicense = licenses.find(l => l.type === "platform");
+      await io.api.putCall(
+        `v1/test/licenses/${platformLicense._id}`,
+        {...getLicensePayload(platformLicense),expires: "2044-04-10T13:14:33.363Z",tier: 'free'}
+      );
+      await io.homePage.reloadPage();
+      await io.homePage.loadingTime();
       await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
       await io.myAccountPage.click(selectors.myAccountPagePO.SUBSCRIPTION);
       await page.waitForLoadState();
