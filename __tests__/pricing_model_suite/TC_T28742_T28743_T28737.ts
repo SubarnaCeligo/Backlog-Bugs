@@ -2,11 +2,11 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import { getLicensePayload } from "@celigo/aut-utilities";
 
-test.describe("T28742_T28743_T28737 Verify the license Entitlements notification(Standard,professional ,Enterprise)", () => {
+test.describe("T28742_T28743_T28737_T29724 Verify the license Entitlements notification(Standard,professional ,Enterprise)", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-   test("T28742_T28743_T28737 @Zephyr-IO-T28742  @Env-All @Priority-P2 Verify the license Entitlements notification whenever the endpoints and flow usage has been exceeded for professional tier", async ({
+   test("T28742_T28743_T28737 @Zephyr-IO-T28742 @Zephyr-IO-T29724 @Env-All @Priority-P2 Verify the license Entitlements notification whenever the endpoints and flow usage has been exceeded for professional tier", async ({
     io,
     page
   }) => {
@@ -25,7 +25,7 @@ test.describe("T28742_T28743_T28737 Verify the license Entitlements notification
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.myAccountPage.click(selectors.myAccountPagePO.SUBSCRIPTION);
     await page.waitForLoadState();
-    await test.step("C28742 Verify the license Entitlements notification whenever the endpoints and flow usage has been exceeded for professional tie", async () => {
+    await test.step("C28742 T29724 Verify the license Entitlements notification whenever the endpoints and flow usage has been exceeded for professional tie", async () => {
         await io.assert.verifyElementContainsText('[id="notification"]', 'Your account has exceeded its entitlements. Request an upgrade.');
     }); 
   await io.connectionPage.clickByText("Request an upgrade.");   
