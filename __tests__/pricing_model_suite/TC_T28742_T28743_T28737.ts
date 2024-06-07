@@ -17,6 +17,11 @@ test.describe("T28742_T28743_T28737 Verify the license Entitlements notification
       `v1/test/licenses/${platformLicense._id}`,
       {...getLicensePayload(platformLicense),"apiManagement": true,expires: "2044-04-10T13:14:33.363Z",tier: 'professional', numEndpoints: 1,"disableOverage": false}
     );
+    await io.homePage.reloadPage();
+    await io.homePage.addStep("Switching to Production mode.");
+    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
+    await io.homePage.loadingTime()
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.myAccountPage.click(selectors.myAccountPagePO.SUBSCRIPTION);
     await page.waitForLoadState();
@@ -39,6 +44,10 @@ test.describe("T28742_T28743_T28737 Verify the license Entitlements notification
       `v1/test/licenses/${platformLicense._id}`,
       {...getLicensePayload(platformLicense),expires: "2044-04-10T13:14:33.363Z",tier: 'enterprise', numEndpoints: 1,"disableOverage": false}
     );
+    await io.homePage.reloadPage();
+    await io.homePage.addStep("Switching to Production mode.");
+    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.myAccountPage.click(selectors.myAccountPagePO.SUBSCRIPTION);
     await page.waitForLoadState();
@@ -60,6 +69,10 @@ test.describe("T28742_T28743_T28737 Verify the license Entitlements notification
       `v1/test/licenses/${platformLicense._id}`,
       {...getLicensePayload(platformLicense),expires: "2044-04-10T13:14:33.363Z",tier: 'standard', numEndpoints: 1,"disableOverage": false}
     );
+    await io.homePage.reloadPage();
+    await io.homePage.addStep("Switching to Production mode.");
+    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.myAccountPage.click(selectors.myAccountPagePO.SUBSCRIPTION);
     await page.waitForLoadState();

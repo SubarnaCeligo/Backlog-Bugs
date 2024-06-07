@@ -102,7 +102,7 @@ test("T28736_T28944_T27421 @Zephyr-IO-T28944 @Env-All @Priority-P2 Verify the au
       );
       await io.assert.expectToBeValueInArray(
         bgColorList,
-        "rgb(255, 60, 60)",
+        "rgb(29, 118, 199)",
         "The status is not correctly colored"
       );
       await io.api.putCall(
