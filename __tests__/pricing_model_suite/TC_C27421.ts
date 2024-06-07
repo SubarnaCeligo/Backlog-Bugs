@@ -30,8 +30,8 @@ test.describe("C27421 Verify the subscription page for different license type(Fr
         tier: 'professional', 
         "apiManagement": true, 
         "expires": "2044-04-10T13:14:33.363Z",
-        numEndpoints: 1,
-         numFlows:1}
+        numEndpoints: 0,
+         numFlows:0}
     );
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.myAccountPage.click(selectors.myAccountPagePO.SUBSCRIPTION);

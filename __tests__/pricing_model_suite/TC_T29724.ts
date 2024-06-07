@@ -25,7 +25,8 @@ test.describe("T29724 Verify the license entitlement notification message)", () 
       numSandboxFlows: 1,
      }
     );
-    await io.homePage.addStep("Switching to sandbox mode.");
+    await io.homePage.reloadPage();
+    await io.homePage.loadingTime();
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
     await io.homePage.loadingTime();
@@ -61,6 +62,8 @@ test.describe("T29724 Verify the license entitlement notification message)", () 
       tier: 'free'
      }
     );
+    await io.homePage.reloadPage();
+    await io.homePage.loadingTime();
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime()
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);   
