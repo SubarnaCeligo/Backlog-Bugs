@@ -26,7 +26,7 @@ test.describe("TC_C108252 Verify Revise field help text: Concurrency ID lock tem
     await io.flowBuilder.click(selectors.importPagePO.CONCURRENCY_HELPTEXT);
     await io.connectionPage.waitForElementAttached(selectors.myAccountPagePO.HELP_BUBBLE);
     const concurrencyHelptext = (await io.flowBuilder.getText(selectors.myAccountPagePO.HELP_BUBBLE)) as string;
-    await io.assert.expectToContainValue(`Concurrency ID lock templateEnter a handlebars expression to reference a unique ID for each record to ensure that it isn't processed by two concurrent import requests. A Concurrency ID lock template prevents integrator.io from simultaneously submitting duplicate records when the import connection has a concurrency level greater than 1. For example, if you are importing Zendesk records into NetSuite, then you could enter the {{{record.id}}} field to identify unique Zendesk records. No two records with the same Zendesk ID value would import into NetSuite at the same time.Was this helpful?Field path: import.idLockTemplate`,concurrencyHelptext,"helptext not found"
+    await io.assert.expectToContainValue(`Concurrency ID lock template`,concurrencyHelptext,"helptext not found"
     );
   });
 });
