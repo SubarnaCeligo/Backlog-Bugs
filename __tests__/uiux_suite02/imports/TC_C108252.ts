@@ -1,8 +1,8 @@
 import {test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("TC_CT26354T26351T28950T19565", () => {
-  test("@Env-All CT26351 Verify help text for concurrency ID lock template", async ({io}) => {
+test.describe("TC_C108252 Verify Revise field help text: Concurrency ID lock template", () => {
+  test("@Env-All @Zephyr-IO-T26351 C108252 Verify Revise field help text: Concurrency ID lock template", async ({io}) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
@@ -16,8 +16,8 @@ test.describe("TC_CT26354T26351T28950T19565", () => {
     await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.HTTP_CNNECTOR);
     await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
-    await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'HTTP connection');
-    await io.flowBuilder.clickByTextByIndex('HTTP connection', 0);
+    await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'HTTP CONNECTION');
+    await io.flowBuilder.clickByTextByIndex('HTTP CONNECTION', 0);
     await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'HTTP_Import');
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.basePagePO.SAVE);

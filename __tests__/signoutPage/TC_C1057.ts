@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import { decrypt } from "@celigo/aut-utilities";
 
-test.describe("C1058 Verify integrator.io reset password link sent to given email", () => {
+test.describe("C1057 Verify Email field on Forgot Your password? page with Vaild email", () => {
   test.beforeEach('check sign out', async ({ io, page }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     const isNotLoggedIn = await io.loginPage.checkLoginState();
@@ -34,7 +34,7 @@ test.describe("C1058 Verify integrator.io reset password link sent to given emai
     }
   })
 
-  test("@Env-All @Zephyr-IO-T1032 C1058 Verify integrator.io reset password link sent to given email'", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T933 C1057 Verify Email field on Forgot Your password? page with Vaild email", async ({ io, page }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
