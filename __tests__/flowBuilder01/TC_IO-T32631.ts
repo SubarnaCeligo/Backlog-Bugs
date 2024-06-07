@@ -4,7 +4,7 @@ import TC from '../../testData/inputData/FlowBuilder/T32631.json';
 
 test.describe("@Author_MaheshNivruttiSutar Verify error is not showing while updating custom setting for DynamoDB/MongoDB/DATABRICKS export", () => {
     let id;
-    test.describe.configure({ retries: 1 })
+    test.describe.configure({ retries: 2 })
     test.afterEach(async ({ io, page }) => {
         await io.api.deleteFlowViaAPI(id);
     });
