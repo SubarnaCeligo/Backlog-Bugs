@@ -1,10 +1,6 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-
-
-
-
 test.describe("C56987 Verify the seller central URL that UI is navigating to is as expected when we select the marketplace as Belgium", () => {
     test("@Env-All @Zephyr-IO-T6791 C56987 Verify the seller central URL that UI is navigating to is as expected when we select the marketplace as Belgium", async ({io, page}) => {
     
@@ -14,7 +10,9 @@ test.describe("C56987 Verify the seller central URL that UI is navigating to is 
               );
       if (!isConnectionsVisible) await io.homePage.clickByText("Resources");
             await io.homePage.click(selectors.basePagePO.CONNECTIONS);
-
+            await io.homePage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR)
+            await io.homePage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, 'amazon_seller_central');
+            await io.homePage.loadingTime()
             await io.connectionPage.clickByText("amazon_seller_central")
             await io.connectionPage.click(selectors.basePagePO.SAVE)
             const newPage = await page.waitForEvent('popup');

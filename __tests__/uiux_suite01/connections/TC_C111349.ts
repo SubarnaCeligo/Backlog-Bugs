@@ -18,7 +18,7 @@ test.describe("TC_C111349_C111342   Verify the message when api failed to fetch 
     );
     await io.flowBuilder.clickByText("PostgreSQL");
     await io.flowBuilder.click(selectors.connectionsPagePO.IMPORT_RECORDS);
-    await io.flowBuilder.clickByText("Create from scratch")
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH)
     await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.waitForElementAttached(selectors.importPagePO.IMPORT_CREATE_CONNECTION );
     await io.flowBuilder.clickByText("POSTGRE OFFLINE CONNECTION - Offline");

@@ -12,7 +12,7 @@ test.describe(`C59643 Verify connection dropdown for exports`, () => {
       "Narvar"
     );
     await io.flowBuilder.clickByText("Narvar");
-    await io.flowBuilder.clickByText("Create from scratch")
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH)
     await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
     await page.getByText("API type").first().waitFor({ state: "visible" });
     const connectionText = (await io.flowBuilder.getText(
