@@ -27,6 +27,6 @@ test.describe("C25998_VVerify stop button is not shown when the debug duration h
         await io.flowBuilder.clickByText('Apply');
         await io.flowBuilder.clickByText('Stop debug');
        // Validating stop debug not showing
-       await expect(await page.locator(selectors.flowBuilderPagePO.EXPORT)).not.toHaveCSS("Stop debug", "flowStepLogs");
+       await expect(await page.locator("[data-test='refreshResource']")).not.toHaveCSS("Stop debug", "flowStepLogs");
     });
 }); 
