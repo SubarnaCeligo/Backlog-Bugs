@@ -15,7 +15,7 @@ test.describe(`C68565 Verify user is upload the integration zip file having line
     );
 
   });
-  test(`@Env-All C68565 Verify user is upload the integration zip file having linear flow (with input/output/mapping/hooks defined) in the template ad able to install the template`, async ({
+  test(`@Env-All @Zephyr-IO-T17466 C68565 Verify user is upload the integration zip file having linear flow (with input/output/mapping/hooks defined) in the template ad able to install the template`, async ({
     io,
     page
   }) => {

@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S TC_T28966-Verify that 'Send functional acknowled
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Epic-IO-36129 @Env-QA @Priority-P2 @Zephyr-T28966 Verify that 'Send functional acknowledgement' checkbox not shown for file types other than EDI X12.", async ({ io, page }) => {
+  test("@Epic-IO-36129 @Env-All @Priority-P2 @Zephyr-T28966 Verify that 'Send functional acknowledgement' checkbox not shown for file types other than EDI X12.", async ({ io, page }) => {
     //Go to Flow Builder
     await io.homePage.goToMenu("Tools", "Flow builder");
 

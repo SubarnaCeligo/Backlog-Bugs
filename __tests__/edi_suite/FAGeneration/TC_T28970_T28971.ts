@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S TC_T28965-Verify that user is able to save an ex
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Epic-IO-36129 @Env-QA @Priority-P2 @Zephyr-T28970 @Zephyr-T28971 @Zephyr-IO-T28967 Verify that user is able to save an export after configuring FA", async ({ io, page }) => {
+  test("@Epic-IO-36129 @Env-All @Priority-P2 @Zephyr-T28970 @Zephyr-T28971 @Zephyr-IO-T28967 Verify that user is able to save an export after configuring FA", async ({ io, page }) => {
     //Go to Exports
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
 

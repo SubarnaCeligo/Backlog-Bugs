@@ -10,7 +10,7 @@ test.describe(`C63005 Verify connection dropdown list`, () => {
     await io.connectionPage.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Happy Returns');
     await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.HAPPY_RETURNS_CONNECTION);
     await io.connectionPage.click(selectors.connectionsPagePO.HAPPY_RETURNS_CONNECTION);
-    await io.flowBuilder.clickByText("Create from scratch")
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH)
     await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN)
     await io.connectionPage.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
     await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);

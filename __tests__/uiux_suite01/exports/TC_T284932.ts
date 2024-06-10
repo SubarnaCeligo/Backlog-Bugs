@@ -3,7 +3,7 @@ import connectionPayload from "../../../testData/inputData/Connections/T284932.j
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("@Author-ShritiS T284932 - Verify that encrypted data containing escape characters is masked in the preview panel.", () => {
-    test("@Bug-IO-68728 @Priority-P1 @Zephyr-IO-T284932 @Env-QA Verify that encrypted data containing escape characters is masked in the preview panel.", async ({ io, page }) => {
+    test("@Bug-IO-68728 @Priority-P1 @Zephyr-IO-T284932 @Env-all Verify that encrypted data containing escape characters is masked in the preview panel.", async ({ io, page }) => {
 
         //Create a connection with encrypted data that contains all escape characters
         let response = await io.api.postCall('/v1/connections', connectionPayload);

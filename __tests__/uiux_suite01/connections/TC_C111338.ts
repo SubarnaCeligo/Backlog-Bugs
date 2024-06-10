@@ -19,7 +19,7 @@ test.describe("TC_C111338  Verify old UI should be shown for all the new imports
     );
     await io.flowBuilder.clickByText("PostgreSQL");
     await io.flowBuilder.click(selectors.connectionsPagePO.IMPORT_RECORDS);
-    await io.flowBuilder.clickByText("Create from scratch")
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH)
     await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.waitForElementAttached(selectors.importPagePO.IMPORT_CREATE_CONNECTION);
     await io.flowBuilder.clickByText("POSTGRESQL ONPREMISE CONNECTION - Offline");

@@ -8,11 +8,14 @@ test.describe("C106846", () => {
   }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
+    await io.homePage.addStep("*** Navigated to Production Env ***");
     await io.homePage.clickByTextByIndex('Create', 0);
     await io.homePage.clickByTextByIndex('Flow', 0);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, "http");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH);
+    await io.homePage.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.fill(
       selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,
@@ -21,7 +24,6 @@ test.describe("C106846", () => {
     await io.flowBuilder.click(
       selectors.connectionsPagePO.CONNECTION_OPTION_TEXT
     );
-    await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.click(selectors.importPagePO.HTTP_RELATIVEURI);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.HTTPREQUSTBODY);
 

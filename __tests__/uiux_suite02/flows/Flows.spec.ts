@@ -1,5 +1,8 @@
 import { filterTestCases } from "@celigo/aut-utilities";
 var testCases = [
+  'C107033',
+  'C96888',
+  'C22854',
   'C42087',
   'C106448',
   'C107604',
@@ -26,9 +29,11 @@ var testCases = [
   'C60440',
   "C20808",
   "C24620",
+  "C32654",
   "C107735",
   "C107061",
   "C108197",
+  "C2035",
   // "C115891" Duplicate test case
 ];
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);

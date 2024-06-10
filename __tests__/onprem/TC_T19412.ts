@@ -5,7 +5,7 @@ test.describe("TC_T19412", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Zephyr-IO-T19412 @Env-ALL @Priority-P2 ", async ({ io, page }) => {
+    test("@Zephyr-IO-T19412 @Env-All @Priority-P2 ", async ({ io, page }) => {
         await io.homePage.loadingTime();
         await io.homePage.goToMenu("Tools", "Flow builder");
         await io.flowBuilder.click(

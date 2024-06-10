@@ -8,7 +8,7 @@ test.describe("IO-T2957 verify validations are present in the configure search p
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("IO-T2957 verify validations are present in the configure search parameters in Amazon MWS export", async ({ io, page }) => {
+    test("@Env-All IO-T2957 verify validations are present in the configure search parameters in Amazon MWS export", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.exportsPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
         await io.exportsPage.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Amazon Seller Central');
