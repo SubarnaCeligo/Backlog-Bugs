@@ -6,7 +6,7 @@ test.describe("C42443_Verify changes to Renew now link on home page when account
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "Amazon Connector(Bharath)");
         await io.homePage.addStep("*** Searched for the integration ***");
-        await io.homePage.clickByText("Request to buy");
+        await io.homePage.clickByTextByIndex("Request to buy", 0);
         // Validating "licence" expired"
         await io.assert.verifyElementDisplayedByText('Request to buy subscription', 'Licence available')
     });
