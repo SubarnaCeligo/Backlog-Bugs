@@ -39,7 +39,7 @@ test.describe("@Author_sagna123 TC_T32707_Test to validate saved searches relate
         await io.homePage.clickByText("TimeBill");
         await io.homePage.addStep("*** Selected the recordType ***");
         await io.homePage.click(selectors.exportsPagePO.NSSAVEDEARCH );
-        await io.homePage.addStep("*** Clicked on Saved Search dropdown ***");
+        await io.homePage.addStep("*** Clicked on Saved Search dropdown ***" );
         await io.homePage.addStep("*** verified that saved search is visible ***");
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.addStep("*** Navigated back to home page ***");
