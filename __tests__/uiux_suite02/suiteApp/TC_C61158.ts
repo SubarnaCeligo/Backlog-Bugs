@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Connections/C63011.json";
 
 test.describe(`C61158 Verify If some of the NS steps are configured to use suiteApp and some to use SuiteBundle,then both SuiteApp and SuiteBundle Installation steps have to be dispayed in the install steps.`, () => {
-  test(`@Env-All C61158 Verify If some of the NS steps are configured to use suiteApp and some to use SuiteBundle,then both SuiteApp and SuiteBundle Installation steps have to be dispayed in the install steps.`, async ({
+  test(`@Env-All @Zephyr-IO-T23162 C61158 Verify If some of the NS steps are configured to use suiteApp and some to use SuiteBundle,then both SuiteApp and SuiteBundle Installation steps have to be dispayed in the install steps.`, async ({
     page,
     io
   }) => {

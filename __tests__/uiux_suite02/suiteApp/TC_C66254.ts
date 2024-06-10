@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C66254 @Bug-IO-34856 @Priority-P1 @Zephyr-IO-T23465 @Env-QA Verify that check box field under Field specific qualification criteria section of Real Time NS export shows true/false for  Suite App 2.0`, () => {
-  test(`@Env-All C66254 Verify that check box field under Field specific qualification criteria section of Real Time NS export shows true/false for  Suite App 2.0`, async ({
+  test(`@Env-All @Zephyr-IO-T23464 C66254 Verify that check box field under Field specific qualification criteria section of Real Time NS export shows true/false for  Suite App 2.0`, async ({
     page,
     io
   }) => {

@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C61155 Verify If all the NS steps in my integration are solely configured to use SuiteApp then only the SuiteApp installation step has to be shown in the install steps.`, () => {
-  test(`@Env-All C61155 Verify If all the NS steps in my integration are solely configured to use SuiteApp then only the SuiteApp installation step has to be shown in the install steps.`, async ({
+  test(`@Env-All @Zephyr-IO-T23159 C61155 Verify If all the NS steps in my integration are solely configured to use SuiteApp then only the SuiteApp installation step has to be shown in the install steps.`, async ({
     page,
     io
   }) => {
