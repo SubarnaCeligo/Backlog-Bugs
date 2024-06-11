@@ -21,6 +21,7 @@ test.describe(`C2014 Verify PG,PP-export&import created in account level manage 
     await io.homePage.clickByText('Create flow')
     await io.homePage.click(selectors.basePagePO.ADD_SOURCE_BUTTON)
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'FTP');
+    await io.homePage.loadingTime();
     await io.homePage.click(selectors.connectionsPagePO.FTP_CONNECTION)
     await io.homePage.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
@@ -36,12 +37,14 @@ test.describe(`C2014 Verify PG,PP-export&import created in account level manage 
     await io.homePage.clickByText("Choose file");
     const fileChooser = await fileChooserPromise;
     await fileChooser.setFiles("testData/inputData/MyAccount/C733.json");
+    await io.homePage.loadingTime();
     await io.homePage.waitForElementAttached(selectors.basePagePO.FTP_DIRECTORY_PATH)
     await io.exportsPage.fill(selectors.basePagePO.FTP_DIRECTORY_PATH, "/user")
-
+    await io.homePage.loadingTime();
     await io.exportsPage.click(selectors.basePagePO.SAVE_AND_CLOSE)
     await io.exportsPage.clickByText("Resources")
     await io.exportsPage.clickByText("Exports")
+    await io.homePage.loadingTime();
     const exportText = await io.exportsPage.isVisible("text='test'")
     await io.assert.expectToBeTrue(exportText, "export is not created")
   });
