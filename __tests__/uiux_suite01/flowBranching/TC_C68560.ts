@@ -20,10 +20,10 @@ test.describe(`C68560 Verify user is upload the ntegration zip file having one l
     await io.homePage.clickByText("Resources");
     await io.homePage.clickByText("Templates");
     await io.homePage.waitForElementAttached(
-      `:has-text("temp2-DND") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`
+      `:has-text("temp2_DND") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`
     );
     await io.homePage.click(
-      `tbody tr:has-text("temp2-DND") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`
+      `tbody tr:has-text("temp2_DND") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`
     );
     await io.homePage.clickByText("Upload template zip");
     const fileInput = await page.$(selectors.basePagePO.UPLOAD_FILE);
@@ -31,7 +31,7 @@ test.describe(`C68560 Verify user is upload the ntegration zip file having one l
     await io.homePage.clickByText("Marketplace");
     await io.marketplacePage.fill(
       '[placeholder="Search marketplace"]',
-      "temp2-DND"
+      "temp2_DND"
     );
     await io.marketplacePage.clickByText("Preview");
     await io.marketplacePage.clickByText("Install now");
