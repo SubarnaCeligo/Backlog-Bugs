@@ -3,14 +3,17 @@ import * as selectors from "@celigo/aut-selectors";
 import { decrypt } from "@celigo/aut-utilities";
 
 test.describe("C56925 Verify the /request-reset?application=concur page is displaying correctly from the concur application", () => {
-  test.beforeEach('check sign out', async ({ io, page }) => {
+   test.beforeEach('check sign out', async ({ io, page }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     const isNotLoggedIn = await io.loginPage.checkLoginState();
     if (!isNotLoggedIn) {
       await io.homePage.waitForElementAttached(selectors.loginPagePO.EMAIL);
-      await io.signInPage.fill(selectors.loginPagePO.EMAIL, process.env["IO_UserName"]);
-      await io.signInPage.fill(selectors.loginPagePO.PASSWORD, decrypt(process.env["IO_Password"]));
-      await io.signInPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
+      async function attemptSignIn() {
+        await io.signInPage.fill(selectors.loginPagePO.EMAIL, process.env["IO_UserName"]);
+        await io.signInPage.fill(selectors.loginPagePO.PASSWORD, decrypt(process.env["IO_Password"]));
+        await io.signInPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
+      }
+      await attemptSignIn();
       const maxWaitTime = 30000;
       const startTime = Date.now();
       let errorMessage;
@@ -23,13 +26,13 @@ test.describe("C56925 Verify the /request-reset?application=concur page is displ
         if (match && match[1]) {
           errorMessage = match[0];
         }
-      }
-      if (errorMessage) {
-        const waitSeconds = parseInt(match[1]);
-        await page.waitForTimeout(waitSeconds * 1000);
-        console.log('Waiting time is', waitSeconds)
-        await io.signInPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
-        console.log('After successfully wait clicked signin')
+        if (errorMessage) {
+          const waitSeconds = parseInt(match[1]);
+          console.log('Waiting for', waitSeconds, 'seconds before retrying');
+          await page.waitForTimeout(waitSeconds * 1000);
+          console.log('Retrying sign-in after wait');
+          await attemptSignIn();
+        }
       }
     }
   })
