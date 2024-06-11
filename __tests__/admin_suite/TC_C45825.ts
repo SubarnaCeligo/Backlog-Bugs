@@ -1,6 +1,5 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import { randomNumber, randomString } from "@celigo/aut-utilities";
 
 test.describe("TC_C45825 Verify if the message is shown correcly on the screen when MFA is disabled for a user.", () => {
   test("@Zephyr-IO-T17233 @Env-All C45825 Verify if the message is shown correcly on the screen when MFA is disabled for a user.", async ({
