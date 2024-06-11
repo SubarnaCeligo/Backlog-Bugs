@@ -7,7 +7,7 @@ test.describe("@Author-Sudhanshukumar T27437 Verify the Knowledge bot icon is Vi
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.loadingTime();
     });
-    test.skip("C27437 Verify the Knowledge bot icon is Visible on All Screens. @Epic-IO-69807 @Priority-P2 @Zephyr-IO-T27437 @Zephyr-IO-T27438 @Zephyr-IO-T27439 @Zephyr-IO-T27440 @Zephyr-IO-T27441 @Zephyr-IO-T27442 @Zephyr-IO-T27443 @Zephyr-IO-T27444 @Zephyr-IO-T27445 @Zephyr-IO-T27446 @Zephyr-IO-T27447 @Zephyr-IO-T27448 @Zephyr-IO-T27449 @Zephyr-IO-T27450 @Env-QA", async ({ io, page, context }) => {
+    test("C27437 Verify the Knowledge bot icon is Visible on All Screens. @Epic-IO-69807 @Priority-P2 @Zephyr-IO-T27437 @Zephyr-IO-T27438 @Zephyr-IO-T27439 @Zephyr-IO-T27440 @Zephyr-IO-T27441 @Zephyr-IO-T27442 @Zephyr-IO-T27443 @Zephyr-IO-T27444 @Zephyr-IO-T27445 @Zephyr-IO-T27446 @Zephyr-IO-T27447 @Zephyr-IO-T27448 @Zephyr-IO-T27449 @Zephyr-IO-T27450 @Env-QA", async ({ io, page, context }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.loadingTime();
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.OPENAI.FLOW_DESCRIPTION_BUTTON);
@@ -23,6 +23,7 @@ test.describe("@Author-Sudhanshukumar T27437 Verify the Knowledge bot icon is Vi
         await expect(page.getByText("Welcome to Celigo AI")).toBeVisible();
         await io.homePage.waitForElementAttached(selectors.basePagePO.CHAT_BOT);
         await io.homePage.click(selectors.basePagePO.CHAT_BOT);
+        await io.homePage.clickByText("Support");
         await expect(page.getByText("Welcome to Celigo AI")).not.toBeVisible();
         await io.assert.verifyElementDisplayedByText('Submit a ticket', 'Submit a ticket is not displayed"');
         await io.homePage.click(selectors.flowBuilderPagePO.OPENAI.KNOWLEDGE_BOT_ICON);
@@ -37,13 +38,26 @@ test.describe("@Author-Sudhanshukumar T27437 Verify the Knowledge bot icon is Vi
         await io.homePage.click(selectors.flowBuilderPagePO.OPENAI.KNOWLEDGE_BOT_SEND);
         //IO-T27445
         await io.assert.verifyElementDisplayedByText('Thinking', 'Thinking is not displayed"');
+
+        //Wait for 4 second and then check answer should should be started streaming and thinking should be removed
+        await page.waitForTimeout(4000);
+        await expect(page.getByText("Thinking")).not.toBeVisible();
+        
         await io.exportsPage.loadingTime();
-        // IO-T27442
-        await io.assert.verifyElementDisplayedByText('Oh no! Timeout error', 'Timeout error not displayed"');
-        await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.OPENAI.KNOWLEDGE_BOT_RETRY, "Knowledge bot Retry Query button is not displayed");
+        
+        await expect(page.getByText("Oh no! Timeout error")).not.toBeVisible();
+        await page.pause();
         await io.homePage.reloadPage();
-        await expect(page.getByText("Oh no! Timeout erro")).not.toBeVisible();
         await io.homePage.click(selectors.flowBuilderPagePO.OPENAI.KNOWLEDGE_BOT_ICON);
+
+        //user can provide feedback thumbs up IO-T27448
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.KNOWLEDGE_BOT_YES);
+        await expect(page.locator(selectors.flowBuilderPagePO.OPENAI.KNOWLEDGE_BOT_YES)).toHaveAttribute('color', '#5CB85C');
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.KNOWLEDGE_BOT_NO);
+        await expect(page.locator(selectors.flowBuilderPagePO.OPENAI.KNOWLEDGE_BOT_NO)).toHaveAttribute('color', '#FF3C3C');
+        await io.assert.verifyElementDisplayedByText('Anything else Celigo AI can help with?', 'Answer displayed is not completed');
+
+        await expect(page.getByText("Oh no! Timeout erro")).not.toBeVisible();
         await io.importsPage.fill(selectors.flowBuilderPagePO.OPENAI.KNOWLEDGE_BOT_INPUT, "I'm facing issues with updating the export schema via API in Celigo Integrator IO. Can you guide me on how to update the export schema programmatically? Additionally, I encountered an error stating 'Element value exceeds the fixed length of 30'. How is it possible that records are imported successfully when the Success status is marked as N/A?Furthermore, in Microsoft Dynamics 365 Business Central, I'm encountering the error message Activity was deadlocked with another user. What steps should I take to resolve this deadlock issue? In another integration scenario involving Salesforce real-time exports, I'm encountering the error Integrator Distributed Adaptor package not installed. How can I fix this error and ensure smooth real-time data exports from Salesforce?Moreover, I'm encountering JavaScript errors in a filter or hook within Celigo Integrator IO. What are the common causes of such errors, and how can they be resolved effectively?Lastly, while working with handlebars templates, I encountered a parse err");
         //IO-T27446 1024 Char
         await io.assert.verifyElementDisplayedByText('You have reached the maximum of 1024 characters', '1024 Error message is not displayed"');
@@ -56,11 +70,6 @@ test.describe("@Author-Sudhanshukumar T27437 Verify the Knowledge bot icon is Vi
             await page.mouse.wheel(0, 800);
         }
         await io.exportsPage.loadingTime();
-        //user can provide feedback thumbs up IO-T27448
-        await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.KNOWLEDGE_BOT_YES);
-        await expect(page.locator(selectors.flowBuilderPagePO.OPENAI.KNOWLEDGE_BOT_YES)).toHaveAttribute('color', '#5CB85C');
-        await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.KNOWLEDGE_BOT_NO);
-        await expect(page.locator(selectors.flowBuilderPagePO.OPENAI.KNOWLEDGE_BOT_NO)).toHaveAttribute('color', '#FF3C3C');
         // IO-T27449
         await io.flowBuilder.clickByText("Understand the Salesforce - NetSuite dependent flows");
         await io.homePage.loadingTime()
