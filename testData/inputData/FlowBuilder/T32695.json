@@ -1,0 +1,166 @@
+{
+    "name": "IO-T32695",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "FTP Export",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "eebcca58d7",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/Group-QA/ShritiS"
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": false,
+                    "type": "json",
+                    "filter": {
+                        "type": "expression",
+                        "expression": {
+                            "rules": [],
+                            "version": "1"
+                        },
+                        "rules": [],
+                        "version": "1"
+                    }
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "FTP FIXED width test",
+                "sampleData": {
+                    "10": [
+                        {
+                            "Reference Number Qualifier": "11",
+                            "Reference Number Value": "RE111101"
+                        }
+                    ],
+                    "15": [
+                        {
+                            "Contact Name": "MUNESWARA",
+                            "Contact Qualifier": "AS",
+                            "Contact Phone Number": "9618619922"
+                        }
+                    ],
+                    "20": [
+                        {
+                            "Remit To Name": "Rock",
+                            "Remit To Address 1": "Address 1",
+                            "Remit To Address 2": "Address 2",
+                            "Remit To City": "sanfransisco",
+                            "Remit To State": "US",
+                            "Remit To Zip": "5000012",
+                            "Remit To": "AD"
+                        }
+                    ],
+                    "40": [
+                        {
+                            "42": [
+                                {
+                                    "Line Item Description": "ULTRACORE 71A85 1/16 SPOOL"
+                                }
+                            ],
+                            "Invoice Line Number": "001",
+                            "Quantity Ordered": "132",
+                            "Unit Of Measure": "EA",
+                            "Unit Price": "1.72",
+                            "Part Qualifier 1": "VN",
+                            "Item Number 1": "LINED031999",
+                            "Part Qualifier 2": "BP",
+                            "Item Number 2": "ED031777"
+                        }
+                    ],
+                    "75": [
+                        {
+                            "Tax Amount Qualifier": "11",
+                            "Tax Amount": "145",
+                            "Tax Description": "TAX DESCR1"
+                        }
+                    ],
+                    "80": [
+                        {
+                            "Charge Indicator": "C",
+                            "Allowance charge type": "D240",
+                            "Blank_03(10)": "132",
+                            "Charge Amount": "000000000000125",
+                            "Charge Description": "FREIGHT"
+                        }
+                    ],
+                    "Partner ID Code": "C0CDI1",
+                    "Transaction Set ID": "810",
+                    "Invoice Date": "20180117",
+                    "Invoice Number": "000000227421",
+                    "Transaction Set ID(01)": " 652224",
+                    "Invoice Type": "DI",
+                    "Total Invoice Amount": "0000022829",
+                    "Total Amount Subject To Discount": "123",
+                    "Discounted Amount Due": "NET30",
+                    "Terms Discount Amount": "111"
+                },
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "i2f6e18171",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "file-{{timestamp}}.edi",
+                    "skipAggregation": true,
+                    "type": "filedefinition",
+                    "fileDefinition": {
+                        "_fileDefinitionId": "666020ed75993072265520e7"
+                    }
+                },
+                "ftp": {
+                    "directoryPath": "test",
+                    "fileName": "file-{{timestamp}}.edi"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ],
+    "createFlow": {
+        "name": "IO-T32695",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+        ]
+    },
+    "customSetting": {
+        "useAsPrimaryInterface": true,
+        "fieldMap": {
+            "pathparam": {
+                "id": "pathparam",
+                "name": "pathparam",
+                "type": "text",
+                "label": "Account number",
+                "required": true,
+                "helpText": "Enter an account number, and separate additional values with a comma."
+            }
+        },
+        "layout": {
+            "fields": [
+                "pathparam"
+            ]
+        }
+    }
+}
