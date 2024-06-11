@@ -34,78 +34,152 @@
         {
             "type": "import",
             "qa__import": {
-                "name": "FTP FIXED width test",
+                "name": "AutomationStandalone_wE2rB",
                 "sampleData": {
                     "10": [
                         {
-                            "Reference Number Qualifier": "11",
-                            "Reference Number Value": "RE111101"
+                            "O_ST_NAME": "CLEMENS MOBILE WELDING",
+                            "O_ST_ADD1": "25239 COMMERCE DRIVE",
+                            "O_ST_ADD2": "",
+                            "O_ST_CITY": "DEFIANCE",
+                            "O_ST_STATE": "OH",
+                            "O_ST_ZIP": "435120000",
+                            "O_BT_NAME": "COMPUTERS UNLIMITED",
+                            "O_BT_ADD1": "2407 MONTANA AVE.",
+                            "O_BT_ADD2": "",
+                            "O_BT_CITY": "BILLINGS",
+                            "O_BT_STATE": "MT",
+                            "O_BT_ZIP": "59101",
+                            "Blank_13(10)": "",
+                            "O_PBRNCH": "006",
+                            "O_PSHVIA": "TRUCK",
+                            "Blank_16(10)": "006"
+                        },
+                        {
+                            "O_ST_NAME": "CLEMENS MOBILE WELDING",
+                            "O_ST_ADD1": "25239 COMMERCE DRIVE",
+                            "O_ST_ADD2": "",
+                            "O_ST_CITY": "DEFIANCE",
+                            "O_ST_STATE": "OH",
+                            "O_ST_ZIP": "435120000",
+                            "O_BT_NAME": "COMPUTERS UNLIMITED",
+                            "O_BT_ADD1": "2407 MONTANA AVE.",
+                            "O_BT_ADD2": "",
+                            "O_BT_CITY": "BILLINGS",
+                            "O_BT_STATE": "MT",
+                            "O_BT_ZIP": "59101",
+                            "Blank_13(10)": "",
+                            "O_PBRNCH": "006",
+                            "O_PSHVIA": "TRUCK",
+                            "Blank_16(10)": "006"
                         }
                     ],
-                    "15": [
+                    "28": [
                         {
-                            "Contact Name": "MUNESWARA",
-                            "Contact Qualifier": "AS",
-                            "Contact Phone Number": "9618619922"
+                            "O_GEN_COMMENT": "Header Comment 1"
                         }
                     ],
-                    "20": [
+                    "30": [
                         {
-                            "Remit To Name": "Rock",
-                            "Remit To Address 1": "Address 1",
-                            "Remit To Address 2": "Address 2",
-                            "Remit To City": "sanfransisco",
-                            "Remit To State": "US",
-                            "Remit To Zip": "5000012",
-                            "Remit To": "AD"
-                        }
-                    ],
-                    "40": [
-                        {
-                            "42": [
+                            "35": [
                                 {
-                                    "Line Item Description": "ULTRACORE 71A85 1/16 SPOOL"
+                                    "O_COMMENT": "ULTRACORE 71A85 1/16 SPOOL"
+                                },
+                                {
+                                    "O_COMMENT": "ULTRACORE 71A85 1/16 SPOOL"
                                 }
                             ],
-                            "Invoice Line Number": "001",
-                            "Quantity Ordered": "132",
-                            "Unit Of Measure": "EA",
-                            "Unit Price": "1.72",
-                            "Part Qualifier 1": "VN",
-                            "Item Number 1": "LINED031999",
-                            "Part Qualifier 2": "BP",
-                            "Item Number 2": "ED031777"
-                        }
-                    ],
-                    "75": [
+                            "45": [
+                                {
+                                    "O_COMMENT2": "PLEASE FAX / EMAIL CONFIRMATION TO XXX-XXX-XXXX"
+                                }
+                            ],
+                            "O_PLLINE": "001",
+                            "O_PLQTY": "132",
+                            "O_PLUNIT": "EA",
+                            "O_PLCOST": "1.72",
+                            "O_PLITEM_SUP": "LIN",
+                            "O_PLITEM_ITEM": "ED031999",
+                            "O_PLITEM_LOC": "6",
+                            "O_UPC_CODE": "15082658230",
+                            "O_VEN_NUM": "ED031777",
+                            "O_PLRQDT": "180116",
+                            "O_L_CONTRACT": "",
+                            "O_L_MIX_ID": "",
+                            "O_L_MIXGAS": "",
+                            "O_L_OWN": "",
+                            "O_L_LGAS": "",
+                            "O_PLRQDT_CC": "20180116",
+                            "O_WEIGHT": "0000000000"
+                        },
                         {
-                            "Tax Amount Qualifier": "11",
-                            "Tax Amount": "145",
-                            "Tax Description": "TAX DESCR1"
+                            "35": [
+                                {
+                                    "O_COMMENT": "ULTRACORE 71A85 1/16 SPOOL"
+                                },
+                                {
+                                    "O_COMMENT": "ULTRACORE 71A85 1/16 SPOOL"
+                                }
+                            ],
+                            "45": [
+                                {
+                                    "O_COMMENT2": "PLEASE FAX / EMAIL CONFIRMATION TO XXX-XXX-XXXX"
+                                }
+                            ],
+                            "O_PLLINE": "001",
+                            "O_PLQTY": "132",
+                            "O_PLUNIT": "EA",
+                            "O_PLCOST": "1.72",
+                            "O_PLITEM_SUP": "LIN",
+                            "O_PLITEM_ITEM": "ED031999",
+                            "O_PLITEM_LOC": "6",
+                            "O_UPC_CODE": "15082658230",
+                            "O_VEN_NUM": "ED031777",
+                            "O_PLRQDT": "180116",
+                            "O_L_CONTRACT": "",
+                            "O_L_MIX_ID": "",
+                            "O_L_MIXGAS": "",
+                            "O_L_OWN": "",
+                            "O_L_LGAS": "",
+                            "O_PLRQDT_CC": "20180116",
+                            "O_WEIGHT": "0000000000"
                         }
                     ],
-                    "80": [
+                    "DOC_PRTNR_ID": "V100",
+                    "DOC_SET_ID": "850",
+                    "DOC_REC_LEN": "2048",
+                    "DOC_TEST_PROD": "P",
+                    "O_PONUM": "652224",
+                    "O_PODATE": "180116",
+                    "Blank_3(01)": "180116",
+                    "O_PREQNO": "000000",
+                    "O_PODATE_CC": "20180116",
+                    "O_PREQDTE_CC": "20180116",
+                    "O_PO_TYPE": "SA",
+                    "Blank_8(01)": "",
+                    "O_MISC_INFO": "",
+                    "Blank_10(01)": "",
+                    "O_CURR_CODE": "00",
+                    "O_BLK_PO": "0",
+                    "03": [
                         {
-                            "Charge Indicator": "C",
-                            "Allowance charge type": "D240",
-                            "Blank_03(10)": "132",
-                            "Charge Amount": "000000000000125",
-                            "Charge Description": "FREIGHT"
+                            "O_PFTERM": "NET30",
+                            "O_PCOMMT": "Test Comment"
                         }
                     ],
-                    "Partner ID Code": "C0CDI1",
-                    "Transaction Set ID": "810",
-                    "Invoice Date": "20180117",
-                    "Invoice Number": "000000227421",
-                    "Transaction Set ID(01)": " 652224",
-                    "Invoice Type": "DI",
-                    "Total Invoice Amount": "0000022829",
-                    "Total Amount Subject To Discount": "123",
-                    "Discounted Amount Due": "NET30",
-                    "Terms Discount Amount": "111"
+                    "05": [
+                        {
+                            "O_REQUIRED_DATE": "180117",
+                            "O_REQUIRED_DATE_CC": "20180117"
+                        },
+                        {
+                            "O_REQUIRED_DATE": "180117",
+                            "O_REQUIRED_DATE_CC": "20180117"
+                        }
+                    ]
                 },
                 "_connectionId": "FTP CONNECTION",
-                "apiIdentifier": "i2f6e18171",
+                "apiIdentifier": "i17b86f355",
                 "oneToMany": false,
                 "sandbox": false,
                 "file": {
@@ -113,11 +187,11 @@
                     "skipAggregation": true,
                     "type": "filedefinition",
                     "fileDefinition": {
-                        "_fileDefinitionId": "666020ed75993072265520e7"
+                        "_fileDefinitionId": "6668189bf21e964a868bcd03"
                     }
                 },
                 "ftp": {
-                    "directoryPath": "test",
+                    "directoryPath": "/Group-QA/ShritiS/Import",
                     "fileName": "file-{{timestamp}}.edi"
                 },
                 "adaptorType": "FTPImport"
