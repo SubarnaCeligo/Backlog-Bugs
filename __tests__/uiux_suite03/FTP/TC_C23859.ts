@@ -17,6 +17,8 @@ test.describe("TC_C23859 Verify CSV Generator: All the fields are evaluating cor
       process.env["IO_Integration_URL"] + "flowBuilder/" + id
     );
     await io.flowBuilder.loadingTime();
+    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.TRANSFER, 1);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.exportsPagePO.FILE_TYPE);
