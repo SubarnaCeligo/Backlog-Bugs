@@ -48,9 +48,6 @@ test("T28736_T28944_T27421 @Zephyr-IO-T28944 @Env-All @Priority-P2 Verify the au
   );
   expect(upgradeNotificationText_free).toEqual(upgradeNotificationText);
   await io.homePage.addStep("Verified. Info message displayed for free tier.");
-      // //  Reverting license changes
-      // await io.homePage.addStep("Reverting license changes.");
-      // await io.api.putCall(`v1/test/licenses/${payloadFormat._id}`, payloadFormat);
 });
   test("@Zephyr-IO-T28736  @Env-All @Priority-P2 Verify the license Entitlements notification whenever the endpoints and flow usage has been exceeded for free tier", async ({
     io,
