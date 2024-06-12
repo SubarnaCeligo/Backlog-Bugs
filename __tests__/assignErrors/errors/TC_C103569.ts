@@ -19,12 +19,9 @@ test.describe("TC_C103569 Verify the schedule run for Every hour,Every 30 minute
     await io.flowBuilder.click(selectors.flowBuilderPagePO.SCHEDULE_FLOW);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click("#mui-component-select-frequency");
-    const fifteenSecondsFrequency = page.getByText("Every 15 minutes").nth(0);
-    while (!(await fifteenSecondsFrequency.isVisible())) {
-      await page.mouse.wheel(0, 600);
-    }
-    await fifteenSecondsFrequency.waitFor({ state: "visible", timeout: 30000 });
-    await fifteenSecondsFrequency.click();
+    await io.flowBuilder.selectTextfromDropDown(page, "Every 15 minutes");
+    await io.flowBuilder.delay(1000 * 5 * 1);
+    await io.flowBuilder.clickByTextByIndex("Every 15 minutes", 0);
     await io.flowBuilder.click('[data-test="daysToRunOn"]');
     await io.flowBuilder.clickByTextByIndex("Saturday", 1);
     await io.flowBuilder.clickByTextByIndex("Sunday", 1);
