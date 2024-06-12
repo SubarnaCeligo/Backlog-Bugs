@@ -5,7 +5,7 @@
       "type": "export",
       "qa__export": {
         "name": "export",
-        "_connectionId": "AMAZON S3 CONNECTION",
+        "_connectionId": "S3 CONNECTION",
         "apiIdentifier": "ee52f8dcb1",
         "asynchronous": true,
         "sandbox": false,
@@ -46,7 +46,7 @@
         "type": "export",
         "qa__export": {
           "name": "export",
-          "_connectionId": "AMAZON S3 CONNECTION",
+          "_connectionId": "S3 CONNECTION",
           "apiIdentifier": "ee52f8dcb1",
           "asynchronous": true,
           "sandbox": false,
@@ -89,7 +89,7 @@
       "type": "import",
       "qa__import": {
         "name": "imprt",
-        "_connectionId": "AMAZON S3 CONNECTION",
+        "_connectionId": "S3 CONNECTION",
         "apiIdentifier": "ie8e37f38b",
         "oneToMany": false,
         "sandbox": false,
