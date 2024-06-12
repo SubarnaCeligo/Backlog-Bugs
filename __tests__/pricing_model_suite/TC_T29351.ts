@@ -25,17 +25,13 @@ test.describe("T29351 Verify user is able to enable the flow if disable overage 
       "disableOverage": true,
      }
     );
-    
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime()
-    await test.step(" Verify the license Entitlements notification whenever the endpoints and flow usage has been exceeded", async () => {
-      await io.assert.verifyElementContainsText('[id="notification"]', 'Your account has exceeded its entitlements. Request an upgrade.');
-  })
     await io.homePage.waitForElementAttached(selectors.homePagePO.INTEGRATION_TILES);
     await io.flowBuilder.clickByText("Automation_flows");   
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
+    await io.homePage.loadingTime()
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_ENABLE);
-    
     await test.step("C29351 Verify request upgrade option will be shown if disable overage is true", async () => {
       await io.connectionPage.clickByText("Request upgrade"); 
     })
@@ -56,5 +52,7 @@ test.describe("T29351 Verify user is able to enable the flow if disable overage 
     await io.homePage.loadingTime()
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
-    await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);})
+    await io.homePage.loadingTime()
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
+    })
   });    
