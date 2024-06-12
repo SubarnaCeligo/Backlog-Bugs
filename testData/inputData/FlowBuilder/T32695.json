@@ -1,0 +1,240 @@
+{
+    "name": "IO-T32695",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "FTP Export",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "eebcca58d7",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/Group-QA/ShritiS"
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": false,
+                    "type": "json",
+                    "filter": {
+                        "type": "expression",
+                        "expression": {
+                            "rules": [],
+                            "version": "1"
+                        },
+                        "rules": [],
+                        "version": "1"
+                    }
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "AutomationStandalone_wE2rB",
+                "sampleData": {
+                    "10": [
+                        {
+                            "O_ST_NAME": "CLEMENS MOBILE WELDING",
+                            "O_ST_ADD1": "25239 COMMERCE DRIVE",
+                            "O_ST_ADD2": "",
+                            "O_ST_CITY": "DEFIANCE",
+                            "O_ST_STATE": "OH",
+                            "O_ST_ZIP": "435120000",
+                            "O_BT_NAME": "COMPUTERS UNLIMITED",
+                            "O_BT_ADD1": "2407 MONTANA AVE.",
+                            "O_BT_ADD2": "",
+                            "O_BT_CITY": "BILLINGS",
+                            "O_BT_STATE": "MT",
+                            "O_BT_ZIP": "59101",
+                            "Blank_13(10)": "",
+                            "O_PBRNCH": "006",
+                            "O_PSHVIA": "TRUCK",
+                            "Blank_16(10)": "006"
+                        },
+                        {
+                            "O_ST_NAME": "CLEMENS MOBILE WELDING",
+                            "O_ST_ADD1": "25239 COMMERCE DRIVE",
+                            "O_ST_ADD2": "",
+                            "O_ST_CITY": "DEFIANCE",
+                            "O_ST_STATE": "OH",
+                            "O_ST_ZIP": "435120000",
+                            "O_BT_NAME": "COMPUTERS UNLIMITED",
+                            "O_BT_ADD1": "2407 MONTANA AVE.",
+                            "O_BT_ADD2": "",
+                            "O_BT_CITY": "BILLINGS",
+                            "O_BT_STATE": "MT",
+                            "O_BT_ZIP": "59101",
+                            "Blank_13(10)": "",
+                            "O_PBRNCH": "006",
+                            "O_PSHVIA": "TRUCK",
+                            "Blank_16(10)": "006"
+                        }
+                    ],
+                    "28": [
+                        {
+                            "O_GEN_COMMENT": "Header Comment 1"
+                        }
+                    ],
+                    "30": [
+                        {
+                            "35": [
+                                {
+                                    "O_COMMENT": "ULTRACORE 71A85 1/16 SPOOL"
+                                },
+                                {
+                                    "O_COMMENT": "ULTRACORE 71A85 1/16 SPOOL"
+                                }
+                            ],
+                            "45": [
+                                {
+                                    "O_COMMENT2": "PLEASE FAX / EMAIL CONFIRMATION TO XXX-XXX-XXXX"
+                                }
+                            ],
+                            "O_PLLINE": "001",
+                            "O_PLQTY": "132",
+                            "O_PLUNIT": "EA",
+                            "O_PLCOST": "1.72",
+                            "O_PLITEM_SUP": "LIN",
+                            "O_PLITEM_ITEM": "ED031999",
+                            "O_PLITEM_LOC": "6",
+                            "O_UPC_CODE": "15082658230",
+                            "O_VEN_NUM": "ED031777",
+                            "O_PLRQDT": "180116",
+                            "O_L_CONTRACT": "",
+                            "O_L_MIX_ID": "",
+                            "O_L_MIXGAS": "",
+                            "O_L_OWN": "",
+                            "O_L_LGAS": "",
+                            "O_PLRQDT_CC": "20180116",
+                            "O_WEIGHT": "0000000000"
+                        },
+                        {
+                            "35": [
+                                {
+                                    "O_COMMENT": "ULTRACORE 71A85 1/16 SPOOL"
+                                },
+                                {
+                                    "O_COMMENT": "ULTRACORE 71A85 1/16 SPOOL"
+                                }
+                            ],
+                            "45": [
+                                {
+                                    "O_COMMENT2": "PLEASE FAX / EMAIL CONFIRMATION TO XXX-XXX-XXXX"
+                                }
+                            ],
+                            "O_PLLINE": "001",
+                            "O_PLQTY": "132",
+                            "O_PLUNIT": "EA",
+                            "O_PLCOST": "1.72",
+                            "O_PLITEM_SUP": "LIN",
+                            "O_PLITEM_ITEM": "ED031999",
+                            "O_PLITEM_LOC": "6",
+                            "O_UPC_CODE": "15082658230",
+                            "O_VEN_NUM": "ED031777",
+                            "O_PLRQDT": "180116",
+                            "O_L_CONTRACT": "",
+                            "O_L_MIX_ID": "",
+                            "O_L_MIXGAS": "",
+                            "O_L_OWN": "",
+                            "O_L_LGAS": "",
+                            "O_PLRQDT_CC": "20180116",
+                            "O_WEIGHT": "0000000000"
+                        }
+                    ],
+                    "DOC_PRTNR_ID": "V100",
+                    "DOC_SET_ID": "850",
+                    "DOC_REC_LEN": "2048",
+                    "DOC_TEST_PROD": "P",
+                    "O_PONUM": "652224",
+                    "O_PODATE": "180116",
+                    "Blank_3(01)": "180116",
+                    "O_PREQNO": "000000",
+                    "O_PODATE_CC": "20180116",
+                    "O_PREQDTE_CC": "20180116",
+                    "O_PO_TYPE": "SA",
+                    "Blank_8(01)": "",
+                    "O_MISC_INFO": "",
+                    "Blank_10(01)": "",
+                    "O_CURR_CODE": "00",
+                    "O_BLK_PO": "0",
+                    "03": [
+                        {
+                            "O_PFTERM": "NET30",
+                            "O_PCOMMT": "Test Comment"
+                        }
+                    ],
+                    "05": [
+                        {
+                            "O_REQUIRED_DATE": "180117",
+                            "O_REQUIRED_DATE_CC": "20180117"
+                        },
+                        {
+                            "O_REQUIRED_DATE": "180117",
+                            "O_REQUIRED_DATE_CC": "20180117"
+                        }
+                    ]
+                },
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "i17b86f355",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "file-{{timestamp}}.edi",
+                    "skipAggregation": true,
+                    "type": "filedefinition",
+                    "fileDefinition": {
+                        "_fileDefinitionId": "6668189bf21e964a868bcd03"
+                    }
+                },
+                "ftp": {
+                    "directoryPath": "/Group-QA/ShritiS/Import",
+                    "fileName": "file-{{timestamp}}.edi"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ],
+    "createFlow": {
+        "name": "IO-T32695",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+        ]
+    },
+    "customSetting": {
+        "useAsPrimaryInterface": true,
+        "fieldMap": {
+            "pathparam": {
+                "id": "pathparam",
+                "name": "pathparam",
+                "type": "text",
+                "label": "Account number",
+                "required": true,
+                "helpText": "Enter an account number, and separate additional values with a comma."
+            }
+        },
+        "layout": {
+            "fields": [
+                "pathparam"
+            ]
+        }
+    }
+}
