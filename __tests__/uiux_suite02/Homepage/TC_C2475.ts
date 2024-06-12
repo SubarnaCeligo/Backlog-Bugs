@@ -13,7 +13,7 @@ test.describe("C2475_Verify the new Tools & Resources tab, Transfers & Audit log
         await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
         await io.myAccountPage.click(selectors.myAccountPagePO.TRANSFERTAB);
         // Validating once clicked on transfer tab profile visible
-        await io.assert.verifyElementDisplayedByText('My profile', "It's not visible")
+        await io.assert.verifyElementDisplayedByText('Create transfer', "It's not visible")
         await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
         await io.myAccountPage.click(selectors.myAccountPagePO.AUDIT_LOG);
         await io.myAccountPage.loadingTime()

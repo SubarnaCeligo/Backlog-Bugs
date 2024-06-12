@@ -11,7 +11,7 @@ test.describe(`C33165 Verify When changes have been made but not yet saved, show
     await io.homePage.fill(selectors.flowBuilderPagePO.APP_NAME_INPUT, "REST API (HTTP)")
     await io.importsPage.click(selectors.connectionsPagePO.RESTAPI_HTTP);
     await io.importsPage.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
-    await io.importsPage.clickByText("3PL CONNECTION");
+    await io.importsPage.selectConnectionDropDown(page,"3PL CONNECTION");
     await page.locator(selectors.exportsPagePO.NAME).fill("C33165");
     await io.importsPage.click(selectors.basePagePO.SAVE);
     await io.importsPage.delay(2000);

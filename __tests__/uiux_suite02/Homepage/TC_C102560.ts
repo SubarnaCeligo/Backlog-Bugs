@@ -8,6 +8,7 @@ test.describe("C102560 Verify caret is showing for items where we have sub menu"
   }) => {
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
     await io.homePage.loadingTime()
+    await page.waitForLoadState("networkidle")
     let flag = await page.locator(selectors.basePagePO.TOOLS_RIGHT_CARET).isVisible()
     if(!flag){
       await io.homePage.click(selectors.basePagePO.DRAWERTOGGLE)
