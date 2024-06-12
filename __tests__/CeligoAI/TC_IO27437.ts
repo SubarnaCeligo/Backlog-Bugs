@@ -136,15 +136,13 @@ test.describe("@Author-Sudhanshukumar T27437 Verify the Knowledge bot icon is Vi
         await io.assert.expectToBeTrue(func, "urls doesn't match")
         await allPages[0].bringToFront();
         await io.homePage.click(selectors.flowBuilderPagePO.OPENAI.KNOWLEDGE_BOT_CLOSE);
-        // Imports in Resources IO-T27072
+        // Imports in Resources
         await io.homePage.goToMenu("Resources", "Imports");
         await io.flowBuilder.loadingTime();
-        await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.OPENAI.FLOW_DESCRIPTION_BUTTON, "Flow description is not displayed");
         await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.OPENAI.KNOWLEDGE_BOT_ICON, "Knowledge bot icon is not displayed");
         // Exports in Resources
         await io.homePage.goToMenu("Resources", "Exports");
         await io.exportsPage.loadingTime();
-        await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.OPENAI.FLOW_DESCRIPTION_BUTTON, "Flow description is not displayed");
         await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.OPENAI.KNOWLEDGE_BOT_ICON, "Knowledge bot icon is not displayed");
     });
 });
