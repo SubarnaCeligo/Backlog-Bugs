@@ -12,7 +12,7 @@ test.describe("@Author_sagna123 TC_T32707_Test to validate saved searches relate
         await io.homePage.addStep("*** Navigated back to export page ***");
         await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
         await io.homePage.addStep("*** Clicked on create export***");
-        await io.homePage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, "NETSUITE");
+        await io.homePage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, "NETSUITE" );
         await io.homePage.addStep("*** Searched for PostgreSQL application ***");
         await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.flowBuilderPagePO.NETSUITE);
