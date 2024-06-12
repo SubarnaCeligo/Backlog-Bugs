@@ -94,9 +94,11 @@ test("T28736_T28944_T27421 @Zephyr-IO-T28944 @Env-All @Priority-P2 Verify the au
       await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
       await io.myAccountPage.click(selectors.myAccountPagePO.SUBSCRIPTION);
       await page.waitForLoadState();
+      await io.homePage.loadingTime();
       const bgColorList = await io.homePage.getBackgroundColors(
         selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR
       );
+      await io.homePage.loadingTime();
       await io.assert.expectToBeValueInArray(
         bgColorList,
         "rgb(29, 118, 199)",
