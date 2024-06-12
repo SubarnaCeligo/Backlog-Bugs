@@ -1,7 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-// T32558_T32559_T32560_T32561_T32562_T32563_T32565_T32566_T32567_T32568_T32569_T32570_T32571_T32574_T32576_T32581_T32582_T32587_T32876
 test.describe("Snowflake Bulk Load epic testcases (IO-68704)", () => {
   test("@Zephyr-T32558 @Zephyr-T32559 @Zephyr-T32560 @Zephyr-T32561 @Zephyr-T32562 @Zephyr-T32563 @Zephyr-T32565 @Zephyr-T32566 @Zephyr-T32567 @Zephyr-T32568 @Zephyr-T32569 @Zephyr-T32570 @Zephyr-T32571 @Zephyr-T32574 @Zephyr-T32576 @Zephyr-T32581 @Zephyr-T32582 @Zephyr-T32587 @Zephyr-T32876 @Epic-IO-68704 @Priority-P2 @Env-QA Snowflake bulk load epic cases", async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.HOME_PAGE_URL);
