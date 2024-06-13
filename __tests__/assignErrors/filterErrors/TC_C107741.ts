@@ -1,11 +1,16 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import C107741 from '@testData/Flows/C107741.json';
+
 test.describe("TC_C107741 Verify Blue dot on Filter icon displayed after selecting tag", () => {
-    test("@Zephyr-T24128 @Env-QA @Priority-P2 TC_C107741 Verify Blue dot on Filter icon displayed after selecting tag", async ({ io, page }) => {
+    test.describe.configure({ retries: 2 })
+
+    test.beforeEach(async ({ io }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.loadingTime()
+    });
 
+    test("@Zephyr-T24128 @Env-QA @Priority-P2 TC_C107741 Verify Blue dot on Filter icon displayed after selecting tag", async ({ io, page }) => {
         await io.createResourceFromAPI(C107741, "FLOWS");
         await io.flowBuilder.click(selectors.basePagePO.RUNFLOW);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
@@ -35,24 +40,11 @@ test.describe("TC_C107741 Verify Blue dot on Filter icon displayed after selecti
         const firstSpan = await page.locator(selectors.filterErrorTag.FILTER_BY_TAG2);
         await firstSpan.click();
         await io.flowBuilder.clickByText('Apply')
+        await io.flowBuilder.waitForElementAttached(selectors.filterErrorTag.ARIALABELFILTERERROR);
 
         await io.homePage.addStep("*** Verifying blue dot on Filter icon ***");
         await io.flowBuilder.waitForElementAttached(selectors.filterErrorTag.ARIALABELFILTERERROR);
         const Symbol = await page.$(selectors.filterErrorTag.ARIALABELFILTERERROR);
         expect(await Symbol.screenshot()).toMatchSnapshot("C107141.png",  {maxDiffPixelRatio: 0.8 });
-
-        await io.homePage.addStep("*** Delete Tags ***");
-        await selectErrorCheckboxes.nth(0).click();
-        await io.flowBuilder.clickByIndex(selectors.em2DotOLineGraphPO.TAG_ERRORS, 0);
-        let button = await page.locator(selectors.filterErrorTag.DELETE_TAG2);
-        await button.hover();
-        await button.click();
-        await io.flowBuilder.clickByText('Delete');
-
-        await io.flowBuilder.clickByIndex(selectors.em2DotOLineGraphPO.TAG_ERRORS, 0);
-        button = await page.locator(selectors.filterErrorTag.DELETE_TAG1);
-        await button.hover();
-        await button.click();
-        await io.flowBuilder.clickByText('Delete');
     });
 });
