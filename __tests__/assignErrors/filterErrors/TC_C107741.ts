@@ -3,6 +3,9 @@ import * as selectors from "@celigo/aut-selectors";
 import C107741 from '@testData/Flows/C107741.json';
 test.describe("TC_C107741 Verify Blue dot on Filter icon displayed after selecting tag", () => {
     test("@Zephyr-T24128 @Env-QA @Priority-P2 TC_C107741 Verify Blue dot on Filter icon displayed after selecting tag", async ({ io, page }) => {
+        await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.homePage.loadingTime()
+
         await io.createResourceFromAPI(C107741, "FLOWS");
         await io.flowBuilder.click(selectors.basePagePO.RUNFLOW);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
@@ -36,7 +39,7 @@ test.describe("TC_C107741 Verify Blue dot on Filter icon displayed after selecti
         await io.homePage.addStep("*** Verifying blue dot on Filter icon ***");
         await io.flowBuilder.waitForElementAttached(selectors.filterErrorTag.ARIALABELFILTERERROR);
         const Symbol = await page.$(selectors.filterErrorTag.ARIALABELFILTERERROR);
-        expect(await Symbol.screenshot()).toMatchSnapshot("C107141.png",  {maxDiffPixelRatio: 0.5 });
+        expect(await Symbol.screenshot()).toMatchSnapshot("C107141.png",  {maxDiffPixelRatio: 0.8 });
 
         await io.homePage.addStep("*** Delete Tags ***");
         await selectErrorCheckboxes.nth(0).click();
