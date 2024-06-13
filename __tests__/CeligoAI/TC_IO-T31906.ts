@@ -55,7 +55,7 @@ test.describe("IO-T31906 Verify Celigo AI is displayed in transformation2.0 tab"
     await io.flowBuilder.clickByIndex(selectors.exportsPagePO.HELP_TEXT_ICLIENT, 5);
     await io.assert.verifyElementDisplayedByText('Auto-transform all selected un-mapped output fields i.e. the ones that do not have input field added. When auto-transform is clicked, all options that modify the existing output structure will be disabled. Close auto-transform to go back to mappings.', "Help text is not as expected");
     await io.flowBuilder.addStep("Verified the auto transform help text");
-    await io.flowBuilder.click(selectors.basePagePO.CLOSE_BUTTON);
+    await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE );
     await io.assert.verifyElementAttributeContainsText(selectors.flowBuilderPagePO.OPENAI.MAPPER2SEARCH, "class", "Mui-disabled");
     await io.assert.verifyElementAttributeContainsText(selectors.mappings.MAPPER2DOT0PO.CHANGEOUTPUTFORMAT, "class", "Mui-disabled");
     await io.flowBuilder.addStep("Verified the other buttons are disabled when auto transform is active");
