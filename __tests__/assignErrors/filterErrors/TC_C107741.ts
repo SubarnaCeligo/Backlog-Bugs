@@ -6,7 +6,7 @@ test.describe("TC_C107741 Verify Blue dot on Filter icon displayed after selecti
         await io.createResourceFromAPI(C107741, "FLOWS");
         await io.flowBuilder.click(selectors.basePagePO.RUNFLOW);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
-        await page.waitForTimeout(50000);
+        await page.waitForTimeout(70000);
         await io.homePage.addStep("*** Open the error drawer ***")
         await io.flowBuilder.clickByTextByIndex('2 errors', 2, { exact: false });
         await io.flowBuilder.clickByText('Open errors');
@@ -29,7 +29,7 @@ test.describe("TC_C107741 Verify Blue dot on Filter icon displayed after selecti
     
         await io.homePage.addStep("*** Filtering error by 'Tag@2' ***")
         await io.flowBuilder.click(selectors.filterErrorTag.ARIALABELFILTERERROR);
-        const firstSpan = await page.locator('[data-test="filter-by-tag-Tag@2"]');
+        const firstSpan = await page.locator(selectors.filterErrorTag.FILTER_BY_TAG2);
         await firstSpan.click();
         await io.flowBuilder.clickByText('Apply')
 
@@ -41,13 +41,13 @@ test.describe("TC_C107741 Verify Blue dot on Filter icon displayed after selecti
         await io.homePage.addStep("*** Delete Tags ***");
         await selectErrorCheckboxes.nth(0).click();
         await io.flowBuilder.clickByIndex(selectors.em2DotOLineGraphPO.TAG_ERRORS, 0);
-        let button = await page.locator('[data-test="delete-tag-Tag@2"]');
+        let button = await page.locator(selectors.filterErrorTag.DELETE_TAG2);
         await button.hover();
         await button.click();
         await io.flowBuilder.clickByText('Delete');
 
         await io.flowBuilder.clickByIndex(selectors.em2DotOLineGraphPO.TAG_ERRORS, 0);
-        button = await page.locator('[data-test="delete-tag-Tag@1"]');
+        button = await page.locator(selectors.filterErrorTag.DELETE_TAG1);
         await button.hover();
         await button.click();
         await io.flowBuilder.clickByText('Delete');
