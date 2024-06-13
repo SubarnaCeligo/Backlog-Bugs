@@ -14,8 +14,11 @@ test.describe("TC_C107741 Verify Blue dot on Filter icon displayed after selecti
         await io.createResourceFromAPI(C107741, "FLOWS");
         await io.flowBuilder.click(selectors.basePagePO.RUNFLOW);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
-        await page.waitForTimeout(70000);
-        await io.homePage.addStep("*** Open the error drawer ***")
+        await io.homePage.loadingTime();
+
+        await io.homePage.addStep("*** Refresh page and open the error drawer ***")
+        await io.homePage.reloadPage();
+        await io.homePage.loadingTime();
         await io.flowBuilder.clickByTextByIndex('2 errors', 2, { exact: false });
         await io.flowBuilder.clickByText('Open errors');
 
