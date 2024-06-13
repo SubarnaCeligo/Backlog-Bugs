@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import { decrypt } from "@celigo/aut-utilities";
 
-test.describe("C56287 Verify if the user is navigating to signup page (/signup?) by clicking on the link in the sign in page", () => {
+test.describe("C56291 Verify if the user is able to signup and login with the details provided on the signup page", () => {
    test.beforeEach('check sign out', async ({ io, page }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     const isNotLoggedIn = await io.loginPage.checkLoginState();
@@ -36,10 +36,7 @@ test.describe("C56287 Verify if the user is navigating to signup page (/signup?)
       }
     }
   })
-  test("@Env-All @Zephyr-IO-T1103 C56287 Verify if the user is navigating to signup page (/signup?) by clicking on the link in the sign in page", async ({
-    io,
-    page
-  }) => {
+  test("@Env-All @Zephyr-IO-T1006 C56291 Verify if the user is able to signup and login with the details provided on the signup page", async ({ io, page }) => {
     await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.click(selectors.basePagePO.SIGN_OUT);
