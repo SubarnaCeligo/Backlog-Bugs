@@ -11,12 +11,12 @@ test.describe(`C61158 Verify If some of the NS steps are configured to use suite
     if(process.env["IO_UI_CONNECTOR_URL"] == "https://qa.staging.integrator.io/"){
     await io.homePage.navigateTo(
       process.env["IO_UI_CONNECTOR_URL"] +
-        "marketplace/installTemplate/preview/6639f9f38ce96d807cde769e"
+        "marketplace/installTemplate/preview/666a97e8b2cad583d1c557b1"
     );
     } else if(process.env["IO_UI_CONNECTOR_URL"] == "https://staging.integrator.io/"){
       await io.homePage.navigateTo(
         process.env["IO_UI_CONNECTOR_URL"] +
-          "marketplace/installTemplate/preview/6639fa7ea075cfae57469022"
+          "marketplace/installTemplate/preview/666a97470b1db877dac8e60f"
       );
     } else{
       await io.homePage.navigateTo(

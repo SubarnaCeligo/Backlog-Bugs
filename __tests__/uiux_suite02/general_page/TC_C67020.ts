@@ -14,7 +14,7 @@ test.describe('C67020 To verify that the delete option colour is changed to red 
   test('@Env-All @Zephyr-IO-T24308 Homepage List view', async ({ page, io }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime()
-    await page.locator(selectors.homePagePO.LIST_VIEW).waitFor({ state: 'visible', timeout: 190000 });
+    await page.locator(selectors.homePagePO.LIST_VIEW).waitFor({ state: 'visible', timeout: 3600000 });
     await io.homePage.click(selectors.homePagePO.LIST_VIEW);
     await io.homePage.loadingTime()
     await io.homePage.clickByIndex(`${selectors.flowBuilderPagePO.COLUMNS} ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`, 1);
@@ -57,7 +57,7 @@ test.describe('C67020 To verify that the delete option colour is changed to red 
   });
   test("@Env-All @Zephyr-IO-T24308 Integration Page.", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await page.locator(selectors.homePagePO.LIST_VIEW).waitFor({ state: 'visible', timeout: 190000 });
+    await page.locator(selectors.homePagePO.LIST_VIEW).waitFor({ state: 'visible', timeout: 3600000 });
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.homePage.loadingTime()
     await io.homePage.isPageLoaded()

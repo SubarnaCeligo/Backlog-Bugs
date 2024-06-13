@@ -14,7 +14,7 @@ test.describe(`C61155 Verify If all the NS steps in my integration are solely co
     } else if(process.env["IO_UI_CONNECTOR_URL"] == "https://staging.integrator.io/"){
       await io.homePage.navigateTo(
         process.env["IO_UI_CONNECTOR_URL"] +
-          "marketplace/installTemplate/preview/6639fa7ea075cfae57469022"
+          "marketplace/installTemplate/preview/666a94750b1db877dac8d1bf"
       );
     } else{
       await io.homePage.navigateTo(
