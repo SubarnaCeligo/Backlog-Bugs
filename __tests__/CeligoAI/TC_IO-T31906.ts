@@ -197,7 +197,6 @@ test.describe("IO-T31906 Verify Celigo AI is displayed in transformation2.0 tab"
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.loadingTime();
-    await page.pause();
     await page.waitForTimeout(10000);
     await io.assert.verifyElementAttribute(
       selectors.flowBuilderPagePO.TRANSFORMATION_INPUTFIELD_PLACEHOLDER,
