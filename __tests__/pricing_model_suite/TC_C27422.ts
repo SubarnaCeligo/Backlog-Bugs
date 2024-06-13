@@ -23,6 +23,7 @@ test.describe("C27422 Verify the endpoint under subscription page when it exceed
     });
 
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
+    await io.myAccountPage.waitForElementAttached(selectors.myAccountPagePO.SUBSCRIPTION);
     await io.myAccountPage.click(selectors.myAccountPagePO.SUBSCRIPTION);
     await page.waitForLoadState("load", { timeout: 60000 });
 
