@@ -1,9 +1,9 @@
-import { test, expect } from "@celigo/ui-core-automation";
+import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import { decrypt } from "@celigo/aut-utilities";
 
-test.describe("C67038 Verify if the error message is shown when the user tries to signup using google with an invalid email", () => {
-   test.beforeEach('check sign out', async ({ io, page }) => {
+test.describe("C1052 Verify Signin With Google button on Signin form", () => {
+  test.beforeEach('check sign out', async ({ io, page }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     const isNotLoggedIn = await io.loginPage.checkLoginState();
     if (!isNotLoggedIn) {
@@ -35,15 +35,16 @@ test.describe("C67038 Verify if the error message is shown when the user tries t
         }
       }
     }
-  })
-  test("@Env-All @Zephyr-IO-T17835 C67038 Verify if the error message is shown when the user tries to signup using google with an invalid email", async ({ io, page }) => {
+  });
+  test("@Env-All @Zephyr-IO-T928 C1052 Verify Signin With Google button on Signin form", async ({ io, page }) => {
     await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.click(selectors.basePagePO.SIGN_OUT);
-    await io.homePage.click(selectors.loginPagePO.SIGNUP_SIGNIN_FOOTER);
-    await io.homePage.clickByText('Sign up with Google');
-    await io.homePage.fill(selectors.loginPagePO.IDENTIFIER_ID, 'invalidEmailValidation@celigo.com');
-    await io.homePage.clickByTextByIndex('Next', 0);
-    await io.assert.verifyElementDisplayedByText('Couldn’t find your Google Account', 'No error message');
+    await io.homePage.waitForElementAttached(selectors.loginPagePO.EMAIL);
+    await io.signInPage.fill(selectors.loginPagePO.EMAIL, process.env["IO_UserName"]);
+    await io.signInPage.fill(selectors.loginPagePO.PASSWORD, decrypt(process.env["IO_Password"]));
+    await io.myAccountPage.loadingTime()
+    await io.signInPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
+    await io.assert.verifyJSElementValue(selectors.loginPagePO.EMAIL, process.env["IO_UserName"])
   });
 });
