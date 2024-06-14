@@ -25,8 +25,8 @@ test.describe("C65088 Verify left navigation bar static, and displaying top-leve
     await io.homePage.addStep(
       "Verified 'Marketplace' is visible in the left nav"
     );
-    // await expect(leftNav.locator(selectors.basePagePO.HELP)).toBeVisible();
-    // await io.homePage.addStep("Verified 'Help' is visible in the left nav");
+    await expect(leftNav.locator(selectors.basePagePO.HELP)).toBeVisible();
+    await io.homePage.addStep("Verified 'Help' is visible in the left nav");
     await expect(leftNav.locator(selectors.basePagePO.ACCOUNT)).toBeVisible();
     await io.homePage.addStep("Verified 'Account' is visible in the left nav");
   });

@@ -25,11 +25,11 @@ test.describe("C102560 Verify caret is showing for items where we have sub menu"
         .locator(selectors.basePagePO.RIGHT_CARET)
     ).toBeVisible();
     await io.homePage.addStep("Verified caret is visible for Resources");
-    // await expect(
-    //   page
-    //     .locator(selectors.basePagePO.HELP)
-    //     .locator(selectors.basePagePO.RIGHT_CARET)
-    // ).toBeVisible();
-    // await io.homePage.addStep("Verified caret is visible for Help");
+    await expect(
+      page
+        .locator(selectors.basePagePO.HELP)
+        .locator(selectors.basePagePO.RIGHT_CARET)
+    ).toBeVisible();
+    await io.homePage.addStep("Verified caret is visible for Help");
   });
 });
