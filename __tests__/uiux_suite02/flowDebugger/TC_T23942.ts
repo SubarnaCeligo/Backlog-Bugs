@@ -59,13 +59,13 @@ test.describe("IO-T23942 Verify Editing any flow step / reordering / restructuri
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Http');
     await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
     await io.flowBuilder.click(selectors.connectionsPagePO.TRANSFER_FILES);
-    await io.assert.verifyElementIsDisplayed(selectors.basePagePO.CREATE_FROM_SCRATCH, "Create from scratch for export is not displayed properly");
     await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
-    await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "HTTP Zendesk Connection Test");
-    await io.homePage.clickByText("HTTP Zendesk Connection Test");
-    await expect(
-      page.locator(selectors.importPagePO.CLICKPREVIEW)
-    ).not.toBeDisabled();
+    await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "HTTP ZENDESK CONNECTION");
+    await io.homePage.clickByText("HTTP ZENDESK CONNECTION");
+    await io.assert.verifyElementText(
+      selectors.basePagePO.NOTIFICTION_BAR,
+      "Making edits to a flow (including modifying a step, changing step options, changing the test run source, or reordering steps) will clear all test results.Run a new test after making edits to see accurate results."
+    );
     await io.exportsPage.fill(selectors.exportsPagePO.NAME, "Import name");
     await io.flowBuilder.click(selectors.exportsPagePO.LOOKUP.HTTP_METHOD);
     await io.flowBuilder.click(selectors.importPagePO.HTTPPOSTMETHOD);
