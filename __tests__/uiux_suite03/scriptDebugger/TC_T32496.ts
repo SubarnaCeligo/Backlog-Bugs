@@ -1,7 +1,7 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import data1 from "@testData/ScriptDebugger/T32495.json"
-test.describe('IO-T32495, IO-T32496, IO-T32497, IO-T32498, IO-T32499, IO-T32500, IO-T32503, IO-T32504, IO-T32508, IO-T32509 Verify whether Function stubs data displayed on the My API tab.', () => {
+test.describe('@Env-QA IO-T32495, IO-T32496, IO-T32497, IO-T32498, IO-T32499, IO-T32500, IO-T32503, IO-T32504, IO-T32508, IO-T32509 Verify whether Function stubs data displayed on the My API tab.', () => {
     test.beforeEach(async ({ io }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.clickByText("Resources")
