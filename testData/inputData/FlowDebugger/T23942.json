@@ -1,0 +1,81 @@
+{
+  "name": "TC_T23942",
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "_id": "Export",
+        "name": "Export",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "e424867c26",
+        "asynchronous": true,
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "/ io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "FTP.json"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json"
+        },
+        "adaptorType": "FTPExport",
+        "transform": {
+          "type": "script",
+          "script": {
+            "_scriptId": "65df2ee0b72efb0218554e1e",
+            "function": "transform"
+          }
+        }
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "_id": "Import",
+        "name": "Import",
+        "_connectionId": "HTTP AMAZON CONNECTION",
+        "apiIdentifier": "i8c2ca044b",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": [],
+          "method": [
+            "PATCH"
+          ],
+          "body": [],
+          "batchSize": 1,
+          "sendPostMappedData": true,
+          "formType": "http"
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "createFlow": {
+    "name": "TC_T23942",
+    "disabled": false,
+    "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+    "skipRetries": false,
+    "pageProcessors": [
+      {
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        },
+        "type": "import",
+        "_importId": "Import"
+      }
+    ],
+    "pageGenerators": [
+      {
+        "_exportId": "Export"
+      }
+    ]
+  }
+}
