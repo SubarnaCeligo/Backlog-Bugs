@@ -66,6 +66,6 @@ test.describe('C67020 To verify that the delete option colour is changed to red 
     await io.homePage.isPageLoaded()
     await io.homePage.waitForElementAttached(selectors.connectionsPagePO.DELETE_CONNECTION);
     const color = await page.locator(selectors.connectionsPagePO.DELETE_CONNECTION).evaluate((el: any) => getComputedStyle(el).color);
-    await io.assert.expectToBeValue(color, "rgb(51, 61, 71)", "Color not red");
+    await io.assert.expectToBeValue(color, "rgb(217, 83, 79)", "Color not red");
   });
 });
