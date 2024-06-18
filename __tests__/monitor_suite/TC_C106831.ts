@@ -5,6 +5,7 @@ test.describe("@Epic-IO-35094 @Priority-P2 @Zephyr-IO-T4047 @Env-All C106831 Tes
   test("@Epic-IO-35094 @Priority-P2 @Zephyr-IO-T4047 @Env-All C106831 Test to validate the auto suggestion feature in moniter account", async ({io, page}) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();
+    await io.exportsPage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW);
     await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);

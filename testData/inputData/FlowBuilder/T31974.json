@@ -1,0 +1,127 @@
+{
+    "name": "IO-T31974",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "Http Export",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "_sourceId": "652d1061fa3afc50c88e20cf",
+                "apiIdentifier": "ec179fa173",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "http": {
+                    "relativeURI": "/users",
+                    "method": "GET",
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "users"
+                    }
+                },
+                "settingsForm": {
+                    "init": {
+                        "_scriptId": "UPDATE WITH NEW",
+                        "function": "formInit"
+                    }
+                },
+                "test": {
+                    "limit": 13
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "HTTP Lookup",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "e362584ce3",
+                "asynchronous": true,
+                "isLookup": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "/organizations",
+                    "method": "GET",
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "organizations"
+                    }
+                },
+                "adaptorType": "HTTPExport"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "Http Import",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "_sourceId": "6500270cb522194d10688013",
+                "apiIdentifier": "i335578e39",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": [
+                        "/users"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "createFlow": {
+        "name": "IO-T31974",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "export",
+                "_importId": "UPDATE WITH NEW EXPORTID"
+            },
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+        ]
+    },
+    "script": {
+        "name": "Form Init Script TRUE",
+        "sandbox": false,
+        "postResponseHookToProcessOnChildRecord": false,
+        "content": "function formInit (options) {\n  return {\n  \"fieldMap\": {\n    \"workbookId\": {\n      \"id\": \"workbookId\",\n      \"name\": \"workbookId\",\n      \"label\": \"Workbook\",\n      \"type\": \"select\",\n      \"options\": [\n        {\n          \"items\": [\n            {\n              \"label\": \"celigo test.xlsx\",\n              \"value\": \"01OWQWTOYJ333NS5H3JJFKVEC2X2IGDEMC\"\n            },\n            {\n              \"label\": \"celigo test 2.xlsx\",\n              \"value\": \"01OWQWTOZSTPC6MUS4KZB2U7QMIVNJGDGX\"\n            }\n          ]\n        }\n      ]\n    }\n  },\n  \"layout\": {\n    \"containers\": [],\n    \"fields\": [\n      \"workbookId\"\n    ]\n  },\n  \"useAsPrimaryInterface\": true\n}\n}"
+    },
+    "script1": {
+        "name": "Form Init Script",
+        "sandbox": false,
+        "postResponseHookToProcessOnChildRecord": false,
+        "content": "\nfunction formInit (options) {\n  return options.resource.settingsForm.form\n}"
+    }
+    }
+
+
