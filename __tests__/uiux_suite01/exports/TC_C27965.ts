@@ -14,7 +14,8 @@ test.describe(`C27965 Verify the fields in 'What would you like to export?' sect
     await io.exportsPage.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
     await io.exportsPage.addStep("Clicked on 'connections' dropdown");
     await io.exportsPage.fill(selectors.exportsPagePO.CONNECTIONS_DROPDOWN,"3PL CONNECTION");
-    await io.exportsPage.clickByText("3PL CONNECTION");
+    await io.exportsPage.click(selectors.connectionsPagePO.CONNECTIONDROP0);
+   // await io.exportsPage.clickByText("3PL CONNECTION");
     await io.exportsPage.addStep("Selected '3PL CONNECTION' option");
     await page.locator(selectors.exportsPagePO.NAME).fill("C27965");
     await io.exportsPage.addStep("Filled the name field with 'C27965'");
