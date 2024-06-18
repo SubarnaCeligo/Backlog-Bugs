@@ -37,5 +37,6 @@ test.describe("TC_C108586 Verify any beginning and trailing spaces are truncated
     }
     expect(tagsList.includes("'''Urgent'''")).toBe(true);
     expect(tagsList.includes("'''Urgent Priority'''")).toBe(true);
+    
   });
 });
