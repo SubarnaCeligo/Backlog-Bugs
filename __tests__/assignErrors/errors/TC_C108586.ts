@@ -24,10 +24,10 @@ test.describe("TC_C108586 Verify any beginning and trailing spaces are truncated
     await io.flowBuilder.hover(selectors.dashboardPagePO.FA_FILTER_CHECKBOX, 1);
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.ERROR_TAG, 1);
     await io.flowBuilder.click(selectors.em2DotOLineGraphPO.CREATE_NEW_TAG_INPUT);
-    await io.flowBuilder.fill(selectors.em2DotOLineGraphPO.CREATE_NEW_TAG_INPUT, "'''Urgent'''");
+    await io.flowBuilder.fill(selectors.em2DotOLineGraphPO.CREATE_NEW_TAG_INPUT, "Urgent");
     await io.flowBuilder.clickByIndex(selectors.em2DotOLineGraphPO.CREATE_NEW_TAG, 0);
     await io.flowBuilder.click(selectors.em2DotOLineGraphPO.CREATE_NEW_TAG_INPUT);
-    await io.flowBuilder.fill(selectors.em2DotOLineGraphPO.CREATE_NEW_TAG_INPUT, "'''Urgent Priority'''");
+    await io.flowBuilder.fill(selectors.em2DotOLineGraphPO.CREATE_NEW_TAG_INPUT, "Urgent Priority");
     await io.flowBuilder.clickByIndex(selectors.em2DotOLineGraphPO.CREATE_NEW_TAG, 0);
     let tagsList = [];
     let tagsList1 = page.locator('[data-test="editTag"]');
@@ -35,8 +35,7 @@ test.describe("TC_C108586 Verify any beginning and trailing spaces are truncated
     for (let index = 0; index < tagsListCount; index++) { 
         tagsList.push(await tagsList1.nth(index).innerText());
     }
-    expect(tagsList.includes("'''Urgent'''")).toBe(true);
-    expect(tagsList.includes("'''Urgent Priority'''")).toBe(true);
-    
+    expect(tagsList.includes("Urgent")).toBe(true);
+    expect(tagsList.includes("Urgent Priority")).toBe(true);    
   });
 });
