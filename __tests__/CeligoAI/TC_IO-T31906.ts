@@ -5,7 +5,7 @@ test.describe("IO-T31906 Verify Celigo AI is displayed in transformation2.0 tab"
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-QA @Epic-IO-79512 @Zephyr-IO-T31906 @Zephyr-IO-T31907 @Zephyr-IO-T31908 @Zephyr-IO-T31909 @Zephyr-IO-T31910 Verify Celigo AI is displayed in transformation2.0 tab", async ({ io, page }) => {
+  test("@Env-QA @Epic-IO-79512 @Zephyr-IO-T31906 @Zephyr-IO-T31907 @Zephyr-IO-T31908 @Zephyr-IO-T31909 @Zephyr-IO-T31910 @Author-SubarnaGhatak Verify Celigo AI is displayed in transformation2.0 tab", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.clickByText('TC47946_DND');
@@ -31,7 +31,7 @@ test.describe("IO-T31906 Verify Celigo AI is displayed in transformation2.0 tab"
     )
 
   });
-  test("@Env-QA @Epic-IO-79512 @Zephyr-IO-T32427 Verify auto transform Icon is added for transformation2.0", async ({ io, page }) => {
+  test("@Env-QA @Epic-IO-79512 @Zephyr-IO-T32427 @Author-SubarnaGhatak Verify auto transform Icon is added for transformation2.0", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.clickByText('TC47946_DND');
@@ -60,7 +60,7 @@ test.describe("IO-T31906 Verify Celigo AI is displayed in transformation2.0 tab"
     await io.assert.verifyElementAttributeContainsText(selectors.mappings.MAPPER2DOT0PO.CHANGEOUTPUTFORMAT, "class", "Mui-disabled");
     await io.flowBuilder.addStep("Verified the other buttons are disabled when auto transform is active");
     await io.assert.verifyElementIsDisplayed(
-      selectors.flowBuilderPagePO.OPENAI.AUTO_TRANSFORM_SELECT_ALL_CHECKBOX  ,
+      selectors.flowBuilderPagePO.OPENAI.AUTO_TRANSFORM_SELECT_ALL_CHECKBOX,
       "Select all checkbox is not displayed"
     );
     //IO-T32452   Verify auto-transform option is disabled when none of the fields are selected
@@ -73,7 +73,7 @@ test.describe("IO-T31906 Verify Celigo AI is displayed in transformation2.0 tab"
 
     
   });
-  test("@Env-QA @Epic-IO-79512 @Zephyr-IO-T32449 ", async ({ io, page }) => {
+  test("@Env-QA @Epic-IO-79512 @Zephyr-IO-T32449 @Author-SubarnaGhatak ", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.clickByText('Automapper_DND');
@@ -119,8 +119,6 @@ test.describe("IO-T31906 Verify Celigo AI is displayed in transformation2.0 tab"
       "Mui-checked",
       1
     );
-
-  // await page.pause();
     //IO-T32450 IO-T32451  Verify when the parent field is selected, all child fields should automatically be selected and vice versa
     await io.flowBuilder.clickByIndex(
       selectors.flowBuilderPagePO.OPENAI.AUTOMAP_CHECKBOX,
@@ -188,7 +186,7 @@ test.describe("IO-T31906 Verify Celigo AI is displayed in transformation2.0 tab"
     await io.homePage.loadingTime();
     await io.homePage.loadingTime();
     await io.flowBuilder.click(
-      selectors.flowBuilderPagePO.OPENAI.AUTO_TRANSFORM_SELECT_ALL_CHECKBOX  
+      selectors.flowBuilderPagePO.OPENAI.AUTO_TRANSFORM_SELECT_ALL_CHECKBOX
     );
     await io.homePage.loadingTime();
     await io.homePage.loadingTime();
