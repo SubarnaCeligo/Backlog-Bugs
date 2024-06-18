@@ -19,6 +19,7 @@ test.describe('C93703 Validate that user is able to see "formInit" function wher
         await io.homePage.loadingTime()
         await io.flowBuilder.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
         await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "C68510_DND");
+        await io.homePage.loadingTime()
         await io.flowBuilder.clickByText('C68510_DND');
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR, 0);
