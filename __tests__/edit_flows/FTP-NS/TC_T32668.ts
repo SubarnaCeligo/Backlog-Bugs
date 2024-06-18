@@ -90,7 +90,6 @@ test.describe("IO-T32668  Verify help text changes for create source", () => {
     await io.flowBuilder.click(
       selectors.connectionsPagePO.HELPTEXT_CLOSE
     );
-
     });
 }
 );

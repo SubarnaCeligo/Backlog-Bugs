@@ -2,8 +2,8 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import { randomString, randomNumber } from "@celigo/aut-utilities";
 
-test.describe("TC_C67013", () => {
-  test("@Env-All @Zephyr-IO-T22172 C67013 Verify the new sign-up process consist of two steps only: Account Activation and Create Password for New user signing up via an invite from an existing user", async ({
+test.describe("C61360_C61361_C67006_C67013", () => {
+  test("@Env-All @Zephyr-IO-T22225 @Zephyr-IO-T22218 @Zephyr-IO-T22166 @@Zephyr-IO-T22172 C61360_C61361_C67006_C67013  Verify that there shouldn't be any Get Unlimited flows button in home page for newly signed up accounts &  Verify that there shouldnt be any popup message saying Start free trail now to experience optimal process automation for your business with full access to integrator.io . For 30 days, the unlimited flow trial gives you: in home page for newly signe", async ({
     io,
     page
   }) => {

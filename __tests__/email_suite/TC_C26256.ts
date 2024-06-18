@@ -17,11 +17,11 @@ test.describe( "C26256 Verify the email notifications received when SSO Client h
         await io.homePage.addStep("*** Opened the SSO tab ***");
 
         const isEnabled = await page.$eval(selectors.basePagePO.ENABLESSO, (element) => element.hasAttribute("Mui-disable"));
-        console.log("true or false "+isEnabled);
+        console.log("true or false " + isEnabled);
         if(isEnabled==false)
         {
             // enable is true
-          await io.myAccountPage.click('[class="react-toggle-track-check"]');
+          await io.myAccountPage.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         }
 
         await io.flowBuilder.click(selectors.basePagePO.ISSUERURL);
@@ -35,10 +35,12 @@ test.describe( "C26256 Verify the email notifications received when SSO Client h
         await io.homePage.loadingTime();
         await io.myAccountPage.click(selectors.basePagePO.MFA_SAVE);
 
-        let validateKeywords=await io.emailVal.validateKeywordsInMail(
+        let validateKeywords = await io.emailVal.validateKeywordsInMail(
             "[integrator.io] SSO setting has been modified", ['to see the latest SSO configuration'],"pwqa1",
           );
+        await io.flowBuilder.delay(1000 * 10 * 1);
         expect(validateKeywords).toBeTruthy();
+        await io.myAccountPage.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
     });
   }
 );
