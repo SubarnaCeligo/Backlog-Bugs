@@ -1,7 +1,7 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import data1 from "@testData/ScriptDebugger/T32495.json"
-test.describe('@Env-QA IO-T32495, IO-T32496, IO-T32497, IO-T32498, IO-T32499, IO-T32500, IO-T32503, IO-T32504, IO-T32508, IO-T32509 Verify whether Function stubs data displayed on the My API tab.', () => {
+test.describe('@Author-Vikram Verify whether Function stubs data displayed on the My API tab.', () => {
     test.beforeEach(async ({ io }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.clickByText("Resources")
@@ -12,7 +12,7 @@ test.describe('@Env-QA IO-T32495, IO-T32496, IO-T32497, IO-T32498, IO-T32499, IO
     await io.flowBuilder.fill(selectors.importPagePO.NAME, "mockscript");
     await io.flowBuilder.click(selectors.basePagePO.FUNCTION_STUB);
   });
-  test('IO-T32495 Branching', async ({
+  test('@Env-QA @Zephyr-IO-T32495 @Epic-IO-45180 Branching', async ({
     io,
     page
   }) => {
@@ -21,7 +21,7 @@ test.describe('@Env-QA IO-T32495, IO-T32496, IO-T32497, IO-T32498, IO-T32499, IO
     const expectedText = await io.homePage.getText(selectors.basePagePO.ACE_CONTENT); // The expected random
     await expect(expectedText.toString().trim().toLowerCase().replace(/\s/g, "")).toMatch(data1.Branching.toString().trim().toLowerCase().replace(/\s/g, ""));
   });
-  test('IO-T32496 Content based flow router', async ({
+  test('@Env-QA @Zephyr-IO-T32496 @Epic-IO-45180 Content based flow router', async ({
     io,
     page
   }) => {
@@ -30,7 +30,7 @@ test.describe('@Env-QA IO-T32495, IO-T32496, IO-T32497, IO-T32498, IO-T32499, IO
     const expectedText = await io.homePage.getText(selectors.basePagePO.ACE_CONTENT); // The expected random
     await expect(expectedText.toString().trim().toLowerCase().replace(/\s/g, "")).toMatch(data1.ContentBasedFlowRouter.toString().trim().toLowerCase().replace(/\s/g, ""));
   });
-  test('IO-T32497 Filter', async ({
+  test('@Env-QA @Zephyr-IO-T32497 @Epic-IO-45180 Filter', async ({
     io,
     page
   }) => {
@@ -39,7 +39,7 @@ test.describe('@Env-QA IO-T32495, IO-T32496, IO-T32497, IO-T32498, IO-T32499, IO
     const expectedText = await io.homePage.getText(selectors.basePagePO.ACE_CONTENT); // The expected random
     await expect(expectedText.toString().trim().toLowerCase().replace(/\s/g, "")).toMatch(data1.Filter.toString().trim().toLowerCase().replace(/\s/g, ""));
   });
-  test('IO-T32498 Form init', async ({
+  test('@Env-QA @Zephyr-IO-T32498 @Epic-IO-45180 Form init', async ({
     io,
     page
   }) => {
@@ -48,7 +48,7 @@ test.describe('@Env-QA IO-T32495, IO-T32496, IO-T32497, IO-T32498, IO-T32499, IO
     const expectedText = await io.homePage.getText(selectors.basePagePO.ACE_CONTENT); // The expected random
     await expect(expectedText.toString().trim().toLowerCase().replace(/\s/g, "")).toMatch(data1.FormInit.toString().trim().toLowerCase().replace(/\s/g, ""));
   });
-  test('IO-T32499 Handle request', async ({
+  test('@Env-QA @Zephyr-IO-T32499 @Epic-IO-45180 Handle request', async ({
     io,
     page
   }) => {
@@ -57,7 +57,7 @@ test.describe('@Env-QA IO-T32495, IO-T32496, IO-T32497, IO-T32498, IO-T32499, IO
     const expectedText = await io.homePage.getText(selectors.basePagePO.ACE_CONTENT); // The expected random
     await expect(expectedText.toString().trim().toLowerCase().replace(/\s/g, "")).toMatch(data1.HandleRequest.toString().trim().toLowerCase().replace(/\s/g, ""));
   });
-  test('IO-T32500 Post aggregate', async ({
+  test('@Env-QA @Zephyr-IO-T32500 @Epic-IO-45180 Post aggregate', async ({
     io,
     page
   }) => {
@@ -66,7 +66,7 @@ test.describe('@Env-QA IO-T32495, IO-T32496, IO-T32497, IO-T32498, IO-T32499, IO
     const expectedText = await io.homePage.getText(selectors.basePagePO.ACE_CONTENT); // The expected random
     await expect(expectedText.toString().trim().toLowerCase().replace(/\s/g, "")).toMatch(data1.PostAggregate.toString().trim().toLowerCase().replace(/\s/g, ""));
   });
-  test('IO-T32503 Post map', async ({
+  test('@Env-QA @Zephyr-IO-T32503 @Epic-IO-45180 Post map', async ({
     io,
     page
   }) => {
@@ -75,7 +75,7 @@ test.describe('@Env-QA IO-T32495, IO-T32496, IO-T32497, IO-T32498, IO-T32499, IO
     const expectedText = await io.homePage.getText(selectors.basePagePO.ACE_CONTENT); // The expected random
     await expect(expectedText.toString().trim().toLowerCase().replace(/\s/g, "")).toMatch(data1.PostMap.toString().trim().toLowerCase().replace(/\s/g, ""));
   });
-  test('IO-T32504 Post response map', async ({
+  test('@Env-QA @Zephyr-IO-T32504 @Epic-IO-45180 Post response map', async ({
     io,
     page
   }) => {
@@ -84,7 +84,7 @@ test.describe('@Env-QA IO-T32495, IO-T32496, IO-T32497, IO-T32498, IO-T32499, IO
     const expectedText = await io.homePage.getText(selectors.basePagePO.ACE_CONTENT); // The expected random
     await expect(expectedText.toString().trim().toLowerCase().replace(/\s/g, "")).toMatch(data1.PostResponseMap.toString().trim().toLowerCase().replace(/\s/g, ""));
   });
-  test('IO-T32506 Post submit', async ({
+  test('@Env-QA @Zephyr-IO-T32506 @Epic-IO-45180 Post submit', async ({
     io,
     page
   }) => {
@@ -93,7 +93,7 @@ test.describe('@Env-QA IO-T32495, IO-T32496, IO-T32497, IO-T32498, IO-T32499, IO
     const expectedText = await io.homePage.getText(selectors.basePagePO.ACE_CONTENT); // The expected random
     await expect(expectedText.toString().trim().toLowerCase().replace(/\s/g, "")).toMatch(data1.PostSubmit.toString().trim().toLowerCase().replace(/\s/g, ""));
   });
-  test('IO-T32507 Pre map', async ({
+  test('@Env-QA @Zephyr-IO-T32507 @Epic-IO-45180 Pre map', async ({
     io,
     page
   }) => {
@@ -102,7 +102,7 @@ test.describe('@Env-QA IO-T32495, IO-T32496, IO-T32497, IO-T32498, IO-T32499, IO
     const expectedText = await io.homePage.getText(selectors.basePagePO.ACE_CONTENT); // The expected random
     await expect(expectedText.toString().trim().toLowerCase().replace(/\s/g, "")).toMatch(data1.PreMap.toString().trim().toLowerCase().replace(/\s/g, ""));
   });
-  test('IO-T32508 Presave page', async ({
+  test('@Env-QA @Zephyr-IO-T32508 @Epic-IO-45180 Presave page', async ({
     io,
     page
   }) => {
@@ -111,7 +111,7 @@ test.describe('@Env-QA IO-T32495, IO-T32496, IO-T32497, IO-T32498, IO-T32499, IO
     const expectedText = await io.homePage.getText(selectors.basePagePO.ACE_CONTENT); // The expected random
     await expect(expectedText.toString().trim().toLowerCase().replace(/\s/g, "")).toMatch(data1.PreSavePage.toString().trim().toLowerCase().replace(/\s/g, ""));
   });
-  test('IO-T32509 Transform', async ({
+  test('@Env-QA @Zephyr-IO-T32509 @Epic-IO-45180 Transform', async ({
     io,
     page
   }) => {

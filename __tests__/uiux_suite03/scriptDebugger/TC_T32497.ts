@@ -2,13 +2,13 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import data from "@testData/ScriptDebugger/T32497.json"
 import inputData from "@testData/ScriptDebugger/T32495.json"
-test.describe('@Env-QA IO-T32495, IO-T32496, IO-T32497, IO-T32498, IO-T32499, IO-T32500, IO-T32503, IO-T32504, IO-T32508, IO-T32509 Verify whether Function stubs data displayed on the Flow builder.', () => {
+test.describe('@Author-Vikram Verify whether Function stubs data displayed on the Flow builder.', () => {
 
     test.beforeEach(async ({ io }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
 
     });
-    test('Verify whether all function stubs data displayed on the Flow builder', async ({
+    test('@Env-QA @Zephyr-IO-T32495, @Zephyr-IO-T32496, @Zephyr-IO-T32497, @Zephyr-IO-T32498, @Zephyr-IO-T32499, @Zephyr-IO-T32500, @Zephyr-IO-T32503, @Zephyr-IO-T32504, @Zephyr-IO-T32508, @Zephyr-IO-T32509 @Epic-IO-45180 Verify whether all function stubs data displayed on the Flow builder', async ({
         io,
         page
     }) => {
