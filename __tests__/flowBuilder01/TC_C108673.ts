@@ -27,15 +27,18 @@ test.describe("C108673 C108684", () => {
       { timeout: 1200000 }
     );
 
+    await io.integrationPage.loadingTime();
+
     const exportBubble = await page.$(selectors.flowBuilderPagePO.EXPORT_BUBBLE);
     const exportBubbleText = await exportBubble.evaluate(el => el.textContent);
     expect(exportBubbleText).toEqual('TExport');
 
 
     // C108684
-    const secondImportBubble = await page.$$(selectors.flowBuilderPagePO.IMPORT)[1];
-    const secondImportBubbleText = await secondImportBubble.evaluate(el => el.textContent);
-    expect(secondImportBubbleText).toEqual('Import');
+    const importBubbles = await page.$$(selectors.flowBuilderPagePO.IMPORT);
+    const secondImportBubble = importBubbles[1];
+    const invisibleTIcon = await secondImportBubble.evaluate(el => el.querySelector('.MuiBadge-invisible'));
+    expect(invisibleTIcon).not.toBeNull();
 
     await io.integrationPage.click(selectors.flowBuilderPagePO.EXPORT_BUBBLE);
     await io.integrationPage.loadingTime();
@@ -49,10 +52,9 @@ test.describe("C108673 C108684", () => {
     await expect(warningMessage).toBeVisible();
 
     await io.integrationPage.click(selectors.basePagePO.SAVE_AND_CLOSE);
-
-    const resultsList = page.locator(selectors.myAccountPagePO.RELATIVE_DATE_TIME);
-    expect(resultsList).not.toBeVisible();
+    await io.integrationPage.loadingTime();
+    const resultsList = await page.$$(selectors.myAccountPagePO.RELATIVE_DATE_TIME);
+    expect(resultsList.length).toEqual(1);
     await io.homePage.addStep("*** Done ***");
-    await page.waitForTimeout(10000000)
   });
 });
