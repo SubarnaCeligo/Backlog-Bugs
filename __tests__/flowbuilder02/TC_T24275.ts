@@ -19,10 +19,10 @@ test.describe("T24275 - Verify Next button is activating if we select the tile f
         await io.flowBuilder.click(selectors.connectionsPagePO.FTP_CONNECTION);
 
         //Wait for existing resources to load
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXISTING_ACCOUNT_RESOURCE);
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXISTING_RESOURCE);
         
         //Click on any existing resource
-        await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.EXISTING_ACCOUNT_RESOURCE, 0);
+        await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.EXISTING_RESOURCE, 0);
 
         //Verify if Next button is clickable
         await io.assert.verifyElementToBeClickable(selectors.basePagePO.SAVE);
@@ -47,10 +47,10 @@ test.describe("T24275 - Verify Next button is activating if we select the tile f
         await io.flowBuilder.click(selectors.flowBuilderPagePO.SELECT_LOOKUP);
 
         //Wait for existing resources to load
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXISTING_ACCOUNT_RESOURCE);
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXISTING_RESOURCE);
         
         //Click on any existing resource
-        await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.EXISTING_ACCOUNT_RESOURCE, 0);
+        await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.EXISTING_RESOURCE, 0);
 
         //Verify if Next button is clickable
         await io.assert.verifyElementToBeClickable(selectors.basePagePO.SAVE);
@@ -75,10 +75,10 @@ test.describe("T24275 - Verify Next button is activating if we select the tile f
         await io.flowBuilder.click(selectors.connectionsPagePO.TRANSFER_FILES);
 
         //Wait for existing resources to load
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXISTING_ACCOUNT_RESOURCE);
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXISTING_RESOURCE);
         
         //Click on any existing resource
-        await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.EXISTING_ACCOUNT_RESOURCE, 0);
+        await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.EXISTING_RESOURCE, 0);
 
         //Verify if Next button is clickable
         await io.assert.verifyElementToBeClickable(selectors.basePagePO.SAVE);

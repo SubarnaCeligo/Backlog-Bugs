@@ -20,10 +20,10 @@ test.describe("TC_C24273_C24274", () => {
       "Show more is not present"
     );
     
-    let no=page.$$(selectors.flowBuilderPagePO.EXISTING_ACCOUNT_RESOURCE)
+    let no=page.$$(selectors.flowBuilderPagePO.EXISTING_RESOURCE)
     let checkGreaterThen25=false
 
-      if((await page.$$( selectors.flowBuilderPagePO.EXISTING_ACCOUNT_RESOURCE)).length>=25)
+      if((await page.$$( selectors.flowBuilderPagePO.EXISTING_RESOURCE)).length>=25)
       {
         checkGreaterThen25=true
       }

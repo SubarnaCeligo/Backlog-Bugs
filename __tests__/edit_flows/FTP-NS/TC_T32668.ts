@@ -61,10 +61,10 @@ test.describe("IO-T32668  Verify help text changes for create source", () => {
     );
 
     //     //Wait for existing resources to load
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXISTING_ACCOUNT_RESOURCE);
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXISTING_RESOURCE);
         
         //Click on any existing resource
-        await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.EXISTING_ACCOUNT_RESOURCE, 0);
+        await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.EXISTING_RESOURCE, 0);
         await io.myAccountPage.waitForElementAttached(
           selectors.basePagePO.SAVE
         );
