@@ -8,7 +8,13 @@ function isWithinFiveMinutes(timeString: string): boolean {
   currentTime.toLocaleString('en-US', { timeZone: 'UTC' });
   const diffInMs = Math.abs(currentTime.getTime() - inputTime.getTime());
   const diffInMinutes = diffInMs / (1000 * 60);
-  return diffInMinutes <= 2;
+  console.log({
+    timeString,
+    currentTime,
+    diffInMinutes,
+    diffInMs
+  })
+  return diffInMinutes <= 5;
 }
 
 test.describe("C108853", () => {
