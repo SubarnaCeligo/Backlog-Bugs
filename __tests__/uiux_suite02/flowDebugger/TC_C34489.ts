@@ -110,7 +110,12 @@ test.describe("C34489 - verify the request logs in a list are sorted by timestam
     const browserTime = await page.evaluate(() => {
       return new Date().toISOString();
     });
+
+    const dateNow1 = await page.evaluate(() => {
+      return Date.now();
+    });
   
+    console.log({ dateNow : Date.now(), dateNow1 })
 
     // C34494 When Hover over timestamp should show exact time in user timezone
     await io.assert.expectToBeValue(
