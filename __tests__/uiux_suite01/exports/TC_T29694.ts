@@ -12,6 +12,7 @@ test.describe("@Author_sagna123 TC_T29694_Test to validate the colour grading, f
         await io.homePage.addStep("*** Navigated back to export page ***");
         await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
         await io.homePage.addStep("*** Clicked on create export***");
+        await io.homePage.waitForElementAttached(selectors.connectionsPagePO.AZURE_SYNAPSE);
         await io.homePage.click(selectors.connectionsPagePO.AZURE_SYNAPSE);
         await io.homePage.addStep("*** Clicked on Azure synapse connection ***");
         await io.homePage.click(selectors.basePagePO.CONNECTION);
