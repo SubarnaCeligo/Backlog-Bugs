@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-function isWithinTwoMinutes(timeString: string): boolean {
+function isWithinFiveMinutes(timeString: string): boolean {
   const inputTime = new Date(timeString);
   inputTime.toLocaleString('en-US', { timeZone: 'UTC' });
   const currentTime = new Date();
@@ -26,6 +26,6 @@ test.describe("C108853", () => {
         await fileInput.setInputFiles("testData/inputData/Templates/C108853.zip");
         await io.flowBuilder.loadingTime();
         const timeString = await (await page.$(selectors.myAccountPagePO.RELATIVE_DATE_TIME)).evaluate(el => el.textContent);
-        expect(isWithinTwoMinutes(timeString)).toBeTruthy();
+        expect(isWithinFiveMinutes(timeString)).toBeTruthy();
     });
 });
