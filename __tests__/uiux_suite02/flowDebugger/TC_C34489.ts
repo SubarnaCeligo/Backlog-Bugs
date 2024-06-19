@@ -7,14 +7,6 @@ function isWithinPast10Minutes(dateTimeString, browserTime) {
   const currentTime = new Date(browserTime);
   const tenMinutesAgo = new Date(currentTime.getTime() - 10 * 60000); // 10 minutes in milliseconds
 
-  console.log({
-    dateTimeString,
-    givenDate,
-    currentTime,
-    tenMinutesAgo,
-    a: givenDate > tenMinutesAgo, b: givenDate <= currentTime
-  })
-
   // Check if the given date is within the past 10 minutes
   return givenDate > tenMinutesAgo && givenDate <= currentTime;
 }
@@ -61,10 +53,9 @@ test.describe("C34489 - verify the request logs in a list are sorted by timestam
     // C34477
     await io.homePage.click(`tbody > tr > th > ${selectors.myAccountPagePO.RELATIVE_DATE_TIME}`);
     await page.waitForTimeout(500);
-    console.log('____1')
+
     const tooltipText = await (await page.$(selectors.mappings.TOOLTIP)).evaluate(el => el.textContent);
     expect(tooltipText.length).toBeGreaterThan(0);
-    console.log('____2')
 
    // C34491 When paginate, first log should always be selected by default (request/response panel)
     await io.assert.verifyElementAttributeContainsText(
@@ -105,8 +96,6 @@ test.describe("C34489 - verify the request logs in a list are sorted by timestam
     // C34489 verify the request logs in a list are sorted by timestamp in descending order
     expect(dateObjectLast < dateObjectFirst).toBe(true);
 
-    console.log({ page })
-
     const browserTime = await page.evaluate(() => {
       return new Date().toISOString();
     });
@@ -114,8 +103,6 @@ test.describe("C34489 - verify the request logs in a list are sorted by timestam
     const dateNow1 = await page.evaluate(() => {
       return Date.now();
     });
-  
-    console.log(JSON.stringify({ dateNow : Date.now(), dateNow1 }))
 
     // C34494 When Hover over timestamp should show exact time in user timezone
     await io.assert.expectToBeValue(
