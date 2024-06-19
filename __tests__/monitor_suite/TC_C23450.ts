@@ -18,19 +18,16 @@ test.describe(`@Author-ashu-g TC_C23450 Trying to create a connection at the exp
       `v1/ashares/${process.env.IO_Ashare_ID}`,
       testData
     );
-
-    // navigate to integration with manage access and create new source
-    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Automation Flows');
-    await io.homePage.clickByText('Automation Flows');
-    await io.homePage.loadingTime();
-    await io.homePage.clickByText('Create flow');
+    await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+    await io.flowBuilder.loadingTime();
+    await io.exportsPage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW);
+    await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
+    await io.exportsPage.waitForElementAttached(selectors.basePagePO.ADD_SOURCE_BUTTON);
     await io.homePage.click(selectors.basePagePO.ADD_SOURCE_BUTTON);
     await io.homePage.fill(selectors.connectionsPagePO.APP_NAME_INPUT, 'HTTP');
     await io.homePage.loadingTime();
     await io.homePage.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
     await io.homePage.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
-    
     // create new dummy connection
     await io.homePage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
     await io.homePage.fillByIndex(selectors.basePagePO.NAME, 'Zendesk Manage Connection TC_C23450', 1);
@@ -47,7 +44,6 @@ test.describe(`@Author-ashu-g TC_C23450 Trying to create a connection at the exp
     await io.assert.verifyElementDisplayedByText("Your connection is working great! Nice Job!", "Connection creation error");
     await io.homePage.click(selectors.basePagePO.SAVE_AND_CLOSE);
     await io.homePage.loadingTime();
-
     // close export and open again to verify connection is available in dropdown
     await io.homePage.click(selectors.basePagePO.CLOSE);
     await io.homePage.click(selectors.basePagePO.DISCARD_CHANGES);

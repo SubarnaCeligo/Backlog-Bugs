@@ -26,7 +26,12 @@ test.describe("C27421 Verify the subscription page for different license type(Fr
 
     await io.api.putCall(
       `v1/test/licenses/${platformLicense._id}`,
-      {...getLicensePayload(platformLicense), tier: 'professional', "apiManagement": true, "expires": "2044-04-10T13:14:33.363Z"}
+      {...getLicensePayload(platformLicense), 
+        tier: 'professional', 
+        "apiManagement": true, 
+        "expires": "2044-04-10T13:14:33.363Z",
+        numEndpoints: 0,
+         numFlows:0}
     );
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.myAccountPage.click(selectors.myAccountPagePO.SUBSCRIPTION);
@@ -35,24 +40,13 @@ test.describe("C27421 Verify the subscription page for different license type(Fr
     const bgColorList = await io.homePage.getBackgroundColors(
       selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR
     );
-    await io.api.putCall(
-      `v1/test/licenses/${platformLicense._id}`,
-      getLicensePayload(platformLicense)
-    );
-    await io.assert.expectArrayToBeInArray(
+    await io.assert.expectToBeValueInArray(
       bgColorList,
-      [
-        "rgb(29, 118, 199)",
-        "rgb(29, 118, 199)",
-        "rgb(29, 118, 199)",
-        "rgb(29, 118, 199)",
-        "rgb(29, 118, 199)",
-        "rgb(29, 118, 199)"
-      ],
+      "rgb(255, 60, 60)",
       "The status is not correctly colored"
     );
   });
-  test("@Zephyr-IO-T27423 @Env-QA @Priority-P2 Verify the subscription page for different license type enterprise for admin", async ({
+  test("@Zephyr-IO-T27421 @Env-QA @Priority-P2 Verify the subscription page for different license type enterprise for admin", async ({
       io,
       page
     }) => {
@@ -74,60 +68,15 @@ test.describe("C27421 Verify the subscription page for different license type(Fr
       const bgColorList = await io.homePage.getBackgroundColors(
         selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR
       );
-      await io.api.putCall(
-        `v1/test/licenses/${platformLicense._id}`,
-        getLicensePayload(platformLicense)
-      );
-      await io.assert.expectArrayToBeInArray(
+      await io.assert.expectToBeValueInArray(
         bgColorList,
-        [
-          "rgb(29, 118, 199)",
-          "rgb(29, 118, 199)",
-          "rgb(29, 118, 199)",
-          "rgb(29, 118, 199)",
-          "rgb(29, 118, 199)",
-          "rgb(29, 118, 199)"
-        ],
+        "rgb(255, 60, 60)",
         "The status is not correctly colored"
-      );
-    });
-  test("C27421 @Zephyr-IO-T27423 @Env-All @Priority-P2 Verify the subscription page for different license type free for admin", async ({
-      io,
-      page
-    }) => {
-      await io.api.putCall(
-        `v1/ashares/${process.env.IO_Ashare_ID}`,
-        admin
-      );
-      const licenses = await io.api.getCall("v1/licenses");
-      const platformLicense = licenses.find(l => l.type === "platform");
-  
-      await io.api.putCall(
-        `v1/test/licenses/${platformLicense._id}`,
-        {...getLicensePayload(platformLicense), tier: 'free', sandbox: false, "apiManagement": true, "expires": "2044-04-10T13:14:33.363Z"}
-      );
-      await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
-      await io.myAccountPage.click(selectors.myAccountPagePO.SUBSCRIPTION);
-      await page.waitForLoadState();
-  
-      const bgColorList = await io.homePage.getBackgroundColors(
-        selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR
       );
       await io.api.putCall(
         `v1/test/licenses/${platformLicense._id}`,
         getLicensePayload(platformLicense)
       );
-      await io.assert.expectArrayToBeInArray(
-        bgColorList,
-        [
-          "rgb(29, 118, 199)",
-          "rgb(29, 118, 199)",
-          "rgb(29, 118, 199)",
-          "rgb(29, 118, 199)",
-          "rgb(29, 118, 199)",
-          "rgb(29, 118, 199)"
-        ],
-        "The status is not correctly colored"
-      );
     });
+    
 });

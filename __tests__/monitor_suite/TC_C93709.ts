@@ -14,6 +14,7 @@ test.describe('C93709 Validate user is able to create "formInit" script through 
       await io.homePage.loadingTime()
       await io.flowBuilder.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
       await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "C68510_DND");
+      await io.homePage.loadingTime()
       await io.flowBuilder.clickByText('C68510_DND');
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
       await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR, 0);
