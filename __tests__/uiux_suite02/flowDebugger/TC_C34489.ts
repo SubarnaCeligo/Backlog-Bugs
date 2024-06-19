@@ -115,11 +115,11 @@ test.describe("C34489 - verify the request logs in a list are sorted by timestam
       return Date.now();
     });
   
-    console.log({ dateNow : Date.now(), dateNow1 })
+    console.log(JSON.stringify({ dateNow : Date.now(), dateNow1 }))
 
     // C34494 When Hover over timestamp should show exact time in user timezone
     await io.assert.expectToBeValue(
-      isWithinPast10Minutes(dateStringFirst, browserTime)?.toString(),
+      isWithinPast10Minutes(dateStringFirst, Date.now())?.toString(),
       "true",
       "timezone not matched"
     );
