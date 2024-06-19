@@ -10,12 +10,14 @@ test.describe("C108853", () => {
     await io.homePage.goToMenu("Resources", "Templates");
     await io.homePage.addStep("*** Navigated to templates page ***");
     await io.flowBuilder.fill(selectors.integrationPagePO.HOME_SEARCH, "C108853");
+    await io.flowBuilder.loadingTime();
 
     const previousTimeString = await (
         await page.$(selectors.myAccountPagePO.RELATIVE_DATE_TIME)
       ).evaluate(el => el.textContent);
 
     await io.flowBuilder.click(selectors.integrationPagePO.OPENACTIONSMENU);
+    await page.waitForTimeout(30000)
     await io.flowBuilder.clickByText("Upload template zip");
     let fileInput = await page.$(selectors.basePagePO.UPLOAD_FILE);
     await fileInput.setInputFiles("testData/inputData/Templates/C108853.zip");
