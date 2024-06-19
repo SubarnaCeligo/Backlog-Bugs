@@ -1,42 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-// function isWithinFiveMinutes(timeString: string): boolean {
-//   const inputTime = new Date(timeString);
-//   inputTime.toLocaleString('en-US', { timeZone: 'UTC' });
-//   const currentTime = new Date();
-//   currentTime.toLocaleString('en-US', { timeZone: 'UTC' });
-//   const diffInMs = Math.abs(currentTime.getTime() - inputTime.getTime());
-//   const diffInMinutes = diffInMs / (1000 * 60);
-//   console.log({
-//     timeString,
-//     currentTime,
-//     diffInMinutes,
-//     diffInMs
-//   })
-//   return diffInMinutes <= 5;
-// }
-
-function isWithinFiveMinutes(timeString: string): boolean {
-    const inputTime = new Date(timeString);
-    const utcInputTime = new Date(inputTime.toUTCString()); // Convert to UTC string and then parse back to Date
-    const currentTime = new Date();
-    const utcCurrentTime = new Date(currentTime.toUTCString()); // Convert to UTC string and then parse back to Date
-  
-    const diffInMs = Math.abs(utcCurrentTime.getTime() - utcInputTime.getTime());
-    const diffInMinutes = diffInMs / (1000 * 60);
-  
-    console.log({
-      timeString,
-      utcInputTime,
-      utcCurrentTime,
-      diffInMinutes,
-      diffInMs
-    });
-  
-    return diffInMinutes <= 5;
-  }
-
 test.describe("C108853", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
@@ -59,8 +23,7 @@ test.describe("C108853", () => {
     const timeString = await (
       await page.$(selectors.myAccountPagePO.RELATIVE_DATE_TIME)
     ).evaluate(el => el.textContent);
-    
-    // expect(isWithinFiveMinutes(timeString)).toBeTruthy();
+
     expect(previousTimeString).not.toEqual(timeString);
   });
 });
