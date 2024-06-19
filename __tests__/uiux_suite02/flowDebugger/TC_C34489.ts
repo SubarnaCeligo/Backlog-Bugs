@@ -2,9 +2,9 @@ import { expect, links, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import C34489 from "@testData/FlowDebugger/C34489.json";
 
-function isWithinPast10Minutes(dateTimeString) {
+function isWithinPast10Minutes(dateTimeString, browserTime) {
   const givenDate = new Date(dateTimeString);
-  const currentTime = new Date();
+  const currentTime = new Date(browserTime);
   const tenMinutesAgo = new Date(currentTime.getTime() - 10 * 60000); // 10 minutes in milliseconds
 
   console.log({
@@ -60,8 +60,11 @@ test.describe("C34489 - verify the request logs in a list are sorted by timestam
 
     // C34477
     await io.homePage.click(`tbody > tr > th > ${selectors.myAccountPagePO.RELATIVE_DATE_TIME}`);
+    await page.waitForTimeout(500);
+    console.log('____1')
     const tooltipText = await (await page.$(selectors.mappings.TOOLTIP)).evaluate(el => el.textContent);
     expect(tooltipText.length).toBeGreaterThan(0);
+    console.log('____2')
 
    // C34491 When paginate, first log should always be selected by default (request/response panel)
     await io.assert.verifyElementAttributeContainsText(
@@ -102,9 +105,16 @@ test.describe("C34489 - verify the request logs in a list are sorted by timestam
     // C34489 verify the request logs in a list are sorted by timestamp in descending order
     expect(dateObjectLast < dateObjectFirst).toBe(true);
 
+    console.log({ page })
+
+    const browserTime = await page.evaluate(() => {
+      return new Date().toISOString();
+    });
+  
+
     // C34494 When Hover over timestamp should show exact time in user timezone
     await io.assert.expectToBeValue(
-      isWithinPast10Minutes(dateStringFirst)?.toString(),
+      isWithinPast10Minutes(dateStringFirst, browserTime)?.toString(),
       "true",
       "timezone not matched"
     );
