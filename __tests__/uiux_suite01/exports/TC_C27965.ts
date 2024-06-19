@@ -21,6 +21,8 @@ test.describe(`C27965 Verify the fields in 'What would you like to export?' sect
     await io.exportsPage.addStep("Filled the name field with 'C27965'");
     await io.exportsPage.click(selectors.basePagePO.SAVE);
     await io.exportsPage.addStep("Clicked on 'save' button");
+    await io.exportsPage.waitForElementAttached(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH)
+    await io.exportsPage.click(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH)
     await io.exportsPage.waitForElementAttached(
       selectors.exportsPagePO.WHAT_WOULD_YOU_LIKE_TO_EXPORT_TAB
     );

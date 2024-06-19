@@ -19,6 +19,8 @@ test.describe(`C28173 Verify the message “Add {{lastExportDateTime}} to either
    // await io.flowBuilder.clickByText("3PL CONNECTION");
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.delay(2000);
+    await io.exportsPage.waitForElementAttached(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH)
+    await io.exportsPage.click(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH)
     await io.flowBuilder.click(selectors.exportsPagePO.EXPORT_TYPE_DROPDOWN);
     await io.flowBuilder.clickByText("Delta - export only modified data");
     const message = page.getByText(

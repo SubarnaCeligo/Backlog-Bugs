@@ -22,6 +22,8 @@ test.describe(`C27969 Verify the fields in 'Non-standard API response patterns' 
     await io.exportsPage.click(selectors.basePagePO.SAVE);
     await io.exportsPage.addStep("Clicked on 'save' button");
     await io.exportsPage.delay(2000);
+    await io.exportsPage.waitForElementAttached(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH)
+    await io.exportsPage.click(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH)
     const tab = page.locator(selectors.exportsPagePO.NON_STANDARD_API_TAB);
     await tab.click();
     await io.exportsPage.addStep("Clicked on 'Non-standard API' tab");
