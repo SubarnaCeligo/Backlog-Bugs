@@ -6,11 +6,11 @@ function isValidDateTimeFormat(dateTimeString) {
   return dateTimePattern.test(dateTimeString);
 }
 
-test.describe("C19911", () => {
+test.describe("C19911 Verify for each step the completed time should display as per the timezone selected in the profile", () => {
     test.beforeEach(async ({ io }) => {
       await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     });
-    test("C19911 @Env-QA", async ({ io, page }) => {
+    test("C19911 @Env-All @Zephyr-IO-T6229", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to integrations page ***");
         await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
         await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'C19911_DND');

@@ -38,8 +38,8 @@ const dropdownValues = ["JSON_LISTINGS_FEED",
   "RFQ_UPLOAD_FEED",
   "UPLOAD_VAT_INVOICE"]
 
-test.describe("C44912 @Env-QA @Zephyr-IO-T6769 Verify if the Feed type dropdown is having the list of all supported field types", () => {
-  test("C44912 Verify if the Feed type dropdown is having the list of all supported field types", async ({
+test.describe("C44912 Verify if the Feed type dropdown is having the list of all supported field types", () => {
+  test("C44912 @Env-All @Zephyr-IO-T6769 Verify if the Feed type dropdown is having the list of all supported field types", async ({
     io,
     page
   }) => {
