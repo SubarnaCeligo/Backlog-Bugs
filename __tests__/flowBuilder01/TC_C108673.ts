@@ -1,11 +1,11 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C108673 C108684", () => {
+test.describe("C108673 C108684 @Zephyr-IO-T23932 @Zephyr-IO-T23943 Verify whether Hotspot icons when result mapping is errored out", () => {
   test.beforeEach(async ({ io }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
   });
-  test("C108673 C108684 @Env-QA", async ({ io, page }) => {
+  test("C108673 C108684 @Env-QA ", async ({ io, page }) => {
     await io.homePage.addStep("*** Navigated to integrations page ***");
     await io.integrationPage.waitForElementAttached(
       selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR
