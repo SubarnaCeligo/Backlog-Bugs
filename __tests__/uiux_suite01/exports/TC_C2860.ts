@@ -5,6 +5,7 @@ test.describe("C2860 Verify auto registering functionality for tile level permis
   test("@Env-All @Zephyr-IO-T1424  C2860 Verify auto registering functionality for tile level permission", async ({io, page}) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();
+    await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW);
     await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);

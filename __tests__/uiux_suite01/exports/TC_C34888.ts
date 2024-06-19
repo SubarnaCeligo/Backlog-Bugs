@@ -5,6 +5,7 @@ test.describe("C34888 Verify weather Restricted report type checkbox and help te
   test("@Env-All @Zephyr-IO-T1917  C34888 Verify weather Restricted report type checkbox and help text is being displayed as expected for Hybrid SP-API Connection with /reports/2021-06-30/documents/ in relative URI", async ({io, page}) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();
+    await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW);
     await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
