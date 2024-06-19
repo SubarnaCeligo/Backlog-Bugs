@@ -25,7 +25,7 @@ test.describe("TC_C108694 Verify the hotspot icons for Flow branching flow where
       .nth(0);
     await expect(await exportTransferHotSpotIcon).toBeVisible();
     await io.assert.verifyElementIsDisplayed(
-      '[aria-label="Edit branching"] .MuiBadge-anchorOriginTopRight',
+      selectors.importPagePO.BRANCHING_HOTSPOT_ICON,
       "Hotspot icons is not available on Branching"
     );
   });

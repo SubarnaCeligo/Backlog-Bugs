@@ -30,7 +30,7 @@ test.describe("TC_C108586 Verify any beginning and trailing spaces are truncated
     await io.flowBuilder.fill(selectors.em2DotOLineGraphPO.CREATE_NEW_TAG_INPUT, "Urgent Priority");
     await io.flowBuilder.clickByIndex(selectors.em2DotOLineGraphPO.CREATE_NEW_TAG, 0);
     let tagsList = [];
-    let tagsList1 = page.locator('[data-test="editTag"]');
+    let tagsList1 = page.locator(selectors.importPagePO.EDIT_TAG);
     let tagsListCount = await tagsList1.count();
     for (let index = 0; index < tagsListCount; index++) { 
         tagsList.push(await tagsList1.nth(index).innerText());

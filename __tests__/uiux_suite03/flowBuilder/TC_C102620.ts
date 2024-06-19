@@ -19,6 +19,6 @@ test.describe("TC_C102620 Verify hover text is not showing when we have 'Source 
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.hover(selectors.flowBuilderPagePO.RUN_SPECIFIC_SOURCE_DROPDOWN);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_SPECIFIC_SOURCE_DROPDOWN);
-    await io.assert.checkElementState('div[role="tooltip"]', "isHidden");
+    await io.assert.checkElementState(selectors.importPagePO.TOOL_TIP_ROLE, "isHidden");
   });
 });

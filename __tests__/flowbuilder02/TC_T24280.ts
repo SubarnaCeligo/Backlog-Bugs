@@ -21,10 +21,10 @@ test.describe("T24280 - Verify user is able to create export/lookup/import with 
         await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
 
         //Wait for existing resources to load
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXISTING_ACCOUNT_RESOURCE);
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.OPENAI.NLS_RESOURCE);
         
         //Click on any existing resource
-        await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.EXISTING_ACCOUNT_RESOURCE, 0);
+        await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.OPENAI.NLS_RESOURCE, 0);
 
         //Verify if Next button is clickable
         await io.flowBuilder.click(selectors.basePagePO.SAVE);

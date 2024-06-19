@@ -11,7 +11,7 @@ test.describe("TC_C45577 Verify if the default value for Require MFA is disabled
     );
     await io.flowBuilder.loadingTime();
 
-    let isMFAUnChecked = await page.locator('input[data-test="mfaRequired"]').nth(3).evaluate((el)=> el.outerHTML);
+    let isMFAUnChecked = await page.locator(selectors.myAccountPagePO.MFA_REQUIRED).nth(3).evaluate((el)=> el.outerHTML);
     await io.assert.expectToBeFalse(
         await isMFAUnChecked.includes("checked"),
       "Require MFA is enabled"

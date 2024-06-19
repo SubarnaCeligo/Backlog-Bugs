@@ -18,11 +18,11 @@ test.describe("TC_C103569 Verify the schedule run for Every hour,Every 30 minute
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.SCHEDULE_FLOW);
     await io.flowBuilder.loadingTime();
-    await io.flowBuilder.click("#mui-component-select-frequency");
+    await io.flowBuilder.click(selectors.importPagePO.SELECT_FREQUENCY);
     await io.flowBuilder.selectTextfromDropDown(page, "Every 15 minutes");
     await io.flowBuilder.delay(1000 * 5 * 1);
     await io.flowBuilder.clickByTextByIndex("Every 15 minutes", 0);
-    await io.flowBuilder.click('[data-test="daysToRunOn"]');
+    await io.flowBuilder.click(selectors.importPagePO.DAYS_TO_RUN_ON);
     await io.flowBuilder.clickByTextByIndex("Saturday", 1);
     await io.flowBuilder.clickByTextByIndex("Sunday", 1);
     await io.flowBuilder.clickByTextByIndex("Done", 0);
@@ -32,14 +32,14 @@ test.describe("TC_C103569 Verify the schedule run for Every hour,Every 30 minute
     await io.flowBuilder.click(selectors.flowBuilderPagePO.SCHEDULE_FLOW);
     await io.flowBuilder.loadingTime();
     await io.assert.verifyElementContainsText(
-      "#mui-component-select-frequency",
+      selectors.importPagePO.SELECT_FREQUENCY,
       "Every 15 minutes"
     );
     await io.assert.verifyElementContainsText(
-      '[data-test="daysToRunOn"]',
+      selectors.importPagePO.DAYS_TO_RUN_ON,
       "MondayTuesdayWednesdayThursdayFriday"
     );
-    await io.flowBuilder.click("#mui-component-select-frequency");
+    await io.flowBuilder.click(selectors.importPagePO.SELECT_FREQUENCY);
     await io.flowBuilder.clickByTextByIndex("Every 30 minutes", 0);
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
     await io.flowBuilder.loadingTime();
@@ -47,14 +47,14 @@ test.describe("TC_C103569 Verify the schedule run for Every hour,Every 30 minute
     await io.flowBuilder.click(selectors.flowBuilderPagePO.SCHEDULE_FLOW);
     await io.flowBuilder.loadingTime();
     await io.assert.verifyElementContainsText(
-      "#mui-component-select-frequency",
+      selectors.importPagePO.SELECT_FREQUENCY,
       "Every 30 minutes"
     );
     await io.assert.verifyElementContainsText(
-      '[data-test="daysToRunOn"]',
+      selectors.importPagePO.DAYS_TO_RUN_ON,
       "MondayTuesdayWednesdayThursdayFriday"
     );
-    await io.flowBuilder.click("#mui-component-select-frequency");
+    await io.flowBuilder.click(selectors.importPagePO.SELECT_FREQUENCY);
     await io.flowBuilder.clickByTextByIndex("Every hour", 0);
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
     await io.homePage.loadingTime();
@@ -62,11 +62,11 @@ test.describe("TC_C103569 Verify the schedule run for Every hour,Every 30 minute
     await io.flowBuilder.click(selectors.flowBuilderPagePO.SCHEDULE_FLOW);
     await io.flowBuilder.loadingTime();
     await io.assert.verifyElementContainsText(
-      "#mui-component-select-frequency",
+      selectors.importPagePO.SELECT_FREQUENCY,
       "Every hour"
     );
     await io.assert.verifyElementContainsText(
-      '[data-test="daysToRunOn"]',
+      selectors.importPagePO.DAYS_TO_RUN_ON,
       "MondayTuesdayWednesdayThursdayFriday"
     );
   });

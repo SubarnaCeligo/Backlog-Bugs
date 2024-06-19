@@ -29,7 +29,7 @@ test.describe("TC_C58600Verify creating connection throws error with iClient hav
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.flowBuilder.loadingTime();
         const popup = await popupPromise;
-        let isErrorMessageDisplayed = await popup.locator('div[class="p-40"]').innerText();
+        let isErrorMessageDisplayed = await popup.locator(selectors.importPagePO.POP_UP).innerText();
         let expectedErrorMessage = "Sorry, but we were not able to successfully authenticate your connection.\n{\"code\":\"invalid_domain\",\"message\":\"The domain of request url should be present in iClient.oauth2.validDomainNames\",\"source\":\"resource\",\"resolved\":false";
         expect(isErrorMessageDisplayed).toContain(expectedErrorMessage);
     });
