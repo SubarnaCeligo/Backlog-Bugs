@@ -47,13 +47,13 @@ test.describe("IO-T17166 To verify conflict message is displayed under each reso
     await io.flowBuilder.addStep("modify resources in the cloned integration");
     await io.flowBuilder.clickByText('Flow name');
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_SETTINGS);
-    await io.flowBuilder.fill("[data-test='description'] textarea", "Flow description 2");
+    await io.flowBuilder.fill(selectors.basePagePO.DESCRIPTION_AREA, "Flow description 2");
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
-    await io.flowBuilder.fill("[data-test='description'] input", "Export description 2");
+    await io.flowBuilder.fill(selectors.basePagePO.DESCRIPTION_INPUT, "Export description 2");
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT);
-    await io.flowBuilder.fill("[data-test='description'] input", "Import description 2");
+    await io.flowBuilder.fill(selectors.basePagePO.DESCRIPTION_INPUT, "Import description 2");
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
 
 
@@ -64,20 +64,20 @@ test.describe("IO-T17166 To verify conflict message is displayed under each reso
     await io.flowBuilder.clickByTextByIndex('T17166', 0);
     await io.flowBuilder.clickByText('Flow name');
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_SETTINGS);
-    await io.flowBuilder.fill("[data-test='description'] textarea", "Flow description 1");
+    await io.flowBuilder.fill(selectors.basePagePO.DESCRIPTION_AREA, "Flow description 1");
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
-    await io.flowBuilder.fill("[data-test='description'] input", "Export description 1");
+    await io.flowBuilder.fill(selectors.basePagePO.DESCRIPTION_INPUT, "Export description 1");
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT);
-    await io.flowBuilder.fill("[data-test='description'] input", "Import description 1");
+    await io.flowBuilder.fill(selectors.basePagePO.DESCRIPTION_INPUT, "Import description 1");
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
 
     await io.integrationPage.addStep("Open the review changes panel and check for conflict message");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_FLOW_BUILDER);
     await io.integrationPage.clickByTextByIndex("Revisions", 0);
     await io.integrationPage.click(selectors.integrationPagePO.CREATE_PULL);
-    await io.integrationPage.fill("[data-test='description'] input", "Pull request description");
+    await io.integrationPage.fill(selectors.basePagePO.DESCRIPTION_INPUT, "Pull request description");
     await io.integrationPage.clickByTextByIndex("Clone - T17166", 0);
     await io.integrationPage.click(selectors.integrationPagePO.NEXT);
     await io.integrationPage.loadingTime();
@@ -95,12 +95,12 @@ test.describe("IO-T17166 To verify conflict message is displayed under each reso
     await io.integrationPage.click(selectors.flowBuilderPagePO.DELETE_FLOW);
     await io.integrationPage.waitForElementAttached(selectors.myAccountPagePO.DIALOG_BOX);
     await io.integrationPage.click(selectors.basePagePO.DELETE_BUTTON);
+    await io.homePage.loadingTime();
     await io.homePage.click(selectors.integrationPagePO.DELETE_INTEGRATION);
     await io.homePage.click(selectors.basePagePO.DELETE_BUTTON);
     await io.homePage.loadingTime();
 
     await io.integrationPage.addStep("Deleting the cloned flow")
-    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
     await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Clone - T17166');
     await io.integrationPage.clickByTextByIndex('Clone - T17166', 0);
@@ -109,6 +109,7 @@ test.describe("IO-T17166 To verify conflict message is displayed under each reso
     await io.integrationPage.click(selectors.flowBuilderPagePO.DELETE_FLOW);
     await io.integrationPage.waitForElementAttached(selectors.myAccountPagePO.DIALOG_BOX);
     await io.integrationPage.click(selectors.basePagePO.DELETE_BUTTON);
+    await io.homePage.loadingTime();
     await io.homePage.click(selectors.integrationPagePO.DELETE_INTEGRATION);
     await io.homePage.click(selectors.basePagePO.DELETE_BUTTON);
     await io.homePage.loadingTime();
