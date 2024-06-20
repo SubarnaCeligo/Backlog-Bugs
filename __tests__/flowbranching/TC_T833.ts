@@ -4,8 +4,10 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe("TC_T833 Verify user is able to edit/delete the Related lists in Salesforce Real time Export", () => {
   test("@Epic-IO-71413 @Priority-P2 @Zephyr-IO-T833 @Env-All TC_T833 Verify user is able to delete the Related lists in Salesforce Real time Export", async ({ io }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.flowBuilder.loadingTime();
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Tools", "Flow builder");
+    await io.flowBuilder.loadingTime();
     await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.ADD_SOURCE);
     await io.homePage.click(selectors.flowBuilderPagePO.ADD_SOURCE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.APPLICATION);
@@ -16,7 +18,7 @@ test.describe("TC_T833 Verify user is able to edit/delete the Related lists in S
     await io.flowBuilder.clickByTextByIndex("SF Realtime", 0);
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.click(selectors.basePagePO.CONNECTION_DROPDOWN);
-    await io.flowBuilder.clickByTextByIndex("SALESFORCE CONNECTION", 0, { exact: false });
+    await io.flowBuilder.clickByTextByIndex("Salesforce", 0, { exact: false });
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EDIT_RELATED_LIST);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_NEW_RELATED_LIST);
     await io.flowBuilder.fillByIndex(selectors.flowBuilderPagePO.BRANCH_NAME_INPUT, 'test' , 4);
