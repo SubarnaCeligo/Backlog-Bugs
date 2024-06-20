@@ -2,9 +2,9 @@ import { expect, links, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import C34489 from "@testData/FlowDebugger/C34489.json";
 
-function isWithinPast10Minutes(dateTimeString) {
+function isWithinPast10Minutes(dateTimeString, browserTime) {
   const givenDate = new Date(dateTimeString);
-  const currentTime = new Date();
+  const currentTime = new Date(browserTime);
   const tenMinutesAgo = new Date(currentTime.getTime() - 10 * 60000); // 10 minutes in milliseconds
 
   // Check if the given date is within the past 10 minutes
@@ -89,9 +89,17 @@ test.describe("C34489 - verify the request logs in a list are sorted by timestam
     // C34489 verify the request logs in a list are sorted by timestamp in descending order
     expect(dateObjectLast < dateObjectFirst).toBe(true);
 
+    const browserTime = await page.evaluate(() => {
+      return new Date().toISOString();
+    });
+
+    const dateNow1 = await page.evaluate(() => {
+      return Date.now();
+    });
+
     // C34494 When Hover over timestamp should show exact time in user timezone
     await io.assert.expectToBeValue(
-      isWithinPast10Minutes(dateStringFirst)?.toString(),
+      isWithinPast10Minutes(dateStringFirst, Date.now())?.toString(),
       "true",
       "timezone not matched"
     );
