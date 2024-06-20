@@ -49,12 +49,15 @@ test.describe("IO-T17166 To verify conflict message is displayed under each reso
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_SETTINGS);
     await io.flowBuilder.fill(selectors.basePagePO.DESCRIPTION_AREA, "Flow description 2");
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
     await io.flowBuilder.fill(selectors.basePagePO.DESCRIPTION_INPUT, "Export description 2");
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT);
     await io.flowBuilder.fill(selectors.basePagePO.DESCRIPTION_INPUT, "Import description 2");
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+    await io.flowBuilder.loadingTime();
 
 
     await io.flowBuilder.addStep("modify resources in the origin integration");
@@ -66,12 +69,15 @@ test.describe("IO-T17166 To verify conflict message is displayed under each reso
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_SETTINGS);
     await io.flowBuilder.fill(selectors.basePagePO.DESCRIPTION_AREA, "Flow description 1");
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
     await io.flowBuilder.fill(selectors.basePagePO.DESCRIPTION_INPUT, "Export description 1");
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT);
     await io.flowBuilder.fill(selectors.basePagePO.DESCRIPTION_INPUT, "Import description 1");
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+    await io.flowBuilder.loadingTime();
 
     await io.integrationPage.addStep("Open the review changes panel and check for conflict message");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_FLOW_BUILDER);
