@@ -19,6 +19,7 @@ test.describe(`C2255_C2288_C2290_C2284_C2289_C2291_C2445 Transfer Account Owners
     await io.signInPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
     await io.myAccountPage.loadingTime()
     await io.homePage.waitForElementAttached(selectors.basePagePO.NOTIFICATION_ARIA_LABEL);
+    await io.myAccountPage.loadingTime()
     await io.homePage.click(selectors.basePagePO.NOTIFICATION_ARIA_LABEL)
     await io.homePage.click(selectors.basePagePO.ACCEPT_INVITE)
     await io.homePage.reloadPage();
@@ -64,7 +65,9 @@ test.describe(`C2255_C2288_C2290_C2284_C2289_C2291_C2445 Transfer Account Owners
     await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_SELECTOR)
     await io.homePage.clickByIndex(selectors.basePagePO.ACCOUNT_SELECTOR, 1)
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.myAccountPage.loadingTime()
     await io.homePage.waitForElementAttached(selectors.basePagePO.NOTIFICATION_ARIA_LABEL)
+    await io.myAccountPage.loadingTime()
     await io.homePage.click(selectors.basePagePO.NOTIFICATION_ARIA_LABEL)
     await io.homePage.click(selectors.basePagePO.ACCEPT_INVITE)
     await io.homePage.reloadPage();
