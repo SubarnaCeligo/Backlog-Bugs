@@ -27,6 +27,7 @@ test.describe("C19911 Verify for each step the completed time should display as 
           { timeout: 1200000 }
         );
         const timeString = await (await page.$(selectors.myAccountPagePO.RELATIVE_DATE_TIME)).evaluate(el => el.textContent);
-        expect(isValidDateTimeFormat(timeString)).toBeTruthy();
+
+        io.assert.expectNotToBeNull(isValidDateTimeFormat(timeString), 'time string is not in valid format');
     });
 });

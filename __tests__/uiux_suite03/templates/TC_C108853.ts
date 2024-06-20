@@ -26,6 +26,6 @@ test.describe("C108853 Changing the implementation for uploading template zip.",
       await page.$(selectors.myAccountPagePO.RELATIVE_DATE_TIME)
     ).evaluate(el => el.textContent);
 
-    expect(previousTimeString).not.toEqual(timeString);
+    io.assert.expectNotToBeValue(previousTimeString, timeString, "time strings are matched, but they should not");
   });
 });
