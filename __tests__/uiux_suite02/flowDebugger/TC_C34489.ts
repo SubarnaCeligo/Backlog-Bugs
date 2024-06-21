@@ -7,6 +7,13 @@ function isWithinPast10Minutes(dateTimeString) {
   const currentTime = new Date(new Date().toLocaleString("en-US", {timeZone: "Asia/Calcutta"}));
   const tenMinutesAgo = new Date(currentTime.getTime() - 10 * 60000); // 10 minutes in milliseconds
 
+  console.log(JSON.stringify({
+    givenDate,
+    currentTime,
+    tenMinutesAgo,
+    x: new Date()
+  }))
+
   // Check if the given date is within the past 10 minutes
   return givenDate > tenMinutesAgo && givenDate <= currentTime;
 }
