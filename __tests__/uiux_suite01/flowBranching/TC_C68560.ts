@@ -12,8 +12,8 @@ test.describe(`C68560 Verify user is upload the ntegration zip file having one l
       `v1/integrations/${testdata.firstString}`
     );
   });
-
-  test(`@Env-All @Zephyr-IO-T17461 C68560 Verify user is upload the ntegration zip file having one linear flow in the template and able to install the template`, async ({
+//Skipped this test case as we don;t have creds for the connection and the tracker is : https://celigo.atlassian.net/browse/IOAUT-15782
+  test.skip(`@Env-All @Zephyr-IO-T17461 C68560 Verify user is upload the ntegration zip file having one linear flow in the template and able to install the template`, async ({
     io,
     page
   }) => {
