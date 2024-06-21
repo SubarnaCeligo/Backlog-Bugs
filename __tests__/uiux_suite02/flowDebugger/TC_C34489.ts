@@ -39,11 +39,12 @@ test.describe("C34489 - verify the request logs in a list are sorted by timestam
     await page.waitForFunction(
       () => {
         const element: HTMLDivElement = document.querySelector(
-          "[data-test='account-dashboard-open-errors']"
+          '#tabpanel-0 table tbody tr:nth-child(2) button'
         );
         return element && parseInt(element.innerText) > 50;
       },
-      { timeout: 1200000 }
+      { timeout: 1200000 },
+      { polling: 1000 }
     );
 
     await io.importsPage.click(selectors.importPagePO.CLICKIMPORT);
