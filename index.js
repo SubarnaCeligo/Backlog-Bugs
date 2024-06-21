@@ -68,6 +68,7 @@ const askFeatureQuestion = () => {
                 "pricing_model_suite",
                 "onprem",
                 "admin_suite",
+                "flowBuilder01"
             ],
             message: "Please Select A Feature:",
         }
