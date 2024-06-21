@@ -16,13 +16,13 @@ test.describe('IO-T23953 Verify the hotspot icons for Flow branching flow where 
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FIT_WINDOW_WITH_BUTTON);
 
-    const pageProcessors = await page.$$('[data-test^="pp-"]');
+    const pageProcessors = await page.$$(selectors.flowBuilderPagePO.PAGEPROCESSORS);
     const firstImportBubble = pageProcessors[0];
-    const firstImporthotspotIcon = await firstImportBubble.evaluate(el => el.querySelector('[aria-label="View test run results"]'));
+    const firstImporthotspotIcon = await firstImportBubble.evaluate(el => el.querySelector(selectors.flowBuilderPagePO.HOTSPOT_LABEL));
     expect(firstImporthotspotIcon).not.toBeNull();
 
     const secondImportBubble = pageProcessors[1];
-    const secondImporthotspotIcon = await secondImportBubble.evaluate(el => el.querySelector('[aria-label="View test run results"]'));
+    const secondImporthotspotIcon = await secondImportBubble.evaluate(el => el.querySelector(selectors.flowBuilderPagePO.HOTSPOT_LABEL));
     expect(secondImporthotspotIcon).toBeNull();
   });
 });
