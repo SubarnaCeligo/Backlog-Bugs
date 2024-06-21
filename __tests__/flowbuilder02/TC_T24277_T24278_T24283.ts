@@ -38,7 +38,7 @@ test.describe("TC_T24277_T24278_T24283 - Verify the connection chosen matches th
 
         //select connection
         await io.flowBuilder.click(selectors.basePagePO.CONNECTION);
-        await io.flowBuilder.fill(selectors.basePagePO.CONNECTION_DROPDOWN,'SHOPIFY CONNECTION');
+        await io.flowBuilder.fill(selectors.basePagePO.CONNECTION_DROPDOWN, 'SHOPIFY CONNECTION');
         await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN_LIST);
         await io.flowBuilder.clickByTextByIndex('SHOPIFY CONNECTION', 0);
 
