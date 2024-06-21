@@ -1,6 +1,7 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import fb from "@testData/flowbranching/fb_ui.json";
 
+// As per discussion with Rajaneesh I'm skipping this test case as its a sample test
 test.describe.skip("flowbranching_api", () => {
   let flowId;
   test.afterEach(async ({ io }) => {
