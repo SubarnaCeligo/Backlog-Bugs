@@ -4,7 +4,7 @@ import C34489 from "@testData/FlowDebugger/C34489.json";
 
 function isWithinPast10Minutes(dateTimeString, browserTime) {
   const givenDate = new Date(dateTimeString);
-  const currentTime = new Date();
+  const currentTime = new Date(new Date().toLocaleString("en-US", {timeZone: "Asia/Calcutta"}))  // new Date();
   const tenMinutesAgo = new Date(currentTime.getTime() - 10 * 60000); // 10 minutes in milliseconds
   const x = new Date().toLocaleString("en-US", {timeZone: "Asia/Calcutta"})
   console.log(JSON.stringify({
