@@ -4,7 +4,7 @@ import C34489 from "@testData/FlowDebugger/C34489.json";
 
 function isWithinPast10Minutes(dateTimeString) {
   
-  const givenDate = new Date(new Date(dateTimeString).toLocaleString("en-US", {timeZone: "Asia/Calcutta"}));
+  let givenDate = new Date(new Date(dateTimeString).toLocaleString("en-US", {timeZone: "Asia/Calcutta"}));
   const currentTime = new Date(new Date().toLocaleString("en-US", {timeZone: "Asia/Calcutta"}));
   const tenMinutesAgo = new Date(currentTime.getTime() - 10 * 60000); // 10 minutes in milliseconds
 
@@ -16,8 +16,13 @@ function isWithinPast10Minutes(dateTimeString) {
     x: new Date()
   }))
 
-  // Check if the given date is within the past 10 minutes
-  return givenDate > tenMinutesAgo && givenDate <= currentTime;
+  if (givenDate > tenMinutesAgo && givenDate <= currentTime) {
+    return true;
+  }
+
+  givenDate = new Date(dateTimeString);
+
+  return givenDate > tenMinutesAgo && givenDate <= currentTime
 }
 
 test.describe("C34489 - verify the request logs in a list are sorted by timestamp in descending order", () => {
