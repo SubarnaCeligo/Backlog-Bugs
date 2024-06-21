@@ -50,6 +50,13 @@ test.describe("C34489 - verify the request logs in a list are sorted by timestam
     await io.importsPage.click(selectors.flowBuilderPagePO.VIEW_DEBUG_LOG);
     await io.importsPage.loadingTime();
 
+      // C34477
+      await io.homePage.click(`tbody > tr > th > ${selectors.myAccountPagePO.RELATIVE_DATE_TIME}`);
+      await page.waitForTimeout(500);
+  
+      const tooltipText = await (await page.$(selectors.mappings.TOOLTIP)).evaluate(el => el.textContent);
+      expect(tooltipText.length).toBeGreaterThan(0);
+
    // C34491 When paginate, first log should always be selected by default (request/response panel)
     await io.assert.verifyElementAttributeContainsText(
       selectors.flowBuilderPagePO.DEBUG_TABLE_FIRST_ROW,
