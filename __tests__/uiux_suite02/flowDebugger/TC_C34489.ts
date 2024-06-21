@@ -3,18 +3,9 @@ import * as selectors from "@celigo/aut-selectors";
 import C34489 from "@testData/FlowDebugger/C34489.json";
 
 function isWithinPast10Minutes(dateTimeString) {
-  
   let givenDate = new Date(new Date(dateTimeString).toLocaleString("en-US", {timeZone: "Asia/Calcutta"}));
   const currentTime = new Date(new Date().toLocaleString("en-US", {timeZone: "Asia/Calcutta"}));
   const tenMinutesAgo = new Date(currentTime.getTime() - 10 * 60000); // 10 minutes in milliseconds
-
-  console.log(JSON.stringify({
-    givenDate,
-    currentTime,
-    tenMinutesAgo,
-    dateTimeString,
-    x: new Date()
-  }))
 
   if (givenDate > tenMinutesAgo && givenDate <= currentTime) {
     return true;
