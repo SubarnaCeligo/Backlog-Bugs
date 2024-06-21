@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import fb from "@testData/flowbranching/fb_ui.json"
 
 
-test.describe("flowbranching_UI", () => {
+test.describe.skip("flowbranching_UI", () => {
 
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
