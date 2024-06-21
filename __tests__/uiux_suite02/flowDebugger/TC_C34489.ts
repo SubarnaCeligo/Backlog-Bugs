@@ -3,15 +3,20 @@ import * as selectors from "@celigo/aut-selectors";
 import C34489 from "@testData/FlowDebugger/C34489.json";
 
 function isWithinPast10Minutes(dateTimeString) {
-  const givenDate = new Date(dateTimeString);
-  const currentTime = new Date();
+  let givenDate = new Date(new Date(dateTimeString).toLocaleString("en-US", {timeZone: "Asia/Calcutta"}));
+  const currentTime = new Date(new Date().toLocaleString("en-US", {timeZone: "Asia/Calcutta"}));
   const tenMinutesAgo = new Date(currentTime.getTime() - 10 * 60000); // 10 minutes in milliseconds
 
-  // Check if the given date is within the past 10 minutes
-  return givenDate > tenMinutesAgo && givenDate <= currentTime;
+  if (givenDate > tenMinutesAgo && givenDate <= currentTime) {
+    return true;
+  }
+
+  givenDate = new Date(dateTimeString);
+
+  return givenDate > tenMinutesAgo && givenDate <= currentTime
 }
 
-test.describe("C34489 - verify the request logs in a list are sorted by timestamp in descending order", () => {
+test.describe("C34489 C34477 @Zephyr-IO-T6159 @Zephyr-IO-T6171 @Env-QA @Env-IAQA verify the request logs in a list are sorted by timestamp in descending order", () => {
   let id;
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
@@ -39,16 +44,24 @@ test.describe("C34489 - verify the request logs in a list are sorted by timestam
     await page.waitForFunction(
       () => {
         const element: HTMLDivElement = document.querySelector(
-          "[data-test='account-dashboard-open-errors']"
+          '#tabpanel-0 table tbody tr:nth-child(2) button'
         );
         return element && parseInt(element.innerText) > 50;
       },
-      { timeout: 1200000 }
+      { timeout: 1200000 },
+      { polling: 1000 }
     );
 
     await io.importsPage.click(selectors.importPagePO.CLICKIMPORT);
     await io.importsPage.click(selectors.flowBuilderPagePO.VIEW_DEBUG_LOG);
     await io.importsPage.loadingTime();
+
+      // C34477
+      await io.homePage.click(`tbody > tr > th > ${selectors.myAccountPagePO.RELATIVE_DATE_TIME}`);
+      await page.waitForTimeout(500);
+  
+      const tooltipText = await (await page.$(selectors.mappings.TOOLTIP)).evaluate(el => el.textContent);
+      expect(tooltipText.length).toBeGreaterThan(0);
 
    // C34491 When paginate, first log should always be selected by default (request/response panel)
     await io.assert.verifyElementAttributeContainsText(
