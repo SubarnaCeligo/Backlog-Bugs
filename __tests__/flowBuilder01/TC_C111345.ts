@@ -28,9 +28,9 @@ test.describe("TC_C111345", () => {
         await io.homePage.addStep("*** Opened the import ***");
         await io.homePage.click(selectors.flowBuilderPagePO.DESTINATIONTABLESEARCHPOSTGRE);
         await io.homePage.addStep("*** Clicked on destination table search field ***");
-        await io.flowBuilder.fill(selectors.flowBuilderPagePO.DESTINATIONTABLE_PlACEHOLDER, "Agent");
-        await io.homePage.clickByText('Agent');
-        await io.homePage.addStep("*** Verified we are getting Agent in table by clicking ***");
+        await io.flowBuilder.fill(selectors.flowBuilderPagePO.DESTINATIONTABLE_PlACEHOLDER, "Anusha Table1");
+        await io.homePage.clickByText('Anusha Table1');
+        await io.homePage.addStep("*** Verified we are getting Anusha Table1 in table by clicking ***");
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.addStep("*** Navigated back to home page ***");
     });

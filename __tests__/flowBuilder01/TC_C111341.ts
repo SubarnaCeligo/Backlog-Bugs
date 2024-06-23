@@ -28,7 +28,7 @@ test.describe("TC_C111341", () => {
         await io.homePage.addStep("*** Opened the import ***");
         await io.homePage.click(selectors.flowBuilderPagePO.DESTINATIONTABLESEARCHPOSTGRE);
         await io.homePage.addStep("*** Clicked on destination table search field ***");
-        await io.homePage.clickByText('Agent');
+        await io.homePage.clickByText('Anusha Table1');
         await io.homePage.addStep("*** Verified we are getting 'QA_Automation.public.Agent' as table name ***");
         // await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.DESTINATIONTABLESEARCHPOSTGRE, 'QA_Automation.public.Agent');
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);

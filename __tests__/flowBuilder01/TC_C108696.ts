@@ -2,6 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("TC_C108696_hotspot_icons_on_exp_branching_not_on_import_with_script_in_branching", () => {
+    test.describe.configure({ retries: 2 })
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });

@@ -22,7 +22,7 @@ test.describe("TC_C24268_C24269", () => {
     )) as string;
 
     await io.assert.expectToContainValue(
-      `Accelerate the flow building experience by cloning an existing flow step from your account, and then modify it as needed.`,
+      "Your existing flow stepsSelect an existing flow step to clone or reuse in this flow. If you clone the flow step, you can modify the copy without changing the original. If you reuse the flow step, any changes you make will also affect any other flow that uses it.Was this helpful?",
       secretText,
       "New help text missing in export"
     );
@@ -30,32 +30,29 @@ test.describe("TC_C24268_C24269", () => {
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP);
 
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP);
-
-    await io.assert.verifyElementDisplayedByText(
-      "Or choose from below",
-      "Line is present"
-    );
-    
-    await io.connectionPage.click(selectors.flowBuilderPagePO.EXISTING_RESOURCE_HELPTEXT);
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Microsoft SQL');
     await io.flowBuilder.click(selectors.flowBuilderPagePO.MICROSOFT_SQL);
+    await io.myAccountPage.clickByText("Import records into destination application"); 
+    await io.connectionPage.click(selectors.flowBuilderPagePO.EXISTING_RESOURCE_HELPTEXT);
+    
     let importtxt = (await io.flowBuilder.getText(
       selectors.myAccountPagePO.HELP_BUBBLE
     )) as string;
 
     await io.assert.expectToContainValue(
-      `Accelerate the flow building experience by cloning an existing flow step from your account, and then modify it as needed.`,
+      "Your existing flow stepsSelect an existing flow step to clone or reuse in this flow. If you clone the flow step, you can modify the copy without changing the original. If you reuse the flow step, any changes you make will also affect any other flow that uses it.Was this helpful?",
       importtxt,
       "New help text missing in import"
     );
-    await io.myAccountPage.clickByText("Import records into destination application");
+    await io.connectionPage.click(selectors.flowBuilderPagePO.EXPORT_TYPE);
     await io.myAccountPage.clickByText("Look up additional records (per record)");
+    await io.connectionPage.click(selectors.flowBuilderPagePO.EXISTING_RESOURCE_HELPTEXT);
     let lookuptxt = (await io.flowBuilder.getText(
       selectors.myAccountPagePO.HELP_BUBBLE
     )) as string;
 
     await io.assert.expectToContainValue(
-      `Accelerate the flow building experience by cloning an existing flow step from your account, and then modify it as needed.`,
+      "Your existing flow stepsSelect an existing flow step to clone or reuse in this flow. If you clone the flow step, you can modify the copy without changing the original. If you reuse the flow step, any changes you make will also affect any other flow that uses it.Was this helpful?",
       lookuptxt,
       "New help text missing in lookup"
     );

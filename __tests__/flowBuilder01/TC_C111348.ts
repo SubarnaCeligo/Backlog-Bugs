@@ -28,8 +28,8 @@ test.describe("TC_C111348", () => {
         await io.homePage.addStep("*** Opened the import ***");
         await io.homePage.click(selectors.flowBuilderPagePO.DESTINATIONTABLESEARCHPOSTGRE);
         await io.homePage.addStep("*** Clicked on destination table search field ***");
-        await io.homePage.clickByText('Agent');
-        await io.homePage.addStep("*** Selected Agent table ***");
+        await io.homePage.clickByText('Anusha Table1');
+        await io.homePage.addStep("*** Selected Anusha Table1 table ***");
         await io.homePage.click(selectors.flowBuilderPagePO.CLEARTEXTBUTTONPOSTGRE);
         await io.homePage.addStep("*** Clicked the 'X' button  ***");
         await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.DESTINATIONTABLESEARCHPOSTGRE, '');
