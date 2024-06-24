@@ -115,20 +115,20 @@ test.describe("@Author-Sudhanshukumar T27437 Verify the Knowledge bot icon is Vi
         await io.importsPage.fill(selectors.flowBuilderPagePO.OPENAI.KNOWLEDGE_BOT_INPUT, "What is Flow in IO");
         await io.homePage.click(selectors.flowBuilderPagePO.OPENAI.KNOWLEDGE_BOT_SEND);
         await io.exportsPage.loadingTime();
-        await page.getByText("Understand the Salesforce - NetSuite dependent flows").nth(0).waitFor({state: "visible", timeout: 150000});
+        await page.getByText("Key features").nth(0).waitFor({state: "visible", timeout: 150000});
         const exportFunction = page.getByText('Anything else Celigo AI can help with?').nth(0);
         while (!(await exportFunction.isVisible())) {
             await page.mouse.wheel(0, 800);
         }
         await io.exportsPage.loadingTime();
         // IO-T27449
-        await io.flowBuilder.clickByText("Understand the Salesforce - NetSuite dependent flows");
+        await io.flowBuilder.clickByText("Key features");
         await io.homePage.loadingTime()
         const allPages = context.pages();
         await allPages[1].bringToFront();
         await allPages[1].waitForLoadState();
         const currentUrl = await allPages[1].url();
-        const expectedUrl = 'Understand-the-Salesforce-NetSuite-dependent-flows';
+        const expectedUrl = 'Key-features';
         const func = currentUrl.toString().includes(expectedUrl)
         await io.assert.expectToBeTrue(func, "urls doesn't match")
         await allPages[0].bringToFront();
