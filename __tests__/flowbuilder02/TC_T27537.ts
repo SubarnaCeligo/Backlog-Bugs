@@ -42,7 +42,7 @@ test.describe("@Epic-IO-54540  @Priority-P2  @Zephyr-IO-T27537 @Env-All", () => 
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.clickByText("Look up additional records (per record)");
         //Click on any existing resource
-        await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.EXISTING_RESOURCE, 0);
+        await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.OPENAI.NLS_RESOURCE, 0);
         await io.flowBuilder.clickByText("Create from scratch")
         await io.flowBuilder.loadingTime();
         const appCrash = await io.homePage.isVisible("text='Create lookup'")
