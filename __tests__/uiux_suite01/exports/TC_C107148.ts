@@ -2,6 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("TC_C107148  Check the UI alignment for file filter is matching with Figma or not", () => {
+    test.describe.configure({ retries: 1 })
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();

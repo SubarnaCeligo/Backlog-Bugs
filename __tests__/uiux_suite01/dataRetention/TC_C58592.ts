@@ -2,7 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C58592 Verify if the new Data retention tab is added to the My account page and all the fields in the tab along with the help text", () => {
-    test("C58592 Verify if the new Data retention tab is added to the My account page and all the fields in the tab along with the help text", async ({io, page}) => {
+    test("@Env-All @Zephyr-IO-T14588 C58592 Verify if the new Data retention tab is added to the My account page and all the fields in the tab along with the help text", async ({io, page}) => {
         await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
         await io.myAccountPage.click(selectors.myAccountPagePO.DATA_RETENTION);
         await io.assert.verifyElementIsDisplayed(selectors.myAccountPagePO.DATA_RETENTION_PERIOD, 'Data Retention Period not displayed');

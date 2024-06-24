@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("T731 Selecting an existing SF export which doesn't have package doesn't show up the link to install it. @author_Kaushik UI_Backlog @Env-QA", () => {
-  test("T731 Selecting an existing SF export which doesn't have package doesn't show up the link to install it. @author_Kaushik UI_Backlog @Env-QA", async ({ io, page }) => {
+  test("@Env-All T731 Selecting an existing SF export which doesn't have package doesn't show up the link to install it. @author_Kaushik UI_Backlog @Env-QA", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.homePage.loadingTime()
     await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
@@ -11,10 +11,10 @@ test.describe("T731 Selecting an existing SF export which doesn't have package d
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Salesforce');
     await io.flowBuilder.click(selectors.importPagePO.SALESFORCE_IMPORT);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.REALTIME_EXPORT_TYPE);
-    await io.flowBuilder.clickByText("Create from scratch")
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH)
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
-    await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'SALESFORCE CONNECTION WITH NO PACKAGE');
-    await io.flowBuilder.clickByText('SALESFORCE CONNECTION WITH NO PACKAGE');
+    await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'SALESFORCE CONNECTION');
+    await io.flowBuilder.clickByText('SALESFORCE CONNECTION');
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.exportsPage.loadingTime();
 

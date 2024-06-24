@@ -16,14 +16,14 @@ test.describe("C118307 - Verify the assignee pill when an error is resolved", ()
     );
     await io.integrationPage.fill(
       selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
-      "TC_C118307_DND"
+      "TC_C118307_DND_01_DND"
     );
 
     //Wait for search to complete
     await io.integrationPage.waitForElementAttached(selectors.flowBuilderPagePO.ACTIONS_SELECTOR);
 
     //Open the flow
-    await io.flowBuilder.clickByText("TC_C118307_DND");
+    await io.flowBuilder.clickByText("TC_C118307_DND_01_DND");
     await page.waitForTimeout(10000);
 
     //Open errors dashborad

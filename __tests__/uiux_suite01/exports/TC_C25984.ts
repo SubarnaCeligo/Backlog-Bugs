@@ -8,7 +8,7 @@ test.describe("C25984_Verify the View debug logs option is available to only Lis
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C25984_Verify the View debug logs option is available to only Listeners ie. webhook, realtime applications (NS & SF) UI_Backlog", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T4842 C25984_Verify the View debug logs option is available to only Listeners ie. webhook, realtime applications (NS & SF) UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.loadingTime()
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW)
@@ -17,7 +17,7 @@ test.describe("C25984_Verify the View debug logs option is available to only Lis
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'netsuite');
         await io.flowBuilder.click(selectors.connectionsPagePO.NETSUITE_CONNECTION);
         await io.flowBuilder.clickByText('Listen for real-time data from source application');
-        await io.flowBuilder.clickByText("Create from scratch")
+        await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH)
         await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN)
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'NETSUITE CONNECTION');

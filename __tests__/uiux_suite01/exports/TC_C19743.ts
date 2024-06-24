@@ -8,7 +8,7 @@ test.describe("C19743_Export Panel: Color code Export panel request/response/out
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C19743_Export Panel: Color code Export panel request/response/output like in the AFEs UI_Backlog", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T5582 C19743_Export Panel: Color code Export panel request/response/output like in the AFEs UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'netsuite');
@@ -20,6 +20,7 @@ test.describe("C19743_Export Panel: Color code Export panel request/response/out
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         // Validating preview text panel colors
         await io.flowBuilder.clickByText('Preview');
+        await io.flowBuilder.loadingTime()
         const previewColor= page.getByText("source").last();
         await expect(previewColor).toHaveCSS("color", "rgb(200, 40, 41)");
     });

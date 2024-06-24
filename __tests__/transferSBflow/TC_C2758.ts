@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "./transfer.json";
 
 test.describe(`C2758 Verify when the sandbox tile is shared with a non sandbox license user the shared tile should be shown in the production account`, () => {
-  test(`C2758 Verify when the sandbox tile is shared with a non sandbox license user the shared tile should be shown in the production account`, async ({
+  test(`@Env-All @Zephyr-IO-T6940 C2758 Verify when the sandbox tile is shared with a non sandbox license user the shared tile should be shown in the production account`, async ({
     page,
     io
   }) => {
@@ -16,5 +16,7 @@ test.describe(`C2758 Verify when the sandbox tile is shared with a non sandbox l
     await io.flowBuilder.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Clone - EM');
     const bool = await io.homePage.isVisible("text='Clone - EM'")
     await io.assert.expectToBeValue(bool.toString(), "true", "Flows not present in Sandbox")
+    await io.homePage.loadingTime();
+    await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
   });
 });

@@ -5,7 +5,7 @@ test.describe("TC_T29691_T29692_Test to validate user is able to see 'Azure Syna
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Epic-IO-65860 @Priority-P2 @Zephyr-IO-T29691 @Zephyr-IO-T29692 @Env-QA", async ({
+    test("@Epic-IO-65860 @Priority-P2 @Zephyr-IO-T29691 @Zephyr-IO-T29692 @Env-All", async ({
         io,
         page
     }) => {

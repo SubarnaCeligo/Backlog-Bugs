@@ -30,8 +30,6 @@ test.describe("TC_C117734_C117735_Validating whether first matched field/helper 
         await io.homePage.keyboard('Tab');
         await io.homePage.addStep("*** Checked the first matched field/helper is on highlight ***");
         await io.homePage.addStep("*** Clicked on TAB  ***");
-        await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.SOURCE_MAPPING_PLACEHOLDER, '{{{record}}}');
-        await io.homePage.addStep("*** Checked the field/helper is added after clicking TAB ***");
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 });

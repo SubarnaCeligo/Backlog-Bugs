@@ -2,8 +2,9 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C47425 Test to create empty PG/PP bubbles as a administrator user", () => {
-  test("C47425 Test to create empty PG/PP bubbles as a administrator user", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T17506 C47425 Test to create empty PG/PP bubbles as a administrator user", async ({io, page}) => {
       await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+      await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW);
       await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.PLUS_BUTTONS);
       await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.PLUS_BUTTONS,0);

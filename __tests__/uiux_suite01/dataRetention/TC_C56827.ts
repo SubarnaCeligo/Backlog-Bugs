@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C56827 from '../../../testData/inputData/Flows/C56827.json';
 
 test.describe("C56827 Verify purge all logs of the script option is disabled when there are no logs or when logs are deleted", () => {
-    test("C56827 Verify purge all logs of the script option is disabled when there are no logs or when logs are deleted", async ({io, page}) => {
+    test("@Env-QA @Zephyr-IO-T14584 C56827 Verify purge all logs of the script option is disabled when there are no logs or when logs are deleted", async ({io, page}) => {
         const id = await io.createResourceFromAPI(C56827, "FLOWS");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.SCRIPTS);
         await io.flowBuilder.click(`.MuiTableBody-root tr ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
@@ -21,8 +21,8 @@ test.describe("C56827 Verify purge all logs of the script option is disabled whe
         await io.flowBuilder.clickByText('More');
         await io.flowBuilder.click(selectors.flowBuilderPagePO.PURGE_SCRIPT_LOGS);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.PURGE_ALL_LOGS);
-        await io.assert.verifyElementIsDisplayed(selectors.basePagePO.NOTIFICATION, 'Purge log sucess notification not displayed');
-        await io.assert.verifyElementText(selectors.basePagePO.NOTIFICATION, 'All logs of this script successfully purged.');
+        await io.assert.verifyElementIsDisplayed(selectors.flowGroupingPagePO.ALERT_MESSAGE, 'Purge log sucess notification not displayed');
+        await io.assert.verifyElementText(selectors.flowGroupingPagePO.ALERT_MESSAGE, 'All logs of this script successfully purged.');
         executionLogRows = await page.locator(`${selectors.basePagePO.MUI_TABLE_BODY_ROOT} tr`).all();
         await io.assert.expectToBeValue('0', (executionLogRows.length).toString(), 'All Logs not purged');
     });

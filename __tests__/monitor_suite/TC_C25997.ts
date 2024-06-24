@@ -18,8 +18,10 @@ test.describe("C25997 - Verify that monitor user is not able to stop debug on li
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
 
     // Search for a DND flow which has been running for more than 2 weeks
+    await io.flowBuilder.loadingTime();
     await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
     await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Webhook_ListenerLogs_DND');
+    await io.flowBuilder.loadingTime();
     //Wait for the test to complete
     await io.integrationPage.waitForElementAttached(selectors.flowBuilderPagePO.ACTIONS_SELECTOR);
 

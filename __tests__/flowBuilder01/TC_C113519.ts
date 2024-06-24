@@ -7,10 +7,10 @@ test.describe("TC_C113519_Verify hover text is not displayed when message drop d
     });
     test("C113519 @Env-All @Priority-P2", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
-        await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "Add tags 1000 errors- Mysql to mysql flow_DND");
+        await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "Tags 1000 errors- Mysql to mysql flow_DND");
         await io.homePage.addStep("*** Searched for the integration ***");
         await io.flowBuilder.loadingTime();
-        await io.homePage.clickByText("Add tags 1000 errors- Mysql to mysql flow_DND");
+        await io.homePage.clickByText("Tags 1000 errors- Mysql to mysql flow_DND");
         await io.homePage.addStep("*** Opened the integration ***");
         await io.homePage.clickByText("Mysql to mysql flow_DND");
         await io.homePage.addStep("*** Opened the flow ***");

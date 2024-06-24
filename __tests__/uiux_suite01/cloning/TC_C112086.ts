@@ -4,9 +4,9 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe(`C112086 Verify the JWT bearer connection while cloning `, () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
-  
+
   });
-test(`@Env-QA C112086 Verify the JWT bearer connection while cloning`, async ({
+  test(`@Env-QA @Zephyr-IO-T14668 C112086 Verify the JWT bearer connection while cloning`, async ({
     io,
     page
   }) => {
@@ -21,16 +21,18 @@ test(`@Env-QA C112086 Verify the JWT bearer connection while cloning`, async ({
     );
     await io.flowBuilder.clickByText("Clone flow");
     await io.flowBuilder.click(selectors.integrationPagePO.SELECT_DESTINATION_INTEGRATION);
-    await io.flowBuilder.selectTextfromDropDown(page,"none");
+    await io.flowBuilder.selectTextfromDropDown(page, "none");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLONE_FLOW_BUTTON);
     await io.flowBuilder.click(selectors.templatePagePO.CONFIGURE);
     await io.flowBuilder.click(selectors.connectionsPagePO.EXISTING);
     await io.flowBuilder.click(selectors.basePagePO.CONNECTION);
-   await io.homePage.clickByTextByIndex("FTP CONNECTION",1)
+    let connMap = await io.api.loadConnections();
+    var connId = connMap.get("FTP CONNECTION");
+    await io.homePage.selectTextfromDropDown(page, connId)
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.click(selectors.templatePagePO.CONFIGURE);
     await io.flowBuilder.click(selectors.connectionsPagePO.EXISTING);
     await io.flowBuilder.click(selectors.basePagePO.CONNECTION);
-    await io.connectionPage.clickByTextByIndex("GITHUB JWT CONNECTION",1);
+    await io.connectionPage.clickByTextByIndex("GITHUB JWT CONNECTION", 1);
   });
 });

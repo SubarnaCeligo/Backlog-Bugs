@@ -49,8 +49,9 @@ test.describe("C115168 Verify the flow description Celigo AI", () => {
     await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.OPENAI.FLOW_DESCRIPTION_BUTTON, "Flow description is not displayed");
     //Flow Settings C115171
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_SETTINGS);
+    await page.locator(selectors.flowBuilderPagePO.OPENAI.DESCRIPTION_TEXTBOX).clear();
     await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.DESCRIPTION_TEXTBOX, "test");
-    await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+    await io.flowBuilder.clickByIndex(selectors.basePagePO.SAVE_AND_CLOSE, 0);
     await io.flowBuilder.loadingTime();
     //Flow Builder C115172 C115176
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.FLOW_DESCRIPTION_BUTTON);
@@ -119,10 +120,12 @@ test.describe("C115168 Verify the flow description Celigo AI", () => {
     // Imports in Resources C115185
     await io.homePage.goToMenu("Resources", "Imports");
     await io.flowBuilder.loadingTime();
+    await io.homePage.hover(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.OPENAI.FLOW_DESCRIPTION_BUTTON, "Flow description is not displayed");
     // Exports in Resources
     await io.homePage.goToMenu("Resources", "Exports");
     await io.flowBuilder.loadingTime();
+    await io.homePage.hover(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.OPENAI.FLOW_DESCRIPTION_BUTTON, "Flow description is not displayed");
      // Blank Flow Description Disabled
      await io.homePage.goToMenu("Tools", "Flow builder");
@@ -132,6 +135,7 @@ test.describe("C115168 Verify the flow description Celigo AI", () => {
      expect(await flowDescDisabled[0].getAttribute('class')).toContain('Mui-disabled');
     //Flow Group C115170
     await io.homePage.goToMenu("Home");
+    await io.homePage.hover(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.flowBuilder.clickByText('AFE_AUTOSUGGESTIONS_mapper2.0_DND');
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU);
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU, 0);

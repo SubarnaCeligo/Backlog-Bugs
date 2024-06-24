@@ -8,14 +8,14 @@ test.describe("C25987_verify when I am on the 'View debug logs' page, I can see 
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C25987_verify when I am on the 'View debug logs' page, I can see debug run status UI_Backlog", async ({ io}) => {
+    test("@Env-All @Zephyr-IO-T4844  C25987_verify when I am on the 'View debug logs' page, I can see debug run status UI_Backlog", async ({ io}) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW)
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'webhook');
         await io.flowBuilder.clickByText('Webhook');
-        await io.flowBuilder.clickByText("Create from scratch")
+        await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH)
         await io.flowBuilder.fill(selectors.connectionsPagePO.NAME_INPUT, 'TC_C25987');
         await io.flowBuilder.clickByText('Please select');
         await io.flowBuilder.clickByText('Basic');

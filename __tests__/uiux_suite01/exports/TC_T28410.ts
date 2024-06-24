@@ -5,7 +5,7 @@ test.describe("T28410_T28467_T28468_T28469 Verify XML parser for FTP,Gdrive,S3,d
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Epic-IO-47338 @Priority-P1 @Zephyr-IO-T28410 Verify XML parser for FTP if the xml element contains xmlns or if the element name contains ':' with proper resource path and Parse strategy as Automatic", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P1 @Zephyr-IO-T28410 @Env-All Verify XML parser for FTP if the xml element contains xmlns or if the element name contains ':' with proper resource path and Parse strategy as Automatic", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
