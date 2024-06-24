@@ -11,13 +11,14 @@ test.describe("C28951 Verify the concurrency limit for different license type(Fr
 
     await io.api.putCall(
       `v1/test/licenses/${platformLicense._id}`,
-      {...getLicensePayload(platformLicense), tier: 'professional', sandbox: true, "apiManagement": true, "expires": "2044-04-10T13:14:33.363Z"}
+      {...getLicensePayload(platformLicense), tier: 'professional',"concurrency": 10, sandbox: true, "apiManagement": true, "expires": "2044-04-10T13:14:33.363Z"}
     );
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.click(selectors.homePagePO.SANDBOX_BUTTON);
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.basePagePO.RESOURCES);
     await io.flowBuilder.click(selectors.basePagePO.CONNECTIONS);
+    await io.homePage.loadingTime();
     await io.homePage.click(`tbody tr:has-text("ftp") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
     await io.flowBuilder.click(selectors.integrationPagePO.EDIT);
     await io.homePage.loadingTime();
@@ -33,13 +34,14 @@ test.describe("C28951 Verify the concurrency limit for different license type(Fr
 
     await io.api.putCall(
       `v1/test/licenses/${platformLicense._id}`,
-      {...getLicensePayload(platformLicense), tier: 'enterprise', sandbox: true, "apiManagement": true, "expires": "2044-04-10T13:14:33.363Z"}
+      {...getLicensePayload(platformLicense), tier: 'enterprise',"concurrency": 10, sandbox: true, "apiManagement": true, "expires": "2044-04-10T13:14:33.363Z"}
     );
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.click(selectors.homePagePO.SANDBOX_BUTTON);
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.basePagePO.RESOURCES);
     await io.flowBuilder.click(selectors.basePagePO.CONNECTIONS);
+    await io.homePage.loadingTime();
     await io.homePage.click(`tbody tr:has-text("ftp") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
     await io.flowBuilder.click(selectors.integrationPagePO.EDIT);
     await io.homePage.loadingTime();
@@ -56,13 +58,14 @@ test.describe("C28951 Verify the concurrency limit for different license type(Fr
 
     await io.api.putCall(
       `v1/test/licenses/${platformLicense._id}`,
-      {...getLicensePayload(platformLicense), tier: 'standard', sandbox: true, "apiManagement": true, "expires": "2044-04-10T13:14:33.363Z"}
+      {...getLicensePayload(platformLicense), tier: 'standard', "concurrency": 10,sandbox: true, "apiManagement": true, "expires": "2044-04-10T13:14:33.363Z"}
     );
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.click(selectors.homePagePO.SANDBOX_BUTTON);
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.basePagePO.RESOURCES);
     await io.flowBuilder.click(selectors.basePagePO.CONNECTIONS);
+    await io.homePage.loadingTime();
     await io.homePage.click(`tbody tr:has-text("ftp") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
     await io.flowBuilder.click(selectors.integrationPagePO.EDIT);
     await io.homePage.loadingTime();

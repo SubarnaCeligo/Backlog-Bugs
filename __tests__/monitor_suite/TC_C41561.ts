@@ -11,6 +11,7 @@ test.describe(`TC_C41561 To verify create pull button is not displayed under "Re
   }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.myAccountPage.loadingTime();
+    await io.flowBuilder.waitForElementAttached("[data-test='Revisions']");
     await io.flowBuilder.clickByText("Revisions");
     await io.assert.checkElementState(
       selectors.integrationPagePO.CREATE_PULL,
