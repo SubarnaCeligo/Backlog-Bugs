@@ -11,14 +11,14 @@ test.describe("TC_T833 Verify user is able to edit/delete the Related lists in S
     await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.ADD_SOURCE);
     await io.homePage.click(selectors.flowBuilderPagePO.ADD_SOURCE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.APPLICATION);
-    await io.flowBuilder.clickByTextByIndex("Salesforce", 0, { exact: false });
+    await io.flowBuilder.clickByTextByIndex("Salesforce", 0,);
     await io.homePage.loadingTime();
     await io.flowBuilder.clickByText('Listen for real-time data from source application');
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.MARKETPLACE_RESOURCES);
     await io.flowBuilder.clickByTextByIndex("SF Realtime", 0);
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.click(selectors.basePagePO.CONNECTION_DROPDOWN);
-    await io.flowBuilder.clickByTextByIndex("Salesforce", 0, { exact: false });
+    await io.flowBuilder.clickByTextByIndex("TC_T833 SalesForceConnection", 0);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EDIT_RELATED_LIST);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_NEW_RELATED_LIST);
     await io.flowBuilder.fillByIndex(selectors.flowBuilderPagePO.BRANCH_NAME_INPUT, 'test' , 4);
