@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C103075 Verify the advance section in simple view", () => {
   //Skipped this test case as we don;t have creds for the connection and the tracker is : https://celigo.atlassian.net/browse/IOAUT-15782
-  test.skip("@Zephyr-IO-T24475 C103075 Verify the advance section in simple view", async ({
+  test.skip("@Env-All @Zephyr-IO-T24475 C103075 Verify the advance section in simple view", async ({
     io,
     page
   }) => {

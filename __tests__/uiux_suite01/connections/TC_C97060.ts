@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`@Zephyr-IO-T1150 C97060 App crash should not happen when user edits the connector defined custom settings`, () => {
  //Skipped as per discussion with TC Owner and QA team
-  test.skip(`C97060 App crash should not happen when user edits the connector defined custom settings`, async ({
+  test.skip(`@Env-All C97060 App crash should not happen when user edits the connector defined custom settings`, async ({
     io,
     page
   }) => {

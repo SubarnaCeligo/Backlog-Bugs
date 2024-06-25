@@ -8,7 +8,7 @@ test.describe("Test to validate connection is not created if user gives wrong cr
     await io.myAccountPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
   });
 
-  test("@Env-QA @Zephyr-IO-T29346 @Priority-P2", async ({
+  test("@Env-QA @Env-STAGING @Zephyr-IO-T29346 @Priority-P2", async ({
     io,
     page
   }) => {
@@ -44,7 +44,7 @@ test.describe("Test to validate connection is not created if user gives wrong cr
     await io.assert.verifyElementDisplayedByText('Your search didn’t return any matching results. Try expanding your search criteria.', 'Element is not yet deleted');
   });
 
-  test("@Env-QA @Zephyr-IO-T29343 @Priority-P2 Test to validate user is able to see connection guide on top right corner and user is able to navigate after clicking that", async ({
+  test("@Env-QA @Env-STAGING @Zephyr-IO-T29343 @Priority-P2 Test to validate user is able to see connection guide on top right corner and user is able to navigate after clicking that", async ({
     io,
     page
   }) => {
