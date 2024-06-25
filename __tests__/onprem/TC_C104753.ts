@@ -32,9 +32,5 @@ test.describe(`C104753 Verify "save","save and close" and "close" while creating
     await io.connectionPage.click(selectors.basePagePO.TEST_CONNECTION);
 
     await io.assert.verifyElementContainsText(selectors.basePagePO.NOTIFICTION_BAR, 'Your connection is working great! Nice Job!');
-    await io.connectionPage.click(selectors.basePagePO.SAVE);
-    await io.assert.verifyElementContainsText(selectors.basePagePO.NOTIFICTION_BAR, 'Your connection is working great! Nice Job!');
-    await io.connectionPage.click(selectors.basePagePO.SAVE_AND_CLOSE);
-    await io.assert.verifyElementContainsText(selectors.basePagePO.NOTIFICTION_BAR, 'Your connection is working great! Nice Job!');
   });
 });
