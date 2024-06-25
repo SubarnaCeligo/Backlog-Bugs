@@ -18,6 +18,6 @@ test.describe("C115861", () => {
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.SCRIPT_DATA_LINES);
         let label = await page.$$(selectors.flowBuilderPagePO.SCRIPT_DATA_LINES)
         var text = await label[1].textContent();
-        await io.assert.expectToContainValue(`"record": {`, text, "Error is found");
+        await io.assert.expectToContainValue(`"data": {`, text, "Error is found");
     });
 });
