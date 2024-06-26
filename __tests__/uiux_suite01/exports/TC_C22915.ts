@@ -21,7 +21,7 @@ test.describe('Verify the prefix “Build “ from the field labels in exports a
       expect(labelsWithBuildPrefix.length).toBe(0);
 
     });
-    test('Verify the prefix “Build “ from the field labels in imports', async ({ io, page }) => {
+    test('@Env-All Verify the prefix “Build “ from the field labels in imports', async ({ io, page }) => {
       const id =  await io.createResourceFromAPI(
           testData2,
           'FLOWS'

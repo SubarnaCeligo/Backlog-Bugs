@@ -1,0 +1,231 @@
+{
+  "name": "IO-T23953",
+  "disabled": true,
+  "_integrationId": "62f51db41677a21a108e5e3a",
+  "skipRetries": false,
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "HTTPExport",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "apiIdentifier": "e435a18bb1",
+        "asynchronous": true,
+        "oneToMany": false,
+        "mockOutput": {
+          "page_of_records": [
+            {
+              "record": {
+                "createdAt": "2024-03-04T19:04:09.400Z",
+                "name": "Adam O'Kon",
+                "username": "Bentley",
+                "id": "1"
+              }
+            },
+            {
+              "record": {
+                "createdAt": "2024-03-04T08:26:01.648Z",
+                "name": "May Jakubowski",
+                "username": "deposit",
+                "id": "2"
+              }
+            },
+            {
+              "record": {
+                "createdAt": "2024-03-04T17:57:53.038Z",
+                "name": "Toby Gleason",
+                "username": "Incredible",
+                "id": "3"
+              }
+            },
+            {
+              "record": {
+                "createdAt": "2024-03-04T09:48:12.608Z",
+                "name": "Agnes Kiehn",
+                "username": "Chicken",
+                "id": "4"
+              }
+            },
+            {
+              "record": {
+                "createdAt": "2024-03-04T22:18:15.699Z",
+                "name": "Melvin Botsford",
+                "username": "navigating",
+                "id": "5"
+              }
+            },
+            {
+              "record": {
+                "createdAt": "2024-03-04T19:21:49.281Z",
+                "name": "Benjamin Adams",
+                "username": "bulky",
+                "id": "6"
+              }
+            },
+            {
+              "record": {
+                "createdAt": "2024-03-04T15:06:21.686Z",
+                "name": "Sammy Walker",
+                "username": "World",
+                "id": "7"
+              }
+            },
+            {
+              "record": {
+                "createdAt": "2024-03-05T01:07:43.432Z",
+                "name": "Alvin Lockman",
+                "username": "parallelism",
+                "id": "8"
+              }
+            },
+            {
+              "record": {
+                "createdAt": "2024-03-04T11:14:46.963Z",
+                "name": "Felicia Hahn",
+                "username": "paradigm",
+                "id": "9"
+              }
+            },
+            {
+              "record": {
+                "createdAt": "2024-03-04T16:52:43.199Z",
+                "name": "Craig Hirthe",
+                "username": "Dominica",
+                "id": "10"
+              }
+            }
+          ]
+        },
+        "http": {
+          "relativeURI": "/users",
+          "method": "GET",
+          "isRest": false,
+          "formType": "http",
+          "response": {
+            "twoDArray": {
+              "doNotNormalize": true
+            }
+          }
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ],
+  "routers": [
+    {
+      "name": "First branch",
+      "routeRecordsTo": "all_matching_branches",
+      "routeRecordsUsing": "input_filters",
+      "branches": [
+        {
+          "name": "Branch 1.0",
+          "inputFilter": {
+            "rules": [
+              "notempty",
+              [
+                "string",
+                [
+                  "extract",
+                  "name"
+                ]
+              ]
+            ]
+          },
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "HTTPImport-T4568",
+                "mockResponse": [
+                  {
+                    "id": "1234567890",
+                    "errors": [],
+                    "_json": {
+                      "id": "1234567890",
+                      "mockResponse": "replace me"
+                    },
+                    "statusCode": 200,
+                    "ignored": false,
+                    "dataURI": "",
+                    "_headers": {
+                      "content-type": "application/json; charset=utf-8"
+                    }
+                  }
+                ],
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "i8e8d0c0b6",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "http": {
+                  "relativeURI": [
+                    ""
+                  ],
+                  "method": [
+                    "POST"
+                  ],
+                  "body": [],
+                  "batchSize": 1,
+                  "sendPostMappedData": true,
+                  "isRest": false,
+                  "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Branch 1.1",
+          "inputFilter": {
+            "rules": [
+              "empty",
+              [
+                "string",
+                [
+                  "extract",
+                  "name"
+                ]
+              ]
+            ]
+          },
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "HTTP Import",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "i748781778",
+                "oneToMany": false,
+                "blob": true,
+                "http": {
+                  "relativeURI": [],
+                  "method": [
+                    "POST"
+                  ],
+                  "body": [],
+                  "sendPostMappedData": true,
+                  "isRest": false,
+                  "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+              }
+            }
+          ]
+        }
+      ],
+      "script": {
+        "function": "branching"
+      },
+      "id": "3Ug57Vc4LgP"
+    }
+  ]
+}
