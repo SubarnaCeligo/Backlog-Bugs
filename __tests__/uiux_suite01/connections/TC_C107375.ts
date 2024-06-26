@@ -12,16 +12,12 @@ test.describe("Verify labels of default fields in Amazon Redshift connection for
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'Amazon');
     await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.AMAZON_REDSHIFT)
     await io.connectionPage.click(selectors.connectionsPagePO.AMAZON_REDSHIFT);
-
+    await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.DEFAULT_DB_NAME_LABEL)
     const default_database_name = (await io.connectionPage.getText(selectors.connectionsPagePO.DEFAULT_DB_NAME_LABEL)) as string;
     const default_cluster_name = (await io.connectionPage.getText(selectors.connectionsPagePO.DEFAULT_CLUSTER_NAME_LABEL)) as string;
-
     // Verify the labels of default fields.
     await io.assert.expectToContainValue('Default database name', default_database_name, 'Labels do not match');
     await io.assert.expectToContainValue('Default cluster name', default_cluster_name, 'Labels do not match');
- 
-    
   });
-
 }
 )
