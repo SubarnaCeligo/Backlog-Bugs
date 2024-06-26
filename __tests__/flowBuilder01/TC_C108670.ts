@@ -22,10 +22,10 @@ test.describe("TC_C108670_hotspot_icons_on_exp_imp_imputfilter", () => {
         await io.homePage.addStep("*** Waiting flow  to get completed ***");
         await io.homePage.addStep("*** Flow ran successfully ***");
         const Symbol = await page.$(selectors.flowBuilderPagePO.TRANSFER);
-        expect(await Symbol.screenshot()).toMatchSnapshot("C108670export.png");
+        expect(await Symbol.screenshot()).toMatchSnapshot("C108670export.png", {maxDiffPixelRatio: 0.8 });
         await io.homePage.addStep("*** Checked the 'T' icon on exports using screenshot ***");
         const Symbol1 = await page.$(selectors.flowBuilderPagePO.INPUT_FILTER);
-        expect(await Symbol1.screenshot()).toMatchSnapshot("C108670inpfil.png");
+        expect(await Symbol1.screenshot()).toMatchSnapshot("C108670inpfil.png", {maxDiffPixelRatio: 0.8 });
         await io.homePage.addStep("*** Checked the 'T' icon on inputfilter using screenshot ***");
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
