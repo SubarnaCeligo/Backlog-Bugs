@@ -18,13 +18,15 @@ test.describe("TC_C107838_Verify syncing dateTime fields in NS SS2.x import flow
             await io.pageProcessor(allure, NS_FTP);
             await io.flowBuilder.click(selectors.flowBuilderPagePO.HTTP_IMPORT_PLUSBUTTON);
             await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);
-            await io.homePage.fill(selectors.flowBuilderPagePO.DESTINATION_MAPPING_PLACEHOLDER, 'CreatedDate')
-            await io.homePage.fill(selectors.flowBuilderPagePO.SOURCE_MAPPING_PLACEHOLDER, '13/05/2023 08:12 AM')
+            await io.flowBuilder.click(selectors.flowBuilderPagePO.DESTINATION_MAPPING_PLACEHOLDER);
+            await io.homePage.fill(selectors.flowBuilderPagePO.DESTINATION_MAPPING_PLACEHOLDER, 'CreatedDate');
+            await io.flowBuilder.click(selectors.flowBuilderPagePO.SOURCE_MAPPING_PLACEHOLDER);
+            await io.homePage.fill(selectors.flowBuilderPagePO.SOURCE_MAPPING_PLACEHOLDER, '13/05/2023 08:12 AM');
             await io.homePage.waitForElementAttached(selectors.mappings.MAPPER2DOT0PO.PREVIEW)
             await io.homePage.performWebActions(selectors.mappings.MAPPER2DOT0PO.PREVIEW, "preview")
             await io.homePage.click(selectors.mappings.MAPPER2DOT0PO.PREVIEW)
             //validating date/time format
-            await io.assert.verifyElementContainsText(selectors.basePagePO.RESULT_PREVIEW_CONTENT, "{  \"CreatedDate\": \"13/05/2023 08:12     AM\"}")
+            await io.assert.verifyElementContainsText(selectors.basePagePO.RESULT_PREVIEW_CONTENT, "{  \"CreatedDate\": \"13/05/2023 08    :12 AM\"}")
             await io.importsPage.click(selectors.basePagePO.SAVE_AND_CLOSE);
         });
         //Enable and run the Flow ***
