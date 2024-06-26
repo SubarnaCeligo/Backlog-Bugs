@@ -1,0 +1,163 @@
+{
+  "name": "IO-T10044",
+  "disabled": false,
+  "_integrationId": "62f51db41677a21a108e5e3a",
+  "skipRetries": false,
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "Netsuite export",
+        "_connectionId": "NETSUITE CONNECTION",
+        "apiIdentifier": "edc9b0abf8",
+        "asynchronous": true,
+        "type": "test",
+        "oneToMany": false,
+        "test": {
+          "limit": 1
+        },
+        "netsuite": {
+          "type": "restlet",
+          "skipGrouping": true,
+          "statsOnly": false,
+          "restlet": {
+            "criteria": [],
+            "columns": [],
+            "recordType": "customer",
+            "searchId": "1925",
+            "restletVersion": "suiteapp2.0",
+            "markExportedBatchSize": 100
+          },
+          "distributed": {
+            "executionContext": [],
+            "executionType": []
+          }
+        },
+        "transform": {
+          "type": "expression",
+          "expression": {
+            "rules": [
+              [
+                {
+                  "key": "Xn3Gbdd1Iif",
+                  "extract": "id",
+                  "generate": "error"
+                },
+                {
+                  "key": "kTYJykUHMjO",
+                  "extract": "recordType",
+                  "generate": "error2"
+                }
+              ]
+            ],
+            "version": "1"
+          },
+          "rules": [
+            [
+              {
+                "key": "Xn3Gbdd1Iif",
+                "extract": "id",
+                "generate": "error"
+              },
+              {
+                "key": "kTYJykUHMjO",
+                "extract": "recordType",
+                "generate": "error2"
+              }
+            ]
+          ],
+          "version": "1"
+        },
+        "adaptorType": "NetSuiteExport"
+      }
+    }
+  ],
+  "routers": [
+    {
+      "name": "",
+      "routeRecordsTo": "first_matching_branch",
+      "routeRecordsUsing": "input_filters",
+      "branches": [
+        {
+          "name": "Branch 1.0",
+          "pageProcessors": [
+            {
+              "type": "import",
+              "qa__import": {
+                "name": "Inventory loader flow",
+                "unencrypted": {
+                  "apiType": "Amazon-SP-API",
+                  "feedType": "POST_FLAT_FILE_FULFILLMENT_ORDER_REQUEST_DATA"
+                },
+                "useTechAdaptorForm": true,
+                "_connectionId": "AMAZON SELLER CENTRAL CONNECTION",
+                "apiIdentifier": "ie80d49ed6",
+                "hooks": {
+                  "preMap": {
+                    "_scriptId": "66558638b31a099446eb45ac",
+                    "function": "123456_DND"
+                  }
+                },
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "mapping": {
+                  "fields": [
+                    {
+                      "extract": "sku345",
+                      "generate": "error"
+                    },
+                    {
+                      "extract": "quantity",
+                      "generate": "quantit"
+                    }
+                  ]
+                },
+                "file": {
+                  "type": "csv",
+                  "csv": {
+                    "rowDelimiter": "\n",
+                    "columnDelimiter": "\t",
+                    "includeHeader": true,
+                    "wrapWithQuotes": false,
+                    "replaceTabWithSpace": false,
+                    "replaceNewlineWithSpace": false,
+                    "truncateLastRowDelimiter": false
+                  }
+                },
+                "http": {
+                  "relativeURI": [
+                    "/feeds/2021-06-30/documents"
+                  ],
+                  "method": [
+                    "POST"
+                  ],
+                  "body": [],
+                  "batchSize": 1,
+                  "requestMediaType": "csv",
+                  "_asyncHelperId": "667a9cac65b2d5ad625b869b",
+                  "sendPostMappedData": true,
+                  "isRest": false,
+                  "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+              },
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              }
+            }
+          ]
+        },
+        {
+          "name": "Branch 1.1",
+          "pageProcessors": []
+        }
+      ],
+      "script": {
+        "function": "branching"
+      },
+      "id": "Fe6E3QNzPBP"
+    }
+  ]
+}
