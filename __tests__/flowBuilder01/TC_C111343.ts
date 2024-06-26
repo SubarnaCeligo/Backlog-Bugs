@@ -28,7 +28,7 @@ test.describe("TC_C111343", () => {
         await io.homePage.addStep("*** Opened the import ***");
         await io.homePage.click(selectors.flowBuilderPagePO.DESTINATIONTABLESEARCHPOSTGRE);
         await io.homePage.addStep("*** Clicked on destination table search field ***");
-        await io.homePage.clickByText('Anusha Table1');
+        await io.homePage.clickByText('Agent');
         await io.homePage.click(selectors.flowBuilderPagePO.REFRESHBUTTONPOSTGRE);
         await io.homePage.addStep("*** Clicked on refresh button ***");
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);

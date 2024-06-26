@@ -33,7 +33,7 @@ test.describe("TC_C111332", () => {
         await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.flowBuilderPagePO.DESTINATIONTABLESEARCHPOSTGRE);
         await io.homePage.addStep("*** Clicked on destination table search field ***");
-        await io.homePage.clickByText('Anusha Table1');
+        await io.homePage.clickByText('Agent');
         await io.homePage.addStep("*** Selected A table ***");
         await io.homePage.click(selectors.mappings.MAPPER2DOT0PO.SAVEANDCLOSE);
         await io.homePage.addStep("*** Saved the import ***");
