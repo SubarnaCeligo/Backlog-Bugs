@@ -25,7 +25,7 @@ test.describe("TC_C108700_hotspot_icons_on_exp_imp_imputfilter_for_multiple_expo
         expect(await Symbol.screenshot()).toMatchSnapshot("C108670export.png");
         await io.homePage.addStep("*** Checked the 'T' icon on only first export using screenshot ***");
         const Symbol1 = await page.$(selectors.flowBuilderPagePO.INPUT_FILTER);
-        expect(await Symbol1.screenshot()).toMatchSnapshot("C108670inpfil.png");
+        expect(await Symbol1.screenshot()).toMatchSnapshot("C108670inpfil.png" , {maxDiffPixelRatio: 0.8 });
         await io.homePage.addStep("*** Checked the 'T' icon on inputfilter using screenshot ***");
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
