@@ -1,8 +1,8 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-const connectionName = "jdbc_connection_IOT2808_DND";
-const connectionNameEdited = "jdbc_connection_edited_IOT2808_DND";
+const connectionName = "jdbc_connection_IOT2808";
+const connectionNameEdited = "jdbc_connection_edited_IOT2808";
 
 
 test.describe("C104757 Verify editing connection for JDBC on-Prem using MYSQL", () => {
@@ -34,7 +34,7 @@ test.describe("C104757 Verify editing connection for JDBC on-Prem using MYSQL", 
         await io.connectionPage.click(selectors.basePagePO.MFA_SAVE);
         await io.homePage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, 'jdbc_connection_IOT2808');
         await page.keyboard.press("Enter");
-        await io.homePage.clickByText("jdbc_connection_IOT2808");  
+        await io.homePage.clickByText(connectionName);  
         await io.flowBuilder.click(selectors.basePagePO.ADD_NAME);
         await page.keyboard.type(connectionNameEdited);
         await io.connectionPage.click(selectors.basePagePO.SAVE_AND_CLOSE);
