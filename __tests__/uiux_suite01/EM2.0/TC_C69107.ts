@@ -3,8 +3,10 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C69107 Verify search is working correctly on Error windows", () => {
   test("@Zephyr-IO-T6567 C69107 Verify search is working correctly on Error windows  ", async ({ io, page }) => {
-    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL)
-    await io.homePage.clickByText("Automation Flows")
+    await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+    await io.homePage.loadingTime();
+    await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
+    await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'C69107_DND');
     await io.homePage.clickByText("C69107_DND")
     await io.homePage.clickByTextByIndex("3 errors", 1)
     await io.homePage.fill(selectors.flowBuilderPagePO.SEARCH, "4:28:02 pm")

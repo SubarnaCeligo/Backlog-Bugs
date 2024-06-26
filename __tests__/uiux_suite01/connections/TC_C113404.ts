@@ -106,7 +106,7 @@ test.describe("C113404", () => {
     await io.assert.expectToBeValue(monitorExp2.toString(), 'true', "Value is found");
   });
 
-  test("@Env-QA @Env-STAGING @Env-IAQA @Zephyr-IO-T15074 C113408 Verify user able to create iclient through connection>>iclient", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T15074 C113408 Verify user able to create iclient through connection>>iclient", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.click(selectors.basePagePO.RESOURCES);
     await io.connectionPage.click(selectors.connectionsPagePO.ICLIENTSTAB);
@@ -136,7 +136,7 @@ test.describe("C113404", () => {
     await io.connectionPage.selectTextfromDropDown(page, "Bearer");
     await io.connectionPage.click(selectors.basePagePO.SAVE_AND_CLOSE);
   });
-  test("@Env-QA @Env-STAGING @Env-IAQA @Zephyr-IO-T15075 C113411 Verify user is able to create connection using JWT", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T15075 C113411 Verify user is able to create connection using JWT", async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
@@ -166,7 +166,7 @@ test.describe("C113404", () => {
     const monitorExp2 = await io.homePage.isVisible("text='Use JWT'");
     await io.assert.expectToBeValue(monitorExp2.toString(), 'true', "Value is found");
   });
-  test("@Env-QA @Env-STAGING @Env-IAQA @Zephyr-IO-T15079 C113420 Verify all the send token via dropdown values", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T15079 C113420 Verify all the send token via dropdown values", async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
@@ -189,7 +189,7 @@ test.describe("C113404", () => {
     const monitorExp14 = await io.homePage.isVisible("text='URL parameter'");
     await io.assert.expectToBeValue(monitorExp14.toString(), 'true', "Value is found");
   });
-  test("@Env-QA @Env-STAGING @Env-IAQA @Zephyr-IO-T15080 C113421 Verify the UI when user toggle between three Grant types", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T15080 C113421 Verify the UI when user toggle between three Grant types", async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
