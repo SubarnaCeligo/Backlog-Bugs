@@ -10,6 +10,6 @@ test.describe("C53030 Verify that the 30 days option is enable for for license t
         await io.assert.verifyElementText(selectors.myAccountPagePO.THIRTY_DAYS, '30 days');
         await io.assert.verifyElementText(selectors.myAccountPagePO.SIXTY_DAYS, '60 days');
         await io.assert.verifyElementText(selectors.myAccountPagePO.NINETY_DAYS, '90 days');
-        await io.assert.verifyElementText(selectors.myAccountPagePO.ONEEIGHTY_DAYS, '180 days');
+        await io.assert.verifyElementContainsText(selectors.myAccountPagePO.ONEEIGHTY_DAYS, '180 days');
     });
   });

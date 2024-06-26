@@ -26,7 +26,7 @@ test.describe("T28409_T28411 Verify XML parser for FTP,Gdrive,S3,dropbox when XM
         await io.connectionPage.addStep("Clicking on preview");
         await expect(page.locator(selectors.exportsPagePO.ERROR_ACCORDION_SUMMARY)).toBeVisible();
     });
-    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28474 Verify XML parser for Gdrive when XML file is invalid", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28474 @Env-All Verify XML parser for Gdrive when XML file is invalid", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
@@ -47,7 +47,7 @@ test.describe("T28409_T28411 Verify XML parser for FTP,Gdrive,S3,dropbox when XM
         await io.connectionPage.addStep("Clicking on preview");
         await expect(page.locator(selectors.exportsPagePO.ERROR_ACCORDION_SUMMARY)).toBeVisible();
     });
-    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28475 Verify XML parser for S3 when XML file is invalid", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28475 @Env-All Verify XML parser for S3 when XML file is invalid", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
@@ -68,7 +68,7 @@ test.describe("T28409_T28411 Verify XML parser for FTP,Gdrive,S3,dropbox when XM
         await io.connectionPage.addStep("Clicking on preview");
         await expect(page.locator(selectors.exportsPagePO.ERROR_ACCORDION_SUMMARY)).toBeVisible();
     });
-    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28476 Verify XML parser for dropbox when XML file is invalid", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28476 @Env-All Verify XML parser for dropbox when XML file is invalid", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
