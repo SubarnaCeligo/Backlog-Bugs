@@ -15,7 +15,7 @@ test.describe("C103678 Verify Help Text for HTTP request body UI_Backlog", () =>
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'http');
     await io.flowBuilder.click(selectors.flowBuilderPagePO.HTTP);
     await io.myAccountPage.clickByText("Import records into destination application");
-    await io.flowBuilder.clickByText("Create from scratch");
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
     await io.homePage.selectConnectionDropDown(page, 'HTTP AMAZON CONNECTION');
     await io.flowBuilder.click(selectors.importPagePO.HTTP_REQUEST_BODY_HELP_BUBBLE);

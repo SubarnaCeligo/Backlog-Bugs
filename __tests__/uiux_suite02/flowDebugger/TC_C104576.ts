@@ -11,7 +11,7 @@ test.describe("C104576 Verify error messages when Mock output is populated with 
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'HTTP');
         await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
-        await io.flowBuilder.clickByText("Create from scratch");
+        await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "HTTP ZENDESK CONNECTION");
         await io.flowBuilder.clickByText('HTTP ZENDESK CONNECTION');

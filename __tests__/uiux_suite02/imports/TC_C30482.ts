@@ -9,7 +9,7 @@ test.describe(`C30482_Verify support for record type 'price plan' in search crit
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'netsuite');
     await io.flowBuilder.click(selectors.connectionsPagePO.NETSUITE_CONNECTION);
     await io.flowBuilder.click(selectors.connectionsPagePO.IMPORT_RECORDS);
-    await io.flowBuilder.clickByText("Create from scratch");
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
     await io.homePage.selectConnectionDropDown(page, 'NETSUITE CONNECTION');
     await io.flowBuilder.fill(selectors.importPagePO.NETSUITE_RECORD_TYPE, 'Price Plan');

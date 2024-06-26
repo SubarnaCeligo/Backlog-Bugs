@@ -9,7 +9,7 @@ test.describe("C96303 Verify checkbox field type criteria gets cleared when user
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'netsuite');
         await io.flowBuilder.click(selectors.connectionsPagePO.NETSUITE_CONNECTION);
         await io.flowBuilder.click(selectors.connectionsPagePO.REALTIME);
-        await io.flowBuilder.clickByText("Create from scratch");
+        await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.homePage.clickByText( 'NETSUITE CONNECTION');
         await io.flowBuilder.click(selectors.importPagePO.NETSUITE_DISTRIBUTED_RECORDTYPE);

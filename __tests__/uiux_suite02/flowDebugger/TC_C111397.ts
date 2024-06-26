@@ -17,7 +17,7 @@ test.describe("C111397, C111313, C111314, C111318, C111396, C111316, C111399, C1
         await io.flowBuilder.clickByText(
             "Look up additional records (per record)"
           );
-          await io.flowBuilder.clickByText("Create from scratch");
+          await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
           await io.homePage.loadingTime()
         await io.importsPage.click(selectors.basePagePO.CONNECTION_DROPDOWN);
         await io.importsPage.selectConnectionDropDown(page,"3PL CONNECTION");
