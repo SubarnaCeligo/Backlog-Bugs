@@ -14,7 +14,6 @@ test.describe(`C45819`, () => {
     await io.myAccountPage.waitForElementAttached(selectors.myAccountPagePO.MFA);
     await io.myAccountPage.click(selectors.myAccountPagePO.MFA);
     await io.myAccountPage.loadingTime();
-    await page.pause();
     const isToggleEnable = await io.myAccountPage.isVisible(selectors.myAccountPagePO.MFA_ON_OFF);
     if(!isToggleEnable) 
       await io.myAccountPage.click(selectors.myAccountPagePO.MFA_TOGGLE);
