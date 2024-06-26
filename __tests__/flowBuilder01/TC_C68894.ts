@@ -32,8 +32,15 @@ test.describe("C68894_C68896", () => {
         await io.connectionPage.fill(selectors.connectionsPagePO.SSL_PASSPHRASE, 'celigo123');
         await io.connectionPage.click(selectors.basePagePO.SAVE_AND_CLOSE);
         await io.connectionPage.click(selectors.connectionsPagePO.SSL_CERTIFICATE);
+        await io.homePage.loadingTime();
+        await io.homePage.loadingTime();
+        await io.homePage.loadingTime();
         await io.connectionPage.clickByText("PEM");
+        await io.homePage.loadingTime();
+        await io.homePage.loadingTime();
         const fileChooserPromise1 = page.waitForEvent("filechooser");
+        await io.homePage.loadingTime();
+        await io.homePage.loadingTime();
         await io.connectionPage.click(selectors.connectionsPagePO.SSL_CLIENT_KEY);
         const fileChooser1 = await fileChooserPromise1;
         await fileChooser1.setFiles("downloads/S3_Downloads/AES_private.key");
@@ -61,7 +68,11 @@ test.describe("C68894_C68896", () => {
         await io.connectionPage.fill(selectors.connectionsPagePO.RELATIVEURI, 'users');
         await io.connectionPage.click(selectors.importPagePO.ADVANCED);
         await io.connectionPage.click(selectors.connectionsPagePO.SSL_CERTIFICATE);
+        await io.homePage.loadingTime();
+        await io.homePage.loadingTime();
         await io.connectionPage.clickByText("PEM");
+        await io.homePage.loadingTime();
+        await io.homePage.loadingTime();
         const fileChooserPromise = page.waitForEvent("filechooser");
         await io.connectionPage.click(selectors.connectionsPagePO.SSL_CLIENT_KEY);
         const fileChooser = await fileChooserPromise;
@@ -73,6 +84,8 @@ test.describe("C68894_C68896", () => {
         await io.connectionPage.fill(selectors.connectionsPagePO.SSL_PASSPHRASE, 'celigo123');
         await io.connectionPage.click(selectors.basePagePO.SAVE_AND_CLOSE);
         await io.connectionPage.click(selectors.connectionsPagePO.SSL_CERTIFICATE);
+        await io.homePage.loadingTime();
+        await io.homePage.loadingTime();
         await io.connectionPage.clickByText("PFX");
         const fileChooserPromise2 = page.waitForEvent("filechooser");
         await io.homePage.clickByText("Choose file");
