@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe(`C45826 Verify if the MFA details are retained when the owner enables MFA for an existing user again..`, () => {
+test.describe(`C45826 Verify if the MFA details are retained when the owner enables MFA for an existing user again.`, () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
