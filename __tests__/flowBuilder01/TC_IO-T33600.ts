@@ -12,6 +12,7 @@ test.describe("@Author_MaheshNivruttiSutar Verify Save button gets disabled when
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.delay(100000);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
+        await io.flowBuilder.delay(100000);
         await io.homePage.click(selectors.exportsPagePO.ASSISTANT_META_DATA_RESOURCE);
         await io.homePage.clickByText('Blocklist');
         await io.homePage.click(selectors.exportsPagePO.ASSISTANT_META_DATA_OPERATION);

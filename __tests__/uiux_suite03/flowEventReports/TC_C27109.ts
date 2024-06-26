@@ -10,8 +10,8 @@ test.describe("C27109 Run Report drawer - ‘Child integrations’ cannot be a r
     await io.homePage.clickByText('Choose integration');
     const intID = await io.api.loadIntegrations();
     await io.flowBuilder.selectTextfromDropDown(page, intID.get('Automation Flows'))
-    await io.homePage.fill(selectors.dashboardPagePO.REPORT_FLOWS, 'TC_C12034_DND')
- 
+    await io.homePage.fill(selectors.dashboardPagePO.REPORT_FLOWS, 'TC_C12034_Flow_DND')
+
     var flowId = await io.api.getFlowId("TC_C12034_Flow_DND");
     var flowIdlocator;
     flowIdlocator = "[data-test="+ "'"+flowId +"'"+"]"; //as the data-test is dynamic so unable to create data-test via selector class
