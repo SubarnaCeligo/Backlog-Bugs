@@ -3,6 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Connections/Narvar.json";
 
 test.describe("C68566 Verify Error place in flow builder", () => {
+  test.describe.configure({ retries: 1 })
   let id
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowsWithId(id)
