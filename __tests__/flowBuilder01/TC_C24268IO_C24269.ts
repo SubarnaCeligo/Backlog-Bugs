@@ -8,9 +8,10 @@ test.describe("TC_C24268_C24269", () => {
 
     await io.homePage.click(selectors.basePagePO.ADD_SOURCE_BUTTON)
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Microsoft SQL');
-
+    await io.homePage.loadingTime();
+    await io.homePage.loadingTime();
+    await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.MICROSOFT_SQL);
-
     await io.assert.verifyElementDisplayedByText(
       "Or choose from below",
       "Line is present"
@@ -31,6 +32,10 @@ test.describe("TC_C24268_C24269", () => {
 
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP);
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Microsoft SQL');
+    await io.homePage.loadingTime();
+    await io.homePage.loadingTime();
+    await io.homePage.loadingTime();
+    await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.MICROSOFT_SQL);
     await io.myAccountPage.clickByText("Import records into destination application"); 
     await io.connectionPage.click(selectors.flowBuilderPagePO.EXISTING_RESOURCE_HELPTEXT);
