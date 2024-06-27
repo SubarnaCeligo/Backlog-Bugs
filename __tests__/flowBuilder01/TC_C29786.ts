@@ -17,7 +17,7 @@ test.describe("C29786_Verify a NS realtime End to END flow in firefox browser", 
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'netsuite');
         await io.flowBuilder.click(selectors.connectionsPagePO.NETSUITE_CONNECTION);
         await io.flowBuilder.clickByText('Listen for real-time data from source application');
-        await io.flowBuilder.clickByText("Create from scratch")
+        await io.flowBuilder.clickByText("Create flow step")
         await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN)
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'NETSUITE CONNECTION');
