@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S TC_T28966-Verify that 'Send functional acknowled
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Epic-IO-36129 @Env-All @Priority-P2 @Zephyr-T28966 Verify that 'Send functional acknowledgement' checkbox not shown for file types other than EDI X12.", async ({ io, page }) => {
+  test("@Epic-IO-36129 @Env-All @Priority-P2 @Zephyr-IO-T28966 Verify that 'Send functional acknowledgement' checkbox not shown for file types other than EDI X12.", async ({ io, page }) => {
     //Go to Flow Builder
     await io.homePage.goToMenu("Tools", "Flow builder");
 
@@ -15,6 +15,7 @@ test.describe("@Author-Shriti S TC_T28966-Verify that 'Send functional acknowled
     //Search and select an application
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.APP_NAME_INPUT);
     await io.flowBuilder.fill(selectors.flowBuilderPagePO.APP_NAME_INPUT, "FTP");
+    await io.flowBuilder.waitForElementAttached(selectors.importPagePO.FTP_IMPORT);
     await io.flowBuilder.click(selectors.importPagePO.FTP_IMPORT);
 
     await io.flowBuilder.waitForElementAttached(selectors.basePagePO.CREATE_FROM_SCRATCH);
