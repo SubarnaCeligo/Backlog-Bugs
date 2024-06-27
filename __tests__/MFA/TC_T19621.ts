@@ -1,4 +1,4 @@
-import { expect, test } from "@celigo/ui-core-automation";
+import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C50835 Verify if the owner/admin is able to retrieve the response when /api/trustedDevices/settings route is hit`, () => {
@@ -17,7 +17,23 @@ test.describe(`C50835 Verify if the owner/admin is able to retrieve the response
     await io.myAccountPage.fill(selectors.myAccountPagePO.TRUSTED_DEVICE_FOR_PERIOD_INPUT, "10");
     await page.locator(selectors.basePagePO.MFA_SAVE_CLICK).last().click();
     await io.myAccountPage.loadingTime();
+    const preferences = await io.api.getCall(`api/preferences`);
+    let defaultAShareId = '';
+    if(preferences.defaultAShareId !== 'own'){
+      defaultAShareId = preferences.defaultAShareId;
+    }
 
+    if(defaultAShareId){
+      await page.route('**/api/accountSettings', async (route, request) => {
+        // Override headers
+        const headers = {
+          ...request.headers(),
+          'Integrator-AShareId': defaultAShareId,
+        };
+        await route.continue({ headers });
+      });
+    }
+  
     await io.homePage.navigateTo(
       process.env["IO_UI_CONNECTOR_URL"] + "api/accountSettings"
     );
