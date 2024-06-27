@@ -15,6 +15,7 @@ test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T31358 @Zephyr-IO-T31359 @
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'HTTP');
         await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
         await io.homePage.loadingTime();
+        await io.flowBuilder.clickByText('Create flow step');
 
         //Click on connection filter dropdown
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
@@ -43,6 +44,10 @@ test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T31358 @Zephyr-IO-T31359 @
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
+        await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'HTTP');
+        await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
+        await io.homePage.loadingTime();
+        await io.flowBuilder.clickByText('Create flow step');
         await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.HELP_TEXT_ICON,1);
         await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.HELP_TEXT_ICON,1);
         await io.homePage.loadingTime();

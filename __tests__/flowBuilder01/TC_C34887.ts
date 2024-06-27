@@ -10,15 +10,16 @@ test.describe("C34887 verifying the presence of Restricted report type checkbox 
         await io.connectionPage.click(selectors.flowBuilderPagePO.AMAZONSELLER);
         await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
-        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,'AMAZON SP API');
+        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,'AMAZON SP API CONNECTION');
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);
         await io.exportsPage.fill(
             selectors.exportsPagePO.NAME,
             "Export"
           );
-        await io.flowBuilder.click(selectors.exportsPagePO.API_TYPE_AMAZON);
-        await io.flowBuilder.click(selectors.connectionsPagePO.AMAZONSP);
-        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,'AMAZON SP API');
+        await io.connectionPage.click(selectors.flowBuilderPagePO.FORMVIEW );
+        await io.homePage.clickByText("HTTP");
+        await io.exportsPage.click(selectors.exportsPagePO.HTTP_METHOD);
+        await io.homePage.clickByText("GET");
         await io.exportsPage.fill(selectors.exportsPagePO.HTTP_RELATIVE_URI, '/reports/2021-06-30/documents/');
         await io.assert.verifyElementIsDisplayed(selectors.exportsPagePO.RESTRICTED_REPORT_TYPE, 'Checkbox is not displayed');
 
