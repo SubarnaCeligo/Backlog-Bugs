@@ -12,7 +12,14 @@ test.describe("TC_C113002", () => {
         await io.homePage.addStep("*** Navigated to export page ***");
         await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "FTPCSVDND");
         await io.homePage.addStep("*** Clicked on search button to search FTP export***");
-        await io.homePage.clickByText("FTPCSVDND");
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.homePage.click(selectors.connectionsPagePO.ACTIONS_MENU_BUTTON);
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.homePage.click(selectors.flowBuilderPagePO.APIMPUSHOPTION);
         await io.homePage.addStep("*** Opened FTP Export ***");
         await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.importPagePO.ADVANCED);

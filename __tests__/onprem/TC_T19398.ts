@@ -17,7 +17,7 @@ test.describe(`TC_T19398_TC_T19399_TC_T19400_TC_T19401_TC_T19398`, () => {
         await io.homePage.click(selectors.flowBuilderPagePO.ORACLEDB_APPLICATION);
         await io.homePage.addStep("*** Clicked on ORACLE application ***");
         await io.flowBuilder.clickByText("Import records into destination application");
-        await io.flowBuilder.clickByText("Create from scratch");
+        await io.flowBuilder.clickByText("Create flow step");
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,'ONPREM');
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);

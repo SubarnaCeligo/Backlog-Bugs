@@ -16,7 +16,7 @@ test.describe("TC_C111345", () => {
         await io.homePage.addStep("*** Searched for PostgreSQL application ***");
         await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.flowBuilderPagePO.POSTGRESQL_APPLICATION);
-        await io.homePage.addStep("*** Selected PostgreSQL application ***");
+        await io.homePage.addStep("*** Selected PostgreSQL application ***"); 
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "POSTGRESQL CONNECTION");
         await io.homePage.addStep("*** Searched for POSTGRESQL CONNECTION ***");
         await io.homePage.clickByText('POSTGRESQL CONNECTION');
