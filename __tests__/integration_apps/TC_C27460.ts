@@ -6,7 +6,7 @@ test.describe("C27460 To verify below schema is displayed for exports present in
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.loadingTime();
     });
-    test("@Env-IAQA @Zephyr-IO-T5459 C27460 To verify below schema is displayed for exports present in child IA", async ({ io, page }) => {
+    test("@Env-IAQA @Env-QA @Env-IAQA @Zephyr-IO-T5459 C27460 To verify below schema is displayed for exports present in child IA", async ({ io, page }) => {
         await io.homePage.addStep("Navigate to Salesforce - NetSuite > Salesforce File to NetSuite File Add/Update")
 
         await io.homePage.clickByText("Salesforce - NetSuite");
