@@ -19,6 +19,10 @@ test.describe("C24492_Verify the behaviour of Retry & Resolve dropdown with >100
         await io.homePage.addStep("*** Running the flow ***");
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
         await io.flowBuilder.waitForElementAttached(selectors.basePagePO.RUNFLOW);
         await io.homePage.addStep("*** Flow ran successfully ***");
         await waitForCompletionStatus(page, selectors);
@@ -45,6 +49,9 @@ test.describe("C24492_Verify the behaviour of Retry & Resolve dropdown with >100
         await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.flowBuilderPagePO.RESOLVE_JOBS);
         await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
         await io.assert.verifyElementDisplayedByText('1000 errors', "Not showing")
         await io.flowBuilder.loadingTime();
         await io.homePage.clickByText('1000 errors');
@@ -52,6 +59,8 @@ test.describe("C24492_Verify the behaviour of Retry & Resolve dropdown with >100
         await io.homePage.click(selectors.mappings.MAPPER2DOT0PO.CLOSEBUTTON);
         await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.flowBuilderPagePO.EM2DOT0PO.RETRY_JOBS_DROPDOWN);
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
         await io.flowBuilder.loadingTime();
         await io.assert.verifyElementDisplayedByText('1000 retriable errors', "Not showing")
 

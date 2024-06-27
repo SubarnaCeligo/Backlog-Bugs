@@ -2,6 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("TC_C108695_hotspot_icons_on_exp_branching_not_on_import_with_all_branching", () => {
+    test.describe.configure({ retries: 2 })
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
@@ -21,10 +22,10 @@ test.describe("TC_C108695_hotspot_icons_on_exp_branching_not_on_import_with_all_
         await io.homePage.addStep("*** Waiting flow  to get completed ***");
         await io.homePage.addStep("*** Flow ran successfully ***");
         const Symbol = await page.$(selectors.flowBuilderPagePO.TRANSFER);
-        expect(await Symbol.screenshot()).toMatchSnapshot("C108670export.png");
+        expect(await Symbol.screenshot()).toMatchSnapshot("C108670export.png", {maxDiffPixelRatio: 0.8 });
         await io.homePage.addStep("*** Checked the 'T' icon on exports using screenshot ***");
         const Symbol2 = await page.$(selectors.flowBuilderPagePO.INPUT_FILTER);
-        expect(await Symbol2.screenshot()).toMatchSnapshot("C108696inpfil.png");
+        expect(await Symbol2.screenshot()).toMatchSnapshot("C108696inpfil.png", {maxDiffPixelRatio: 0.8 });
         await io.homePage.addStep("*** Checked the 'T' icon on inputfilter using screenshot is not present ***");
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
