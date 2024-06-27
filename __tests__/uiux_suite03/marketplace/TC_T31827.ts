@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S Verify the search results and app counts message
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-QA @Epic-IO-51028 @Priority-P2 @Zephyr-IO-T31827 Verify the search results and app counts message with a search term that matches only templates.", async ({ io, page }) => {
+  test("@Env-All @Epic-IO-51028 @Priority-P2 @Zephyr-IO-T31827 Verify the search results and app counts message with a search term that matches only templates.", async ({ io, page }) => {
 
     //Go to Marketplace
     await io.homePage.click(selectors.basePagePO.MARKETPLACE);

@@ -10,6 +10,8 @@ test.describe('C106997_C106995_C106996 Validate that the sort dropdwon when spec
   }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.homePage.loadingTime()
+    await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
+    await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'C106997_DND');
     await io.flowBuilder.clickByText('TC_ C106997_DND');
     await io.flowBuilder.clickByTextByIndex("10 errors", 1);
     await io.flowBuilder.clickByTextByIndex("Timestamp", 0);

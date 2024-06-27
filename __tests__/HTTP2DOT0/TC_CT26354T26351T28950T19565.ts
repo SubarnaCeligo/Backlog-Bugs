@@ -73,7 +73,7 @@ test.describe("TC_CT26354T26351T28950T19565", () => {
       selectors.flowBuilderPagePO.SELECTED_IMPORT_RECORDS
     );
     await io.flowBuilder.loadingTime();
-    await io.flowBuilder.clickByText("Create from scratch");
+    await io.flowBuilder.clickByText("Create flow step");
     await io.flowBuilder.click(selectors.importPagePO.ADVANCED);
     await io.flowBuilder.click(selectors.importPagePO.CONCURRENCY_HELPTEXT);
     await io.connectionPage.waitForElementAttached(
@@ -192,7 +192,7 @@ test.describe("TC_CT26354T26351T28950T19565", () => {
     await io.homePage.loadingTime();
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, "HTTP");
     await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
-    await io.flowBuilder.clickByText("Create from scratch");
+    await io.flowBuilder.clickByText("Create flow step");
     await io.flowBuilder.fill(selectors.exportsPagePO.BQNAME, "HTTP XML Parser");
     await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.homePage.loadingTime();
@@ -239,7 +239,7 @@ test.describe("TC_CT26354T26351T28950T19565", () => {
       selectors.flowBuilderPagePO.SELECTED_IMPORT_RECORDS
     );
     await io.homePage.loadingTime();
-    await io.flowBuilder.clickByText("Create from scratch");
+    await io.flowBuilder.clickByText("Create flow step");
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.basePagePO.CONNECTION);
     await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, "CT19565");

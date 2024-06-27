@@ -45,5 +45,7 @@ test.describe(`IO_T451 To verify Pull from Integration dropdown field in both pr
     await io.flowBuilder.click(selectors.integrationPagePO.CREATE_PULL);
     const childIntegration = await io.flowBuilder.getText(selectors.integrationPagePO.CHILD_INTEGRATION_NAME);
     await io.assert.expectToBeTrue(childIntegration.toString().includes("IO_T451 Integration sandbox"), "integration name doesn't match");
+    await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
   });
 });

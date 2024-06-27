@@ -18,6 +18,7 @@ test.describe("C28952 Verify the audit log retention, ßconcurrency for expired 
 
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.homePage.loadingTime();
+    await io.myAccountPage.waitForElementAttached(selectors.myAccountPagePO.SUBSCRIPTION);    
     await io.myAccountPage.click(selectors.myAccountPagePO.SUBSCRIPTION);
     await page.waitForLoadState("load", { timeout: 90000 });
 
