@@ -1,8 +1,8 @@
 import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C102862 Verify all the available fields in the Forgot your password?(/request-reset) page", () => {
-  test("@Env-All @Zephyr-IO-T1101 C56284 Verify all the available fields in the Forgot your password?(/request-reset) page", async ({
+test.describe("C102862 C98376 Verify user is able to sign up for NA/EU region by using option given on sign up page", () => {
+  test("@Env-All @Zephyr-IO-T25364 C102862 C98376 Verify user is able to sign up for NA/EU region by using option given on sign up page", async ({
     io,
     page
   }) => {

@@ -2,7 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C51036 Verify a message is shown to the user after the account settings are saved.", () => {
-  test("@Env-All C51036 Verify a message is shown to the user after the account settings are saved.", async ({io, page}) => {
+  test("@Env-All C51036 @Zephyr-IO-T19637 Verify a message is shown to the user after the account settings are saved.", async ({io, page}) => {
       console.log({ a: io.data.links})
       await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
       await io.myAccountPage.click(selectors.myAccountPagePO.SECURITY);
