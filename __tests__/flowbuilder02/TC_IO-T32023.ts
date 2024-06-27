@@ -7,7 +7,7 @@ test.describe("@Author_MaheshNivruttiSutar @Bug-IO-80306 @Bug-IO-80221 @Env-QA @
     test.afterEach(async ({ io, page }) => {
         await io.api.deleteIntegration(intId);
     });
-    test("@Bug-IO-80306 @Bug-IO-80221 @Env-QA @Priority-P2 @Zephyr-IO-T32021 @Zephyr-IO-T32023", async ({ io, page }) => {
+    test("@Bug-IO-80306 @Bug-IO-80221 @Env-All @Priority-P2 @Zephyr-IO-T32021 @Zephyr-IO-T32023", async ({ io, page }) => {
         intId = await io.api.createIntegrationThruAPI(TC);
         await io.integrationPage.navigateToIntegrationById(intId);
         await io.homePage.loadingTime();
