@@ -23,8 +23,8 @@ test.describe(`C46990 Verify if the user is able to view the secret key when he 
     await io.myAccountPage.click(selectors.myAccountPagePO.MFA_SHOW_SECRET_KEY);
     await io.myAccountPage.fill(selectors.basePagePO.NEW_PASSWORD, decrypt(process.env["IO_Password"]));
     await io.myAccountPage.click(selectors.myAccountPagePO.REAUTH);
-    secret = await page.locator(selectors.myAccountPagePO.SECRET_KEY_INPUT).getAttribute('value');
     await io.myAccountPage.loadingTime();
+    secret = await page.locator(selectors.myAccountPagePO.SECRET_KEY_INPUT).getAttribute('value');
     expect(secret).not.toBe('xxxxxxxxx');
   });
 });
