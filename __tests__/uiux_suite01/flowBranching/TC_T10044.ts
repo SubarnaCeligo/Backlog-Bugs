@@ -90,6 +90,8 @@ test.describe("IO-T10044 Verify Retry is working as expected for imports with as
     await io.flowBuilder.clickByIndex(selectors.basePagePO.MENU_ITEM, 0);
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
     await io.flowBuilder.loadingTime();
+    await io.flowBuilder.reloadPage();
+    await io.flowBuilder.loadingTime();
 
     await io.flowBuilder.addStep("Retrying the flow");
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ERROR_BUBBLE);
