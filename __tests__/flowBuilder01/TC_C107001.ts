@@ -19,8 +19,16 @@ test.describe("C107001_Verify sorting column If a user navigates to the next bat
         await io.homePage.addStep("*** Running the flow ***");
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
         await io.flowBuilder.waitForElementAttached(selectors.basePagePO.RUNFLOW);
         await io.homePage.addStep("*** Flow ran successfully ***");
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.loadingTime();

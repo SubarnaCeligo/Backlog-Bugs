@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S Verify icon and color change for “How to jump 
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-QA @Epic-IO-51028 @Priority-P2 @Zephyr-IO-T31832 Verify icon and color change for “How to jump start integrations with templates and apps”", async ({ io, page }) => {
+  test("@Env-All @Epic-IO-51028 @Priority-P2 @Zephyr-IO-T31832 Verify icon and color change for “How to jump start integrations with templates and apps”", async ({ io, page }) => {
 
     //Go to Marketplace
     await io.homePage.click(selectors.basePagePO.MARKETPLACE);
