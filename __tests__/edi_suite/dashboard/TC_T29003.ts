@@ -25,14 +25,14 @@ test.describe("@Author-Shriti S Verify that the EDI dashboard displays all the a
     await io.assert.expectToContainValue('FA status', ediColumns, 'FA status column is not displayed');
     await io.assert.expectToContainValue('File type', ediColumns, 'File type column is not displayed');
     await io.assert.expectToContainValue('Direction', ediColumns, 'Direction column is not displayed');
-    await io.assert.expectToContainValue('Data processed on', ediColumns, 'Processed column is not displayed');
-    await io.assert.expectToContainValue('Int ctrl no.', ediColumns, 'Int ctrl no column is not displayed');
-    await io.assert.expectToContainValue('Group ctrl no.', ediColumns, 'Group ctrl no column is not displayed');
-    await io.assert.expectToContainValue('Trans set ctrl no.', ediColumns, 'Trans set ctrl no column is not displayed');
-    await io.assert.expectToContainValue('Int sender no.', ediColumns, 'Int sender column is not displayed');
-    await io.assert.expectToContainValue('Int receiver no.', ediColumns, 'Int receiver column is not displayed');
-    await io.assert.expectToContainValue('Group sender no.', ediColumns, 'Group sender column is not displayed');
-    await io.assert.expectToContainValue('Group receiver no.', ediColumns, 'Group receiver column is not displayed');
+    await io.assert.expectToContainValue('Processed', ediColumns, 'Processed column is not displayed');
+    await io.assert.expectToContainValue('ISA no.', ediColumns, 'Int ctrl no column is not displayed');
+    await io.assert.expectToContainValue('GS no.', ediColumns, 'Group ctrl no column is not displayed');
+    await io.assert.expectToContainValue('ST no.', ediColumns, 'Trans set ctrl no column is not displayed');
+    await io.assert.expectToContainValue('ISA sender', ediColumns, 'Int sender column is not displayed');
+    await io.assert.expectToContainValue('ISA receiver', ediColumns, 'Int receiver column is not displayed');
+    await io.assert.expectToContainValue('GS sender', ediColumns, 'Group sender column is not displayed');
+    await io.assert.expectToContainValue('GS receiver', ediColumns, 'Group receiver column is not displayed');
 
     
   });

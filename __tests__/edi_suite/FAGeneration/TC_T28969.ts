@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S TC_T28969-Verify the FA listener dropdown when t
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Epic-IO-36129 @Env-All @Priority-P2 @Zephyr-T28969 Verify the FA listener dropdown when there are no FA listeners in the integration.", async ({ io, page }) => {
+  test("@Epic-IO-36129 @Env-All @Priority-P2 @Zephyr-IO-T28969 Verify the FA listener dropdown when there are no FA listeners in the integration.", async ({ io, page }) => {
     //Go to Exports
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
 
@@ -21,26 +21,31 @@ test.describe("@Author-Shriti S TC_T28969-Verify the FA listener dropdown when t
     //Search and select an application
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.APP_NAME_INPUT);
     await io.flowBuilder.fill(selectors.flowBuilderPagePO.APP_NAME_INPUT, "FTP");
+    await io.exportsPage.loadingTime();
     await io.flowBuilder.click(selectors.importPagePO.FTP_IMPORT);
 
     await io.flowBuilder.waitForElementAttached(selectors.basePagePO.CREATE_FROM_SCRATCH);
     await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
 
     await io.exportsPage.click(selectors.exportsPagePO.FILE_TYPE);
+    await io.exportsPage.loadingTime();
     await io.exportsPage.click(selectors.connectionsPagePO.FILE_DEFINITION);
 
     //select EDI file
     await io.exportsPage.click(selectors.homePagePO.EDI_PROFILE);
-    await io.exportsPage.clickByTextByIndex('EDI_AUTOMATION_DND', 0);
+    await io.exportsPage.loadingTime();
+    await io.exportsPage.clickByTextByIndex('AA_EDI_AUTOMATION_DND', 0);
 
     //Select Parsing def
     await io.exportsPage.click(selectors.homePagePO.EDI_FORMAT);
     await io.exportsPage.loadingTime();
     await io.exportsPage.waitForElementAttached(selectors.exportsPagePO.PARSING_DEF_DROPDOWN);
     await io.exportsPage.clickByIndex(selectors.exportsPagePO.PARSING_DEF_DROPDOWN, 0);
+    await io.exportsPage.loadingTime();
 
     //Click the checkbox
     await io.exportsPage.click(selectors.exportsPagePO.FA_ACKNOWLEDGEMENT);
+    await io.exportsPage.waitForElementAttached(selectors.exportsPagePO.FA_LISTENER_DROPDOWN);
     let selectedListener = (await io.exportsPage.getText(selectors.exportsPagePO.FA_LISTENER_DROPDOWN)).toString();
 
     //Verify if a listener is selected by default
