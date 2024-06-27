@@ -18,12 +18,13 @@ test.describe(`C46990 Verify if the user is able to view the secret key when he 
     const isToggleEnable = await io.myAccountPage.isVisible(selectors.myAccountPagePO.MFA_ON_OFF);
     expect(isToggleEnable).toBeTruthy();
 
-    let secret = await page.locator("input[id='secretKey']").getAttribute('value');
+    let secret = await page.locator(selectors.myAccountPagePO.SECRET_KEY_INPUT).getAttribute('value');
     expect(secret).toBe('xxxxxxxxx');
-    await io.myAccountPage.click("[data-test='showSecretKey']");
+    await io.myAccountPage.click(selectors.myAccountPagePO.MFA_SHOW_SECRET_KEY);
     await io.myAccountPage.fill(selectors.basePagePO.NEW_PASSWORD, decrypt(process.env["IO_Password"]));
     await io.myAccountPage.click(selectors.myAccountPagePO.REAUTH);
-    secret = await page.locator("input[id='secretKey']").getAttribute('value');
+    secret = await page.locator(selectors.myAccountPagePO.SECRET_KEY_INPUT).getAttribute('value');
+    await io.myAccountPage.loadingTime();
     expect(secret).not.toBe('xxxxxxxxx');
   });
 });

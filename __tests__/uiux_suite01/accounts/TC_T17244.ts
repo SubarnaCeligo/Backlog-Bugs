@@ -25,6 +25,6 @@ test.describe(`C46937`, () => {
 
     await io.assert.verifyElementDisplayedByText('Cancel MFA setup?', 'Cancel MFA is not displayed');
     await io.assert.verifyElementIsDisplayed(selectors.mappings.MAPPER2DOT0PO.CLOSEBUTTON, "Cancel button not there in the dialog box");
-    await io.assert.verifyElementIsDisplayed("[data-test='Continue setup']", "Cancel button not there in the dialog box");
+    await io.assert.verifyElementIsDisplayed(selectors.myAccountPagePO.MFA_CONTINUE_SETUP, "Cancel button not there in the dialog box");
   });
 });
