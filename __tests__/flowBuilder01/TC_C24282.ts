@@ -20,7 +20,9 @@ test.describe("TC_C24282", () => {
      await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP);
  
      await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP);
- 
+     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Zuora');
+     await io.flowBuilder.click(selectors.connectionsPagePO.ZUORA_CONNECTOR);
+     await io.myAccountPage.clickByText("Import records into destination application"); 
      const valu1 = await io.flowBuilder.getText(selectors.flowBuilderPagePO.EXISTING_RESOURCE)
 
      const func1 = value.toString().includes("No results found.");

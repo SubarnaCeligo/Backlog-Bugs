@@ -17,6 +17,14 @@ test.describe("C24622_Verify the behaviour of Retry & Resolve dropdown with >100
         await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.basePagePO.RUNFLOW);
         await io.homePage.addStep("*** Running the flow ***");
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.waitForElementAttached(selectors.basePagePO.RUNFLOW);
+        await io.homePage.addStep("*** Flow ran successfully ***");
         await waitForCompletionStatus(page, selectors);
         async function waitForCompletionStatus(page, selectors) {
             const completedStatusSelector = `${selectors.flowBuilderPagePO.IMPORT_RUN_COMPLETION_STATUS}:has-text("Completed")`;
@@ -41,6 +49,10 @@ test.describe("C24622_Verify the behaviour of Retry & Resolve dropdown with >100
         await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.flowBuilderPagePO.RESOLVE_JOBS);
         await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
         await io.assert.verifyElementDisplayedByText('1000 errors', "Not showing")
         await io.flowBuilder.loadingTime();
         await io.homePage.clickByText('1000 errors');
@@ -48,6 +60,10 @@ test.describe("C24622_Verify the behaviour of Retry & Resolve dropdown with >100
         await io.homePage.click(selectors.mappings.MAPPER2DOT0PO.CLOSEBUTTON);
         await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.flowBuilderPagePO.EM2DOT0PO.RETRY_JOBS_DROPDOWN);
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
         await io.flowBuilder.loadingTime();
         await io.assert.verifyElementDisplayedByText('1000 retriable errors', "Not showing")
 
