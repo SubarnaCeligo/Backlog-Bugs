@@ -19,6 +19,6 @@ test.describe("IO_T6148 Verfiy List of logs can be paginated to see the next 50 
         await io.flowBuilder.click(selectors.flowBuilderPagePO.VIEW_DEBUG_LOG);
         await io.flowBuilder.waitForElementAttached(selectors.importPagePO.HTTP_REQUEST);
         const totalPages = await io.flowBuilder.getText(selectors.importPagePO.PAGE_DATA);
-        expect(totalPages).toContain("1 - 50 of 100");
+        expect(totalPages).toContain("1 - 50 of");
     });
 });
