@@ -29,6 +29,5 @@ test.describe("TC_C34539 Verify able to fetch debulogs for CSV media type for HT
     await io.flowBuilder.delay(1000 * 60 * 2);
     let debugLogs = await page.locator(selectors.flowBuilderPagePO.RESPONSE_CONTENT).isVisible();
     await io.assert.expectToBeTrue(debugLogs, "Debug Logs is not visible");
-    expect(debugLogs).toBeTruthy();
   });
 });
