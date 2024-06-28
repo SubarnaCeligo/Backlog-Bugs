@@ -1,17 +1,13 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("@Author-ladimanish Create integration page validations 3", () => {
-  test("@Env-All @Epic-IO-63085 @Priority-P1 @Zephyr-IO-T30783 @Zephyr-IO-T30782 @Zephyr-IO-T30777 @Zephyr-IO-T30778 Create integration page validations 3", async ({
+test.describe("@Author-ladimanish TC_T30783_T30782_T30777_T30778", () => {
+  test("@Env-All @Epic-IO-63085 @Priority-P1 @Zephyr-IO-T30783 @Zephyr-IO-T30782 @Zephyr-IO-T30777 @Zephyr-IO-T30778 TC_T30783_T30782_T30777_T30778", async ({
     io,
     page
   }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.myAccountPage.loadingTime();
-    await io.flowBuilder.clickByText("Create");
-    await io.flowBuilder.click(selectors.syncPagePO.CREATE_SYNC_INTEGRATION);
-    await io.myAccountPage.loadingTime();
-    //await io.sync.clickOnCreateSync();
+    await io.sync.clickOnCreateSync();
     await io.flowBuilder.click(selectors.syncPagePO.NEW_SYNC_INTEGRATION);
     await io.myAccountPage.loadingTime();
 

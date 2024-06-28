@@ -1,8 +1,8 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("@Author-ladimanish TC_T30805_T30819_T30800_T30802_T30816", () => {
-  test("@Env-All @Epic-IO-63085 @Priority-P1 @Zephyr-IO-T30805 @Zephyr-IO-T30819 @Zephyr-IO-T30800 @Zephyr-IO-T30802 @Zephyr-IO-T30816 TC_T30805_T30819_T30800_T30802_T30816", async ({
+test.describe("@Author-ladimanish TC_T30835_T30836_T30838", () => {
+  test("@Env-All @Epic-IO-63085 @Priority-P1 @Zephyr-IO-T30835 @Zephyr-IO-T30836 @Zephyr-IO-T30838 TC_T30835_T30836_T30838", async ({
     io,
     page
   }) => {
@@ -10,7 +10,7 @@ test.describe("@Author-ladimanish TC_T30805_T30819_T30800_T30802_T30816", () => 
     const integrationName = await io.sync.generateRandomName("Integration");
     await io.sync.createNewIntegration(integrationName);
 
-    //T30805
+    // //T30835
     // await io.flowBuilder.click(
     //   selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT
     // );
@@ -23,22 +23,25 @@ test.describe("@Author-ladimanish TC_T30805_T30819_T30800_T30802_T30816", () => 
     //   0
     // );
 
-    //T30819
+    //T30836
+    await io.sync.chooseSourceApplication("Salesforce");
+    await page.keyboard.press("Tab");
+    await io.flowBuilder.loadingTime();
     await io.assert.verifyElementIsDisplayed(
-      selectors.syncPagePO.SOURCE_PLACEHOLDER,
+      selectors.syncPagePO.SOURCE_CONNECTION_PLACEHOLDER,
+      "placeholder is not displayed"
+    );
+    await io.assert.verifyElementIsDisplayed(
+      selectors.syncPagePO.CREATE_CONNECTION_PLACEHOLDER,
       "placeholder is not displayed"
     );
 
-    //T30800 T30802 T30816
-    await io.flowBuilder.click(selectors.syncPagePO.SOURCE_APP_NAME_INPUT);
-    await io.flowBuilder.fill(
-      selectors.syncPagePO.SOURCE_APP_NAME_INPUT,
-      "Salesforce"
-    );
-    await io.myAccountPage.loadingTime();
+    //T30838
+    await io.flowBuilder.click(selectors.syncPagePO.SOURCE_CONNECTION_INPUT);
+    await io.flowBuilder.loadingTime();
     await io.assert.verifyElementDisplayedByText(
-      "Salesforce",
-      "Salesforce is not displayed"
+      "SALESFORCE CONNECTION",
+      "Existing connections are not displayed"
     );
   });
 });

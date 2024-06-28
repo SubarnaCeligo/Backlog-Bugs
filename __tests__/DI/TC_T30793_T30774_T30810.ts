@@ -1,8 +1,8 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("@Author-ladimanish Choose integration page validations 3", () => {
-  test("@Env-All @Epic-IO-63085 @Priority-P1 @Zephyr-IO-T30793 @Zephyr-IO-T30774 @Zephyr-IO-T30810 Choose integration page validations 3", async ({
+test.describe("@Author-ladimanish TC_T30793_T30774_T30810", () => {
+  test("@Env-All @Epic-IO-63085 @Priority-P1 @Zephyr-IO-T30793 @Zephyr-IO-T30774 @Zephyr-IO-T30810 TC_T30793_T30774_T30810", async ({
     io,
     page
   }) => {
@@ -27,6 +27,7 @@ test.describe("@Author-ladimanish Choose integration page validations 3", () => 
       selectors.syncPagePO.EXISTING_INTEGRATION_LIST,
       "Existing integration list is not displayed"
     );
+
     //T30810
     await io.assert.verifyElementIsDisplayed(
       selectors.syncPagePO.NEXT,

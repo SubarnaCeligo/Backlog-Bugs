@@ -1,14 +1,13 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("@Author-ladimanish Source page validations 3", () => {
-  test("@Env-All @Epic-IO-63085 @Priority-P1 @Zephyr-IO-T30847 @Zephyr-IO-T30801 @Zephyr-IO-T30822 @Zephyr-IO-T30811 Source page validations 3", async ({
+test.describe("@Author-ladimanish TC_T30847_T30801_T30822_T30811", () => {
+  test("@Env-All @Epic-IO-63085 @Priority-P1 @Zephyr-IO-T30847 @Zephyr-IO-T30801 @Zephyr-IO-T30822 @Zephyr-IO-T30811 TC_T30847_T30801_T30822_T30811", async ({
     io,
     page
   }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.myAccountPage.loadingTime();
-    const integrationName = await io.sync.generateRandomIntegrationName();
+    const integrationName = await io.sync.generateRandomName("Integration");
     await io.sync.createNewIntegration(integrationName);
     await io.sync.chooseSourceApplication("Salesforce");
 
@@ -16,6 +15,7 @@ test.describe("@Author-ladimanish Source page validations 3", () => {
     await io.flowBuilder.clearTextValue(
       selectors.syncPagePO.SOURCE_APP_NAME_INPUT
     );
+    await io.myAccountPage.loadingTime();
     await io.assert.verifyElementDisplayedByText(
       "Salesforce",
       "application list is not displayed"
@@ -23,6 +23,7 @@ test.describe("@Author-ladimanish Source page validations 3", () => {
 
     //T30801 T30822
     await io.flowBuilder.clickByText("Salesforce");
+    await io.myAccountPage.loadingTime();
     await io.assert.verifyElementIsDisplayed(
       selectors.syncPagePO.SOURCE_CONNECTION_INPUT,
       "app selection is not done"
@@ -30,10 +31,6 @@ test.describe("@Author-ladimanish Source page validations 3", () => {
 
     //T30811
     const nextButton = await page.$(selectors.syncPagePO.WIZARD_NEXT);
-    await io.assert.verifyElementIsDisplayed(
-      selectors.syncPagePO.NEXT,
-      "Next button is not disabled"
-    );
     expect(await nextButton.getAttribute("class")).toContain("Mui-disabled");
   });
 });
