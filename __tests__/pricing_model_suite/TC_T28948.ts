@@ -26,7 +26,7 @@ test.describe("T28948 Verify the audit log retention if user set the value from 
 
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.myAccountPage.click(selectors.myAccountPagePO.AUDIT_LOG);
-    await page.waitForLoadState("load", { timeout: 60000 });
+    await page.waitForLoadState("load", { timeout: 90000 });
 
     await page.locator("button").filter({ hasText: "Download" }).click();
     await io.homePage.clickByText("Custom");

@@ -21,7 +21,9 @@ test.describe("C26008_Verify hover over timestamp should show exact time in user
         await io.flowBuilder.clickByText('Basic');
         await io.flowBuilder.fill(`${selectors.flowBuilderPagePO.WEBHOOKUSERNAME} input`, 'Account')
         await io.flowBuilder.fill(`${selectors.flowBuilderPagePO.WEBHOOKPASSWORD} input`, 'Account123')
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.WEBHOKKSGENERATEURL);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.WEBHOKKSGENERATEURL);
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.VIEW_DEBUG_LOG);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.VIEW_DEBUG_LOG);
         await io.flowBuilder.clickByText('Start debug');
         await io.flowBuilder.clickByText('Apply');

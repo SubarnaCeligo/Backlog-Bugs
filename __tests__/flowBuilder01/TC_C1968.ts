@@ -6,10 +6,21 @@ test.describe("C1968_Verify error file in diagnostics zip", () => {
   });
   test("C1968_Verify error file in diagnostics zip UI_Backlog @Env-All @Priority-P2", async ({ io, page, }) => {
     //Navigate to default integration
+    await io.homePage.loadingTime();
+    await io.homePage.loadingTime();
     await io.homePage.navigateTo(process.env.IO_Integration_URL);
+    await io.homePage.loadingTime();
+    await io.homePage.loadingTime();
+    await io.homePage.loadingTime();
     // Search for a flow
     await io.homePage.clickByText("C68514_1_DND");
+    await io.homePage.loadingTime();
+    await io.homePage.loadingTime();
+    await io.homePage.loadingTime();
     await io.flowBuilder.clickByText("More");
+    await io.homePage.loadingTime();
+    await io.homePage.loadingTime();
+    await io.homePage.loadingTime();
     // Validating able to download error diagnostics
     await io.flowBuilder.clickByText("Download diagnostics");
 

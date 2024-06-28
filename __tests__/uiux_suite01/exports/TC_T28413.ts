@@ -40,7 +40,7 @@ test.describe("T28413_T28457_T28458_T28459 Verify XML parser help for FTP, Gdriv
         await io.assert.verifyElementTextByIndex(selectors.flowBuilderPagePO.SCRIPT_RESULT_VARIABLES, '\"ns1:OrganizationCode\"', 4);
     });
 
-    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28457 Verify XML parser help for S3 with proper resource path", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28457 @Env-All Verify XML parser help for S3 with proper resource path", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
@@ -72,7 +72,7 @@ test.describe("T28413_T28457_T28458_T28459 Verify XML parser help for FTP, Gdriv
         await io.assert.verifyElementTextByIndex(selectors.flowBuilderPagePO.SCRIPT_RESULT_VARIABLES, '\"ns1:OrganizationCode\"', 4);
     });
 
-    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28458 Verify XML parser help for Google Drive with proper resource path", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28458 @Env-All Verify XML parser help for Google Drive with proper resource path", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
@@ -104,7 +104,7 @@ test.describe("T28413_T28457_T28458_T28459 Verify XML parser help for FTP, Gdriv
         await io.assert.verifyElementTextByIndex(selectors.flowBuilderPagePO.SCRIPT_RESULT_VARIABLES, '\"ns1:OrganizationCode\"', 4);
     });
 
-    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28459 Verify XML parser help for Dropbox with proper resource path", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28459 @Env-All Verify XML parser help for Dropbox with proper resource path", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
