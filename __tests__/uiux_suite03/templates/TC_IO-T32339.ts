@@ -26,8 +26,9 @@ test.describe(`@Author_MaheshNivruttiSutar Verify User is able to create templat
         const template = await io.flowBuilder.isVisible("text='GRAPHQL & VAN TEMPLATE'")
         await io.assert.expectToBeTrue(template, "Template is not created")
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, "GRAPHQL & VAN TEMPLATE");
+        await io.homePage.loadingTime();
         await io.homePage.addStep("Searched for template");
-        await io.homePage.click(selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU);
+        await io.homePage.clickButtonByIndex(selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU,0);
         await io.homePage.loadingTime();
         await io.homePage.addStep("Clicked on actions menu");
         await io.flowBuilder.clickByText("Delete template");
