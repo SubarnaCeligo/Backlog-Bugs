@@ -31,7 +31,7 @@ test.describe("C118299 - Verify the assignee pill when the invited non-IO user h
    await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
    await io.flowBuilder.fill(selectors.filterErrorTag.ARIALABELSEARCHUSER, 'Manage User');
 
-   await io.flowBuilder.clickByText('Manage User');
+   await io.flowBuilder.clickByTextByIndex('Manage User', 0);
    await io.homePage.clickByText("Assign");
    await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL);
 
