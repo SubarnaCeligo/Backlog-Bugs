@@ -25,7 +25,7 @@ test.describe("TC_C108688 Verify Editing any flow resources should clear test ru
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
     await io.flowBuilder.click(selectors.basePagePO.ADD_DATA_PROCESSOR);
     await io.flowBuilder.click(
-      selectors.flowBuilderPagePO.RUNTEST_BUTTON_TOP_XPATH
+      selectors.flowBuilderPagePO.RUNTEST_BUTTON
     );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_TRANSFORMATION);
     await io.flowBuilder.clickByText("Script");

@@ -54,8 +54,8 @@ test.describe("C34489 C34477 @Zephyr-IO-T6159 @Zephyr-IO-T6171 @Env-QA @Env-IAQA
     await page.getByText("Run in progress").waitFor({ state: "hidden", timeout:360000 });
     let error = await page.$$("td> button")
     let errorText = await error[1].textContent()
-    errorText.replace(" errors", "")
-    await expect(errorText).toBeGreaterThan(50)
+    errorText = errorText.replace(" errors", "")
+    await expect(Number(errorText)).toBeGreaterThan(50)
     await io.importsPage.click(selectors.importPagePO.CLICKIMPORT);
     await io.importsPage.click(selectors.flowBuilderPagePO.VIEW_DEBUG_LOG);
     await io.importsPage.loadingTime();
