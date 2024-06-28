@@ -9,7 +9,7 @@ test.describe("@Author_MaheshNivruttiSutar Verify all connections are displayed 
     test.afterEach(async ({ io }) => {
         await io.connections.deleteConnection('META INSTAGRAM ADS CONNECTION PLEASE DELETE');
       });
-    test("@Epic-IO-76152 @Priority-P2 @Env-QA @Zephyr-IO-T32353 Verify all connections are displayed when user creates a new connection after selecting connection for HTTP connectors while creating new flow step'", async ({ io, page, context }) => {
+    test("@Epic-IO-76152 @Priority-P2 @Env-All @Zephyr-IO-T32353 Verify all connections are displayed when user creates a new connection after selecting connection for HTTP connectors while creating new flow step'", async ({ io, page, context }) => {
         await io.homePage.goToMenu("Tools", "Flow builder");
         await io.flowBuilder.loadingTime();
         //Add Source
