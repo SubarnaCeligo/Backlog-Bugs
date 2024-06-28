@@ -16,10 +16,13 @@ test.describe(`C28172 Verify export type dropdown values are updated in HTTP/RES
     await io.flowBuilder.click(selectors.exportsPagePO.CREATE_SELECT_CONNECTION);
     await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, '3PL CONNECTION');
     await io.flowBuilder.addStep("Clicked on 'connections' dropdown");
-    await io.flowBuilder.clickByText("3PL CONNECTION");
+    await io.exportsPage.click(selectors.connectionsPagePO.CONNECTIONDROP0);
+   // await io.flowBuilder.clickByText("3PL CONNECTION");
     await io.flowBuilder.addStep("Selected '3PL CONNECTION' option");
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.addStep("Clicked on 'save' button");
+    await io.exportsPage.waitForElementAttached(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH)
+    await io.exportsPage.click(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH)
     await io.flowBuilder.click(selectors.exportsPagePO.EXPORT_TYPE_DROPDOWN);
     await io.flowBuilder.addStep("Clicked on 'export type' dropdown");
     await expect(page.getByText("All - always export all data")).toBeVisible();

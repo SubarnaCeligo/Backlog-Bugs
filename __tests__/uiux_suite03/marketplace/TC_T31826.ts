@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S Verify the search results and app counts message
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-QA @Epic-IO-51028 @Priority-P2 @Zephyr-IO-T31826 Verify the search results and app counts message with a search term that matches only IAs.", async ({ io, page }) => {
+  test("@Env-All @Epic-IO-51028 @Priority-P2 @Zephyr-IO-T31826 Verify the search results and app counts message with a search term that matches only IAs.", async ({ io, page }) => {
 
     //Go to Marketplace
     await io.homePage.click(selectors.basePagePO.MARKETPLACE);
@@ -21,7 +21,7 @@ test.describe("@Author-Shriti S Verify the search results and app counts message
     await io.marketplacePage.click(selectors.marketplacePagePO.INTEGRATION_APPS);
 
     //Search
-    await io.marketplacePage.fill(selectors.marketplacePagePO.SEARCH_MARKETPLACE, "IO-56360_DND");
+    await io.marketplacePage.fill(selectors.marketplacePagePO.SEARCH_MARKETPLACE, "Magento 2 - NetSuite");
     await io.marketplacePage.loadingTime();
 
     //Get search results message
@@ -29,7 +29,7 @@ test.describe("@Author-Shriti S Verify the search results and app counts message
 
     //Validate the message
     await io.assert.expectToContainValue('integration app(s)', message, '');
-    await io.assert.expectNotToContainValue("Search results for 'IO-56360_DND'", message, '');
+    await io.assert.expectNotToContainValue("Search results for 'Magento 2 - NetSuite'", message, '');
      
   });
 });
