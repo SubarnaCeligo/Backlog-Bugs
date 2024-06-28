@@ -23,6 +23,6 @@ test.describe("TC_C65036 Verify During a test run, the progress of the run is sh
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
     let progressBar = await page.locator(selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR).nth(1).isVisible();
-    await expect(progressBar).toBeTruthy();
+    await io.assert.expectToBeTrue(progressBar, "Progress Bar is not visible");
   });
 });
