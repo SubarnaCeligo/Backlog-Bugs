@@ -21,15 +21,24 @@ test.describe('IO-T17467 Verify the export_data uri in downloaded error report a
     const lastRun = page.getByText('Last run');
     await lastRun.waitFor({ state: 'visible', timeout: 600000 });
 
-
     await io.connectionPage.addStep("Verifying that the flow ran with errors");
     await io.assert.verifyElementContainsText('tbody tr:nth-child(1) td:nth-child(5)', "Success");
     await io.assert.verifyElementContainsText('tbody tr:nth-child(2) td:nth-child(5)', "1 error");
 
     await io.flowBuilder.addStep("Downloading the errors");
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ERROR_BUBBLE);
+    const completedStatusImport = await page.locator(selectors.flowBuilderPagePO.ERROR_BUBBLE).nth(1).textContent();
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.ERROR_BUBBLE, 1);
-    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EM2DOT0PO.NEW_VIEW_ACTIONS_MENU);
+
+    if (completedStatusImport === 'Success') {
+      await page.waitForTimeout(15000);
+      await io.flowBuilder.click(selectors.integrationPagePO.OPENERRORS);
+      const refreshErrorsButton = page.getByRole("button", { name: "Refresh errors" });
+      // await page.waitForFunction(button => !button.isDisabled, refreshErrorsButton);
+      await refreshErrorsButton.click();
+      await io.flowBuilder.loadingTime();
+    }
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2DOT0PO.NEW_VIEW_ACTIONS_MENU);
     await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.EM2DOT0PO.DOWNLOAD_ERRORS, "Download errors not displayed");
 
