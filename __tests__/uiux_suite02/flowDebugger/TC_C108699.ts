@@ -22,7 +22,8 @@ test.describe("TC_C108699 Verify the warining message for edit export,import and
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
-    await page.waitForSelector(selectors.integrationPagePO.CLICKONERRORS, {timeout: 500000});
+    let errors = page.locator(selectors.integrationPagePO.CLICKONERRORS);
+    await errors.waitFor({state: 'visible', timeout: 500000});
     await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.fill(selectors.basePagePO.INPUT_NAME_SELECTOR, "TC_C108699 Export1");
@@ -33,7 +34,7 @@ test.describe("TC_C108699 Verify the warining message for edit export,import and
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
-    await page.waitForSelector(selectors.integrationPagePO.CLICKONERRORS, {timeout: 500000});
+    await errors.waitFor({state: 'visible', timeout: 500000});
     var success = page.locator(selectors.integrationPagePO.CLICKONERRORS);
     var successCount = await success.count();
     for (var index = 0; index < successCount; index++) {
