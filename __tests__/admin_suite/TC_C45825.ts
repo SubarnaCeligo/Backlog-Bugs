@@ -12,7 +12,6 @@ test.describe("TC_C45825 Verify if the message is shown correcly on the screen w
     await io.flowBuilder.loadingTime();
     //Enable
     await io.flowBuilder.clickByIndex(selectors.basePagePO.ENABLESSO, 3);
-    await io.flowBuilder.delay(1000 * 10 * 1);
 
     //Disable
     await io.flowBuilder.clickByIndex(selectors.basePagePO.ENABLESSO, 3);
@@ -20,7 +19,6 @@ test.describe("TC_C45825 Verify if the message is shown correcly on the screen w
       selectors.flowGroupingPagePO.ALERT_MESSAGE,
       "Disabled error message is not displayed"
     );
-    await io.flowBuilder.delay(1000 * 10 * 1);
     await io.flowBuilder.clickByIndex(selectors.basePagePO.ENABLESSO, 3);
   });
 });

@@ -18,7 +18,8 @@ test.describe("TC_C51616 Verify the presence and functionlaity of the 'Select vi
     );
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
-    await io.flowBuilder.delay(1000 * 60 * 2);
+    let errors = page.locator(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
+    await errors.waitFor({state: 'visible', timeout: 500000});
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
     await io.assert.checkElementState(selectors.basePagePO.TOGGLE_BTN_ERROR_DETAILS, "isVisible");
     await io.homePage.addStep("Select View dropdown is visible in Current View")

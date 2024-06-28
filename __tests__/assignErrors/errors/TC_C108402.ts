@@ -21,13 +21,14 @@ test.describe("TC_C108402 Verify tags attached to errors are displayed in errors
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
     await io.flowBuilder.delay(1000 * 60 * 2);
+    let errors = page.locator(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
+    await errors.waitFor({state: 'visible', timeout: 500000});
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.clickByIndex(selectors.integrationPagePO.OPENACTIONSMENU, 2);
     const downloadPromise = page.waitForEvent('download');
     await io.flowBuilder.clickByTextByIndex("Download errors", 0);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EM2DOT0PO.DOWNLOAD_ERRORS);
-    await page.waitForTimeout(10000);
     const download = await downloadPromise;
 
     // Wait for the download process to complete and save the downloaded file somewhere.

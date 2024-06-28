@@ -38,7 +38,7 @@ test.describe("TC_C108699 Verify the warining message for edit export,import and
     var success = page.locator(selectors.integrationPagePO.CLICKONERRORS);
     var successCount = await success.count();
     for (var index = 0; index < successCount; index++) {
-        await expect(success.nth(index)).toBeVisible();
+        await io.assert.expectToBeTrue(await success.nth(index).isVisible(), 'Errors Text is not visible');
     }
   });
 });

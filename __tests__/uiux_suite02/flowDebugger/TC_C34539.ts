@@ -26,8 +26,8 @@ test.describe("TC_C34539 Verify able to fetch debulogs for CSV media type for HT
     await io.flowBuilder.clickByIndex(selectors.integrationPagePO.OPENACTIONSMENU, 1);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.DEBUG_CONNECTION);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
-    await io.flowBuilder.delay(1000 * 60 * 2);
-    let debugLogs = await page.locator(selectors.flowBuilderPagePO.RESPONSE_CONTENT).isVisible();
-    await io.assert.expectToBeTrue(debugLogs, "Debug Logs is not visible");
+    let debugLogs = page.locator(selectors.flowBuilderPagePO.RESPONSE_CONTENT);
+    await debugLogs.waitFor({state: 'visible', timeout: 500000});
+    await io.assert.expectToBeTrue(await debugLogs.isVisible(), "Debug Logs is not visible");
   });
 });

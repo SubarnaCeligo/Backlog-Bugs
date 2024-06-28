@@ -27,7 +27,6 @@ test.describe("TC_C66305 Verify flow cancel information in diagnostic file", () 
     );
     const downloadPromise = page.waitForEvent("download");
     await io.flowBuilder.clickByTextByIndex("Download diagnostics", 0);
-    await page.waitForTimeout(10000);
     const download = await downloadPromise;
 
     // Wait for the download process to complete and save the downloaded file somewhere.

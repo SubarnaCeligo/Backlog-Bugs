@@ -20,7 +20,6 @@ test.describe("TC_C103569 Verify the schedule run for Every hour,Every 30 minute
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.importPagePO.SELECT_FREQUENCY);
     await io.flowBuilder.selectTextfromDropDown(page, "Every 15 minutes");
-    await io.flowBuilder.delay(1000 * 5 * 1);
     await io.flowBuilder.clickByTextByIndex("Every 15 minutes", 0);
     await io.flowBuilder.click(selectors.importPagePO.DAYS_TO_RUN_ON);
     await io.flowBuilder.clickByTextByIndex("Saturday", 1);

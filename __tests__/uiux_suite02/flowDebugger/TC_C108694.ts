@@ -19,11 +19,11 @@ test.describe("TC_C108694 Verify the hotspot icons for Flow branching flow where
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.RUNTEST_BUTTON_TOP_XPATH
     );
-    await io.flowBuilder.delay(1000 * 60 * 1);
     let exportTransferHotSpotIcon = page
       .locator(selectors.exportsPagePO.TRANSFER_HOTSPOT_ICON)
       .nth(0);
-    await expect(await exportTransferHotSpotIcon).toBeVisible();
+    await exportTransferHotSpotIcon.waitFor({state : 'visible', timeout : 500000});
+    await io.assert.expectToBeTrue(await exportTransferHotSpotIcon.isVisible(), 'Export Transfer HotSpot Icon is Hidden');
     await io.assert.verifyElementIsDisplayed(
       selectors.importPagePO.BRANCHING_HOTSPOT_ICON,
       "Hotspot icons is not available on Branching"

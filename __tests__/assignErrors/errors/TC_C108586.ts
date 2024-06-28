@@ -18,7 +18,8 @@ test.describe("TC_C108586 Verify any beginning and trailing spaces are truncated
     );
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
-    await io.flowBuilder.delay(1000 * 60 * 2);
+    let errors = page.locator(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
+    await errors.waitFor({state: 'visible', timeout: 500000});
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.hover(selectors.dashboardPagePO.FA_FILTER_CHECKBOX, 1);
@@ -35,7 +36,7 @@ test.describe("TC_C108586 Verify any beginning and trailing spaces are truncated
     for (let index = 0; index < tagsListCount; index++) { 
         tagsList.push(await tagsList1.nth(index).innerText());
     }
-    expect(tagsList.includes("Urgent")).toBe(true);
-    expect(tagsList.includes("Urgent Priority")).toBe(true);    
-  });
+    await io.assert.expectToBeTrue(tagsList.includes("Urgent"), 'Urgent tag is not included');
+    await io.assert.expectToBeTrue(tagsList.includes("Urgent Priority"), 'Urgent Priority Tag is not included');
+    });
 });
