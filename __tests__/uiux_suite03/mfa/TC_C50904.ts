@@ -2,9 +2,9 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(
-  "C50904 Verify the validation message if user wants to to select both SSO & MFA",
+  "C50904 C99342 Verify the validation message if user wants to to select both SSO & MFA",
   () => {
-    test("@Env-All @Zephyr-IO-T19653 C50904 Verify the validation message if user wants to to select both SSO & MFA", async ({
+    test("@Env-All @Zephyr-IO-T19653 @Zephyr-IO-T25378 C50904 C99342 Verify the validation message if user wants to to select both SSO & MFA", async ({
       io,
       page
     }) => {
