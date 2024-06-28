@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S TC_T28965-Verify that selecting File type’ = �
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Epic-IO-36129 @Env-All @Priority-P1 @Zephyr-T28965 @Zephyr-IO-T28967 Verify that selecting File type’ = ‘EDI X12' in an export shows 'Send functional acknowledgement' checkbox", async ({ io, page }) => {
+  test("@Epic-IO-36129 @Env-All @Priority-P1 @Zephyr-IO-T28965 @Zephyr-IO-T28967 Verify that selecting File type’ = ‘EDI X12' in an export shows 'Send functional acknowledgement' checkbox", async ({ io, page }) => {
     await io.homePage.addStep("For FTP")
     //Go to Exports
     await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
@@ -29,13 +29,14 @@ test.describe("@Author-Shriti S TC_T28965-Verify that selecting File type’ = �
     await io.exportsPage.fill(selectors.importPagePO.NAME, 'FTP FA test');
 
     //Click next
+    await io.exportsPage.loadingTime();
     await io.exportsPage.click(selectors.basePagePO.SAVE);
     await io.exportsPage.click(selectors.exportsPagePO.FILE_TYPE);
     await io.exportsPage.click(selectors.connectionsPagePO.FILE_DEFINITION);
 
     //select EDI file
     await io.exportsPage.click(selectors.homePagePO.EDI_PROFILE);
-    await io.exportsPage.clickByTextByIndex('EDI_AUTOMATION_DND', 0);
+    await io.exportsPage.clickByTextByIndex('AA_EDI_AUTOMATION_DND', 0);
 
     //Select Parsing def
     await io.exportsPage.click(selectors.homePagePO.EDI_FORMAT);
@@ -90,13 +91,14 @@ test.describe("@Author-Shriti S TC_T28965-Verify that selecting File type’ = �
     await io.exportsPage.fill(selectors.importPagePO.NAME, 'AS2 FA test');
 
     //Click next
+    await io.exportsPage.loadingTime();
     await io.exportsPage.click(selectors.basePagePO.SAVE);
     await io.exportsPage.click(selectors.exportsPagePO.FILE_TYPE);
     await io.exportsPage.click(selectors.connectionsPagePO.FILE_DEFINITION);
 
     //select EDI file
     await io.exportsPage.click(selectors.homePagePO.EDI_PROFILE);
-    await io.exportsPage.clickByTextByIndex('EDI_AUTOMATION_DND', 0);
+    await io.exportsPage.clickByTextByIndex('AA_EDI_AUTOMATION_DND', 0);
 
     //Select Parsing def
     await io.exportsPage.click(selectors.homePagePO.EDI_FORMAT);

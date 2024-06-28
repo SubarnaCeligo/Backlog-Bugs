@@ -28,6 +28,7 @@ test.describe(`TC_T19398_TC_T19399_TC_T19400_TC_T19401_TC_T19398`, () => {
         // await page.pause();
         await io.homePage.click(selectors.flowBuilderPagePO.DESTINATIONTABLESEARCHPOSTGRE);
         await io.homePage.addStep("*** Clicked on destination table search field ***");
+        await io.flowBuilder.loadingTime()
         await io.homePage.click(selectors.flowBuilderPagePO.ORACLEDB_TABLE);
         await io.homePage.addStep("*** Selected A table ***");
         await io.homePage.click(selectors.mappings.MAPPER2DOT0PO.SAVEANDCLOSE);
