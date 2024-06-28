@@ -15,7 +15,8 @@ test.describe("@Author_MaheshNivruttiSutar Verify section should be hidden if we
     test("@Bug-IO-80699 @Env-All @Priority-P2 @Zephyr-IO-T31974", async ({ io, page }) => {
         TC.pageGenerators[0].qa__export.settingsForm.init._scriptId = formInit;
         id = await io.createResourceFromAPI(TC, "FLOWS");
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
+        await io.homePage.loadingTime();
+        await io.homePage.loadingTime();
 
         //Export
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
