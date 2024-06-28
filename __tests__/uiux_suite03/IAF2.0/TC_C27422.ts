@@ -1,8 +1,8 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C27422 To verify formInit stub in UI contains grandParentResource when resource json contains grandParentesource", () => { 
-  test("C27422 To verify formInit stub in UI contains grandParentResource when resource json contains grandParentesource", async ({io, page}) => {
+test.describe("TC_C27422 To verify formInit stub in UI contains grandParentResource when resource json contains grandParentesource", () => { 
+  test("@Zephyr-IO-T5453 @Env-All C27422 To verify formInit stub in UI contains grandParentResource when resource json contains grandParentesource", async ({io, page}) => {
     // Manual test steps
     // A child IA resource is created using APIs.
     // the following steps are performed in the UI on the above created resource.
