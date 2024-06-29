@@ -26,10 +26,12 @@ test.describe("@Author_sagna123 TC_T28428_T28434_T28436_Test to validate checkbo
         await io.homePage.addStep("*** Clicked on 'name' field and gave a name to our import ***");
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.homePage.addStep("*** Opened the import ***");
+        await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.exportsPagePO.ASSISTANT_META_DATA_RESOURCE);
         await io.homePage.addStep("*** Clicked on Resource field ***");
         await io.homePage.clickByText('Spreadsheets.values');
         await io.homePage.addStep("*** Selected Spreadsheets.values ***");
+        await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.exportsPagePO.ASSISTANT_META_DATA_OPERATION);
         await io.homePage.addStep("*** Clicked on operation field ***");
         await io.homePage.clickByText('Get');

@@ -9,7 +9,9 @@ test.describe("TC_T24277_T24278_T24283 - Verify the connection chosen matches th
     });
     test("@Epic-IO-54539 @Priority-P2 TC_T24277_T24278_T24283 @Env-All - Verify the connection chosen matches the exact same connection as the existing flow step, then display an additional 2 radio field right after the Connection.", async ({ io, page }) => {
         //Navigate to flow builder page
-        await io.homePage.goToMenu("Tools", "Flow builder");
+        await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+        await io.flowBuilder.loadingTime();
+        await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
 
         //Add Source
         await io.flowBuilder.click(selectors.basePagePO.ADD_SOURCE_BUTTON);

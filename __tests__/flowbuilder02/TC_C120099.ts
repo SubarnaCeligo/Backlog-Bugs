@@ -8,7 +8,9 @@ test.describe("TC_C120099", () => {
     test("@Zephyr-IO-T10086 @Env-All @Priority-P2 ", async ({ io, page }) => {
 
         await io.homePage.loadingTime();
-        await io.homePage.goToMenu("Tools", "Flow builder");
+        await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+        await io.flowBuilder.loadingTime();
+        await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
 
         await io.flowBuilder.click(
             selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP

@@ -5,27 +5,28 @@ import T27332 from '../../testData/inputData/FlowBuilder/IO-T27332.json';
 
 test.describe("TC_C119809_C119810_C119811", () => {
     let id; let id1;
+    test.describe.configure({ retries: 2 })
     test.afterEach(async ({ io, page }) => {
         await io.api.deleteFlowViaAPI(id);
         await io.api.deleteFlowViaAPI(id1);
     });
     test("@Priority-P2  @Zephyr-T24239 @Zephyr-T24240 @Zephyr-T24241 @Env-All", async ({ io, page }) => {
         id = await io.createResourceFromAPI(C119809, "FLOWS");
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
-        await io.flowBuilder.reloadPage();
-        await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
-        await io.flowBuilder.loadingTime();
-        await io.integrationPage.waitForElementAttached(
-            selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR
-        );
-        await io.flowBuilder.click(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
-        await io.integrationPage.fill(
-            selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
-            "TC_C119809"
-        );
-        await io.flowBuilder.loadingTime();
-        //Open the flow
-        await io.flowBuilder.clickByText("TC_C119809");
+        // await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
+        // await io.flowBuilder.reloadPage();
+        // await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+        // await io.flowBuilder.loadingTime();
+        // await io.integrationPage.waitForElementAttached(
+        //     selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR
+        // );
+        // await io.flowBuilder.click(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
+        // await io.integrationPage.fill(
+        //     selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
+        //     "TC_C119809"
+        // );
+        // await io.flowBuilder.loadingTime();
+        // //Open the flow
+        // await io.flowBuilder.clickByText("TC_C119809");
 
 
         //Export

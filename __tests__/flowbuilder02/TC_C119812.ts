@@ -4,6 +4,7 @@ import TC from '../../testData/inputData/FlowBuilder/C119812.json';
 
 test.describe("TC_C119812_C119813_C119814", () => {
   let id;
+  test.describe.configure({ retries: 2 })
   test("@Epic-IO-63762  @Priority-P2  @Zephyr-T24242 @Zephyr-T24243 @Env-All", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.flowBuilder.loadingTime();

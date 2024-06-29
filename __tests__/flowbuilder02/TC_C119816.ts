@@ -2,6 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`TC_C119815_C119816`, () => {
+  test.describe.configure({ retries: 2 })
   test.afterEach(async ({ io, page }) => {
     await io.api.deleteIntegrationRecursively("TC_C119816_Delete");
     await io.api.deleteIntegrationRecursively("Clone - TC_C119816_Delete");

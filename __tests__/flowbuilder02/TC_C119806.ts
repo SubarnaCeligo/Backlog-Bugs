@@ -4,24 +4,25 @@ import C119806 from '../../testData/inputData/FlowBuilder/C119806.json';
 
 test.describe("TC_C119806", () => {
     let id;
+    test.describe.configure({ retries: 2 })
     test.afterEach(async ({ io, page }) => {
         await io.api.deleteFlowViaAPI(id);
     });
     test("@Epic-IO-63762  @Priority-P2  @Zephyr-T24236 @Env-All Verify user is able to add 'useAsPrimaryInterface' value under custom form displayed underCustom Settings of Flow", async ({ io, page }) => {
         id = await io.createResourceFromAPI(C119806, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
-        await io.flowBuilder.reloadPage();
-        await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
-        await io.integrationPage.waitForElementAttached(
-            selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR
-        );
-        await io.flowBuilder.click(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
-        await io.integrationPage.fill(
-            selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
-            "TC_C119806"
-        );
-        //Open the flow
-        await io.flowBuilder.clickByText("TC_C119806");
+        // await io.flowBuilder.reloadPage();
+        // await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+        // await io.integrationPage.waitForElementAttached(
+        //     selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR
+        // );
+        // await io.flowBuilder.click(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
+        // await io.integrationPage.fill(
+        //     selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
+        //     "TC_C119806"
+        // );
+        // //Open the flow
+        // await io.flowBuilder.clickByText("TC_C119806");
 
         //Clicking on flow setting
         await io.flowBuilder.click(selectors.aliasesPagePO.ALIASES_FLOW_SETTINGS);

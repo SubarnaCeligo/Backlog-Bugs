@@ -33,5 +33,7 @@ test.describe("TC_C117741_Checking that focus is on first matched helper or fiel
         await io.homePage.addStep("*** Checking that the dropdown is visible and focus is on 'abs' helper as per filtering ***");
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.addStep("*** Navigated to home page ***");
+        await io.homePage.loadingTime();
+        await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
     });
 });

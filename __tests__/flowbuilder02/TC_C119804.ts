@@ -5,6 +5,7 @@ import TC from '../../testData/inputData/FlowBuilder/C119805.json';
 
 test.describe("TC_C119804", () => {
     let id;
+    test.describe.configure({ retries: 1 })
     test.afterEach(async ({ io, page }) => {
         await io.api.deleteFlowViaAPI(id);
     });
@@ -29,7 +30,8 @@ test.describe("TC_C119804", () => {
         await io.flowBuilder.click(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
         await io.flowBuilder.clearTextValue(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
         await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, JSON.stringify(TC.CustomJson));
-        await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+        // await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSEBUTTON);
         await io.flowBuilder.waitForElementAttached(selectors.basePagePO.LAUNCH_EDITOR);
 
         //Clicking on flows

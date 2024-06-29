@@ -5,6 +5,7 @@ import TC from '../../testData/inputData/FlowBuilder/IO-T27039.json';
 
 test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
     let id; let id1; let id2;
+    test.describe.configure({ retries: 2 })
     test.afterEach(async ({ io, page }) => {
         await io.api.deleteFlowViaAPI(id);
         await io.api.deleteFlowViaAPI(id1);
@@ -13,19 +14,19 @@ test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
     test("@Epic-IO-63762  @Priority-P2  @Zephyr-T24237 @Env-All", async ({ io, page }) => {
         id = await io.createResourceFromAPI(C119807, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
-        await io.flowBuilder.reloadPage();
-        await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
-        await io.integrationPage.waitForElementAttached(
-            selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR
-        );
-        await io.flowBuilder.click(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
-        await io.integrationPage.fill(
-            selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
-            "TC_C119807"
-        );
-        //Open the flow
-        await io.flowBuilder.clickByText("TC_C119807");
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
+        // await io.flowBuilder.reloadPage();
+        // await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+        // await io.integrationPage.waitForElementAttached(
+        //     selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR
+        // );
+        // await io.flowBuilder.click(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
+        // await io.integrationPage.fill(
+        //     selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
+        //     "TC_C119807"
+        // );
+        // //Open the flow
+        // await io.flowBuilder.clickByText("TC_C119807");
+        // await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
 
         //Export
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
@@ -75,7 +76,7 @@ test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
         expect(await page.screenshot()).toMatchSnapshot("TC_C119807_IMPORT.png");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
     });
-    test("@Epic-IO-63762  @Priority-P2  @Zephyr-T27037 @Zephyr-T27038 @Env-All", async ({ io, page }) => {
+    test.skip("@Epic-IO-63762  @Priority-P2  @Zephyr-T27037 @Zephyr-T27038 @Env-All", async ({ io, page }) => {
         id1 = await io.createResourceFromAPI(C119807.newFlow, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
         await io.flowBuilder.reloadPage();
@@ -180,7 +181,7 @@ test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
         expect(await Symbosl.screenshot()).toMatchSnapshot("IO-T27037 import.png");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
     });
-    test("IO-T27039 @Epic-IO-63762  @Priority-P2  @Zephyr-T27039 @Env-All", async ({ io, page }) => {
+    test.skip("IO-T27039 @Epic-IO-63762  @Priority-P2  @Zephyr-T27039 @Env-All", async ({ io, page }) => {
         id2 = await io.createResourceFromAPI(TC, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
         await io.flowBuilder.reloadPage();

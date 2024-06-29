@@ -26,6 +26,8 @@ test.describe(`T27371 Verify mapper2 use cases for NoSQLDB `, () => {
             await page.locator(selectors.flowBuilderPagePO.DESTINATION_MAPPING_PLACEHOLDER).nth(i).fill(`id-${i}`);
             await io.homePage.addStep("*** Filled the import mappings destination field***");
             await page.locator(selectors.mappings.MAPPER2DOT0PO.SOURCEFIELDS).nth(i).click();
+            await io.flowBuilder.click(selectors.flowBuilderPagePO.DESTINATION_MAPPING_PLACEHOLDER);
+            await io.flowBuilder.click(selectors.flowBuilderPagePO.SOURCE_MAPPING_PLACEHOLDER);
             await page.locator(selectors.mappings.MAPPER2DOT0PO.SETTINGSBUTTONS).nth(i).click();
             await io.mappings.click(selectors.mappings.MAPPER2DOT0PO.MAPPING_TYPE);
             switch (labels[i]) {
@@ -72,6 +74,8 @@ test.describe(`T27371 Verify mapper2 use cases for NoSQLDB `, () => {
             await page.locator(selectors.flowBuilderPagePO.DESTINATION_MAPPING_PLACEHOLDER).nth(i).fill(`id-${i}`);
             await io.homePage.addStep("*** Filled the import mappings destination field***");
             await page.locator(selectors.mappings.MAPPER2DOT0PO.SOURCEFIELDS).nth(i).click();
+            await io.flowBuilder.click(selectors.flowBuilderPagePO.DESTINATION_MAPPING_PLACEHOLDER);
+            await io.flowBuilder.click(selectors.flowBuilderPagePO.SOURCE_MAPPING_PLACEHOLDER);
             await page.locator(selectors.mappings.MAPPER2DOT0PO.SETTINGSBUTTONS).nth(i).click();
             await io.mappings.click(selectors.mappings.MAPPER2DOT0PO.MAPPING_TYPE);
             switch (labels[i]) {

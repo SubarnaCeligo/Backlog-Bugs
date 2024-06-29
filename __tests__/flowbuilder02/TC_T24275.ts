@@ -7,7 +7,9 @@ test.describe("T24275 - Verify Next button is activating if we select the tile f
     });
     test("@Epic-IO-54539 T24275 - Verify Next button is activating if we select the tile from 'Your existing flow steps @Env-All @Priority-P2'", async ({ io, page }) => {
         //Navigate to flow builder page
-        await io.homePage.goToMenu("Tools", "Flow builder");
+        await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+        await io.flowBuilder.loadingTime();
+        await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
 
         //Add Source
         await io.flowBuilder.click(selectors.basePagePO.ADD_SOURCE_BUTTON);

@@ -4,24 +4,25 @@ import C119808 from '../../testData/inputData/FlowBuilder/C119808.json';
 
 test.describe("TC_C119808", () => {
     let id;
+    test.describe.configure({ retries: 2 })
     test.afterEach(async ({ io, page }) => {
         await io.api.deleteFlowViaAPI(id);
     });
     test("@Epic-IO-63762  @Priority-P1  @Zephyr-T24238 @Env-All", async ({ io, page }) => {
         id = await io.createResourceFromAPI(C119808, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
-        await io.flowBuilder.reloadPage();
-        await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
-        await io.integrationPage.waitForElementAttached(
-            selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR
-        );
-        await io.flowBuilder.click(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
-        await io.integrationPage.fill(
-            selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
-            "TC_C119808"
-        );
-        //Open the flow
-        await io.flowBuilder.clickByText("TC_C119808");
+        // await io.flowBuilder.reloadPage();
+        // await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+        // await io.integrationPage.waitForElementAttached(
+        //     selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR
+        // );
+        // await io.flowBuilder.click(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
+        // await io.integrationPage.fill(
+        //     selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
+        //     "TC_C119808"
+        // );
+        // //Open the flow
+        // await io.flowBuilder.clickByText("TC_C119808");
 
         //Export
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);

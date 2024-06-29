@@ -9,8 +9,9 @@ test.describe("T24284 - Verify user can create export/lookup/import with the 'Us
     });
     test("@Epic-IO-54539 @Priority-P2 @Env-All T24284 - Verify user can create export/lookup/import with the 'Use same flow step' radio button after updating the configuration.", async ({ io, page }) => {
         //Navigate to flow builder page
-        await io.homePage.goToMenu("Tools", "Flow builder");
-
+        await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+        await io.flowBuilder.loadingTime();
+        await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         //Add Source
         await io.flowBuilder.click(selectors.basePagePO.ADD_SOURCE_BUTTON);
 
