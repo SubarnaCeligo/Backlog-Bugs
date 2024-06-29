@@ -20,7 +20,7 @@ test.describe("TC_CT30379", () => {
         await io.flowBuilder.click(selectors.connectionsPagePO.JIRA);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.SELECTED_IMPORT_RECORDS);
         await io.flowBuilder.loadingTime();
-        await io.flowBuilder.clickByText("Create from scratch");
+        await io.flowBuilder.clickByText("Create flow step");
         await io.flowBuilder.click(selectors.importPagePO.ASSISTANT_METADATA_RESOURCE);
         //await io.flowBuilder.fill(selectors.importPagePO.ASSISTANT_METADATA_RESOURCE, 'Issue');
         await io.flowBuilder.clickByText("Avatar");

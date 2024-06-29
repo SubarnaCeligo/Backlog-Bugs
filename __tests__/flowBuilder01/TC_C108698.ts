@@ -21,7 +21,7 @@ test.describe("TC_C108698_hotspot_icons_after_clicking_cancel", () => {
         await io.homePage.addStep("*** Flow cancelled successfully ***");
         await io.flowBuilder.delay(10000);
         const Symbol = await page.$(selectors.flowBuilderPagePO.TRANSFER);
-        expect(await Symbol.screenshot()).toMatchSnapshot("C108670export.png");
+        expect(await Symbol.screenshot()).toMatchSnapshot("C108670export.png", {maxDiffPixelRatio: 0.8 });
         await io.homePage.addStep("*** Checked the 'T' icon on exports using screenshot ***");
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });

@@ -16,7 +16,7 @@ test.describe("TC_C111345", () => {
         await io.homePage.addStep("*** Searched for PostgreSQL application ***");
         await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.flowBuilderPagePO.POSTGRESQL_APPLICATION);
-        await io.homePage.addStep("*** Selected PostgreSQL application ***");
+        await io.homePage.addStep("*** Selected PostgreSQL application ***"); 
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "POSTGRESQL CONNECTION");
         await io.homePage.addStep("*** Searched for POSTGRESQL CONNECTION ***");
         await io.homePage.clickByText('POSTGRESQL CONNECTION');
@@ -28,7 +28,7 @@ test.describe("TC_C111345", () => {
         await io.homePage.addStep("*** Opened the import ***");
         await io.homePage.click(selectors.flowBuilderPagePO.DESTINATIONTABLESEARCHPOSTGRE);
         await io.homePage.addStep("*** Clicked on destination table search field ***");
-        await io.flowBuilder.fill(selectors.flowBuilderPagePO.DESTINATIONTABLE_PlACEHOLDER, "Agent");
+        await io.flowBuilder.fill(selectors.flowBuilderPagePO.DESTINATIONTABLE_PLACEHOLDER, "Agent");
         await io.homePage.clickByText('Agent');
         await io.homePage.addStep("*** Verified we are getting Agent in table by clicking ***");
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);

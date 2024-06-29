@@ -24,7 +24,6 @@ test.describe("T24279 - Verify user is able to create export/lookup/import with 
 
         //Wait for existing resources to load
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.OPENAI.NLS_RESOURCE);
-
         //Click on any existing resource
         await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.OPENAI.NLS_RESOURCE, 0);
 

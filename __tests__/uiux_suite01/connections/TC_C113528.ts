@@ -3,7 +3,8 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Flows/C113528.json";
 
 test.describe(`C113528_C113529`, () => {
-  test(`@Zephyr-IO-T7783 C113528_C113529`, async ({ io, page }) => {
+  //Skipped this test case as we don;t have creds for the connection and the tracker is : https://celigo.atlassian.net/browse/IOAUT-15782
+  test.skip(`@Zephyr-IO-T7783 C113528_C113529`, async ({ io, page }) => {
     const id = await io.createResourceFromAPI(testData, "FLOWS");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
     const lastRun = page.getByText('Last run');

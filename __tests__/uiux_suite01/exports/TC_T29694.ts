@@ -5,13 +5,14 @@ test.describe("@Author_sagna123 TC_T29694_Test to validate the colour grading, f
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Epic-IO-65860 @Priority-P2 @Zephyr-IO-T29694 @Env-QA", async ({ io, page }) => {
+    test("@Epic-IO-65860 @Priority-P2 @Zephyr-IO-T29694 @Env-QA @Env-STAGING", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources","Exports");
         await io.homePage.addStep("*** Navigated back to export page ***");
         await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
         await io.homePage.addStep("*** Clicked on create export***");
+        await io.homePage.waitForElementAttached(selectors.connectionsPagePO.AZURE_SYNAPSE);
         await io.homePage.click(selectors.connectionsPagePO.AZURE_SYNAPSE);
         await io.homePage.addStep("*** Clicked on Azure synapse connection ***");
         await io.homePage.click(selectors.basePagePO.CONNECTION);

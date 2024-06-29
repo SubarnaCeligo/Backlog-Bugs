@@ -23,7 +23,6 @@ test.describe("TC_T24276_T27516 - Verify data is pre-filling on the next page if
 
         //Wait for existing resources to load
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.OPENAI.NLS_RESOURCE);
-
         //Click on any existing resource
         await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.OPENAI.NLS_RESOURCE, 0);
 

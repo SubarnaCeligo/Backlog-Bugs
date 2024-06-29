@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C28617_Verify dashboard data for standalone integration for EM 2.0", () => {
     test.beforeEach(async ({ io }) => {
-        await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.myAccountPage.navigateTo(`${process.env["IO_UI_CONNECTOR_URL"]}integrations/none/flows`);
     });
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
