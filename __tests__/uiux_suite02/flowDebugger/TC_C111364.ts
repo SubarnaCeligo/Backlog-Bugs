@@ -56,19 +56,19 @@ test.describe('C111364_C111365_C111367_C111368_C111370', () => {
         //Method filter
         await io.flowBuilder.waitForElementAttached(selectors.importPagePO.HTTP_REQUEST);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.DEBUG_LOG_FILTER);
-        await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.DEBUG_LOG_FILTER, 3);
+        await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.DEBUG_LOG_FILTER, 2);
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.FILTER_OPTION, 2);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.DATERANGE_APPLY);
         const text = await io.homePage.isVisible("text='You don’t have any debug log entries.'")
         await io.assert.expectToBeValue(text.toString(), 'true', "Filter is not working")
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.DEBUG_LOG_FILTER);
-        await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.DEBUG_LOG_FILTER, 3);
+        await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.DEBUG_LOG_FILTER, 2);
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.FILTER_OPTION, 0);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.DATERANGE_APPLY);
 
         //Response code filter
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.DEBUG_LOG_FILTER);
-        await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.DEBUG_LOG_FILTER, 4);
+        await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.DEBUG_LOG_FILTER, 2);
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.FILTER_OPTION, 3);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.DATERANGE_APPLY);
         const text1 = await io.homePage.isVisible("text='You don’t have any debug log entries.'")

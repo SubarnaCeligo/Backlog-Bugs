@@ -44,7 +44,7 @@ test.describe('C111373_C111374', () => {
 
         //TC_C111374 Verify for listener user should able to filter debug log by using filters
         //Response code filter
-        await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.DEBUG_LOG_FILTER, 4);
+        await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.DEBUG_LOG_FILTER, 2);
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.FILTER_OPTION, 3);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.DATERANGE_APPLY);
         const text1 = await io.homePage.isVisible("text='You don’t have any debug log entries.'")

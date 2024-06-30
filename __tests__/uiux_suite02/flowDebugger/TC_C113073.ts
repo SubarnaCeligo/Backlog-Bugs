@@ -25,7 +25,7 @@ test.describe('C113073', () => {
         //Disable the flow
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
-        await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
+        await page.locator(selectors.flowBuilderPagePO.RUNTEST_BUTTON).first().click();
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.TEST_RUN_EXECUTION_LOG);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.SELECT_SCRIPT);

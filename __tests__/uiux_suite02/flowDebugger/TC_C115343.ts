@@ -16,7 +16,7 @@ test.describe('C115343', () => {
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
-        await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
+        await page.locator(selectors.flowBuilderPagePO.RUNTEST_BUTTON).first().click();
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.VIEW_DEBUG_LOG);

@@ -18,7 +18,7 @@ test.describe('C113640', () => {
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_HOOK);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.SCRIPT_RUN_RESULT);
         const Symbol = await page.$(selectors.flowBuilderPagePO.SUITE_SCRIPT_T_ICON);
-        expect(await Symbol.screenshot()).toMatchSnapshot("T-icon-PLAYWRIGHT-darwin.png");
+        expect(await Symbol.screenshot()).toMatchSnapshot("T-icon-PLAYWRIGHT.png");
         await io.homePage.addStep('Verified “T” icon should show in case of SuiteScript Hooks ');
         await io.integrationPage.clickButtonByIndex(selectors.flowBuilderPagePO.CLOSE,1);
         await io.integrationPage.clickButtonByIndex(selectors.flowBuilderPagePO.CLOSE,0);
@@ -29,7 +29,7 @@ test.describe('C113640', () => {
         await io.flowBuilder.click(selectors.flowBuilderPagePO.PAGE_PROCESSOR_HOOKS);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.SUITE_SCRIPT_PRE_MAP);
         const Symbol1 = await page.$(selectors.flowBuilderPagePO.SUITE_SCRIPT_T_ICON);
-        expect(await Symbol1.screenshot()).toMatchSnapshot("T-icon-1-PLAYWRIGHT-darwin.png");
+        expect(await Symbol1.screenshot()).toMatchSnapshot("T-icon-1-PLAYWRIGHT.png");
         await io.homePage.addStep('Verified “T” icon should show in case of SuiteScript Hooks ');
         await io.integrationPage.clickButtonByIndex(selectors.flowBuilderPagePO.CLOSE,1);
         await io.integrationPage.clickButtonByIndex(selectors.flowBuilderPagePO.CLOSE,0);
