@@ -6,11 +6,10 @@ test.describe(`TC_IOT26978 Test to validate that new field "First record contain
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-
     test("IOT26978 @Env-All @Priority-P2", async ({ io ,page}) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.loadingTime();
-        await io.homePage.goToMenu("Resources","Exports");
+        await io.myAccountPage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.addStep("*** Navigated to Exports page ***");
         await io.exportsPage.click(selectors.exportsPagePO.ADD_NEW_RESOURCE);
         await io.homePage.addStep("*** Clicked on Create new Export ***");

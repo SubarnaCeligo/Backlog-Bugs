@@ -80,21 +80,21 @@ test.describe("TC_C119809_C119810_C119811", () => {
     test("@Epic-IO-63762  @Priority-P2  @Zephyr-T27332 @Env-All", async ({ io, page }) => {
         id1 = await io.createResourceFromAPI(T27332, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
-        await io.flowBuilder.reloadPage();
-        await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
-        await io.flowBuilder.loadingTime();
-        await io.integrationPage.waitForElementAttached(
-            selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR
-        );
-        await io.flowBuilder.click(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
-        await io.integrationPage.fill(
-            selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
-            "IO-T27332"
-        );
-        await io.flowBuilder.loadingTime();
-        //Open the flow
-        await io.flowBuilder.clickByText("IO-T27332");
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
+        // await io.flowBuilder.reloadPage();
+        // await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+        // await io.flowBuilder.loadingTime();
+        // await io.integrationPage.waitForElementAttached(
+        //     selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR
+        // );
+        // await io.flowBuilder.click(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
+        // await io.integrationPage.fill(
+        //     selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
+        //     "IO-T27332"
+        // );
+        // await io.flowBuilder.loadingTime();
+        // //Open the flow
+        // await io.flowBuilder.clickByText("IO-T27332");
+        // await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
 
         //Export
         await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.EXPORT, 0);

@@ -66,10 +66,10 @@ test.describe("TC_T24277_T24278_T24283 - Verify the connection chosen matches th
 
         await io.flowBuilder.waitForElementAttached(selectors.myAccountPagePO.HELP_BUBBLE);
         let heading = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.PAGE_INFO_HEADER_TEXT)).toString();
-        await io.assert.expectToBeValue("How would you like to use the existing flow step?", heading, "Heading is not displayed");
+        await io.assert.expectToBeValue("Celigo AI,How would you like to use the existing flow step?", heading, "Heading is not displayed");
 
         let content = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.PAGE_INFO_TEXT)).toString();
-        await io.assert.expectToContainValue("Clone flow step: Edits made will only apply to the cloned flow step, not to any of its other instances.Use same flow step: Edits made to this flow step will also apply to all its instances in other flows.", content, "Message is not displayed");
+        await io.assert.expectToContainValue("Clone flow step: This option creates a copy of the original flow step that can be modified to suit the purposes of this flow without affecting the original.Use same flow step: This option reuses the existing flow step. Modifications to the flow step will apply to other instances of the flow step if used in other flows.Was this helpful?Field path: cloneResourceRadioGroup,Was this helpful?,Field path: cloneResourceRadioGroup", content, "Message is not displayed");
 
         //Validate checking and unchecking
         await io.flowBuilder.addStep("T24283-Verify user is able to check and uncheck radio buttons 'Clone flow step'/'Use same flow step' on Create Export/import form");

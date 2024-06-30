@@ -2,14 +2,13 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import C20688 from '@testData/email_validations/C20688.json'
 
-test.describe("Verify the text for testMode for all the stubs that contains testMode field", () => {
+test.describe("T29045_Verify the text for testMode for all the stubs that contains testMode field", () => {
     test.beforeEach(async ({ io }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.addStep("Navigated to home page");
     });
     test("@Env-QA @Zephyr-IO-T29045 @Priority-P2 @BugID-IO-73222", async ({ io, page }) => {
         const id = await io.createResourceFromAPI(C20688, "FLOWS");
-   
         await io.flowBuilder.addStep("Created one Flow from API to test the testMode field for the required function stub generated");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
         await io.flowBuilder.addStep("Clicking on the plus icon from the export bubble")
@@ -60,9 +59,11 @@ test.describe("Verify the text for testMode for all the stubs that contains test
         await io.flowBuilder.addStep("Clicked on insert function dropdown to insert the script function stub");
         await io.flowBuilder.selectTextfromDropDown(page, "postMap");
         await io.flowBuilder.addStep("Selected postMap from the drop down");
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPAND_WINDOW_HOOKS);
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.addStep("Validating testMode text for postMap hook");
         await io.assert.verifyElementDisplayedByText("*   'testMode' - boolean flag indicating test mode and previews.", "text for textMode field is not available");
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_CONTENT);
         await io.flowBuilder.addStep("Validated testMode text for postMap hook");
         await io.flowBuilder.click(selectors.importPagePO.IMPORT_CLOSE_DRAWER);
         await io.flowBuilder.addStep("Trying to close the create script  drawer");
