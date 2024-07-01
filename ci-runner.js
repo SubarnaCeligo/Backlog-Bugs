@@ -2,7 +2,7 @@ const { execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
-let ENV = "CI";
+let ENV = "ci";
 let workers = 3;
 let suitesexcluded = ["uiux_suite01", "uiux_suite02", "uiux_suite03"];
 // Get the list of files that have been modified or added
@@ -56,7 +56,7 @@ const runTests = () => {
     if (changedFolders.length === 0) {
         // If no folders have changed, execute 'npm ci'
         console.log("No changes in '__tests__/' folders. Running Unit tests.");
-        const unittests = `ENV=CI FEATURE=CI npm run test-docker`;
+        const unittests = `ENV=ci FEATURE=CI npm run test-docker`;
         console.log("Running Command:",unittests)
         execSync(unittests, { stdio: 'inherit' });
     } else {
@@ -70,19 +70,19 @@ const runTests = () => {
         //     // If there are changes in UI/UX suites and other folders, run the first folder in the other category
         //     const folderToTest = otherChanges[0];
         //     console.log(`Running tests for the folder: ${folderToTest}`);
-        //     const testCommand = `ENV=CI FEATURE=${folderToTest} npm run test-docker`;
+        //     const testCommand = `ENV=ci FEATURE=${folderToTest} npm run test-docker`;
         //     console.log("Running Command:", testCommand);
         //     execSync(testCommand, { stdio: 'inherit' });
         // } else if (ChangesExcluded.length > 0) {
         //     // If there are changes in any of the UI/UX suites, run the unit tests command
-        //     const unittests = `ENV=CI FEATURE=CI npm run test-docker`;
+        //     const unittests = `ENV=ci FEATURE=CI npm run test-docker`;
         //     console.log("Running Command:", unittests);
         //     execSync(unittests, { stdio: 'inherit' });
         // } 
         else {
             const folderToTest = changedFolders[0];
             console.log(`Running tests for the folder: ${folderToTest}`);
-            const testCommand = `ENV=CI FEATURE=${folderToTest} npm run test-docker`;
+            const testCommand = `ENV=ci FEATURE=${folderToTest} npm run test-docker`;
             console.log("Running Command:", testCommand);
             execSync(testCommand, { stdio: 'inherit' });
         }
