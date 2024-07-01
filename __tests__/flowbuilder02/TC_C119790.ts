@@ -5,7 +5,7 @@ import TC from '../../testData/inputData/FlowBuilder/C119805.json';
 
 test.describe("T24220_T24222_T24224", () => {
     let id; let id1; let id2;
-    test.describe.configure({ retries: 1 })
+    
     test.afterEach(async ({ io, page }) => {
         await io.api.deleteFlowViaAPI(id);
         await io.api.deleteFlowViaAPI(id1);
