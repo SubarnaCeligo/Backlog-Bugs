@@ -3,7 +3,6 @@ import * as selectors from "@celigo/aut-selectors";
 import TC from '../../testData/inputData/FlowBuilder/T31943.json';
 
 test.describe("@Author_MaheshNivruttiSutar Verify setting should not wiped out If we just added a rule, don’t save, then change the input json data.", () => {
-    test.describe.configure({ retries: 2 })
     test.beforeEach(async ({ io }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.addStep("Navigated to home page");

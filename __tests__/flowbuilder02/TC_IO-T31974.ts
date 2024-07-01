@@ -4,7 +4,6 @@ import TC from '../../testData/inputData/FlowBuilder/T31974.json';
 
 test.describe("@Author_MaheshNivruttiSutar Verify section should be hidden if we set 'useAsPrimaryInterface' is Set to True in Script", () => {
     let id; let formInit;
-    test.describe.configure({ retries: 2 })
     test.beforeEach(async ({ io, page  }) => {
         formInit = await io.api.createScriptViaAPI(TC.script1);
     });

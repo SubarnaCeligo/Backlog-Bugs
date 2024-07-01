@@ -4,7 +4,6 @@ import C119806 from '../../testData/inputData/FlowBuilder/C119806.json';
 
 test.describe("TC_C119806", () => {
     let id;
-    test.describe.configure({ retries: 2 })
     test.afterEach(async ({ io, page }) => {
         await io.api.deleteFlowViaAPI(id);
     });
