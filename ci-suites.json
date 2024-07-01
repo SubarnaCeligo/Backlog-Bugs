@@ -1,16 +1,17 @@
 [
     "account",
     "admin_suite",
-    "apim",
-    "assignerrors",
-    "celigoai",
+    "APIM",
+    "assignErrors",
+    "CeligoAI",
     "connections",
     "email_validation",
     "manage_suite",
-    "mfa",
+    "MFA",
     "monitor_suite",
-    "http2dot0",
-    "signoutpage",
-    "signinpage",
-    "transfersbflow"
+    "HTTP2DOT0",
+    "signoutPage",
+    "signinPage",
+    "transferSBflow",
+    "flowBuilder01"
 ]
