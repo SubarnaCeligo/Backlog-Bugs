@@ -41,17 +41,18 @@ const runTests = () => {
         const parts = file.split('/');
         if (parts.length > 1) {
             const folderName = parts[1]; // 'parts[1]' should be the folder name under 'testcases/'
-            // if (timetakingSuites.includes(folderName)) {
-            //     continue;
-            // }
+            if (suitesexcluded.includes(folderName)) {
+                continue;
+            }
             if (!changedFolders.includes(folderName)) {
                 changedFolders.push(folderName);
+                break;
             }
         }
     }
-    const ChangesExcluded = changedFolders.filter(folder => suitesexcluded.includes(folder));
-    const otherChanges = changedFolders.filter(folder => !suitesexcluded.includes(folder));
-    console.log("changes in other folders",otherChanges)
+    // const ChangesExcluded = changedFolders.filter(folder => suitesexcluded.includes(folder));
+    // const otherChanges = changedFolders.filter(folder => !suitesexcluded.includes(folder));
+    // console.log("changes in other folders",otherChanges)
     if (changedFolders.length === 0) {
         // If no folders have changed, execute 'npm ci'
         console.log("No changes in '__tests__/' folders. Running Unit tests.");
@@ -64,26 +65,28 @@ const runTests = () => {
             // Log the error message
             console.error("\x1b[31m\x1b[1mChanges involving more than 3 suites cannot be included in a single PR. Please create separate PRs.\x1b[0m");
             process.exit(1);
-        } else if (ChangesExcluded.length > 0 && otherChanges.length > 0) {
-            // If there are changes in UI/UX suites and other folders, run the first folder in the other category
-            const folderToTest = otherChanges[0];
-            console.log(`Running tests for the folder: ${folderToTest}`);
-            const testCommand = `ENV=CI FEATURE=${folderToTest} npm run test-docker`;
-            console.log("Running Command:", testCommand);
-            execSync(testCommand, { stdio: 'inherit' });
-        } else if (ChangesExcluded.length > 0) {
-            // If there are changes in any of the UI/UX suites, run the unit tests command
-            const unittests = `ENV=CI FEATURE=CI npm run test-docker`;
-            console.log("Running Command:", unittests);
-            execSync(unittests, { stdio: 'inherit' });
-        } else {
-            // Pick the first folder in the changedFolders array and run tests for that folder
+        }
+        // } else if (ChangesExcluded.length > 0 && otherChanges.length > 0) {
+        //     // If there are changes in UI/UX suites and other folders, run the first folder in the other category
+        //     const folderToTest = otherChanges[0];
+        //     console.log(`Running tests for the folder: ${folderToTest}`);
+        //     const testCommand = `ENV=CI FEATURE=${folderToTest} npm run test-docker`;
+        //     console.log("Running Command:", testCommand);
+        //     execSync(testCommand, { stdio: 'inherit' });
+        // } else if (ChangesExcluded.length > 0) {
+        //     // If there are changes in any of the UI/UX suites, run the unit tests command
+        //     const unittests = `ENV=CI FEATURE=CI npm run test-docker`;
+        //     console.log("Running Command:", unittests);
+        //     execSync(unittests, { stdio: 'inherit' });
+        // } 
+        else {
             const folderToTest = changedFolders[0];
             console.log(`Running tests for the folder: ${folderToTest}`);
             const testCommand = `ENV=CI FEATURE=${folderToTest} npm run test-docker`;
             console.log("Running Command:", testCommand);
             execSync(testCommand, { stdio: 'inherit' });
         }
+       
     }
 };
 
