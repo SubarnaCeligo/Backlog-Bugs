@@ -21,7 +21,7 @@
     "test:ci": "rm -rf ./allure-results && npx playwright test --project=chromium --config=node_modules/@celigo/ui-core-automation/dist/playwright.config.js --grep '@ci'",
     "help": "node --no-warnings index.js",
     "zephyr": "node ./node_modules/@celigo/aut-utilities/dist/src/zephyr/zephyrdriver.js",
-    "test-docker": "npx tsc && rm -rf ./allure-results && npx playwright test --project=PLAYWRIGHT --headed --config=node_modules/@celigo/ui-core-automation/dist/playwright.config.js"
+    "test-docker": "npx tsc && rm -rf ./allure-results && npx playwright test --project=chromium --headed --config=node_modules/@celigo/ui-core-automation/dist/playwright.config.js"
   },
   "keywords": [],
   "author": "B Vinay Kumar",
