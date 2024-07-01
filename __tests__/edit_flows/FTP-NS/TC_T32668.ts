@@ -1,20 +1,19 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import TC from '../../../testData/inputData/FlowBuilder/T32338.json';
 
 test.describe("IO-T32668  Verify help text changes for create source", () => {
-    test("@Zephyr-IO-T32668 @Env-QA @Priority-P2", async ({ io, page }) => {
-        await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
-        await io.homePage.loadingTime();
-        await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
-        await io.homePage.loadingTime();
-        await io.flowBuilder.click(selectors.flowBuilderPagePO.PAGE_GENERATOR);
-        await io.homePage.addStep("*** Clicked on create export ***");
-        await io.flowBuilder.loadingTime()
-        await io.flowBuilder.fill(selectors.flowBuilderPagePO.APP_NAME_INPUT, "Salesforce");
-        await io.flowBuilder.clickByText('Salesforce');
-        await io.flowBuilder.clickByText("Export records from source application");
-        await io.homePage.loadingTime();
+  test("@Zephyr-IO-T32668 @Env-All  @Priority-P2", async ({ io, page }) => {
+    await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+    await io.homePage.loadingTime();
+    await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
+    await io.homePage.loadingTime();
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.PAGE_GENERATOR);
+    await io.homePage.addStep("*** Clicked on create export ***");
+    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.fill(selectors.flowBuilderPagePO.APP_NAME_INPUT, "Salesforce");
+    await io.flowBuilder.clickByText('Salesforce');
+    await io.flowBuilder.clickByText("Export records from source application");
+    await io.homePage.loadingTime();
     await io.flowBuilder.clickByIndex(
       selectors.flowBuilderPagePO.HELP_TEXT_ICON,
       3
@@ -60,29 +59,25 @@ test.describe("IO-T32668  Verify help text changes for create source", () => {
       selectors.connectionsPagePO.HELPTEXT_CLOSE
     );
 
-    //     //Wait for existing resources to load
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXISTING_ACCOUNT_RESOURCE);
-        
-        //Click on any existing resource
-        await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.EXISTING_ACCOUNT_RESOURCE, 0);
-        await io.myAccountPage.waitForElementAttached(
-          selectors.basePagePO.SAVE
-        );
-        //Verify if Next button is clickable
-        await io.flowBuilder.click(selectors.basePagePO.SAVE);
-//select connection
-        await io.flowBuilder.click(selectors.basePagePO.CONNECTION);
-        await io.flowBuilder.fill(selectors.basePagePO.CONNECTION_DROPDOWN,'SALESFORCE CONNECTION');
-        await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN_LIST);
-        //await io.flowBuilder.clickByTextByIndex('SALESFORCE CONNECTION', 0);
-        await io.flowBuilder.clickByText("SALESFORCE CONNECTION");
-        //Get Form label
-        let formLabel = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.CLONE_RESOURCE_LABEL)).toString();
-        await io.assert.expectToContainValue("How would you like to use the existing flow step? *", formLabel, "Form label is not displayed");
-        await io.flowBuilder.clickByIndex(
-          selectors.flowBuilderPagePO.HELP_TEXT_ICON,
-          4
-        );
+    //Click on any existing resource
+    await io.flowBuilder.delay(1000 * 10 * 1);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.NLS_RESOURCE);
+    await io.myAccountPage.waitForElementAttached(
+      selectors.basePagePO.SAVE
+    );
+    //Verify if Next button is clickable
+    await io.flowBuilder.click(selectors.basePagePO.SAVE);
+    //select connection
+    await io.flowBuilder.click(selectors.basePagePO.CONNECTION);
+    await io.flowBuilder.fill(selectors.basePagePO.CONNECTION_DROPDOWN, "SALESFORCE CONNECTION");
+    await io.flowBuilder.clickByTextByIndex("SALESFORCE CONNECTION", 0);
+    //Get Form label
+    let formLabel = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.CLONE_RESOURCE_LABEL)).toString();
+    await io.assert.expectToContainValue("How would you like to use the existing flow step? *", formLabel, "Form label is not displayed");
+    await io.flowBuilder.clickByIndex(
+      selectors.flowBuilderPagePO.HELP_TEXT_ICON,
+      4
+    );
     const value3 = await io.flowBuilder.getText(selectors.importPagePO.INPUTHELP);
     const expectedvalue3 =
       "Clone flow step: This option creates a copy of the original flow step that can be modified to suit the purposes of this flow without affecting the original.Use same flow step: This option reuses the existing flow step. Modifications to the flow step will apply to other instances of the flow step if used in other flows.";
@@ -90,8 +85,7 @@ test.describe("IO-T32668  Verify help text changes for create source", () => {
     await io.flowBuilder.click(
       selectors.connectionsPagePO.HELPTEXT_CLOSE
     );
-
-    });
+  });
 }
 );
 

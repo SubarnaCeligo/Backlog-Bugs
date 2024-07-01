@@ -21,10 +21,9 @@ test.describe("T24284 - Verify user can create export/lookup/import with the 'Us
         await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
 
         //Wait for existing resources to load
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXISTING_ACCOUNT_RESOURCE);
-        
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.OPENAI.NLS_RESOURCE);
         //Click on any existing resource
-        await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.EXISTING_ACCOUNT_RESOURCE, 0);
+        await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.OPENAI.NLS_RESOURCE, 0);
 
         //Verify if Next button is clickable
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
@@ -34,16 +33,16 @@ test.describe("T24284 - Verify user can create export/lookup/import with the 'Us
 
         //select connection
         await io.flowBuilder.click(selectors.basePagePO.CONNECTION);
-        await io.flowBuilder.fill(selectors.basePagePO.CONNECTION_DROPDOWN,'HTTP ZENDESK CONNECTION');
+        await io.flowBuilder.fill(selectors.basePagePO.CONNECTION_DROPDOWN, 'HTTP ZENDESK CONNECTION');
         await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN_LIST);
         await io.flowBuilder.clickByTextByIndex('HTTP ZENDESK CONNECTION', 0);
 
-         //  Select Use same flow
-         await io.flowBuilder.click(selectors.flowBuilderPagePO.USE_SAME_FLOW_STEP_RESOURCE);
+        //  Select Use same flow
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.USE_SAME_FLOW_STEP_RESOURCE);
 
         //Make sure Use same flow is selected
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.USE_SAME_FLOW_STEP_RADIO);
-        await io.assert.verifyElementAttributeContainsText(selectors.flowBuilderPagePO.USE_SAME_FLOW_STEP_RADIO, "class", "Mui-checked" );
+        await io.assert.verifyElementAttributeContainsText(selectors.flowBuilderPagePO.USE_SAME_FLOW_STEP_RADIO, "class", "Mui-checked");
 
         //Update name
         const randomNumber = Math.floor(Math.random() * (999 - 100 + 1)) + 100;
@@ -65,10 +64,10 @@ test.describe("T24284 - Verify user can create export/lookup/import with the 'Us
         //Verify if Export is saved with updtaed config
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
         //Verify name
-        await io.assert.verifyElementAttribute(selectors.importPagePO.NAME,'value', flow_name);
+        await io.assert.verifyElementAttribute(selectors.importPagePO.NAME, 'value', flow_name);
         //Verify relative URI
-        await io.assert.verifyElementAttribute(selectors.importPagePO.HTTP_RELATIVE_URI,'value' ,relativeURI);
+        await io.assert.verifyElementAttribute(selectors.importPagePO.HTTP_RELATIVE_URI, 'value', relativeURI);
 
-         
+
     });
 });

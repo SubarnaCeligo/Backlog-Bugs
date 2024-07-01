@@ -27,11 +27,10 @@ test.describe(`C14612 Verify Template name is displayed in URL while installing 
     );
     await io.homePage.clickByText("Use existing connection");
     await io.homePage.clickByText("Please select");
-    let conn = await io.api.getCall("v1/connections");
-    let connsId = conn.find((conn) => conn.name === "http3hn4d");
-
-    await io.connectionPage.click(`[data-value="${connsId._id}"]`);
-
+    let connMap = await io.api.loadConnections();
+    var connId = connMap.get("3PL CONNECTION");
+    await io.connectionPage.selectTextfromDropDown(page, connId)
+    
     await io.connectionPage.click(selectors.basePagePO.SAVE);
 
     await io.homePage.click(
@@ -39,8 +38,7 @@ test.describe(`C14612 Verify Template name is displayed in URL while installing 
     );
     await io.homePage.clickByText("Use existing connection");
     await io.homePage.clickByText("Please select");
-    let connMap = await io.api.loadConnections();
-    var connId = connMap.get("NETSUITE 347 CONNECTION");
+    connId = connMap.get("NETSUITE CONNECTION");
     await io.connectionPage.selectTextfromDropDown(page, connId)
     await io.connectionPage.click(selectors.basePagePO.SAVE);
 

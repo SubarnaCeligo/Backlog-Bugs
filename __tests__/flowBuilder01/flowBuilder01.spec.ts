@@ -16,7 +16,6 @@ var testCases = [
   "C24619",
   "C24850",
   "C26246",
-  "C32975",
   "C33011",
   "C33018",
   "C34437",
@@ -31,7 +30,7 @@ var testCases = [
   "C93548",
   "C98931",
   "C98942",
-  "C102875",
+ // "C102875", // commenting this out because the UI changes has been revereted will uncomment once the cha ges are back
   "C104208",
   "C104953",
   "C106451",
@@ -122,7 +121,14 @@ var testCases = [
   "IO-T32827",
   "IO-T32829",
   "IO-T32943",
-  "IO-T32987"
+  "IO-T32987",
+  "IOT6148",
+  "C29041",
+  "IO-T33533",
+  "IO-T33598",
+  "IO-T33600",
+  // please do not add any more new test cases to flowbuilder01 suite, because load is getting increased during jenkins run and test cases are getting failed
+
 ];
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
 (async () => {

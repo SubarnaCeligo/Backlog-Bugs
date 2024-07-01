@@ -40,7 +40,7 @@ test.describe("C118280 Verify the filter feature on resolved errors section by a
  
     //Assign tags
     await io.flowBuilder.click(selectors.em2DotOLineGraphPO.TAG_ERRORS);
-    await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.SELECT_TAG,0);
+    await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.SELECT_TAG, 0);
     await io.flowBuilder.clickByText('Apply');
     await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX);
     await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX, 1);

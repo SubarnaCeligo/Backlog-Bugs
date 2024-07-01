@@ -1,0 +1,68 @@
+{
+  "name": "IO-T22286",
+  "disabled": false,
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "http export",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "apiIdentifier": "e35adb4a31",
+        "asynchronous": true,
+        "type": "test",
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": "users",
+          "method": "GET",
+          "formType": "http",
+          "response": {
+            "resourcePath": "users"
+          }
+        },
+        "test": {
+          "limit": 5
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [{
+    "type": "import",
+    "qa__import": {
+      "_connectionId": "LOOP RETURN CONNECTION",
+      "name": "DND loop return",
+      "apiIdentifier": "i76ca9044c",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "assistant": "loopreturns",
+      "sandbox": false,
+      "lookups": [],
+      "http": {
+        "relativeURI": [
+          "/api/v1/returns/213123/fraud-report"
+        ],
+        "method": [
+          "POST"
+        ],
+        "body": [],
+        "headers": [],
+        "requestMediaType": "json",
+        "successMediaType": "json",
+        "errorMediaType": "json",
+        "strictHandlebarEvaluation": false,
+        "sendPostMappedData": true,
+        "_httpConnectorVersionId": "639184209998e4b191badcb2",
+        "_httpConnectorResourceId": "6627063884a401f7ed7616e9",
+        "_httpConnectorEndpointIds": [
+          "6627063884a401f7ed7616f5"
+        ],
+        "isRest": false,
+        "formType": "assistant",
+        "lookups": []
+      },
+      "adaptorType": "HTTPImport"
+    }
+  }]
+}

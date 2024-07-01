@@ -1,0 +1,72 @@
+{
+    "qa__api_tdata": [
+      {
+        "skipRetries": false,
+        "name": "NS - fetch listner log Test",
+        "pageGenerators": [
+            {
+                "type": "export",
+                "qa__export": {
+                    "name": "Http Export",
+                    "_connectionId": "HTTP INTEGRATOR CONNECTION",
+                    "asynchronous": true,
+                    "type": "test",
+                    "oneToMany": false,
+                    "http": {
+                        "relativeURI": "/connections",
+                        "method": "GET",
+                        "formType": "http"
+                    },
+                    "test": {
+                        "limit": 100
+                    },
+                    "adaptorType": "HTTPExport"
+                }
+            }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "http test import",
+              "_connectionId": "HTTP ZENDESK CONNECTION",
+              "ignoreExisting": false,
+              "ignoreMissing": false,
+              "oneToMany": false,
+              "sandbox": false,
+              "http": {
+                "relativeURI": [],
+                "method": ["POST"],
+                "body": [],
+                "batchSize": 1,
+                "sendPostMappedData": true,
+                "formType": "http"
+              },
+              "adaptorType": "HTTPImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "NS - fetch listner log Test",
+          "_integrationId": "667677c86953e4b02b99b525",
+          "disabled": true,
+          "skipRetries": false,
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ],
+          "pageProcessors": [
+            {
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID",
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }

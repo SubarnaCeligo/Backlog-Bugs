@@ -12,8 +12,8 @@ test.describe("C64846 To validate that the NS real time filter should be saved p
         await io.flowBuilder.click(selectors.connectionsPagePO.REALTIME);
         await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH)
         await io.flowBuilder.click(selectors.exportsPagePO.CREATE_SELECT_CONNECTION);
-        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,"NS 737 Conection");
-        await io.flowBuilder.clickByText('NS 737 Conection');
+        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,"NETSUITE 353 CONNECTION");
+        await io.flowBuilder.clickByText('NETSUITE 353 CONNECTION');
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.flowBuilder.click(selectors.importPagePO.NETSUITE_DISTRIBUTED_RECORDTYPE);
         await io.flowBuilder.fill(`${selectors.importPagePO.NETSUITE_DISTRIBUTED_RECORDTYPE} input`,'Accounting Per')

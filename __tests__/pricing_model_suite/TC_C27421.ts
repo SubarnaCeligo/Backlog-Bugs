@@ -34,6 +34,7 @@ test.describe("C27421  Verify the subscription page for different license type(F
          numFlows:0}
     );
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
+    await io.myAccountPage.waitForElementAttached(selectors.myAccountPagePO.SUBSCRIPTION);
     await io.myAccountPage.click(selectors.myAccountPagePO.SUBSCRIPTION);
     await page.waitForLoadState();
 
