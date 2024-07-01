@@ -20,7 +20,7 @@ test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T31358 @Zephyr-IO-T31359 @
         //Click on connection filter dropdown
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         //@Zephyr-IO-T31359" Type the connection name
-        await page.keyboard.type("HTTP ZENDESK");
+        await page.keyboard.type("HTTP ZENDESK CONNECTION");
         await io.flowBuilder.clickByTextByIndex("HTTP ZENDESK CONNECTION",0);
 
         // IO-T31368 online/offline status should not show after choosing connection
