@@ -1,13 +1,14 @@
 import { links, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/monitorSuite/monitor_all.json";
+import Flow from "@testData/monitorSuite/C25997.json";
 
 test.describe("C25997 - Verify that monitor user is not able to stop debug on listeners", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.flowBuilder.loadingTime();
   });
   test("@Env-All C25997 - Verify that monitor user is not able to start/stop debug on listeners", async ({ io, page }) => {
-
     //Set the monitor permissions for the account
     const res = await io.api.putCall(
       `v1/ashares/${process.env.IO_Ashare_ID}`,
@@ -19,14 +20,8 @@ test.describe("C25997 - Verify that monitor user is not able to stop debug on li
 
     // Search for a DND flow which has been running for more than 2 weeks
     await io.flowBuilder.loadingTime();
-    await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
-    await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Webhook_ListenerLogs_DND');
-    await io.flowBuilder.loadingTime();
-    //Wait for the test to complete
-    await io.integrationPage.waitForElementAttached(selectors.flowBuilderPagePO.ACTIONS_SELECTOR);
-
-    //Open the flow
-    await io.flowBuilder.clickByText('Webhook_ListenerLogs_DND');
+    await io.createResourceFromAPI(Flow, "FLOWS");
+    await io.homePage.loadingTime();
 
     //Open the listener and try to start debug
     await io.flowBuilder.click(selectors.flowBuilderPagePO.LISTENER);

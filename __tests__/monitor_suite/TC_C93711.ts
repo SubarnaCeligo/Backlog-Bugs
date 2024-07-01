@@ -1,6 +1,6 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C93708 from "@testData/ScriptDebugger/C93708.json"
+import Flow from "@testData/monitorSuite/C93715.json";
 import testData from "@testData/monitorSuite/monitor_all.json";
 
 
@@ -15,7 +15,7 @@ test.describe('C93711 Validate user is not able to create "formInit" script thro
       await io.flowBuilder.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
       await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "C68510_DND");
       await io.homePage.loadingTime()
-      await io.flowBuilder.clickByText('C68510_DND');
+      await io.createResourceFromAPI(Flow, "FLOWS");
       await io.homePage.loadingTime()
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
       await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR, 0);

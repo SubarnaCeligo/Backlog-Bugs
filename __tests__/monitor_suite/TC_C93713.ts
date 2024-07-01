@@ -1,6 +1,7 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/monitorSuite/monitor_all.json";
+import Flow from "@testData/monitorSuite/C93715.json";
 
 test.describe('C93713 Validate user is getting auto-fill of funtion stub while creating "postResponseMap" script through flow builder page (Monitor)', () => {
 
@@ -12,9 +13,8 @@ test.describe('C93713 Validate user is getting auto-fill of funtion stub while c
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.homePage.loadingTime()
     await io.flowBuilder.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
-    await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "C68510_DND");
+    await io.createResourceFromAPI(Flow, "FLOWS");
     await io.homePage.loadingTime()
-    await io.flowBuilder.clickByText('C68510_DND');
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR, 0);
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT_HOOK);
