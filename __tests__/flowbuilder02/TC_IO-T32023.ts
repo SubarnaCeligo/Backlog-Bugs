@@ -1,6 +1,8 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import TC from '../../testData/inputData/FlowBuilder/T32023.json';
+import { Mappings2dot0Page } from '@celigo/ui-core-automation/dist/src/pageFactory/pages/Mappings2dot0Page';
+import { Mappings } from '@celigo/aut-selectors/dist/src/selectors/Mappings';
 
 test.describe("@Author_MaheshNivruttiSutar @Bug-IO-80306 @Bug-IO-80221 @Env-QA @Priority-P2 @Zephyr-IO-T32021 @Zephyr-IO-T32023", () => {
     let intId;
@@ -41,12 +43,12 @@ test.describe("@Author_MaheshNivruttiSutar @Bug-IO-80306 @Bug-IO-80221 @Env-QA @
         await io.flowBuilder.loadingTime();
         // await io.assert.expectToBeFalse(confirmREplace, "Confirn replace is not shown");
         await io.homePage.addStep("*** Click on cancel ***");
-        await io.exportsPage.click(selectors.flowBuilderPagePO.CLOSE);
-        await io.exportsPage.click(selectors.flowBuilderPagePO.EXPORT_BUBBLE);
+        await io.homePage.click(selectors.mappings.MAPPER2DOT0PO.CLOSEBUTTON);
+        // await io.exportsPage.click(selectors.flowBuilderPagePO.EXPORT_BUBBLE);
         const pageCheck = await io.flowBuilder.isVisible("text='Edit export'");
         await io.assert.expectToBeTrue(pageCheck, "Flowbuilder page is not shown");
         await io.exportsPage.click(selectors.flowBuilderPagePO.CLOSE);
-        // await io.exportsPage.click(selectors.basePagePO.DISCARD_CHANGES);
+        await io.exportsPage.click(selectors.basePagePO.DISCARD_CHANGES);
         await io.flowBuilder.deleteFlow();
     });
 });

@@ -27,6 +27,7 @@ test.describe("T24261_T24262_T24263_T24264_T24265_T24266_T24267 verifying create
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
 
         // lookup
+        await io.homePage.loadingTime()
         await io.connectionPage.click(selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Http');
         await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);

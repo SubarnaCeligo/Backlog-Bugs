@@ -15,7 +15,7 @@ test.describe("TC_C119812_C119813_C119814", () => {
     await io.api.postCall(`v1/exports`, TC.lookup);
     await io.flowBuilder.reloadPage();
     await io.flowBuilder.loadingTime();
-    await io.homePage.goToMenu("Resources", "Exports");
+    await io.myAccountPage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
     await io.homePage.fill(selectors.flowBuilderPagePO.SEARCH, "TC_C119812 Zendesk Export");
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU);
@@ -117,7 +117,7 @@ test.describe("TC_C119812_C119813_C119814", () => {
     await io.api.postCall(`v1/imports`, TC.import);
     await io.flowBuilder.reloadPage();
     await io.flowBuilder.loadingTime();
-    await io.homePage.goToMenu("Resources", "Imports");
+    await io.myAccountPage.navigateTo(io.data.links.IMPORTS_PAGE_URL);
     await io.homePage.fill(selectors.flowBuilderPagePO.SEARCH, "TC_C119812 Netsuite import");
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU);

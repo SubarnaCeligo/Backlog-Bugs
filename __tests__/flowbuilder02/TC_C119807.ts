@@ -79,19 +79,19 @@ test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
     test("@Epic-IO-63762  @Priority-P2  @Zephyr-T27037 @Zephyr-T27038 @Env-All", async ({ io, page }) => {
         id1 = await io.createResourceFromAPI(C119807.newFlow, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
-        await io.flowBuilder.reloadPage();
-        await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
-        await io.integrationPage.waitForElementAttached(
-            selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR
-        );
-        await io.flowBuilder.click(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
-        await io.integrationPage.fill(
-            selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
-            "TC_T27037"
-        );
-        //Open the flow
-        await io.flowBuilder.clickByText("TC_T27037");
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
+        // await io.flowBuilder.reloadPage();
+        // await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+        // await io.integrationPage.waitForElementAttached(
+        //     selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR
+        // );
+        // await io.flowBuilder.click(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
+        // await io.integrationPage.fill(
+        //     selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
+        //     "TC_T27037"
+        // );
+        // //Open the flow
+        // await io.flowBuilder.clickByText("TC_T27037");
+        // await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
 
         //Export
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
@@ -184,19 +184,19 @@ test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
     test("IO-T27039 @Epic-IO-63762  @Priority-P2  @Zephyr-T27039 @Env-All", async ({ io, page }) => {
         id2 = await io.createResourceFromAPI(TC, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
-        await io.flowBuilder.reloadPage();
-        await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
-        await io.integrationPage.waitForElementAttached(
-            selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR
-        );
-        await io.flowBuilder.click(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
-        await io.integrationPage.fill(
-            selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
-            "IO-T27039"
-        );
-        //Open the flow
-        await io.flowBuilder.clickByText("IO-T27039");
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
+        // await io.flowBuilder.reloadPage();
+        // await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+        // await io.integrationPage.waitForElementAttached(
+        //     selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR
+        // );
+        // await io.flowBuilder.click(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
+        // await io.integrationPage.fill(
+        //     selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
+        //     "IO-T27039"
+        // );
+        // //Open the flow
+        // await io.flowBuilder.clickByText("IO-T27039");
+        // await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
 
         //Export
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
