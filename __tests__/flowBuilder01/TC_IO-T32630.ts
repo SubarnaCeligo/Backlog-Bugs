@@ -6,7 +6,7 @@ test.describe("@Author_MaheshNivruttiSutar Verify label changed for What would y
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.myAccountPage.loadingTime();
     });
-    test("@BUG-IO-81737 @Priority-P2 @Env-QA @Zephyr-IO-T32630", async ({ io, page }) => {
+    test("@BUG-IO-81737 @Priority-P2 @Env-All @Zephyr-IO-T32630", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.loadingTime()
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);

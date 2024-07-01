@@ -27,7 +27,7 @@ test.describe("@Author-Shriti S Verify that clicking on the 'Rejected' FA status
     await io.homePage.clickByText('Apply');
     await io.homePage.loadingTime();
     await io.homePage.waitForElementAttached(selectors.dashboardPagePO.FA_FILTER_BUTTON);
-    await io.homePage.clickByIndex(selectors.dashboardPagePO.FA_FILTER_BUTTON, 2);
+    await io.homePage.clickByIndex(selectors.dashboardPagePO.FA_FILTER_BUTTON, 0);
     await io.homePage.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
     let filters = (await io.homePage.getText(selectors.dashboardPagePO.FA_FILTER_VALUES)).toString();
     let filtersArray: string[] = filters.split(',');

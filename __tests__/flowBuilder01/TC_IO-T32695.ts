@@ -7,7 +7,9 @@ test.describe("@Author_MaheshNivruttiSutar Verify user is able to update Custom 
     test.afterEach(async ({ io, page }) => {
         await io.api.deleteFlowViaAPI(id);
     });
-    test("@BUG-IO-83097 @Priority-P2 @Env-QA @Zephyr-IO-T32695", async ({ io, page }) => {
+    test("@BUG-IO-83097 @Priority-P2 @Env-All @Zephyr-IO-T32695", async ({ io, page }) => {
+        let res = await io.api.postCall(`v1/filedefinitions`, TC.fileDEfination);
+        TC.pageProcessors[0].qa__import.file.fileDefinition._fileDefinitionId = res._id;
         id = await io.createResourceFromAPI(TC, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
         await io.flowBuilder.loadingTime();

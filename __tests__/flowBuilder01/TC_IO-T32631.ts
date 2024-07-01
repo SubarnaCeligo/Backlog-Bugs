@@ -7,7 +7,7 @@ test.describe("@Author_MaheshNivruttiSutar Verify error is not showing while upd
     test.afterEach(async ({ io, page }) => {
         await io.api.deleteFlowViaAPI(id);
     });
-    test("@BUG-IO-81388 @Priority-P2 @Env-QA @Zephyr-IO-T32631", async ({ io, page }) => {
+    test("@BUG-IO-81388 @Priority-P2 @Env-All @Zephyr-IO-T32631", async ({ io, page }) => {
         id = await io.createResourceFromAPI(TC, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
         await io.flowBuilder.loadingTime();

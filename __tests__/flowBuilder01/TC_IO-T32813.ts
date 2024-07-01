@@ -7,7 +7,7 @@ test.describe("@Author_MaheshNivruttiSutar Verify user is able to update Custom 
     test.afterEach(async ({ io, page }) => {
         await io.api.deleteFlowViaAPI(id);
     });
-    test("@BUG-IO-82499 @Priority-P2 @Env-QA @Zephyr-IO-T32813", async ({ io, page }) => {
+    test("@BUG-IO-82499 @Priority-P2 @Env-All @Zephyr-IO-T32813", async ({ io, page }) => {
         id = await io.createResourceFromAPI(TC, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
         await io.flowBuilder.loadingTime();

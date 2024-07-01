@@ -38,17 +38,19 @@
     }
   },
   "devDependencies": {
-    "@celigo/aut-selectors": "^0.3.68",
-    "@celigo/aut-utilities": "^0.1.6",
-    "@celigo/ui-core-automation": "^0.2.50",
+    "@celigo/aut-selectors": "^0.3.69",
+    "@celigo/aut-utilities": "^0.1.7",
+    "@celigo/ui-core-automation": "^0.2.53",
     "@playwright/test": "1.41.2",
     "allure-playwright": "^2.2.1",
     "inquirer-search-list": "^1.2.6",
     "playwright": "1.41.2"
   },
   "dependencies": {
+    "adm-zip": "^0.5.14",
     "atob": "^2.1.2",
     "chalk": "^4.0.0",
+    "csv-parser": "^3.0.0",
     "figlet": "^1.7.0",
     "husky": "^4.3.8",
     "inquirer": "^7.1.0",
