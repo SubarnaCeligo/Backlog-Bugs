@@ -1,7 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/monitorSuite/monitor_all.json";
-import Flow from "@testData/monitorSuite/C25997.json";
 
 test.describe("C25999 Verify stop is shown, but should be disabled for the monitor users", () => {
     test.beforeEach(async ({ io }) => {
