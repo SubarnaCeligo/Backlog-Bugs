@@ -1,5 +1,6 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
+import C93708 from "@testData/ScriptDebugger/C93708.json"
 import testData from "@testData/monitorSuite/monitor_all.json";
 
 

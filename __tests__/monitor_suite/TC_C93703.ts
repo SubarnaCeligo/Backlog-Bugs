@@ -1,7 +1,6 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/monitorSuite/monitor_all.json";
-import Flow from "@testData/monitorSuite/C93715.json";
 
 test.describe('C93703 Validate that user is able to see "formInit" function wherever “Insert function stub” field is present.(Tile level access)', () => {
 
