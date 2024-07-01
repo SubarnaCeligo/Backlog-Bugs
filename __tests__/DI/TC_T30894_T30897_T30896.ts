@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("@Author-ladimanish TC_T30894_T30897_T30896", () => {
-  test("@Env-All @Epic-IO-68754 @Priority-P1 @Zephyr-IO-T30894 @Zephyr-IO-T30897 @Zephyr-IO-T30896 TC_T30894_T30897_T30896", async ({
+  test("@Env-PLATFORMTHREE @Epic-IO-68754 @Priority-P1 @Zephyr-IO-T30894 @Zephyr-IO-T30897 @Zephyr-IO-T30896 TC_T30894_T30897_T30896", async ({
     io,
     page
   }) => {
@@ -11,7 +11,7 @@ test.describe("@Author-ladimanish TC_T30894_T30897_T30896", () => {
     await io.sync.createNewIntegration(integrationName);
     await io.sync.chooseSourceApplication("Salesforce");
     await io.sync.selectExistingConnection("SALESFORCE CONNECTION");
-  
+
     //T30894
     await io.assert.verifyElementIsDisplayed(
       selectors.basePagePO.TABLE_ROWS,
