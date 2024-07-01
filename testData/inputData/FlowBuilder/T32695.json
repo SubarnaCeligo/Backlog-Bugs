@@ -1,32 +1,33 @@
 {
-    "name": "IO-T32695",
+    "name": "TC_IO-T32631",
     "pageGenerators": [
         {
             "type": "export",
             "qa__export": {
-                "name": "FTP Export",
-                "_connectionId": "FTP CONNECTION",
-                "apiIdentifier": "eebcca58d7",
+                "name": "MongoDB Export",
+                "_connectionId": "MONGODB CONNECTION",
+                "apiIdentifier": "e2743380d5",
                 "asynchronous": true,
+                "oneToMany": false,
                 "sandbox": false,
-                "ftp": {
-                    "directoryPath": "/Group-QA/ShritiS"
+                "groupByFields": [
+                    "id"
+                ],
+                "rawData": "6253c695bbf2c06775d39fe147a330a269a1463ea9e7dba8d188a243",
+                "mongodb": {
+                    "method": "find",
+                    "collection": "TEST NEW"
                 },
-                "file": {
-                    "output": "records",
-                    "skipDelete": false,
-                    "type": "json",
-                    "filter": {
-                        "type": "expression",
-                        "expression": {
-                            "rules": [],
-                            "version": "1"
-                        },
+                "filter": {
+                    "type": "expression",
+                    "expression": {
                         "rules": [],
                         "version": "1"
-                    }
+                    },
+                    "rules": [],
+                    "version": "1"
                 },
-                "adaptorType": "FTPExport"
+                "adaptorType": "MongodbExport"
             }
         }
     ],
@@ -56,7 +57,7 @@
         }
     ],
     "createFlow": {
-        "name": "IO-T32695",
+        "name": "TC_IO-T32631",
         "disabled": false,
         "_integrationId": "603ce75ac4fec33283691f43",
         "skipRetries": false,
