@@ -25,9 +25,9 @@ test.describe("TC_C98691  If the error is resolved in production flow then it is
         await page.waitForTimeout(15000)
         await io.flowBuilder.clickByTextByIndex('1 error', 0);
         await io.flowBuilder.clickByText('Open errors');
-        await io.flowBuilder.clickByText('Resolve');
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.RESOLVE_JOBS);
         await io.flowBuilder.click(selectors.basePagePO.DATA_VALUE_ALL);
-        await io.flowBuilder.clickByTextByIndex('Resolve', 2);
+        await io.flowBuilder.clickByTextByIndex('Resolve', 13);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER);
 
         await io.homePage.addStep('*** Disable the flow and run it ***');
