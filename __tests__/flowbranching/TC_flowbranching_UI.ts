@@ -8,7 +8,7 @@ test.describe.skip("flowbranching_UI", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("SAMPLE_TEST", async ({
+    test("@Env-All SAMPLE_TEST", async ({
         io
     }, testInfo) => {
         await io.pageGenerator(
