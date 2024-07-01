@@ -20,9 +20,9 @@ test.describe("TC_C110781_C110787_C110788_C111507", () => {
     let unmerge = selectors.flowBranchingPO.UNMERGE_BRANCHING;
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.waitForElementAttached(unmerge);
-    // let unmerge1 = await page.$(unmerge);
-    // expect(await unmerge1.screenshot()).toMatchSnapshot("C110781-chromium-darwin.png");
-    await io.assert.checkSnapshot(unmerge, "C110781-chromium-darwin.png");
+    let unmerge1 = await page.$(unmerge);
+    expect(await unmerge1.screenshot()).toMatchSnapshot("C110781-chromium-darwin.png");
+    // await io.assert.checkSnapshot(unmerge, "C110781-chromium-darwin.png");
     await io.myAccountPage.clickByIndex(unmerge, 0);
     await io.assert.verifyElementDisplayedByText(
       "Unmerge branch",
