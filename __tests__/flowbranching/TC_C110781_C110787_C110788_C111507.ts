@@ -2,9 +2,8 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import fb from "@testData/flowbranching/TC_C110781_C110787_C110788_C111507.json";
 
-test.describe.configure({ retries: 1 });
-
 test.describe("TC_C110781_C110787_C110788_C111507", () => {
+  test.describe.configure({ retries: 1 });
   let flowid;
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowViaAPI(flowid);
