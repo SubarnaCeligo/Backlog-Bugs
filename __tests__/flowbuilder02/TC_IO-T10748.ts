@@ -1,5 +1,5 @@
 import {expect, test} from "@celigo/ui-core-automation";
-import testData from "../../testData/inputData/FLOWS/TC_T10748.json";
+import testData from "../../testData/inputData/Flows/TC_T10748.json";
 import * as selectors from "@celigo/aut-selectors";
 
 
