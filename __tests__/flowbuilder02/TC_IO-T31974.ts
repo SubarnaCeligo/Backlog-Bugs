@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import TC from '../../testData/inputData/FlowBuilder/T31974.json';
 
-test.describe.skip("@Author_MaheshNivruttiSutar Verify section should be hidden if we set 'useAsPrimaryInterface' is Set to True in Script", () => {
+test.describe("@Author_MaheshNivruttiSutar Verify section should be hidden if we set 'useAsPrimaryInterface' is Set to True in Script", () => {
     let id; let formInit;
     test.describe.configure({ retries: 1 })
     test.beforeEach(async ({ io, page  }) => {

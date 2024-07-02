@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe.skip("IO-T6094 To verify create/edit flow group pages and its fields are not broken in different browsers", () => {
+test.describe("IO-T6094 To verify create/edit flow group pages and its fields are not broken in different browsers", () => {
   test.beforeEach(async ({ io, page }) => {
     await io.homePage.addStep("Creating the integration");
     await io.homePage.navigateTo(

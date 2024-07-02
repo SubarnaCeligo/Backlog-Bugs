@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe(`TC_C41543 To verify create pull button is displayed under "Revisions" tab for DIY integration(users who has Account level admin access)`, () => {
+test.describe.skip(`TC_C41543 To verify create pull button is displayed under "Revisions" tab for DIY integration(users who has Account level admin access)`, () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });

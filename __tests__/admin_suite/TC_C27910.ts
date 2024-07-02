@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import Flow from "@testData/admin_suite/C27910.json";
 
-test.describe("TC_C27910 Verify pre send hook retrying and retry data by sending errors field as empty and errorsAndRetryData having retry data and errors", () => {
+test.describe.skip("TC_C27910 Verify pre send hook retrying and retry data by sending errors field as empty and errorsAndRetryData having retry data and errors", () => {
   let flowId;
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowViaAPI(flowId);

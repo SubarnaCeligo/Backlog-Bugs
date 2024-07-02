@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import { decrypt } from "@celigo/aut-utilities";
 
-test.describe.skip("@Author_sagna123 TC_T28431_Test to validate checkbox is visible in HTTP export/lookup if we have exportSuccessMediaType is do not override and connectionSuccessMediaType is do not override and connectionMediaType is json", () => {
+test.describe("@Author_sagna123 TC_T28431_Test to validate checkbox is visible in HTTP export/lookup if we have exportSuccessMediaType is do not override and connectionSuccessMediaType is do not override and connectionMediaType is json", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });

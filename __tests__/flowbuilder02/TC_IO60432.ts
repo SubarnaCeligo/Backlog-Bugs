@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe.skip("TC_IO60432_Text should hover if highlight is more than 2 secs ", () => {
+test.describe("TC_IO60432_Text should hover if highlight is more than 2 secs ", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });

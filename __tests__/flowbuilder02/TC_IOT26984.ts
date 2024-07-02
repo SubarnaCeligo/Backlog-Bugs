@@ -2,7 +2,7 @@ import { test ,expect} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 
-test.describe.skip(`TC_IO-T26984  Test to validate that user is seeing "First record contains headers" as title for help text in http export/lookup`, () => {
+test.describe(`TC_IO-T26984  Test to validate that user is seeing "First record contains headers" as title for help text in http export/lookup`, () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });

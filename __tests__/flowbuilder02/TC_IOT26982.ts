@@ -2,7 +2,7 @@ import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 
-test.describe.skip(`TC_IO-T26982 Test to validate that user is able to see correct Field path below the help text after clicking on the icon http export/lookup`, () => {
+test.describe(`TC_IO-T26982 Test to validate that user is able to see correct Field path below the help text after clicking on the icon http export/lookup`, () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });

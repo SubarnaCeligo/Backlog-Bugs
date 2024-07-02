@@ -2,7 +2,7 @@ import {  test ,expect} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 
-test.describe.skip(`TC_IOT26989  Test to validate that the field "First record contains headers" is unchecked by default google sheets export/lookup`, () => {
+test.describe(`TC_IOT26989  Test to validate that the field "First record contains headers" is unchecked by default google sheets export/lookup`, () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });

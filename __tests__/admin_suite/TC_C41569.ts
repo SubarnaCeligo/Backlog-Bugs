@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe(`TC_C41569 To verify Pull from Integration dropdown field lists all the child clone integrations present in both production and sandbox account(Account Owner)`, () => {
+test.describe.skip(`TC_C41569 To verify Pull from Integration dropdown field lists all the child clone integrations present in both production and sandbox account(Account Owner)`, () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();

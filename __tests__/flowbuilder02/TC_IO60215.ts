@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe.skip("TC_IO60215_Expression should close with '}}' or '}}}' depending on how we started the expression ", () => {
+test.describe("TC_IO60215_Expression should close with '}}' or '}}}' depending on how we started the expression ", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });

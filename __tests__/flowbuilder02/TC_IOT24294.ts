@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe.skip(`TC_IOT4294 Test to verify data is pre-filling on the next page if we select a flow step from 'Marketplace flow steps'
+test.describe(`TC_IOT4294 Test to verify data is pre-filling on the next page if we select a flow step from 'Marketplace flow steps'
 `, () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);

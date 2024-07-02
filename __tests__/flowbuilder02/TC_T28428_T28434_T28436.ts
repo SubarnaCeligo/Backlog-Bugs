@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe.skip("@Author_sagna123 TC_T28428_T28434_T28436_Test to validate checkbox is not visible in HTTP export/lookups if we have exportSuccessMediaType value other than json or do not override", () => {
+test.describe("@Author_sagna123 TC_T28428_T28434_T28436_Test to validate checkbox is not visible in HTTP export/lookups if we have exportSuccessMediaType value other than json or do not override", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });

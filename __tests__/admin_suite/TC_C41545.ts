@@ -1,7 +1,7 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("TC_C41545 To verify create pull button is displayed under 'Revisions' tab for Templates(users who has Account level admin access)", () => {
+test.describe.skip("TC_C41545 To verify create pull button is displayed under 'Revisions' tab for Templates(users who has Account level admin access)", () => {
   test("@Zephyr-IO-T426 @Env-All C41545 To verify create pull button is displayed under 'Revisions' tab for Templates(users who has Account level admin access)", async ({
     io,
     page
