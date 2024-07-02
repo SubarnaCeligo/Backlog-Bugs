@@ -82,7 +82,7 @@ const runTests = () => {
         else {
             const folderToTest = changedFolders[0];
             console.log(`Running tests for the folder: ${folderToTest}`);
-            const testCommand = `ENV=ci FEATURE=${folderToTest} npm run test-docker`;
+            const testCommand = `ENV=qa FEATURE=${folderToTest} npm run test-docker`;
             // console.log("Running Command:", testCommand);
             // execSync(testCommand, { stdio: 'inherit' });
             runMultipleSuites(changedFolders, ENV);
