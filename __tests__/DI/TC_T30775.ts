@@ -32,6 +32,7 @@ test.describe("@Author-ladimanish TC_T30775", () => {
     await io.sync.clickOnNext();
     const syncName = await io.sync.generateRandomName("Sync");
     await io.sync.enterSyncName(syncName);
+    await io.sync.selectFrequency("Once weekly");
     await io.flowBuilder.click(selectors.syncPagePO.SAVE_AND_CLOSE);
     await io.myAccountPage.loadingTime();
     await io.assert.verifyElementDisplayedByText(
