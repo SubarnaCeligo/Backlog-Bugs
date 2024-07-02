@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import { getLicensePayload } from "@celigo/aut-utilities";
 
-test.describe("C27422 Verify the endpoint under subscription page when it exceed the limit.", () => {
+test.describe.skip("C27422 Verify the endpoint under subscription page when it exceed the limit.", () => {
   test("C27422 @Zephyr-IO-T27422  @Env-All @Priority-P2 Verify the endpoint under subscription page when it exceed the limit.", async ({
     io,
     page

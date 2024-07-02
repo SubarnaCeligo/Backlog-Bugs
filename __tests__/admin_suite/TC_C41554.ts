@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe.skip(`TC_C41554 To verify create pull button is not displayed under ""Revisions"" tab for Integration App(users who has Integration level admin access)`, () => {
+test.describe(`TC_C41554 To verify create pull button is not displayed under ""Revisions"" tab for Integration App(users who has Integration level admin access)`, () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();

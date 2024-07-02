@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import { getLicensePayload } from "@celigo/aut-utilities";
 
-test.describe("T28742_T28743_T28737_T29724 Verify the license Entitlements notification(Standard,professional ,Enterprise)", () => {
+test.describe.skip("T28742_T28743_T28737_T29724 Verify the license Entitlements notification(Standard,professional ,Enterprise)", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });

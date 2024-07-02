@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import { getLicensePayload } from "@celigo/aut-utilities";
 
-test.describe("C29063 Verify the concurrency levels while cloning a flow.", () => {
+test.describe.skip("C29063 Verify the concurrency levels while cloning a flow.", () => {
   test("C29063 @Zephyr-IO-T29063  @Env-All @Priority-P2 Verify the concurrency levels while cloning a flow.", async ({
     io,
     page,

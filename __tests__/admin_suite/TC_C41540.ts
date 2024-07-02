@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe.skip(`TC_C41540 To verify create pull button is displayed under ""Revisions"" tab for DIY integration(Account Owner)`, () => {
+test.describe(`TC_C41540 To verify create pull button is displayed under ""Revisions"" tab for DIY integration(Account Owner)`, () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();

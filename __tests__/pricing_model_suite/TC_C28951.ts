@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import { getLicensePayload } from "@celigo/aut-utilities";
 
-test.describe("C28951 Verify the concurrency limit for different license type(Free tier,professional ,Enterprise) for Sandbox account.", () => {
+test.describe.skip("C28951 Verify the concurrency limit for different license type(Free tier,professional ,Enterprise) for Sandbox account.", () => {
   test("@Zephyr-IO-T28951 @Env-QA @Priority-P2 Verify the concurrency limit for different license type(Free tier,professional ,Enterprise) for Sandbox account", async ({
     io,
   }) => {

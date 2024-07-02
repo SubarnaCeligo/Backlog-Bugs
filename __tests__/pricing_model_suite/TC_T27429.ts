@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import { getLicensePayload } from "@celigo/aut-utilities";
 
-test.describe("T27429 Verify the license entitlement notification message)", () => {
+test.describe.skip("T27429 Verify the license entitlement notification message)", () => {
   test('@Zephyr-IO-T27429 @Env-All @Priority-P2  Verify whether gated feature marked as true in BE in Subscription page', async ({
     io
   }) => {

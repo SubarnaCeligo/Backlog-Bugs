@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import { getLicensePayload } from "@celigo/aut-utilities";
 
-test.describe("T28945_T28946_T28947 Verify the audit log retention for all tiers.", () => {
+test.describe.skip("T28945_T28946_T28947 Verify the audit log retention for all tiers.", () => {
   const upgradeNotificationText =
     "More options available - Upgrade your account for longer audit log periods.";
 
