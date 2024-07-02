@@ -56,7 +56,7 @@ const runTests = () => {
     if (changedFolders.length === 0) {
         // If no folders have changed, execute 'npm ci'
         console.log("No changes in '__tests__/' folders. Running Unit tests.");
-        const unittests = `ENV=ci FEATURE=CI npm run test-docker`;
+        const unittests = `ENV=ci FEATURE=unit_test npm run test:ci`;
         console.log("Running Command:",unittests)
         execSync(unittests, { stdio: 'inherit' });
     } else {
@@ -75,7 +75,7 @@ const runTests = () => {
         //     execSync(testCommand, { stdio: 'inherit' });
         // } else if (ChangesExcluded.length > 0) {
         //     // If there are changes in any of the UI/UX suites, run the unit tests command
-        //     const unittests = `ENV=ci FEATURE=CI npm run test-docker`;
+        //     const unittests = `ENV=ci FEATURE=UNITTEST npm run test-docker`;
         //     console.log("Running Command:", unittests);
         //     execSync(unittests, { stdio: 'inherit' });
         // } 
