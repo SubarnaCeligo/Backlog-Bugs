@@ -1,7 +1,6 @@
 import {expect, test} from "@celigo/ui-core-automation";
-import testData from "../../testData/inputData/Flows/TC_T10748.json";
 import * as selectors from "@celigo/aut-selectors";
-
+import testData from "../../testData/inputData/Flows/TC_T10748.json";
 
 test.describe("@Author-Adarsh Verify pfx content is masked in debug connection logs, HTTP import and Export when flow is executed", () => {
     test("@Bug-IO-62618 @Priority-P1 @Zephyr-IO-T10748 @Env-All Verify pfx content is masked in debug connection logs, HTTP import and Export when flow is executed", async ({io, page}) => {
