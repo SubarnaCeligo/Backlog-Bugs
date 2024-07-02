@@ -1,7 +1,7 @@
 const { execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
-
+const runMultipleSuites = require('./dockerRunner');
 let ENV = "ci";
 let workers = 3;
 let suitesexcluded = ["uiux_suite01", "uiux_suite02", "uiux_suite03"];
