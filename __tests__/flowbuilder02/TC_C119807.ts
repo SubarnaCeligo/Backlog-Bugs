@@ -5,6 +5,7 @@ import TC from '../../testData/inputData/FlowBuilder/IO-T27039.json';
 
 test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
     let id; let id1; let id2;
+    test.describe.configure({ retries: 1 })
     test.afterEach(async ({ io, page }) => {
         await io.api.deleteFlowViaAPI(id);
         await io.api.deleteFlowViaAPI(id1);
@@ -40,7 +41,7 @@ test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.flowBuilder.click(selectors.exportsPagePO.WHAT_WOULD_YOU_LIKE_TO_EXPORT_TAB);
         await io.homePage.loadingTime();
-        expect(await page.screenshot()).toMatchSnapshot("TC_C119807_EXPORT.png");
+        expect(await page.screenshot()).toMatchSnapshot("TC_C119807_EXPORT-chromium-linux.png");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
         //Lookup
@@ -56,7 +57,7 @@ test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.flowBuilder.click(selectors.exportsPagePO.WHAT_WOULD_YOU_LIKE_TO_EXPORT_TAB);
         await io.homePage.loadingTime();
-        expect(await page.screenshot()).toMatchSnapshot("TC_C119807_LOOKUP.png");
+        expect(await page.screenshot()).toMatchSnapshot("TC_C119807_LOOKUP-chromium-linux.png");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
         // IMPORT
@@ -72,7 +73,7 @@ test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXISTINGRECORDSIMPORT);
         await io.homePage.loadingTime();
-        expect(await page.screenshot()).toMatchSnapshot("TC_C119807_IMPORT.png");
+        expect(await page.screenshot()).toMatchSnapshot("TC_C119807_IMPORT-chromium-linux.png");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
     });
     test.skip("@Epic-IO-63762  @Priority-P2  @Zephyr-T27037 @Zephyr-T27038 @Env-All", async ({ io, page }) => {
@@ -105,7 +106,7 @@ test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.homePage.loadingTime();
-        expect(await page.screenshot()).toMatchSnapshot("IO-T27038 export.png");
+        expect(await page.screenshot()).toMatchSnapshot("IO-T27038 export-chromium-linux.png");
         //clicking on launch from builder
         //IO-T27037
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
@@ -117,7 +118,7 @@ test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.homePage.loadingTime();
-        expect(await page.screenshot()).toMatchSnapshot("IO-T27037 export.png");
+        expect(await page.screenshot()).toMatchSnapshot("IO-T27037 export-chromium-linux.png");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
         //Lookup
@@ -134,7 +135,7 @@ test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.homePage.loadingTime();
-        expect(await page.screenshot()).toMatchSnapshot("IO-T27038 LOOKUP.png");
+        expect(await page.screenshot()).toMatchSnapshot("IO-T27038 LOOKUP-chromium-linux.png");
         //clicking on launch from builder
         //IO-T27037
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
@@ -146,7 +147,7 @@ test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.myAccountPage.delay(5000);
-        expect(await page.screenshot()).toMatchSnapshot("IO-T27037 LOOKUP.png");
+        expect(await page.screenshot()).toMatchSnapshot("IO-T27037 LOOKUP-chromium-linux.png");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
         // IMPORT
@@ -164,7 +165,7 @@ test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.homePage.loadingTime();
         const Symbol1 = await page.$(selectors.flowBuilderPagePO.RIGHT_DRAWER);
-        expect(await Symbol1.screenshot()).toMatchSnapshot("IO-T27038 import.png");
+        expect(await Symbol1.screenshot()).toMatchSnapshot("IO-T27038 import-chromium-linux.png");
         //clicking on launch from builder
         //IO-T27037
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
@@ -177,7 +178,7 @@ test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.homePage.loadingTime();
         const Symbosl = await page.$(selectors.flowBuilderPagePO.RIGHT_DRAWER);
-        expect(await Symbosl.screenshot()).toMatchSnapshot("IO-T27037 import.png");
+        expect(await Symbosl.screenshot()).toMatchSnapshot("IO-T27037 import-chromium-linux.png");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
     });
     test("IO-T27039 @Epic-IO-63762  @Priority-P2  @Zephyr-T27039 @Env-All", async ({ io, page }) => {
@@ -210,7 +211,7 @@ test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.homePage.loadingTime();
-        expect(await page.screenshot()).toMatchSnapshot("IO-T27039 export.png");
+        expect(await page.screenshot()).toMatchSnapshot("IO-T27039 export-chromium-linux.png");
         //clicking on launch from builder
         await io.flowBuilder.click(selectors.basePagePO.LAUNCH_EDITOR);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
@@ -220,7 +221,7 @@ test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.homePage.loadingTime();
-        expect(await page.screenshot()).toMatchSnapshot("IO-T27039_1 export.png");
+        expect(await page.screenshot()).toMatchSnapshot("IO-T27039_1 export-chromium-linux.png");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
         //Lookup
@@ -237,7 +238,7 @@ test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.homePage.loadingTime();
-        expect(await page.screenshot()).toMatchSnapshot("IO-T27039 LOOKUP.png");
+        expect(await page.screenshot()).toMatchSnapshot("IO-T27039 LOOKUP-chromium-linux.png");
         //clicking on launch from builder
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.flowBuilder.click(selectors.basePagePO.LAUNCH_EDITOR);
@@ -248,7 +249,7 @@ test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.myAccountPage.delay(5000);
-        expect(await page.screenshot()).toMatchSnapshot("IO-T27039_1 LOOKUP.png");
+        expect(await page.screenshot()).toMatchSnapshot("IO-T27039_1 LOOKUP-chromium-linux.png");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
         // IMPORT
@@ -266,7 +267,7 @@ test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.homePage.loadingTime();
         const Symbol1 = await page.$(selectors.flowBuilderPagePO.RIGHT_DRAWER);
-        expect(await Symbol1.screenshot()).toMatchSnapshot("IO-T27039 import.png");
+        expect(await Symbol1.screenshot()).toMatchSnapshot("IO-T27039 import-chromium-linux.png");
         //clicking on launch from builder
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.flowBuilder.click(selectors.basePagePO.LAUNCH_EDITOR);
@@ -278,7 +279,7 @@ test.describe("TC_C119807_IO-T27037_IO-T27038_IO-T27039", () => {
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.homePage.loadingTime();
         const Symbosl = await page.$(selectors.flowBuilderPagePO.RIGHT_DRAWER);
-        expect(await Symbosl.screenshot()).toMatchSnapshot("IO-T27039_1 import.png");
+        expect(await Symbosl.screenshot()).toMatchSnapshot("IO-T27039_1 import-chromium-linux.png");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
     });
 });

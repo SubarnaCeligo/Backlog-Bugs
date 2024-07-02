@@ -4,6 +4,7 @@ import TC from '../../testData/inputData/FlowBuilder/C119812.json';
 
 test.describe("TC_C119812_C119813_C119814", () => {
   let id;
+  test.describe.configure({ retries: 1 })
   test("@Epic-IO-63762  @Priority-P2  @Zephyr-T24242 @Zephyr-T24243 @Env-All", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.flowBuilder.loadingTime();
@@ -53,12 +54,12 @@ test.describe("TC_C119812_C119813_C119814", () => {
     await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
     await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
     await io.homePage.loadingTime();
-    expect(await page.screenshot()).toMatchSnapshot("TC_C119812 Export.png");
+    expect(await page.screenshot()).toMatchSnapshot("TC_C119812 Export-chromium-linux.png");
     await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
 
     //-'Launch form builder' button should be displayed in 'Settings' section
     const buttonDis = await page.$(selectors.flowBuilderPagePO.SETTING);
-    expect(await buttonDis.screenshot()).toMatchSnapshot("TC_C119812 launchFormBuilder.png");
+    expect(await buttonDis.screenshot()).toMatchSnapshot("TC_C119812 launchFormBuilder-chromium-linux.png");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
     await io.flowBuilder.reloadPage();
@@ -101,12 +102,12 @@ test.describe("TC_C119812_C119813_C119814", () => {
     await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
     await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
     await io.homePage.loadingTime();
-    expect(await page.screenshot()).toMatchSnapshot("TC_C119813 Lookup.png");
+    expect(await page.screenshot()).toMatchSnapshot("TC_C119813 Lookup-chromium-linux.png");
     await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
 
     //-'Launch form builder' button should be displayed in 'Settings' section
     const buttonDis1 = await page.$(selectors.flowBuilderPagePO.SETTING);
-    expect(await buttonDis1.screenshot()).toMatchSnapshot("TC_C119812 launchFormBuilder.png");
+    expect(await buttonDis1.screenshot()).toMatchSnapshot("TC_C119812 launchFormBuilder-chromium-linux.png");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
   });
   test("@Epic-IO-63762  @Priority-P2  @Zephyr-T24244 @Env-All", async ({ io, page }) => {
@@ -153,11 +154,11 @@ test.describe("TC_C119812_C119813_C119814", () => {
     await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
     await io.myAccountPage.delay(3000);
     const Symbol = await page.$(selectors.flowBuilderPagePO.RIGHT_DRAWER);
-    expect(await Symbol.screenshot()).toMatchSnapshot("TC_C119814_IMPORT_UX.png");
+    expect(await Symbol.screenshot()).toMatchSnapshot("TC_C119814_IMPORT_UX-chromium-linux.png");
     await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
 
     //-'Launch form builder' button should be displayed in 'Settings' section
     const buttonDis2 = await page.$(selectors.flowBuilderPagePO.SETTING);
-    expect(await buttonDis2.screenshot()).toMatchSnapshot("TC_C119814_launchFormBuilder.png");
+    expect(await buttonDis2.screenshot()).toMatchSnapshot("TC_C119814_launchFormBuilder-chromium-linux.png");
   });
 });

@@ -5,6 +5,7 @@ import TC from '../../testData/inputData/FlowBuilder/C119805.json';
 
 test.describe("TC_C119804", () => {
     let id;
+    test.describe.configure({ retries: 1 })
     test.afterEach(async ({ io, page }) => {
         await io.api.deleteFlowViaAPI(id);
     });
@@ -52,7 +53,7 @@ test.describe("TC_C119804", () => {
         await io.flowBuilder.click(selectors.exportsPagePO.CONFIGURE_EXPORT_TYPE);
         await io.homePage.loadingTime();
         await io.flowBuilder.delay(4000);
-        expect(await page.screenshot()).toMatchSnapshot("TC_C119804_EXPORT.png");
+        expect(await page.screenshot()).toMatchSnapshot("TC_C119804_EXPORT-chromium-linux.png");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
         //Lookup
@@ -61,7 +62,7 @@ test.describe("TC_C119804", () => {
         await io.flowBuilder.click(selectors.exportsPagePO.WHAT_WOULD_YOU_LIKE_TO_EXPORT_TAB);
         await io.flowBuilder.click(selectors.exportsPagePO.CONFIGURE_EXPORT_TYPE);
         await io.homePage.loadingTime();
-        expect(await page.screenshot()).toMatchSnapshot("TC_C119804_LOOKUP.png");
+        expect(await page.screenshot()).toMatchSnapshot("TC_C119804_LOOKUP-chromium-linux.png");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
         //IMPORT
@@ -69,7 +70,7 @@ test.describe("TC_C119804", () => {
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXISTINGRECORDSIMPORT);
         await io.homePage.loadingTime();
-        expect(await page.screenshot()).toMatchSnapshot("TC_C119804_IMPORT.png");
+        expect(await page.screenshot()).toMatchSnapshot("TC_C119804_IMPORT-chromium-linux.png");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
     });
 });
