@@ -11,7 +11,7 @@ const admin = {
   "accountMFARequired": false
 }
 
-test.describe.skip("T28736_T28944_T27421 Verify the license Entitlements notification for Free tier", () => {
+test.describe("T28736_T28944_T27421 Verify the license Entitlements notification for Free tier", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });

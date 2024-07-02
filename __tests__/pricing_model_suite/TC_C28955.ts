@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import { getLicensePayload } from "@celigo/aut-utilities";
 
-test.describe.skip("C28955 Verify the Concurrency level under HTTP connection should be set as per the BE concurrency value if auto-retry checkbox is not checked.", () => {
+test.describe("C28955 Verify the Concurrency level under HTTP connection should be set as per the BE concurrency value if auto-retry checkbox is not checked.", () => {
   test("C28955 @Zephyr-IO-T28955  @Env-All @Priority-P2 Verify the Concurrency level under HTTP connection should be set as per the BE concurrency value if auto-retry checkbox is not checked.", async ({
     io,
     page,

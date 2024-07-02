@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import { getLicensePayload } from "@celigo/aut-utilities";
 
-test.describe.skip("C29064 Verify the concurrency limit for different license type Free tier.", () => {
+test.describe("C29064 Verify the concurrency limit for different license type Free tier.", () => {
   test("C29064 @Zephyr-IO-T29064  @Env-All @Priority-P2 Verify the concurrency limit for different license type Free tier.", async ({
     io,
   }) => {
