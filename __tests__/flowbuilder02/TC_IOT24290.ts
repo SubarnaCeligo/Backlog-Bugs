@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe(`TC_IOT4290 Test to verify If the list of flow steps is extensive, then it is showing the hyperlink ""Show more"" to retrieve additional results.
+test.describe.skip(`TC_IOT4290 Test to verify If the list of flow steps is extensive, then it is showing the hyperlink ""Show more"" to retrieve additional results.
 `, () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);

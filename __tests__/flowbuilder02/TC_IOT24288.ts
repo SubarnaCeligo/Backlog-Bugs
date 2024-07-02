@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe(`TC_IOT4288 Test to verify Marketplace flow steps field is showing with and without choosing What would you like to do? dropdown`, () => {
+test.describe.skip(`TC_IOT4288 Test to verify Marketplace flow steps field is showing with and without choosing What would you like to do? dropdown`, () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });

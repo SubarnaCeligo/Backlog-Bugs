@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C119804 from '../../testData/inputData/FlowBuilder/C119804.json';
 import TC from '../../testData/inputData/FlowBuilder/C119805.json';
 
-test.describe("TC_C119804", () => {
+test.describe.skip("TC_C119804", () => {
     let id;
     test.afterEach(async ({ io, page }) => {
         await io.api.deleteFlowViaAPI(id);

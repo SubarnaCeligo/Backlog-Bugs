@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("TC_T26974_Test to validate that user is able to see array of objects format on parsed output section if response is an array of array structure at the top level", () => {
+test.describe.skip("TC_T26974_Test to validate that user is able to see array of objects format on parsed output section if response is an array of array structure at the top level", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });

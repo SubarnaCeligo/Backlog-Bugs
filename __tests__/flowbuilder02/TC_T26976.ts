@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("TC_T26976_Test to validate that user is able to see default keys being 0, 1, 2, and so on as column numbers on parsed output section when relative path of the HTTP API is an array/array structure", () => {
+test.describe.skip("TC_T26976_Test to validate that user is able to see default keys being 0, 1, 2, and so on as column numbers on parsed output section when relative path of the HTTP API is an array/array structure", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });

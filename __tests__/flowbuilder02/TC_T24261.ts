@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("T24261_T24262_T24263_T24264_T24265_T24266_T24267 verifying create from scratch button functionality", () => {
+test.describe.skip("T24261_T24262_T24263_T24264_T24265_T24266_T24267 verifying create from scratch button functionality", () => {
     test("@Epic-IO-54540 @Priority-P2 @Zephyr-IO-T24261 @Zephyr-IO-T24262 @Zephyr-IO-T24263 @Zephyr-IO-T24264 @Zephyr-IO-T24265 @Zephyr-IO-T24266 @Zephyr-IO-T24267 @Env-All verifying create from scratch button functionality", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);

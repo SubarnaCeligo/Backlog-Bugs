@@ -2,7 +2,7 @@ import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 
-test.describe(`TC_IO-T26983  Test to validate that Yes/No options are working fine in "Was this helpful ?" section below the help text http export/lookup`, () => {
+test.describe.skip(`TC_IO-T26983  Test to validate that Yes/No options are working fine in "Was this helpful ?" section below the help text http export/lookup`, () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });

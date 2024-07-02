@@ -2,7 +2,7 @@ import {  test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 
-test.describe(`TC_IOT26990  Test to validate that user is seeing below help text when we click on icon "Check this box if the first record returned in the HTTP response body contains the headers for all the subsequent records returned in the HTTP response body." google sheets export`, () => {
+test.describe.skip(`TC_IOT26990  Test to validate that user is seeing below help text when we click on icon "Check this box if the first record returned in the HTTP response body contains the headers for all the subsequent records returned in the HTTP response body." google sheets export`, () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });

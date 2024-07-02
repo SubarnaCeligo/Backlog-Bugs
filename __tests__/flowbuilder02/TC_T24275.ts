@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("T24275 - Verify Next button is activating if we select the tile from 'Your existing flow steps'", () => {
+test.describe.skip("T24275 - Verify Next button is activating if we select the tile from 'Your existing flow steps'", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });

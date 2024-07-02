@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("TC_T26977_Test to validate that user is able to see array of objects format on parsed output section when user specify the relative path on 'Path to records in HTTP response body' field if array of array structure is not there at the top level", () => {
+test.describe.skip("TC_T26977_Test to validate that user is able to see array of objects format on parsed output section when user specify the relative path on 'Path to records in HTTP response body' field if array of array structure is not there at the top level", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });

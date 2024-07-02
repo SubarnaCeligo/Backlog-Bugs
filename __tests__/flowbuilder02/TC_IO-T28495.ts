@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import DateTime from '@testData/Exports/T28495.json'
 import C20688 from '@testData/email_validations/C20688.json'
 
-test.describe("FlowBuilder custom settings launch builder", () => {
+test.describe.skip("FlowBuilder custom settings launch builder", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });

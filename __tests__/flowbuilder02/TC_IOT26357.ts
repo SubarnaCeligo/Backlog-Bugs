@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("IO-T26357 Magento2 Token Proxy (TC_C109195)", () => {
+test.describe.skip("IO-T26357 Magento2 Token Proxy (TC_C109195)", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });

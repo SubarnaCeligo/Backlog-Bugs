@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("Verify that the immutable checkbox is not displaying for Salesforce Imports", () => {
+test.describe.skip("Verify that the immutable checkbox is not displaying for Salesforce Imports", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });

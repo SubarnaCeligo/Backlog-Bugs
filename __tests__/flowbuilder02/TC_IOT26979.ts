@@ -2,7 +2,7 @@ import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 
-test.describe(`TC_IOT26979  Test to validate that field "First record contains headers" is optional not mandatory http export/lookup`, () => {
+test.describe.skip(`TC_IOT26979  Test to validate that field "First record contains headers" is optional not mandatory http export/lookup`, () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });

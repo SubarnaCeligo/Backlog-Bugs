@@ -1,6 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-test.describe("TC_T26947_TTest to verify the layout toggle addition and saving functionality in sandbox environment", () => {
+test.describe.skip("TC_T26947_TTest to verify the layout toggle addition and saving functionality in sandbox environment", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });

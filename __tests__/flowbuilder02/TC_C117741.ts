@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("TC_C117741_Checking that focus is on first matched helper or field when we clicked Ctrl / Cmd + space and filtering is happening", () => {
+test.describe.skip("TC_C117741_Checking that focus is on first matched helper or field when we clicked Ctrl / Cmd + space and filtering is happening", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });

@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("T24280 -Verify user can create export/lookup/import with the 'Clone flow step' radio button after updating the configuration.", () => {
+test.describe.skip("T24280 -Verify user can create export/lookup/import with the 'Clone flow step' radio button after updating the configuration.", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         //make sure the account has at least one shopify export

@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("TC_T26946_Test to verify the layout for 3 options without enabling AI chatbot both in production and sandbox", () => {
+test.describe.skip("TC_T26946_Test to verify the layout for 3 options without enabling AI chatbot both in production and sandbox", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });

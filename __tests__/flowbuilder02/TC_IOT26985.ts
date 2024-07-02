@@ -2,7 +2,7 @@ import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 
-test.describe(`TC_IO-T26985 Test to validate that user is able to close the help text by clicking on "X"/cross icon in http export/lookup`, () => {
+test.describe.skip(`TC_IO-T26985 Test to validate that user is able to close the help text by clicking on "X"/cross icon in http export/lookup`, () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });

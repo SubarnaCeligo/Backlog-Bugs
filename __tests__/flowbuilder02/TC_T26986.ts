@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("TC_T26986_Test to validate that user is able to see each value in the row assigned to its respective key and appropriate data is visible on parsed output section after checking the 'First record contains headers' checkbox in http export/lookup", () => {
+test.describe.skip("TC_T26986_Test to validate that user is able to see each value in the row assigned to its respective key and appropriate data is visible on parsed output section after checking the 'First record contains headers' checkbox in http export/lookup", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });

@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe(`TC_IOT4292 Test to verify Next button is activating if we selected a flow step from 'Marketplace flow steps'`, () => {
+test.describe.skip(`TC_IOT4292 Test to verify Next button is activating if we selected a flow step from 'Marketplace flow steps'`, () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });

@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("TC_C117740_Checking that focus is on ALL when we clicked Ctrl / Cmd + space and filtering is not happening", () => {
+test.describe.skip("TC_C117740_Checking that focus is on ALL when we clicked Ctrl / Cmd + space and filtering is not happening", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });

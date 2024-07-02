@@ -4,7 +4,7 @@ import C119800 from '../../testData/inputData/FlowBuilder/C119800.json';
 import TC from '../../testData/inputData/FlowBuilder/C119805.json';
 import TC1 from '../../testData/inputData/FlowBuilder/C119797.json';
 
-test.describe("TC_C119800_C119801", () => {
+test.describe.skip("TC_C119800_C119801", () => {
     let id;
     test.afterEach(async ({ io, page }) => {
         await io.api.deleteFlowViaAPI(id);

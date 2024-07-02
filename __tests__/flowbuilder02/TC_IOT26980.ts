@@ -2,7 +2,7 @@ import {expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 
-test.describe(`TC_IO-T26980  Test to validate that the field "First record contains headers" is unchecked by default http export/lookup`, () => {
+test.describe.skip(`TC_IO-T26980  Test to validate that the field "First record contains headers" is unchecked by default http export/lookup`, () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });

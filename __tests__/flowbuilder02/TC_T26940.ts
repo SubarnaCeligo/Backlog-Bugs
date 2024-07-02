@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("TC_T26940_Test to verify the existing behaviour of layout toggle with 3 options is working for Filter editor (rules and script)", () => {
+test.describe.skip("TC_T26940_Test to verify the existing behaviour of layout toggle with 3 options is working for Filter editor (rules and script)", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });

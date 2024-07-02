@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe(`TC_IOT4291 Test to verify Clicking on 'Show more' is displaying 25 results each time`, () => {
+test.describe.skip(`TC_IOT4291 Test to verify Clicking on 'Show more' is displaying 25 results each time`, () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });

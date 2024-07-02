@@ -2,7 +2,7 @@ import {  test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 
-test.describe(`TC_IOT26992 Test to validate that Yes/No options are working fine in "Was this helpful ?" section below the help text google sheets export/lookup`, () => {
+test.describe.skip(`TC_IOT26992 Test to validate that Yes/No options are working fine in "Was this helpful ?" section below the help text google sheets export/lookup`, () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });

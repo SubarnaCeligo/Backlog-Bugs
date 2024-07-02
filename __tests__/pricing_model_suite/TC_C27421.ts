@@ -11,7 +11,7 @@ const admin = {
   "accountMFARequired": false
 }
 
-test.describe("C27421  Verify the subscription page for different license type(Free tier,professional ,Enterprise) for admin", () => {
+test.describe("C27421 Verify the subscription page for different license type(Free tier,professional ,Enterprise) for admin", () => {
   test("@Zephyr-IO-T27421 @Env-All @Priority-P2 Verify the subscription page for different license type professional for admin", async ({
     io,
     page
