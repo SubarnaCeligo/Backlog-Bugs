@@ -32,6 +32,7 @@ test.describe("TC_C119808", () => {
         await io.flowBuilder.clearTextValue(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
         await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, JSON.stringify(C119808.jsonText));
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+        await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.flowBuilder.click(selectors.exportsPagePO.WHAT_WOULD_YOU_LIKE_TO_EXPORT_TAB);
         await io.flowBuilder.click(selectors.exportsPagePO.CONFIGURE_EXPORT_TYPE);
@@ -48,6 +49,7 @@ test.describe("TC_C119808", () => {
         await io.flowBuilder.clearTextValue(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
         await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, JSON.stringify(C119808.jsonText));
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+        await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.flowBuilder.click(selectors.exportsPagePO.WHAT_WOULD_YOU_LIKE_TO_EXPORT_TAB);
         await io.flowBuilder.click(selectors.exportsPagePO.CONFIGURE_EXPORT_TYPE);
@@ -64,6 +66,7 @@ test.describe("TC_C119808", () => {
         await io.flowBuilder.clearTextValue(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
         await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, JSON.stringify(C119808.jsonText));
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+        await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXISTINGRECORDSIMPORT);
         await io.homePage.loadingTime();

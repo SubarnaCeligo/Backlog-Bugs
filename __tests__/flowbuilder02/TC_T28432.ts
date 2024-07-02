@@ -9,7 +9,7 @@ test.describe("@Author_sagna123 TC_T28432_Test to validate checkbox is visible i
     test("@Epic-IO-37655 @Priority-P2 @Zephyr-IO-T28432 @Env-All", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
-        await io.homePage.goToMenu("Resources","Connections");
+        await io.myAccountPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
         await io.homePage.addStep("*** Navigated back to connection page ***");
         await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
         await io.homePage.addStep("*** Clicked on create connection ***");
