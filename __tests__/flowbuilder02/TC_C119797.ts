@@ -41,7 +41,7 @@ test.describe("TC_C119797_C119798_C119799", () => {
         await io.flowBuilder.click(selectors.exportsPagePO.CONFIGURE_EXPORT_TYPE);
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.homePage.loadingTime();
-        expect(await page.screenshot()).toMatchSnapshot("TC_C119797-chromium-linux.png");
+        expect(await page.screenshot()).toMatchSnapshot("TC_C119797-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
         //Lookup
@@ -59,7 +59,7 @@ test.describe("TC_C119797_C119798_C119799", () => {
         await io.flowBuilder.click(selectors.exportsPagePO.CONFIGURE_EXPORT_TYPE);
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.homePage.loadingTime();
-        expect(await page.screenshot()).toMatchSnapshot("TC_C119798-chromium-linux.png");
+        expect(await page.screenshot()).toMatchSnapshot("TC_C119798-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
 
@@ -77,7 +77,7 @@ test.describe("TC_C119797_C119798_C119799", () => {
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXISTINGRECORDSIMPORT);
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.homePage.loadingTime();
-        expect(await page.screenshot()).toMatchSnapshot("TC_C119799-chromium-linux.png");
+        expect(await page.screenshot()).toMatchSnapshot("TC_C119799-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
     });

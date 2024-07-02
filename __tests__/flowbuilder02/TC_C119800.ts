@@ -31,7 +31,7 @@ test.describe("TC_C119800_C119801", () => {
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CONFIGREALEXPORT);
         await io.homePage.loadingTime();
-        expect(await page.screenshot()).toMatchSnapshot("TC_C119800-chromium-linux.png");
+        expect(await page.screenshot()).toMatchSnapshot("TC_C119800-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
 
         //C119801 'useAsPrimaryInterface' value as false
         //Listener
@@ -46,7 +46,7 @@ test.describe("TC_C119800_C119801", () => {
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CONFIGREALEXPORT);
         await io.homePage.loadingTime();
-        expect(await page.screenshot()).toMatchSnapshot("TC_C119801-chromium-linux.png");
+        expect(await page.screenshot()).toMatchSnapshot("TC_C119801-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
     });

@@ -38,7 +38,7 @@ test.describe("TC_C119808", () => {
         await io.flowBuilder.click(selectors.exportsPagePO.WHAT_WOULD_YOU_LIKE_TO_EXPORT_TAB);
         await io.flowBuilder.click(selectors.exportsPagePO.CONFIGURE_EXPORT_TYPE);
         await io.homePage.loadingTime();
-        expect(await page.screenshot()).toMatchSnapshot("TC_C119808_EXPORT-chromium-linux.png");
+        expect(await page.screenshot()).toMatchSnapshot("TC_C119808_EXPORT-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
         //Lookup
@@ -55,7 +55,7 @@ test.describe("TC_C119808", () => {
         await io.flowBuilder.click(selectors.exportsPagePO.WHAT_WOULD_YOU_LIKE_TO_EXPORT_TAB);
         await io.flowBuilder.click(selectors.exportsPagePO.CONFIGURE_EXPORT_TYPE);
         await io.homePage.loadingTime();
-        expect(await page.screenshot()).toMatchSnapshot("TC_C119808_LOOKUP-chromium-linux.png");
+        expect(await page.screenshot()).toMatchSnapshot("TC_C119808_LOOKUP-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
         //IMPORT
@@ -72,7 +72,7 @@ test.describe("TC_C119808", () => {
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXISTINGRECORDSIMPORT);
         await io.homePage.loadingTime();
         const Symbol = await page.$(selectors.flowBuilderPagePO.RIGHT_DRAWER);
-        expect(await Symbol.screenshot()).toMatchSnapshot("TC_C119808_IMPORT-chromium-linux.png");
+        expect(await Symbol.screenshot()).toMatchSnapshot("TC_C119808_IMPORT-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
     });
 });

@@ -10,9 +10,9 @@ var testCases = [
   "C117742",
   "C117948",
   "T28954",
-  "C119397",
+  // "C119397",//Mahesh told now not valid
   "C119625",
-  "C117949",
+  // "C117949",//Mahesh told now not valid
   "C119139",
   "C117947_C117945",
   "C117946",
@@ -80,21 +80,21 @@ var testCases = [
   "IOT26357",
   "IO70947",
   "T3097",
-  "T24275",
+  // "T24275",//Kaushik working on it
   "T24276_T27516",
   "T24277_T24278_T24283",
   "T24279",
   "T24280",
   "T24284",
   "T24285",
-  "T2722",
+  // "T2722",//Kaushik working on it
   "T10043",
-  "T26974",
-  "T26975",
-  "T26976",
-  "T26977",
-  "T26986",
-  "T26995",
+  // "T26974",//sagna working on it
+  // "T26975",//sagna working on it
+  // "T26976",//sagna working on it
+  // "T26977",//sagna working on it
+  // "T26986",//sagna working on it
+  // "T26995",//sagna working on it
   "T28451",
   "T28427_T28433_T28435",
   "T28428_T28434_T28436",

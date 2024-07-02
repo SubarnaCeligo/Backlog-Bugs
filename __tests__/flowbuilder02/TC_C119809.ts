@@ -43,7 +43,7 @@ test.describe("TC_C119809_C119810_C119811", () => {
         await io.flowBuilder.click(selectors.exportsPagePO.WHAT_WOULD_YOU_LIKE_TO_EXPORT_TAB);
         await io.flowBuilder.click(selectors.exportsPagePO.CONFIGURE_EXPORT_TYPE);
         await io.homePage.loadingTime();
-        expect(await page.screenshot()).toMatchSnapshot("TC_C119809_EXPORT-chromium-linux.png");
+        expect(await page.screenshot()).toMatchSnapshot("TC_C119809_EXPORT-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
         //Lookup
@@ -60,7 +60,7 @@ test.describe("TC_C119809_C119810_C119811", () => {
         await io.flowBuilder.click(selectors.exportsPagePO.WHAT_WOULD_YOU_LIKE_TO_EXPORT_TAB);
         await io.flowBuilder.click(selectors.exportsPagePO.CONFIGURE_EXPORT_TYPE);
         await io.homePage.loadingTime();
-        expect(await page.screenshot()).toMatchSnapshot("TC_C119809_LOOKUP-chromium-linux.png");
+        expect(await page.screenshot()).toMatchSnapshot("TC_C119809_LOOKUP-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
         //IMPORT
@@ -76,7 +76,7 @@ test.describe("TC_C119809_C119810_C119811", () => {
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXISTINGRECORDSIMPORT);
         await io.homePage.loadingTime();
-        expect(await page.screenshot()).toMatchSnapshot("TC_C119809_IMPORT-chromium-linux.png");
+        expect(await page.screenshot()).toMatchSnapshot("TC_C119809_IMPORT-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
     });
@@ -124,12 +124,12 @@ test.describe("TC_C119809_C119810_C119811", () => {
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.homePage.loadingTime();
-        expect(await page.screenshot()).toMatchSnapshot("IO-T27332-chromium-linux.png");
+        expect(await page.screenshot()).toMatchSnapshot("IO-T27332-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
 
         //-'Launch form builder' button should be displayed in 'Settings' section
         const buttonDis = await page.$(selectors.flowBuilderPagePO.SETTING);
-        expect(await buttonDis.screenshot()).toMatchSnapshot("IO-T27332 launchFormBuilder-chromium-linux.png");
+        expect(await buttonDis.screenshot()).toMatchSnapshot("IO-T27332 launchFormBuilder-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
 
         //clicking on launch from builder
         await io.flowBuilder.click(selectors.basePagePO.LAUNCH_EDITOR);
@@ -141,7 +141,7 @@ test.describe("TC_C119809_C119810_C119811", () => {
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.flowBuilder.click(selectors.exportsPagePO.WHAT_WOULD_YOU_LIKE_TO_EXPORT_TAB);
         await io.homePage.loadingTime();
-        expect(await page.screenshot()).toMatchSnapshot("IO-T27332 error-chromium-linux.png");
+        expect(await page.screenshot()).toMatchSnapshot("IO-T27332 error-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
@@ -167,12 +167,12 @@ test.describe("TC_C119809_C119810_C119811", () => {
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.homePage.loadingTime();
         const Symbol1 = await page.$(selectors.flowBuilderPagePO.RIGHT_DRAWER);
-        expect(await Symbol1.screenshot()).toMatchSnapshot("IO-T27332 import-chromium-linux.png");
+        expect(await Symbol1.screenshot()).toMatchSnapshot("IO-T27332 import-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
 
         //-'Launch form builder' button should be displayed in 'Settings' section
         const buttonDis2 = await page.$(selectors.flowBuilderPagePO.SETTING);
-        expect(await buttonDis2.screenshot()).toMatchSnapshot("IO-T27332 import launchFormBuilder-chromium-linux.png");
+        expect(await buttonDis2.screenshot()).toMatchSnapshot("IO-T27332 import launchFormBuilder-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
     });
 });

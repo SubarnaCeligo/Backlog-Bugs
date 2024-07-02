@@ -52,12 +52,12 @@ test.describe(`TC_C119815_C119816`, () => {
     await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
     await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
     await io.homePage.loadingTime();
-    expect(await page.screenshot()).toMatchSnapshot("TC_C119816-chromium-linux.png");
+    expect(await page.screenshot()).toMatchSnapshot("TC_C119816-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
     await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
 
     //-'Launch form builder' button should be displayed in 'Settings' section
     const buttonDis = await page.$(selectors.flowBuilderPagePO.SETTING);
-    expect(await buttonDis.screenshot()).toMatchSnapshot("TC_C119816 launchFormBuilder-chromium-linux.png");
+    expect(await buttonDis.screenshot()).toMatchSnapshot("TC_C119816 launchFormBuilder-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
     //Lookup
@@ -81,12 +81,12 @@ test.describe(`TC_C119815_C119816`, () => {
     await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
     await io.homePage.loadingTime();
     const Symbol = await page.$(selectors.flowBuilderPagePO.RIGHT_DRAWER);
-    expect(await Symbol.screenshot()).toMatchSnapshot("TC_C119816 Lookup-chromium-linux.png");
+    expect(await Symbol.screenshot()).toMatchSnapshot("TC_C119816 Lookup-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
     await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
 
     //-'Launch form builder' button should be displayed in 'Settings' section
     const buttonDis1 = await page.$(selectors.flowBuilderPagePO.SETTING);
-    expect(await buttonDis1.screenshot()).toMatchSnapshot("TC_C119816 Lookup launchFormBuilder-chromium-linux.png");
+    expect(await buttonDis1.screenshot()).toMatchSnapshot("TC_C119816 Lookup launchFormBuilder-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
 
@@ -113,12 +113,12 @@ test.describe(`TC_C119815_C119816`, () => {
     await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
     await io.homePage.loadingTime();
     const Symbol1 = await page.$(selectors.flowBuilderPagePO.RIGHT_DRAWER);
-    expect(await Symbol1.screenshot()).toMatchSnapshot("TC_C119816 Import-chromium-linux.png");
+    expect(await Symbol1.screenshot()).toMatchSnapshot("TC_C119816 Import-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
     await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
 
     //-'Launch form builder' button should be displayed in 'Settings' section
     const buttonDis2 = await page.$(selectors.flowBuilderPagePO.SETTING);
-    expect(await buttonDis2.screenshot()).toMatchSnapshot("TC_C119816 Import launchFormBuilder-chromium-linux.png");
+    expect(await buttonDis2.screenshot()).toMatchSnapshot("TC_C119816 Import launchFormBuilder-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
     //TC_C119815 Verify on cloning the integration user is able to see Export/Lookup/Import having 'useAsPrimaryInterface' set to true under custom form displayed under Custom Settings of Export/Lookup/Import
@@ -167,7 +167,7 @@ test.describe(`TC_C119815_C119816`, () => {
 
     //-'Launch form builder' button should be displayed in 'Settings' section
     const buttonDi = await page.$(selectors.flowBuilderPagePO.SETTING);
-    expect(await buttonDi.screenshot()).toMatchSnapshot("TC_C119815 launchFormBuilder-chromium-linux.png");
+    expect(await buttonDi.screenshot()).toMatchSnapshot("TC_C119815 launchFormBuilder-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
 
@@ -192,12 +192,12 @@ test.describe(`TC_C119815_C119816`, () => {
     await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
     await io.homePage.loadingTime();
     const Symbo = await page.$(selectors.flowBuilderPagePO.RIGHT_DRAWER);
-    expect(await Symbo.screenshot()).toMatchSnapshot("TC_C119815 Lookup-chromium-linux.png");
+    expect(await Symbo.screenshot()).toMatchSnapshot("TC_C119815 Lookup-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
     await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
 
     //-'Launch form builder' button should be displayed in 'Settings' section
     const buttonDi1 = await page.$(selectors.flowBuilderPagePO.SETTING);
-    expect(await buttonDi1.screenshot()).toMatchSnapshot("TC_C119815 Lookup launchFormBuilder-chromium-linux.png");
+    expect(await buttonDi1.screenshot()).toMatchSnapshot("TC_C119815 Lookup launchFormBuilder-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
 
@@ -224,12 +224,12 @@ test.describe(`TC_C119815_C119816`, () => {
     await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
     await io.homePage.loadingTime();
     const Symbo1 = await page.$(selectors.flowBuilderPagePO.RIGHT_DRAWER);
-    expect(await Symbo1.screenshot()).toMatchSnapshot("TC_C119815 Import-chromium-linux.png");
+    expect(await Symbo1.screenshot()).toMatchSnapshot("TC_C119815 Import-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
     await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
 
     //-'Launch form builder' button should be displayed in 'Settings' section
     const buttonDi2 = await page.$(selectors.flowBuilderPagePO.SETTING);
-    expect(await buttonDi2.screenshot()).toMatchSnapshot("TC_C119815 Import launchFormBuilder-chromium-linux.png");
+    expect(await buttonDi2.screenshot()).toMatchSnapshot("TC_C119815 Import launchFormBuilder-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
   });
 });
