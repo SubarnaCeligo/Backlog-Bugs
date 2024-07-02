@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API Manager and Push to apim option is not available for custom Webhooks", () => {
+test.describe("Push to  APIM for IO listner, MyAPis, Export, Import, Existing API Manager and Push to apim option is not available for custom Webhooks", () => {
     test("@Env-QA @Env-STAGING MyAPis", async ({ io, page, context }) => {
         const uuidv4 = require('uuid').v4;
         const uniqueString = uuidv4()
