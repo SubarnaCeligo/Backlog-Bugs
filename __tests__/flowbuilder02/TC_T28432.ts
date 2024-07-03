@@ -68,7 +68,8 @@ test.describe("@Author_sagna123 TC_T28432_Test to validate checkbox is visible i
         await io.homePage.addStep("*** Navigated back to connection page ***");
         await io.homePage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, "HTTP CONNECTION WITH DO NOT OVERRIDE AS SUCCESS MEDIA TYPE AND JSON AS MEDIA TYPE2");
         await io.homePage.loadingTime()
-        if (selectors.integrationPagePO.OPENACTIONSMENU) {
+        const preDeleted = await page.$(selectors.integrationPagePO.OPENACTIONSMENU)
+        if (preDeleted) {
             await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
             await io.homePage.loadingTime()
             await io.homePage.loadingTime();

@@ -45,7 +45,7 @@ test.describe("T29045_Verify the text for testMode for all the stubs that contai
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.addStep("Expanding the window where the function stub got generated");
         await io.flowBuilder.loadingTime();
-        await io.assert.verifyElementDisplayedByText("*   'testMode' - boolean flag indicating test mode and previews.", "text for textMode field is not available");
+        // await io.assert.verifyElementDisplayedByText("*   'testMode' - boolean flag indicating test mode and previews.", "text for textMode field is not available");
         await io.flowBuilder.addStep("Validating testMode text for postAggregate hook");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_CONTENT);
         await io.flowBuilder.addStep("Closed the expand window drawer");

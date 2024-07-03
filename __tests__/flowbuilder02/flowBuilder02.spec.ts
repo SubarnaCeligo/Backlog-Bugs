@@ -1,32 +1,32 @@
 import { filterTestCases } from "@celigo/aut-utilities";
 var testCases = [
-  // // "IO52927", // We are making this test case obsolete as we have removed "existing export" checkbox from UI (functionality is changed for this)
-  // // "C117949",//https://celigo.atlassian.net/browse/IO-35839
-  // // "C119397",//https://celigo.atlassian.net/browse/IO-35839
-  // // "T2722",//https://celigo.atlassian.net/browse/IO-35839
-  // // "T24275",//https://celigo.atlassian.net/browse/IO-35839
-  // // "T26974",//https://celigo.atlassian.net/browse/IO-86853
-  // // "T26975",//https://celigo.atlassian.net/browse/IO-86853
-  // // "T26976",//https://celigo.atlassian.net/browse/IO-86853
-  // // "T26977",//https://celigo.atlassian.net/browse/IO-86853
-  // // "T26986",//https://celigo.atlassian.net/browse/IO-86853
-  // // "T26995",//https://celigo.atlassian.net/browse/IO-86853
-  // // "C119625",//https://celigo.atlassian.net/browse/IO-86854
-  // // "C119790",//https://celigo.atlassian.net/browse/IO-86854
-  // // "C119791",//https://celigo.atlassian.net/browse/IO-86854
-  // // "C119797",//https://celigo.atlassian.net/browse/IO-86854
-  // // "C119800",//https://celigo.atlassian.net/browse/IO-86854
-  // // "C119802",//https://celigo.atlassian.net/browse/IO-86854
-  // // "C119804",//https://celigo.atlassian.net/browse/IO-86854
-  // // "C119806",//https://celigo.atlassian.net/browse/IO-86854
-  // // "C119807",//https://celigo.atlassian.net/browse/IO-86854
-  // // "C119808",//https://celigo.atlassian.net/browse/IO-86854
-  // // "C119809",//https://celigo.atlassian.net/browse/IO-86854
-  // // "C119812",//https://celigo.atlassian.net/browse/IO-86854
-  // // "C119816",//https://celigo.atlassian.net/browse/IO-86854
-  // // "C119817",//https://celigo.atlassian.net/browse/IO-86854
-  // // "IO-T31943",//https://celigo.atlassian.net/browse/IO-86854
-  // // "IO-T31974",//https://celigo.atlassian.net/browse/IO-86854
+  // "IO52927", // We are making this test case obsolete as we have removed "existing export" checkbox from UI (functionality is changed for this)
+  // "C117949",//https://celigo.atlassian.net/browse/IO-35839
+  // "C119397",//https://celigo.atlassian.net/browse/IO-35839
+  // "T2722",//https://celigo.atlassian.net/browse/IO-35839
+  // "T24275",//https://celigo.atlassian.net/browse/IO-35839
+  // "T26974",//https://celigo.atlassian.net/browse/IO-86853
+  // "T26975",//https://celigo.atlassian.net/browse/IO-86853
+  // "T26976",//https://celigo.atlassian.net/browse/IO-86853
+  // "T26977",//https://celigo.atlassian.net/browse/IO-86853
+  // "T26986",//https://celigo.atlassian.net/browse/IO-86853
+  // "T26995",//https://celigo.atlassian.net/browse/IO-86853
+  // "C119625",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119790",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119791",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119797",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119800",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119802",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119804",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119806",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119807",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119808",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119809",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119812",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119816",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119817",//https://celigo.atlassian.net/browse/IO-86854
+  // "IO-T31943",//https://celigo.atlassian.net/browse/IO-86854
+  // "IO-T31974",//https://celigo.atlassian.net/browse/IO-86854
   "IO50904",
   "IO50942",
   "IO51317",
