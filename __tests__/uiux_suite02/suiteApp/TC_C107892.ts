@@ -28,7 +28,7 @@ test.describe("TC_C107892_Verify syncing dateTime fields in NS SS2.x import flow
             //validating date/time format
             await io.assert.verifyElementTextByIndex(selectors.flowBuilderPagePO.SCRIPT_RESULT_VARIABLES, '\"CreatedDate\"', 0);
             let date = await page.locator(selectors.flowBuilderPagePO.SCRIPT_RESULT_STRING).first().textContent();
-            await io.assert.expectToContainValue(date.toString(), '\"06 May, 2023 13:12 (24 hours', "Date format is not correct" )
+            await io.assert.expectToContainValue( '\"06 May, 2023 13:12 (24 hours',date.toString(), "Date format is not correct" )
             await io.importsPage.click(selectors.basePagePO.SAVE_AND_CLOSE);
         });
         //Enable and run the Flow ***
