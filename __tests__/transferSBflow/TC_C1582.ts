@@ -1,7 +1,7 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe(`C1582 Verify,When two integrations have same connections, when trying to transfer one integration, it must provide a validation that the same connection is used in another integration`, () => {
+test.describe(`C1582  Verify,When two integrations have same connections, when trying to transfer one integration, it must provide a validation that the same connection is used in another integration`, () => {
     test(`@Env-All @Zephyr-IO-T6912 C1582 Verify,When two integrations have same connections, when trying to transfer one integration, it must provide a validation that the same connection is used in another integration UI_Backlog`, async ({ page, io }) => {
         await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
         await io.myAccountPage.click(selectors.homePagePO.TRANSFER);
