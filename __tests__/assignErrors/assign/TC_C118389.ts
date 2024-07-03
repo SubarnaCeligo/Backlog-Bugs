@@ -29,7 +29,7 @@ test.describe("C118389 - Verify that admin/owner users with invitation feature e
     await io.flowBuilder.click(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
     await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
 
-    await io.flowBuilder.clickByText('CustomUser NoAccess');
+    await io.flowBuilder.clickByTextByIndex('CustomUser NoAccess', 0);
     //Valiadte the message
     await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGN_MESSAGE);
     let message = (await io.flowBuilder.getText(selectors.em2DotOLineGraphPO.ASSIGN_MESSAGE)).toString();

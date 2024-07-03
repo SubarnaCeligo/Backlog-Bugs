@@ -122,10 +122,13 @@ var testCases = [
   "IO-T32829",
   "IO-T32943",
   "IO-T32987",
+  "IOT6148",
   "C29041",
   "IO-T33533",
   "IO-T33598",
-  "IO-T33600"
+  "IO-T33600",
+  // please do not add any more new test cases to flowbuilder01 suite, because load is getting increased during jenkins run and test cases are getting failed
+
 ];
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
 (async () => {
