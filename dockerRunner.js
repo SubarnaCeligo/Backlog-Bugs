@@ -2,7 +2,7 @@ const { spawn } = require("child_process");
 
 //const suites = ["Database_Imports", "Cloning"];
 function runMultipleSuites(suites,env){
-    const commands = suites.map(suiteName => `ENV=qa FEATURE=${suiteName} npm run test-docker`);
+    const commands = suites.map(suiteName => `ENV=ci FEATURE=${suiteName} npm run test-docker`);
 
 try {
     const processes = commands.map(command => {
