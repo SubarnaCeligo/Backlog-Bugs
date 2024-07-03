@@ -7,7 +7,7 @@ import { decrypt } from "@celigo/aut-utilities";
     test.beforeEach(async ({ io }) => {
       await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test(" C118364", async ({ io, page }) => {
+    test("C118364", async ({ io, page }) => {
   
       // Navigate to default integration
       await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
