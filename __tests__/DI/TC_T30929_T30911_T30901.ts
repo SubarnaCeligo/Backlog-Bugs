@@ -19,7 +19,7 @@ test.describe("@Author-ladimanish TC_T30929_T30911_T30901", () => {
     // await io.assert.expectToBeValue("",selectedFields,"Selected fields are displayed");
 
     //T30911 T30901
-    await io.sync.selectOrDeselectCheckbox();
+    await io.sync.selectOrDeselectAllObjects();
     await io.sync.selectMultipleObjects(["Account", "Account History"]);
     await io.flowBuilder.click(selectors.syncPagePO.OBJECTS_DROPDOWN);
     await io.flowBuilder.click(selectors.syncPagePO.OBJECTS_SELECTED);
