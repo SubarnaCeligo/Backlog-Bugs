@@ -12,7 +12,7 @@ test.describe("@Author-ladimanish TC_T30935_T30946_T30947", () => {
     await io.sync.chooseSourceApplication("Salesforce");
     await io.sync.selectExistingConnection("SALESFORCE CONNECTION");
     await io.sync.viewFieldsOfObject("Account");
-    await io.sync.selectOrDeselectCheckbox();
+    await io.sync.selectOrDeselectAllFields();
     await io.sync.selectMultipleFields(["Account Name", "Account Type"]);
     await io.flowBuilder.click(selectors.syncPagePO.FIELDS_DROPDOWN);
     await io.flowBuilder.click(selectors.syncPagePO.FIELDS_SELECTED);
