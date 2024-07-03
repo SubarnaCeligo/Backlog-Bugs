@@ -53,7 +53,7 @@ test.describe("T24220_T24222_T24224", () => {
         expect(await buttonDis.screenshot()).toMatchSnapshot("launchFormBuilder-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
     });
-    test.skip("@Epic-IO-63762  @Priority-P2  @Zephyr-T24222 @Env-All ", async ({ io, page }) => {
+    test("@Epic-IO-63762  @Priority-P2  @Zephyr-T24222 @Env-All ", async ({ io, page }) => {
         id1 = await io.createResourceFromAPI(C119790, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
         //Lookup
@@ -95,7 +95,7 @@ test.describe("T24220_T24222_T24224", () => {
         const buttonDis1 = await page.$(selectors.flowBuilderPagePO.SETTING);
         expect(await buttonDis1.screenshot()).toMatchSnapshot("launchFormBuilder1-chromium-linux.png");
     });
-    test.skip("@Epic-IO-63762  @Priority-P2  @Zephyr-T24224 @Env-All ", async ({ io, page }) => {
+    test("@Epic-IO-63762  @Priority-P2  @Zephyr-T24224 @Env-All ", async ({ io, page }) => {
         id2 = await io.createResourceFromAPI(C119790, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
 

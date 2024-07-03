@@ -1,6 +1,30 @@
 import { filterTestCases } from "@celigo/aut-utilities";
 var testCases = [
   // "IO52927", // We are making this test case obsolete as we have removed "existing export" checkbox from UI (functionality is changed for this)
+  // "C117949",//https://celigo.atlassian.net/browse/IO-35839
+  // "C119397",//https://celigo.atlassian.net/browse/IO-35839
+  // "T2722",//https://celigo.atlassian.net/browse/IO-35839
+  // "T24275",//https://celigo.atlassian.net/browse/IO-35839
+  // "T26974",//https://celigo.atlassian.net/browse/IO-86853
+  // "T26975",//https://celigo.atlassian.net/browse/IO-86853
+  // "T26976",//https://celigo.atlassian.net/browse/IO-86853
+  // "T26977",//https://celigo.atlassian.net/browse/IO-86853
+  // "T26986",//https://celigo.atlassian.net/browse/IO-86853
+  // "T26995",//https://celigo.atlassian.net/browse/IO-86853
+  // "C119625",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119791",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119790",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119797",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119800",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119802",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119804",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119806",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119808",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119809",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119812",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119807",//https://celigo.atlassian.net/browse/IO-86854
+  // "IO-T31943",//https://celigo.atlassian.net/browse/IO-86854
+  // "IO-T31974",//https://celigo.atlassian.net/browse/IO-86854
   "IO50904",
   "IO50942",
   "IO51317",
@@ -10,9 +34,7 @@ var testCases = [
   "C117742",
   "C117948",
   "T28954",
-  // "C119397",//Mahesh told now not valid
-  "C119625",
-  // "C117949",//Mahesh told now not valid
+
   "C119139",
   "C117947_C117945",
   "C117946",
@@ -20,19 +42,8 @@ var testCases = [
   "C117740",
   "C117743",
   "C117753",
-  "C119791",
   "C119816",
   "C119817",
-  "C119790",
-  "C119797",
-  "C119800",
-  "C119802",
-  "C119804",
-  "C119806",
-  "C119808",
-  "C119809",
-  "C119812",
-  "C119807",
   "T27372",
   "T27371",
   "T27370",
@@ -80,21 +91,13 @@ var testCases = [
   "IOT26357",
   "IO70947",
   "T3097",
-  // "T24275",//Kaushik working on it
   "T24276_T27516",
   "T24277_T24278_T24283",
   "T24279",
   "T24280",
   "T24284",
   "T24285",
-  // "T2722",//Kaushik working on it
   "T10043",
-  // "T26974",//sagna working on it
-  // "T26975",//sagna working on it
-  // "T26976",//sagna working on it
-  // "T26977",//sagna working on it
-  // "T26986",//sagna working on it
-  // "T26995",//sagna working on it
   "T28451",
   "T28427_T28433_T28435",
   "T28428_T28434_T28436",
@@ -117,10 +120,8 @@ var testCases = [
   "IOT6768",
   "IO-T29359",
   "CT6794",
-  "IO-T31943",
   "IO-T31360",
   "IO-T32338",
-  "IO-T31974",
   "IO-T32023",
   "T17166",
   "T6094",

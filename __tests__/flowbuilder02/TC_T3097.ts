@@ -23,6 +23,7 @@ test.describe("T3097 Custom settings should not be Shrinked once we select scrip
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
 
     // check if editor is available after removing the script
+    await io.homePage.loadingTime()
     await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
     await io.flowBuilder.clickByText("Launch form builder")
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RESOURCE_SCRIPT_ID);

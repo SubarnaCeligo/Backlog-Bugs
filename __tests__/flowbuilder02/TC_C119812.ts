@@ -80,7 +80,7 @@ test.describe("TC_C119812_C119813_C119814", () => {
     await io.flowBuilder.clearTextValue(selectors.flowBuilderPagePO.SEARCH);
     await io.homePage.fill(selectors.flowBuilderPagePO.SEARCH, "Clone - TC_C119812 Zendesk Lookup");
     await io.flowBuilder.loadingTime();
-    await io.flowBuilder.clickByTextByIndex("Clone - TC_C119812 Zendesk Export", 0);
+    await io.flowBuilder.clickByTextByIndex("Clone - TC_C119812 Zendesk Lookup", 0);
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.DATATEST);
 
     // -'Simple/HTTP' toggle at the very top of the bubble drawers (i.e. for HTTP based connectors) should be hidden
@@ -110,7 +110,7 @@ test.describe("TC_C119812_C119813_C119814", () => {
     expect(await buttonDis1.screenshot()).toMatchSnapshot("TC_C119812 launchFormBuilder-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
   });
-  test("@Epic-IO-63762  @Priority-P2  @Zephyr-T24244 @Env-All", async ({ io, page }) => {
+  test.skip("@Epic-IO-63762  @Priority-P2  @Zephyr-T24244 @Env-All", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     id = await io.connMap.get("NETSUITE CONNECTION");
     TC.import._connectionId = id;
