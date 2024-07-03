@@ -21,7 +21,7 @@ test.describe("T29045_Verify the text for testMode for all the stubs that contai
         //Verify testMode for Presavepage hook
         await io.flowBuilder.click(selectors.basePagePO.FUNCTION_STUB);
         await io.flowBuilder.addStep("Clicked on insert function dropdown to insert the script function stub");
-        await io.flowBuilder.selectTextfromDropDown(page, "preSavePage");     
+        await io.flowBuilder.selectTextfromDropDown(page, "preSavePage");
         await io.flowBuilder.addStep("Selecting Presavepage from the dropdown of insert function");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPAND_WINDOW_HOOKS);
         await io.flowBuilder.addStep("Expanding the window where the function stub got generated");
@@ -34,7 +34,7 @@ test.describe("T29045_Verify the text for testMode for all the stubs that contai
         await io.flowBuilder.addStep("Trying to close the create script  drawer");
         await io.flowBuilder.click(selectors.basePagePO.DISCARD_CHANGES);
         await io.flowBuilder.addStep("Discarded the changes");
-         //Verify testMode for postAggregate hook
+        //Verify testMode for postAggregate hook
         await io.flowBuilder.click(selectors.basePagePO.CREATE_SCRIPT_ARIA_LABEL);
         await io.flowBuilder.addStep("Clicked on plus icon to create the script");
         await io.flowBuilder.click(selectors.basePagePO.FUNCTION_STUB);
@@ -42,6 +42,7 @@ test.describe("T29045_Verify the text for testMode for all the stubs that contai
         await io.flowBuilder.selectTextfromDropDown(page, "postAggregate");
         await io.flowBuilder.addStep("Selecting postAggregate");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPAND_WINDOW_HOOKS);
+        await io.flowBuilder.loadingTime();
         await io.flowBuilder.addStep("Expanding the window where the function stub got generated");
         await io.flowBuilder.loadingTime();
         await io.assert.verifyElementDisplayedByText("*   'testMode' - boolean flag indicating test mode and previews.", "text for textMode field is not available");
@@ -78,7 +79,7 @@ test.describe("T29045_Verify the text for testMode for all the stubs that contai
         await io.flowBuilder.addStep("Selecting postResponseMap");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPAND_WINDOW_HOOKS);
         await io.flowBuilder.addStep("Expanding the window where the function stub got generated");
-        await io.flowBuilder.loadingTime(); 
+        await io.flowBuilder.loadingTime();
         await io.assert.verifyElementDisplayedByText("*   'testMode' - boolean flag indicating test mode and previews.", "text for textMode field is not available");
         await io.flowBuilder.addStep("Validating testMode text for postResponseMap hook");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_CONTENT);
@@ -109,7 +110,7 @@ test.describe("T29045_Verify the text for testMode for all the stubs that contai
         await io.flowBuilder.click(selectors.basePagePO.CREATE_SCRIPT_ARIA_LABEL);
         await io.flowBuilder.addStep("Clicked on plus icon to create the script");
         await io.flowBuilder.click(selectors.basePagePO.FUNCTION_STUB);
-        await io.flowBuilder.addStep("Clicked on insert function dropdown to insert the script function stub");  
+        await io.flowBuilder.addStep("Clicked on insert function dropdown to insert the script function stub");
         await io.flowBuilder.selectTextfromDropDown(page, "preMap");
         await io.flowBuilder.addStep("Selected preMap");
         await io.flowBuilder.loadingTime();
