@@ -4,7 +4,7 @@ import testData from "@testData/monitorSuite/monitor_all.json";
 
 test.describe('C93703 Validate that user is able to see "formInit" function wherever “Insert function stub” field is present.(Tile level access)', () => {
 
-  test.beforeEach(async ({ io }) => {
+    test.beforeEach(async ({ io }) => {
         const res = await io.api.putCall(
             `v1/ashares/${process.env.IO_Ashare_ID}`,
             testData
