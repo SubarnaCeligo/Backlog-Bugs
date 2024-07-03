@@ -20,8 +20,7 @@ test.describe("@Author-ladimanish TC_T30920_T30937_T30923_T30945", () => {
     );
 
     //T30937 T30923
-    await io.flowBuilder.click(selectors.syncPagePO.SELECT_ALL_FIELDS);
-    //await io.sync.selectOrDeselectCheckbox();
+    await io.sync.selectOrDeselectAllFields();
     await io.sync.selectMultipleFields(["Event Relation ID", "Event ID"]);
     await io.flowBuilder.click(selectors.syncPagePO.FIELDS_DROPDOWN);
     await io.flowBuilder.click(selectors.syncPagePO.FIELDS_SELECTED);

@@ -11,7 +11,7 @@ test.describe("@Author-ladimanish TC_T30900_T30916_T30912_T30913", () => {
     await io.sync.createNewIntegration(integrationName);
     await io.sync.chooseSourceApplication("Salesforce");
     await io.sync.selectExistingConnection("SALESFORCE CONNECTION");
-    await io.sync.selectOrDeselectCheckbox();
+    await io.sync.selectOrDeselectAllObjects();
     await io.sync.selectMultipleObjects(["Account", "Account History"]);
     await io.flowBuilder.click(selectors.syncPagePO.OBJECTS_DROPDOWN);
     await io.myAccountPage.loadingTime();
