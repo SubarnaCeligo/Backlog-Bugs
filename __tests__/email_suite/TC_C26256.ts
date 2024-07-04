@@ -9,6 +9,7 @@ test.describe( "C26256 Verify the email notifications received when SSO Client h
         await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);  
         await io.homePage.loadingTime();      
         await io.homePage.addStep("*** Navigated to Accounts page ***");
+        await page.locator(selectors.myAccountPagePO.SECURITY).waitFor({state: 'visible', timeout: 500000});
         await io.myAccountPage.click(selectors.myAccountPagePO.SECURITY);
         await io.homePage.loadingTime();
         await io.homePage.addStep("*** Opened the the Security Tab ***");
