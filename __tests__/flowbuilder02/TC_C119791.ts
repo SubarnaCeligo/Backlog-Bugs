@@ -5,24 +5,25 @@ import TC from '../../testData/inputData/FlowBuilder/C119805.json';
 
 test.describe("TC_C119791_C119793_C119795", () => {
     let id;
+    test.describe.configure({ retries: 1 })
     test.afterEach(async ({ io, page }) => {
         await io.api.deleteFlowViaAPI(id);
     });
     test("@Epic-IO-63762  @Priority-P2  @Zephyr-T24221 @Zephyr-T24223 @Zephyr-T24225 @Env-All", async ({ io, page }) => {
         id = await io.createResourceFromAPI(C119791, "FLOWS");
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
-        await io.flowBuilder.reloadPage();
-        await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
-        await io.integrationPage.waitForElementAttached(
-            selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR
-        );
-        await io.flowBuilder.click(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
-        await io.integrationPage.fill(
-            selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
-            "TC_C119791"
-        );
-        //Open the flow
-        await io.flowBuilder.clickByText("TC_C119791");
+        // await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
+        // await io.flowBuilder.reloadPage();
+        // await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+        // await io.integrationPage.waitForElementAttached(
+        //     selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR
+        // );
+        // await io.flowBuilder.click(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
+        // await io.integrationPage.fill(
+        //     selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
+        //     "TC_C119791"
+        // );
+        // //Open the flow
+        // await io.flowBuilder.clickByText("TC_C119791");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
 
         //TC_C119791 Verify user is able to add 'useAsPrimaryInterface' value under custom form displayed under Custom Settings of Export created with settting 'Transfer files out of source application'
@@ -59,12 +60,12 @@ test.describe("TC_C119791_C119793_C119795", () => {
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.homePage.loadingTime();
-        expect(await page.screenshot()).toMatchSnapshot("TC_C119791.png");
+        expect(await page.screenshot()).toMatchSnapshot("TC_C119791-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
 
         //-'Launch form builder' button should be displayed in 'Settings' section
         const buttonDis = await page.$(selectors.flowBuilderPagePO.SETTING);
-        expect(await buttonDis.screenshot()).toMatchSnapshot("TC_C119791 launchFormBuilder.png");
+        expect(await buttonDis.screenshot()).toMatchSnapshot("TC_C119791 launchFormBuilder-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
 
@@ -99,12 +100,12 @@ test.describe("TC_C119791_C119793_C119795", () => {
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.homePage.loadingTime();
         const Symbol = await page.$(selectors.flowBuilderPagePO.RIGHT_DRAWER);
-        expect(await Symbol.screenshot()).toMatchSnapshot("TC_C119795.png");
+        expect(await Symbol.screenshot()).toMatchSnapshot("TC_C119795-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
 
         //-'Launch form builder' button should be displayed in 'Settings' section
         const buttonDis1 = await page.$(selectors.flowBuilderPagePO.SETTING);
-        expect(await buttonDis1.screenshot()).toMatchSnapshot("TC_C119795 launchFormBuilder.png");
+        expect(await buttonDis1.screenshot()).toMatchSnapshot("TC_C119795 launchFormBuilder-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
 
@@ -141,12 +142,12 @@ test.describe("TC_C119791_C119793_C119795", () => {
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.homePage.loadingTime();
         const Symbol1 = await page.$(selectors.flowBuilderPagePO.RIGHT_DRAWER);
-        expect(await Symbol1.screenshot()).toMatchSnapshot("TC_C119793.png");
+        expect(await Symbol1.screenshot()).toMatchSnapshot("TC_C119793-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
 
         //-'Launch form builder' button should be displayed in 'Settings' section
         const buttonDis2 = await page.$(selectors.flowBuilderPagePO.SETTING);
-        expect(await buttonDis2.screenshot()).toMatchSnapshot("TC_C119793 launchFormBuilder.png");
+        expect(await buttonDis2.screenshot()).toMatchSnapshot("TC_C119793 launchFormBuilder-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
     });
 });

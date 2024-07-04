@@ -34,7 +34,7 @@
       "type": "import",
       "qa__import": {
         "name": "Netsuite Import",
-        "_connectionId": "NETSUITE 347 CONNECTION",
+        "_connectionId": "NETSUITE CONNECTION",
         "distributed": true,
         "apiIdentifier": "i14c32d110",
         "ignoreExisting": false,

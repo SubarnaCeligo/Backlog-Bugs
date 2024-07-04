@@ -17,6 +17,8 @@ test.describe("T27372 Verify handlebar expression in Mapper 2.0 for NoSQL", () =
         await io.homePage.addStep("*** Opened the import mappings ***");
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.DESTINATION_MAPPING_PLACEHOLDER, "id");
         await page.locator(selectors.mappings.MAPPER2DOT0PO.SOURCEFIELDS).nth(0).click();
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.DESTINATION_MAPPING_PLACEHOLDER);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.SOURCE_MAPPING_PLACEHOLDER);
         await page.locator(selectors.mappings.MAPPER2DOT0PO.SETTINGSBUTTONS).nth(0).click();
         await io.mappings.click(selectors.mappings.MAPPER2DOT0PO.MAPPING_TYPE);
         await io.mappings.click(selectors.mappings.MAPPER2DOT0PO.MULTIFIELDDROPDOWN);
@@ -36,6 +38,8 @@ test.describe("T27372 Verify handlebar expression in Mapper 2.0 for NoSQL", () =
         await io.homePage.addStep("*** Opened the import mappings ***");
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.DESTINATION_MAPPING_PLACEHOLDER, "id");
         await page.locator(selectors.mappings.MAPPER2DOT0PO.SOURCEFIELDS).nth(0).click();
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.DESTINATION_MAPPING_PLACEHOLDER);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.SOURCE_MAPPING_PLACEHOLDER);
         await page.locator(selectors.mappings.MAPPER2DOT0PO.SETTINGSBUTTONS).nth(0).click();
         await io.mappings.click(selectors.mappings.MAPPER2DOT0PO.MAPPING_TYPE);
         await io.mappings.click(selectors.mappings.MAPPER2DOT0PO.MULTIFIELDDROPDOWN);
