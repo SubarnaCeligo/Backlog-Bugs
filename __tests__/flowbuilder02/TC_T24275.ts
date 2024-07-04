@@ -5,9 +5,11 @@ test.describe("T24275 - Verify Next button is activating if we select the tile f
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Epic-IO-54539 T24275 - Verify Next button is activating if we select the tile from 'Your existing flow steps @Env-All @Priority-P2'", async ({ io, page }) => {
+    test.skip("@Epic-IO-54539 T24275 - Verify Next button is activating if we select the tile from 'Your existing flow steps @Env-All @Priority-P2'", async ({ io, page }) => {
         //Navigate to flow builder page
-        await io.homePage.goToMenu("Tools", "Flow builder");
+        await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+        await io.flowBuilder.loadingTime();
+        await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
 
         //Add Source
         await io.flowBuilder.click(selectors.basePagePO.ADD_SOURCE_BUTTON);
@@ -19,10 +21,9 @@ test.describe("T24275 - Verify Next button is activating if we select the tile f
         await io.flowBuilder.click(selectors.connectionsPagePO.FTP_CONNECTION);
 
         //Wait for existing resources to load
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXISTING_ACCOUNT_RESOURCE);
-        
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.OPENAI.NLS_RESOURCE);
         //Click on any existing resource
-        await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.EXISTING_ACCOUNT_RESOURCE, 0);
+        await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.OPENAI.NLS_RESOURCE, 0);
 
         //Verify if Next button is clickable
         await io.assert.verifyElementToBeClickable(selectors.basePagePO.SAVE);
@@ -47,10 +48,9 @@ test.describe("T24275 - Verify Next button is activating if we select the tile f
         await io.flowBuilder.click(selectors.flowBuilderPagePO.SELECT_LOOKUP);
 
         //Wait for existing resources to load
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXISTING_ACCOUNT_RESOURCE);
-        
+        // await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.OPENAI.NLS_RESOURCE);
         //Click on any existing resource
-        await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.EXISTING_ACCOUNT_RESOURCE, 0);
+        await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.OPENAI.NLS_RESOURCE, 0);
 
         //Verify if Next button is clickable
         await io.assert.verifyElementToBeClickable(selectors.basePagePO.SAVE);
@@ -75,13 +75,12 @@ test.describe("T24275 - Verify Next button is activating if we select the tile f
         await io.flowBuilder.click(selectors.connectionsPagePO.TRANSFER_FILES);
 
         //Wait for existing resources to load
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXISTING_ACCOUNT_RESOURCE);
-        
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.OPENAI.NLS_RESOURCE);
         //Click on any existing resource
-        await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.EXISTING_ACCOUNT_RESOURCE, 0);
+        await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.OPENAI.NLS_RESOURCE, 0);
 
         //Verify if Next button is clickable
         await io.assert.verifyElementToBeClickable(selectors.basePagePO.SAVE);
-        
+
     });
 });

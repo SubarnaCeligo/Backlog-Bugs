@@ -24,7 +24,8 @@ test.describe("T27429 Verify the license entitlement notification message)", () 
     await io.homePage.loadingTime();
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime()
-    await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);   
+    await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);  
+    await io.myAccountPage.waitForElementAttached(selectors.myAccountPagePO.SUBSCRIPTION);     
   await io.myAccountPage.click(selectors.myAccountPagePO.SUBSCRIPTION); 
   const Sanbox = await io.assert.verifyElementDisplayedByText(
       "Sandbox",

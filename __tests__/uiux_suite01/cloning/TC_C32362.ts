@@ -58,8 +58,8 @@ test.describe(`C32362 Verify cloned integration has the updated flow after updat
     await io.homePage.clickByTextByIndex("Clone - C32362_DND", 0);
     await io.homePage.click(selectors.flowBuilderPagePO.NOTIFICATION_CONNECTIONS);
     await io.assert.verifyElementDisplayedByText(
-      "347 NS CONNECTION",
-      "347 NS CONNECTION step is not displayed"
+      "NETSUITE 353 CONNECTION",
+      "NETSUITE 353 CONNECTION step is not displayed"
     );
     await io.assert.verifyElementDisplayedByText(
       "FTP",

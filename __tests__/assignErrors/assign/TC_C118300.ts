@@ -29,7 +29,7 @@ test.describe("C118300 - Verify the assignee pill when the user is disabled", ()
     await io.flowBuilder.click(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
     await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
     await io.flowBuilder.fill(selectors.filterErrorTag.ARIALABELSEARCHUSER, 'Disabled User');
-    await io.flowBuilder.clickByText('Disabled User');
+    await io.flowBuilder.clickByTextByIndex('Disabled User', 0);
     await io.homePage.clickByText("Assign");
 
     //Verify if error is assigned.
