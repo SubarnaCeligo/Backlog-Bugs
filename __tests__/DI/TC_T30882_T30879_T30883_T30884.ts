@@ -24,6 +24,14 @@ test.describe("@Author-ladimanish TC_T30882_T30879_T30883_T30884", () => {
       "Schema already in use. Please enter a new schema name",
       "Error is not displayed"
     );
+    //casing
+    await io.sync.specifySchema("Test");
+    await io.sync.clickOnNext();
+    await io.myAccountPage.loadingTime();
+    await io.assert.verifyElementDisplayedByText(
+      "Schema already in use. Please enter a new schema name",
+      "Error is not displayed"
+    );
 
     //T30879
     const schemaName = await io.sync.generateRandomName("Schema");
