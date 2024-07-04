@@ -5,7 +5,6 @@ build:
 	npm ci
 
 test:
-
 	node ci-runner.js
 
 
