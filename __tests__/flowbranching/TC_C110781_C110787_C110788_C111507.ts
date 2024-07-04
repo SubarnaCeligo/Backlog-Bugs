@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import fb from "@testData/flowbranching/TC_C110781_C110787_C110788_C111507.json";
 
 test.describe("TC_C110781_C110787_C110788_C111507", () => {
-  test.describe.configure({ retries: 1 });
+//   test.describe.configure({ retries: 1 });
   let flowid;
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowViaAPI(flowid);
@@ -20,8 +20,9 @@ test.describe("TC_C110781_C110787_C110788_C111507", () => {
     let unmerge = selectors.flowBranchingPO.UNMERGE_BRANCHING;
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.waitForElementAttached(unmerge);
-    let unmerge1 = await page.$(unmerge);
-    expect(await unmerge1.screenshot()).toMatchSnapshot("C110781-chromium-darwin-chromium-linux.png");
+    let unmerge1 = page.locator(unmerge).nth(0);
+    await expect(unmerge1).toHaveScreenshot();
+    // expect(await unmerge1.screenshot()).toMatchSnapshot("C110781-chromium-darwin-chromium-linux.png");
     await io.myAccountPage.clickByIndex(unmerge, 0);
     await io.assert.verifyElementDisplayedByText(
       "Unmerge branch",
