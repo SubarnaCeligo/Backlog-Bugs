@@ -28,6 +28,7 @@ const runTests = () => {
             }
         }
     }
+    
     if (changedFolders.length === 0) {
         // If no folders have changed, execute 'npm ci'
         console.log("No changes in '__tests__/' folders. Running Unit tests.");
