@@ -10,7 +10,6 @@ test.describe("T1087 Verify when clicked on create password link in(/set-initial
     await io.homePage.loadingTime();
     let sessionActiveMsg = await page.getByText("You already have an active session running. Please sign out from the account and try again.");
     expect(await sessionActiveMsg.isVisible()).toBeTruthy();
-    await page.waitForTimeout(5000);
   });
 }
 );
