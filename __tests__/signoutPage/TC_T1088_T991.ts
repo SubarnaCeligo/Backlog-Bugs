@@ -21,7 +21,6 @@ test.describe("T1088_T991 Verify all the available fields in the Create password
     await io.signInPage.click(selectors.basePagePO.AGREETOSANDPP);
     await io.signInPage.click(selectors.loginPagePO.SIGN_UP_BUTTON);
     await page.waitForTimeout(5000);
-    // @ts-ignore
     let link = await io.emailVal.getLinkFromEmail(
       "Activate your Celigo staging.integrator.io account",
       true,
