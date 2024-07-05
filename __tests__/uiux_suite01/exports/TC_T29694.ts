@@ -15,7 +15,7 @@ test.describe("@Author_sagna123 TC_T29694_Test to validate the colour grading, f
         await io.homePage.waitForElementAttached(selectors.connectionsPagePO.AZURE_SYNAPSE);
         await io.homePage.click(selectors.connectionsPagePO.AZURE_SYNAPSE);
         await io.homePage.addStep("*** Clicked on Azure synapse connection ***");
-        await io.homePage.click(selectors.basePagePO.CONNECTION);
+        await io.homePage.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.homePage.addStep("*** Clicked on connection dropdown ***");
         await io.homePage.clickByText("AZURE SYNAPSE CONNECTOR");
         await io.homePage.addStep("*** Selected the connection ***");
