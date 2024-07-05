@@ -4,7 +4,7 @@ import iaqa_script from "@testData/integration_apps/iaqa_script.json";
 import qa_script from "@testData/integration_apps/qa_script.json";
 import staging_script from "@testData/integration_apps/staging_script.json";
 
-test.describe("C27460 To verify below schema is displayed for exports present in child IA", () => {
+test.describe("C27460 To verify below schema is displayed for exports present1 in child IA", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.flowBuilder.loadingTime();
