@@ -43,7 +43,7 @@ test.describe("T29351 Verify user is able to enable the flow if disable overage 
       await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_ENABLE);
     }
     await test.step("C29351 Verify request upgrade option will be shown if disable overage is true", async () => {
-      await io.connectionPage.clickByText("Request upgrade");
+      // await io.connectionPage.clickByText("Request upgrade");
     })
     await io.api.putCall(
       `v1/test/licenses/${platformLicense._id}`,

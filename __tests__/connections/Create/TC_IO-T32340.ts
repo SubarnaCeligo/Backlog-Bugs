@@ -6,7 +6,7 @@ test.describe("@Author_MaheshNivruttiSutar Verify connections get filtered on ba
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.loadingTime();
     });
-    test("@Epic-IO-76152 @Priority-P2 @Env-QA @Zephyr-IO-T32340 Verify connections get filtered on basis of resources chosen for HTTP connectors while creating new flow step'", async ({ io, page }) => {
+    test("@Epic-IO-76152 @Priority-P2 @Env-All @Zephyr-IO-T32340 Verify connections get filtered on basis of resources chosen for HTTP connectors while creating new flow step'", async ({ io, page }) => {
         await io.homePage.goToMenu("Tools", "Flow builder");
         await io.flowBuilder.loadingTime();
         //Add Source
