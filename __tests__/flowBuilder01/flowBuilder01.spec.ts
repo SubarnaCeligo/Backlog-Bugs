@@ -16,11 +16,9 @@ var testCases = [
   "C24619",
   "C24850",
   "C26246",
-  "C33011",
   "C33018",
   "C34437",
   "C34887",
-  "C42440",
   "C45564",
   "C50869",
   "C65649",
@@ -115,7 +113,6 @@ var testCases = [
   "IO-T32631",
 //  "IO-T31358", commenting out this test case as we have an issue with code base in platform3 and 5 , will unpark these test cases once it is fixed
  // "IO-T31357", commenting out this test case as we have an issue with code base in platform3 and 5 , will unpark these test cases once it is fixed
-  "C42443",
   "IO-T32695",
   "IO-T32813",
  // "IO-T32827", commenting out this test case as we have an issue with code base in platform3 and 5 , will unpark these test cases once it is fixed
