@@ -9,7 +9,7 @@ test.describe("TC_C107846_Verify syncing dateTime fields in NS SS2.x import flow
     });
 
     test("@Zephyr-T7804 @Env-All @Priority-P2 TC_C107846_Verify syncing dateTime fields in NS SS2.x import flows based on Date format added in the settings (YYYY/MM/DD hh:mm AM/PM) UI_Backlog", async ({ io, page }, testInfo) => {
-        //Creating PageGenerator 
+        //Creating PageGenerator
         await test.step("*** Creating PageGenerator ***", async () => {
             await io.pageGenerator(allure, NS_FTP);
         });

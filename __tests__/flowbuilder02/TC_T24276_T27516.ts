@@ -9,8 +9,9 @@ test.describe("TC_T24276_T27516 - Verify data is pre-filling on the next page if
     });
     test("@Epic-IO-54539 @Priority-P2 @Env-All TC_T24276_T27516 - Verify data is pre-filling on the next page if we select the tile from 'Your existing flow steps'", async ({ io, page }) => {
         //Navigate to flow builder page
-        await io.homePage.goToMenu("Tools", "Flow builder");
-
+        await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+        await io.flowBuilder.loadingTime();
+        await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         //Add Source
         await io.flowBuilder.click(selectors.basePagePO.ADD_SOURCE_BUTTON);
 
@@ -22,7 +23,6 @@ test.describe("TC_T24276_T27516 - Verify data is pre-filling on the next page if
 
         //Wait for existing resources to load
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.OPENAI.NLS_RESOURCE);
-
         //Click on any existing resource
         await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.OPENAI.NLS_RESOURCE, 0);
 

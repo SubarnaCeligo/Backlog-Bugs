@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S TC_T29350-Verify that 'ediProfile' option is not
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Bug-IO-75581 @Env-All @Priority-P2 @Zephyr-T29350 Verify that 'ediProfile' option is not shown for Netsuite file provider import", async ({ io, page }) => {
+  test("@Bug-IO-75581 @Env-All @Priority-P2 @Zephyr-IO-T29350 Verify that 'ediProfile' option is not shown for Netsuite file provider import", async ({ io, page }) => {
     //Go to Flow Builder
     await io.homePage.goToMenu("Tools", "Flow builder");
 

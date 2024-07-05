@@ -10,7 +10,7 @@ test.describe(`TC_IO-T26981  Test to validate that user is seeing below help tex
     test("IOT26980 @Env-All @Priority-P2", async ({ io }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.loadingTime();
-        await io.homePage.goToMenu("Resources","Exports");
+        await io.myAccountPage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.addStep("*** Navigated to Exports page ***");
         await io.exportsPage.click(selectors.exportsPagePO.ADD_NEW_RESOURCE);
         await io.homePage.addStep("*** Clicked on Create new Export ***");
@@ -19,9 +19,9 @@ test.describe(`TC_IO-T26981  Test to validate that user is seeing below help tex
         await io.exportsPage.click(selectors.importPagePO.HTTP_IMPORT);
         await io.homePage.addStep("*** Select the Http Export Option from Applications ***");
         await io.homePage.loadingTime();
-        await io.exportsPage.fill(selectors.exportsPagePO.CONNECTIONS_DROPDOWN,"HTTP AMAZON CONNECTION");
+        await io.exportsPage.fill(selectors.exportsPagePO.CONNECTIONS_DROPDOWN,"AMAZON SP API CONNECTION");
         await io.homePage.addStep("*** Clicked on connection Dropdown ***");
-        await io.homePage.clickByText('HTTP AMAZON CONNECTION');
+        await io.homePage.clickByText('AMAZON SP API CONNECTION');
         await io.homePage.loadingTime();
         await io.homePage.addStep("*** Select first option from connection Dropdown  ***");
         await io.exportsPage.fill(selectors.exportsPagePO.NAME, "HTTP_EXPORT_NEW");

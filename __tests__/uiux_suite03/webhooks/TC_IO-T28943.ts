@@ -13,6 +13,7 @@ test.describe("IO-T28943_Verify the user is able to view 'view debug log' after 
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'webhook');
+        await io.flowBuilder.loadingTime();
         await io.flowBuilder.clickByText('Webhook');
         await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
         await io.flowBuilder.fill(selectors.connectionsPagePO.NAME_INPUT, 'T28943');
@@ -40,6 +41,7 @@ test.describe("IO-T28943_Verify the user is able to view 'view debug log' after 
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'salesforce');
+        await io.flowBuilder.loadingTime();
         await io.flowBuilder.clickByText('Salesforce');
         await io.flowBuilder.clickByText('Listen for real-time data from source application');
         await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);

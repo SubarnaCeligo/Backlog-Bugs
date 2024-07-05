@@ -6,10 +6,11 @@ import * as NS_FTP from "@testData/Flows/TC_C107846.json"
 test.describe("TC_C107908_Verify syncing dateTime fields in NS SS2.x import flows based on Date format added in the settings (D/M/YYYY hh:mm (24 hours))", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.flowBuilder.loadingTime();
     });
 
     test("@Zephyr-T7846 @Env-All @Priority-P2 TC_C107908_Verify syncing dateTime fields in NS SS2.x import flows based on Date format added in the settings (D/M/YYYY hh:mm (24 hours)) UI_Backlog", async ({ io, page }, testInfo) => {
-        //Creating PageGenerator 
+        //Creating PageGenerator
         await test.step("*** Creating PageGenerator ***", async () => {
             await io.pageGenerator(allure, NS_FTP);
         });

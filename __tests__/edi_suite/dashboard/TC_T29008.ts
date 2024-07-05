@@ -27,7 +27,7 @@ test.describe("@Author-Shriti S Verify that EDI activity can be filtered using s
 
     //Get all available FA filter values
     await io.homePage.waitForElementAttached(selectors.dashboardPagePO.FA_FILTER_BUTTON);
-    await io.homePage.clickByIndex(selectors.dashboardPagePO.FA_FILTER_BUTTON, 2);
+    await io.homePage.clickByIndex(selectors.dashboardPagePO.FA_FILTER_BUTTON, 0);
     await io.homePage.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
 
     let index = 4;

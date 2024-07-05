@@ -5,17 +5,18 @@ import TC from '../../testData/inputData/FlowBuilder/T31974.json';
 test.describe("@Author_MaheshNivruttiSutar Verify section should be hidden if we set 'useAsPrimaryInterface' is Set to True in Script", () => {
     let id; let formInit;
     test.describe.configure({ retries: 1 })
-    test.beforeEach(async ({ io, page  }) => {
+    test.beforeEach(async ({ io, page }) => {
         formInit = await io.api.createScriptViaAPI(TC.script1);
     });
     test.afterEach(async ({ io, page }) => {
         await io.api.deleteFlowViaAPI(id);
         await io.api.deleteScriptViaAPI(formInit);
     });
-    test("@Bug-IO-80699 @Env-QA @Priority-P2 @Zephyr-IO-T31974", async ({ io, page }) => {
+    test("@Bug-IO-80699 @Env-All @Priority-P2 @Zephyr-IO-T31974", async ({ io, page }) => {
         TC.pageGenerators[0].qa__export.settingsForm.init._scriptId = formInit;
         id = await io.createResourceFromAPI(TC, "FLOWS");
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
+        await io.homePage.loadingTime();
+        await io.homePage.loadingTime();
 
         //Export
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
@@ -52,12 +53,12 @@ test.describe("@Author_MaheshNivruttiSutar Verify section should be hidden if we
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.homePage.loadingTime();
-        expect(await page.screenshot()).toMatchSnapshot("IO-T31974.png",{maxDiffPixelRatio: 0.2});
+        expect(await page.screenshot()).toMatchSnapshot("IO-T31974-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
 
         //-'Launch form builder' button should be displayed in 'Settings' section
         const buttonDis = await page.$(selectors.flowBuilderPagePO.SETTING);
-        expect(await buttonDis.screenshot()).toMatchSnapshot("IO-T31974_1.png",{maxDiffPixelRatio: 0.2});
+        expect(await buttonDis.screenshot()).toMatchSnapshot("IO-T31974_1-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
     });
 });

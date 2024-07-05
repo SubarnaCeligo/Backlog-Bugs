@@ -1,0 +1,19 @@
+{
+
+    "fileDefinition": {
+      "_id": "667a9863e8c37c578c7123",
+      "lastModified": "2024-06-25T10:13:55.122Z",
+      "name": "Generic 850 5010",
+      "description": "Purchase Order",
+      "version": "2",
+      "_sourceId": "66558ee845953a756fd8ecd8",
+      "format": "delimited/x12",
+      "skipEDIValidation": false,
+      "delimited": {
+        "rowSuffix": "~",
+        "rowDelimiter": "\n",
+        "colDelimiter": "*"
+      }
+     
+    }
+  }

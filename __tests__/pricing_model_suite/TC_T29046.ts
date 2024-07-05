@@ -34,7 +34,16 @@ test.describe("T29046 Verify the flow entitlements for platform license for sand
     await io.flowBuilder.clickByText("Automation_flows");   
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
     await io.homePage.loadingTime()
-    await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_ENABLE);
+    const enableFlow = await page.$(selectors.flowBuilderPagePO.FLOW_ENABLE)
+    if (enableFlow) {
+      await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_ENABLE);
+    }
+    else {
+      await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
+      await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
+      await io.homePage.loadingTime()
+      await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_ENABLE);
+    }
     await io.homePage.loadingTime()
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.myAccountPage.click(selectors.myAccountPagePO.SUBSCRIPTION);
@@ -63,7 +72,16 @@ test.describe("T29046 Verify the flow entitlements for platform license for sand
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
     await io.homePage.loadingTime()
-    await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
+    const disableFlow = await page.$(selectors.flowBuilderPagePO.FLOW_DISABLE)
+    if (disableFlow) {
+      await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
+    }
+    else {
+      await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_ENABLE);
+      await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
+      await io.homePage.loadingTime()
+      await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
+    }
     await io.homePage.addStep("Reverting license changes.");
     await io.api.putCall(`v1/test/licenses/${payloadFormat._id}`, payloadFormat);
   });

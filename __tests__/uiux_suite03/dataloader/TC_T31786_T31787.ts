@@ -5,7 +5,7 @@ test.describe("TC_T31786_T31787", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("TC_T31786_T31787 @Zephyr-IO-T31786 @Zephyr-IO-T31787 @Epic-IO-38393 @Env-QA @Priority-P2", async ({ io, page }) => {
+    test("TC_T31786_T31787 @Zephyr-IO-T31786 @Zephyr-IO-T31787 @Epic-IO-38393 @Env-All @Priority-P2", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources","My APIs");

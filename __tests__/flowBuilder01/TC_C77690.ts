@@ -16,7 +16,7 @@ test.describe("C77690_To verify that the error is auto cancel after 6 seconds", 
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Salesforce');
         await io.flowBuilder.click(selectors.importPagePO.SALESFORCE_IMPORT);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.SELECTED_EXPORT_RECORDS);
-        await io.flowBuilder.clickByText("Create from scratch")
+        await io.flowBuilder.clickByText("Create flow step")
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'SALESFORCE CONNECTION');
         await io.flowBuilder.clickByText('SALESFORCE CONNECTION');

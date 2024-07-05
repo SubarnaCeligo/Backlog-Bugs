@@ -53,7 +53,7 @@ test.describe("TC_T28417_T28454_T28455_T28456 Verify XML parser for FTP,Gdrive,S
         console.log(previewData);
 
     });
-    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28454 Verify XML parser for S3 with proper resource path and Parse strategy as Custom and Trim leading and trailing spaces and Strip new line characters checked", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28454 @Env-All Verify XML parser for S3 with proper resource path and Parse strategy as Custom and Trim leading and trailing spaces and Strip new line characters checked", async ({ io, page }) => {
 
         //Navigate to exports page
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
@@ -100,7 +100,7 @@ test.describe("TC_T28417_T28454_T28455_T28456 Verify XML parser for FTP,Gdrive,S
         await io.assert.expectToBeValue('{  "page_of_records": [    {      "record": "In    Production"    }  ]}', previewData, 'New line chars are not striped');
        
     });
-    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28455 Verify XML parser for Dropbox with proper resource path and Parse strategy as Custom and Trim leading and trailing spaces and Strip new line characters checked", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28455 @Env-All Verify XML parser for Dropbox with proper resource path and Parse strategy as Custom and Trim leading and trailing spaces and Strip new line characters checked", async ({ io, page }) => {
 
         //Navigate to exports page
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
@@ -148,7 +148,7 @@ test.describe("TC_T28417_T28454_T28455_T28456 Verify XML parser for FTP,Gdrive,S
 
         });
 
-    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28456 Verify XML parser for GDrive with proper resource path and Parse strategy as Custom and Trim leading and trailing spaces and Strip new line characters checked", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28456  @Env-All Verify XML parser for GDrive with proper resource path and Parse strategy as Custom and Trim leading and trailing spaces and Strip new line characters checked", async ({ io, page }) => {
 
         //Navigate to exports page
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
