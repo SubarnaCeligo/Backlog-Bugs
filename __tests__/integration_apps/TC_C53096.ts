@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C53096 Verify whether mapper1.0/mapper2.0 toggle is removed for IA's ", () => {
-  test("@Zephyr-IO-T9430 @Env-QA @Env-IAQA C53096 Verify whether mapper1.0/mapper2.0 toggle is removed for IA's ", async ({
+  test("@Zephyr-IO-T9430 @Env-All C53096 Verify whether mapper1.0/mapper2.0 toggle is removed for IA's ", async ({
     io,
     page
   }) => {
