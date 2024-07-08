@@ -28,10 +28,10 @@ const runTests = () => {
             }
         }
     }
-    
+
     if (changedFolders.length === 0) {
         // If no folders have changed, execute 'npm ci'
-        console.log("No changes in '__tests__/' folders. Running Unit tests.");
+        console.log("No changes in  '__tests__/' folders. Running Unit tests.");
         const unittests = `ENV=ci FEATURE=unit_test npm run test:ci`;
         console.log("Running Command:",unittests)
         execSync(unittests, { stdio: 'inherit' });
