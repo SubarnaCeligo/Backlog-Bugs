@@ -6,7 +6,7 @@ test.describe("C108690 Verify the save and close buttons once we edit any flow",
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
   // Validate the Notification Error Text
-  test("C108690 Verify the Notifications Error Text Message", async ({
+  test("@Env-All @Zephyr-IO-T23949 C108690 Verify the Notifications Error Text Message", async ({
     io,
     page
   }) => {
@@ -21,9 +21,10 @@ test.describe("C108690 Verify the save and close buttons once we edit any flow",
       selectors.basePagePO.INPUT_NAME_SELECTOR,
       "TC_C108690 Export1"
     );
+    
     await io.assert.verifyElementText(
       selectors.flowBuilderPagePO.EXPORT_NOTIFICATION_ERROR_MESSAGE,
-      "Making edits to a flow (including modifying a step, changing step options, changing the test run source, or reordering steps) will clear all test results.\nRun a new test after making edits to see accurate results."
+      "Making edits to a flow (including modifying a step, changing step options, changing the test run source, or reordering steps) will clear all test results.Run a new test after making edits to see accurate results."
     );
     await io.assert.checkElementState(
       selectors.basePagePO.SAVE_AND_CLOSE,

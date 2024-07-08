@@ -26,9 +26,7 @@ test.describe("IO-T23942 Verify Editing any flow step / reordering / restructuri
     // run test
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
-    await io.flowBuilder.click(
-      selectors.flowBuilderPagePO.RUNTEST_BUTTON_TOP_XPATH
-    );
+    await page.locator(selectors.flowBuilderPagePO.RUNTEST_BUTTON_TOP_XPATH).first().click();
 
     // edit flow step
     await io.flowBuilder.click(selectors.basePagePO.ADD_DATA_PROCESSOR);
@@ -50,9 +48,7 @@ test.describe("IO-T23942 Verify Editing any flow step / reordering / restructuri
     );
 
     // re-run the run test
-    await io.flowBuilder.click(
-      selectors.flowBuilderPagePO.RUNTEST_BUTTON_TOP_XPATH
-    );
+    await page.locator(selectors.flowBuilderPagePO.RUNTEST_BUTTON_TOP_XPATH).first().click();
 
     // add import
     await io.flowBuilder.click(selectors.flowBuilderPagePO.PAGE_PROCESSOR);

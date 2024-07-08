@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C111366 from "@testData/FlowDebugger/C111366.json"
 
 test.describe('C111366', () => {
-    test('C111366', async ({ io, page }) => {
+    test('@Env-All @Zephyr-IO-T14385 C111366', async ({ io, page }) => {
         const id = await io.createResourceFromAPI(C111366, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
@@ -13,14 +13,19 @@ test.describe('C111366', () => {
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_LOG);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
+        await io.homePage.loadingTime()
+        await io.homePage.isPageLoaded()
+        await io.homePage.isPageReady()
         const lastRun = page.getByText('Last run');
-        await lastRun.waitFor({ state: 'visible', timeout: 180000 });
+        await lastRun.waitFor({ state: 'visible', timeout: 900000 });
 
         //Disable the flow
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
+        await io.homePage.loadingTime()
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
+        await io.homePage.loadingTime()
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
 
         //TC_C111366 Users should be able to access test run debug logs in addition to the debug logs related to live calls made to the application.

@@ -5,7 +5,7 @@
             "type": "export",
             "qa__export": {
                 "name": "SF Listener",
-                "_connectionId": "SALESFORCE CONNECTION",
+                "_connectionId": "SALESFORCE_REALTIME_CONNECTION",
                 "_sourceId": "62e1382253431e3b078966e0",
                 "apiIdentifier": "e3886676d4",
                 "asynchronous": true,

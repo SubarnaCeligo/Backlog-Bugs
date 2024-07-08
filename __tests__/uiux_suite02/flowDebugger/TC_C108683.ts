@@ -12,7 +12,7 @@ test.describe("TC_C108683 Verify Editing any flow step / reordering / restructur
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowViaAPI(id);
   });
-  test("C108683 Verify Editing any flow step / reordering / restructuring the flow should clear test run results.", async ({
+  test("@Env-All @Zephyr-IO-T23942 C108683 Verify Editing any flow step / reordering / restructuring the flow should clear test run results.", async ({
     io,
     page
   }) => {
