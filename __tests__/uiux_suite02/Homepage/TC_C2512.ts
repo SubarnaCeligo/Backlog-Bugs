@@ -6,7 +6,7 @@ test.describe("Freeze the IO header/top menu bar", () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
 
-  test("Freeze the IO header/top menu bar", async ({ io, page }) => {
+  test("@Env-All Freeze the IO header/top menu bar", async ({ io, page }) => {
     let toolbarSelector = selectors.basePagePO.TOP_MENUBAR_DIV_SELECTOR;
     await page.waitForSelector(toolbarSelector);
 

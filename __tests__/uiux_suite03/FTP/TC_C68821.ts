@@ -19,7 +19,7 @@ test.describe(`C68821 Verify user is attempting to connect to the SFTP server us
         await io.connectionPage.waitForElementAttached(selectors.basePagePO.FTP_PASSWORD)
         await io.connectionPage.fill(selectors.basePagePO.FTP_PASSWORD, "itZDKb3PJ43bLQIS")
         await io.connectionPage.click(selectors.basePagePO.TEST_CONNECTION)
-        await io.assert.verifyElementText(selectors.loginPagePO.CLIENT_SNACKBAR, "Your connection is working great! Nice Job!")
+        await io.assert.verifyElementText(selectors.basePagePO.NOTIFICATION_ID, "Your test was not successful. Check your information and try again")
 
     });
 });

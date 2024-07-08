@@ -4,7 +4,7 @@ test.describe(`TC_C41223 Test to validate the revisions tab in multiple browsers
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test(`C41223 Test to validate the revisions tab in multiple browsers`, async ({
+  test(`@Env-All @Zephyr-IO-T410 C41223 Test to validate the revisions tab in multiple browsers`, async ({
     page,
     io
   }) => {
