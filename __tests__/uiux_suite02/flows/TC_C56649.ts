@@ -6,7 +6,7 @@ test.describe(`C56649 Verify the Router name field by entering the names of diff
     await io.flowBuilder.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
   });
 
-  test(`C56649 Verify the Router name field by entering the names of different lengths up to 256 characters`, async ({
+  test(`@Env-All C56649 Verify the Router name field by entering the names of different lengths up to 256 characters`, async ({
     io,
     page
   }) => {

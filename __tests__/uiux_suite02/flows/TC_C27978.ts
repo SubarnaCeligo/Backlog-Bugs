@@ -19,10 +19,10 @@ test.describe(`C27978 Verify 'What would you like to export?' drawer label is up
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, "REST API (HTTP)");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RESTAPIHTTP);
     await io.flowBuilder.clickByText("Look up additional files (per record)");
-    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH)
+    await io.homePage.loadingTime()
     await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.clickByText("3PL CONNECTION");
-    await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.waitForElementAttached(selectors.exportsPagePO.NAME);
     await io.flowBuilder.fill(selectors.exportsPagePO.NAME, "C27977");
     await io.flowBuilder.click(selectors.exportsPagePO.LOOKUP.HTTP_METHOD);

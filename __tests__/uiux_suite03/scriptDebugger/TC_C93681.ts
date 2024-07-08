@@ -19,7 +19,7 @@ test.describe('C93681 Validate user is getting auto-fill of funtion stub while c
       // Ensure that the choose function stub field is visible
       await io.flowBuilder.click(selectors.basePagePO.FUNCTION_STUB);   
       await io.flowBuilder.selectTextfromDropDown(page,"postMap");
-      await io.flowBuilder.clickByText("Save & close");
+      await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
       await io.flowBuilder.click(selectors.flowBuilderPagePO.EDIT_SCRIPT_LABEL_SELECTOR)
       let divTextContent = await io.flowBuilder.getText(selectors.basePagePO.ACE_CONTENT);
       await io.assert.expectNotToBeNull(divTextContent,"Value is not null")
