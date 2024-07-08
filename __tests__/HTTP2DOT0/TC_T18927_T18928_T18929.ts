@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("Verify the help text for Name your exports/imports/lookups", () => {
-  test("@Zephyr-IO-T18927 @Zephyr-IO-T18928 @Zephyr-IO-T18929 @Env-QA @Epic-IO-86262 @Priority-P2 - Verify the help text for Name your exports/imports/lookups", async ({ io, page }) => {
+  test("@Zephyr-IO-T18927 @Zephyr-IO-T18928 @Zephyr-IO-T18929 @Env-All @Epic-IO-86262 @Priority-P2 - Verify the help text for Name your exports/imports/lookups", async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.basePagePO.TOOLS);
