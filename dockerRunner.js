@@ -1,8 +1,15 @@
 const { spawn } = require("child_process");
 
 //const suites = ["Database_Imports", "Cloning"];
-function runMultipleSuites(suites,env){
-    const commands = suites.map(suiteName => `ENV=ci FEATURE=${suiteName} IGNORE_FLAKY=true npm run test-docker`);
+function runMultipleSuites(suites,env,singleWorkerSuites){
+    const commands = suites.map(suiteName => {
+        if (singleWorkerSuites.includes(suiteName)) {
+            return `ENV=ci FEATURE=${suiteName} IGNORE_FLAKY=true npm run test-docker-single-worker`;
+        } else {
+            return `ENV=ci FEATURE=${suiteName} IGNORE_FLAKY=true npm run test-docker`;
+        }
+    });
+
 
 try {
     const processes = commands.map(command => {
