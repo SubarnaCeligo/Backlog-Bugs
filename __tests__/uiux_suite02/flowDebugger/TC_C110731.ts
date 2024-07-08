@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C110731 from '../../../testData/inputData/FlowDebugger/C110731.json';
 
 test.describe("TC_C110731 Verify user should be able to run flow in Test mode after editing stub", () => {
-    test("TC_C110731 Verify user should be able to run flow in Test mode after editing stub", async ({io, page}) => {
+    test("@Env-All @Zephyr-IO-T14152 TC_C110731 Verify user should be able to run flow in Test mode after editing stub", async ({io, page}) => {
         await io.createResourceFromAPI(C110731, "FLOWS");
 
         //Disable the flow
@@ -20,8 +20,8 @@ test.describe("TC_C110731 Verify user should be able to run flow in Test mode af
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
-        const status = await page.$$(selectors.flowBuilderPagePO.JOB_ERRORS);
-        var statusText = await status[1].textContent();
+        const status = await page.$(selectors.flowBuilderPagePO.JOB_ERRORS);
+        var statusText = await status.textContent();
         await io.assert.expectToContainValue(
             "Success",
             statusText,

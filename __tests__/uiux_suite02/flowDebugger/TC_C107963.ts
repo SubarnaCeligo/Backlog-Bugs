@@ -4,7 +4,7 @@ import C107963 from '../../../testData/inputData/FlowDebugger/C107963.json';
 
 
 test.describe("Verify the hover text for disabled source in dropdown.", () => {
-  test("Verify the hover text for disabled source in dropdown.", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T24091 Verify the hover text for disabled source in dropdown.", async ({ io, page }) => {
     //Create a flow with multiple exports and offline connections
     await io.createResourceFromAPI(C107963, "FLOWS");
 

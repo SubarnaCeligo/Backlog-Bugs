@@ -4,7 +4,7 @@ import C112781 from '../../../testData/inputData/FlowDebugger/C112781.json';
 
 
 test.describe("C112781_C112782_C112783 - Verify the NS import filter feature after test run", () => {
-    test("C112781_C112782_C112783 - Verify the NS import filter feature after test run", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T14710 C112781_C112782_C112783 - Verify the NS import filter feature after test run", async ({ io, page }) => {
         //Create a flow
         await io.createResourceFromAPI(C112781, "FLOWS");
 

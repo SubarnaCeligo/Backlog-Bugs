@@ -9,7 +9,7 @@ test.describe("To verify that the Export/Import bubbles are working as expected"
       });
 
 
-    test("To verify that the Export/Import bubbles are working as expected", async ({io,page}) => {
+    test("@Env-All @Zephyr-IO-T14543 To verify that the Export/Import bubbles are working as expected", async ({io,page}) => {
      
         await io.createResourceFromAPI(C59678, "FLOWS");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT)

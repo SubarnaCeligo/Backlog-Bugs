@@ -5,7 +5,7 @@
       "type": "export",
       "qa__export": {
         "name": "export",
-        "_connectionId": "NETSUITE 353 CONNECTION",
+        "_connectionId": "NETSUITE CONNECTION",
         "apiIdentifier": "e475d957ba",
         "asynchronous": true,
         "oneToMany": false,

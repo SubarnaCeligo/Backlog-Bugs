@@ -5,7 +5,7 @@ test.describe('Verify if google drive import has a MIME type is a not a mandator
     test.beforeEach(async ({ io }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test('Verify if google drive import has a MIME type is a not a mandatory is field option', async({io,page}) => {
+    test('@Env-All Verify if google drive import has a MIME type is a not a mandatory is field option', async({io,page}) => {
         await io.homePage.click(selectors.basePagePO.RESOURCES);
         await io.homePage.clickByText('Imports')
         await io.homePage.clickByText(' Create import')
