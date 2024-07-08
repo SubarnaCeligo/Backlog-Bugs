@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe('C55930 Verify the "Message Sent" form of the Pendo-zendesk chat bot', () => {
-  test('C55930 Verify the "Message Sent" form of the Pendo-zendesk chat bot', async ({
+  test('@Env-All C55930 Verify the "Message Sent" form of the Pendo-zendesk chat bot', async ({
     page,
     io
   }) => {

@@ -41,12 +41,7 @@ test.describe("C107604_C107606 Verify drop-down in the HTTP Import when transfer
       );
       await io.flowBuilder.loadingTime();
       await io.homePage.addStep("binary");
-      // await io.assert.verifyElementIsDisplayed(
-      //   selectors.flowBuilderPagePO.HEX,
-      //   "Encoding HEX format is not displayed"
-      // );
-      // await io.flowBuilder.loadingTime();
-      // await io.homePage.addStep("hex");
+      await io.flowBuilder.loadingTime();
       await io.assert.verifyElementIsDisplayed(
         selectors.flowBuilderPagePO.UTF16E,
         "Encoding UTF16E format is not displayed"

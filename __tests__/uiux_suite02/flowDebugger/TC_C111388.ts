@@ -11,7 +11,7 @@ test.describe('C111388', () => {
         await io.api.deleteFlowViaAPI(id);
         await io.api.deleteScriptViaAPI(filterScript);
     });
-    test('C111388', async ({ io, page }) => {
+    test('@Env-All @Zephyr-IO-T14377 C111388', async ({ io, page }) => {
         C111388.pageProcessors[0].qa__import.filter.script._scriptId = filterScript;
         id = await io.createResourceFromAPI(C111388, "FLOWS");
         //Disable the flow

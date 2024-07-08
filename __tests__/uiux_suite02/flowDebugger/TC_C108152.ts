@@ -5,7 +5,7 @@ test.describe("Verify that a Salesforce composite type import has adaptor specif
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("Verify that a Salesforce composite type import has adaptor specific stub in the mock output.", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T24096 Verify that a Salesforce composite type import has adaptor specific stub in the mock output.", async ({ io, page }) => {
        
         //Click on Create Import
         await io.homePage.navigateTo(io.data.links.IMPORTS_PAGE_URL);

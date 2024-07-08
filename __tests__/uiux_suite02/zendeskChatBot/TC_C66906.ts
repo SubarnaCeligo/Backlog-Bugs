@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe('C66906 Verify the auto -populated ""Name"" & ""Email"" fields in Pendo-zendesk chat bot when we login to a shared account which has only Monitor access', () => {
-  test('C66906 Verify the auto -populated ""Name"" & ""Email"" fields in Pendo-zendesk chat bot when we login to a shared account which has only Monitor access', async ({
+  test('@Env-All C66906 Verify the auto -populated ""Name"" & ""Email"" fields in Pendo-zendesk chat bot when we login to a shared account which has only Monitor access', async ({
     page,
     io
   }) => {
