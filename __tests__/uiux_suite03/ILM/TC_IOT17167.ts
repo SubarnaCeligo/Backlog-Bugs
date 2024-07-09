@@ -21,7 +21,7 @@ test.describe(`TC_IOT17167 To verify Pull from Integration dropdown field lists 
       await io.homePage.addStep(`*** Clicked on Create New Source Integration ***`)
       await io.flowBuilder.fill(
         selectors.basePagePO.INPUT_NAME_SELECTOR,
-        "TC_IOT17167_DND"
+        "TC_IOT17167"
       );
       await io.homePage.addStep(`*** Filled integration name ***`)
       await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
@@ -40,16 +40,16 @@ test.describe(`TC_IOT17167 To verify Pull from Integration dropdown field lists 
       await io.homePage.loadingTime();
       await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
       await io.homePage.addStep("*** Waiting for home page Search Bar ***")
-      await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Clone - TC_IOT17167_DND');
-      await io.homePage.addStep("*** Searching for Clone - TC_IOT17167_DND ***")
-      await io.flowBuilder.clickByTextByIndex("Clone - TC_IOT17167_DND",0);
-      await io.homePage.addStep("*** Clicked on Clone - TC_IOT17167_DND ***")
+      await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Clone - TC_IOT17167');
+      await io.homePage.addStep("*** Searching for Clone - TC_IOT17167 ***")
+      await io.flowBuilder.clickByTextByIndex("Clone - TC_IOT17167",0);
+      await io.homePage.addStep("*** Clicked on Clone - TC_IOT17167 ***")
       await io.homePage.loadingTime();
       await io.flowBuilder.clickByTextByIndex("Revisions", 0);
       await io.homePage.addStep("*** Clicked on Revisions Tab ***")
       await io.flowBuilder.click(selectors.integrationPagePO.CREATE_PULL);
       await io.homePage.addStep("*** Clicked on Create Pull ***")
-      const isParentIntegrationNameDisplayed = await page.locator('text="TC_IOT17167_DND"').isVisible();
+      const isParentIntegrationNameDisplayed = await page.locator('text="TC_IOT17167"').isVisible();
       expect(isParentIntegrationNameDisplayed).toBeTruthy();
       await io.flowBuilder.clickButtonByIndex("Close", 0);
       await io.homePage.addStep("*** Closed Create Pull Dialog ***")
@@ -59,10 +59,10 @@ test.describe(`TC_IOT17167 To verify Pull from Integration dropdown field lists 
       await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
       await io.homePage.addStep("*** Waiting for home page Search Bar ***")
 
-      await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'TC_IOT17167_DND');
-      await io.homePage.addStep("*** Searching for TC_IOT17167_DND ***")
-      await io.flowBuilder.clickByTextByIndex("TC_IOT17167_DND",0);
-      await io.homePage.addStep("*** Clicked on Integration TC_IOT17167_DND ***")
+      await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'TC_IOT17167');
+      await io.homePage.addStep("*** Searching for TC_IOT17167 ***")
+      await io.flowBuilder.clickByTextByIndex("TC_IOT17167",0);
+      await io.homePage.addStep("*** Clicked on Integration TC_IOT17167 ***")
       await io.flowBuilder.click(selectors.homePagePO.DELETE_INTEGRATION);
       await io.homePage.addStep("*** Clicked on Delete Source Integration ***")
       await io.flowBuilder.click(selectors.basePagePO.DELETE);
@@ -72,10 +72,10 @@ test.describe(`TC_IOT17167 To verify Pull from Integration dropdown field lists 
       await io.homePage.addStep("*** Naviagated to Home page ***")
       await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
       await io.homePage.addStep("*** Waiting for home page Search Bar ***")
-      await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Clone - TC_IOT17167_DND');
-      await io.homePage.addStep("*** Searching for Clone - TC_IOT17167_DND ***")
-      await io.flowBuilder.clickByTextByIndex("Clone - TC_IOT17167_DND",0);
-      await io.homePage.addStep("*** Clicked on Clone - TC_IOT17167_DND ***")
+      await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Clone - TC_IOT17167');
+      await io.homePage.addStep("*** Searching for Clone - TC_IOT17167 ***")
+      await io.flowBuilder.clickByTextByIndex("Clone - TC_IOT17167",0);
+      await io.homePage.addStep("*** Clicked on Clone - TC_IOT17167 ***")
       await io.flowBuilder.click(selectors.homePagePO.DELETE_INTEGRATION);
       await io.homePage.addStep("*** Clicked on Delete Cloned Integration ***")
       await io.flowBuilder.click(selectors.basePagePO.DELETE);
