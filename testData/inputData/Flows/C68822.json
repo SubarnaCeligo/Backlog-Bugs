@@ -53,8 +53,8 @@
         }
     ],
     "ftp": {
-        "directoryPath": "Group-QA/HR-ui",
-        "fileNameStartsWith": "Testè, Test "
+        "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports_FileAdaptors",
+        "fileNameStartsWith": "113.Rest Multifield"
     },
     "file": {
         "output": "records",
@@ -86,7 +86,7 @@
         "batchSize": 1000
     },
     "ftp": {
-        "directoryPath": "Group-QA/dw",
+        "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports_FileAdaptors",
         "fileName": "bhanahaja-{{timestamp \"YYYY-MM-DDTHH:mm:ss.SSSZZ\" \"Asia/Calcutta\"}}.json",
         "backupDirectoryPath": "Group-QA/mq"
     },

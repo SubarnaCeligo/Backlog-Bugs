@@ -40,16 +40,19 @@
             "POST"
           ],
           "body": [],
-          "batchSize": 2,
           "sendPostMappedData": true,
           "isRest": false,
           "formType": "http",
-          "response": {
-            "resourcePath": [
-              "pp"
-            ]
-          }
+          "response": {}
         },
+        "mockResponse": [
+          {
+            "_json": {
+              "_raw": "File written successfully"
+            },
+            "statusCode": 200
+          }
+        ],
         "adaptorType": "HTTPImport"
       }
     },
