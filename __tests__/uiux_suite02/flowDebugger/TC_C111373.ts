@@ -3,8 +3,13 @@ import * as selectors from "@celigo/aut-selectors";
 import C111373 from "@testData/FlowDebugger/C111373.json"
 
 test.describe('C111373_C111374', () => {
-    test('C111373_C111374', async ({ io, page }) => {
+    test.beforeEach(async ({ io }) => {
+        await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+      });
+
+    test('@Env-All @Zephyr-IO-T14391 @Zephyr-IO-T14392 C111373_C111374', async ({ io, page }) => {
         const id = await io.createResourceFromAPI(C111373, "FLOWS");
+        await io.homePage.loadingTime()
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         //Disable the flow
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
@@ -39,7 +44,7 @@ test.describe('C111373_C111374', () => {
 
         //TC_C111374 Verify for listener user should able to filter debug log by using filters
         //Response code filter
-        await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.DEBUG_LOG_FILTER, 4);
+        await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.DEBUG_LOG_FILTER, 2);
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.FILTER_OPTION, 3);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.DATERANGE_APPLY);
         const text1 = await io.homePage.isVisible("text='You don’t have any debug log entries.'")

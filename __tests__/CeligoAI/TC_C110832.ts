@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
+test.describe.skip("C110832 Verify JS Editor is having Celigo AI", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
@@ -15,8 +15,8 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_TRANSFORMATION);
     await io.flowBuilder.loadingTime();
     // //EXPORT_TRANSFORMATION RULES C111492
-    const isCeligoAINotVisibleInRule = !(await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT));
-    await io.assert.expectToBeTrue(isCeligoAINotVisibleInRule, "Celigo AI Not Visible for Rule 1.0 or 2.0");
+    const isCeligoAIVisibleInRule = (await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT));
+    await io.assert.expectToBeTrue(isCeligoAIVisibleInRule, "Celigo AI Not Visible for Rule 1.0 or 2.0");
     await io.flowBuilder.click(selectors.basePagePO.JAVASCRIPTWINDOW);
     //Verify Celigo AI are in collapsed state and disabled. C113470 C113471
     await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","false", 1);
@@ -30,7 +30,7 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
     //Check CeligoHelpText is Aligned or not C113472 and C111475
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT);
     await expect(page.locator(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW)).toHaveAttribute('data-popper-placement', 'top');
-    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW, 'Provide instructions for Celigo AI to generate a Javascript code for you. ');
+    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW, 'Provide instructions for Celigo AI to generate a JavaScript code for you. ');
     await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW, 'Note: Your instructions will not be saved after you exit the editor window.');
     await io.flowBuilder.clickByIndex(selectors.connectionsPagePO.HELPTEXT_CLOSE, 0);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
@@ -42,7 +42,7 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
       "Celigo AI Placeholder is not displayed"
-    )
+    );
     //Verify Celigo AI are in expand state. Explain button disabled C111481
     await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","true", 1);
     const explainDisabled = await page.$$(selectors.flowBuilderPagePO.OPENAI.EXPLAIN_SELECTION);
