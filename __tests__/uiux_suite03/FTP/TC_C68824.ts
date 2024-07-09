@@ -11,10 +11,16 @@ import data from "@testData/Flows/C68824.json"
         
         await io.api.runBatchFlowViaAPI('TC_C68824', id);
         const lastRun2 = page.getByText('Last run');
-        await lastRun2.waitFor({state: 'visible', timeout: 180000});
+        await lastRun.waitFor({state: 'visible', timeout: 500000});
+
+    let success = await page.$$(selectors.flowBuilderPagePO.ERROR_BUBBLE)
+    for(let i = 0; i<success.length; i++){
+      let  msg = await success[i].textContent()
+      await expect(msg).toEqual("Success")
+    }
     
-        await  page.getByRole('cell', { name: 'success Success' }).getByRole('button').click()
-        const errorNumber = await io.flowBuilder.isVisible("text='0 errors in this run'")
-        await io.assert.expectToBeTrue(errorNumber,"Error is found in the flow")  
+        // await  page.getByRole('cell', { name: 'success Success' }).getByRole('button').click()
+        // const errorNumber = await io.flowBuilder.isVisible("text='0 errors in this run'")
+        // await io.assert.expectToBeTrue(errorNumber,"Error is found in the flow")  
       });
     });

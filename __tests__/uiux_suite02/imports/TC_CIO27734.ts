@@ -6,7 +6,7 @@ test.describe('Verify if google drive import has a MIME type has a help text', (
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test('Verify if google drive import has a MIME type has a help text', async ({ io, page }) => {
+    test('@Env-All Verify if google drive import has a MIME type has a help text', async ({ io, page }) => {
         await io.homePage.click(selectors.basePagePO.RESOURCES);
         await io.homePage.clickByText('Imports');
         await io.homePage.clickByText(' Create import');

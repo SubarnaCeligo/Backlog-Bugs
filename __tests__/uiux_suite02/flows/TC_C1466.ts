@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C1466 Verify,user able to select single or multiple options from 'Notify me when connection goes offline'", () => {
 
-  test("C1466 Verify,user able to select single or multiple options from 'Notify me when connection goes offline'", async ({
+  test("@Env-All C1466 Verify,user able to select single or multiple options from 'Notify me when connection goes offline'", async ({
     io, page
   }) => {
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"]+"home");

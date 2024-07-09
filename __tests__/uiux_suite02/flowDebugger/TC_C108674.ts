@@ -7,7 +7,7 @@ test.describe("TC_C108674 Verify whether Hotspot icons when result mapping is pr
   test.afterEach(async ({ io, page }) => {
     await io.api.deleteFlowViaAPI(flowId);
   });
-  test("C108674 Verify whether Hotspot icons when result mapping is properly configured", async ({
+  test("@Env-All @Zephyr-IO-T23933 C108674 Verify whether Hotspot icons when result mapping is properly configured", async ({
     io,
     page
   }) => {

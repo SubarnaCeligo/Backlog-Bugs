@@ -11,7 +11,7 @@
         "assistantMetadata": {
           "resource": "customer",
           "version": "v2",
-          "operation": "searches_forcustomersthatmatchasuppliedquery"
+          "operation": "retrieves_alistofcustomers"
         },
         "http": {
           "relativeURI": "/customers/search.json?query=first_name:C23737",

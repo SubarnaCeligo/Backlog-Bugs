@@ -12,7 +12,7 @@ test.describe('C111412', () => {
         await io.api.deleteFlowViaAPI(id);
         await io.api.deleteScriptViaAPI(preMap);
     });
-    test('C111412', async ({ io, page }) => {
+    test('@Env-All @Zephyr-IO-T14380 C111412', async ({ io, page }) => {
         C111412.pageProcessors[0].qa__import.hooks.preMap._scriptId = preMap;
         id = await io.createResourceFromAPI(C111412, "FLOWS");
         //Disable the flow

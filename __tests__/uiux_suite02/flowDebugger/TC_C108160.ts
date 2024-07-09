@@ -5,7 +5,7 @@ test.describe("TC_C108160 - Error message should not contain 'Learn More' when m
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("TC_C108160 - Error message should not contain 'Learn More' when mock output is in invalid format", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T24099 TC_C108160 - Error message should not contain 'Learn More' when mock output is in invalid format", async ({ io, page }) => {
         //Click on Create Import, select FTP
         await io.homePage.navigateTo(io.data.links.IMPORTS_PAGE_URL);
         await io.homePage.clickByText('Create import');
@@ -13,7 +13,7 @@ test.describe("TC_C108160 - Error message should not contain 'Learn More' when m
 
         //Select an FTP Connection
         await io.importsPage.click(selectors.basePagePO.CONNECTION_DROPDOWN);
-        await io.importsPage.clickByText('FTP CONNECTION');
+        await io.homePage.selectConnectionDropDown(page,'FTP CONNECTION');
         
         // Provide a name for the import and click Next
         await io.importsPage.fill(selectors.basePagePO.INPUT_NAME_SELECTOR, "Test TC108160");
