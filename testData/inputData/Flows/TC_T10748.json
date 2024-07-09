@@ -4,7 +4,7 @@
   "pageGenerators": [{
     "type": "export",
     "qa__export": {
-      "_connectionId": "DND HTTP PFX CONNECTION",
+      "_connectionId": "HTTP PFX CONNECTION DND",
       "name": "DND 10748 export",
       "apiIdentifier": "e962219367",
       "asynchronous": true,
@@ -28,7 +28,7 @@
   "pageProcessors": [{
     "type": "import",
     "qa__import": {
-      "_connectionId": "DND HTTP PFX CONNECTION",
+      "_connectionId": "HTTP PFX CONNECTION DND",
       "name": "HTTP import",
       "apiIdentifier": "i1438e96f8",
       "ignoreExisting": false,
