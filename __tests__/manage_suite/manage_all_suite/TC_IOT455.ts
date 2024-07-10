@@ -52,7 +52,8 @@ test.describe(`TC_IOT455 To verify Pull from Integration dropdown field doesn't 
       await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
       await io.homePage.addStep("*** Waiting for home page Search Bar ***")
       await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'TC_IOT455 Integration');
-      await io.homePage.addStep("*** Searching for TC_IOT455 Integration ***")
+      await io.homePage.addStep("*** Searching for TC_IOT455 Integration ***");
+      await io.flowBuilder.loadingTime();
       await io.flowBuilder.clickByTextByIndex("TC_IOT455 Integration", 0);
       await io.homePage.addStep("*** Clicked on Integration TC_IOT455 Integration ***")
       await io.homePage.loadingTime();
@@ -77,7 +78,8 @@ test.describe(`TC_IOT455 To verify Pull from Integration dropdown field doesn't 
       await io.homePage.addStep("*** Waiting for home page Search Bar ***");
 
       await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'TC_IOT455 Integration');
-      await io.homePage.addStep("*** Searching for TC_IOT455 Integration ***")
+      await io.homePage.addStep("*** Searching for TC_IOT455 Integration ***");
+      await io.flowBuilder.loadingTime();
       await io.flowBuilder.clickByTextByIndex("TC_IOT455 Integration", 0);
       await io.homePage.addStep("*** Clicked on Integration TC_IOT455 Integration ***");
       await io.flowBuilder.loadingTime();
@@ -92,11 +94,12 @@ test.describe(`TC_IOT455 To verify Pull from Integration dropdown field doesn't 
       await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
       await io.homePage.addStep("*** Waiting for home page Search Bar ***")
       await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Clone - TC_IOT455 Integration');
-      await io.homePage.addStep("*** Searching for Clone - TC_IOT455 Integration ***")
+      await io.homePage.addStep("*** Searching for Clone - TC_IOT455 Integration ***");
+      await io.flowBuilder.loadingTime();
       await io.flowBuilder.clickByTextByIndex("Clone - TC_IOT455 Integration", 0);
-      await io.homePage.addStep("*** Clicked on Clone - TC_IOT455 Integration ***")
+      await io.homePage.addStep("*** Clicked on Clone - TC_IOT455 Integration ***");
       await io.flowBuilder.click(selectors.homePagePO.DELETE_INTEGRATION);
-      await io.homePage.addStep("*** Clicked on Delete Cloned Integration ***")
+      await io.homePage.addStep("*** Clicked on Delete Cloned Integration ***");
       await io.flowBuilder.click(selectors.basePagePO.DELETE);
       await io.homePage.addStep("*** Clicked on Delete Button ***")
 
