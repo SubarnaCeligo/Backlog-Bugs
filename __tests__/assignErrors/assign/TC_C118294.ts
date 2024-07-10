@@ -5,7 +5,7 @@ test.describe("C118294 - Verify the elements of 'Assign error' flyout", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("-All @Zephyr-IO-T20068 C118294 - Verify the elements of 'Assign error' flyout", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T20068 C118294 - Verify the elements of 'Assign error' flyout", async ({ io, page }) => {
 
     //Navigate to default integration
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
