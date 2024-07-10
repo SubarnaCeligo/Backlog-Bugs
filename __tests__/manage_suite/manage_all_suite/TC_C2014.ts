@@ -17,22 +17,23 @@ test.describe(`C2014 Verify PG,PP-export&import created in account level manage 
     );
     await io.homePage.loadingTime();
     await io.flowBuilder.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Automation Flows');
-    await io.homePage.clickByText("Automation Flows")
-    await io.homePage.clickByText('Create flow')
-    await io.homePage.click(selectors.basePagePO.ADD_SOURCE_BUTTON)
+    await io.homePage.clickByText("Automation Flows");
+    await io.flowBuilder.loadingTime();
+    await io.homePage.clickByText('Create flow');
+    await io.flowBuilder.loadingTime();
+    await io.homePage.click(selectors.basePagePO.ADD_SOURCE_BUTTON);
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'FTP');
     await io.homePage.loadingTime();
-    await io.homePage.click(selectors.connectionsPagePO.FTP_CONNECTION)
+    await io.homePage.click(selectors.connectionsPagePO.FTP_CONNECTION);
     await io.homePage.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'FTP CONNECTION');
-    await io.homePage.clickByText('FTP CONNECTION')
+    await io.homePage.clickByTextByIndex('FTP CONNECTION', 0);
     await io.homePage.click(selectors.basePagePO.SAVE)
     await io.homePage.waitForElementAttached(selectors.importPagePO.NAME)
-    await io.exportsPage.fill(selectors.importPagePO.NAME, "test")
-    await io.exportsPage.clickByTextByIndex("Please select", 0)
-    await io.exportsPage.clickByText("JSON")
-
+    await io.exportsPage.fill(selectors.importPagePO.NAME, "test");
+    await io.exportsPage.clickByTextByIndex("Please select", 0);
+    await io.exportsPage.clickByText("JSON");
     const fileChooserPromise = page.waitForEvent("filechooser");
     await io.homePage.clickByText("Choose file");
     const fileChooser = await fileChooserPromise;
