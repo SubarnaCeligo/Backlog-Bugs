@@ -34,6 +34,7 @@ test.describe(`C51602 Verify help text for [Simple | HTTP] toggle button for edi
     await io.flowBuilder.fill(selectors.exportsPagePO.ASSISTANT_META_DATA_PATH_PARAMS_TOKEN,'12');
 
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+    await io.flowBuilder.loadingTime();
     await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
     await io.flowBuilder.loadingTime();
     await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
