@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C53302 Verify the mappings in IA when the import step has mappings created in 2.0 ", () => {
-  test("@Zephyr-IO-T12544 @Env-QA @Env-IAQA C53302 Verify the mappings in IA when the import step has mappings created in 2.0 ", async ({
+  test("@Zephyr-IO-T12544 @Env-All C53302 Verify the mappings in IA when the import step has mappings created in 2.0 ", async ({
     io,
     page
   }) => {
