@@ -15,7 +15,7 @@ test.describe("TC_C24297", () => {
     await page.waitForTimeout(5000);
     const value = await io.flowBuilder.getText(selectors.flowBuilderPagePO.EXISTING_RESOURCE)
     console.log("value", value)
-    const func = value.toString().includes("Clone a flow step from the marketplaceNo results found");
+    const func = value.toString().includes("Clone or reuse an existing flow step from your accountNo results found");
     await io.assert.expectToBeTrue(func, "Message is not displayed as expected")
 
 });

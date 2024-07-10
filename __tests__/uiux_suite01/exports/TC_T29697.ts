@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("TC_T29697_Test to validate that user is able to see azure synapse in application's list of marketplace", () => {
-  test("@Epic-IO-65860 @Bug-IO-77911 @Priority-P2 @Zephyr-IO-T29697 @Env-QA", async ({io, page}) => {
+  test("@Epic-IO-65860 @Bug-IO-77911 @Priority-P2 @Zephyr-IO-T29697 @Env-All", async ({io, page}) => {
       await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
       await io.homePage.addStep("*** Navigated to home page ***");
       await io.homePage.waitForElementAttached(selectors.basePagePO.MARKETPLACE)

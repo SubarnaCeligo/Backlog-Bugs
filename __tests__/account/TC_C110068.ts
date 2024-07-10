@@ -25,14 +25,14 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
       await io.flowBuilder.delay(1000 * 60 * 2);
       await io.loginPage.click(selectors.basePagePO.SUBMIT);
       let rateLimitErrorsVisibility = await page
-        .locator('[id="error-icon"] ~ div')
+        .locator(selectors.importPagePO.RATE_LIMIT_ERRORS_MESSAGE)
         .isVisible();
       if (rateLimitErrorsVisibility) {
         let rateLimitErrors = await page
-          .locator("[id='error-icon'] ~ div")
+          .locator(selectors.importPagePO.RATE_LIMIT_ERRORS_MESSAGE)
           .textContent();
-        let rateLimitErrorTime = await String(rateLimitErrors).match(/\d/g).join("");
-        await io.flowBuilder.delay(1000 * Number(rateLimitErrorTime));
+        let rateLimitErrorTime = String(rateLimitErrors).match(/\d/g).join("");
+        await io.flowBuilder.delay(1000 * parseInt(rateLimitErrorTime));
         await io.loginPage.click(selectors.basePagePO.SUBMIT);
       }
       await io.homePage.loadingTime();
@@ -91,10 +91,10 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
       await io.loginPage.click(selectors.basePagePO.SUBMIT);
       if (rateLimitErrorsVisibility) {
         let rateLimitErrors = await page
-          .locator("[id='error-icon'] ~ div")
+          .locator(selectors.importPagePO.RATE_LIMIT_ERRORS_MESSAGE)
           .textContent();
         let rateLimitErrorTime = await String(rateLimitErrors).match(/\d/g).join("");
-        await io.flowBuilder.delay(1000 * Number(rateLimitErrorTime));
+        await io.flowBuilder.delay(1000 * parseInt(rateLimitErrorTime));
         await io.loginPage.click(selectors.basePagePO.SUBMIT);
       }
     }
@@ -157,14 +157,14 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
     );
     await io.loginPage.click(selectors.basePagePO.SUBMIT);
     let rateLimitErrorsVisibility = await page
-      .locator('[id="error-icon"] ~ div')
+      .locator(selectors.importPagePO.RATE_LIMIT_ERRORS_MESSAGE)
       .isVisible();
     if (rateLimitErrorsVisibility) {
       let rateLimitErrors = await page
-        .locator("[id='error-icon'] ~ div")
+        .locator(selectors.importPagePO.RATE_LIMIT_ERRORS_MESSAGE)
         .textContent();
       let rateLimitErrorTime = await String(rateLimitErrors).match(/\d/g).join("");
-      await io.flowBuilder.delay(1000 * Number(rateLimitErrorTime));
+      await io.flowBuilder.delay(1000 * parseInt(rateLimitErrorTime));
       await io.loginPage.click(selectors.basePagePO.SUBMIT);
     }
     await io.homePage.loadingTime();
@@ -261,15 +261,15 @@ test.describe("TC_C110068 when user email is changed from profile page, verify E
     );
     await io.loginPage.click(selectors.basePagePO.SUBMIT);
     let rateLimitErrorsVisibility1 = await page
-      .locator('[id="error-icon"] ~ div')
+      .locator(selectors.importPagePO.RATE_LIMIT_ERRORS_MESSAGE)
       .isVisible();
     if (rateLimitErrorsVisibility1) {
       let rateLimitErrors = await page
-        .locator("[id='error-icon'] ~ div")
+        .locator(selectors.importPagePO.RATE_LIMIT_ERRORS_MESSAGE)
         .textContent();
-      let rateLimitErrorTime = await String(rateLimitErrors).match(/\d/g);
+      let rateLimitErrorTime = String(rateLimitErrors).match(/\d/g);
       let rateLimitErrorTime1 = rateLimitErrorTime.join("");
-      await io.flowBuilder.delay(1000 * Number(rateLimitErrorTime1));
+      await io.flowBuilder.delay(1000 * parseInt(rateLimitErrorTime1));
       await io.loginPage.click(selectors.basePagePO.SUBMIT);
     }
   });

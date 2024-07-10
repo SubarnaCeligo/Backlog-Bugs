@@ -4,7 +4,7 @@ test.describe('C28400 Running flows tab -Verify the pagination is shown correctl
   test.beforeEach(async ({ io }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);  
   });
-    test('C28400 Running flows tab -Verify the pagination is shown correctly - 50 rows in 1 page', async ({
+    test('@Env-STAGING @Zephyr-IO-T6339 C28400 Running flows tab -Verify the pagination is shown correctly - 50 rows in 1 page', async ({
       io,
       page
     }) => {
@@ -15,6 +15,7 @@ test.describe('C28400 Running flows tab -Verify the pagination is shown correctl
       await io.flowBuilder.runAllFlows(50);
       await io.homePage.click(selectors.flowBuilderPagePO.DASHBOARD);
       await io.homePage.loadingTime();
+      await io.flowBuilder.delay(10000);
       await io.assert.verifyElementDisplayedByText("1 - 50 of 50","Count is not expected"); 
     });
 });

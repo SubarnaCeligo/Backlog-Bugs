@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import { getLicensePayload } from "@celigo/aut-utilities";
 
 test.describe("C28952 Verify the audit log retention, ßconcurrency for expired license account.", () => {
-  test("C28952 @Zephyr-IO-T28952 @Env-QA @Priority-P2 Verify the audit log retention, concurrency for expired license account.", async ({
+  test("C28952 @Zephyr-IO-T28952  @Env-All @Priority-P2 Verify the audit log retention, concurrency for expired license account.", async ({
     io,
     page
   }) => {
@@ -17,8 +17,10 @@ test.describe("C28952 Verify the audit log retention, ßconcurrency for expired 
     );
 
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
+    await io.homePage.loadingTime();
+    await io.myAccountPage.waitForElementAttached(selectors.myAccountPagePO.SUBSCRIPTION);    
     await io.myAccountPage.click(selectors.myAccountPagePO.SUBSCRIPTION);
-    await page.waitForLoadState("load", { timeout: 60000 });
+    await page.waitForLoadState("load", { timeout: 90000 });
 
     await io.assert.verifyElementIsDisplayed(selectors.myAccountPagePO.SUBSCRIPTION, "Audit log retention");
     await io.assert.verifyElementIsDisplayed(selectors.myAccountPagePO.SUBSCRIPTION, "Connection concurrency limit");

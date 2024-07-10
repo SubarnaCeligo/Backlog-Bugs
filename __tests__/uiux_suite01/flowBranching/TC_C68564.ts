@@ -16,19 +16,19 @@ test.describe(`C68564 Verify user is upload the integration zip file having one 
     );
 
   });
-  test(`@Env-All C68564 Verify user is upload the integration zip file having one branched flow (with input/output/mapping/hooks defined) in the template ad able to install the template`, async ({
+  test(`@Env-All @Zephyr-IO-T17465 C68564 Verify user is upload the integration zip file having one branched flow (with input/output/mapping/hooks defined) in the template ad able to install the template`, async ({
     io,
     page
   }) => {
     await io.homePage.clickByText("Resources");
     await io.homePage.clickByText("Templates");
     await io.homePage.waitForElementAttached(`:has-text("temp1") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
-    await io.homePage.click(`tbody tr:has-text("temp4-DND") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
+    await io.homePage.click(`tbody tr:has-text("temp4_DND") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
     await io.homePage.clickByText("Upload template zip");
     const fileInput = await page.$(selectors.basePagePO.UPLOAD_FILE);
     await fileInput.setInputFiles('testData/inputData/Templates/C68564.zip');
     await io.homePage.clickByText("Marketplace")
-    await io.marketplacePage.fill('[placeholder="Search marketplace"]', "temp4-DND")
+    await io.marketplacePage.fill('[placeholder="Search marketplace"]', "temp4_DND")
     await io.marketplacePage.clickByText("Preview");
     await io.marketplacePage.clickByText("Install now")
     await io.marketplacePage.waitForElementAttached(selectors.integrationPagePO.SETUP_INTEGRATION_CONFIGURE_BUTTON)

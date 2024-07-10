@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C111381 from "@testData/FlowDebugger/C111381.json"
 
 test.describe('C111379_C111380_C111381_C116756', () => {
-    test('C111379_C111380_C111381_C116756', async ({ io, page }) => {
+    test('@Env-All @Zephyr-IO-T14397 C111379_C111380_C111381_C116756', async ({ io, page }) => {
         const id = await io.createResourceFromAPI(C111381, "FLOWS");
         //Disable the flow
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
@@ -30,27 +30,28 @@ test.describe('C111379_C111380_C111381_C116756', () => {
         await io.assert.verifyElementIsDisplayed(selectors.importPagePO.HTTP_REQUEST, "HTTP request not displayed");
         await io.flowBuilder.waitForElementAttached(selectors.importPagePO.HTTP_REQUEST);
         //Body
-        await io.assert.verifyElementDisplayedByText('Body', 'Body field not found');
+        await io.assert.verifyElementTextByIndex("[id*='body']", 'Body', 3);
         //Headers
-        await io.assert.verifyElementDisplayedByText('Headers', 'Headers field not found');
+        await io.assert.verifyElementTextByIndex("[id*='headers']", 'Headers', 2);
         //Other
-        await io.assert.verifyElementDisplayedByText('Other', 'Other field not found');
+        await io.assert.verifyElementTextByIndex("[id*='others']", "Other", 1);
+        var actual = await io.connectionPage.getText(
+            selectors.flowBuilderPagePO.CONTENT
+        );
+        await io.assert.expectToContainValue('\"{  \\\"id\\\": \\\"44207\\\",  \\\"recordType\\\": \\\"account\\\",  \\\"Name\\\": \\\"0Account 1\\\",  \\\"Display Name\\\": \\\"10.0 0Account 1\\\",  \\\"Account Type\\\": \\\"Bank\\\"}\"', JSON.stringify(actual), 'Record is not same');
+        
 
         //HTTP response
         await io.flowBuilder.clickButtonByIndex(selectors.exportsPagePO.HTTP_RESPONSE, 1);
         await io.assert.verifyElementIsDisplayed(selectors.exportsPagePO.HTTP_RESPONSE, "HTTP response is not displayed");
         //Body
-        await io.assert.verifyElementDisplayedByText('Body', 'Body field not found');
+        await io.assert.verifyElementTextByIndex("[id*='body']", 'Body', 3);
         //Headers
-        await io.assert.verifyElementDisplayedByText('Headers', 'Headers field not found');
+        await io.assert.verifyElementTextByIndex("[id*='headers']", 'Headers', 2);
         //Other
-        await io.assert.verifyElementDisplayedByText('Other', 'Other field not found');
+        await io.assert.verifyElementTextByIndex("[id*='others']", "Other", 1);
 
         //TC_C116756 Verify For import debug log records are not populating properly
-        var actual = await io.connectionPage.getText(
-            selectors.flowBuilderPagePO.CONTENT
-        );
-        await io.assert.expectToContainValue('\"{  \\\"id\\\": \\\"44207\\\",  \\\"recordType\\\": \\\"account\\\",  \\\"Name\\\": \\\"0Account 1\\\",  \\\"Display Name\\\": \\\"10.0 0Account 1\\\",  \\\"Account Type\\\": \\\"Bank\\\"}\"', JSON.stringify(actual), 'Record is not same');
         await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.TEST_RUN_STATUS, 1);
         var actual1 = await io.connectionPage.getText(
             selectors.flowBuilderPagePO.CONTENT

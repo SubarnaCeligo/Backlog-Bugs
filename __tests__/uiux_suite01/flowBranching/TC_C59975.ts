@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C55975 from '@testData/Flows/C59975.json';
 
 test.describe("C59975 Verify User is able to see the script under flow dashboard for flow branching", () => {
-    test("@Env-All C59975 Verify User is able to see the script under flow dashboard for flow branching", async ({io, page}) => {
+    test("@Env-All @Zephyr-IO-T17364 C59975 Verify User is able to see the script under flow dashboard for flow branching", async ({io, page}) => {
         await io.createResourceFromAPI(C55975, "FLOWS");
         await io.flowBuilder.addStep('Waiting for add data processor icon and clicking it');
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);

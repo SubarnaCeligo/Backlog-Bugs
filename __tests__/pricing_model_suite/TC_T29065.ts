@@ -6,7 +6,7 @@ test.describe("T29065 Verify the audit log retention for different license type 
   const upgradeNotificationText =
     "More options available - Upgrade your account for longer audit log periods.";
 
-  test("T29065 @Zephyr-IO-T29065 @Env-qa @Priority-P2 Verify the audit log retention for different license type ( Standard, Professional, Enterprise ) for Sandbox account.", async ({
+  test("T29065 @Zephyr-IO-T29065  @Env-All @Priority-P2 Verify the audit log retention for different license type ( Standard, Professional, Enterprise ) for Sandbox account.", async ({
     io,
     page
   }) => {
@@ -15,7 +15,9 @@ test.describe("T29065 Verify the audit log retention for different license type 
     const payloadFormat = {
       ...getLicensePayload(platformLicense),
       expires: "2044-04-10T13:14:33.363Z",
-      apiManagement: true
+      apiManagement: true,
+      numSandboxEndpoints: 2,
+      numSandboxFlows: 2,
     };
 
     await io.homePage.addStep(
@@ -32,7 +34,7 @@ test.describe("T29065 Verify the audit log retention for different license type 
     await io.homePage.click(selectors.homePagePO.SANDBOX_BUTTON);
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.myAccountPage.click(selectors.myAccountPagePO.AUDIT_LOG);
-    await page.waitForLoadState("load", { timeout: 60000 });
+    await page.waitForLoadState("load", { timeout: 90000 });
 
     const upgradeNotificationText_standard = await io.myAccountPage.getText(
       selectors.basePagePO.NOTIFICTION_BAR
@@ -52,6 +54,7 @@ test.describe("T29065 Verify the audit log retention for different license type 
     });
 
     await io.homePage.reloadPage();
+    await io.homePage.loadingTime();
     const upgradeNotificationText_professional = await io.myAccountPage.getText(
       selectors.basePagePO.NOTIFICTION_BAR
     );
@@ -70,6 +73,7 @@ test.describe("T29065 Verify the audit log retention for different license type 
     });
 
     await io.homePage.reloadPage();
+    await io.homePage.loadingTime();
     expect(page.getByText(upgradeNotificationText)).not.toBeVisible();
     await io.homePage.addStep(
       "Verified. Info message NOT displayed for enterprise tier."

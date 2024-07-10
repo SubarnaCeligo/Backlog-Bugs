@@ -17,7 +17,7 @@ test.describe(`C59644 Verify connection dropdown for imports`, () => {
     await io.flowBuilder.clickByText(
       "Import records into destination application"
     );
-    await io.flowBuilder.clickByText("Create from scratch")
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH)
     await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
     await page.getByText("API type").first().waitFor({ state: "visible" });
     const connectionText = (await io.flowBuilder.getText(

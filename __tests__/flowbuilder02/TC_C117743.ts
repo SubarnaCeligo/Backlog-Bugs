@@ -35,5 +35,7 @@ test.describe("TC_C117743_Checking that focus is shifting to typing when we clic
         await io.homePage.addStep("*** Checking that the focus is on 'typing' after clicking Fn+Arrowup ***");
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.addStep("*** Navigated to home page ***");
+        await io.homePage.loadingTime();
+        await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
     });
 });

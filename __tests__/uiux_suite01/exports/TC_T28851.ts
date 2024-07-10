@@ -1,8 +1,8 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("@Env-QA @Zephyr-IO-T9313 C28851_Push to APIM for IO listner, MyAPis, Export, Import, Existing API Manager and Push to apim option is not available for custom Webhooks", () => {
-    test("@Env-QA MyAPis", async ({ io, page, context }) => {
+test.describe("C28851_Push to APIM for IO listner, MyAPis, Export, Import, Existing API Manager and Push to apim option is not available for custom Webhooks", () => {
+    test("@Env-All @Zephyr-IO-T9313 MyAPis ", async ({ io, page, context }) => {
         const randomString = "MyAPIS" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.loadingTime()
@@ -34,7 +34,7 @@ test.describe("@Env-QA @Zephyr-IO-T9313 C28851_Push to APIM for IO listner, MyAP
         await io.homePage.loadingTime();
         await io.assert.verifyElementDisplayedByText('Request access to API management', 'APIM not locked')
     });
-    test("@Env-QA Export", async ({ io, context, page }) => {
+    test("@Env-All Export", async ({ io, context, page }) => {
         const randomString = "Export" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.loadingTime()
@@ -60,7 +60,7 @@ test.describe("@Env-QA @Zephyr-IO-T9313 C28851_Push to APIM for IO listner, MyAP
         await io.homePage.loadingTime();
         await io.assert.verifyElementDisplayedByText('Request access to API management', 'APIM not locked')
     });
-    test("@Env-QA Import", async ({ io, page, context }) => {
+    test("@Env-All Import", async ({ io, page, context }) => {
         const randomString = "Import" + (Math.random() + 1).toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.loadingTime()

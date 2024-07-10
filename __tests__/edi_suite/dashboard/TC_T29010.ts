@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S Verify default sorting on EDI Documents dashboar
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-QA @Epic-IO-31713 @Priority-P2 @Zephyr-IO-T29010 Verify default sorting on EDI Documents dashboard", async ({ io, page }) => {
+  test("@Env-All @Epic-IO-31713 @Priority-P2 @Zephyr-IO-T29010 Verify default sorting on EDI Documents dashboard", async ({ io, page }) => {
 
     //Go to Dashboard
     await io.myAccountPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "dashboard");
@@ -21,7 +21,7 @@ test.describe("@Author-Shriti S Verify default sorting on EDI Documents dashboar
     await io.homePage.waitForElementAttached(selectors.dashboardPagePO.FILTER_BUTTON);
 
     let defaultSortColumn = (await io.homePage.getText(selectors.dashboardPagePO.SORTED_COLUMN)).toString();
-    await io.assert.expectToContainValue('Data processed on', defaultSortColumn, 'Data not sorted on Last run column');
+    await io.assert.expectToContainValue('Processed', defaultSortColumn, 'Data not sorted on Last run column');
 
   });
 });

@@ -9,7 +9,7 @@ test.describe("TC_C107895_Verify syncing dateTime fields in NS SS2.x import flow
     });
 
     test("@Zephyr-T7833 @Env-All @Priority-P2 TC_C107895_Verify syncing dateTime fields in NS SS2.x import flows based on Date format added in the settings (MM/DD/YYYY hh-mm (24 hours)) UI_Backlog", async ({ io, page }, testInfo) => {
-        //Creating PageGenerator 
+        //Creating PageGenerator
         await test.step("*** Creating PageGenerator ***", async () => {
             await io.pageGenerator(allure, NS_FTP);
         });
@@ -18,7 +18,9 @@ test.describe("TC_C107895_Verify syncing dateTime fields in NS SS2.x import flow
             await io.pageProcessor(allure, NS_FTP);
             await io.flowBuilder.click(selectors.flowBuilderPagePO.HTTP_IMPORT_PLUSBUTTON);
             await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);
+            await io.flowBuilder.click(selectors.flowBuilderPagePO.DESTINATION_MAPPING_PLACEHOLDER);
             await io.homePage.fill(selectors.flowBuilderPagePO.DESTINATION_MAPPING_PLACEHOLDER, 'CreatedDate')
+            await io.flowBuilder.click(selectors.flowBuilderPagePO.SOURCE_MAPPING_PLACEHOLDER);
             await io.homePage.fill(selectors.flowBuilderPagePO.SOURCE_MAPPING_PLACEHOLDER, '05/06/2013 23-12 (24 hours)')
             await io.homePage.waitForElementAttached(selectors.mappings.MAPPER2DOT0PO.PREVIEW)
             await io.homePage.performWebActions(selectors.mappings.MAPPER2DOT0PO.PREVIEW, "preview")

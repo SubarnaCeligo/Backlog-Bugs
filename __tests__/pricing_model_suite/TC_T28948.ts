@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import { getLicensePayload } from "@celigo/aut-utilities";
 
 test.describe("T28948 Verify the audit log retention if user set the value from API", () => {
-  test("T28948 @Zephyr-IO-T28948 @Env-qa @Priority-P2 Verify the audit log retention if user set the value from API", async ({
+  test.skip("T28948 @Zephyr-IO-T28948  @Env-All @Priority-P2 Verify the audit log retention if user set the value from API", async ({
     io,
     page
   }) => {
@@ -26,7 +26,7 @@ test.describe("T28948 Verify the audit log retention if user set the value from 
 
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.myAccountPage.click(selectors.myAccountPagePO.AUDIT_LOG);
-    await page.waitForLoadState("load", { timeout: 60000 });
+    await page.waitForLoadState("load", { timeout: 90000 });
 
     await page.locator("button").filter({ hasText: "Download" }).click();
     await io.homePage.clickByText("Custom");

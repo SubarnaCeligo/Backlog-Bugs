@@ -3,6 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testdata from "./testdata.json"
 
 test.describe(`C68561 Verify user is upload the integration zip file having Multiple branched flows in the template and able to install the template`, () => {
+  
   test.beforeEach(async ({ io }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
@@ -15,19 +16,19 @@ test.describe(`C68561 Verify user is upload the integration zip file having Mult
     );
 
   });
-  test(`@Env-All C68561 Verify user is upload the integration zip file having Multiple branched flows in the template and able to install the template`, async ({
+  test(`@Env-All  @Zephyr-IO-T17462 C68561 Verify user is upload the integration zip file having Multiple branched flows in the template and able to install the template`, async ({
     io,
     page
   }) => {
     await io.homePage.clickByText("Resources");
     await io.homePage.clickByText("Templates");
     await io.homePage.waitForElementAttached(`:has-text("temp1") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
-    await io.homePage.click(`tbody tr:has-text("temp1-DND") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
+    await io.homePage.click(`tbody tr:has-text("temp1_DND") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
     await io.homePage.clickByText("Upload template zip");
     const fileInput = await page.$(selectors.basePagePO.UPLOAD_FILE);
     await fileInput.setInputFiles('testData/inputData/Templates/C68561.zip');
     await io.homePage.clickByText("Marketplace")
-    await io.marketplacePage.fill('[placeholder="Search marketplace"]', "temp1-DND")
+    await io.marketplacePage.fill('[placeholder="Search marketplace"]', "temp1_DND")
     await io.marketplacePage.clickByText("Preview");
     await io.marketplacePage.clickByText("Install now")
     await io.marketplacePage.waitForElementAttached(selectors.integrationPagePO.SETUP_INTEGRATION_CONFIGURE_BUTTON)

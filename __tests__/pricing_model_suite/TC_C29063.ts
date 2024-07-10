@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import { getLicensePayload } from "@celigo/aut-utilities";
 
 test.describe("C29063 Verify the concurrency levels while cloning a flow.", () => {
-  test("C29063 @Zephyr-IO-T29063 @Env-QA @Priority-P2 Verify the concurrency levels while cloning a flow.", async ({
+  test("C29063 @Zephyr-IO-T29063  @Env-All @Priority-P2 Verify the concurrency levels while cloning a flow.", async ({
     io,
     page,
   }) => {
@@ -34,11 +34,17 @@ test.describe("C29063 Verify the concurrency levels while cloning a flow.", () =
     await io.homePage.loadingTime();
     await io.templatePage.click(selectors.templatePagePO.CONFIGURE);
     await io.homePage.loadingTime();
-    await io.flowBuilder.click(selectors.importPagePO.ADVANCED);
+    const elementSelector = selectors.importPagePO.ADVANCED;
+    const element = await page.locator(elementSelector);
+    await element.scrollIntoViewIfNeeded();
+    await io.flowBuilder.click(elementSelector);
     await io.connectionPage.click(selectors.connectionsPagePO.HTTP_TARGET_CONCURRENCY_LEVEL);
     const maxConcurrencyLevel = await io.connectionPage.selectTextfromDropDown(page, "12");
     expect(maxConcurrencyLevel).toBe(true);
-    await io.connectionPage.clickByText("request an upgrade.", { tag: "a" });
+    await io.homePage.loadingTime();
+    await io.connectionPage.click(selectors.connectionsPagePO.HTTP_TARGET_CONCURRENCY_LEVEL);
+    await io.homePage.loadingTime();
+    await io.connectionPage.clickByText("request an upgrade.");   
     await io.assert.verifyElementIsDisplayed(selectors.homePagePO.DIALOG, "We will contact you to discuss your business needs and recommend an ideal subscription plan.");
     await io.homePage.click(selectors.mappings.MAPPER2DOT0PO.CLOSEBUTTON);
     await io.api.putCall(

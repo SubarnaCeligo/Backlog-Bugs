@@ -1,0 +1,75 @@
+{
+    "_id": "652e15d26819f54a81ada56f",
+    "name": "Webhook Export - Listener Logs",
+    "disabled": true,
+    "_integrationId": "65239b7a699d210c29d7b67e",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "_id": "658bc8fadd43551b64bb0ce8",
+                "name": "Webhook",
+                "type": "webhook",
+                "sandbox": false,
+                "debugUntil": "2023-12-28T08:32:49.584Z",
+                "aiDescription": {},
+                "webhook": {
+                    "provider": "custom",
+                    "verify": "basic",
+                    "username": "test",
+                    "password": "test"
+                },
+                "transform":{"type":"expression","expression":{"version":"2","rules":[[]],"rulesTwoDotZero":{"mappings":[{"generate":"cus","dataType":"string","extract":"$","status":"Active","sourceDataType":"object"}],"mode":"modify"}},"rules":[[]],"version":"2"},
+                "adaptorType": "WebhookExport",
+                "sampleData": {
+                    "name": "John Doe"
+                }
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "_id": "653129b582c57a12343e9680",
+                "name": "Salesforce SOAP",
+                "_connectionId": "SALESFORCE CONNECTION",
+                "apiIdentifier": "i1b31897ac",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "salesforce": {
+                    "operation": "insert",
+                    "sObjectType": "Account",
+                    "api": "soap",
+                    "removeNonSubmittableFields": false
+                },
+                "adaptorType": "SalesforceImport"
+            }
+        }
+    ],
+    "createFlow": {
+        "_id": "652e15d26819f54a81ada56f",
+        "name": "Webhook Export - Listener Logs",
+        "disabled": true,
+        "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID",
+                "skipRetries": false
+            }
+        ],
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "autoResolveMatchingTraceKeys": true
+    }
+}

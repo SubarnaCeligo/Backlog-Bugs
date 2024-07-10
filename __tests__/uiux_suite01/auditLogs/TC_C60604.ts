@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Connections/Narvar.json";
 
 test.describe(`C60604 Verify View label colour before hovering over the link and after hovering over the link.`, () => {
-  test(`@Env-All C60604 Verify View label colour before hovering over the link and after hovering over the link.`, async ({
+  test(`@Env-All @Zephyr-IO-T5330 C60604 Verify View label colour before hovering over the link and after hovering over the link.`, async ({
     io,
     page
   }) => {

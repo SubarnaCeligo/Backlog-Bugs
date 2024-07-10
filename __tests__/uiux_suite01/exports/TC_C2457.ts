@@ -7,7 +7,7 @@ test.describe("TC_C2457", () => {
     test.afterEach(async ({ io, page  }) => {
         await io.api.deleteFlowViaAPI(flowMap.get(C2457.qa__api_tdata[0].name)['flowId']);
     });
-    test("Verify the fetching progress bar indicator is shown for listener logs and script logs", async ({ 
+    test("@Env-All Verify the fetching progress bar indicator is shown for listener logs and script logs", async ({ 
         io, page
     }) => { 
         flowMap = await io.api.createImpOrExpAndFlowsThruAPI(C2457, false);

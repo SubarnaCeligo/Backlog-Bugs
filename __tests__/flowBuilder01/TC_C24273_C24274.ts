@@ -12,21 +12,20 @@ test.describe("TC_C24273_C24274", () => {
       "Or choose from below",
       "Line is present"
     );
-  
+
 
     await io.myAccountPage.click(selectors.flowBuilderPagePO.ACCOUNT_RESOURCE_SHOWMORE);
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.ACCOUNT_RESOURCE_SHOWMORE,
       "Show more is not present"
     );
-    
-    let no=page.$$(selectors.flowBuilderPagePO.EXISTING_ACCOUNT_RESOURCE)
-    let checkGreaterThen25=false
 
-      if((await page.$$( selectors.flowBuilderPagePO.EXISTING_ACCOUNT_RESOURCE)).length==25)
-      {
-        checkGreaterThen25=true
-      }
+    let no = page.$$(selectors.flowBuilderPagePO.OPENAI.NLS_RESOURCE)
+    let checkGreaterThen25 = false
+
+    if ((await page.$$(selectors.flowBuilderPagePO.OPENAI.NLS_RESOURCE)).length >= 25) {
+      checkGreaterThen25 = true
+    }
     expect(checkGreaterThen25).toBe(true);
   });
 });

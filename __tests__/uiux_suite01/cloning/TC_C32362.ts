@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Connections/Narvar.json";
 
 test.describe(`C32362 Verify cloned integration has the updated flow after updating the settings`, () => {
-  test(`@Env-QA C32362 Verify cloned integration has the updated flow after updating the settings`, async ({
+  test(`@Env-QA @Zephyr-IO-T5337 C32362 Verify cloned integration has the updated flow after updating the settings`, async ({
     io,
     page
   }) => {
@@ -58,8 +58,8 @@ test.describe(`C32362 Verify cloned integration has the updated flow after updat
     await io.homePage.clickByTextByIndex("Clone - C32362_DND", 0);
     await io.homePage.click(selectors.flowBuilderPagePO.NOTIFICATION_CONNECTIONS);
     await io.assert.verifyElementDisplayedByText(
-      "347 NS CONNECTION",
-      "347 NS CONNECTION step is not displayed"
+      "NETSUITE 353 CONNECTION",
+      "NETSUITE 353 CONNECTION step is not displayed"
     );
     await io.assert.verifyElementDisplayedByText(
       "FTP",

@@ -5,7 +5,7 @@ import testData2 from "@testData/Flows/C22915_testdata2.json"
 
 test.describe('Verify the prefix “Build “ from the field labels in exports and imports', () => {
 
-    test('Verify the prefix “Build “ from the field labels in exports', async ({ io, page }) => {
+    test('@Env-All @Zephyr-IO-T9924 Verify the prefix “Build “ from the field labels in exports', async ({ io, page }) => {
 
 
       const id =  await io.createResourceFromAPI(
@@ -21,7 +21,7 @@ test.describe('Verify the prefix “Build “ from the field labels in exports a
       expect(labelsWithBuildPrefix.length).toBe(0);
 
     });
-    test('Verify the prefix “Build “ from the field labels in imports', async ({ io, page }) => {
+    test('@Env-All Verify the prefix “Build “ from the field labels in imports', async ({ io, page }) => {
       const id =  await io.createResourceFromAPI(
           testData2,
           'FLOWS'

@@ -1,0 +1,91 @@
+{
+    "name": "TC_IO-T32631",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "MongoDB Export",
+                "_connectionId": "MONGODB CONNECTION",
+                "apiIdentifier": "e2743380d5",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "groupByFields": [
+                    "id"
+                ],
+                "rawData": "6253c695bbf2c06775d39fe147a330a269a1463ea9e7dba8d188a243",
+                "mongodb": {
+                    "method": "find",
+                    "collection": "TEST NEW"
+                },
+                "filter": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [],
+                        "version": "1"
+                    },
+                    "rules": [],
+                    "version": "1"
+                },
+                "adaptorType": "MongodbExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "_connectionId": "MONGODB CONNECTION",
+                "name": "MONGODB Import",
+                "assistantMetadata": {},
+                "ignoreExisting": false,
+                "mongodb": {
+                    "collection": "Vikram",
+                    "lookupType": "",
+                    "method": "insertMany"
+                },
+                "oneToMany": "false",
+                "sandbox": false
+            }
+        }
+    ],
+    "createFlow": {
+        "name": "TC_IO-T32631",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+        ]
+    },
+    "customSetting": {
+        "useAsPrimaryInterface": true,
+        "fieldMap": {
+            "pathparam": {
+                "id": "pathparam",
+                "name": "pathparam",
+                "type": "text",
+                "label": "Account number",
+                "required": true,
+                "helpText": "Enter an account number, and separate additional values with a comma."
+            }
+        },
+        "layout": {
+            "fields": [
+                "pathparam"
+            ]
+        }
+    }
+}

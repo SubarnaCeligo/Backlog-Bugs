@@ -5,7 +5,7 @@ test.describe("@Author_sagna123 TC_T29675_Test to validate user is able to add n
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Epic-IO-65860 @Priority-P2 @Zephyr-IO-T29675 @Env-QA", async ({ io, page }) => {
+    test("@Epic-IO-65860 @Priority-P2 @Zephyr-IO-T29675 @Env-All", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources","Exports");
@@ -14,7 +14,7 @@ test.describe("@Author_sagna123 TC_T29675_Test to validate user is able to add n
         await io.homePage.addStep("*** Clicked on create export***");
         await io.homePage.click(selectors.connectionsPagePO.AZURE_SYNAPSE);
         await io.homePage.addStep("*** Clicked on Azure synapse connection ***");
-        await io.homePage.click(selectors.basePagePO.CONNECTION);
+        await io.homePage.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.homePage.addStep("*** Clicked on connection dropdown ***");
         await io.homePage.clickByText("AZURE SYNAPSE CONNECTOR");
         await io.homePage.addStep("*** Selected the connection ***");

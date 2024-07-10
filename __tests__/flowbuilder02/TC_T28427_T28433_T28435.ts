@@ -8,7 +8,7 @@ test.describe("@Author_sagna123 TC_T28427_T28433_T28435_Test to validate checkbo
     test("@Epic-IO-37655 @Priority-P2 @Zephyr-IO-T28427 @Zephyr-IO-T28433 @Zephyr-IO-T28435 @Env-All", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
-        await io.homePage.goToMenu("Resources","Exports");
+        await io.myAccountPage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.addStep("*** Navigated back to export page ***");
         await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
         await io.homePage.addStep("*** Clicked on create export***");
@@ -19,7 +19,7 @@ test.describe("@Author_sagna123 TC_T28427_T28433_T28435_Test to validate checkbo
         await io.homePage.addStep("*** Selected Google Sheets application ***");
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "Sheet Parser Google Sheet connection");
         await io.homePage.addStep("*** Searched for Sheet Parser Google Sheet connection CONNECTION ***");
-        await io.homePage.clickByText('Sheet Parser Google Sheet connection');
+        await io.homePage.click(selectors.connectionsPagePO.CONNECTIONDROP0);
         await io.homePage.addStep("*** Selected Sheet Parser Google Sheet connection ***");
         await io.homePage.click(selectors.basePagePO.ADD_NAME);
         await page.keyboard.press('/');

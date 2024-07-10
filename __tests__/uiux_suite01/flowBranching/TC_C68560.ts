@@ -12,18 +12,18 @@ test.describe(`C68560 Verify user is upload the ntegration zip file having one l
       `v1/integrations/${testdata.firstString}`
     );
   });
-
-  test(`@Env-All C68560 Verify user is upload the ntegration zip file having one linear flow in the template and able to install the template`, async ({
+//Skipped this test case as we don;t have creds for the connection and the tracker is : https://celigo.atlassian.net/browse/IOAUT-15782
+  test.skip(`@Env-All @Zephyr-IO-T17461 C68560 Verify user is upload the ntegration zip file having one linear flow in the template and able to install the template`, async ({
     io,
     page
   }) => {
     await io.homePage.clickByText("Resources");
     await io.homePage.clickByText("Templates");
     await io.homePage.waitForElementAttached(
-      `:has-text("temp2-DND") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`
+      `:has-text("temp2_DND") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`
     );
     await io.homePage.click(
-      `tbody tr:has-text("temp2-DND") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`
+      `tbody tr:has-text("temp2_DND") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`
     );
     await io.homePage.clickByText("Upload template zip");
     const fileInput = await page.$(selectors.basePagePO.UPLOAD_FILE);
@@ -31,7 +31,7 @@ test.describe(`C68560 Verify user is upload the ntegration zip file having one l
     await io.homePage.clickByText("Marketplace");
     await io.marketplacePage.fill(
       '[placeholder="Search marketplace"]',
-      "temp2-DND"
+      "temp2_DND"
     );
     await io.marketplacePage.clickByText("Preview");
     await io.marketplacePage.clickByText("Install now");

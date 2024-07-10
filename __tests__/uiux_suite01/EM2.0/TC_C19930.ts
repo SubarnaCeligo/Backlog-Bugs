@@ -3,13 +3,10 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe("Verify user can see last 30 days unresolved/open errors", () => {
   test.beforeEach(async ({ io }) => {
-    await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
-  });
-  test("Verify user can see last 30 days unresolved/open errors", async ({ io, page }) => {
-
     //Navigate to default integration
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
-
+  });
+  test("@Zephyr-IO-T7287 @Env-STAGING Verify user can see last 30 days unresolved/open errors", async ({ io, page }) => {
     // Search for a DND flow which has been running for more than 2 weeks
     await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
     await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Flow_With_Errors_DND');
