@@ -14,6 +14,7 @@ test.describe(`C51601`, () => {
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, "Loop Returns");
     await io.flowBuilder.clickByText("Loop Returns");
     await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.clickByIndex(
         selectors.flowBuilderPagePO.HELP_TEXT_ICON,
         1
