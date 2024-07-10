@@ -17,7 +17,7 @@
           "statsOnly": false,
           "restlet": {
             "recordType": "customer",
-            "searchId": "3979",
+            "searchId": "1907",
             "restletVersion": "suiteapp2.0",
             "markExportedBatchSize": 100,
             "hooks": {
