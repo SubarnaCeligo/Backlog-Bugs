@@ -2,7 +2,7 @@ import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("TC_C118286_C118287_C28390_C118292", () => {
-    test("@Env-All @Zephyr-IO-T2009 @Zephyr-IO-T20100 @Zephyr-IO-T888 @Zephyr-IO-T20105 TC_C118286_C118287_C28390_C118292", async ({io, page}) => {
+    test("@Env-All @Zephyr-IO-T20099 @Zephyr-IO-T20100 @Zephyr-IO-T888 @Zephyr-IO-T20105 TC_C118286_C118287_C28390_C118292", async ({io, page}) => {
         await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
         await io.myAccountPage.click(selectors.myAccountPagePO.SECURITY);
         await io.homePage.waitForElementAttached(selectors.basePagePO.BREADCRUMB);
