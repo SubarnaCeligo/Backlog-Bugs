@@ -5,9 +5,17 @@ test.describe(`C51600`, () => {
     test(`@Env-All @Zephyr-IO-T18919 C51600`, async ({ io, page }) => {
         await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
         await io.flowBuilder.loadingTime();
+        await io.flowBuilder.click(selectors.connectionsPagePO.CREATE_CONNECTION);
+        await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Loop Returns');
+        await page.keyboard.press('Enter');
+        await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_NAME, 'Loop Returns connection');
+        await io.flowBuilder.fill(selectors.templatePagePO.ORDERFULTOKEN,'12345');
+        await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+        await io.flowBuilder.click(selectors.basePagePO.MFA_SAVE);
+        await io.flowBuilder.loadingTime();
         await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
-        await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'LOOP RETURN CONNECTION');
-        await io.exportsPage.clickByText("LOOP RETURN CONNECTION");
+        await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Loop Returns connection');
+        await io.exportsPage.clickByTextByIndex("Loop Returns connection",1);
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.clickByIndex(
             selectors.flowBuilderPagePO.HELP_TEXT_ICON,

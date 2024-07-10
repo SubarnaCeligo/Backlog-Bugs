@@ -7,7 +7,7 @@ test.describe(`C51599`, () => {
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.click(selectors.connectionsPagePO.CREATE_CONNECTION);
         await io.homePage.fill(selectors.settingsPagePO.APP_NAME_INPUT, "LOOP RETURNS");
-        await io.flowBuilder.clickByText('Loop Returns');
+        await page.keyboard.press('Enter');
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.clickByIndex(
             selectors.flowBuilderPagePO.HELP_TEXT_ICON,
