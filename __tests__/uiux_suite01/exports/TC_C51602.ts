@@ -16,7 +16,7 @@ test.describe(`C51602 Verify help text for [Simple | HTTP] toggle button for edi
     await io.flowBuilder.clickByText("Loop Returns");
     await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
     await io.flowBuilder.waitForElementAttached(selectors.exportsPagePO.NAME);
-    await io.flowBuilder.fill(selectors.exportsPagePO.NAME, "Loop returns export");
+    await io.flowBuilder.fill(selectors.exportsPagePO.NAME, "TC export");
     await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'LOOP RETURN CONNECTION');
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);
