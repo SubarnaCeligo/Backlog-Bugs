@@ -23,7 +23,22 @@ test.describe("Verify the help text for update and create endpoints", () => {
 
     await io.flowBuilder.click(selectors.exportsPagePO.ASSISTANT_META_DATA_RESOURCE);
     await io.flowBuilder.clickByText("Customers");
-    await page.locator('')
+    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.exportsPagePO.ASSISTANT_META_DATA_OPERATION);
+    await io.flowBuilder.click(selectors.exportsPagePO.ASSISTANT_META_DATA_OPERATION);
+    await io.flowBuilder.clickByText("Composite: create new records & update existing records");
+    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.exportsPagePO.ASSISTANT_META_DATA_OPERATION);
+    await io.flowBuilder.click(selectors.exportsPagePO.ASSISTANT_META_DATA_OPERATION);
+    await io.flowBuilder.clickByText("Create a customer");
+    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.exportsPagePO.ASSISTANT_META_DATA_OPERATION);
+    await io.flowBuilder.click(selectors.exportsPagePO.ASSISTANT_META_DATA_RESOURCE);
+    await io.flowBuilder.clickByText("Billing");
+    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.exportsPagePO.ASSISTANT_META_DATA_OPERATION);
+    await io.flowBuilder.click(selectors.exportsPagePO.ASSISTANT_META_DATA_RESOURCE);
+    await io.flowBuilder.clickByText("Customers");
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.waitForElementAttached(selectors.exportsPagePO.ASSISTANT_META_DATA_OPERATION);
     await io.flowBuilder.click(selectors.exportsPagePO.ASSISTANT_META_DATA_OPERATION);
