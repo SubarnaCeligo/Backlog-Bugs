@@ -7,7 +7,7 @@ test.describe(`C51602 Verify help text for [Simple | HTTP] toggle button for edi
     io,
     page
   }) => {
-    await io.exportsPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
+    await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.homePage.goToMenu("Tools", "Flow builder");
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.ADD_SOURCE
@@ -42,7 +42,7 @@ test.describe(`C51602 Verify help text for [Simple | HTTP] toggle button for edi
     await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
     await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'TC Export');
     await io.flowBuilder.loadingTime();
-    await io.exportsPage.clickByTextByIndex("TC Export",1);
+    await io.exportsPage.clickByText("TC Export");
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.clickByIndex(
         selectors.flowBuilderPagePO.HELP_TEXT_ICON,
