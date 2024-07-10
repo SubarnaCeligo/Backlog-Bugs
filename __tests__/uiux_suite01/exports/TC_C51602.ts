@@ -40,9 +40,9 @@ test.describe(`C51602 Verify help text for [Simple | HTTP] toggle button for edi
     await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
     await io.flowBuilder.loadingTime();
     await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
-    await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Loop returns export');
+    await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'TC Export');
     await io.flowBuilder.loadingTime();
-    await io.exportsPage.clickByTextByIndex("Loop returns export",1);
+    await io.exportsPage.clickByTextByIndex("TC Export",1);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.clickByIndex(
         selectors.flowBuilderPagePO.HELP_TEXT_ICON,
