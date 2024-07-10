@@ -57,7 +57,8 @@ test.describe(`TC_IOT455 To verify Pull from Integration dropdown field doesn't 
       await io.homePage.addStep("*** Clicked on Integration TC_IOT455 Integration ***")
       await io.homePage.loadingTime();
       await io.flowBuilder.clickByTextByIndex("Revisions", 0);
-      await io.homePage.addStep("*** Clicked on Revisions Tab ***")
+      await io.homePage.addStep("*** Clicked on Revisions Tab ***");
+      await io.flowBuilder.loadingTime();
       await io.flowBuilder.click(selectors.integrationPagePO.CREATE_PULL);
       await io.homePage.addStep("*** Clicked on Create Pull ***")
       const isChildIntegrationNameDisplayed = await page.locator('text="Clone - TC_IOT455 Integration"').isVisible();
