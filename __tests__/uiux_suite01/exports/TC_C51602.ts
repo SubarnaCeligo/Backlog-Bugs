@@ -27,7 +27,7 @@ test.describe(`C51602 Verify help text for [Simple | HTTP] toggle button for edi
     await io.flowBuilder.loadingTime();
     await io.homePage.click(selectors.exportsPagePO.ASSISTANT_META_DATA_OPERATION);
     await io.flowBuilder.loadingTime();
-    await io.flowBuilder.clickByText('Get cart');
+    await io.flowBuilder.clickByText('Get Cart');
     await io.flowBuilder.loadingTime();
     
 
