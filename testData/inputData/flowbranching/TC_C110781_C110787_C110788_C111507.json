@@ -1,58 +1,34 @@
 {
-
-    "name": "New flow",
+    "name": "New Flow",
     "disabled": true,
     "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
     "pageGenerators": [
         {
             "type": "export",
             "qa__export": {
-                "name": "NS Export",
-                "description": "NS for multiple pages and records",
-                "_connectionId": "NETSUITE CONNECTION",
-                "apiIdentifier": "e9c3f5615c",
-                "asynchronous": true,
-                "pageSize": 5,
-                "oneToMany": false,
-                "sandbox": false,
-                "netsuite": {
-                    "type": "restlet",
-                    "skipGrouping": true,
-                    "statsOnly": false,
-                    "restlet": {
-                        "recordType": "item",
-                        "searchId": "2509",
-                        "useSS2Restlets": false,
-                        "markExportedBatchSize": 100
-                    },
-                    "distributed": {
-                        "useSS2Framework": false
-                    }
+                "_connectionId": "FTP CONNECTION",
+                "qa__path": "/FTP_uploads/C47423.json",
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "C47423.json"
                 },
-                "transform": {
-                    "type": "expression",
-                    "expression": {
-                        "rules": [
-                            []
-                        ],
-                        "version": "1"
-                    },
-                    "version": "1",
-                    "rules": [
-                        []
-                    ]
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
                 },
-                "adaptorType": "NetSuiteExport"
+                "adaptorType": "FTPExport"
             }
         }
     ],
-
+    "autoResolveMatchingTraceKeys": true,
     "routers": [
         {
-            "name": "",
             "routeRecordsUsing": "input_filters",
-            "id": "lnf08eelkRL",
-            "routeRecordsTo": "first_matching_branch",
+            "id": "nw5EED",
+            "routeRecordsTo": "all_matching_branches",
             "branches": [
                 {
                     "name": "Branch 1.0",
@@ -63,10 +39,22 @@
                                 "lists": []
                             },
                             "type": "import",
-                            "_importId": "65252277a57fb86a65d78200"
+                            "qa__import": {
+                                "_connectionId": "FTP CONNECTION",
+                                "file": {
+                                    "fileName": "file1{{timestamp \"YYYY-MM-DDTHH:mm:ssZ\"}}.json",
+                                    "skipAggregation": true,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                                    "fileName": "file1{{timestamp \"YYYY-MM-DDTHH:mm:ssZ\"}}.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
                         }
                     ],
-                    "nextRouterId": "rkgHCPYCYRI"
+                    "nextRouterId": "9jT3ys"
                 },
                 {
                     "name": "Branch 1.1",
@@ -77,10 +65,22 @@
                                 "lists": []
                             },
                             "type": "import",
-                            "_importId": "65318781365db958327ba0fd"
+                            "qa__import": {
+                                "_connectionId": "FTP CONNECTION",
+                                "file": {
+                                    "fileName": "file2{{timestamp \"YYYY-MM-DDTHH:mm:ssZ\"}}.json",
+                                    "skipAggregation": true,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                                    "fileName": "file2{{timestamp \"YYYY-MM-DDTHH:mm:ssZ\"}}.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
                         }
                     ],
-                    "nextRouterId": "rkgHCPYCYRI"
+                    "nextRouterId": "9jT3ys"
                 }
             ],
             "script": {
@@ -88,8 +88,7 @@
             }
         },
         {
-            "name": "",
-            "id": "rkgHCPYCYRI",
+            "id": "9jT3ys",
             "branches": [
                 {
                     "name": "",
@@ -100,11 +99,69 @@
                                 "lists": []
                             },
                             "type": "import",
-                            "_importId": "6540b5a461ac5e4c706252cd"
+                            "qa__import": {
+                                "_connectionId": "FTP CONNECTION",
+                                "file": {
+                                    "fileName": "Finalfileskipaggfile{{timestamp \"YYYY-MM-DDTHH:mm:ssZ\"}}.json",
+                                    "skipAggregation": true,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                                    "fileName": "Finalfileskipaggfile{{timestamp \"YYYY-MM-DDTHH:mm:ssZ\"}}.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
                         }
                     ]
                 }
             ]
         }
-    ]
+    ],
+    "qa__expectedDashboardCount": {
+        "successCount": "50",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "expected": {
+            "FTP": {
+                "name": "47423",
+                "_integrationId": "62f51db41677a21a108e5e3a",
+                "import": {
+                    "_connectionId": "FTP CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "50",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "Finalfileskipaggfile-1",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".json"
+                }
+            },
+            "FTp": {
+                "name": "47423",
+                "_integrationId": "62f51db41677a21a108e5e3a",
+                "import": {
+                    "_connectionId": "FTP CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "50",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "Finalfileskipaggfile-2",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".json"
+                }
+            }
+        }
+    }
 }

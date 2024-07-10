@@ -5,13 +5,14 @@ test.describe("@Author_sagna123 TC_T29672_TC_T29673_Test to validate user is abl
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Epic-IO-65860 @Priority-P2 @Zephyr-IO-T29672 @Zephyr-IO-T29673 @Env-QA", async ({ io, page }) => {
+    test("@Epic-IO-65860 @Priority-P2 @Zephyr-IO-T29672 @Zephyr-IO-T29673 @Env-All", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources","Exports");
         await io.homePage.addStep("*** Navigated back to export page ***");
         await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
         await io.homePage.addStep("*** Clicked on create export***");
+        await io.homePage.waitForElementAttached(selectors.connectionsPagePO.AZURE_SYNAPSE);
         await io.homePage.click(selectors.connectionsPagePO.AZURE_SYNAPSE);
         await io.homePage.addStep("*** Clicked on Azure synapse connection ***");
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);

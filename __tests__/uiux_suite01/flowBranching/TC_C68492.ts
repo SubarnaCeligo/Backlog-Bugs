@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C68492 Verify user is able to clone the integration from Sandbox env. having multiple flows with enabled scheduling", () =>{
 
-    test("@Env-All C68492 Verify user is able to clone the integration from Sandbox env. having multiple flows with enabled scheduling", async({
+    test("@Env-All @Zephyr-IO-T17396 C68492 Verify user is able to clone the integration from Sandbox env. having multiple flows with enabled scheduling", async({
                io,
                 page
               }) => {
@@ -14,6 +14,8 @@ test.describe("C68492 Verify user is able to clone the integration from Sandbox 
               await io.flowBuilder.clickByText('TC_C68492_DND');
               await io.homePage.click(selectors.homePagePO.CLONE_INTEGRATION)
               await io.homePage.click(selectors.homePagePO.SANDBOX)
+              await io.homePage.waitForElementAttached(selectors.basePagePO.ADD_NAME);
+              await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT,'Clone - TC_C68492');
               await io.homePage.click(selectors.homePagePO.CLONE_INTEGRATION_BUTTON)
               await io.homePage.click(selectors.homePagePO.STAY_IN_SANDBOX)
               await io.marketplacePage.waitForElementAttached(selectors.integrationPagePO.SETUP_INTEGRATION_CONFIGURE_BUTTON)
@@ -25,7 +27,7 @@ test.describe("C68492 Verify user is able to clone the integration from Sandbox 
               await io.homePage.clickByTextByIndex("FTP CONNECTION SANDBOX",0)
               await io.connectionPage.click(selectors.basePagePO.SAVE);
               await io.homePage.click(selectors.basePagePO.INSTALL);
-              await io.homePage.clickByTextByIndex("Clone - TC_C68492_DND", 0)
+              await io.homePage.clickByTextByIndex("Clone - TC_C68492", 0)
              // await io.assert.verifyElementIsDisplayed(selectors.basePagePO.EDIT_SCHEDULE,"Scheduling is not present")
               await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON)
               await io.homePage.clickByText("Automation Flows")

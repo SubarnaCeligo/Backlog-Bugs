@@ -3,11 +3,12 @@ import * as selectors from "@celigo/aut-selectors";
 import { decrypt } from "@celigo/aut-utilities";
 
 test.describe("Test to validate connection is not created if user gives wrong credentials like host name, user name, password, data base name", () => {
-    test.afterEach(async ({ io }) => {
-        await io.connections.deleteConnection("AzureConnectionCred_T29346");
-        await io.myAccountPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
-    });
-    test("@Env-QA @Zephyr-IO-T29346 @Priority-P2", async ({
+  test.afterEach(async ({ io }) => {
+    await io.connections.deleteConnection("AzureConnectionCred_T29346");
+    await io.myAccountPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
+  });
+
+  test("@Env-QA @Env-STAGING @Zephyr-IO-T29346 @Priority-P2", async ({
     io,
     page
   }) => {
@@ -19,8 +20,8 @@ test.describe("Test to validate connection is not created if user gives wrong cr
     await io.assert.verifyElementIsDisplayed(selectors.connectionsPagePO.AZURE_SYNAPSE, "Element not displayed");
     await io.connectionPage.click(selectors.connectionsPagePO.AZURE_SYNAPSE);
     await io.connectionPage.fill(selectors.connectionsPagePO.NAME_INPUT, "AzureConnectionCred_T29346");
-    await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.HOST );
-    await io.connectionPage.fill(selectors.connectionsPagePO.HOST , process.env["AZURE_SYNAPSE_HOST"]);
+    await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.HOST);
+    await io.connectionPage.fill(selectors.connectionsPagePO.HOST, process.env["AZURE_SYNAPSE_HOST"]);
     await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.AZURE_SYNAPSE_DB);
     await io.connectionPage.fill(selectors.connectionsPagePO.AZURE_SYNAPSE_DB, process.env["AZURE_SYNAPSE_DB"]);
     await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.AZURE_SYNAPSE_USER);
@@ -30,20 +31,20 @@ test.describe("Test to validate connection is not created if user gives wrong cr
     await io.connectionPage.click(selectors.basePagePO.TEST_CONNECTION)
     await io.assert.verifyElementDisplayedByText('Your connection is working great! Nice Job!', "Connection message  is not displayed ");
     await io.connectionPage.clickByText('Save & close');
-    await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR,"AzureConnectionCred_T29346");
+    await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, "AzureConnectionCred_T29346");
     await io.connectionPage.click(selectors.connectionsPagePO.ACTIONS_MENU_BUTTON);
     await io.connectionPage.click(selectors.integrationPagePO.EDIT);
     await io.connectionPage.click(selectors.flowBuilderPagePO.CLOSE);
-    await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR,"AzureConnectionCred_T29346");
+    await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR);
+    await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, "AzureConnectionCred_T29346");
     await io.connectionPage.click(selectors.connectionsPagePO.ACTIONS_MENU_BUTTON);
     await io.connectionPage.click(selectors.integrationPagePO.DELETE_FLOW);
     await io.connectionPage.clickByText('Delete');
-    await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR,"AzureConnectionCred_T29346");
-    await io.assert.verifyElementDisplayedByText('Your search didn’t return any matching results. Try expanding your search criteria.','Element is not yet deleted');
-
- 
+    await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, "AzureConnectionCred_T29346");
+    await io.assert.verifyElementDisplayedByText('Your search didn’t return any matching results. Try expanding your search criteria.', 'Element is not yet deleted');
   });
-  test("@Env-QA @Zephyr-IO-T29343 @Priority-P2 Test to validate user is able to see connection guide on top right corner and user is able to navigate after clicking that", async ({
+
+  test("@Env-QA @Env-STAGING @Zephyr-IO-T29343 @Priority-P2 Test to validate user is able to see connection guide on top right corner and user is able to navigate after clicking that", async ({
     io,
     page
   }) => {
@@ -64,5 +65,5 @@ test.describe("Test to validate connection is not created if user gives wrong cr
     await io.connectionPage.addStep("Verified the Connection Guide for Azure Synapse");
     await io.connectionPage.clickByText('Microsoft Azure Synapse Analytics connection guide');
     await io.connectionPage.addStep("Navigated to the respective connection guide URL");
-});
+  });
 });

@@ -5,7 +5,7 @@ test.describe("TC_T28415_T28438_T28439_T28440 Verify XML parser for FTP,Gdrive,S
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28415 Verify XML parser for FTP for diff file size", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28415 @Env-All Verify XML parser for FTP for diff file size", async ({ io, page }) => {
         
         //Navigate to exports page
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
@@ -40,7 +40,7 @@ test.describe("TC_T28415_T28438_T28439_T28440 Verify XML parser for FTP,Gdrive,S
         let errorMessage = (await io.flowBuilder.getText(selectors.basePagePO.VALUE_MUST_BE_PROVIDED_ERROR)).toString();
         await io.assert.expectToBeValue("File exceeds max file size", errorMessage, "Error message did not appear for large XML file");       
     });
-    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28438 Verify XML parser for S3 for diff file size", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28438 @Env-All Verify XML parser for S3 for diff file size", async ({ io, page }) => {
         
         //Navigate to exports page
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
@@ -75,7 +75,7 @@ test.describe("TC_T28415_T28438_T28439_T28440 Verify XML parser for FTP,Gdrive,S
         let errorMessage = (await io.flowBuilder.getText(selectors.basePagePO.VALUE_MUST_BE_PROVIDED_ERROR)).toString();
         await io.assert.expectToBeValue("File exceeds max file size", errorMessage, "Error message did not appear for large XML file");       
     });
-    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28439 Verify XML parser for dropbox for diff file size", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28439 @Env-All Verify XML parser for dropbox for diff file size", async ({ io, page }) => {
         
         //Navigate to exports page
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
@@ -111,7 +111,7 @@ test.describe("TC_T28415_T28438_T28439_T28440 Verify XML parser for FTP,Gdrive,S
         await io.assert.expectToBeValue("File exceeds max file size", errorMessage, "Error message did not appear for large XML file");       
     });
 
-    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28440 Verify XML parser for GDrive for diff file size", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28440  @Env-All Verify XML parser for GDrive for diff file size", async ({ io, page }) => {
         
         //Navigate to exports page
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);

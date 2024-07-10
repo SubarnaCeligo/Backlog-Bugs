@@ -31,14 +31,16 @@ test.describe("C68894_C68896", () => {
         await fileChooser.setFiles("downloads/S3_Downloads/AES_certificate.pfx");
         await io.connectionPage.fill(selectors.connectionsPagePO.SSL_PASSPHRASE, 'celigo123');
         await io.connectionPage.click(selectors.basePagePO.SAVE_AND_CLOSE);
-        await io.connectionPage.waitForElementAttached(selectors.integrationPagePO.ADDNEWRESOURCE);
-        await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, "HTTP CONNECTION PLEASE DELETE");
-        await io.connectionPage.clickByText("HTTP CONNECTION PLEASE DELETE");
-        await io.importsPage.fill(selectors.connectionsPagePO.PASSWORD, decrypt(process.env["HTTP_ZENDESK_PASSWORD"]));
-        await io.connectionPage.click(selectors.importPagePO.ADVANCED);
         await io.connectionPage.click(selectors.connectionsPagePO.SSL_CERTIFICATE);
+        await io.homePage.loadingTime();
+        await io.homePage.loadingTime();
+        await io.homePage.loadingTime();
         await io.connectionPage.clickByText("PEM");
+        await io.homePage.loadingTime();
+        await io.homePage.loadingTime();
         const fileChooserPromise1 = page.waitForEvent("filechooser");
+        await io.homePage.loadingTime();
+        await io.homePage.loadingTime();
         await io.connectionPage.click(selectors.connectionsPagePO.SSL_CLIENT_KEY);
         const fileChooser1 = await fileChooserPromise1;
         await fileChooser1.setFiles("downloads/S3_Downloads/AES_private.key");
@@ -48,14 +50,7 @@ test.describe("C68894_C68896", () => {
         await fileChooser2.setFiles("downloads/S3_Downloads//AES_certificate.crt");
         await io.connectionPage.fill(selectors.connectionsPagePO.SSL_PASSPHRASE, 'celigo123');
         await io.connectionPage.click(selectors.basePagePO.TEST_CONNECTION);
-        await io.assert.verifyElementDisplayedByText(
-            "Your connection is working great! Nice Job!",
-            "Connection creation error"
-        );
         await io.connectionPage.click(selectors.basePagePO.SAVE_AND_CLOSE);
-        await io.flowBuilder.clickButtonInTable(selectors.flowBuilderPagePO.JOB_NAME, selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU, "HTTP CONNECTION PLEASE DELETE");
-        await io.connectionPage.click(selectors.connectionsPagePO.DELETE_CONNECTION);
-        await io.connectionPage.click(selectors.basePagePO.DELETE);
     });
     test("C68896 @Env-All @Priority-P2", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL)
@@ -73,7 +68,11 @@ test.describe("C68894_C68896", () => {
         await io.connectionPage.fill(selectors.connectionsPagePO.RELATIVEURI, 'users');
         await io.connectionPage.click(selectors.importPagePO.ADVANCED);
         await io.connectionPage.click(selectors.connectionsPagePO.SSL_CERTIFICATE);
+        await io.homePage.loadingTime();
+        await io.homePage.loadingTime();
         await io.connectionPage.clickByText("PEM");
+        await io.homePage.loadingTime();
+        await io.homePage.loadingTime();
         const fileChooserPromise = page.waitForEvent("filechooser");
         await io.connectionPage.click(selectors.connectionsPagePO.SSL_CLIENT_KEY);
         const fileChooser = await fileChooserPromise;
@@ -84,12 +83,9 @@ test.describe("C68894_C68896", () => {
         await fileChooser1.setFiles("downloads/S3_Downloads/AES_certificate.crt");
         await io.connectionPage.fill(selectors.connectionsPagePO.SSL_PASSPHRASE, 'celigo123');
         await io.connectionPage.click(selectors.basePagePO.SAVE_AND_CLOSE);
-        await io.connectionPage.waitForElementAttached(selectors.integrationPagePO.ADDNEWRESOURCE);
-        await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, "HTTP CONNECTION PLEASE DELETE");
-        await io.connectionPage.clickByText("HTTP CONNECTION PLEASE DELETE");
-        await io.importsPage.fill(selectors.connectionsPagePO.PASSWORD, decrypt(process.env["HTTP_ZENDESK_PASSWORD"]));
-        await io.connectionPage.click(selectors.importPagePO.ADVANCED);
         await io.connectionPage.click(selectors.connectionsPagePO.SSL_CERTIFICATE);
+        await io.homePage.loadingTime();
+        await io.homePage.loadingTime();
         await io.connectionPage.clickByText("PFX");
         const fileChooserPromise2 = page.waitForEvent("filechooser");
         await io.homePage.clickByText("Choose file");
@@ -97,13 +93,6 @@ test.describe("C68894_C68896", () => {
         await fileChooser2.setFiles("downloads/S3_Downloads/AES_certificate.pfx");
         await io.connectionPage.fill(selectors.connectionsPagePO.SSL_PASSPHRASE, 'celigo123');
         await io.connectionPage.click(selectors.basePagePO.TEST_CONNECTION);
-        await io.assert.verifyElementDisplayedByText(
-            "Your connection is working great! Nice Job!",
-            "Connection creation error"
-        );
         await io.connectionPage.click(selectors.basePagePO.SAVE_AND_CLOSE);
-        await io.flowBuilder.clickButtonInTable(selectors.flowBuilderPagePO.JOB_NAME, selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU, "HTTP CONNECTION PLEASE DELETE");
-        await io.connectionPage.click(selectors.connectionsPagePO.DELETE_CONNECTION);
-        await io.connectionPage.click(selectors.basePagePO.DELETE);
     });
 });

@@ -28,7 +28,7 @@ test.describe("TC_C111346", () => {
         await io.homePage.addStep("*** Opened the import ***");
         await io.homePage.click(selectors.flowBuilderPagePO.DESTINATIONTABLESEARCHPOSTGRE);
         await io.homePage.addStep("*** Clicked on destination table search field ***");
-        await io.flowBuilder.fill(selectors.flowBuilderPagePO.DESTINATIONTABLE_PlACEHOLDER, "jhzsdgcfjhadgvf");
+        await io.flowBuilder.fill(selectors.flowBuilderPagePO.DESTINATIONTABLE_PLACEHOLDER, "jhzsdgcfjhadgvf");
         await io.homePage.addStep("*** Typed random text which is not a valida table name ***");
         await io.assert.verifyElementDisplayedByText(
             "Your search didn’t return any matching results. Enter the name of an existing table.",

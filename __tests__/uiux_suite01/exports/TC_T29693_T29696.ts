@@ -5,7 +5,7 @@ test.describe("TC_T29693_T29696_Test to validate that user is able to run a flow
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Epic-IO-65860 @Priority-P2 @Zephyr-IO-T29693 @Zephyr-IO-T29696 @Env-QA", async ({ io, page }) => {
+    test("@Epic-IO-65860 @Priority-P2 @Zephyr-IO-T29693 @Zephyr-IO-T29696 @Env-All", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "AFE_AUTOSUGGESTIONS_mapper2.0_DND");
         await io.homePage.addStep("*** Searched for the integration ***");

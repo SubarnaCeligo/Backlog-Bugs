@@ -6,7 +6,7 @@ test.describe("C733 Verify when user is logged with google account, Name and Ema
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
   });
-  test("@Env-All C733 Verify when user is logged with google account, Name and Emailfields vaules should be displayed by default", async ({
+  test("@Env-All @Zephyr-IO-T1384 C733 Verify when user is logged with google account, Name and Emailfields vaules should be displayed by default", async ({
     io,
     page
   }) => {

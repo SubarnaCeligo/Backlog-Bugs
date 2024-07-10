@@ -5,7 +5,7 @@ test.describe("TC_T28416_T28441_T28442_T28443 Verify XML parser for FTP,Gdrive,S
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28416 Verify XML parser for FTP with proper resource path and Parse strategy as Custom and Trim leading and trailing spaces checked", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28416 @Env-All Verify XML parser for FTP with proper resource path and Parse strategy as Custom and Trim leading and trailing spaces checked", async ({ io, page }) => {
 
         //Navigate to exports page
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
@@ -57,7 +57,7 @@ test.describe("TC_T28416_T28441_T28442_T28443 Verify XML parser for FTP,Gdrive,S
 
 
     });
-    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28441 Verify XML parser for S3 with proper resource path and Parse strategy as Custom and Trim leading and trailing spaces checked", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28441 @Env-All Verify XML parser for S3 with proper resource path and Parse strategy as Custom and Trim leading and trailing spaces checked", async ({ io, page }) => {
 
         //Navigate to exports page
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
@@ -108,7 +108,7 @@ test.describe("TC_T28416_T28441_T28442_T28443 Verify XML parser for FTP,Gdrive,S
         await io.assert.expectToBeValue('{  "page_of_records": [    {      "record": "Inventory Item"    }  ]}', previewData, 'Spaces are not trimmed');
 
     });
-    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28442 Verify XML parser for Dropbox with proper resource path and Parse strategy as Custom and Trim leading and trailing spaces checked", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28442 @Env-All Verify XML parser for Dropbox with proper resource path and Parse strategy as Custom and Trim leading and trailing spaces checked", async ({ io, page }) => {
 
         //Navigate to exports page
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
@@ -161,7 +161,7 @@ test.describe("TC_T28416_T28441_T28442_T28443 Verify XML parser for FTP,Gdrive,S
 
         });
 
-    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28443 Verify XML parser for GDrive with proper resource path and Parse strategy as Custom and Trim leading and trailing spaces checked", async ({ io, page }) => {
+    test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28443 @Env-All Verify XML parser for GDrive with proper resource path and Parse strategy as Custom and Trim leading and trailing spaces checked", async ({ io, page }) => {
 
         //Navigate to exports page
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);

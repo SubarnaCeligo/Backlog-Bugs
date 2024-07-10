@@ -16,12 +16,9 @@ var testCases = [
   "C24619",
   "C24850",
   "C26246",
-  "C32975",
-  "C33011",
   "C33018",
   "C34437",
   "C34887",
-  "C42440",
   "C45564",
   "C50869",
   "C65649",
@@ -31,7 +28,7 @@ var testCases = [
   "C93548",
   "C98931",
   "C98942",
-  "C102875",
+ // "C102875", // commenting this out because the UI changes has been revereted will uncomment once the cha ges are back
   "C104208",
   "C104953",
   "C106451",
@@ -105,7 +102,30 @@ var testCases = [
   "C117734_C117735",
   "C117737_C117736",
   "C117738",
-  "C117739"
+  "C117739",
+ // "C29786", commenting out this test case as we have an issue with code base in platform3 and 5 , will unpark these test cases once it is fixed
+ // "C77690", commenting out this test case as we have an issue with code base in platform3 and 5 , will unpark these test cases once it is fixed
+  "C106421",
+  "C24492",
+  "C24622",
+  "C24625",
+  "IO-T32630",
+  "IO-T32631",
+//  "IO-T31358", commenting out this test case as we have an issue with code base in platform3 and 5 , will unpark these test cases once it is fixed
+ // "IO-T31357", commenting out this test case as we have an issue with code base in platform3 and 5 , will unpark these test cases once it is fixed
+  "IO-T32695",
+  "IO-T32813",
+ // "IO-T32827", commenting out this test case as we have an issue with code base in platform3 and 5 , will unpark these test cases once it is fixed
+ // "IO-T32829", commenting out this test case as we have an issue with code base in platform3 and 5 , will unpark these test cases once it is fixed
+  "IO-T32943",
+  "IO-T32987",
+  "IOT6148",
+  "C29041",
+  "IO-T33533",
+ // "IO-T33598", commenting out this test case as we have an issue with code base in platform3 and 5 , will unpark these test cases once it is fixed
+  "IO-T33600",
+  // please do not add any more new test cases to flowbuilder01 suite, because load is getting increased during jenkins run and test cases are getting failed
+
 ];
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
 (async () => {

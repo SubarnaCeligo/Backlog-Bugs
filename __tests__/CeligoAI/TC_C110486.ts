@@ -11,7 +11,7 @@ test.describe("C110486 Verify export of Big Query is having Celigo AI", () => {
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.GOOGLE_BIGQUERY);
     await io.flowBuilder.loadingTime();
-    await io.flowBuilder.clickByText("Create from scratch");
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.fill(
       selectors.basePagePO.INPUT_NAME_SELECTOR,

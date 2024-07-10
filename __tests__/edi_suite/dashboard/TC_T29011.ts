@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S Verify sorting on other sortable columns on docu
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-QA @Epic-IO-31713 @Priority-P2 @Zephyr-IO-T29015 Verify sorting on other sortable columns on documents dashboard", async ({ io, page }) => {
+  test("@Env-All @Epic-IO-31713 @Priority-P2 @Zephyr-IO-T29011 Verify sorting on other sortable columns on documents dashboard", async ({ io, page }) => {
 
     //Go to Dashboard
     await io.myAccountPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "dashboard");
@@ -23,13 +23,14 @@ test.describe("@Author-Shriti S Verify sorting on other sortable columns on docu
     await io.homePage.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
 
     //Get all available filter values
-    await io.homePage.clickByText('Last 30 days');
+    await io.homePage.clickByText('Last 180 days');
     await io.homePage.clickByText('Apply');
     await io.homePage.loadingTime();
 
     await io.homePage.clickByTextByIndex('Doc no.', 0);
     await io.homePage.loadingTime();
-    await io.homePage.clickByTextByIndex('Doc no.', 0);
+    await io.homePage.click(selectors.dashboardPagePO.DOWNWARD_ARROW);
+    // await io.homePage.clickByTextByIndex('Doc no.', 0);
     await io.homePage.waitForElementAttached(selectors.dashboardPagePO.DESCENDING);
 
     let docNo = (await io.homePage.getText(selectors.dashboardPagePO.DOC_NO_COLUMN)).toString();

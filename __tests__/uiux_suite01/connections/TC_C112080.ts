@@ -7,7 +7,7 @@ test.describe("C112080_C112081_C112082_C2112083_C112089", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   
-  });
+  }); 
   //Skipped as per discussion with TC Owner and QA team
   test.skip("@Env-All @Zephyr-IO-T14663 C112080 Verify user able to give all the secret key,payload,header values", async ({io, page}) => {
       await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
@@ -114,11 +114,12 @@ test.describe("C112080_C112081_C112082_C2112083_C112089", () => {
       "Your connection is working great! Nice Job!",
       "Connection creation error"
     );
-  });
+  }); 
   test("@Zephyr-IO-T14670 C112089 Verify the handlebar at payload & JWT headers", async ({io, page}) => {
     await io.homePage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL)
     await io.homePage.loadingTime()
-    await io.homePage.waitForElementAttached("text='GITHUB DND'")
+    await io.homePage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, 'GITHUB DND');
+    await io.homePage.loadingTime()
     await io.homePage.clickByText("GITHUB DND")
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.importPagePO.HTTP_IMPORT);

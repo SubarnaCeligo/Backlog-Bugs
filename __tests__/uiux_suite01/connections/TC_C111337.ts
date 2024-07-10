@@ -5,7 +5,7 @@ test.describe("TC_C111337 Verify new UI should be shown for all the new imports 
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-QA @Zephyr-IO-T8860 Verify new UI should be shown for all the new imports where the connection mode is cloud", async ({ io, page }) => {
+  test("@Env-QA  @Env-STAGING @Zephyr-IO-T8860 Verify new UI should be shown for all the new imports where the connection mode is cloud", async ({ io, page }) => {
     await io.exportsPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
     await io.homePage.goToMenu("Tools", "Flow builder");
     await io.flowBuilder.click(
@@ -18,7 +18,7 @@ test.describe("TC_C111337 Verify new UI should be shown for all the new imports 
     );
     await io.flowBuilder.clickByText("PostgreSQL");
     await io.flowBuilder.click(selectors.connectionsPagePO.IMPORT_RECORDS);
-    await io.flowBuilder.clickByText("Create from scratch")
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH)
     await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.clickByText("POSTGRE OFFLINE CONNECTION - Offline");
     await io.flowBuilder.click(selectors.basePagePO.SAVE);

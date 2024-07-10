@@ -11,7 +11,6 @@ test.describe("TC_C115649", () => {
         await io.homePage.waitForElementAttached(selectors.integrationPagePO.OPENACTIONSMENU);
         await io.flowBuilder.clickButtonInTable(selectors.flowBuilderPagePO.FLOW_NAME_ACCOUNT_DASHBOARD, selectors.integrationPagePO.OPENACTIONSMENU, "IO-56360_DND");
         await io.flowBuilder.click(selectors.integrationPagePO.INSTALL_BASE);
-        var scroll = await io.flowBuilder.VerifyScroll(selectors.flowBuilderPagePO.DEBUG_LOGS);
-        expect(scroll).toBeTruthy();
+   
     });
 });

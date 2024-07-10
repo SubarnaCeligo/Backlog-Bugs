@@ -2,7 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C110485 Verify export of MS SQL is having Celigo AI", () => {
-  test("@Env-All @Zephyr-IO-T25479 C110485 Verify export of MS SQL is having Celigo AI.", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T25479 C110485 Verify export of MS SQL is having Celigo AI. ", async ({io, page}) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();
     await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
@@ -11,7 +11,7 @@ test.describe("C110485 Verify export of MS SQL is having Celigo AI", () => {
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.MICROSOFT_SQL);
     await io.flowBuilder.loadingTime();
-    await io.flowBuilder.clickByText("Create from scratch");
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.fill(
       selectors.basePagePO.INPUT_NAME_SELECTOR,

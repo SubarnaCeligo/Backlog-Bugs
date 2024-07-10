@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import { getLicensePayload } from "@celigo/aut-utilities";
 
 test.describe("T28959 Verify upgrade pop-up for audit log after clicking on request upgrade.", () => {
-  test("T28959 @Zephyr-IO-T28959 @Env-qa @Priority-P2 Verify upgrade pop-up for audit log after clicking on request upgrade.", async ({
+  test("T28959 @Zephyr-IO-T28959  @Env-All @Priority-P2 Verify upgrade pop-up for audit log after clicking on request upgrade.", async ({
     io,
     page
   }) => {
@@ -17,7 +17,9 @@ test.describe("T28959 Verify upgrade pop-up for audit log after clicking on requ
 
     await io.api.putCall(`v1/test/licenses/${payloadFormat._id}`, {
       ...payloadFormat,
-      tier: "standard"
+      tier: "standard",
+      numEndpoints: 6,
+      numFlows: 103
     });
     await io.homePage.addStep(
       "Updating license to standard tier to show request upgrade notification."
@@ -31,6 +33,7 @@ test.describe("T28959 Verify upgrade pop-up for audit log after clicking on requ
     await io.homePage.addStep(
       "Clicking on 'Upgrade your account' link from inline notification."
     );
+    await io.homePage.loadingTime();
     await page.locator(selectors.basePagePO.NOTIFICTION_BAR).locator("a").click();
 
     await io.homePage.addStep("Verifying dialog box is opened.");

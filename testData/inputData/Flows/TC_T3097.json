@@ -5,7 +5,7 @@
       "type": "export",
       "qa__export": {
         "name": "Http Export",
-        "_connectionId": "HTTP Zendesk Connection Test",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
         "_sourceId": "647ed5a8c8b74d6454789f5c",
         "apiIdentifier": "e6521e37fe",
         "asynchronous": true,
@@ -53,7 +53,7 @@
       "type": "export",
       "qa__export": {
         "name": "Http Lookup tickets",
-        "_connectionId": "HTTP Zendesk Connection Test",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
         "_sourceId": "6480522108be5f245c43de1e",
         "apiIdentifier": "ed758f4aeb",
         "asynchronous": true,

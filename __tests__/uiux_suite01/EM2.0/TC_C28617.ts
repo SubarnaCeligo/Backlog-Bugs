@@ -3,12 +3,12 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C28617_Verify dashboard data for standalone integration for EM 2.0", () => {
     test.beforeEach(async ({ io }) => {
-        await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.myAccountPage.navigateTo(`${process.env["IO_UI_CONNECTOR_URL"]}integrations/none/flows`);
     });
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C28617_Verify dashboard data for standalone integration for EM 2.0 UI_Backlog", async ({ io, page }) => {
+    test("@Zephyr-IO-T7453 @Env-QA @Env-STAGING C28617_Verify dashboard data for standalone integration for EM 2.0 UI_Backlog", async ({ io, page }) => {
         await io.integrationPage.clickByText('Standalone flows')
         await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
         await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'TC_C12034_DND');

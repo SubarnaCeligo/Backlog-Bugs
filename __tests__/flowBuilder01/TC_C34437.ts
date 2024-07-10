@@ -11,7 +11,14 @@ test.describe("C34437 Verify a new icon indicating auto retry should be displaye
         await io.homePage.loadingTime();
         await io.homePage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, "C34437_DND");
         await io.homePage.clickByText("C34437_DND");
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
+        await io.homePage.loadingTime();
+        await io.homePage.loadingTime();
+        await io.homePage.loadingTime();
+        await io.homePage.loadingTime();
+        await io.homePage.loadingTime();
         await io.flowBuilder.loadingTime();
         const errorElement = await page.$('tr.Mui-selected td:nth-child(5)');
         const errorText = await errorElement?.innerHTML();

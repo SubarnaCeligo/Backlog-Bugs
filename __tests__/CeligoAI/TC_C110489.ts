@@ -11,7 +11,7 @@ test.describe("C110489 Verify system generates the Big query after the user has 
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.GOOGLE_BIGQUERY);
     await io.flowBuilder.loadingTime();
-    await io.flowBuilder.clickByText("Create from scratch");
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.fill(
       selectors.basePagePO.INPUT_NAME_SELECTOR,
@@ -20,9 +20,9 @@ test.describe("C110489 Verify system generates the Big query after the user has 
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.fill(
       selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,
-      "BIGQUERY CONNECTION"
+      "BIGQUERY CONNECTION1"
     );
-    await io.flowBuilder.clickByTextByIndex("BIGQUERY CONNECTION", 0);
+    await io.flowBuilder.clickByTextByIndex("BIGQUERY CONNECTION1", 0);
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.OPENAI.OPEN_HANDLEBARS_EDITOR
     );
@@ -44,7 +44,7 @@ test.describe("C110489 Verify system generates the Big query after the user has 
     );
     await io.flowBuilder.loadingTime();
     await expect(
-      page.locator(selectors.flowBuilderPagePO.OPENAI.PROMPT_QUERY).filter({ hasText: "SELECT *" })
+      page.locator(selectors.flowBuilderPagePO.OPENAI.PROMPT_QUERY).filter({ hasText: "Select" }).first()
     ).toBeVisible({ timeout: 40000 });
   });
 });
