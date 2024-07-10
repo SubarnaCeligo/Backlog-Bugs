@@ -12,7 +12,7 @@ test.describe("C63261 Verify 'Learn More' link on MFA page pointing to a correct
       await io.homePage.click(selectors.basePagePO.SIGN_OUT);
     }
   });
-  test.skip("@Env-All C63261 Verify 'Learn More' link on MFA page pointing to a correct KB article.", async ({
+  test.skip("@Env-All @Zephyr-IO-T17256 C63261 Verify 'Learn More' link on MFA page pointing to a correct KB article.", async ({
     io,
     page
   }) => {
