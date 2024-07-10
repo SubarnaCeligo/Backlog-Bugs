@@ -14,7 +14,7 @@ test.describe(`TC_C28913`, () => {
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FTP);
     await io.flowBuilder.click(selectors.basePagePO.CONNECTION);
     await io. flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,"FTP CONNECTION")
-    await io.homePage.clickByText("FTP CONNECTION")
+    await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);
     await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'FTP_Export');
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     // Validating sort/group records available
