@@ -42,7 +42,7 @@ test.describe(`C51602 Verify help text for [Simple | HTTP] toggle button for edi
     await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
     await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'TC Export');
     await io.flowBuilder.loadingTime();
-    await io.exportsPage.clickByTextByIndex("TC Export",1);
+    await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.CONNECTION_TABLE, 0) 
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.clickByIndex(
         selectors.flowBuilderPagePO.HELP_TEXT_ICON,
