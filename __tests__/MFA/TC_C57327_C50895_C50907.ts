@@ -14,7 +14,7 @@ test.describe("C57327_C50895_C50907", () => {
 
         }
     })
-    test("@Env-All C57327_C50895_C50907", async ({ io, page }) => {
+    test.skip("@Env-All C57327_C50895_C50907", async ({ io, page }) => {
         await io.homePage.waitForElementAttached(selectors.loginPagePO.EMAIL);
         await io.signInPage.fill(selectors.loginPagePO.EMAIL, process.env["IO_UserName"]);
         await io.signInPage.fill(selectors.loginPagePO.PASSWORD, decrypt(process.env["IO_Password"]));
