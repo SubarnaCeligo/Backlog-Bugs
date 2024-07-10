@@ -64,7 +64,6 @@ import { decrypt } from "@celigo/aut-utilities";
         let AccountTab=".MuiToolbar-root .MuiSvgIcon-root"
         let AccountTab1=await page.$$(".MuiToolbar-root .MuiSvgIcon-root")
         await page.waitForTimeout(20000);
-        // await page.pause();
         let  last = await AccountTab1.length - 1;
         if (!isNotLoggedIn) {
           // await io.homePage.waitForElementAttached(AccountTab[last]);
@@ -75,7 +74,6 @@ import { decrypt } from "@celigo/aut-utilities";
         await io.homePage.navigateTo(stepName.toString());
         await io.homePage.reloadPage();
         await io.homePage.reloadPage();
-        // await page.pause();
         await io.assert.verifyElementDisplayedByText(
           `Sign up`,
           "Sign up redirect  is not working"
@@ -99,7 +97,6 @@ import { decrypt } from "@celigo/aut-utilities";
       await io.loginPage.fill(selectors.loginPagePO.EMAIL, process.env["IO_UserName"]);
       await io.loginPage.fill(selectors.loginPagePO.PASSWORD, decrypt(process.env["IO_Password"]));
       await io.loginPage.click(selectors.basePagePO.SUBMIT);
-      await page.pause();
   
     });
   });

@@ -112,7 +112,7 @@ console.log("this is link",link)
     await io.loginPage.fill(selectors.loginPagePO.EMAIL, process.env["IO_UserName"]);
     await io.loginPage.fill(selectors.loginPagePO.PASSWORD, decrypt(process.env["IO_Password"]));
     await io.loginPage.click(selectors.basePagePO.SUBMIT);
-    await page.pause();
+    // await page.pause();
 
   });
 });
