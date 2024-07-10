@@ -6,7 +6,7 @@ test.describe(`C51601`, () => {
     io,
     page
   }) => {
-    await io.exportsPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
+    await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.goToMenu("Tools", "Flow builder");
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.ADD_SOURCE
