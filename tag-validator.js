@@ -18,10 +18,10 @@ const checkTagsInFiles = (filePaths) => {
     filePaths.forEach(filePath => {
         try {
             const data = fs.readFileSync(filePath, 'utf8');
-            const testTitleMatches = data.match(/test\((`[^`]+`|'[^']+'|"[^"]+")/g);
+            const testTitleMatches = data.match(/(?:test|test\.skip)\((`[^`]+`|'[^']+'|"[^"]+")/g);
             if (testTitleMatches) {
                 testTitleMatches.forEach(testTitleMatch => {
-                    const testTitle = testTitleMatch.match(/test\((`([^`]+)`|'([^']+)'|"([^"]+)")/)[2] || testTitleMatch.match(/test\((`([^`]+)`|'([^']+)'|"([^"]+)")/)[3] || testTitleMatch.match(/test\((`([^`]+)`|'([^']+)'|"([^"]+)")/)[4];
+                    const testTitle = testTitleMatch.match(/(?:test|test\.skip)\((`([^`]+)`|'([^']+)'|"([^"]+)")/)[2] || testTitleMatch.match(/(?:test|test\.skip)\((`([^`]+)`|'([^']+)'|"([^"]+)")/)[3] || testTitleMatch.match(/(?:test|test\.skip)\((`([^`]+)`|'([^']+)'|"([^"]+)")/)[4];
                     console.log("testTitle",testTitle);
                     const hasMandatoryTags = mandatoryTags.every(tag => testTitle.includes(tag));
 
