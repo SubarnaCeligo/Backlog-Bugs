@@ -22,7 +22,7 @@
     "help": "node --no-warnings index.js",
     "zephyr": "node ./node_modules/@celigo/aut-utilities/dist/src/zephyr/zephyrdriver.js",
     "test-docker": "npx tsc && rm -rf ./allure-results && npm run acccleanup-docker && npx playwright test --project=chromium --config=node_modules/@celigo/ui-core-automation/dist/playwright.config.js",
-    "acccleanup-docker":"node ./node_modules/@celigo/aut-utilities/dist/src/accountClean.js"
+    "acccleanup-docker": "node ./node_modules/@celigo/aut-utilities/dist/src/accountClean.js"
   },
   "keywords": [],
   "author": "B Vinay Kumar",
