@@ -2,8 +2,8 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/HTTP2DOT0/TC_T18947_T18949_T18948.json";
 
-test.describe("Verify query parameters", () => {
-  test("@Zephyr-IO-T18947 @Zephyr-IO-T18948 @Zephyr-IO-T18949 @Env-All @Epic-IO-86262 @Priority-P2 - verify query parameters", async ({ io, page }) => {
+test.describe("Verify zoom import and export resource and api endpoints", () => {
+  test("@Zephyr-IO-T18947 @Zephyr-IO-T18948 @Zephyr-IO-T18949 @Env-All @Epic-IO-86262 @Priority-P2 - Verify zoom import and export resource and api endpoints", async ({ io, page }) => {
     await io.createResourceFromAPI(testData, "FLOWS");
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT_BUBBLE);
 
