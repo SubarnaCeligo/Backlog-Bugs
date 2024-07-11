@@ -54,5 +54,7 @@ test.describe(`C61135 Verify the Install link functionality displayed for the In
       "Installed",
       "'Installed' step not displayed"
     );
+    await io.flowBuilder.click(selectors.integrationPagePO.UNINSTALL);
+    await io.flowBuilder.click(selectors.integrationPagePO.UNINSTALL_CONFIRM);
   });
 });
