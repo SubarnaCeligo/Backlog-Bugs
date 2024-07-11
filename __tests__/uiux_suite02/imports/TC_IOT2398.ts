@@ -28,6 +28,7 @@ test.describe("TC_IOT2398 Verify the hover text for filled mapping fields in Map
       selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR,
       1
     );
+    
     await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(
