@@ -17,6 +17,7 @@ test.describe("Verify query parameters", () => {
     await io.homePage.click(selectors.basePagePO.CLOSE);
 
     await io.myAccountPage.clickByIndex(selectors.flowBuilderPagePO.EXPORT_BUBBLE, 1);
+    await io.flowBuilder.waitForElementAttached(selectors.exportsPagePO.ASSISTANT_META_DATA_RESOURCE);
     await io.assert.verifyElementAttribute(selectors.exportsPagePO.QUERY_PARAMS_LEFT_SIDE, 'value', 'businessId', 0);
     await io.assert.verifyElementAttribute(selectors.exportsPagePO.QUERY_PARAMS_LEFT_SIDE, 'value', 'startDate', 1);
     await io.assert.verifyElementAttribute(selectors.exportsPagePO.QUERY_PARAMS_LEFT_SIDE, 'value', 'endDate', 2);
