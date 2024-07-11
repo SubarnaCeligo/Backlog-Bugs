@@ -16,7 +16,7 @@ test.describe(`C51600`, () => {
         await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
         await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Loop Returns connection');
         await io.flowBuilder.loadingTime();
-        await io.exportsPage.clickByTextByIndex("Loop Returns connection",1);
+        await io.exportsPage.clickByIndex(selectors.flowBuilderPagePO.CONNECTION_TABLE,0);
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.clickByIndex(
             selectors.flowBuilderPagePO.HELP_TEXT_ICON,
