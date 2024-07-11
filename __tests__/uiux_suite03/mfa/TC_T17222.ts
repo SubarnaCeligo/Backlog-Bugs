@@ -5,7 +5,7 @@ test.describe(`T17222 Verify if the Choose primary account to reset MFA text is 
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
 
-  test(`T17222 Verify if the Choose primary account to reset MFA text is not shown to owner`, async ({ page, io }) => {
+  test(`@Env-All @Zephyr-IO-T17222 Verify if the Choose primary account to reset MFA text is not shown to owner`, async ({ page, io }) => {
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.myAccountPage.waitForElementAttached(selectors.myAccountPagePO.SECURITY);
     await io.myAccountPage.click(selectors.myAccountPagePO.SECURITY);
