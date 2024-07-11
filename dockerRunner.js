@@ -4,7 +4,7 @@ const { spawn } = require("child_process");
 function runMultipleSuites(suites,env,singleWorkerSuites){
     const commands = suites.map(suiteName => {
         if (singleWorkerSuites.includes(suiteName)) {
-            return `ENV=ci FEATURE=${suiteName} IGNORE_FLAKY=true npm run test-docker-single-worker`;
+            return `ENV=ci FEATURE=${suiteName} IGNORE_FLAKY=true workers=1 npm run test-docker`;
         } else {
             return `ENV=ci FEATURE=${suiteName} IGNORE_FLAKY=true npm run test-docker`;
         }

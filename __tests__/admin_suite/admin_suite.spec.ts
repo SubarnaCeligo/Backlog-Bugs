@@ -8,7 +8,7 @@ var testCases = [
   "C41554",
   "C41569",
   "C41573",
-  "C45825",
+  // "C45825", Enabling MFA so commenting this test case
   "C27910",
   "T451",
 ];
