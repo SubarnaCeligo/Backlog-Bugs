@@ -24,6 +24,7 @@ test.describe("TC_IOT12567 Test to validate the EDI text on subscriptions page i
     await io.homePage.navigateTo(
       `${process.env["IO_UI_CONNECTOR_URL"]}myAccount/subscription`
     );
+    
     await io.homePage.loadingTime();
     const ediTextElement = page.locator("text=EDI");
 
