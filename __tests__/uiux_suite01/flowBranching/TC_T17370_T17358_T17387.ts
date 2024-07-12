@@ -1,13 +1,13 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import TC from "@testData/flowbranching/TC_T17370_T17358.json"
+import TC from "@testData/flowbranching/TC_T17370_T17358_T17387.json"
 
-test.describe("T17370_T17358 Verify branching condition when changing the datatype and rearranging the branch order", () => {
+test.describe("T17370_T17358_T17387 Verify branching condition when changing the datatype, rearranging the branch order and removing the branch name", () => {
   let id;
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowViaAPI(id);
   });
-  test("@Env-STAGING @Priority-P2 @Zephyr-IO-T17370 @Zephyr-IO-T17358 C63882 C59956 Verify branching condition when changing the datatype and rearranging the branch order", async ({ io, page }) => {
+  test("@Env-all @Priority-P2 @Zephyr-IO-T17370 @Zephyr-IO-T17358 @Zephyr-IO-T17387 C63882 C59956 C68483 Verify branching condition when changing the datatype, rearranging the branch order and removing the branch name", async ({ io, page }) => {
     id = await io.flowbranching.createFlowBranchFromAPI(TC);
     await io.flowBuilder.navigateTo(
       process.env.IO_Integration_URL + "flowBuilder/" + id
@@ -67,5 +67,17 @@ test.describe("T17370_T17358 Verify branching condition when changing the dataty
     // Verifying the rules after rearranging the branches
     expect(leftElement.nth(0)).toHaveValue("record.active");
     expect(rightElement.nth(0)).toHaveValue("true");
+
+    // Clicking on the branch name to edit
+    await page.locator(selectors.flowBranchingPO.BRANCH_NAMES).nth(0).click();
+
+    // Deleting the branch name
+    await page.keyboard.press('Control+A');
+    await page.keyboard.press('Meta+A');
+    await page.keyboard.press('Backspace');
+    await page.keyboard.press('Enter');
+
+    // Verifying the error message
+    await io.assert.verifyElementContainsText(selectors.basePagePO.NOTIFICATION_ID, 'A branch name is required.');
   });
 });
