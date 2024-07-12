@@ -17,6 +17,7 @@ test.describe(`TC_IOT23482 Verify added outline/vertical line to Run button with
     await io.flowBuilder.waitForElementAttached(selectors.basePagePO.RUNFLOW);
     const isDividerVisible  = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.RUN_FLOW_DIVIDER);
     await io.assert.expectToBeTrue(isDividerVisible, "Line divinding run button and run specific source dropdown is not visible.")
+    
 
   });
 });
