@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing API Manager and Push to apim option is not available for custom Webhooks Sandbox", () => {
-    test("@Env-QA @Env-STAGING MyAPis Sandbox", async ({ io, page, context }) => {
+    test("@Zephyr-IO-T9350 @Env-QA @Env-STAGING MyAPis Sandbox", async ({ io, page, context }) => {
         const uuidv4 = require('uuid').v4;
         const uniqueString = uuidv4()
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
@@ -66,7 +66,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
     });
-    test("@Env-QA @Env-STAGING custom webhook Sandbox", async ({ io, page }) => {
+    test("@Zephyr-IO-T9350 @Env-QA @Env-STAGING custom webhook Sandbox", async ({ io, page }) => {
         const uuidv4 = require('uuid').v4;
         const uniqueString = uuidv4()
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
@@ -102,7 +102,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
     });
-    test("@Env-QA @Env-STAGING IOListner Sandbox", async ({ io, page, context }) => {
+    test("@Zephyr-IO-T9350 @Env-QA @Env-STAGING IOListner Sandbox", async ({ io, page, context }) => {
         const uuidv4 = require('uuid').v4;
         const uniqueString = uuidv4()
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
@@ -142,7 +142,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.assert.expectToBeTrue(func, "urls doesn't match")
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
     });
-    test("@Env-QA @Env-STAGING Export Sandbox", async ({ io, context, page }) => {
+    test("@Zephyr-IO-T9350 @Env-QA @Env-STAGING Export Sandbox", async ({ io, context, page }) => {
         const uuidv4 = require('uuid').v4;
         const uniqueString = uuidv4()
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
@@ -184,7 +184,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.assert.expectToBeTrue(func, "urls doesn't match")
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
     });
-    test("@Env-QA @Env-STAGING Lookup Sandbox", async ({ io, context, page }) => {
+    test("@Zephyr-IO-T9350 @Env-QA @Env-STAGING Lookup Sandbox", async ({ io, context, page }) => {
         const uuidv4 = require('uuid').v4;
         const uniqueString = uuidv4()
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
@@ -230,7 +230,7 @@ test.describe( "Push to APIM for IO listner, MyAPis, Export, Import, Existing AP
         await io.assert.expectToBeTrue(func, "urls doesn't match");
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
     });
-    test("@Env-QA @Env-STAGING Import Sandbox", async ({ io, page, context }) => {
+    test("@Zephyr-IO-T9350 @Env-QA @Env-STAGING Import Sandbox", async ({ io, page, context }) => {
         const uuidv4 = require('uuid').v4;
         const uniqueString = uuidv4()
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
