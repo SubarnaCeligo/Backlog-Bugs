@@ -13,7 +13,7 @@ test.describe("@Author_MaheshNivruttiSutar Verify connections get filtered on ba
         await io.flowBuilder.click(selectors.basePagePO.ADD_SOURCE_BUTTON);
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APP_NAME_INPUT, "META");
         await io.flowBuilder.click(selectors.connectionsPagePO.META);
-        await io.flowBuilder.clickByText('Create flow step');
+         await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
         const facebook = await io.flowBuilder.isVisible("text='Facebook Ads'");
