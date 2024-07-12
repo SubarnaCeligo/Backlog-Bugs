@@ -56,6 +56,7 @@
     "figlet": "^1.7.0",
     "husky": "^4.3.8",
     "inquirer": "^7.1.0",
+    "superagent": "^9.0.2",
     "uuid": "^9.0.1",
     "viewport-dimensions": "^0.2.0"
   }
