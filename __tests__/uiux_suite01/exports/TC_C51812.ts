@@ -1,12 +1,12 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C51812", () => {
+test.describe("@Zephyr-IO-T26747 C51812 Verify help text for MarkExported Batch Size field", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("@Env-All C51812", async ({ io, page }) => {
+    test("@Zephyr-IO-T26747 @Env-All C51812 Verify help text for MarkExported Batch Size field", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.flowBuilder.click(selectors.integrationPagePO.ADDNEWRESOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'netsuite');
