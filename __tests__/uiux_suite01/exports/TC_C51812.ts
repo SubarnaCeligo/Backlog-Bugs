@@ -25,7 +25,7 @@ test.describe("C51812", () => {
         await io.homePage.click(selectors.mappings.MAPPER2DOT0PO.ADVANCED);
         await io.flowBuilder.clickByIndex(
             selectors.flowBuilderPagePO.HELP_TEXT_ICON,
-            16
+            17
           );
           const helpTextPopup = await page.$(selectors.myAccountPagePO.HELP_BUBBLE);
           const helpText = await helpTextPopup.textContent();
