@@ -29,7 +29,6 @@ test.describe("TC_IOT12568 Test to update the subscription and see EDI text on s
     await io.api.putCall(endPoint, payload);
 
     await page.reload();
-    await page.pause();
     expect(ediTextElement).toBeTruthy();
 
   });
