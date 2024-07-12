@@ -1,8 +1,8 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("Verify import and lookup of 15five assistant", () => {
-  test("@Zephyr-IO-T14276 @Zephyr-IO-T14277 @Env-All @Epic-IO-86262 @Priority-P2 - Verify import and lookup of 15five assistant", async ({
+test.describe("Verify import and lookup of ChannelApe assistant", () => {
+  test("@Zephyr-IO-T14276 @Zephyr-IO-T14277 @Env-All @Epic-IO-86262 @Priority-P2 - Verify import and lookup of ChannelApe assistant", async ({
     io,
     page
   }) => {
