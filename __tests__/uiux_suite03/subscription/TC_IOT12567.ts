@@ -1,5 +1,4 @@
 import { test, expect } from "@celigo/ui-core-automation";
-import * as selectors from "@celigo/aut-selectors";
 import payload from "@testData/edi_suite/LicenseUpdate.json";
 
 test.describe("TC_IOT12567 Test to validate the EDI text on subscriptions page if EDI license is disabled", () => {
