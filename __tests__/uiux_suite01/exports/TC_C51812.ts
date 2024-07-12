@@ -23,6 +23,7 @@ test.describe("C51812", () => {
         await io.homePage.click(selectors.flowBuilderPagePO.EXPORTTYPE);
         await io.flowBuilder.clickByText('Once - export records only once');
         await io.homePage.click(selectors.mappings.MAPPER2DOT0PO.ADVANCED);
+        await io.flowBuilder.loadingTime();
         await io.flowBuilder.clickByIndex(
             selectors.flowBuilderPagePO.HELP_TEXT_ICON,
             17
