@@ -4,7 +4,7 @@ import * as selectors from "@celigo/aut-selectors";
 import { decrypt } from "@celigo/aut-utilities";
 
 
-test.describe("C57327 C50895 C50907", () => {
+test.describe("C57327_C50895_C50907", () => {
     test.beforeEach('check sign out', async ({ io, page }) => {
         await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
         const isNotLoggedIn = await io.loginPage.checkLoginState();
@@ -14,7 +14,7 @@ test.describe("C57327 C50895 C50907", () => {
 
         }
     })
-    test("@Env-All C57327 C50895 C50907", async ({ io, page }) => {
+    test.skip("@Env-All @Zephyr-IO-T17011 @Zephyr-IO-T19643 @Zephyr-IO-T19641 C57327_C50895_C50907", async ({ io, page }) => {
         await io.homePage.waitForElementAttached(selectors.loginPagePO.EMAIL);
         await io.signInPage.fill(selectors.loginPagePO.EMAIL, process.env["IO_UserName"]);
         await io.signInPage.fill(selectors.loginPagePO.PASSWORD, decrypt(process.env["IO_Password"]));

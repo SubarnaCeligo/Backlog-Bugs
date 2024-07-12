@@ -22,8 +22,7 @@
     "help": "node --no-warnings index.js",
     "zephyr": "node ./node_modules/@celigo/aut-utilities/dist/src/zephyr/zephyrdriver.js",
     "test-docker": "npx tsc && rm -rf ./allure-results && npm run acccleanup-docker && npx playwright test --project=chromium --config=node_modules/@celigo/ui-core-automation/dist/playwright.config.js",
-    "test-docker-single-worker": "npx tsc && rm -rf ./allure-results && npm run acccleanup-docker && npx playwright test --project=chromium --workers=1 --config=node_modules/@celigo/ui-core-automation/dist/playwright.config.js",
-    "acccleanup-docker":"node ./node_modules/@celigo/aut-utilities/dist/src/accountClean.js"
+    "acccleanup-docker": "node ./node_modules/@celigo/aut-utilities/dist/src/accountClean.js"
   },
   "keywords": [],
   "author": "B Vinay Kumar",
@@ -41,8 +40,8 @@
     }
   },
   "devDependencies": {
-    "@celigo/aut-selectors": "^0.3.73",
-    "@celigo/aut-utilities": "^0.1.7",
+    "@celigo/aut-selectors": "^0.3.78",
+    "@celigo/aut-utilities": "^0.1.8",
     "@celigo/ui-core-automation": "^0.2.56",
     "@playwright/test": "1.41.2",
     "allure-playwright": "^2.2.1",

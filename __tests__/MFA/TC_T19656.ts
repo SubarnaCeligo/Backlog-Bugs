@@ -6,12 +6,10 @@ test.describe("IO-T19656 Verify the message displayed when MFA is enabled and di
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.myAccountPage.click(selectors.myAccountPagePO.USERS);
     await io.myAccountPage.waitForElementAttached(selectors.flowBuilderPagePO.COLUMNS);
-    const firstUser = await page.locator(selectors.flowBuilderPagePO.COLUMNS).nth(1);
-    await firstUser.locator(selectors.myAccountPagePO.MFA_TOGGLE).nth(1).click();
+    await io.flowBuilder.clickByIndex(selectors.myAccountPagePO.USER_MFA_TOGGLE, 1);
     await io.assert.verifyElementIsDisplayed(selectors.basePagePO.NOTIFICATION_ID, 'Success notification did not appear');
-
     await io.myAccountPage.loadingTime();
-    await firstUser.locator(selectors.myAccountPagePO.MFA_TOGGLE).nth(1).click();
+    await io.flowBuilder.clickByIndex(selectors.myAccountPagePO.USER_MFA_TOGGLE, 1);
     await io.assert.verifyElementIsDisplayed(selectors.basePagePO.NOTIFICATION_ID, 'Disable notification did not appear');
   });
 });
