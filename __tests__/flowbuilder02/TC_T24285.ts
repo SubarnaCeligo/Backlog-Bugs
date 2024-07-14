@@ -9,7 +9,9 @@ test.describe("T24280 -Verify user can create export/lookup/import with the 'Clo
     });
     test("@Epic-IO-54539 @Priority-P2 @Env-All T24280 - Verify user can create export/lookup/import with the 'Clone flow step' radio button after updating the configuration.", async ({ io, page }) => {
         //Navigate to flow builder page
-        await io.homePage.goToMenu("Tools", "Flow builder");
+        await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+        await io.flowBuilder.loadingTime();
+        await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
 
         //Add Source
         await io.flowBuilder.click(selectors.basePagePO.ADD_SOURCE_BUTTON);
@@ -22,6 +24,10 @@ test.describe("T24280 -Verify user can create export/lookup/import with the 'Clo
 
         //Wait for existing resources to load
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.OPENAI.NLS_RESOURCE);
+        await io.flowBuilder.click(selectors.basePagePO.CONNECTION_DROPDOWN);
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.clickByTextByIndex('HTTP ZENDESK CONNECTION', 0);
+        await io.flowBuilder.loadingTime();
 
         //Click on any existing resource
         await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.OPENAI.NLS_RESOURCE, 0);

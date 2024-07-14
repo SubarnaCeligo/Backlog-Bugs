@@ -20,7 +20,18 @@ test.describe(`TC_IOT4291 Test to verify Clicking on 'Show more' is displaying 2
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.MARKETPLACE_RESOURCES);
         const dataMarketplaceResourcesCount = await page.locator(selectors.flowBuilderPagePO.MARKETPLACE_RESOURCES).count();
         expect(await (await io.flowBuilder.findElementByDataTest("marketplaceResourcesShowMore")).textContent()).toEqual('Show more');
-        (await io.flowBuilder.findElementByDataTest("marketplaceResourcesShowMore")).click();
+        async function clickUntilShowLessVisible(page, showMoreDataTestId, showLessText) {
+            while (true) {
+                const showMoreElement = await page.$(`[data-test="${showMoreDataTestId}"]`);
+                const showLessElement = await page.$(`text="${showLessText}"`);
+                if (showLessElement) break;
+                if (showMoreElement) {
+                    await showMoreElement.click();
+                    await page.waitForTimeout(1000);
+                }
+            }
+        }
+        await clickUntilShowLessVisible(page, 'marketplaceResourcesShowMore', 'Show less');
         await io.flowBuilder.waitForElementAttached("text='Show less'");
         expect(await (await io.flowBuilder.findElementByDataTest("marketplaceResourcesShowMore")).textContent()).toEqual('Show less');
         const dataMarketplaceResourcesAfterShowlessBtnCount = await page.locator(selectors.flowBuilderPagePO.MARKETPLACE_RESOURCES).count();

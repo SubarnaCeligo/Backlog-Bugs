@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import TC from '../../testData/inputData/FlowBuilder/T31943.json';
 
 test.describe("@Author_MaheshNivruttiSutar Verify setting should not wiped out If we just added a rule, don’t save, then change the input json data.", () => {
-    test.describe.configure({ retries: 2 })
+    test.describe.configure({ retries: 1 })
     test.beforeEach(async ({ io }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.addStep("Navigated to home page");
@@ -31,6 +31,6 @@ test.describe("@Author_MaheshNivruttiSutar Verify setting should not wiped out I
         await page.keyboard.type('test');
         await io.flowBuilder.loadingTime();
         const buttonDis = await page.$(selectors.flowBuilderPagePO.FILTER_CONTENT);
-        expect(await buttonDis.screenshot()).toMatchSnapshot("TC_C119791.png");
+        expect(await buttonDis.screenshot()).toMatchSnapshot("TC-C1197931-chromium-linux.png");
     });
 });

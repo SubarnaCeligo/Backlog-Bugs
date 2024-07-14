@@ -6,7 +6,7 @@ test.describe("@Author-Sudhanshukumar C27079 Verify data-test attribute to the h
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
       });
-    test("C27079 @Epic-IO-52851 @Zephyr-IO-T27079 @Env-QA Verify data-test attribute to the help Icon", async ({ io, page }) => {
+    test("@Env-All C27079 @Epic-IO-52851 @Zephyr-IO-T27079 @Env-QA Verify data-test attribute to the help Icon", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.OPENAI.FLOW_DESCRIPTION_BUTTON);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);

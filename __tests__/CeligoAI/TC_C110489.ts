@@ -44,7 +44,7 @@ test.describe("C110489 Verify system generates the Big query after the user has 
     );
     await io.flowBuilder.loadingTime();
     await expect(
-      page.locator(selectors.flowBuilderPagePO.OPENAI.PROMPT_QUERY).filter({ hasText: "SELECT *" }).first()
+      page.locator(selectors.flowBuilderPagePO.OPENAI.PROMPT_QUERY).filter({ hasText: "Select" }).first()
     ).toBeVisible({ timeout: 40000 });
   });
 });

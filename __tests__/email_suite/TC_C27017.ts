@@ -15,8 +15,7 @@ test.describe( "C27017 Verify the email received when user who has sso enabled c
 
         let iourl = new URL(process.env["IO_UI_CONNECTOR_URL"]);
         let validateKeywords = await io.emailVal.validateKeywordsInMail(
-            "[" + iourl.host + "] Request to reset your password", ['Please click the following link to reset your'],"pwqa1",
-          );
+            "[" + iourl.host + "] Request to reset your password", ['Please click the following link to reset your'],"pwqa1");
         expect(validateKeywords).toBeTruthy();
     });
   }
