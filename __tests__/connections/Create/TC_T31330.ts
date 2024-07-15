@@ -1,7 +1,7 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("TC_T31330_Verify if the SSL passphrase is an optional field in PEM format", () => {
+test.describe("T31330 Verify if the SSL passphrase is an optional field in PEM format", () => {
   test("@Env-All @Zephyr-IO-T31330 @Priority-P2 T31330 Verify if the SSL passphrase is an optional field in PEM format UI_Backlog", async ({ io, page }) => {
     await io.myAccountPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
 
