@@ -10,8 +10,9 @@ test.describe(`C113414 Verify the JWT token while cloning the flow`, () => {
     io,
     page
   }) => {
-    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL)
-    await io.homePage.clickByText("Automation Flows")
+    await io.homePage.navigateTo(process.env.IO_Integration_URL);
+    await io.homePage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR)
+    await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "Docsign_DND")
     await io.homePage.waitForElementAttached("text='Docsign_DND'")
     await io.homePage.clickByText("Docsign_DND")
     await io.flowBuilder.loadingTime();
