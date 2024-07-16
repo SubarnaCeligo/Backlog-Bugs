@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C48963 from '@testData/Flows/C48963.json';
 
 test.describe("C48904 Verify 'Actions to take if source value not found' options functionality for Object Data type", () => {
-  test("@Env-All C48904 Verify 'Actions to take if source value not found' options functionality for Object Data type", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T18086 C48904 Verify 'Actions to take if source value not found' options functionality for Object Data type", async ({io, page}) => {
       await io.createResourceFromAPI(C48963, "FLOWS");
       await io.homePage.loadingTime()
       await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);

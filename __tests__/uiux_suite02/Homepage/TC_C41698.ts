@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C41698_Verify all scenarios in mozilla,safari and edge", () => {
-    test("@Env-All C41698_Verify all scenarios in mozilla,safari and edge UI_Backlog", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T903 C41698_Verify all scenarios in mozilla,safari and edge UI_Backlog", async ({ io, page }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.loadingTime()
         // Validating page showing correctly
