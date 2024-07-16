@@ -1,14 +1,14 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("Verify the changes in the window titles for Agent for windows.", () => {
+test.describe("Agent testcases", () => {
   test.beforeEach(async ({ io }) => {
     await io.homePage.navigateTo(process.env.IO_UI_CONNECTOR_URL + "agents");
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.waitForElementAttached(selectors.integrationPagePO.ADDNEWRESOURCE);
   });
 
-  test("@Zephyr-IO-T18480 @Env-All @Epic-IO-86262 @Priority-P2 - Verify the changes in the window titles for Agent for windows.", async ({
+  test("@Zephyr-IO-T18480 @Zephyr-IO-T18478 @Env-All @Epic-IO-86262 @Priority-P2 - Verify the color dots for offline/online agent is shown. And verify whether we have Windows option in the download dropdown", async ({
     io,
     page
   }) => {
