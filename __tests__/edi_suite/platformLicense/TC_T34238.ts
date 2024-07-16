@@ -21,7 +21,7 @@ test.describe("@Author-Shriti S Verify that platform users are able to view EDI 
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "dashboard");
     await io.homePage.loadingTime();
 
-    //Verify if EDI activity tab is not visible
+    //Verify if EDI activity tab is visible
     let isDashboardVisible = await io.homePage.isVisible(selectors.dashboardPagePO.EDI_ACTIVITY_TAB);
     await io.assert.expectToBeTrue(isDashboardVisible, 'Dashboard is visible for users with platform license.');
 
