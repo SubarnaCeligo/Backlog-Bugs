@@ -11,6 +11,7 @@ test.describe("C29064 Verify the concurrency limit for different license type Fr
     const payloadFormat = {
       ...getLicensePayload(platformLicense),
       expires: "2044-04-10T13:14:33.363Z",
+      tier: 'enterprise',
       apiManagement: true
     };
     await io.api.putCall(
