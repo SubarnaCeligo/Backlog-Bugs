@@ -1,0 +1,91 @@
+{
+    "name": "C23427",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "_id": "65b0de96cb787f6a337c9e0e",
+                "createdAt": "2024-01-24T09:55:34.714Z",
+                "lastModified": "2024-01-24T09:55:38.588Z",
+                "name": "Acumatica Exp",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "ee668e7ac6",
+                "asynchronous": true,
+                "type": "test",
+                "hooks": {
+                    "preSavePage": {
+                        "_scriptId": "65206cb2e4ee7c0df0db130a",
+                        "function": "preSavePage"
+                    }
+                },
+                "oneToMany": false,
+                "sandbox": false,
+                "aiDescription": {
+                    "summary": "The \"Acumatica Exp\" export is of type \"test\" and is configured to retrieve data from the \"/Customer\" endpoint of an application using a GET request. It is not set to retrieve multiple records at once and is not configured to run in a sandbox environment. During testing, it is limited to retrieving only 1 record.",
+                    "detailed": "This export is named \"Acumatica Exp\" and it is of type \"test\". The export is not set to retrieve multiple records at once (oneToMany is set to false) and it is not configured to run in a sandbox environment (sandbox is set to false).\n\nThe export uses the HTTP adaptor type and specifies that it will make a GET request to the \"/Customer\" endpoint of the connected application. The HTTP method is set to \"GET\" and the formType is set to \"http\".\n\nDuring testing, the export is limited to retrieving only 1 record (test.limit is set to 1).\n\nOverall, this export is configured to retrieve data from the \"Customer\" endpoint of an application using a GET request, and it is limited to retrieving only 1 record during testing."
+                },
+                "http": {
+                    "relativeURI": "/Customer",
+                    "method": "GET",
+                    "isRest": false,
+                    "formType": "http",
+                    "response": {
+                        "twoDArray": {
+                            "doNotNormalize": true
+                        }
+                    }
+                },
+                "test": {
+                    "limit": 1
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "_id": "6597a24ed9bf360f8dabd08a",
+                "createdAt": "2024-01-05T06:31:42.837Z",
+                "lastModified": "2024-01-05T06:31:42.980Z",
+                "name": "FTP Import",
+                "_connectionId": "FTP CONNECTION",
+                "_sourceId": "652e1bf953c52832fb1c2493",
+                "apiIdentifier": "i1ea6b8265",
+                "oneToMany": false,
+                "file": {
+                "fileName": "file-{{timestamp}}.json",
+                "skipAggregation": false,
+                "type": "json"
+                },
+                "ftp": {
+                "directoryPath": "/Group-QA/ShritiS/Import",
+                "fileName": "file-{{timestamp}}.json"
+                },
+                "adaptorType": "FTPImport"
+                }
+        }
+    ],
+    "createFlow": {
+        "name": "C23427",
+        "disabled": false,
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID",
+                "skipRetries": false
+            }
+        ],
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "autoResolveMatchingTraceKeys": true
+    }
+}
