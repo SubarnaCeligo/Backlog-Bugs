@@ -23,7 +23,8 @@ test.describe("Verify Handle bar editor is clickable when destination field is c
 
     await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);
 
-    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.DESTINATION_MAPPING_PLACEHOLDER);
+    let dest = await page.locator(selectors.flowBuilderPagePO.DESTINATION_MAPPING_PLACEHOLDER);
+    await dest.waitFor({state: 'visible', timeout: 500000});
     await io.flowBuilder.click(selectors.flowBuilderPagePO.SETTINGS_MARIADB);
     
     await io.flowBuilder.waitForElementAttached(selectors.mappings.MAPPER2DOT0PO.CLICKFORFIELDMAPPINGTYPE);
