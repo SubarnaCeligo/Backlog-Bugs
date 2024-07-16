@@ -73,9 +73,11 @@ const updateZephyrTestCases = async () => {
             const updated = await zephyrTestCase.updateTestCase(testCaseId, 'UI');
            if (!updated) {
             allUpdated = false;
+            console.error(`Failed in updating this test case >> ${testCaseId}`);
         }
         } catch (error) {
             allUpdated = false;
+            console.error(`Error in updating this test case >> ${testCaseId}`)
         }
     }
     return allUpdated;
