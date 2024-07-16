@@ -77,19 +77,16 @@ const updateZephyrTestCases = async () => {
         }
         } catch (error) {
             allUpdated = false;
-            console.error(`Error in updating this test case >> ${testCaseId}`)
+            console.error(`Unable to update Zephyr ID >> ${testCaseId}`)
+        }
+        if(allUpdated){
+            console.log(`Updated Zephyr ID >> ${testCaseId}`);
+        
         }
     }
     return allUpdated;
 };
 
-// Execute the update process
-// updateZephyrTestCases().then(() => {
-//     console.log('Finished updating test cases.');
-// }).catch(err => {
-//     console.error('Error updating test cases:', err);
-//     process.exit(1);
-// });
 const updatingtestcases = async () => {
     const changedFiles = getChangedFiles();
     if (changedFiles.length === 0) {
