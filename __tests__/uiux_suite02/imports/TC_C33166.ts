@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Imports/C33166.json";
 
 test.describe(`C33166 Verify save saveAndClose close button are present in footer for edit lookup page`, () => {
-  test(`@Env-All C33166 Verify save saveAndClose close button are present in footer for edit lookup page`, async ({
+  test(`@Env-All @Zephyr-IO-T2625 C33166 Verify save saveAndClose close button are present in footer for edit lookup page`, async ({
     io,
     page
   }) => {

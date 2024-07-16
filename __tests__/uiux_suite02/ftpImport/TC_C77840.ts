@@ -4,7 +4,7 @@ import data from "@testData/FtpImport/C77840.json"
 
 
 test.describe(`C77840 Validate User is not seeing the more actions when download retry data option is not available (Tile level access account)`, () => {
-    test(`@Env-All C77840 Validate User is not seeing the more actions when download retry data option is not available (Tile level access account)`, async ({
+    test(`@Env-All @Zephyr-IO-T21647 C77840 Validate User is not seeing the more actions when download retry data option is not available (Tile level access account)`, async ({
       io,
       page
     }) => {

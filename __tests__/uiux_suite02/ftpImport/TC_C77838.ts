@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import data from "@testData/FtpImport/C77838.json"
 
 test.describe(`C77838 Validate User is able to see the more actions icon when download retry data option is available (Tile level access account)`, () => {
-    test(`@Env-All C77838 Validate User is able to see the more actions icon when download retry data option is available (Tile level access account)`, async ({
+    test(`@Env-All @Zephyr-IO-T21645 C77838 Validate User is able to see the more actions icon when download retry data option is available (Tile level access account)`, async ({
       io,
       page
     }) => {
