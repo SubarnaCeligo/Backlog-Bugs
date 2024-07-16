@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 const { ZephyrTestCase } = require('./node_modules/@celigo/aut-utilities/dist/src/zephyr/ZephyrClient/ZephyrTestCase.js');
+const { Logger } = require('./node_modules/@celigo/aut-logger')
 
 // Function to get the list of changed files in the __tests__ folder
 const getChangedFiles = () => {
@@ -71,17 +72,19 @@ const updateZephyrTestCases = async () => {
     for (const testCaseId of testCaseIds) {
         try {
             const updated = await zephyrTestCase.updateTestCase(testCaseId, 'UI');
-           if (!updated) {
-            allUpdated = false;
-            console.error(`Failed in updating this test case >> ${testCaseId}`);
-        }
+            if (!updated) {
+                allUpdated = false;
+                // console.error(`Failed in updating this test case >> ${testCaseId}`);
+                Logger.error(`Failed in updating this test case >> ${testCaseId}`)
+            }
         } catch (error) {
             allUpdated = false;
-            console.error(`Unable to update Zephyr ID >> ${testCaseId}`)
+            // console.error(`Unable to update Zephyr ID >> ${testCaseId}`)
+            Logger.error(`Unable to update Zephyr ID >> ${testCaseId}`)
         }
-        if(allUpdated){
-            console.log(`Updated Zephyr ID >> ${testCaseId}`);
-        
+        if (allUpdated) {
+            // console.log(`Updated Zephyr ID >> ${testCaseId}`);
+            Logger.info(`Updated Zephyr ID >> ${testCaseId}`)
         }
     }
     return allUpdated;
