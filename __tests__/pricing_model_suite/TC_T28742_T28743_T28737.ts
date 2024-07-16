@@ -29,7 +29,7 @@ test.describe("T28742_T28743_T28737_T29724 Verify the license Entitlements notif
     await io.assert.verifyElementContainsText('[id="notification"]', 'Your account has exceeded its entitlements. Request an upgrade.');
     });
     await io.myAccountPage.loadingTime()
-    await io.homePage.click(selectors.homePagePO.UPGRADE_BUTTON);
+    await io.connectionPage.clickByText("Request an upgrade.");   
     await io.assert.verifyElementIsDisplayed(selectors.homePagePO.DIALOG, "We will contact you to discuss your business needs and recommend an ideal subscription plan.");
     await io.homePage.click(selectors.mappings.MAPPER2DOT0PO.CLOSEBUTTON);
   });
@@ -56,7 +56,7 @@ test.describe("T28742_T28743_T28737_T29724 Verify the license Entitlements notif
     await  io.assert.verifyElementContainsText('[id="notification"]', 'Your account has exceeded its entitlements. Request an upgrade.');
     });
     await io.myAccountPage.loadingTime()
-    await io.homePage.click(selectors.homePagePO.UPGRADE_BUTTON);
+    await io.connectionPage.clickByText("Request an upgrade.");   
     await io.assert.verifyElementIsDisplayed(selectors.homePagePO.DIALOG, "We will contact you to discuss your business needs and recommend an ideal subscription plan.");
     await io.homePage.click(selectors.mappings.MAPPER2DOT0PO.CLOSEBUTTON);
   });
@@ -82,7 +82,7 @@ test.describe("T28742_T28743_T28737_T29724 Verify the license Entitlements notif
     await io.assert.verifyElementContainsText('[id="notification"]', 'Your account has exceeded its entitlements. Request an upgrade.');
     });
     await io.myAccountPage.loadingTime()
-    await io.homePage.click(selectors.homePagePO.UPGRADE_BUTTON);
+    await io.connectionPage.clickByText("Request an upgrade.");   
     await io.assert.verifyElementIsDisplayed(selectors.homePagePO.DIALOG, "We will contact you to discuss your business needs and recommend an ideal subscription plan.");
     await io.homePage.click(selectors.mappings.MAPPER2DOT0PO.CLOSEBUTTON);
   });
