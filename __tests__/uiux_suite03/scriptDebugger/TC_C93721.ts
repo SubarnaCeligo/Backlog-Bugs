@@ -5,7 +5,7 @@ import data from "@testData/ScriptDebugger/C93721.json"
 
 test.describe('C93721 Validate user is able to see default function name as "formInit" instead of "main" for form builder(Administer)', () => {
 
-    test('C93721 Validate user is able to see default function name as "formInit" instead of "main" for form builder(Administer)', async({io,page}) => {
+    test('@Env-All @Zephyr-IO-T22688 C93721 Validate user is able to see default function name as "formInit" instead of "main" for form builder(Administer)', async({io,page}) => {
 
       const id =  await io.createResourceFromAPI(
         data,

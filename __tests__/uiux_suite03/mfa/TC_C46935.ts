@@ -11,7 +11,7 @@ test.describe("C46935 Verify, the owner shouldn't be getting an option to select
         
         
       });
-    test.skip("C46935 Verify, the owner shouldn't be getting an option to select the primary account.", async ({io, page}) => {
+    test.skip("@Env-All @Zephyr-IO-T17222 C46935 Verify, the owner shouldn't be getting an option to select the primary account.", async ({io, page}) => {
        
     
         await io.myAccountPage.click(selectors.myAccountPagePO.MFA);

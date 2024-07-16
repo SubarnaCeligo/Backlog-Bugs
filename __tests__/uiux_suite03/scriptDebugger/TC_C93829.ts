@@ -5,7 +5,7 @@ import data1 from "@testData/ScriptDebugger/C93829.json"
 
 test.describe('C93829 Validate user is getting auto-fill of function stub while creating "handleRequest script through flow builder page', () => {
    
-    test('C93829  Validate user is getting auto-fill of function stub while creating "handleRequest" script through flow builder page', async({io,page}) => {
+    test('@Env-All @Zephyr-IO-T22704 C93829  Validate user is getting auto-fill of function stub while creating "handleRequest" script through flow builder page', async({io,page}) => {
   
       const id =  await io.createResourceFromAPI(
         data1,
