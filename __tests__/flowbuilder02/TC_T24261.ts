@@ -9,7 +9,7 @@ test.describe("T24261_T24262_T24263_T24264_T24265_T24266_T24267 verifying create
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Http');
         await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
-        await io.flowBuilder.clickByText("Create flow step")
+        await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
         await expect(
             page.locator(selectors.importPagePO.CLICKPREVIEW)
           ).toBeDisabled();
@@ -34,7 +34,7 @@ test.describe("T24261_T24262_T24263_T24264_T24265_T24266_T24267 verifying create
         await io.flowBuilder.clickByText(
             "Look up additional records (per record)"
         );
-        await io.flowBuilder.clickByText("Create flow step")
+        await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
         await expect(
             page.locator(selectors.importPagePO.CLICKPREVIEW)
           ).toBeDisabled();
@@ -55,7 +55,7 @@ test.describe("T24261_T24262_T24263_T24264_T24265_T24266_T24267 verifying create
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Http');
         await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
         await io.flowBuilder.click(selectors.connectionsPagePO.TRANSFER_FILES);
-        await io.flowBuilder.clickByText("Create flow step")
+        await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
         await expect(
             page.locator(selectors.importPagePO.CLICKPREVIEW)
           ).toBeDisabled();

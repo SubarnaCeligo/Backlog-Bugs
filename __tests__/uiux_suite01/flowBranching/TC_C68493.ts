@@ -7,6 +7,7 @@ test.describe("C68493 Verify user is able to clone the integration from Sandbox 
   }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.click(selectors.homePagePO.SANDBOX_BUTTON);
+    await io.homePage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR)
     await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "1 - TC_C68492-DND")
     await io.integrationPage.waitForElementAttached("[data-test='openActionsMenu']");
     await io.flowBuilder.clickByText('1 - TC_C68492-DND');

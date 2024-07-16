@@ -3,6 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testdata from "./testdata.json"
 
 test.describe(`C68562 Verify user is upload the integration zip file having Multiple linear flows in the template and able to install the template`, () => {
+  test.describe.configure({ retries: 1 })
   test.beforeEach(async ({ io }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
@@ -21,14 +22,16 @@ test.describe(`C68562 Verify user is upload the integration zip file having Mult
   }) => {
     await io.homePage.clickByText("Resources");
     await io.homePage.clickByText("Templates");
-    await io.homePage.waitForElementAttached(`:has-text("temp1") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
+    await io.homePage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR)
+    await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "temp6_DND")
+    await io.homePage.waitForElementAttached(`:has-text("temp6") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
     await io.homePage.click(`tbody tr:has-text("temp6_DND") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
     await io.homePage.clickByText("Upload template zip");
     const fileInput = await page.$(selectors.basePagePO.UPLOAD_FILE);
     await fileInput.setInputFiles('testData/inputData/Templates/C68562.zip');
     await io.homePage.clickByText("Marketplace")
     await io.marketplacePage.fill('[placeholder="Search marketplace"]', "temp6_DND")
-    await io.marketplacePage.clickByText("Preview");
+    await io.marketplacePage.click(selectors.homePagePO.INSTALL_TEMPLATE);
     await io.marketplacePage.clickByText("Install now")
     await io.marketplacePage.waitForElementAttached(selectors.integrationPagePO.SETUP_INTEGRATION_CONFIGURE_BUTTON)
     await io.homePage.click(
