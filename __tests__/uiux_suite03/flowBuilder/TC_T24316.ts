@@ -2,8 +2,8 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("Agent testcases", () => {
-  test("@Zephyr-IO-T24753 @Zephyr-IO-T18478 @Env-All @Epic-IO-86262 @Priority-P2 - Verify the color dots for offline/online agent is shown. And verify whether we have Windows option in the download dropdown", async ({ io, page }, testInfo) => {
+test.describe("To verify that the edit and new icon are shifted inside the connections drop down in export/imports", () => {
+  test("@Zephyr-IO-T24316 @Env-All @Epic-IO-86262 @Priority-P2 - To verify that the edit and new icon are shifted inside the connections drop down in export/imports", async ({ io, page }, testInfo) => {
     await io.connectionPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.basePagePO.TOOLS);
