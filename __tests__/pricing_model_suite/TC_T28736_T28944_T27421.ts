@@ -106,7 +106,8 @@ test.describe("T28736_T28944_T27421 Verify the license Entitlements notification
       );
       await io.api.putCall(
         `v1/test/licenses/${platformLicense._id}`,
-        getLicensePayload(platformLicense)
+        {...getLicensePayload(platformLicense),
+          "apiManagement": true, }
       );
   });
 });
