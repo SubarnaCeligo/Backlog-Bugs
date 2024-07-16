@@ -43,7 +43,7 @@ test.describe("T28742_T28743_T28737_T29724 Verify the license Entitlements notif
 
     await io.api.putCall(
       `v1/test/licenses/${platformLicense._id}`,
-      { ...getLicensePayload(platformLicense), expires: "2044-04-10T13:14:33.363Z", tier: 'enterprise', numEndpoints: 1, "disableOverage": false }
+      { ...getLicensePayload(platformLicense), "apiManagement": true,  expires: "2044-04-10T13:14:33.363Z", tier: 'enterprise', numEndpoints: 1, "disableOverage": false }
     );
     await io.homePage.reloadPage();
     await io.homePage.addStep("Switching to Production mode.");
@@ -69,7 +69,7 @@ test.describe("T28742_T28743_T28737_T29724 Verify the license Entitlements notif
 
     await io.api.putCall(
       `v1/test/licenses/${platformLicense._id}`,
-      { ...getLicensePayload(platformLicense), expires: "2044-04-10T13:14:33.363Z", tier: 'standard', numEndpoints: 1, "disableOverage": false }
+      { ...getLicensePayload(platformLicense), "apiManagement": true,  expires: "2044-04-10T13:14:33.363Z", tier: 'standard', numEndpoints: 1, "disableOverage": false }
     );
     await io.homePage.reloadPage();
     await io.homePage.addStep("Switching to Production mode.");
