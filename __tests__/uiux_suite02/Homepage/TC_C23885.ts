@@ -5,7 +5,7 @@ test.describe("TC_C23885_Verify in Run history tab the values in Started & Compl
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Env-All TC_C23885_Verify in Run history tab the values in Started & Completed columns displays in standard format like “Just now, last 5 minutes, 10 minutes ago, days ago. weeks ago UI_Backlog", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T7431 TC_C23885_Verify in Run history tab the values in Started & Completed columns displays in standard format like “Just now, last 5 minutes, 10 minutes ago, days ago. weeks ago UI_Backlog", async ({ io, page }) => {
         
         await io.homePage.loadingTime()
         await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON)

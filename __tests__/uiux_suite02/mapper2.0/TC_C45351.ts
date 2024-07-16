@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C45351 from '../../../testData/inputData/Mapper2.0/C45351.json';
 
 test.describe("C45351 Verify the names of the 'Source field' and 'Destination field' in the description of the error alerts in Mapper2.0", () => {
-  test("@Env-All C45351 Verify the names of the 'Source field' and 'Destination field' in the description of the error alerts in Mapper2.0", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T2395 C45351 Verify the names of the 'Source field' and 'Destination field' in the description of the error alerts in Mapper2.0", async ({io, page}) => {
     const id = await io.createResourceFromAPI(C45351, 'FLOWS');
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR)
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR, 1);

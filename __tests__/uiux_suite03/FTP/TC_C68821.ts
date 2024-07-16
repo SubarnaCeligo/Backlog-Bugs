@@ -5,7 +5,7 @@ test.describe(`C68821 Verify user is attempting to connect to the SFTP server us
     test.beforeEach(async ({ io }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
       });
-    test(`C68821 Verify user is attempting to connect to the SFTP server using Secure Connection as SSH.`, async({io,page}) => {
+    test(`@Env-All @Zephyr-IO-T11803 C68821 Verify user is attempting to connect to the SFTP server using Secure Connection as SSH.`, async({io,page}) => {
   
         await io.homePage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL)
         await io.connectionPage.clickByText("Create connection")
