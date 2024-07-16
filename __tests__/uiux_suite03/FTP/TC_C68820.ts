@@ -5,7 +5,7 @@ test.describe(`C68820 Verify User attempt to Connect to the SFTP server in very 
     test.beforeEach(async ({ io }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
       });
-    test(`C68820 Verify User attempt to Connect to the SFTP server in very short time out.`, async({io,page}) => {
+    test(`@Env-All @Zephyr-IO-T11802 C68820 Verify User attempt to Connect to the SFTP server in very short time out.`, async({io,page}) => {
   
         await io.homePage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL)
         await io.connectionPage.clickByText("Create connection")

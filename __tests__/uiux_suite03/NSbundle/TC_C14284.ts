@@ -5,7 +5,7 @@ import data1 from "@testData/Flows/C14284.json"
 
 test.describe(`C14284 Verify in mappings whether all the payment instruments fields are shown and working as expected.`, () => {
      
-    test(`C14284 Verify in mappings whether all the payment instruments fields are shown and working as expected.`, async({io,page}) => {
+    test(`@Env-All @Zephyr-IO-T2727 C14284 Verify in mappings whether all the payment instruments fields are shown and working as expected.`, async({io,page}) => {
   
         const id =  await io.createResourceFromAPI(
                     data1,

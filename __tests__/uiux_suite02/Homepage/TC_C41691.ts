@@ -1,7 +1,7 @@
 import { test } from "@celigo/ui-core-automation";
 
 test.describe("C41691_Verify the empty state messaging for API Tokens/connections/imports/exports/agents/Recycle bin", () => {
-    test("@Env-All C41691_Verify the empty state messaging for API Tokens/connections/imports/exports/agents/Recycle bin UI_Backlog", async ({ io }) => {
+    test("@Env-All @Zephyr-IO-T899 C41691_Verify the empty state messaging for API Tokens/connections/imports/exports/agents/Recycle bin UI_Backlog", async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.goToMenu("Resources", "Connections");
         await io.homePage.loadingTime()

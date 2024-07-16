@@ -5,7 +5,7 @@ import data1 from "@testData/ScriptDebugger/C93822.json"
 
 test.describe('C93822 Validate user is able to create "preSavePage" script through flow builder page', () => {
    
-    test('C93822 Validate user is able to create "preSavePage" script through flow builder page', async({io,page}) => {
+    test('@Env-All @Zephyr-IO-T22697 C93822 Validate user is able to create "preSavePage" script through flow builder page', async({io,page}) => {
   
       const id =  await io.createResourceFromAPI(
          data1,

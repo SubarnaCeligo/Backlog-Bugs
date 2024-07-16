@@ -4,7 +4,7 @@ import data from "@testData/FtpImport/C77824.json"
 
 
 test.describe(`C77824 Validate User is not seeing the more actions when download retry data option is not available (Monitor account)`, () => {
-    test(`@Env-All C77824 Validate User is not seeing the more actions when download retry data option is not available (Monitor account)`, async ({
+    test(`@Env-All @Zephyr-IO-T21631 C77824 Validate User is not seeing the more actions when download retry data option is not available (Monitor account)`, async ({
       io,
       page
     }) => {

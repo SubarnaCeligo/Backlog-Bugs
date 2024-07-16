@@ -1,7 +1,7 @@
 import { test } from "@celigo/ui-core-automation";
 
 test.describe("C42979_Elevate Brands - FBA Aggregator IO Account Slow changes & empty resources bug fix", () => {
-    test("@Env-All C42979_Elevate Brands - FBA Aggregator IO Account Slow changes & empty resources bug fix UI_Backlog", async ({ io }) => {
+    test("@Env-All @Zephyr-IO-T3090 C42979_Elevate Brands - FBA Aggregator IO Account Slow changes & empty resources bug fix UI_Backlog", async ({ io }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.myAccountPage.loadingTime()
         await io.homePage.goToMenu("Resources", "Connections");
