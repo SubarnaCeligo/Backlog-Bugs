@@ -20,13 +20,13 @@ test.describe("T28742_T28743_T28737_T29724 Verify the license Entitlements notif
     await io.homePage.reloadPage();
     await io.homePage.addStep("Switching to Production mode.");
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-    // await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
+    await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
     await io.homePage.loadingTime()
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.myAccountPage.click(selectors.myAccountPagePO.SUBSCRIPTION);
     await page.waitForLoadState();
     await test.step("C28742 T29724 Verify the license Entitlements notification whenever the endpoints and flow usage has been exceeded for professional tie", async () => {
-      // await io.assert.verifyElementContainsText('[id="notification"]', 'Your account has exceeded its entitlements. Request an upgrade.');
+    await io.assert.verifyElementContainsText('[id="notification"]', 'Your account has exceeded its entitlements. Request an upgrade.');
     });
     await io.myAccountPage.loadingTime()
     await io.homePage.click(selectors.homePagePO.UPGRADE_BUTTON);
@@ -48,12 +48,12 @@ test.describe("T28742_T28743_T28737_T29724 Verify the license Entitlements notif
     await io.homePage.reloadPage();
     await io.homePage.addStep("Switching to Production mode.");
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-    // await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
+    await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.myAccountPage.click(selectors.myAccountPagePO.SUBSCRIPTION);
     await page.waitForLoadState();
     await test.step("C28743 Verify the license Entitlements notification whenever the endpoints and flow usage has been exceeded for professional tie", async () => {
-      // await io.assert.verifyElementContainsText('[id="notification"]', 'Your account has exceeded its entitlements. Request an upgrade.');
+    await  io.assert.verifyElementContainsText('[id="notification"]', 'Your account has exceeded its entitlements. Request an upgrade.');
     });
     await io.myAccountPage.loadingTime()
     await io.homePage.click(selectors.homePagePO.UPGRADE_BUTTON);
@@ -74,12 +74,12 @@ test.describe("T28742_T28743_T28737_T29724 Verify the license Entitlements notif
     await io.homePage.reloadPage();
     await io.homePage.addStep("Switching to Production mode.");
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-    // await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
+    await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.myAccountPage.click(selectors.myAccountPagePO.SUBSCRIPTION);
     await page.waitForLoadState();
     await test.step("C28737 Verify the license Entitlements notification whenever the endpoints and flow usage has been exceeded for professional tie", async () => {
-      // await io.assert.verifyElementContainsText('[id="notification"]', 'Your account has exceeded its entitlements. Request an upgrade.');
+    await io.assert.verifyElementContainsText('[id="notification"]', 'Your account has exceeded its entitlements. Request an upgrade.');
     });
     await io.myAccountPage.loadingTime()
     await io.homePage.click(selectors.homePagePO.UPGRADE_BUTTON);
