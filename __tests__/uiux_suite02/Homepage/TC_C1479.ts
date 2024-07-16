@@ -5,7 +5,7 @@ test.describe("TC_C1479_Verify the Hour value decreases on Schedule field when d
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Env-All TC_C1479_Verify the Hour value decreases on Schedule field when dragged back on bar line back to the rectangular box under Every n Hours subtab UI_Backlog", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T1928 TC_C1479_Verify the Hour value decreases on Schedule field when dragged back on bar line back to the rectangular box under Every n Hours subtab UI_Backlog", async ({ io, page }) => {
         await io.homePage.loadingTime()
         await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON)
         await io.homePage.isPageLoaded()

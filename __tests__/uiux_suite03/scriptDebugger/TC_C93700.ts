@@ -7,7 +7,7 @@ test.describe('C93700 Validate that user is able to see "formInit" function wher
     test.beforeEach(async ({ io }) => {
       await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test('C93709 Validate that user is able to see "formInit" function wherever “Insert function stub” field is present.(Manage)', async ({
+    test('@Env-All @Zephyr-IO-T22676 C93709 Validate that user is able to see "formInit" function wherever “Insert function stub” field is present.(Manage)', async ({
       io,
       page
     }) => {

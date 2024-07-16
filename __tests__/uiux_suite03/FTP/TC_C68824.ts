@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import data from "@testData/Flows/C68824.json"
  
  test.describe("C68824 verify user if user opened Multiple SFTP sessions simultaneously , each session can Access files and directories from the sevrer.", () => {
-      test("C68824 verify user if user opened Multiple SFTP sessions simultaneously , each session can Access files and directories from the sevrer.", async ({io, page}) => {
+      test("@Env-All @Zephyr-IO-T11805 C68824 verify user if user opened Multiple SFTP sessions simultaneously , each session can Access files and directories from the sevrer.", async ({io, page}) => {
         const id = await io.createResourceFromAPI(data, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C68824', id);
         const lastRun = page.getByText('Last run');

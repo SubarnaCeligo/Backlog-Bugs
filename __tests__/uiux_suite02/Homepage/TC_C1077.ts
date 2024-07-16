@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C1077 Verify that the newly created Integration displays as a tile in Home page", () => {
-  test("@Env-All C1077 Verify that the newly created Integration displays as a tile in Home page", async ({
+  test("@Env-All @Zephyr-IO-T857 C1077 Verify that the newly created Integration displays as a tile in Home page", async ({
     io,
     page
   }) => {
