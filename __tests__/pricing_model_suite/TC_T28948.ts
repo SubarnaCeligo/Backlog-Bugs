@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import { getLicensePayload } from "@celigo/aut-utilities";
 
 test.describe("T28948 Verify the audit log retention if user set the value from API", () => {
-  test.skip("T28948 @Zephyr-IO-T28948  @Env-All @Priority-P2 Verify the audit log retention if user set the value from API", async ({
+  test("T28948 @Zephyr-IO-T28948  @Env-All @Priority-P2 Verify the audit log retention if user set the value from API", async ({
     io,
     page
   }) => {

@@ -4,7 +4,7 @@ import data1 from "@testData/ScriptDebugger/C93833.json"
 
 test.describe('C93833 Validate user is getting auto-fill of function stub while creating "postAggregate" script through flow builder hook', () => {
    
-    test('C93833 Validate user is getting auto-fill of function stub while creating "postAggregate" script through flow builder hook', async({io,page}) => {
+    test('@Env-All @Zephyr-IO-T22708 C93833 Validate user is getting auto-fill of function stub while creating "postAggregate" script through flow builder hook', async({io,page}) => {
   
       
     

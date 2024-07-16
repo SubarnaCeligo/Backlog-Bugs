@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C14706 Export Panel on Staging is Missing the Following Components", () => {
-  test("@Env-All C14706 Export Panel on Staging is Missing the Following Components", async ({
+  test("@Env-All @Zephyr-IO-T2942 C14706 Export Panel on Staging is Missing the Following Components", async ({
     io,
     page
   }) => {

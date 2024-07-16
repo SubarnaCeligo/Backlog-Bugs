@@ -4,7 +4,7 @@ import data1 from "@testData/ScriptDebugger/C93825.json"
 
 test.describe('C93825 Validate user is able to see the options script,description,chose function stub while creating "postAggregate" script through flow builder page', () => {
      
-    test('C93825 Validate user is able to see the options script,description,chose function stub while creating "postAggregate" script through flow builder page', async({io,page}) => {
+    test('@Env-All @Zephyr-IO-T22700 C93825 Validate user is able to see the options script,description,chose function stub while creating "postAggregate" script through flow builder page', async({io,page}) => {
   
       const id =  await io.createResourceFromAPI(
          data1,

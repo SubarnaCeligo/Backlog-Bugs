@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C65088 Verify left navigation bar static, and displaying top-level actions.", () => {
-  test("@Env-All C65088 Verify left navigation bar static, and displaying top-level actions.", async ({
+  test("@Env-All @Zephyr-IO-T22198 C65088 Verify left navigation bar static, and displaying top-level actions.", async ({
     io,
     page
   }) => {

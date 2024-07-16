@@ -17,7 +17,7 @@ test.describe("C120220,C120111,C120110,C120109,C120108,C120107,C120105,C120104,C
         await io.flowBuilder.clickByText('MariaDB');
         await io.flowBuilder.clickByText("Import records into destination application");
        // await io.flowBuilder.clickByText('Create from scratch');
-       await io.flowBuilder.clickByText("Create flow step")
+       await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
         await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
 
         await io.flowBuilder.clickByText("MariaDBCred");

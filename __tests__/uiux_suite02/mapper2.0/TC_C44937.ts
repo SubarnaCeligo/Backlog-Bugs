@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C48963 from '@testData/Flows/C48963.json';
 
 test.describe("C44937 Verify 'Actions to take if source value not found' options functionality for NUMBER ARRAY with Hardcode mapping", () => {
-  test("@Env-All C44937 Verify 'Actions to take if source value not found' options functionality for NUMBER ARRAY with Hardcode mapping", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T18091 C44937 Verify 'Actions to take if source value not found' options functionality for NUMBER ARRAY with Hardcode mapping", async ({io, page}) => {
       await io.createResourceFromAPI(C48963, "FLOWS");
       await io.flowBuilder.loadingTime()
       await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);

@@ -5,7 +5,7 @@ test.describe("C118374_C118381_C118380", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("C118374_C118381_C118380", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T20196 @Zephyr-IO-T20203 @Zephyr-IO-T20202 C118374_C118381_C118380", async ({ io, page }) => {
 
     // Navigate to default integration
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
