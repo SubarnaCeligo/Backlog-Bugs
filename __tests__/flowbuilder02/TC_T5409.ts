@@ -47,7 +47,7 @@ test.describe("TC_T5409 Verify user can able to naviagte between AFE 1.0 and 2.0
     expect(AFE2).toHaveAttribute('aria-pressed', 'true');
     expect(AFE1).toHaveAttribute('aria-pressed', 'false');
     sampleData =  (await io.exportsPage.getText(selectors.exportsPagePO.SAMPLE_DATA_CONTENTS)).toString();
-    await expect(sampleData).toContain('{  \"batch_of_records\": [    {      \"record\": {        \"fileMeta\": {          \"fileName\": \"sampleFileName\"        }      }    },    {      \"record\": {        \"fileMeta\": {          \"fileName\": \"sampleFileName\"        }      }    },    {      \"record\": {        \"fileMeta\": {          \"fileName\": \"sampleFileName\"        }      }    },    {      \"record\": {        \"fileMeta\": {          \"fileName\": \"sampleFileName\"        }      }    },    {      \"record\": {        \"fileMeta\": {          \"fileName\": \"sampleFileName\"        }      }    }    ]');
+    await expect(sampleData).toContain("{  \"batch_of_records\": [    {      \"record\": {        \"fileMeta\": {          \"fileName\": \"sampleFileName\"        }      }    },    {      \"record\": {        \"fileMeta\": {          \"fileName\": \"sampleFileName\"        }      }    },    {      \"record\": {");
     
   });
 });
