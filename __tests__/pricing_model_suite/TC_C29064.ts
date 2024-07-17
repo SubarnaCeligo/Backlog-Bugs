@@ -8,7 +8,12 @@ test.describe("C29064 Verify the concurrency limit for different license type Fr
   }) => {
     const licenses = await io.api.getCall("v1/licenses");
     const platformLicense = licenses.find(l => l.type === "platform");
-
+    const payloadFormat = {
+      ...getLicensePayload(platformLicense),
+      expires: "2044-04-10T13:14:33.363Z",
+      tier: 'enterprise',
+      apiManagement: true
+    };
     await io.api.putCall(
       `v1/test/licenses/${platformLicense._id}`,
       {...getLicensePayload(platformLicense), tier: 'free', concurrency: 11, sandbox: false, "apiManagement": true, "expires": "2044-04-10T13:14:33.363Z"}
@@ -24,10 +29,7 @@ test.describe("C29064 Verify the concurrency limit for different license type Fr
     await io.flowBuilder.click(selectors.importPagePO.ADVANCED);
     await io.connectionPage.click(selectors.connectionsPagePO.HTTP_TARGET_CONCURRENCY_LEVEL);
     const concurrencyLevel = await io.connectionPage.getElementOrIndex(selectors.flowBuilderPagePO.SUBLIST_A, 11);
-    await io.api.putCall(
-        `v1/test/licenses/${platformLicense._id}`,
-        {...getLicensePayload(platformLicense)}
-      );
+    await io.api.putCall(`v1/test/licenses/${payloadFormat._id}`, payloadFormat);
     expect(concurrencyLevel).toBe(undefined);
   });
 });
