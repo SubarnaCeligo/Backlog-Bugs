@@ -60,7 +60,7 @@ test.describe("T28736_T28944_T27421 Verify the license Entitlements notification
     const platformLicense = licenses.find(l => l.type === "platform");
     await io.api.putCall(
       `v1/test/licenses/${platformLicense._id}`,
-      { ...getLicensePayload(platformLicense), expires: "2044-04-10T13:14:33.363Z", tier: 'free' }
+      { ...getLicensePayload(platformLicense), "apiManagement": true,  expires: "2044-04-10T13:14:33.363Z", tier: 'free' }
     );
     await io.homePage.waitForElementAttached(selectors.homePagePO.INTEGRATION_TILES);
     await io.homePage.reloadPage();
@@ -86,7 +86,7 @@ test.describe("T28736_T28944_T27421 Verify the license Entitlements notification
       const platformLicense = licenses.find(l => l.type === "platform");
       await io.api.putCall(
         `v1/test/licenses/${platformLicense._id}`,
-        {...getLicensePayload(platformLicense),expires: "2044-04-10T13:14:33.363Z",tier: 'free'}
+        {...getLicensePayload(platformLicense), "apiManagement": true, expires: "2044-04-10T13:14:33.363Z",tier: 'free'}
       );
       await io.homePage.reloadPage();
       await io.homePage.loadingTime();
@@ -106,7 +106,9 @@ test.describe("T28736_T28944_T27421 Verify the license Entitlements notification
       );
       await io.api.putCall(
         `v1/test/licenses/${platformLicense._id}`,
-        getLicensePayload(platformLicense)
+        {...getLicensePayload(platformLicense),
+          tier: 'enterprise',
+          "apiManagement": true, }
       );
   });
 });

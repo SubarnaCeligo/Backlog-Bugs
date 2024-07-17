@@ -22,14 +22,16 @@ test.describe(`TC_C61149_C61145 Verify the Install link functionality displayed 
     await io.homePage.click(selectors.basePagePO.DIALOG_PROCEED_BUTTON);
     await page.getByLabel("breadcrumb").getByText("Home").click();
     await io.homePage.addStep("Clicked 'Home' from breadcrumb");
+    await io.homePage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR)
+    await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "61130_UIUX_SUITE02")
     await page
       .locator(selectors.homePagePO.INTEGRATION_TILES)
-      .filter({ hasText: "Continue setup >61130_DND" })
+      .filter({ hasText: "Continue setup >61130_UIUX_SUITE02" })
       .last()
       .locator("button")
       .first()
       .click();
-    await io.homePage.addStep("Clicked 'Continue setup >61130_DND'");
+    await io.homePage.addStep("Clicked 'Continue setup >61130_UIUX_SUITE02'");
     await io.assert.verifyElementDisplayedByText(
       "Integrator SuiteApp",
       "'Integrator SuiteApp' step not displayed"
@@ -39,10 +41,12 @@ test.describe(`TC_C61149_C61145 Verify the Install link functionality displayed 
     );
     await io.homePage.clickByText("Use existing connection");
     await io.flowBuilder.clickByText("Please select");
-    await io.flowBuilder.clickByTextByIndex('NETSUITE CONNECTION', 1);
+    let connMap = await io.api.loadConnections();
+    var connId = connMap.get("NETSUITE CONNECTION");
+    await io.connectionPage.selectTextfromDropDown(page, connId)
     await io.homePage.addStep("Selected 'NETSUITE CONNECTION' from dropdown");
     await io.homePage.click(selectors.basePagePO.SAVE);
-    await io.assert.verifyElementDisplayedByText("Verifying","'Verifying' step not displayed");
-    await io.assert.checkElementState("text='Installed'","isDisabled");
+    await io.assert.verifyElementDisplayedByText("Verifying", "'Verifying' step not displayed");
+    await io.assert.checkElementState("text='Installed'", "isDisabled");
   });
 });
