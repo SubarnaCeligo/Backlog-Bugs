@@ -69,16 +69,19 @@ const updateZephyrTestCases = async () => {
 
     const zephyrTestCase = new ZephyrTestCase();
     let allUpdated = true;
+    const failedTestCases = [];
     for (const testCaseId of testCaseIds) {
         try {
             const updated = await zephyrTestCase.updateTestCase(testCaseId, 'UI');
             if (!updated) {
                 allUpdated = false;
+                failedTestCases.push(testCaseId);
                 // console.error(`Failed in updating this test case >> ${testCaseId}`);
                 Logger.error(`Failed in updating this test case >> ${testCaseId}`)
             }
         } catch (error) {
             allUpdated = false;
+            failedTestCases.push(testCaseId);
             // console.error(`Unable to update Zephyr ID >> ${testCaseId}`)
             Logger.error(`Unable to update Zephyr ID >> ${testCaseId}`)
         }
@@ -86,6 +89,9 @@ const updateZephyrTestCases = async () => {
             // console.log(`Updated Zephyr ID >> ${testCaseId}`);
             Logger.info(`Updated Zephyr ID >> ${testCaseId}`)
         }
+    }
+    if (failedTestCases.length > 0) {
+        console.error('Failed to update the following test cases:', failedTestCases.join(', '));
     }
     return allUpdated;
 };
