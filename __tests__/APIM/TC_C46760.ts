@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API Manager and Push to apim option is not available for custom Webhooks", () => {
-    test("@Env-QA @Env-STAGING MyAPis", async ({ io, page, context }) => {
+    test("@Zephyr-IO-T9350 @Env-QA @Env-STAGING MyAPis", async ({ io, page, context }) => {
         const uuidv4 = require('uuid').v4;
         const uniqueString = uuidv4()
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
@@ -63,7 +63,7 @@ test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API
         const func = currentUrl.toString().includes(expectedUrl)
         await io.assert.expectToBeTrue(func, "urls doesn't match")
     });
-    test("@Env-QA @Env-STAGING custom webhook", async ({ io, page }) => {
+    test("@Zephyr-IO-T9350 @Zephyr-IO-T9350 @Env-QA @Env-STAGING custom webhook", async ({ io, page }) => {
         const uuidv4 = require('uuid').v4;
         const uniqueString = uuidv4()
 
@@ -98,7 +98,7 @@ test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API
         await io.flowBuilder.click(selectors.basePagePO.DELETE);
         await io.homePage.loadingTime();
     });
-    test("@Env-QA @Env-STAGING IOListner", async ({ io, page, context }) => {
+    test("@Zephyr-IO-T9350 @Env-QA @Env-STAGING IOListner", async ({ io, page, context }) => {
         const uuidv4 = require('uuid').v4;
         const uniqueString = uuidv4()
 
@@ -140,7 +140,7 @@ test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API
         const func = currentUrl.toString().includes(expectedUrl)
         await io.assert.expectToBeTrue(func, "urls doesn't match")
     });
-    test("@Env-QA @Env-STAGING Export", async ({ io, context, page }) => {
+    test("@Zephyr-IO-T9350 @Env-QA @Env-STAGING Export", async ({ io, context, page }) => {
         const uuidv4 = require('uuid').v4;
         const uniqueString = uuidv4()
 
@@ -184,7 +184,7 @@ test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API
         const func = currentUrl.toString().includes(expectedUrl)
         await io.assert.expectToBeTrue(func, "urls doesn't match")
     });
-    test("@Env-QA @Env-STAGING Lookup", async ({ io, context, page }) => {
+    test("@Zephyr-IO-T9350 @Env-QA @Env-STAGING Lookup", async ({ io, context, page }) => {
         const uuidv4 = require('uuid').v4;
         const uniqueString = uuidv4()
 
@@ -199,7 +199,7 @@ test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'HTTP');
         await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.SELECT_LOOKUP);
-        await io.flowBuilder.clickByText("Create flow step");
+        await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);;
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'http connection');
         await io.flowBuilder.clickByText("http connection");
@@ -233,7 +233,7 @@ test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API
         await io.assert.expectToBeTrue(func, "urls doesn't match");
 
     });
-    test("@Env-QA @Env-STAGING Existing API Manager", async ({ io, page, context }) => {
+    test("@Zephyr-IO-T9350 @Env-QA @Env-STAGING Existing API Manager", async ({ io, page, context }) => {
         const uuidv4 = require('uuid').v4;
         const uniqueString = uuidv4()
 
@@ -247,7 +247,7 @@ test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'HTTP');
         await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.SELECT_LOOKUP);
-        await io.flowBuilder.clickByText("Create flow step");
+        await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);;
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'http connection');
         await io.flowBuilder.clickByText("http connection");
@@ -288,7 +288,7 @@ test.describe("Push to APIM for IO listner, MyAPis, Export, Import, Existing API
         const func = currentUrl.toString().includes(expectedUrl)
         await io.assert.expectToBeTrue(func, "urls doesn't match");
     });
-    test("@Env-QA @Env-STAGING Import", async ({ io, page, context }) => {
+    test("@Zephyr-IO-T9350 @Env-QA @Env-STAGING Import", async ({ io, page, context }) => {
         const uuidv4 = require('uuid').v4;
         const uniqueString = uuidv4()
 

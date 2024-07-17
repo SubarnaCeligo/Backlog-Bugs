@@ -5,7 +5,7 @@ test.describe("TC_C23882_Verify the values in the Run history tab columns", () =
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Env-All TC_C23882_Verify the values in the Run history tab columns UI_Backlog", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T7429 TC_C23882_Verify the values in the Run history tab columns UI_Backlog", async ({ io, page }) => {
         await io.homePage.loadingTime()
         await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON)
         await io.homePage.isPageLoaded()

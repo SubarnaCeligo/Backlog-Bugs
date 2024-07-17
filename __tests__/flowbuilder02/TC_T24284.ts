@@ -23,6 +23,10 @@ test.describe("T24284 - Verify user can create export/lookup/import with the 'Us
 
         //Wait for existing resources to load
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.OPENAI.NLS_RESOURCE);
+        await io.flowBuilder.click(selectors.basePagePO.CONNECTION_DROPDOWN);
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.clickByTextByIndex('HTTP ZENDESK CONNECTION', 0);
+        await io.flowBuilder.loadingTime();
         //Click on any existing resource
         await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.OPENAI.NLS_RESOURCE, 0);
 
