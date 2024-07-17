@@ -4,9 +4,13 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe(`C51579_Verify connection form base URI while cloning`, () => {
     test(`@Env-QA @Env-STAGING @Zephyr-IO-T18907 C51579_Verify connection form base URI while cloning UI_Backlog`, async ({ io }) => {
         await io.homePage.navigateTo(process.env.IO_Integration_URL);
+        await io.homePage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR)
+        await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "TC_C108690_Flow_DND")
         await io.homePage.clickByText("TC_C108690_Flow_DND");
         await io.homePage.click(selectors.connectionsPagePO.ACTIONS_MENU_BUTTON);
         await io.flowBuilder.clickByText("Clone flow");
+        await io.homePage.waitForElementAttached(selectors.basePagePO.ADD_NAME);
+        await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'Clone_TC_C108690_Flow');
         await io.flowBuilder.clickByText("Please select");
         await io.flowBuilder.clickByIndex(selectors.basePagePO.MENU_ITEM, 1);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLONE_FLOW_BUTTON);
