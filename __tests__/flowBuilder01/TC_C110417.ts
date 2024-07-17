@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C110417 from '../../testData/inputData/flowBuilder/C110417.json';
 
 test.describe("C110417)", () => {
-    test("C110417) @Env-All @Priority-P2", async ({ io, page }) => {
+    test("C110417) @Env-All @Priority-P2 @Zephyr-IO-T18789", async ({ io, page }) => {
         const id = await io.createResourceFromAPI(C110417, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_CC110417', id);
         const lastRun = page.getByText('Last run');
