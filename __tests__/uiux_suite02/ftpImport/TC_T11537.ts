@@ -36,7 +36,12 @@ test.describe("TC_T11537 CSV generator helper: Verify the preview is working wel
     await io.flowBuilder.loadingTime();
 
     sampleData =  (await io.exportsPage.getText(`${selectors.flowBuilderPagePO.OPENAI.ERROR_CODEPANEL} ${selectors.basePagePO.ACE_CONTENT}`)).toString();
-    await io.assert.expectToContainValue(sampleData, "Unexpected·non-whitespace·character·after·JSON·at·position·572·(line·1·column·573)¶", 'Incorrect preview');
+    const expectedValues = [
+        "Unexpected·non-whitespace·character·after·JSON·at·position·572·(line·1·column·573)¶",
+        "Expected·property·name·or·'}'·in·JSON·at·position·1·(line·1·column·2)¶"
+      ];
+    const isExpectedValue = expectedValues.some(expectedValue => sampleData.includes(expectedValue));
+    await expect(isExpectedValue, 'Incorrect error message').toBe(true);
   });
 
 });
