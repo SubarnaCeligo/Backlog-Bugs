@@ -6,7 +6,7 @@ test.describe("@Author - SubarnaGhatak IO-T33009 Verify no error pop up is displ
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Zephyr-IO-T33009 @Epic-IO-80162  @Env-QA @Priority-P2 @Author-SubarnaGhatak ", async ({ io, page }) => {
+    test("@Zephyr-IO-T33009 @Epic-IO-80162  @Env-All @Priority-P2 @Author-SubarnaGhatak ", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.flowBuilder.loadingTime();
