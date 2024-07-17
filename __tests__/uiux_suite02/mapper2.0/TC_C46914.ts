@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Mapper2.0/C46914.json";
 
 test.describe(`C46914 Verify When no saved mappings exist, add empty parent row for output to be of 'rows' type`, () => {
-  test(`C46914 Verify When no saved mappings exist, add empty parent row for output to be of 'rows' type`, async ({
+  test(`@Env-All @Zephyr-IO-T18024 C46914 Verify When no saved mappings exist, add empty parent row for output to be of 'rows' type`, async ({
     io,
     page
   }) => {

@@ -6,19 +6,17 @@ test.describe("TC_C120099", () => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
     test("@Zephyr-IO-T10086 @Env-All @Priority-P2 ", async ({ io, page }) => {
-
         await io.homePage.loadingTime();
-        await io.homePage.goToMenu("Tools", "Flow builder");
-
+        await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+        await io.flowBuilder.loadingTime();
+        await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.flowBuilder.click(
             selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP
         );
         await io.flowBuilder.click(selectors.flowBuilderPagePO.GROUP_RECORD_FIELD);
         await io.flowBuilder.clickByText('MariaDB');
-
-
         await io.flowBuilder.clickByText("Import records into destination application");
-        await io.flowBuilder.clickByText('Create from scratch');
+         await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
         await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.clickByText("MariaDBCred");
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
@@ -34,7 +32,6 @@ test.describe("TC_C120099", () => {
         await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.clickByIndex(selectors.integrationPagePO.OPENACTIONSMENU, 2);
-
         await io.assert.verifyElementDisplayedByText('Auto-populate destination fields', "Field is not displayed properly");
         await io.flowBuilder.clickByText("Auto-populate destination fields");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_AUTOPOPULATE_MESSAGE_POPUP);
@@ -43,21 +40,8 @@ test.describe("TC_C120099", () => {
         await io.flowBuilder.clickByText("Handlebars expression");
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.clickByText("Please select")
-        expect(await io.assert.verifyElementDisplayedByText(
-            "Do nothing",
-            "'Do nothing'  dropdown option is not displayed")).toBeFalsy();
-        // let displaytext = false;
-        // try {
-
-        //     (await io.assert.verifyElementDisplayedByText(
-        //         "Do nothing",
-        //         "'Do nothing'  dropdown option is not displayed"));
-        //     displaytext = true;
-        // }
-        // catch (e) {
-        //     expect(displaytext).toBeFalsy();
-        // }
-        // expect(displaytext).toBeFalsy();
+        const dropdownVAlue = await io.flowBuilder.isVisible("text='Do nothing'");
+        await io.assert.expectToBeFalse(dropdownVAlue, "'Do nothing'  dropdown option is not displayed");
 
 
     });

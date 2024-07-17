@@ -6,7 +6,7 @@ test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T31358 @Zephyr-IO-T31359 @
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.myAccountPage.loadingTime();
     });
-    test("@Epic-IO-80150 @Priority-P2 @Env-QA @Zephyr-IO-T31359 @Zephyr-IO-T31368 @Zephyr-IO-T31369", async ({ io, page }) => {
+    test("@Epic-IO-80150 @Priority-P2 @Env-All @Zephyr-IO-T31359 @Zephyr-IO-T31368 @Zephyr-IO-T31369", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.loadingTime()
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
@@ -15,11 +15,12 @@ test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T31358 @Zephyr-IO-T31359 @
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'HTTP');
         await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
         await io.homePage.loadingTime();
+        await io.flowBuilder.clickByText('Create flow step');
 
         //Click on connection filter dropdown
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         //@Zephyr-IO-T31359" Type the connection name
-        await page.keyboard.type("HTTP ZENDESK");
+        await page.keyboard.type("HTTP ZENDESK CONNECTION");
         await io.flowBuilder.clickByTextByIndex("HTTP ZENDESK CONNECTION",0);
 
         // IO-T31368 online/offline status should not show after choosing connection
@@ -43,6 +44,10 @@ test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T31358 @Zephyr-IO-T31359 @
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
+        await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'HTTP');
+        await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
+        await io.homePage.loadingTime();
+        await io.flowBuilder.clickByText('Create flow step');
         await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.HELP_TEXT_ICON,1);
         await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.HELP_TEXT_ICON,1);
         await io.homePage.loadingTime();

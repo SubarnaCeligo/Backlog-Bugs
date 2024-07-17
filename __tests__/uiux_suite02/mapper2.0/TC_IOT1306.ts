@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Mapper2.0/IOT130.json";
 
 test.describe(`IOT1306 - To verify metadata is getting populated when record type is selected as Subscription change order in Netsuite Import flow UI_Backlog`, () => {
-  test(`IOT1306 - To verify metadata is getting populated when record type is selected as Subscription change order in Netsuite Import flow UI_Backlog`, async ({
+  test(`@Env-All @Zephyr-IO-T1306 IOT1306 - To verify metadata is getting populated when record type is selected as Subscription change order in Netsuite Import flow UI_Backlog`, async ({
     io,
     page
   }) => {

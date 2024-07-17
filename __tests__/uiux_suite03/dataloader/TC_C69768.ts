@@ -1,7 +1,7 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 test.describe(`C69768 getting unknown error if we are saving dataloader first time wit file type XLSx`, () => {
-  test(`C69768 getting unknown error if we are saving dataloader first time wit file type XLSx`, async ({
+  test(`@Env-All @Zephyr-IO-T20885 C69768 getting unknown error if we are saving dataloader first time wit file type XLSx`, async ({
     io,
     page
   }) => {

@@ -4,7 +4,7 @@ import C98433 from '../../../testData/inputData/transformation/C98433.json';
 
 test.describe("C98433-Verify user is able to Drag and drop the fields in Transformation 2.0", () => {
   
-  test("C98433- Drag and drop the fields in Transformation 2.0", async ({ io }) => {
+  test("@Env-All @Zephyr-IO-T20550 C98433- Drag and drop the fields in Transformation 2.0", async ({ io }) => {
 
     //Create a flow with transformations
     await io.createResourceFromAPI(C98433, "FLOWS");

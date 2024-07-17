@@ -12,7 +12,7 @@ test.describe("TC_C108677 Verify whether Hotspot icons when hooks is errored out
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowViaAPI(id);
   });
-  test("C108677 Verify whether Hotspot icons when hooks is errored out", async ({
+  test("@Env-All @Zephyr-IO-T23936 C108677 Verify whether Hotspot icons when hooks is errored out", async ({
     io,
     page
   }) => {

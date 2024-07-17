@@ -23,6 +23,7 @@ test.describe("C27423 Verify the endpoint under subscription page when it dont e
     });
 
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
+    await io.myAccountPage.waitForElementAttached(selectors.myAccountPagePO.SUBSCRIPTION);  
     await io.myAccountPage.click(selectors.myAccountPagePO.SUBSCRIPTION);
     await page.waitForLoadState();
 
@@ -41,9 +42,6 @@ test.describe("C27423 Verify the endpoint under subscription page when it dont e
       ],
       "The status is not correctly colored"
     );
-    await io.api.putCall(
-      `v1/test/licenses/${platformLicense._id}`,
-      getLicensePayload(platformLicense)
-    );
+    await io.api.putCall(`v1/test/licenses/${payloadFormat._id}`, payloadFormat);
   });
 });

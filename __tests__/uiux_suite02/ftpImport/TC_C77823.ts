@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import data from "@testData/FtpImport/C77823.json"
 
 test.describe(`C77823 Validate User is not seeing the vertical line when download retry data option is not available (Monitor account)`, () => {
-    test(`C77823 Validate User is not seeing the vertical line when download retry data option is not available (Monitor account)`, async ({
+    test(`@Env-All @Zephyr-IO-T21630 C77823 Validate User is not seeing the vertical line when download retry data option is not available (Monitor account)`, async ({
       io,
       page
     }) => {
@@ -14,10 +14,11 @@ test.describe(`C77823 Validate User is not seeing the vertical line when downloa
          await io.api.runBatchFlowViaAPI('C77823', id);
          const lastRun = page.getByText('Last run')
          await lastRun.waitFor({state: 'visible', timeout: 360000});
+         await io.homePage.delay(30000)
          
-         await io.flowBuilder.clickByTextByIndex("1 error", 1);
-        const element = await io.flowBuilder.isVisible(selectors.basePagePO.MENU_ITEM)
-        await io.assert.expectToBeValue(element.toString(), "false", "Element is not present")
+         await io.flowBuilder.clickByTextByIndex("1 error", 0);
+         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FTP_BRIDGE_ERROR_MORE_BUTTON);
+         await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.FTP_BRIDGE_ERROR_MORE_BUTTON,"Element is present")
           
     });
   });

@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe('C55928 Verify the functionality by clicking on the "Leave a message" link in the Pendo-zendesk chat bot', () => {
-  test('C55928 Verify the functionality by clicking on the "Leave a message" link in the Pendo-zendesk chat bot', async ({
+  test('@Env-All @Zephyr-IO-T15088 C55928 Verify the functionality by clicking on the "Leave a message" link in the Pendo-zendesk chat bot', async ({
     page,
     io
   }) => {

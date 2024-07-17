@@ -1,25 +1,29 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe(`C66254 @Bug-IO-34856 @Priority-P1 @Zephyr-IO-T23465 @Env-QA Verify that check box field under Field specific qualification criteria section of Real Time NS export shows true/false for  Suite App 2.0`, () => {
-  test(`C66254 Verify that check box field under Field specific qualification criteria section of Real Time NS export shows true/false for  Suite App 2.0`, async ({
+test.describe(`C66254 @Bug-IO-34856 @Priority-P1 @Zephyr-IO-T23465 @Env-QA`, () => {
+  test(`@Env-All @Zephyr-IO-T23464 C66254`, async ({
     page,
     io
   }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
+    await io.homePage.loadingTime();
     await io.homePage.goToMenu("Tools", "Flow builder");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
+    await io.homePage.loadingTime();
     await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.APP_NAME_INPUT);
     await io.flowBuilder.fill(selectors.connectionsPagePO.APP_NAME_INPUT, 'Netsuite');
     await io.flowBuilder.click(selectors.connectionsPagePO.NETSUITE_CONNECTION);
     await io.flowBuilder.click(selectors.connectionsPagePO.REALTIME);
     await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
+    await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
     await page.keyboard.type('NETSUITE 347 CONNECTION');
     await io.flowBuilder.clickByText('NETSUITE 347 CONNECTION');
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
+    await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.importPagePO.ADVANCED);
+    await io.homePage.loadingTime();
     await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.SUITEAPP2, 'Suite App SuiteScript 2.0 is not displayed');
     await io.flowBuilder.click(selectors.importPagePO.NETSUITE_DISTRIBUTED_RECORDTYPE);
     await page.keyboard.type('customer');

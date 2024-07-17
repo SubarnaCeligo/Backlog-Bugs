@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C56639_Verify the iclient action menu from resource page in different browsers like Chrome,Firefox and Safari", () => {
-    test("C56639_Verify the iclient action menu from resource page in different browsers like Chrome,Firefox and Safari UI_Backlog", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T16890 C56639_Verify the iclient action menu from resource page in different browsers like Chrome,Firefox and Safari UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources", "iClients");

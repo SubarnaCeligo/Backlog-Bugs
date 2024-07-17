@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Mapper2.0/C44421.json";
 
 test.describe(`C44421 verify destination mapping filed dropdown with lengthy field name`, () => {
-  test(`C44421 verify destination mapping filed dropdown with lengthy field name`, async ({
+  test(`@Env-All @Zephyr-IO-T2423 C44421 verify destination mapping filed dropdown with lengthy field name`, async ({
     io,
     page
   }) => {

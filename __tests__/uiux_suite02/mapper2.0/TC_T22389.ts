@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Mapper2.0/T22389.json";
 
 test.describe(`T22389 - Validate adding of new rows should be done only if all the source tabs has similar structures UI_Backlog`, () => {
-  test(`T22389 - Validate adding of new rows should be done only if all the source tabs has similar structures UI_Backlog`, async ({
+  test(`@Env-All @Zephyr-IO-T22389 - Validate adding of new rows should be done only if all the source tabs has similar structures UI_Backlog`, async ({
     io,
     page
   }) => {

@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C24965_Manage All - Verify when clicked on view report details option under the actions drop down of a completed report, the Report details drawer is loaded", () => {
-  test("C24965_Manage All - Verify when clicked on view report details option under the actions drop down of a completed report, the Report details drawer is loaded UI_Backlog", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T4348 C24965_Manage All - Verify when clicked on view report details option under the actions drop down of a completed report, the Report details drawer is loaded UI_Backlog", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
     await io.homePage.goToMenu("Tools", "Reports");

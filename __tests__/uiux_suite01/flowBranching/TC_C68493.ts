@@ -7,11 +7,14 @@ test.describe("C68493 Verify user is able to clone the integration from Sandbox 
   }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.click(selectors.homePagePO.SANDBOX_BUTTON);
+    await io.homePage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR)
     await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "1 - TC_C68492-DND")
     await io.integrationPage.waitForElementAttached("[data-test='openActionsMenu']");
     await io.flowBuilder.clickByText('1 - TC_C68492-DND');
     await io.homePage.click(selectors.homePagePO.CLONE_INTEGRATION);
     await io.homePage.click(selectors.homePagePO.PRODUCTION);
+    await io.homePage.waitForElementAttached(selectors.basePagePO.ADD_NAME);
+              await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT,'Clone - 1 - TC_C68492');
     await io.homePage.click(selectors.homePagePO.CLONE_INTEGRATION_BUTTON);
     await io.homePage.click(selectors.homePagePO.STAY_IN_PRODUCTION);
     await io.marketplacePage.waitForElementAttached(
@@ -35,7 +38,7 @@ test.describe("C68493 Verify user is able to clone the integration from Sandbox 
     await io.homePage.selectTextfromDropDown(page, connId)
     await io.connectionPage.click(selectors.basePagePO.SAVE);
     await io.homePage.click(selectors.basePagePO.INSTALL);
-    await io.homePage.clickByTextByIndex("Clone - 1 - TC_C68492-DND", 0);
+    await io.homePage.clickByTextByIndex("Clone - 1 - TC_C68492", 0);
     // await io.assert.verifyElementIsDisplayed(
     //   selectors.basePagePO.EDIT_SCHEDULE,
     //   "Scheduling is not present"

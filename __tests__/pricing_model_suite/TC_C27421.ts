@@ -23,7 +23,6 @@ test.describe("C27421 Verify the subscription page for different license type(Fr
     );
     const licenses = await io.api.getCall("v1/licenses");
     const platformLicense = licenses.find(l => l.type === "platform");
-
     await io.api.putCall(
       `v1/test/licenses/${platformLicense._id}`,
       {...getLicensePayload(platformLicense), 
@@ -34,6 +33,7 @@ test.describe("C27421 Verify the subscription page for different license type(Fr
          numFlows:0}
     );
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
+    await io.myAccountPage.waitForElementAttached(selectors.myAccountPagePO.SUBSCRIPTION);
     await io.myAccountPage.click(selectors.myAccountPagePO.SUBSCRIPTION);
     await page.waitForLoadState();
 
@@ -56,7 +56,12 @@ test.describe("C27421 Verify the subscription page for different license type(Fr
       );
       const licenses = await io.api.getCall("v1/licenses");
       const platformLicense = licenses.find(l => l.type === "platform");
-  
+      const payloadFormat = {
+        ...getLicensePayload(platformLicense),
+        tier: 'enterprise',
+        expires: "2044-04-10T13:14:33.363Z",
+        apiManagement: true
+      };
       await io.api.putCall(
         `v1/test/licenses/${platformLicense._id}`,
         {...getLicensePayload(platformLicense), tier: 'enterprise', "apiManagement": true, "expires": "2044-04-10T13:14:33.363Z"}
@@ -73,10 +78,7 @@ test.describe("C27421 Verify the subscription page for different license type(Fr
         "rgb(255, 60, 60)",
         "The status is not correctly colored"
       );
-      await io.api.putCall(
-        `v1/test/licenses/${platformLicense._id}`,
-        getLicensePayload(platformLicense)
-      );
+      await io.api.putCall(`v1/test/licenses/${payloadFormat._id}`, payloadFormat);
     });
     
 });

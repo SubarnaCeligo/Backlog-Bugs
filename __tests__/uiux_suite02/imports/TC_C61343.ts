@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C61343 from '@testData/Imports/TC_C61343.json';
 
 test.describe("C61343 Verify Preview Error is automatically redirecting to Parsed", () => {
-    test("C61343 Verify Preview Error is automatically redirecting to Parsed", async ({io, page}) => {
+    test("@Env-All @Zephyr-IO-T15738 C61343 Verify Preview Error is automatically redirecting to Parsed", async ({io, page}) => {
         const id = await io.createResourceFromAPI(C61343,"FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C61343', id);
         const lastRun = page.getByText('Last run')

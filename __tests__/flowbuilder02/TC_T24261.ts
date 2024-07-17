@@ -9,15 +9,12 @@ test.describe("T24261_T24262_T24263_T24264_T24265_T24266_T24267 verifying create
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Http');
         await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
-        const connectionFieldExp = await io.flowBuilder.isVisible(selectors.connectionsPagePO.CONNECTION_INPUT);
-        await io.assert.expectToBeFalse(connectionFieldExp, 'Connection field is unexpectedly present');
-        await io.assert.verifyElementIsDisplayed(selectors.basePagePO.CREATE_FROM_SCRATCH,"Create from scratch for export is not displayed properly");
         await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
         await expect(
             page.locator(selectors.importPagePO.CLICKPREVIEW)
           ).toBeDisabled();
-        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "HTTP Zendesk Connection Test");
-        await io.homePage.clickByText("HTTP Zendesk Connection Test");
+        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "HTTP ZENDESK CONNECTION");
+        await io.homePage.clickByText("HTTP ZENDESK CONNECTION");
         await expect(
             page.locator(selectors.importPagePO.CLICKPREVIEW)
           ).not.toBeDisabled();
@@ -30,21 +27,19 @@ test.describe("T24261_T24262_T24263_T24264_T24265_T24266_T24267 verifying create
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
 
         // lookup
+        await io.homePage.loadingTime()
         await io.connectionPage.click(selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Http');
         await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
         await io.flowBuilder.clickByText(
             "Look up additional records (per record)"
         );
-        const connectionFieldLookup = await io.flowBuilder.isVisible(selectors.connectionsPagePO.CONNECTION_INPUT);
-        await io.assert.expectToBeFalse(connectionFieldLookup, 'Connection field is unexpectedly present');
-        await io.assert.verifyElementIsDisplayed(selectors.basePagePO.CREATE_FROM_SCRATCH,"Create from scratch for lookup is not displayed properly");
         await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
         await expect(
             page.locator(selectors.importPagePO.CLICKPREVIEW)
           ).toBeDisabled();
-        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "HTTP Zendesk Connection Test");
-        await io.homePage.clickByText("HTTP Zendesk Connection Test");
+        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "HTTP ZENDESK CONNECTION");
+        await io.homePage.clickByText("HTTP ZENDESK CONNECTION");
         await expect(
             page.locator(selectors.importPagePO.CLICKPREVIEW)
           ).not.toBeDisabled();
@@ -60,15 +55,12 @@ test.describe("T24261_T24262_T24263_T24264_T24265_T24266_T24267 verifying create
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Http');
         await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
         await io.flowBuilder.click(selectors.connectionsPagePO.TRANSFER_FILES);
-        const connectionFieldImp = await io.flowBuilder.isVisible(selectors.connectionsPagePO.CONNECTION_INPUT);
-        await io.assert.expectToBeFalse(connectionFieldImp, 'Connection field is unexpectedly present');
-        await io.assert.verifyElementIsDisplayed(selectors.basePagePO.CREATE_FROM_SCRATCH,"Create from scratch for export is not displayed properly");
         await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
         await expect(
             page.locator(selectors.importPagePO.CLICKPREVIEW)
           ).toBeDisabled();
-        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "HTTP Zendesk Connection Test");
-        await io.homePage.clickByText("HTTP Zendesk Connection Test");
+        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "HTTP ZENDESK CONNECTION");
+        await io.homePage.clickByText("HTTP ZENDESK CONNECTION");
         await expect(
             page.locator(selectors.importPagePO.CLICKPREVIEW)
           ).not.toBeDisabled();

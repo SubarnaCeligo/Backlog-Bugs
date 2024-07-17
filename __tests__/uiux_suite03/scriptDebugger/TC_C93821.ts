@@ -4,7 +4,7 @@ import data1 from "@testData/ScriptDebugger/C93821.json"
 
 test.describe('C93821 Validate user is able to create "handleRequest" script through flow builder page', () => {
    
-    test('C93821 Validate user is able to create "handleRequest" script through flow builder page', async({io,page}) => {
+    test('@Env-All @Zephyr-IO-T22696 C93821 Validate user is able to create "handleRequest" script through flow builder page', async({io,page}) => {
   
       const id =  await io.createResourceFromAPI(
          data1,

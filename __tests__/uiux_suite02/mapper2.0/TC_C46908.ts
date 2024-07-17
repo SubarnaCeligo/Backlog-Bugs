@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Mapper2.0/C46908.json";
 
 test.describe(`C46908 Verify the functionality by not providing a 'source record field 'value in Mapper 2.0 in case of non required field`, () => {
-  test(`C46908 Verify the functionality by not providing a 'source record field 'value in Mapper 2.0 in case of non required field`, async ({
+  test(`@Env-All @Zephyr-IO-T18019 C46908 Verify the functionality by not providing a 'source record field 'value in Mapper 2.0 in case of non required field`, async ({
     io,
     page
   }) => {

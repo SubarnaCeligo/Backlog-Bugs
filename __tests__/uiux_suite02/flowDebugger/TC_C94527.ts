@@ -3,13 +3,14 @@ import * as selectors from "@celigo/aut-selectors";
 import C94527 from '@testData/FlowDebugger/C94527.json';
 
 test.describe("C94517_C94527_C94525_C94521_C94529_C94533_C94528_C94531_C94526_C94519_C94532", () => {
-    test("C94517_C94527_C94525_C94521_C94529_C94533_C94528_C94531_C94526_C94519_C94532", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T14123 @Zephyr-IO-T14123 @Zephyr-IO-T14126 @Zephyr-IO-T14125 @Zephyr-IO-T14130 @Zephyr-IO-T14129 @Zephyr-IO-T14127 @Zephyr-IO-T14124 @Zephyr-IO-T14131 @Zephyr-IO-T14132 @Zephyr-IO-T14133 C94517_C94527_C94525_C94521_C94529_C94533_C94528_C94531_C94526_C94519_C94532", async ({ io, page }) => {
         await io.createResourceFromAPI(C94527, "FLOWS");
         //Disable the flow
+        await io.homePage.loadingTime()
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
-        await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
+        await page.locator(selectors.flowBuilderPagePO.RUNTEST_BUTTON).first().click();
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);
 
@@ -75,10 +76,13 @@ test.describe("C94517_C94527_C94525_C94521_C94529_C94533_C94528_C94531_C94526_C9
         await io.flowBuilder.click(selectors.flowBuilderPagePO.HANDLEBARS_TEMPLATE);
         await io.flowBuilder.doubleClick(selectors.flowBuilderPagePO.HANDLEBAR);
         await io.flowBuilder.clearTextValue(selectors.flowBuilderPagePO.HANDLEBAR);
+        await io.homePage.loadingTime()
         await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.HANDLEBAR, "{{record.id}}");
+        await io.homePage.loadingTime()
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
-        await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
+        await io.homePage.loadingTime()
+        await page.locator(selectors.flowBuilderPagePO.RUNTEST_BUTTON).first().click();
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);
         await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.NS_FILE_INTERNALID, 'Flow hotspot is not displayed');
@@ -86,11 +90,12 @@ test.describe("C94517_C94527_C94525_C94521_C94529_C94533_C94528_C94531_C94526_C9
         await io.flowBuilder.click(selectors.flowBuilderPagePO.NS_FILE_INTERNALID);
         await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.TEST_RUN_RESULT_TAB, 'Test run result tab is not displayed');
         await io.homePage.addStep('Verified Test run result tab is displayed');
-
+        await io.homePage.loadingTime()
 
         //TC_C94531 Verify Empty state message when AFE1.0 is selected but 1.0 template has no content and there are no result to show
         await io.flowBuilder.click(selectors.flowBuilderPagePO.AFE_ONE_DOT_ZERO);
         await io.homePage.addStep('Clicking on AFE 1.0');
+        await io.homePage.loadingTime()
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EMPTY_STATE_MESSAGE);
         const msg1 = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.EMPTY_STATE_MESSAGE)).toString();
         const masg1 = JSON.stringify(msg1);

@@ -6,7 +6,7 @@ test.describe("@Author-Sudhanshukumar C27068 Verify the application name is appe
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C27068 @Epic-IO-52851 @Zephyr-IO-T27068 @Zephyr-IO_T27072 @Zephyr-IO_T27069 @Zephyr-IO_T27070 @Zephyr-IO_T27071 @Env-QA Verify the application name is appended into the URL", async ({ io, page }) => {
+    test("@Env-QA C27068 @Epic-IO-52851 @Zephyr-IO-T27068 @Zephyr-IO_T27072 @Zephyr-IO_T27069 @Zephyr-IO_T27070 @Zephyr-IO_T27071 @Env-QA Verify the application name is appended into the URL", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.OPENAI.FLOW_DESCRIPTION_BUTTON);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
@@ -35,7 +35,7 @@ test.describe("@Author-Sudhanshukumar C27068 Verify the application name is appe
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.homePage.loadingTime();
         const importCreateUrl = await io.homePage.getCurrentUrl();
-        await io.assert.expectToContainValue("?app=amazonredshift", importCreateUrl, "Appended URL not present")
+        await io.assert.expectToContainValue("?app=redshiftdatawarehouse", importCreateUrl, "Appended URL not present")
         await io.importsPage.click(selectors.importPagePO.IMPORT_CLOSE_DRAWER);
 
         // Exports in Resources
@@ -43,7 +43,7 @@ test.describe("@Author-Sudhanshukumar C27068 Verify the application name is appe
         await io.exportsPage.loadingTime();
         await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.OPENAI.FLOW_DESCRIPTION_BUTTON, "Flow description is not displayed");
         await io.exportsPage.click(selectors.homePagePO.SEARCH_INTEGRATION);
-        await io.exportsPage.fill(selectors.homePagePO.SEARCH_INTEGRATION, "zendesk s");
+        await io.exportsPage.fill(selectors.homePagePO.SEARCH_INTEGRATION, "zendesk");
         await io.exportsPage.loadingTime();
         await io.exportsPage.clickByIndex(selectors.flowBuilderPagePO.CONNECTION_TABLE, 0);
         await io.exportsPage.loadingTime();
@@ -63,7 +63,7 @@ test.describe("@Author-Sudhanshukumar C27068 Verify the application name is appe
         await io.exportsPage.click(selectors.basePagePO.SAVE);
         await io.exportsPage.loadingTime();
         const exportCreateUrl = await io.homePage.getCurrentUrl();
-        await io.assert.expectToContainValue("?app=googlebigquery", exportCreateUrl, "Appended URL not present")
+        await io.assert.expectToContainValue("?app=bigquerydatawarehouse", exportCreateUrl, "Appended URL not present")
         await io.exportsPage.click(selectors.importPagePO.IMPORT_CLOSE_DRAWER);
         // Connections in Resources IO-T27071
         await io.homePage.goToMenu("Resources", "Connections");
@@ -83,7 +83,7 @@ test.describe("@Author-Sudhanshukumar C27068 Verify the application name is appe
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Microsoft SQL');
         await io.flowBuilder.click(selectors.flowBuilderPagePO.MICROSOFT_SQL);
         const connectionCreateUrl = await io.homePage.getCurrentUrl();
-        await io.assert.expectToContainValue("?app=microsoftsql", connectionCreateUrl, "Appended URL not present")
+        await io.assert.expectToContainValue("?app=mssql", connectionCreateUrl, "Appended URL not present")
         await io.exportsPage.click(selectors.importPagePO.IMPORT_CLOSE_DRAWER);
     });
 });

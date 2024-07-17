@@ -13,6 +13,11 @@ test.describe("TC_C20812_Verify, EM 2.0: Error message: If long text is present,
         await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.flowBuilderPagePO.ERROR_BUBBLE);
         await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.reloadPage();
+        await io.flowBuilder.loadingTime();
         // Validating error message and details
         await io.assert.verifyElementContainsText(selectors.integrationPagePO.ERRORDETAILSPAGE, 'The specified bucket does not exist')
     });

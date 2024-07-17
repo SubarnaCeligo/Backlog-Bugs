@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C46906 from '@testData/Mapper2.0/C46906.json';
 
 test.describe("C46906 Verify by adding the duplicate mappings for 'destination record' and  do not enter the  'Source record field' value for one of the mapping  in Mapper2.0", () => {
-  test("C46906 Verify by adding the duplicate mappings for 'destination record' and  do not enter the  'Source record field' value for one of the mapping  in Mapper2.0", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T18017 C46906 Verify by adding the duplicate mappings for 'destination record' and  do not enter the  'Source record field' value for one of the mapping  in Mapper2.0", async ({io, page}) => {
       await io.createResourceFromAPI(C46906, "FLOWS");
       await page.locator(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR).nth(1).click();
       await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);

@@ -9,7 +9,7 @@
         "asynchronous": true,
         "hooks": {
           "preSavePage": {
-            "_scriptId": "652e8c68dadc8e536d600c79",
+            "_scriptId": "",
             "function": "preSavePage"
           }
         },
@@ -52,15 +52,15 @@
         "_connectionId": "HTTP ZENDESK CONNECTION",
         "hooks": {
           "postMap": {
-            "_scriptId": "652e8ce48416c2033ee83d18",
+            "_scriptId": "",
             "function": "postMap"
           },
           "postSubmit": {
-            "_scriptId": "652e8d2dee69120eed6480d7",
+            "_scriptId": "",
             "function": "postSubmit"
           },
           "preMap": {
-            "_scriptId": "652e8db0dadc8e536d600cc8",
+            "_scriptId": "",
             "function": "preMap"
           }
         },

@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C2475_Verify the new Tools & Resources tab, Transfers & Audit logs under My account, install zip in home page, getting started under support", () => {
-    test("C2475_Verify the new Tools & Resources tab, Transfers & Audit logs under My account, install zip in home page, getting started under support UI_Backlog", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T5963 C2475_Verify the new Tools & Resources tab, Transfers & Audit logs under My account, install zip in home page, getting started under support UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.goToMenu("Tools");
         // Validating once clicked on Tools reports visible
@@ -13,7 +13,7 @@ test.describe("C2475_Verify the new Tools & Resources tab, Transfers & Audit log
         await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
         await io.myAccountPage.click(selectors.myAccountPagePO.TRANSFERTAB);
         // Validating once clicked on transfer tab profile visible
-        await io.assert.verifyElementDisplayedByText('My profile', "It's not visible")
+        await io.assert.verifyElementDisplayedByText('Create transfer', "It's not visible")
         await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
         await io.myAccountPage.click(selectors.myAccountPagePO.AUDIT_LOG);
         await io.myAccountPage.loadingTime()

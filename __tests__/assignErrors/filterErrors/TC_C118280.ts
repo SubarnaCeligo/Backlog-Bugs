@@ -31,6 +31,23 @@ test.describe("C118280 Verify the filter feature on resolved errors section by a
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
     await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
 
+    //Clear existing assignments
+    await io.flowBuilder.waitForElementAttached(selectors.dashboardPagePO.FA_FILTER_CHECKBOX);
+    await io.flowBuilder.click(selectors.dashboardPagePO.FA_FILTER_CHECKBOX);
+    
+    await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
+    await io.flowBuilder.click(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
+    
+    await io.flowBuilder.loadingTime();
+    let isClearButtonVisible = await io.flowBuilder.isVisible("text='Clear assignment'");
+    console.log(isClearButtonVisible);
+    if (isClearButtonVisible){
+      await io.flowBuilder.clickByText('Clear assignment');
+      await io.flowBuilder.loadingTime();
+    }
+    await io.flowBuilder.waitForElementAttached(selectors.dashboardPagePO.FA_FILTER_CHECKBOX);
+    await io.flowBuilder.click(selectors.dashboardPagePO.FA_FILTER_CHECKBOX);
+
     //Assign errors
     await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX, 1);
     await io.flowBuilder.click(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
@@ -40,7 +57,7 @@ test.describe("C118280 Verify the filter feature on resolved errors section by a
  
     //Assign tags
     await io.flowBuilder.click(selectors.em2DotOLineGraphPO.TAG_ERRORS);
-    await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.SELECT_TAG,0);
+    await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.SELECT_TAG, 0);
     await io.flowBuilder.clickByText('Apply');
     await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX);
     await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX, 1);

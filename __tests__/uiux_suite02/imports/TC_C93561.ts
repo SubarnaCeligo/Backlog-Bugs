@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C93561 HTTP request body is not retaining the data for 2.0 framework assistants`, () => {
-  test(`C93561 HTTP request body is not retaining the data for 2.0 framework assistants`, async ({
+  test(`@Env-All @Zephyr-IO-T22254 C93561 HTTP request body is not retaining the data for 2.0 framework assistants`, async ({
     io,
     page
   }) => {

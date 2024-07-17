@@ -24,7 +24,8 @@ test.describe("T27429 Verify the license entitlement notification message)", () 
     await io.homePage.loadingTime();
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime()
-    await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);   
+    await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);  
+    await io.myAccountPage.waitForElementAttached(selectors.myAccountPagePO.SUBSCRIPTION);     
   await io.myAccountPage.click(selectors.myAccountPagePO.SUBSCRIPTION); 
   const Sanbox = await io.assert.verifyElementDisplayedByText(
       "Sandbox",
@@ -45,6 +46,7 @@ test.describe("T27429 Verify the license entitlement notification message)", () 
                           "On-premise agents:",
                           "On-premise agents: is not displayed"
                           );
+  await io.api.putCall(`v1/test/licenses/${payloadFormat._id}`,{... payloadFormat, tier: 'enterprise',});
   await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
                     
   });  

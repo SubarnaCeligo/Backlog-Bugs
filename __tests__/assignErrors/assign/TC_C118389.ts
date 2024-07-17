@@ -24,12 +24,28 @@ test.describe("C118389 - Verify that admin/owner users with invitation feature e
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
     await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
 
+    //Clear existing assignments
+    await io.flowBuilder.waitForElementAttached(selectors.dashboardPagePO.FA_FILTER_CHECKBOX);
+    await io.flowBuilder.click(selectors.dashboardPagePO.FA_FILTER_CHECKBOX);
+    
+    await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
+    await io.flowBuilder.click(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
+    
+    await io.flowBuilder.loadingTime();
+    let isClearButtonVisible = await io.flowBuilder.isVisible("text='Clear assignment'");
+    if (isClearButtonVisible){
+      await io.flowBuilder.clickByText('Clear assignment');
+      await io.flowBuilder.loadingTime();
+    }
+    await io.flowBuilder.waitForElementAttached(selectors.dashboardPagePO.FA_FILTER_CHECKBOX);
+    await io.flowBuilder.click(selectors.dashboardPagePO.FA_FILTER_CHECKBOX);
+
     //Assign one error to a user
     await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX, 1);
     await io.flowBuilder.click(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
     await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
 
-    await io.flowBuilder.clickByText('CustomUser NoAccess');
+    await io.flowBuilder.clickByTextByIndex('CustomUser NoAccess', 0);
     //Valiadte the message
     await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGN_MESSAGE);
     let message = (await io.flowBuilder.getText(selectors.em2DotOLineGraphPO.ASSIGN_MESSAGE)).toString();

@@ -14,7 +14,7 @@ test.describe("@Author_sagna123 TC_T29678_Test to validate user is able to edit 
         await io.homePage.addStep("*** Clicked on create export***");
         await io.homePage.click(selectors.connectionsPagePO.AZURE_SYNAPSE);
         await io.homePage.addStep("*** Clicked on Azure synapse connection ***");
-        await io.homePage.click(selectors.basePagePO.CONNECTION);
+        await io.homePage.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.homePage.addStep("*** Clicked on connection dropdown ***");
         await io.homePage.clickByText("AZURE SYNAPSE CONNECTOR");
         await io.homePage.addStep("*** Selected the connection ***");
@@ -25,7 +25,7 @@ test.describe("@Author_sagna123 TC_T29678_Test to validate user is able to edit 
         await io.homePage.addStep("*** Opened the export ***");
         await io.homePage.click(selectors.basePagePO.CONNECTION);
         await io.homePage.addStep("*** Clicked on connection dropdown ***");
-        await io.homePage.clickByText("AzureConnectionCred_T29698");
+        await io.homePage.clickByText("AZURE SYNAPSE CONNECTOR");
         await io.homePage.addStep("*** Replaced the connection ***");
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.addStep("*** Navigated back to home page ***");

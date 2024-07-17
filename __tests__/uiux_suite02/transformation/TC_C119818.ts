@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C119818 from "../../../testData/inputData/transformation/C119818.json";
 
 test.describe("C119818-Verify that Flowbranching input panel data shows Transformed data, when mock is populated at export with grouping", () => {
-  test("C119818- Flowbranching input panel data shows Transformed data", async ({
+  test("@Env-All @Zephyr-IO-T8090 C119818- Flowbranching input panel data shows Transformed data", async ({
     io,
     page
   }) => {

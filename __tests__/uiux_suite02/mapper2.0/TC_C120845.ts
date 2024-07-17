@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C120845 from "../../../testData/inputData/Mapper2.0/C120845.json";
 
 test.describe("C120845-Verify that data configured through mock at different levels is being carry forwared to the next level mapping in the preview window.", () => {
-  test("C120845- previe window shows nested data.", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T19498 C120845- previe window shows nested data.", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
 
     await io.createResourceFromAPI(C120845, "FLOWS");

@@ -16,7 +16,7 @@ test.describe("TC_C103070 Verify Based on the selection from the simple view, th
         await io.flowBuilder.clickByTextByIndex('Yotpo', 0);
 
         await io.flowBuilder.clickByTextByIndex('Look up additional records (per record)', 0);
-        await io.flowBuilder.clickByTextByIndex('Create from scratch', 0);
+        await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
 
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'YOTPO CONNECTION');

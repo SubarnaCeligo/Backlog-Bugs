@@ -9,7 +9,7 @@ test.describe.skip(' C39939 Verify the message under resources tab if we do not 
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
   
-    test('Verify the message under resources tab if we do not have any imports,agents,exports in the IO', async({io,page}) => {
+    test('@Env-All @Zephyr-IO-T909 Verify the message under resources tab if we do not have any imports,agents,exports in the IO', async({io,page}) => {
   
         await io.homePage.goToMenu("Resources", "Agents");
          await io.assert.verifyElementTextByIndex(selectors.basePagePO.H3_TEXT_SELECTOR, "You don’t have any agents", 1);

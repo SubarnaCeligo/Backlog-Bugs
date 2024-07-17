@@ -4,7 +4,7 @@ import C111920 from '../../../testData/inputData/transformation/C111920.json';
 
 
 test.describe("C111920", () => {
-    test("C111920", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T16265 C111920", async ({ io, page }) => {
 
 
         //Create a flow with a lookup that has an offline connection
@@ -32,12 +32,9 @@ test.describe("C111920", () => {
         await page.locator(selectors.basePagePO.SAVE_AND_CLOSE).click();
         await io.homePage.loadingTime()
         await io.flowBuilder.clickByIndex(selectors.basePagePO.ADD_DATA_PROCESSOR, 2);
-
         await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);
-
-
-        let divTextContent = await io.flowBuilder.getText(selectors.basePagePO.ACE_CONTENT);
-
+        await io.homePage.loadingTime()
+        let divTextContent = await page.locator(selectors.basePagePO.ACE_CONTENT).first().textContent();
         let isValid = false
         if (divTextContent.includes("data") && divTextContent.includes("new")) {
             isValid = true
@@ -45,7 +42,7 @@ test.describe("C111920", () => {
 
         await expect(isValid).toBeTruthy();
 
-
+        //.ace_content
 
     });
 });

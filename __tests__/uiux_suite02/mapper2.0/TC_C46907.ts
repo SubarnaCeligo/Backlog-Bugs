@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Mapper2.0/C46907.json";
 
 test.describe(`C46907 Verify the functionality by not providing a 'destination record field 'value in Mapper 2.0`, () => {
-  test(`C46907 Verify the functionality by not providing a 'destination record field 'value in Mapper 2.0`, async ({
+  test(`@Env-All @Zephyr-IO-T18018 C46907 Verify the functionality by not providing a 'destination record field 'value in Mapper 2.0`, async ({
     io,
     page
   }) => {

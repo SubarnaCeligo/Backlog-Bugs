@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C69770 Verify Create and upload buttons should be alligned correctly,next to each other", () => {
-  test("C69770 Verify Create and upload buttons should be alligned correctly,next to each other", async ({
+  test("@Env-All @Zephyr-IO-T25943 C69770 Verify Create and upload buttons should be alligned correctly,next to each other", async ({
     io,
     page
   }) => {

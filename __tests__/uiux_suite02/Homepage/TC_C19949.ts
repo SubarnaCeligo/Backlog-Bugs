@@ -5,8 +5,14 @@ test.describe("TC_C19949_Verify: Success Graph: the tooltip displays: flow name,
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("TC_C19949_Verify: Success Graph: the tooltip displays: flow name, the total success count, the time coordinate UI_Backlog", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T7299 TC_C19949_Verify: Success Graph: the tooltip displays: flow name, the total success count, the time coordinate UI_Backlog", async ({ io, page }) => {
+        await io.homePage.loadingTime()
+        await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON)
+        await io.homePage.isPageLoaded()
+        await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Standalone');
+        await io.homePage.isPageLoaded()
         await io.integrationPage.clickByText('Standalone flows')
+        await io.homePage.loadingTime()
         await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
         await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'TC_C12034_DND');
         await io.integrationPage.clickByText('TC_C12034_DND')

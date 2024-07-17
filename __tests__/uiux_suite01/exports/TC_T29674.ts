@@ -12,9 +12,10 @@ test.describe("@Author_sagna123 TC_T29674_Test to validate user is able to see '
         await io.homePage.addStep("*** Navigated back to export page ***");
         await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
         await io.homePage.addStep("*** Clicked on create export***");
+        await io.homePage.waitForElementAttached(selectors.connectionsPagePO.AZURE_SYNAPSE);
         await io.homePage.click(selectors.connectionsPagePO.AZURE_SYNAPSE);
         await io.homePage.addStep("*** Clicked on Azure synapse connection ***");
-        await io.homePage.click(selectors.basePagePO.CONNECTION);
+        await io.homePage.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.homePage.addStep("*** Clicked on connection dropdown ***");
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.addStep("*** Navigated back to home page ***");
