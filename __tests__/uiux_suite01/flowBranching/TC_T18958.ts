@@ -12,7 +12,7 @@ test.describe("T18958 Verify flow run on adding output filter 'is empty' and 'is
     await io.api.deleteFlowViaAPI(flowId);
     await io.api.deleteScriptViaAPI(branchScript);
   });
-  test("@Env-all @Priority-P2 @Zephyr-IO-T18958 C68559 Verify flow run on adding output filter 'is empty' and 'is not empty' conditions in a branched flow", async ({ io, page }) => {
+  test("@Env-All @Priority-P2 @Zephyr-IO-T18958 C68559 Verify flow run on adding output filter 'is empty' and 'is not empty' conditions in a branched flow", async ({ io, page }) => {
     TC.routers[0].script._scriptId = branchScript;
     flowId = await io.flowbranching.createFlowBranchFromAPI(TC);
     await io.flowBuilder.navigateTo(

@@ -12,7 +12,7 @@ test.describe("T17388 Verify flow branching when the script returns 'true'", () 
     await io.api.deleteFlowViaAPI(flowId);
     await io.api.deleteScriptViaAPI(branchScript);
   });
-  test("@Env-all @Priority-P2 @Zephyr-IO-T17388 C68484 Verify flow branching when the script returns 'true'", async ({ io, page }) => {
+  test("@Env-All @Priority-P2 @Zephyr-IO-T17388 C68484 Verify flow branching when the script returns 'true'", async ({ io, page }) => {
     TC.routers[0].script._scriptId = branchScript;
     flowId = await io.flowbranching.createFlowBranchFromAPI(TC);
     await io.flowBuilder.navigateTo(
