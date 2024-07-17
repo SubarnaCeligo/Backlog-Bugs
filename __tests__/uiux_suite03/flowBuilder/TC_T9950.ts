@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/FlowBuilder/TC_T9950.json";
 
 test.describe("Verify whether user is able to see the destination fields as highlighted", () => {
-  test("@Zephyr-IO-T9950 @Zephyr-IO-T15739 @Env-All @Epic-IO-86262 @Priority-P2 - Verify whether user is able to see the destination fields as highlighted", async ({ io, page }) => {
+  test("@Zephyr-IO-T9950 @Env-All @Epic-IO-86262 @Priority-P2 - Verify whether user is able to see the destination fields as highlighted", async ({ io, page }) => {
     await io.createResourceFromAPI(testData, "FLOWS");
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);
 
