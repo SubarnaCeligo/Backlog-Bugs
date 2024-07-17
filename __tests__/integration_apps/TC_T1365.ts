@@ -6,7 +6,7 @@ test.describe("T1365 Verify whether mapper1.0/mapper2.0 toggle is removed for IA
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.flowBuilder.loadingTime();
   });
-  test("T1365 Verify whether mapper1.0/mapper2.0 toggle is removed for IA's @Epic-IO-68924 @Priority-P3 @Zephyr-IO-T1365 @author_Kaushik UI_Backlog @Env-IAQA @Env-QA", async ({ io, page }) => {
+  test("T1365 Verify whether mapper1.0/mapper2.0 toggle is removed for IA's @Epic-IO-68924 @Priority-P3 @Zephyr-IO-T1365 @author_Kaushik UI_Backlog @Env-All", async ({ io, page }) => {
     await io.homePage.clickByTextByIndex("Salesforce - NetSuite", 0);
     await io.flowBuilder.loadingTime();
     await io.homePage.clickByText("Salesforce File to NetSuite File Add/Update");

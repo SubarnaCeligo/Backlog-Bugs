@@ -27,6 +27,23 @@ test.describe("C118278 Verify filtering by a specific user returns errors assign
     //Open errors dashborad
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
 
+    //Clear existing assignments
+    await io.flowBuilder.waitForElementAttached(selectors.dashboardPagePO.FA_FILTER_CHECKBOX);
+    await io.flowBuilder.click(selectors.dashboardPagePO.FA_FILTER_CHECKBOX);
+    
+    await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
+    await io.flowBuilder.click(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
+    
+    await io.flowBuilder.loadingTime();
+    let isClearButtonVisible = await io.flowBuilder.isVisible("text='Clear assignment'");
+    console.log(isClearButtonVisible);
+    if (isClearButtonVisible){
+      await io.flowBuilder.clickByText('Clear assignment');
+      await io.flowBuilder.loadingTime();
+    }
+    await io.flowBuilder.waitForElementAttached(selectors.dashboardPagePO.FA_FILTER_CHECKBOX);
+    await io.flowBuilder.click(selectors.dashboardPagePO.FA_FILTER_CHECKBOX);
+
     //Assign one error to a user
     await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
     await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.SELECT_ERROR_CHECKBOX, 2);

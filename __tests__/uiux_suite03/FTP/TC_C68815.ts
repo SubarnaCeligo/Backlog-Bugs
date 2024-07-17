@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import data from "@testData/Flows/C68815.json"
 
 test.describe("C68815 Verify ftp_bridge properly encodes the spaces and access the the file from the Correct Directory if the relative path Include Non-ASCII characters in Directory Name.", () => {
-  test("C68815 Verify ftp_bridge properly encodes the spaces and access the the file from the Correct Directory if the relative path Include Non-ASCII characters in Directory Name.", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T11797 C68815 Verify ftp_bridge properly encodes the spaces and access the the file from the Correct Directory if the relative path Include Non-ASCII characters in Directory Name.", async ({io, page}) => {
     const id = await io.createResourceFromAPI(data, "FLOWS");
     await io.api.runBatchFlowViaAPI('TC_C68815', id);
     const lastRun = page.getByText('Last run');

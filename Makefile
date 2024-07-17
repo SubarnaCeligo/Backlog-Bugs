@@ -6,7 +6,8 @@ build:
 
 test:
 	node ci-runner.js
-
+tag-validator:
+	node tag-validator.js
 
 
 .PHONY: test

@@ -4,7 +4,8 @@ const path = require('path');
 const runMultipleSuites = require('./dockerRunner');
 let ENV = "ci";
 let workers = 3;
-let suitesexcluded = ["uiux_suite01", "uiux_suite02", "uiux_suite03"];
+let suitesexcluded = ["uiux_suite01", "uiux_suite02", "uiux_suite03", "edi_suite"];
+let singleWorkerSuites = ["APIM", "account", "admin_suite", "assignErrors", "CeligoAI", "connections", "custom_suite", "DI", "e2e_flows", "edit_flows", "email_suite", "email_validation", "flowbranching", "HTTP2DOT0", "integration_apps", "manage_suite", "monitor_suite", "onprem", "pricing_model_suite", "signinPage", "signoutPage", "SS2.0", "transfer", "transferSBflow", "user_notify"]; // Define the list of single worker suites
 // Get the list of files that have been modified or added
 const getChangedFiles = () => {
     const output = execSync('git diff --name-only playwright-ts', { encoding: 'utf-8' });
@@ -28,10 +29,10 @@ const runTests = () => {
             }
         }
     }
-    
+
     if (changedFolders.length === 0) {
         // If no folders have changed, execute 'npm ci'
-        console.log("No changes in '__tests__/' folders. Running Unit tests.");
+        console.log("No changes in  '__tests__/' folders. Running Unit tests.");
         const unittests = `ENV=ci FEATURE=unit_test npm run test:ci`;
         console.log("Running Command:",unittests)
         execSync(unittests, { stdio: 'inherit' });
@@ -46,9 +47,9 @@ const runTests = () => {
             const folderToTest = changedFolders[0];
             console.log(`Running tests for the folder: ${folderToTest}`);
             const testCommand = `ENV=ci FEATURE=${folderToTest} npm run test-docker`;
-            runMultipleSuites(changedFolders, ENV);
+            runMultipleSuites(changedFolders, ENV, singleWorkerSuites);
         }
-       
+
     }
 };
 

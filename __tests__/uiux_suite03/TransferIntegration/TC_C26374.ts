@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C26374 To verify "Integrations to transfer" dropdown is updated to latest.`, () => {
-  test(`C26374 To verify "Integrations to transfer" dropdown is updated to latest.`, async ({
+  test(`@Env-All @Zephyr-IO-T6963 C26374 To verify "Integrations to transfer" dropdown is updated to latest.`, async ({
     page,
     io
   }) => {
