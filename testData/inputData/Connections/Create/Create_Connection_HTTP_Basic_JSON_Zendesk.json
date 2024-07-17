@@ -6,7 +6,7 @@
                 "type": "basic",
                 "basic": {
                     "password": "******",
-                    "username": "celigo-labs@celigo.com"
+                    "username": "ioqa@celigo.com"
                 }
             },
             "ping": {
@@ -14,7 +14,7 @@
                 "relativeURI": "users.json",
                 "successPath": "users[0].id"
             },
-            "baseURI": "https://d3v-celigolabs.zendesk.com/api/v2/",
+            "baseURI": "https://d3v-celigo5000.zendesk.com/api/v2/",
             "mediaType": "json"
         },
         "type": "http"
@@ -37,7 +37,7 @@
                 "successPath": "users[0].id",
                 "relativeURI": "users.json"
             },
-            "baseURI": "https://d3v-celigolabs.zendesk.com/api/v2/",
+            "baseURI": "https://d3v-celigo5000.zendesk.com/api/v2/",
             "mediaType": "json",
             "encryptedFields": []
         },
