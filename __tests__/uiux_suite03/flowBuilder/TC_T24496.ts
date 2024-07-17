@@ -19,8 +19,8 @@ test.describe("Verify that user with Admin/Manage level can set or modify 'Auto-
     await page.locator(selectors.importPagePO.ADVANCED).first().scrollIntoViewIfNeeded();;
     await page.locator(selectors.importPagePO.ADVANCED).first().click();
     
-    await io.assert.verifyElementToBeClickable('[data-test="autoRecoverRateLimitErrors"]');
-    await io.homePage.click('[data-test="autoRecoverRateLimitErrors"]');
+    await io.assert.verifyElementToBeClickable(selectors.connectionsPagePO.AUTO_RECOVERY_RATE_LIMIT);
+    await io.homePage.click(selectors.connectionsPagePO.AUTO_RECOVERY_RATE_LIMIT);
     await io.assert.verifyElementToBeClickable(selectors.connectionsPagePO.CONCURRENCYLEVEL);
     await io.homePage.click(selectors.connectionsPagePO.CONCURRENCYLEVEL);
 
