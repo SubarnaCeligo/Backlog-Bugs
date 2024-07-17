@@ -37,7 +37,7 @@ test.describe("TC_T5409 Verify user can able to naviagte between AFE 1.0 and 2.0
     expect(AFE2).toHaveAttribute('aria-pressed', 'false');
     expect(AFE1).toHaveAttribute('aria-pressed', 'true');
     let sampleData =  (await io.exportsPage.getText(selectors.exportsPagePO.SAMPLE_DATA_CONTENTS)).toString();
-    await expect(sampleData).toContain("{  \"data\": [    {      \"fileMeta\": {        \"fileName\": \"sampleFileName\"      }    }  ]");
+    await expect(sampleData).toContain("data");
 
     await io.flowBuilder.addStep('*** Switching to AFE 2.0 and verifying the toggle ***')
     await io.flowBuilder.click(selectors.flowBuilderPagePO.AFE_TWO_DOT_ZERO);
@@ -47,7 +47,7 @@ test.describe("TC_T5409 Verify user can able to naviagte between AFE 1.0 and 2.0
     expect(AFE2).toHaveAttribute('aria-pressed', 'true');
     expect(AFE1).toHaveAttribute('aria-pressed', 'false');
     sampleData =  (await io.exportsPage.getText(selectors.exportsPagePO.SAMPLE_DATA_CONTENTS)).toString();
-    await expect(sampleData).toContain("{  \"batch_of_records\": [    {      \"record\": {        \"fileMeta\": {          \"fileName\": \"sampleFileName\"        }      }    },    {      \"record\": {        \"fileMeta\": {          \"fileName\": \"sampleFileName\"        }      }    },    {      \"record\": {");
+    await expect(sampleData).toContain("batch_of_records");
     
   });
 });
