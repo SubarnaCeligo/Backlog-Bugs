@@ -22,7 +22,7 @@ test.describe("Verify the contents of delete confirmation dialog when a disabled
         await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
         await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,'Delete dialog contents test');
         await io.integrationPage.delay(2000); // wait for the search to complete
-
+        await io.flowBuilder.clickByText('Last updated');
         //Open ACtions menu
         await io.integrationPage.clickButtonByIndex(selectors.integrationPagePO.OPENACTIONSMENU, 1);
     

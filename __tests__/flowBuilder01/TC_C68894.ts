@@ -13,7 +13,7 @@ test.describe("C68894_C68896", () => {
         await io.connectionPage.clickByText("Create connection");
         await io.connectionPage.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
         await io.importsPage.fill(selectors.basePagePO.NAME, "HTTP CONNECTION PLEASE DELETE");
-        await io.importsPage.fill(selectors.connectionsPagePO.BASE_URI_INPUT, TC.importJSON.http.baseURI);
+        await io.importsPage.fill(selectors.connectionsPagePO.BASE_URI_INPUT,"https://d3v-celigo5000.zendesk.com/api/v2/");
         await io.connectionPage.click(selectors.connectionsPagePO.SLACK_AUTH_TYPE);
         await io.connectionPage.clickByText("Basic");
         await io.importsPage.fill(selectors.connectionsPagePO.USERNAME, process.env["HTTP_ZENDESK_USER"]);
@@ -57,7 +57,7 @@ test.describe("C68894_C68896", () => {
         await io.connectionPage.clickByText("Create connection")
         await io.connectionPage.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
         await io.importsPage.fill(selectors.basePagePO.NAME, "HTTP CONNECTION PLEASE DELETE");
-        await io.importsPage.fill(selectors.connectionsPagePO.BASE_URI_INPUT, TC.importJSON.http.baseURI);
+        await io.importsPage.fill(selectors.connectionsPagePO.BASE_URI_INPUT, "https://d3v-celigo5000.zendesk.com/api/v2/");
         await io.connectionPage.click(selectors.connectionsPagePO.SLACK_AUTH_TYPE);
         await io.connectionPage.clickByText("Basic");
         await io.importsPage.fill(selectors.connectionsPagePO.USERNAME, process.env["HTTP_ZENDESK_USER"]);

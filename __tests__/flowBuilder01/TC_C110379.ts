@@ -24,7 +24,6 @@ test.describe("Validate the hover text of 'Enable flow' button on Flow Builder U
     const hoverText = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.RUNTEST_TOOLTIP)).toString();
 
     //Validate hover text
-    await io.assert.expectToContainValue('Your flow is currently disabled. Configure allflow steps to allow enabling your flow.',hoverText, 'Incorrect hover text' );
-    
+    await io.assert.expectToContainValue('Your flow is disabled. Enable the flow to transfer',hoverText, 'Incorrect hover text' );
   });
 });
