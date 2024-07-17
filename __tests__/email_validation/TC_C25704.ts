@@ -11,7 +11,7 @@ test.describe("C25704 Verify the hyperlinks on email must navigate to expected o
     );
   });
 
-  test("@Env-STAGING @Zephyr-IO-T305 C25704 Verify the hyperlinks on email must navigate to expected org account if account user has access to more than 5 orgs", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T305 C25704 Verify the hyperlinks on email must navigate to expected org account if account user has access to more than 5 orgs", async ({ io, page }) => {
     const id = await io.createResourceFromAPI(C25704, "FLOWS");
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_SETTINGS);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_SETTINGS);

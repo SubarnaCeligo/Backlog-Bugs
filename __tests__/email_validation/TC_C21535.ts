@@ -11,7 +11,7 @@ test.describe("C21535 Verify email link for > 1000 JOB errors", () => {
     );
   });
 
-  test("@Env-STAGING @Zephyr-IO-T287 C21535 Verify email link for > 1000 JOB errors", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T287 C21535 Verify email link for > 1000 JOB errors", async ({ io, page }) => {
     const id = await io.createResourceFromAPI(C21535, "FLOWS");
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_SETTINGS);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_SETTINGS);

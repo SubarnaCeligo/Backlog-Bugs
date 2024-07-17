@@ -4,7 +4,7 @@ import C25698 from '@testData/email_validations/C25698.json'
 
 test.describe("C25698 Verify the link on the email on resolved errors", () => {
 
-  test("@Env-STAGING @Zephyr-IO-T34342 C25698 Verify the link on the email on resolved errors", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T34342 C25698 Verify the link on the email on resolved errors", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     const id = await io.createResourceFromAPI(C25698, "FLOWS");
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_SETTINGS);

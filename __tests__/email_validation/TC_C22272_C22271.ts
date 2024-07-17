@@ -11,7 +11,7 @@ test.describe("C22272 Verify flow error email from user account which has 2 acco
     );
   });
 
-  test("@Env-STAGING @Zephyr-IO-T290 C22272 Verify flow error email from user account which has 2 account permission", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T290 C22272 Verify flow error email from user account which has 2 account permission", async ({ io, page }) => {
     const id = await io.createResourceFromAPI(C22272, "FLOWS");
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_SETTINGS);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_SETTINGS);

@@ -11,7 +11,7 @@ test.describe("C20688 EM 2.0- email notification - clicking on 'Unsubscribe'  in
     );
   });
 
-  test("@Env-STAGING @Zephyr-IO-T277 C20688 EM 2.0- email notification - clicking on 'Unsubscribe'  in the email should navigate to Notifications page of the integration(Only for Flow Error Notification)", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T277 C20688 EM 2.0- email notification - clicking on 'Unsubscribe'  in the email should navigate to Notifications page of the integration(Only for Flow Error Notification)", async ({ io, page }) => {
     const id = await io.createResourceFromAPI(C20688, "FLOWS");
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_SETTINGS);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_SETTINGS);
