@@ -3,8 +3,8 @@ import testData from "../../testData/inputData/FlowBuilder/T28606.json";
 import * as selectors from "@celigo/aut-selectors";
 
 
-test.describe("C59677", () => {
-    test("C59677 @Env-All To Verify that the mock output are working as expected", async ({io, page}) => {
+test.describe("@ZephyrIO-T14542 C59677", () => {
+    test("@ZephyrIO-T14542 C59677 @Env-All To Verify that the mock output are working as expected", async ({io, page}) => {
 
         //Create a flow with export imports containing mock output
         let flowId = await io.createResourceFromAPI(testData, 'FLOWS');
