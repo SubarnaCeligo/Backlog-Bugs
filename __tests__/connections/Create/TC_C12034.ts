@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C12034_Verify Import and load the export which has 4000+ audit records_`, () => {
-  test(`@Env-All C12034_Verify Import and load the export which has 4000+ audit records UI_Backlog`, async ({ io, page }) => {
+  test(`@Env-All @Zephyr-IO-T3666 C12034_Verify Import and load the export which has 4000+ audit records UI_Backlog`, async ({ io, page }) => {
     await io.homePage.navigateTo(process.env.IO_Integration_URL);
     await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
     await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'TC_C12034_Flow_DND');
