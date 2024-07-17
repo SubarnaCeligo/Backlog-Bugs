@@ -10,8 +10,9 @@ test.describe(`C113414 Verify the JWT token while cloning the flow`, () => {
     io,
     page
   }) => {
-    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL)
-    await io.homePage.clickByText("Automation Flows")
+    await io.homePage.navigateTo(process.env.IO_Integration_URL);
+    await io.homePage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR)
+    await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "Docsign_DND")
     await io.homePage.waitForElementAttached("text='Docsign_DND'")
     await io.homePage.clickByText("Docsign_DND")
     await io.flowBuilder.loadingTime();
@@ -20,6 +21,8 @@ test.describe(`C113414 Verify the JWT token while cloning the flow`, () => {
       0
     );
     await io.flowBuilder.clickByText("Clone flow");
+    await io.homePage.waitForElementAttached(selectors.basePagePO.ADD_NAME);
+    await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'Clone_Docsign');
     await io.flowBuilder.click(selectors.integrationPagePO.SELECT_DESTINATION_INTEGRATION);
     await io.flowBuilder.selectTextfromDropDown(page, "none");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLONE_FLOW_BUTTON);
@@ -33,6 +36,7 @@ test.describe(`C113414 Verify the JWT token while cloning the flow`, () => {
     await io.flowBuilder.click(selectors.templatePagePO.CONFIGURE);
     await io.flowBuilder.click(selectors.connectionsPagePO.EXISTING);
     await io.flowBuilder.click(selectors.basePagePO.CONNECTION);
-    await io.connectionPage.clickByTextByIndex("CONNECTION_DOCSIGN", 1);
+    connId = connMap.get("CONNECTION_DOCSIGN");
+    await io.homePage.selectTextfromDropDown(page, connId)
   });
 });
