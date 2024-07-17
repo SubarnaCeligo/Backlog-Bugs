@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Connections/Narvar.json";
 
 test.describe(`C32362 Verify cloned integration has the updated flow after updating the settings`, () => {
-  test(`@Env-QA @Zephyr-IO-T123456789 @Zephyr-IO-T1234567 @Zephyr-IO-T1 C32362 @Zephyr-IO-T5337 Verify cloned integration has the updated flow after updating the settings`, async ({
+  test(`@Env-QA @Zephyr-IO-T5337 C32362 Verify cloned integration has the updated flow after updating the settings`, async ({
     io,
     page
   }) => {
