@@ -5,6 +5,8 @@ import T11538 from "@testData/FtpImport/T11538.json"
 test.describe("TC_T11538 CSV generator helper: Verify the save is working well", () => {
   test("@Env-All @Zephyr-IO-T11538 @Priority-P2 T11538 CSV generator helper: Verify the save is working well", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.loadingTime();
+    await io.homePage.loadingTime();
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Tools", "Flow builder");
     await io.homePage.click(selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP);

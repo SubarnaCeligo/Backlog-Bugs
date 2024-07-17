@@ -4,6 +4,8 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe("TC_T11561 Verify the UI of the CSV generator", () => {
   test("@Env-All @Zephyr-IO-T11561 @Priority-P2 T11561 Verify the UI of the CSV generator", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.loadingTime();
+    await io.homePage.loadingTime();
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Tools", "Flow builder");
     await io.homePage.click(selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP);
