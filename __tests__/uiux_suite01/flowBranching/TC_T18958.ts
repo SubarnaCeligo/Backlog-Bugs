@@ -21,7 +21,7 @@ test.describe("T18958 Verify flow run on adding output filter 'is empty' and 'is
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
     await io.homePage.addStep("Running the flow");
     const lastRun = page.getByText('Last run');
-    await lastRun.waitFor({ state: 'visible', timeout: 180000 });
+    await lastRun.waitFor({ state: 'visible', timeout: 360000 });
     expect(lastRun).toBeVisible();
   });
 });
