@@ -13,9 +13,6 @@ test.describe("TC_T25318 Verify 'Timestamp filter for error window is not visibl
     page
   }) => {
     id = await io.createResourceFromAPI(flow, "FLOWS");
-    await io.homePage.navigateTo(
-      process.env["IO_Integration_URL"] + "flowBuilder/" + id
-    );
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
