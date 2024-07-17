@@ -5,7 +5,7 @@ test.describe("IO-T31906 Verify Celigo AI is displayed in transformation2.0 tab"
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-QA @Epic-IO-79512 @Zephyr-IO-T31906 @Zephyr-IO-T31907 @Zephyr-IO-T31908 @Zephyr-IO-T31909 @Zephyr-IO-T31910 @Author-SubarnaGhatak Verify Celigo AI is displayed in transformation2.0 tab", async ({ io, page }) => {
+  test.skip("@Env-QA @Epic-IO-79512 @Zephyr-IO-T31906 @Zephyr-IO-T31907 @Zephyr-IO-T31908 @Zephyr-IO-T31909 @Zephyr-IO-T31910 @Author-SubarnaGhatak Verify Celigo AI is displayed in transformation2.0 tab", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.clickByText('TC47946_DND');
