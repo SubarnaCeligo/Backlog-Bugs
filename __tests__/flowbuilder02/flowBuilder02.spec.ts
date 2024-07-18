@@ -131,6 +131,7 @@ var testCases = [
   "C59677",
   "T5409",
   "T5388_T5387",
+  //please donot add any more new test cases to this flowbuilder02 suite,already this suite is overloaded when might cause issues during jenkinsrun/ci build
 ];
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
 (async () => {
