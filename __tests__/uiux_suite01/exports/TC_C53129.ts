@@ -22,8 +22,8 @@ test.describe("C53129 Verify for existing exports `How many records would you li
     await io.exportsPage.click(selectors.exportsPagePO.EXPORT_TYPE_DROPDOWN);
     await io.homePage.addStep("*** Clicked on Export Type Dropdown ***");
     await io.exportsPage.clickByText('Limit - export a set number of records');
-    await io.homePage.waitForElementAttached("[name='/test/limit']")    
-    const value = await page.$eval("[name='/test/limit']", (el) => el.getAttribute('value'));
+    await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.LIMIT_RECORD_VALUE)    
+    const value = await page.$eval(selectors.flowBuilderPagePO.LIMIT_RECORD_VALUE, (el) => el.getAttribute('value'));
     expect(value).toBe('1');
 
   });
