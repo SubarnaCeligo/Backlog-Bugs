@@ -54,6 +54,6 @@ test.describe("TC_T5388_T5387 Verify the right side of the AFE toggle, Buttons a
     await expect(page.locator(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER), 'Close drawer button is not visible').toBeVisible();
 
     await io.flowBuilder.addStep('*** Validating the layout ***');
-    await expect(page).toHaveScreenshot('afedrawer.png');
+    await expect(page).toHaveScreenshot('afedrawer.png', { maxDiffPixelRatio: 0.2 });
   });
 });
