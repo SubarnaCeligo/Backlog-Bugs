@@ -34,8 +34,7 @@ test.describe("@Author_MaheshNivruttiSutar Verify error is not showing while upd
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
-        await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
-        await io.flowBuilder.click(selectors.exportsPagePO.WHAT_WOULD_YOU_LIKE_TO_EXPORT_TAB);
+        await io.flowBuilder.clickByText('General');
         await io.flowBuilder.loadingTime();
     });
 });

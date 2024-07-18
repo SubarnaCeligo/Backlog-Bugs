@@ -4,7 +4,7 @@ import C110715 from '../../testData/inputData/FlowBuilder/C110715.json';
 
 
 test.describe("Verify the contents of delete confirmation dialog when a disabled flow is being deleted from Integration Builder page.", () => {
-    test("Verify the contents of delete confirmation dialog when a disabled flow is being deleted from Integration Builder page. @Env-All @Priority-P2", async ({ io, page }) => {
+    test("Verify the contents of delete confirmation dialog when a disabled flow is being deleted from Integration Builder page. @Env-All @Priority-P2 @Zephyr-IO-T13325", async ({ io, page }) => {
         //Create a flow with multiple exports and offline connections
         await io.createResourceFromAPI(C110715, "FLOWS");
 
@@ -22,7 +22,7 @@ test.describe("Verify the contents of delete confirmation dialog when a disabled
         await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
         await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,'Delete dialog contents test');
         await io.integrationPage.delay(2000); // wait for the search to complete
-
+        await io.flowBuilder.clickByText('Last updated');
         //Open ACtions menu
         await io.integrationPage.clickButtonByIndex(selectors.integrationPagePO.OPENACTIONSMENU, 1);
     
