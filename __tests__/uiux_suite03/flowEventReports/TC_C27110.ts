@@ -12,7 +12,7 @@ test.describe("C27110_Run Report drawer - The ‘Flows’ multi-select field sho
         await io.homePage.click(selectors.basePagePO.CHOOSEINTEGRATIONFORREPORT);
         await io.flowBuilder.loadingTime();
         const intID = await io.api.loadIntegrations();
-        await io.flowBuilder.selectTextfromDropDown(page, intID.get(' flowEventReportsIntegration_DND'));
+        await io.flowBuilder.selectTextfromDropDown(page, intID.get('flowEventReportsIntegration_DND'));
         await io.homePage.click(selectors.basePagePO.CHOOSECHILDINTEGRATIONFORREPORT);
         await io.flowBuilder.loadingTime();
         // Validating child integration flows available belonging parent

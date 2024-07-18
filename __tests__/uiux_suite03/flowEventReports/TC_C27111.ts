@@ -11,7 +11,7 @@ test.describe("C27111_Run report drawer- If the integration I select in the ‘I
         await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
         await io.homePage.click(selectors.basePagePO.CHOOSEINTEGRATIONFORREPORT);
         const intID = await io.api.loadIntegrations();
-        await io.flowBuilder.selectTextfromDropDown(page, intID.get(' flowEventReportsIntegration_DND'))
+        await io.flowBuilder.selectTextfromDropDown(page, intID.get('flowEventReportsIntegration_DND'))
         await io.homePage.click(selectors.basePagePO.CHOOSECHILDINTEGRATIONFORREPORT);
         await io.flowBuilder.loadingTime();
         // Validating child integration flows multi select field available

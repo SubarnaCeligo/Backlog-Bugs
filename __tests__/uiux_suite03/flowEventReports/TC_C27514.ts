@@ -12,7 +12,7 @@ test.describe("C27514_Run report drawer - if an integration has a label for chil
         await io.homePage.click(selectors.basePagePO.CHOOSEINTEGRATIONFORREPORT);
         await io.flowBuilder.loadingTime();
         const intID = await io.api.loadIntegrations();
-        await io.flowBuilder.selectTextfromDropDown(page, intID.get(' flowEventReportsIntegration_DND'))
+        await io.flowBuilder.selectTextfromDropDown(page, intID.get('flowEventReportsIntegration_DND'))
         await io.homePage.click(selectors.basePagePO.CHOOSECHILDINTEGRATIONFORREPORT);
         await io.flowBuilder.loadingTime();
         // Validating multi select option available
