@@ -33,5 +33,9 @@
         "sandbox": false,
         "postResponseHookToProcessOnChildRecord": true,
         "content": "function postResponseMap (options) {\n  console.log(\"test old script\");\n return options.postResponseMapData\n}"
+    },
+    "C23427_preSavePage": {
+        "name": "Pre save page  script",
+        "content": "\n function preSavePage (options) {\n for(var i=0;i<options.data.length;i++) \n { \n var obj = options.data[i] \n obj.subject = obj.subject +' '+ '--presavelast133' \n obj.description = obj.id +' '+ '--presavelast' \n obj.Test='Test New field 12' \n } \n console.log('eneteerd') \n console.log(\"Presave -logs Presave PresavePresave Presave PresavePresav ePresavePresave Presave Presave Presave Presave Presave Presave Presave -logs Presave PresavePresave PresavePresavePresavePresavePresavePresave Presave Presave Presave PresavePresave Presave -logs Presave PresavePresave Presave PresavePresav ePresavePresave Presave Presave Presave Presave Presave Presave Presave -logs Presave PresavePresave PresavePresavePresavePresavePresavePresave Presave Presave Presave PresavePresave Presave -logs Presave PresavePresave Presave PresavePresav ePresavePresave Presave Presave Presave Presave Presave Presave Presave -logs Presave PresavePresave PresavePresavePresavePresavePresavePresave Presave Presave Presave PresavePresave\")\n  return {\n    data: options.data,\n    errors: options.errors,\n    abort: false,\n    newErrorsAndRetryData: []\n  }\n}"
     }
 }
