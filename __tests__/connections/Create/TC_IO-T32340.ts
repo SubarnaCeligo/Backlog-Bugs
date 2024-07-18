@@ -5,6 +5,7 @@ test.describe("@Author_MaheshNivruttiSutar Verify connections get filtered on ba
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.loadingTime();
+        await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
     });
     test("@Epic-IO-76152 @Priority-P2 @Env-All @Zephyr-IO-T32340 Verify connections get filtered on basis of resources chosen for HTTP connectors while creating new flow step'", async ({ io, page }) => {
         await io.homePage.goToMenu("Tools", "Flow builder");
@@ -13,7 +14,7 @@ test.describe("@Author_MaheshNivruttiSutar Verify connections get filtered on ba
         await io.flowBuilder.click(selectors.basePagePO.ADD_SOURCE_BUTTON);
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APP_NAME_INPUT, "META");
         await io.flowBuilder.click(selectors.connectionsPagePO.META);
-        await io.flowBuilder.clickByText('Create flow step');
+         await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
         const facebook = await io.flowBuilder.isVisible("text='Facebook Ads'");

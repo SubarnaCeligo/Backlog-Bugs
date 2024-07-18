@@ -8,7 +8,7 @@ test.describe('C93650Validate that user is getting prefill function stub for "fo
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
 
-  test('C93650 Validate that user is getting prefill function stub for "formInit" function', async ({
+  test('@Env-All @Zephyr-IO-T22617 C93650 Validate that user is getting prefill function stub for "formInit" function', async ({
     io,
     page
   }) => {

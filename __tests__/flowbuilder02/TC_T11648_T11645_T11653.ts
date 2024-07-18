@@ -11,7 +11,7 @@ test.describe("T11648 T11645 T11653 UX Sort and group", () => {
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'FTP');
         await io.flowBuilder.click(selectors.connectionsPagePO.FTP_CONNECTION);
         await io.flowBuilder.loadingTime();
-        await io.flowBuilder.clickByText('Create flow step');
+         await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.click(selectors.flowBuilderPagePO.SORTANDGROUP);
         await io.flowBuilder.loadingTime();
@@ -44,7 +44,7 @@ test.describe("T11648 T11645 T11653 UX Sort and group", () => {
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Amazon S3');
         await io.flowBuilder.click(selectors.connectionsPagePO.S3_CONNECTION);
         await io.flowBuilder.loadingTime();
-        await io.flowBuilder.clickByText('Create flow step');
+         await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.click(selectors.flowBuilderPagePO.SORTANDGROUP);
         await io.flowBuilder.loadingTime();
@@ -77,7 +77,7 @@ test.describe("T11648 T11645 T11653 UX Sort and group", () => {
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Google Drive');
         await io.flowBuilder.clickByText('Google Drive');
         await io.flowBuilder.loadingTime();
-        await io.flowBuilder.clickByText('Create flow step');
+         await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.click(selectors.flowBuilderPagePO.SORTANDGROUP);
         await io.flowBuilder.loadingTime();

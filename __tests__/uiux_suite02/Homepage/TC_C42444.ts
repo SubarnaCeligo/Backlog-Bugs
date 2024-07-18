@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C42444_Verify Request upgrade button changes for Integrator type license", () => {
-    test("@Env-All C42444_Verify Request upgrade button changes for Integrator type license UI_Backlog", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T912 C42444_Verify Request upgrade button changes for Integrator type license UI_Backlog", async ({ io, page }) => {
         await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
         await io.myAccountPage.click(selectors.myAccountPagePO.SUBSCRIPTION);
         await io.myAccountPage.loadingTime()

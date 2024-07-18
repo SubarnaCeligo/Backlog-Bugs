@@ -4,7 +4,7 @@ import data from "@testData/Flows/C68816.json"
 
 
 test.describe("C68816 Verify ftp_bridge properly encodes the spaces and access the correct file from the Correct Directory if the relative path Include Non-ASCII characters in file name and directory name.", () => {
-  test("C68816 Verify ftp_bridge properly encodes the spaces and access the correct file from the Correct Directory if the relative path Include Non-ASCII characters in file name and directory name.", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T11798 C68816 Verify ftp_bridge properly encodes the spaces and access the correct file from the Correct Directory if the relative path Include Non-ASCII characters in file name and directory name.", async ({io, page}) => {
     const id = await io.createResourceFromAPI(data, "FLOWS");
     await io.api.runBatchFlowViaAPI('TC_C68816', id);
     const lastRun = page.getByText('Last run');

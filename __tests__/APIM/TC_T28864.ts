@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`T28864 Verify that API settings (in IO My Profile page) is visible to owner and admin account holder if APIM license is enabled and user can update service account email address there`, () => {
-  test(`@Env-QA T28864 Verify that API settings (in IO My Profile page) is visible to owner and admin account holder if APIM license is enabled and user can update service account email address there`, async ({
+  test(`@Zephyr-IO-T9350 @Env-QA T28864 Verify that API settings (in IO My Profile page) is visible to owner and admin account holder if APIM license is enabled and user can update service account email address there`, async ({
     io,
     page
   }) => {

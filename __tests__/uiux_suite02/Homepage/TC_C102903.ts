@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C102903 Verify User is able to navigate to correct window on clicking any option from nav bar", () => {
-  test("@Env-All C102903 Verify User is able to navigate to correct window on clicking any option from nav bar", async ({
+  test("@Env-All @Zephyr-IO-T22204 C102903 Verify User is able to navigate to correct window on clicking any option from nav bar", async ({
     io,
     page
   }) => {

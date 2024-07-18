@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("APIM Help Text Validation", () => {
-    test("@Env-QA @Env-STAGING APIM Help Text Validation", async ({ io, page, context }) => {
+    test("@Zephyr-IO-T9350 @Env-QA @Env-STAGING APIM Help Text Validation", async ({ io, page, context }) => {
         const randomString = "Import" + Math.random().toString(36).substring(7);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);

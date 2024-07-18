@@ -8,7 +8,11 @@ test.describe("C29062 Verify the Concurrency level under HTTP connection should 
   }) => {
     const licenses = await io.api.getCall("v1/licenses");
     const platformLicense = licenses.find(l => l.type === "platform");
-
+    const payloadFormat = {
+      ...getLicensePayload(platformLicense),
+      expires: "2044-04-10T13:14:33.363Z",
+      apiManagement: true
+    };
     await io.api.putCall(
       `v1/test/licenses/${platformLicense._id}`,
       {...getLicensePayload(platformLicense), concurrency: 12, expires: "2024-07-02T00:00:00.000", sandbox: false, "apiManagement": true}
@@ -24,10 +28,7 @@ test.describe("C29062 Verify the Concurrency level under HTTP connection should 
     await io.flowBuilder.click(selectors.importPagePO.ADVANCED);
     await io.connectionPage.click(selectors.connectionsPagePO.HTTP_TARGET_CONCURRENCY_LEVEL);
     const concurrencyLevel = await io.connectionPage.getText(selectors.flowBuilderPagePO.SUBLIST_A);
-    await io.api.putCall(
-        `v1/test/licenses/${platformLicense._id}`,
-        {...getLicensePayload(platformLicense)}
-      );
+    await io.api.putCall(`v1/test/licenses/${payloadFormat._id}`, payloadFormat);
       expect(concurrencyLevel[concurrencyLevel.length - 1]).toBe("12");
   });
 });
