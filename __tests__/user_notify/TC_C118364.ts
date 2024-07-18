@@ -5,10 +5,30 @@ import { decrypt } from "@celigo/aut-utilities";
  
   test.describe("C118364", () => {
     test.beforeEach(async ({ io }) => {
-      await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+      // await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+      //   const isNotLoggedIn = await io.loginPage.checkLoginState();
+      //   console.log("this is login state",isNotLoggedIn)
+        // if (isNotLoggedIn==false) {
+        //   await io.homePage.reloadPage();
+        //   await io.homePage.reloadPage();
+        //   await io.loginPage.fill(selectors.loginPagePO.EMAIL, process.env["IO_UserName"]);
+        //   await io.loginPage.fill(selectors.loginPagePO.PASSWORD, decrypt(process.env["IO_Password"]));
+        //   await io.loginPage.click(selectors.basePagePO.SUBMIT);
+        //   console.log("this is username",process.env["IO_UserName"])
+        //   console.log("this is password",decrypt(process.env["IO_Password"]))
+        // await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+        // }
+        
     });
     test("@Env-All @Zephyr-IO-T20187 C118364", async ({ io, page }) => {
-  
+  //  await page.pause();
+  await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "signin");
+  await io.homePage.loadingTime();
+  await io.homePage.loadingTime();
+          await io.loginPage.fill(selectors.loginPagePO.EMAIL, process.env["IO_UserName"]);
+          await io.loginPage.fill(selectors.loginPagePO.PASSWORD, decrypt(process.env["IO_Password"]));
+            await page.pause();
+          await io.loginPage.click(selectors.basePagePO.SUBMIT);
       // Navigate to default integration
       await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
       // Search for a flow 

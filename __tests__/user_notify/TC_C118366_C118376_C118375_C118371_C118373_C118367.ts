@@ -109,10 +109,10 @@ console.log("this is link",link)
     }
     await io.homePage.reloadPage();
     await io.homePage.reloadPage();
-    await io.loginPage.fill(selectors.loginPagePO.EMAIL, process.env["IO_UserName"]);
-    await io.loginPage.fill(selectors.loginPagePO.PASSWORD, decrypt(process.env["IO_Password"]));
-    await io.loginPage.click(selectors.basePagePO.SUBMIT);
-    // await page.pause();
-
+    // await io.loginPage.fill(selectors.loginPagePO.EMAIL, process.env["IO_UserName"]);
+    // await io.loginPage.fill(selectors.loginPagePO.PASSWORD, decrypt(process.env["IO_Password"]));
+    // await io.loginPage.click(selectors.basePagePO.SUBMIT);
+    // console.log("this is username",decrypt(process.env["IO_UserName"]))
+    // console.log("this is password",decrypt(process.env["IO_Password"]))
   });
 });
