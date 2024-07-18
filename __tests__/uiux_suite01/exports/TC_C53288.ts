@@ -2,11 +2,6 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C53288 Verify 'Limit - export a set number of records' for all the adaptors", () => {
-  // test.beforeEach(async ({ io }) => {
-  //   await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
-  //   await io.homePage.loadingTime();
-  // });
-
   test("@Env-All @Zephyr-IO-T14432  C53288 Verify 'Limit - export a set number of records' for all the adaptors", async ({io, page}) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.goToMenu("Tools", "Flow builder");
