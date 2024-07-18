@@ -54,6 +54,7 @@ test.describe("C55454 Verify users can enter data manually in the mock output fi
           }));
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
 
+        await io.flowBuilder.waitForElementAttached(selectors.mappings.ADD_IMPORT);
         await io.flowBuilder.click(selectors.mappings.ADD_IMPORT);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'HTTP');
         await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
