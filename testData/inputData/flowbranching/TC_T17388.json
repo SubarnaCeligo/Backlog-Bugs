@@ -1,0 +1,76 @@
+{
+    "name": "TC_T17388_FLOW",
+    "disabled": false,
+    "_integrationId": "_integrationId",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "Http ZD Export",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "e9a8e5b991",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "http": {
+                    "relativeURI": "/users",
+                    "method": "GET",
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "users",
+                        "twoDArray": {
+                            "doNotNormalize": false,
+                            "hasHeader": false
+                        }
+                    }
+                },
+                "test": {
+                    "limit": 1
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "name": "",
+            "routeRecordsTo": "first_matching_branch",
+            "routeRecordsUsing": "script",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "setupInProgress": true
+                        }
+                    ]
+                },
+                {
+                    "name": "Branch 1.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "setupInProgress": true
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "_scriptId": "64f97b093ba8dc60a430ce04",
+                "function": "branching"
+            },
+            "id": "y3JTopsaYL6"
+        }
+    ],
+    "scriptSchema" : {
+        "name": "Branching script",
+        "content": "function branching(options) {\n  if (options.record.name === 'The Customer') {\n    return true\n  }\n}\n\n"
+    }
+}
