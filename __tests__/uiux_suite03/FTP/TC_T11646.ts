@@ -2,13 +2,13 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import flow from "@testData/Exports/T11646.json";
 
-test.describe("TC_T25318 Verify 'Timestamp filter for error window is not visible in TEST MODE", () => {
+test.describe("TC_T11646 Verify 'Sorting and grouping records' should be an optional section and this section should be collapsed by default.", () => {
   let id;
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowViaAPI(id);
   });
 
-  test("@Zephyr-IO-T25318 @Env-All @Epic-IO-86262 @Priority-P2 - Verify 'Timestamp filter for error window is not visible in TEST MODE", async ({
+  test("@Zephyr-IO-T11646 @Env-All @Epic-IO-86262 @Priority-P2 - Verify 'Sorting and grouping records' should be an optional section and this section should be collapsed by default.", async ({
     io,
     page
   }) => {
