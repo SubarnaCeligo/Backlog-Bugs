@@ -40,6 +40,7 @@ test.describe("T28736_T28944_T27421 Verify the license Entitlements notification
   await io.homePage.reloadPage();
   await io.homePage.loadingTime();
   await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
+  await io.homePage.loadingTime();
   await io.myAccountPage.waitForElementAttached(selectors.myAccountPagePO.AUDIT_LOG);
   await io.myAccountPage.click(selectors.myAccountPagePO.AUDIT_LOG);
   await page.waitForLoadState("load", { timeout: 90000 });
