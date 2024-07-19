@@ -2,8 +2,8 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import C48963 from '@testData/Flows/C48963.json';
 
-test.describe("C49462 Dynamic lookup should not be shown for fileproviders", () => {
-  test("@Env-All @Zephyr-IO-T18092 @Priority-P2 C49462 Dynamic lookup should not be shown for fileproviders", async ({io, page}) => {
+test.describe("C53079 Verify the info text in search bar", () => {
+  test("@Env-All @Zephyr-IO-T9420 @Priority-P2 C53079 Verify the info text in search bar", async ({io, page}) => {
       await io.createResourceFromAPI(C48963, "FLOWS");
       await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);
 
