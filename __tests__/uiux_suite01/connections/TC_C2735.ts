@@ -9,6 +9,9 @@ test.describe("C2735 Verify Caching of NS metadata routes for Unification", () =
       // Set up a promise that resolves when the specific request is made
       const requestPromise = page.waitForRequest(request => request.url().includes("/ping"));
 
+      await io.connectionPage.waitForElementAttached(selectors.homePagePO.PRODUCTION_BUTTON)
+      await io.connectionPage.click(selectors.homePagePO.PRODUCTION_BUTTON)
+      await io.homePage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR);
       await io.homePage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, 'NS 616 v2');
       await io.homePage.clickByText("NS 616 v2");
 
