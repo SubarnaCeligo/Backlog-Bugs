@@ -1,7 +1,7 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe(`C50998`, () => {
+test.describe(`C50998 Zephyr-IO-T19634`, () => {
   test(`@Env-All @Zephyr-IO-T19634 C50998`, async ({
     io,
     page
