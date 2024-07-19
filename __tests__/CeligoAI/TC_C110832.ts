@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe.skip("C110832 Verify JS Editor is having Celigo AI", () => {
+test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
@@ -152,7 +152,7 @@ test.describe.skip("C110832 Verify JS Editor is having Celigo AI", () => {
       await page.mouse.move(x, y);
       await expect(page.locator(selectors.flowBuilderPagePO.OPENAI.EXPLAIN_SELECTION_HOVER_TEXT).first()).toHaveAttribute('aria-label', 'Select any portion of the code to have Celigo AI generate a human-readable description');   
     }
-    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'Get testmode');
+    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'write a javascript function to get the testmode');
     await page.keyboard.press('Enter');
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR,
