@@ -16,7 +16,6 @@ test.describe("@Bug-IO-27016  @Priority-P2  @Zephyr-T5136 @Env-All Use this acco
         }
         await io.myAccountPage.loadingTime();
         await io.assert.expectToBeValueInArray(actualNameValue, expectedName, 'Name is invalid');
-
     });
 });
 
