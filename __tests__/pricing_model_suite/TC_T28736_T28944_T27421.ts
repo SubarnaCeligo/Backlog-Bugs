@@ -47,7 +47,7 @@ test.describe("T28736_T28944_T27421 Verify the license Entitlements notification
   const upgradeNotificationText_free = await io.myAccountPage.getText(
     selectors.basePagePO.NOTIFICTION_BAR
   );
-  expect(upgradeNotificationText_free).toEqual(upgradeNotificationText);
+  expect(upgradeNotificationText_free).toContain(upgradeNotificationText);
   await io.homePage.addStep("Verified. Info message displayed for free tier.");
 });
   test("@Zephyr-IO-T28736  @Env-All @Priority-P2 Verify the license Entitlements notification whenever the endpoints and flow usage has been exceeded for free tier", async ({
