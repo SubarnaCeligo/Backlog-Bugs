@@ -16,6 +16,5 @@ test.describe("T25986 Verify email field on changing the Server data source from
         await io.flowBuilder.click(selectors.connectionsPagePO.JDBC_SERVER_DATA_SOURCE);
         await io.flowBuilder.selectTextfromDropDown(page, "NetSuite2.com");
         expect(await io.flowBuilder.isVisible(selectors.connectionsPagePO.JDBC_EMAIL_INPUT)).toBeFalsy();
-        await io.flowBuilder.delay(5000);
     });
 });
