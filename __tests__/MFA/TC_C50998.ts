@@ -11,7 +11,6 @@ test.describe(`Zephyr-IO-T19634 C50998`, () => {
     await io.homePage.loadingTime()
     await io.homePage.click(selectors.myAccountPagePO.MFA);
     await io.homePage.loadingTime()
-   //  const isToggleEnable = await io.myAccountPage.isVisible(`${selectors.myAccountPagePO.MFA_ON_OFF} .react-toggle--checked`);
     const isToggleEnable = await io.myAccountPage.isVisible(selectors.myAccountPagePO.MFA_ON_OFF);
     
     //Check if the MFA is enabled  
