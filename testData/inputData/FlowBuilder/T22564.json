@@ -30,7 +30,37 @@
         },
         "name": "CHannel ape export",
         "oneToMany": "false",
-        "sandbox": false
+        "sandbox": false,
+        "filter": {
+          "type": "expression",
+          "expression": {
+            "rules": [
+              "equals",
+              [
+                "string",
+                [
+                  "extract",
+                  "myField"
+                ]
+              ],
+              "filter"
+            ],
+            "version": "1"
+          },
+          "rules": [
+            "equals",
+            [
+              "string",
+              [
+                "extract",
+                "myField"
+              ]
+            ],
+            "filter"
+          ],
+          "version": "1"
+        },
+        "adaptorType": "HTTPExport"
       }
     }
   ],

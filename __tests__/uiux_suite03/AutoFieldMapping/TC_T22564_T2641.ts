@@ -2,13 +2,13 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import flow from "@testData/FlowBuilder/T22564.json";
 
-test.describe("TC_T11646 Verify 'Sorting and grouping records' should be an optional section and this section should be collapsed by default.", () => {
+test.describe("Mapper 2.0 and filter cases", () => {
   let id;
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowViaAPI(id);
   });
 
-  test("@Zephyr-IO-T11646 @Env-All @Epic-IO-86262 @Priority-P2 - Verify 'Sorting and grouping records' should be an optional section and this section should be collapsed by default.", async ({
+  test("@Zephyr-IO-T22564 @Zephyr-IO-T2641 @Env-All @Epic-IO-86262 @Priority-P2 - Verify whether matches are highlighted after user searches any destination field in Mapper && Verify save button is disabled initially and also after adding filters in edit case", async ({
     io,
     page
   }) => {
@@ -23,7 +23,6 @@ test.describe("TC_T11646 Verify 'Sorting and grouping records' should be an opti
 
     await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.SEARCH);
 
-    // await page.getByLabel("Search destination fields").fill("company");
     await io.flowBuilder.fill(selectors.integrationPagePO.HOME_SEARCH, 'first');
     await io.flowBuilder.loadingTime();
 
@@ -50,6 +49,20 @@ test.describe("TC_T11646 Verify 'Sorting and grouping records' should be an opti
       "secondKey",
       0
     );
+
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
+
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT_FILTER);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_FILTER);
+
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RULE_VALUE);
+
+    await expect(page.locator(selectors.basePagePO.SAVE)).toBeDisabled();
+    await io.flowBuilder.fill(selectors.flowBuilderPagePO.RULE_VALUE, "test");
+    await expect(page.locator(selectors.basePagePO.SAVE)).toBeDisabled();
+
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.RULE_OPERATOR);
+    await expect(page.locator(selectors.basePagePO.SAVE)).not.toBeDisabled();
 
   });
 });
