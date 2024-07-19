@@ -2,7 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("IO-T860 To verify  Adding the New ReadMe", () => { 
-  test("Verify Adding the New ReadMe", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T860 Verify Adding the New ReadMe", async ({io, page}) => {
   await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
   await io.integrationPage.click(selectors.integrationPagePO.ADMINTAB);
   await io.integrationPage.click(selectors.flowBuilderPagePO.README);
