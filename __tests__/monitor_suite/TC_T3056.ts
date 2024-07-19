@@ -1,8 +1,8 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("T3056 Verify user with Manage/Admin/Monitor access is able to view and sort the Applications, Last Open error and Type fields based on their permissions", () => {
-  test("@Env-All @Priority-P2 @Zephyr-IO-T3056 C33328 Verify user with Manage/Admin/Monitor access is able to view and sort the Applications, Last Open error and Type fields based on their permissions", async ({
+test.describe("T3056 Verify user with Monitor access is able to view and sort the Applications, Last Open error and Type fields based on their permissions", () => {
+  test("@Env-All @Priority-P2 @Zephyr-IO-T3056 C33328 Verify user with Monitor access is able to view and sort the Applications, Last Open error and Type fields based on their permissions", async ({
     page,
     io
   }) => {
