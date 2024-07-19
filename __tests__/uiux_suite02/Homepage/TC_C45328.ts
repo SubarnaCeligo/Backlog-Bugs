@@ -7,7 +7,7 @@ test.describe("C45328_Verify whether user is able to vote on features and add su
         await io.homePage.loadingTime()
         await io.homePage.selectTabInHelperMenu("Product portal")
         await io.homePage.loadingTime()
-        const iframe = page.frameLocator(selectors.homePagePO.IFRAME_PRODUCT_PORTAL);
+        const iframe = page.frameLocator('[title="Product portal"]');
         await iframe.locator(selectors.myAccountPagePO.PRODUCT_PORTAL_SUBMIT_BUTTON).click();
         await iframe.locator(selectors.homePagePO.SUBMIT_IDEA_COMMENT).fill('Test')
         await iframe.getByText('Nice-to-have').click()
