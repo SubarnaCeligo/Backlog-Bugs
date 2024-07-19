@@ -1,7 +1,8 @@
 import { filterTestCases } from "@celigo/aut-utilities";
 let testCases = [
 "IOT12568",
-"IOT12567"
+"IOT12567",
+"T7029",
 ];
 
 

@@ -13,7 +13,7 @@ test.describe("C2034 Verify if we are able to link same NS account in both IO pr
       const requestPromise = page.waitForRequest(request => request.url().includes("/ping"));
 
       await io.homePage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, 'HTTP CONNECTION SANDBOX NEW');
-      await io.homePage.clickByText("HTTP CONNECTION SANDBOX NEW");
+      await io.homePage.clickByTextByIndex("HTTP CONNECTION SANDBOX NEW",0);
 
       // Wait for either the request to be made or the actions to complete
       const request = await Promise.race([requestPromise]);
