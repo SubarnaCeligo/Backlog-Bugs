@@ -4,7 +4,7 @@ import data from "@testData/ScriptDebugger/C93680.json";
 
 test.describe('C93680 Validate user is getting auto-fill of funtion stub while creating "preMap" script through flow builder hook', () => {
    
-    test('C93680 Validate user is getting auto-fill of funtion stub while creating "preMap" script through flow builder hook', async({io,page}) => {
+    test('@Env-All @Zephyr-IO-T22647 C93680 Validate user is getting auto-fill of funtion stub while creating "preMap" script through flow builder hook', async({io,page}) => {
   
       const id =  await io.createResourceFromAPI(
         data,

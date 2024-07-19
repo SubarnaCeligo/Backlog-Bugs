@@ -12,7 +12,7 @@ test.describe("@Author_MaheshNivruttiSutar Verify is able to create graphql blob
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APP_NAME_INPUT, "GRAPHQL");
         await io.flowBuilder.clickByText('GraphQL');
         await io.flowBuilder.clickByText("Look up additional files (per record)");
-        await io.flowBuilder.clickByText('Create flow step');
+        await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.clickByText("GRAPHQL CONNECTION");

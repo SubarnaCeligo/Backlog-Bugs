@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe('C65078 Verify sub-menu option of "My account" is showing after hovering on "My account" option.', () => {
-  test('@Env-All C65078 Verify sub-menu option of "My account" is showing after hovering on "My account" option.', async ({
+  test('@Env-All @Zephyr-IO-T22193 C65078 Verify sub-menu option of "My account" is showing after hovering on "My account" option.', async ({
     io,
     page
   }) => {

@@ -5,7 +5,7 @@ import data1 from "@testData/ScriptDebugger/C93684.json"
 
 test.describe('C93684 Validate user is getting auto-fill of funtion stub while creating "transform" script through flow builder branching filter', () => {
    
-    test('C93684 Validate user is getting auto-fill of funtion stub while creating "transform" script through flow builder branching filte', async({io,page}) => {
+    test('@Env-All @Zephyr-IO-T22651 C93684 Validate user is getting auto-fill of funtion stub while creating "transform" script through flow builder branching filte', async({io,page}) => {
   
       const id =  await io.createResourceFromAPI(
         data1,

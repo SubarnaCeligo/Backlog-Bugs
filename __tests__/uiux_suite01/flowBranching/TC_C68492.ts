@@ -7,8 +7,8 @@ test.describe("C68492 Verify user is able to clone the integration from Sandbox 
                io,
                 page
               }) => {
-                
               await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL)
+              await io.homePage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR)
               await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,"TC_C68492_DND")
               await io.integrationPage.waitForElementAttached("[data-test='openActionsMenu']");
               await io.flowBuilder.clickByText('TC_C68492_DND');
@@ -28,8 +28,6 @@ test.describe("C68492 Verify user is able to clone the integration from Sandbox 
               await io.connectionPage.click(selectors.basePagePO.SAVE);
               await io.homePage.click(selectors.basePagePO.INSTALL);
               await io.homePage.clickByTextByIndex("Clone - TC_C68492", 0)
-             // await io.assert.verifyElementIsDisplayed(selectors.basePagePO.EDIT_SCHEDULE,"Scheduling is not present")
               await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON)
-              await io.homePage.clickByText("Automation Flows")
     });
 })
