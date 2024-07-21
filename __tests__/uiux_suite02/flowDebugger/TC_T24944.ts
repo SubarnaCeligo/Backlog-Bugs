@@ -3,12 +3,12 @@ import * as selectors from "@celigo/aut-selectors";
 import C107963 from '../../../testData/inputData/FlowDebugger/C107963.json';
 import exp from "constants";
 
-test.describe("TC_T24944 Verify And/OR toggle by default color is the same as the color when the user writing the first rule", () => {
+test.describe("TC_T24944 Verify the run button when the flow is in Production mode", () => {
     test.describe.configure({ retries: 2 })
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("TC_T24944 @Zephyr-IO-T24944 @Env-All @Priority-P2 T24944 Verify And/OR toggle by default color is the same as the color when the user writing the first rule UI_Backlog", async ({ io, page }) => {
+    test("TC_T24944 @Zephyr-IO-T24944 @Env-All @Priority-P2 T24944 Verify the run button when the flow is in Production mode UI_Backlog", async ({ io, page }) => {
         await io.createResourceFromAPI(C107963, "FLOWS");
         await io.flowBuilder.loadingTime();
 
