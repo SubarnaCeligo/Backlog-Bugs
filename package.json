@@ -40,7 +40,6 @@
     }
   },
   "devDependencies": {
-
     "@celigo/aut-selectors": "^0.4.2",
     "@celigo/aut-utilities": "^0.1.17",
     "@celigo/ui-core-automation": "^0.2.57",
