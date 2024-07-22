@@ -103,57 +103,15 @@
         {
             "type": "import",
             "qa__import": {
-                "name": "Http import",
+                "_id": "65671ff1de63bf1e3a29762b",
+                "name": "NS import",
                 "mockResponse": [
                     {
                         "id": "1234567890",
                         "errors": [],
                         "_json": {
-                            "record": {
-                                "id": "79460",
-                                "companyname": "IO_41202_01_DND",
-                                "NS-ID": "2839486",
-                                "recordType": "account",
-                                "Name": "Account 1"
-                            }
-                        },
-                        "statusCode": 200,
-                        "ignored": false,
-                        "dataURI": "",
-                        "_headers": {
-                            "content-type": "application/json; charset=utf-8"
-                        }
-                    },
-                    {
-                        "id": "1234567890",
-                        "errors": [],
-                        "_json": {
-                            "record": {
-                                "id": "79461",
-                                "companyname": "IO_12_DND",
-                                "NS-ID": "28394",
-                                "recordType": "account",
-                                "Name": "Account 1`"
-                            }
-                        },
-                        "statusCode": 200,
-                        "ignored": false,
-                        "dataURI": "",
-                        "_headers": {
-                            "content-type": "application/json; charset=utf-8"
-                        }
-                    },
-                    {
-                        "id": "1234567890",
-                        "errors": [],
-                        "_json": {
-                            "record": {
-                                "id": "79462",
-                                "companyname": "IO_DND",
-                                "NS-ID": "283",
-                                "recordType": "account",
-                                "Name": "Account 12"
-                            }
+                            "id": "1234567890",
+                            "mockResponse": "replace me"
                         },
                         "statusCode": 200,
                         "ignored": false,
@@ -163,86 +121,71 @@
                         }
                     }
                 ],
-                "_connectionId": "HTTP ZENDESK CONNECTION",
-                "apiIdentifier": "i6f834a061",
+                "_connectionId": "NETSUITE CONNECTION",
+                "distributed": true,
+                "apiIdentifier": "i1ec4e132a",
                 "ignoreExisting": false,
                 "ignoreMissing": false,
                 "oneToMany": false,
                 "sandbox": false,
-                "http": {
-                    "relativeURI": [
-                        "/users"
+                "lookups": [
+                    {
+                        "name": "ItemsArray",
+                        "recordType": "item",
+                        "resultField": "internalid",
+                        "expression": "[\"internalid\",\"is\",\"{{{item[*].item}}}\"]",
+                        "allowFailures": false
+                    }
+                ],
+                "netsuite_da": {
+                    "restletVersion": "suiteapp2.0",
+                    "operation": "addupdate",
+                    "recordType": "salesorder",
+                    "internalIdLookup": {
+                        "expression": "[\"internalid\",\"equalto\",\"{{{[NS-ID]}}}\"]"
+                    },
+                    "lookups": [
+                        {
+                            "name": "ItemsArray",
+                            "recordType": "item",
+                            "resultField": "internalid",
+                            "expression": "[\"internalid\",\"is\",\"{{{item[*].item}}}\"]",
+                            "allowFailures": false
+                        }
                     ],
-                    "method": [
-                        "POST"
-                    ],
-                    "body": [],
-                    "batchSize": 2,
-                    "sendPostMappedData": true,
-                    "formType": "http",
-                    "response": {
-                        "resourcePath": [
-                            "id"
+                    "mapping": {
+                        "fields": [],
+                        "lists": [
+                            {
+                                "generate": "item",
+                                "fields": [
+                                    {
+                                        "generate": "item",
+                                        "discardIfEmpty": false,
+                                        "immutable": false,
+                                        "lookupName": "ItemsArray",
+                                        "internalId": true
+                                    }
+                                ]
+                            }
                         ]
                     }
                 },
-                "adaptorType": "HTTPImport"
+                "adaptorType": "NetSuiteDistributedImport"
             }
-        },
-        {
+          },
+          {
             "type": "import",
             "qa__import": {
-                "name": "Http import",
+                "_id": "65671ff1de63bf1e3a29762b",
+                "name": "NS import",
                 "mockResponse": [
                     {
                         "id": "1234567890",
                         "errors": [],
                         "_json": {
-                            "record": {
-                                "id": "79460",
-                                "companyname": "IO_41202_01_DND",
-                                "NS-ID": "2839486",
-                                "recordType": "account",
-                                "Name": "Account 1"
-                            }
-                        },
-                        "statusCode": 200,
-                        "ignored": false,
-                        "dataURI": "",
-                        "_headers": {
-                            "content-type": "application/json; charset=utf-8"
-                        }
-                    },
-                    {
-                        "id": "1234567890",
-                        "errors": [],
-                        "_json": {
-                            "record": {
-                                "id": "79461",
-                                "companyname": "IO_12_DND",
-                                "NS-ID": "28394",
-                                "recordType": "account",
-                                "Name": "Account 1`"
-                            }
-                        },
-                        "statusCode": 200,
-                        "ignored": false,
-                        "dataURI": "",
-                        "_headers": {
-                            "content-type": "application/json; charset=utf-8"
-                        }
-                    },
-                    {
-                        "id": "1234567890",
-                        "errors": [],
-                        "_json": {
-                            "record": {
-                                "id": "79462",
-                                "companyname": "IO_DND",
-                                "NS-ID": "283",
-                                "recordType": "account",
-                                "Name": "Account 12"
-                            }
+                            "id": "1234567890",
+                            "mockResponse": "replace me"
                         },
                         "statusCode": 200,
                         "ignored": false,
@@ -252,32 +195,59 @@
                         }
                     }
                 ],
-                "_connectionId": "HTTP ZENDESK CONNECTION",
-                "apiIdentifier": "i6f834a061",
+                "_connectionId": "NETSUITE CONNECTION",
+                "distributed": true,
+                "apiIdentifier": "i1ec4e132a",
                 "ignoreExisting": false,
                 "ignoreMissing": false,
                 "oneToMany": false,
                 "sandbox": false,
-                "http": {
-                    "relativeURI": [
-                        "/users"
+                "lookups": [
+                    {
+                        "name": "ItemsArray",
+                        "recordType": "item",
+                        "resultField": "internalid",
+                        "expression": "[\"internalid\",\"is\",\"{{{item[*].item}}}\"]",
+                        "allowFailures": false
+                    }
+                ],
+                "netsuite_da": {
+                    "restletVersion": "suiteapp2.0",
+                    "operation": "addupdate",
+                    "recordType": "salesorder",
+                    "internalIdLookup": {
+                        "expression": "[\"internalid\",\"equalto\",\"{{{[NS-ID]}}}\"]"
+                    },
+                    "lookups": [
+                        {
+                            "name": "ItemsArray",
+                            "recordType": "item",
+                            "resultField": "internalid",
+                            "expression": "[\"internalid\",\"is\",\"{{{item[*].item}}}\"]",
+                            "allowFailures": false
+                        }
                     ],
-                    "method": [
-                        "POST"
-                    ],
-                    "body": [],
-                    "batchSize": 2,
-                    "sendPostMappedData": true,
-                    "formType": "http",
-                    "response": {
-                        "resourcePath": [
-                            "id"
+                    "mapping": {
+                        "fields": [],
+                        "lists": [
+                            {
+                                "generate": "item",
+                                "fields": [
+                                    {
+                                        "generate": "item",
+                                        "discardIfEmpty": false,
+                                        "immutable": false,
+                                        "lookupName": "ItemsArray",
+                                        "internalId": true
+                                    }
+                                ]
+                            }
                         ]
                     }
                 },
-                "adaptorType": "HTTPImport"
+                "adaptorType": "NetSuiteDistributedImport"
             }
-        }
+          }
     ],
     "createFlow": {
         "name": "C59674",
