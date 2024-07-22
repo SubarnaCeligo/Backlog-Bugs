@@ -9,6 +9,11 @@ test.describe("TC_IOT2292 Verify logostrip component has been added to the Integ
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
     await io.homePage.goToMenu("Resources", "Integration apps");
+    await io.flowBuilder.fill(
+      selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR,
+      "TC_IOT2292_DND"
+    );
+
     const imageOne = page.locator('img[alt="mysql"]');
     const imageTwo = page.locator('img[alt="netsuite"]');
     const imageThree = page.locator('img[alt="salesforce"]');
