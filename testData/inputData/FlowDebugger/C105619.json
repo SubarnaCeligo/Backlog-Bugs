@@ -1,0 +1,177 @@
+{
+    "name": "TC_C105619",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "rest io",
+                "_connectionId": "FTP CONNECTION",
+                "_sourceId": "626a155ad0d946269d48d23b",
+                "apiIdentifier": "e381b3a041",
+                "asynchronous": true,
+                "traceKeyTemplate": "{{record.app_id}}",
+                "sampleData": {},
+                "ftp": {
+                    "directoryPath": "api/v2/school"
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "filter": {
+                        "type": "expression",
+                        "expression": {
+                            "version": "1",
+                            "rules": [
+                                "startswith",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "filename"
+                                    ]
+                                ],
+                                "850Json.json"
+                            ]
+                        },
+                        "rules": [
+                            "startswith",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "filename"
+                                ]
+                            ],
+                            "850Json.json"
+                        ],
+                        "version": "1"
+                    }
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "Lookup",
+                "_connectionId": "HTTP CONNECTION",
+                "_sourceId": "6667fb164b7e0d3c5a905af9",
+                "apiIdentifier": "e71a88921f",
+                "asynchronous": true,
+                "isLookup": true,
+                "oneToMany": true,
+                "pathToMany": "School",
+                "http": {
+                    "relativeURI": "/tickets",
+                    "method": "POST",
+                    "headers": [
+                        {
+                            "name": "Content-Types",
+                            "value": "application/json"
+                        }
+                    ],
+                    "isRest": false,
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "organizations",
+                        "twoDArray": {
+                            "doNotNormalize": false,
+                            "hasHeader": false
+                        }
+                    }
+                },
+                "inputFilter": {
+                    "type": "expression",
+                    "expression": {
+                        "version": "1",
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "_PARENT.Name"
+                                ]
+                            ],
+                            "ORANGE PARK"
+                        ]
+                    },
+                    "rules": [
+                        "equals",
+                        [
+                            "string",
+                            [
+                                "extract",
+                                "_PARENT.Name"
+                            ]
+                        ],
+                        "ORANGE PARK"
+                    ],
+                    "version": "1"
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }, 
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "FTP",
+                "sampleData": {},
+                "mockResponse": [
+                    {
+                        "id": "1234567890",
+                        "errors": [],
+                        "_json": {
+                            "id": "1234567890",
+                            "mockResponse": "replace me"
+                        },
+                        "statusCode": 200,
+                        "ignored": false,
+                        "dataURI": "",
+                        "_headers": {
+                            "content-type": "application/json; charset=utf-8"
+                        }
+                    }
+                ],
+                "_connectionId": "FTP CONNECTION",
+                "_sourceId": "6322d3740643cf0e25a02111",
+                "apiIdentifier": "i0c8821255",
+                "oneToMany": false,
+                "file": {
+                    "fileName": "afterrouter-{{timestamp}}.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "/api/v2/pathtomany",
+                    "fileName": "afterrouter-{{timestamp}}.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+      ],
+    "createFlow": {
+        "name": "TC_C105619",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+        ]
+    }
+}
