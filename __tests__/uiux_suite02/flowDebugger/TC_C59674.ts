@@ -8,9 +8,6 @@ test.describe("C59674 To Verify that the Mock Response are working as expected",
     test("@Env-All @Zephyr-IO-T14540 C59674 To Verify that the Mock Response are working as expected", async ({ io, page }) => {
        
     flowId = await io.createResourceFromAPI(C59674, "FLOWS");
-    await io.flowBuilder.navigateTo(
-      process.env.IO_Integration_URL + "flowBuilder/" + flowId
-    );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
     await io.homePage.addStep("Running the flow");
     const lastRun = page.getByText('Last run');
