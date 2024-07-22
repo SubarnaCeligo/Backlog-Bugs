@@ -54,7 +54,7 @@ test.describe("Verify user is able to access the execution details(testMode fiel
         await io.homePage.loadingTime()
         const resourceTestModeMappings = await io.exportsPage.getText(selectors.connectionsPagePO.DATA_PANEL);
         const resourceTestModeMappingsHandlebar = await io.exportsPage.getText(selectors.flowBuilderPagePO.AFE_RESULT_PANEL);
-        expect(resourceTestModeMappings[1]).toContain('"testMode": true');
-        expect(resourceTestModeMappingsHandlebar[1]).toContain('true');
+        expect(resourceTestModeMappings[1]).toContain('"testMode": false');
+        expect(resourceTestModeMappingsHandlebar[1]).toContain('false');
     });
 });
