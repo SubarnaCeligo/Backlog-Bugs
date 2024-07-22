@@ -1,17 +1,23 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import TC from "@testData/monitorSuite/C118391.json";
+import testData from "@testData/monitorSuite/monitor_all_manage_few.json";
 
-test.describe.skip("@Epic-IO-38600  @Priority-P2 @Zephyr-T20092 @Zephyr-T20098 @Zephyr-T20091 @Env-All  Assign cases in monitor account", () => {
+test.describe("@Epic-IO-38600  @Priority-P2 @Zephyr-T20092 @Zephyr-T20098 @Zephyr-T20091 @Env-All  Assign cases in monitor account", () => {
     let id;
     test.beforeEach(async ({ io }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.flowBuilder.loadingTime();
     });
     test.afterEach(async ({ io }) => {
         await io.api.deleteFlowViaAPI(id);
     });
 
     test("@Epic-IO-38600  @Priority-P2 @Zephyr-T20092 @Zephyr-T20098 @Zephyr-T20091 @Env-All  Assign cases in monitor account", async ({ io, page }) => {
+        const res = await io.api.putCall(
+            `v1/ashares/${process.env.IO_Ashare_ID}`,
+            testData
+        );
         var flows = await io.api.createImpOrExpAndFlowsThruAPI(TC);
         id = flows.get(TC.name)["flowId"];
         await io.api.checkJobStatusFromAPI(
