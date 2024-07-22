@@ -14,7 +14,7 @@ test.describe("IO_T6148 Verfiy List of logs can be paginated to see the next 50 
         await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.SETTINGSBUTTON);
         await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.HANDLEBAREXPRESSIONBUTTON);
         await io.homePage.loadingTime()
-        await io.homePage.click('a[href*="Handlebars-helper-reference"] + hr ~ div [data-test="previewEditorResult"]')
+        await io.homePage.click(selectors.mappings.MAPPER2DOT0PO.PREVIEW_BUTTON_SETTINGS_HANDLEBAR);
         await io.homePage.loadingTime()
         const resourceTestModeTransform = await io.exportsPage.getText(selectors.connectionsPagePO.DATA_PANEL);
         const resourceTestModeTransformHandlebar = await io.exportsPage.getText(selectors.flowBuilderPagePO.AFE_RESULT_PANEL);

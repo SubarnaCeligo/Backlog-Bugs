@@ -38,19 +38,19 @@ test.describe("Verify user is able to access the execution details(testMode fiel
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSINGDRAWER);
 
         // output filter for testMode check
-        await io.flowBuilder.click('[data-test="exportFilter"]');
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_FILTER);
         await io.homePage.loadingTime()
         const resourceTestModeOutputFilter = await io.exportsPage.getText(selectors.connectionsPagePO.DATA_PANEL);
         expect(resourceTestModeOutputFilter).toContain('"testMode": false');
         await io.flowBuilder.click(selectors.exportsPagePO.CLOSE_PARSER_HELPER);
 
         //mapping for testMode check
-        await io.flowBuilder.click('[data-test="importMapping"]');
+        await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.IMPORT_MAPPING);
         await io.homePage.loadingTime()
         await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.SETTINGSBUTTON);
         await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.HANDLEBAREXPRESSIONBUTTON);
         await io.homePage.loadingTime()
-        await io.homePage.click('a[href*="Handlebars-helper-reference"] + hr ~ div [data-test="previewEditorResult"]')
+        await io.homePage.click(selectors.mappings.MAPPER2DOT0PO.PREVIEW_BUTTON_SETTINGS_HANDLEBAR);
         await io.homePage.loadingTime()
         const resourceTestModeMappings = await io.exportsPage.getText(selectors.connectionsPagePO.DATA_PANEL);
         const resourceTestModeMappingsHandlebar = await io.exportsPage.getText(selectors.flowBuilderPagePO.AFE_RESULT_PANEL);
