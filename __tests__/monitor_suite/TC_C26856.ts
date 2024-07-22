@@ -2,13 +2,32 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import data from "@testData/monitorSuite/C26856.json"
 import testData from "@testData/monitorSuite/monitor_all.json";
+import testData1 from "@testData/monitorSuite/monitor_all_Ci_user.json";
 
 test.describe(`C26856 Verify AutoMap field button is not shown`, () => {
   test(`@Env-All @Zephyr-IO-T5276 C26856 Verify AutoMap field button is not shown when access level of user is monitor`, async ({ io, page }) => {
-    const res = await io.api.putCall(
-      `v1/ashares/${process.env.IO_Ashare_ID}`,
-      testData
-    );
+    if (process.env["IO_UI_CONNECTOR_URL"] == "https://qa.staging.integrator.io/") {
+      const res = await io.api.putCall(
+        `v1/ashares/${process.env.IO_Ashare_ID}`,
+        testData
+      );
+      const res1 = await io.api.putCall(
+        `v1/ashares/${process.env.IO_Ashare_ID}`,
+        testData1.CI
+      );
+
+    } else if (process.env["IO_UI_CONNECTOR_URL"] == "https://staging.integrator.io/") {
+      const res1 = await io.api.putCall(
+        `v1/ashares/${process.env.IO_Ashare_ID}`,
+        testData1.STAGING
+      );
+    } else {
+      const res = await io.api.putCall(
+        `v1/ashares/${process.env.IO_Ashare_ID}`,
+        testData
+      );
+    }
+
     const id = await io.createResourceFromAPI(
       data,
       'FLOWS'
