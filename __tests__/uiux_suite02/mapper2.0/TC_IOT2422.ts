@@ -13,6 +13,7 @@ test.describe("TC_IOT2422 verify tooltips should shown on the destination files 
     page
   }) => {
     flowId = await io.createResourceFromAPI(C45341, "FLOWS");
+    
     await io.homePage.navigateTo(
       process.env["IO_Integration_URL"] + "flowBuilder/" + flowId
     );
