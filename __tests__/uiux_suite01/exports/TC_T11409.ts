@@ -22,5 +22,6 @@ test.describe(`TC_T11409`, () => {
     await io.flowBuilder.clickByText('EDIFACT');
     await io.flowBuilder.click(selectors.exportsPagePO.EDIFACTFORMAT);
     expect(await page.getByRole('menuitem').count()).toBeGreaterThan(1);
+    expect(await page.getByText('Amazon Vendor Central')).toBeVisible();
   });
 });
