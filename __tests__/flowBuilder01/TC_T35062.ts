@@ -2,9 +2,9 @@ import { test, expect } from "@celigo/ui-core-automation";
 import IO_T35060 from '@testData/FlowBuilder/T35060.json';
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("IO_T6148 Verfiy List of logs can be paginated to see the next 50 requests.", () => {
+test.describe("Verify user is able to access the execution details(testMode field) via handlebar in Export Transformation 2.0 AFE screens.", () => {
     let flowMap;
-    test("@Env-All @Zephyr-IO_T6148 @Priority-P2 C34464 Verfiy List of logs can be paginated to see the next 50 requests.", async ({
+    test("@Env-QA @Zephyr-IO_T35062 Verify user is able to access the execution details(testMode field) via handlebar in Export Transformation 2.0 AFE screens.", async ({
         io, page
     }, testInfo) => {
         flowMap = await io.api.createImpOrExpAndFlowsThruAPI(IO_T35060, false);
