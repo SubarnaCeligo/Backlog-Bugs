@@ -4,7 +4,7 @@ import data from "@testData/monitorSuite/C26856.json"
 import testData from "@testData/monitorSuite/monitor_all.json";
 
 test.describe(`C26856 Verify AutoMap field button is not shown`, () => {
-  test(`@Env-All C26856 Verify AutoMap field button is not shown when access level of user is monitor`, async ({ io, page }) => {
+  test(`@Env-All @Zephyr-IO-T5276 C26856 Verify AutoMap field button is not shown when access level of user is monitor`, async ({ io, page }) => {
     const res = await io.api.putCall(
       `v1/ashares/${process.env.IO_Ashare_ID}`,
       testData
