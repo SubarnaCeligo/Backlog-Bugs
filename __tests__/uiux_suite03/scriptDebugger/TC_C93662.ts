@@ -4,7 +4,7 @@ import data from "@testData/ScriptDebugger/C93662.json"
 
 test.describe('C93662 Validate user is able to see the options script,description,chose function stub while creating "formInit" script through flow builder page', () => {
    
-    test('C93662 Validate user is able to see the options script,description,chose function stub while creating "formInit" script through flow builder page', async({io,page}) => {
+    test('@Env-All @Zephyr-IO-T22629 C93662 Validate user is able to see the options script,description,chose function stub while creating "formInit" script through flow builder page', async({io,page}) => {
   
       const id =  await io.createResourceFromAPI(
         data,

@@ -16,7 +16,7 @@ test.describe("TC_C120099", () => {
         await io.flowBuilder.click(selectors.flowBuilderPagePO.GROUP_RECORD_FIELD);
         await io.flowBuilder.clickByText('MariaDB');
         await io.flowBuilder.clickByText("Import records into destination application");
-        await io.flowBuilder.clickByText('Create flow step');
+         await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
         await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.clickByText("MariaDBCred");
         await io.flowBuilder.click(selectors.basePagePO.SAVE);

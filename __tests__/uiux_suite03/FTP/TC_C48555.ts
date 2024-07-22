@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C48555 Verify destination dropdown suggestions for mapper1.0 and mapper2.0`, () => {
-  test(`C48555 Verify destination dropdown suggestions for mapper1.0 and mapper2.0`, async ({
+  test(`@Env-All @Zephyr-IO-T18457 C48555 Verify destination dropdown suggestions for mapper1.0 and mapper2.0`, async ({
     io,
     page
   }) => {

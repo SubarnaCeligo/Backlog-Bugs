@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C77873 HTTP connection-- for 0auth 2.0 Auth type while creating the OAuth 2.0 iclient `, () => {
-  test(`C77873 HTTP connection-- for 0auth 2.0 Auth type while creating the OAuth 2.0 iclient `, async ({
+  test(`@Env-All @Zephyr-IO-T21620 C77873 HTTP connection-- for 0auth 2.0 Auth type while creating the OAuth 2.0 iclient `, async ({
     io,
     page
   }) => {

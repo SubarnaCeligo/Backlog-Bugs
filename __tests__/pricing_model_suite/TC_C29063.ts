@@ -9,7 +9,11 @@ test.describe("C29063 Verify the concurrency levels while cloning a flow.", () =
   }) => {
     const licenses = await io.api.getCall("v1/licenses");
     const platformLicense = licenses.find(l => l.type === "platform");
-
+    const payloadFormat = {
+      ...getLicensePayload(platformLicense),
+      expires: "2044-04-10T13:14:33.363Z",
+      apiManagement: true
+    };
     await io.api.putCall(
       `v1/test/licenses/${platformLicense._id}`,
       {...getLicensePayload(platformLicense), "concurrency": 12, "sandbox": false, "tier": "professional", "apiManagement": true, "expires": "2044-04-10T13:14:33.363Z"}
@@ -47,9 +51,6 @@ test.describe("C29063 Verify the concurrency levels while cloning a flow.", () =
     await io.connectionPage.clickByText("request an upgrade.");   
     await io.assert.verifyElementIsDisplayed(selectors.homePagePO.DIALOG, "We will contact you to discuss your business needs and recommend an ideal subscription plan.");
     await io.homePage.click(selectors.mappings.MAPPER2DOT0PO.CLOSEBUTTON);
-    await io.api.putCall(
-      `v1/test/licenses/${platformLicense._id}`,
-      {...getLicensePayload(platformLicense)}
-    );
+    await io.api.putCall(`v1/test/licenses/${payloadFormat._id}`, payloadFormat);
   });
 });

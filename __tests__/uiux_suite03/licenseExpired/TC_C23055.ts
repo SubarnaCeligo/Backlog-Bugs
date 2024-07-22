@@ -5,7 +5,7 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe(
   "C23055 Verify Account Renewal for Monitor or manage user ",
   () => {
-    test("C23055 Verify Account Renewal for Monitor or manage user ", async ({
+    test("@Env-All @Zephyr-IO-T1433 C23055 Verify Account Renewal for Monitor or manage user ", async ({
       io,
       page
     }) => {

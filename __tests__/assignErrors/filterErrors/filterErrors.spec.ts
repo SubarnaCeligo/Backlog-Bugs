@@ -11,7 +11,7 @@ var testCases = [
   "C118280",
   "C118281_C118282",
   "C118039",
-  "C107741",
+  //"C107741", - commenting as this is a screenshot comparision case which will fail in Jenkins
   //This suite is dedicated to assign error epic which is using a dediacted account, please do not add new cases here
 ];
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);

@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C51116 Verify mapper settings page new field 'Source record field' should be added for field mapping type 'standard mapping'", () => {
-  test("@Env-All C51116 Verify mapper settings page new field 'Source record field' should be added for field mapping type 'standard mapping'", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T22347 C51116 Verify mapper settings page new field 'Source record field' should be added for field mapping type 'standard mapping'", async ({io, page}) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime()
     await io.homePage.fill(selectors.homePagePO.SEARCH_INTEGRATION_WDIO, "HTTP_DND_UIUX")

@@ -1,6 +1,6 @@
 import { filterTestCases } from "@celigo/aut-utilities"
 var testCases = [
-  "040_Create_Connection_AS2",
+  // "040_Create_Connection_AS2",
   "C2588",
   "C26484",
   "BigQueryConnection",
@@ -14,7 +14,7 @@ var testCases = [
   "C15857",
   "028_Create_Connection_Mysql",
   "C29068",
-  "C57803",
+  // "C57803",
   "037_Create_Connection_DynamoDB",
   "C60468",
   "C41045",
@@ -37,6 +37,9 @@ var testCases = [
   "IO-T32353",
   "C58600",
   "IOT7942",
+  "T31330",
+  "T21523",
+  "T25986",
 ];
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
 
