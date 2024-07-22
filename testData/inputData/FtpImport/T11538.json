@@ -1,0 +1,37 @@
+[
+    {
+      "title": "A Good Girl's Guide to Murder",
+      "author": "Holly Jackson",
+      "genre": "Mystery",
+      "published_year": 2019,
+      "rating": 4.5
+    },
+    {
+      "title": "One of Us Is Lying",
+      "author": "Karen M. McManus",
+      "genre": "Mystery",
+      "published_year": 2017,
+      "rating": 4.3
+    },
+    {
+      "title": "Death on the Nile",
+      "author": "Agatha Christie",
+      "genre": "Mystery",
+      "published_year": 1937,
+      "rating": 4.6
+    },
+    {
+      "title": "And Then There Were None",
+      "author": "Agatha Christie",
+      "genre": "Mystery",
+      "published_year": 1939,
+      "rating": 4.7
+    },
+    {
+      "title": "Project Hail Mary",
+      "author": "Andy Weir",
+      "genre": "Science Fiction",
+      "published_year": 2021,
+      "rating": 4.8
+    }
+  ]

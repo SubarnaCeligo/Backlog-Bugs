@@ -43,6 +43,7 @@ var testCases = [
   "C117740",
   "C117743",
   "C117753",
+  "T25361",
   "T27372",
   "T27371",
   "T27370",
@@ -107,6 +108,7 @@ var testCases = [
   "T28606",
   "T28445",
   "T24261",
+  "T5391",
   "IO-T28495",
   "IO-T28452",
   "C120099",
@@ -126,8 +128,14 @@ var testCases = [
   "T6094",
   "IO-T10748",
   "T11648_T11645_T11653",
-  "C51541"
+  "C51541",
+  "C59677",
+  "T5409",
+  "T5388_T5387",
+  "T1646",
+ //please donot add any more new test cases to this flowbuilder02 suite,already this suite is overloaded when might cause issues during jenkinsrun/ci build
 ];
+  
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
 (async () => {
   await filterTestCases(testCases, flakycases);
