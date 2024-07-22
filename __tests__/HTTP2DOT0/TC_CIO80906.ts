@@ -73,7 +73,6 @@ test.describe("TC_CIO80906", () => {
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await expect(page.getByText('A value must be provided')).toBeVisible();
     await io.flowBuilder.fill(selectors.connectionsPagePO.OVERRIDEPATH,"/overridepath");
-
     await io.connectionPage.click(selectors.connectionsPagePO.AUTH_TYPE);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CUSTOM);
@@ -87,11 +86,25 @@ test.describe("TC_CIO80906", () => {
     await io.flowBuilder.fill(selectors.connectionsPagePO.AUTHERRORPATH,"/autherrorpath");
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
     await io.flowBuilder.loadingTime();
-   
+    await io.homePage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, "Success and errorpath test");
+    await io.homePage.loadingTime();
+    await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
+    await io.homePage.click(selectors.flowBuilderPagePO.APIMPUSHOPTION);
+    await io.homePage.loadingTime();
+    const errorvalue = await page.locator(selectors.connectionsPagePO.ERRORVALUES).getAttribute("value");
+    const succesvalue = await page.locator(selectors.connectionsPagePO.SUCCESSVALUES).getAttribute("value");
+    const ratelimiterrorvalue = await page.locator(selectors.connectionsPagePO.RATELIMITERROR).getAttribute("value");
+    const autherrorvalue = await page.locator(selectors.connectionsPagePO.AUTHERRORVALUE).getAttribute("value");
+    expect(succesvalue).toBe("testsuccess");
+    expect(errorvalue).toBe("testerror");
+    expect(ratelimiterrorvalue).toBe("testratelimit");
+    expect(autherrorvalue).toBe("autherrorvalue");
+   await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
+   await io.homePage.loadingTime();
+    // deleting the created Connection
     await io.homePage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, "Success and errorpath test");
     await io.homePage.loadingTime()
     await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
-  
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.connectionsPagePO.DELETE_CONNECTION);
     await io.flowBuilder.click(selectors.basePagePO.DELETE);
