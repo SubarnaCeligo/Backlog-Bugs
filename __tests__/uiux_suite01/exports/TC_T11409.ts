@@ -12,7 +12,6 @@ test.describe(`TC_T11409`, () => {
     await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'FTP');
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FTP);
-    await page.pause();
     await io.flowBuilder.click(selectors.basePagePO.CONNECTION);
     await io. flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,"FTP CONNECTION")
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);
@@ -21,7 +20,7 @@ test.describe(`TC_T11409`, () => {
     await io.flowBuilder.click(selectors.exportsPagePO.FILE_TYPE);
 
     await io.flowBuilder.clickByText('EDIFACT');
-    await io.flowBuilder.click('[data-test= "edifact.format"]');
+    await io.flowBuilder.click(selectors.exportsPagePO.EDIFACTFORMAT);
     expect(await page.getByRole('menuitem').count()).toBeGreaterThan(1);
   });
 });
