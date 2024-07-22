@@ -103,150 +103,75 @@
         {
             "type": "import",
             "qa__import": {
-                "_id": "65671ff1de63bf1e3a29762b",
-                "name": "NS import",
+                "name": "FTP IMPORT",
                 "mockResponse": [
-                    {
-                        "id": "1234567890",
-                        "errors": [],
-                        "_json": {
-                            "id": "1234567890",
-                            "mockResponse": "replace me"
-                        },
-                        "statusCode": 200,
-                        "ignored": false,
-                        "dataURI": "",
-                        "_headers": {
-                            "content-type": "application/json; charset=utf-8"
-                        }
-                    }
-                ],
-                "_connectionId": "NETSUITE CONNECTION",
-                "distributed": true,
-                "apiIdentifier": "i1ec4e132a",
-                "ignoreExisting": false,
-                "ignoreMissing": false,
-                "oneToMany": false,
-                "sandbox": false,
-                "lookups": [
-                    {
-                        "name": "ItemsArray",
-                        "recordType": "item",
-                        "resultField": "internalid",
-                        "expression": "[\"internalid\",\"is\",\"{{{item[*].item}}}\"]",
-                        "allowFailures": false
-                    }
-                ],
-                "netsuite_da": {
-                    "restletVersion": "suiteapp2.0",
-                    "operation": "addupdate",
-                    "recordType": "salesorder",
-                    "internalIdLookup": {
-                        "expression": "[\"internalid\",\"equalto\",\"{{{[NS-ID]}}}\"]"
-                    },
-                    "lookups": [
-                        {
-                            "name": "ItemsArray",
-                            "recordType": "item",
-                            "resultField": "internalid",
-                            "expression": "[\"internalid\",\"is\",\"{{{item[*].item}}}\"]",
-                            "allowFailures": false
-                        }
-                    ],
-                    "mapping": {
-                        "fields": [],
-                        "lists": [
-                            {
-                                "generate": "item",
-                                "fields": [
-                                    {
-                                        "generate": "item",
-                                        "discardIfEmpty": false,
-                                        "immutable": false,
-                                        "lookupName": "ItemsArray",
-                                        "internalId": true
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                },
-                "adaptorType": "NetSuiteDistributedImport"
+        {
+            "id": "1234567890",
+            "errors": [],
+            "_json": {
+                "id": "1234567890",
+                "mockResponse": "replace me"
+            },
+            "statusCode": 200,
+            "ignored": false,
+            "dataURI": "",
+            "_headers": {
+                "content-type": "application/json; charset=utf-8"
             }
+        }
+    ],
+                "_connectionId": "FTP CONNECTION",
+                "_sourceId": "641414b11d02ff3769ee2014",
+                "apiIdentifier": "i6c9ee60df",
+                "oneToMany": false,
+                "file": {
+                    "fileName": "Amazon_Orders_SP-API.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "/NISHITHAMADDATI",
+                    "fileName": "Amazon_Orders_SP-API.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+  
           },
           {
             "type": "import",
             "qa__import": {
-                "_id": "65671ff1de63bf1e3a29762b",
-                "name": "NS import",
-                "mockResponse": [
-                    {
-                        "id": "1234567890",
-                        "errors": [],
-                        "_json": {
-                            "id": "1234567890",
-                            "mockResponse": "replace me"
-                        },
-                        "statusCode": 200,
-                        "ignored": false,
-                        "dataURI": "",
-                        "_headers": {
-                            "content-type": "application/json; charset=utf-8"
-                        }
-                    }
-                ],
-                "_connectionId": "NETSUITE CONNECTION",
-                "distributed": true,
-                "apiIdentifier": "i1ec4e132a",
-                "ignoreExisting": false,
-                "ignoreMissing": false,
-                "oneToMany": false,
-                "sandbox": false,
-                "lookups": [
-                    {
-                        "name": "ItemsArray",
-                        "recordType": "item",
-                        "resultField": "internalid",
-                        "expression": "[\"internalid\",\"is\",\"{{{item[*].item}}}\"]",
-                        "allowFailures": false
-                    }
-                ],
-                "netsuite_da": {
-                    "restletVersion": "suiteapp2.0",
-                    "operation": "addupdate",
-                    "recordType": "salesorder",
-                    "internalIdLookup": {
-                        "expression": "[\"internalid\",\"equalto\",\"{{{[NS-ID]}}}\"]"
-                    },
-                    "lookups": [
+                                "name": "FTP IMPORT",
+                                "mockResponse": [
                         {
-                            "name": "ItemsArray",
-                            "recordType": "item",
-                            "resultField": "internalid",
-                            "expression": "[\"internalid\",\"is\",\"{{{item[*].item}}}\"]",
-                            "allowFailures": false
+                            "id": "1234567890",
+                            "errors": [],
+                            "_json": {
+                                "id": "1234567890",
+                                "mockResponse": "replace me"
+                            },
+                            "statusCode": 200,
+                            "ignored": false,
+                            "dataURI": "",
+                            "_headers": {
+                                "content-type": "application/json; charset=utf-8"
+                            }
                         }
                     ],
-                    "mapping": {
-                        "fields": [],
-                        "lists": [
-                            {
-                                "generate": "item",
-                                "fields": [
-                                    {
-                                        "generate": "item",
-                                        "discardIfEmpty": false,
-                                        "immutable": false,
-                                        "lookupName": "ItemsArray",
-                                        "internalId": true
-                                    }
-                                ]
+                                "_connectionId": "FTP CONNECTION",
+                                "_sourceId": "641414b11d02ff3769ee2014",
+                                "apiIdentifier": "i6c9ee60df",
+                                "oneToMany": false,
+                                "file": {
+                                    "fileName": "Amazon_Orders_SP-API.json",
+                                    "skipAggregation": false,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "/NISHITHAMADDATI",
+                                    "fileName": "Amazon_Orders_SP-API.json"
+                                },
+                                "adaptorType": "FTPImport"
                             }
-                        ]
-                    }
-                },
-                "adaptorType": "NetSuiteDistributedImport"
-            }
           }
     ],
     "createFlow": {
