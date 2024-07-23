@@ -4,7 +4,7 @@ import { randomString, randomNumber } from "@celigo/aut-utilities";
 
 test.describe("T968 Verify with all possible HTML tags in name field in the signup form.", () => {
   test("@Epic-IO-86262 @Priority-P2 @Zephyr-IO-T968 @Env-All Verify with all possible HTML tags in name field in the signup form.", async ({ io, page }) => {
-    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.navigateTo(io.data.links.SIGNIN_PAGE_URL);
     await io.homePage.loadingTime();
     const isNotLoggedIn = await io.loginPage.checkLoginState();
     if (isNotLoggedIn) {

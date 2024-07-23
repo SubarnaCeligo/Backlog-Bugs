@@ -4,7 +4,7 @@ import { randomString, randomNumber } from "@celigo/aut-utilities";
 
 test.describe("T1088_T991 Verify all the available fields in the Create password page after navigating to the page via email link in activate account email and validate the create process", () => {
   test("@Epic-IO-86262 @Priority-P2 @Zephyr-IO-T1088 @Zephyr-IO-T991 @Env-All Verify all the available fields in the Create password page after navigating to the page via email link in activate account email and validate the create process", async ({ io, page }) => {
-    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.navigateTo(io.data.links.SIGNIN_PAGE_URL);
     await io.homePage.loadingTime();
     const isNotLoggedIn = await io.loginPage.checkLoginState();
     if (isNotLoggedIn) {
@@ -29,6 +29,14 @@ test.describe("T1088_T991 Verify all the available fields in the Create password
       true,
       "pwqa1"
     );
+    await io.homePage.navigateTo(io.data.links.SIGNIN_PAGE_URL);
+    const isNotLoggedIn2 = await io.loginPage.checkLoginState();
+    if (isNotLoggedIn2) {
+      await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
+      await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
+      await io.homePage.click(selectors.basePagePO.SIGN_OUT);
+      await io.homePage.loadingTime();
+    }
     await io.homePage.navigateTo(link[0].split("<br>")[0]);
     await io.homePage.loadingTime();
     let createMsg = await page.getByText("Create your password");
