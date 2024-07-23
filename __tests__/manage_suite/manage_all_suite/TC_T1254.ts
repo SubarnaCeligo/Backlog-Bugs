@@ -2,14 +2,14 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import flow from "@testData/FlowBuilder/T1254.json";
 
-test.describe("Mapper 2.0 and filter cases", () => {
+test.describe("Verify the attach detach scenarios for aliases dependent flows with manage access", () => {
   let id1, id2;
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowViaAPI(id1);
     await io.api.deleteFlowViaAPI(id2);
   });
 
-  test("@Zephyr-IO-T22564 @Zephyr-IO-T2641 @Env-All @Epic-IO-86262 @Priority-P2 - Verify whether matches are highlighted after user searches any destination field in Mapper && Verify save button is disabled initially and also after adding filters in edit case", async ({
+  test("@Zephyr-IO-T1254 @Env-All @Epic-IO-86262 @Priority-P2 - Verify the attach detach scenarios for aliases dependent flows with manage access", async ({
     io,
     page
   }) => {
