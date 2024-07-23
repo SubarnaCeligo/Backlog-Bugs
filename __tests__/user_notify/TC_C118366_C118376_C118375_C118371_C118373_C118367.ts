@@ -53,7 +53,7 @@ console.log("this is link",link)
 
     if (Array.isArray(link)) {
       const allLinks =link.filter(str => str.includes(keyword));
-      let stepName=allLinks[1].replace(/\\r|\\n/g, '')
+      let stepName = allLinks[1].replace(/\\r|\\n|>[^\r\n]*/g, '');
       const isNotLoggedIn = await io.loginPage.checkLoginState();
       // await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
           // Navigate to default integration
