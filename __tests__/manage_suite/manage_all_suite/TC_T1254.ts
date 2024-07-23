@@ -35,7 +35,7 @@ test.describe("Verify the attach detach scenarios for aliases dependent flows wi
     await io.flowBuilder.click(selectors.flowBuilderPagePO.DETACHFLOW);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CONFIRMDETACH);
-    await io.flowBuilder.waitForElementAttached('[data-test="snackbarclose-button"]');
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.SNACKBAR_CLOSE_BUTTON);
     await io.assert.verifyElementIsDisplayed(
       '[data-test="snackbarclose-button"]',
       "Error snack bar is not displayed"
