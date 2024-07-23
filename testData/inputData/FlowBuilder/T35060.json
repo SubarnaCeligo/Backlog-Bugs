@@ -8,7 +8,7 @@
                     "type": "export",
                     "qa__export": {
                         "name": "Http Export",
-                        "_connectionId": "HTTP INTEGRATOR CONNECTION",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
                         "asynchronous": true,
                         "type": "test",
                         "oneToMany": false,
