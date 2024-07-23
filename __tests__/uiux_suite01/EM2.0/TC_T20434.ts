@@ -2,12 +2,12 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import C66296 from "@testData/EM2.0/C66296.json";
 
-test.describe("C66283 Verify status of flow runs is color-coded in case of Dashboard", () => {
+test.describe("T20434 Verify status of flow runs is color-coded in case of Dashboard", () => {
   let flowId;
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowsWithId(flowId);
   });
-  test("@Zephyr-IO-T20434 @Env-All C66283 Verify status of flow runs is color-coded in case of Dashboard", async ({
+  test("@Zephyr-IO-T20434 @Env-All @Priority-P2 T20434 Verify status of flow runs is color-coded in case of Dashboard", async ({
     io,
     page
   }) => {
