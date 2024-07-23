@@ -2,7 +2,7 @@
 import { filterTestCases } from "@celigo/aut-utilities";
 var testCases = [
   "C99341",
-  // "C103075", //Skipped this test case as we don't have creds for the connection and the tracker is : https://celigo.atlassian.net/browse/IOAUT-15782
+  "C103075", //This test will fail as we don't have creds for the connection and the tracker is : https://celigo.atlassian.net/browse/IOAUT-15782
   "C107375",
   "C107377",
   "C107378",
@@ -128,6 +128,3 @@ var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
 (async () => {
   await filterTestCases(testCases, flakycases, "connections");
 })();
-
-
-

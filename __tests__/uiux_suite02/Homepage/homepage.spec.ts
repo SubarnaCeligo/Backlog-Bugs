@@ -23,7 +23,7 @@ var testCases = [
  // "C19150", // removing as per the feature https://celigo.atlassian.net/browse/IO-76756
   "C56639",
   "C56641",
-  "C45328",
+ // "C45328", // removing as per the feature https://celigo.atlassian.net/browse/IO-76756
   "C32964",
   "C27905",
   "C42979",
