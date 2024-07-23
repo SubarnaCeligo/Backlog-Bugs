@@ -6,10 +6,13 @@ test.describe("T968 Verify with all possible HTML tags in name field in the sign
   test("@Epic-IO-86262 @Priority-P2 @Zephyr-IO-T968 @Env-All Verify with all possible HTML tags in name field in the signup form.", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();
-    await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
-    await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
-    await io.homePage.click(selectors.basePagePO.SIGN_OUT);
-    await io.homePage.loadingTime();
+    const isNotLoggedIn = await io.loginPage.checkLoginState();
+    if (isNotLoggedIn) {
+      await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
+      await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
+      await io.homePage.click(selectors.basePagePO.SIGN_OUT);
+      await io.homePage.loadingTime();
+    }
     await io.signInPage.navigateTo(process.env.IO_UI_CONNECTOR_URL + "signup");
     await io.homePage.loadingTime();
     // name with HTML characters

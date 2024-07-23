@@ -6,10 +6,13 @@ test.describe("T1088_T991 Verify all the available fields in the Create password
   test("@Epic-IO-86262 @Priority-P2 @Zephyr-IO-T1088 @Zephyr-IO-T991 @Env-All Verify all the available fields in the Create password page after navigating to the page via email link in activate account email and validate the create process", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();
-    await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
-    await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
-    await io.homePage.click(selectors.basePagePO.SIGN_OUT);
-    await io.homePage.loadingTime();
+    const isNotLoggedIn = await io.loginPage.checkLoginState();
+    if (isNotLoggedIn) {
+      await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
+      await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
+      await io.homePage.click(selectors.basePagePO.SIGN_OUT);
+      await io.homePage.loadingTime();
+    }
     await io.signInPage.navigateTo(process.env.IO_UI_CONNECTOR_URL + "signup");
     await io.homePage.loadingTime();
     await io.signInPage.fill(selectors.basePagePO.NAME, "Test Auto");
