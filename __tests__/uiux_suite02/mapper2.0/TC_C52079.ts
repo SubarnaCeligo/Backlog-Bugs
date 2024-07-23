@@ -14,7 +14,7 @@ test.describe("C52079 Verify the mappings when user has multiple sources configu
       await io.homePage.clickByText("Mapped fields");
       await io.homePage.clickByText("Apply");
       await io.flowBuilder.loadingTime();
-      await page.pause();
+
       await io.assert.verifyElementDisplayedByText(
         "Filtered by mapped fields (clear filter to enable editing)",
       "Text is not displayed"
