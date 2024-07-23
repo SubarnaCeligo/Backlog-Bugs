@@ -7,7 +7,7 @@ var testCases = [
   "C28383",
   "C28390",
  // "C65079", // removing as per the feature https://celigo.atlassian.net/browse/IO-76756
-  "C65078",
+ // "C65078", // removing as per the feature https://celigo.atlassian.net/browse/IO-76756
   "C65083",
   "C65088",
   "C69770",
