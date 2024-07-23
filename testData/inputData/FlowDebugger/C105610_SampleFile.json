@@ -1,0 +1,15 @@
+{
+    "Id": 123,
+    "Name": "vamsi",
+    "School": [
+      {
+        "su": "Awe"
+      },
+      {
+        "su": "Top"
+      },
+      {
+        "su": "Such"
+      }
+    ]
+  }

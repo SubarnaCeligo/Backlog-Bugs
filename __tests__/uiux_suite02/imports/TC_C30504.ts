@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Connections/FTP_To_NS.json";
 
 test.describe(`C30504 Verify export fields are populated for NS subrecord import mappings`, () => {
-  test(`@Env-All C30504 Verify export fields are populated for NS subrecord import mappings`, async ({
+  test(`@Env-All @Zephyr-IO-T1971 C30504 Verify export fields are populated for NS subrecord import mappings`, async ({
     io,
     page
   }) => {

@@ -5,7 +5,7 @@ test.describe("TC_C24202_Verify the Run history tab in different browsers", () =
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Env-All TC_C24202_Verify the Run history tab in different browsers UI_Backlog", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T7440 TC_C24202_Verify the Run history tab in different browsers UI_Backlog", async ({ io, page }) => {
         await io.homePage.loadingTime()
         await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON)
         await io.homePage.isPageLoaded()

@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import data5 from "@testData/Flows/C63512.json"
 
 test.describe(`C63512 Verify if flow or the integration page is opening after creating an export having cyclic async helper.`, () => {
-    test(`C63512 Verify if flow or the integration page is opening after creating an export having cyclic async helper.`, async ({
+    test(`@Env-All @Zephyr-IO-T22112 C63512 Verify if flow or the integration page is opening after creating an export having cyclic async helper.`, async ({
       io,
       page
     }) => {

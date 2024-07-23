@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import data from "@testData/Flows/C68826.json"
 
 test.describe("C68826 Verify that ftp_bridge properly handles the termination and returns an appropriate error message when attempting to access files and directories on the server using the terminated session", () => {
-  test("C68826 Verify that ftp_bridge properly handles the termination and returns an appropriate error message when attempting to access files and directories on the server using the terminated session", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T11806 C68826 Verify that ftp_bridge properly handles the termination and returns an appropriate error message when attempting to access files and directories on the server using the terminated session", async ({io, page}) => {
     const id = await io.createResourceFromAPI(data, "FLOWS");
     await io.api.runBatchFlowViaAPI('TC_C68826', id);
     const lastRun = page.getByText('Last run');

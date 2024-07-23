@@ -46,6 +46,7 @@ test.describe("T27429 Verify the license entitlement notification message)", () 
                           "On-premise agents:",
                           "On-premise agents: is not displayed"
                           );
+  await io.api.putCall(`v1/test/licenses/${payloadFormat._id}`,{... payloadFormat, tier: 'enterprise',});
   await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
                     
   });  

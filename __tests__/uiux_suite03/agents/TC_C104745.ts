@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C104745 Verify for Agent dropdown", () => {
-  test("C104745 Verify for Agent dropdown  @Priority-P2 @Zephyr-IO-T8197 @ENV-All" , async ({
+  test("@Env-All @Zephyr-IO-T8197 C104745 Verify for Agent dropdown  @Priority-P2 @Zephyr-IO-T8197 @ENV-All" , async ({
     io,
     page
   }) => {

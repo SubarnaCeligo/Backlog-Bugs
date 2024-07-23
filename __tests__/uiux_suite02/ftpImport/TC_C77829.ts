@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import data from "@testData/FtpImport/C77829.json"
 
 test.describe(`C77829 Validate User is able to see the vertical line when download retry data option is available (Administer account)`, () => {
-    test(`@Env-All C77829 Validate User is able to see the vertical line when download retry data option is available (Administer account)`, async ({
+    test(`@Env-All @Zephyr-IO-T21636 C77829 Validate User is able to see the vertical line when download retry data option is available (Administer account)`, async ({
       io,
       page
     }) => {

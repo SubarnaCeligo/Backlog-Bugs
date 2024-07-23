@@ -5,7 +5,7 @@ test.describe("C118366_C118376_C118375_C118371_C118373_C118367", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("C118366_C118376_C118375_C118371_C118373_C118367", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T20188 @Zephyr-IO-T20198 @Zephyr-IO-T20197 @Zephyr-IO-T20193 @Zephyr-IO-T20195 @Zephyr-IO-T20189 C118366_C118376_C118375_C118371_C118373_C118367", async ({ io, page }) => {
 
     // Navigate to default integration
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
