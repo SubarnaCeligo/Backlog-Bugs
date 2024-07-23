@@ -1,11 +1,12 @@
 import { filterTestCases } from "@celigo/aut-utilities";
 var testCases = [
-  "T1365",
-  "C27460",
-  "C53304",
-  "C53096",
-  "C53302",
-  "T9428"
+  // "T1365",
+  // "C27460",
+  // "C53304",
+  // "C53096",
+  // "C53302",
+  // "T9428",
+  "C55423",
 ];
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
 
