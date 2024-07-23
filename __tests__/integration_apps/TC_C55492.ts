@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C55492 Verify Mock response is editable by both IO and IA users ", () => {
-  test("@Zephyr-IO-T14479 @Env-All C55423 Verify Mock response is editable by both IO and IA users ", async ({
+  test("@Zephyr-IO-T14479 @Env-All C55492 Verify Mock response is editable by both IO and IA users ", async ({
     io,
     page
   }) => {
