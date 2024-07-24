@@ -5,7 +5,7 @@
             "type": "export",
             "qa__export": {
                 "name": "Http export",
-                "_connectionId": "HTTP SLACK CONNECTION",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
                 "apiIdentifier": "eb234e06b3",
                 "asynchronous": true,
                 "type": "test",
@@ -102,7 +102,7 @@
             "type": "export",
             "qa__export": {
                 "name": "Http export",
-                "_connectionId": "HTTP SLACK CONNECTION",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
                 "apiIdentifier": "eb234e06b3",
                 "asynchronous": true,
                 "type": "test",
