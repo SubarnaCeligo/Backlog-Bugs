@@ -7,7 +7,9 @@ test.describe("T968 Verify with all possible HTML tags in name field in the sign
     await io.homePage.navigateTo(io.data.links.SIGNIN_PAGE_URL);
     await io.homePage.loadingTime();
     const isNotLoggedIn = await io.loginPage.checkLoginState();
-    if (isNotLoggedIn) {
+    if (!isNotLoggedIn) {
+      await io.homePage.navigateTo(io.data.links.SIGNIN_PAGE_URL);
+      await io.homePage.loadingTime();
       await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
       await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
       await io.homePage.click(selectors.basePagePO.SIGN_OUT);

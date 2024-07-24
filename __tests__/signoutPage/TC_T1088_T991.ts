@@ -7,12 +7,15 @@ test.describe("T1088_T991 Verify all the available fields in the Create password
     await io.homePage.navigateTo(io.data.links.SIGNIN_PAGE_URL);
     await io.homePage.loadingTime();
     const isNotLoggedIn = await io.loginPage.checkLoginState();
-    if (isNotLoggedIn) {
+    if (!isNotLoggedIn) {
+      await io.homePage.navigateTo(io.data.links.SIGNIN_PAGE_URL);
+      await io.homePage.loadingTime();
       await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
       await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
       await io.homePage.click(selectors.basePagePO.SIGN_OUT);
       await io.homePage.loadingTime();
     }
+    await io.homePage.loadingTime();
     await io.signInPage.navigateTo(process.env.IO_UI_CONNECTOR_URL + "signup");
     await io.homePage.loadingTime();
     await io.signInPage.fill(selectors.basePagePO.NAME, "Test Auto");
@@ -31,7 +34,7 @@ test.describe("T1088_T991 Verify all the available fields in the Create password
     );
     await io.homePage.navigateTo(io.data.links.SIGNIN_PAGE_URL);
     const NotLoggedIn = await io.loginPage.checkLoginState();
-    if (NotLoggedIn) {
+    if (!NotLoggedIn) {
       await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
       await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
       await io.homePage.click(selectors.basePagePO.SIGN_OUT);
