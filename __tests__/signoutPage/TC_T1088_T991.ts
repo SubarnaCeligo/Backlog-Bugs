@@ -30,8 +30,8 @@ test.describe("T1088_T991 Verify all the available fields in the Create password
       "pwqa1"
     );
     await io.homePage.navigateTo(io.data.links.SIGNIN_PAGE_URL);
-    const isNotLoggedIn2 = await io.loginPage.checkLoginState();
-    if (isNotLoggedIn2) {
+    const NotLoggedIn = await io.loginPage.checkLoginState();
+    if (NotLoggedIn) {
       await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
       await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
       await io.homePage.click(selectors.basePagePO.SIGN_OUT);
