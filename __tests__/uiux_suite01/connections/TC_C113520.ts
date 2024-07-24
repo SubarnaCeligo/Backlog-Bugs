@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C113520_C113521_C113522_C113523_C113524_C113525_C113526`, () => {
 
-  test(`@Env-QA @Env-IAQA  Normal HTTP 2.0 framework connectors`, async ({ io, page }) => {
+  test(`@Env-QA @Env-IAQA  @Zephyr-IO-T7777 @Zephyr-IO-T7778 @Zephyr-IO-T7779 @Zephyr-IO-T7780 @Zephyr-IO-T7781 Normal HTTP 2.0 framework connectors`, async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
     //Wait for the page to load
@@ -91,7 +91,7 @@ test.describe(`C113520_C113521_C113522_C113523_C113524_C113525_C113526`, () => {
     await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
   });
 
-  test(`@Env-All  HTTP connection iClient page`, async ({ io, page }) => {
+  test(`@Env-All  @Zephyr-IO-T7777 @Zephyr-IO-T7778 @Zephyr-IO-T7779 @Zephyr-IO-T7780 @Zephyr-IO-T7781 HTTP connection iClient page`, async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
     await io.connectionPage.click(selectors.importPagePO.HTTP_IMPORT);
@@ -176,7 +176,7 @@ test.describe(`C113520_C113521_C113522_C113523_C113524_C113525_C113526`, () => {
     await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
   });
 
-  test(`@Env-All  REST connection iClient page`, async ({ io, page }) => {
+  test(`@Env-All  @Zephyr-IO-T7777 @Zephyr-IO-T7778 @Zephyr-IO-T7779 @Zephyr-IO-T7780 @Zephyr-IO-T7781 REST connection iClient page`, async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
     await io.connectionPage.waitForElementAttached(selectors.settingsPagePO.APP_NAME_INPUT);
@@ -263,7 +263,7 @@ test.describe(`C113520_C113521_C113522_C113523_C113524_C113525_C113526`, () => {
     await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
   });
 
-  test(`@Env-QA  @Env-IAQA  Auth2.0 supported connector iClient page`, async ({ io, page }) => {
+  test(`@Env-QA  @Env-IAQA  @Zephyr-IO-T7777 @Zephyr-IO-T7778 @Zephyr-IO-T7779 @Zephyr-IO-T7780 @Zephyr-IO-T7781 Auth2.0 supported connector iClient page`, async ({ io, page }) => {
     //Skipping the test case - HTTP form is not available for GUSTO connection
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
@@ -353,7 +353,7 @@ test.describe(`C113520_C113521_C113522_C113523_C113524_C113525_C113526`, () => {
     await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
   });
 
-  test(`@Env-All  Resource iClient Page`, async ({ io, page }) => {
+  test(`@Env-All  @Zephyr-IO-T7777 @Zephyr-IO-T7778 @Zephyr-IO-T7779 @Zephyr-IO-T7780 @Zephyr-IO-T7781 Resource iClient Page`, async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "iClients");
     await io.connectionPage.click(selectors.integrationPagePO.ADDNEWRESOURCE);
 
@@ -385,7 +385,7 @@ test.describe(`C113520_C113521_C113522_C113523_C113524_C113525_C113526`, () => {
     await io.assert.expectToContainValue('Enter your password. Your password serves as the secret that confirms your identity and verifies that you are the legitimate owner of the account linked to the provided username. Ensure the accuracy and confidentiality of your password.', helptext, 'Passowrh help text1 is not visible');
     await io.assert.expectToContainValue('Multiple layers of protection, including AES 256 encryption, are in place to keep your password safe. When editing this connection, you must re-enter this value each time; it is stored only when the connection is saved and never displayed as text.', helptext, 'Passowrh help text2 is not visible');
     await io.connectionPage.addStep("Verified help text for 'Username' and 'Password' fields");
-
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.HELPTEXT_CLOSE)
     await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
 
     //TC_C113522 - Verify {username} && {password} are added in AFE handlebar for revoke token url ,access token url
