@@ -1,6 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import flow from "@testData/FlowBuilder/T1254.json";
+import testData from "./manage_all.json";
 
 test.describe("Verify the attach detach scenarios for aliases dependent flows with manage access", () => {
   let id1, id2;
@@ -13,6 +14,10 @@ test.describe("Verify the attach detach scenarios for aliases dependent flows wi
     io,
     page
   }) => {
+    await io.api.putCall(
+      `v1/ashares/${process.env.IO_Ashare_ID}`,
+      testData
+    );
     const newFlow = JSON.parse(JSON.stringify(flow));
     id2 = await io.createResourceFromAPI({...flow, name: 'T1254 flow-2'}, "FLOWS");
     id1 = await io.createResourceFromAPI({...newFlow, name: 'T1254 flow-1'}, "FLOWS");
