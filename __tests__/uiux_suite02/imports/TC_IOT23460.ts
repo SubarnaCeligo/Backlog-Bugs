@@ -3,7 +3,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
     
     test.describe("IO-T23460  App crashing when trying to switch to Recharge HTTP view", () => {
-      test("@Env-QA @Zephyr-IO-T23460   App crashing when trying to switch to Recharge HTTP view" , async ({
+      test("@Env-ALL @Zephyr-IO-T23460   App crashing when trying to switch to Recharge HTTP view" , async ({
         io,
         page
       }) => {
