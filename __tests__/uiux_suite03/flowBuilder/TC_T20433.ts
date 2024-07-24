@@ -13,7 +13,8 @@ test.describe("@Zephyr-IO-T20433 C66282 Verify flow cancel information with flow
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.EXPORT,0);
     await io.flowBuilder.fill(selectors.basePagePO.CONNECTION_DROPDOWN, '- Offline');
     await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN_LIST);
-    await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);
+    await io.exportsPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTIONDROP0);
+    await io.exportsPage.click(selectors.connectionsPagePO.CONNECTIONDROP0);
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
     await io.homePage.click(selectors.flowBuilderPagePO.REPLACE);
     await io.flowBuilder.loadingTime();
