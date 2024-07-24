@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C55424 Verify Mock output is editable by both IO and IA users for lookup ", () => {
+test.describe(" @Zephyr-IO-T14438 C55424 Verify Mock output is editable by both IO and IA users for lookup ", () => {
   test("@Zephyr-IO-T14438 @Env-All C55424 Verify Mock output is editable by both IO and IA users for lookup ", async ({
     io,
     page
