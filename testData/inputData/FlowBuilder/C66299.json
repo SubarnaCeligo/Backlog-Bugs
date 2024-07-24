@@ -1,0 +1,103 @@
+{
+    "name": "IO-C66299",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "HTTP EXPORT",
+                "_connectionId": "HTTP SQUARE CONNECTION",
+                "apiIdentifier": "e1ad75d415",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "mockOutput": {
+                    "page_of_records": [
+                        {
+                            "record": {
+                                "Status": "Open"
+                            }
+                        }
+                    ]
+                },
+                "http": {
+                    "relativeURI": "users",
+                    "method": "GET",
+                    "isRest": false,
+                    "formType": "http",
+                    "response": {
+                        "twoDArray": {
+                            "doNotNormalize": true
+                        }
+                    }
+                },
+                "settingsForm": {
+                    "form": {
+                        "fieldMap": {
+                            "pathparam": {
+                                "id": "pathparam",
+                                "name": "pathparam",
+                                "type": "text",
+                                "label": "Account number",
+                                "required": true,
+                                "helpText": "Enter an account number, and separate additional values with a comma."
+                            }
+                        },
+                        "layout": {
+                            "fields": [
+                                "pathparam"
+                            ]
+                        }
+                    }
+                },
+                "settings": {
+                    "pathparam": "1"
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "FTP IMPORT",
+                "_connectionId": "FTP CONNECTION",
+                "_sourceId": "662a273db4da9123922401f9",
+                "apiIdentifier": "i689e84ff2",
+                "oneToMany": true,
+                "sandbox": false,
+                "file": {
+                    "fileName": "file-{{timestamp}}.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "io.auto.qa/BVAutoFTP",
+                    "fileName": "file-{{timestamp}}.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ],
+    "createFlow": {
+        "name": "IO-C66299",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+        ]
+    }
+}
