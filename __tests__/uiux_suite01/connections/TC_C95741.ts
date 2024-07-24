@@ -23,17 +23,17 @@ test.describe("TC_C95741 To Verify Existing connections display if user selects 
     await io.flowBuilder.clickByTextByIndex("Use existing connection", 0);
     await io.flowBuilder.clickByTextByIndex("Please select", 0);
     let connMap = await io.api.loadConnections();
-    var connId = connMap.get("HTTP ZENDESK CONNECTION");
+    var connId = connMap.get("NETSUITE 706 CONNECTION");
     await io.connectionPage.selectTextfromDropDown(page, connId);
-    await io.homePage.addStep("Selected 'HTTP ZENDESK CONNECTION' from dropdown");
+    await io.homePage.addStep("Selected 'NETSUITE 706 CONNECTION' from dropdown");
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
-    await io.flowBuilder.click(selectors.basePagePO.INSTALL);
 
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.loadingTime();
     await io.homePage.click(
       selectors.integrationPagePO.SETUP_INTEGRATION_CONFIGURE_BUTTON
     );
-    await io.flowBuilder.click('.MuiDialogActions-root .MuiButtonBase-root');
+
     await io.assert.verifyElementContainsText(selectors.basePagePO.NOTIFICTION_BAR, 'This connection is currently offline. Re-enter your credentials to bring it back online.');
     await io.flowBuilder.clickByTextByIndex("Use existing connection", 0);
     await io.flowBuilder.clickByTextByIndex("Please select", 0);
