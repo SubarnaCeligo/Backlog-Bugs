@@ -61,8 +61,8 @@ test.describe(`@Author-ashu-g TC_C23450 Trying to create a connection at the exp
     await io.homePage.fill(selectors.connectionsPagePO.BASE_URI_INPUT, "https://d3v-celigolabs.zendesk.com/api/v2/");
     await io.homePage.click(selectors.connectionsPagePO.SLACK_AUTH_TYPE);
     await io.homePage.clickByText("Basic");
-    await io.homePage.fill(selectors.connectionsPagePO.USERNAME, process.env["HTTP_ZENDESK_USER"]);
-    await io.homePage.fill(selectors.connectionsPagePO.PASSWORD,process.env["HTTP_ZENDESK_PASSWORD"]);
+    await io.homePage.fill(selectors.connectionsPagePO.USERNAME, process.env["Zendesk_Username"]);
+    await io.homePage.fill(selectors.connectionsPagePO.PASSWORD,process.env["Zendesk_Password"]);
     await io.homePage.click(selectors.connectionsPagePO.HOW_TO_TESTCONNECTION);
     await io.homePage.click(selectors.connectionsPagePO.PING_METHOD);
     await io.homePage.selectTextfromDropDown(page, "GET");
