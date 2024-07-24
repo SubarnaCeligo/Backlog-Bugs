@@ -2,7 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C119632 Verify the Celigo AI functionality working fine for MySQL", () => {
-  test.skip("@Env-All @Zephyr-IO-T25488 C119632 Verify the Celigo AI functionality working fine for MySQL", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T25488 C119632 Verify the Celigo AI functionality working fine for MySQL", async ({io, page}) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
