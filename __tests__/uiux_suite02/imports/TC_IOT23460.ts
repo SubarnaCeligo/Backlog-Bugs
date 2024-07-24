@@ -11,7 +11,6 @@ import * as selectors from "@celigo/aut-selectors";
        
         await page.click(selectors.basePagePO.TOOLS);
         await io.homePage.goToMenu("Tools", "Flow builder");
-        await page.pause();
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'ReCharge');
         await io.flowBuilder.clickByTextByIndex('ReCharge', 0);
