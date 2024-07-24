@@ -14,8 +14,8 @@ test.describe("@Author_MaheshNivruttiSutar Verify sample data getting clear on c
         await io.flowBuilder.clickByText('Create flow step');
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
-        await page.getByText('FTP CONNECTION', { exact: true }).isVisible();
-        await io.flowBuilder.hover("text='FTP CONNECTION'");
+        await page.getByText('#connections-dropdown-option-0').isVisible();
+        await io.flowBuilder.hover('#connections-dropdown-option-0');
 
         await io.assert.verifyElementIsDisplayed(
             selectors.connectionsPagePO.EDIT_CONN,
