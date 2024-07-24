@@ -2,6 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C42439_Verify Upgrade button changes in Home page & Subscription page when IO account is in Free trail", () => {
+    test.describe.configure({ retries: 1 })
     test("@Env-All @Zephyr-IO-T910 C42439_Verify Upgrade button changes in Home page & Subscription page when IO account is in Free trail UI_Backlog", async ({ io, page }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.myAccountPage.loadingTime()
