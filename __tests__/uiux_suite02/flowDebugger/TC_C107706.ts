@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import C98698 from '../../../testData/inputData/FlowDebugger/C98698.json';
-test.describe.configure({ retries: 1 })
+
 
 test.describe("TC_C107706 Verify that T badge is consistent in all the places for test mode.", () => {
   test("@Zephyr-T24089 @Env-All @Priority-P2 Verify that T badge is consistent in all the places for test mode. UI_Backlog", async ({ io, page }) => {
