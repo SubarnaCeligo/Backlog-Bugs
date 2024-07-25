@@ -1,7 +1,6 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import C113640 from "@testData/FlowDebugger/C113640.json"
-test.describe.configure({ retries: 1 })
 
 test.describe('C113640', () => {
     test.beforeEach(async ({ io }) => {
