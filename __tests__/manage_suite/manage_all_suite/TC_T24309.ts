@@ -1,8 +1,8 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("@Author_MaheshNivruttiSutar Verify sample data getting clear on connection change also it is not asking to upload file again", () => {
-    test("@Bug-IO-81487 @Env-QA @Priority-P2 @Zephyr-IO-T33536", async ({ io, page }) => {
+test.describe("To verify that the Create new connection and Edit connection icons are moved inside the connection drop down for each connection", () => {
+    test("@Env-All @Zephyr-IO-TC_T24309 To verify that the Create new connection and Edit connection icons are moved inside the connection drop down for each connection", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.loadingTime()
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
