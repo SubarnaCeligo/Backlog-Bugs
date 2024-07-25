@@ -2,13 +2,13 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import C45341 from "@testData/Flows/C45341.json";
 
-test.describe("TC_IO-T5609 Verify the background of preview Error panel in AFEs should be grey in different browsers( Chrome, Safari, Firefox)", () => {
+test.describe("TC_IO-T5609 Verify the background of preview Error panel in AFEs should be red in different browsers( Chrome, Safari, Firefox)", () => {
   let flowId;
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowViaAPI(flowId);
   });
 
-  test("@Env-All @Zephyr-IO-T5609 C39808 Verify the background of preview Error panel in AFEs should be grey in different browsers( Chrome, Safari, Firefox)", async ({
+  test("@Env-All @Zephyr-IO-T5609 C39808 Verify the background of preview Error panel in AFEs should be red in different browsers( Chrome, Safari, Firefox)", async ({
     io,
     page
   }) => {
