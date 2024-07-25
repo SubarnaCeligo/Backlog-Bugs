@@ -27,7 +27,7 @@ test.describe("C20850 Verify there is no link present on the error in the Run co
 
     const currentUrl = page.url();
 
-    const expectedUrl = "/error/";
+    const expectedUrl = "/errors/";
     const func = currentUrl.includes(expectedUrl);
     await io.assert.expectToBeTrue(func, "urls doesn't match");
   });
