@@ -14,7 +14,7 @@ import * as selectors from "@celigo/aut-selectors";
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'ReCharge');
         await io.flowBuilder.clickByTextByIndex('ReCharge', 0);
-        await io.myAccountPage.click('[value="importRecords"]');
+        await io.myAccountPage.click(selectors.connectionsPagePO.IMPORT_RECORDS);
         await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
         await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.exportsPagePO.ASSISTANT_META_DATA_RESOURCE);
