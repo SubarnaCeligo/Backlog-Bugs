@@ -23,9 +23,9 @@ test.describe("TC_C95741 To Verify Existing connections display if user selects 
     await io.flowBuilder.clickByTextByIndex("Use existing connection", 0);
     await io.flowBuilder.clickByTextByIndex("Please select", 0);
     let connMap = await io.api.loadConnections();
-    var connId = connMap.get("NETSUITE 706 CONNECTION");
+    var connId = connMap.get("347 NS CONNECTION");
     await io.connectionPage.selectTextfromDropDown(page, connId);
-    await io.homePage.addStep("Selected 'NETSUITE 706 CONNECTION' from dropdown");
+    await io.homePage.addStep("Selected '347 NS CONNECTION' from dropdown");
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
 
     await io.flowBuilder.loadingTime();
@@ -38,7 +38,7 @@ test.describe("TC_C95741 To Verify Existing connections display if user selects 
     await io.flowBuilder.clickByTextByIndex("Use existing connection", 0);
     await io.flowBuilder.clickByTextByIndex("Please select", 0);
     let connMap2 = await io.api.loadConnections();
-    var connId = connMap2.get("NETSUITE 347 CONNECTION");
+    var connId = connMap2.get("NETSUITE CONNECTION");
     await io.connectionPage.selectTextfromDropDown(page, connId);
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.click(selectors.basePagePO.INSTALL);
