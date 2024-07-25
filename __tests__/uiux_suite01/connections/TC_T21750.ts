@@ -8,9 +8,10 @@ import * as selectors from "@celigo/aut-selectors";
         page
       }) => {
         await io.myAccountPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
-        await page.pause();
-        await io.homePage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, "LOOP RETURN CONNECTION");
-        await io.homePage.clickByText("LOOP RETURN CONNECTION");
+        await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
+        await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Loop Returns');
+        await io.flowBuilder.click(selectors.connectionsPagePO.LOOP_RETURN_CONNECTION);
+        await io.flowBuilder.loadingTime();
         await io.loginPage.fill(
           selectors.templatePagePO.ORDERFULTOKEN,
           "test password"
