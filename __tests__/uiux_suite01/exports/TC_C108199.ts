@@ -10,14 +10,11 @@ test.describe("TC_C108199 Verify user is able to create connection through expor
     test("@Zephyr-T24176 @Env-All @Priority-P2 TC_C108199 Verify user is able to create connection through export", async ({ io, page }) => {
         await io.flowBuilder.clickByTextByIndex('Create flow', 0);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
-
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'http');
         await io.flowBuilder.clickByTextByIndex('HTTP', 0);
-        await io.flowBuilder.clickByTextByIndex('Create from scratch', 0);
-
+        await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
         await io.flowBuilder.addStep("Clicking on create connection");
         await io.flowBuilder.clickByTextByIndex('create connection', 0);
-
         await io.flowBuilder.addStep("Filling the connection form");
         await io.flowBuilder.fillByIndex(selectors.connectionsPagePO.NAME_INPUT, 'HTTP CONNECTION', 1);
         await io.flowBuilder.fill(selectors.connectionsPagePO.BASE_URI_INPUT, 'https://d3v-celigolabs.zendesk.com/');
