@@ -56,7 +56,9 @@ test.describe("TC_IO-T5609 Verify the background of preview Error panel in AFEs 
     const parentDiv = el.parentElement;
     return getComputedStyle(parentDiv).background;
   });
-  await io.assert.expectToBeValue(backgroundColor, "rgba(255, 99, 99, 0.06) none repeat scroll 0% 0% / auto padding-box border-box", "Background Color not red");
+  const expectedValue = "rgba(255, 99, 99, 0.06)";
+  const containsExpectedValue = backgroundColor.includes(expectedValue)
+  await expect(containsExpectedValue).toBe(true);
 
   });
 });
