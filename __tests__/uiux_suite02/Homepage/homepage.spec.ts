@@ -6,24 +6,24 @@ var testCases = [
   "C2467",
   "C28383",
   "C28390",
-  "C65079",
-  "C65078",
+ // "C65079", // removing as per the feature https://celigo.atlassian.net/browse/IO-76756
+ // "C65078", // removing as per the feature https://celigo.atlassian.net/browse/IO-76756
   "C65083",
   "C65088",
   "C69770",
   //"C102560", //obsolete
   "C102903",
-  "C2148",
+ // "C2148", // removing as per the feature https://celigo.atlassian.net/browse/IO-76756
   "C59380",
   "C69560",
   "C1077",
   //"C39971", //obsolete
   "C57329",
   "C29053",
-  "C19150",
+ // "C19150", // removing as per the feature https://celigo.atlassian.net/browse/IO-76756
   "C56639",
   "C56641",
-  "C45328",
+ // "C45328", // removing as per the feature https://celigo.atlassian.net/browse/IO-76756
   "C32964",
   "C27905",
   "C42979",

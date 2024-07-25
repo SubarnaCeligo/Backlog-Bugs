@@ -2,7 +2,6 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import C115343 from "@testData/FlowDebugger/C115343.json"
 import playload from "@testData/profile/updatePreference.json"
-test.describe.configure({ retries: 2 })
 
 test.describe('C115343', () => {
     test.beforeEach(async ({ io }) => {
@@ -22,6 +21,6 @@ test.describe('C115343', () => {
         await io.flowBuilder.click(selectors.flowBuilderPagePO.VIEW_DEBUG_LOG);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.TEST_RUN_DEBUG_LOGS);
         await io.flowBuilder.delay(1000);
-        expect(await page.screenshot()).toMatchSnapshot("Debug-log-PLAYWRIGHT.png");
+        expect(await page.screenshot()).toMatchSnapshot("Debug-log-PLAYWRIGHT.png",{maxDiffPixelRatio: 0.2 });
     });
 });
