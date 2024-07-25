@@ -14,7 +14,7 @@ test.describe("@Zephyr-IO-T35139 @Env-All @Priority-P2", () => {
             userid
         ],
         "keysToUpdate": {
-       "enableEPService": true
+       "microServices.enableEPService": true,
         }
     }
         await io.api.patchCall(`v1/users`, payload);
@@ -28,7 +28,7 @@ test.describe("@Zephyr-IO-T35139 @Env-All @Priority-P2", () => {
             userid
         ],
         "keysToUpdate": {
-       "enableEPService": false
+       "microServices.enableEPService": false,
         }
     }
         await io.api.patchCall(`v1/users`, payload);

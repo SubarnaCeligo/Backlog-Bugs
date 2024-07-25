@@ -1,6 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import * as FTPtoSF from "@testData/Flows/create/ftp/103.SF_Flow_FTP_JSON_to_SF_Account_Multifields.json";
+import * as FTPtoSF from "@testData/Flows/create/ftp/SF_Flow_FTP_JSON_to_SF_Account_Multifields.json";
 import allure from "allure-playwright";
 test.describe("@Zephyr-IO-T35637 @Env-All @Priority-P2", () => {
     test.beforeEach(async ({ io }) => {
@@ -13,7 +13,7 @@ test.describe("@Zephyr-IO-T35637 @Env-All @Priority-P2", () => {
             userid
         ],
         "keysToUpdate": {
-       "enableEPService": true
+       "microServices.enableEPService": true,
         }
     }
         await io.api.patchCall(`v1/users`, payload);
@@ -27,7 +27,7 @@ test.describe("@Zephyr-IO-T35637 @Env-All @Priority-P2", () => {
             userid
         ],
         "keysToUpdate": {
-       "enableEPService": false
+       "microServices.enableEPService": false,
         }
     }
         await io.api.patchCall(`v1/users`, payload);
