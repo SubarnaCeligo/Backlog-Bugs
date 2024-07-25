@@ -1,0 +1,226 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "2",
+      "errorCount": "0"
+    },
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "_connectionId": "NETSUITE CONNECTION",
+          "name": "NetsuiteCustomerImport",
+          "lookups": [],
+          "distributed": true,
+          "adaptorType": "NetSuiteDistributedImport",
+          "netsuite_da": {
+            "useSS2Restlets": false,
+            "lookups": [],
+            "mapping": {
+              "lists": [
+                {
+                  "fields": [
+                    {
+                      "internalId": false,
+                      "extract": "BillingCity",
+                      "generate": "city"
+                    },
+                    {
+                      "internalId": false,
+                      "extract": "BillingStreet",
+                      "generate": "addr1"
+                    },
+                    {
+                      "internalId": false,
+                      "extract": "BillingState",
+                      "generate": "state"
+                    },
+                    {
+                      "internalId": false,
+                      "extract": "BillingCountry",
+                      "generate": "country"
+                    },
+                    {
+                      "internalId": false,
+                      "extract": "BillingPostalCode",
+                      "generate": "zip"
+                    }
+                  ],
+                  "generate": "_billing_addressbook"
+                },
+                {
+                  "fields": [
+                    {
+                      "internalId": false,
+                      "extract": "ShippingStreet",
+                      "generate": "addr1"
+                    },
+                    {
+                      "internalId": false,
+                      "extract": "ShippingCity",
+                      "generate": "city"
+                    },
+                    {
+                      "internalId": false,
+                      "extract": "ShippingState",
+                      "generate": "state"
+                    },
+                    {
+                      "internalId": false,
+                      "extract": "ShippingCountry",
+                      "generate": "country"
+                    },
+                    {
+                      "internalId": false,
+                      "extract": "ShippingPostalCode",
+                      "generate": "zip"
+                    }
+                  ],
+                  "generate": "_shipping_addressbook"
+                }
+              ],
+              "fields": [
+                {
+                  "internalId": false,
+                  "extract": "Alt_Email__c",
+                  "generate": "altemail"
+                },
+                {
+                  "internalId": false,
+                  "extract": "Name",
+                  "generate": "companyname"
+                },
+                {
+                  "internalId": true,
+                  "hardCodedValue": "14",
+                  "generate": "subsidiary"
+                },
+                {
+                  "internalId": false,
+                  "extract": "Email__c",
+                  "generate": "Email (Field ID: email)"
+                },
+                {
+                  "internalId": false,
+                  "extract": "Phone",
+                  "generate": "phone"
+                },
+                {
+                  "internalId": false,
+                  "extract": "Fax",
+                  "generate": "fax"
+                }
+              ]
+            },
+            "recordType": "customer",
+            "operation": "add"
+          }
+        }
+      }
+    ],
+    "timezone": "Asia/Calcutta",
+    "name": "12.SF Flow#01_SF(Account) to NS(Cust)_ALL",
+    "disabled": false,
+    "qa__dataVerification": {
+      "importRecordJSON": {
+        "Email": "12sf2ns@celigo.com",
+        "BillingCity": "Begumpet",
+        "ShippingZip": "500041",
+        "BillingZip": "500016",
+        "Name": "12.SFAccount2NSCustomerAll",
+        "ShippingStreet": "IT Sez",
+        "emailAlt": "12sf2ns_alt@celigo.com",
+        "subID": "14",
+        "BillingCountry": "India",
+        "BillingStreet": "GV Colony",
+        "Phone": "7887447854",
+        "ShippingCountry": "India",
+        "ShippingCity": "madhapur",
+        "ShippingState": "Telangana",
+        "Fax": "7887447584",
+        "BillingState": "Telangana"
+      },
+      "importapiIdentifier": "i50f10d518",
+      "expected": {
+        "netsuite": {
+          "name": "12.SF Flow#01_SF(Account) to NS(Cust)_ALL",
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "import": {
+            "_connectionId": "NETSUITE CONNECTION"
+          },
+          "qa__expectedDashboardCount": {
+            "successCount": "1",
+            "ignoreCount": "0",
+            "errorCount": "0"
+          },
+          "qa__dataVerification": {
+            "expectedJSON": {
+              "altemail": "12sf2ns_alt@celigo.com",
+              "_billing_addressbook": {
+                "zip": "500016",
+                "country": {
+                  "internalid": "IN",
+                  "name": "India"
+                },
+                "city": "Begumpet",
+                "addr1": "GV Colony",
+                "state": "Telangana"
+              },
+              "phone": "(788) 744-7854",
+              "companyname": "12.SFAccount2NSCustomerAll",
+              "_shipping_addressbook": {
+                "zip": "500041",
+                "country": {
+                  "internalid": "IN",
+                  "name": "India"
+                },
+                "city": "madhapur",
+                "addr1": "IT Sez",
+                "state": "Telangana"
+              },
+              "entityid": "12.SFAccount2NSCustomerAll",
+              "fax": "(788) 744-7584",
+              "subsidiary": {
+                "internalid": "14"
+              }
+            },
+            "uniqueField": "entityid",
+            "standaloneexportflowID": "57a0604aeabadd1510d51fb9",
+            "importRecordType": "Customer",
+            "exportRecordType": "Account",
+            "isUIFlow": true,
+            "query": "Select Name from account",
+            "exportapiIdentifier": "e3da27004d"
+          }
+        }
+      }
+    },
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "salesforce": {
+            "soql": {
+              "query": "Select Name from account"
+            },
+            "distributed": {
+              "referencedFields": [],
+              "userDefinedReferencedFields": [],
+              "relatedLists": []
+            },
+            "api": "rest",
+            "type": "soql"
+          },
+          "transform": {
+            "rules": []
+          },
+          "asynchronous": true,
+          "_connectionId": "SALESFORCE CONNECTION",
+          "name": "SalesforceExportAccount",
+          "parsers": [],
+          "adaptorType": "SalesforceExport"
+        }
+      }
+    ]
+  }
