@@ -4,12 +4,12 @@ import iaqa_script from "@testData/integration_apps/T5455_iaqa.json";
 import qa_script from "@testData/integration_apps/T5455_qa.json";
 import staging_script from "@testData/integration_apps/T5455_staging.json";
 
-test.describe("T5462 To verify below schema is displayed for exports present1 in child IA", () => {
+test.describe("T5455 To verify below schema is displayed for exports present in child IA", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.flowBuilder.loadingTime();
   });
-  test("@Env-All @Zephyr-IO-T5462 T5462 To verify below schema is displayed for exports present in child IA", async ({
+  test("@Env-All @Zephyr-IO-T5455 T5455 To verify below schema is displayed for exports present in child IA", async ({
     io,
     page
   }) => {
