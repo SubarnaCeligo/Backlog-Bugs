@@ -3,13 +3,13 @@ import testdata from "../../../testData/inputData/EM2.0/T19797.json";
 import { randomNumber } from "@celigo/aut-utilities";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe(`C109129 Verify by hovering over the error row and also Verify by hovering over the error row in the ""New View"" by navigating from the Current View`, () => {
+test.describe(`C109129 Verify if the download option is visible from the run console`, () => {
     let flowId;
     test.afterEach(async ({ io }) => {
         await io.api.deleteFlowViaAPI(flowId);
     });
 
-    test(`@Zephyr-IO-T15390 @Env-All C109129 Verify by hovering over the error row and also Verify by hovering over the error row in the ""New View"" by navigating from the Current View`, async ({
+    test(`@Zephyr-IO-T15390 @Env-All C109129 Verify if the download option is visible from the run console`, async ({
         io,
         page
     }) => {
