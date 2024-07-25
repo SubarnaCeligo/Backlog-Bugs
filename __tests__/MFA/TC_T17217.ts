@@ -15,7 +15,6 @@ test.describe(
 
             await io.homePage.click(selectors.myAccountPagePO.USERS)
             const alreadyEmailThere = await page.getByText(email).isVisible();
-            console.log({alreadyEmailThere});
             if (alreadyEmailThere) {
                 await page.getByRole('row', { name: 't17217test@test.com Admin' }).locator('svg').nth(3).isDisabled();
                 await page.getByRole('row', { name: 't17217test@test.com Admin' }).locator(selectors.myAccountPagePO.OPEN_ACTIONSMENU).click();
