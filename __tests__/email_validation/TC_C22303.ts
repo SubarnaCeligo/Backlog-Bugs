@@ -12,7 +12,7 @@ test.describe("C22303 Verify whether the navigation is appropriate according to 
     );
   });
 
-  test("@Env-All @Zephyr-IO-T293 C22303 Verify whether the navigation is appropriate according to the org for which email received.", async ({ io, page }) => {
+  test("@Env-STAGING @Zephyr-IO-T293 C22303 Verify whether the navigation is appropriate according to the org for which email received.", async ({ io, page }) => {
     const id = await io.createResourceFromAPI(C22303, "FLOWS");
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_SETTINGS);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_SETTINGS);

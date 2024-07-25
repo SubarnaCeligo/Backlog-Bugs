@@ -4,7 +4,7 @@ import { randomString, randomNumber } from "@celigo/aut-utilities";
 import { decrypt } from "@celigo/aut-utilities";
 
 test.describe.skip("C47437", () => {
-  test("@Env-All @Zephyr-IO-T18721 C47437", async ({
+  test("C47437", async ({
     io,
     page
   }) => {

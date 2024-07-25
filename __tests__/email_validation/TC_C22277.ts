@@ -11,7 +11,7 @@ test.describe("C22277 Email notification em 2.0- app crashing while clicking on 
       );
     });
 
-    test("@Env-All @Zephyr-IO-T292 C22277 Email notification em 2.0- app crashing while clicking on navigation links", async ({io, page}) => {
+    test("@Env-STAGING @Zephyr-IO-T292 C22277 Email notification em 2.0- app crashing while clicking on navigation links", async ({io, page}) => {
       const id = await io.createResourceFromAPI(C22277, "FLOWS");
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_SETTINGS);
       await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_SETTINGS);

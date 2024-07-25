@@ -11,7 +11,7 @@ test.describe("C27516 User is navigated to sandbox after clicking on a link rece
       );
     });
 
-    test("@Env-All @Zephyr-IO-T307 C27516 User is navigated to sandbox after clicking on a link received from EM 2.0 flow error notification.", async ({io, page}) => {
+    test("@Env-STAGING @Zephyr-IO-T307 C27516 User is navigated to sandbox after clicking on a link received from EM 2.0 flow error notification.", async ({io, page}) => {
       const id = await io.createResourceFromAPI(C27561, "FLOWS");
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_SETTINGS);
       await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_SETTINGS);

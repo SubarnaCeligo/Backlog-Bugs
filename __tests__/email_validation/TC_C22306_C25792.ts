@@ -12,7 +12,7 @@ test.describe("C22306 Verified email links navigation for user account with mana
     );
   });
 
-  test("@Env-All @Zephyr-IO-T296 C22306 Verified email links navigation for user account with manage and monitor permissions of different integraions", async ({ io, page }) => {
+  test("@Env-STAGING @Zephyr-IO-T296 C22306 Verified email links navigation for user account with manage and monitor permissions of different integraions", async ({ io, page }) => {
     const id = await io.createResourceFromAPI(C22306, "FLOWS");
     const res1 = await io.api.putCall(
       `v1/ashares/${process.env.IO_Ashare_ID}`,

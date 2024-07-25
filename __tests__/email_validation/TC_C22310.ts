@@ -11,7 +11,7 @@ test.describe("C22310 Verify unsubscribe link for user accounts whether navigati
       );
     });
 
-    test("@Env-All @Zephyr-IO-T297 C22310 Verify unsubscribe link for user accounts whether navigating to particular integration", async ({io, page}) => {
+    test("@Env-STAGING @Zephyr-IO-T297 C22310 Verify unsubscribe link for user accounts whether navigating to particular integration", async ({io, page}) => {
       const id = await io.createResourceFromAPI(C22310, "FLOWS");
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_SETTINGS);
       await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_SETTINGS);

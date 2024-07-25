@@ -12,7 +12,7 @@ test.describe("C22305 Verify email notification navigation for user account whic
       );
     });
 
-    test("@Env-All @Zephyr-IO-T295 C22305 Verify email notification navigation for user account which has only monitor access for all integrations", async ({io, page}) => {
+    test("@Env-STAGING @Zephyr-IO-T295 C22305 Verify email notification navigation for user account which has only monitor access for all integrations", async ({io, page}) => {
       const id = await io.createResourceFromAPI(C22305, "FLOWS");
       const res1 = await io.api.putCall(
         `v1/ashares/${process.env.IO_Ashare_ID}`,

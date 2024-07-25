@@ -12,7 +12,7 @@ test.describe("C22304 Verify email notification navigation with multiple users w
       );
     });
 
-    test("@Env-All @Zephyr-IO-T294 C22304 Verify email notification navigation with multiple users who has manage and monitor permission for selected integrations", async ({io, page}) => {
+    test("@Env-STAGING @Zephyr-IO-T294 C22304 Verify email notification navigation with multiple users who has manage and monitor permission for selected integrations", async ({io, page}) => {
       const id = await io.createResourceFromAPI(C22304, "FLOWS");
       const res1 = await io.api.putCall(
         `v1/ashares/${process.env.IO_Ashare_ID}`,

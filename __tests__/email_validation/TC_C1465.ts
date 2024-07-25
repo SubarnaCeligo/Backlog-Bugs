@@ -11,7 +11,7 @@ test.describe("C1465 Verify the link on the email redirects to Dashboard and ope
     );
   });
 
-  test("@Env-All @Zephyr-IO-T261 C1465 Verify the link on the email redirects to Dashboard and opens the job errors window of that particular integration.", async ({ io, page }) => {
+  test("@Env-STAGING @Zephyr-IO-T261 C1465 Verify the link on the email redirects to Dashboard and opens the job errors window of that particular integration.", async ({ io, page }) => {
     const id = await io.createResourceFromAPI(C1465, "FLOWS");
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_SETTINGS);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_SETTINGS);
