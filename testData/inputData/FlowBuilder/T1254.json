@@ -1,0 +1,86 @@
+{
+  "name": "T1254",
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "AAA_C2660_export",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "apiIdentifier": "e30aeca996",
+        "asynchronous": true,
+        "type": "delta",
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": "/customers/{{lastlastExportDateTime}}",
+          "method": "GET",
+          "formType": "http"
+        },
+        "delta": {
+          "dateFormat": "DD/MM/YYYY"
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "AutomationStandalone_csr4f",
+        "_connectionId": "FTP CONNECTION",
+        "_sourceId": "662a273db4da9123922401f9",
+        "apiIdentifier": "i689e84ff2",
+        "oneToMany": true,
+        "sandbox": false,
+        "mappings": [
+          {
+            "extract": "test1",
+            "generate": "firstKey",
+            "dataType": "string",
+            "status": "Active",
+            "sourceDataType": "string"
+          },
+          {
+            "extract": "test2",
+            "generate": "secondKey",
+            "dataType": "string",
+            "status": "Active",
+            "sourceDataType": "string"
+          }
+        ],
+        "file": {
+          "fileName": "file-{{timestamp}}.json",
+          "skipAggregation": false,
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "io.auto.qa/BVAutoFTP",
+          "fileName": "file-{{timestamp}}.json"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "create_flow": {
+    "name": "T22564",
+    "disabled": false,
+    "pageGenerators": [
+      {
+        "_exportId": "UPDATE WITH EXPORTID",
+        "skipRetries": false
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "_importId": "UPDATE WITH IMPORTID",
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        }
+      }
+    ],
+    "autoResolveMatchingTraceKeys": true
+  }
+}
