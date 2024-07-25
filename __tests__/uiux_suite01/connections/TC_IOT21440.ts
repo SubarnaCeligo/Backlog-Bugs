@@ -10,7 +10,7 @@ import * as selectors from "@celigo/aut-selectors";
         await io.myAccountPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
         await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Loop Returns');
-        await io.flowBuilder.clickByTextByIndex('Loop Returns', 0);
+        await io.flowBuilder.click(selectors.connectionsPagePO.LOOP_RETURN_CONNECTION);
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.AUTHORIZATIONTYPE);
