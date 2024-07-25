@@ -11,7 +11,6 @@ test.describe(`C109129 Verify if the download option is visible from the run con
 
     test(`@Zephyr-IO-T15390 @Env-All C109129 Verify if the download option is visible from the run console`, async ({
         io,
-        page
     }) => {
         // Create a flow
         testdata.name = testdata.name + randomNumber();
