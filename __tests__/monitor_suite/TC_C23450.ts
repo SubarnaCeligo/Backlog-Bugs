@@ -1,7 +1,6 @@
 import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import testData from "@testData/monitorSuite/monitor_all_manage_few.json";
-import testData1 from "@testData/monitorSuite/monitor_all_manage_few_Ci_user.json";
+import testData from "@testData/monitorSuite/monitor_all_manage_few_Ci_user.json";
 
 test.describe(`@Author-ashu-g TC_C23450 Trying to create a connection at the export/import step is not working for integration with manage permissions`, () => {
    test.afterEach(async ({ io }) => {
@@ -13,37 +12,7 @@ test.describe(`@Author-ashu-g TC_C23450 Trying to create a connection at the exp
     io
   }) => {
     // update the ashare with right permissions
-    if (process.env["IO_UI_CONNECTOR_URL"] == "https://qa.staging.integrator.io/") {
-      const res = await io.api.putCall(
-        `v1/ashares/${process.env.IO_Ashare_ID}`,
-        testData
-      );
-      const res1 = await io.api.putCall(
-        `v1/ashares/${process.env.IO_Ashare_ID}`,
-        testData1.CI
-      );
-
-    } else if (process.env["IO_UI_CONNECTOR_URL"] == "https://staging.integrator.io/") {
-      const res1 = await io.api.putCall(
-        `v1/ashares/${process.env.IO_Ashare_ID}`,
-        testData1.STAGING
-      );
-    } else if (process.env["IO_UI_CONNECTOR_URL"] == "https://platform3.dev.integrator.io/") {
-      const res1 = await io.api.putCall(
-        `v1/ashares/${process.env.IO_Ashare_ID}`,
-        testData1.PLATFORM3
-      );
-    } else if (process.env["IO_UI_CONNECTOR_URL"] == "https://platform5.dev.integrator.io/") {
-      const res1 = await io.api.putCall(
-        `v1/ashares/${process.env.IO_Ashare_ID}`,
-        testData1.PLATFORM5
-      );
-    } else {
-      const res = await io.api.putCall(
-        `v1/ashares/${process.env.IO_Ashare_ID}`,
-        testData1.IAQA
-      );
-    }
+    await io.api.processAshareData(testData);
     await io.flowBuilder.loadingTime();
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();
