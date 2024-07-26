@@ -1,0 +1,29 @@
+{
+  "adaptorType": "HTTPConnection",
+  "application": "REST API (HTTP)",
+  "type": "http",
+  "autoRecoverRateLimitErrors": true,
+  "connectionFormView": "assistant",
+  "http": {
+    "auth": {
+      "token": {
+        "headerName": "Authorization",
+        "location": "body",
+        "paramName": "access_token",
+        "refreshMethod": "GET",
+        "refreshToken": "test",
+        "refreshTokenLocation": "body",
+        "scheme": " ",
+        "token": "test"
+      },
+      "type": "token"
+    },
+    "baseURI": "https://magento2.com",
+    "concurrencyLevel": 25,
+    "formType": "http",
+    "mediaType": "json",
+    "targetConcurrencyLevel": 25
+  },
+  "name": "REST MAGENTO CONNECTION",
+  "sandbox": false
+}
