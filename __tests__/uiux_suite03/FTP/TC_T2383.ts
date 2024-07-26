@@ -20,13 +20,6 @@ test.describe("T2383 Verify AFE window in different browsers like Firefox, Safar
         await io.exportsPage.loadingTime();
         await io.exportsPage.click(selectors.basePagePO.SAVE);
 
-        await io.exportsPage.addStep('*** Add Sample Data ***');
-        await io.exportsPage.loadingTime();
-        await io.exportsPage.click(selectors.exportsPagePO.FILE_TYPE);
-        await io.exportsPage.clickByText('JSON');
-        const fileInput = await page.$(selectors.basePagePO.UPLOAD_FILE);
-        await fileInput.setInputFiles("testData/inputData/Exports/T2383_Sample.json");
-
         await io.exportsPage.addStep('*** Opening AFE Editor ***');
         await io.exportsPage.click(selectors.flowBuilderPagePO.DIRECTORYHANLEBAR);
         await io.exportsPage.loadingTime();
