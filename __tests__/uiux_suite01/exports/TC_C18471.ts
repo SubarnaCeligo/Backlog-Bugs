@@ -15,7 +15,7 @@ test.describe("C18741_Verify on the resource listing pages update timestamp is s
         await io.flowBuilder.click(selectors.connectionsPagePO.NETSUITE_CONNECTION);
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'NETSUITE CONNECTION');
-        await io.flowBuilder.clickByText('NETSUITE CONNECTION');
+        await io.exportsPage.clickByTextByIndex('NETSUITE CONNECTION', 0);
         await io.flowBuilder.fill(selectors.connectionsPagePO.NAME_INPUT, 'TC_C18741');
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.flowBuilder.fill(selectors.connectionsPagePO.NAME_INPUT, 'TC_C18741');

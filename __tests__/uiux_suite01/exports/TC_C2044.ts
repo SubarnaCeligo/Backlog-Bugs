@@ -19,7 +19,7 @@ test.describe("C2044_Verify that Commerce category should be displayed in the 'R
         await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH)
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'NETSUITE CONNECTION');
-        await io.flowBuilder.clickByText('NETSUITE CONNECTION');
+        await io.exportsPage.clickByTextByIndex('NETSUITE CONNECTION', 0);
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT_RECORD_TYPE)
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.EXPORT_RECORDTYPE_ADD, 'Category');

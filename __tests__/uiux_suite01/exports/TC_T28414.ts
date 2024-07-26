@@ -19,7 +19,7 @@ test.describe("T28414_T28461_T28462_T28463 Verify XML parser help for FTP, Gdriv
 
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'FTP CONNECTION');
-        await io.flowBuilder.clickByText('FTP CONNECTION');
+        await io.exportsPage.clickByTextByIndex('FTP CONNECTION', 0);
         await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'FTP_Export');
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADVANCE);
@@ -65,7 +65,7 @@ test.describe("T28414_T28461_T28462_T28463 Verify XML parser help for FTP, Gdriv
 
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'S3 CONNECTION');
-        await io.flowBuilder.clickByText('S3 CONNECTION');
+        await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);
         await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'S3_Export');
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADVANCE);
@@ -111,7 +111,7 @@ test.describe("T28414_T28461_T28462_T28463 Verify XML parser help for FTP, Gdriv
 
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'GOOGLEDRIVE CONNECTION');
-        await io.flowBuilder.clickByText('GOOGLEDRIVE CONNECTION');
+        await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);
         await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'gDrive_Export');
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADVANCE);
@@ -157,7 +157,7 @@ test.describe("T28414_T28461_T28462_T28463 Verify XML parser help for FTP, Gdriv
 
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'DROPBOX CONNECTION');
-        await io.flowBuilder.clickByText('DROPBOX CONNECTION');
+        await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);
         await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'Dropbox_Export');
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADVANCE);

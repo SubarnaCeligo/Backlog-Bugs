@@ -21,7 +21,7 @@ test.describe("C25984_Verify the View debug logs option is available to only Lis
         await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN)
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'NETSUITE CONNECTION');
-        await io.flowBuilder.clickByText('NETSUITE CONNECTION');
+        await io.exportsPage.clickByTextByIndex('NETSUITE CONNECTION', 0);
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.flowBuilder.fill(selectors.connectionsPagePO.NAME_INPUT, 'TC_C25984');
         await io.flowBuilder.click(selectors.importPagePO.NETSUITE_DISTRIBUTED_RECORDTYPE);

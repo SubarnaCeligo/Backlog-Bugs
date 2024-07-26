@@ -18,7 +18,7 @@ test.describe('C27337 Verify PG "Override trace key template" help text UI_Backl
     await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH)
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'FTP CONNECTION');
-    await io.flowBuilder.clickByText('FTP CONNECTION');
+    await io.exportsPage.clickByTextByIndex('FTP CONNECTION', 0);
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.assert.verifyElementIsDisplayed(selectors.importPagePO.ADVANCED, 'Advance section not present');
     await io.flowBuilder.click(selectors.importPagePO.ADVANCED);

@@ -15,7 +15,7 @@ test.describe("C19743_Export Panel: Color code Export panel request/response/out
         await io.flowBuilder.click(selectors.connectionsPagePO.NETSUITE_CONNECTION);
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'NETSUITE CONNECTION');
-        await io.flowBuilder.clickByText('NETSUITE CONNECTION');
+        await io.exportsPage.clickByTextByIndex('NETSUITE CONNECTION', 0);
         await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'Netsuite_Export');
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         // Validating preview text panel colors

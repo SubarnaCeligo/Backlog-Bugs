@@ -13,7 +13,7 @@ test.describe("@Zephyr-IO-T26747 C51812 Verify help text for MarkExported Batch 
         await io.flowBuilder.click(selectors.connectionsPagePO.NETSUITE_CONNECTION);
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'NETSUITE CONNECTION');
-        await io.flowBuilder.clickByText('NETSUITE CONNECTION');
+        await io.exportsPage.clickByTextByIndex('NETSUITE CONNECTION', 0);
         await io.flowBuilder.fill(selectors.connectionsPagePO.NAME_INPUT, 'TC_C51812');
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.flowBuilder.fill(selectors.connectionsPagePO.NAME_INPUT, 'TC_C51812');

@@ -13,7 +13,7 @@ test.describe("T28409_T28411 Verify XML parser for FTP,Gdrive,S3,dropbox when XM
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FTP);
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'FTP CONNECTION');
-        await io.flowBuilder.clickByText('FTP CONNECTION');
+        await io.exportsPage.clickByTextByIndex('FTP CONNECTION', 0);
         await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'FTP_Export');
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.flowBuilder.click(selectors.exportsPagePO.FILE_TYPE);
@@ -34,7 +34,7 @@ test.describe("T28409_T28411 Verify XML parser for FTP,Gdrive,S3,dropbox when XM
         await io.flowBuilder.clickByText('Google Drive');
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'GOOGLEDRIVE CONNECTION');
-        await io.flowBuilder.clickByText('GOOGLEDRIVE CONNECTION');
+        await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);
         await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'GDRIVE_EXPORT');
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.flowBuilder.click(selectors.exportsPagePO.FILE_TYPE);
@@ -55,7 +55,7 @@ test.describe("T28409_T28411 Verify XML parser for FTP,Gdrive,S3,dropbox when XM
         await io.flowBuilder.click(selectors.connectionsPagePO.S3_CONNECTION);
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'S3 CONNECTION');
-        await io.flowBuilder.clickByText('S3 CONNECTION');
+        await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);
         await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'S3_Export');
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.flowBuilder.click(selectors.exportsPagePO.FILE_TYPE);
@@ -78,7 +78,7 @@ test.describe("T28409_T28411 Verify XML parser for FTP,Gdrive,S3,dropbox when XM
 
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'DROPBOX CONNECTION');
-        await io.flowBuilder.clickByText('DROPBOX CONNECTION');
+        await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);
         await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'Dropbox_Export')
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.flowBuilder.click(selectors.exportsPagePO.FILE_TYPE);
