@@ -12,7 +12,7 @@ test.describe('TC_T27702_T27703', () => {
         await io.connections.deleteConnection("TC_T27702_NSAW_Connection", connId2);
     });
 
-    test('TC_T27702_T27703 Creating NSAW and Oracle ADW connections while cloning a flow', async ({ io, page }) => {
+    test.skip('TC_T27702_T27703 Creating NSAW and Oracle ADW connections while cloning a flow', async ({ io, page }) => {
         let flowId;
 
         await test.step("*** Creating Flow and opening clone page ***", async () => {

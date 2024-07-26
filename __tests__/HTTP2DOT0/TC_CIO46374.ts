@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("TC_CT26354T26351T28950T19565", () => {
+test.describe("CIO46374", () => {
   test("@Env-All CT26354 Verify configure refresh token is enabled", async ({
     io,
     page

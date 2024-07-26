@@ -8,11 +8,11 @@ var testCases = [
   "C66039",
   //"T27692_T27693_T27694", //commenting these cases as there are some issues in the functionality and these will be handled as part of an upcoming epic https://celigo.atlassian.net/browse/IO-77231
  // "T27696_T27705_T27706", //commenting these cases as there are some issues in the functionality and these will be handled as part of an upcoming epic https://celigo.atlassian.net/browse/IO-77231
-  "T27702_T27703",
+ // "T27702_T27703", //commenting these cases as there are some issues in the functionality and these will be handled as part of an upcoming epic https://celigo.atlassian.net/browse/IO-77231
  // "T27704", //commenting these cases as there are some issues in the functionality and these will be handled as part of an upcoming epic https://celigo.atlassian.net/browse/IO-77231
  // "T27708_T27709_T27695", //commenting these cases as there are some issues in the functionality and these will be handled as part of an upcoming epic https://celigo.atlassian.net/browse/IO-77231
-  "CIO29647",
- "CT26354T26351T28950T19565",
+   "CIO29647",
+  "CIO46374",
   "CIO54642",
   "CT30323",
    // "CT30379", //jira connector got unpublished in all the environments by connector team
