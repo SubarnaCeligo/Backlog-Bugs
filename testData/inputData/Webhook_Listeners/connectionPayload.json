@@ -1,0 +1,46 @@
+{
+    "type": "http",
+    "name": "WEBHOOK CONNECTION",
+    "sandbox": false,
+    "enableMicroBatchForOneToMany": true,
+    "http": {
+        "formType": "http",
+        "mediaType": "json",
+        "baseURI": "https://api.qa.staging.integrator.io/v1/exports/66a22e3dab7198c3391bf8ec",
+        "concurrencyLevel": 25,
+        "targetConcurrencyLevel": 25,
+        "ping": {
+            "relativeURI": "data",
+            "body": "{\n\"test\": \"123\"\n}",
+            "method": "POST"
+        },
+        "isRest": false,
+        "auth": {
+            "type": "basic",
+            "basic": {
+                "username": "test",
+                "password": "test"
+            }
+        }
+    },
+    "autoRecoverRateLimitErrors": true,
+    "microServices": {
+        "disableNetSuiteWebservices": false,
+        "disableRdbms": false,
+        "disableNetSuiteDistributed": false,
+        "disableNetSuiteProxy": false,
+        "disableHttp": false,
+        "disableS3": false,
+        "disableSalesforce": false,
+        "disableAs2": false,
+        "disableFile": false,
+        "disableFtp": false,
+        "disableNsFile": false
+    },
+    "queues": [
+        {
+            "name": "66a22ea6ab7198c3391bfc2f",
+            "size": 0
+        }
+    ]
+}
