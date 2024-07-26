@@ -5,6 +5,7 @@ test.describe(`TC_IO-T7209 Verify dropdowns in different browsers`, () => {
   test(`@Zephyr-IO-T7209 @Env-All C24489 Verify dropdowns in different browsers`, async ({
     io,
   }) => {
+    
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();
     await io.flowBuilder.waitForElementAttached(
