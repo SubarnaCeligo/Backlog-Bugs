@@ -39,7 +39,21 @@ test.describe("T25388 Verify UX changes when we don't have any integration selec
         "None selected",
         "error"
       );
-      await io.flowBuilder.clickByTextByIndex("A value must be provided", 0);
-      await io.flowBuilder.clickByTextByIndex("A value must be provided", 1);
+      const value1 = (
+        await io.homePage.getText(selectors.myAccountPagePO.MONITOR_ACCESS)
+      ).toString();
+      await io.assert.expectToContainValue(
+        value1,
+        "A value must be provided",
+        "error"
+      );
+      const value2 = (
+        await io.homePage.getText(selectors.myAccountPagePO.MANAGE_ACCESS)
+      ).toString();
+      await io.assert.expectToContainValue(
+        value2,
+        "A value must be provided",
+        "error"
+      );
   });
 });
