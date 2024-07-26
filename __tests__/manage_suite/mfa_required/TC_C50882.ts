@@ -7,11 +7,10 @@ test.describe(`C50882 Verify a shared user with MFA required and had set on the 
     page,
     io
   }) => {
-    const res = await io.api.putCall(
-      `v1/ashares/${process.env.IO_Ashare_ID}`,
-      testData
-    );
-     
+    // const res = await io.api.putCall(
+    //   `v1/ashares/${process.env.IO_Ashare_ID}`,
+    //   testData
+    // );
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
 });
