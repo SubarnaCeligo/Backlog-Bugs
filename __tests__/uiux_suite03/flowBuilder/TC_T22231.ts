@@ -31,7 +31,7 @@ test.describe("T22231 - Verify in the Oracle DB export, Group data dropdown shou
 
     await io.flowBuilder.click(selectors.importPagePO.FETCH_PREVIEW);
     let parsedOutput = await page.locator(selectors.importPagePO.PARSED_OUTPUT).first();
-    await parsedOutput.waitFor({state: 'visible', timeout: 500000});
+    await parsedOutput.waitFor({state: 'visible', timeout: 200000});
 
     await io.flowBuilder.click(selectors.flowBuilderPagePO.WOULD_YOU_LIKE_TO_GROUP_RECORD);
 
@@ -49,7 +49,7 @@ test.describe("T22231 - Verify in the Oracle DB export, Group data dropdown shou
     await io.flowBuilder.click(selectors.importPagePO.FETCH_PREVIEW);
 
     parsedOutput = await page.locator(selectors.importPagePO.PARSED_OUTPUT).first();
-    await parsedOutput.waitFor({state: 'visible', timeout: 500000});
+    await parsedOutput.waitFor({state: 'visible', timeout: 200000});
 
     await io.flowBuilder.click(selectors.flowBuilderPagePO.GROUP_RECORD_FIELD_INPUT);
     await io.flowBuilder.loadingTime();
