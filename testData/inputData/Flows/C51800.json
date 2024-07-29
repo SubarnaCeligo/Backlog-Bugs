@@ -1,0 +1,127 @@
+{
+    "name": "SampleDataTest",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "_id": "6690babe27b0149b966246dc",
+                "createdAt": "2024-07-12T05:10:22.454Z",
+                "lastModified": "2024-07-29T07:35:33.817Z",
+                "name": "FTP Export",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "e376830b4d",
+                "asynchronous": true,
+                "sandbox": false,
+                "sampleData": {
+                    "ticket": {
+                        "comment": {
+                            "body": "https://celigo2704.zendesk.com/api/v2/tickets/100.json"
+                        },
+                        "priority": "urgent",
+                        "subject": "https://celigo2704.zendesk.com/api/v2/tickets/100.json"
+                    }
+                },
+                "ftp": {
+                    "directoryPath": "/test"
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": false,
+                    "type": "json",
+                    "filter": {
+                        "type": "expression",
+                        "expression": {
+                            "version": "1",
+                            "rules": []
+                        },
+                        "rules": [],
+                        "version": "1"
+                    }
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "_id": "66a745a494da0ecb8013dbfc",
+                "createdAt": "2024-07-29T07:32:52.386Z",
+                "lastModified": "2024-07-29T07:36:01.662Z",
+                "name": "HTTP",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "i1e87bbd64",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "generate": "TestObject",
+                        "dataType": "object",
+                        "status": "Active",
+                        "mappings": [
+                            {
+                                "extract": "$.ticket.comment",
+                                "generate": "Col0",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "object"
+                            },
+                            {
+                                "extract": "$.ticket.priority",
+                                "generate": "Col1",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "$.ticket.subject",
+                                "generate": "Col2",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            }
+                        ]
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "/Test"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "isRest": false,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "createFlow": {
+        "name": "SampleDataTest",
+        "disabled": false,
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID",
+                "skipRetries": false
+            }
+        ],
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "autoResolveMatchingTraceKeys": true
+    }
+}
