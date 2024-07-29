@@ -1,6 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import testData from "@testData/monitorSuite/monitor_all_manage_few.json";
+import testData from "@testData/monitorSuite/monitor_all_manage_few_Ci_user.json";
 
 
 test.describe(`@Bug-IO-19259  @Priority-P2  @Zephyr-T6954 @Env-All Verify the connections of a monitored tiles should not be listed while creating new flow under manage tile.`, () => {
@@ -8,10 +8,8 @@ test.describe(`@Bug-IO-19259  @Priority-P2  @Zephyr-T6954 @Env-All Verify the co
     page,
     io
   }) => {
-    const res = await io.api.putCall(
-      `v1/ashares/${process.env.IO_Ashare_ID}`,
-      testData
-    );
+    await io.api.processAshareData(testData);
+    await io.flowBuilder.loadingTime();
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();
     await io.exportsPage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW);

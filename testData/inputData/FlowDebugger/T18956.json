@@ -1,0 +1,210 @@
+{
+    "name": "TC_T18956",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "Http export",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "eb234e06b3",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "sandbox": false,
+                "mockOutput": {
+                    "page_of_records": [
+                        {
+                            "record": {
+                                "id": "44207",
+                                "recordType": "account",
+                                "Name": "0Account 1",
+                                "Display Name": "10.0 0Account 1",
+                                "Account Type": "Bank"
+                            }
+                        },
+                        {
+                            "record": {
+                                "id": "44208",
+                                "recordType": "account",
+                                "Name": "0Account 2",
+                                "Display Name": "130.0 0Account 2",
+                                "Account Type": "Bank"
+                            }
+                        },
+                        {
+                            "record": {
+                                "id": "656",
+                                "recordType": "account",
+                                "Name": "Automation_DH",
+                                "Display Name": "12345678 Automation_DH",
+                                "Account Type": "Bank"
+                            }
+                        },
+                        {
+                            "record": {
+                                "id": "44007",
+                                "recordType": "account",
+                                "Name": "C47503 Automation",
+                                "Display Name": "123 C47503 Automation",
+                                "Account Type": "Bank"
+                            }
+                        },
+                        {
+                            "record": {
+                                "id": "652",
+                                "recordType": "account",
+                                "Name": "CS",
+                                "Display Name": "111 CS",
+                                "Account Type": "Bank"
+                            }
+                        },
+                        {
+                            "record": {
+                                "id": "537",
+                                "recordType": "account",
+                                "Name": "New NS Account",
+                                "Display Name": "200311 New NS Account",
+                                "Account Type": "Bank"
+                            }
+                        },
+                        {
+                            "record": {
+                                "id": "201",
+                                "recordType": "account",
+                                "Name": "PTL Account",
+                                "Display Name": "7777 PTL Account",
+                                "Account Type": "Bank"
+                            }
+                        },
+                        {
+                            "record": {
+                                "id": "538",
+                                "recordType": "account",
+                                "Name": "TEst",
+                                "Display Name": "12121 TEst",
+                                "Account Type": "Bank"
+                            }
+                        }
+                    ]
+                },
+                "http": {
+                    "relativeURI": "/users",
+                    "method": "GET",
+                    "formType": "http"
+                },
+                "test": {
+                    "limit": 10
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "HTTP Import",
+                "mockResponse": [
+                    {
+                        "id": "1234567890",
+                        "errors": [],
+                        "_json": {
+                            "id": "1234567890",
+                            "mockResponse": "replace me"
+                        },
+                        "statusCode": 200,
+                        "ignored": false,
+                        "dataURI": "",
+                        "_headers": {
+                            "content-type": "application/json; charset=utf-8"
+                        }
+                    }
+                ],
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "ifbd031a64",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": [
+                        "users"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "isRest": false,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "FTP IMPORT",
+                "mockResponse": [
+                    {
+                        "id": "1234567890",
+                        "errors": [],
+                        "_json": {
+                            "id": "1234567890",
+                            "mockResponse": "replace me"
+                        },
+                        "statusCode": 200,
+                        "ignored": false,
+                        "dataURI": "",
+                        "_headers": {
+                            "content-type": "application/json; charset=utf-8"
+                        }
+                    }
+                ],
+                "_connectionId": "FTP CONNECTION",
+                "_sourceId": "641414b11d02ff3769ee2014",
+                "apiIdentifier": "i6c9ee60df",
+                "oneToMany": false,
+                "file": {
+                    "fileName": "Amazon_Orders_SP-API.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "/NISHITHAMADDATI",
+                    "fileName": "Amazon_Orders_SP-API.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ],
+    "createFlow": {
+        "name": "T18956",
+        "disabled": false,
+        "skipRetries": false,
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            },
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+        ]
+    }
+}
