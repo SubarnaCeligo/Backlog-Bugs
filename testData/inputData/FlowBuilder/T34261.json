@@ -33,7 +33,7 @@
                 "ignoreExisting": false,
                 "ignoreMissing": false,
                 "oneToMany": true,
-                "pathToMany": "users",
+                "pathToMany": "photo.thumbnails",
                 "sandbox": false,
                 "http": {
                     "relativeURI": [
@@ -58,10 +58,6 @@
         "skipRetries": false,
         "pageProcessors": [
             {
-                "responseMapping": {
-                    "fields": [],
-                    "lists": []
-                },
                 "type": "import",
                 "_importId": "UPDATE WITH NEW IMPORTID"
             }

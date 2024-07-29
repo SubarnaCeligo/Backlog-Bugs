@@ -16,7 +16,6 @@ test.describe("T34261 Input filter is not working once one to many is applied", 
         await io.flowBuilder.loadingTime();
 
         await io.flowBuilder.addStep('*** Getting the preview results ***');
-        await io.flowBuilder.clickByText('Parsed output');
         await io.flowBuilder.clickByText('Copy');
 
         await io.flowBuilder.addStep('*** Validting preview results ***');
@@ -38,6 +37,7 @@ test.describe("T34261 Input filter is not working once one to many is applied", 
         expect(mockInputResults.page_of_records).not.toBeUndefined();
 
         await io.flowBuilder.addStep('*** Validting that preview result should have one record while mock input data should have whole data ***');
-        expect(mockInputResults.page_of_records[0].record._PARENT).toEqual(previewResults);
+
+        expect(mockInputResults.page_of_records[0].record._PARENT).toEqual(previewResults._PARENT);
     });
 });
