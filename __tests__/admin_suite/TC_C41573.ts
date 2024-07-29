@@ -6,6 +6,10 @@ test.describe(`TC_C41573 To verify Pull from Integration dropdown field doesn't 
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();
   });
+  test.afterEach(async ({ io }) => {
+    await io.api.deleteIntegrationRecursively("TC_C41573 Integration");
+    await io.api.deleteIntegrationRecursively("Clone TC_C41573 Integration");
+  });
   test(`@Zephyr-IO-T454 @Env-All C41573 To verify Pull from Integration dropdown field doesn't lists the grand child clone integrations present in both production and sandbox account(Admin access)`, async ({
     page,
     io
