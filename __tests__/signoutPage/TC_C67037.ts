@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import { decrypt } from "@celigo/aut-utilities";
 
-test.describe.skip("C67037 Verify if the error message is shown when the user tries to signup using google with an existing email.", () => {
+test.describe("C67037 Verify if the error message is shown when the user tries to signup using google with an existing email.", () => {
    test.beforeEach('check sign out', async ({ io, page }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     const isNotLoggedIn = await io.loginPage.checkLoginState();
