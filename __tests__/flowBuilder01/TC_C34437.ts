@@ -5,7 +5,7 @@ test.describe("C34437 Verify a new icon indicating auto retry should be displaye
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C34437 Verify a new icon indicating auto retry should be displayed in the UI for errors whose classification is equal to intermittent @Env-All @Priority-P2", async ({ io, page, }) => {
+    test("C34437 Verify a new icon indicating auto retry should be displayed in the UI for errors whose classification is equal to intermittent @Zephyr-IO-T6559 @Env-All @Priority-P2", async ({ io, page, }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.clickByText("Standalone flows");
         await io.homePage.loadingTime();
