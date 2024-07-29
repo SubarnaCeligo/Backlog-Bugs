@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("T22231 - Verify in the Oracle DB export, Group data dropdown should have suggested list of fields only if records are returned in preview and no suggestions if no preview data is returned", () => {
-  test("@Zephyr-IO-T22231 @Env-All @Epic-IO-35739 @Priority-P2 - Verify in the Oracle DB export, Group data dropdown should have suggested list of fields only if records are returned in preview and no suggestions if no preview data is returned", async ({ io, page }) => {
+  test("@Zephyr-IO-T22231 @Env-All @Epic-IO-86262 @Priority-P2 - Verify in the Oracle DB export, Group data dropdown should have suggested list of fields only if records are returned in preview and no suggestions if no preview data is returned", async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.basePagePO.TOOLS);
