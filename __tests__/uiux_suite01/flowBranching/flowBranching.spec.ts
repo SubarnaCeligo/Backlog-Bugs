@@ -13,7 +13,7 @@ var testCases = [
   "C68531",
   "C68554",
   "C93996",
-  "C68560",
+  "C68560", //this test will fail as we don't have creds for the connection and the tracker is : https://celigo.atlassian.net/browse/IOAUT-15782
   "C68561",
   "C68562",
   "C68563",
@@ -42,7 +42,8 @@ var testCases = [
   "T18958",
   "T17388",
   "IO-T25359",
-  "T15759"
+  "T15759",
+  "C68478"
 ];
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
 (async () => {
