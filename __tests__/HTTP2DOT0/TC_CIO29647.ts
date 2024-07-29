@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("TC_CIO29647", () => {
-test("@Env-All @Zephyr-IO29647", async ({ io, page }) => {
+test("@Env-All @Zephyr-IO-T29647", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.flowBuilder.loadingTime();
     await io.homePage.waitForElementAttached(selectors.basePagePO.MARKETPLACE);

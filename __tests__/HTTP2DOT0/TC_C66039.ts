@@ -8,7 +8,7 @@ test.describe("TC_C66039 To verify that the Path is available in help text for a
     await io.api.deleteFlowViaAPI(flowId);
   });
 
-  test("@Env-All C66039 To verify that the Path is available in help text for api version, endpoint and Resource", async ({
+  test("@Env-All @Zephyr-IO-TC66039 To verify that the Path is available in help text for api version, endpoint and Resource", async ({
     io,
     page
   }) => {
