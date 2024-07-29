@@ -28,11 +28,13 @@ test.describe(`TC_C41573 To verify Pull from Integration dropdown field doesn't 
       await io.flowBuilder.click(selectors.homePagePO.CLONE_INTEGRATION);
       await io.flowBuilder.click(selectors.homePagePO.CLONE_INTEGRATION_BUTTON);
       await io.flowBuilder.click(selectors.basePagePO.INSTALL);
+      await io.flowBuilder.loadingTime();
       await io.flowBuilder.click(selectors.homePagePO.CLONE_INTEGRATION);
       await io.flowBuilder.fill(
         selectors.connectionsPagePO.NAME_INPUT,
         "Clone TC_C41573 Integration"
       );
+      await io.flowBuilder.loadingTime();
       await io.flowBuilder.click(selectors.homePagePO.CLONE_INTEGRATION_BUTTON);
       await io.flowBuilder.click(selectors.basePagePO.INSTALL);
       await io.flowBuilder.click(selectors.homePagePO.CLONE_INTEGRATION);
@@ -40,9 +42,11 @@ test.describe(`TC_C41573 To verify Pull from Integration dropdown field doesn't 
         selectors.connectionsPagePO.NAME_INPUT,
         "GrandChildIntegration"
       );
+      await io.flowBuilder.loadingTime();
       await io.flowBuilder.click(selectors.homePagePO.CLONE_INTEGRATION_BUTTON);
       await io.flowBuilder.click(selectors.basePagePO.INSTALL);
       await io.flowBuilder.clickByTextByIndex("Revisions", 0);
+      await io.flowBuilder.loadingTime();
       await io.flowBuilder.click(selectors.integrationPagePO.CREATE_PULL);
       const isChildIntegrationNameDisplayed = await io.flowBuilder.isVisible(
         'text="Clone TC_C41573 Integration"'
@@ -52,19 +56,25 @@ test.describe(`TC_C41573 To verify Pull from Integration dropdown field doesn't 
         "Child Integration Name is not displayed"
       );
       await io.flowBuilder.clickButtonByIndex("Close", 0);
+      await io.flowBuilder.loadingTime();
       await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+      await io.flowBuilder.loadingTime();
       await io.flowBuilder.fill(
         selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR,
         "TC_C41573 Integration"
       );
+      await io.flowBuilder.loadingTime();
       await io.flowBuilder.clickByTextByIndex("TC_C41573 Integration",0);
+      await io.flowBuilder.loadingTime();
       await io.flowBuilder.click(selectors.homePagePO.DELETE_INTEGRATION);
+      await io.flowBuilder.loadingTime();
       await io.flowBuilder.click(selectors.basePagePO.DELETE);
       await io.flowBuilder.loadingTime();
       await io.flowBuilder.fill(
         selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR,
         "Clone TC_C41573 Integration"
       );
+      await io.flowBuilder.loadingTime();
       await io.flowBuilder.clickByTextByIndex("Clone TC_C41573 Integration",0);
       await io.flowBuilder.click(selectors.homePagePO.DELETE_INTEGRATION);
       await io.flowBuilder.click(selectors.basePagePO.DELETE);
@@ -73,10 +83,14 @@ test.describe(`TC_C41573 To verify Pull from Integration dropdown field doesn't 
         selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR,
         "GrandChildIntegration"
       );
+      await io.flowBuilder.loadingTime();
       await io.flowBuilder.clickByTextByIndex("GrandChildIntegration",0);
+      await io.flowBuilder.loadingTime();
       await io.flowBuilder.click(selectors.homePagePO.DELETE_INTEGRATION);
+      await io.flowBuilder.loadingTime();
       await io.flowBuilder.click(selectors.basePagePO.DELETE);
     }
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
   });
 });
