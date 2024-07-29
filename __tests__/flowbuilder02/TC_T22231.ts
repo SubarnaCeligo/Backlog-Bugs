@@ -42,7 +42,7 @@ test.describe("T22231 - Verify in the Oracle DB export, Group data dropdown shou
     let func = value.toString().includes(expectedvalue);
     await io.assert.expectToBeFalse(func, "No options available");
 
-    await page.locator(selectors.exportsPagePO.QUERY1).locator('textarea').fill('select * from Grouping_QA121');
+    await page.locator(selectors.exportsPagePO.QUERY1).locator('textarea').fill('121');
 
     await io.flowBuilder.click(selectors.importPagePO.FETCH_PREVIEW);
     await io.flowBuilder.waitForElementAttached(selectors.importPagePO.PARSED_OUTPUT);
