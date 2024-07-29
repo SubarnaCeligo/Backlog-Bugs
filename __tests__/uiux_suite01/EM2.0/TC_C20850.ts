@@ -7,7 +7,7 @@ test.describe("C20850 Verify there is no link present on the error in the Run co
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowsWithId(id);
   });
-  test("@Zephyr-IO-T19775 @Env-QA @Env-STAGING C20850 Verify there is no link present on the error in the Run console", async ({
+  test("@Zephyr-IO-T19775 @Env-All C20850 Verify there is no link present on the error in the Run console", async ({
     io,
     page,
     context
