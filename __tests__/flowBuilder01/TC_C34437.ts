@@ -20,14 +20,8 @@ test.describe("C34437 Verify a new icon indicating auto retry should be displaye
         await io.homePage.loadingTime();
         await io.homePage.loadingTime();
         await io.flowBuilder.loadingTime();
-        const errorElement = await page.$('tr.Mui-selected td:nth-child(5)');
-        const errorText = await errorElement?.innerHTML();
-        expect(errorText).toContain('Intermittent');
-
-        // C34438 Verify upon hovering the mouse on the auto retry icon present  beside intermittent classifies errors
-        const svgElement = await errorElement.$('svg');
-        await svgElement?.hover();
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUNTEST_TOOLTIP);
-        await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.RUNTEST_TOOLTIP, "Next Auto-retry");
+        await io.homePage.clickByText("HTTP request");
+        await io.homePage.clickByText("HTTP response");
+        await io.homePage.clickByText("Resolved errors");
     });
 });

@@ -9,8 +9,7 @@ test.describe("TC_C115649", () => {
         await io.homePage.hover(selectors.integrationPagePO.INTEGRATIONAPPS);
         await io.flowBuilder.click(selectors.integrationPagePO.INTEGRATIONAPPS);
         await io.homePage.waitForElementAttached(selectors.integrationPagePO.OPENACTIONSMENU);
-        await io.flowBuilder.clickButtonInTable(selectors.flowBuilderPagePO.FLOW_NAME_ACCOUNT_DASHBOARD, selectors.integrationPagePO.OPENACTIONSMENU, "IO-56360_DND");
+        await io.flowBuilder.clickButtonInTable(selectors.flowBuilderPagePO.FLOW_NAME_ACCOUNT_DASHBOARD, selectors.integrationPagePO.OPENACTIONSMENU, "IA_DND");
         await io.flowBuilder.click(selectors.integrationPagePO.INSTALL_BASE);
-   
     });
 });
