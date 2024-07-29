@@ -133,7 +133,6 @@ var testCases = [
   "T5409",
   "T5388_T5387",
   "T1646",
-  "T22231",
  //please donot add any more new test cases to this flowbuilder02 suite,already this suite is overloaded when might cause issues during jenkinsrun/ci build
 ];
   
