@@ -53,7 +53,7 @@ test.describe("T898 Verify if user deletes existing flows/connections/imports/ex
         await io.homePage.goToMenu("Resources", "iClients");
         await io.homePage.loadingTime();
         await io.homePage.addStep('*** Verifying the details of iClients page ***');
-        expect(page.getByText("You don’t have any iClients .")).toBeVisible();
+        expect(page.getByText("You don't have any iClients .")).toBeVisible();
 
         await io.homePage.addStep('*** Navigating to Recycle bin Page ***');
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
@@ -69,7 +69,7 @@ test.describe("T898 Verify if user deletes existing flows/connections/imports/ex
         await io.homePage.clickByText('Automation Flows');
         await io.homePage.loadingTime();
         await io.homePage.addStep('*** Verifying the details of flows page ***');
-        expect(page.getByText("You don't have any flows yet")).toBeVisible();
+        expect(page.getByText("You don’t have any flows yet")).toBeVisible();
         expect(page.getByText("Select + Create flow to create a new flow or Attach flows from the ... More menu to add them from the Standalone flows tile.")).toBeVisible();
         expect(page.getByRole('link', { name: 'Create flow now' })).toBeVisible();
     });
