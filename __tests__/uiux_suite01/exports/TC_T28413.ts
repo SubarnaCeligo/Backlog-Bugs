@@ -71,7 +71,10 @@ test.describe("T28413_T28457_T28458_T28459 Verify XML parser help for FTP, Gdriv
         await io.assert.verifyElementTextByIndex(selectors.flowBuilderPagePO.SCRIPT_RESULT_VARIABLES, '\"ns1:OrganizationId\"', 3);
         await io.assert.verifyElementTextByIndex(selectors.flowBuilderPagePO.SCRIPT_RESULT_VARIABLES, '\"ns1:OrganizationCode\"', 4);
     });
-
+     // Commenting below test as it is not valid now as per Epics 
+     // Epic 1: https://celigo.atlassian.net/browse/CON-8238 
+     // Epic 2: https://celigo.atlassian.net/browse/IO-79313
+     /*
     test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28458 @Env-All Verify XML parser help for Google Drive with proper resource path", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();
@@ -103,7 +106,7 @@ test.describe("T28413_T28457_T28458_T28459 Verify XML parser help for FTP, Gdriv
         await io.assert.verifyElementTextByIndex(selectors.flowBuilderPagePO.SCRIPT_RESULT_VARIABLES, '\"ns1:OrganizationId\"', 3);
         await io.assert.verifyElementTextByIndex(selectors.flowBuilderPagePO.SCRIPT_RESULT_VARIABLES, '\"ns1:OrganizationCode\"', 4);
     });
-
+    */
     test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28459 @Env-All Verify XML parser help for Dropbox with proper resource path", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();

@@ -26,6 +26,10 @@ test.describe("T28409_T28411 Verify XML parser for FTP,Gdrive,S3,dropbox when XM
         await io.connectionPage.addStep("Clicking on preview");
         await expect(page.locator(selectors.exportsPagePO.ERROR_ACCORDION_SUMMARY)).toBeVisible();
     });
+     // Commenting below test as it is not valid now as per Epics 
+     // Epic 1: https://celigo.atlassian.net/browse/CON-8238 
+     // Epic 2: https://celigo.atlassian.net/browse/IO-79313
+     /*
     test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28474 @Env-All Verify XML parser for Gdrive when XML file is invalid", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();
@@ -47,6 +51,7 @@ test.describe("T28409_T28411 Verify XML parser for FTP,Gdrive,S3,dropbox when XM
         await io.connectionPage.addStep("Clicking on preview");
         await expect(page.locator(selectors.exportsPagePO.ERROR_ACCORDION_SUMMARY)).toBeVisible();
     });
+    */
     test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28475 @Env-All Verify XML parser for S3 when XML file is invalid", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();

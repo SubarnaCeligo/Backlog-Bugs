@@ -99,7 +99,11 @@ test.describe("T28414_T28461_T28462_T28463 Verify XML parser help for FTP, Gdriv
         .isVisible();
         await expect(test).toBe(false); 
     });
-
+    
+     // Commenting below test as it is not valid now as per Epics 
+     // Epic 1: https://celigo.atlassian.net/browse/CON-8238 
+     // Epic 2: https://celigo.atlassian.net/browse/IO-79313
+   /*
     test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28462 @Env-All Verify XML parser help for Google Drive with invalid resource path", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();
@@ -145,7 +149,7 @@ test.describe("T28414_T28461_T28462_T28463 Verify XML parser help for FTP, Gdriv
         .isVisible();
         await expect(test).toBe(false); 
     });
-
+    */
     test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28463 @Env-All Verify XML parser help for Dropbox with invalid resource path", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();

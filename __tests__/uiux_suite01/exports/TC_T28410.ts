@@ -33,7 +33,10 @@ test.describe("T28410_T28467_T28468_T28469 Verify XML parser for FTP,Gdrive,S3,d
         await io.connectionPage.addStep("Clicking on preview");
         await expect(page.locator(selectors.flowBuilderPagePO.AFE_RESULT_PANEL)).toContainText("record");
     });
-    
+     // Commenting below test as it is not valid now as per Epics 
+     // Epic 1: https://celigo.atlassian.net/browse/CON-8238 
+     // Epic 2: https://celigo.atlassian.net/browse/IO-79313
+    /*
     test("@Epic-IO-47338 @Priority-P1 @Zephyr-IO-T28467 @Env-All Verify XML parser Gdrive if the xml element contains xmlns or if the element name contains ':' with proper resource path and Parse strategy as Automatic", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();
@@ -61,7 +64,7 @@ test.describe("T28410_T28467_T28468_T28469 Verify XML parser for FTP,Gdrive,S3,d
         await io.connectionPage.addStep("Clicking on preview");
         await expect(page.locator(selectors.flowBuilderPagePO.AFE_RESULT_PANEL)).toContainText("record");
     });
- 
+    */
     test("@Epic-IO-47338 @Priority-P1 @Zephyr-IO-T28468 @Env-All Verify XML parser S3 if the xml element contains xmlns or if the element name contains ':' with proper resource path and Parse strategy as Automatic", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();

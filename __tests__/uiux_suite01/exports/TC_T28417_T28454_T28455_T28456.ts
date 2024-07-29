@@ -147,7 +147,10 @@ test.describe("TC_T28417_T28454_T28455_T28456 Verify XML parser for FTP,Gdrive,S
         await io.assert.expectToBeValue('{  "page_of_records": [    {      "record": "PTP 820 Gas    Tube Surge Arrestor END KIT"    }  ]}', previewData, 'New line chars are not striped');
 
         });
-
+    // Commenting below test as it is not valid now as per Epics
+    // Epic 1: https://celigo.atlassian.net/browse/CON-8238
+    // Epic 2: https://celigo.atlassian.net/browse/IO-79313
+    /*    
     test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28456  @Env-All Verify XML parser for GDrive with proper resource path and Parse strategy as Custom and Trim leading and trailing spaces and Strip new line characters checked", async ({ io, page }) => {
 
         //Navigate to exports page
@@ -194,5 +197,5 @@ test.describe("TC_T28417_T28454_T28455_T28456 Verify XML parser for FTP,Gdrive,S
         let previewData = (await io.exportsPage.getText(selectors.flowBuilderPagePO.CONTENT)).toString();
         await io.assert.expectToBeValue('{  "page_of_records": [    {      "record": "Finished    Good"    }  ]}', previewData, 'New line chars are not striped');
     });
-
+    */
 }); 
