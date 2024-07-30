@@ -7,7 +7,7 @@ test.describe("C1583 Verify Transfer Ownership notification shows the integratio
     page
   }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.myAccountPage.loadingTime()
+    await io.homePage.loadingTime()
     await io.myAccountPage.click(selectors.basePagePO.NOTIFICATION_ARIA_LABEL)
     await io.myAccountPage.loadingTime()
     await io.homePage.addStep("Clicked on notifications icon");

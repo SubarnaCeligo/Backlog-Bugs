@@ -12,7 +12,7 @@ test.describe("TC_T29693_T29696_Test to validate that user is able to run a flow
         await io.flowBuilder.loadingTime();
         await io.homePage.clickByText("AFE_AUTOSUGGESTIONS_mapper2.0_DND");
         await io.homePage.addStep("*** Opened the integration ***");
-        await io.homePage.clickByText("Azure_synapse_export_flow_run_DND");
+        await io.homePage.clickByText("synapse_export_flow_run_DND");
         await io.homePage.addStep("*** Opened the flow ***");
         await io.flowBuilder.loadingTime();
         await io.assert.expectToBeTrue(await (await page.$(selectors.flowBuilderPagePO.EXPORT_TRANSFORMATION)).isVisible(), "Transaformation rules are not visible");
