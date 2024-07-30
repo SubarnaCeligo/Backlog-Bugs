@@ -20,8 +20,8 @@ test.describe("T2492 Verify that run button is disabled when flow is disabled", 
 
         await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
         await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'T2492 Flow');
-        await io.integrationPage.delay(2000); // wait for the search to complete
-
+        //Wait for search to complete
+    await io.integrationPage.waitForElementAttached(selectors.flowBuilderPagePO.ACTIONS_SELECTOR);
         //disable the flow
         await io.integrationPage.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.myAccountPagePO.CONFIRMDISABLE);
