@@ -1,24 +1,24 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import testData from "@testData/monitorSuite/monitor_all_manage_few.json";
+import testData from "@testData/monitorSuite/monitor_all_manage_few_Ci_user.json";
 
 test.describe(`C24948 Monitor all and manage few - Verify able to filter report results by flow`, () => {
   test(`@Env-All C24948 Monitor all and manage few - Verify able to filter report results by flow`, async ({
     page,
     io
   }) => {
-    const res = await io.api.putCall(
-      `v1/ashares/${process.env.IO_Ashare_ID}`,
-      testData
-    );
+    const res = await io.api.processAshareData(testData);
+    await io.flowBuilder.loadingTime();
     await io.homePage.navigateTo(
       process.env["IO_UI_CONNECTOR_URL"] + "reports/eventreports"
     );
+    await io.flowBuilder.loadingTime();
     await page
       .getByRole("columnheader", { name: "Flow" })
       .getByRole("button")
       .click();
     await io.homePage.addStep("Clicked on 'Flow' filter");
+    await io.flowBuilder.loadingTime();
     try {
       await page
         .locator(selectors.basePagePO.ARROW_POPPER)
@@ -31,7 +31,9 @@ test.describe(`C24948 Monitor all and manage few - Verify able to filter report 
         .first()
         .textContent();
       await io.homePage.addStep("Selected a flow");
+      await io.flowBuilder.loadingTime();
       await io.homePage.clickByText("Apply");
+      await io.flowBuilder.loadingTime();
       const rows = await page.$$(selectors.flowBuilderPagePO.COLUMNS);
       for (const row of rows) {
         const flowColumn = await row.$("td");
