@@ -4,7 +4,6 @@ import C107963 from '../../../testData/inputData/FlowDebugger/C107963.json';
 import exp from "constants";
 
 test.describe("TC_T24944 Verify the run button when the flow is in Production mode", () => {
-    test.describe.configure({ retries: 2 })
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });

@@ -1,0 +1,85 @@
+{
+  "resource": {
+    "_id": "6602c7e884f0ae58072e3b4d",
+    "createdAt": "2024-03-26T13:04:40.968Z",
+    "lastModified": "2024-03-26T13:04:41.884Z",
+    "name": "Salesforce Product Id Write Back to NetSuite",
+    "responseTransform": {
+      "type": "expression",
+      "expression": {
+        "version": "1"
+      }
+    },
+    "_connectionId": "660293ee84f0ae58072dc824",
+    "_integrationId": "660293ee84f0ae58072dc80a",
+    "_connectorId": "5b61ae4aeb538642c26bdbe6",
+    "externalId": "salesforce_product_id_writeback_import",
+    "distributed": true,
+    "apiIdentifier": "i670caf83c",
+    "lookups": [],
+    "netsuite_da": {
+      "restletVersion": "suitebundle",
+      "operation": "update",
+      "recordType": "itemgroup",
+      "internalIdLookup": {
+        "expression": "[\"internalid\",\"anyof\",\"{{{internalid}}}\"]"
+      },
+      "lookups": [],
+      "mapping": {
+        "fields": [],
+        "lists": []
+      },
+      "hooks": {
+        "postMap": {
+          "fileInternalId": "SuiteApps/com.celigo.salesforceio/build/Celigo_SalesforceIOConnector.closure.js",
+          "function": "salesforceProductIdImportPostMapHook"
+        }
+      }
+    },
+    "adaptorType": "NetSuiteDistributedImport",
+    "assistantMetadata": {},
+    "ignoreExisting": false,
+    "ignoreMissing": false,
+    "inputMode": "records",
+    "oneToMany": "false",
+    "settings": {},
+    "settingsForm": {
+      "form": {
+        "fieldMap": {},
+        "layout": {
+          "fields": []
+        }
+      }
+    }
+  },
+  "parentResource": {},
+  "license": {
+    "_id": "66028d83f98702493132d60d",
+    "created": "2024-03-26T08:55:31.856Z",
+    "lastModified": "2024-03-26T09:22:54.749Z",
+    "expires": "2025-03-26T18:29:59.999Z",
+    "type": "connector",
+    "_connectorId": "5b61ae4aeb538642c26bdbe6",
+    "opts": {
+      "addonLicenses": [
+        {
+          "licenses": [
+            {
+              "addOnId": "contractRenewals"
+            },
+            {
+              "addOnId": "quotes"
+            }
+          ],
+          "type": "addon"
+        }
+      ],
+      "connectorEdition": "premium"
+    },
+    "_integrationId": "660293ee84f0ae58072dc80a",
+    "sandbox": false,
+    "resumable": false
+  },
+  "parentLicense": {},
+  "sandbox": false
+}
