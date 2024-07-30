@@ -18,7 +18,7 @@ test.describe("C37205 Verify on integration level success should be clickable", 
     );
     await io.integrationPage.fill(
       selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
-      "Automapper_DND_Mapper_One"
+      "TC_C68544_DND"
     );
     await io.homePage.loadingTime();
     await io.flowBuilder.clickByText("Success");
