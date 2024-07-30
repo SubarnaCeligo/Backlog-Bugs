@@ -1,0 +1,18 @@
+{
+  "measurements": [
+    {
+      "caption": "C01",
+      "pom": "Chest",
+      "sizes": [
+        {
+          "measurement": "2",
+          "size": "Medium"
+        }
+      ],
+      "tolerance": "1",
+      "toleranceLower": "1",
+      "toleranceUpper": "1",
+      "unit": "cm"
+    }
+  ]
+}
