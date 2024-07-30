@@ -1,7 +1,6 @@
 import { filterTestCases } from "@celigo/aut-utilities"
 var testCases = [
   "C68554",
-  "C93996",
   "C68560", //this test will fail as we don't have creds for the connection and the tracker is : https://celigo.atlassian.net/browse/IOAUT-15782
   "C68561",
   "C68561",
