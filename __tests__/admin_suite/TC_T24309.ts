@@ -2,7 +2,7 @@ import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("To verify that the Create new connection and Edit connection icons are moved inside the connection drop down for each connection", () => {
-    test("@Env-All @Zephyr-IO-TC_T24309 To verify that the Create new connection and Edit connection icons are moved inside the connection drop down for each connection", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T24309 To verify that the Create new connection and Edit connection icons are moved inside the connection drop down for each connection", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.loadingTime()
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
