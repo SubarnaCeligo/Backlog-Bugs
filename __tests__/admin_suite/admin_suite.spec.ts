@@ -11,6 +11,7 @@ var testCases = [
   // "C45825", Enabling MFA so commenting this test case
   "C27910",
   "T451",
+  "T3056",
 ];
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
 

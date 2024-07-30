@@ -1,7 +1,6 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import C111364 from "@testData/FlowDebugger/C111364.json"
-test.describe.configure({ retries: 1 })
 
 test.describe('C111364_C111365_C111367_C111368_C111370', () => {
     test('@Env-All @Zephyr-IO-T14383 C111364_C111365_C111367_C111368_C111370', async ({ io, page }) => {

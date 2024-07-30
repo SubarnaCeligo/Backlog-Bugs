@@ -1,0 +1,92 @@
+{
+    "CI": {
+        "_id": "667e668d0c224fe608fb1ac8",
+        "emails": [
+            "io.auto.qa+300monitoruser@celigo.com"
+        ],
+        "accessLevel": "monitor",
+        "integrationAccessLevel": [
+            {
+                "_integrationId": "6459f5fc6df4b9686c0b7145",
+                "accessLevel": "manage"
+            }
+        ],
+        "accountSSORequired": false,
+        "accountMFARequired": false
+    },
+    "QA": {
+        "_id": "659e90d259335e605fca336d",
+        "emails": [
+            "io.auto.qa+300monitor@celigo.com"
+        ],
+        "accessLevel": "monitor",
+        "integrationAccessLevel": [
+            {
+                "_integrationId": "6459f5fc6df4b9686c0b7145",
+                "accessLevel": "manage"
+            }
+        ],
+        "accountSSORequired": false,
+        "accountMFARequired": false
+    },
+    "STAGING": {
+        "_id": "6613eb590591494ebae52b7f",
+        "emails": [
+            "io.auto.qa+300monitoruser@celigo.com"
+        ],
+        "accessLevel": "monitor",
+        "integrationAccessLevel": [
+            {
+                "_integrationId": "64e710e869b2fe328ac1ce51",
+                "accessLevel": "manage"
+            }
+        ],
+        "accountSSORequired": false,
+        "accountMFARequired": false
+    },
+    "IAQA": {
+        "_id": "6619082f855d60fae8b9185e",
+        "emails": [
+            "io.auto.qa+301monitor@celigo.com"
+        ],
+        "accessLevel": "monitor",
+        "integrationAccessLevel": [
+            {
+                "_integrationId": "659508f95745dd79750300e9",
+                "accessLevel": "manage"
+            }
+        ],
+        "accountSSORequired": false,
+        "accountMFARequired": false
+    },
+    "PLATFORM3": {
+        "_id": "666c3416e4c54314e23c4667",
+        "emails": [
+            "io.auto.qa+300monitor@celigo.com"
+        ],
+        "accessLevel": "monitor",
+        "integrationAccessLevel": [
+            {
+                "_integrationId": "663b2b6c447f0785b2234bba",
+                "accessLevel": "manage"
+            }
+        ],
+        "accountSSORequired": false,
+        "accountMFARequired": false
+    },
+    "PLATFORM5": {
+        "_id": "66717ea4859b0832c0e7af60",
+        "emails": [
+            "io.auto.qa+300monitor@celigo.com"
+        ],
+        "accessLevel": "monitor",
+        "integrationAccessLevel": [
+            {
+                "_integrationId": "660a98855aee031c13cad57a",
+                "accessLevel": "manage"
+            }
+        ],
+        "accountSSORequired": false,
+        "accountMFARequired": false
+    }
+}

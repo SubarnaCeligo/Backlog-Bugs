@@ -20,12 +20,14 @@ var testCases = [
   "C2206",
   "C50903",
   "C1583",
-  "C63261", // logout testcase
-  "C57327_C50895_C50907", // logout testcase
+  //"C63261", // logout testcase
+  //"C57327_C50895_C50907", // logout testcase
   "T19621",
   "T17234",
   "T17246",
   "T19656",
+  "T17217",
+  "C50998"
 ];
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
 

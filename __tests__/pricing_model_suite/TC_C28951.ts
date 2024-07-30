@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import { getLicensePayload } from "@celigo/aut-utilities";
 
 test.describe("C28951 Verify the concurrency limit for different license type(Free tier,professional ,Enterprise) for Sandbox account.", () => {
-  test("@Zephyr-IO-T28951 @Env-QA @Priority-P2 Verify the concurrency limit for different license type(Free tier,professional ,Enterprise) for Sandbox account", async ({
+  test("@Zephyr-IO-T28951 @Env-All @Priority-P2 Verify the concurrency limit for different license type(Free tier,professional ,Enterprise) for Sandbox account", async ({
     io,
   }) => {
     const licenses = await io.api.getCall("v1/licenses");
@@ -26,7 +26,7 @@ test.describe("C28951 Verify the concurrency limit for different license type(Fr
     const concurrencyLevel = await io.connectionPage.getElementsLength(selectors.flowBuilderPagePO.SUBLIST_A);
     expect(concurrencyLevel).toBe(5);
   });
-  test("@Zephyr-IO-T28951 @Env-QA @Priority-P2 Verify the concurrency limit for different license type Enterprise for Sandbox account", async ({
+  test("@Zephyr-IO-T28951 @Env-All @Priority-P2 Verify the concurrency limit for different license type Enterprise for Sandbox account", async ({
     io,
   }) => {
     const licenses = await io.api.getCall("v1/licenses");

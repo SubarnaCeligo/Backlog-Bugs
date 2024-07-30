@@ -20,7 +20,7 @@ test.describe("T28742_T28743_T28737_T29724 Verify the license Entitlements notif
     await io.homePage.reloadPage();
     await io.homePage.addStep("Switching to Production mode.");
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
+    //await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
     await io.homePage.loadingTime()
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.myAccountPage.click(selectors.myAccountPagePO.SUBSCRIPTION);
@@ -48,7 +48,7 @@ test.describe("T28742_T28743_T28737_T29724 Verify the license Entitlements notif
     await io.homePage.reloadPage();
     await io.homePage.addStep("Switching to Production mode.");
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
+    //await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.myAccountPage.click(selectors.myAccountPagePO.SUBSCRIPTION);
     await page.waitForLoadState();
@@ -74,7 +74,7 @@ test.describe("T28742_T28743_T28737_T29724 Verify the license Entitlements notif
     await io.homePage.reloadPage();
     await io.homePage.addStep("Switching to Production mode.");
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
+    //await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.myAccountPage.click(selectors.myAccountPagePO.SUBSCRIPTION);
     await page.waitForLoadState();

@@ -46,7 +46,7 @@ test.describe("C27421 Verify the subscription page for different license type(Fr
       "The status is not correctly colored"
     );
   });
-  test("@Zephyr-IO-T27421 @Env-QA @Priority-P2 Verify the subscription page for different license type enterprise for admin", async ({
+  test("@Zephyr-IO-T27421 @Env-All @Priority-P2 Verify the subscription page for different license type enterprise for admin", async ({
       io,
       page
     }) => {

@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import { decrypt } from "@celigo/aut-utilities";
 
-test.describe.skip("C65744 Verify that the user should not be able to signin to the IO account if the signup has failed for some reason.", () => {
+test.describe("C65744 Verify that the user should not be able to signin to the IO account if the signup has failed for some reason.", () => {
     test("@Env-All @Zephyr-IO-T17830 C65744 Verify that the user should not be able to signin to the IO account if the signup has failed for some reason.", async ({io, page}) => {
       await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
       await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
