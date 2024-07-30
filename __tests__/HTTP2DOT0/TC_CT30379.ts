@@ -1,7 +1,8 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 test.describe("TC_CT30379", () => {
-    test('@Env-QA C30379 verify updated helptext for which field in jira2.0  ', async ({ io, page }) => {
+  // skipping this case as jira connector is unpublished from all the environments by connector team
+    test.skip('@Env-QA @Zephyr-C30379 verify updated helptext for which field in jira2.0  ', async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.clickByText("Create");
         await io.flowBuilder.loadingTime();
