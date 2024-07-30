@@ -1,8 +1,8 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C23055_Verify with Manage/Monitor role user is able to see following options in account sub menu", () => {
-    test("@Env-All @Zephyr-IO-T22209 Verify with Manage/Monitor role user is able to see following options in account sub menu", async ({ io, page }) => {
+test.describe("T22208_Verify with Manage/Monitor role user is able to see following options in account sub menu", () => {
+    test("@Env-All @Zephyr-IO-T22208 Verify with Manage/Monitor role user is able to see following options in account sub menu", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.click(selectors.homePagePO.PROFILE_MENU);
         expect(await page.locator('#account-list a').count()).toEqual(3);
