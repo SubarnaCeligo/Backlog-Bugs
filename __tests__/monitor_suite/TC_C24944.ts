@@ -2,8 +2,8 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/monitorSuite/monitor_all_Ci_user.json";
 
-test.describe(`C24944 Monitor all- Verify able to filter report results by flow`, () => {
-  test(`@Env-All C24944 Monitor all- Verify able to filter report results by flow`, async ({
+test.describe(`@Epic-IO-20209 @Zephyr-IO-T4328 C24944 Monitor all- Verify able to filter report results by flow`, () => {
+  test(`@Epic-IO-20209 @Zephyr-IO-T4328 @Env-All C24944 Monitor all- Verify able to filter report results by flow`, async ({
     page,
     io
   }) => {
