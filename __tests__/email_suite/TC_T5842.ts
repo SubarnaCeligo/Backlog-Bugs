@@ -26,6 +26,7 @@ test.describe("T5842 - To verify 404 page is not displayed when clicked on the a
     expect(res.length).toBeGreaterThan(0);
     const response = await page.goto(res[0].split("><pre>")[0]);
     expect(response.status()).not.toEqual(404);
+    await page.getByText("404").isHidden();
   });
 
 }
