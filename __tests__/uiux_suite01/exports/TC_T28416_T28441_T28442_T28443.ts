@@ -161,6 +161,10 @@ test.describe("TC_T28416_T28441_T28442_T28443 Verify XML parser for FTP,Gdrive,S
 
         });
 
+    // Commenting below test as it is not valid now as per Epics
+    // Epic 1: https://celigo.atlassian.net/browse/CON-8238
+    // Epic 2: https://celigo.atlassian.net/browse/IO-79313
+    /*
     test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28443 @Env-All Verify XML parser for GDrive with proper resource path and Parse strategy as Custom and Trim leading and trailing spaces checked", async ({ io, page }) => {
 
         //Navigate to exports page
@@ -211,6 +215,5 @@ test.describe("TC_T28416_T28441_T28442_T28443 Verify XML parser for FTP,Gdrive,S
         previewData = (await io.exportsPage.getText(selectors.flowBuilderPagePO.CONTENT)).toString();
         await io.assert.expectToBeValue('{  "page_of_records": [    {      "record": "N000082D012A"    }  ]}', previewData, 'Spaces are not trimmed');
       
-    });
-
+    });*/
 }); 

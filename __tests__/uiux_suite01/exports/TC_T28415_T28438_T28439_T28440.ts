@@ -110,7 +110,10 @@ test.describe("TC_T28415_T28438_T28439_T28440 Verify XML parser for FTP,Gdrive,S
         let errorMessage = (await io.flowBuilder.getText(selectors.basePagePO.VALUE_MUST_BE_PROVIDED_ERROR)).toString();
         await io.assert.expectToBeValue("File exceeds max file size", errorMessage, "Error message did not appear for large XML file");       
     });
-
+    // Commenting below test as it is not valid now as per Epics
+    // Epic 1: https://celigo.atlassian.net/browse/CON-8238
+    // Epic 2: https://celigo.atlassian.net/browse/IO-79313
+    /*
     test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28440  @Env-All Verify XML parser for GDrive for diff file size", async ({ io, page }) => {
         
         //Navigate to exports page
@@ -145,6 +148,6 @@ test.describe("TC_T28415_T28438_T28439_T28440 Verify XML parser for FTP,Gdrive,S
         await io.exportsPage.waitForElementAttached(selectors.basePagePO.VALUE_MUST_BE_PROVIDED_ERROR);
         let errorMessage = (await io.flowBuilder.getText(selectors.basePagePO.VALUE_MUST_BE_PROVIDED_ERROR)).toString();
         await io.assert.expectToBeValue("File exceeds max file size", errorMessage, "Error message did not appear for large XML file");       
-    });
+    });*/
 
 }); 
