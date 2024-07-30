@@ -1,4 +1,4 @@
-import { expect, test } from "@celigo/ui-core-automation";
+import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("To verify that the Create new connection and Edit connection icons are moved inside the connection drop down for each connection", () => {
