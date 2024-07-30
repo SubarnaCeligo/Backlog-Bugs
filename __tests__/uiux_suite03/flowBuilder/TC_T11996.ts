@@ -1,8 +1,8 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("TC_T11996 FTP - Verify 'decrypt files' checkbox is unchecked by default on export", () => {
-  test("@Zephyr-TC_T11996 @Env-All   FTP - Verify 'decrypt files' checkbox is unchecked by default on export", async ({ io, page }) => {
+test.describe("T11996 FTP - Verify 'decrypt files' checkbox is unchecked by default on export", () => {
+  test("@Zephyr-IO-T11996 @Env-All   FTP - Verify 'decrypt files' checkbox is unchecked by default on export", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
     // export
