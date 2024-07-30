@@ -2,6 +2,9 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C61135 Verify the Install link functionality displayed for the Integrator SuiteApp step`, () => {
+  test.afterEach(async ({ io }) => {
+    const res = await io.api.deleteIntegrationRecursively("61130_UIUX_SUITE02");
+  });
   test(`@Epic-IO-29826 @Priority-P2 @Env-All @Zephyr-IO-T23141 C61135 Verify the Install link functionality displayed for the Integrator SuiteApp step`, async ({
     page,
     io
