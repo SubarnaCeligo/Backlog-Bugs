@@ -13,7 +13,7 @@ test.describe("TC_T2497", () => {
     await io.flowBuilder.click(selectors.connectionsPagePO.SF_ACCOUNTTYPE);
     await io.flowBuilder.clickByIndex(selectors.basePagePO.MENU_ITEM, 1);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OAUTHTYPE);
-    await io.flowBuilder.click('[data-value="jwtBearerToken"]');
+    await io.flowBuilder.click(selectors.connectionsPagePO.JWT_BEARER_TOKEN);
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.loadingTime();
     await expect(page.getByText('A value must be provided')).toBeVisible();
