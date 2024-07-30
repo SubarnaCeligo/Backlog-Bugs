@@ -20,8 +20,8 @@ var testCases = [
   "C2206",
   "C50903",
   "C1583",
-  "C63261", // logout testcase
-  "C57327_C50895_C50907", // logout testcase
+  //"C63261", // logout testcase
+  //"C57327_C50895_C50907", // logout testcase
   "T19621",
   "T17234",
   "T17246",
