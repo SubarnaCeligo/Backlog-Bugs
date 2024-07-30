@@ -24,7 +24,7 @@ test.describe("C68894_C68896", () => {
         await io.connectionPage.fill(selectors.connectionsPagePO.RELATIVEURI, 'users');
         await io.connectionPage.click(selectors.importPagePO.ADVANCED);
         await io.connectionPage.click(selectors.connectionsPagePO.SSL_CERTIFICATE);
-        await io.connectionPage.clickByText("PFX");
+        await io.connectionPage.click(selectors.connectionsPagePO.SSL_PFX);
         const fileChooserPromise = page.waitForEvent("filechooser");
         await io.homePage.clickByText("Choose file");
         const fileChooser = await fileChooserPromise;
@@ -35,7 +35,7 @@ test.describe("C68894_C68896", () => {
         await io.homePage.loadingTime();
         await io.homePage.loadingTime();
         await io.homePage.loadingTime();
-        await io.connectionPage.clickByText("PEM");
+        await io.connectionPage.click(selectors.connectionsPagePO.SSL_PEM);
         await io.homePage.loadingTime();
         await io.homePage.loadingTime();
         const fileChooserPromise1 = page.waitForEvent("filechooser");
@@ -70,7 +70,7 @@ test.describe("C68894_C68896", () => {
         await io.connectionPage.click(selectors.connectionsPagePO.SSL_CERTIFICATE);
         await io.homePage.loadingTime();
         await io.homePage.loadingTime();
-        await io.connectionPage.clickByText("PEM");
+        await io.connectionPage.click(selectors.connectionsPagePO.SSL_PEM);
         await io.homePage.loadingTime();
         await io.homePage.loadingTime();
         const fileChooserPromise = page.waitForEvent("filechooser");
@@ -86,7 +86,7 @@ test.describe("C68894_C68896", () => {
         await io.connectionPage.click(selectors.connectionsPagePO.SSL_CERTIFICATE);
         await io.homePage.loadingTime();
         await io.homePage.loadingTime();
-        await io.connectionPage.clickByText("PFX");
+        await io.connectionPage.click(selectors.connectionsPagePO.SSL_PFX);
         const fileChooserPromise2 = page.waitForEvent("filechooser");
         await io.homePage.clickByText("Choose file");
         const fileChooser2 = await fileChooserPromise2;
