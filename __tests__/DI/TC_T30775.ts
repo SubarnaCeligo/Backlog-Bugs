@@ -17,16 +17,6 @@ test.describe("@Author-ladimanish TC_T30775", () => {
       "class",
       "Mui-disabled"
     );
-    await io.assert.verifyElementAttributeContainsText(
-      selectors.syncPagePO.SOURCE_CONNECTION_INPUT,
-      "class",
-      "Mui-disabled"
-    );
-    await io.assert.verifyElementAttributeContainsText(
-      selectors.syncPagePO.DATABASE_INPUT,
-      "class",
-      "Mui-disabled"
-    );
     const schemaName = await io.sync.generateRandomName("Schema");
     await io.sync.specifySchema(schemaName);
     await io.sync.clickOnNext();

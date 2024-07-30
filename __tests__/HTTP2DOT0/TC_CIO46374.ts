@@ -1,8 +1,8 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("TC_CT26354T26351T28950T19565", () => {
-  test("@Env-All CT26354 Verify configure refresh token is enabled", async ({
+test.describe("CIO46374", () => {
+  test("@Env-All @Zephyr-IO-T26354 Verify configure refresh token is enabled", async ({
     io,
     page
   }) => {
@@ -45,7 +45,7 @@ test.describe("TC_CT26354T26351T28950T19565", () => {
   });
 
 
-  test("@Env-All CT26351 Verify help text for concurrency ID lock template", async ({
+  test("@Env-All @Zephyr-IO-T26351 Verify help text for concurrency ID lock template", async ({
     io,
     page
   }) => {
@@ -90,7 +90,7 @@ test.describe("TC_CT26354T26351T28950T19565", () => {
   });
 
 
-  test("@Env-All T28950 Verify success and error values are saved when media type is plain text", async ({
+  test("@Env-All @Zephyr-IO-T28950 Verify success and error values are saved when media type is plain text", async ({
     io,
     page
   }) => {
@@ -183,7 +183,7 @@ test.describe("TC_CT26354T26351T28950T19565", () => {
   });
 
 
-  test("@Env-All T19565 Verify xml file in AFE", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T19565 Verify xml file in AFE", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.basePagePO.TOOLS);
