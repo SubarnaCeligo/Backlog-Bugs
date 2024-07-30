@@ -1,0 +1,114 @@
+{
+  "name": "TC_T34262",
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "Http Export",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "asynchronous": true,
+        "type": "test",
+        "oneToMany": false,
+        "http": {
+          "relativeURI": "/users",
+          "method": "GET",
+          "formType": "http",
+          "response": {
+            "resourcePath": "users"
+          }
+        },
+        "test": {
+          "limit": 13
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "Http lookup",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "asynchronous": true,
+        "isLookup": true,
+        "oneToMany": true,
+        "pathToMany": "photo.thumbnails",
+        "sandbox": false,
+        "http": {
+          "relativeURI": "/users",
+          "method": "GET",
+          "isRest": false,
+          "formType": "http",
+          "response": {
+            "twoDArray": {
+              "doNotNormalize": false,
+              "hasHeader": false
+            }
+          }
+        },
+        "inputFilter": {
+          "type": "expression",
+          "expression": {
+            "rules": ["greaterthan", ["string", ["extract", "_PARENT.id"]], "1"],
+            "version": "1"
+          },
+          "rules": ["greaterthan", ["string", ["extract", "_PARENT.id"]], "1"],
+          "version": "1"
+        },
+        "adaptorType": "HTTPExport"
+      }
+    },
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "Http Import",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": true,
+        "pathToMany": "photo.thumbnails",
+        "sandbox": false,
+        "http": {
+          "relativeURI": ["/users"],
+          "method": ["POST"],
+          "body": [],
+          "batchSize": 1,
+          "sendPostMappedData": true,
+          "formType": "http"
+        },
+        "filter": {
+          "type": "expression",
+          "expression": {
+            "rules": ["greaterthan", ["string", ["extract", "_PARENT.id"]], "1"],
+            "version": "1"
+          },
+          "rules": ["greaterthan", ["string", ["extract", "_PARENT.id"]], "1"],
+          "version": "1"
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "createFlow": {
+    "name": "TC_C119806",
+    "disabled": false,
+    "_integrationId": "603ce75ac4fec33283691f43",
+    "skipRetries": false,
+    "pageProcessors": [
+      {
+        "type": "export",
+        "_exportId": "UPDATE WITH NEW EXPORTID"
+      },
+      {
+        "type": "import",
+        "_exportId": "UPDATE WITH NEW IMPORTID"
+      }
+    ],
+    "pageGenerators": [
+      {
+        "_exportId": "UPDATE WITH NEW EXPORTID"
+      }
+    ]
+  }
+}
