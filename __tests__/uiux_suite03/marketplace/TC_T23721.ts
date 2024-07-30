@@ -9,8 +9,11 @@ test.describe("IO-T23721 Verify IA/Template logo is showing properly in placehol
     await io.homePage.goToMenu("Marketplace");
     await io.homePage.loadingTime();
     await io.homePage.fill(selectors.homePagePO.SEARCH_MARKETPLACE, 'Magento 2 - NetSuite');
+    await io.homePage.loadingTime();
     await io.homePage.clickByText("By type");
+    await io.homePage.loadingTime();
     await io.homePage.click(selectors.marketplacePagePO.INTEGRATION_APP_TYPE);
+    await io.homePage.loadingTime();
     await io.homePage.loadingTime();
     const Symbol1 = await page.$(selectors.marketplacePagePO.MAGENTO_APP_IMAGE);
     expect(await Symbol1.screenshot()).toMatchSnapshot("TC_T23721.png");
