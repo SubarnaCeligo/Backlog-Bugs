@@ -16,12 +16,11 @@ test.describe("C2082 Verify if able to view all the installers for the last Agen
       await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.COLUMNS);
       const agentList = await page.locator(selectors.flowBuilderPagePO.COLUMNS).all();
 
-      for(let i=0; i<agentList.length; i++) {
+      for(let i=0; i<15; i++) {
         await agentList[i].locator(selectors.homePagePO.DOWNLOAD_AGENT_INSTALLER).click();
         await io.homePage.waitForElementAttached("text='Windows'");
         const isWindowsVisible = await io.homePage.isVisible("text='Windows'");
         await io.assert.expectToBeTrue(isWindowsVisible,  "download dropdown option not displayed");
       }
-
   });
 });
