@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import TC from "@testData/HTTP2DOT0/TC_IO-T35107.json";
 
-test.describe(`@Author_MaheshNivruttiSutar @Zephyr-T35105`, () => {
+test.describe(`@Author_MaheshNivruttiSutar @Zephyr-T35105 @Zephyr-IO-T35101 @Zephyr-IO-T35106 @Zephyr-IO-T35107`, () => {
   test.afterEach(async ({ io, page }) => {
     let intId = await io.api.getIntegrationDetails("IO-T35096_NSAW_Delete", "_id");
     await io.api.deleteIntegration(intId);
