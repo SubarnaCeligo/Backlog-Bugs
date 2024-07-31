@@ -7,7 +7,7 @@ test.describe("C119145 Verify the Reset template,query and script button in AFE 
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.flowBuilder.loadingTime();
   });
-  test("@Env-All C119145  Verify the Reset template,query and script button in AFE windows for Monitor User", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T C119145  Verify the Reset template,query and script button in AFE windows for Monitor User", async ({ io, page }) => {
     const res = await io.api.processAshareData(testData);
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();
