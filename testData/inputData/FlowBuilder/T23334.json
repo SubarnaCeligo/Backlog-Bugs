@@ -1,0 +1,88 @@
+{
+    "name": "TC_T23334",
+    "pageGenerators": [
+      {
+        "type": "export",
+        "qa__export": {
+            "_id": "6603d5b64edd163018d45b5f",
+            "name": "Netsuite Export Mockdata",
+            "_connectionId": "NETSUITE CONNECTION",
+            "apiIdentifier": "e8336a461d",
+            "asynchronous": true,
+            "type": "test",
+            "oneToMany": false,
+            "test": {
+              "limit": 1
+            },
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "criteria": [],
+                "columns": [],
+                "recordType": "customer",
+                "searchId": "1913",
+                "restletVersion": "suiteapp2.0",
+                "markExportedBatchSize": 100
+              },
+              "distributed": {
+                "executionContext": [],
+                "executionType": []
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+            
+                "_id": "66a88dbdfd880b324475ab6d",
+                "name": "Test Import",
+                "_connectionId": "NETSUITE CONNECTION",
+                "distributed": true,
+                "apiIdentifier": "i1c68ee930",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "lookups": [],
+                "netsuite_da": {
+                  "restletVersion": "suiteapp2.0",
+                  "operation": "add",
+                  "recordType": "customer",
+                  "lookups": [],
+                  "mapping": {
+                    "fields": [],
+                    "lists": []
+                  }
+                },
+                "adaptorType": "NetSuiteDistributedImport"
+              
+        }
+      }
+    ],
+    "createFlow": {
+      "name": "TC_T23334",
+      "disabled": false,
+      "skipRetries": false,
+      "pageProcessors": [
+        {
+          "responseMapping": {
+            "fields": [],
+            "lists": []
+          },
+          "type": "import",
+          "_importId": "UPDATE WITH NEW IMPORTID"
+        }
+      ],
+      "pageGenerators": [
+        {
+          "_exportId": "UPDATE WITH NEW EXPORTID"
+        }
+      ]
+    }
+  }
+  
