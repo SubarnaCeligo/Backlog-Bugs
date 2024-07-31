@@ -18,7 +18,7 @@ test.describe("T28413_T28457_T28458_T28459 Verify XML parser help for FTP, Gdriv
 
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'FTP CONNECTION');
-        await io.flowBuilder.clickByText('FTP CONNECTION');
+        await io.exportsPage.clickByTextByIndex('FTP CONNECTION', 0);
         await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'FTP_Export');
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADVANCE);
@@ -50,7 +50,7 @@ test.describe("T28413_T28457_T28458_T28459 Verify XML parser help for FTP, Gdriv
 
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'S3 CONNECTION');
-        await io.flowBuilder.clickByText('S3 CONNECTION');
+        await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);
         await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'S3_Export');
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADVANCE);
@@ -71,7 +71,10 @@ test.describe("T28413_T28457_T28458_T28459 Verify XML parser help for FTP, Gdriv
         await io.assert.verifyElementTextByIndex(selectors.flowBuilderPagePO.SCRIPT_RESULT_VARIABLES, '\"ns1:OrganizationId\"', 3);
         await io.assert.verifyElementTextByIndex(selectors.flowBuilderPagePO.SCRIPT_RESULT_VARIABLES, '\"ns1:OrganizationCode\"', 4);
     });
-
+     // Commenting below test as it is not valid now as per Epics 
+     // Epic 1: https://celigo.atlassian.net/browse/CON-8238 
+     // Epic 2: https://celigo.atlassian.net/browse/IO-79313
+     /*
     test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28458 @Env-All Verify XML parser help for Google Drive with proper resource path", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();
@@ -82,7 +85,7 @@ test.describe("T28413_T28457_T28458_T28459 Verify XML parser help for FTP, Gdriv
 
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'GOOGLEDRIVE CONNECTION');
-        await io.flowBuilder.clickByText('GOOGLEDRIVE CONNECTION');
+        await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);
         await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'gDrive_Export');
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADVANCE);
@@ -103,7 +106,7 @@ test.describe("T28413_T28457_T28458_T28459 Verify XML parser help for FTP, Gdriv
         await io.assert.verifyElementTextByIndex(selectors.flowBuilderPagePO.SCRIPT_RESULT_VARIABLES, '\"ns1:OrganizationId\"', 3);
         await io.assert.verifyElementTextByIndex(selectors.flowBuilderPagePO.SCRIPT_RESULT_VARIABLES, '\"ns1:OrganizationCode\"', 4);
     });
-
+    */
     test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28459 @Env-All Verify XML parser help for Dropbox with proper resource path", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();
@@ -114,7 +117,7 @@ test.describe("T28413_T28457_T28458_T28459 Verify XML parser help for FTP, Gdriv
 
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'DROPBOX CONNECTION');
-        await io.flowBuilder.clickByText('DROPBOX CONNECTION');
+        await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);
         await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'Dropbox_Export');
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADVANCE);
