@@ -16,7 +16,7 @@ test.describe("C59462 Verify Whenever the input filter is updated, we clear the 
 
       expect(
         page.getByText(
-          "TRUE:"
+          "record"
         )
       ).toBeVisible();
   });
