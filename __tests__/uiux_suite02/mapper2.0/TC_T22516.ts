@@ -10,9 +10,6 @@ test.describe(`C52210 Verify the UI error pop up when there are multiple errors 
     const id = await io.createResourceFromAPI(testData, "FLOWS");
     await page.getByLabel("Define options").nth(1).click();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);
-    let destinationFields = page.locator(
-      selectors.mappings.MAPPER2DOT0PO.DESTINATIONFIELDS
-    );
 
     await io.flowBuilder.click(
       selectors.mappings.MAPPER2DOT0PO.DESTINATIONFIELDS
@@ -21,20 +18,17 @@ test.describe(`C52210 Verify the UI error pop up when there are multiple errors 
     await page.keyboard.type("company");
 
     await io.flowBuilder.click(
-      '[aria-label="Data type: string - Click to change"]'
+        selectors.mappings.MAPPER2DOT0PO.DESTINATIONFIELDS_DATA_TYPE
     );
 
-    const close1 = await page.$$('[id="dataTypesListItem"]');
+    const close1 = await page.$$(selectors.mappings.MAPPER2DOT0PO.DATATYPESLISTITEM);
     await close1[2].click();
 
-    let sourcenFields = page.locator(
-      selectors.mappings.MAPPER2DOT0PO.SOURCEFIELDS
-    );
 
     await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.SOURCEFIELDS);
     await page.keyboard.type("$[*].id");
 
-    await io.flowBuilder.click('[data-test*="fieldMappingAdd-"]');
+    await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.ADD_FIELD_MAPPING);
 
     await io.homePage.loadingTime();
 
@@ -42,7 +36,7 @@ test.describe(`C52210 Verify the UI error pop up when there are multiple errors 
     await io.flowBuilder.addStep("Clicked on 'Preview'");
 
     await io.homePage.loadingTime();
-    let text = (await io.homePage.getText('[data-test="codePanel"]')).toString();
+    let text = (await io.homePage.getText(selectors.mappings.MAPPER2DOT0PO.CODE_PANEL)).toString();
 
     let result = false;
     if(text.includes(`Message:·company:·You·can't·map·stringarray·(source)·to·boolean·(destination)`)){
