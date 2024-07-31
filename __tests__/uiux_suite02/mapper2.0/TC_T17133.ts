@@ -14,9 +14,11 @@ test.describe("C59462 Verify Whenever the input filter is updated, we clear the 
 
       await io.homePage.loadingTime();
 
+      await page.pause();
+
       expect(
         page.getByText(
-          "record"
+          "FALSE:"
         )
       ).toBeVisible();
   });
