@@ -10,7 +10,11 @@ test.describe("C28952 Verify the audit log retention, ßconcurrency for expired 
     await io.homePage.reloadPage();
     const licenses = await io.api.getCall("v1/licenses");
     const platformLicense = licenses.find(l => l.type === "platform");
-
+    const payloadFormat = {
+      ...getLicensePayload(platformLicense),
+      expires: "2044-04-10T13:14:33.363Z",
+      apiManagement: true
+    };
     await io.api.putCall(
       `v1/test/licenses/${platformLicense._id}`,
       {...getLicensePayload(platformLicense), sandbox: false, "apiManagement": true, "expires": "2044-04-10T13:14:33.363Z"}
@@ -27,9 +31,6 @@ test.describe("C28952 Verify the audit log retention, ßconcurrency for expired 
     await io.myAccountPage.click(selectors.myAccountPagePO.AUDIT_LOG);
     await io.assert.verifyElementIsDisplayed(selectors.myAccountPagePO.AUDIT_LOG, "More options available - Upgrade your account for longer audit log periods.");
     await io.assert.verifyElementIsDisplayed(selectors.myAccountPagePO.SUBSCRIPTION, "Your subscription has expired. Request to renew now");
-    await io.api.putCall(
-      `v1/test/licenses/${platformLicense._id}`,
-      getLicensePayload(platformLicense)
-    );
+    await io.api.putCall(`v1/test/licenses/${payloadFormat._id}`, payloadFormat);
   });
 });

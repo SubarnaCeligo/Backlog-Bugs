@@ -1,0 +1,119 @@
+{
+    "name": "IO-T33534",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "test netsuite export",
+                "_connectionId": "NETSUITE CONNECTION",
+                "apiIdentifier": "e08412ca91",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "netsuite": {
+                    "type": "restlet",
+                    "skipGrouping": true,
+                    "statsOnly": false,
+                    "restlet": {
+                        "recordType": "account",
+                        "searchId": "-71",
+                        "criteria": [],
+                        "columns": [],
+                        "restletVersion": "suiteapp2.0",
+                        "markExportedBatchSize": 100
+                    },
+                    "distributed": {
+                        "executionContext": [],
+                        "executionType": []
+                    }
+                },
+                "adaptorType": "NetSuiteExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "Http Import",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "_sourceId": "6500270cb522194d10688013",
+                "apiIdentifier": "i335578e39",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": [
+                        "/users"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "createFlow": {
+        "name": "IO-T33534",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+        ]
+    },
+    "CustomJson": {
+        "useAsPrimaryInterface": true,
+        "fieldMap": {
+            "pathparam": {
+                "id": "pathparam",
+                "name": "pathparam",
+                "type": "text",
+                "label": "Account number",
+                "required": true,
+                "helpText": "Enter an account number, and separate additional values with a comma."
+            }
+        },
+        "layout": {
+            "fields": [
+                "pathparam"
+            ]
+        }
+    },
+    "CustomJson1": {
+        "useAsPrimaryInterface": false,
+        "fieldMap": {
+            "pathparam": {
+                "id": "pathparam",
+                "name": "pathparam",
+                "type": "text",
+                "label": "Account number",
+                "required": true,
+                "helpText": "Enter an account number, and separate additional values with a comma."
+            }
+        },
+        "layout": {
+            "fields": [
+                "pathparam"
+            ]
+        }
+    }
+}

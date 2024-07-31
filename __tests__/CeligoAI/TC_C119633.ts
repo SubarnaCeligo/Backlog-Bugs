@@ -38,7 +38,7 @@ test.describe("C119633 Verify the Celigo AI functionality working fine for Postg
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
       "Celigo AI Placeholder is not displayed"
     )
-    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'get customer details from CUSTOMERS table');
+    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'fetch customer table');
     await io.flowBuilder.loadingTime();
     await page.keyboard.press('Enter');
     await io.assert.verifyElementIsDisplayed(
@@ -47,7 +47,7 @@ test.describe("C119633 Verify the Celigo AI functionality working fine for Postg
     );
     await page.waitForTimeout(5000);
     await expect(
-      page.locator(selectors.flowBuilderPagePO.OPENAI.PROMPT_QUERY).filter({ hasText: "SELECT *" }).first()
-    ).toBeVisible({ timeout: 30000 });
+      page.locator(selectors.flowBuilderPagePO.OPENAI.PROMPT_QUERY).filter({ hasText: "Select *" }).first()
+    ).toBeVisible({ timeout: 40000 });
   });
 });

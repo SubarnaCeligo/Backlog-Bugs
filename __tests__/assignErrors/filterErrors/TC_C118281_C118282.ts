@@ -27,7 +27,7 @@ test.describe("C118281_C118282 Verify user email is displayed on filter UI when 
 
     //Open errors dashborad
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
-    await io.flowBuilder.waitForElementAttached('[aria-label="Assign errors"]');
+    await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
 
     //Click on Filter Icon
     await io.flowBuilder.click(selectors.filterErrorTag.ARIALABELFILTERERROR);

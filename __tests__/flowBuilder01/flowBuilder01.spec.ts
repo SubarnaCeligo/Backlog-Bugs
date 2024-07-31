@@ -97,32 +97,31 @@ var testCases = [
   "C113519",
   "C113933",
   "C113934",
-  "C115649",
   "C115891",
   "C117734_C117735",
   "C117737_C117736",
   "C117738",
   "C117739",
- // "C29786", commenting out this test case as we have an issue with code base in platform3 and 5 , will unpark these test cases once it is fixed
- // "C77690", commenting out this test case as we have an issue with code base in platform3 and 5 , will unpark these test cases once it is fixed
+  "C29786", 
+  "C77690",
   "C106421",
   "C24492",
   "C24622",
   "C24625",
   "IO-T32630",
   "IO-T32631",
-//  "IO-T31358", commenting out this test case as we have an issue with code base in platform3 and 5 , will unpark these test cases once it is fixed
- // "IO-T31357", commenting out this test case as we have an issue with code base in platform3 and 5 , will unpark these test cases once it is fixed
+  "IO-T31358",
+  "IO-T31357",
   "IO-T32695",
   "IO-T32813",
- // "IO-T32827", commenting out this test case as we have an issue with code base in platform3 and 5 , will unpark these test cases once it is fixed
- // "IO-T32829", commenting out this test case as we have an issue with code base in platform3 and 5 , will unpark these test cases once it is fixed
+  "IO-T32827",
+  "IO-T32829",
   "IO-T32943",
   "IO-T32987",
   "IOT6148",
   "C29041",
   "IO-T33533",
- // "IO-T33598", commenting out this test case as we have an issue with code base in platform3 and 5 , will unpark these test cases once it is fixed
+  "IO-T33598",
   "IO-T33600",
   // please do not add any more new test cases to flowbuilder01 suite, because load is getting increased during jenkins run and test cases are getting failed
 

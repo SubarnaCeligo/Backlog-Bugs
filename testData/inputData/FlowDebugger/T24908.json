@@ -1,0 +1,128 @@
+{
+    "name": "T24908",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "Acumatica Exp",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "ee668e7ac6",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "sandbox": false,
+                "aiDescription": {
+                    "summary": "The \"Acumatica Exp\" export is of type \"test\" and is configured to retrieve data from the \"/Customer\" endpoint of an application using a GET request. It is not set to retrieve multiple records at once and is not configured to run in a sandbox environment. During testing, it is limited to retrieving only 1 record.",
+                    "detailed": "This export is named \"Acumatica Exp\" and it is of type \"test\". The export is not set to retrieve multiple records at once (oneToMany is set to false) and it is not configured to run in a sandbox environment (sandbox is set to false).\n\nThe export uses the HTTP adaptor type and specifies that it will make a GET request to the \"/Customer\" endpoint of the connected application. The HTTP method is set to \"GET\" and the formType is set to \"http\".\n\nDuring testing, the export is limited to retrieving only 1 record (test.limit is set to 1).\n\nOverall, this export is configured to retrieve data from the \"Customer\" endpoint of an application using a GET request, and it is limited to retrieving only 1 record during testing."
+                },
+                "http": {
+                    "relativeURI": "/Customer",
+                    "method": "GET",
+                    "isRest": false,
+                    "formType": "http",
+                    "response": {
+                        "twoDArray": {
+                            "doNotNormalize": true
+                        }
+                    }
+                },
+                "test": {
+                    "limit": 1
+                },
+                "adaptorType": "HTTPExport"
+            }
+        },
+        {
+            "type": "export",
+            "qa__export": {
+              "name": "AutomationStandalone_DnRXG",
+              "_connectionId": "FTP CONNECTION",
+              "_sourceId": "662a273a265efa2565018987",
+              "apiIdentifier": "e7ec6cdaba",
+              "asynchronous": true,
+              "sandbox": false,
+              "ftp": {
+                  "directoryPath": "/io.auto.qa/BVAutoFTP"
+              },
+              "file": {
+                  "output": "records",
+                  "skipDelete": true,
+                  "type": "json",
+                  "filter": {
+                      "type": "expression",
+                      "expression": {
+                          "version": "1",
+                          "rules": [
+                              "contains",
+                              [
+                                  "string",
+                                  [
+                                      "extract",
+                                      "filename"
+                                  ]
+                              ],
+                              "NoArrayFieldsIO-34461"
+                          ]
+                      },
+                      "rules": [
+                          "contains",
+                          [
+                              "string",
+                              [
+                                  "extract",
+                                  "filename"
+                              ]
+                          ],
+                          "NoArrayFieldsIO-34461"
+                      ],
+                      "version": "1"
+                  }
+              },
+              "adaptorType": "FTPExport"
+          }
+          }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "FTP Import",
+                "_connectionId": "FTP CONNECTION",
+                "_sourceId": "652e1bf953c52832fb1c2493",
+                "apiIdentifier": "i1ea6b8265",
+                "oneToMany": false,
+                "file": {
+                "fileName": "file-{{timestamp}}.json",
+                "skipAggregation": false,
+                "type": "json"
+                },
+                "ftp": {
+                "directoryPath": "/Group-QA/ShritiS/Import",
+                "fileName": "file-{{timestamp}}.json"
+                },
+                "adaptorType": "FTPImport"
+                }
+        }
+    ],
+    "createFlow": {
+        "name": "T24908",
+        "disabled": false,
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID",
+                "skipRetries": false
+            }
+        ],
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "autoResolveMatchingTraceKeys": true
+    }
+}

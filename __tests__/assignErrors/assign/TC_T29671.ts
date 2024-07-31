@@ -23,6 +23,22 @@ test.describe("@Author - Shriti S T29671 - Verify that Clear assignment button i
     //Open errors dashborad
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
 
+    //Clear existing assignments
+    await io.flowBuilder.waitForElementAttached(selectors.dashboardPagePO.FA_FILTER_CHECKBOX);
+    await io.flowBuilder.click(selectors.dashboardPagePO.FA_FILTER_CHECKBOX);
+    
+    await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
+    await io.flowBuilder.click(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
+    
+    await io.flowBuilder.loadingTime();
+    let isClearButtonVisible = await io.flowBuilder.isVisible("text='Clear assignment'");
+    if (isClearButtonVisible){
+      await io.flowBuilder.clickByText('Clear assignment');
+      await io.flowBuilder.loadingTime();
+    }
+    await io.flowBuilder.waitForElementAttached(selectors.dashboardPagePO.FA_FILTER_CHECKBOX);
+    await io.flowBuilder.click(selectors.dashboardPagePO.FA_FILTER_CHECKBOX);
+
     //Hover on any error
     await io.flowBuilder.hover(selectors.em2DotOLineGraphPO.SELECTED_ERROR)
 

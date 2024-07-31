@@ -5,6 +5,7 @@ test.describe("@Author_MaheshNivruttiSutar Verify all connections are displayed 
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.loadingTime();
+        await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
     });
     test.afterEach(async ({ io }) => {
         await io.connections.deleteConnection('META INSTAGRAM ADS CONNECTION PLEASE DELETE');

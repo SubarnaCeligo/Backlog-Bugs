@@ -24,6 +24,22 @@ test.describe("C118305_C118308_C118309-Verify Assign error flyout when errors as
    //Open errors dashborad
    await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
 
+   //Clear existing assignments
+   await io.flowBuilder.waitForElementAttached(selectors.dashboardPagePO.FA_FILTER_CHECKBOX);
+   await io.flowBuilder.click(selectors.dashboardPagePO.FA_FILTER_CHECKBOX);
+   
+   await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
+   await io.flowBuilder.click(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
+   
+   await io.flowBuilder.loadingTime();
+   let isClearButtonVisible = await io.flowBuilder.isVisible("text='Clear assignment'");
+   if (isClearButtonVisible){
+     await io.flowBuilder.clickByText('Clear assignment');
+     await io.flowBuilder.loadingTime();
+   }
+   await io.flowBuilder.waitForElementAttached(selectors.dashboardPagePO.FA_FILTER_CHECKBOX);
+   await io.flowBuilder.click(selectors.dashboardPagePO.FA_FILTER_CHECKBOX);
+
    //Assign two errors to a user
    await io.flowBuilder.addStep("C118309-Verify clicking on 'Assign to me' during single error action assigns the error to logged in user"); 
    await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);

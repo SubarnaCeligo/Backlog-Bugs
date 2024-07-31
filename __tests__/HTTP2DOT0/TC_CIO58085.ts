@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("TC_CIO58085", () => {
-  test("@Env-All IO58085 framework2.0 changes for plaintext epic", async ({
+  test("@Env-All @Zephyr-IO-TIO58085 framework2.0 changes for plaintext epic", async ({
     io,
     page
   }) => {
@@ -34,7 +34,7 @@ test.describe("TC_CIO58085", () => {
       "Plain text"
     );
   });
-  test("@Env-All IO58085  Related fields should removed when Media type is Plain text", async ({
+  test("@Env-All @Zephyr-IO-TIO58085  Related fields should removed when Media type is Plain text", async ({
     io,
     page
   }) => {
@@ -127,7 +127,7 @@ test.describe("TC_CIO58085", () => {
       "Field limitFailpath is present in after Plain text is selected in Override media type for error responses field"
     );
   });
-  test("@Env-All IO58085  Related fields should present when Media type is Plain text and override media types are JSON or XML", async ({
+  test("@Env-All @Zephyr-IO-TIO58085  Related fields should present when Media type is Plain text and override media types are JSON or XML", async ({
     io,
     page
   }) => {
@@ -222,7 +222,7 @@ test.describe("TC_CIO58085", () => {
       "Field authFailPath is not present"
     );
   });
-  test("@Env-All IO58085  Related fields should show when Media type is Plain text and override media type for error responses is JSON or XML", async ({
+  test("@Env-All @Zephyr-IO-TIO58085  Related fields should show when Media type is Plain text and override media type for error responses is JSON or XML", async ({
     io,
     page
   }) => {
@@ -299,7 +299,7 @@ test.describe("TC_CIO58085", () => {
       "Field authFailPath is not present"
     );
   });
-  test("@Env-All IO58085  Related fields should show when Media type is Plain text and override media type for success responses is JSON or XML", async ({
+  test("@Env-All @Zephyr-IO-TIO58085  Related fields should show when Media type is Plain text and override media type for success responses is JSON or XML", async ({
     io,
     page
   }) => {
@@ -354,7 +354,7 @@ test.describe("TC_CIO58085", () => {
       "Field is not present in after JSON is selected in Override media type for success responses field"
     );
   });
-  test("@Env-All IO58085 Override media type for success responses field should have Plain text option", async ({
+  test("@Env-All @Zephyr-IO-TIO58085 Override media type for success responses field should have Plain text option", async ({
     io,
     page
   }) => {
@@ -387,7 +387,7 @@ test.describe("TC_CIO58085", () => {
       "Plain text"
     );
   });
-  test("@Env-All IO58085 When Override media type for success responses field is Plain text then remove related fields", async ({
+  test("@Env-All @Zephyr-IO-TIO58085 When Override media type for success responses field is Plain text then remove related fields", async ({
     io,
     page
   }) => {

@@ -5,10 +5,11 @@ test.describe("C112698 Verify Mapper2.0 is having Celigo AI", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
+  
   test("@Env-All @Zephyr-IO-T14690 C112698 Verify Mapper2.0 is having Celigo AI", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();
-    await io.flowBuilder.clickByText('TC47946_DND');
+    await io.flowBuilder.clickByText('Automapper_DND');
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
     //IMPORT_MAPPING 
@@ -29,7 +30,9 @@ test.describe("C112698 Verify Mapper2.0 is having Celigo AI", () => {
       "Celigo AI is not displayed"
     )
     //C112704 at least one row has a destination field added without any source field
-    await page.locator(selectors.flowBuilderPagePO.DESTINATION_MAPPING_PLACEHOLDER).nth(0).fill('id');
+    // await page.locator(selectors.flowBuilderPagePO.DESTINATION_MAPPING_PLACEHOLDER).nth(0).fill('studentName');
+    await page.getByPlaceholder('Destination field').click();
+    await io.flowBuilder.clickByText('studentName');
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.FORWINDOWCLICK);
     await io.flowBuilder.loadingTime();

@@ -4,7 +4,7 @@ import C110379 from '../../testData/inputData/FlowBuilder/C110379.json';
 
 
 test.describe("Validate the hover text of 'Enable flow' button on Flow Builder UI", () => {
-  test("Validate the hover text of 'Enable flow' button on Flow Builder UI @Env-All @Priority-P2", async ({ io, page }) => {
+  test("Validate the hover text of 'Enable flow' button on Flow Builder UI @Env-All @Priority-P2 @Zephyr-IO-T14101", async ({ io, page }) => {
     //Create a flow
     await io.createResourceFromAPI(C110379, "FLOWS");
 
@@ -24,7 +24,6 @@ test.describe("Validate the hover text of 'Enable flow' button on Flow Builder U
     const hoverText = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.RUNTEST_TOOLTIP)).toString();
 
     //Validate hover text
-    await io.assert.expectToContainValue('Your flow is currently disabled. Configure allflow steps to allow enabling your flow.',hoverText, 'Incorrect hover text' );
-    
+    await io.assert.expectToContainValue('Your flow is disabled. Enable the flow to transfer',hoverText, 'Incorrect hover text' );
   });
 });

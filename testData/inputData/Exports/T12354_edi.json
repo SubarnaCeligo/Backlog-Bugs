@@ -1,0 +1,23 @@
+{
+    "name": "12354",
+    "fileType": "edix12",
+    "isa01": "00",
+    "isa02": "0000",
+    "isa03": "00",
+    "isa04": "0000000000",
+    "tpIdQualifier": "ZZ",
+    "tpInterchangeId": "000000000000000",
+    "myIdQualifier": "14",
+    "myInterchangeId": "000000000000000",
+    "isa11": "U",
+    "isa12": "00401",
+    "isa14": "0",
+    "isa15": "T",
+    "isa16": "1",
+    "tpGroupId": "SENDERGS",
+    "myGroupId": "007326879",
+    "gs07": "X",
+    "gs08": "004010",
+    "controlNumber": 1,
+    "_sourceId": "667d197e64e5e5e28b8b7bf2"
+}

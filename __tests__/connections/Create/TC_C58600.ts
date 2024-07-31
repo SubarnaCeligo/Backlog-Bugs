@@ -10,6 +10,7 @@ test.describe("TC_C58600Verify creating connection throws error with iClient hav
         await io.connections.deleteConnection(connectionData.name);
         await io.myAccountPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
         await io.flowBuilder.loadingTime();
+        await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
       });
     test("@Zephyr-IO-T16988 @Env-All C58600 Verify creating connection throws error with iClient having domain have different values than Auth URI, access token URI, revoke token url", async ({ io, page}, testInfo) => {
         iClientId = await io.api.postCall(`v1/iclients`, iclientData);

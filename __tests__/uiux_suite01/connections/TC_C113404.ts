@@ -25,6 +25,7 @@ test.describe("C113404", () => {
     const monitorExp = await io.homePage.isVisible("text='Use JWT'");
     await io.assert.expectToBeValue(monitorExp.toString(), 'true', "Value is found");
   });
+
   test("@Env-QA @Env-IAQA @Zephyr-IO-T15071 C113405 Verify the signature field and dropdown values", async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
@@ -69,7 +70,7 @@ test.describe("C113404", () => {
     await io.flowBuilder.loadingTime();
     await io.connectionPage.waitForElementAttached(selectors.integrationPagePO.ADDNEWRESOURCE);
     await io.connectionPage.click(selectors.connectionsPagePO.CREATE_ICLIENT);
-    
+
     await io.connectionPage.waitForElementAttached(selectors.basePagePO.HTTP_2DOT0);
     await io.connectionPage.clickByIndex(selectors.basePagePO.HTTP_2DOT0, 1);
     await io.connectionPage.click(selectors.connectionsPagePO.JWTENABLE);
@@ -136,6 +137,7 @@ test.describe("C113404", () => {
     await io.connectionPage.selectTextfromDropDown(page, "Bearer");
     await io.connectionPage.click(selectors.basePagePO.SAVE_AND_CLOSE);
   });
+
   test("@Env-All @Zephyr-IO-T15075 C113411 Verify user is able to create connection using JWT", async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
@@ -149,6 +151,8 @@ test.describe("C113404", () => {
     await io.connectionPage.click(selectors.connectionsPagePO.ICLIENT_ID);
     await io.connectionPage.selectTextfromDropDown(page, "ICLIENT_DOCSIGN_DND");
   });
+
+
   test("@Env-QA @Env-IAQA @Zephyr-IO-T15076 C113412 Verify user is able to see JWT in edit case", async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
@@ -161,11 +165,28 @@ test.describe("C113404", () => {
     await io.connectionPage.selectTextfromDropDown(page, "oauth");
     await io.connectionPage.click(selectors.connectionsPagePO.ICLIENT_ID);
     await io.homePage.waitForElementAttached(selectors.connectionsPagePO.ICLIENT_LIST);
-    await io.homePage.clickByTextByIndex("3PL", 0);
+    let iclients = await io.api.getCall("v1/iclients");
+    let id = null;
+    if (iclients != null && iclients != undefined) {
+      for (const iclient of iclients) {
+        try {
+          id = iclient._id;
+          const name = iclient.name;
+          if (name == "3PL") {
+            break;
+          }
+
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    }
+    await io.connectionPage.selectTextfromDropDown(page, id);
     await io.connectionPage.click(selectors.connectionsPagePO.EDIT_RESOURCE);
     const monitorExp2 = await io.homePage.isVisible("text='Use JWT'");
     await io.assert.expectToBeValue(monitorExp2.toString(), 'true', "Value is found");
   });
+
   test("@Env-All @Zephyr-IO-T15079 C113420 Verify all the send token via dropdown values", async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
@@ -205,5 +226,4 @@ test.describe("C113404", () => {
     const monitorExp12 = await io.homePage.isVisible("text='Authorization code'");
     await io.assert.expectToBeValue(monitorExp12.toString(), 'true', "Value is found");
   });
-
 });

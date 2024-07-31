@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import { getLicensePayload } from "@celigo/aut-utilities";
 
 test.describe("T29046 Verify the flow entitlements for platform license for sandbox account.", () => {
-  test("T29046 @Zephyr-IO-T29046  @Env-All,iaqa @Priority-P2 Verify the flow entitlements for platform license for sandbox account.", async ({
+  test("T29046 @Zephyr-IO-T29046  @Env-All @Priority-P2 Verify the flow entitlements for platform license for sandbox account.", async ({
     io,
     page
   }) => {
@@ -21,8 +21,8 @@ test.describe("T29046 Verify the flow entitlements for platform license for sand
       ...payloadFormat,
       tier: "standard",
       sandbox: true,
-      numSandboxEndpoints: 1,
-      numSandboxFlows: 1,
+      numSandboxEndpoints: 0,
+      numSandboxFlows: 0,
     });
 
 

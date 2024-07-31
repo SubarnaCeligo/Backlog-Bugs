@@ -15,6 +15,10 @@ test.describe(`C24899 Monitor tile - Verify Reports Listing page should Contain 
       process.env["IO_UI_CONNECTOR_URL"] + "reports/eventreports"
     );
     await io.flowBuilder.loadingTime();
+    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.integrationPagePO.ADDNEWRESOURCE);
+    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.loadingTime();
     await io.assert.verifyElementDisplayedByText(
       "Flow events",
       "Report type filter is not displayed"

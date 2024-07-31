@@ -9,7 +9,8 @@ test.describe("TC_C27319 Verify the logs are shown correctly when scripts and co
     
     // Navigate to default integration
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"]);
-
+    await io.connectionPage.waitForElementAttached(selectors.homePagePO.PRODUCTION_BUTTON)
+    await io.connectionPage.click(selectors.homePagePO.PRODUCTION_BUTTON)
     // Search for a flow
     await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
     await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Branching_Scheduling_DND');

@@ -17,7 +17,7 @@ test.describe("C22764_Verify for the preview data panel the dropdown options are
         await io.homePage.click(selectors.connectionsPagePO.SHOPIFY_CONNECTION);
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fillByIndex(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'SHOPIFY CONNECTION', 0);
-        await io.flowBuilder.clickByText('SHOPIFY CONNECTION');
+        await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);
         await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'Shopify_Export');
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.homePage.loadingTime()

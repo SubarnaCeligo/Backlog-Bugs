@@ -1,0 +1,45 @@
+{
+  "type": "http",
+  "name": "T31328",
+  "sandbox": false,
+  "enableMicroBatchForOneToMany": true,
+  "http": {
+    "formType": "graph_ql",
+    "mediaType": "json",
+    "baseURI": "https://ioautomationshopify.myshopify.com/admin/api/2021-01/graphql.json",
+    "concurrencyLevel": 5,
+    "targetConcurrencyLevel": 5,
+    "ping": {
+      "method": "POST",
+      "body": "{\"query\":\"{\\\"query\\\":\\\"{  orders(first: 1) {    edges {      cursor      node {        id        discountCode        updatedAt        lineItems(first: 30) {          edges {            node {              id              quantity              sku              originalUnitPrice              fulfillmentService {                serviceName              }              taxLines {                rate                ratePercentage                title              }            }          }        }        risks {          level          message        }        paymentGatewayNames        billingAddress {          address1          address2          city          company          countryCode          name          provinceCode          phone          zip        }        shippingAddress {          address1          address2          city          company          countryCode          name          provinceCode          phone          zip        }        customer {          id          email         phone        }        transactions {          amount          kind          id          gateway          status          authorizationCode          amountV2 {            currencyCode            amount          }          order {            id          }        }      }    }  }}\\\"}\"}"
+    },
+    "isRest": false,
+    "auth": {
+      "type": "basic",
+      "basic": {
+        "username": "be6e0285a1973dacaf53253edd85a56f",
+        "password": "a422f52324ff2aa53d6a1d6e3d898944"
+      }
+    }
+  },
+  "autoRecoverRateLimitErrors": true,
+  "microServices": {
+    "disableNetSuiteWebservices": false,
+    "disableRdbms": false,
+    "disableNetSuiteDistributed": false,
+    "disableNetSuiteProxy": false,
+    "disableHttp": false,
+    "disableS3": false,
+    "disableSalesforce": false,
+    "disableAs2": false,
+    "disableFile": false,
+    "disableFtp": false,
+    "disableNsFile": false
+  },
+  "queues": [
+    {
+      "name": "6694dafe56a235bfbabfde60",
+      "size": 0
+    }
+  ]
+}

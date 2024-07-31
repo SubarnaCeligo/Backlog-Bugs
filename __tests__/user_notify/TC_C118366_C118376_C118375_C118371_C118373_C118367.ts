@@ -53,7 +53,7 @@ console.log("this is link",link)
 
     if (Array.isArray(link)) {
       const allLinks =link.filter(str => str.includes(keyword));
-      let stepName=allLinks[1].replace(/\\r|\\n/g, '')
+      let stepName = allLinks[1].replace(/\\r|\\n|>[^\r\n]*/g, '');
       const isNotLoggedIn = await io.loginPage.checkLoginState();
       // await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
           // Navigate to default integration
@@ -109,10 +109,10 @@ console.log("this is link",link)
     }
     await io.homePage.reloadPage();
     await io.homePage.reloadPage();
-    await io.loginPage.fill(selectors.loginPagePO.EMAIL, process.env["IO_UserName"]);
-    await io.loginPage.fill(selectors.loginPagePO.PASSWORD, decrypt(process.env["IO_Password"]));
-    await io.loginPage.click(selectors.basePagePO.SUBMIT);
-    await page.pause();
-
+    // await io.loginPage.fill(selectors.loginPagePO.EMAIL, process.env["IO_UserName"]);
+    // await io.loginPage.fill(selectors.loginPagePO.PASSWORD, decrypt(process.env["IO_Password"]));
+    // await io.loginPage.click(selectors.basePagePO.SUBMIT);
+    // console.log("this is username",decrypt(process.env["IO_UserName"]))
+    // console.log("this is password",decrypt(process.env["IO_Password"]))
   });
 });

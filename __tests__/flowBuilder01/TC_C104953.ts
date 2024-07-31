@@ -2,8 +2,9 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C104953 MY API is mistakenly referring to MY API basics page in Functions and Scripts Help Texts UI_Backlog", () => {
-  test("C104953 MY API is mistakenly referring to MY API basics page in Functions and Scripts Help Texts UI_Backlog @Env-All @Priority-P2", async ({ io, page }) => {
+  test("C104953 MY API is mistakenly referring to MY API basics page in Functions and Scripts Help Texts UI_Backlog @Env-All @Zephyr-IO-T1921 @Priority-P2", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+    await io.flowBuilder.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "TC47946_DND");
     await io.flowBuilder.clickByText('TC47946_DND');
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
 

@@ -1,0 +1,82 @@
+{
+    "_id": "652e15d26819f54a81ada56f",
+    "name": "T2492 Flow",
+    "disabled": true,
+    "_integrationId": "65239b7a699d210c29d7b67e",
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "_id": "652e1bceb2909f032af4f97e",
+                "name": "FTP Export",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "eebcca58d7",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/Group-QA/ShritiS"
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "filter": {
+                        "type": "expression",
+                        "expression": {
+                            "rules": [],
+                            "version": "1"
+                        },
+                        "rules": [],
+                        "version": "1"
+                    }
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "_id": "652e1bf953c52832fb1c2493",
+                "name": "FTP Import",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "i786e3ba03",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "file-{{timestamp}}.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "/Group-QA/ShritiS/Import",
+                    "fileName": "file-{{timestamp}}.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ],
+    "createFlow": {
+        "_id": "652e15d26819f54a81ada56f",
+        "name": "T2492 Flow",
+        "disabled": true,
+        "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID",
+                "skipRetries": false
+            }
+        ],
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "autoResolveMatchingTraceKeys": true
+    }
+}

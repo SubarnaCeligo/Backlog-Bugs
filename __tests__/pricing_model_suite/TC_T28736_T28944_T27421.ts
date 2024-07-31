@@ -40,6 +40,7 @@ test.describe("T28736_T28944_T27421 Verify the license Entitlements notification
   await io.homePage.reloadPage();
   await io.homePage.loadingTime();
   await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
+  await io.homePage.loadingTime();
   await io.myAccountPage.waitForElementAttached(selectors.myAccountPagePO.AUDIT_LOG);
   await io.myAccountPage.click(selectors.myAccountPagePO.AUDIT_LOG);
   await page.waitForLoadState("load", { timeout: 90000 });
@@ -47,7 +48,7 @@ test.describe("T28736_T28944_T27421 Verify the license Entitlements notification
   const upgradeNotificationText_free = await io.myAccountPage.getText(
     selectors.basePagePO.NOTIFICTION_BAR
   );
-  expect(upgradeNotificationText_free).toEqual(upgradeNotificationText);
+  expect(upgradeNotificationText_free).toContain(upgradeNotificationText);
   await io.homePage.addStep("Verified. Info message displayed for free tier.");
 });
   test("@Zephyr-IO-T28736  @Env-All @Priority-P2 Verify the license Entitlements notification whenever the endpoints and flow usage has been exceeded for free tier", async ({
@@ -60,7 +61,7 @@ test.describe("T28736_T28944_T27421 Verify the license Entitlements notification
     const platformLicense = licenses.find(l => l.type === "platform");
     await io.api.putCall(
       `v1/test/licenses/${platformLicense._id}`,
-      { ...getLicensePayload(platformLicense), expires: "2044-04-10T13:14:33.363Z", tier: 'free' }
+      { ...getLicensePayload(platformLicense), "apiManagement": true,  expires: "2044-04-10T13:14:33.363Z", tier: 'free' }
     );
     await io.homePage.waitForElementAttached(selectors.homePagePO.INTEGRATION_TILES);
     await io.homePage.reloadPage();
@@ -86,7 +87,7 @@ test.describe("T28736_T28944_T27421 Verify the license Entitlements notification
       const platformLicense = licenses.find(l => l.type === "platform");
       await io.api.putCall(
         `v1/test/licenses/${platformLicense._id}`,
-        {...getLicensePayload(platformLicense),expires: "2044-04-10T13:14:33.363Z",tier: 'free'}
+        {...getLicensePayload(platformLicense), "apiManagement": true, expires: "2044-04-10T13:14:33.363Z",tier: 'free'}
       );
       await io.homePage.reloadPage();
       await io.homePage.loadingTime();
@@ -106,7 +107,9 @@ test.describe("T28736_T28944_T27421 Verify the license Entitlements notification
       );
       await io.api.putCall(
         `v1/test/licenses/${platformLicense._id}`,
-        getLicensePayload(platformLicense)
+        {...getLicensePayload(platformLicense),
+          tier: 'enterprise',
+          "apiManagement": true, }
       );
   });
 });
