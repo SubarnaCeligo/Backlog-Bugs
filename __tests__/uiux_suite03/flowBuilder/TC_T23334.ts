@@ -1,6 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import T23334 from "@testData/flowBuilder/T23334.json";
+import T23334 from "@testData/FlowBuilder/T23334.json";
 
 test.describe("TC_T23334 Verify that ‘View results' indicator should disappear if a user refreshes the browser or logs out", () => {
   let id;
