@@ -13,7 +13,7 @@ test.describe("TC_IO-T4959_IO-T4958_IO-T4956_IO-T4954_IO-T4955", () => {
         await io.api.deleteFlowViaAPI(flowMap.get(IO_T4959.qa__api_tdata[0].name)['flowId']);
         await io.api.deleteScriptViaAPI(preMap);
     });
-    test("@Env-All Verify the fetching progress bar indicator is shown for listener logs and script logs", async ({ 
+    test("@Env-All @Zephyr-IO-T4959 Verify the fetching progress bar indicator is shown for listener logs and script logs", async ({ 
         io, page
     }) => {
         //IO-T4959
