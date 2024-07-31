@@ -18,7 +18,7 @@ test.describe("C53094 Verify the search with 100+ mappings", () => {
       
       await expect(page.getByText("1 match").first()).toBeVisible();
 
-      await io.flowBuilder.click('[data-test*="fieldMappingAdd-"]');
+      await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.ADD_FIELD_MAPPING);
 
       await io.homePage.loadingTime();
   });
