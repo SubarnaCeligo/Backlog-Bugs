@@ -43,17 +43,11 @@ test.describe("T12354 Test to validate auto preview on File parser window", () =
         await io.exportsPage.loadingTime();
         await io.exportsPage.waitForElementAttached(selectors.exportsPagePO.PARSING_DEF_DROPDOWN);
         await io.exportsPage.clickByIndex(selectors.exportsPagePO.PARSING_DEF_DROPDOWN, 0);
-        for (let i = 0; i < 5; i++) {
-            await io.exportsPage.loadingTime();
-        }
 
         await io.exportsPage.addStep('*** Saving the Export ***');
         await io.exportsPage.fill(selectors.flowBuilderPagePO.DIRECTORYPATH, '/io.auto.qa/FTP_UI_AUTOMATION/EXPORTS');
         await io.exportsPage.loadingTime();
         await io.exportsPage.clickByText('Save');
-        for (let i = 0; i < 5; i++) {
-            await io.exportsPage.loadingTime();
-        }
 
         await io.exportsPage.addStep('*** Adding sample data ***');
         const exportId = page.url().match(/exports\/([^\/?]+)\?/)[1];

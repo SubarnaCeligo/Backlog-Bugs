@@ -1,6 +1,6 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import testData from "@testData/flowBuilder/T22530.json";
+import testData from "@testData/FlowBuilder/T22530.json";
 
 test.describe('T22530 - Verify whether user is able to modify current source of array type field [object] [number] [string] [ boolean]', () => {
     test('@Zephyr-IO-T22530 @Env-All @Priority-P2 T22530 Verify whether user is able to modify current source of array type field [object] [number] [string] [boolean]', async ({ io, page }) => {
