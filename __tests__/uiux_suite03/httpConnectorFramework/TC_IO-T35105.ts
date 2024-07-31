@@ -59,9 +59,9 @@ test.describe("@Author_MaheshNivruttiSutar @Zephyr-T35105'", () => {
         await io.flowBuilder.click(selectors.importPagePO.MYINTEGER);
         const myInt = await io.flowBuilder.isVisible('text="MYINTEGER"');
         await io.assert.expectToBeFalse(myInt, "MYINTEGER primary key is displayed.");
-        await io.flowBuilder.click('[aria-label="Remove MYDATE"]'); //MYDATE
-        await io.flowBuilder.click('[aria-label="Remove MYFLOAT"]'); //MYFLOAT
-        await io.flowBuilder.click('[aria-label="Remove MYCHAR"]'); //MYCHAR
+        await io.flowBuilder.click(selectors.importPagePO.MYDATE); //MYDATE
+        await io.flowBuilder.click(selectors.importPagePO.MYFLOAT); //MYFLOAT
+        await io.flowBuilder.click(selectors.importPagePO.MYCHAR); //MYCHAR
         await io.flowBuilder.loadingTime();
         expect(await page.locator(selectors.importPagePO.PRIMARY_KEY_PLACEHOLDER)).toBeVisible();
         await io.connectionPage.addStep("Verified user is able to remove the primary keys.");
