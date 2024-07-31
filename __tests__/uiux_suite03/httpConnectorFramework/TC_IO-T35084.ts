@@ -7,7 +7,7 @@ test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T35102 @Zephyr-IO-T35100 @
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.loadingTime();
     });
-    test("@Epic-IO-76800 @Priority-P2 @Env-QA @Zephyr-IO-T35102 @Zephyr-IO-T35100 @Zephyr-IO-T35084 @Zephyr-IO-T35085 @Zephyr-IO-T35102'", async ({ io, page }) => {
+    test("@Epic-IO-76800 @Priority-P2 @Env-All @Zephyr-IO-T35102 @Zephyr-IO-T35100 @Zephyr-IO-T35084 @Zephyr-IO-T35085 @Zephyr-IO-T35102'", async ({ io, page }) => {
         await io.homePage.goToMenu("Tools", "Flow builder");
         await io.flowBuilder.loadingTime();
 
@@ -72,7 +72,7 @@ test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T35102 @Zephyr-IO-T35100 @
         await io.assert.expectToBeTrue(id, "ID primary key is not displayed.");
 
     });
-    test('@Epic-IO-76800 @Zephyr-IO-T35081 @Priority-P2 @Env-QA Verify if Mappings should be supported for new query type "Use optimized bulk load (recommended for larger imports)"', async ({ io, page }) => {
+    test('@Epic-IO-76800 @Zephyr-IO-T35081 @Priority-P2 @Env-All Verify if Mappings should be supported for new query type "Use optimized bulk load (recommended for larger imports)"', async ({ io, page }) => {
         //IO-T35081 Verify if Mappings should be supported for new query type "Use optimized bulk load (recommended for larger imports)"
         await io.createResourceFromAPI(testData, "FLOWS");
         await io.homePage.loadingTime();

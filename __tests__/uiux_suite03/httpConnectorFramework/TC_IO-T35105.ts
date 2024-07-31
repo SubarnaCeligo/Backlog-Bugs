@@ -6,7 +6,7 @@ test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T35105 @Zephyr-IO-T35103 @
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.loadingTime();
     });
-    test("@Epic-IO-76800 @Priority-P2 @Env-QA @Zephyr-IO-T35105 @Zephyr-IO-T35103 @Zephyr-IO-T35090 @Zephyr-IO-T35092'", async ({ io, page }) => {
+    test("@Epic-IO-76800 @Priority-P2 @Env-All @Zephyr-IO-T35105 @Zephyr-IO-T35103 @Zephyr-IO-T35090 @Zephyr-IO-T35092'", async ({ io, page }) => {
         await io.homePage.goToMenu("Tools", "Flow builder");
         await io.flowBuilder.loadingTime();
 
