@@ -2,12 +2,12 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/HTTP2DOT0/TC_IO-T35081.json";
 
-test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T35102'", () => {
+test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T35102 @Zephyr-IO-T35100 @Zephyr-IO-T35084 @Zephyr-IO-T35085 @Zephyr-IO-T35102 @Zephyr-IO-T35081'", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.loadingTime();
     });
-    test("@Epic-IO-76800 @Priority-P2 @Env-QA @Zephyr-IO-T35102'", async ({ io, page }) => {
+    test("@Epic-IO-76800 @Priority-P2 @Env-QA @Zephyr-IO-T35102 @Zephyr-IO-T35100 @Zephyr-IO-T35084 @Zephyr-IO-T35085 @Zephyr-IO-T35102'", async ({ io, page }) => {
         await io.homePage.goToMenu("Tools", "Flow builder");
         await io.flowBuilder.loadingTime();
 
