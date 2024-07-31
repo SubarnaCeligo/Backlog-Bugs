@@ -19,7 +19,7 @@
                 "skipAggregation": true
             },
             "ftp": {
-                "fileName": "skipaggfile-{{timestamp \"YYYY-MM-DDTHH:mm:ssZ\" \"Asia/Calcutta\"}}.json",
+                "fileName": "TC_493.json",
                 "directoryPath": "/io.auto.qa/IO Automation SFTP Imports"
             },
             "_connectionId": "FTP CONNECTION",

@@ -67,7 +67,7 @@
             "oneToMany": false,
             "sandbox": false,
             "file": {
-                "fileName": "TC_C2661-{{timestamp \"YYYY-MM-DDTHH:mm:ssZ\" \"Asia/Calcutta\"}}.edi",
+                "fileName": "TC_C2661.edi",
                 "skipAggregation": true,
                 "type": "filedefinition",
                 "qa__type": "delimited/edifact",
@@ -655,7 +655,7 @@
             },
             "ftp": {
                 "directoryPath": "/io.auto.qa/IO_UI_Automation",
-                "fileName": "TC_C2661-{{timestamp \"YYYY-MM-DDTHH:mm:ssZ\" \"Asia/Calcutta\"}}.edi"
+                "fileName": "TC_C2661.edi"
             },
             "adaptorType": "FTPImport"
         }
