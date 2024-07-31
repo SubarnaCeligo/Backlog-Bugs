@@ -23,9 +23,9 @@ test.describe("TC_C98691  If the error is resolved in production flow then it is
         await io.homePage.loadingTime();
         await page.getByText("Failed").waitFor({ state: "visible", timeout:360000 });
         await io.flowBuilder.loadingTime();
-        await io.flowBuilder.clickByTextByIndex('1 error', 0);
+        await io.flowBuilder.click('td button');
         await io.flowBuilder.loadingTime();
-        await io.flowBuilder.clickByText('Open errors');
+        // await io.flowBuilder.clickByText('Open errors');
         await io.flowBuilder.reloadPage();
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RESOLVE_JOBS);
         await io.flowBuilder.click(selectors.basePagePO.DATA_VALUE_ALL);
