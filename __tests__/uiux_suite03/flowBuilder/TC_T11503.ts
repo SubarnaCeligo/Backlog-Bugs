@@ -9,9 +9,6 @@ test.describe('T11503 Verify Sample data is shown when we apply resource path fo
     });
     test('"@Zephyr-IO-T11503 @Env-All Verify Sample data is shown when we apply resource path for FTP/S3 exports ', async ({ io, page }) => {
         id = await io.createResourceFromAPI(T11503, "FLOWS");
-        await io.homePage.navigateTo(
-            process.env["IO_Integration_URL"] + "flowBuilder/" + id
-        );
         await io.flowBuilder.loadingTime();
         //wait for flow to load
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.TRANSFER);
