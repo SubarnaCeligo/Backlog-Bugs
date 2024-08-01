@@ -1,0 +1,79 @@
+{
+  "resource": {
+    "_id": "66853bda92a8f8f6a6af520e",
+    "createdAt": "2024-07-03T11:54:02.137Z",
+    "lastModified": "2024-07-03T11:54:02.756Z",
+    "name": "Salesforce Product Id Write Back to NetSuite",
+    "responseTransform": {
+      "type": "expression",
+      "expression": {
+        "version": "1"
+      }
+    },
+    "_connectionId": "66839218b9b253f064ac9c01",
+    "_integrationId": "6683921892a8f8f6a6905732",
+    "_connectorId": "5b61ae4aeb538642c26bdbe6",
+    "externalId": "salesforce_product_id_writeback_import",
+    "distributed": true,
+    "apiIdentifier": "i6df7b445d",
+    "lookups": [],
+    "netsuite_da": {
+      "restletVersion": "suitebundle",
+      "operation": "update",
+      "recordType": "itemgroup",
+      "internalIdLookup": {
+        "expression": "[\"internalid\",\"anyof\",\"{{{internalid}}}\"]"
+      },
+      "lookups": [],
+      "mapping": {
+        "fields": [],
+        "lists": []
+      },
+      "hooks": {
+        "postMap": {
+          "fileInternalId": "SuiteApps/com.celigo.salesforceio/build/Celigo_SalesforceIOConnector.closure.js",
+          "function": "salesforceProductIdImportPostMapHook"
+        }
+      }
+    },
+    "adaptorType": "NetSuiteDistributedImport",
+    "settingsForm": {
+      "form": {
+        "fieldMap": {},
+        "layout": {
+          "fields": []
+        }
+      }
+    }
+  },
+  "parentResource": {},
+  "license": {
+    "_id": "667beaf7aeb9d68fbd54617f",
+    "created": "2024-06-26T10:18:31.336Z",
+    "lastModified": "2024-07-02T05:37:28.734Z",
+    "expires": "2027-06-26T18:29:59.999Z",
+    "type": "connector",
+    "_connectorId": "5b61ae4aeb538642c26bdbe6",
+    "opts": {
+      "addonLicenses": [
+        {
+          "licenses": [
+            {
+              "addOnId": "contractRenewals"
+            },
+            {
+              "addOnId": "quotes"
+            }
+          ],
+          "type": "addon"
+        }
+      ],
+      "connectorEdition": "premium"
+    },
+    "_integrationId": "6683921892a8f8f6a6905732",
+    "sandbox": false,
+    "resumable": false
+  },
+  "parentLicense": {},
+  "sandbox": false
+}

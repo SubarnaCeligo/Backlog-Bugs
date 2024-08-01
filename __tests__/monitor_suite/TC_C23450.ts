@@ -1,8 +1,6 @@
 import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import testData from "@testData/monitorSuite/monitor_all_manage_few.json";
-import TC from "@testData/Connections/Create/Create_Connection_HTTP_Basic_JSON_Zendesk.json";
-import { decrypt } from "@celigo/aut-utilities";
+import testData from "@testData/monitorSuite/monitor_all_manage_few_Ci_user.json";
 
 test.describe(`@Author-ashu-g TC_C23450 Trying to create a connection at the export/import step is not working for integration with manage permissions`, () => {
    test.afterEach(async ({ io }) => {
@@ -14,10 +12,8 @@ test.describe(`@Author-ashu-g TC_C23450 Trying to create a connection at the exp
     io
   }) => {
     // update the ashare with right permissions
-    const res = await io.api.putCall(
-      `v1/ashares/${process.env.IO_Ashare_ID}`,
-      testData
-    );
+    await io.api.processAshareData(testData);
+    await io.flowBuilder.loadingTime();
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();
     await io.exportsPage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW);
@@ -31,11 +27,11 @@ test.describe(`@Author-ashu-g TC_C23450 Trying to create a connection at the exp
     // create new dummy connection
     await io.homePage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
     await io.homePage.fillByIndex(selectors.basePagePO.NAME, 'Zendesk Manage Connection TC_C23450', 1);
-    await io.homePage.fill(selectors.connectionsPagePO.BASE_URI_INPUT, TC.importJSON.http.baseURI);
+    await io.homePage.fill(selectors.connectionsPagePO.BASE_URI_INPUT, "https://d3v-celigolabs.zendesk.com/api/v2/");
     await io.homePage.click(selectors.connectionsPagePO.SLACK_AUTH_TYPE);
     await io.homePage.clickByText("Basic");
-    await io.homePage.fill(selectors.connectionsPagePO.USERNAME, process.env["HTTP_ZENDESK_USER"]);
-    await io.homePage.fill(selectors.connectionsPagePO.PASSWORD, decrypt(process.env["HTTP_ZENDESK_PASSWORD"]));
+    await io.homePage.fill(selectors.connectionsPagePO.USERNAME, process.env["Zendesk_Username"]);
+    await io.homePage.fill(selectors.connectionsPagePO.PASSWORD,process.env["Zendesk_Password"]);
     await io.homePage.click(selectors.connectionsPagePO.HOW_TO_TESTCONNECTION);
     await io.homePage.click(selectors.connectionsPagePO.PING_METHOD);
     await io.homePage.selectTextfromDropDown(page, "GET");

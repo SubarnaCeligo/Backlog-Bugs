@@ -14,6 +14,21 @@
         "accountSSORequired": false,
         "accountMFARequired": false
     },
+    "QA": {
+        "_id": "659e90d259335e605fca336d",
+        "emails": [
+            "io.auto.qa+300monitor@celigo.com"
+        ],
+        "accessLevel": "monitor",
+        "integrationAccessLevel": [
+            {
+                "_integrationId": "6459f5fc6df4b9686c0b7145",
+                "accessLevel": "manage"
+            }
+        ],
+        "accountSSORequired": false,
+        "accountMFARequired": false
+    },
     "STAGING": {
         "_id": "6613eb590591494ebae52b7f",
         "emails": [

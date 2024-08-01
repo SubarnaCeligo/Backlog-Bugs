@@ -3,7 +3,6 @@ import * as selectors from "@celigo/aut-selectors";
 import T24908 from "../../../testData/inputData/FlowDebugger/T24908.json";
 
 test.describe('T24909 Verify For the Test runs, the lightning bolt appears on all sources that are executed as part of a flow run, and remains visible for the duration of the flow run.', () => {
-    test.describe.configure({ retries: 2 })
     let id;
     test.afterEach(async ({ io }) => {
         await io.api.deleteFlowViaAPI(id);
