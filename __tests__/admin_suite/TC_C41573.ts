@@ -18,10 +18,14 @@ test.describe(`TC_C41573 To verify Pull from Integration dropdown field doesn't 
     let env = "Production,Sandbox";
     let environment = env.split(",");
     for (let i = 0; i < environment.length; i++) {
+      await io.flowBuilder.loadingTime();
       await io.flowBuilder.clickByTextByIndex(environment[i], 0);
+      await io.flowBuilder.loadingTime();
       await io.flowBuilder.clickByText("Create");
       await io.flowBuilder.loadingTime();
       await io.flowBuilder.click(selectors.homePagePO.CREATE_NEW_INTEGRATION);
+      await io.flowBuilder.loadingTime();
+      await io.flowBuilder.loadingTime();
       await io.flowBuilder.fill(
         selectors.basePagePO.INPUT_NAME_SELECTOR,
         "TC_C41573 Integration"
