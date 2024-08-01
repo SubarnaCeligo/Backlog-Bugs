@@ -69,7 +69,15 @@ test.describe('T17393 Verify scheduling set for parent integration flow is prese
         await io.flowBuilder.waitForElementAttached(selectors.myAccountPagePO.DIALOG_BOX);
         await io.flowBuilder.click(selectors.basePagePO.DELETE_BUTTON);
         await io.homePage.loadingTime();
-
-
+        await io.homePage.navigateTo(
+            process.env["IO_Integration_URL"] + "flowBuilder/" + id
+        );
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.DELETE_FLOW);
+        await io.flowBuilder.waitForElementAttached(selectors.myAccountPagePO.DIALOG_BOX);
+        await io.flowBuilder.click(selectors.basePagePO.DELETE_BUTTON);
     });
 });
