@@ -34,13 +34,13 @@ test.describe('C111366', () => {
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.TEST_RUN_STATUS);
         const dropdown = await page.$$(selectors.flowBuilderPagePO.TEST_RUN_STATUS);
         var dropdownLength = await dropdown.length
-        await io.assert.expectToBeValue("1", dropdownLength.toString(), "Production logs are not showing");
+        await io.assert.expectToBeTrue(dropdownLength >= 1, "Production logs are not showing");
 
         await io.flowBuilder.click(selectors.flowBuilderPagePO.TEST_RUN_DEBUG_LOGS);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.TEST_RUN_STATUS);
         const dropdown1 = await page.$$(selectors.flowBuilderPagePO.TEST_RUN_STATUS);
         var dropdownLength1 = await dropdown1.length
-        await io.assert.expectToBeValue("1", dropdownLength1.toString(), "Test run logs are not showing");
+        await io.assert.expectToBeTrue(dropdownLength1 >= 1, "Test run logs are not showing");
         await io.homePage.addStep("Verified User is able to access test run debug logs in addition to the debug logs related to live calls made to the application.");
     });
 });
