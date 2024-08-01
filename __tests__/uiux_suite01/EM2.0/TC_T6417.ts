@@ -3,13 +3,13 @@ import * as selectors from "@celigo/aut-selectors";
 import testdata from "../../../testData/inputData/EM2.0/T19797.json";
 import { randomNumber } from "@celigo/aut-utilities";
 
-test.describe("T6436 Account Dashboard - Completed flows - When i select the completed date range preset as 'Custom' all the flows completed in the specified custom time should be displayed", () => {
+test.describe("T6417 Account Dashboard - Completed flows - Pages : Pages column value is only for the Page generator/export step and then aggregated for the selected time period.", () => {
     let flowId;
     test.afterEach(async ({ io }) => {
         await io.api.deleteFlowViaAPI(flowId);
     });
 
-    test("@Env-All @Zephyr-IO-T6436 C29042 Account Dashboard - Completed flows - When i select the completed date range preset as 'Custom' all the flows completed in the specified custom time should be displayed", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T6417 Account Dashboard - Completed flows - Pages : Pages column value is only for the Page generator/export step and then aggregated for the selected time period.", async ({ io, page }) => {
         testdata.name = testdata.name + randomNumber();
         flowId = await io.createResourceFromAPI(testdata, "FLOWS");
 
