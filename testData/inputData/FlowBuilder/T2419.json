@@ -1,0 +1,107 @@
+{
+  "name": "T1254",
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "application": "ftp",
+        "resourceType": "transferFiles",
+        "assistantMetadata": {},
+        "_connectionId": "FTP CONNECTION",
+        "file": {
+          "faAcknowledgement": false,
+          "filter": {
+            "type": "expression",
+            "expression": {
+              "version": 1,
+              "rules": []
+            },
+            "script": {}
+          },
+          "output": "records",
+          "skipDelete": false,
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "/test"
+        },
+        "name": "FTP export",
+        "pgpdecrypt": false,
+        "sampleData": {
+          "company": "celigo",
+          "year": 2024,
+          "team": "engineering"
+        },
+        "sandbox": false
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "FTP import",
+        "sampleData": "id,email,accepts_marketing,created_at,updated_at,first_name,last_name\n6084858085462,automationmyrecordkiran45@gmail.com,false,2022-09-27T22:58:02-04:00,2022-09-27T22:58:02-04:00,misha_record_suite,create_suite_record",
+        "_connectionId": "FTP CONNECTION",
+        "oneToMany": false,
+        "sandbox": false,
+        "file": {
+          "fileName": "file-{{timestamp}}.xlsx",
+          "skipAggregation": false,
+          "type": "xlsx",
+          "lookups": []
+        },
+        "ftp": {
+          "directoryPath": "/test",
+          "fileName": "file-{{timestamp}}.xlsx"
+        },
+        "mapping": {
+          "fields": [],
+          "lists": []
+        },
+        "mappings": [
+          {
+            "dataType": "objectarray",
+            "conditional": {},
+            "status": "Draft",
+            "buildArrayHelper": [
+              {
+                "mappings": [
+                  {
+                    "generate": "test",
+                    "dataType": "string",
+                    "extract": "$.company",
+                    "sourceDataType": "string",
+                    "conditional": {},
+                    "status": "Active"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "create_flow": {
+    "name": "T22564",
+    "disabled": false,
+    "pageGenerators": [
+      {
+        "_exportId": "UPDATE WITH EXPORTID",
+        "skipRetries": false
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "_importId": "UPDATE WITH IMPORTID",
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        }
+      }
+    ],
+    "autoResolveMatchingTraceKeys": true
+  }
+}
