@@ -1,0 +1,82 @@
+{
+  "name": "TC_T22530",
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "Http Export",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "asynchronous": true,
+        "type": "test",
+        "oneToMany": false,
+        "http": {
+          "relativeURI": "/tickets",
+          "method": "GET",
+          "formType": "http",
+          "response": {
+            "resourcePath": "tickets"
+          }
+        },
+        "test": {
+          "limit": 13
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "FTP",
+        "_connectionId": "FTP CONNECTION",
+        "oneToMany": false,
+        "sandbox": false,
+        "mappings": [
+          {
+            "generate": "test",
+            "dataType": "stringarray",
+            "status": "Active",
+            "buildArrayHelper": [
+              {
+                "extract": "$.tickets[*].url",
+                "sourceDataType": "string"
+              },
+              {
+                "extract": "$.tickets[*].external_id",
+                "sourceDataType": "string"
+              }
+            ]
+          }
+        ],
+        "file": {
+          "fileName": "file-{{timestamp}}.json",
+          "skipAggregation": false,
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "Test",
+          "fileName": "file-{{timestamp}}.json"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "createFlow": {
+    "name": "TC_T22530",
+    "disabled": false,
+    "_integrationId": "66587f95a18aa43b3ba0c031",
+    "skipRetries": false,
+    "pageProcessors": [
+      {
+        "type": "import",
+        "_exportId": "UPDATE WITH NEW IMPORTID"
+      }
+    ],
+    "pageGenerators": [
+      {
+        "_exportId": "UPDATE WITH NEW EXPORTID"
+      }
+    ]
+  }
+}
