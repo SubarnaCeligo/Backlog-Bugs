@@ -17,22 +17,22 @@ test.describe('T11503 Verify Sample data is shown when we apply resource path fo
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.TRANSFER);
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.TRANSFER, 0);
         await io.exportsPage.loadingTime();
-        await io.exportsPage.waitForElementAttached('[data-test="file.json.resourcePath"]');
-        await io.flowBuilder.fill('[data-test="file.json.resourcePath"] input', 'tickets[*].tags');
+        await io.exportsPage.waitForElementAttached(selectors.flowBuilderPagePO.FILE_JSON_RESOURCE_PATH);
+        await io.flowBuilder.fill(selectors.flowBuilderPagePO.FILE_JSON_RESOURCE_PATH, 'tickets[*].tags');
         await io.exportsPage.waitForElementAttached(selectors.importPagePO.CLICKPREVIEW);
         await io.exportsPage.click(selectors.importPagePO.CLICKPREVIEW);
         let previewData = (await io.exportsPage.getText(selectors.basePagePO.ACE_EDITOR_ID)).toString().replace(/\s+/g, ' ').trim();;
-     
+
         expect(previewData.includes('page_of_records": [ { "rows": [ "example", "test" ] }')).toBeTruthy();
         await page.locator(selectors.basePagePO.SAVE_AND_CLOSE).click();
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.TRANSFER, 1);
         await io.exportsPage.waitForElementAttached(selectors.flowBuilderPagePO.FILENAMEFIELD);
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.FILENAMEFIELD, 1);
-
         await io.homePage.waitForText(`${selectors.connectionsPagePO.DATA_PANEL} div`, 'batch_of_records');
         await io.exportsPage.waitForElementAttached(`${selectors.connectionsPagePO.DATA_PANEL} div`);
-        let previewData2 = (await io.exportsPage.getText(`${selectors.connectionsPagePO.DATA_PANEL} div`)).toString().replace(/\s+/g, ' ').trim();;
-        expect(previewData2.includes('123456789101112131415161718192021222324252627282930313233343536373839404142434445{ "batch_of_records": [ { "rows": [ "example", "test" ] }')).toBeTruthy();
+        let previewData2 = (await io.exportsPage.getText(`${selectors.connectionsPagePO.DATA_PANEL} div`)).toString().replace(/\s+/g, ' ').trim();
+
+        expect(previewData2.includes('"batch_of_records": [ { "rows": [ "example", "test" ] }')).toBeTruthy();
 
 
 
