@@ -21,7 +21,7 @@ test.describe("C59462 Verify Whenever the input filter is updated, we clear the 
 
     expect(page.getByText("TRUE:")).toBeVisible();
 
-    await io.flowBuilder.click(".rule-value-container > input");
+    await io.flowBuilder.click(selectors.importPagePO.RULE_EDITOR_VALUE);
     await page.keyboard.type("transactionss");
 
     await io.homePage.loadingTime();
@@ -38,15 +38,15 @@ test.describe("C59462 Verify Whenever the input filter is updated, we clear the 
 
     await io.homePage.loadingTime();
 
-    await page.locator('[data-test="Transfer"]').nth(1).click();
+    await page.locator(selectors.importPagePO.IMPORT_TRANSFER).nth(1).click();
 
     await io.homePage.loadingTime();
 
-    await io.flowBuilder.clickByIndex('[data-test="ftp.directoryPath"]', 1);
+    await io.flowBuilder.clickByIndex(selectors.importPagePO.IMPORT_HANDLEBAR, 1);
 
     await io.homePage.loadingTime();
 
-    await io.flowBuilder.click('[data-test="closeRightDrawer"]');
+    await io.flowBuilder.click(selectors.importPagePO.IMPORT_HANDLEBAR_CLOSE_DRAWER);
 
     await io.homePage.loadingTime();
 
@@ -56,7 +56,7 @@ test.describe("C59462 Verify Whenever the input filter is updated, we clear the 
 
     await io.flowBuilder.click(selectors.importPagePO.INPUT_FILTER_ICON);
 
-    await io.flowBuilder.click(".rule-value-container > input");
+    await io.flowBuilder.click(selectors.importPagePO.RULE_EDITOR_VALUE);
     await page.keyboard.press("Control+A");
     await page.keyboard.press("Meta+A");
     await page.keyboard.press("Backspace");
@@ -76,11 +76,11 @@ test.describe("C59462 Verify Whenever the input filter is updated, we clear the 
 
     await io.homePage.loadingTime();
 
-    await page.locator('[data-test="Transfer"]').nth(1).click();
+    await page.locator(selectors.importPagePO.IMPORT_TRANSFER).nth(1).click();
 
     await io.homePage.loadingTime();
 
-    await io.flowBuilder.clickByIndex('[data-test="ftp.directoryPath"]', 1);
+    await io.flowBuilder.clickByIndex(selectors.importPagePO.IMPORT_HANDLEBAR, 1);
 
     await io.homePage.loadingTime();
   });
