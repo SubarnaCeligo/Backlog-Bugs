@@ -1,0 +1,124 @@
+{
+    "name": "TC_T795",
+    "pageGenerators": [
+      {
+        "type": "export",
+        "qa__export": {
+            "_id": "6603d5b64edd163018d45b5f",
+            "name": "Netsuite Export Mockdata",
+            "_connectionId": "NETSUITE CONNECTION",
+            "apiIdentifier": "e8336a461d",
+            "asynchronous": true,
+            "type": "test",
+            "oneToMany": false,
+            "test": {
+              "limit": 1
+            },
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "criteria": [],
+                "columns": [],
+                "recordType": "customer",
+                "searchId": "1913",
+                "restletVersion": "suiteapp2.0",
+                "markExportedBatchSize": 100
+              },
+              "distributed": {
+                "executionContext": [],
+                "executionType": []
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+            "name": "sf 1",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "apiIdentifier": "iefcd88ae0",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "mapping": {
+                "fields": [
+                    {
+                        "extract": "name",
+                        "generate": "Name"
+                    }
+                ]
+            },
+            "salesforce": {
+                "operation": "insert",
+                "sObjectType": "Product2",
+                "api": "compositerecord",
+                "removeNonSubmittableFields": false
+            },
+            "adaptorType": "SalesforceImport"
+        }
+      },
+      {
+        "type": "import",
+        "qa__import": {
+            "name": "sf import 2",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "apiIdentifier": "i4bff7f6b4",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "mapping": {
+                "fields": [
+                    {
+                        "extract": "id",
+                        "generate": "Id"
+                    }
+                ]
+            },
+            "salesforce": {
+                "operation": "insert",
+                "sObjectType": "Pricebook2",
+                "api": "compositerecord",
+                "removeNonSubmittableFields": false
+            },
+            "adaptorType": "SalesforceImport"
+        }
+      }
+
+    ],
+    "createFlow": {
+      "name": "TC_T795",
+      "disabled": false,
+      "skipRetries": false,
+      "pageProcessors": [
+        {
+          "responseMapping": {
+            "fields": [],
+            "lists": []
+          },
+          "type": "import",
+          "_importId": "UPDATE WITH NEW IMPORTID"
+        },
+        {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+      ],
+      "pageGenerators": [
+        {
+          "_exportId": "UPDATE WITH NEW EXPORTID"
+        }
+      ]
+    }
+  }
+  
