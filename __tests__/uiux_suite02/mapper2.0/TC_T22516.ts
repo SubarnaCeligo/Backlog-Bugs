@@ -101,7 +101,9 @@ test.describe(`C52210 Verify the UI error pop up when there are multiple errors 
     let result = false;
     if (
       text.includes(
-        `Mapper`
+        `Mapper 2.0: company: You can't map boolean (source) to [number] (destination)
+         Mapper 2.0: test: You can't map [boolean] (source) to [number] (destination)
+         Mapper 2.0: name: You can't map [object] (source) to [number] (destination)`
       )
     ) {
       result = true;
