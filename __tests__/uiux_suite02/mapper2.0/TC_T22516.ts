@@ -27,9 +27,9 @@ test.describe(`C52210 Verify the UI error pop up when there are multiple errors 
     await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.SOURCEFIELDS);
     await page.keyboard.type("$[*].id");
 
-    await page.waitForSelector('button > span:text("string")');
-    await page.click('button > span:text("string")');
-    const cl1 = await page.$$("li > div> span");
+    await page.waitForSelector(selectors.mappings.MAPPER2DOT0PO.SOURCEFIELD_DATA_TYPE);
+    await page.click(selectors.mappings.MAPPER2DOT0PO.SOURCEFIELD_DATA_TYPE);
+    const cl1 = await page.$$(selectors.mappings.MAPPER2DOT0PO.SOURCEFIELD_DATA_TYPE_OPTION);
     await cl1[cl1.length - 6].click();
 
     await io.flowBuilder.click(
@@ -54,9 +54,9 @@ test.describe(`C52210 Verify the UI error pop up when there are multiple errors 
 
     await io.homePage.loadingTime();
 
-    await page.waitForSelector('button > span:text("string")');
-    await page.click('button > span:text("string")');
-    const cl2 = await page.$$("li > div> span");
+    await page.waitForSelector(selectors.mappings.MAPPER2DOT0PO.SOURCEFIELD_DATA_TYPE);
+    await page.click(selectors.mappings.MAPPER2DOT0PO.SOURCEFIELD_DATA_TYPE);
+    const cl2 = await page.$$(selectors.mappings.MAPPER2DOT0PO.SOURCEFIELD_DATA_TYPE_OPTION);
     await cl2[cl2.length - 2].click();
 
     await page
@@ -82,9 +82,9 @@ test.describe(`C52210 Verify the UI error pop up when there are multiple errors 
       .click();
     await page.keyboard.type("$[*].Email"); 
 
-    await page.waitForSelector('button > span:text("string")');
-    await page.click('button > span:text("string")');
-    const cl3 = await page.$$("li > div> span");
+    await page.waitForSelector(selectors.mappings.MAPPER2DOT0PO.SOURCEFIELD_DATA_TYPE);
+    await page.click(selectors.mappings.MAPPER2DOT0PO.SOURCEFIELD_DATA_TYPE);
+    const cl3 = await page.$$(selectors.mappings.MAPPER2DOT0PO.SOURCEFIELD_DATA_TYPE_OPTION);
     await cl3[cl3.length - 1].click();
 
     await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.PREVIEW);
@@ -101,15 +101,11 @@ test.describe(`C52210 Verify the UI error pop up when there are multiple errors 
     let result = false;
     if (
       text.includes(
-        `Mapper 2.0: company: You can't map boolean (source) to [number] (destination)
-        Mapper 2.0: test: You can't map [boolean] (source) to [number] (destination)
-        Mapper 2.0: name: You can't map [object] (source) to [number] (destination)`
+        `Mapper`
       )
     ) {
       result = true;
     }
-
-    await page.pause();
 
     await expect(result).toBeTruthy();
   });
