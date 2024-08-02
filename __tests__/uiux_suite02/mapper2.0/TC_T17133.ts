@@ -19,5 +19,20 @@ test.describe("C59462 Verify Whenever the input filter is updated, we clear the 
           "TRUE:"
         )
       ).toBeVisible();
+
+      await io.flowBuilder.click('.rule-value-container > input');
+      await page.keyboard.type("transactionss");
+
+      await io.homePage.loadingTime();
+
+      await io.flowBuilder.click(selectors.importPagePO.INPUT_FILTER_PREVIEW_RESULT);
+
+      await io.homePage.loadingTime();
+
+      expect(
+        page.getByText(
+          "FALSE:"
+        )
+      ).toBeVisible();
   });
 });
