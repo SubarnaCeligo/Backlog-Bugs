@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("TC_CIO58085two", () => {
-  test("@Env-All IO58085 Override media type for error responses field should have Plain text option", async ({
+  test("@Env-All @Zephyr-IO-TIO58085 Override media type for error responses field should have Plain text option", async ({
     io,
     page
   }) => {
@@ -35,7 +35,7 @@ test.describe("TC_CIO58085two", () => {
       "Plain text"
     );
   });
-  test("@Env-All IO58085 When Override media type for error responses field is Plain text then remove related fields", async ({
+  test("@Env-All @Zephyr-IO-TIO58085 When Override media type for error responses field is Plain text then remove related fields", async ({
     io,
     page
   }) => {
@@ -114,7 +114,7 @@ test.describe("TC_CIO58085two", () => {
       "Field authFailPath is present in after Plain text is selected in Override media type for error responses field"
     );
   });
-  test("@Env-All IO58085 Override media type field should have Plain text option inside Configure refresh token section", async ({
+  test("@Env-All @Zephyr-IO-TIO58085 Override media type field should have Plain text option inside Configure refresh token section", async ({
     io,
     page
   }) => {
@@ -158,7 +158,7 @@ test.describe("TC_CIO58085two", () => {
       "Plain text"
     );
   });
-  test("@Env-All IO58085 Related fields should be removed if Override media type is Plain text", async ({
+  test("@Env-All @Zephyr-IO-TIO58085 Related fields should be removed if Override media type is Plain text", async ({
     io,
     page
   }) => {
@@ -231,7 +231,7 @@ test.describe("TC_CIO58085two", () => {
       "Field refreshTokenPath is present in after Plain text is selected in Override media type"
     );
   });
-  test("@Env-All IO58085 If Media type is Plain text then Override media type for error responses field should not have Plain text option", async ({
+  test("@Env-All @Zephyr-IO-TIO58085 If Media type is Plain text then Override media type for error responses field should not have Plain text option", async ({
     io,
     page
   }) => {
@@ -273,7 +273,7 @@ test.describe("TC_CIO58085two", () => {
       "Found Plain text in Array"
     );
   });
-  test("@Env-All IO58085 If Media type is Plain text then Override media type for success responses field should not have Plain text option", async ({
+  test("@Env-All @Zephyr-IO-TIO58085 If Media type is Plain text then Override media type for success responses field should not have Plain text option", async ({
     io,
     page
   }) => {
@@ -315,7 +315,7 @@ test.describe("TC_CIO58085two", () => {
       "Found Plain text in Array"
     );
   });
-  test("@Env-All IO58085  Path to rate-limit error field removed when Media type is Plain text", async ({
+  test("@Env-All @Zephyr-IO-TIO58085  Path to rate-limit error field removed when Media type is Plain text", async ({
     io,
     page
   }) => {
@@ -389,7 +389,7 @@ test.describe("TC_CIO58085two", () => {
       "Field pathtoratelimit error is present in after Plain text is selected in media type and in Override media type for error responses is do not override"
     );
   });
-  test("@Env-All IO58085  Path to rate-limit error field removed when Media type is Plain text in http connection form", async ({
+  test("@Env-All @Zephyr-IO-TIO58085  Path to rate-limit error field removed when Media type is Plain text in http connection form", async ({
     io,
     page
   }) => {

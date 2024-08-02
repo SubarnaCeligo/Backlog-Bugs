@@ -1,6 +1,6 @@
 import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C18923 from '../../../testData/inputData/FLOWS/C18923.json';
+import C18923 from "../../../testData/inputData/Flows/C18923.json";
 
 test.describe('TC_IO-T18923', () => { 
     test('@Priority-P2 @Zephyr-IO-T18923 @Env-All To Verify help text for [Simple | HTTP] toggle button for edit import', async ({ io, page }) => {

@@ -1,0 +1,93 @@
+{
+    "resource": {
+      "_id": "66386b1c793e7f8613cd25ee",
+      "createdAt": "2024-05-06T05:31:08.370Z",
+      "lastModified": "2024-05-06T05:31:09.145Z",
+      "name": "Get Item Groups from NetSuite",
+      "_connectionId": "66386a39148c35217e319a77",
+      "_integrationId": "66386a39793e7f8613cd1485",
+      "_connectorId": "5b61ae4aeb538642c26bdbe6",
+      "externalId": "netsuite_item_group_to_salesforce_product_export",
+      "apiIdentifier": "ec7a6d08bd",
+      "asynchronous": true,
+      "sampleData": {
+        "id": "6566",
+        "recordType": "itemgroup",
+        "Display Name": "Subsidiary Item Group 01",
+        "Description": "",
+        "Member Quantity": "2",
+        "Internal ID": "6564",
+        "Type": "Service",
+        "Item Name": "Subsidiary Item Group 01",
+        "pricelevel": [
+          {
+            "Unit Price": 594,
+            "Price Level": "10% Discount Level"
+          }
+        ]
+      },
+      "netsuite": {
+        "type": "restlet",
+        "skipGrouping": false,
+        "statsOnly": false,
+        "restlet": {
+          "recordType": "item",
+          "searchId": "3673",
+          "restletVersion": "suitebundle",
+          "criteria": [],
+          "columns": [],
+          "batchSize": 200,
+          "hooks": {
+            "batchSize": 200,
+            "preSend": {
+              "fileInternalId": "SuiteApps/com.celigo.salesforceio/build/Celigo_SalesforceIOConnector.closure.js",
+              "function": "netsuiteItemGroupsExportPreSendHook"
+            }
+          }
+        },
+        "distributed": {
+          "executionContext": [],
+          "executionType": []
+        }
+      },
+      "adaptorType": "NetSuiteExport",
+      "settingsForm": {
+        "form": {
+          "fieldMap": {},
+          "layout": {
+            "fields": []
+          }
+        }
+      }
+    },
+    "parentResource": {},
+    "license": {
+      "_id": "663869c5148c35217e319018",
+      "created": "2024-05-06T05:25:25.392Z",
+      "lastModified": "2024-05-06T05:27:21.226Z",
+      "expires": "2025-05-06T18:29:59.999Z",
+      "type": "connector",
+      "_connectorId": "5b61ae4aeb538642c26bdbe6",
+      "opts": {
+        "addonLicenses": [
+          {
+            "licenses": [
+              {
+                "addOnId": "contractRenewals"
+              },
+              {
+                "addOnId": "quotes"
+              }
+            ],
+            "type": "addon"
+          }
+        ],
+        "connectorEdition": "premium"
+      },
+      "_integrationId": "66386a39793e7f8613cd1485",
+      "sandbox": false,
+      "resumable": false
+    },
+    "parentLicense": {},
+    "sandbox": false
+  }

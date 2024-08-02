@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe( "Help text for Token", () => {
-    test("@Env-QA @Env-STAGING Help text for Token", async ({ io, page, context }) => {
+    test("@Zephyr-IO-T9350 @Env-QA @Env-STAGING Help text for Token", async ({ io, page, context }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
         await io.homePage.loadingTime();
@@ -10,8 +10,8 @@ test.describe( "Help text for Token", () => {
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.API_TOKENS);
         await io.homePage.loadingTime();
-        const helptext = await page.$$(selectors.flowBuilderPagePO.APIMAPITOKENHELPTEXT)
-        await helptext[8].click();
+        await io.assert.verifyElementIsDisplayed(selectors.exportsPagePO.HELP_TEXT_ICLIENT, 'Help text with ? is not displayed');
+        await io.importsPage.click(selectors.exportsPagePO. HELP_TEXT_ICLIENT );
         const value = await io.flowBuilder.getText(selectors.importPagePO.INPUTHELP)
         const expectedvalue = "This is a Celigo system generated access token for API management. This is a non-editable token, with scope set to “Custom” and auto-purge set to “Never”. It is intended to secure API calls to and from the integrator.io platform"
         const func = value.toString().includes(expectedvalue);
@@ -23,8 +23,8 @@ test.describe( "Help text for Token", () => {
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.API_TOKENS);
         await io.homePage.loadingTime();
-        const helptext1 = await page.$$(selectors.flowBuilderPagePO.APIMAPITOKENHELPTEXT)
-        await helptext1[8].click();
+        await io.assert.verifyElementIsDisplayed(selectors.exportsPagePO.HELP_TEXT_ICLIENT, 'Help text with ? is not displayed');
+        await io.importsPage.click(selectors.exportsPagePO. HELP_TEXT_ICLIENT );
         const Sandboxvalue = await io.flowBuilder.getText(selectors.importPagePO.INPUTHELP)
         const Sandboxexpectedvalue = "This is a Celigo system generated access token for API management. This is a non-editable token, with scope set to “Custom” and auto-purge set to “Never”. It is intended to secure API calls to and from the integrator.io platform"
         const funcS = Sandboxvalue.toString().includes(Sandboxexpectedvalue);

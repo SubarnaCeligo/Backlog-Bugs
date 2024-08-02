@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`T1127 - Production and sandbox color change for shopify landing page UI_Backlog`, () => {
-  test(`T1127 - Production and sandbox color change for shopify landing page UI_Backlog`, async ({ io, page }) => {
+  test(`@Env-All T1127 - Production and sandbox color change for shopify landing page UI_Backlog`, async ({ io, page }) => {
     await io.homePage.navigateTo(
       process.env["IO_UI_CONNECTOR_URL"] +
         "landing/shopify"

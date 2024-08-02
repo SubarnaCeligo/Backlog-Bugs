@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C59978 To verify that the browser URL while creating a new flow should load properly when we open the same URL in another browser/Tab`, () => {
-  test(`C59978 To verify that the browser URL while creating a new flow should load properly when we open the same URL in another browser/Tab`, async ({
+  test(`@Env-All C59978 To verify that the browser URL while creating a new flow should load properly when we open the same URL in another browser/Tab`, async ({
     io,
     page,
     context

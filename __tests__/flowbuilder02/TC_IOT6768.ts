@@ -25,10 +25,10 @@ test.describe(`@Author-MayankOmar IO-T6768 Verify the  help text of the newly ad
     await io.homePage.loadingTime();
     await io.exportsPage.fill(
       selectors.exportsPagePO.CONNECTIONS_DROPDOWN,
-      "Amazon Hybrid through postman"
+      "Amazon Connection"
     );
     await io.homePage.addStep("*** Clicked on connection Dropdown ***");
-    await io.homePage.click(selectors.connectionsPagePO.CONNECTIONDROP0);
+    await io.homePage.clickByText('Amazon Connection');
     await io.homePage.loadingTime();
     await io.homePage.addStep(
       "*** Select first option from connection Dropdown  ***"

@@ -1,0 +1,22 @@
+{
+  "name": "Verifying domain names with 4 values",
+  "provider": "custom_oauth2",
+  "oauth2": {
+    "clientId": "aaa2226d9342d4e3b58297e512e0baf2",
+    "clientSecret": "28f0f5b5bad4118777ca722c77668348",
+    "clientCredentialsLocation": "body",
+    "grantType": "authorizecode",
+    "failPath": "errors.message",
+    "failValues": ["is not a valid enum value"],
+    "failStatusCode": 401,
+    "accessTokenLocation": "header",
+    "accessTokenHeaderName": "Authorization",
+    "validDomainNames": ["Demo123", "Test123", "exmaple123"],
+    "auth": {
+      "uri": "https://celigo-returnly-staging.myshopify.com/admin/oauth/authorize"
+    },
+    "token": {
+      "uri": "https://celigo-returnly-staging.myshopify.com/admin/oauth/access_token"
+    }
+  }
+}

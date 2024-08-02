@@ -20,21 +20,27 @@ test.describe("TC_C98691  If the error is resolved in production flow then it is
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN);
 
         await io.homePage.addStep('*** Resolve the error ***');
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
-        await page.waitForTimeout(10000);
-        await io.flowBuilder.clickByTextByIndex('1 error', 0);
-        await io.flowBuilder.clickByText('Open errors');
-        await io.flowBuilder.clickByText('Resolve');
+        await io.homePage.loadingTime();
+        await page.getByText("Failed").waitFor({ state: "visible", timeout:360000 });
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.click('td button');
+        await io.flowBuilder.loadingTime();
+        // await io.flowBuilder.clickByText('Open errors');
+        await io.flowBuilder.reloadPage();
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.RESOLVE_JOBS);
         await io.flowBuilder.click(selectors.basePagePO.DATA_VALUE_ALL);
-        await io.flowBuilder.clickByTextByIndex('Resolve', 2);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.RESOLVE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER);
+        await io.homePage.loadingTime();
 
         await io.homePage.addStep('*** Disable the flow and run it ***');
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN);
-
+        await io.homePage.loadingTime()
+        await page.getByText("Run in progress").waitFor({ state: "hidden", timeout:360000 });
+        await page.waitForLoadState("domcontentloaded")
         await io.homePage.addStep('*** Verify that the resolved errors window is not visible ***');
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
         await io.flowBuilder.clickByTextByIndex('1 error', 0);

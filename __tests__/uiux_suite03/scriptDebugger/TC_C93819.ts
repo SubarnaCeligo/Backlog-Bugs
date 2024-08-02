@@ -5,7 +5,7 @@ import data1 from "@testData/ScriptDebugger/C93819.json"
 
 test.describe('C93819 Validate user is able to create "contentBasedFlowRouter" script through flow builder page', () => {
    
-    test('C93819 Validate user is able to create "contentBasedFlowRouter" script through flow builder page', async({io,page}) => {
+    test('@Env-All @Zephyr-IO-T22694 C93819 Validate user is able to create "contentBasedFlowRouter" script through flow builder page', async({io,page}) => {
   
       const id =  await io.createResourceFromAPI(
          data1,

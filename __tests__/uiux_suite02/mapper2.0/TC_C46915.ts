@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C46915 from "@testData/Flows/C46915.json"
 
 test.describe('File Provider - Verify the “Action to take if source field has no value” dropdown', () => { 
-    test("File Provider - Verify the “Action to take if source field has no value” dropdown ", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T18025 File Provider - Verify the “Action to take if source field has no value” dropdown ", async ({ io, page }) => {
         
           await io.createResourceFromAPI(
             C46915,

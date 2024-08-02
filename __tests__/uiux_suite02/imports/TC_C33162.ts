@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C33162 Verify save saveAndClose close button are present in footer for create lookup page`, () => {
-  test(`C33162 Verify save saveAndClose close button are present in footer for create lookup page`, async ({
+  test(`@Env-All @Zephyr-IO-T2622 C33162 Verify save saveAndClose close button are present in footer for create lookup page`, async ({
     io,
     page
   }) => {
@@ -11,11 +11,12 @@ test.describe(`C33162 Verify save saveAndClose close button are present in foote
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP
     );
+    await io.homePage.fill(selectors.flowBuilderPagePO.APP_NAME_INPUT, "REST API (HTTP)")
     await io.flowBuilder.clickByText("REST API (HTTP)");
     await io.flowBuilder.clickByText("Look up additional files (per record)");
-    await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
-    await io.flowBuilder.clickByText("3PL CONNECTION");
-    await io.flowBuilder.click(selectors.basePagePO.SAVE);
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
+    await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
+    await io.homePage.selectConnectionDropDown(page, '3PL CONNECTION');
     await io.flowBuilder.delay(2000);
     await page.locator(selectors.exportsPagePO.NAME).fill("C33162");
     await expect(page.locator(selectors.basePagePO.SAVE)).toBeVisible();

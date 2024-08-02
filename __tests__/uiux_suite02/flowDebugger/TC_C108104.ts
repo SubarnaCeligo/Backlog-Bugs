@@ -5,7 +5,7 @@ test.describe("Verify that a Netsuite import has netsuite specific stub in the m
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("Verify that a Netsuite import has netsuite specific stub in the mock output.", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T24095 Verify that a Netsuite import has netsuite specific stub in the mock output.", async ({ io, page }) => {
         
         //Click on Create Import
         await io.homePage.navigateTo(io.data.links.IMPORTS_PAGE_URL);

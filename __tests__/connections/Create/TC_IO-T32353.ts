@@ -5,18 +5,19 @@ test.describe("@Author_MaheshNivruttiSutar Verify all connections are displayed 
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.loadingTime();
+        await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
     });
     test.afterEach(async ({ io }) => {
         await io.connections.deleteConnection('META INSTAGRAM ADS CONNECTION PLEASE DELETE');
       });
-    test("@Epic-IO-76152 @Priority-P2 @Env-QA @Zephyr-IO-T32353 Verify all connections are displayed when user creates a new connection after selecting connection for HTTP connectors while creating new flow step'", async ({ io, page, context }) => {
+    test("@Epic-IO-76152 @Priority-P2 @Env-All @Zephyr-IO-T32353 Verify all connections are displayed when user creates a new connection after selecting connection for HTTP connectors while creating new flow step'", async ({ io, page, context }) => {
         await io.homePage.goToMenu("Tools", "Flow builder");
         await io.flowBuilder.loadingTime();
         //Add Source
         await io.flowBuilder.click(selectors.basePagePO.ADD_SOURCE_BUTTON);
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.APP_NAME_INPUT, "META");
         await io.flowBuilder.click(selectors.connectionsPagePO.META);
-        await io.flowBuilder.clickByText('Create flow step');
+         await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.clickByText("Facebook Ads");

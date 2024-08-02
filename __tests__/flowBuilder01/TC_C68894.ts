@@ -5,7 +5,7 @@ import { decrypt } from "@celigo/aut-utilities";
 import { downloadFileFromS3 } from "@celigo/aut-utilities";
 
 test.describe("C68894_C68896", () => {
-    test("C68894 @Env-All @Priority-P2", async ({ io, page }) => {
+    test("C68894 @Env-All @Priority-P2 @Zephyr-IO-T20883", async ({ io, page }) => {
         await downloadFileFromS3("automationcreds", "AES_certificate.pfx");
         await downloadFileFromS3("automationcreds", "AES_private.key");
         await downloadFileFromS3("automationcreds", "AES_certificate.crt");
@@ -13,7 +13,7 @@ test.describe("C68894_C68896", () => {
         await io.connectionPage.clickByText("Create connection");
         await io.connectionPage.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
         await io.importsPage.fill(selectors.basePagePO.NAME, "HTTP CONNECTION PLEASE DELETE");
-        await io.importsPage.fill(selectors.connectionsPagePO.BASE_URI_INPUT, TC.importJSON.http.baseURI);
+        await io.importsPage.fill(selectors.connectionsPagePO.BASE_URI_INPUT,"https://d3v-celigo5000.zendesk.com/api/v2/");
         await io.connectionPage.click(selectors.connectionsPagePO.SLACK_AUTH_TYPE);
         await io.connectionPage.clickByText("Basic");
         await io.importsPage.fill(selectors.connectionsPagePO.USERNAME, process.env["HTTP_ZENDESK_USER"]);
@@ -24,7 +24,7 @@ test.describe("C68894_C68896", () => {
         await io.connectionPage.fill(selectors.connectionsPagePO.RELATIVEURI, 'users');
         await io.connectionPage.click(selectors.importPagePO.ADVANCED);
         await io.connectionPage.click(selectors.connectionsPagePO.SSL_CERTIFICATE);
-        await io.connectionPage.clickByText("PFX");
+        await io.connectionPage.click(selectors.connectionsPagePO.SSL_PFX);
         const fileChooserPromise = page.waitForEvent("filechooser");
         await io.homePage.clickByText("Choose file");
         const fileChooser = await fileChooserPromise;
@@ -35,7 +35,7 @@ test.describe("C68894_C68896", () => {
         await io.homePage.loadingTime();
         await io.homePage.loadingTime();
         await io.homePage.loadingTime();
-        await io.connectionPage.clickByText("PEM");
+        await io.connectionPage.click(selectors.connectionsPagePO.SSL_PEM);
         await io.homePage.loadingTime();
         await io.homePage.loadingTime();
         const fileChooserPromise1 = page.waitForEvent("filechooser");
@@ -52,12 +52,12 @@ test.describe("C68894_C68896", () => {
         await io.connectionPage.click(selectors.basePagePO.TEST_CONNECTION);
         await io.connectionPage.click(selectors.basePagePO.SAVE_AND_CLOSE);
     });
-    test("C68896 @Env-All @Priority-P2", async ({ io, page }) => {
+    test("C68896 @Env-All @Priority-P2 @Zephyr-IO-T20884", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL)
         await io.connectionPage.clickByText("Create connection")
         await io.connectionPage.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
         await io.importsPage.fill(selectors.basePagePO.NAME, "HTTP CONNECTION PLEASE DELETE");
-        await io.importsPage.fill(selectors.connectionsPagePO.BASE_URI_INPUT, TC.importJSON.http.baseURI);
+        await io.importsPage.fill(selectors.connectionsPagePO.BASE_URI_INPUT, "https://d3v-celigo5000.zendesk.com/api/v2/");
         await io.connectionPage.click(selectors.connectionsPagePO.SLACK_AUTH_TYPE);
         await io.connectionPage.clickByText("Basic");
         await io.importsPage.fill(selectors.connectionsPagePO.USERNAME, process.env["HTTP_ZENDESK_USER"]);
@@ -70,7 +70,7 @@ test.describe("C68894_C68896", () => {
         await io.connectionPage.click(selectors.connectionsPagePO.SSL_CERTIFICATE);
         await io.homePage.loadingTime();
         await io.homePage.loadingTime();
-        await io.connectionPage.clickByText("PEM");
+        await io.connectionPage.click(selectors.connectionsPagePO.SSL_PEM);
         await io.homePage.loadingTime();
         await io.homePage.loadingTime();
         const fileChooserPromise = page.waitForEvent("filechooser");
@@ -86,7 +86,7 @@ test.describe("C68894_C68896", () => {
         await io.connectionPage.click(selectors.connectionsPagePO.SSL_CERTIFICATE);
         await io.homePage.loadingTime();
         await io.homePage.loadingTime();
-        await io.connectionPage.clickByText("PFX");
+        await io.connectionPage.click(selectors.connectionsPagePO.SSL_PFX);
         const fileChooserPromise2 = page.waitForEvent("filechooser");
         await io.homePage.clickByText("Choose file");
         const fileChooser2 = await fileChooserPromise2;

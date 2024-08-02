@@ -1,6 +1,32 @@
 import { filterTestCases } from "@celigo/aut-utilities";
 var testCases = [
   // "IO52927", // We are making this test case obsolete as we have removed "existing export" checkbox from UI (functionality is changed for this)
+  // "C117949",//https://celigo.atlassian.net/browse/IO-35839
+  // "C119397",//https://celigo.atlassian.net/browse/IO-35839
+  // "T2722",//https://celigo.atlassian.net/browse/IO-35839
+  // "T24275",//https://celigo.atlassian.net/browse/IO-35839
+  // "T26974",//https://celigo.atlassian.net/browse/IO-86853
+  // "T26975",//https://celigo.atlassian.net/browse/IO-86853
+  // "T26976",//https://celigo.atlassian.net/browse/IO-86853
+  // "T26977",//https://celigo.atlassian.net/browse/IO-86853
+  // "T26986",//https://celigo.atlassian.net/browse/IO-86853
+  // "T26995",//https://celigo.atlassian.net/browse/IO-86853
+  // "C119625",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119790",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119791",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119797",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119800",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119802",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119804",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119806",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119807",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119808",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119809",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119812",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119816",//https://celigo.atlassian.net/browse/IO-86854
+  // "C119817",//https://celigo.atlassian.net/browse/IO-86854
+  // "IO-T31943",//https://celigo.atlassian.net/browse/IO-86854
+  // "IO-T31974",//https://celigo.atlassian.net/browse/IO-86854
   "IO50904",
   "IO50942",
   "IO51317",
@@ -10,9 +36,6 @@ var testCases = [
   "C117742",
   "C117948",
   "T28954",
-  "C119397",
-  "C119625",
-  "C117949",
   "C119139",
   "C117947_C117945",
   "C117946",
@@ -20,19 +43,7 @@ var testCases = [
   "C117740",
   "C117743",
   "C117753",
-  "C119791",
-  "C119816",
-  "C119817",
-  "C119790",
-  "C119797",
-  "C119800",
-  "C119802",
-  "C119804",
-  "C119806",
-  "C119808",
-  "C119809",
-  "C119812",
-  "C119807",
+  "T25361",
   "T27372",
   "T27371",
   "T27370",
@@ -80,21 +91,13 @@ var testCases = [
   "IOT26357",
   "IO70947",
   "T3097",
-  "T24275",
   "T24276_T27516",
   "T24277_T24278_T24283",
   "T24279",
   "T24280",
   "T24284",
   "T24285",
-  "T2722",
   "T10043",
-  "T26974",
-  "T26975",
-  "T26976",
-  "T26977",
-  "T26986",
-  "T26995",
   "T28451",
   "T28427_T28433_T28435",
   "T28428_T28434_T28436",
@@ -105,6 +108,7 @@ var testCases = [
   "T28606",
   "T28445",
   "T24261",
+  "T5391",
   "IO-T28495",
   "IO-T28452",
   "C120099",
@@ -117,14 +121,21 @@ var testCases = [
   "IOT6768",
   "IO-T29359",
   "CT6794",
-  "IO-T31943",
   "IO-T31360",
   "IO-T32338",
-  "IO-T31974",
   "IO-T32023",
   "T17166",
-  "T6094"
+  "T6094",
+  "IO-T10748",
+  "T11648_T11645_T11653",
+  "C51541",
+  "C59677",
+  "T5409",
+  "T5388_T5387",
+  "T1646",
+ //please donot add any more new test cases to this flowbuilder02 suite,already this suite is overloaded when might cause issues during jenkinsrun/ci build
 ];
+  
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
 (async () => {
   await filterTestCases(testCases, flakycases);

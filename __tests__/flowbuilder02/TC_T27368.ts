@@ -23,7 +23,9 @@ test.describe("T27368 Check for NoSqlDbs if the mapper 2.0 is enabled and gettin
         await io.mappings.addStep("*** Clicked on expandall button ***");
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.DESTINATION_MAPPING_PLACEHOLDER, "name");
         await io.mappings.addStep("*** Added destination field ***");
-        await io.flowBuilder.fill(selectors.flowBuilderPagePO.SOURCE_MAPPING_PLACEHOLDER, "name");
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.DESTINATION_MAPPING_PLACEHOLDER);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.SOURCE_MAPPING_PLACEHOLDER);
+        await io.flowBuilder.clickByTextByIndex('Name', 0)
         await io.mappings.addStep("*** Added source field ***");
         await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.PREVIEW);
         await io.mappings.addStep("*** Clicked on preview button ***");

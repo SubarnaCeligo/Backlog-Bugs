@@ -1,0 +1,90 @@
+{
+  "name": "IO-T17467",
+  "disabled": false,
+  "_integrationId": "62f51db41677a21a108e5e3a",
+  "skipRetries": false,
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "Netsuite Export",
+        "_connectionId": "NETSUITE CONNECTION",
+        "apiIdentifier": "e079aebbb5",
+        "asynchronous": true,
+        "type": "test",
+        "oneToMany": false,
+        "test": {
+          "limit": 1
+        },
+        "netsuite": {
+          "type": "restlet",
+          "skipGrouping": true,
+          "statsOnly": false,
+          "restlet": {
+            "recordType": "customer",
+            "searchId": "1957",
+            "restletVersion": "suiteapp2.0",
+            "criteria": [],
+            "columns": [],
+            "markExportedBatchSize": 100
+          },
+          "distributed": {
+            "executionContext": [],
+            "executionType": []
+          }
+        },
+        "adaptorType": "NetSuiteExport"
+      }
+    }
+  ],
+  "routers": [
+    {
+      "name": "",
+      "routeRecordsTo": "first_matching_branch",
+      "routeRecordsUsing": "input_filters",
+      "branches": [
+        {
+          "name": "Branch 1.0",
+          "pageProcessors": [
+            {
+              "type": "import",
+              "qa__import": {
+                "name": "Netsuite Import",
+                "_connectionId": "NETSUITE CONNECTION",
+                "distributed": true,
+                "apiIdentifier": "i3e08d6c16",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "lookups": [],
+                "netsuite_da": {
+                  "restletVersion": "suiteapp2.0",
+                  "operation": "add",
+                  "recordType": "account",
+                  "lookups": [],
+                  "mapping": {
+                    "fields": [],
+                    "lists": []
+                  }
+                },
+                "adaptorType": "NetSuiteDistributedImport"
+              },
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              }
+            }
+          ]
+        },
+        {
+          "name": "Branch 1.1",
+          "pageProcessors": []
+        }
+      ],
+      "script": {
+        "function": "branching"
+      },
+      "id": "Fe6E3QNzPBP"
+    }
+  ]
+}

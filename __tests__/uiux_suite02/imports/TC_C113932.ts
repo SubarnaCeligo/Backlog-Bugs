@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C113932 from '../../../testData/inputData/FlowDebugger/C113932.json';
 
 test.describe("Bug# IO-55940 - Lookup in NS import is being reset after configuring conditional mapping(advanced lookup)", () => {
-    test("Bug# IO-55940 - Lookup in NS import is being reset after configuring conditional mapping(advanced lookup)", async ({ io, page }) => {
+    test("@Env-All Bug# IO-55940 - Lookup in NS import is being reset after configuring conditional mapping(advanced lookup)", async ({ io, page }) => {
         //Create a flow
         await io.createResourceFromAPI(C113932, "FLOWS");
 

@@ -1,0 +1,120 @@
+{
+  "name": "FTP_To_NS",
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "application": "channelape",
+        "assistant": "channelape",
+        "isHttpConnector": true,
+        "resourceType": "exportRecords",
+        "_connectionId": "CHANNELAPE CONNECTION",
+        "settingsForm": {},
+        "configureAsyncHelper": false,
+        "http": {
+          "method": "GET",
+          "relativeURI": "/v1/channels?businessId=id1&businessId2=id2",
+          "headers": [],
+          "paging": {},
+          "response": {
+            "resourcePath": "channels",
+            "successValues": []
+          },
+          "requestMediaType": "json",
+          "successMediaType": "json",
+          "errorMediaType": "json",
+          "formType": "assistant",
+          "_httpConnectorEndpointId": "63a052b1f538fc96a96bde14",
+          "_httpConnectorResourceId": "63a052b1f538fc96a96bde13",
+          "_httpConnectorVersionId": "63a052b1f538fc96a96bde07"
+        },
+        "name": "CHannel ape export",
+        "oneToMany": "false",
+        "sandbox": false
+      }
+    },
+    {
+      "type": "export",
+      "qa__export": {
+        "application": "channelape",
+        "assistant": "channelape",
+        "isHttpConnector": true,
+        "resourceType": "exportRecords",
+        "_connectionId": "CHANNELAPE CONNECTION",
+        "settingsForm": {},
+        "configureAsyncHelper": false,
+        "http": {
+          "method": "GET",
+          "relativeURI": "/v1/actions?businessId=id1&startDate=123&endDate=456",
+          "headers": [],
+          "paging": {
+            "method": "url",
+            "path": "pagination.nextPageHref"
+          },
+          "response": {
+            "resourcePath": "actions",
+            "successValues": []
+          },
+          "requestMediaType": "json",
+          "successMediaType": "json",
+          "errorMediaType": "json",
+          "formType": "assistant",
+          "_httpConnectorEndpointId": "63a052b1f538fc96a96bde09",
+          "_httpConnectorResourceId": "63a052b1f538fc96a96bde08",
+          "_httpConnectorVersionId": "63a052b1f538fc96a96bde07"
+        },
+        "name": "Channel APE 2",
+        "oneToMany": "false",
+        "sandbox": false
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "AutomationStandalone_csr4f",
+        "_connectionId": "FTP CONNECTION",
+        "_sourceId": "662a273db4da9123922401f9",
+        "apiIdentifier": "i689e84ff2",
+        "oneToMany": true,
+        "sandbox": false,
+        "file": {
+          "fileName": "file-{{timestamp}}.json",
+          "skipAggregation": false,
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "io.auto.qa/BVAutoFTP",
+          "fileName": "file-{{timestamp}}.json"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "create_flow": {
+    "name": "T17086_T17088",
+    "disabled": false,
+    "pageGenerators": [
+      {
+        "_exportId": "UPDATE WITH EXPORTID",
+        "skipRetries": false
+      },
+      {
+        "_exportId": "UPDATE WITH EXPORTID",
+        "skipRetries": false
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "_importId": "UPDATE WITH IMPORTID",
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        }
+      }
+    ],
+    "autoResolveMatchingTraceKeys": true
+  }
+}

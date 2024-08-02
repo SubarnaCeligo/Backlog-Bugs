@@ -9,7 +9,8 @@ test.describe("@Epic-IO-54540  @Priority-P2  @Zephyr-IO-T27537 @Env-All", () => 
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'HTTP');
         await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
-        await io.flowBuilder.clickByText("Create from scratch")
+        // await io.flowBuilder.clickByText("Create from scratch")
+        await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.click(selectors.importPagePO.IMPORT_CLOSE_DRAWER);
         await io.flowBuilder.loadingTime();
@@ -26,6 +27,7 @@ test.describe("@Epic-IO-54540  @Priority-P2  @Zephyr-IO-T27537 @Env-All", () => 
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'LOOP RETURN');
         await io.flowBuilder.click(selectors.connectionsPagePO.LOOP_RETURN_CONNECTION);
+        await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
         await io.flowBuilder.loadingTime();
         const flowStep = await io.homePage.isVisible("text='Show more'")
         await io.assert.expectToBeFalse(flowStep, "Field value found");
@@ -43,7 +45,8 @@ test.describe("@Epic-IO-54540  @Priority-P2  @Zephyr-IO-T27537 @Env-All", () => 
         await io.flowBuilder.clickByText("Look up additional records (per record)");
         //Click on any existing resource
         await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.OPENAI.NLS_RESOURCE, 0);
-        await io.flowBuilder.clickByText("Create from scratch")
+        // await io.flowBuilder.clickByText("Create from scratch")
+        await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
         await io.flowBuilder.loadingTime();
         const appCrash = await io.homePage.isVisible("text='Create lookup'")
         await io.assert.expectToBeTrue(appCrash, "Field value found");

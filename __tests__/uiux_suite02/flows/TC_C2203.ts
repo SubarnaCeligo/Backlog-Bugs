@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Flows/C2203.json";
 
 test.describe(`C2203 Verify existing stacks are shown for flow builder exports as expected.`, () => {
-  test(`C2203 Verify existing stacks are shown for flow builder exports as expected.`, async ({
+  test(`@Env-All C2203 Verify existing stacks are shown for flow builder exports as expected.`, async ({
     io,
     page
   }) => {

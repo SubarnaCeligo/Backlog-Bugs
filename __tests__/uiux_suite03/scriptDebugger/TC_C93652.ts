@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import data from "@testData/ScriptDebugger/C93652.json";
 
 test.describe('C93652 Validate user is able to create "transform" script through flow builder page', () => {
-  test('C93652 Validate user is able to create "transform" script through flow builder page', async ({
+  test('@Env-All @Zephyr-IO-T22619 C93652 Validate user is able to create "transform" script through flow builder page', async ({
     io,
     page
   }) => {

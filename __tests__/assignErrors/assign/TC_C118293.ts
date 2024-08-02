@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("C118293 - Verify that 'Assign error' button is added on the top bar, error details section and is visible upon hovering on any row", () => {
+test.describe("C118293 - Verify that 'Assign error' button is added on the top bar, error details section and is visible upon hovering on any row1", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
@@ -23,6 +23,22 @@ test.describe("C118293 - Verify that 'Assign error' button is added on the top b
     //Open errors dashborad
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
 
+    //Clear existing assignments
+    await io.flowBuilder.waitForElementAttached(selectors.dashboardPagePO.FA_FILTER_CHECKBOX);
+    await io.flowBuilder.click(selectors.dashboardPagePO.FA_FILTER_CHECKBOX);
+    
+    await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
+    await io.flowBuilder.click(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
+    
+    await io.flowBuilder.loadingTime();
+    let isClearButtonVisible = await io.flowBuilder.isVisible("text='Clear assignment'");
+    if (isClearButtonVisible){
+      await io.flowBuilder.clickByText('Clear assignment');
+      await io.flowBuilder.loadingTime();
+    }
+    await io.flowBuilder.waitForElementAttached(selectors.dashboardPagePO.FA_FILTER_CHECKBOX);
+    await io.flowBuilder.click(selectors.dashboardPagePO.FA_FILTER_CHECKBOX);
+   
     //Verify Assign error button is added on top bar
     await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
     await io.assert.verifyElementIsDisplayed(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS, 'Assign button not visible on top bar');

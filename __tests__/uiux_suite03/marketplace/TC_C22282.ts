@@ -9,7 +9,7 @@ test.describe(`C22282 Verify, when the description is large on the tile, scroll 
     );
   });
 
-  test(`C22282 Verify, when the description is large on the tile, scroll bar needs to present`, async ({
+  test(`@Env-All @Zephyr-IO-T2173 C22282 Verify, when the description is large on the tile, scroll bar needs to present`, async ({
     io,
     page
   }) => {

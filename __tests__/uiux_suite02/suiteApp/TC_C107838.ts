@@ -26,7 +26,7 @@ test.describe("TC_C107838_Verify syncing dateTime fields in NS SS2.x import flow
             await io.homePage.performWebActions(selectors.mappings.MAPPER2DOT0PO.PREVIEW, "preview")
             await io.homePage.click(selectors.mappings.MAPPER2DOT0PO.PREVIEW)
             //validating date/time format
-            await io.assert.verifyElementContainsText(selectors.basePagePO.RESULT_PREVIEW_CONTENT, "{  \"CreatedDate\": \"13/05/2023 08:12     AM\"}")
+            await io.assert.verifyElementContainsText(selectors.basePagePO.RESULT_PREVIEW_CONTENT, "{  \"CreatedDate\": \"13/05/2023 08:12 AM\"}")
             await io.importsPage.click(selectors.basePagePO.SAVE_AND_CLOSE);
         });
         //Enable and run the Flow ***

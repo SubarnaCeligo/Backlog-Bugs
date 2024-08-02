@@ -5,7 +5,7 @@ import data from "@testData/ScriptDebugger/C93664.json"
 
 test.describe('C93664 Validate user is able to see the options script,description,chose function stub while creating "preMap" script through flow builder page', () => {
    
-    test('C93664 Validate user is able to see the options script,description,chose function stub while creating "preMap" script through flow builder page', async({io,page}) => {
+    test('@Env-All @Zephyr-IO-T22631 C93664 Validate user is able to see the options script,description,chose function stub while creating "preMap" script through flow builder page', async({io,page}) => {
   
       const id =  await io.createResourceFromAPI(
         data,

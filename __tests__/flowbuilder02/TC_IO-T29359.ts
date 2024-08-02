@@ -1,12 +1,12 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("Verify that the immutable checkbox is not displaying for Salesforce Imports", () => {
+test.describe("T29359_Verify that the immutable checkbox is not displaying for Salesforce Imports", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
     test("@Zephyr-IO-T29359 @BugID-IO-74713 @Env-QA @Priority-P2 ", async ({ io, page }) => {
-        await io.flowBuilder.clickByText('Automation Flows');
+        await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.flowBuilder.addStep("Navigated to Automation Flows");
         await io.flowBuilder.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,'Immutable_Salesforce_DND');
         await io.flowBuilder.addStep("Searching respective flows related to salesforce");

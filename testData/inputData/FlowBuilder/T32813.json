@@ -1,32 +1,33 @@
 {
-    "name": "IO-T32813",
+    "name": "TC_IO-T32631",
     "pageGenerators": [
         {
             "type": "export",
             "qa__export": {
-                "name": "FTP Export",
-                "_connectionId": "FTP CONNECTION",
-                "apiIdentifier": "eebcca58d7",
+                "name": "MongoDB Export",
+                "_connectionId": "MONGODB CONNECTION",
+                "apiIdentifier": "e2743380d5",
                 "asynchronous": true,
+                "oneToMany": false,
                 "sandbox": false,
-                "ftp": {
-                    "directoryPath": "/Group-QA/ShritiS"
+                "groupByFields": [
+                    "id"
+                ],
+                "rawData": "6253c695bbf2c06775d39fe147a330a269a1463ea9e7dba8d188a243",
+                "mongodb": {
+                    "method": "find",
+                    "collection": "TEST NEW"
                 },
-                "file": {
-                    "output": "records",
-                    "skipDelete": false,
-                    "type": "json",
-                    "filter": {
-                        "type": "expression",
-                        "expression": {
-                            "rules": [],
-                            "version": "1"
-                        },
+                "filter": {
+                    "type": "expression",
+                    "expression": {
                         "rules": [],
                         "version": "1"
-                    }
+                    },
+                    "rules": [],
+                    "version": "1"
                 },
-                "adaptorType": "FTPExport"
+                "adaptorType": "MongodbExport"
             }
         }
     ],
@@ -34,38 +35,22 @@
         {
             "type": "import",
             "qa__import": {
-                "name": "HTTP import Transfer files into destination application",
-                "_connectionId": "HTTP ZENDESK CONNECTION",
-                "_sourceId": "665da245c1da51c94438a8df",
-                "apiIdentifier": "ie672b7c3c",
-                "oneToMany": false,
-                "blob": true,
-                "sandbox": false,
-                "_templateId": "665dafabc1da51c944398e0e",
-                "http": {
-                    "relativeURI": [
-                        "users"
-                    ],
-                    "method": [
-                        "POST"
-                    ],
-                    "body": [
-                        ""
-                    ],
-                    "blobFormat": "utf8",
-                    "sendPostMappedData": true,
-                    "isRest": false,
-                    "formType": "http"
+                "_connectionId": "MONGODB CONNECTION",
+                "name": "MONGODB Import",
+                "assistantMetadata": {},
+                "ignoreExisting": false,
+                "mongodb": {
+                    "collection": "Vikram",
+                    "lookupType": "",
+                    "method": "insertMany"
                 },
-                "settings": {
-                    "pathparam": "1"
-                },
-                "adaptorType": "HTTPImport"
+                "oneToMany": "false",
+                "sandbox": false
             }
         }
     ],
     "createFlow": {
-        "name": "IO-T32813",
+        "name": "TC_IO-T32631",
         "disabled": false,
         "_integrationId": "603ce75ac4fec33283691f43",
         "skipRetries": false,

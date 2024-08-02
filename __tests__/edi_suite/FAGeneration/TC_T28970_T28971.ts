@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S TC_T28965-Verify that user is able to save an ex
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Epic-IO-36129 @Env-All @Priority-P2 @Zephyr-T28970 @Zephyr-T28971 @Zephyr-IO-T28967 Verify that user is able to save an export after configuring FA", async ({ io, page }) => {
+  test("@Epic-IO-36129 @Env-All @Priority-P2 @Zephyr-IO-T28970 @Zephyr-IO-T28971 Verify that user is able to save an export after configuring FA", async ({ io, page }) => {
     //Go to Exports
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
 
@@ -37,12 +37,15 @@ test.describe("@Author-Shriti S TC_T28965-Verify that user is able to save an ex
 
     await io.exportsPage.click(selectors.exportsPagePO.FILE_TYPE);
     await io.exportsPage.click(selectors.connectionsPagePO.FILE_DEFINITION);
+    await io.exportsPage.loadingTime();
 
     //select EDI file
+    await io.exportsPage.loadingTime();
     await io.exportsPage.click(selectors.homePagePO.EDI_PROFILE);
-    await io.exportsPage.clickByTextByIndex('EDI_AUTOMATION_DND', 0);
+    await io.exportsPage.clickByTextByIndex('AA_EDI_AUTOMATION_DND', 0);
 
     //Select Parsing def
+    await io.exportsPage.loadingTime();
     await io.exportsPage.click(selectors.homePagePO.EDI_FORMAT);
     await io.exportsPage.loadingTime();
     await io.exportsPage.waitForElementAttached(selectors.exportsPagePO.PARSING_DEF_DROPDOWN);
@@ -50,6 +53,7 @@ test.describe("@Author-Shriti S TC_T28965-Verify that user is able to save an ex
 
     //Click the checkbox
     await io.exportsPage.click(selectors.exportsPagePO.FA_ACKNOWLEDGEMENT);
+
 
     // Parser helper
     await io.exportsPage.clickByIndex(selectors.exportsPagePO.PARSER_HELPER, 1);
@@ -59,7 +63,10 @@ test.describe("@Author-Shriti S TC_T28965-Verify that user is able to save an ex
     await io.exportsPage.fill(selectors.basePagePO.FTP_DIRECTORY_PATH, '/test');
 
     //Save
+    await io.exportsPage.loadingTime();
     await io.exportsPage.click(selectors.basePagePO.SAVE_AND_CLOSE);
+    await io.exportsPage.loadingTime();
+    await io.exportsPage.loadingTime();
 
     await io.flowBuilder.addStep("T28971 - Verify that FA configuration is retained after saving and reopening.")
     //reopen in edit mode data-test="Transfer"

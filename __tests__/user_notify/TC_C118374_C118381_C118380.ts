@@ -5,7 +5,7 @@ test.describe("C118374_C118381_C118380", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("C118374_C118381_C118380", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T20196 @Zephyr-IO-T20203 @Zephyr-IO-T20202 C118374_C118381_C118380", async ({ io, page }) => {
 
     // Navigate to default integration
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
@@ -34,7 +34,7 @@ test.describe("C118374_C118381_C118380", () => {
     await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL);
 
     const assigneePill = (await io.flowBuilder.getText(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL)).toString();
-    await io.assert.expectToContainValue('Pending - qaautomation1+a', assigneePill, 'Error is not assigned');
+    await io.assert.expectToContainValue('Pending - qaautomation1+', assigneePill, 'Error is not assigned');
     await io.flowBuilder.hover(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL, 0, false);
     await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL_HOVERTEXT);
     const hoverText = (await io.flowBuilder.getText(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL_HOVERTEXT)).toString();

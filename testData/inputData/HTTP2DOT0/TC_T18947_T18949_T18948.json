@@ -1,0 +1,151 @@
+{
+  "name": "FTP_To_NS",
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "ZOOM EXPORT 1",
+        "_connectionId": "ZOOM TEST CONNECTION",
+        "apiIdentifier": "edeb0d9115",
+        "asynchronous": true,
+        "assistant": "zoom",
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": "/v2/contacts?next_page_token={{{export.http.paging.token}}}",
+          "method": "GET",
+          "headers": [],
+          "requestMediaType": "json",
+          "successMediaType": "json",
+          "errorMediaType": "json",
+          "_httpConnectorVersionId": "63ef1f9824dfe13a30da7c6a",
+          "_httpConnectorResourceId": "63ef1f9824dfe13a30da7c6b",
+          "_httpConnectorEndpointId": "63ebdaf6331e86db8a926804",
+          "isRest": false,
+          "formType": "assistant",
+          "paging": {
+            "method": "token",
+            "path": "next_page_token",
+            "lastPageStatusCode": 400
+          },
+          "response": {
+            "resourcePath": "contacts",
+            "successValues": []
+          }
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "ZOOM IMPORT 1",
+        "_connectionId": "ZOOM TEST CONNECTION",
+        "apiIdentifier": "i2919ced1b",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "assistant": "zoom",
+        "sandbox": false,
+        "lookups": [],
+        "http": {
+          "relativeURI": [
+            "/v2/tracking_fields/{{{data.0.test}}}"
+          ],
+          "method": [
+            "PATCH"
+          ],
+          "body": [
+            "{{#each data}}\n                {\n                  {{#each this}}\n                  {{#compare @key \"==\" \"ioRecordIndex\"}}  \n                  {{else}} \n                    {{#compare @key \"==\" \"ioFirstRecord\"}}  \n                      {{else}} \n                        {{#compare @key \"==\" \"ioLastRecord\"}}  \n                        {{else}} \n                          {{#if @index}},{{/if}} {{{jsonSerialize @key}}}: {{{jsonSerialize this}}} \n                        {{/compare}} \n                      {{/compare}}   \n                  {{/compare}}\n                  {{/each}}\n                }\n                {{/each}}"
+          ],
+          "headers": [],
+          "requestMediaType": "json",
+          "successMediaType": "json",
+          "errorMediaType": "json",
+          "strictHandlebarEvaluation": false,
+          "sendPostMappedData": true,
+          "_httpConnectorVersionId": "63ef1f9824dfe13a30da7c6a",
+          "_httpConnectorResourceId": "63ef1f9824dfe13a30da7c9c",
+          "_httpConnectorEndpointIds": [
+            "63ef1f9824dfe13a30da7cbc"
+          ],
+          "isRest": false,
+          "formType": "assistant",
+          "lookups": []
+        },
+        "adaptorType": "HTTPImport"
+      }
+    },
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "ZOOM IMPORT 2",
+        "_connectionId": "ZOOM TEST CONNECTION",
+        "apiIdentifier": "ia01ea7db4",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "assistant": "zoom",
+        "sandbox": false,
+        "lookups": [],
+        "http": {
+          "relativeURI": [
+            "/v2/users"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [
+            "{{#each data}}\n                {\n                  {{#each this}}\n                  {{#compare @key \"==\" \"ioRecordIndex\"}}  \n                  {{else}} \n                    {{#compare @key \"==\" \"ioFirstRecord\"}}  \n                      {{else}} \n                        {{#compare @key \"==\" \"ioLastRecord\"}}  \n                        {{else}} \n                          {{#if @index}},{{/if}} {{{jsonSerialize @key}}}: {{{jsonSerialize this}}} \n                        {{/compare}} \n                      {{/compare}}   \n                  {{/compare}}\n                  {{/each}}\n                }\n                {{/each}}"
+          ],
+          "headers": [],
+          "requestMediaType": "json",
+          "successMediaType": "json",
+          "errorMediaType": "json",
+          "strictHandlebarEvaluation": false,
+          "sendPostMappedData": true,
+          "_httpConnectorVersionId": "63ef1f9824dfe13a30da7c6a",
+          "_httpConnectorResourceId": "63ef1f9824dfe13a30da7c9f",
+          "_httpConnectorEndpointIds": [
+            "63ef1f9824dfe13a30da7cbe"
+          ],
+          "isRest": false,
+          "formType": "assistant",
+          "lookups": []
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "create_flow": {
+    "name": "TC_T18947_T18949_T18948",
+    "disabled": false,
+    "pageGenerators": [
+      {
+        "_exportId": "UPDATE WITH EXPORTID",
+        "skipRetries": false
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "_importId": "UPDATE WITH IMPORTID",
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        }
+      },
+      {
+        "type": "import",
+        "_importId": "UPDATE WITH IMPORTID",
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        }
+      }
+    ],
+    "autoResolveMatchingTraceKeys": true
+  }
+}

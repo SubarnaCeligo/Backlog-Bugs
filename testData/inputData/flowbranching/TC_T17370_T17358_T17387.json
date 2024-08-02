@@ -1,0 +1,97 @@
+{
+    "name": "TC_T17370_T17358_T17387_FLOW",
+    "disabled": true,
+    "_integrationId": "_integrationId",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "Http ZD Export",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "e9a8e5b991",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "http": {
+                    "relativeURI": "/users",
+                    "method": "GET",
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "users",
+                        "twoDArray": {
+                            "doNotNormalize": false,
+                            "hasHeader": false
+                        }
+                    }
+                },
+                "test": {
+                    "limit": 3
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "name": "",
+            "routeRecordsTo": "first_matching_branch",
+            "routeRecordsUsing": "input_filters",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "inputFilter": {
+                        "rules": [
+                            "equals",
+                            [
+                                "boolean",
+                                [
+                                    "extract",
+                                    "shared"
+                                ]
+                            ],
+                            false
+                        ]
+                    },
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "setupInProgress": true
+                        }
+                    ]
+                },
+                {
+                    "name": "Branch 1.1",
+                    "inputFilter": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "active"
+                                ]
+                            ],
+                            "true"
+                        ]
+                    },
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "setupInProgress": true
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branching"
+            },
+            "id": "y3JTopsaYL6"
+        }
+    ]
+}

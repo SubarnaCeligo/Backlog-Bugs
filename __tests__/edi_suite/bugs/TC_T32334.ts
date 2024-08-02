@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S TC_T32334-Verify that sample data is retained af
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Bug-IO-79128 @Env-QA @Priority-P2 @Zephyr-T32334 Verify that sample data is retained after saving an EDI X12 export", async ({ io, page }) => {
+  test("@Bug-IO-79128 @Env-QA @Priority-P2 @Zephyr-IO-T32334 Verify that sample data is retained after saving an EDI X12 export", async ({ io, page }) => {
     //Go to Flow Builder
     await io.homePage.goToMenu("Tools", "Flow builder");
 
@@ -25,9 +25,11 @@ test.describe("@Author-Shriti S TC_T32334-Verify that sample data is retained af
     //Enter name and select connection
     await io.exportsPage.waitForElementAttached(selectors.importPagePO.NAME);
     await io.exportsPage.fill(selectors.importPagePO.NAME, 'FA Save test');
+    await io.exportsPage.loadingTime();
 
     await io.exportsPage.waitForElementAttached(selectors.basePagePO.CONNECTION_DROPDOWN);
     await io.exportsPage.fill(selectors.basePagePO.CONNECTION_DROPDOWN, "FTP CONNECTION");
+    await io.exportsPage.loadingTime();
     await io.exportsPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTIONDROP0);
     await io.exportsPage.click(selectors.connectionsPagePO.CONNECTIONDROP0);
 

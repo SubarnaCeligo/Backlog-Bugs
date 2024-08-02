@@ -5,7 +5,7 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe(
   "C23048 Customers should be presented with a button on the home page “Your license has expired. Renew now.”. ",
   () => {
-    test("C23048 Customers should be presented with a button on the home page “Your license has expired. Renew now.”. ", async ({
+    test("@Env-All @Zephyr-IO-T1431 C23048 Customers should be presented with a button on the home page “Your license has expired. Renew now.”. ", async ({
       io,
       page
     }) => {

@@ -1,12 +1,14 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("@Author-Shriti S TC_T28968-Verify that default FA Listerer is auto selected in the FA dropdown.", () => {
+test.describe("@Author-Shriti S TC_T28968-Verify the default FA Listener selection in FA dropdown.", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Epic-IO-36129 @Env-All @Priority-P2 @Zephyr-T28968 Verify that default FA Listerer is auto selected in the FA dropdown.", async ({ io, page }) => {
-    //Go to Exports
+  test("@Epic-IO-36129 @Env-All @Priority-P2 @Zephyr-IO-T28968 Verify the default FA Listener selection in FA dropdown.", async ({ io, page }) => {
+    
+    await io.homePage.addStep("Single listener")
+    //Go to Homepage
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
 
     //search for the integration
@@ -21,6 +23,7 @@ test.describe("@Author-Shriti S TC_T28968-Verify that default FA Listerer is aut
     //Search and select an application
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.APP_NAME_INPUT);
     await io.flowBuilder.fill(selectors.flowBuilderPagePO.APP_NAME_INPUT, "FTP");
+    await io.flowBuilder.waitForElementAttached(selectors.importPagePO.FTP_IMPORT);
     await io.flowBuilder.click(selectors.importPagePO.FTP_IMPORT);
 
     await io.flowBuilder.waitForElementAttached(selectors.basePagePO.CREATE_FROM_SCRATCH);
@@ -31,7 +34,7 @@ test.describe("@Author-Shriti S TC_T28968-Verify that default FA Listerer is aut
 
     //select EDI file
     await io.exportsPage.click(selectors.homePagePO.EDI_PROFILE);
-    await io.exportsPage.clickByTextByIndex('EDI_AUTOMATION_DND', 0);
+    await io.exportsPage.clickByTextByIndex('AA_EDI_AUTOMATION_DND', 0);
 
     //Select Parsing def
     await io.exportsPage.click(selectors.homePagePO.EDI_FORMAT);
@@ -46,6 +49,51 @@ test.describe("@Author-Shriti S TC_T28968-Verify that default FA Listerer is aut
     //Verify if a listener is selected by default
     await io.assert.expectNotToBeNull(selectedListener, 'Default listener is not selected');
     await io.assert.expectNotToBeValue(selectedListener, 'Please select','Default listener is not selected' );
-    
+
+
+    await io.homePage.addStep("Muliple listener")
+    //Go to Homepage
+    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+
+    //search for the integration
+    await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "EDI_FA_DND_MultipleListeners");
+    await io.homePage.clickByTextByIndex('EDI_FA_DND_MultipleListeners', 0);
+    await io.integrationPage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW);
+    await io.integrationPage.click(selectors.flowBuilderPagePO.CREATEFLOW);
+
+    //Add Export
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
+
+    //Search and select an application
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.APP_NAME_INPUT);
+    await io.flowBuilder.fill(selectors.flowBuilderPagePO.APP_NAME_INPUT, "FTP");
+    await io.flowBuilder.waitForElementAttached(selectors.importPagePO.FTP_IMPORT);
+    await io.flowBuilder.click(selectors.importPagePO.FTP_IMPORT);
+
+    await io.flowBuilder.waitForElementAttached(selectors.basePagePO.CREATE_FROM_SCRATCH);
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
+
+    await io.exportsPage.click(selectors.exportsPagePO.FILE_TYPE);
+    await io.exportsPage.click(selectors.connectionsPagePO.FILE_DEFINITION);
+    await io.exportsPage.loadingTime();
+
+    //select EDI file
+    await io.exportsPage.click(selectors.homePagePO.EDI_PROFILE);
+    await io.exportsPage.loadingTime();
+    await io.exportsPage.clickByTextByIndex('AA_EDI_AUTOMATION_DND', 0);
+    await io.exportsPage.loadingTime();
+
+    //Select Parsing def
+    await io.exportsPage.click(selectors.homePagePO.EDI_FORMAT);
+    await io.exportsPage.loadingTime();
+    await io.exportsPage.waitForElementAttached(selectors.exportsPagePO.PARSING_DEF_DROPDOWN);
+    await io.exportsPage.clickByIndex(selectors.exportsPagePO.PARSING_DEF_DROPDOWN, 0);
+    await io.exportsPage.loadingTime();
+
+    //Click the checkbox
+    await io.exportsPage.click(selectors.exportsPagePO.FA_ACKNOWLEDGEMENT);
+   selectedListener = (await io.exportsPage.getText(selectors.exportsPagePO.FA_LISTENER_DROPDOWN)).toString();
+
+   await io.assert.expectToBeValue(selectedListener, 'Please select','Default listener is not selected' );
   });
 });

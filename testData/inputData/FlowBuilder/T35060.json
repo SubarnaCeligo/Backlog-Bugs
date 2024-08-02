@@ -1,0 +1,145 @@
+{
+    "qa__api_tdata": [
+        {
+            "skipRetries": false,
+            "name": "IO-T35060",
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Http Export",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "http": {
+                            "relativeURI": "{{testMode}}",
+                            "method": "GET",
+                            "formType": "http"
+                        },
+                        "test": {
+                            "limit": 100
+                        },
+                        "transform": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [
+                                    []
+                                ],
+                                "rulesTwoDotZero": {
+                                    "mappings": [
+                                        {
+                                            "generate": "testMode",
+                                            "dataType": "string",
+                                            "extract": "{{testMode}}",
+                                            "status": "Active",
+                                            "sourceDataType": "string",
+                                            "conditional": {
+                                                "when": "extract_not_empty"
+                                            }
+                                        }
+                                    ],
+                                    "mode": "modify"
+                                },
+                                "version": "2"
+                            },
+                            "rules": [
+                                []
+                            ],
+                            "version": "2"
+                        },
+                        "filter": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [
+                                    "equals",
+                                    [
+                                        "string",
+                                        [
+                                            "extract",
+                                            "sampleField"
+                                        ]
+                                    ],
+                                    "op"
+                                ],
+                                "version": "1"
+                            },
+                            "rules": [
+                                "equals",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "sampleField"
+                                    ]
+                                ],
+                                "op"
+                            ],
+                            "version": "1"
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "http test import",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": [
+                                "{{testMode}}"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "mappings": [
+                            {
+                                "extract": "{{testMode}}",
+                                "generate": "testMode",
+                                "dataType": "string",
+                                "conditional": {
+                                    "when": "extract_not_empty"
+                                },
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            }
+                        ],
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "IO-T35060",
+                "_integrationId": "667677c86953e4b02b99b525",
+                "disabled": true,
+                "skipRetries": false,
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ],
+                "pageProcessors": [
+                    {
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID",
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

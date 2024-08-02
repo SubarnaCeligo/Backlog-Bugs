@@ -1,0 +1,52 @@
+{
+    "name": "TC_IO-T35081",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "6459f5fc6df4b9686c0b7145",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "NetSuite Analytics Warehouse (NSAW) Export",
+                "_connectionId": "NETSUITE ANALYTICS WAREHOUSE CONNECTION",
+                "apiIdentifier": "e25d75dc62",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "sandbox": false,
+                "test": {
+                    "limit": 11
+                },
+                "jdbc": {
+                    "query": "SELECT * FROM LOAD_1"
+                },
+                "adaptorType": "JDBCExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "NetSuite Analytics Warehouse (NSAW) import",
+                "_connectionId": "NETSUITE ANALYTICS WAREHOUSE CONNECTION",
+                "apiIdentifier": "i27fb019df",
+                "oneToMany": false,
+                "sandbox": false,
+                "jdbc": {
+                    "query": [],
+                    "queryType": [
+                        "bulk_load"
+                    ],
+                    "bulkLoad": {
+                        "primaryKeys": [
+                            "EMAIL"
+                        ],
+                        "tableName": "ADMIN.DATA"
+                    }
+                },
+                "adaptorType": "JDBCImport"
+            }
+        }
+    ]
+}

@@ -34,7 +34,8 @@ var testCases = [
   "C107061",
   "C108197",
   "C2035",
-  // "C115891" Duplicate test case
+  "IO-T22286",
+  "IOT23482"
 ];
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
 (async () => {

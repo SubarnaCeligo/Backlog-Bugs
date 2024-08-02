@@ -6,7 +6,7 @@ test.describe('Verify if Google Drive import has a MIME type with the list of da
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test('CIO27741, CIO27742 and CIO27743 Verify if Google Drive import has a MIME type for audio documents,document files,Drive SDK files,drawings,general files,folders,forms,Fusion Tables,Jamboard files,mail layout documents,maps,photos,presentations,scripts,shortcuts,sites,spreadsheets,unknown files and videos', async ({ io, page }) => {
+    test('@Env-All CIO27741, CIO27742 and CIO27743 Verify if Google Drive import has a MIME type for audio documents,document files,Drive SDK files,drawings,general files,folders,forms,Fusion Tables,Jamboard files,mail layout documents,maps,photos,presentations,scripts,shortcuts,sites,spreadsheets,unknown files and videos', async ({ io, page }) => {
         await io.homePage.click(selectors.basePagePO.RESOURCES);
         await io.homePage.clickByText('Imports');
         await io.homePage.clickByText(' Create import');

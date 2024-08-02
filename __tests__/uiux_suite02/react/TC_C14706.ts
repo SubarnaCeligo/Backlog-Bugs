@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C14706 Export Panel on Staging is Missing the Following Components", () => {
-  test("C14706 Export Panel on Staging is Missing the Following Components", async ({
+  test("@Env-All @Zephyr-IO-T2942 C14706 Export Panel on Staging is Missing the Following Components", async ({
     io,
     page
   }) => {
@@ -10,7 +10,8 @@ test.describe("C14706 Export Panel on Staging is Missing the Following Component
     await io.exportsPage.click(selectors.exportsPagePO.ADD_NEW_RESOURCE);
     await io.exportsPage.clickByText("REST API (HTTP)");
     await io.exportsPage.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
-    await io.exportsPage.clickByText("3PL CONNECTION");
+    // await io.exportsPage.clickByText("3PL CONNECTION");
+    await io.homePage.selectConnectionDropDown(page, "3PL CONNECTION")
     await io.exportsPage.fill(selectors.basePagePO.NAME, "3PL Export");
     await io.exportsPage.click(selectors.basePagePO.SAVE);
     await io.exportsPage.click(selectors.importPagePO.HTTP_REQUEST);

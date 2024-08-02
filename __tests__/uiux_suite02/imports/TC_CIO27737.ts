@@ -5,7 +5,7 @@ import CIO27737 from '@testData/Imports/CIO27737.json';
 
 
 test.describe('CIO27737 & CIO27739 Verify if MIME type is correctly saved by saving and re-opening and run the flow', () => {
-  test('Verify if MIME type is correctly saved by saving and re-opening and run the flow', async ({
+  test('@Env-All Verify if MIME type is correctly saved by saving and re-opening and run the flow', async ({
     io,
     page
   }) => {

@@ -2,11 +2,13 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C48555 Verify destination dropdown suggestions for mapper1.0 and mapper2.0`, () => {
-  test(`C48555 Verify destination dropdown suggestions for mapper1.0 and mapper2.0`, async ({
+  test(`@Env-All @Zephyr-IO-T18457 C48555 Verify destination dropdown suggestions for mapper1.0 and mapper2.0`, async ({
     io,
     page
   }) => {
     await io.homePage.navigateTo(process.env.IO_Integration_URL);
+    await io.homePage.loadingTime()
+    await io.homePage.fill(selectors.flowBuilderPagePO.SEARCH, "Mapping_DND")
     const testCase = page.getByText("Mapping_DND").first();
     await testCase.waitFor({ state: "visible", timeout: 18000 });
     await testCase.click();

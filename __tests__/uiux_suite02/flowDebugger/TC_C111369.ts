@@ -4,12 +4,12 @@ import C111369 from "@testData/FlowDebugger/C111369.json";
 import C113428 from "@testData/FlowDebugger/C113428.json";
 
 test.describe('C111369_C113428', () => {
-    test('C111369', async ({ io, page }) => {
+    test('@Env-All @Zephyr-IO-T14388 C111369', async ({ io, page }) => {
         const id = await io.createResourceFromAPI(C111369, "FLOWS");
         //Disable the flow
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
-        await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
+        await page.locator(selectors.flowBuilderPagePO.RUNTEST_BUTTON).first().click();
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.VIEW_DEBUG_LOG);
@@ -20,12 +20,12 @@ test.describe('C111369_C113428', () => {
         await io.assert.expectToContainValue("404", errorStatus, 'Error is not showing');
 
     });
-    test('C113428 Debug log must be captured for Blob lookups.', async ({ io, page }) => {
+    test('@Env-All @Zephyr-IO-T14409 C113428 Debug log must be captured for Blob lookups.', async ({ io, page }) => {
         const id = await io.createResourceFromAPI(C113428, "FLOWS");
         //Disable the flow
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
-        await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
+        await page.locator(selectors.flowBuilderPagePO.RUNTEST_BUTTON).first().click();
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.VIEW_DEBUG_LOG);

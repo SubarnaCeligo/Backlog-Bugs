@@ -20,7 +20,7 @@ test.describe("C108853 Changing the implementation for uploading template zip.",
     await page.waitForTimeout(30000)
     await io.flowBuilder.clickByText("Upload template zip");
     let fileInput = await page.$(selectors.basePagePO.UPLOAD_FILE);
-    await fileInput.setInputFiles("testData/inputData/Templates/C108853.zip");
+    await io.homePage.zipUpload("testData/inputData/Templates/C108853.zip");
     await io.flowBuilder.loadingTime();
     const timeString = await (
       await page.$(selectors.myAccountPagePO.RELATIVE_DATE_TIME)

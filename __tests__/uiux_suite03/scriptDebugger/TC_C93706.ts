@@ -7,7 +7,7 @@ test.describe('C93706 Validate that user is able to see "postResponseMap" functi
     test.beforeEach(async ({ io }) => {
       await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test('C93706 Validate that user is able to see "postResponseMap" function wherever “Insert function stub” field is present.(Administer)', async ({
+    test('@Env-All @Zephyr-IO-T22673 C93706 Validate that user is able to see "postResponseMap" function wherever “Insert function stub” field is present.(Administer)', async ({
       io,
       page
     }) => {

@@ -1,0 +1,69 @@
+{
+  "name": "TC_T19797",
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "TC_T19797",
+        "_connectionId": "FTP CONNECTION",
+        "asynchronous": true,
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "/io.auto.qa/FTP_exports_imports",
+          "fileNameStartsWith": "tickets.json"
+        },
+        "file": {
+          "output": "records",
+          "skipDelete": true,
+          "type": "json",
+          "json": {
+            "resourcePath": "*"
+          }
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "FTP Import",
+        "_connectionId": "FTP CONNECTION",
+        "oneToMany": false,
+        "sandbox": false,
+        "file": {
+          "fileName": "tickets2.json",
+          "skipAggregation": false,
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/FTP_exports_imports",
+          "fileName": "tickets2.json"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "createFlow": {
+    "name": "TC_T19797",
+    "disabled": false,
+    "pageGenerators": [
+      {
+        "_exportId": "UPDATE WITH NEW EXPORTID",
+        "skipRetries": false
+      }
+    ],
+    "pageProcessors": [
+      {
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        },
+        "type": "import",
+        "_importId": "UPDATE WITH NEW IMPORTID"
+      }
+    ],
+    "autoResolveMatchingTraceKeys": true
+  }
+}

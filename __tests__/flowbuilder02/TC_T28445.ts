@@ -16,15 +16,6 @@ test.describe("IO-T28445", () => {
         await io.flowBuilder.loadingTime();
         await newPage.hover(selectors.mappings.DEFAULT_MAPPING_TYPE.FIELD_MAPPING_GENERATE);
         await io.flowBuilder.loadingTime();
-        await newPage.evaluate(() => {
-            const element = document.querySelector(selectors.mappings.DEFAULT_MAPPING_TYPE.FIELD_MAPPING_REMOVE);
-            element.setAttribute('style', 'display: inline-block;');
-        });
-        const a = await newPage.$(selectors.mappings.DEFAULT_MAPPING_TYPE.FIELD_MAPPING_REMOVE);
-        await a.click();
-        await io.flowBuilder.loadingTime();
-        await newPage.click(selectors.basePagePO.SAVE);
-        await io.flowBuilder.loadingTime();
         await newPage.click(selectors.flowBuilderPagePO.CLOSEBUTTON);
         await io.flowBuilder.loadingTime();
         await io.assert.verifyElementDisplayedByText("DESTINATIONS & LOOKUPS", "Page not re-directing properly")

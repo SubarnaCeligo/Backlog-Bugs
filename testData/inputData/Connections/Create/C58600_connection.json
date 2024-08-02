@@ -1,0 +1,43 @@
+{
+  "type": "http",
+  "name": "Create connection shopify http connection using different domain names(New)",
+  "http": {
+    "formType": "http",
+    "_iClientId": "",
+    "mediaType": "json",
+    "baseURI": "https://celigo-returnly-staging.myshopify.com/admin/api/2022-10",
+    "ping": {
+      "relativeURI": "/articles/authors.json",
+      "method": "GET"
+    },
+    "unencrypted": {
+      "field": "value"
+    },
+    "encrypted": "******",
+    "auth": {
+      "type": "oauth",
+      "oauth": {
+        "scope": [
+          "read_content",
+          "write_content",
+          "read_themes",
+          "write_themes",
+          "read_products",
+          "write_products",
+          "read_product_listings",
+          "read_customers",
+          "write_customers",
+          "read_orders",
+          "write_orders",
+          "read_all_orders",
+          "read_draft_orders",
+          "write_draft_orders",
+          "read_inventory",
+          "write_inventory",
+          "read_locations"
+        ],
+        "scopeDelimiter": ""
+      }
+    }
+  }
+}

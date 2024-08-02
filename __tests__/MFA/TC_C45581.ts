@@ -2,7 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C45581 Verify if the IO account user is able to view the option to enable MFA settings under the Security tab.", () => {
-    test("@Env-All C45581 Verify if the IO account user is able to view the option to enable MFA settings under the Security tab.", async ({io, page}) => {
+    test("@Env-All @Zephyr-IO-T17223 C45581 Verify if the IO account user is able to view the option to enable MFA settings under the Security tab.", async ({io, page}) => {
         await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
         await io.myAccountPage.click(selectors.myAccountPagePO.SECURITY);
         await io.myAccountPage.click(selectors.myAccountPagePO.MFA);
@@ -17,4 +17,3 @@ test.describe("C45581 Verify if the IO account user is able to view the option t
         await io.assert.expectToBeValue('false', isSecretKeyVisible.toString(), 'Verify mobile device is displayed');
     });
   });
-  

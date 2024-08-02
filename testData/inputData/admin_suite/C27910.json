@@ -1,0 +1,79 @@
+{
+  "name": "TC_C27910 Flow",
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "export",
+        "_connectionId": "NETSUITE CONNECTION",
+        "apiIdentifier": "e475d957ba",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "rawData": "65950824f20561830b0804e158a9bc9f5a594e938863c613088a11ae",
+        "netsuite": {
+          "type": "restlet",
+          "skipGrouping": true,
+          "statsOnly": false,
+          "restlet": {
+            "recordType": "customer",
+            "searchId": "1907",
+            "restletVersion": "suiteapp2.0",
+            "markExportedBatchSize": 100,
+            "hooks": {
+              "preSend": {
+                "fileInternalId": "597032",
+                "function": "preSendFunction"
+              }
+            }
+          },
+          "distributed": {}
+        },
+        "adaptorType": "NetSuiteExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "import",
+        "_connectionId": "S3 CONNECTION",
+        "apiIdentifier": "i80119f0a0",
+        "oneToMany": false,
+        "sandbox": false,
+        "file": {
+          "fileName": "file-{{timestamp}}.json",
+          "skipAggregation": false,
+          "type": "json"
+        },
+        "s3": {
+          "region": "us-east-1",
+          "bucket": "qamahesh",
+          "fileKey": "file-{{timestamp}}.json"
+        },
+        "adaptorType": "S3Import"
+      }
+    }
+  ],
+  "createFlow": {
+    "name": "TC_C27910 Flow",
+    "disabled": false,
+    "skipRetries": false,
+    "pageProcessors": [
+      {
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        },
+        "type": "import",
+        "_importId": "UPDATE WITH NEW IMPORTID"
+      }
+    ],
+    "pageGenerators": [
+      {
+        "_exportId": "UPDATE WITH NEW EXPORTID"
+      }
+    ]
+  }
+}

@@ -33,8 +33,7 @@ test.describe("@Author-Shriti S Verify that EDI flows can be filtered using date
     await io.homePage.clickByText('Apply');
     await io.homePage.loadingTime();
 
-    //sort results in ascending order -  on Last run column -- to get oldest value
-    // await io.homePage.clickByTextByIndex('Last run', 0);
+    //sort results in ascending order 
     await io.homePage.click('thead > tr > th:nth-child(5)');
     await io.homePage.loadingTime();
     

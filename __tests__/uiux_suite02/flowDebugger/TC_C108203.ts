@@ -4,7 +4,7 @@ import C108203 from '../../../testData/inputData/FlowDebugger/C108203.json';
 
 
 test.describe("Verify if a source has offline connection and no mock output data, then run test button is disabled.", () => {
-    test("Verify if a source has offline connection and no mock output data, then run test button is disabled.", async ({io, page}) => {
+    test("@Env-All @Zephyr-IO-T24103 Verify if a source has offline connection and no mock output data, then run test button is disabled.", async ({io, page}) => {
         
         //Create a flow with offline connection
         await io.createResourceFromAPI(C108203, "FLOWS");

@@ -15,8 +15,8 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_TRANSFORMATION);
     await io.flowBuilder.loadingTime();
     // //EXPORT_TRANSFORMATION RULES C111492
-    const isCeligoAINotVisibleInRule = !(await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT));
-    await io.assert.expectToBeTrue(isCeligoAINotVisibleInRule, "Celigo AI Not Visible for Rule 1.0 or 2.0");
+    const isCeligoAIVisibleInRule = (await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT));
+    await io.assert.expectToBeTrue(isCeligoAIVisibleInRule, "Celigo AI Not Visible for Rule 1.0 or 2.0");
     await io.flowBuilder.click(selectors.basePagePO.JAVASCRIPTWINDOW);
     //Verify Celigo AI are in collapsed state and disabled. C113470 C113471
     await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","false", 1);
@@ -30,7 +30,7 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
     //Check CeligoHelpText is Aligned or not C113472 and C111475
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT);
     await expect(page.locator(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW)).toHaveAttribute('data-popper-placement', 'top');
-    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW, 'Provide instructions for Celigo AI to generate a Javascript code for you. ');
+    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW, 'Provide instructions for Celigo AI to generate a JavaScript code for you. ');
     await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW, 'Note: Your instructions will not be saved after you exit the editor window.');
     await io.flowBuilder.clickByIndex(selectors.connectionsPagePO.HELPTEXT_CLOSE, 0);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
@@ -42,7 +42,7 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
       "Celigo AI Placeholder is not displayed"
-    )
+    );
     //Verify Celigo AI are in expand state. Explain button disabled C111481
     await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","true", 1);
     const explainDisabled = await page.$$(selectors.flowBuilderPagePO.OPENAI.EXPLAIN_SELECTION);
@@ -152,7 +152,7 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
       await page.mouse.move(x, y);
       await expect(page.locator(selectors.flowBuilderPagePO.OPENAI.EXPLAIN_SELECTION_HOVER_TEXT).first()).toHaveAttribute('aria-label', 'Select any portion of the code to have Celigo AI generate a human-readable description');   
     }
-    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'Get testmode');
+    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'write a javascript function to get the testmode');
     await page.keyboard.press('Enter');
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR,
@@ -305,13 +305,14 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
     const explainImportPremapDisabled = await page.$$(selectors.flowBuilderPagePO.OPENAI.EXPLAIN_SELECTION);
     expect(await explainImportPremapDisabled[0].getAttribute('class')).toContain('Mui-disabled');
     await io.flowBuilder.loadingTime();
-    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'Get testMode');
+    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'write a javascript function to get the testmode');
     await page.keyboard.press('Enter');
+    await io.flowBuilder.clickByTextByIndex("Insert pre map stub", 0);
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR,
       "Celigo AI Prompt Thinking is not displayed"
     )
-    const importPreHook = page.getByText('function preMap');
+    const importPreHook = page.getByText('function preMap').last();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.JAVASCRIPT_PANEL);
       while (!(await importPreHook.isVisible())) {
           await page.mouse.wheel(0, 600);
@@ -343,9 +344,10 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
     const explainImportPostmapDisabled = await page.$$(selectors.flowBuilderPagePO.OPENAI.EXPLAIN_SELECTION);
     expect(await explainImportPostmapDisabled[0].getAttribute('class')).toContain('Mui-disabled');
     await io.flowBuilder.loadingTime();
-    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'Get testMode');
+    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'write a javascript function to get the testmode');
     await page.keyboard.press('Enter');
-    const importPostHook = page.getByText('function postMap');
+    await io.flowBuilder.clickByTextByIndex("Insert post map stub", 0);
+    const importPostHook = page.getByText('function postMap').last();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.JAVASCRIPT_PANEL);
     while (!(await importPostHook.isVisible())) {
         await page.mouse.wheel(0, 600);
@@ -356,7 +358,7 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
 
     //POSTSUBMIT C110847
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.SCRIPT_ID, 2);
-    await io.flowBuilder.clickByIndex(selectors.basePagePO.MENU_ITEM, 3);
+    await io.flowBuilder.clickByIndex(selectors.basePagePO.MENU_ITEM, 2);
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.EDIT_SCRIPT_LABEL_SELECTOR, 2);
     //Verify Celigo AI are in collapsed state. 
     await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","false", 1);
@@ -374,9 +376,10 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
     const explainImportPostSubmitDisabled = await page.$$(selectors.flowBuilderPagePO.OPENAI.EXPLAIN_SELECTION);
     expect(await explainImportPostSubmitDisabled[0].getAttribute('class')).toContain('Mui-disabled');
     await io.flowBuilder.loadingTime();
-    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'Get testmode');
+    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'write a javascript function to get the testmode');
     await page.keyboard.press('Enter');
-    const importPostSubmitHook = page.getByText('function postSubmit');
+    await io.flowBuilder.clickByTextByIndex("Insert post submit stub", 0);
+    const importPostSubmitHook = page.getByText('function postSubmit').last();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.JAVASCRIPT_PANEL);
     while (!(await importPostSubmitHook.isVisible())) {
         await page.mouse.wheel(0, 600);
@@ -446,7 +449,7 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
     const explainImportPostAggDisabled = await page.$$(selectors.flowBuilderPagePO.OPENAI.EXPLAIN_SELECTION);
     expect(await explainImportPostAggDisabled[0].getAttribute('class')).toContain('Mui-disabled');
     await io.flowBuilder.loadingTime();
-    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'Get testmode');
+    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'write a javascript function to get the testmode');
     await page.keyboard.press('Enter');
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR,

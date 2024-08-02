@@ -2,11 +2,13 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C52754 Verify search functionality when user searches a child destination field`, () => {
-  test(`C52754 Verify search functionality when user searches a child destination field`, async ({
+  test(`@Env-All @Zephyr-IO-T1606 C52754 Verify search functionality when user searches a child destination field`, async ({
     io,
     page
   }) => {
     await io.homePage.navigateTo(process.env.IO_Integration_URL);
+    await io.homePage.loadingTime()
+    await io.homePage.fill(selectors.flowBuilderPagePO.SEARCH, "Mapping_DND")
     const testCase = page.getByText("Mapping_DND").first();
     await io.homePage.addStep("Clicked on Mapping_DND flow");
     await testCase.waitFor({ state: "visible", timeout: 18000 });

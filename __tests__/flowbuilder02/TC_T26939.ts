@@ -7,6 +7,7 @@ test.describe("TC_T26939_Test to verify the existing behaviour of layout toggle 
     });
     test("TC_T26939 @Env-All @Priority-P2", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
+        await io.homePage.loadingTime()
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Tools", "Playground");
         await io.homePage.addStep("*** Navigated back to playground page ***");

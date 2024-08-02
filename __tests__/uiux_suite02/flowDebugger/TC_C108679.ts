@@ -12,7 +12,7 @@ test.describe("TC_C108679 Verify whether Hotspot icons when input filter is erro
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowViaAPI(id);
   });
-  test("C108679 Verify whether Hotspot icons when input filter is errored out", async ({
+  test("@Env-All @Zephyr-IO-T23938 C108679 Verify whether Hotspot icons when input filter is errored out", async ({
     io,
     page
   }) => {

@@ -44,7 +44,7 @@ test.describe("@Author_sagna123 TC_T28431_Test to validate checkbox is visible i
         await io.homePage.addStep("*** Selected HTTP application ***");
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "HTTP CONNECTION WITH DO NOT OVERRIDE AS SUCCESS MEDIA TYPE AND JSON AS MEDIA TYPE");
         await io.homePage.addStep("*** Searched for HTTP CONNECTION WITH DO NOT OVERRIDE AS SUCCESS MEDIA TYPE AND JSON AS MEDIA TYPE ***");
-        await io.homePage.clickByText('HTTP CONNECTION WITH DO NOT OVERRIDE AS SUCCESS MEDIA TYPE AND JSON AS MEDIA TYPE');
+        await io.homePage.clickByTextByIndex('HTTP CONNECTION WITH DO NOT OVERRIDE AS SUCCESS MEDIA TYPE AND JSON AS MEDIA TYPE', 0);
         await io.homePage.addStep("*** Selected HTTP CONNECTION WITH DO NOT OVERRIDE AS SUCCESS MEDIA TYPE AND JSON AS MEDIA TYPE ***");
         await io.homePage.click(selectors.basePagePO.ADD_NAME);
         await page.keyboard.press('/');

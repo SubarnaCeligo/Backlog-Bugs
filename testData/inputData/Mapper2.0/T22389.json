@@ -27,7 +27,7 @@
       "type": "import",
       "qa__import": {
         "name": "test import",
-        "_connectionId": "HTTP ZENDESK CONNECTION2",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
         "apiIdentifier": "ieb0bb63f3",
         "ignoreExisting": false,
         "ignoreMissing": false,

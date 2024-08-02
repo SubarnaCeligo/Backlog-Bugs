@@ -6,7 +6,7 @@ test.describe('Verify that while creating import Advanced firls should be collap
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
   
-    test('Verify that while creating import Advanced firls should be collapsed ', async({io,page}) => {
+    test('@Env-All @Zephyr-IO-T23059 Verify that while creating import Advanced firls should be collapsed ', async({io,page}) => {
     
         await io.homePage.click(selectors.basePagePO.RESOURCES);
         await io.homePage.clickByText('Imports')

@@ -28,7 +28,7 @@ test.describe(`TC_T19396_TC_T19397TC__T19409`, () => {
     await page.keyboard.press('/');
     await io.homePage.addStep("*** Entered name for the import ***");
     await io.homePage.click(selectors.flowBuilderPagePO.DESTINATIONTABLESEARCHPOSTGRE);
-    await io.flowBuilder.fill(selectors.flowBuilderPagePO.DESTINATIONTABLE_PlACEHOLDER, "Test");    
+    await io.flowBuilder.fill(selectors.flowBuilderPagePO.DESTINATIONTABLE_PLACEHOLDER, "Test");    
     await io.homePage.addStep("*** Clicked on destination table search field ***");
     //C120215
     await io.homePage.addStep("*** Selected A table ***");

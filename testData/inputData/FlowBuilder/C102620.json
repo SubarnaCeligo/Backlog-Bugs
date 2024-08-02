@@ -1,0 +1,135 @@
+{
+  "name": "TC_C102620 Flow",
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "export",
+        "_connectionId": "S3 CONNECTION",
+        "apiIdentifier": "ee52f8dcb1",
+        "asynchronous": true,
+        "sandbox": false,
+        "sampleData": "Company Name,phone,E Mail,Fax,BillingCity,BillingCountry,BillingState,BillingAddress 1,BillingAddressee,ShippingCity,ShippingCountry,ShippingState,ShippingfAddress 1,SHippingAddressee,UserNote Title,Usernote Memo,Usernote Type,Usernote Direction\nAuto@S3toNSCustomer_XLSX_1,99993333,AutoS3toNSCustomer_XLSX_1@gmail.com,66662222,Hyderabad,India,AP,Magestic,AB addresse,Bang,India,KA,Ameerpet,FG addresse,April customer 1 Title,April customer 1 Memo,Meeting,Incoming\nAuto@S3toNSCustomer_XLSX_2,99997777,AutoS3toNSCustomer_XLSX_2@gmail.com,77771111,Hyderabad,India,AP,RV road,BC addresse,Bang,India,KA,Gachibowli,GH addresse,April customer 2 Title,April customer 2  Memo,Conference Call,Outgoing",
+        "s3": {
+          "region": "us-east-1",
+          "bucket": "qamahesh"
+        },
+        "file": {
+          "output": "records",
+          "skipDelete": true,
+          "type": "xlsx",
+          "xlsx": {
+            "hasHeaderRow": false
+          },
+          "filter": {
+            "type": "expression",
+            "expression": {
+              "version": "1",
+              "rules": [
+                "contains",
+                ["string", ["extract", "filename"]],
+                "test.xlsx"
+              ]
+            },
+            "rules": [
+              "contains",
+              ["string", ["extract", "filename"]],
+              "test.xlsx"
+            ],
+            "version": "1"
+          }
+        },
+        "adaptorType": "S3Export"
+      }
+    },
+    {
+        "type": "export",
+        "qa__export": {
+          "name": "export",
+          "_connectionId": "S3 CONNECTION",
+          "apiIdentifier": "ee52f8dcb1",
+          "asynchronous": true,
+          "sandbox": false,
+          "sampleData": "Company Name,phone,E Mail,Fax,BillingCity,BillingCountry,BillingState,BillingAddress 1,BillingAddressee,ShippingCity,ShippingCountry,ShippingState,ShippingfAddress 1,SHippingAddressee,UserNote Title,Usernote Memo,Usernote Type,Usernote Direction\nAuto@S3toNSCustomer_XLSX_1,99993333,AutoS3toNSCustomer_XLSX_1@gmail.com,66662222,Hyderabad,India,AP,Magestic,AB addresse,Bang,India,KA,Ameerpet,FG addresse,April customer 1 Title,April customer 1 Memo,Meeting,Incoming\nAuto@S3toNSCustomer_XLSX_2,99997777,AutoS3toNSCustomer_XLSX_2@gmail.com,77771111,Hyderabad,India,AP,RV road,BC addresse,Bang,India,KA,Gachibowli,GH addresse,April customer 2 Title,April customer 2  Memo,Conference Call,Outgoing",
+          "s3": {
+            "region": "us-east-1",
+            "bucket": "qamahesh"
+          },
+          "file": {
+            "output": "records",
+            "skipDelete": true,
+            "type": "xlsx",
+            "xlsx": {
+              "hasHeaderRow": false
+            },
+            "filter": {
+              "type": "expression",
+              "expression": {
+                "version": "1",
+                "rules": [
+                  "contains",
+                  ["string", ["extract", "filename"]],
+                  "test.xlsx"
+                ]
+              },
+              "rules": [
+                "contains",
+                ["string", ["extract", "filename"]],
+                "test.xlsx"
+              ],
+              "version": "1"
+            }
+          },
+          "adaptorType": "S3Export"
+        }
+      }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "imprt",
+        "_connectionId": "S3 CONNECTION",
+        "apiIdentifier": "ie8e37f38b",
+        "oneToMany": false,
+        "sandbox": false,
+        "file": {
+          "fileName": "file-{{timestamp}}.json",
+          "skipAggregation": false,
+          "type": "json"
+        },
+        "s3": {
+          "region": "us-east-1",
+          "bucket": "qamahesh",
+          "fileKey": "file-{{timestamp}}.json"
+        },
+        "adaptorType": "S3Import"
+      }
+    }
+  ],
+  "createFlow": {
+    "name": "TC_C102620 Flow",
+    "disabled": false,
+    "pageGenerators": [
+        {
+            "_exportId": "UPDATE WITH NEW EXPORTID",
+            "skipRetries": false
+        },
+        {
+            "_exportId": "UPDATE WITH NEW EXPORTID",
+            "skipRetries": false
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID",
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            }
+        }
+    ],
+    "autoResolveMatchingTraceKeys": true
+  }
+}

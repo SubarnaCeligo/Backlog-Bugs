@@ -25,5 +25,7 @@ test.describe("TC_C117740_Checking that focus is on ALL when we clicked Ctrl / C
         await io.homePage.addStep("*** Checking that the dropdown is visible and focus is on 'ALL' as filtering is not happening ***");
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.addStep("*** Navigated to home page ***");
+        await io.homePage.loadingTime();
+        await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
     });
 });

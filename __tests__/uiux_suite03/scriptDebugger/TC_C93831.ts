@@ -7,7 +7,7 @@ import data1 from "@testData/ScriptDebugger/C93831.json"
 
 test.describe('C93831 Validate user is getting auto-fill of function stub while creating "contentBasedFlowRouter" script through flow builder hook', () => {
    
-    test('C93831 Validate user is getting auto-fill of function stub while creating "contentBasedFlowRouter" script through flow builder hook', async({io,page}) => {
+    test('@Env-All @Zephyr-IO-T22706 C93831 Validate user is getting auto-fill of function stub while creating "contentBasedFlowRouter" script through flow builder hook', async({io,page}) => {
   
       
     

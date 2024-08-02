@@ -6,7 +6,7 @@ import data4 from "@testData/Flows/C25947.json"
 
 test.describe(`C27372 Verify AutoMap field button is shown when both extract/generate fields are present and In case anyone is missing, we hide it.`, () => {
 
-    test(`C27372 Verify AutoMap field button isnot shown when both extract/generate fields are not present`, async({io,page}) => {
+    test(`@Env-All @Zephyr-IO-T5291 C27372 Verify AutoMap field button isnot shown when both extract/generate fields are not present`, async({io,page}) => {
 
         const id =  await io.createResourceFromAPI(
                     data3,
@@ -20,7 +20,7 @@ test.describe(`C27372 Verify AutoMap field button is shown when both extract/gen
          await io.assert.expectToBeValue(separationBoundary.toString(), 'false', "Element not found");
 
     });
-    test(`C27372 Verify AutoMap field button is shown when both extract/generate fields are present and In case anyone is missing, we hide it.`, async({io,page}) => {
+    test(`@Env-All @Zephyr-IO-T5291 C27372 Verify AutoMap field button is shown when both extract/generate fields are present and In case anyone is missing, we hide it.`, async({io,page}) => {
 
         const id =  await io.createResourceFromAPI(
                     data4,

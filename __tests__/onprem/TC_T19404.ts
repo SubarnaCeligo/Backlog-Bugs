@@ -27,6 +27,7 @@ test.describe("TC_T19404_TC_T19405_TC_T19406_TC_T19407_TC_T19408_TC_T19410", () 
         await io.homePage.addStep("*** Opened the import ***");
         await io.homePage.click(selectors.flowBuilderPagePO.DESTINATIONTABLESEARCHPOSTGRE);
         await io.assert.verifyElementDisplayedByText("Destination table *", "Destination table is not added");
+        await io.flowBuilder.loadingTime()
         await io.homePage.click(selectors.flowBuilderPagePO.ORACLEDB_TABLE);
         await io.assert.checkElementState(selectors.flowBuilderPagePO.REFRESHBUTTONPOSTGRE, 'isVisible');
   await io.importsPage.click(selectors.flowBuilderPagePO.DESTINATIONTABLE_HELPTEXT_ICON);

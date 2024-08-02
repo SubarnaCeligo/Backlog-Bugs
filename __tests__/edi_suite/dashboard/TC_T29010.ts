@@ -21,7 +21,7 @@ test.describe("@Author-Shriti S Verify default sorting on EDI Documents dashboar
     await io.homePage.waitForElementAttached(selectors.dashboardPagePO.FILTER_BUTTON);
 
     let defaultSortColumn = (await io.homePage.getText(selectors.dashboardPagePO.SORTED_COLUMN)).toString();
-    await io.assert.expectToContainValue('Data processed on', defaultSortColumn, 'Data not sorted on Last run column');
+    await io.assert.expectToContainValue('Processed', defaultSortColumn, 'Data not sorted on Last run column');
 
   });
 });

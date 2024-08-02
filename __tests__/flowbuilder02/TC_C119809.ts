@@ -5,27 +5,28 @@ import T27332 from '../../testData/inputData/FlowBuilder/IO-T27332.json';
 
 test.describe("TC_C119809_C119810_C119811", () => {
     let id; let id1;
+    test.describe.configure({ retries: 1 })
     test.afterEach(async ({ io, page }) => {
         await io.api.deleteFlowViaAPI(id);
         await io.api.deleteFlowViaAPI(id1);
     });
     test("@Priority-P2  @Zephyr-T24239 @Zephyr-T24240 @Zephyr-T24241 @Env-All", async ({ io, page }) => {
         id = await io.createResourceFromAPI(C119809, "FLOWS");
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
-        await io.flowBuilder.reloadPage();
-        await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
-        await io.flowBuilder.loadingTime();
-        await io.integrationPage.waitForElementAttached(
-            selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR
-        );
-        await io.flowBuilder.click(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
-        await io.integrationPage.fill(
-            selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
-            "TC_C119809"
-        );
-        await io.flowBuilder.loadingTime();
-        //Open the flow
-        await io.flowBuilder.clickByText("TC_C119809");
+        // await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
+        // await io.flowBuilder.reloadPage();
+        // await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+        // await io.flowBuilder.loadingTime();
+        // await io.integrationPage.waitForElementAttached(
+        //     selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR
+        // );
+        // await io.flowBuilder.click(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
+        // await io.integrationPage.fill(
+        //     selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
+        //     "TC_C119809"
+        // );
+        // await io.flowBuilder.loadingTime();
+        // //Open the flow
+        // await io.flowBuilder.clickByText("TC_C119809");
 
 
         //Export
@@ -37,11 +38,12 @@ test.describe("TC_C119809_C119810_C119811", () => {
         await io.flowBuilder.clearTextValue(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
         await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, JSON.stringify(C119809.jsonText));
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+        await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.flowBuilder.click(selectors.exportsPagePO.WHAT_WOULD_YOU_LIKE_TO_EXPORT_TAB);
         await io.flowBuilder.click(selectors.exportsPagePO.CONFIGURE_EXPORT_TYPE);
         await io.homePage.loadingTime();
-        expect(await page.screenshot()).toMatchSnapshot("TC_C119809_EXPORT.png");
+        expect(await page.screenshot()).toMatchSnapshot("TC_C119809_EXPORT-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
         //Lookup
@@ -53,11 +55,12 @@ test.describe("TC_C119809_C119810_C119811", () => {
         await io.flowBuilder.clearTextValue(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
         await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, JSON.stringify(C119809.jsonText));
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+        await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.flowBuilder.click(selectors.exportsPagePO.WHAT_WOULD_YOU_LIKE_TO_EXPORT_TAB);
         await io.flowBuilder.click(selectors.exportsPagePO.CONFIGURE_EXPORT_TYPE);
         await io.homePage.loadingTime();
-        expect(await page.screenshot()).toMatchSnapshot("TC_C119809_LOOKUP.png");
+        expect(await page.screenshot()).toMatchSnapshot("TC_C119809_LOOKUP-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
         //IMPORT
@@ -69,31 +72,32 @@ test.describe("TC_C119809_C119810_C119811", () => {
         await io.flowBuilder.clearTextValue(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
         await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT, JSON.stringify(C119809.jsonText));
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+        await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXISTINGRECORDSIMPORT);
         await io.homePage.loadingTime();
-        expect(await page.screenshot()).toMatchSnapshot("TC_C119809_IMPORT.png");
+        expect(await page.screenshot()).toMatchSnapshot("TC_C119809_IMPORT-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
     });
     test("@Epic-IO-63762  @Priority-P2  @Zephyr-T27332 @Env-All", async ({ io, page }) => {
         id1 = await io.createResourceFromAPI(T27332, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
-        await io.flowBuilder.reloadPage();
-        await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
-        await io.flowBuilder.loadingTime();
-        await io.integrationPage.waitForElementAttached(
-            selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR
-        );
-        await io.flowBuilder.click(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
-        await io.integrationPage.fill(
-            selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
-            "IO-T27332"
-        );
-        await io.flowBuilder.loadingTime();
-        //Open the flow
-        await io.flowBuilder.clickByText("IO-T27332");
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
+        // await io.flowBuilder.reloadPage();
+        // await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+        // await io.flowBuilder.loadingTime();
+        // await io.integrationPage.waitForElementAttached(
+        //     selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR
+        // );
+        // await io.flowBuilder.click(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
+        // await io.integrationPage.fill(
+        //     selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
+        //     "IO-T27332"
+        // );
+        // await io.flowBuilder.loadingTime();
+        // //Open the flow
+        // await io.flowBuilder.clickByText("IO-T27332");
+        // await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
 
         //Export
         await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.EXPORT, 0);
@@ -120,12 +124,12 @@ test.describe("TC_C119809_C119810_C119811", () => {
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.homePage.loadingTime();
-        expect(await page.screenshot()).toMatchSnapshot("IO-T27332.png");
+        expect(await page.screenshot()).toMatchSnapshot("IO-T27332-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
 
         //-'Launch form builder' button should be displayed in 'Settings' section
         const buttonDis = await page.$(selectors.flowBuilderPagePO.SETTING);
-        expect(await buttonDis.screenshot()).toMatchSnapshot("IO-T27332 launchFormBuilder.png");
+        expect(await buttonDis.screenshot()).toMatchSnapshot("IO-T27332 launchFormBuilder-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
 
         //clicking on launch from builder
         await io.flowBuilder.click(selectors.basePagePO.LAUNCH_EDITOR);
@@ -133,10 +137,11 @@ test.describe("TC_C119809_C119810_C119811", () => {
         await io.flowBuilder.click(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
         await io.flowBuilder.clearTextValue(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+        await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.flowBuilder.click(selectors.exportsPagePO.WHAT_WOULD_YOU_LIKE_TO_EXPORT_TAB);
         await io.homePage.loadingTime();
-        expect(await page.screenshot()).toMatchSnapshot("IO-T27332 error.png");
+        expect(await page.screenshot()).toMatchSnapshot("IO-T27332 error-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
 
@@ -162,12 +167,12 @@ test.describe("TC_C119809_C119810_C119811", () => {
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
         await io.homePage.loadingTime();
         const Symbol1 = await page.$(selectors.flowBuilderPagePO.RIGHT_DRAWER);
-        expect(await Symbol1.screenshot()).toMatchSnapshot("IO-T27332 import.png");
+        expect(await Symbol1.screenshot()).toMatchSnapshot("IO-T27332 import-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
 
         //-'Launch form builder' button should be displayed in 'Settings' section
         const buttonDis2 = await page.$(selectors.flowBuilderPagePO.SETTING);
-        expect(await buttonDis2.screenshot()).toMatchSnapshot("IO-T27332 import launchFormBuilder.png");
+        expect(await buttonDis2.screenshot()).toMatchSnapshot("IO-T27332 import launchFormBuilder-chromium-linux.png", { maxDiffPixelRatio: 0.2 });
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
     });
 });

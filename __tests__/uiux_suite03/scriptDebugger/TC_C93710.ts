@@ -4,8 +4,9 @@ import C93708 from "@testData/ScriptDebugger/C93708.json"
 
 
 test.describe('C93710 Validate user is able to create "formInit" script through flow builder page (Administer)', () => {
-    test('C93710 Validate user is able to create "formInit" script through flow builder page (Administer)', async({io,page}) => {
+    test('@Env-All @Zephyr-IO-T22677 C93710 Validate user is able to create "formInit" script through flow builder page (Administer)', async({io,page}) => {
       await io.createResourceFromAPI(C93708,'FLOWS');
+      await io.homePage.loadingTime()
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
       await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR, 0);
       await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT_HOOK)

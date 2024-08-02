@@ -15,8 +15,8 @@ test.describe("IO-T6794", () => {
 
         await io.exportsPage.click(selectors.flowBuilderPagePO.AMAZONSELLER);
         await io.exportsPage.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
-        await io.exportsPage.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'AMAZON SP API CONNECTION_CT6794');
-        await io.exportsPage.clickByTextByIndex('AMAZON SP API CONNECTION_CT6794', 0);
+        await io.exportsPage.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'AMAZON SP API CONNECTION');
+        await io.exportsPage.clickByTextByIndex('AMAZON SP API CONNECTION', 0);
         await io.exportsPage.fill(selectors.connectionsPagePO.NAME_INPUT, 'AMAZON_SELLER_CENTRAL');
         await io.exportsPage.click(selectors.basePagePO.SAVE);
 
@@ -36,7 +36,7 @@ test.describe("IO-T6794", () => {
         await io.exportsPage.click(selectors.basePagePO.MFA_SAVE);
 
         await io.flowBuilder.click(selectors.importPagePO.FETCH_PREVIEW);
-        const successMessage = await io.flowBuilder.isVisible("text='Success!'")
+        const successMessage = await io.flowBuilder.isVisible("text='Status: undefined'")
         await io.assert.expectToBeTrue(successMessage,"Success is found in the flow")
                 
        

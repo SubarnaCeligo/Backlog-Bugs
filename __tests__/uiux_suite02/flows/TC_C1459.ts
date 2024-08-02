@@ -6,7 +6,7 @@ test.describe(`C1459 Verify User should not select multiple flows and also "All 
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
   });
 
-  test(`C1459 Verify User should not select multiple flows and also "All flows" from Notify me when job has error field`, async ({
+  test(`@Env-All C1459 Verify User should not select multiple flows and also "All flows" from Notify me when job has error field`, async ({
     io,
     page
   }) => {

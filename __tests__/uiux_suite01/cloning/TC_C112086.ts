@@ -11,7 +11,11 @@ test.describe(`C112086 Verify the JWT bearer connection while cloning `, () => {
     page
   }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL)
+    await io.homePage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR)
+    await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "Automation Flows")
     await io.homePage.clickByText("Automation Flows")
+    await io.homePage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR)
+    await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "Github_DND")
     await io.homePage.waitForElementAttached("text='Github_DND'")
     await io.homePage.clickByText("Github_DND")
     await io.flowBuilder.loadingTime();
@@ -20,6 +24,8 @@ test.describe(`C112086 Verify the JWT bearer connection while cloning `, () => {
       0
     );
     await io.flowBuilder.clickByText("Clone flow");
+    await io.homePage.waitForElementAttached(selectors.basePagePO.ADD_NAME);
+    await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT,'Clone_Github');
     await io.flowBuilder.click(selectors.integrationPagePO.SELECT_DESTINATION_INTEGRATION);
     await io.flowBuilder.selectTextfromDropDown(page, "none");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLONE_FLOW_BUTTON);

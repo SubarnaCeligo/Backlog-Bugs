@@ -16,7 +16,7 @@ test.describe("TC_C107148  Check the UI alignment for file filter is matching wi
 
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'S3 CONNECTION');
-        await io.flowBuilder.clickByText('S3 CONNECTION');
+        await io.exportsPage.clickByTextByIndex('S3 CONNECTION', 0);
         await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'S3_Export');
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADVANCE);

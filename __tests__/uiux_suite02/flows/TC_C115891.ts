@@ -5,7 +5,7 @@ test.describe("TC_C115891_Mapper 2.0 should be consistent same like Snowflake fo
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("TC_C115891_Mapper 2.0 should be consistent same like Snowflake for Oracle ADW imports UI_Backlog", async ({ io, page }) => {
+    test("@Env-All TC_C115891_Mapper 2.0 should be consistent same like Snowflake for Oracle ADW imports UI_Backlog", async ({ io, page }) => {
         await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "Automation Flows");
         await io.flowBuilder.loadingTime();
         await io.homePage.clickByText("Automation Flows");

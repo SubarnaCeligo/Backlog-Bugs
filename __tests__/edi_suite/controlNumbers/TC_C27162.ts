@@ -10,7 +10,7 @@ test.describe("@Author-SaiPhanindra TC_27162", () => {
     io,page
   }, testInfo) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.homePage.loadingTime()
+    await io.homePage.loadingTime();
 
       const id = await io.createResourceFromAPI(FTPtoFTP, "FLOWS");
      await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.TRANSFER);
@@ -18,10 +18,13 @@ test.describe("@Author-SaiPhanindra TC_27162", () => {
      await io.flowBuilder.clickByText("JSON");
      await io.flowBuilder.clickByText("EDI X12");
      await io.flowBuilder.click(selectors.homePagePO.EDI_PROFILE);
-    await page.getByRole('menuitem', { name: 'EDI_CONTROL_NUMBERS_DND' }).click();
+    await page.getByRole('menuitem', { name: 'AA_EDI_CONTROL_NUMBERS_DND' }).click();
     await io.flowBuilder.click(selectors.homePagePO.EDI_FORMAT);
+    await io.homePage.loadingTime();
     await io.flowBuilder.clickByText("Generic-004020-810-Purchase order");
+    await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+    await io.homePage.loadingTime();
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);

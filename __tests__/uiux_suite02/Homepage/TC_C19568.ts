@@ -5,7 +5,7 @@ test.describe("C19568_Profile should never be in read only mode for Account user
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     });
-    test("C19568_Profile should never be in read only mode for Account users UI_Backlog", async ({ io }) => {
+    test("@Env-All @Zephyr-IO-T2243 C19568_Profile should never be in read only mode for Account users UI_Backlog", async ({ io }) => {
         await io.myAccountPage.click(selectors.myAccountPagePO.USERS);
         await io.myAccountPage.clickByText("Invite user")
         // Validating profile should never be in read only mode

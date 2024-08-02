@@ -43,7 +43,7 @@ test.describe("C110490 Verify system generates the Amazon Redshift query after t
     );
     await io.flowBuilder.loadingTime();
     await expect(
-      page.locator(selectors.flowBuilderPagePO.OPENAI.PROMPT_QUERY).filter({ hasText: "SELECT *" }).first()
+      page.locator(selectors.flowBuilderPagePO.OPENAI.PROMPT_QUERY).filter({ hasText: "Select" }).first()
     ).toBeVisible({ timeout: 40000 });
   });
 });

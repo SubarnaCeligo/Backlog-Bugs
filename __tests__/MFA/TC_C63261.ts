@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import { decrypt } from "@celigo/aut-utilities";
 
-test.describe.skip("C63261 Verify 'Learn More' link on MFA page pointing to a correct KB article.", () => {
+test.describe("C63261 Verify 'Learn More' link on MFA page pointing to a correct KB article.", () => {
   test.beforeEach("check sign out", async ({ io, page }) => {
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     const isNotLoggedIn = await io.loginPage.checkLoginState();
@@ -12,7 +12,7 @@ test.describe.skip("C63261 Verify 'Learn More' link on MFA page pointing to a co
       await io.homePage.click(selectors.basePagePO.SIGN_OUT);
     }
   });
-  test("@Env-All C63261 Verify 'Learn More' link on MFA page pointing to a correct KB article.", async ({
+  test.skip("@Env-All @Zephyr-IO-T17256 Verify 'Learn More' link on MFA page pointing to a correct KB article.", async ({
     io,
     page
   }) => {

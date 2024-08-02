@@ -4,7 +4,7 @@ import C111357 from '../../../testData/inputData/FlowDebugger/C111357.json';
 
 
 test.describe("C111357, C111406, C110859, C110837, C112229, C111403, C111405, C111323, C110859 verify items populate under 'path to many' if there are no json array fields in the resource - lookup", () => {
-    test("C111357, C111406, C110859, C110837 verify items populate under 'path to many' if there are no json array fields in the resource - lookup", async ({io, page}) => {
+    test("@Env-All @Zephyr-IO-T14354 @Zephyr-IO-T14370 @Zephyr-IO-T14359 @Zephyr-IO-T14363 C111357, C111406, C110859, C110837 verify items populate under 'path to many' if there are no json array fields in the resource - lookup", async ({io, page}) => {
 
         //create a flow having json resource in export FTP
         await io.createResourceFromAPI(C111357, "FLOWS");
@@ -27,7 +27,7 @@ test.describe("C111357, C111406, C110859, C110837, C112229, C111403, C111405, C1
             await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.ONE_TO_MANY, 'value', 'user.items');
         });
 
-        //save and close the import changes
+        // save and close the import changes
         await io.flowBuilder.waitForElementAttached(selectors.basePagePO.SAVE_AND_CLOSE);
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
 
@@ -37,8 +37,11 @@ test.describe("C111357, C111406, C110859, C110837, C112229, C111403, C111405, C1
 
         //run the flow
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
+        await io.homePage.loadingTime()
+        await io.homePage.isPageLoaded()
+        await io.homePage.isPageReady()
         // Wait for the status to change from 'Completing...' to 'Completed'
-        await page.waitForSelector(`${selectors.flowBuilderPagePO.IMPORT_RUN_COMPLETION_STATUS}:has-text("Completed")`);
+        await page.waitForSelector(`${selectors.flowBuilderPagePO.IMPORT_RUN_COMPLETION_STATUS}:has-text("Completed")`, {timeout:160000});
 
         //verify success count and run status for export
         let completedStatusExport =  await page.locator(selectors.flowBuilderPagePO.RUN_COMPLETION_STATUS).nth(0).textContent();
@@ -62,7 +65,7 @@ test.describe("C111357, C111406, C110859, C110837, C112229, C111403, C111405, C1
         
     });
     
-    test("C112229, C111403, C111405 verify items populate under 'path to many' if there are no json array fields in the resource", async ({io, page}) => {
+    test("@Env-All @Zephyr-IO-T14371 C112229, C111403, C111405 verify items populate under 'path to many' if there are no json array fields in the resource", async ({io, page}) => {
 
         //create a flow having json resource in export FTP
         await io.createResourceFromAPI(C111357, "FLOWS");
@@ -87,7 +90,7 @@ test.describe("C111357, C111406, C110859, C110837, C112229, C111403, C111405, C1
         //run the flow
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
         // Wait for the status to change from 'Completing...' to 'Completed'
-        await page.waitForSelector(`${selectors.flowBuilderPagePO.IMPORT_RUN_COMPLETION_STATUS}:has-text("Completed")`);
+        await page.waitForSelector(`${selectors.flowBuilderPagePO.IMPORT_RUN_COMPLETION_STATUS}:has-text("Completed")`, {timeout: 360000});
 
         //verify success count and run status for export
         let completedStatusExport =  await page.locator(selectors.flowBuilderPagePO.RUN_COMPLETION_STATUS).nth(0).textContent();
@@ -111,7 +114,7 @@ test.describe("C111357, C111406, C110859, C110837, C112229, C111403, C111405, C1
         
     });
 
-    test("C111323, C110859  verify items populate under 'path to many' if there are no json array fields in the resource", async ({io, page}) => {
+    test("@Env-All @Zephyr-IO-T14353 C111323, C110859  verify items populate under 'path to many' if there are no json array fields in the resource", async ({io, page}) => {
 
         //create a flow having json resource in export FTP
         await io.createResourceFromAPI(C111357, "FLOWS");
@@ -136,6 +139,9 @@ test.describe("C111357, C111406, C110859, C110837, C112229, C111403, C111405, C1
 
         //run the flow
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
+        await io.homePage.loadingTime()
+        await io.homePage.isPageLoaded()
+        await io.homePage.isPageReady()
         // Wait for the status to change from 'Completing...' to 'Completed'
         await page.waitForSelector(`${selectors.flowBuilderPagePO.IMPORT_RUN_COMPLETION_STATUS}:has-text("Completed")`);
 

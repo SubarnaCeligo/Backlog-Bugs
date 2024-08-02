@@ -4,7 +4,7 @@ import C102846 from '../../../testData/inputData/FlowDebugger/C102846.json';
 
 
 test.describe("Verify if lookup has offline connection and no mock output data, then run test button is disabled.", () => {
-    test("Verify if lookup has offline connection and no mock output data, then run test button is disabled.", async ({io, page}) => {
+    test("@Env-All @Zephyr-IO-T24090 Verify if lookup has offline connection and no mock output data, then run test button is disabled.", async ({io, page}) => {
         
 
         //Create a flow with a lookup that has an offline connection

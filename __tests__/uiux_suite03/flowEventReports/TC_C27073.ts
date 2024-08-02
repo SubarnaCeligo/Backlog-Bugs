@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C27073 In Run report drawer the Flows list should be Alpha sorted", () => {
-    test("C27073 In Run report drawer the Flows list should be Alpha sorted", async ({io, page}) => {
+    test("@Env-All @Zephyr-IO-T4365 C27073 In Run report drawer the Flows list should be Alpha sorted", async ({io, page}) => {
       await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
       await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
       await io.homePage.goToMenu("Tools", "Reports");

@@ -19,9 +19,9 @@ test.describe(`TC_IO-T26985 Test to validate that user is able to close the help
         await io.exportsPage.click(selectors.importPagePO.HTTP_IMPORT);
         await io.homePage.addStep("*** Select the Http Export Option from Applications ***");
         await io.homePage.loadingTime();
-        await io.exportsPage.fill(selectors.exportsPagePO.CONNECTIONS_DROPDOWN,"HTTP AMAZON CONNECTION");
+        await io.exportsPage.fill(selectors.exportsPagePO.CONNECTIONS_DROPDOWN,"AMAZON SP API CONNECTION");
         await io.homePage.addStep("*** Clicked on connection Dropdown ***");
-        await io.homePage.clickByText('HTTP AMAZON CONNECTION');
+        await io.homePage.clickByText('AMAZON SP API CONNECTION');
         await io.homePage.loadingTime();
         await io.homePage.addStep("*** Select first option from connection Dropdown  ***");
         await io.exportsPage.fill(selectors.exportsPagePO.NAME, "HTTP_EXPORT_NEW");

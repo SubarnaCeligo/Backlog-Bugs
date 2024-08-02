@@ -21,7 +21,7 @@
                 },
                 "rawData": "6253c695bbf2c06775d39fe1315bbd0fe1ba4d04b412f0909708d1cd",
                 "test": {
-                    "limit": 2
+                    "limit": 1
                 },
                 "adaptorType": "HTTPExport"
             }
@@ -31,26 +31,17 @@
         {
             "type": "import",
             "qa__import": {
-                "name": "Testing step removed changes",
-                "_connectionId": "HTTP ZENDESK CONNECTION",
-                "apiIdentifier": "i9cb762158",
-                "ignoreExisting": false,
-                "ignoreMissing": false,
-                "oneToMany": false,
-                "sandbox": false,
-                "http": {
-                    "relativeURI": [
-                        "xyz"
-                    ],
-                    "method": [
-                        "POST"
-                    ],
-                    "body": [],
-                    "batchSize": 1,
-                    "sendPostMappedData": true,
-                    "formType": "http"
+                "name": "FTP import",
+                "adaptorType": "FTPImport",
+                "file": {
+                    "type": "json"
                 },
-                "adaptorType": "HTTPImport"
+                "ftp": {
+                    "fileName": "TC_C110411.json",
+                    "directoryPath": "/io.auto.qa/IO Automation SFTP Imports"
+                },
+                "_connectionId": "FTP CONNECTION",
+                "distributed": false
             }
         }
     ],

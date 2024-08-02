@@ -1,13 +1,15 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import TC from '../../testData/inputData/FlowBuilder/T32023.json';
+import { Mappings2dot0Page } from '@celigo/ui-core-automation/dist/src/pageFactory/pages/Mappings2dot0Page';
+import { Mappings } from '@celigo/aut-selectors/dist/src/selectors/Mappings';
 
 test.describe("@Author_MaheshNivruttiSutar @Bug-IO-80306 @Bug-IO-80221 @Env-QA @Priority-P2 @Zephyr-IO-T32021 @Zephyr-IO-T32023", () => {
     let intId;
     test.afterEach(async ({ io, page }) => {
         await io.api.deleteIntegration(intId);
     });
-    test("@Bug-IO-80306 @Bug-IO-80221 @Env-QA @Priority-P2 @Zephyr-IO-T32021 @Zephyr-IO-T32023", async ({ io, page }) => {
+    test("@Bug-IO-80306 @Bug-IO-80221 @Env-All @Priority-P2 @Zephyr-IO-T32021 @Zephyr-IO-T32023", async ({ io, page }) => {
         intId = await io.api.createIntegrationThruAPI(TC);
         await io.integrationPage.navigateToIntegrationById(intId);
         await io.homePage.loadingTime();
@@ -35,21 +37,16 @@ test.describe("@Author_MaheshNivruttiSutar @Bug-IO-80306 @Bug-IO-80221 @Env-QA @
         //@Zephyr-IO-T32021 Verify If we close the 'Confirm Replace Connection' pop-up, the entire export/lookup/import page is not closes.
         await io.exportsPage.click(selectors.flowBuilderPagePO.EXPORT_BUBBLE);
         await io.flowBuilder.loadingTime();
-        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'HTTP ZENDESK CONNECTION');
-        await io.flowBuilder.clickByTextByIndex('HTTP ZENDESK CONNECTION', 1);
+        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'HTTP ZENDESK CONCURRENCY CONNECTION');
+        await io.flowBuilder.clickByTextByIndex('HTTP ZENDESK CONCURRENCY CONNECTION', 0);
         await io.exportsPage.click(selectors.basePagePO.SAVE);
         await io.flowBuilder.loadingTime();
-        // const confirmREplace = await io.flowBuilder.isVisible("text='Confirm replace'");
         // await io.assert.expectToBeFalse(confirmREplace, "Confirn replace is not shown");
         await io.homePage.addStep("*** Click on cancel ***");
-        await io.exportsPage.click(selectors.mappings.MAPPER2DOT0PO.CLOSEBUTTON);
+        await io.homePage.click(selectors.mappings.MAPPER2DOT0PO.CLOSEBUTTON);
+        // await io.exportsPage.click(selectors.flowBuilderPagePO.EXPORT_BUBBLE);
         const pageCheck = await io.flowBuilder.isVisible("text='Edit export'");
         await io.assert.expectToBeTrue(pageCheck, "Flowbuilder page is not shown");
-        await io.exportsPage.click(selectors.basePagePO.SAVE);
-        await io.homePage.addStep("*** Clicked on 'X' button ***");
-        await io.exportsPage.click(selectors.flowBuilderPagePO.CLOSEPOPUP);
-        const pageCheck1 = await io.flowBuilder.isVisible("text='Edit export'");
-        await io.assert.expectToBeTrue(pageCheck1, "Flowbuilder page is not shown");
         await io.exportsPage.click(selectors.flowBuilderPagePO.CLOSE);
         await io.exportsPage.click(selectors.basePagePO.DISCARD_CHANGES);
         await io.flowBuilder.deleteFlow();

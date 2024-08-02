@@ -5,7 +5,7 @@ test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T31357 @Zephyr-IO-T31370 @
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Epic-IO-80150 @Priority-P2 @Env-QA @Zephyr-IO-T31357 @Zephyr-IO-T31370", async ({ io, page }) => {
+    test("@Epic-IO-80150 @Priority-P2 @Env-All @Zephyr-IO-T31357 @Zephyr-IO-T31370", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.loadingTime()
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);

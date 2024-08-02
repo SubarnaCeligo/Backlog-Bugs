@@ -13,7 +13,7 @@ test.describe("C45832 Verify if the user is not able to initiate the authenticat
 
 
   });
-  test.skip("C45832 The two-factor code is always 6 characters long", async ({ io, page }) => {
+  test.skip("@Env-All @Zephyr-IO-T17240 C45832 The two-factor code is always 6 characters long", async ({ io, page }) => {
 
     await io.myAccountPage.click(selectors.myAccountPagePO.MOBILE_CODE);
     await io.myAccountPage.fill(selectors.myAccountPagePO.MOBILE_CODE, "123456789");
@@ -21,7 +21,7 @@ test.describe("C45832 Verify if the user is not able to initiate the authenticat
 
   });
 
-  test.skip("C45832 The user can enter only enter numeric digits for the code.", async ({ io, page }) => {
+  test.skip("@Env-All @Zephyr-IO-T17240 C45832 The user can enter only enter numeric digits for the code.", async ({ io, page }) => {
 
     await io.myAccountPage.click(selectors.myAccountPagePO.MOBILE_CODE);
     await io.myAccountPage.fill(selectors.myAccountPagePO.MOBILE_CODE, "abcdef");
@@ -30,7 +30,7 @@ test.describe("C45832 Verify if the user is not able to initiate the authenticat
 
   });
 
-  test.skip("C45832 The user cannot initiate authentication until all the 6-digit code is provided by the user..", async ({ io, page }) => {
+  test.skip("@Env-All @Zephyr-IO-T17240 C45832 The user cannot initiate authentication until all the 6-digit code is provided by the user..", async ({ io, page }) => {
 
     await io.myAccountPage.click(selectors.myAccountPagePO.MOBILE_CODE);
     await io.assert.verifyElementAttributeContainsText(selectors.myAccountPagePO.VERIFY, 'class', 'Mui-disabled');

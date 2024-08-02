@@ -9,7 +9,11 @@ test.describe("C29068 Verify the concurrency limit if user set the value from AP
   }) => {
     const licenses = await io.api.getCall("v1/licenses");
     const platformLicense = licenses.find(l => l.type === "platform");
-
+    const payloadFormat = {
+      ...getLicensePayload(platformLicense),
+      expires: "2044-04-10T13:14:33.363Z",
+      apiManagement: true
+    };
     await io.api.putCall(
       `v1/test/licenses/${platformLicense._id}`,
       {...getLicensePayload(platformLicense), "concurrency": 30, "tier": 'enterprise', "sandbox": false, "apiManagement": true, "expires": "2044-04-10T13:14:33.363Z"}
@@ -26,10 +30,7 @@ test.describe("C29068 Verify the concurrency limit if user set the value from AP
     await io.connectionPage.click(selectors.connectionsPagePO.HTTP_TARGET_CONCURRENCY_LEVEL);
     const concurrencyLevel = await io.connectionPage.getElementOrIndex(selectors.flowBuilderPagePO.SUBLIST_A, 30);
     const maxConcurrencyLevel = await io.connectionPage.selectTextfromDropDown(page, "25");
-    await io.api.putCall(
-        `v1/test/licenses/${platformLicense._id}`,
-        {...getLicensePayload(platformLicense)}
-      );
+    await io.api.putCall(`v1/test/licenses/${payloadFormat._id}`, payloadFormat);
     expect(concurrencyLevel).toBe(undefined);
     expect(maxConcurrencyLevel).toBe(true);
   });

@@ -9,7 +9,9 @@ test.describe("C117763", () => {
     });
     test.skip("@Epic-IO-34019 @Env-All @Priority-P2 @Zephyr-IO-T24304 C117763", async ({ io, page }) => {
         await io.homePage.loadingTime();
-        await io.homePage.goToMenu("Tools", "Flow builder");
+        await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+        await io.flowBuilder.loadingTime();
+        await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.flowBuilder.click(
             selectors.flowBuilderPagePO.ADD_SOURCE
         );

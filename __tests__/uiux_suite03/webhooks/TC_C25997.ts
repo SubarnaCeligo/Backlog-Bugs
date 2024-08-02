@@ -6,7 +6,7 @@ test.describe("C25997 - Verify that admin/manage user is able to stop debug on l
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("C25997 - Verify that admin/manage user is able to stop debug on listeners", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T4853 C25997 - Verify that admin/manage user is able to stop debug on listeners", async ({ io, page }) => {
 
     //Create a flow with webhook
     await io.createResourceFromAPI(C25997, "FLOWS");

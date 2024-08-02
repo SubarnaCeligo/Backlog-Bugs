@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("API manager redirect production ", () => {
-  test("@Env-QA @Env-STAGING API manager redirect production", async ({ io, page, context }) => {
+  test("@Zephyr-IO-T9350 @Env-QA @Env-STAGING API manager redirect production", async ({ io, page, context }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
     await io.flowBuilder.loadingTime();

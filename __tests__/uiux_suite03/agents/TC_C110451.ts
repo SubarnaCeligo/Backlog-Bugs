@@ -10,7 +10,7 @@ test.describe("C110451 Verify user is able to download the agent on Linux machin
         await io.homePage.click(selectors.basePagePO.AGENTS);
         
     });
-    test("C110451 Verify user is able to download and the agent on Linux machine.", async ({io, page}) => {
+    test("@Env-All @Zephyr-IO-T18511 C110451 Verify user is able to download and the agent on Linux machine.", async ({io, page}) => {
        
      await io.homePage.click(selectors.homePagePO.DOWNLOAD_AGENT_INSTALLER);
      await io.assert.verifyElementDisplayedByText("Linux","Linux option is not available");   

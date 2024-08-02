@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Mapper2.0/C44421.json";
 
 test.describe(`C65721 Verify Home key should place cursor at the beginning of the field, End key at the end of the field in mapper 1.0 fields.`, () => {
-  test(`C65721 Verify Home key should place cursor at the beginning of the field, End key at the end of the field in mapper 1.0 fields.`, async ({
+  test(`@Env-All @Zephyr-IO-T22142 C65721 Verify Home key should place cursor at the beginning of the field, End key at the end of the field in mapper 1.0 fields.`, async ({
     io,
     page
   }) => {

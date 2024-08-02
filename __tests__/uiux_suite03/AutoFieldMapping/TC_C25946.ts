@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import data4 from "@testData/Flows/C25947.json";
 
 test.describe(`C25946 Verify suggested mapping separation boundary must be Cleared on mapping changes`, () => {
-  test(`C25946 Verify suggested mapping separation boundary must be Cleared on mapping changes`, async ({
+  test(`@Env-All @Zephyr-IO-T5273 C25946 Verify suggested mapping separation boundary must be Cleared on mapping changes`, async ({
     io
   }) => {
     const id = await io.createResourceFromAPI(data4, "FLOWS");

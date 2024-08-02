@@ -2,7 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C42438 Verify Upgrade button changes in Home page & Subscription page when Free trail is expired", () => {
-    test.skip("@Env-All C42438 Verify Upgrade button changes in Home page & Subscription page when Free trail is expired", async ({io, page}) => {
+    test.skip("@Env-All @Zephyr-IO-T917 C42438 Verify Upgrade button changes in Home page & Subscription page when Free trail is expired", async ({io, page}) => {
       await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
       await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
       await io.api.putCall(`v1/test/licenses/6512c1308340f02a95d8b7c9`,{

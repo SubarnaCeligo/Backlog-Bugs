@@ -1,0 +1,54 @@
+{
+  "name": "IO-T10748",
+  "disabled": false,
+  "pageGenerators": [{
+    "type": "export",
+    "qa__export": {
+      "_connectionId": "HTTP PFX CONNECTION DND",
+      "name": "DND 10748 export",
+      "apiIdentifier": "e962219367",
+      "asynchronous": true,
+      "oneToMany": false,
+      "sandbox": false,
+      "http": {
+        "relativeURI": "tickets",
+        "method": "GET",
+        "isRest": false,
+        "formType": "http",
+        "response": {
+            "twoDArray": {
+                "doNotNormalize": false,
+                "hasHeader": false
+            }
+        }
+      },
+      "adaptorType": "HTTPExport"
+    }
+  }],
+  "pageProcessors": [{
+    "type": "import",
+    "qa__import": {
+      "_connectionId": "HTTP PFX CONNECTION DND",
+      "name": "HTTP import",
+      "apiIdentifier": "i1438e96f8",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "http": {
+        "relativeURI": [
+            "tickets"
+        ],
+        "method": [
+            "POST"
+        ],
+        "body": [],
+        "batchSize": 1,
+        "sendPostMappedData": true,
+        "isRest": false,
+        "formType": "http"
+      },
+      "adaptorType": "HTTPImport"
+    }
+  }]
+}

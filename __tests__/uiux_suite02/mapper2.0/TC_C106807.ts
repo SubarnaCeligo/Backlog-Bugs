@@ -3,16 +3,16 @@ import * as selectors from "@celigo/aut-selectors";
 import inputJson from "@testData/manageSuite/C106801.json"
 
 test.describe("C106807 Test to validate that the datatype is visible for the items in Fields section  in the access level accounts where ever it is applicable", () => {
-  test("C106807 C106827 C106773, C106799, C106806, C106785 Test to validate that the datatype is visible for the items in Fields section  in the access level accounts where ever it is applicable", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T23859 @Zephyr-IO-T23876 @Zephyr-IO-T23831 @Zephyr-IO-T23852 @Zephyr-IO-T23858 C106807 C106827 C106773, C106799, C106806, C106785 Test to validate that the datatype is visible for the items in Fields section  in the access level accounts where ever it is applicable", async ({io, page}) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'http');
     await io.flowBuilder.click(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH);
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH)
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,'HTTP ZENDESK CONNECT');
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);
-    await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.click(selectors.importPagePO.HTTP_RELATIVEURI);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.HTTPREQUSTBODY);
 

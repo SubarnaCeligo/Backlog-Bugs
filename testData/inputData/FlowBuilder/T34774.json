@@ -1,0 +1,80 @@
+{
+    "name": "IO-T34774",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "Mysql export",
+                "_connectionId": "MYSQL CONNECTION",
+                "apiIdentifier": "ef754ef256",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "rdbms": {
+                    "query": "select * from table"
+                },
+                "adaptorType": "RDBMSExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "AutomationStandalone_e2CXi",
+                "_connectionId": "MYSQL CONNECTION",
+                "apiIdentifier": "ie2e318f36",
+                "oneToMany": false,
+                "sandbox": false,
+                "rdbms": {
+                    "query": [
+                        "insert into anusha(orderId, FirstName) values(1, \\\\\\\"abc\\\\\\\")"
+                    ],
+                    "queryType": [
+                        "per_record"
+                    ]
+                },
+                "adaptorType": "RDBMSImport"
+            }
+        }
+    ],
+    "createFlow": {
+        "name": "IO-T34774",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+        ]
+    },
+    "CustomJson": {
+        "useAsPrimaryInterface": true,
+        "fieldMap": {
+            "pathparam": {
+                "id": "pathparam",
+                "name": "pathparam",
+                "type": "text",
+                "label": "Account number",
+                "required": true,
+                "helpText": "Enter an account number, and separate additional values with a comma."
+            }
+        },
+        "layout": {
+            "fields": [
+                "pathparam"
+            ]
+        }
+    }
+}

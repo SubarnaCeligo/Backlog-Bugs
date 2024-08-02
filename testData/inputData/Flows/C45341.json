@@ -1,0 +1,80 @@
+{
+    "name": "TC_C45341",
+    "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "test ftp",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "e71940b9e9",
+            "asynchronous": true,
+            "sandbox": false,
+            "sampleData": {
+                "first_name": "test1",
+                "last_name": "test2",
+                "email": "",
+                "company": "xyz"
+            },
+            "ftp": {
+                "directoryPath": "/tickets"
+            },
+            "file": {
+                "output": "records",
+                "skipDelete": false,
+                "type": "json"
+            },
+            "adaptorType": "FTPExport"
+            }
+          }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "AutomationStandalone_1sY62",
+    "_connectionId": "HTTP ZENDESK CONNECTION",
+    "apiIdentifier": "ibb1d6710c",
+    "ignoreExisting": false,
+    "ignoreMissing": false,
+    "oneToMany": false,
+    "sandbox": false,
+    "http": {
+        "relativeURI": [
+            "/feeds/2021-06-30/documents"
+        ],
+        "method": [
+            "POST"
+        ],
+        "body": [
+            "{\"name\":\"New\"}"
+        ],
+        "batchSize": 1,
+        "sendPostMappedData": true,
+        "formType": "http"
+    },
+    "adaptorType": "HTTPImport"
+        }
+    }
+],
+    "createFlow": {
+        "name": "TC_C48963",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+}

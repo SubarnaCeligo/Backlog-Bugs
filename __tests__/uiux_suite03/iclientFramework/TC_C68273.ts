@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C68273 verify application field under HTTP iclient is disabled`, () => {
-  test(`C68273 verify application field under HTTP iclient is disabled`, async ({
+  test(`@Env-All @Zephyr-IO-T17599 C68273 verify application field under HTTP iclient is disabled`, async ({
     io,
     page
   }) => {

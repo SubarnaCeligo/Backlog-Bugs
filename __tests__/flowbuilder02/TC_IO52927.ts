@@ -7,7 +7,9 @@ test.describe("TC_IO52927", () => {
     });
     test("TC_IO52927 @Env-All @Priority-P2", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
-        await io.homePage.goToMenu("Tools", "Flow builder");
+        await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+        await io.flowBuilder.loadingTime();
+        await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.homePage.addStep("*** Navigated back to flow builder page ***");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.PAGE_GENERATOR);
         await io.homePage.addStep("*** Clicked on create export ***");

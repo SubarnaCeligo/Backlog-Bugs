@@ -152,7 +152,8 @@ test.describe("C117448 Verify Filter is having Celigo AI", () => {
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.PREVIEW);
     await io.flowBuilder.loadingTime();
-    await expect(page.locator(selectors.flowBuilderPagePO.AFE_RESULT_PANEL)).toContainText('FALSE:');
+    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.AFE_RESULT_PANEL, "FALSE:");
+    // await expect(await page.locator(selectors.flowBuilderPagePO.AFE_RESULT_PANEL)).toContainText('FALSE:');
 
     await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'remove previous filter and add following filters  i. brand is Apple ii. price is greater than 500 iii. category is smartphones');
     await io.flowBuilder.loadingTime();
@@ -222,7 +223,8 @@ test.describe("C117448 Verify Filter is having Celigo AI", () => {
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.PREVIEW);
     await io.flowBuilder.loadingTime();
-    await expect(page.locator(selectors.flowBuilderPagePO.AFE_RESULT_PANEL)).toContainText('FALSE:');
+    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.AFE_RESULT_PANEL, "FALSE:");
+    // await expect(page.locator(selectors.flowBuilderPagePO.AFE_RESULT_PANEL)).toContainText('FALSE:');
 
     await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'update the filter with quantity to be 1 instead');
     await io.flowBuilder.loadingTime();
@@ -242,7 +244,8 @@ test.describe("C117448 Verify Filter is having Celigo AI", () => {
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.PREVIEW);
     await io.flowBuilder.loadingTime();
-    await expect(page.locator(selectors.flowBuilderPagePO.AFE_RESULT_PANEL)).toContainText('FALSE:');
+    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.AFE_RESULT_PANEL, "FALSE:");
+    // await expect(page.locator(selectors.flowBuilderPagePO.AFE_RESULT_PANEL)).toContainText('FALSE:');
 
     //C117473
     await io.flowBuilder.loadingTime();

@@ -2,26 +2,55 @@
     "name": "TC_C77822",
     "pageGenerators": [
         {
-            "qa__export":{
-                "name": "Skip parameter  pagination Export",
-                "application": "Acumatica",
-                "_connectionId": "HTTP ACUMATICA CONNECTION",
-                "asynchronous": true,
-                "oneToMany": false,
-                "parsers": [
-    
-                ],
-                "http": {
-                  "relativeURI": "/ShipVia?$top=100&$skip={{{export.http.paging.skip}}}",
-                  "method": "GET",
-                  "formType": "http",
-                  "paging": {
-                    "method": "skip",
-                    "lastPageStatusCode": 404
-                  }
-                },
-                "adaptorType": "HTTPExport"
-              }
+          "qa__export": {
+            "_id": "662a8245b4da91239229a9ea",
+            "createdAt": "2024-04-25T16:18:13.828Z",
+            "lastModified": "2024-04-25T16:18:13.865Z",
+            "name": "AutomationStandalone_DnRXG",
+            "_connectionId": "FTP CONNECTION",
+            "_sourceId": "662a273a265efa2565018987",
+            "apiIdentifier": "e7ec6cdaba",
+            "asynchronous": true,
+            "sandbox": false,
+            "ftp": {
+                "directoryPath": "/io.auto.qa/BVAutoFTP"
+            },
+            "file": {
+                "output": "records",
+                "skipDelete": true,
+                "type": "json",
+                "filter": {
+                    "type": "expression",
+                    "expression": {
+                        "version": "1",
+                        "rules": [
+                            "contains",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "filename"
+                                ]
+                            ],
+                            "NoArrayFieldsIO-34461"
+                        ]
+                    },
+                    "rules": [
+                        "contains",
+                        [
+                            "string",
+                            [
+                                "extract",
+                                "filename"
+                            ]
+                        ],
+                        "NoArrayFieldsIO-34461"
+                    ],
+                    "version": "1"
+                }
+            },
+            "adaptorType": "FTPExport"
+        }
           }
       ],
       "pageProcessors": [{

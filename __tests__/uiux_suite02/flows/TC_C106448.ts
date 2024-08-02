@@ -6,13 +6,14 @@ test.describe(`C106448  Verify Parsed output label`, () => {
   test(`@Priority-P2 @Zephyr-IO-T23733 @Env-All C106448`, async ({ io, page }) => {
     const id = await io.createResourceFromAPI(testData, "FLOWS");
     //Salesforce
+    await io.homePage.loadingTime()
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT);
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.EXPORT, 0);
     await io.flowBuilder.waitForElementAttached(selectors.importPagePO.PARSED_OUTPUT);
     await expect(await page.locator(selectors.importPagePO.PARSED_OUTPUT)).not.toHaveCSS("cursor", "pointer");
     await io.assert.verifyElementAttributeContainsText(selectors.importPagePO.PARSED_OUTPUT, 'class', 'Mui-disabled');
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
-    await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.FITVIEW);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.FIT_WINDOW_WITH_BUTTON);
     await io.flowBuilder.addStep("Verified Parsed output label for Salesforce adaptor");
 
     //MongoDB
@@ -21,6 +22,7 @@ test.describe(`C106448  Verify Parsed output label`, () => {
     await expect(await page.locator(selectors.importPagePO.PARSED_OUTPUT)).not.toHaveCSS("cursor", "pointer");
     await io.assert.verifyElementAttributeContainsText(selectors.importPagePO.PARSED_OUTPUT, 'class', 'Mui-disabled');
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
+    await io.homePage.loadingTime()
     await io.flowBuilder.addStep("Verified Parsed output label for MongoDB adaptor");
 
     //DynamoDB
@@ -29,6 +31,7 @@ test.describe(`C106448  Verify Parsed output label`, () => {
     await expect(await page.locator(selectors.importPagePO.PARSED_OUTPUT)).not.toHaveCSS("cursor", "pointer");
     await io.assert.verifyElementAttributeContainsText(selectors.importPagePO.PARSED_OUTPUT, 'class', 'Mui-disabled');
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
+    await io.homePage.loadingTime()
     await io.flowBuilder.addStep("Verified Parsed output label for DynamoDB adaptor");
 
     //Netsuite
@@ -37,6 +40,7 @@ test.describe(`C106448  Verify Parsed output label`, () => {
     await expect(await page.locator(selectors.importPagePO.PARSED_OUTPUT)).not.toHaveCSS("cursor", "pointer");
     await io.assert.verifyElementAttributeContainsText(selectors.importPagePO.PARSED_OUTPUT, 'class', 'Mui-disabled');
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
+    await io.homePage.loadingTime()
     await io.flowBuilder.addStep("Verified Parsed output label for Netsuite adaptor");
 
     //FTP

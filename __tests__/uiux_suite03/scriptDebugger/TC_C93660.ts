@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import data from "@testData/ScriptDebugger/C93660.json";
 
 test.describe('C9366 Validate user is able to see the options script,description,chose function stub while creating "transform" script through flow builder page', () => {
-  test('C9366 Validate user is able to see the options script,description,chose function stub while creating "transform" script through flow builder page', async ({
+  test('@Env-All @Zephyr-IO-T22628 C9366 Validate user is able to see the options script,description,chose function stub while creating "transform" script through flow builder page', async ({
     io,
     page
   }) => {

@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe('C55918 Verify by clicking on the "Get in touch" option in the Pendo-Zendesk chat bot when the agent is online', () => {
-  test('C55918 Verify by clicking on the "Get in touch" option in the Pendo-Zendesk chat bot when the agent is online', async ({
+  test('@Env-All @Zephyr-IO-T15084 C55918 Verify by clicking on the "Get in touch" option in the Pendo-Zendesk chat bot when the agent is online', async ({
     page,
     io
   }) => {

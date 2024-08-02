@@ -5,7 +5,7 @@ import testData2 from "./transfer2.json";
 import { decrypt } from "@celigo/aut-utilities";
 
 test.describe(`C2255_C2288_C2290_C2284_C2289_C2291_C2445 Transfer Account Ownership between users`, () => {
-  test(`@Env-All @Zephyr-IO-T6930 C2255_C2288_C2290_C2284_C2289_C2291_C2445 Transfer Account Ownership between users`, async ({ io }) => {
+  test(`@Env-QA @Env-STAGING @Zephyr-IO-T6930 C2255_C2288_C2290_C2284_C2289_C2291_C2445 Transfer Account Ownership between users`, async ({ io }) => {
     const res = await io.api.postCall(`v1/transfers/invite`, testData);
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.reloadPage();

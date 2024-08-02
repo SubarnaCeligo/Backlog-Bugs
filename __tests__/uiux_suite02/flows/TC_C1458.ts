@@ -6,7 +6,7 @@ test.describe(`C1458 Verify Notify me when job has errors field contains all the
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
   });
 
-  test(`C1458 Verify Notify me when job has errors field contains all the flows of that integration and "All flows" option`, async ({
+  test(`@Env-All C1458 Verify Notify me when job has errors field contains all the flows of that integration and "All flows" option`, async ({
     io,
     page
   }) => {

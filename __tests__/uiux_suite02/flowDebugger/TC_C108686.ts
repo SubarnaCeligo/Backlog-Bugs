@@ -12,7 +12,7 @@ test.describe("TC_C108686 Verify Editing / reordering / restructuring transforma
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowViaAPI(id);
   });
-  test("C108686 Verify Editing / reordering / restructuring transformation rules should clear test run results.", async ({
+  test("@Env-All @Zephyr-IO-T23945 C108686 Verify Editing / reordering / restructuring transformation rules should clear test run results.", async ({
     io,
     page
   }) => {

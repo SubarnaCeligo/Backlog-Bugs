@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C98698 from '@testData/FlowDebugger/C98698.json';
 
 test.describe("C98698 Verify on toggling from test result to rules result panel is empty", () => {
-    test("C98698 Verify on toggling from test result to rules result panel is empty", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T2483 C98698 Verify on toggling from test result to rules result panel is empty", async ({ io, page }) => {
         await io.createResourceFromAPI(C98698, "FLOWS");
         //Disable the flow
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);

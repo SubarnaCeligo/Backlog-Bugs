@@ -28,9 +28,10 @@ test.describe("@Author-Shriti S T30612-[EDI] Verify that error message at file p
     await io.exportsPage.waitForElementAttached(selectors.importPagePO.CLICKPREVIEW);
     await io.exportsPage.click(selectors.importPagePO.CLICKPREVIEW);
     let previewData = (await io.exportsPage.getText(selectors.basePagePO.ACE_EDITOR_ID)).toString();
+    console.log(previewData);
 
     await io.assert.expectToContainValue(
-      'Status: 422 Message: ISA Interchange control number: 000003438  GS Group control number: 1320  Identifier code: IN    ST Transaction set control number: 000000088    Doc type: 850      Segment ID: BEG        Field position in a segment: BEG01        Error message: Mandatory element "BEG01" is not present.        Field position in a segment: BEG02        Error message: Min. length not met for the field "BEG02"',
+      'Status: 422 Message: ISA Interchange control number: 000003438  GS Group control number: 1320  Identifier code: IN    ST Transaction set control number: 000000088    Doc type: 850      Segment ID: BEG      Segment Position in Transaction Set: 1        Field position in a segment: BEG01        Error message: Mandatory element "BEG01" is not present.        Field position in a segment: BEG02        Error message: Min. length not met for the field "BEG02"',
       previewData,
       'Incorrect preview data'
     );

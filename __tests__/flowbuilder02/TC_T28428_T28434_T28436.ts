@@ -8,7 +8,7 @@ test.describe("@Author_sagna123 TC_T28428_T28434_T28436_Test to validate checkbo
     test("@Epic-IO-37655 @Priority-P2 @Sanity @Zephyr-IO-T28428 @Zephyr-IO-T28434 @Zephyr-IO-T28436 @Env-All", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
-        await io.homePage.goToMenu("Resources","Exports");
+        await io.myAccountPage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.addStep("*** Navigated back to export page ***");
         await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
         await io.homePage.addStep("*** Clicked on create export***");
@@ -19,17 +19,19 @@ test.describe("@Author_sagna123 TC_T28428_T28434_T28436_Test to validate checkbo
         await io.homePage.addStep("*** Selected Google Sheets application ***");
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "Sheet Parser Google Sheet connection");
         await io.homePage.addStep("*** Searched for Sheet Parser Google Sheet connection CONNECTION ***");
-        await io.homePage.clickByText('Sheet Parser Google Sheet connection');
+        await io.homePage.click(selectors.connectionsPagePO.CONNECTIONDROP0);
         await io.homePage.addStep("*** Selected Sheet Parser Google Sheet connection ***");
         await io.homePage.click(selectors.basePagePO.ADD_NAME);
         await page.keyboard.press('/');
         await io.homePage.addStep("*** Clicked on 'name' field and gave a name to our import ***");
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.homePage.addStep("*** Opened the import ***");
+        await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.exportsPagePO.ASSISTANT_META_DATA_RESOURCE);
         await io.homePage.addStep("*** Clicked on Resource field ***");
         await io.homePage.clickByText('Spreadsheets.values');
         await io.homePage.addStep("*** Selected Spreadsheets.values ***");
+        await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.exportsPagePO.ASSISTANT_META_DATA_OPERATION);
         await io.homePage.addStep("*** Clicked on operation field ***");
         await io.homePage.clickByText('Get');

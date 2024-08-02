@@ -1,0 +1,81 @@
+{
+  "resource": {
+    "_id": "6602c7fbf987024931335420",
+    "lastModified": "2024-03-26T13:04:59.605Z",
+    "name": "NetSuite Item Group to Salesforce Product Add/Update",
+    "description": "Syncs NetSuite Item Groups along with Price Levels to Salesforce Products and PricebookEntries as per the scheduled time and duration. This flow triggers as per the scheduled time and syncs newly created or updated Items and Price Levels to Salesforce Products and PricebookEntries. If you want to use the multi-currency feature, enable it in both NetSuite and Salesforce. A PricebookEntry is created for each combination of currency, price book and product.",
+    "disabled": true,
+    "_integrationId": "660293ee84f0ae58072dc80a",
+    "_connectorId": "5b61ae4aeb538642c26bdbe6",
+    "pageGenerators": [
+      {
+        "_exportId": "6602c7faf987024931335393"
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "_importId": "6602c7e884f0ae58072e3b32",
+        "responseMapping": {
+          "fields": [
+            {
+              "extract": "body[0].id",
+              "generate": "salesforceId"
+            }
+          ],
+          "lists": []
+        }
+      },
+      {
+        "type": "import",
+        "_importId": "6602c7e884f0ae58072e3b4d",
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        }
+      }
+    ],
+    "createdAt": "2024-03-26T13:04:59.482Z",
+    "externalId": "netsuite_item_group_to_salesforce_product_flow",
+    "autoResolveMatchingTraceKeys": true,
+    "undefined": "false",
+    "settingsForm": {
+      "form": {
+        "fieldMap": {},
+        "layout": {
+          "fields": []
+        }
+      }
+    }
+  },
+  "parentResource": {},
+  "license": {
+    "_id": "66028d83f98702493132d60d",
+    "created": "2024-03-26T08:55:31.856Z",
+    "lastModified": "2024-03-26T09:22:54.749Z",
+    "expires": "2025-03-26T18:29:59.999Z",
+    "type": "connector",
+    "_connectorId": "5b61ae4aeb538642c26bdbe6",
+    "opts": {
+      "addonLicenses": [
+        {
+          "licenses": [
+            {
+              "addOnId": "contractRenewals"
+            },
+            {
+              "addOnId": "quotes"
+            }
+          ],
+          "type": "addon"
+        }
+      ],
+      "connectorEdition": "premium"
+    },
+    "_integrationId": "660293ee84f0ae58072dc80a",
+    "sandbox": false,
+    "resumable": false
+  },
+  "parentLicense": {},
+  "sandbox": false
+}

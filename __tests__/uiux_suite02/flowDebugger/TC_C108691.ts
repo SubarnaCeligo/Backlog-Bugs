@@ -9,7 +9,7 @@ test.describe("TC_C108691 Verify the notification pop-up when edit has been save
     //Disable the flow
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
-    await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
+    await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.RUNTEST_BUTTON, 1);
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
 
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.TRANSFER, 0);

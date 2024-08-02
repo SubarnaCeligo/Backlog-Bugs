@@ -6,7 +6,7 @@ test.describe("@Author_MaheshNivruttiSutar Update 'Create Transfer' Title for VA
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.loadingTime();
     });
-    test("@Epic-IO-83201 @Priority-P3 @Env-QA @Zephyr-IO-T32827", async ({ io, page }) => {
+    test("@Epic-IO-83201 @Priority-P3 @Env-All @Zephyr-IO-T32827", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.loadingTime();
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);

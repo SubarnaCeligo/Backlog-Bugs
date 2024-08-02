@@ -28,7 +28,7 @@ test.describe("@Author-Shriti S Verify that EDI activity can be filtered using m
     await io.homePage.loadingTime();
 
     await io.homePage.waitForElementAttached(selectors.dashboardPagePO.FA_FILTER_BUTTON);
-    await io.homePage.clickByIndex(selectors.dashboardPagePO.FA_FILTER_BUTTON, 2);
+    await io.homePage.clickByIndex(selectors.dashboardPagePO.FA_FILTER_BUTTON, 0);
 
     await io.homePage.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
 

@@ -1,0 +1,206 @@
+{
+    "name": "TC_Test",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+              "_id": "65fa84f980b2a78bd4f9cd91",
+              "name": "Test",
+              "_connectionId": "FTP CONNECTION",
+              "_sourceId": "65f95640ea9a3d3e7fe96233",
+              "apiIdentifier": "eaf5b77ff7",
+              "asynchronous": true,
+              "sandbox": false,
+              "parsers": [
+              {
+              "version": "1",
+              "type": "xml",
+              "rules": {
+              "V0_json": false,
+              "trimSpaces": false,
+              "stripNewLineChars": false
+              }
+              }
+              ],
+              "mockOutput": {
+              "page_of_records": [
+              {
+              "record": {
+              "mockOutput": "Replace mockOutput key and value with source data. You may be able to refer to your source app's API for examples.",
+              "test": "123"
+              }
+              }
+              ]
+              },
+              "sampleData": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Items xmlns=\"http://xmlns.oracle.com/apps/scm/productModel/common/publicationService/\" >\n<ns1:Item xmlns:ns16=\"http://xmlns.oracle.com/apps/scm/productModel/items/flex/item/\" xmlns:ns17=\"http://xmlns.oracle.com/apps/scm/productModel/items/flex/itemGdf/\" xmlns:ns0=\"http://xmlns.oracle.com/adf/svc/types/\" xmlns:ns4=\"http://xmlns.oracle.com/apps/scm/productCatalogManagement/advancedItems/flex/egoItemEff/item/categories/\" xmlns:ns5=\"http://xmlns.oracle.com/apps/scm/productModel/items/itemServiceV2/\" xmlns:ns8=\"http://xmlns.oracle.com/apps/scm/productModel/items/itemRelationshipService/\" xmlns:ns11=\"http://xmlns.oracle.com/apps/scm/productModel/items/structures/structureServiceV2/\" xmlns:ns1=\"http://xmlns.oracle.com/apps/scm/productModel/common/publicationService/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:type=\"ns1:Item\">\n   <ns1:ItemGdf>\n      <ns17:InventoryItemId>100001193354120</ns17:InventoryItemId>\n      <ns17:OrganizationId>300000002130092</ns17:OrganizationId>\n      <ns17:FLEX_PARAM_GLOBAL_COUNTRY_CODE xsi:nil=\"true\"/>\n      <ns17:__FLEX_Context xsi:nil=\"true\"/>\n      <ns17:__FLEX_Context_DisplayValue xsi:nil=\"true\"/>\n      <ns17:_FLEX_NumOfSegments>0</ns17:_FLEX_NumOfSegments>\n   </ns1:ItemGdf>\n</ns1:Item>\n</Items>",
+              "ftp": {
+              "directoryPath": "/Group-QA/ShritiS"
+              },
+              "file": {
+              "output": "records",
+              "skipDelete": true,
+              "type": "xml",
+              "xml": {
+              "resourcePath": "/Items/ns1:Item/ns1:ItemGdf"
+              },
+              "filter": {
+              "type": "expression",
+              "expression": {
+              "version": "1",
+              "rules": [
+              "contains",
+              [
+              "string",
+              [
+              "extract",
+              "filename"
+              ]
+              ],
+              "test1"
+              ]
+              },
+              "rules": [
+              "contains",
+              [
+              "string",
+              [
+              "extract",
+              "filename"
+              ]
+              ],
+              "test1"
+              ],
+              "version": "1"
+              }
+              },
+              "adaptorType": "FTPExport"
+              }
+        },
+        {
+          "type": "export",
+          "qa__export": {
+            "_id": "668e5c9124ab7148ea121413",
+            "name": "FTP2",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "ec46da8a66",
+            "asynchronous": true,
+            "sandbox": false,
+            "aiDescription": {
+            "summary": "This export retrieves JSON files from the 'Test' directory on an FTP server, parses them into records, and deletes the files from the server after transfer. It operates in a live environment and processes all files in the specified directory without any filtering.",
+            "detailed": "This export configuration is designed to retrieve data from an FTP server. The export is named 'FTP2' and is not set to operate in a sandbox environment, indicating that it is intended for use in a live or production setting. The FTP server's directory path specified is 'Test', meaning that the export will look for files within this directory on the FTP server. The type of data being retrieved is specified as 'json', which means the export will parse JSON files from the FTP server. The 'output' field is set to 'records', indicating that the export will return parsed records from the JSON files rather than metadata or raw file blobs. The 'skipDelete' field is set to 'false', meaning that after the files are transferred, they will be deleted from the FTP server. This ensures that the same files are not processed again if the export runs multiple times. The 'filter' field is configured with an expression type, but no specific rules are defined, meaning that all files in the specified directory will be processed without any filtering criteria. The 'adaptorType' is 'FTPExport', which specifies that the export is using the FTP protocol to retrieve the data. Overall, this export is set up to fetch JSON files from a specific directory on an FTP server, parse the files into records, and delete the files from the server after they have been successfully transferred and processed.",
+            "generatedOn": "2024-07-10T11:11:05.561Z"
+            },
+            "sampleData": {
+            "ticket": {
+            "comment": {
+            "body": "https://celigo2704.zendesk.com/api/v2/tickets/100.json"
+            },
+            "priority": "urgent",
+            "subject": "https://celigo2704.zendesk.com/api/v2/tickets/100.json"
+            }
+            },
+            "ftp": {
+            "directoryPath": "Test"
+            },
+            "file": {
+            "output": "records",
+            "skipDelete": false,
+            "type": "json",
+            "filter": {
+            "type": "expression",
+            "expression": {
+            "version": "1",
+            "rules": []
+            },
+            "rules": [],
+            "version": "1"
+            }
+            },
+            "adaptorType": "FTPExport"
+            }
+      }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+              "_id": "65fa84f980b2a78bd4f9cd9a",
+              "name": "FTP Import",
+              "sampleData": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Items xmlns=\"http://xmlns.oracle.com/apps/scm/productModel/common/publicationService/\" >\n<ns1:Item xmlns:ns16=\"http://xmlns.oracle.com/apps/scm/productModel/items/flex/item/\" xmlns:ns17=\"http://xmlns.oracle.com/apps/scm/productModel/items/flex/itemGdf/\" xmlns:ns0=\"http://xmlns.oracle.com/adf/svc/types/\" xmlns:ns4=\"http://xmlns.oracle.com/apps/scm/productCatalogManagement/advancedItems/flex/egoItemEff/item/categories/\" xmlns:ns5=\"http://xmlns.oracle.com/apps/scm/productModel/items/itemServiceV2/\" xmlns:ns8=\"http://xmlns.oracle.com/apps/scm/productModel/items/itemRelationshipService/\" xmlns:ns11=\"http://xmlns.oracle.com/apps/scm/productModel/items/structures/structureServiceV2/\" xmlns:ns1=\"http://xmlns.oracle.com/apps/scm/productModel/common/publicationService/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:type=\"ns1:Item\">\n   <ns1:ItemGdf>\n      <ns17:InventoryItemId>100001193354120</ns17:InventoryItemId>\n      <ns17:OrganizationId>300000002130092</ns17:OrganizationId>\n      <ns17:FLEX_PARAM_GLOBAL_COUNTRY_CODE xsi:nil=\"true\"/>\n      <ns17:__FLEX_Context xsi:nil=\"true\"/>\n      <ns17:__FLEX_Context_DisplayValue xsi:nil=\"true\"/>\n      <ns17:_FLEX_NumOfSegments>0</ns17:_FLEX_NumOfSegments>\n   </ns1:ItemGdf>\n</ns1:Item>\n</Items>",
+              "mockResponse": [
+              {
+              "id": "1234567890",
+              "errors": [],
+              "_json": {
+              "id": "1234567890",
+              "mockResponse": "replace me"
+              },
+              "statusCode": 200,
+              "ignored": false,
+              "dataURI": "",
+              "_headers": {
+              "content-type": "application/json; charset=utf-8"
+              }
+              }
+              ],
+              "_connectionId": "FTP CONNECTION",
+              "_sourceId": "65f975ba4b2a0f0f2b7d74ee",
+              "apiIdentifier": "icdf4928e3",
+              "oneToMany": false,
+              "sandbox": false,
+              "mappings": [
+              {
+              "extract": "$.mockOutput",
+              "generate": "Test",
+              "dataType": "string",
+              "status": "Active",
+              "sourceDataType": "string"
+              },
+              {
+              "extract": "Map",
+              "generate": "Test2",
+              "dataType": "string",
+              "status": "Active",
+              "sourceDataType": "string"
+              }
+              ],
+              "file": {
+              "fileName": "file-{{timestamp}}.xml",
+              "skipAggregation": false,
+              "type": "xml",
+              "xml": {
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Items xmlns=\"http://xmlns.oracle.com/apps/scm/productModel/common/publicationService/\">\n  {{#each batch_of_records}}\n  <ns1:Item xmlns:ns16=\"http://xmlns.oracle.com/apps/scm/productModel/items/flex/item/\" xmlns:ns17=\"http://xmlns.oracle.com/apps/scm/productModel/items/flex/itemGdf/\" xmlns:ns0=\"http://xmlns.oracle.com/adf/svc/types/\" xmlns:ns4=\"http://xmlns.oracle.com/apps/scm/productCatalogManagement/advancedItems/flex/egoItemEff/item/categories/\" xmlns:ns5=\"http://xmlns.oracle.com/apps/scm/productModel/items/itemServiceV2/\" xmlns:ns8=\"http://xmlns.oracle.com/apps/scm/productModel/items/itemRelationshipService/\" xmlns:ns11=\"http://xmlns.oracle.com/apps/scm/productModel/items/structures/structureServiceV2/\" xmlns:ns1=\"http://xmlns.oracle.com/apps/scm/productModel/common/publicationService/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:type=\"ns1:Item\">\n    <ns1:ItemGdf>\n      <ns17:InventoryItemId>{{record.ns17:InventoryItemId}}</ns17:InventoryItemId>\n      <ns17:OrganizationId>{{record.ns17:OrganizationId}}</ns17:OrganizationId>\n      <ns17:FLEX_PARAM_GLOBAL_COUNTRY_CODE xsi:nil=\"{{record.ns17:FLEX_PARAM_GLOBAL_COUNTRY_CODE.xsi:nil}}\"/>\n      <ns17:__FLEX_Context xsi:nil=\"{{record.ns17:__FLEX_Context.xsi:nil}}\"/>\n      <ns17:__FLEX_Context_DisplayValue xsi:nil=\"{{record.ns17:__FLEX_Context_DisplayValue.xsi:nil}}\"/>\n      <ns17:_FLEX_NumOfSegments>{{record.ns17:_FLEX_NumOfSegments}}</ns17:_FLEX_NumOfSegments>\n    </ns1:ItemGdf>\n  </ns1:Item>\n  {{/each}}\n</Items>"
+              }
+              },
+              "ftp": {
+              "directoryPath": "/Group-QA/ShritiS/Import",
+              "fileName": "file-{{timestamp}}.xml"
+              },
+              "adaptorType": "FTPImport"
+              }
+        }
+    ],
+    "createFlow": {
+        "name": "TC_Test",
+        "disabled": false,
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          },
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ],
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "autoResolveMatchingTraceKeys": true
+    }
+  }

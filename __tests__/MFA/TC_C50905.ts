@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C50905 Verify that only the owner/admin should be able to define the number of days for a trusted device.", () => {
-  test("@Env-All C50905 Verify that only the owner/admin should be able to define the number of days for a trusted device.", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T19639 C50905 Verify that only the owner/admin should be able to define the number of days for a trusted device.", async ({io, page}) => {
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.myAccountPage.waitForElementAttached(selectors.myAccountPagePO.SECURITY);
     await io.myAccountPage.click(selectors.myAccountPagePO.SECURITY);

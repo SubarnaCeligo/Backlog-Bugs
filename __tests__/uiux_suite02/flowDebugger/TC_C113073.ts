@@ -16,7 +16,7 @@ test.describe('C113073', () => {
         await io.api.deleteScriptViaAPI(postMap);
         await io.api.deleteScriptViaAPI(preMap);
     });
-    test('C113073', async ({ io, page }) => {
+    test('@Env-All @Zephyr-IO-T14404 C113073', async ({ io, page }) => {
         C113073.pageProcessors[0].qa__import.hooks.preMap._scriptId = preMap;
         C113073.pageProcessors[0].qa__import.hooks.postMap._scriptId = postMap;
         C113073.pageProcessors[0].qa__import.hooks.postSubmit._scriptId = postSubmit;
@@ -25,7 +25,7 @@ test.describe('C113073', () => {
         //Disable the flow
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
-        await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
+        await page.locator(selectors.flowBuilderPagePO.RUNTEST_BUTTON).first().click();
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.TEST_RUN_EXECUTION_LOG);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.SELECT_SCRIPT);

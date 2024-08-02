@@ -4,7 +4,7 @@ import data1 from "@testData/ScriptDebugger/C93832.json"
 
 test.describe('C93832 Validate user is getting auto-fill of function stub while creating "chandleRequest" script through flow builder hook', () => {
    
-    test('C93832 Validate user is getting auto-fill of function stub while creating "handleRequest" script through flow builder hook', async({io,page}) => {
+    test('@Env-All @Zephyr-IO-T22707 C93832 Validate user is getting auto-fill of function stub while creating "handleRequest" script through flow builder hook', async({io,page}) => {
   
       
     

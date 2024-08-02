@@ -2,7 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C58036 Verify when we refresh the page when there is an open create license drawer, the drawer should be closed on the refresh", () => {
-  test("C58036 Verify when we refresh the page when there is an open create license drawer, the drawer should be closed on the refresh", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T17137 C58036 Verify when we refresh the page when there is an open create license drawer, the drawer should be closed on the refresh", async ({io, page}) => {
       await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
       await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
       await io.homePage.goToMenu("Resources", "Integration apps");

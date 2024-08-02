@@ -5,7 +5,7 @@ import data4 from "@testData/Flows/C25947.json"
 
 test.describe(`C25947 Verify suggested mapping separation boundary must be Cleared on mapping changes`, () => {
      
-    test(`C25947 Verify suggested mapping separation boundary must be Cleared on mapping changes`, async({io,page}) => {
+    test(`@Env-All @Zephyr-IO-T5274 C25947 Verify suggested mapping separation boundary must be Cleared on mapping changes`, async({io,page}) => {
   
         const id =  await io.createResourceFromAPI(
                     data4,

@@ -10,6 +10,8 @@ test.describe(`TC_C41554 To verify create pull button is not displayed under ""R
     page,
     io
   }) => {
+    await io.flowBuilder.fill(selectors.integrationPagePO.HOME_SEARCH,'Amazon Connector(Bharath)');
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.clickByTextByIndex("Amazon Connector(Bharath)", 0);
     await io.homePage.loadingTime();
     const isRevisionsDisplayed = await io.flowBuilder.isVisible('text="Revisons"');

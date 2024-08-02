@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C61136 Verify the Integrator SuiteApp step displayed while uploading an integration zip file`, () => {
-  test(`C61136 Verify the Integrator SuiteApp step displayed while uploading an integration zip file`, async ({
+  test(`@Env-All @Zephyr-IO-T23142 C61136 Verify the Integrator SuiteApp step displayed while uploading an integration zip file`, async ({
     page,
     io
   }) => {

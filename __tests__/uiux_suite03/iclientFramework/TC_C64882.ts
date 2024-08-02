@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C64882 verify toggle button for iclient under connection`, () => {
-  test(`C64882 verify toggle button for iclient under connection`, async ({
+  test(`@Env-All @Zephyr-IO-T17566 C64882 verify toggle button for iclient under connection`, async ({
     io,
     page
   }) => {

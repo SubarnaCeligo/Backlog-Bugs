@@ -21,14 +21,16 @@ test.describe(`C68565 Verify user is upload the integration zip file having line
   }) => {
     await io.homePage.clickByText("Resources");
     await io.homePage.clickByText("Templates");
-    await io.homePage.waitForElementAttached(`:has-text("temp1") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
+    await io.homePage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR)
+    await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "temp3_DND")
+    await io.homePage.waitForElementAttached(`:has-text("temp3") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
     await io.homePage.click(`tbody tr:has-text("temp3_DND") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
     await io.homePage.clickByText("Upload template zip");
     const fileInput = await page.$(selectors.basePagePO.UPLOAD_FILE);
     await fileInput.setInputFiles('testData/inputData/Templates/C68565.zip');
     await io.homePage.clickByText("Marketplace")
     await io.marketplacePage.fill('[placeholder="Search marketplace"]', "temp3_DND")
-    await io.marketplacePage.clickByText("Preview");
+    await io.marketplacePage.click(selectors.homePagePO.INSTALL_TEMPLATE);
     await io.marketplacePage.clickByText("Install now")
     await io.marketplacePage.waitForElementAttached(selectors.integrationPagePO.SETUP_INTEGRATION_CONFIGURE_BUTTON)
 

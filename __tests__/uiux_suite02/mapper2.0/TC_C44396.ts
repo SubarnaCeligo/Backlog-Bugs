@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Mapper2.0/C44396.json";
 
 test.describe(`C44396 Verify the type of field mapping should be displayed for the row which are configured with lookup , hardcode , handlebars`, () => {
-  test(`C44396 Verify the type of field mapping should be displayed for the row which are configured with lookup , hardcode , handlebars`, async ({
+  test(`@Env-All @Zephyr-IO-T2414 C44396 Verify the type of field mapping should be displayed for the row which are configured with lookup , hardcode , handlebars`, async ({
     io,
     page
   }) => {

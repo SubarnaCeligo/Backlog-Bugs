@@ -28,7 +28,7 @@ test.describe("@Author-Shriti S Verify that EDI documents can be filtered using 
     await io.homePage.loadingTime();
 
     //sort results in ascending order -  on Last run column -- to get oldest value
-    await io.homePage.clickByTextByIndex('Data processed on', 0);
+    await io.homePage.clickByTextByIndex('Processed', 0);
     // await io.homePage.click('thead > tr > th:nth-child(5)');
     await io.homePage.loadingTime();
     

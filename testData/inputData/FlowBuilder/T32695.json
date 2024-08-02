@@ -1,32 +1,33 @@
 {
-    "name": "IO-T32695",
+    "name": "TC_IO-T32631",
     "pageGenerators": [
         {
             "type": "export",
             "qa__export": {
-                "name": "FTP Export",
-                "_connectionId": "FTP CONNECTION",
-                "apiIdentifier": "eebcca58d7",
+                "name": "MongoDB Export",
+                "_connectionId": "MONGODB CONNECTION",
+                "apiIdentifier": "e2743380d5",
                 "asynchronous": true,
+                "oneToMany": false,
                 "sandbox": false,
-                "ftp": {
-                    "directoryPath": "/Group-QA/ShritiS"
+                "groupByFields": [
+                    "id"
+                ],
+                "rawData": "6253c695bbf2c06775d39fe147a330a269a1463ea9e7dba8d188a243",
+                "mongodb": {
+                    "method": "find",
+                    "collection": "TEST NEW"
                 },
-                "file": {
-                    "output": "records",
-                    "skipDelete": false,
-                    "type": "json",
-                    "filter": {
-                        "type": "expression",
-                        "expression": {
-                            "rules": [],
-                            "version": "1"
-                        },
+                "filter": {
+                    "type": "expression",
+                    "expression": {
                         "rules": [],
                         "version": "1"
-                    }
+                    },
+                    "rules": [],
+                    "version": "1"
                 },
-                "adaptorType": "FTPExport"
+                "adaptorType": "MongodbExport"
             }
         }
     ],
@@ -35,149 +36,6 @@
             "type": "import",
             "qa__import": {
                 "name": "AutomationStandalone_wE2rB",
-                "sampleData": {
-                    "10": [
-                        {
-                            "O_ST_NAME": "CLEMENS MOBILE WELDING",
-                            "O_ST_ADD1": "25239 COMMERCE DRIVE",
-                            "O_ST_ADD2": "",
-                            "O_ST_CITY": "DEFIANCE",
-                            "O_ST_STATE": "OH",
-                            "O_ST_ZIP": "435120000",
-                            "O_BT_NAME": "COMPUTERS UNLIMITED",
-                            "O_BT_ADD1": "2407 MONTANA AVE.",
-                            "O_BT_ADD2": "",
-                            "O_BT_CITY": "BILLINGS",
-                            "O_BT_STATE": "MT",
-                            "O_BT_ZIP": "59101",
-                            "Blank_13(10)": "",
-                            "O_PBRNCH": "006",
-                            "O_PSHVIA": "TRUCK",
-                            "Blank_16(10)": "006"
-                        },
-                        {
-                            "O_ST_NAME": "CLEMENS MOBILE WELDING",
-                            "O_ST_ADD1": "25239 COMMERCE DRIVE",
-                            "O_ST_ADD2": "",
-                            "O_ST_CITY": "DEFIANCE",
-                            "O_ST_STATE": "OH",
-                            "O_ST_ZIP": "435120000",
-                            "O_BT_NAME": "COMPUTERS UNLIMITED",
-                            "O_BT_ADD1": "2407 MONTANA AVE.",
-                            "O_BT_ADD2": "",
-                            "O_BT_CITY": "BILLINGS",
-                            "O_BT_STATE": "MT",
-                            "O_BT_ZIP": "59101",
-                            "Blank_13(10)": "",
-                            "O_PBRNCH": "006",
-                            "O_PSHVIA": "TRUCK",
-                            "Blank_16(10)": "006"
-                        }
-                    ],
-                    "28": [
-                        {
-                            "O_GEN_COMMENT": "Header Comment 1"
-                        }
-                    ],
-                    "30": [
-                        {
-                            "35": [
-                                {
-                                    "O_COMMENT": "ULTRACORE 71A85 1/16 SPOOL"
-                                },
-                                {
-                                    "O_COMMENT": "ULTRACORE 71A85 1/16 SPOOL"
-                                }
-                            ],
-                            "45": [
-                                {
-                                    "O_COMMENT2": "PLEASE FAX / EMAIL CONFIRMATION TO XXX-XXX-XXXX"
-                                }
-                            ],
-                            "O_PLLINE": "001",
-                            "O_PLQTY": "132",
-                            "O_PLUNIT": "EA",
-                            "O_PLCOST": "1.72",
-                            "O_PLITEM_SUP": "LIN",
-                            "O_PLITEM_ITEM": "ED031999",
-                            "O_PLITEM_LOC": "6",
-                            "O_UPC_CODE": "15082658230",
-                            "O_VEN_NUM": "ED031777",
-                            "O_PLRQDT": "180116",
-                            "O_L_CONTRACT": "",
-                            "O_L_MIX_ID": "",
-                            "O_L_MIXGAS": "",
-                            "O_L_OWN": "",
-                            "O_L_LGAS": "",
-                            "O_PLRQDT_CC": "20180116",
-                            "O_WEIGHT": "0000000000"
-                        },
-                        {
-                            "35": [
-                                {
-                                    "O_COMMENT": "ULTRACORE 71A85 1/16 SPOOL"
-                                },
-                                {
-                                    "O_COMMENT": "ULTRACORE 71A85 1/16 SPOOL"
-                                }
-                            ],
-                            "45": [
-                                {
-                                    "O_COMMENT2": "PLEASE FAX / EMAIL CONFIRMATION TO XXX-XXX-XXXX"
-                                }
-                            ],
-                            "O_PLLINE": "001",
-                            "O_PLQTY": "132",
-                            "O_PLUNIT": "EA",
-                            "O_PLCOST": "1.72",
-                            "O_PLITEM_SUP": "LIN",
-                            "O_PLITEM_ITEM": "ED031999",
-                            "O_PLITEM_LOC": "6",
-                            "O_UPC_CODE": "15082658230",
-                            "O_VEN_NUM": "ED031777",
-                            "O_PLRQDT": "180116",
-                            "O_L_CONTRACT": "",
-                            "O_L_MIX_ID": "",
-                            "O_L_MIXGAS": "",
-                            "O_L_OWN": "",
-                            "O_L_LGAS": "",
-                            "O_PLRQDT_CC": "20180116",
-                            "O_WEIGHT": "0000000000"
-                        }
-                    ],
-                    "DOC_PRTNR_ID": "V100",
-                    "DOC_SET_ID": "850",
-                    "DOC_REC_LEN": "2048",
-                    "DOC_TEST_PROD": "P",
-                    "O_PONUM": "652224",
-                    "O_PODATE": "180116",
-                    "Blank_3(01)": "180116",
-                    "O_PREQNO": "000000",
-                    "O_PODATE_CC": "20180116",
-                    "O_PREQDTE_CC": "20180116",
-                    "O_PO_TYPE": "SA",
-                    "Blank_8(01)": "",
-                    "O_MISC_INFO": "",
-                    "Blank_10(01)": "",
-                    "O_CURR_CODE": "00",
-                    "O_BLK_PO": "0",
-                    "03": [
-                        {
-                            "O_PFTERM": "NET30",
-                            "O_PCOMMT": "Test Comment"
-                        }
-                    ],
-                    "05": [
-                        {
-                            "O_REQUIRED_DATE": "180117",
-                            "O_REQUIRED_DATE_CC": "20180117"
-                        },
-                        {
-                            "O_REQUIRED_DATE": "180117",
-                            "O_REQUIRED_DATE_CC": "20180117"
-                        }
-                    ]
-                },
                 "_connectionId": "FTP CONNECTION",
                 "apiIdentifier": "i17b86f355",
                 "oneToMany": false,
@@ -199,7 +57,7 @@
         }
     ],
     "createFlow": {
-        "name": "IO-T32695",
+        "name": "TC_IO-T32631",
         "disabled": false,
         "_integrationId": "603ce75ac4fec33283691f43",
         "skipRetries": false,
@@ -236,5 +94,336 @@
                 "pathparam"
             ]
         }
+    },
+    "fileDEfination": {
+        "name": "AGONOW EDI 810",
+        "description": "Invoice",
+        "version": 1,
+        "format": "fixed",
+        "fixed": {
+            "rowSuffix": "",
+            "rowDelimiter": "\n",
+            "paddingChar": " "
+        },
+        "skipEmptyEndColDelimiter": true,
+        "rules": [
+            {
+                "maxOccurrence": 2,
+                "elements": [
+                    {
+                        "name": "Separator Code",
+                        "value": "*****",
+                        "length": 5
+                    },
+                    {
+                        "name": "Partner ID Code",
+                        "value": "{{{[Partner ID Code]}}}",
+                        "length": 15
+                    },
+                    {
+                        "name": "Transaction Set ID",
+                        "value": "{{{[Transaction Set ID]}}}",
+                        "length": 6
+                    }
+                ],
+                "children": [
+                    {
+                        "maxOccurrence": 1,
+                        "required": true,
+                        "elements": [
+                            {
+                                "name": "01",
+                                "value": "01",
+                                "length": 2
+                            },
+                            {
+                                "name": "Invoice Date",
+                                "value": "{{{[Invoice Date]}}}",
+                                "length": 8
+                            },
+                            {
+                                "name": "Invoice Number",
+                                "value": "{{{[Invoice Number]}}}",
+                                "length": 22
+                            },
+                            {
+                                "name": "Transaction Set ID(01)",
+                                "value": "{{{[Transaction Set ID(01)]}}}",
+                                "length": 22
+                            },
+                            {
+                                "name": "Invoice Type",
+                                "value": "{{{[Invoice Type]}}}",
+                                "length": 2
+                            }
+                        ],
+                        "children": [
+                            {
+                                "maxOccurrence": 1000,
+                                "relativeDataPath": "10",
+                                "required": true,
+                                "elements": [
+                                    {
+                                        "name": "10",
+                                        "value": "10",
+                                        "length": 2
+                                    },
+                                    {
+                                        "name": "Reference Number Qualifier",
+                                        "value": "{{{[Reference Number Qualifier]}}}",
+                                        "length": 2
+                                    },
+                                    {
+                                        "name": "Reference Number Value",
+                                        "value": "{{{[Reference Number Value]}}}",
+                                        "length": 22
+                                    }
+                                ]
+                            },
+                            {
+                                "maxOccurrence": 3,
+                                "relativeDataPath": "15",
+                                "required": true,
+                                "elements": [
+                                    {
+                                        "name": "15",
+                                        "value": "15",
+                                        "length": 2
+                                    },
+                                    {
+                                        "name": "Contact Name",
+                                        "value": "{{{[Contact Name]}}}",
+                                        "length": 60
+                                    },
+                                    {
+                                        "name": "Contact Qualifier",
+                                        "value": "{{{[Contact Qualifier]}}}",
+                                        "length": 2
+                                    },
+                                    {
+                                        "name": "Contact Phone Number",
+                                        "value": "{{{[Contact Phone Number]}}}",
+                                        "length": 20
+                                    }
+                                ]
+                            },
+                            {
+                                "maxOccurrence": 1000,
+                                "relativeDataPath": "20",
+                                "required": true,
+                                "elements": [
+                                    {
+                                        "name": "20",
+                                        "value": "20",
+                                        "length": 2
+                                    },
+                                    {
+                                        "name": "Remit To Name",
+                                        "value": "{{{[Remit To Name]}}}",
+                                        "length": 35
+                                    },
+                                    {
+                                        "name": "Remit To Address 1",
+                                        "value": "{{{[Remit To Address 1]}}}",
+                                        "length": 35
+                                    },
+                                    {
+                                        "name": "Remit To Address 2",
+                                        "value": "{{{[Remit To Address 2]}}}",
+                                        "length": 35
+                                    },
+                                    {
+                                        "name": "Remit To City",
+                                        "value": "{{{[Remit To City]}}}",
+                                        "length": 30
+                                    },
+                                    {
+                                        "name": "Remit To State",
+                                        "value": "{{{[Remit To State]}}}",
+                                        "length": 4
+                                    },
+                                    {
+                                        "name": "Remit To Zip",
+                                        "value": "{{{[Remit To Zip]}}}",
+                                        "length": 9
+                                    },
+                                    {
+                                        "name": "Remit To",
+                                        "value": "{{{[Remit To]}}}",
+                                        "length": 2
+                                    }
+                                ]
+                            },
+                            {
+                                "maxOccurrence": 1000,
+                                "relativeDataPath": "40",
+                                "required": true,
+                                "elements": [
+                                    {
+                                        "name": "40",
+                                        "value": "40",
+                                        "length": 2
+                                    },
+                                    {
+                                        "name": "Invoice Line Number",
+                                        "value": "{{{[Invoice Line Number]}}}",
+                                        "length": 6
+                                    },
+                                    {
+                                        "name": "Quantity Ordered",
+                                        "value": "{{{[Quantity Ordered]}}}",
+                                        "length": 10
+                                    },
+                                    {
+                                        "name": "Unit Of Measure",
+                                        "value": "{{{[Unit Of Measure]}}}",
+                                        "length": 2
+                                    },
+                                    {
+                                        "name": "Unit Price",
+                                        "value": "{{{[Unit Price]}}}",
+                                        "length": 14
+                                    },
+                                    {
+                                        "name": "Part Qualifier 1",
+                                        "value": "{{{[Part Qualifier 1]}}}",
+                                        "length": 2
+                                    },
+                                    {
+                                        "name": "Item Number 1",
+                                        "value": "{{{[Item Number 1]}}}",
+                                        "length": 30
+                                    },
+                                    {
+                                        "name": "Part Qualifier 2",
+                                        "value": "{{{[Part Qualifier 2]}}}",
+                                        "length": 2
+                                    },
+                                    {
+                                        "name": "Item Number 2",
+                                        "value": "{{{[Item Number 2]}}}",
+                                        "length": 30
+                                    }
+                                ],
+                                "children": [
+                                    {
+                                        "maxOccurrence": 1000,
+                                        "relativeDataPath": "42",
+                                        "required": true,
+                                        "elements": [
+                                            {
+                                                "name": "42",
+                                                "value": "42",
+                                                "length": 2
+                                            },
+                                            {
+                                                "name": "Line Item Description",
+                                                "value": "{{{[Line Item Description]}}}",
+                                                "length": 80
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "required": true,
+                                "elements": [
+                                    {
+                                        "name": "70",
+                                        "value": "70",
+                                        "length": 2
+                                    },
+                                    {
+                                        "name": "Total Invoice Amount",
+                                        "value": "{{{[Total Invoice Amount]}}}",
+                                        "length": 10
+                                    },
+                                    {
+                                        "name": "Total Amount Subject To Discount",
+                                        "value": "{{{[Total Amount Subject To Discount]}}}",
+                                        "length": 10
+                                    },
+                                    {
+                                        "name": "Discounted Amount Due",
+                                        "value": "{{{[Discounted Amount Due]}}}",
+                                        "length": 10
+                                    },
+                                    {
+                                        "name": "Terms Discount Amount",
+                                        "value": "{{{[Terms Discount Amount]}}}",
+                                        "length": 10
+                                    }
+                                ]
+                            },
+                            {
+                                "maxOccurrence": 1000,
+                                "relativeDataPath": "75",
+                                "required": true,
+                                "elements": [
+                                    {
+                                        "name": "75",
+                                        "value": "75",
+                                        "length": 2
+                                    },
+                                    {
+                                        "name": "Tax Amount Qualifier",
+                                        "value": "{{{[Tax Amount Qualifier]}}}",
+                                        "length": 2
+                                    },
+                                    {
+                                        "name": "Tax Amount",
+                                        "value": "{{{[Tax Amount]}}}",
+                                        "length": 15
+                                    },
+                                    {
+                                        "name": "Tax Description",
+                                        "value": "{{{[Tax Description]}}}",
+                                        "length": 10
+                                    }
+                                ]
+                            },
+                            {
+                                "maxOccurrence": 1000,
+                                "relativeDataPath": "80",
+                                "required": true,
+                                "elements": [
+                                    {
+                                        "name": "80",
+                                        "value": "80",
+                                        "length": 2
+                                    },
+                                    {
+                                        "name": "Charge Indicator",
+                                        "value": "{{{[Charge Indicator]}}}",
+                                        "length": 1
+                                    },
+                                    {
+                                        "name": "Allowance charge type",
+                                        "value": "{{{[Allowance charge type]}}}",
+                                        "length": 4
+                                    },
+                                    {
+                                        "name": "Blank_03(10)",
+                                        "value": "{{{[Blank_03(10)]}}}",
+                                        "length": 12
+                                    },
+                                    {
+                                        "name": "Charge Amount",
+                                        "value": "{{{[Charge Amount]}}}",
+                                        "length": 15
+                                    },
+                                    {
+                                        "name": "Charge Description",
+                                        "value": "{{{[Charge Description]}}}",
+                                        "length": 80
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "sandbox": false
     }
 }

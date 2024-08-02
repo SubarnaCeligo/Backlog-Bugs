@@ -10,7 +10,7 @@ test.describe("TC_C107706 Verify that T badge is consistent in all the places fo
     //Disable the flow
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
-    await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
+    await page.locator(selectors.flowBuilderPagePO.RUNTEST_BUTTON).first().click()
 
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
     

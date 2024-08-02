@@ -1,8 +1,7 @@
 import {expect, test} from "@celigo/ui-core-automation";
 import testData from "../../testData/inputData/FlowBuilder/T28451.json";
 import * as selectors from "@celigo/aut-selectors";
-import { flowBranching } from "@celigo/ui-core-automation/dist/src/controller/featureController/FlowBranching";
-test.describe("Verify message when when user tries to drag the import step within a branched flow", () => {
+test.describe("TC_T28451_Verify message when when user tries to drag the import step within a branched flow", () => {
     test("@Bug-IO-70825 @Env-All @Priority-P2 @Zephyr-IO-T28451 Verify message when when user tries to drag the import step within a branched flow", async ({io, page}) => {
         let flowID = await io.flowbranching.createFlowBranchFromAPI(testData);
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]+"flowBuilder/"+flowID);
@@ -14,8 +13,6 @@ test.describe("Verify message when when user tries to drag the import step withi
             "You can’t drag and drop to reorder a step in a branched flow. To reorder, remove the flow step and add it at the preferred location.",
             message,
             "Message is not displayed");
-
-        await io.api.deleteFlowViaAPI(flowID);
-        
+        await io.api.deleteFlowViaAPI(flowID);    
     });
   });

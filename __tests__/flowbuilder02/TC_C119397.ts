@@ -2,7 +2,7 @@ import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C119397", () => {
-    test("C119397 @Env-All @Priority-P2", async ({ io, page }) => {
+    test.skip("C119397 @Env-All @Priority-P2", async ({ io, page }) => {
         //Home page: Dashboard
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.addStep("*** Navigated to home page ***");

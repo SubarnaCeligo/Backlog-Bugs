@@ -2,7 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C41684 verify empty state messaging for existing user", () => {
-    test("@Env-All Imports page check", async ({io, page}) => {
+    test("@Env-All @Zephyr-IO-T897 Imports page check", async ({io, page}) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources","Imports");
@@ -11,7 +11,7 @@ test.describe("C41684 verify empty state messaging for existing user", () => {
         await io.assert.expectToBeTrue(noImportText, "No import message not shown");
         await io.assert.expectToBeTrue(importsText, "Imports text not shown");
     });
-    test("@Env-All Exports page check", async ({io, page}) => {
+    test("@Env-All @Zephyr-IO-T897 Exports page check", async ({io, page}) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources","Exports");
@@ -20,7 +20,7 @@ test.describe("C41684 verify empty state messaging for existing user", () => {
         await io.assert.expectToBeTrue(noExportText, "No export message not shown");
         await io.assert.expectToBeTrue(exportsText, "Exports text not shown");
     });
-    test("@Env-All Agents page check", async ({io, page}) => {
+    test("@Env-All @Zephyr-IO-T897 Agents page check", async ({io, page}) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources","Agents");

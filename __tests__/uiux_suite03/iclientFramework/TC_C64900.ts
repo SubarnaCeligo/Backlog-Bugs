@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C64900 Validate editing the iClient created in Resources -> iClient page, editing from the connection page, is Simple view is displayed for the applicable applications`, () => {
-  test(`C64900 Validate editing the iClient created in Resources -> iClient page, editing from the connection page, is Simple view is displayed for the applicable applications`, async ({
+  test(`@Env-All @Zephyr-IO-T17590 C64900 Validate editing the iClient created in Resources -> iClient page, editing from the connection page, is Simple view is displayed for the applicable applications`, async ({
     io,
     page
   }) => {

@@ -21,7 +21,7 @@ test.describe("TC_C108678 Verify whether Hotspot icons when hooks is properly co
     //Disable the flow
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
-    await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
+    await page.locator(selectors.flowBuilderPagePO.RUNTEST_BUTTON).first().click()
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
 
     let lookupBadge = page.locator(selectors.exportsPagePO.TRANSFER_HOTSPOT_ICON).nth(1);

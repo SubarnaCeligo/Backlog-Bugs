@@ -2,48 +2,81 @@
   "name": "TC_C77840",
   "pageGenerators": [
       {
-          "qa__export":{
-              "name": "test",
-  "_connectionId": "HTTP ZENDESK CONNECTION",
-  "_sourceId": "65156bbb43f4f6196ddfdc25",
-  "apiIdentifier": "ee64d3fdc9",
-  "asynchronous": true,
-  "type": "test",
-  "oneToMany": false,
-  "http": {
-      "relativeURI": "/test",
-      "method": "GET",
-      "formType": "http"
-  },
-  "test": {
-      "limit": 1
-  },
-  "adaptorType": "HTTPExport"
-            }
+        "qa__export": {
+          "_id": "662a8245b4da91239229a9ea",
+          "createdAt": "2024-04-25T16:18:13.828Z",
+          "lastModified": "2024-04-25T16:18:13.865Z",
+          "name": "AutomationStandalone_DnRXG",
+          "_connectionId": "FTP CONNECTION",
+          "_sourceId": "662a273a265efa2565018987",
+          "apiIdentifier": "e7ec6cdaba",
+          "asynchronous": true,
+          "sandbox": false,
+          "ftp": {
+              "directoryPath": "/io.auto.qa/BVAutoFTP"
+          },
+          "file": {
+              "output": "records",
+              "skipDelete": true,
+              "type": "json",
+              "filter": {
+                  "type": "expression",
+                  "expression": {
+                      "version": "1",
+                      "rules": [
+                          "contains",
+                          [
+                              "string",
+                              [
+                                  "extract",
+                                  "filename"
+                              ]
+                          ],
+                          "NoArrayFieldsIO-34461"
+                      ]
+                  },
+                  "rules": [
+                      "contains",
+                      [
+                          "string",
+                          [
+                              "extract",
+                              "filename"
+                          ]
+                      ],
+                      "NoArrayFieldsIO-34461"
+                  ],
+                  "version": "1"
+              }
+          },
+          "adaptorType": "FTPExport"
+      }
         }
     ],
     "pageProcessors": [{
       "type": "import",
       "qa__import": {
-          "name": "TC1660_Import",
+          "name": "FTP Import",
+          "parsers": [],
           "_connectionId": "FTP CONNECTION",
-          "_sourceId": "6515518b5d648951d10864f6",
-          "apiIdentifier": "i2d21f6c0c",
+          "apiIdentifier": "if47d966b0",
           "oneToMany": false,
+          "sandbox": false,
           "file": {
-              "fileName": "file-{{timestamp}}.json",
+              "fileName": "test656.json",
               "skipAggregation": false,
               "type": "json"
+               
           },
           "ftp": {
-              "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPimport",
-              "fileName": "file-{{timestamp}}.json"
+              "directoryPath": "/test",
+              "fileName":"test656.json"
           },
-          "adaptorType": "FTPImport"        
+          "adaptorType": "FTPImport"
       }
   }],
     "createFlow": {
-      "name": "TC_C63406",
+      "name": "TC_C77840",
       "disabled": false,
       "_integrationId": "603ce75ac4fec33283691f43",
       "skipRetries": false,

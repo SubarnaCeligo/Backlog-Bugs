@@ -4,7 +4,7 @@ import C107965 from '../../../testData/inputData/FlowDebugger/C107965.json';
 
 
 test.describe("Validate the hover text for disabled Test Run button (On top and in the run console)", () => {
-  test("Validate the hover text for disabled Test Run button (On top and in the run console)", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T24092 Validate the hover text for disabled Test Run button (On top and in the run console)", async ({ io, page }) => {
     //Create a flow with offline connections
     await io.createResourceFromAPI(C107965, "FLOWS");
 

@@ -20,7 +20,9 @@ test.describe("T27370 Verify mapper2 use cases for NoSQLDBwith both record and r
         await page.getByText("Create destination record { } from source record { }").nth(1).click();
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.DESTINATION_MAPPING_PLACEHOLDER, "id");
         await io.mappings.addStep("*** Added destination field ***");
-        await io.flowBuilder.fill(selectors.flowBuilderPagePO.SOURCE_MAPPING_PLACEHOLDER, "test");
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.DESTINATION_MAPPING_PLACEHOLDER);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.SOURCE_MAPPING_PLACEHOLDER);
+        await io.flowBuilder.clickByTextByIndex('Name', 0)
         await io.mappings.addStep("*** Added source field ***");
         await io.mappings.waitForElementAttached(selectors.mappings.MAPPER2DOT0PO.PREVIEW);
         await io.mappings.performWebActions(selectors.mappings.MAPPER2DOT0PO.PREVIEW,"preview");
@@ -72,7 +74,9 @@ test.describe("T27370 Verify mapper2 use cases for NoSQLDBwith both record and r
         await page.getByText("Create destination record { } from source record { }").nth(1).click();
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.DESTINATION_MAPPING_PLACEHOLDER, "id");
         await io.mappings.addStep("*** Added destination field ***");
-        await io.flowBuilder.fill(selectors.flowBuilderPagePO.SOURCE_MAPPING_PLACEHOLDER, "test");
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.DESTINATION_MAPPING_PLACEHOLDER);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.SOURCE_MAPPING_PLACEHOLDER);
+        await io.flowBuilder.clickByTextByIndex('Name', 0)
         await io.mappings.addStep("*** Added source field ***");
         await io.mappings.waitForElementAttached(selectors.mappings.MAPPER2DOT0PO.PREVIEW);
         await io.mappings.performWebActions(selectors.mappings.MAPPER2DOT0PO.PREVIEW,"preview");

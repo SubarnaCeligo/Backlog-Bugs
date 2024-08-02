@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe('Test to validate user is able to add import mappings, hooks, input filer to "Azure Synapse" import on flow builder page', () => {
-  test("@Env-QA @Epic-IO-65860 @Zephyr-IO-T29716 @Priority-P2 " , async ({
+  test("@Env-All @Epic-IO-65860 @Zephyr-IO-T29716 @Priority-P2 " , async ({
     io,
     page
   }) => {
@@ -18,10 +18,12 @@ test.describe('Test to validate user is able to add import mappings, hooks, inpu
     await io.connectionPage.click(selectors.connectionsPagePO.AZURE_SYNAPSE);
     await io.connectionPage.addStep("Selected the Azure Synapse connector");
     await io.flowBuilder.clickByText('Import records into destination application');
-    await io.flowBuilder.clickByTextByIndex('AzureSynapseImports',1);
-    await io.flowBuilder.clickByText('Next');
-    await io.importsPage.click(selectors.exportsPagePO.CREATE_SELECT_CONNECTION);
+    io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
+    await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
     await io.importsPage.selectConnectionDropDown(page, 'AzureConnectionCred_T29698');
+    await io.importsPage.fill(selectors.importPagePO.NAME_INPUT,"AzureSynapseImports")
+    await io.importsPage.fill(selectors.importPagePO.DESTINATION_TABLENAME_SEARCH_INPUT, "Automation")
+    await io.importsPage.clickByText("ramDB.dbo")
     await io.importsPage.click(selectors.basePagePO.SAVE_AND_CLOSE);
     await io.importsPage.loadingTime();
     await io.importsPage.click(selectors.basePagePO.ADD_DATA_PROCESSOR);

@@ -7,14 +7,17 @@ test.describe("C120101,C120098,C120097,C120096", () => {
     });
     test("@Zephyr-IO-T10088 @Zephyr-IO-T10085 @Zephyr-IO-T10084 @Zephyr-IO-T10083 @Env-All @Priority-P2 ", async ({ io, page }) => {
         await io.homePage.loadingTime();
-        await io.homePage.goToMenu("Tools", "Flow builder");
+        await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+        await io.flowBuilder.loadingTime();
+        await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.flowBuilder.click(
             selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP
         );
         await io.flowBuilder.click(selectors.flowBuilderPagePO.GROUP_RECORD_FIELD );
         await io.flowBuilder.clickByText('MariaDB');
         await io.flowBuilder.clickByText("Import records into destination application");
-        await io.flowBuilder.clickByText('Create from scratch');
+        // await io.flowBuilder.clickByText('Create from scratch');
+        await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
         await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.clickByText("MariaDBCred");
         await io.flowBuilder.click(selectors.basePagePO.SAVE);

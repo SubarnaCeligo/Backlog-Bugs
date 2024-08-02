@@ -5,7 +5,7 @@ test.describe('Verify if google drive import has a MIME type dropdown', () => {
     test.beforeEach(async ({ io }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test('Verify if google drive import has a MIME type dropdown', async ({ io, page }) => {
+    test('@Env-All @Zephyr-IO-T18684 Verify if google drive import has a MIME type dropdown', async ({ io, page }) => {
         await io.homePage.click(selectors.basePagePO.RESOURCES);
         await io.homePage.clickByText('Imports')
         await io.homePage.clickByText(' Create import')

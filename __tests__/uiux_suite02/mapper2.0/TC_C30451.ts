@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Mapper2.0/IOT130.json";
 
 test.describe(`TC_C30451 - Missing fields on Lookup Criteria for Subscription record`, () => {
-  test(`TC_C30451 - Missing fields on Lookup Criteria for Subscription record`, async ({
+  test(`@Env-All @Zephyr-IO-T2213 TC_C30451 - Missing fields on Lookup Criteria for Subscription record`, async ({
     io,
     page
   }) => {

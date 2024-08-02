@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import data from "@testData/ScriptDebugger/C93658.json";
 
 test.describe('C93658 Validate user is able to create "postSubmit" script through flow builder page', () => {
-  test('C93658  Validate user is able to create "postSubmit" script through flow builder page', async ({
+  test('@Env-All @Zephyr-IO-T22625 C93658  Validate user is able to create "postSubmit" script through flow builder page', async ({
     io,
     page
   }) => {

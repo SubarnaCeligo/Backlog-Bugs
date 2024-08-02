@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C69560 Key search field text is changing to Undefined once user search any flow`, () => {
-  test(`C69560 Key search field text is changing to Undefined once user search any flow`, async ({
+  test(`@Env-All @Zephyr-IO-T11239 C69560 Key search field text is changing to Undefined once user search any flow`, async ({
     io,
     page
   }) => {

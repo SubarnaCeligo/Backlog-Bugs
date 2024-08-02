@@ -12,7 +12,7 @@ test.describe("TC_C108675 Verify whether Hotspot icons when transformation rules
   test.afterEach(async ({ io, page }) => {
     await io.api.deleteFlowViaAPI(id);
   });
-  test("C108675 Verify whether Hotspot icons when transformation rules is errored out", async ({
+  test("@Env-All @Zephyr-IO-T23934 C108675 Verify whether Hotspot icons when transformation rules is errored out", async ({
     io,
     page
   }) => {

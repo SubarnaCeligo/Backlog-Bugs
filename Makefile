@@ -1,4 +1,3 @@
-ENV=qa
 FEATURE=CI
 
 build:
@@ -6,12 +5,12 @@ build:
 	npm ci
 
 test:
-	ENV=$(ENV) \
-	FEATURE=$(FEATURE) \
-	AWS_ACCESS_KEY=$(AWS_ACCESS_KEY) \
-	AWS_SECRET_KEY=$(AWS_SECRET_KEY) \
-	npm run test:ci
-
+	node ci-runner.js
+tag-validator:
+	node tag-validator.js	
+	
+update-testcase-zephyr:
+	ENV=QA FEATURE=ZEPHYR node update-testcase-zephyr.js
 
 
 .PHONY: test

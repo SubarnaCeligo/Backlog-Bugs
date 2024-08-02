@@ -7,7 +7,7 @@ test.describe('Verify the displayed default Gray text in the Mapper2.0 mapping f
     //     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     // });
   
-    test("Verify the displayed default Gray text in the Mapper2.0 mapping fields when no data is entered/selected form Drop down ", async ({ io, page }) => {
+    test("@Env-All Verify the displayed default Gray text in the Mapper2.0 mapping fields when no data is entered/selected form Drop down ", async ({ io, page }) => {
         //   await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         
           await io.createResourceFromAPI(
