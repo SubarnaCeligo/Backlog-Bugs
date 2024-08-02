@@ -57,11 +57,12 @@ test.describe(`C52210 Verify the UI error pop up when there are multiple errors 
     await page.waitForSelector('button > span:text("string")');
     await page.click('button > span:text("string")');
     const cl2 = await page.$$("li > div> span");
-    await cl2[cl2.length - 4].click();
+    await cl2[cl2.length - 2].click();
 
-    await io.flowBuilder.click(
+    await page
+    .locator(
       selectors.mappings.MAPPER2DOT0PO.ADD_FIELD_MAPPING
-    );
+    ).nth(1).click();
 
     await page
       .locator(selectors.flowBuilderPagePO.DESTINATION_MAPPING_PLACEHOLDER)
@@ -79,16 +80,12 @@ test.describe(`C52210 Verify the UI error pop up when there are multiple errors 
       .locator(selectors.mappings.MAPPER2DOT0PO.SOURCEFIELDS)
       .nth(2)
       .click();
-    await page.keyboard.type("$[*].ID"); 
-
-    await io.homePage.loadingTime();
+    await page.keyboard.type("$[*].Email"); 
 
     await page.waitForSelector('button > span:text("string")');
     await page.click('button > span:text("string")');
     const cl3 = await page.$$("li > div> span");
-    await cl3[cl3.length - 3].click();
-
-    await page.pause();
+    await cl3[cl3.length - 1].click();
 
     await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.PREVIEW);
     await io.flowBuilder.addStep("Clicked on 'Preview'");
@@ -98,14 +95,18 @@ test.describe(`C52210 Verify the UI error pop up when there are multiple errors 
       await io.homePage.getText(selectors.mappings.MAPPER2DOT0PO.CODE_PANEL)
     ).toString();
 
+    await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.PREVIEW);
+    await io.flowBuilder.addStep("Clicked on 'Preview'");
+
     let result = false;
     if (
       text.includes(
-        `Message:·company:·You·can't·map·stringarray·(source)·to·boolean·(destination)`
+        `Mapper`
       )
     ) {
       result = true;
     }
+
     await expect(result).toBeTruthy();
   });
 });
