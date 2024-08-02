@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from '@testData/Flows/C33307.json';
  
 test.describe("C33307 Verify if the checkbox is checked user should be see the relative time format and when they mousehover the timestamp column field relative format is displayed and the vice versa.", () => {
-    test("@Env-STAGING @Zephyr-IO-T1478 C33307 Verify if the checkbox is checked user should be see the relative time format and when they mousehover the timestamp column field relative format is displayed and the vice versa.", async ({io, page}) => {
+    test("@Env-All @Zephyr-IO-T1478 C33307 Verify if the checkbox is checked user should be see the relative time format and when they mousehover the timestamp column field relative format is displayed and the vice versa.", async ({io, page}) => {
     
       await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
       await io.myAccountPage.waitForElementAttached(selectors.myAccountPagePO.SHOW_RELATIVE_DATE_TIME_CHECKBOX)
