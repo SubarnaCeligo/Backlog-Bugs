@@ -1,6 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C117407 from '../../../testData/inputData/Webhook_Listeners/C117407.json';
+import C117407 from '../../testData/inputData/Webhook_Listeners/C117407.json';
 
 test.describe("C117407 Verify AFE window flow branching Router is showing Correct Input data", () => {
     test.beforeEach(async ({ io }) => {
