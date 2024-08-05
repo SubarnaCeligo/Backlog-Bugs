@@ -4,7 +4,7 @@ test.describe('C28400 Running flows tab -Verify the pagination is shown correctl
   test.beforeEach(async ({ io }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);  
   });
-    test('@Env-All @Zephyr-IO-T6339 C28400 Running flows tab -Verify the pagination is shown correctly - 50 rows in 1 page', async ({
+    test('@Env-All  @Zephyr-IO-T6339 C28400 Running flows tab -Verify the pagination is shown correctly - 50 rows in 1 page', async ({
       io,
       page
     }) => {
