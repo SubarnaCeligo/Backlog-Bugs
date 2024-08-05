@@ -14,6 +14,9 @@ test.describe('T17393 Verify scheduling set for parent integration flow is prese
             process.env["IO_Integration_URL"] + "flowBuilder/" + id
         );
         await io.flowBuilder.loadingTime();
+        // disable flow 
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
         //wait for flow to load
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.TRANSFER);
         await io.connectionPage.click(selectors.flowBuilderPagePO.SCHEDULE_FLOW);
@@ -73,8 +76,6 @@ test.describe('T17393 Verify scheduling set for parent integration flow is prese
             process.env["IO_Integration_URL"] + "flowBuilder/" + id
         );
         await io.flowBuilder.loadingTime();
-        await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
-        await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.DELETE_FLOW);
         await io.flowBuilder.waitForElementAttached(selectors.myAccountPagePO.DIALOG_BOX);
