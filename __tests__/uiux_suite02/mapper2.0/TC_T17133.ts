@@ -62,7 +62,7 @@ test.describe("C59462 Verify Whenever the input filter is updated, we clear the 
     await page.keyboard.press("Backspace");
     await page.keyboard.type("transaction");
 
-    await io.homePage.loadingTime();
+    await io.homePage.loadingTime(); 
 
     await io.flowBuilder.click(
       selectors.importPagePO.INPUT_FILTER_PREVIEW_RESULT
