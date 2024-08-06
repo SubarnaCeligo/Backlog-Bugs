@@ -21,7 +21,7 @@
     "test:ci": "rm -rf ./allure-results && npx playwright test --project=chromium --config=node_modules/@celigo/ui-core-automation/dist/playwright.config.js --grep '@ci'",
     "help": "node --no-warnings index.js",
     "zephyr": "node ./node_modules/@celigo/aut-utilities/dist/src/zephyr/zephyrdriver.js",
-    "test-docker": "npx tsc && rm -rf ./allure-results && npm run acccleanup-docker && npx playwright test --project=chromium --config=node_modules/@celigo/ui-core-automation/dist/playwright.config.js",
+    "test-docker": "npx tsc && rm -rf ./allure-results && npx playwright test --project=chromium --config=node_modules/@celigo/ui-core-automation/dist/playwright.config.js",
     "acccleanup-docker": "node ./node_modules/@celigo/aut-utilities/dist/src/accountClean.js"
   },
   "keywords": [],
@@ -40,9 +40,9 @@
     }
   },
   "devDependencies": {
-    "@celigo/aut-selectors": "^0.3.95",
-    "@celigo/aut-utilities": "^0.1.17",
-    "@celigo/ui-core-automation": "^0.2.57",
+    "@celigo/aut-selectors": "^0.4.19",
+    "@celigo/aut-utilities": "^0.1.18",
+    "@celigo/ui-core-automation": "^0.2.60",
     "@playwright/test": "1.41.2",
     "allure-playwright": "^2.2.1",
     "inquirer-search-list": "^1.2.6",

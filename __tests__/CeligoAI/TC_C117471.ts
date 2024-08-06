@@ -5,7 +5,7 @@ test.describe("C117471 Verify the Celigo AI behaviour for IA's", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test.skip("@Env-IAQA @Zephyr-IO-T18816 C117471 Verify the Celigo AI behaviour for IA's", async ({ io, page }) => {
+  test("@Env-IAQA @Zephyr-IO-T18816 C117471 Verify the Celigo AI behaviour for IA's", async ({ io, page }) => {
     await io.homePage.goToMenu("Home");
     await io.flowBuilder.clickByText('BigCommerce - NetSuite');
     await io.flowBuilder.clickByText('BigCommerce Customer to NetSuite Customer Add/Update [QA_Store_1]');

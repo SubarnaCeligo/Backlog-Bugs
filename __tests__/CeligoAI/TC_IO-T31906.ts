@@ -31,7 +31,7 @@ test.describe("IO-T31906 Verify Celigo AI is displayed in transformation2.0 tab"
     )
 
   });
-  test.skip("@Env-QA @Epic-IO-79512 @Zephyr-IO-T32427 @Author-SubarnaGhatak Verify auto transform Icon is added for transformation2.0", async ({ io, page }) => {
+  test("@Env-QA @Epic-IO-79512 @Zephyr-IO-T32427 @Author-SubarnaGhatak Verify auto transform Icon is added for transformation2.0", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.clickByText('TC47946_DND');
@@ -73,7 +73,7 @@ test.describe("IO-T31906 Verify Celigo AI is displayed in transformation2.0 tab"
 
     
   });
-  test.skip("@Env-QA @Epic-IO-79512 @Zephyr-IO-T32449 @Author-SubarnaGhatak ", async ({ io, page }) => {
+  test("@Env-QA @Epic-IO-79512 @Zephyr-IO-T32449 @Author-SubarnaGhatak ", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.clickByText('Automapper_DND');

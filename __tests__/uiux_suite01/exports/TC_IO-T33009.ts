@@ -10,6 +10,8 @@ test.describe("@Author - SubarnaGhatak IO-T33009 Verify no error pop up is displ
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.flowBuilder.loadingTime();
+        await io.homePage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR)
+        await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,"Automapper_DND_Mapper_One")
         await io.flowBuilder.clickByText('Automapper_DND_Mapper_One');
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.TRANSFER,0);

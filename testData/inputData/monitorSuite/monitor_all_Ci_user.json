@@ -1,0 +1,62 @@
+{
+    "CI": {
+        "_id": "667e668d0c224fe608fb1ac8",
+        "emails": [
+            "io.auto.qa+300monitoruser@celigo.com"
+        ],
+        "accessLevel": "monitor",
+        "integrationAccessLevel": [],
+        "accountSSORequired": false,
+        "accountMFARequired": false
+    },
+    "QA": {
+        "_id": "659e90d259335e605fca336d",
+        "emails": [
+            "io.auto.qa+300monitor@celigo.com"
+        ],
+        "accessLevel": "monitor",
+        "integrationAccessLevel": [],
+        "accountSSORequired": false,
+        "accountMFARequired": false
+    },
+    "STAGING": {
+        "_id": "6613eb590591494ebae52b7f",
+        "emails": [
+            "io.auto.qa+300monitor@celigo.com"
+        ],
+        "accessLevel": "monitor",
+        "integrationAccessLevel": [],
+        "accountSSORequired": false,
+        "accountMFARequired": false
+    },
+    "IAQA": {
+        "_id": "6619082f855d60fae8b9185e",
+        "emails": [
+            "io.auto.qa+301monitor@celigo.com"
+        ],
+        "accessLevel": "monitor",
+        "integrationAccessLevel": [],
+        "accountSSORequired": false,
+        "accountMFARequired": false
+    },
+    "PLATFORM3": {
+        "_id": "6619082f855d60fae8b9185e",
+        "emails": [
+            "io.auto.qa+301monitor@celigo.com"
+        ],
+        "accessLevel": "monitor",
+        "integrationAccessLevel": [],
+        "accountSSORequired": false,
+        "accountMFARequired": false
+    },
+    "PLATFORM5": {
+        "_id": "6619082f855d60fae8b9185e",
+        "emails": [
+            "io.auto.qa+301monitor@celigo.com"
+        ],
+        "accessLevel": "monitor",
+        "integrationAccessLevel": [],
+        "accountSSORequired": false,
+        "accountMFARequired": false
+    }
+}

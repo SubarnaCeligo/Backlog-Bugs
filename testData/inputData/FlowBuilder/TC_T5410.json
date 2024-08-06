@@ -1,0 +1,44 @@
+{
+    "name": "TC_T5410_FLOW",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "Http ZD Export",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "e9a8e5b991",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "http": {
+                    "relativeURI": "/users",
+                    "method": "GET",
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "users",
+                        "twoDArray": {
+                            "doNotNormalize": false,
+                            "hasHeader": false
+                        }
+                    }
+                },
+                "test": {
+                    "limit": 1
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "createFlow": {
+        "name": "TC_T5410_FLOW",
+        "disabled": true,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID",
+                "skipRetries": false
+            }
+        ]
+    }
+}

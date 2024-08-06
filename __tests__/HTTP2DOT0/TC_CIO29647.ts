@@ -2,13 +2,15 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("TC_CIO29647", () => {
-test("@Env-All IO29647", async ({ io, page }) => {
+test("@Env-All @Zephyr-IO-T27377 @Zephyr-IO-T27378 @Zephyr-IO-T27379 @Zephyr-IO-T27380 @Zephyr-IO-T27381 @Zephyr-IO-T27382 @Zephyr-IO-T27383 @Zephyr-IO-T27384 @Zephyr-IO-T27385 ", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.flowBuilder.loadingTime();
     await io.homePage.waitForElementAttached(selectors.basePagePO.MARKETPLACE);
     await io.flowBuilder.click(selectors.basePagePO.MARKETPLACE);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.fill(selectors.templatePagePO.MARKETPLACE,'HTTP2.0');
+    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowGroupingPagePO.INSTALLTEMPLATE);
     await io.flowBuilder.clickByText("Install now");
     
@@ -39,8 +41,9 @@ test("@Env-All IO29647", async ({ io, page }) => {
    const element1 = await page.locator(selectors.templatePagePO.ORDERFULTOKEN);
    await element1.scrollIntoViewIfNeeded();
    await element1.click();
-   await io.flowBuilder.fill(selectors.templatePagePO.ORDERFULTOKEN,process.env["IO_Token_Orderful"]);
+   await io.flowBuilder.fill(selectors.templatePagePO.ORDERFULTOKEN,"testtoken");
    await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+   await io.flowBuilder.click(selectors.basePagePO.MFA_SAVE);
    await io.flowBuilder.click(selectors.integrationPagePO.SETUP_INTEGRATION_INSTALL_BUTTON);
    await io.flowBuilder.click(selectors.basePagePO.CONNECTIONS);
    await io.flowBuilder.clickByTextByIndex('toggle(orderful)', 0);

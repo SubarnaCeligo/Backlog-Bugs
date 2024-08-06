@@ -1,0 +1,236 @@
+{
+    "name": "C46907",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "pageGenerators": [
+      {
+        "qa__export": {
+            "name": "FTP export11111",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "e98ae3cba0",
+            "asynchronous": true,
+            "sampleData": {
+                "recordType": "transaction",
+                "type": "invoice",
+                "customForm": "EDI 810 Invoice",
+                "transactionDate": "2007-08-20",
+                "tranId": "INV12345",
+                "entity": {
+                    "entityId": "84EXAMPLE",
+                    "entityType": "Vendor"
+                },
+                "lineItems": [
+                    {
+                        "item": "20610-01",
+                        "quantity": 7.56,
+                        "rate": 387,
+                        "amount": 2925.72,
+                        "description": "2 X 6 - 10', SPRUCE/PINE/FIR, #2 & BTR, KD-HT, S"
+                    },
+                    {
+                        "item": "20612-01",
+                        "quantity": 2.268,
+                        "rate": 387,
+                        "amount": 876.996,
+                        "description": "2 X 6 - 12', SPRUCE/PINE/FIR, #2 & BTR, KD-HT, S"
+                    },
+                    {
+                        "item": "20614-01",
+                        "quantity": 2.646,
+                        "rate": 387,
+                        "amount": 1025.602,
+                        "description": "2 X 6 - 14', SPRUCE/PINE/FIR, #2 & BTR, KD-HT, S"
+                    },
+                    {
+                        "item": "20616-01",
+                        "quantity": 15.12,
+                        "rate": 387,
+                        "amount": 5855.44,
+                        "description": "2 X 6 - 16', SPRUCE/PINE/FIR, #2 & BTR, KD-HT, S"
+                    }
+                ],
+                "totalAmount": 10678.88,
+                "custbody_terms_discount_due_date": "2007-08-30",
+                "termsDiscAmt": 10679,
+                "transactionDescription": "1% 10/N11 ADI",
+                "custbody_sac_description": "PALLET CREDIT"
+            },
+            "ftp": {
+                "directoryPath": "/io.auto.qa/shakeer_test/EDI"
+            },
+            "file": {
+                "output": "records",
+                "skipDelete": true,
+                "type": "json",
+                "filter": {
+                    "type": "expression",
+                    "expression": {
+                        "version": "1",
+                        "rules": [
+                            "startswith",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "filename"
+                                ]
+                            ],
+                            "810.json"
+                        ]
+                    },
+                    "rules": [
+                        "startswith",
+                        [
+                            "string",
+                            [
+                                "extract",
+                                "filename"
+                            ]
+                        ],
+                        "810.json"
+                    ],
+                    "version": "1"
+                }
+            },
+            "transform": {
+                "type": "expression",
+                "expression": {
+                    "version": "2",
+                    "rules": [
+                        [
+                            {
+                                "extract": "requests[*].id",
+                                "generate": "id"
+                            }
+                        ]
+                    ],
+                    "rulesTwoDotZero": {
+                        "mode": "modify",
+                        "mappings": [
+                            {
+                                "generate": "celigo",
+                                "dataType": "string",
+                                "extract": "$.recordType",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            }
+                        ],
+                        "lookups": [
+                            {
+                                "name": "test-lookup",
+                                "map": {
+                                    "key": "value"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "rules": [
+                    [
+                        {
+                            "extract": "requests[*].id",
+                            "generate": "id"
+                        }
+                    ]
+                ],
+                "version": "2"
+            },
+            "adaptorType": "FTPExport"
+        }
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+            "name": "ftp_1.1",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "i3aa19c9ab",
+            "oneToMany": false,
+            "file": {
+                "fileName": "file-{{timestamp}}.json",
+                "skipAggregation": false,
+                "type": "json"
+            },
+            "ftp": {
+                "directoryPath": "/io.auto.qa/shakeer_test",
+                "fileName": "file-{{timestamp}}.json"
+            },
+            "filter": {
+                "type": "expression",
+                "expression": {
+                    "version": "1",
+                    "rules": [
+                        "equals",
+                        [
+                            "string",
+                            [
+                                "extract",
+                                "celigo"
+                            ]
+                        ],
+                        "transaction"
+                    ]
+                },
+                "rules": [
+                    "equals",
+                    [
+                        "string",
+                        [
+                            "extract",
+                            "celigo"
+                        ]
+                    ],
+                    "transaction"
+                ],
+                "version": "1"
+            },
+            "adaptorType": "FTPImport"
+        }
+      }
+    ],
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "2",
+      "errorCount": "0"
+    },
+    "qa__dataVerification": {
+      "importRecordJSON": {
+        "Name": "239.HTTP_json_PUT",
+        "Email": "httpjsonput239@gmail.com"
+      },
+      "importapiIdentifier": "i1672c3a46",
+      "expected": {
+        "Zendesk": {
+          "name": "C45340",
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "import": {
+            "_connectionId": "HTTP ZENDESK CONNECTION"
+          },
+          "qa__expectedDashboardCount": {
+            "successCount": "2",
+            "ignoreCount": "0",
+            "errorCount": "0"
+          },
+          "qa__dataVerification": {
+            "expectedJSON": {
+              "name": "239.HTTP_json_PUT",
+              "notes": "httpjsonput239@gmail.com",
+              "organization_fields": {
+                "phone": "customer"
+              }
+            },
+            "standaloneexportflowID": "5a6883f49fade76e4272e474",
+            "uniqueField": "notes",
+            "importRecordType": "organizations",
+            "isUIFlow": true,
+            "exportapiIdentifier": "e972758010",
+            "exportRecordType": "customer"
+          }
+        }
+      }
+    }
+  }
+  
