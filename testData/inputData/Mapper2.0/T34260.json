@@ -46,7 +46,7 @@
         "type": "import",
         "qa__import": {
             "name": "SF",
-            "_connectionId": "SNOWFLAKE",
+            "_connectionId": "SNOWFLAKE CONNECTION",
             "oneToMany": false,
             "mappings": [
                 {
