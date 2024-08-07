@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("T1686 To verify user is able to install SAP Ariba template @author_Kaushik UI_Backlog", () => {
-  test("@Env-All @Zephyr-IO-T1686 To verify user is able to install SAP Ariba template @author_Kaushik UI_Backlog", async ({ io, page }) => {
+  test("@Env-All T1686 To verify user is able to install SAP Ariba template @author_Kaushik UI_Backlog", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
 
     await io.homePage.addStep("Select template from marketplace")
