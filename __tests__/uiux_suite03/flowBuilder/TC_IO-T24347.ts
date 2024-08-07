@@ -16,10 +16,7 @@ test.describe('Verify user is able to download the files from UI, Verify downloa
     });
 
     test('@Env-All @Zephyr-IO-T24347 Verify user is able to download the files from UI, Verify downloaded file has correct data', async ({ io, page }) => {
-
-        await io.flowBuilder.loadingTime();
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
-        await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.flowBuilder.loadingTime();
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.ADD_SOURCE);
@@ -27,7 +24,6 @@ test.describe('Verify user is able to download the files from UI, Verify downloa
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, "HTTP");
         await io.flowBuilder.click(selectors.importPagePO.HTTP_IMPORT);
         await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
-        await io.homePage.loadingTime();
         await io.flowBuilder.fill(
             selectors.basePagePO.INPUT_NAME_SELECTOR,
             "http_export"
@@ -35,17 +31,14 @@ test.describe('Verify user is able to download the files from UI, Verify downloa
         await io.flowBuilder.click(selectors.basePagePO.CONNECTION_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'HTTP ZENDESK CONNECTION');
         await io.flowBuilder.clickByText("HTTP ZENDESK CONNECTION");
-        await io.flowBuilder.loadingTime()
         await io.flowBuilder.click(selectors.exportsPagePO.HTTP_METHOD)
         await io.flowBuilder.click(selectors.exportsPagePO.HTTP_METHOD_GET)
         await io.flowBuilder.fill(selectors.exportsPagePO.LOOKUP.HTTP_RELATIVE_URI, "/groups.json");
         await io.flowBuilder.click(selectors.exportsPagePO.MUI_COMPONENT_SELECT_TYPE)
         await io.flowBuilder.click(selectors.exportsPagePO.EXPORT_TYPE_ALL)
-        await io.flowBuilder.loadingTime()
         await io.flowBuilder.click(selectors.exportsPagePO.NON_STANDARD_API_TAB)
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.PATH_TO_FILE_URL_PATHS + " input", "$path$PATH");
         await io.flowBuilder.click(selectors.importPagePO.CLICKPREVIEW)
-        await io.flowBuilder.loadingTime()
         await io.homePage.click(selectors.flowBuilderPagePO.COPYBUTTON);
 
 
