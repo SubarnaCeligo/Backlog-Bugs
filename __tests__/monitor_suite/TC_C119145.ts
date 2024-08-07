@@ -1,11 +1,14 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
+import testData from "@testData/monitorSuite/monitor_all_manage_few_Ci_user.json";
 
 test.describe("C119145 Verify the Reset template,query and script button in AFE windows for Monitor User", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.flowBuilder.loadingTime();
   });
-  test("@Env-All C119145  Verify the Reset template,query and script button in AFE windows for Monitor User", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T C119145  Verify the Reset template,query and script button in AFE windows for Monitor User", async ({ io, page }) => {
+    const res = await io.api.processAshareData(testData);
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
@@ -14,7 +17,7 @@ test.describe("C119145 Verify the Reset template,query and script button in AFE 
     await io.flowBuilder.clickByText('C32362_DND');
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
-    //EXPORT_FILTER 
+    //EXPORT_FILTER
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR, 0);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_FILTER);
     await io.flowBuilder.loadingTime();

@@ -1,0 +1,146 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "pageProcessors": [{
+        "responseMapping": {
+            "fields": [],
+            "lists": []
+        },
+        "type": "import",
+        "qa__import": {
+            "name": "103 SF import",
+            "adaptorType": "SalesforceImport",
+            "salesforce": {
+                "removeNonSubmittableFields": false,
+                "sObjectType": "Account",
+                "api": "soap",
+                "operation": "insert"
+            },
+            "mapping": {
+                "fields": [{
+                    "extract": "Name",
+                    "generate": "Name"
+                }, {
+                    "extract": "Email",
+                    "generate": "Email__c"
+                }, {
+                    "extract": "{{add [Add One] [Add two]}}",
+                    "generate": "Add_Fun__c"
+                }, {
+                    "extract": "{{#and [And Field1] [And Field2]}} True {{else}} False {{/and}}",
+                    "generate": "And_Block__c"
+                }, {
+                    "extract": "{{avg Avg1 Avg2 Avg3}}",
+                    "generate": "Avg_Fun__c"
+                }, {
+                    "extract": "{{{base64Encode [Base64Encode Username] \":\" [Base64Encode Pass]}}}",
+                    "generate": "Base64Encode_Fun__c"
+                }, {
+                    "extract": "{{base64Encode [Base64Encodehtml Username] \":\" [Base64Encodehtml Pass]}}",
+                    "generate": "Base64HTMLEncode_Fun__c"
+                }]
+            },
+            "_connectionId": "SALESFORCE CONNECTION",
+            "distributed": false
+        }
+    }],
+    "timezone": "Asia/Calcutta",
+    "name": "103.FTP_to_SF_MultiFieldExpressions_Insert",
+    "disabled": false,
+    "qa__dataVerification": {
+        "expected": {
+            "salesforce": {
+                "_integrationId": "62d6b4a955468141a906119e",
+                "name": "103.FTP_to_SF_MultiFieldExpressions_Insert",
+                "import": {
+                    "_connectionId": "SALESFORCE CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "standaloneexportflowID": "58d88ec87dd865066e99f10b",
+                    "uniqueField": "Name",
+                    "importRecordType": "Account",
+                    "isUIFlow": true,
+                    "query": "Select Id,Name,Email__C,Add_Fun__c,And_Block__c,Avg_Fun__c,Base64Encode_Fun__c,Base64HTMLEncode_Fun__c,Capitalize_Fun__c,CapitalizeAll_Fun__c,Ceil_Fun__c,Compare_Block__c,Contains_Block__c,DateAdd_Fun__c,DateFormat_Fun__c,DecodeURI_Fun__c,Divide_Fun__c,Each_Block__c,EncodeURI_Fun__c,Floor__c,IfElse_Block__c,IfEven_Block__c,Join_Fun__c,Lowercase_Fun__c,Multiply_Fun__c,Neither_Block__c,Or_Block__c,Replace_Fun__c,Round_Fun__c,Sort_Fun__c,Substring_Fun__c,Subtract_Fun__c,Sum_Fun__c,Timestamp_Fun__c,ToExponential_Fun__c,ToFixed_Fun__c,ToPrecision__c,Unless_Block__c,Uppercase_Fun__c,With_Block__c,regexmatch__c,regexreplace__c,getvalue__c,getvaluejson__c from Account where Name like '103.SF%'",
+                    "exportapiIdentifier": "e7c4a54131",
+                    "expectedJSON": {
+                        "Substring_Fun__c": "et th",
+                        "Timestamp_Fun__c": "2017-03-29T12:48:59+05:30",
+                        "Lowercase_Fun__c": "celigo foobar",
+                        "Base64HTMLEncode_Fun__c": "MTAzc2ZtdWx0aUBnbWFpbC5jb206MTAzc2ZtdWx0aTEyMw&#x3D;&#x3D;",
+                        "ToFixed_Fun__c": 123.123,
+                        "And_Block__c": "True",
+                        "Name": "103.SF Multifield - Account",
+                        "ToExponential_Fun__c": 23240,
+                        "Uppercase_Fun__c": "SALESFORCE IMPORT",
+                        "With_Block__c": "Charles Angels",
+                        "Join_Fun__c": "This***is***join",
+                        "Contains_Block__c": "This will",
+                        "Replace_Fun__c": "immmtemmmtiommm",
+                        "Or_Block__c": "At least one is true",
+                        "EncodeURI_Fun__c": "htts%3A%2F%2Fintegrator.com",
+                        "DateFormat_Fun__c": "2017-03-29T07:18:59.115Z",
+                        "Add_Fun__c": 31.4,
+                        "Each_Block__c": "RahulLokeshViratKedarRavi",
+                        "Avg_Fun__c": 30,
+                        "Sort_Fun__c": "High,Low,Medium",
+                        "Capitalize_Fun__c": "Celigo foo bar",
+                        "Unless_Block__c": "9984474745",
+                        "Compare_Block__c": "True",
+                        "Sum_Fun__c": 62,
+                        "ToPrecision__c": 12.12,
+                        "Divide_Fun__c": 6.5,
+                        "DecodeURI_Fun__c": "conn/call.back&state=12345",
+                        "CapitalizeAll_Fun__c": "Celigo Foo Bar",
+                        "IfEven_Block__c": "Odd Number",
+                        "Round_Fun__c": 17,
+                        "Base64Encode_Fun__c": "MTAzc2ZtdWx0aUBnbWFpbC5jb206MTAzc2ZtdWx0aTEyMw==",
+                        "Ceil_Fun__c": 9,
+                        "Neither_Block__c": "At least one value is true",
+                        "IfElse_Block__c": "Email is present",
+                        "Subtract_Fun__c": 302.2,
+                        "DateAdd_Fun__c": "2017-02-08T17:10:33+05:30",
+                        "Floor__c": 185,
+                        "Multiply_Fun__c": 504,
+                        "Email__c": "103sfmulti@gmail.com",
+                        "regexmatch__c": "345",
+                        "regexreplace__c": "123 celigo6 678 google 32",
+                        "getvalue__c": "0.5",
+                        "getvaluejson__c": "Charles"
+                    }
+                }
+            }
+        }
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "103_FTPexport",
+            "adaptorType": "FTPExport",
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports_FileAdaptors",
+                "fileNameStartsWith": "103SF"
+            },
+            "file": {
+                "output": "records",
+                "skipDelete": true,
+                "encoding": "utf8",
+                "type": "json",
+                "json": {
+                    "resourcePath": "*"
+                }
+            },
+            "asynchronous": true,
+            "_connectionId": "FTP CONNECTION",
+            "qa__path": "/FTP_uploads/103SF_Multifield_Expressions.json"
+        }
+    }]
+}
