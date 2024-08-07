@@ -29,9 +29,9 @@ test.describe("T34260 Verify for DB adaptors ,mapper 2.0 is unable to detect row
     const TextValue = text[1];
 
     await io.assert.expectToBeValue(
-      "Create destination rows [ ] from source record { }",
+      "Create destination rows [ ] from source rows [ ]",
       TextValue,
-      "incorrect value Create destination rows[] from source rows {}"
+      "incorrect value Create destination rows[] from source rows []"
     );
   });
 });
