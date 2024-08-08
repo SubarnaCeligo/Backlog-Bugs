@@ -18,7 +18,7 @@
                 "type": "json"
             },
             "ftp": {
-                "fileName": "C37478{{invalidHandlebar invalidHandlebar}}.json",
+                "fileName": "C37478.json",
                 "directoryPath": "/io.auto.qa/IO Automation SFTP Imports"
             },
             "_connectionId": "FTP CONNECTION",

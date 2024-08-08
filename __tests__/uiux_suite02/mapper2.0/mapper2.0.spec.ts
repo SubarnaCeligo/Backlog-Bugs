@@ -42,6 +42,7 @@ var testCases = [
   "T9416",
   "T22516",
   "T17133",
+  "T34260",
 ];
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
 (async () => {
