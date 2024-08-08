@@ -6,7 +6,7 @@ import {
   isRelativeTimeFormat
 } from "@celigo/aut-utilities";
 test.describe("C33306 Verify in Timestamp and Resolved at columns in Resolved errors section are displayed in relative format and the vice versa.", () => {
-    test("@Env-STAGING @Zephyr-IO-T1477 C33306 Verify in Timestamp and Resolved at columns in Resolved errors section are displayed in relative format and the vice versa.", async ({io, page}) => {
+    test("@Env-All @Zephyr-IO-T1477 C33306 Verify in Timestamp and Resolved at columns in Resolved errors section are displayed in relative format and the vice versa.", async ({io, page}) => {
     
       await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
       await io.myAccountPage.waitForElementAttached(selectors.myAccountPagePO.SHOW_RELATIVE_DATE_TIME_CHECKBOX)
