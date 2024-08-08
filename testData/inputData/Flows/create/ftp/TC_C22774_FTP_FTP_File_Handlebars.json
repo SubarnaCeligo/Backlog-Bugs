@@ -18,14 +18,14 @@
             "sandbox": false,
             "parsers": [],
             "file": {
-                "fileName": "{{batch_of_records.0.record.first_name}}-{{timestamp \"YYYY-MM-DD hh:mm:ss\" \"Asia/Calcutta\"}}",
+                "fileName": "TC_C22774",
                 "skipAggregation": true,
                 "type": "json",
                 "compressionFormat": "zip"
             },
             "ftp": {
                 "directoryPath": "{{settings.integration.filepath}}",
-                "fileName": "{{batch_of_records.0.record.first_name}}-{{timestamp \"YYYY-MM-DD hh:mm:ss\" \"Asia/Calcutta\"}}",
+                "fileName": "TC_C22774",
                 "inProgressFileName": "Temporary file"
             },
             "_connectionId": "FTP CONNECTION",
