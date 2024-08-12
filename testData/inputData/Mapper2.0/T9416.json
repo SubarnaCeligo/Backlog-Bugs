@@ -1,0 +1,1096 @@
+{
+    "name": "C46907",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "pageGenerators": [
+      {
+        "qa__export": {
+            "name": "HTTP",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "http": {
+                "relativeURI": "array",
+                "method": "GET",
+                "isRest": false,
+                "formType": "http",
+                "response": {
+                    "twoDArray": {
+                        "doNotNormalize": false,
+                        "hasHeader": false
+                    }
+                }
+            },
+            "adaptorType": "HTTPExport"
+        }
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+            "name": "Acumatica",
+            "_connectionId": "HTTP ACUMATICA CONNECTION",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "assistant": "acumatica",
+            "assistantMetadata": {
+                "resource": "account",
+                "version": "v17.200.001",
+                "operation": "create_update_account"
+            },
+            "mappings": [
+                {
+                    "generate": "id",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "rowNumber",
+                    "dataType": "number",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "note",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test1",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test2",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test3",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test4",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test5",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test6",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test7",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test8",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test9",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test10",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test11",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test12",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test13",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test14",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test15",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test17",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test18",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test19",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test20",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test21",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test22",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test23",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test24",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test25",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test26",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test27",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test28",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test29",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test30",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "test16",
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                },
+                {
+                    "generate": "AccountCD",
+                    "dataType": "object",
+                    "status": "Draft",
+                    "mappings": [
+                        {
+                            "generate": "value",
+                            "dataType": "string",
+                            "status": "Draft",
+                            "sourceDataType": "string"
+                        }
+                    ]
+                },
+                {
+                    "generate": "AccountClass",
+                    "dataType": "object",
+                    "status": "Draft",
+                    "mappings": [
+                        {
+                            "generate": "value",
+                            "dataType": "string",
+                            "status": "Draft",
+                            "sourceDataType": "string"
+                        }
+                    ]
+                },
+                {
+                    "generate": "AccountGroup",
+                    "dataType": "object",
+                    "status": "Draft",
+                    "mappings": [
+                        {
+                            "generate": "value",
+                            "dataType": "string",
+                            "status": "Draft",
+                            "sourceDataType": "string"
+                        }
+                    ]
+                },
+                {
+                    "generate": "AccountID",
+                    "dataType": "object",
+                    "status": "Draft",
+                    "mappings": [
+                        {
+                            "generate": "value",
+                            "dataType": "number",
+                            "status": "Draft",
+                            "sourceDataType": "string"
+                        }
+                    ]
+                },
+                {
+                    "generate": "Active",
+                    "dataType": "object",
+                    "status": "Draft",
+                    "mappings": [
+                        {
+                            "generate": "value",
+                            "dataType": "boolean",
+                            "status": "Draft",
+                            "sourceDataType": "string"
+                        }
+                    ]
+                },
+                {
+                    "generate": "CashAccount",
+                    "dataType": "object",
+                    "status": "Draft",
+                    "mappings": [
+                        {
+                            "generate": "value",
+                            "dataType": "boolean",
+                            "status": "Draft",
+                            "sourceDataType": "string"
+                        }
+                    ]
+                },
+                {
+                    "generate": "ChartOfAccountsOrder",
+                    "dataType": "object",
+                    "status": "Draft",
+                    "mappings": [
+                        {
+                            "generate": "value",
+                            "dataType": "number",
+                            "status": "Draft",
+                            "sourceDataType": "string"
+                        }
+                    ]
+                },
+                {
+                    "generate": "ConsolidationAccount",
+                    "dataType": "object",
+                    "status": "Draft",
+                    "mappings": [
+                        {
+                            "generate": "value",
+                            "dataType": "string",
+                            "status": "Draft",
+                            "sourceDataType": "string"
+                        }
+                    ]
+                },
+                {
+                    "generate": "CreatedDateTime",
+                    "dataType": "object",
+                    "status": "Draft",
+                    "mappings": [
+                        {
+                            "generate": "value",
+                            "dataType": "string",
+                            "status": "Draft",
+                            "sourceDataType": "string"
+                        }
+                    ]
+                },
+                {
+                    "generate": "CurrencyID",
+                    "dataType": "object",
+                    "status": "Draft",
+                    "mappings": [
+                        {
+                            "generate": "value",
+                            "dataType": "string",
+                            "status": "Draft",
+                            "sourceDataType": "string"
+                        }
+                    ]
+                },
+                {
+                    "generate": "Description",
+                    "dataType": "object",
+                    "status": "Draft",
+                    "mappings": [
+                        {
+                            "generate": "value",
+                            "dataType": "string",
+                            "status": "Draft",
+                            "sourceDataType": "string"
+                        }
+                    ]
+                },
+                {
+                    "generate": "LastModifiedDateTime",
+                    "dataType": "object",
+                    "status": "Draft",
+                    "mappings": [
+                        {
+                            "generate": "value",
+                            "dataType": "string",
+                            "status": "Draft",
+                            "sourceDataType": "string"
+                        }
+                    ]
+                },
+                {
+                    "generate": "PostOption",
+                    "dataType": "object",
+                    "status": "Draft",
+                    "mappings": [
+                        {
+                            "generate": "value",
+                            "dataType": "string",
+                            "status": "Draft",
+                            "sourceDataType": "string"
+                        }
+                    ]
+                },
+                {
+                    "generate": "RequireUnits",
+                    "dataType": "object",
+                    "status": "Draft",
+                    "mappings": [
+                        {
+                            "generate": "value",
+                            "dataType": "boolean",
+                            "status": "Draft",
+                            "sourceDataType": "string"
+                        }
+                    ]
+                },
+                {
+                    "generate": "RevaluationRateType",
+                    "dataType": "object",
+                    "status": "Draft",
+                    "mappings": [
+                        {
+                            "generate": "value",
+                            "dataType": "string",
+                            "status": "Draft",
+                            "sourceDataType": "string"
+                        }
+                    ]
+                },
+                {
+                    "generate": "Secured",
+                    "dataType": "object",
+                    "status": "Draft",
+                    "mappings": [
+                        {
+                            "generate": "value",
+                            "dataType": "boolean",
+                            "status": "Draft",
+                            "sourceDataType": "string"
+                        }
+                    ]
+                },
+                {
+                    "generate": "TaxCategory",
+                    "dataType": "object",
+                    "status": "Draft",
+                    "mappings": [
+                        {
+                            "generate": "value",
+                            "dataType": "string",
+                            "status": "Draft",
+                            "sourceDataType": "string"
+                        }
+                    ]
+                },
+                {
+                    "generate": "Type",
+                    "dataType": "object",
+                    "status": "Draft",
+                    "mappings": [
+                        {
+                            "generate": "value",
+                            "dataType": "string",
+                            "status": "Draft",
+                            "sourceDataType": "string"
+                        }
+                    ]
+                },
+                {
+                    "generate": "UseDefaultSubaccount",
+                    "dataType": "object",
+                    "status": "Draft",
+                    "mappings": [
+                        {
+                            "generate": "value",
+                            "dataType": "boolean",
+                            "status": "Draft",
+                            "sourceDataType": "string"
+                        }
+                    ]
+                },
+                {
+                    "generate": "custom",
+                    "dataType": "object",
+                    "status": "Draft",
+                    "mappings": [
+                        {
+                            "dataType": "string",
+                            "status": "Draft",
+                            "sourceDataType": "string"
+                        }
+                    ]
+                },
+                {
+                    "generate": "files",
+                    "dataType": "objectarray",
+                    "status": "Draft",
+                    "buildArrayHelper": [
+                        {
+                            "sourceDataType": "string",
+                            "mappings": [
+                                {
+                                    "dataType": "string",
+                                    "status": "Draft",
+                                    "sourceDataType": "string"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "http": {
+                "relativeURI": [
+                    "/Account"
+                ],
+                "method": [
+                    "PUT"
+                ],
+                "body": [
+                    null
+                ],
+                "batchSize": 1,
+                "requestMediaType": "json",
+                "successMediaType": "json",
+                "errorMediaType": "json",
+                "strictHandlebarEvaluation": true,
+                "sendPostMappedData": true,
+                "isRest": true,
+                "formType": "assistant",
+                "response": {
+                    "resourceIdPath": [
+                        null
+                    ]
+                }
+            },
+            "rest": {
+                "relativeURI": [
+                    "/Account"
+                ],
+                "method": [
+                    "PUT"
+                ],
+                "body": [
+                    null
+                ],
+                "responseIdPath": [
+                    null
+                ]
+            },
+            "adaptorType": "RESTImport"
+        }
+      }
+    ],
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "2",
+      "errorCount": "0"
+    },
+    "qa__dataVerification": {
+      "importRecordJSON": {
+        "Name": "239.HTTP_json_PUT",
+        "Email": "httpjsonput239@gmail.com"
+      },
+      "importapiIdentifier": "i1672c3a46",
+      "expected": {
+        "Zendesk": {
+          "name": "C45340",
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "import": {
+            "_connectionId": "HTTP ZENDESK CONNECTION"
+          },
+          "qa__expectedDashboardCount": {
+            "successCount": "2",
+            "ignoreCount": "0",
+            "errorCount": "0"
+          },
+          "qa__dataVerification": {
+            "expectedJSON": {
+              "name": "239.HTTP_json_PUT",
+              "notes": "httpjsonput239@gmail.com",
+              "organization_fields": {
+                "phone": "customer"
+              }
+            },
+            "standaloneexportflowID": "5a6883f49fade76e4272e474",
+            "uniqueField": "notes",
+            "importRecordType": "organizations",
+            "isUIFlow": true,
+            "exportapiIdentifier": "e972758010",
+            "exportRecordType": "customer"
+          }
+        }
+      }
+    }
+  }
+  

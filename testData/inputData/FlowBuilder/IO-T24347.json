@@ -1,0 +1,23 @@
+{
+    "pageProcessors": [{
+        "responseMapping": {
+            "fields": [],
+            "lists": []
+        },
+        "type": "import",
+        "qa__import": {
+            "name": "FTP import",
+            "adaptorType": "FTPImport",
+            "file": {
+                "type": "json"
+            },
+            "ftp": {
+                "fileName": "AscendingSortedFile.json",
+                "directoryPath": "/io.auto.qa/IO Automation SFTP Imports"
+            },
+            "_connectionId": "FTP CONNECTION",
+            "distributed": false
+        }
+    }],
+    "pageGenerators": []
+}
