@@ -21,6 +21,5 @@ test.describe(`C2757 Verify the production shared tiles are not shown in the san
     await io.assert.expectToBeFalse(bool, "Flows are present in Sandbox")
     await io.homePage.loadingTime();
     await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
-    await io.homePage.loadingTime();
   });
 });

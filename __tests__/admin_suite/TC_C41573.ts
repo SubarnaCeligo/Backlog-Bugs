@@ -23,9 +23,7 @@ test.describe(`TC_C41573 To verify Pull from Integration dropdown field doesn't 
       await io.flowBuilder.loadingTime();
       await io.flowBuilder.clickByTextByIndex(environment[i], 0);
       await page.getByText("Loading...").waitFor({ state: "hidden", timeout:360000 });
-      await io.flowBuilder.loadingTime();
       await io.homePage.clickCreateIntegrationButton();
-      await io.flowBuilder.loadingTime();
       await io.flowBuilder.loadingTime();
       await io.flowBuilder.fill(
         selectors.basePagePO.INPUT_NAME_SELECTOR,
