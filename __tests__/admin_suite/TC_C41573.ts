@@ -103,7 +103,6 @@ test.describe(`TC_C41573 To verify Pull from Integration dropdown field doesn't 
       await io.flowBuilder.loadingTime();
       await io.flowBuilder.click(selectors.basePagePO.DELETE);
     }
-    console.log("Comming here")
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
   });
