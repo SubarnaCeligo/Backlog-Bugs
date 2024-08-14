@@ -16,7 +16,6 @@ test.describe(`TC_C41573 To verify Pull from Integration dropdown field doesn't 
     io
   }, test) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.homePage.loadingTime();
     let env = "Production,Sandbox";
     let environment = env.split(",");
     for (let i = 0; i < environment.length; i++) {

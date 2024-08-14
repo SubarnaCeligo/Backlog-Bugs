@@ -32,7 +32,6 @@ test.describe(`C24945 Tile Manage - Verify able to filter report results by flow
         .first()
         .textContent();
       await io.homePage.addStep("Selected a flow");
-      await io.flowBuilder.loadingTime();
       await io.homePage.clickByText("Apply");
       const rows = await page.$$(selectors.flowBuilderPagePO.COLUMNS);
       for (const row of rows) {

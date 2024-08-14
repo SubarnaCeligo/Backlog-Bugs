@@ -4,7 +4,6 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe("T898 Verify if user deletes existing flows/connections/imports/exports/API token/Agents then verify whether user is able to see empty statestext,buttons and hyperlinks", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
-        await io.flowBuilder.loadingTime();
     });
     test("@Env-All @Zephyr-IO-T898 @Priority-P2 T898 Verify if user deletes existing flows/connections/imports/exports/API token/Agents then verify whether user is able to see empty statestext,buttons and hyperlinks", async ({ io, page }) => {
         await io.homePage.addStep('*** Navigating to Connections Page ***');
