@@ -10,17 +10,22 @@ test.describe(`C65721 Verify Home key should place cursor at the beginning of th
     await io.createResourceFromAPI(testData, "FLOWS");
     await page.getByLabel("Define options").nth(1).click();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(
       selectors.mappings.MAPPER2DOT0PO.MAPPER1DOT0BUTTON
     );
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(
       selectors.mappings.MAPPER1DOT0PO.SOURCE_RECORD_FIELD_FIRST
     );
+    await io.flowBuilder.loadingTime();
     const inp = page
       .locator(selectors.mappings.MAPPER1DOT0PO.SOURCE_RECORD_FIELD_INPUT)
       .first();
     await inp.fill("test");
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.addStep("Filled the input field with 'test'");
+    await io.flowBuilder.loadingTime();
     await page.keyboard.press("Home");
     await io.flowBuilder.addStep("Pressed 'Home' key");
     let cursorPosition = await inp.evaluate(
@@ -32,7 +37,9 @@ test.describe(`C65721 Verify Home key should place cursor at the beginning of th
       'Cursor position is not "0"'
     );
     await page.keyboard.press("End");
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.addStep("Pressed 'End' key");
+    await io.flowBuilder.loadingTime();
     cursorPosition = await inp.evaluate(
       (el: HTMLInputElement) => el.selectionStart
     );

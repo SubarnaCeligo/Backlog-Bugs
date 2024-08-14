@@ -87,6 +87,7 @@ test.describe("IO-58006 scenarios", () => {
     await io.homePage.loadingTime();
     // created connection validation in import
     await io.flowBuilder.click(selectors.basePagePO.RESOURCES);
+    await io.flowBuilder.click(selectors.basePagePO.RESOURCES);
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.basePagePO.IMPORTS);
     await io.homePage.loadingTime();
