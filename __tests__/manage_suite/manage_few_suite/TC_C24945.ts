@@ -14,6 +14,7 @@ test.describe(`C24945 Tile Manage - Verify able to filter report results by flow
     await io.homePage.navigateTo(
       process.env["IO_UI_CONNECTOR_URL"] + "reports/eventreports"
     );
+    await page.getByText("Loading...").waitFor({ state: "hidden", timeout:360000 });
     await page
       .getByRole("columnheader", { name: "Flow" })
       .getByRole("button")
@@ -31,6 +32,7 @@ test.describe(`C24945 Tile Manage - Verify able to filter report results by flow
         .first()
         .textContent();
       await io.homePage.addStep("Selected a flow");
+      await io.flowBuilder.loadingTime();
       await io.homePage.clickByText("Apply");
       const rows = await page.$$(selectors.flowBuilderPagePO.COLUMNS);
       for (const row of rows) {

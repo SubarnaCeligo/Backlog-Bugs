@@ -14,12 +14,13 @@ test.describe(`C2757 Verify the production shared tiles are not shown in the san
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL)
     await io.homePage.loadingTime();
     await io.homePage.click(selectors.homePagePO.SANDBOX_BUTTON)
+    await page.getByText("Loading...").waitFor({ state: "hidden", timeout:360000 });
     await io.flowBuilder.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'TC_C68492_Flow_DND');
+    await io.homePage.loadingTime();
     const bool = await io.homePage.isVisible("text='TC_C68492_Flow_DND'")
     await io.assert.expectToBeFalse(bool, "Flows are present in Sandbox")
     await io.homePage.loadingTime();
     await io.homePage.click(selectors.homePagePO.PRODUCTION_BUTTON);
-
-
+    await io.homePage.loadingTime();
   });
 });

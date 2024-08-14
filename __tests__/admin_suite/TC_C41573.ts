@@ -15,11 +15,14 @@ test.describe(`TC_C41573 To verify Pull from Integration dropdown field doesn't 
     page,
     io
   }, test) => {
+    await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.loadingTime();
     let env = "Production,Sandbox";
     let environment = env.split(",");
     for (let i = 0; i < environment.length; i++) {
       await io.flowBuilder.loadingTime();
       await io.flowBuilder.clickByTextByIndex(environment[i], 0);
+      await page.getByText("Loading...").waitFor({ state: "hidden", timeout:360000 });
       await io.flowBuilder.loadingTime();
       await io.homePage.clickCreateIntegrationButton();
       await io.flowBuilder.loadingTime();
@@ -100,6 +103,7 @@ test.describe(`TC_C41573 To verify Pull from Integration dropdown field doesn't 
       await io.flowBuilder.loadingTime();
       await io.flowBuilder.click(selectors.basePagePO.DELETE);
     }
+    console.log("Comming here")
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
   });
