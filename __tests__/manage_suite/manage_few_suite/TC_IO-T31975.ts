@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "./manage_few.json";
 
 test.describe(`@Author_MaheshNivruttiSutar Users with tile-level access are able to clone my flow to standalone flows.`, () => {
-    test(`@Bug-IO-79602 @Env-QA @Priority-P2 @Zephyr-IO-T31975`, async ({ page, io }) => {
+    test(`@Bug-IO-79602 @Env-All @Priority-P2 @Zephyr-IO-T31975`, async ({ page, io }) => {
         const res = await io.api.putCall(
             `v1/ashares/${process.env.IO_Ashare_ID}`,
             testData

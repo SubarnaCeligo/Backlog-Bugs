@@ -3,8 +3,13 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C61135 Verify the Install link functionality displayed for the Integrator SuiteApp step`, () => {
   test.afterEach(async ({ io }) => {
-    const res = await io.api.deleteIntegrationRecursively("61130_UIUX_SUITE02");
+    const intId = await io.api.getIntegrationDetails("61130_UIUX_SUITE02", "_id");
+    await io.api.deleteIntegration(intId);
   });
+  test.beforeEach(async ({ io, page }) => {
+    const intId = await io.api.getIntegrationDetails("61130_UIUX_SUITE02", "_id");
+    await io.api.deleteIntegration(intId);
+});
   test(`@Epic-IO-29826 @Priority-P2 @Env-All @Zephyr-IO-T23141 C61135 Verify the Install link functionality displayed for the Integrator SuiteApp step`, async ({
     page,
     io
