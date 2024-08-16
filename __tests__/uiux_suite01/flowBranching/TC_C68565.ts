@@ -6,7 +6,7 @@ test.describe(`C68565 Verify user is upload the integration zip file having line
   test.beforeEach(async ({ io }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test.afterEach(async ({ io }) => {
+  test.afterEach(async ({ io, page }) => {
     const res = await io.api.deleteCall(
       `v1/flows/${testdata.secondString}`,
     );
@@ -20,7 +20,7 @@ test.describe(`C68565 Verify user is upload the integration zip file having line
     await io.homePage.loadingTime();
 
     //Unpublish the template
-    let isPublished = await io.homePage.isVisible(selectors.flowBuilderPagePO.MAP_ZOOM_TO_FIT);
+    let isPublished = await io.homePage.isVisible(selectors.basePagePO.FLAG);
     if (isPublished) {
       await io.homePage.click(selectors.basePagePO.TEMPLATE_PUBLISH_UNPUBLISH);
       await io.homePage.loadingTime();
@@ -48,7 +48,7 @@ test.describe(`C68565 Verify user is upload the integration zip file having line
     await io.homePage.loadingTime();
 
     //Publish the template
-    let isPublished = await io.homePage.isVisible(selectors.flowBuilderPagePO.MAP_ZOOM_TO_FIT);
+    let isPublished = await io.homePage.isVisible(selectors.basePagePO.FLAG);
     if (!isPublished) {
       await io.homePage.click(selectors.basePagePO.TEMPLATE_PUBLISH_UNPUBLISH);
       await io.homePage.loadingTime();
@@ -90,7 +90,9 @@ test.describe(`C68565 Verify user is upload the integration zip file having line
     await io.homePage.loadingTime();
 
     //Verify if the flow is installed
-    await io.integrationPage.clickByIndex('td a', 0);
+    await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.OPENACTIONSMENU);
+    await io.integrationPage.clickByIndex(selectors.integrationPagePO.OPENACTIONSMENU, 1);
+    (await io.integrationPage.findElementByDataTest("editFlow")).click();
 
     //get num of bubbles
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.TRANSFER);

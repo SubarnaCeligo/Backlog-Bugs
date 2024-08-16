@@ -21,7 +21,7 @@ test.describe(`C68562 Verify user is upload the integration zip file having Mult
     await io.homePage.loadingTime();
 
     //Unpublish the template
-    let isPublished = await io.homePage.isVisible(selectors.flowBuilderPagePO.MAP_ZOOM_TO_FIT);
+    let isPublished = await io.homePage.isVisible(selectors.basePagePO.FLAG);
     if(isPublished){
       await io.homePage.click(selectors.basePagePO.TEMPLATE_PUBLISH_UNPUBLISH);
       await io.homePage.loadingTime();
@@ -49,7 +49,7 @@ test.describe(`C68562 Verify user is upload the integration zip file having Mult
     await io.homePage.loadingTime();
    
     //Publish the template
-    let isPublished = await io.homePage.isVisible(selectors.flowBuilderPagePO.MAP_ZOOM_TO_FIT);
+    let isPublished = await io.homePage.isVisible(selectors.basePagePO.FLAG);
     if(!isPublished){
       await io.homePage.click(selectors.basePagePO.TEMPLATE_PUBLISH_UNPUBLISH);
       await io.homePage.loadingTime();

@@ -4,7 +4,7 @@ import testdata from "./testdata.json"
 
 
 test.describe(`C68563 Verify user is upload the integration zip file having Multiple linear and branched flows in the template and able to install the template`, () => {
-  test.describe.configure({ retries: 1 })
+  test.describe.configure({ retries: 0 })
   test.beforeEach(async ({ io }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
@@ -22,7 +22,7 @@ test.describe(`C68563 Verify user is upload the integration zip file having Mult
     await io.homePage.loadingTime();
 
     //Unpublish the template
-    let isPublished = await io.homePage.isVisible(selectors.flowBuilderPagePO.MAP_ZOOM_TO_FIT);
+    let isPublished = await io.homePage.isVisible(selectors.basePagePO.FLAG);
     if (isPublished) {
       await io.homePage.click(selectors.basePagePO.TEMPLATE_PUBLISH_UNPUBLISH);
       await io.homePage.loadingTime();
@@ -50,7 +50,7 @@ test.describe(`C68563 Verify user is upload the integration zip file having Mult
     await io.homePage.loadingTime();
 
     //Publish the template
-    let isPublished = await io.homePage.isVisible(selectors.flowBuilderPagePO.MAP_ZOOM_TO_FIT);
+    let isPublished = await io.homePage.isVisible(selectors.basePagePO.FLAG);
     if (!isPublished) {
       await io.homePage.click(selectors.basePagePO.TEMPLATE_PUBLISH_UNPUBLISH);
       await io.homePage.loadingTime();

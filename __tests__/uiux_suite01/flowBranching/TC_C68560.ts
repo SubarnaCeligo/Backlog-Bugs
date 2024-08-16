@@ -47,7 +47,7 @@ test.describe(`C68560 Verify user is upload the ntegration zip file having one l
     await io.homePage.loadingTime();
    
     //Publish the template
-    let isPublished = await io.homePage.isVisible(selectors.flowBuilderPagePO.MAP_ZOOM_TO_FIT);
+    let isPublished = await io.homePage.isVisible(selectors.basePagePO.FLAG);
     if(!isPublished){
       await io.homePage.click(selectors.basePagePO.TEMPLATE_PUBLISH_UNPUBLISH);
       await io.homePage.loadingTime();
@@ -86,7 +86,9 @@ test.describe(`C68560 Verify user is upload the ntegration zip file having one l
     await io.homePage.loadingTime();
 
     //Verify if the flow is installed
-    await io.integrationPage.clickByIndex('td a', 0);
+    await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.OPENACTIONSMENU);
+    await io.integrationPage.clickByIndex(selectors.integrationPagePO.OPENACTIONSMENU, 1);
+    (await io.integrationPage.findElementByDataTest("editFlow")).click();
 
     //get num of bubbles
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.TRANSFER);

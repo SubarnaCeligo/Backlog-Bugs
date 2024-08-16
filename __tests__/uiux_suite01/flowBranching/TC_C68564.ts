@@ -21,7 +21,7 @@ test.describe(`C68564 Verify user is upload the integration zip file having one 
     await io.homePage.loadingTime();
 
     //Unpublish the template
-    let isPublished = await io.homePage.isVisible(selectors.flowBuilderPagePO.MAP_ZOOM_TO_FIT);
+    let isPublished = await io.homePage.isVisible(selectors.basePagePO.FLAG);
     if (isPublished) {
       await io.homePage.click(selectors.basePagePO.TEMPLATE_PUBLISH_UNPUBLISH);
       await io.homePage.loadingTime();
@@ -49,7 +49,7 @@ test.describe(`C68564 Verify user is upload the integration zip file having one 
     await io.homePage.loadingTime();
 
     //Publish the template
-    let isPublished = await io.homePage.isVisible(selectors.flowBuilderPagePO.MAP_ZOOM_TO_FIT);
+    let isPublished = await io.homePage.isVisible(selectors.basePagePO.FLAG);
     if (!isPublished) {
       await io.homePage.click(selectors.basePagePO.TEMPLATE_PUBLISH_UNPUBLISH);
       await io.homePage.loadingTime();
@@ -74,7 +74,7 @@ test.describe(`C68564 Verify user is upload the integration zip file having one 
       selectors.integrationPagePO.SETUP_INTEGRATION_CONFIGURE_BUTTON
     );
 
-    for(let i =0; i< 3; i++){
+    for (let i = 0; i < 3; i++) {
       await io.homePage.click(
         selectors.integrationPagePO.SETUP_INTEGRATION_CONFIGURE_BUTTON
       );
@@ -83,27 +83,29 @@ test.describe(`C68564 Verify user is upload the integration zip file having one 
       let connMap = await io.api.loadConnections();
       var connId = connMap.get("FTP CONNECTION");
       await io.connectionPage.selectTextfromDropDown(page, connId)
-      await io.homePage.loadingTime(); 
+      await io.homePage.loadingTime();
       await io.connectionPage.click(selectors.basePagePO.SAVE);
-      await io.homePage.loadingTime(); 
-      }
+      await io.homePage.loadingTime();
+    }
     await io.homePage.click(selectors.basePagePO.INSTALL);
     await io.homePage.loadingTime();
 
     //Verify if the flow is installed
-    await io.integrationPage.clickByIndex('td a', 0);
+    await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.OPENACTIONSMENU);
+    await io.integrationPage.clickByIndex(selectors.integrationPagePO.OPENACTIONSMENU, 1);
+    (await io.integrationPage.findElementByDataTest("editFlow")).click();
 
     //get num of bubbles
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.TRANSFER);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.MAP_ZOOM_TO_FIT);
     let bubbles = await page.$$(selectors.flowBuilderPagePO.TRANSFER);
     await io.assert.expectToBeValue((bubbles.length).toString(), "3", 'Template is not fully installed');
-    
-  //Verify data
-  await io.assert.verifyElementIsDisplayed(selectors.basePagePO.OUTPUTFILTER, "Export filter not copied");
-  await io.assert.verifyElementIsDisplayed(selectors.exportsPagePO.EXPORT_HOOKS, "Export hooks not copied");
-  await io.assert.verifyElementIsDisplayed(selectors.basePagePO.INPUTFILTER, "inputFilter not copied");
-  await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.IMPORT_MAPPINGS, "importMapping not copied");
+
+    //Verify data
+    await io.assert.verifyElementIsDisplayed(selectors.basePagePO.OUTPUTFILTER, "Export filter not copied");
+    await io.assert.verifyElementIsDisplayed(selectors.exportsPagePO.EXPORT_HOOKS, "Export hooks not copied");
+    await io.assert.verifyElementIsDisplayed(selectors.basePagePO.INPUTFILTER, "inputFilter not copied");
+    await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.IMPORT_MAPPINGS, "importMapping not copied");
 
   });
 });
