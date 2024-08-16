@@ -2,7 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("IO-T32859  Verify user is able to use celigo AI in Salesforce SOQL editor", () => {
-  test("@Env-QA @StoryID-IO-80206 @Zephyr-IO-T35486   @Author-SubarnaGhatak Verify user is able to use celigo AI in Salesforce SOQL editor", async ({io, page}) => {
+  test("@Env-All @StoryID-IO-80206 @Zephyr-IO-T35486   @Author-SubarnaGhatak Verify user is able to use celigo AI in Salesforce SOQL editor", async ({io, page}) => {
 
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();

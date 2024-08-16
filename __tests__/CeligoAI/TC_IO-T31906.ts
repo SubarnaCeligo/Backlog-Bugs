@@ -5,7 +5,8 @@ test.describe("IO-T31906 Verify Celigo AI is displayed in transformation2.0 tab"
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-QA @Epic-IO-79512 @Zephyr-IO-T31906 @Zephyr-IO-T31907 @Zephyr-IO-T31908 @Zephyr-IO-T31909 @Zephyr-IO-T31910 @Author-SubarnaGhatak Verify Celigo AI is displayed in transformation2.0 tab", async ({ io, page }) => {
+  test("@Env-All @Epic-IO-79512 @Zephyr-IO-T31906 @Zephyr-IO-T31907 @Zephyr-IO-T31908 @Zephyr-IO-T31909 @Zephyr-IO-T31910 @Author-SubarnaGhatak Verify Celigo AI is displayed in transformation2.0 tab", async ({ io, page }) => {
+   
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.clickByText('TC47946_DND');
@@ -31,10 +32,11 @@ test.describe("IO-T31906 Verify Celigo AI is displayed in transformation2.0 tab"
     )
 
   });
-  test("@Env-QA @Epic-IO-79512 @Zephyr-IO-T32427 @Author-SubarnaGhatak Verify auto transform Icon is added for transformation2.0", async ({ io, page }) => {
+  test("@Env-All @Epic-IO-79512 @Zephyr-IO-T32427 @Author-SubarnaGhatak Verify auto transform Icon is added for transformation2.0", async ({ io, page }) => {
+ 
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();
-    await io.flowBuilder.clickByText('TC47946_DND');
+    await io.flowBuilder.clickByText('Automapper_DND');
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
     //TRANSFORMATION 2.0 AutoTransform
@@ -52,7 +54,7 @@ test.describe("IO-T31906 Verify Celigo AI is displayed in transformation2.0 tab"
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.AUTO_TRANSFORM );
     await io.assert.verifyElementDisplayedByText('Auto-transform', 'Not visible');
     await io.flowBuilder.addStep("Auto -transform option is displayed");
-    await io.flowBuilder.clickByIndex(selectors.exportsPagePO.HELP_TEXT_ICLIENT, 5);
+    await io.flowBuilder.clickByIndex(selectors.exportsPagePO.HELP_TEXT_ICLIENT, 6);
     await io.assert.verifyElementDisplayedByText('Auto-transform all selected un-mapped output fields i.e. the ones that do not have input field added. When auto-transform is clicked, all options that modify the existing output structure will be disabled. Close auto-transform to go back to mappings.', "Help text is not as expected");
     await io.flowBuilder.addStep("Verified the auto transform help text");
     await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE );
@@ -73,7 +75,7 @@ test.describe("IO-T31906 Verify Celigo AI is displayed in transformation2.0 tab"
 
     
   });
-  test("@Env-QA @Epic-IO-79512 @Zephyr-IO-T32449 @Author-SubarnaGhatak ", async ({ io, page }) => {
+  test("@Env-All @Epic-IO-79512 @Zephyr-IO-T32449 @Author-SubarnaGhatak ", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.clickByText('Automapper_DND');
@@ -126,6 +128,7 @@ test.describe("IO-T31906 Verify Celigo AI is displayed in transformation2.0 tab"
     );
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.basePagePO.EXPAND_ALL);
+    await io.homePage.loadingTime();
     await io.homePage.loadingTime();
     await io.assert.verifyElementAttributeContainsText(
       selectors.flowBuilderPagePO.OPENAI.AUTOMAP_CHECKBOX,
