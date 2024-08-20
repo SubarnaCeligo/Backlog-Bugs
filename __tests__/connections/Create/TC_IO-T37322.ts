@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T37322", () => {
+test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T37322 @Zephyr-IO-T37314", () => {
     test.describe.configure({ retries: 2 })
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
