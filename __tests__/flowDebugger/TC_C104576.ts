@@ -14,7 +14,8 @@ test.describe("C104576 Verify error messages when Mock output is populated with 
         await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "HTTP ZENDESK CONNECTION");
-        await io.flowBuilder.clickByText('HTTP ZENDESK CONNECTION');
+        await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CONNECTIONDROP0);
+        await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONDROP0);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.MOCK_OUTPUT);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.POPULATE_WITH_CANONICAL_STUB);
         await io.flowBuilder.isPageLoaded()

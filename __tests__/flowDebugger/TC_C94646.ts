@@ -7,20 +7,27 @@ test.describe("C94646_C94645", () => {
     await io.createResourceFromAPI(C94646, "FLOWS");
     //Disable the flow
     await io.homePage.loadingTime()
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
-    await io.flowBuilder.reloadPage();
-    await io.homePage.loadingTime()
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
-    await io.flowBuilder.reloadPage();
-    await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
-    await io.flowBuilder.reloadPage();
-    await io.homePage.loadingTime()
-    await io.flowBuilder.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
-    await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'TC_C94646');
-    await io.flowBuilder.clickByTextByIndex('TC_C94646', 0);
-    await io.homePage.loadingTime()
+    // await io.flowBuilder.reloadPage();
+    await io.homePage.loadingTime();
+    // await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
+    // await io.flowBuilder.reloadPage();
+    // await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+    // await io.flowBuilder.reloadPage();
+    // await io.homePage.loadingTime()
+    // await io.flowBuilder.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
+    // await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'TC_C94646');
+    // await io.flowBuilder.clickByTextByIndex('TC_C94646', 0);
+    // await io.homePage.loadingTime()
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
+    await page.getByText("Completed").nth(1).waitFor({ state: "visible", timeout:360000 });
+    let testRunRunningLonger = await io.flowBuilder.isVisible(selectors.basePagePO.CLOSE_BUTTON);
+    if (testRunRunningLonger){
+        await io.flowBuilder.click(selectors.basePagePO.CLOSE_BUTTON);
+    }
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.POSTGREAFEEDITOR);

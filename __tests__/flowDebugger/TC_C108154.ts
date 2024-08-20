@@ -13,8 +13,9 @@ test.describe("Verify that a Salesforce REST type import has adaptor specific st
         await io.importsPage.click(selectors.importPagePO.SALESFORCE_IMPORT);
 
         //Select an available connection, provide a name for the import
-        await io.importsPage.click(selectors.basePagePO.CONNECTION_DROPDOWN);
-        await io.importsPage.clickByText('SALESFORCE CONNECTION');
+        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "SALESFORCE CONNECTION");
+        await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CONNECTIONDROP0);
+        await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONDROP0);
         await io.importsPage.fill(selectors.basePagePO.INPUT_NAME_SELECTOR, "Test TC_C108153");
 
         //Click Next

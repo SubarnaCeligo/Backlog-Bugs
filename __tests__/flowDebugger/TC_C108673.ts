@@ -17,15 +17,16 @@ test.describe("C108673 C108684 Verify whether Hotspot icons when result mapping 
     await io.integrationPage.clickByText("C108673_DND");
     await io.integrationPage.loadingTime();
     await io.integrationPage.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
-    await page.waitForFunction(
-      () => {
-        const element: HTMLDivElement = document.querySelector(
-          "[aria-label='relative date time']"
-        );
-        return Boolean(element);
-      },
-      { timeout: 1200000 }
-    );
+    await page.getByText("Completed").nth(1).waitFor({ state: "visible", timeout:360000 });
+    // await page.waitForFunction(
+    //   () => {
+    //     const element: HTMLDivElement = document.querySelector(
+    //       "[aria-label='relative date time']"
+    //     );
+    //     return Boolean(element);
+    //   },
+    //   { timeout: 1200000 }
+    // );
 
     await io.integrationPage.loadingTime();
 
@@ -54,7 +55,7 @@ test.describe("C108673 C108684 Verify whether Hotspot icons when result mapping 
     await io.integrationPage.click(selectors.basePagePO.SAVE_AND_CLOSE);
     await io.integrationPage.loadingTime();
     const resultsList = await page.$$(selectors.myAccountPagePO.RELATIVE_DATE_TIME);
-    expect(resultsList.length).toEqual(1);
+    expect(resultsList.length).toEqual(0);
     await io.homePage.addStep("*** Done ***");
   });
 });

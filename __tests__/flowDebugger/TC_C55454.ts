@@ -13,7 +13,7 @@ test.describe("C55454 Verify users can enter data manually in the mock output fi
         await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
         await io.exportsPage.fill(selectors.exportsPagePO.NAME, "HTTP_EXPORT_NEW");
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
-        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "HTTP CONNECTION");
+        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "HTTP ZENDESK CONNECTION");
         await io.flowBuilder.click(
          selectors.connectionsPagePO.CONNECTION_OPTION_TEXT
        );
@@ -65,7 +65,7 @@ test.describe("C55454 Verify users can enter data manually in the mock output fi
         await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
         await io.exportsPage.fill(selectors.exportsPagePO.NAME, "HTTP_EXPORT_NEW");
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
-        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "HTTP CONNECTION");
+        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "HTTP ZENDESK CONNECTION");
         await io.flowBuilder.click(
          selectors.connectionsPagePO.CONNECTION_OPTION_TEXT
        );

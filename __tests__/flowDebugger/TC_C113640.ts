@@ -11,7 +11,17 @@ test.describe('C113640', () => {
         //Disable the flow
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
+        await io.flowBuilder.loadingTime();
+        let isPopupDisplayed = await io.flowBuilder.isVisible('[id="pendo-guide-container"] [aria-label="Close"]');
+        if (isPopupDisplayed){
+            await io.flowBuilder.click('[id="pendo-guide-container"] [aria-label="Close"]');
+        }
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
+        await page.getByText("Completed").nth(1).waitFor({ state: "visible", timeout:360000 });
+        let testRunRunningLonger = await io.flowBuilder.isVisible(selectors.basePagePO.CLOSE_BUTTON);
+        if (testRunRunningLonger){
+            await io.flowBuilder.click(selectors.basePagePO.CLOSE_BUTTON);
+        }
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
         //Export Hook
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_HOOK);

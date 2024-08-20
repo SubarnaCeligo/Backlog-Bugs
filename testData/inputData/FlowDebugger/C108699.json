@@ -4,7 +4,7 @@
     {
       "qa__export": {
         "name": "export123",
-        "_connectionId": "AMAZON S3 CONNECTION",
+        "_connectionId": "S3 CONNECTION",
         "apiIdentifier": "e35216e4b3",
         "asynchronous": true,
         "sandbox": false,
@@ -56148,7 +56148,7 @@
             }
           }
         ],
-        "_connectionId": "AMAZON S3 CONNECTION",
+        "_connectionId": "S3 CONNECTION",
         "apiIdentifier": "i91203fa77",
         "oneToMany": false,
         "sandbox": false,

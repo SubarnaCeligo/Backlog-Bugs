@@ -20,7 +20,13 @@ test.describe("TC_C98712 On moving from javascript mode to rules mode, test run 
         
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
+        await io.flowBuilder.loadingTime();
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
+        await page.getByText("Completed").nth(1).waitFor({ state: "visible", timeout:360000 });
+        let testRunRunningLonger = await io.flowBuilder.isVisible(selectors.basePagePO.CLOSE_BUTTON);
+        if (testRunRunningLonger){
+            await io.flowBuilder.click(selectors.basePagePO.CLOSE_BUTTON);
+        }
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
 
         await io.homePage.addStep("*** Clicking on output filter ***")

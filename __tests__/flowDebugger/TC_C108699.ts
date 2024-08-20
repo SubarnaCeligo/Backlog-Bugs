@@ -22,6 +22,7 @@ test.describe("TC_C108699 Verify the warining message for edit export,import and
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
+    await page.pause();
     let errors = page.locator(selectors.integrationPagePO.CLICKONERRORS);
     await errors.waitFor({state: 'visible', timeout: 500000});
     await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);
