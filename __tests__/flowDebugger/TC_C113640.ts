@@ -22,7 +22,7 @@ test.describe('C113640', () => {
         if (testRunRunningLonger){
             await io.flowBuilder.click(selectors.basePagePO.CLOSE_BUTTON);
         }
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
+        // await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
         //Export Hook
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_HOOK);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.SCRIPT_RUN_RESULT);

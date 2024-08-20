@@ -10,8 +10,11 @@ test.describe("C96303 Verify checkbox field type criteria gets cleared when user
         await io.flowBuilder.click(selectors.connectionsPagePO.NETSUITE_CONNECTION);
         await io.flowBuilder.click(selectors.connectionsPagePO.REALTIME);
         await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
+        await io.flowBuilder.loadingTime();
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
-        await io.homePage.clickByText( 'NETSUITE CONNECTION');
+        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "NETSUITE CONNECTION");
+        await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CONNECTIONDROP0);
+        await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONDROP0);
         await io.flowBuilder.click(selectors.importPagePO.NETSUITE_DISTRIBUTED_RECORDTYPE);
         await io.flowBuilder.fill(`${selectors.importPagePO.NETSUITE_DISTRIBUTED_RECORDTYPE} input`,'Accounting Per')
         await io.flowBuilder.clickByText('Accounting Period');

@@ -11,6 +11,11 @@ test.describe("C94517_C94527_C94525_C94521_C94529_C94533_C94528_C94531_C94526_C9
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await page.locator(selectors.flowBuilderPagePO.RUNTEST_BUTTON).first().click();
+        await page.getByText("Completed").nth(1).waitFor({ state: "visible", timeout:360000 });
+        let testRunRunningLonger = await io.flowBuilder.isVisible(selectors.basePagePO.CLOSE_BUTTON);
+        if (testRunRunningLonger){
+            await io.flowBuilder.click(selectors.basePagePO.CLOSE_BUTTON);
+        }
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);
 

@@ -9,7 +9,14 @@ test.describe('C111379_C111380_C111381_C116756', () => {
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
+        await page.getByText("Completed").nth(1).waitFor({ state: "visible", timeout:360000 });
+        let testRunRunningLonger = await io.flowBuilder.isVisible(selectors.basePagePO.CLOSE_BUTTON);
+        if (testRunRunningLonger){
+            await io.flowBuilder.click(selectors.basePagePO.CLOSE_BUTTON);
+        }
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
 
         //TC_C111379 Verify for import Users should be able to view test run debug logs
@@ -29,12 +36,15 @@ test.describe('C111379_C111380_C111381_C116756', () => {
         //HTTP request
         await io.assert.verifyElementIsDisplayed(selectors.importPagePO.HTTP_REQUEST, "HTTP request not displayed");
         await io.flowBuilder.waitForElementAttached(selectors.importPagePO.HTTP_REQUEST);
-        //Body
-        await io.assert.verifyElementTextByIndex("[id*='body']", 'Body', 3);
-        //Headers
-        await io.assert.verifyElementTextByIndex("[id*='headers']", 'Headers', 2);
-        //Other
-        await io.assert.verifyElementTextByIndex("[id*='others']", "Other", 1);
+        let requestTabs = await io.flowBuilder.getText('[role="tablist"]');
+        console.log(requestTabs);
+        // //Body
+        // await io.assert.verifyElementTextByIndex("[id*='body']", 'Body', 3);
+        // //Headers
+        // await io.assert.verifyElementTextByIndex("[id*='headers']", 'Headers', 2);
+        // //Other
+        // await io.assert.verifyElementTextByIndex("[id*='others']", "Other", 1);
+        await io.assert.expectToBeValueInArray(requestTabs, 'BodyHeadersOther', 'Tabs are not displayed')
         var actual = await io.connectionPage.getText(
             selectors.flowBuilderPagePO.CONTENT
         );
@@ -42,15 +52,18 @@ test.describe('C111379_C111380_C111381_C116756', () => {
         
 
         //HTTP response
+        await page.pause();
         await io.flowBuilder.clickButtonByIndex(selectors.exportsPagePO.HTTP_RESPONSE, 1);
         await io.assert.verifyElementIsDisplayed(selectors.exportsPagePO.HTTP_RESPONSE, "HTTP response is not displayed");
-        //Body
-        await io.assert.verifyElementTextByIndex("[id*='body']", 'Body', 3);
-        //Headers
-        await io.assert.verifyElementTextByIndex("[id*='headers']", 'Headers', 2);
-        //Other
-        await io.assert.verifyElementTextByIndex("[id*='others']", "Other", 1);
-
+        // //Body
+        // await io.assert.verifyElementTextByIndex("[id*='body']", 'Body', 3);
+        // //Headers
+        // await io.assert.verifyElementTextByIndex("[id*='headers']", 'Headers', 2);
+        // //Other
+        // await io.assert.verifyElementTextByIndex("[id*='others']", "Other", 1);
+        let responseTabs = await io.flowBuilder.getText('[role="tablist"]');
+        console.log(requestTabs);
+        await io.assert.expectToBeValueInArray(responseTabs, 'BodyHeadersOther', 'Tabs are not displayed')
         //TC_C116756 Verify For import debug log records are not populating properly
         await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.TEST_RUN_STATUS, 1);
         var actual1 = await io.connectionPage.getText(
