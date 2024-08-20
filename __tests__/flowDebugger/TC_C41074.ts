@@ -6,7 +6,7 @@ test.describe("IO-41074", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-All IO-41074", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-41074", async ({ io, page }) => {
     //C106907	C106908	C106909	C106910	C106939	C107003
     const id = await io.createResourceFromAPI(testMode, "FLOWS");
     await io.flowBuilder.waitForElementAttached(
