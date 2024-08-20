@@ -18,7 +18,7 @@ test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T37310 @Zephyr-IO-T37315 @
         await io.homePage.goToMenu("Resources", "Connections");
         await io.flowBuilder.loadingTime();
         await io.homePage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, 'TC_IO-T37310 FTP CONNECTION');
-        await io.flowBuilder.clickByText('TC_IO-T37310 FTP CONNECTION');
+        await io.flowBuilder.clickByTextByIndex('TC_IO-T37310 FTP CONNECTION', 0);
         await io.flowBuilder.loadingTime();
 
         //Disabled button
