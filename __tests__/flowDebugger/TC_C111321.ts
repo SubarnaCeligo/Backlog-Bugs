@@ -11,6 +11,7 @@ test.describe("C111321, C110854, C110846, C111404 verify items populate under 'p
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.TRANSFER);
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.TRANSFER,1);
         await expect(page.getByText("Yes (advanced)")).toBeChecked();
+        await io.flowBuilder.loadingTime();
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ONE_TO_MANY);
         let pathToManyOptions;
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.PATH_TO_MANY_OPTIONS);

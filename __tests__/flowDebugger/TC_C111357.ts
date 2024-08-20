@@ -10,6 +10,7 @@ test.describe("C111357, C111406, C110859, C110837, C112229, C111403, C111405, C1
         await io.createResourceFromAPI(C111357, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.TRANSFER);
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.TRANSFER,1);
+        await io.flowBuilder.loadingTime();
         await expect(page.getByText("Yes (advanced)")).toBeChecked();
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ONE_TO_MANY);
         let pathToManyOptions;
@@ -71,6 +72,7 @@ test.describe("C111357, C111406, C110859, C110837, C112229, C111403, C111405, C1
         await io.createResourceFromAPI(C111357, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.TRANSFER);
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.TRANSFER,1);
+        await io.flowBuilder.loadingTime();
         await expect(page.getByText("Yes (advanced)")).toBeChecked();
 
         //enter any text and verify if selected field taken for pathToMany
@@ -120,6 +122,7 @@ test.describe("C111357, C111406, C110859, C110837, C112229, C111403, C111405, C1
         await io.createResourceFromAPI(C111357, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.TRANSFER);
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.TRANSFER,1);
+        await io.flowBuilder.loadingTime();
         await expect(page.getByText("Yes (advanced)")).toBeChecked();
 
         //enter any text and verify if selected field taken for pathToMany
