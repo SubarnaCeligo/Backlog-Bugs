@@ -8,7 +8,9 @@ test.describe("C98698 Verify on toggling from test result to rules result panel 
         //Disable the flow
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
+        await io.flowBuilder.loadingTime();
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
+        await page.getByText("Completed").nth(1).waitFor({ state: "visible", timeout:360000 });
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);
         await io.assert.verifyElementContainsText(selectors.basePagePO.RESULT_PREVIEW_CONTENT, "{  \"value\": \"81\"}")
