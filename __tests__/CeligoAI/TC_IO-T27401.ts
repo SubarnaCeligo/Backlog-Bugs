@@ -6,7 +6,7 @@ test.describe("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Author-
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();
   });
-  test("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Epic-IO-69823 @Priority-P2 @Zephyr-IO-T27406 @Zephyr-IO-T27402 @Zephyr-IO-T27405 @Zephyr-IO-T27403 @Zephyr-IO-T27404 @Zephyr-IO-T27407 @Zephyr-IO-T27408 @Zephyr-IO-T27412 @Zephyr-IO-T27409 @Zephyr-IO-T27410 @Zephyr-IO-T27411 @Zephyr-IO-T27413 @Zephyr-IO-T27414 @Zephyr-IO-T27415 @Zephyr-IO-T27419 @Zephyr-IO-T27420 @Zephyr-IO-T27416 @Zephyr-IO-T27418 @Env-QA", async ({
+  test("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Epic-IO-69823 @Priority-P2 @Zephyr-IO-T27406 @Zephyr-IO-T27402 @Zephyr-IO-T27405 @Zephyr-IO-T27403 @Zephyr-IO-T27404 @Zephyr-IO-T27407 @Zephyr-IO-T27408 @Zephyr-IO-T27412 @Zephyr-IO-T27409 @Zephyr-IO-T27410 @Zephyr-IO-T27411 @Zephyr-IO-T27413 @Zephyr-IO-T27414 @Zephyr-IO-T27415 @Zephyr-IO-T27419 @Zephyr-IO-T27420 @Zephyr-IO-T27416 @Zephyr-IO-T27418 @Env-All", async ({
     io,
     page
   }) => {
@@ -100,6 +100,7 @@ test.describe("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Author-
       "class",
       "Mui-disabled"
     );
+    await io.homePage.loadingTime();
     await io.homePage.loadingTime();
 
     //IO-T27409 Verify user is able to select single and multiple checkboxes

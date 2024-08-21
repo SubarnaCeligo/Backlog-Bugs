@@ -1,8 +1,8 @@
-import {expect, test} from "@celigo/ui-core-automation";
+import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C110489 Verify system generates the Big query after the user has provided the prompt", () => {
-  test("@Env-All @Zephyr-IO-T25483 C110489 Verify system generates the Big query after the user has provided the prompt", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T25483 C110489 Verify system generates the Big query after the user has provided the prompt", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();
     await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
@@ -36,7 +36,7 @@ test.describe("C110489 Verify system generates the Big query after the user has 
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
       "Celigo AI Placeholder is not displayed"
     );
-    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'Get the customer details');
+    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'Get customer details from customer table');
     await page.keyboard.press('Enter');
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR,
