@@ -15,6 +15,7 @@ test.describe(`C24894 Manage tile - Verify Reports Listing page should Contain R
       process.env["IO_UI_CONNECTOR_URL"] + "reports/eventreports"
     );
     await io.homePage.loadingTime();
+    await page.waitForSelector("//*[contains(@class, 'MuiTypography-root') and contains(text(), 'Loading')]", { state: 'hidden', timeout: 360000 });
     await io.assert.verifyElementDisplayedByText(
       "Flow events",
       "Report type filter is not displayed"

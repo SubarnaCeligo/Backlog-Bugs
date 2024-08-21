@@ -10,15 +10,18 @@ test.describe(`T22389 - Validate adding of new rows should be done only if all t
     await io.createResourceFromAPI(testData, "FLOWS");
     await io.connectionPage.addStep("Flow created");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);
+    await io.flowBuilder.loadingTime();
     let destinationFields = page.locator(
       selectors.mappings.MAPPER2DOT0PO.DESTINATIONFIELDS
     );
 
     await destinationFields.nth(1).click();
+    await io.flowBuilder.loadingTime();
     (await (await destinationFields.nth(1).elementHandle()).$("textarea")).fill('child2');
     await io.connectionPage.addStep("Updated destination field value to child2");
 
     await io.flowBuilder.clickByText("$.mother");
+    await io.flowBuilder.loadingTime();
     await io.connectionPage.addStep("Clicked on $.mother");
 
     destinationFields = page.locator(

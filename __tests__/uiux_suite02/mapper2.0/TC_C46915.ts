@@ -11,11 +11,13 @@ test.describe('File Provider - Verify the “Action to take if source field has 
           );
           await  io.flowBuilder.click(selectors.flowBuilderPagePO.HTTP_IMPORT_PLUSBUTTON);
           await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS)
-        
+          await io.flowBuilder.loadingTime();
           await io.flowBuilder.fill(selectors.flowBuilderPagePO.DESTINATION_MAPPING_PLACEHOLDER, "mapping");
-
-          await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.FORWINDOWCLICK)
-          await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.SETTINGSBUTTON)
+          await io.flowBuilder.loadingTime();
+          await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.FORWINDOWCLICK);
+          await io.flowBuilder.loadingTime();
+          await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.SETTINGSBUTTON);
+          await io.flowBuilder.loadingTime();
           await io.flowBuilder.clickByText("Do nothing");
           const liElement1 = await page.locator("li").filter({ hasText: "Do nothing" });
           await expect(liElement1).toHaveText("Do nothing", { timeout: 5000 });

@@ -22,10 +22,12 @@ test.describe("TC_IOT2422 verify tooltips should shown on the destination files 
     await io.flowBuilder.waitForElementAttached(
       selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR
     );
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.clickByIndex(
       selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR,
       1
     );
+    await io.flowBuilder.loadingTime();
 
     await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);
     await io.flowBuilder.loadingTime();
@@ -35,6 +37,7 @@ test.describe("TC_IOT2422 verify tooltips should shown on the destination files 
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.fill(selectors.flowBuilderPagePO.DESTINATION_MAPPING_PLACEHOLDER, "TEST DESTINATION FIELD NAME TEST DESTINATION FIELD NAME TEST DESTINATION FIELD NAME TEST DESTINATION FIELD NAME");
     await io.flowBuilder.fill(selectors.flowBuilderPagePO.SOURCE_MAPPING_PLACEHOLDER, "$.first_name");
+    await io.flowBuilder.loadingTime();
 
     await io.flowBuilder.hover(selectors.flowBuilderPagePO.DESTINATION_MAPPING_PLACEHOLDER, 0, false);
     await io.assert.verifyElementDisplayedByText("Destination field: TEST DESTINATION FIELD NAME TEST DESTINATION FIELD NAME TEST DESTINATION FIELD NAME TEST DESTINATION FIELD NAME", "Destination Field Not Displayed");

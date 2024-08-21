@@ -10,12 +10,16 @@ test.describe(`IOT1306 - To verify metadata is getting populated when record typ
     await io.createResourceFromAPI(testData, "FLOWS");
     await io.connectionPage.addStep("Flow created");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT);
+    await io.flowBuilder.loadingTime();
     await io.connectionPage.addStep("Clicked on Import");
     await io.flowBuilder.click(selectors.mappings.UPDATE);
+    await io.flowBuilder.loadingTime();
     await io.connectionPage.addStep("Clicked on Update");
     await io.importsPage.click(selectors.basePagePO.NETSUITE_INTERNAL_LOOKUP);
+    await io.flowBuilder.loadingTime();
     await io.connectionPage.addStep("Clicked on Netsuite Internal Lookup");
     await io.flowBuilder.click(selectors.flowBranchingPO.GROUP_RULE);
+    await io.flowBuilder.loadingTime();
 
     const options = await page.$$(`${selectors.flowBuilderPagePO.FILTER_CONTAINER} option`);
     const length = await options?.length || 0;
