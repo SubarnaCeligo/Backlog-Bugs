@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S TC_T32428-Verify that standalone listeners are s
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Bug-IO-79115 @Env-QA @Priority-P2 @Zephyr-IO-T32428 Verify that standalone listeners are shown while creating FTP EDI X12 standalone flows", async ({ io, page }) => {
+  test("@Bug-IO-79115 @Env-All @Priority-P2 @Zephyr-IO-T32428 Verify that standalone listeners are shown while creating FTP EDI X12 standalone flows", async ({ io, page }) => {
 
     //Go to Homepage
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
