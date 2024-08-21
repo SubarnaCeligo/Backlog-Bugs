@@ -24,9 +24,18 @@ test.describe("TC_C108675 Verify whether Hotspot icons when transformation rules
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
     await io.flowBuilder.click(selectors.basePagePO.ADD_DATA_PROCESSOR);
-    await io.flowBuilder.click(
-      selectors.flowBuilderPagePO.RUNTEST_BUTTON_TOP_XPATH
-    );
+    await page.pause();
+    // await io.flowBuilder.click(
+    //   selectors.flowBuilderPagePO.RUNTEST_BUTTON_TOP_XPATH
+    // );
+    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
+    await page.getByText("Completed").nth(1).waitFor({ state: "visible", timeout:360000 });
+    let testRunRunningLonger = await io.flowBuilder.isVisible(selectors.basePagePO.CLOSE_BUTTON);
+    if (testRunRunningLonger){
+            await io.flowBuilder.click(selectors.basePagePO.CLOSE_BUTTON);
+        }
     await io.assert.verifyElementIsDisplayed(
       selectors.exportsPagePO.EXPORT_HOTSPOT_ICON,
       "Hotspot icons is not available on Export"
