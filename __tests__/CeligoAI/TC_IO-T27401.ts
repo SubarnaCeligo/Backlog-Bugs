@@ -101,6 +101,7 @@ test.describe("IO-T27401 Verify auto mapper tool is added for mapper2.0 @Author-
       "Mui-disabled"
     );
     await io.homePage.loadingTime();
+    await io.homePage.loadingTime();
 
     //IO-T27409 Verify user is able to select single and multiple checkboxes
     await io.flowBuilder.clickByIndex(

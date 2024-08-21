@@ -144,7 +144,6 @@ test.describe("C117448 Verify Filter is having Celigo AI", () => {
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
     await io.flowBuilder.loadingTime();
-    await page.pause();
     await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'Filter by price less than 500');
     await io.flowBuilder.loadingTime();
     await page.keyboard.press('Enter');
