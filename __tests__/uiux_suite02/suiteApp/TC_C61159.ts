@@ -2,6 +2,10 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C61159 Verify IIf all the NS stepsn my integration are solely configured to use SuiteApp then only the SuiteApp installation step has to be shown in the install steps.`, () => {
+  test.afterEach(async ({ io }) => {
+    const intId = await io.api.getIntegrationDetails("1- 1-15june-NewFlow1", "_id");
+    await io.api.deleteIntegration(intId);
+  });
   test(`@Env-All @Zephyr-IO-T23163 C61159 Verify IIf all the NS stepsn my integration are solely configured to use SuiteApp then only the SuiteApp installation step has to be shown in the install steps.`, async ({
     page,
     io
@@ -9,7 +13,7 @@ test.describe(`C61159 Verify IIf all the NS stepsn my integration are solely con
     await io.homePage.navigateTo(
       `${io.data.links.HOME_PAGE_URL}/installIntegration`
     );
-    await page.getByText("Loading").waitFor({ state: "hidden" });
+    await page.getByText("Loading...").waitFor({ state: "hidden" });
     const fileChooserPromise = page.waitForEvent("filechooser");
     await io.homePage.clickByText("Choose file");
     const fileChooser = await fileChooserPromise;
@@ -17,6 +21,7 @@ test.describe(`C61159 Verify IIf all the NS stepsn my integration are solely con
     await io.homePage.addStep("Uploaded integration zip file");
     await io.homePage.clickByText("Install integration");
     await io.homePage.click(selectors.basePagePO.DIALOG_PROCEED_BUTTON);
+    await page.getByText("Loading...").waitFor({ state: "hidden" });
     await io.assert.verifyElementDisplayedByText(
       "Integrator SuiteApp",
       "Integrator SuiteApp is not visible"
