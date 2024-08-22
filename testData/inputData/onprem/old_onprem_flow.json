@@ -1,0 +1,111 @@
+{
+    "name": "RDBMS-AUTOMATION",
+    "disabled": false,
+    "_integrationId": "66c70506a7e62dde3abb1608",
+    "pageGenerators": [
+      {
+        "type": "export",
+        "qa__export": {
+          "name": "FTP EXPORT",
+          "_connectionId": "FTP CONNECTION",
+          "asynchronous": true,
+          "sandbox": false,
+          "sampleData": {
+            "id": "160119733061",
+            "name": "Test Import",
+            "age": "22",
+            "address": "Hyderabad, India",
+            "joining": "20-08-2024",
+            "position": "SDE"
+          },
+          "ftp": {
+            "directoryPath": "/io.auto.qa/FTP_UI_AUTOMATION/EXPORTS"
+          },
+          "file": {
+            "output": "records",
+            "skipDelete": false,
+            "type": "json",
+            "filter": {
+              "type": "expression",
+              "expression": {
+                "version": "1",
+                "rules": [
+                  "startswith",
+                  ["string", ["extract", "filename"]],
+                  "IO_46210.json"
+                ]
+              },
+              "rules": [
+                "startswith",
+                ["string", ["extract", "filename"]],
+                "IO_46210.json"
+              ],
+              "version": "1"
+            }
+          },
+          "adaptorType": "FTPExport"
+        }
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "name": "POSTGRESQL IMPORT",
+          "_connectionId": "POSTGRESQL ONPREM CONNECTION",
+          "ignoreExisting": false,
+          "ignoreMissing": false,
+          "oneToMany": false,
+          "sandbox": false,
+          "rdbms": {
+            "query": ["select * from postgres.post.gres.account_1"],
+            "queryType": ["INSERT"]
+          }
+        },
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        }
+      },
+      {
+        "type": "import",
+        "qa__import": {
+          "name": "MSSQL IMPORT",
+          "_connectionId": "MSSQL ONPREM CONNECTION",
+          "ignoreExisting": false,
+          "ignoreMissing": false,
+          "oneToMany": false,
+          "sandbox": false,
+          "rdbms": {
+            "query": ["select * from ramDB.dbo.EMPLOYEE"],
+            "queryType": ["INSERT"]
+          }
+        },
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        }
+      },
+      {
+        "type": "import",
+        "qa__import": {
+          "name": "MYSQL IMPORT",
+          "_connectionId": "MYSQL ONPREM CONNECTION",
+          "ignoreExisting": false,
+          "ignoreMissing": false,
+          "oneToMany": false,
+          "sandbox": false,
+          "rdbms": {
+            "query": ["select * from ramDB.Employee"],
+            "queryType": ["INSERT"]
+          },
+          "adaptorType": "RDBMSImport"
+        },
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        }
+      }
+    ]
+  }
+  

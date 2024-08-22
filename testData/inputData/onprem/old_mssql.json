@@ -1,0 +1,13 @@
+{
+    "name": "MSSQL IMPORT OLD FROM AUTOMATION",
+    "_connectionId": "MSSQL ONPREM CONNECTION",
+    "ignoreExisting": false,
+    "ignoreMissing": false,
+    "oneToMany": false,
+    "sandbox": false,
+    "rdbms": {
+      "query": ["select *"],
+      "queryType": ["INSERT"]
+    },
+    "adaptorType": "RDBMSImport"
+  }
