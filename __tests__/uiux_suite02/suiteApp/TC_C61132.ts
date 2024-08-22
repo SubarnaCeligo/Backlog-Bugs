@@ -2,6 +2,12 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`@Epic-IO-27713  @Priority-P2  @Zephyr-IO-T23139 @Env-All Verify the Install link functionality displayed for the Integrator SuiteApp step`, () => {
+  test.afterEach(async ({ io }) => {
+    const intId = await io.api.getIntegrationDetails("61130_UIUX_SUITE02", "_id");
+    await io.api.deleteIntegration(intId);
+    const intId1 = await io.api.getIntegrationDetails("Clone - 61130_UIUX_SUITE02", "_id");
+    await io.api.deleteIntegration(intId1);
+  });
   test(`@Epic-IO-27713  @Priority-P2  @Zephyr-IO-T23139 @Env-All Verify the Install link functionality displayed for the Integrator SuiteApp step`, async ({
     page,
     io

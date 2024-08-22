@@ -31,8 +31,8 @@ test.describe("TC_C107840_Verify syncing dateTime fields in NS SS2.x import flow
         });
         //Enable and run the Flow ***
         await test.step("*** Enable and run the Flow *** ", async () => {
-            await io.flowBuilder.saveandRunFlow(testInfo.title);
-            await io.api.validateJobCountFromAPI(testInfo.title, NS_FTP.qa__expectedDashboardCount)
+            await io.flowBuilder.saveandRunFlow(NS_FTP.name);
+            await io.api.validateJobCountFromAPI(NS_FTP.name, NS_FTP.qa__expectedDashboardCount)
         });
     });
 });
