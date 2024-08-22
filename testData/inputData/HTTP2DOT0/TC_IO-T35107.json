@@ -1,0 +1,170 @@
+{
+    "name": "TC_IO-T35107",
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "NetSuite Analytics Warehouse (NSAW) Export",
+                "_connectionId": "NETSUITE ANALYTICS WAREHOUSE CONNECTION",
+                "apiIdentifier": "e25d75dc62",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "sandbox": false,
+                "test": {
+                    "limit": 11
+                },
+                "jdbc": {
+                    "query": "SELECT * FROM DATA"
+                },
+                "adaptorType": "JDBCExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "NSAW IMPORT",
+                "_connectionId": "NETSUITE ANALYTICS WAREHOUSE CONNECTION",
+                "_sourceId": "66a1fd414cf30e827ccb48c2",
+                "apiIdentifier": "id87f15400",
+                "oneToMany": false,
+                "mappings": [
+                    {
+                        "dataType": "objectarray",
+                        "status": "Active",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$",
+                                "sourceDataType": "object",
+                                "mappings": [
+                                    {
+                                        "generate": "EMAIL",
+                                        "dataType": "string",
+                                        "status": "Draft",
+                                        "sourceDataType": "string"
+                                    },
+                                    {
+                                        "generate": "FULFILLMENT_STATUS",
+                                        "dataType": "string",
+                                        "status": "Draft",
+                                        "sourceDataType": "string"
+                                    },
+                                    {
+                                        "generate": "ITEM_AMOUNT",
+                                        "dataType": "string",
+                                        "status": "Draft",
+                                        "sourceDataType": "string"
+                                    },
+                                    {
+                                        "generate": "ITEM_ID",
+                                        "dataType": "string",
+                                        "hardCodedValue": "1234",
+                                        "status": "Active",
+                                        "sourceDataType": "string"
+                                    },
+                                    {
+                                        "generate": "ITEM_NAME",
+                                        "dataType": "string",
+                                        "status": "Draft",
+                                        "sourceDataType": "string"
+                                    },
+                                    {
+                                        "generate": "ITEM_QTY",
+                                        "dataType": "string",
+                                        "status": "Draft",
+                                        "sourceDataType": "string"
+                                    },
+                                    {
+                                        "generate": "ITEM_SKU",
+                                        "dataType": "string",
+                                        "status": "Draft",
+                                        "sourceDataType": "string"
+                                    },
+                                    {
+                                        "generate": "NOTE",
+                                        "dataType": "string",
+                                        "hardCodedValue": "test123",
+                                        "status": "Active",
+                                        "sourceDataType": "string"
+                                    },
+                                    {
+                                        "generate": "ORDER_DATE",
+                                        "dataType": "string",
+                                        "status": "Draft",
+                                        "sourceDataType": "string"
+                                    },
+                                    {
+                                        "generate": "ORDER_NUMBER",
+                                        "dataType": "string",
+                                        "status": "Draft",
+                                        "sourceDataType": "string"
+                                    },
+                                    {
+                                        "generate": "PAYMENT_METHOD",
+                                        "dataType": "string",
+                                        "status": "Draft",
+                                        "sourceDataType": "string"
+                                    },
+                                    {
+                                        "generate": "TOTAL_TAX",
+                                        "dataType": "string",
+                                        "status": "Draft",
+                                        "sourceDataType": "string"
+                                    },
+                                    {
+                                        "generate": "TRACKING_COMPANY",
+                                        "dataType": "string",
+                                        "status": "Draft",
+                                        "sourceDataType": "string"
+                                    },
+                                    {
+                                        "generate": "TRACKING_NUMBER",
+                                        "dataType": "string",
+                                        "status": "Draft",
+                                        "sourceDataType": "string"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "jdbc": {
+                    "query": [
+                        "TEST223"
+                    ],
+                    "queryType": [
+                        "bulk_load"
+                    ],
+                    "bulkLoad": {
+                        "tableName": "{{{settings.import.tablename}}}"
+                    }
+                },
+                "settings": {
+                    "tablename": "ADMIN.DATA"
+                },
+                "adaptorType": "JDBCImport"
+            }
+        }
+    ],
+    "createFlow": {
+        "name": "TC_IO-T35107",
+        "disabled": false,
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+}

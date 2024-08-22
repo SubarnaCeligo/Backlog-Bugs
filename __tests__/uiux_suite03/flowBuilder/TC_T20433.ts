@@ -8,18 +8,6 @@ test.describe("@Zephyr-IO-T20433 C66282 Verify flow cancel information with flow
     let flowId;
     let actualJson;
     test.beforeEach(async ({ io, page }) => {
-      await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
-      await io.connections.deleteConnection(bodyOffline.name);  
-      actualJson = await io.connections.createConnectionViaAPI(bodyOffline);
-      await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
-      await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, bodyOffline.name);
-      await io.assert.expectToBeTrue(await io.homePage.isVisible(`text=${bodyOffline.name}`), "Connection is not created");
-      await io.connectionPage.click(selectors.integrationPagePO.OPENACTIONSMENU);
-      await io.connectionPage.clickByText("Edit connection");
-      await io.connectionPage.loadingTime();
-      await io.connectionPage.click(selectors.flowBuilderPagePO.CLOSE);
-
-      await page.getByText('Offline', { exact: true }).waitFor({ state: 'visible', timeout: 60000 });
     });
     test("@Env-All @Zephyr-IO-T20433 C66282 Verify flow cancel information with flow having multiple exports and make connection offline", async ({ io, page }) => {
     

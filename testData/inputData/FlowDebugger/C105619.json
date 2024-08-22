@@ -57,7 +57,7 @@
             "type": "export",
             "qa__export": {
                 "name": "Lookup",
-                "_connectionId": "HTTP CONNECTION",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
                 "_sourceId": "6667fb164b7e0d3c5a905af9",
                 "apiIdentifier": "e71a88921f",
                 "asynchronous": true,

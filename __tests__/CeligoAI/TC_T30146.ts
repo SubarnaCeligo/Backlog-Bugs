@@ -6,7 +6,7 @@ test.describe("TC_IO74286_Unable to see the refresh button for selecting the acc
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.loadingTime();
     });
-    test("@Bug-IO-74286 @Env-IAQA @Env-QA @Priority-P2 @Zephyr-T30146", async ({ io, page }) => {
+    test("@Bug-IO-74286 @Env-IAQA @Priority-P2 @Zephyr-T30146", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "Payout to Reconciliation");
         await io.homePage.addStep("*** Searched for the integration ***");

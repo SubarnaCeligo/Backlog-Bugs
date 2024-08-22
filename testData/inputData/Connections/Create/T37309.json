@@ -1,0 +1,116 @@
+{
+    "name": "TC_IO-T37309",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "TC_IO-T37309 Transfer export",
+                "_connectionId": "S3 CONNECTION",
+                "apiIdentifier": "e7b6c42289",
+                "asynchronous": true,
+                "sandbox": false,
+                "s3": {
+                    "region": "us-east-1",
+                    "bucket": "automations3export"
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": false,
+                    "type": "json",
+                    "filter": {
+                        "type": "expression",
+                        "expression": {
+                            "rules": [],
+                            "version": "1"
+                        },
+                        "rules": [],
+                        "version": "1"
+                    }
+                },
+                "adaptorType": "S3Export"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "TC_C119795 Transfer Lookup",
+                "_connectionId": "S3 CONNECTION",
+                "apiIdentifier": "e285f5963d",
+                "asynchronous": true,
+                "isLookup": true,
+                "type": "blob",
+                "sandbox": false,
+                "s3": {
+                    "region": "us-east-1",
+                    "bucket": "automations3export"
+                },
+                "file": {
+                    "output": "blobKeys",
+                    "skipDelete": false,
+                    "filter": {
+                        "type": "expression",
+                        "expression": {
+                            "rules": [],
+                            "version": "1"
+                        },
+                        "rules": [],
+                        "version": "1"
+                    }
+                },
+                "adaptorType": "S3Export"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "TC_C119793 Transfer import",
+                "_connectionId": "S3 CONNECTION",
+                "apiIdentifier": "i184abb4bd",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "TC_C119793.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "s3": {
+                    "region": "us-east-1",
+                    "bucket": "automations3export",
+                    "fileKey": "TC_C119793.json"
+                },
+                "adaptorType": "S3Import"
+            }
+        }
+    ],
+    "createFlow": {
+        "name": "TC_IO-T37309",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "export",
+                "_importId": "UPDATE WITH NEW EXPORTID"
+            },
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+        ]
+    }
+}

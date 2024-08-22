@@ -1,0 +1,321 @@
+{
+  "staging": [
+    {
+      "Authorization Information Qualifier": "01",
+      "Authorization Information": "0000000000",
+      "Security Information Qualifier": "01",
+      "Security Information": "0000000000",
+      "Sender Interchange ID Qualifier": "ZZ",
+      "Interchange Sender ID": "ABCDEFGHIJKLMNO",
+      "Receiver Interchange ID Qualifier": "ZZ",
+      "Interchange Receiver ID": "123456789012345",
+      "Interchange Date": "101127",
+      "Interchange Time": "1719",
+      "Interchange Standard ID": "U",
+      "Interchange Version ID": "00400",
+      "Interchange Control number": "000003438",
+      "Acknowledgment Requested": "0",
+      "Test Indicator": "P",
+      "Subelement Separator": ">",
+      "Functional Identifier Code": "PO",
+      "Application Sender's Code": "4405197800",
+      "Application Receiver's Code": "999999999",
+      "Data Interchange Date": "20101127",
+      "Data Interchange Time": "1719",
+      "Data Interchange Control number": "1421",
+      "Responsible Agency Code": "X",
+      "Version/Rel Ind. Identifier Code": "004010VICS",
+      "Transaction Set Identifier Code": "850",
+      "Transaction Set Control Number 01": "000000010",
+      "Transaction Set Purpose Code": "00",
+      "Purchase Order Type Code": "SA",
+      "Purchase Order Number": "08292233294",
+      "Date": "20101127",
+      "Contract Number": "610385385",
+      "Reference Identification Qualifier": "DP",
+      "Reference Identification": "038",
+      "PO1": [
+        {
+          "Assigned Identification": "1",
+          "Quantity": "120",
+          "Unit or Basis for Measurement Code": "EA",
+          "Unit Price": "9.25",
+          "Basis of Unit Price Code": "TE",
+          "Product/Service ID Qualifier": "CB",
+          "Product/Service ID": "065322-117",
+          "Product/Service ID Qualifier 01": "PR",
+          "Product/Service ID 01": "RO",
+          "Product/Service ID Qualifier 02": "VN",
+          "Product/Service ID 02": "AB3542",
+          "Reference Identification Qualifier": "PS",
+          "Reference Identification 01": "R",
+          "ITD": [
+            {
+              "Terms Type Code": "14",
+              "Terms Basis Date Code": "3",
+              "Terms Discount Percent": "2",
+              "Terms Discount Days Due": "45",
+              "Terms Net Days": "46"
+            }
+          ],
+          "DTM": [
+            {
+              "Date/Time Qualifier": "002",
+              "Date": "20101214"
+            }
+          ],
+          "PKG": [
+            {
+              "Item Description Type": "F",
+              "Packaging Characteristic Code": "68",
+              "Description": "PALLETIZE SHIPMENT"
+            },
+            {
+              "Item Description Type": "F",
+              "Packaging Characteristic Code": "66",
+              "Description": "REGULAR"
+            }
+          ]
+        },
+        {
+          "Assigned Identification": "1",
+          "Quantity": "120",
+          "Unit or Basis for Measurement Code": "EA",
+          "Unit Price": "9.25",
+          "Basis of Unit Price Code": "TE",
+          "Product/Service ID Qualifier": "CB",
+          "Product/Service ID": "065322-117",
+          "Product/Service ID Qualifier 01": "PR",
+          "Product/Service ID 01": "RO",
+          "Product/Service ID Qualifier 02": "VN",
+          "Product/Service ID 02": "AB3542",
+          "TD5": [
+            {
+              "Routing Sequence Code": "A",
+              "Identification Code Qualifier": "92",
+              "Identification Code": "P3",
+              "Routing": "SEE XYZ RETAIL ROUTING GUIDE"
+            }
+          ]
+        },
+        {
+          "Assigned Identification": "1",
+          "Quantity": "120",
+          "Unit or Basis for Measurement Code": "EA",
+          "Unit Price": "9.25",
+          "Basis of Unit Price Code": "TE",
+          "Product/Service ID Qualifier": "CB",
+          "Product/Service ID": "065322-117",
+          "Product/Service ID Qualifier 01": "PR",
+          "Product/Service ID 01": "RO",
+          "Product/Service ID Qualifier 02": "VN",
+          "Product/Service ID 02": "AB3542",
+          "N1": [
+            {
+              "Entity Identifier Code": "ST",
+              "Name": "XYZ RETAIL",
+              "Identification Code Qualifier": "9",
+              "Identification Code": "0003947268292",
+              "N3": [
+                {
+                  "Address Information": "31875 SOLON RD"
+                }
+              ],
+              "City Name": "SOLON",
+              "State or Province Code": "OH",
+              "Postal Code": "44139"
+            }
+          ]
+        },
+        {
+          "Assigned Identification": "1",
+          "Quantity": "120",
+          "Unit or Basis for Measurement Code": "EA",
+          "Unit Price": "9.25",
+          "Basis of Unit Price Code": "TE",
+          "Product/Service ID Qualifier": "CB",
+          "Product/Service ID": "065322-117",
+          "Product/Service ID Qualifier 01": "PR",
+          "Product/Service ID 01": "RO",
+          "Product/Service ID Qualifier 02": "VN",
+          "Product/Service ID 02": "AB3542",
+          "PID": [
+            {
+              "Item Description Type": "F",
+              "Description": "SMALL WIDGET"
+            }
+          ],
+          "Pack": "4",
+          "Size": "4",
+          "Unit or Basis for Measurement Code 01": "EA",
+          "Packaging Code": "PLT94",
+          "Gross Weight per Pack": "3",
+          "Unit or Basis for Measurement Code 02": "LR",
+          "Gross Volume per Pack": "15",
+          "Unit or Basis for Measurement Code 03": "CT"
+        },
+        {
+          "Assigned Identification": "2",
+          "Quantity": "220",
+          "Unit or Basis for Measurement Code": "EA",
+          "Unit Price": "13.79",
+          "Basis of Unit Price Code": "TE",
+          "Product/Service ID Qualifier": "CB",
+          "Product/Service ID": "066850-116",
+          "Product/Service ID Qualifier 01": "PR",
+          "Product/Service ID 01": "RO",
+          "Product/Service ID Qualifier 02": "VN",
+          "Product/Service ID 02": "RD5322",
+          "PID": [
+            {
+              "Item Description Type": "F",
+              "Description": "MEDIUM WIDGET"
+            }
+          ],
+          "Pack": "2",
+          "Size": "2",
+          "Unit or Basis for Measurement Code 01": "EA"
+        },
+        {
+          "Assigned Identification": "3",
+          "Quantity": "126",
+          "Unit or Basis for Measurement Code": "EA",
+          "Unit Price": "10.99",
+          "Basis of Unit Price Code": "TE",
+          "Product/Service ID Qualifier": "CB",
+          "Product/Service ID": "060733-110",
+          "Product/Service ID Qualifier 01": "PR",
+          "Product/Service ID 01": "RO",
+          "Product/Service ID Qualifier 02": "VN",
+          "Product/Service ID 02": "XY5266",
+          "PID": [
+            {
+              "Item Description Type": "F",
+              "Description": "LARGE WIDGET"
+            }
+          ],
+          "Pack": "6",
+          "Size": "1",
+          "Unit or Basis for Measurement Code 01": "EA",
+          "Packaging Code": "PLT94",
+          "Gross Weight per Pack": "3",
+          "Unit or Basis for Measurement Code 02": "LR",
+          "Gross Volume per Pack": "12",
+          "Unit or Basis for Measurement Code 03": "CT"
+        },
+        {
+          "Assigned Identification": "4",
+          "Quantity": "76",
+          "Unit or Basis for Measurement Code": "EA",
+          "Unit Price": "4.35",
+          "Basis of Unit Price Code": "TE",
+          "Product/Service ID Qualifier": "CB",
+          "Product/Service ID": "065308-116",
+          "Product/Service ID Qualifier 01": "PR",
+          "Product/Service ID 01": "RO",
+          "Product/Service ID Qualifier 02": "VN",
+          "Product/Service ID 02": "VX2332",
+          "PID": [
+            {
+              "Item Description Type": "F",
+              "Description": "NANO WIDGET"
+            }
+          ],
+          "Pack": "4",
+          "Size": "4",
+          "Unit or Basis for Measurement Code 01": "EA",
+          "Packaging Code": "PLT94",
+          "Gross Weight per Pack": "6",
+          "Unit or Basis for Measurement Code 02": "LR",
+          "Gross Volume per Pack": "19",
+          "Unit or Basis for Measurement Code 03": "CT"
+        },
+        {
+          "Assigned Identification": "5",
+          "Quantity": "72",
+          "Unit or Basis for Measurement Code": "EA",
+          "Unit Price": "7.5",
+          "Basis of Unit Price Code": "TE",
+          "Product/Service ID Qualifier": "CB",
+          "Product/Service ID": "065374-118",
+          "Product/Service ID Qualifier 01": "PR",
+          "Product/Service ID 01": "RO",
+          "Product/Service ID Qualifier 02": "VN",
+          "Product/Service ID 02": "RV0524",
+          "PID": [
+            {
+              "Item Description Type": "F",
+              "Description": "BLUE WIDGET"
+            }
+          ],
+          "Pack": "4",
+          "Size": "4",
+          "Unit or Basis for Measurement Code 01": "EA"
+        },
+        {
+          "Assigned Identification": "6",
+          "Quantity": "696",
+          "Unit or Basis for Measurement Code": "EA",
+          "Unit Price": "9.55",
+          "Basis of Unit Price Code": "TE",
+          "Product/Service ID Qualifier": "CB",
+          "Product/Service ID": "067504-118",
+          "Product/Service ID Qualifier 01": "PR",
+          "Product/Service ID 01": "RO",
+          "Product/Service ID Qualifier 02": "VN",
+          "Product/Service ID 02": "DX1875",
+          "PID": [
+            {
+              "Item Description Type": "F",
+              "Description": "ORANGE WIDGET"
+            }
+          ],
+          "Pack": "6",
+          "Size": "6",
+          "Unit or Basis for Measurement Code 01": "EA",
+          "Packaging Code": "PLT94",
+          "Gross Weight per Pack": "3",
+          "Unit or Basis for Measurement Code 02": "LR",
+          "Gross Volume per Pack": "10",
+          "Unit or Basis for Measurement Code 03": "CT"
+        }
+      ],
+      "CTT": [
+        {
+          "Number of Line Items": "6",
+          "Amount Qualifier Code": "1",
+          "Monetary Amount": "13045.94"
+        }
+      ],
+      "Number of Included Segments": "33",
+      "Transaction Set Control Number 02": "000000010",
+      "Number of Transaction Sets Included": "1",
+      "Group Control number(GE02)": "1421",
+      "Number of Included Functional Groups": "1",
+      "Interchange Control number(IEA02)": "000003438"
+    }
+  ],
+  "IAQA": [
+    {
+      "Authorization Information Qualifier": "00",
+      "Authorization Information": "0000",
+      "Security Information Qualifier": "00",
+      "Security Information": "0000000000",
+      "Functional Identifier Code": "PO",
+      "Application Sender's Code": "SENDERGS",
+      "Application Receiver's Code": "007326879",
+      "Data Interchange Date": "20101127",
+      "Data Interchange Time": "1719",
+      "Data Interchange Control number": "1421",
+      "Responsible Agency Code": "X",
+      "Version/Rel Ind. Identifier Code": "004010",
+      "Transaction Set Identifier Code": "850",
+      "Transaction Set Control Number 01": "000000010",
+      "N9": [
+        {
+          "MSG": [{}]
+        }
+      ]
+    }
+  ]
+}

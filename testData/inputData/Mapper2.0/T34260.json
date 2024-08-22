@@ -1,0 +1,105 @@
+{
+    "name": "TC_C107901 Flow",
+    "pageGenerators": [
+      {
+        "type": "export",
+        "qa__export": {
+            "name": "rest io",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "mockOutput": {
+                "page_of_records": [
+                    {
+                        "rows": [
+                            {
+                                "mockOutput": "Replace mockOutput key and value with source data. You may be able to refer to your source app's API for examples."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "http": {
+                "relativeURI": "/api/v2/tickets",
+                "method": "GET",
+                "headers": [
+                    {
+                        "name": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "isRest": false,
+                "formType": "http",
+                "response": {
+                    "twoDArray": {
+                        "doNotNormalize": false,
+                        "hasHeader": false
+                    }
+                }
+            },
+            "adaptorType": "HTTPExport"
+        }
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+            "name": "SF",
+            "_connectionId": "SNOWFLAKE CONNECTION",
+            "oneToMany": false,
+            "mappings": [
+                {
+                    "dataType": "objectarray",
+                    "status": "Draft",
+                    "buildArrayHelper": [
+                        {
+                            "extract": "$[*]",
+                            "sourceDataType": "objectarray",
+                            "mappings": [
+                                {
+                                    "dataType": "string",
+                                    "status": "Draft",
+                                    "sourceDataType": "string"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "rdbms": {
+                "query": [],
+                "queryType": [
+                    "bulk_insert"
+                ],
+                "bulkInsert": {
+                    "tableName": "\"$$Shubham\"._$shuBHam.__Mappertable"
+                }
+            },
+            "adaptorType": "RDBMSImport"
+        }
+      }
+    ],
+    "createFlow": {
+      "name": "TC_C107901 flow",
+      "disabled": true,
+      "pageGenerators": [
+        {
+          "_exportId": "UPDATE WITH NEW EXPORTID",
+          "skipRetries": false
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "_importId": "UPDATE WITH NEW IMPORTID",
+          "responseMapping": {
+            "fields": [],
+            "lists": []
+          }
+        }
+      ],
+      "autoResolveMatchingTraceKeys": true
+    }
+  }
+  

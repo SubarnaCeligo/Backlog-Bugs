@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import { decrypt } from "@celigo/aut-utilities";
 
 test.describe("IO-58006 scenarios", () => {
-  test("@Env-All C58006 Verify if toggle persists when user open iclient from Connections", async ({
+  test("@Env-All @Zephyr-IO-TC58006 Verify if toggle persists when user open iclient from Connections", async ({
     io,
     page,
     context
@@ -86,6 +86,7 @@ test.describe("IO-58006 scenarios", () => {
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.homePage.loadingTime();
     // created connection validation in import
+    await io.flowBuilder.click(selectors.basePagePO.RESOURCES);
     await io.flowBuilder.click(selectors.basePagePO.RESOURCES);
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.basePagePO.IMPORTS);

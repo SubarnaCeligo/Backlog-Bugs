@@ -1,10 +1,11 @@
 import { filterTestCases } from "@celigo/aut-utilities";
 var testCases = [
-  "C65744",
+ // "C65744",//Commenting this as "google sign in" is not working.@sushantceligo is looking into this
   "C66306",
   "C66316",
   "C67008",
-  "C67037",
+ // "C67037",//Commenting this as "google sign in" is not working.@sushantceligo is looking into this
+  "C66306",
   "C67038",
   "C100968",
   "C57431",

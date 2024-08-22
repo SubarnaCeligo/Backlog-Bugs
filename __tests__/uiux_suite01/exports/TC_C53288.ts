@@ -36,7 +36,7 @@ test.describe("C53288 Verify 'Limit - export a set number of records' for all th
     await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
     await io.flowBuilder.fill(selectors.importPagePO.NAME, 'SFEXP');
     await io.homePage.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
-    await io.flowBuilder.clickByText("SALESFORCE CONNECTION");
+    await io.exportsPage.clickByTextByIndex('SALESFORCE CONNECTION', 0);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.exportsPagePO.SALESFORCE_API_TYPE_REST_RADIO);
     await io.flowBuilder.loadingTime();
@@ -59,7 +59,7 @@ test.describe("C53288 Verify 'Limit - export a set number of records' for all th
     await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
     await io.flowBuilder.fill(selectors.importPagePO.NAME, 'netsuite export');
     await io.homePage.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
-    await io.flowBuilder.clickByText("NETSUITE CONNECTION");
+    await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.exportsPagePO.NETSUITE_RECORD_TYPE);
     await io.flowBuilder.clickByText("-Solution Review Status");

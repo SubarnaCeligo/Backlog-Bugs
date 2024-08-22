@@ -13,7 +13,7 @@ test.describe("T28409_T28411 Verify XML parser for FTP,Gdrive,S3,dropbox when XM
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FTP);
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'FTP CONNECTION');
-        await io.flowBuilder.clickByText('FTP CONNECTION');
+        await io.exportsPage.clickByTextByIndex('FTP CONNECTION', 0);
         await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'FTP_Export');
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.flowBuilder.click(selectors.exportsPagePO.FILE_TYPE);
@@ -26,6 +26,10 @@ test.describe("T28409_T28411 Verify XML parser for FTP,Gdrive,S3,dropbox when XM
         await io.connectionPage.addStep("Clicking on preview");
         await expect(page.locator(selectors.exportsPagePO.ERROR_ACCORDION_SUMMARY)).toBeVisible();
     });
+     // Commenting below test as it is not valid now as per Epics 
+     // Epic 1: https://celigo.atlassian.net/browse/CON-8238 
+     // Epic 2: https://celigo.atlassian.net/browse/IO-79313
+     /*
     test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28474 @Env-All Verify XML parser for Gdrive when XML file is invalid", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();
@@ -34,7 +38,7 @@ test.describe("T28409_T28411 Verify XML parser for FTP,Gdrive,S3,dropbox when XM
         await io.flowBuilder.clickByText('Google Drive');
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'GOOGLEDRIVE CONNECTION');
-        await io.flowBuilder.clickByText('GOOGLEDRIVE CONNECTION');
+        await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);
         await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'GDRIVE_EXPORT');
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.flowBuilder.click(selectors.exportsPagePO.FILE_TYPE);
@@ -47,6 +51,7 @@ test.describe("T28409_T28411 Verify XML parser for FTP,Gdrive,S3,dropbox when XM
         await io.connectionPage.addStep("Clicking on preview");
         await expect(page.locator(selectors.exportsPagePO.ERROR_ACCORDION_SUMMARY)).toBeVisible();
     });
+    */
     test("@Epic-IO-47338 @Priority-P2 @Zephyr-IO-T28475 @Env-All Verify XML parser for S3 when XML file is invalid", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.homePage.loadingTime();
@@ -55,7 +60,7 @@ test.describe("T28409_T28411 Verify XML parser for FTP,Gdrive,S3,dropbox when XM
         await io.flowBuilder.click(selectors.connectionsPagePO.S3_CONNECTION);
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'S3 CONNECTION');
-        await io.flowBuilder.clickByText('S3 CONNECTION');
+        await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);
         await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'S3_Export');
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.flowBuilder.click(selectors.exportsPagePO.FILE_TYPE);
@@ -78,7 +83,7 @@ test.describe("T28409_T28411 Verify XML parser for FTP,Gdrive,S3,dropbox when XM
 
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'DROPBOX CONNECTION');
-        await io.flowBuilder.clickByText('DROPBOX CONNECTION');
+        await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);
         await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'Dropbox_Export')
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.flowBuilder.click(selectors.exportsPagePO.FILE_TYPE);

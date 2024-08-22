@@ -7,7 +7,7 @@ test.describe("@Author-Sudhanshukumar T27437 Verify the Knowledge bot icon is Vi
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.loadingTime();
     });
-    test("C27437 Verify the Knowledge bot icon is Visible on All Screens. @Epic-IO-69807 @Priority-P2 @Zephyr-IO-T27437 @Zephyr-IO-T27438 @Zephyr-IO-T27439 @Zephyr-IO-T27440 @Zephyr-IO-T27441 @Zephyr-IO-T27442 @Zephyr-IO-T27443 @Zephyr-IO-T27444 @Zephyr-IO-T27445 @Zephyr-IO-T27446 @Zephyr-IO-T27447 @Zephyr-IO-T27448 @Zephyr-IO-T27449 @Zephyr-IO-T27450 @Env-QA", async ({ io, page, context }) => {
+    test("C27437 Verify the Knowledge bot icon is Visible on All Screens. @Epic-IO-69807 @Priority-P2 @Zephyr-IO-T27437 @Zephyr-IO-T27438 @Zephyr-IO-T27439 @Zephyr-IO-T27440 @Zephyr-IO-T27441 @Zephyr-IO-T27442 @Zephyr-IO-T27443 @Zephyr-IO-T27444 @Zephyr-IO-T27445 @Zephyr-IO-T27446 @Zephyr-IO-T27447 @Zephyr-IO-T27448 @Zephyr-IO-T27449 @Zephyr-IO-T27450 @Env-All", async ({ io, page, context }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.exportsPage.loadingTime();
         await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.OPENAI.KNOWLEDGE_BOT_ICON, "Knowledge bot icon is not displayed");

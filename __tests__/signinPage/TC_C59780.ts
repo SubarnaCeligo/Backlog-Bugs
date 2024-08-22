@@ -4,7 +4,7 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe("C59780 Verify the revised error text when sign up with without agreeing t&c", () => {
   test("@Env-All @Zephyr-IO-T1382 C59780 Verify the revised error text when sign up with without agreeing t&c", async ({
     io,
-  }) => {
+  }) => { 
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime()
     await io.flowBuilder.click(selectors.basePagePO.ACCOUNT_BUTTON);

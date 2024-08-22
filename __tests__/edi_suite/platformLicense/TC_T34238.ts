@@ -14,7 +14,7 @@ test.describe("@Author-Shriti S Verify that platform users are able to view EDI 
     payload.type = "platform";
     await io.api.putCall(endPoint, payload);
   });
-  test("@Epic-IO-83533 @Env-QA @Priority-P2 @Zephyr-IO-T34238 Verify that platform users are able to view EDI activity dashboard.", async ({ io, page }) => {
+  test("@Epic-IO-83533 @Env-All @Priority-P2 @Zephyr-IO-T34238 Verify that platform users are able to view EDI activity dashboard.", async ({ io, page }) => {
 
     // //Go to Dashboard
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);

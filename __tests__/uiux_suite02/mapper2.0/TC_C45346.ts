@@ -14,7 +14,7 @@ test.describe("C45346 Verify the text displayed in the  Source field Drop down",
     await button[1].click();
 
     await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(5000);
     await io.flowBuilder.click(selectors.connectionsPagePO.DATA_PANEL);
     await page.keyboard.type('{"name":"test"}');
     await io.flowBuilder.loadingTime()
