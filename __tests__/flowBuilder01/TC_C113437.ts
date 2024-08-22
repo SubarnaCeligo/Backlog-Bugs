@@ -4,7 +4,7 @@ import C111781 from '../../testData/inputData/FlowBuilder/C111781.json';
 
 
 test.describe("Verify BETA label is not displayed for TEST MODE", () => {
-    test("Verify BETA label is not displayed for TEST MODE @Env-All @Priority-P2", async ({ io, page }) => {
+    test("Verify BETA label is not displayed for TEST MODE @Env-All @Priority-P2 @Zephyr-IO-T25327", async ({ io, page }) => {
         //Create a flow 
         await io.createResourceFromAPI(C111781, "FLOWS");
       
