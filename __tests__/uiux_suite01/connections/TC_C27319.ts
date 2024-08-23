@@ -33,8 +33,6 @@ test.describe("TC_C27319 Verify the logs are shown correctly when scripts and co
     await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU, 1);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.DEBUG_CONNECTION);
 
-    await page.pause();
-
     // Open Script debugger
     await io.flowBuilder.click(selectors.flowBuilderPagePO.SCRIPTS);
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ACTIONS_SELECTOR);
