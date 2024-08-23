@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C63022 Verify User is able use existing connection with different API Type while installing integration.`, () => {
-  test(`@Env-QA @Env-STAGING @Zephyr-IO-T21813 C63022 Verify User is able use existing connection with different API Type while installing integration.`, async ({
+  test(`@Env-All @Zephyr-IO-T21813 C63022 Verify User is able use existing connection with different API Type while installing integration.`, async ({
     page,
     io
   }) => {
