@@ -13,8 +13,8 @@ test.describe("T11974 FTP - Verify 'PGP public key' field is mandatory when priv
     await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'TC_T11974_Connection');
 
     await io.flowBuilder.addStep("*** Enabling PGP cryptographic ***"); 
-    await io.homePage.clickByText('Advanced');
-    await io.homePage.clickByText('Enable PGP cryptographic');
+    // await io.homePage.clickByText('Advanced');
+    (await io.homePage.findElementByDataTest("usePgp")).click();
     
     await io.flowBuilder.addStep("***  ***"); 
     await io.homePage.click(selectors.basePagePO.SAVE);

@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C63022 Verify User is able use existing connection with different API Type while installing integration.`, () => {
-  test(`@Env-QA @Env-STAGING @Zephyr-IO-T21813 C63022 Verify User is able use existing connection with different API Type while installing integration.`, async ({
+  test(`@Env-All @Zephyr-IO-T21813 C63022 Verify User is able use existing connection with different API Type while installing integration.`, async ({
     page,
     io
   }) => {
@@ -19,10 +19,14 @@ test.describe(`C63022 Verify User is able use existing connection with different
     await io.homePage.click(
       selectors.integrationPagePO.SETUP_INTEGRATION_CONFIGURE_BUTTON
     );
-    await io.flowBuilder.clickByText("Use existing connection");
-    await io.flowBuilder.click(selectors.basePagePO.CONNECTION);
-    await io.flowBuilder.clickByTextByIndex("Narvar RMA", 0);
+    await io.homePage.click(selectors.connectionsPagePO.EXISTING);
+    await io.homePage.click(selectors.exportsPagePO.CREATE_SELECT_CONNECTION);
+    let connMap = await io.api.loadConnections();
+    var connId = connMap.get("Narvar RMA");
+    await io.connectionPage.selectTextfromDropDown(page, connId)
+    await io.connectionPage.loadingTime();
     await io.homePage.click(selectors.basePagePO.SAVE);
+    await io.connectionPage.loadingTime();
     await io.assert.verifyElementDisplayedByText(
       "Configured",
       "Connection configuration error"
