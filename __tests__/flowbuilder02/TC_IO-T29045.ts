@@ -7,7 +7,7 @@ test.describe("T29045_Verify the text for testMode for all the stubs that contai
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.addStep("Navigated to home page");
     });
-    test("@Env-QA @Zephyr-IO-T29045 @Priority-P2 @BugID-IO-73222", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T29045 @Priority-P2 @BugID-IO-73222", async ({ io, page }) => {
         const id = await io.createResourceFromAPI(C20688, "FLOWS");
         await io.flowBuilder.addStep("Created one Flow from API to test the testMode field for the required function stub generated");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
