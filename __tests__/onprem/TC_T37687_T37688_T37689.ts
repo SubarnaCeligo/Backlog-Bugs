@@ -5,7 +5,7 @@ test.describe("T37687_T37688_T37689 Verify new UI for MsSQL, MySQL, PostgreSQL i
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Epic-IO-46210 @Env-QA @Priority-P2 @Zepehyr-IO-T37688 T37689_Verify new UI for PostgreSQL import with on-premise connection", async ({ io, page }) => {
+  test("@Epic-IO-46210 @Env-QA @Priority-P2 @Zephyr-IO-T37688 T37689_Verify new UI for PostgreSQL import with on-premise connection", async ({ io, page }) => {
     await io.homePage.loadingTime();
     await io.homePage.goToMenu("Tools", "Flow builder");
     await io.homePage.addStep("*** Click on add destination or lookup ***");
@@ -85,7 +85,7 @@ test.describe("T37687_T37688_T37689 Verify new UI for MsSQL, MySQL, PostgreSQL i
     expect(isNewUI).toBeTruthy();
     await io.homePage.addStep("*** Navigated back to home page ***");
   });
-  test("@Epic-IO-46210 @Env-QA @Priority-P2 @Zepehyr-IO-T37687 T37687_Verify new UI for MySQL import with on-premise connection", async ({ io, page }) => {
+  test("@Epic-IO-46210 @Env-QA @Priority-P2 @Zephyr-IO-T37687 T37687_Verify new UI for MySQL import with on-premise connection", async ({ io, page }) => {
     await io.homePage.loadingTime();
     await io.homePage.goToMenu("Tools", "Flow builder");
     await io.homePage.addStep("*** Click on add destination or lookup ***");
@@ -167,7 +167,7 @@ test.describe("T37687_T37688_T37689 Verify new UI for MsSQL, MySQL, PostgreSQL i
     expect(isNewUI).toBeTruthy();
     await io.homePage.addStep("*** Navigated back to home page ***");
   });
-  test("@Epic-IO-46210 @Env-QA @Priority-P2 @Zepehyr-IO-T37688 T37688_Verify new UI for MsSQL import with on-premise connection", async ({ io, page }) => {
+  test("@Epic-IO-46210 @Env-QA @Priority-P2 @Zephyr-IO-T37688 T37688_Verify new UI for MsSQL import with on-premise connection", async ({ io, page }) => {
     await io.homePage.loadingTime();
     await io.homePage.goToMenu("Tools", "Flow builder");
     await io.homePage.addStep("*** Click on add destination or lookup ***");
