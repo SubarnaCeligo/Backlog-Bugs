@@ -5,7 +5,7 @@ test.describe("T29359_Verify that the immutable checkbox is not displaying for S
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Zephyr-IO-T29359 @BugID-IO-74713 @Env-QA @Priority-P2 ", async ({ io, page }) => {
+    test("@Zephyr-IO-T29359 @BugID-IO-74713 @Env-All @Priority-P2 ", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.flowBuilder.addStep("Navigated to Automation Flows");
         await io.flowBuilder.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,'Immutable_Salesforce_DND');

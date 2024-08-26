@@ -5,7 +5,7 @@ test.describe("@Author_MaheshNivruttiSutar Verify label updated properly", () =>
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Epic-IO-75764 @Priority-P2 @Env-QA @Zephyr-IO-T31360 @Zephyr-IO-T31361", async ({ io, page }) => {
+    test("@Epic-IO-75764 @Priority-P2 @Env-All @Zephyr-IO-T31360 @Zephyr-IO-T31361", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.loadingTime()
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
