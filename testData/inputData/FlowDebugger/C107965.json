@@ -7,7 +7,7 @@
     {
       "qa__export": {
         "name": "test netsuite export",
-        "_connectionId": "NETSUITE 706 CONNECTION",
+        "_connectionId": "NETSUITE OFFLINE CONNECTION",
         "apiIdentifier": "e08412ca91",
         "asynchronous": true,
         "oneToMany": false,

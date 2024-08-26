@@ -67,6 +67,6 @@ test.describe("C119146 Verify the Error Panel in AFE windows", () => {
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.myAccountPage.waitForElementAttached(selectors.myAccountPagePO.PROFILE);
     await io.assert.verifyElementIsDisplayed(selectors.basePagePO.ENABLEAICHATBOT, "AI Chatbot is not displayed")
-    await io.assert.verifyElementDisplayedByText('AI chatbot', 'AI Chatbot Label is not displayed"');
+    await io.assert.verifyElementDisplayedByText('AI for Advanced field editors', 'AI Chatbot Label is not displayed"');
   });
 });

@@ -10,7 +10,7 @@ test.describe("@Author-ladimanish TC_T30781_T30771_T30776", () => {
     await io.sync.clickOnCreateSync();
 
     //T30781
-    await io.flowBuilder.click(selectors.syncPagePO.FIRST_INTEGRATION);
+    await io.flowBuilder.clickByIndex(selectors.syncPagePO.EXISTING_INTEGRATIONS,1);
     await io.assert.verifyElementIsDisplayed(
       selectors.syncPagePO.NEXT,
       "Next button is not displayed"
