@@ -1,11 +1,11 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("TC_T37426_Test to validate closing tag is added automatically when we select any block helper from dropdown and there is no space between cursor and text", () => {
+test.describe("TC_T37428_Test to validate closing tag is added automatically when we select any block helper from dropdown and there is no space between cursor and text", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Zephyr-IO-T37426 @Env-QA @Priority-P2", async ({ io, page }) => {
+    test("@Zephyr-IO-T37428 @Env-QA @Priority-P2", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.goToMenu("Tools", "Playground");
         await io.homePage.addStep("*** navigating to Tools >> Playground ***");
