@@ -14,7 +14,6 @@ test.describe("Verify help text for Description all data types in settings drawe
     await io.flowBuilder.loadingTime();
     await page.getByLabel("Settings", { exact: true }).nth(4).click();
     await io.flowBuilder.loadingTime();
-    //await page.pause();
     await io.flowBuilder.click(selectors.exportsPagePO.DESCRIPTION_HELP_TEXT);
 
     const secretText = (await io.flowBuilder.getText(
