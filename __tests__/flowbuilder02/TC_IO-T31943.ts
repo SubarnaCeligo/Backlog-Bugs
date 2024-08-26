@@ -8,7 +8,7 @@ test.describe("@Author_MaheshNivruttiSutar Verify setting should not wiped out I
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.addStep("Navigated to home page");
     });
-    test("@Bug-IO-77601 @Env-QA @Priority-P2 @Zephyr-IO-T31943", async ({ io, page }) => {
+    test("@Bug-IO-77601 @Env-All @Priority-P2 @Zephyr-IO-T31943", async ({ io, page }) => {
         const id = await io.createResourceFromAPI(TC, "FLOWS");
         await io.flowBuilder.loadingTime();
         //Click on Output filter

@@ -7,7 +7,7 @@ test.describe("@Author_MaheshNivruttiSutar Verify Save button gets disabled when
     test.afterEach(async ({ io, page }) => {
         await io.api.deleteFlowViaAPI(id);
     });
-    test("@BUG-IO-84235 @Priority-P2 @Env-QA @Zephyr-IO-T33600", async ({ io, page }) => {
+    test("@BUG-IO-84235 @Priority-P2 @Env-All @Zephyr-IO-T33600", async ({ io, page }) => {
         id = await io.createResourceFromAPI(TC, "FLOWS");
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
