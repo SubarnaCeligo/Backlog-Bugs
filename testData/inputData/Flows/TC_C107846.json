@@ -13,12 +13,16 @@
           "_connectionId": "NETSUITE CONNECTION",
           "asynchronous": true,
           "oneToMany": false,
+          "type": "test",
           "aiDescription": {
             "summary": null,
             "detailed": null,
             "generatedOn": null
           },
           "rawData": "64ff5a3670fd665c5211d1d2af2686d012214573a60044c7249d8c0f",
+          "test": {
+            "limit": 1
+        },
           "netsuite": {
             "type": "restlet",
             "skipGrouping": true,
@@ -109,4 +113,3 @@
       }
     }
   }
-  

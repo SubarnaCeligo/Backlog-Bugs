@@ -6,9 +6,8 @@ test.describe("C94968_C94970_C94960_C94972_C94976_C94971_C94975_C94969_C94962_C9
     test("@Env-All @Zephyr-IO-T14140 @Zephyr-IO-T14137 @Zephyr-IO-T14144 @Zephyr-IO-T14147 @Zephyr-IO-T14143 @Zephyr-IO-T14146 @Zephyr-IO-T14141 @Zephyr-IO-T14138 @Zephyr-IO-T14148 @Zephyr-IO-T14145 C94968_C94970_C94960_C94972_C94976_C94971_C94975_C94969_C94962_C94977_C94974", async ({ io, page }) => {
         await io.createResourceFromAPI(C94560, "FLOWS");
         //Disable the flow
-        await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_ON_OFF);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
-        // await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
         await page.locator(selectors.flowBuilderPagePO.RUNTEST_BUTTON).first().click()
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);

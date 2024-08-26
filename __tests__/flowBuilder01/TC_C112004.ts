@@ -4,7 +4,7 @@ import C112004 from '../../testData/inputData/FlowBuilder/C112004.json';
 
 
 test.describe("Verify that a flow cannot be disabled from Integration page while it is still running", () => {
-    test("Verify that a flow cannot be disabled from Integration page while it is still running @Env-All @Priority-P2", async ({ io, page }) => {
+    test("Verify that a flow cannot be disabled from Integration page while it is still running @Env-All @Priority-P2 @Zephyr-IO-T14111", async ({ io, page }) => {
         //Create a flow 
         await io.createResourceFromAPI(C112004, "FLOWS");
 
