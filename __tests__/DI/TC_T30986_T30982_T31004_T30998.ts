@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("@Author-ladimanish TC_T30986_T30982_T31004_T30998", () => {
-  test("@Env-PLATFORMTHREE @Epic-IO-68754 @Priority-P1 @Zephyr-IO-T30986 @Zephyr-IO-T30982 @Zephyr-IO-T31004 @Zephyr-IO-T30998 TC_T30986_T30982_T31004_T30998", async ({
+  test("@Env-PLATFORMTHREE @Env-QA  @Epic-IO-68754 @Priority-P1 @Zephyr-IO-T30986 @Zephyr-IO-T30982 @Zephyr-IO-T31004 @Zephyr-IO-T30998 TC_T30986_T30982_T31004_T30998", async ({
     io,
     page
   }) => {
