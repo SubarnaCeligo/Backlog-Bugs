@@ -1,15 +1,15 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import flow from "@testData/onprem/old_onprem_flow.json";
+import T37696 from "@testData/onprem/T37696.json";
 
-test.describe("clone", () => {
+test.describe("T37696_Verify cloning of flow with old import form agent connection", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("clone", async ({ io, page }) => {
-    flow.name = `${flow.name}-${Math.random().toString(36).slice(2, 7)}`;
+  test("@Epic-IO-46210 @Env-QA @Priority-P2 @Zepehyr-IO-T37696 T37696_Verify cloning of flow with old import form agent connection", async ({ io, page }) => {
+    T37696.name = `${T37696.name}-${Math.random().toString(36).slice(2, 7)}`;
     await io.flowBuilder.addStep("*** Create a new flow ***");
-    const flowid = await io.createResourceFromAPI(flow, "FLOWS");
+    const flowid = await io.createResourceFromAPI(T37696, "FLOWS");
     await io.flowBuilder.loadingTime();
 
     await io.flowBuilder.addStep("*** Clone the flow ***");
@@ -64,7 +64,7 @@ test.describe("clone", () => {
     }
 
     await io.flowBuilder.addStep("*** Open the cloned flow ***");
-    await io.flowBuilder.clickByText(`Clone - ${flow.name}`);
+    await io.flowBuilder.clickByText(`Clone - ${T37696.name}`);
     await io.flowBuilder.loadingTime();
 
     await io.flowBuilder.addStep("*** Open PostgreSQL import ***");

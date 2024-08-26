@@ -1,5 +1,5 @@
 {
-  "name": "MYSSQL IMPORT OLD FROM AUTOMATION",
+  "name": "MYSSQL T37690",
   "_connectionId": "MYSQL ONPREM CONNECTION",
   "ignoreExisting": false,
   "ignoreMissing": false,

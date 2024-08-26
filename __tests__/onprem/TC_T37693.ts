@@ -1,11 +1,11 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("new_ui_cloud", () => {
+test.describe("T37693_Verify system behavior when attempting to create a new postgresql, mysql, mssql import without selecting on-premise connection", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("postgresql", async ({ io, page }) => {
+  test("@Epic-IO-46210 @Env-QA @Priority-P2 @Zepehyr-IO-T37693 T37693_Verify system behavior when attempting to create a new postgresql import without selecting on-premise connection", async ({ io, page }) => {
     await io.homePage.loadingTime();
     await io.homePage.goToMenu("Tools", "Flow builder");
     await io.homePage.addStep("*** Click on add destination or lookup ***");
@@ -85,7 +85,7 @@ test.describe("new_ui_cloud", () => {
     expect(isNewUI).toBeTruthy();
     await io.homePage.addStep("*** Navigated back to home page ***");
   });
-  test("mysql", async ({ io, page }) => {
+  test("@Epic-IO-46210 @Env-QA @Priority-P2 @Zepehyr-IO-T37693 T37693_Verify system behavior when attempting to create a new mysql import without selecting on-premise connection", async ({ io, page }) => {
     await io.homePage.loadingTime();
     await io.homePage.goToMenu("Tools", "Flow builder");
     await io.homePage.addStep("*** Click on add destination or lookup ***");
@@ -167,7 +167,7 @@ test.describe("new_ui_cloud", () => {
     expect(isNewUI).toBeTruthy();
     await io.homePage.addStep("*** Navigated back to home page ***");
   });
-  test("mssql", async ({ io, page }) => {
+  test("@Epic-IO-46210 @Env-QA @Priority-P2 @Zepehyr-IO-T37693 T37693_Verify system behavior when attempting to create a new mesql import without selecting on-premise connection", async ({ io, page }) => {
     await io.homePage.loadingTime();
     await io.homePage.goToMenu("Tools", "Flow builder");
     await io.homePage.addStep("*** Click on add destination or lookup ***");

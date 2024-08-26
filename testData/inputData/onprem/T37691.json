@@ -1,6 +1,6 @@
 {
-    "name": "POSTGRESQL IMPORT OLD FROM AUTOMATION",
-    "_connectionId": "POSTGRESQL ONPREM CONNECTION",
+    "name": "MSSQL T37691",
+    "_connectionId": "MSSQL ONPREM CONNECTION",
     "ignoreExisting": false,
     "ignoreMissing": false,
     "oneToMany": false,
