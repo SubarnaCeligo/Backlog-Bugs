@@ -51,6 +51,7 @@ const askFeatureQuestion = () => {
             choices: [
                 "connections",
                 "e2e_flows",
+                "edi_suite",
                 "integrationApps",
                 "licenseExpired",
                 "uiux_suite01",
