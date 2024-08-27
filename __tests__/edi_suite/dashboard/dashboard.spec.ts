@@ -4,7 +4,7 @@ var testCases = [
 "T29007",
 "T29003",
 "T29006",
-"T29009",
+// "T29009", -- Moved to filter folder due to UI changes 
 "T29010",
 "T29011",
 // "T29012",
@@ -20,11 +20,13 @@ var testCases = [
 "T29016_T29026",
 "T29002_T29883",
 "T29030",
-"T29008",
+// "T29008",  -- Moved to filter folder due to UI changes 
 "T29014_T29017",
 "T32632",
 "T12559",
 "T12354",
+"T37331",
+"T37334"
 ];
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
 (async () => {

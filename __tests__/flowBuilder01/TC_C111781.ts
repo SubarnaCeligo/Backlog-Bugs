@@ -4,7 +4,7 @@ import C111781 from '../../testData/inputData/FlowBuilder/C111781.json';
 
 
 test.describe("Verify that a disabled flow cannot be deleted from Flow Builder page when test run is in progress", () => {
-    test("Verify that a disabled flow cannot be deleted from Flow Builder page when test run is in progress @Env-All @Priority-P2", async ({ io, page }) => {
+    test("Verify that a disabled flow cannot be deleted from Flow Builder page when test run is in progress @Env-All @Priority-P2 @Zephyr-IO-T10104", async ({ io, page }) => {
         //Create a flow 
         await io.createResourceFromAPI(C111781, "FLOWS");
 

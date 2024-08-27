@@ -1,0 +1,33 @@
+{
+    "type": "ftp",
+    "name": "TC_IO-T37310 FTP CONNECTION",
+    "offline": false,
+    "enableMicroBatchForOneToMany": false,
+    "ftp": {
+        "type": "sftp",
+        "hostURI": "celigo.files.com",
+        "username": "io.auto.qa@celigo.com",
+        "password": "******",
+        "port": 22,
+        "usePassiveMode": true,
+        "userDirectoryIsRoot": false,
+        "useImplicitFtps": false,
+        "requireSocketReUse": false,
+        "concurrencyLevel": 1,
+        "targetConcurrencyLevel": 1
+    },
+    "autoRecoverRateLimitErrors": true,
+    "microServices": {
+        "disableRdbms": false,
+        "disableNetSuiteDistributed": false,
+        "disableHttp": false,
+        "disableSalesforce": false,
+        "disableAs2": false,
+        "disableNetSuiteWebservices": false,
+        "disableS3": false,
+        "disableFile": false,
+        "disableFtp": false,
+        "disableNsFile": false,
+        "disableNetSuiteProxy": false
+    }
+}

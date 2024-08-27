@@ -7,7 +7,7 @@ test.describe("TC_T24277_T24278_T24283 - Verify the connection chosen matches th
         //make sure the account has at least one shoify export
         // await io.createResourceFromAPI(exportJson, 'EXPORT');
     });
-    test("@Epic-IO-54539 @Priority-P2 TC_T24277_T24278_T24283 @Env-All - Verify the connection chosen matches the exact same connection as the existing flow step, then display an additional 2 radio field right after the Connection.", async ({ io, page }) => {
+    test("@Epic-IO-54539 @Priority-P2 @Zephyr-IO-TC_T24277 @Zephyr-IO-T24278 @Zephyr-IO-T24283 @Env-All - Verify the connection chosen matches the exact same connection as the existing flow step, then display an additional 2 radio field right after the Connection.", async ({ io, page }) => {
         //Navigate to flow builder page
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.flowBuilder.loadingTime();

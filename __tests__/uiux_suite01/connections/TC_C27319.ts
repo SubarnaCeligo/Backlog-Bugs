@@ -13,14 +13,17 @@ test.describe("TC_C27319 Verify the logs are shown correctly when scripts and co
     await io.connectionPage.click(selectors.homePagePO.PRODUCTION_BUTTON)
     // Search for a flow
     await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
-    await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Branching_Scheduling_DND');
-    await io.flowBuilder.clickByText('Branching_Scheduling_DND');
+    await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'C27319_Integration_DND');
+    await io.connectionPage.loadingTime();
+    await io.flowBuilder.clickByIndex(selectors.homePagePO.INTEGRATION_NAME, 0);
     
     // Wait for search to complete
     await io.integrationPage.waitForElementAttached(selectors.flowBuilderPagePO.ACTIONS_SELECTOR);
- 
+    await io.connectionPage.loadingTime();
+
     // Open the flow
-    await io.flowBuilder.clickByText('C27319');
+    await io.flowBuilder.clickByText('Branching_Scheduling_Flow_DND');
+    // await io.integrationPage.getByRoleClick('link','Branching_Scheduling_DND' );
 
     // Open connections tab
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.CONNECTIONS_TAB);

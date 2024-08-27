@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("@Author_MaheshNivruttiSutar Verify application is not crashing if we clicks on open API spec for celigo webhook when no data is present", () => {
-  test("@Bug-IO-84535 @Priority-P2 @Zephyr-IO-T33598 @Env-QA", async ({ io, page }) => {
+  test("@Bug-IO-84535 @Priority-P2 @Zephyr-IO-T33598 @Env-All", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
