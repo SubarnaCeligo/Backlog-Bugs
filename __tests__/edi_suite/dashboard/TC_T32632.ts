@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S Verify that faStatus for inprogress is shown in 
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-All @Epic-IO-31713 @Priority-P2 @Zephyr-IO-T32632 Verify that faStatus for inprogress is shown in readable format.", async ({ io, page }) => {
+  test("@Env-QA @Epic-IO-31713 @Priority-P2 @Zephyr-IO-T32632 Verify that faStatus for inprogress is shown in readable format.", async ({ io, page }) => {
 
     //Go to Dashboard
     await io.myAccountPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "dashboard");
@@ -26,8 +26,7 @@ test.describe("@Author-Shriti S Verify that faStatus for inprogress is shown in 
     await io.homePage.loadingTime();
 
     //Get all available FA filter values
-    await io.homePage.waitForElementAttached(selectors.dashboardPagePO.FA_FILTER_BUTTON);
-    await io.homePage.clickByIndex(selectors.dashboardPagePO.FA_FILTER_BUTTON, 0);
+    await io.homePage.clickByTextByIndex("FA status", 0);
     await io.homePage.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
 
     let index = 5;
