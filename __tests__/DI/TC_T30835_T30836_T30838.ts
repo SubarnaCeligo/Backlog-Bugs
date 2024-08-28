@@ -10,6 +10,27 @@ test.describe("@Author-ladimanish TC_T30835_T30836_T30838", () => {
     const integrationName = await io.sync.generateRandomName("Integration");
     await io.sync.createNewIntegration(integrationName);
 
+    //T30836
+    await io.sync.chooseSourceApplication("Salesforce");
+    await page.keyboard.press("Tab");
+    await io.flowBuilder.loadingTime();
+    await io.assert.verifyElementIsDisplayed(
+      selectors.syncPagePO.SOURCE_CONNECTION_PLACEHOLDER,
+      "placeholder is not displayed"
+    );
+    await io.assert.verifyElementIsDisplayed(
+      selectors.syncPagePO.CREATE_CONNECTION_PLACEHOLDER,
+      "placeholder is not displayed"
+    );
+
+    //T30838
+    await io.flowBuilder.click(selectors.syncPagePO.SOURCE_CONNECTION_INPUT);
+    await io.flowBuilder.loadingTime();
+    await io.assert.verifyElementDisplayedByText(
+      "SALESFORCE CONNECTION",
+      "Existing connections are not displayed"
+    );
+
     //T30835
     await io.flowBuilder.clickByIndex(
       selectors.flowBuilderPagePO.HELP_TEXT_ICON,1
@@ -31,27 +52,6 @@ test.describe("@Author-ladimanish TC_T30835_T30836_T30838", () => {
     );
     await io.flowBuilder.click(
       selectors.connectionsPagePO.HELPTEXT_CLOSE
-    );
-
-    //T30836
-    await io.sync.chooseSourceApplication("Salesforce");
-    await page.keyboard.press("Tab");
-    await io.flowBuilder.loadingTime();
-    await io.assert.verifyElementIsDisplayed(
-      selectors.syncPagePO.SOURCE_CONNECTION_PLACEHOLDER,
-      "placeholder is not displayed"
-    );
-    await io.assert.verifyElementIsDisplayed(
-      selectors.syncPagePO.CREATE_CONNECTION_PLACEHOLDER,
-      "placeholder is not displayed"
-    );
-
-    //T30838
-    await io.flowBuilder.click(selectors.syncPagePO.SOURCE_CONNECTION_INPUT);
-    await io.flowBuilder.loadingTime();
-    await io.assert.verifyElementDisplayedByText(
-      "SALESFORCE CONNECTION",
-      "Existing connections are not displayed"
     );
   });
 });
