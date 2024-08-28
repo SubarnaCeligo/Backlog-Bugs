@@ -4,7 +4,9 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe("C21062 Verify updating invalid email value in the url when opened 'manage notification' on user tab in an integration", () => {
   test("@Env-All @Zephyr-IO-T286 C21062 Verify updating invalid email value in the url when opened 'manage notification' on user tab in an integration", async ({io, page}) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+    await io.homePage.loadingTime();
     await io.homePage.click(selectors.myAccountPagePO.USERS);
+    await io.homePage.loadingTime();
     await io.homePage.waitForElementAttached(selectors.integrationPagePO.NOTIFICATIONS_TAB);
     await io.homePage.clickByIndex(selectors.integrationPagePO.NOTIFICATIONS_TAB, 0);
     const notificationURL = page.url();
