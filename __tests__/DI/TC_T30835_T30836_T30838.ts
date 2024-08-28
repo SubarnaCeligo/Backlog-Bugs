@@ -43,6 +43,9 @@ test.describe("@Author-ladimanish TC_T30835_T30836_T30838", () => {
       selectors.connectionsPagePO.HELPTEXT_CLOSE
     );
 
+    await io.sync.selectExistingConnection("SALESFORCE CONNECTION");
+    await io.flowBuilder.loadingTime();
+
     // T30918 objects help text
     await io.flowBuilder.clickByIndex(
       selectors.flowBuilderPagePO.HELP_TEXT_ICON,2
