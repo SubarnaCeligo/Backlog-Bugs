@@ -17,6 +17,7 @@ test.describe("@Author-SaiPhanindra TC_27162", () => {
      await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.TRANSFER,1);
      await io.flowBuilder.clickByText("JSON");
      await io.flowBuilder.clickByText("EDI X12");
+     await io.flowBuilder.waitForElementAttached(selectors.homePagePO.EDI_PROFILE);
      await io.flowBuilder.click(selectors.homePagePO.EDI_PROFILE);
     await page.getByRole('menuitem', { name: 'AA_EDI_CONTROL_NUMBERS_DND' }).click();
     //Select Parsing def
