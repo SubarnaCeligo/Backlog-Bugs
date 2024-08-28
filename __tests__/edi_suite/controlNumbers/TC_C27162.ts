@@ -19,15 +19,26 @@ test.describe("@Author-SaiPhanindra TC_27162", () => {
      await io.flowBuilder.clickByText("EDI X12");
      await io.flowBuilder.click(selectors.homePagePO.EDI_PROFILE);
     await page.getByRole('menuitem', { name: 'AA_EDI_CONTROL_NUMBERS_DND' }).click();
-    await io.flowBuilder.click(selectors.homePagePO.EDI_FORMAT);
-    await io.homePage.loadingTime();
-    await io.flowBuilder.clickByText("Generic-004020-810-Purchase order");
-    await io.homePage.loadingTime();
+    //Select Parsing def
+    await io.exportsPage.loadingTime();
+    await io.exportsPage.click(selectors.homePagePO.EDI_FORMAT);
+    await io.exportsPage.loadingTime();
+    await io.exportsPage.waitForElementAttached(selectors.exportsPagePO.PARSING_DEF_DROPDOWN);
+    await io.exportsPage.clickByIndex(selectors.exportsPagePO.PARSING_DEF_DROPDOWN, 2);
+
+     // Parser helper
+    await io.exportsPage.clickByIndex(selectors.exportsPagePO.PARSER_HELPER, 1);
+    await io.exportsPage.click(selectors.exportsPagePO.CLOSE_PARSER_HELPER);
+
+    await io.exportsPage.waitForElementAttached(selectors.basePagePO.FTP_DIRECTORY_PATH);
+    await io.exportsPage.fill(selectors.basePagePO.FTP_DIRECTORY_PATH, '/test');
+
+    //Save
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
     await io.homePage.loadingTime();
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
-    await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
-    await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
+    // await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
+    // await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
     await test.step("*** Enable and run the Flow *** ", async () => {
       await io.flowBuilder.saveandRunFlow(testInfo.title);
       await io.api.validateJobCountFromAPI(testInfo.title, 
