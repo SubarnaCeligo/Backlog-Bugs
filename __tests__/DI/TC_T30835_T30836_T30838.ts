@@ -42,6 +42,7 @@ test.describe("@Author-ladimanish TC_T30835_T30836_T30838", () => {
     await io.flowBuilder.click(
       selectors.connectionsPagePO.HELPTEXT_CLOSE
     );
+
     // T30918 objects help text
     await io.flowBuilder.clickByIndex(
       selectors.flowBuilderPagePO.HELP_TEXT_ICON,2
