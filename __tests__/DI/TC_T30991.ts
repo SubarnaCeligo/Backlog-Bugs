@@ -1,8 +1,8 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("@Author-ladimanish TC_T30987_T30983_T30999_T30984", () => {
-  test("@Env-PLATFORMTHREE @Env-QA  @Epic-IO-68754 @Priority-P1 @Zephyr-IO-T30987 @Zephyr-IO-T30983 @Zephyr-IO-T30999 Zephyr-IO-T30984 TC_T30987_T30983_T30999_T30984", async ({
+test.describe("@Author-ladimanish TC_T30991", () => {
+  test("@Env-PLATFORMTHREE @Env-QA  @Epic-IO-68754 @Priority-P1 @Zephyr-IO-T30991 TC_T30991", async ({
     io,
     page
   }) => {
@@ -20,37 +20,18 @@ test.describe("@Author-ladimanish TC_T30987_T30983_T30999_T30984", () => {
     await io.sync.clickOnNext();
     const syncName = await io.sync.generateRandomName("Sync");
     await io.sync.enterSyncName(syncName);
+    await io.sync.selectFrequency("Once weekly");
 
-    //T30987
+    //T30991
     await io.flowBuilder.clickByIndex(
-      selectors.flowBuilderPagePO.HELP_TEXT_ICON,4
+      selectors.flowBuilderPagePO.HELP_TEXT_ICON,5
     );
     await io.assert.verifyElementContainsText(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW,
-      "This field dictates how often your integration sync is run. Please log a support ticket if there is a specific preset frequency that you would like to see added to this list."
+      "Set the first time that you want your sync to run each day."
     );
     await io.flowBuilder.click(
       selectors.connectionsPagePO.HELPTEXT_CLOSE
-    );
-
-    //T30983
-    await io.assert.verifyElementDisplayedByText(
-      "Please select",
-      "Default option is not displayed"
-    );
-
-    //T30999
-    await io.sync.selectFrequency("Once weekly");
-    await io.flowBuilder.loadingTime();
-
-    //T30984
-    await io.assert.verifyElementIsDisplayed(
-      selectors.syncPagePO.START_TIME,
-      "Start time not displayed"
-    );
-    await io.assert.verifyElementIsDisplayed(
-      selectors.syncPagePO.SYNC_DAY,
-      "Sync day not displayed"
     );
   });
 });
