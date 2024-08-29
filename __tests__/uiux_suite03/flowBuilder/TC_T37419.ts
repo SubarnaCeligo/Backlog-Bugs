@@ -25,6 +25,8 @@ test.describe("TC_T37419_TC_T37421_Test to validate text after the cursor is ret
         await page.keyboard.type("{{na");
         await io.homePage.addStep("*** Filtering out the name feild ***");
         await page.keyboard.press('Control+Space');
+        await page.keyboard.press('Control+Space');
+        await page.keyboard.press('Control+Space');
         await page.keyboard.press('Tab');
         await io.homePage.addStep("*** Selecting a feild***");
         await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.HANDLEBAR_CONTENT, '"ad{{name}}dResult": {{add id age}}');
