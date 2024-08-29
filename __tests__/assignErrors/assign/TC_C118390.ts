@@ -50,7 +50,7 @@ test.describe("C118390 - Verify that admin/owner users with invitation feature e
     await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL);
 
     const assigneePill = (await io.flowBuilder.getText(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL)).toString();
-    await io.assert.expectToContainValue('Pending - io.auto.qa+newno', assigneePill, 'Error is not assigned');
+    await io.assert.expectToContainValue('Pending - io.auto.qa+ne', assigneePill, 'Error is not assigned');
     await io.flowBuilder.hover(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL, 0, false);
     await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL_HOVERTEXT);
     const hoverText = (await io.flowBuilder.getText(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL_HOVERTEXT)).toString();

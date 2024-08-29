@@ -12,7 +12,7 @@ test.describe("@Author-Shriti S Verify the search results and app counts message
 
     //Wait for page to load
     await io.marketplacePage.waitForElementAttached(selectors.marketplacePagePO.SEARCH_MARKETPLACE);
-    await io.marketplacePage.fill(selectors.marketplacePagePO.SEARCH_MARKETPLACE, "mail");
+    await io.marketplacePage.fill(selectors.marketplacePagePO.SEARCH_MARKETPLACE, "http");
     await io.marketplacePage.loadingTime();
 
     //Get search results message
@@ -20,8 +20,8 @@ test.describe("@Author-Shriti S Verify the search results and app counts message
 
     //Validate the message
     await io.assert.expectToContainValue('integration app(s) and template(s)', message, '');
-    await io.assert.expectNotToContainValue("Search results for 'mail'", message, '');
+    await io.assert.expectNotToContainValue("Search results for 'http'", message, '');
     
-    
+
   });
 });

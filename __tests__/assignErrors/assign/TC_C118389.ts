@@ -47,12 +47,11 @@ test.describe("C118389 - Verify that admin/owner users with invitation feature e
 
     await io.flowBuilder.clickByTextByIndex('CustomUser NoAccess', 0);
     //Valiadte the message
-    await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGN_MESSAGE);
-    let message = (await io.flowBuilder.getText(selectors.em2DotOLineGraphPO.ASSIGN_MESSAGE)).toString();
-    message = message.replace("\n", " ");
-    await io.assert.expectToBeValue(
-      "The user you selected does not have access to this integration. Assigning will grant them monitor access.",
-      message,
+    await io.flowBuilder.loadingTime();
+    let isMessageVisible = (await io.flowBuilder.isVisible("text='The user you selected does not have access to this integration. Assigning will grant them monitor access.'"));
+    // message = message.replace("\n", " ");
+    await io.assert.expectToBeTrue(
+      isMessageVisible,
       'Warning message not displayed'
     );
     await io.flowBuilder.clickByText("Assign");

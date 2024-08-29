@@ -69,20 +69,18 @@ test.describe("C118294 - Verify the elements of 'Assign error' flyout", () => {
 
     //Help text for assign error.
     await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.ASSIGN_HELPTEXT, 0);
-    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.PAGE_INFO_TEXT);
-    const helpText1 = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.PAGE_INFO_TEXT)).toString();
-    await io.assert.expectToContainValue(
-      'Only users with access to the integration are shown in the assignee list. Assignees will be notified via email.',
+    await io.flowBuilder.loadingTime();
+    const helpText1 = await io.flowBuilder.isVisible("text='Only users with access to the integration are shown in the assignee list. Assignees will be notified via email.'");
+    await io.assert.expectToBeTrue(
       helpText1,
       'Helptext not displayed'
     );
     
     //Help text for assign error.
     await io.flowBuilder.clickButtonByIndex(selectors.em2DotOLineGraphPO.ASSIGN_HELPTEXT, 1);
-    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.PAGE_INFO_TEXT);
-    const helpText2 = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.PAGE_INFO_TEXT)).toString();
-    await io.assert.expectToContainValue(
-      'Assigning to new users (non-IO, different account or users of this account without integration access) will invite and grant monitor access.',
+    await io.flowBuilder.loadingTime();
+    const helpText2 = await io.flowBuilder.isVisible("text='Assigning to new users (non-IO, different account or users of this account without integration access) will invite and grant monitor access.'");
+    await io.assert.expectToBeTrue(
       helpText2,
       'Helptext not displayed'
     );
