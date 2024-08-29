@@ -46,8 +46,8 @@ test.describe("@Author-Shriti S Verify all the elements of EDI Dashboard", () =>
     await io.homePage.clickByText("Cancel");
 
     // 3. A dropdown for pagination should be displayed.
-    let paginationText = (await io.homePage.getText(selectors.dashboardPagePO.PAGINATION_TEXT)).toString();
-    await io.assert.expectToContainValue('Results per page:', paginationText, 'Pagination text is not visible');
+    let paginationTextVisible = await io.homePage.isVisible("text='Results per page:'");
+    await io.assert.expectToBeTrue(paginationTextVisible, 'Pagination text is not visible');
 
     //Click chevron
     await io.homePage.clickByIndex(selectors.dashboardPagePO.PAGINATION_CHEVRON, 1);
