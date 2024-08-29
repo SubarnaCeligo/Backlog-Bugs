@@ -26,8 +26,9 @@ test.describe("@Author-Shriti S Verify that clicking on the 'Rejected' FA status
     await io.homePage.clickByText('Last 180 days');
     await io.homePage.clickByText('Apply');
     await io.homePage.loadingTime();
-    await io.homePage.waitForElementAttached(selectors.dashboardPagePO.FA_FILTER_BUTTON);
-    await io.homePage.clickByIndex(selectors.dashboardPagePO.FA_FILTER_BUTTON, 0);
+
+    //Apply filter
+    await io.homePage.clickByTextByIndex("FA status", 0);
     await io.homePage.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
     let filters = (await io.homePage.getText(selectors.dashboardPagePO.FA_FILTER_VALUES)).toString();
     let filtersArray: string[] = filters.split(',');
