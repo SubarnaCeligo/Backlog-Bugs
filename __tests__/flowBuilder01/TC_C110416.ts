@@ -24,7 +24,7 @@ test.describe("C110416_110410_110424_110425)", () => {
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.PAGE_INFO_TEXT);
         const dialogContents = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.PAGE_INFO_TEXT)).toString();
         const jsonStringfy = JSON.stringify(dialogContents);
-        await io.assert.expectToContainValue("\"To view a removed step's errors drawer, restore it using the following actions:\\n\\n    Create a new step that uses the same connector and connection as the removed step.\\n    Click Use existing.\\n    Select the removed step from the list and add it to your flow.\\n\"", jsonStringfy, "Info message are in correct");
+        await io.assert.expectToContainValue( "\"To view a removed step's errors drawer, restore it using the following actions:Create a new step that uses the same connector and connection as the removed step.Click Use existing.Select the removed step from the list and add it to your flow.\"", jsonStringfy, "Info message are in correct");
         await io.homePage.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
 
         //2. Removed step should show in gray colour
@@ -44,7 +44,7 @@ test.describe("C110416_110410_110424_110425)", () => {
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.PAGE_INFO_TEXT);
         const dialogContents1 = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.PAGE_INFO_TEXT)).toString();
         const jsonStringfy1 = JSON.stringify(dialogContents1);
-        await io.assert.expectToContainValue("\"To view a removed step's errors drawer, restore it using the following actions:\\n\\n    Create a new step that uses the same connector and connection as the removed step.\\n    Click Use existing.\\n    Select the removed step from the list and add it to your flow.\\n\"", jsonStringfy1, "Info message are in correct");
+        await io.assert.expectToContainValue( "\"To view a removed step's errors drawer, restore it using the following actions:Create a new step that uses the same connector and connection as the removed step.Click Use existing.Select the removed step from the list and add it to your flow.\"", jsonStringfy1, "Info message are in correct");
         await io.homePage.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
 
         //2. Removed step should show in gray colour
@@ -76,7 +76,7 @@ test.describe("C110416_110410_110424_110425)", () => {
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.PAGE_INFO_TEXT);
         const dialogContents2 = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.PAGE_INFO_TEXT)).toString();
         const jsonStringfy2 = JSON.stringify(dialogContents2);
-        await io.assert.expectToContainValue("\"To view a removed step's errors drawer, restore it using the following actions:\\n\\n    Create a new step that uses the same connector and connection as the removed step.\\n    Click Use existing.\\n    Select the removed step from the list and add it to your flow.\\n\"", jsonStringfy2, "Info message are in correct");
+        await io.assert.expectToContainValue("\"To view a removed step's errors drawer, restore it using the following actions:Create a new step that uses the same connector and connection as the removed step.Click Use existing.Select the removed step from the list and add it to your flow.\"", jsonStringfy2, "Info message are in correct");
 
         await io.homePage.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
 
@@ -110,7 +110,7 @@ test.describe("C110416_110410_110424_110425)", () => {
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.PAGE_INFO_TEXT);
         const dialogContents3 = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.PAGE_INFO_TEXT)).toString();
         const jsonStringfy3 = JSON.stringify(dialogContents3);
-        await io.assert.expectToContainValue("\"To view a removed step's errors drawer, restore it using the following actions:\\n\\n    Create a new step that uses the same connector and connection as the removed step.\\n    Click Use existing.\\n    Select the removed step from the list and add it to your flow.\\n\"", jsonStringfy3, "Info message are in correct");
+        await io.assert.expectToContainValue("\"To view a removed step's errors drawer, restore it using the following actions:Create a new step that uses the same connector and connection as the removed step.Click Use existing.Select the removed step from the list and add it to your flow.\"", jsonStringfy3, "Info message are in correct");
         
         await io.homePage.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
 
