@@ -32,8 +32,8 @@ test.describe("@Author-Shriti S Verify EDI dashboard when there is no EDI activi
      await io.homePage.clickByText("Apply");
      await io.homePage.loadingTime();
 
-     let message = (await io.homePage.getText(selectors.dashboardPagePO.NO_ACTIVITY_MESSAGE)).toString();
-     await io.assert.expectToContainValue('No EDI activity to report.', message, 'Message was not shown.')
+     let message = await io.homePage.isVisible("text='No EDI activity to report.'");
+     await io.assert.expectToBeTrue(message, 'Message was not shown.')
 
     
   });
