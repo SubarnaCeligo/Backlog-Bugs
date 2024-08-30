@@ -38,6 +38,7 @@ test.describe("C1058 Verify integrator.io reset password link sent to given emai
   })
 
   test("@Env-All @Zephyr-IO-T1032 C1058 Verify integrator.io reset password link sent to given email'", async ({ io, page }) => {
+    await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.click(selectors.basePagePO.SIGN_OUT);
@@ -45,6 +46,6 @@ test.describe("C1058 Verify integrator.io reset password link sent to given emai
     await io.signInPage.fill(selectors.loginPagePO.EMAIL_ID, process.env["IO_UserName"]);
     await io.signInPage.click(selectors.basePagePO.SUBMIT);
     await io.signInPage.waitForElementAttached(':has-text("Check your email for a link to reset your password.")')
-    await io.assert.verifyElementDisplayedByText('Forgot your password?', 'Check your email for a link to reset your password.');
+    await io.assert.verifyElementDisplayedByText('Forgot password?', 'Check your email for a link to reset your password.');
   });
 });
