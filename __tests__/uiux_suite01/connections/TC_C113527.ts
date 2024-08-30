@@ -20,7 +20,8 @@ test.describe(`C113527 Verify user is able to create connection using Password c
     await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.BASE_URI_INPUT);
     await io.connectionPage.fill(selectors.connectionsPagePO.NAME_INPUT, "Fulfillment");
 
-    await io.connectionPage.clickByText("Token");
+    // await io.connectionPage.clickByText("Token");
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.AUTHORIZATIONTYPE);
     await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.OAUTH);
     await io.connectionPage.clickByText("OAuth 2.0");
 
