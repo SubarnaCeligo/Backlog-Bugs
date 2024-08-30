@@ -7,7 +7,7 @@ test.describe("Verify the UI timeout for preview calls in exports and imports", 
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowViaAPI(id);
   });
-  test("@Zephyr-IO-T37784 @Env-QA @Epic-IO-88804 @Priority-P2 - Verify the UI timeout for preview calls in exports and imports", async ({ io, page }) => {
+  test("@Zephyr-IO-T37793 @Zephyr-IO-T37794 @Zephyr-IO-T37795 @Zephyr-IO-T37796 @Zephyr-IO-T37797 @Zephyr-IO-T37798 @Zephyr-IO-T37799 @Env-QA @Epic-IO-88804 @Priority-P2 - Verify the UI timeout for preview calls in exports and imports", async ({ io, page }) => {
     id = await io.createResourceFromAPI(testData, "FLOWS");
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT_BUBBLE);
     
