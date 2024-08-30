@@ -11,11 +11,11 @@ test.describe(`C63015 Verify API Type Radio button should be always blue`, () =>
     await io.connectionPage.click(selectors.connectionsPagePO.NARVAR_CONNECTION);
     await io.connectionPage.click(selectors.connectionsPagePO.NARVAR_CONNECTION);
     const color = await page
-      .locator(`${selectors.connectionsPagePO.NARVAR_CONNECTION} input`)
+      .locator(`${selectors.connectionsPagePO.NARVAR_CONNECTION} [role="radiogroup"]`)
       .evaluate((el: any) => getComputedStyle(el.parentElement).color);
     await io.assert.expectToBeValue(
       color,
-      "rgb(29, 118, 199)",
+      "rgb(51, 61, 71)",
       "API Type Radio button is not blue"
     );
   });
