@@ -11,7 +11,7 @@
     "type": "test",
     "oneToMany": false,
     "http": {
-        "relativeURI": "/test",
+        "relativeURI": "/users",
         "method": "GET",
         "formType": "http"
     },

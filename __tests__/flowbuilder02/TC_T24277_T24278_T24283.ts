@@ -50,38 +50,38 @@ test.describe("TC_T24277_T24278_T24283 - Verify the connection chosen matches th
 
         //Verify if radio buttons are diplayed
         await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.CLONE_FLOW_STEP, "Clone flow step radio button is not displayed");
-        let cloneFlowStep = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.CLONE_FLOW_STEP_LABEL)).toString();
-        await io.assert.expectToBeValue("Clone flow step", cloneFlowStep, "Clone flow step is not displayed");
+        let cloneFlowStep = await io.flowBuilder.isVisible("text='Clone flow step'");
+        await io.assert.expectToBeTrue( cloneFlowStep, "Clone flow step is not displayed");
 
         //Make sure Clone flow step is selected by default
-        await io.assert.verifyElementAttributeContainsText(selectors.flowBuilderPagePO.CLONE_FLOW_STEP_RADIO, "class", "Mui-checked");
+        await io.assert.verifyElementAttributeContainsText(selectors.flowBuilderPagePO.CLONE_FLOW_STEP, "data-state", "checked");
 
         await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.USE_SAME_FLOW_STEP, "Use same flow step radio button is not displayed");
-        let useSameFlowStep = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.USE_SAME_FLOW_STEP_LABEL)).toString();
-        await io.assert.expectToBeValue("Use same flow step", useSameFlowStep, "Use same flow step is not displayed");
+        let useSameFlowStep = await io.flowBuilder.isVisible("text='Use same flow step'");
+        await io.assert.expectToBeTrue(useSameFlowStep, "Use same flow step is not displayed");
 
         await io.flowBuilder.addStep("T24278-Verify Help text for 'How would you like to use the existing flow step? *'");
         //validate help text
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLONE_RESOURCE_HELPTEXT_BUTTON);
 
         await io.flowBuilder.waitForElementAttached(selectors.myAccountPagePO.HELP_BUBBLE);
-        let heading = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.PAGE_INFO_HEADER_TEXT)).toString();
-        await io.assert.expectToBeValue("Celigo AI,How would you like to use the existing flow step?", heading, "Heading is not displayed");
+        let headingDisplayed = await io.flowBuilder.isVisible("text='How would you like to use the existing flow step?'");
+        await io.assert.expectToBeTrue(headingDisplayed, "Heading is not displayed");
 
-        let content = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.PAGE_INFO_TEXT)).toString();
-        await io.assert.expectToContainValue("Clone flow step: This option creates a copy of the original flow step that can be modified to suit the purposes of this flow without affecting the original.Use same flow step: This option reuses the existing flow step. Modifications to the flow step will apply to other instances of the flow step if used in other flows.Was this helpful?Field path: cloneResourceRadioGroup,Was this helpful?,Field path: cloneResourceRadioGroup", content, "Message is not displayed");
+        let content = (await io.flowBuilder.getText(selectors.myAccountPagePO.HELP_BUBBLE)).toString();
+        await io.assert.expectToContainValue("Clone flow step: This option creates a copy of the original flow step that can be modified to suit the purposes of this flow without affecting the original.Use same flow step: This option reuses the existing flow step. Modifications to the flow step will apply to other instances of the flow step if used in other flows.", content, "Message is not displayed");
 
         //Validate checking and unchecking
         await io.flowBuilder.addStep("T24283-Verify user is able to check and uncheck radio buttons 'Clone flow step'/'Use same flow step' on Create Export/import form");
         //  Select Use same flow
-        await io.flowBuilder.click(selectors.flowBuilderPagePO.USE_SAME_FLOW_STEP_RESOURCE);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.USE_SAME_FLOW_STEP);
         //Make sure Use same flow step is selected
-        await io.assert.verifyElementAttributeContainsText(selectors.flowBuilderPagePO.USE_SAME_FLOW_STEP_RADIO, "class", "Mui-checked");
+        await io.assert.verifyElementAttributeContainsText(selectors.flowBuilderPagePO.USE_SAME_FLOW_STEP, "data-state", "checked");
 
         //  Select Clone same flow
-        await io.flowBuilder.click(selectors.flowBuilderPagePO.CLONE_FLOW_STEP_RESOURCE);
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.CLONE_FLOW_STEP);
         //Make sure Use same flow step is selected
-        await io.assert.verifyElementAttributeContainsText(selectors.flowBuilderPagePO.CLONE_FLOW_STEP_RADIO, "class", "Mui-checked");
+        await io.assert.verifyElementAttributeContainsText(selectors.flowBuilderPagePO.CLONE_FLOW_STEP, "data-state", "checked");
 
     });
 });
