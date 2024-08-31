@@ -7,8 +7,8 @@ test.describe('@Author-ashu-g TC_C52880 Sign In with Google & Signup are shown i
   }) => {
     await io.myAccountPage.navigateTo(`${process.env.IOURL}?application=shopify`);
     await io.homePage.loadingTime();
-    await io.assert.verifyElementDisplayedByText("Switch to EU domain", "Switch to EU domain link is not present");
-   
+    await io.assert.verifyElementDisplayedByText("EU account sign in", "Switch to EU domain link is not present");
+
     // click on switch to EU domain
     await io.homePage.click(selectors.loginPagePO.EU_SIGN_IN);
     await io.homePage.loadingTime();

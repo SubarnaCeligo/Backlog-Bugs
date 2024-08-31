@@ -8,12 +8,13 @@ test.describe(`@Bug-IO-19259  @Priority-P2  @Zephyr-T6954 @Env-All Verify the co
     page,
     io
   }) => {
-    await io.api.processAshareData(testData);
+    const ree = await io.api.processAshareData(testData);
     await io.flowBuilder.loadingTime();
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
-    await io.flowBuilder.loadingTime();
+    await page.getByText("Loading...").waitFor({ state: "hidden", timeout: 360000 });
     await io.exportsPage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW);
     await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
+    await page.locator(`//*[contains(@class,'MuiTypography-root') and contains(text(),'Loading')]`).first().waitFor({ state: "hidden", timeout: 600000 });
     await io.exportsPage.waitForElementAttached(selectors.basePagePO.ADD_SOURCE_BUTTON);
     await io.homePage.click(selectors.basePagePO.ADD_SOURCE_BUTTON);
     await io.flowBuilder.loadingTime();
