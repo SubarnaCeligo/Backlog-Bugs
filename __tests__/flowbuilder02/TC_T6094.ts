@@ -54,15 +54,16 @@ test.describe("IO-T6094 To verify create/edit flow group pages and its fields ar
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.FLOWGROUP_NAME);
     await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.FLOWGROUP_NAME, 'Flow group 1');
     await io.flowBuilder.loadingTime();
+    await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.SAVEANDCLOSE);
     await io.flowBuilder.clickByTextByIndex('Flow group 1', 0);
     await io.flowBuilder.loadingTime();
 
     await io.flowBuilder.addStep("Editing the flow group");
-    // await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU, 0);
-    // await io.flowBuilder.click(selectors.flowGroupingPagePO.EDIT_FG);
-    // await io.flowBuilder.clickByTextByIndex("Delete flow group", 0);
-    // await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.FLOWGROUP_DELETE);
-    // await io.flowBuilder.loadingTime();
-    // await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU);
+    await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU, 0);
+    await io.flowBuilder.click(selectors.flowGroupingPagePO.EDIT_FG);
+    await io.flowBuilder.clickByTextByIndex("Delete flow group", 0);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.FLOWGROUP_DELETE);
+    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU);
   });
 });
