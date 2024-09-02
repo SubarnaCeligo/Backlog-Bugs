@@ -14,15 +14,10 @@ test.describe(`C63006 Verify connection dropdown list`, () => {
     await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN)
     await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);
-    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_NAME_DROPDOWN);
+    await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN_LIST);
     const connectionText = (await io.flowBuilder.getText(
-      selectors.connectionsPagePO.CONNECTION_NAME_DROPDOWN
+      selectors.connectionsPagePO.CONNECTIONS_DROPDOWN_LIST
     )).toString();
-    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.API_VERSION_NAME_DROPDOWN);
-    const apiVersion = (await io.flowBuilder.getText(
-      selectors.connectionsPagePO.API_VERSION_NAME_DROPDOWN
-    )).toString();
-    await page.getByText("API version").first().waitFor({ state: "visible" });
     await io.assert.expectToContainValue(
       "Loop Returns",
       connectionText,
@@ -30,7 +25,7 @@ test.describe(`C63006 Verify connection dropdown list`, () => {
     );
     await io.assert.expectToContainValue(
       "API version",
-      apiVersion,
+      connectionText,
       "API version not found"
     );
     expect(connectionText).not.toContain("API type");

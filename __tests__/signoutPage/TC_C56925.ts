@@ -42,8 +42,8 @@ test.describe("C56925 Verify the /request-reset?application=concur page is displ
     await io.homePage.click(selectors.basePagePO.SIGN_OUT);
     await io.signInPage.click(selectors.loginPagePO.FORGOT_PASSWORD);
     await io.assert.verifyElementDisplayedByText(
-      "Forgot your password?",
-      "'Forgot your password?' text is not displayed"
+      "Forgot password?",
+      "Forgot password?' text is not displayed"
     );
     await io.assert.verifyElementIsDisplayed(
       selectors.loginPagePO.EMAIL_ID,
