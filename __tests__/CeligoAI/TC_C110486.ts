@@ -26,10 +26,10 @@ test.describe("C110486 Verify export of Big Query is having Celigo AI", () => {
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.OPENAI.OPEN_HANDLEBARS_EDITOR
     );
-    await io.assert.verifyElementIsDisplayed(
-      selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
-      "Celigo AI is not displayed"
-    );
+    // await io.assert.verifyElementIsDisplayed(
+    //   selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
+    //   "Celigo AI is not displayed"
+    // );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,

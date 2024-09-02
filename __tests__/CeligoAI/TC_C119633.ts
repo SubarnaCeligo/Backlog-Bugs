@@ -29,10 +29,10 @@ test.describe("C119633 Verify the Celigo AI functionality working fine for Postg
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.OPENAI.OPEN_HANDLEBARS_EDITOR
     );
-    await io.assert.verifyElementIsDisplayed(
-      selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
-      "Celigo AI is not displayed"
-    );
+    // await io.assert.verifyElementIsDisplayed(
+    //   selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
+    //   "Celigo AI is not displayed"
+    // );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,

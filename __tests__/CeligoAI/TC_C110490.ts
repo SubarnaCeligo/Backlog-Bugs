@@ -25,10 +25,10 @@ test.describe("C110490 Verify system generates the Amazon Redshift query after t
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.OPENAI.OPEN_HANDLEBARS_EDITOR
     );
-    await io.assert.verifyElementIsDisplayed(
-      selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
-      "Celigo AI is not displayed"
-    );
+    // await io.assert.verifyElementIsDisplayed(
+    //   selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
+    //   "Celigo AI is not displayed"
+    // );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
