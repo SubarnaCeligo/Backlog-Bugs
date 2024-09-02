@@ -1,0 +1,200 @@
+{
+    "qa_integrationSetting": {
+    "_id": "62905de2c51f323382314cce",
+    "name": "Edition",
+    "install": [],
+    "mode": "settings",
+    "sandbox": false,
+    "_registeredConnectionIds": [
+        "626bd636987bb423914b47c7"
+    ],
+    "installSteps": [
+        {
+            "name": "Configure ActiveCampaign Connection",
+            "description": "Configure your ActiveCampaign connection. This is common and is set up on parent",
+            "imageUrl": "/images/company-logos/netsuite.png",
+            "completed": false,
+            "type": "connection",
+            "sourceConnection": {
+                "type": "http",
+                "assistant": "activecampaign",
+                "name": "AC Test Case connection",
+                "_id": "628e152f6109d0725359d83f"
+            }
+        },
+            {
+            "name": "Create resources based on edition",
+            "description": "Description goes has",
+            "completed": false,
+            "type": "edition"
+    }
+    ,{
+        "init":{
+    "function": "removeStep2",
+    "_scriptId": "629dfc60170d31316db48d8a"
+        }
+    }],
+    "uninstallSteps": [{
+        "name": "Create resources based on edition2",
+        "description": "Description goes has",
+        "completed": false,
+        "type": "edition",
+        "url": "/marketplace?redirectusingURLfield"
+    },{
+        "init":{
+    "function": "removeStep2",
+    "_scriptId": "629dfc60170d31316db48d8a"
+        }
+    }],
+    "flowGroupings": []
+},
+"integrationSetting": {
+    "_id": "631ad2f213d12134f4772d77",
+    "name": "Edition",
+    "install": [],
+    "mode": "settings",
+    "sandbox": false,
+    "_registeredConnectionIds": [
+        "626fdc6d7490300e92ffd613"
+    ],
+    "installSteps": [
+        {
+            "name": "Configure ActiveCampaign Connection",
+            "description": "Configure your ActiveCampaign connection. This is common and is set up on parent",
+            "imageUrl": "/images/company-logos/netsuite.png",
+            "completed": false,
+            "type": "connection",
+            "sourceConnection": {
+                "type": "http",
+                "assistant": "activecampaign",
+                "name": "AC Test Case connection",
+                "_id": "626fdc6d7490300e92ffd613"
+            }
+        },
+            {
+                "name": "Create resources based on edition",
+                "description": "Description goes has",
+                "completed": false,
+                "type": "edition"
+        }
+        ,{
+            "init": {
+                "_scriptId": "626137e61ce14c420e01c86b",
+                "function": "removeStep2"
+            }
+            }],
+    "uninstallSteps": [{
+        "name": "Create resources based on edition2",
+        "description": "Description goes has",
+        "completed": false,
+        "type": "edition",
+        "url": "/marketplace?redirectusingURLfield"
+    },{
+    "init": {
+        "_scriptId": "626137e61ce14c420e01c86b",
+        "function": "removeStep2"
+    }
+    }],
+    "flowGroupings": []
+},
+"qa_importJson": {
+    "environment": "Production",
+    "name": "TC_IAF_027_C33461",
+    "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+    "_integrationId": "62905de2c51f323382314cce",
+    "applications": ["activecampaign"],
+    "framework": "twoDotZero",
+    "twoDotZero": {
+      "_integrationId": "62905de2c51f323382314cce"
+    }
+  },
+  "importJson": {
+    "environment": "Production",
+    "name": "TC_IAF_027_C33461",
+    "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+    "_integrationId": "631ad2f213d12134f4772d77",
+    "applications": ["activecampaign"],
+    "framework": "twoDotZero",
+    "twoDotZero": {
+      "_integrationId": "631ad2f213d12134f4772d77"
+    }
+  },
+  "setupConnection": {
+    "integrationName":"Edition",
+    "activecampaignSubdomain": "jnsajkcbajbfewfbkbjk",
+    "token": "jfbewjkfbefnevbelve",
+    "uninstall":"false"
+  },
+  "createLicense": {
+    "name": "TC_IAF_027_C33461",
+    "edition": "Edition_1"
+  },
+  "integrationName":"Edition",
+  "app": "ActiveCampaign",
+  "editionSetting": {
+    "_id":"6332f489bb74b66e32a85f45",
+    "environment": "Production",
+    "name": "TC_IAF_027_C33461",
+    "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+    "published": false,
+    "_integrationId": "631ad2f213d12134f4772d77",
+    "applications": ["activecampaign"],
+    "framework": "twoDotZero",
+    "twoDotZero": {
+        "_integrationId": "631ad2f213d12134f4772d77",
+        "editions": [{
+            "displayName":"Edition_1",
+            "order":0,
+            "resources": {
+                "_flowIds": ["629dcf277fa8000d6fd3f517"],
+                "_importIds": [],
+                "_exportIds": [],
+                "_connectionIds": [],
+                "_asyncHelperIds": [],
+                "_fileDefinitionIds": []
+            },
+            "childResources": {
+                "_flowIds": [],
+                "_importIds": [],
+                "_exportIds": [],
+                "_connectionIds": [],
+                "_asyncHelperIds": [],
+                "_fileDefinitionIds": []
+            }
+        }]
+    }
+},
+"qa_editionSetting": {
+    "_id":"6332f466005d2159432cdafc",
+    "environment": "Production",
+    "name": "TC_IAF_027_C33461",
+    "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+    "published": false,
+    "_integrationId": "62905de2c51f323382314cce",
+    "applications": ["activecampaign"],
+    "framework": "twoDotZero",
+    "twoDotZero": {
+        "_integrationId": "62905de2c51f323382314cce",
+        "editions": [{
+            "displayName":"Edition_1",
+            "order":0,
+            "resources": {
+                "_flowIds": ["629dcf277fa8000d6fd3f517"],
+                "_importIds": [],
+                "_exportIds": [],
+                "_connectionIds": [],
+                "_asyncHelperIds": [],
+                "_fileDefinitionIds": []
+            },
+            "childResources": {
+                "_flowIds": [],
+                "_importIds": [],
+                "_exportIds": [],
+                "_connectionIds": [],
+                "_asyncHelperIds": [],
+                "_fileDefinitionIds": []
+            }
+        }]
+    }
+}
+}

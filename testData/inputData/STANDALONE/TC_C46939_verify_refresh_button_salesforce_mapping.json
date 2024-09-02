@@ -1,0 +1,70 @@
+{
+    "name": "TC_C46939_verify_refresh_button_salesforce_mapping",
+    "referencename": "TC_C46939_verify_refresh_button_salesforce_mapping",
+    "qa__dataVerification": {},
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "SFRT",
+              "_connectionId": "SALESFORCE CONNECTION",
+              "asynchronous": true,
+              "type": "distributed",
+              "parsers": [],
+              "distributed": {
+                "bearerToken": "******"
+              },
+              "salesforce": {
+                "sObjectType": "Account"
+              },
+              "adaptorType": "SalesforceExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "_connectionId": "SALESFORCE CONNECTION",
+              "apiidentifier":"i8d5c2b498",
+              "adaptorType": "SalesforceImport",
+              "oneToMany": false,
+              "sandbox": false,
+              "ignoreExisting": false,
+              "ignoreMissing": false,
+              "name": "SF import",
+              "salesforce": {
+                "operation": "insert",
+                "sObjectType": "Account",
+                "api": "rest",
+                "removeNonSubmittableFields": false
+              }
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C46939_verify_refresh_button_salesforce_mapping",
+          "disabled": false,
+          "_integrationId": "6228aed6bc8a2732cfe8044c",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

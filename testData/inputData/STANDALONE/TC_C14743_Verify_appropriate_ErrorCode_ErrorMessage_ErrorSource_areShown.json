@@ -1,0 +1,59 @@
+{
+    "name": "TC_C14743_Verify_appropriate_ErrorCode_ErrorMessage_ErrorSource_areShown",
+    "expect":
+        {
+            "name":"TestCase"
+        },
+    "qa__api_tdata": [
+      {
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+                "name": "HTTP Import",
+                "application": "freshdesk",
+                "parsers": [],
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "qa__connectionId": "627b6bd17ca3007138a67d30",
+                "apiIdentifier": "ifaf2c156c",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "lookups": [],
+                "http": {
+                    "relativeURI": [
+                        "/users"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C14743_Verify_appropriate_ErrorCode_ErrorMessage_ErrorSource_areShown",
+          "disabled": false,
+          "_integrationId": "631a1266abf51e7a86c80ab4",
+          "qa__integrationId": "6228aed6bc8a2732cfe8044c",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

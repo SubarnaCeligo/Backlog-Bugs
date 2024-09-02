@@ -1,0 +1,43 @@
+{
+    "name": "TC_44989",
+    "qa__api_tdata": [
+      {
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+                "name": "test123",
+                "_connectionId": "NETSUITE CONNECTION",
+                "distributed": true,
+                "netsuite_da": {
+                    "useSS2Restlets": false,
+                    "operation": "update",
+                    "recordType": "taxgroup",
+                    "internalIdLookup": {
+                        "expression": "[\"internalid\",\"is\",\"1047\"]"
+                    }
+
+                },
+                "adaptorType": "NetSuiteDistributedImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_44989",
+          "disabled": false,
+          "_integrationId": "6228aed6bc8a2732cfe8044c",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

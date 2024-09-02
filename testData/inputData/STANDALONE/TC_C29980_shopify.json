@@ -1,0 +1,67 @@
+{
+    "name": "TC_29961",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "6228aed6bc8a2732cfe8044c",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "sh_export",
+                "_connectionId": "HTTP SHOPIFY CONNECTION",
+                "apiIdentifier": "e29b3d669d",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "parsers": [
+                    {
+                        "type": "xml",
+                        "version": "1",
+                        "rules": {
+                            "V0_json": true,
+                            "stripNewLineChars": false,
+                            "trimSpaces": false
+                        }
+                    }
+                ],
+                "http": {
+                    "relativeURI": "/customers.json",
+                    "method": "GET",
+                    "formType": "http",
+                    "paging": {
+                        "method": "linkheader"
+                    }
+                },
+                "rawData": "61e68956b587067a214ac5eddc83fd3190a64df5a7b1e2b52106b846",
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "shopify_lookup",
+                "_connectionId": "HTTP SHOPIFY CONNECTION",
+                "apiIdentifier": "ed259658ba",
+                "asynchronous": true,
+                "isLookup": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "/customers.json",
+                    "method": "GET",
+                    "formType": "http",
+                    "paging": {
+                        "method": "linkheader"
+                    }
+                },
+                "adaptorType": "HTTPExport"
+            },
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            }
+        }
+    ]
+}

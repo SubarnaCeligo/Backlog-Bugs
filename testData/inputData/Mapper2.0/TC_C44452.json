@@ -1,0 +1,115 @@
+{
+    "name": "TC_C44452",
+    "disabled": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "timezone": "Asia/Calcutta",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "FTP_Export",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                    "fileNameStartsWith": "TC_C47446_Mapper2_BigCommerce.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport",
+                "qa__path": "//SFTP_uploads//TC_C47446_Mapper2_BigCommerce.json"
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "successCount": "2",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "Import",
+                "application": "BigCommerce",
+                "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "extract": "Auto_1 {{record.name}}",
+                        "generate": "name",
+                        "dataType": "string"
+                    },
+                    {
+                        "generate": "meta_description",
+                        "dataType": "string",
+                        "hardCodedValue": "Automation_Testing"
+                    },
+                    {
+                        "extract": "$.custom_url",
+                        "generate": "custom_url",
+                        "dataType": "object",
+                        "conditional": {
+                            "when": "extract_not_empty"
+                        },
+                        "description": "Copying source as is"
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "/v3/catalog/brands"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "expected": {
+            "bigcommerce": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "TC_C44452",
+                "import": {
+                    "_connectionId": "HTTP BIGCOMMERCE CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "standaloneexportflowID": "62e6b80551208d4e704980c6",
+                    "uniqueField": "name",
+                    "importRecordType": "brands",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e90fdcc809",
+                    "expectedJSON": {
+                        "name": "Auto_1 5% Discount",
+                        "meta_description": "Automation_Testing",
+                        "custom_url": {
+                            "url": "/shoes/abc",
+                            "is_customized": false
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

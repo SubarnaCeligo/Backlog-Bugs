@@ -1,0 +1,226 @@
+{
+
+    "qa_integrationSetting":{
+        "_id": "62b338bb0c9c930d1bc9f165",
+        "name": "Custom Fields Group",
+        "install": [],
+        "sandbox": false,
+        "_registeredConnectionIds": [],
+        "installSteps": [],
+        "uninstallSteps": [],
+        "flowGroupings": [
+          {
+            "name": "FG",
+            "_id": "62b54a747ea7c37485d35194"
+          }
+        ]
+      },
+      "qa_changeScript":{
+        "integrationName": "Custom Fields Group",
+        "prevScript": "None",
+        "scriptName": "INIT SETTINGS",
+        "function": "formInit",
+        "scriptInput":[{
+            "resource": {
+              "name": "FG1",
+              "_id": "628c7ab22dba3e2945e6664e",
+              "settingsForm": {
+                "form": {
+                  "fieldMap": {
+                    "kvSetting1ForIntegration": {
+                      "label": "Key Value Integration Setting",
+                      "id": "kvSetting1ForIntegration",
+                      "name": "kvSetting1ForIntegration",
+                      "type": "keyvalue",
+                      "helpText": "lorem ipsum",
+                      "keyName": "key",
+                      "valueName": "value"
+                    },
+                    "txtSetting2ForIntegration": {
+                      "label": "Text Integration Setting",
+                      "id": "txtSetting2ForIntegration",
+                      "name": "txtSetting2ForIntegration",
+                      "type": "text",
+                      "helpText": "Text box setting"
+                    }
+                  },
+                  "layout": {
+                    "fields": [
+                      "kvSetting1ForIntegration",
+                      "txtSetting2ForIntegration"
+                    ]
+                  }
+                }
+              }
+            },
+            "parentResource": {
+              "_id": "6297358f64bb3b57f4a7ce18",
+              "lastModified": "2022-06-22T23:30:13.948Z",
+              "name": "Init Setting",
+              "install": [],
+              "sandbox": false,
+              "_registeredConnectionIds": [
+                "626bd636987bb423914b47c7"
+              ],
+              "installSteps": [],
+              "uninstallSteps": [],
+              "flowGroupings": [
+                {
+                  "name": "FG1",
+                  "_id": "628c7ab22dba3e2945e6664e",
+                  "settingsForm": {
+                    "form": {
+                      "fieldMap": {
+                        "kvSetting1ForIntegration": {
+                          "label": "Key Value Integration Setting",
+                          "id": "kvSetting1ForIntegration",
+                          "name": "kvSetting1ForIntegration",
+                          "type": "keyvalue",
+                          "helpText": "lorem ipsum",
+                          "keyName": "key",
+                          "valueName": "value"
+                        },
+                        "txtSetting2ForIntegration": {
+                          "label": "Text Integration Setting",
+                          "id": "txtSetting2ForIntegration",
+                          "name": "txtSetting2ForIntegration",
+                          "type": "text",
+                          "helpText": "Text box setting"
+                        }
+                      },
+                      "layout": {
+                        "fields": [
+                          "kvSetting1ForIntegration",
+                          "txtSetting2ForIntegration"
+                        ]
+                      }
+                    },
+                    "init": {
+                      "_scriptId": "628b3deefcc6f75686664a48",
+                      "function": "formInit"
+                    }
+                  }
+                }
+              ],
+              "createdAt": "2022-06-01T09:46:55.173Z"
+            },
+            "grandParentResource": {},
+            "license": {},
+            "parentLicense": {},
+            "sandbox": false
+          }]
+      },
+      "integrationSetting":{
+        "_id": "631ab29d13d12134f4771a44",
+        "name": "Custom Fields Group",
+        "install": [],
+        "sandbox": false,
+        "_registeredConnectionIds": [],
+        "installSteps": [],
+        "uninstallSteps": [],
+        "flowGroupings": [
+          {
+            "name": "FG",
+            "_id": "631ab2a813d12134f4771a47"
+          }
+        ]
+      },
+      "changeScript":{
+        "integrationName": "Custom Fields Group",
+        "prevScript": "None",
+        "scriptName": "initChild",
+        "function": "formInit",
+        "scriptInput":[{
+            "resource": {
+              "name": "FG1",
+              "_id": "631ab3d83796483e5615b606",
+              "settingsForm": {
+                "form": {
+                  "fieldMap": {
+                    "kvSetting1ForIntegration": {
+                      "label": "Key Value Integration Setting",
+                      "id": "kvSetting1ForIntegration",
+                      "name": "kvSetting1ForIntegration",
+                      "type": "keyvalue",
+                      "helpText": "lorem ipsum",
+                      "keyName": "key",
+                      "valueName": "value"
+                    },
+                    "txtSetting2ForIntegration": {
+                      "label": "Text Integration Setting",
+                      "id": "txtSetting2ForIntegration",
+                      "name": "txtSetting2ForIntegration",
+                      "type": "text",
+                      "helpText": "Text box setting"
+                    }
+                  },
+                  "layout": {
+                    "fields": [
+                      "kvSetting1ForIntegration",
+                      "txtSetting2ForIntegration"
+                    ]
+                  }
+                }
+              }
+            },
+            "parentResource": {
+              "_id": "631ab43f13d12134f4771ab9",
+              "lastModified": "2022-06-22T23:30:13.948Z",
+              "name": "Init Setting",
+              "install": [],
+              "sandbox": false,
+              "_registeredConnectionIds": [
+                "626fdc6d7490300e92ffd613"
+              ],
+              "installSteps": [],
+              "uninstallSteps": [],
+              "flowGroupings": [
+                {
+                  "name": "FG1",
+                  "_id": "631ab3d83796483e5615b606",
+                  "settingsForm": {
+                    "form": {
+                      "fieldMap": {
+                        "kvSetting1ForIntegration": {
+                          "label": "Key Value Integration Setting",
+                          "id": "kvSetting1ForIntegration",
+                          "name": "kvSetting1ForIntegration",
+                          "type": "keyvalue",
+                          "helpText": "lorem ipsum",
+                          "keyName": "key",
+                          "valueName": "value"
+                        },
+                        "txtSetting2ForIntegration": {
+                          "label": "Text Integration Setting",
+                          "id": "txtSetting2ForIntegration",
+                          "name": "txtSetting2ForIntegration",
+                          "type": "text",
+                          "helpText": "Text box setting"
+                        }
+                      },
+                      "layout": {
+                        "fields": [
+                          "kvSetting1ForIntegration",
+                          "txtSetting2ForIntegration"
+                        ]
+                      }
+                    },
+                    "init": {
+                      "_scriptId": "626137e61ce14c420e01c86b",
+                      "function": "formInit"
+                    }
+                  }
+                }
+              ],
+              "createdAt": "2022-06-01T09:46:55.173Z"
+            },
+            "grandParentResource": {},
+            "license": {},
+            "parentLicense": {},
+            "sandbox": false
+          }]
+      },
+      "integrationName": "Custom Fields Group",
+      "environment": "Production",
+      "app": "ActiveCampaign"
+}

@@ -1,0 +1,153 @@
+{
+    "referencename": "TC_C2575",
+    "name": "TC_C2575",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Get Act-On contact by email",
+                        "description": "Get a contact from Act-On by email.",
+                        "qa__connectionId": "62a1a7ed480f7c492d26127f",
+                        "_connectionId": "632027fe51852e73fb077a10",
+                        "_sourceId": "61ea5b8e5f84151de27689a0",
+                        "apiIdentifier": "ec3e68fa3e",
+                        "asynchronous": true,
+                        "assistant": "acton",
+                        "oneToMany": true,
+                        "pathToMany": "EmailList",
+                        "_templateId": "5d107e943e598773f21cc7c0",
+                        "assistantMetadata": {
+                            "resource": "contact",
+                            "operation": "get_contactfromlistbasedonemail"
+                        },
+                        "parsers": [],
+                        "http": {
+                            "relativeURI": "/api/1/list/lookup/{{{_PARENT.id}}}?email={{{Email}}}",
+                            "method": "GET",
+                            "headers": [],
+                            "successMediaType": "json",
+                            "errorMediaType": "json",
+                            "formType": "assistant",
+                            "response": {
+                                "successValues": []
+                            }
+                        },
+                        "file": {
+                            "groupByFields": []
+                        },
+                        "rest": {
+                            "relativeURI": "/api/1/list/lookup/{{_PARENT.id}}?email={{Email}}",
+                            "method": "GET",
+                            "headers": [],
+                            "successValues": []
+                        },
+                        "transform": {
+                            "type": "expression",
+                            "expression": {
+                                "version": "1"
+                            },
+                            "version": "1"
+                        },
+                        "filter": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [],
+                                "version": "1"
+                            },
+                            "version": "1",
+                            "rules": []
+                        },
+                        "adaptorType": "RESTExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "act-on pp lookup",
+                        "_connectionId": "631a18e44ceac669f82fb7bc",
+                        "qa__connectionId": "62f2b141d0402833c6fec36f",
+                        "asynchronous": true,
+                        "isLookup": true,
+                        "assistant": "acton",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "assistantMetadata": {
+                            "resource": "contact",
+                            "version": "1",
+                            "operation": "get_subscriptioncategories."
+                        },
+                        "http": {
+                            "relativeURI": "/api/1/subscription/category",
+                            "method": "GET",
+                            "successMediaType": "json",
+                            "errorMediaType": "json",
+                            "formType": "assistant"
+                        },
+                        "rest": {
+                            "relativeURI": "/api/1/subscription/category",
+                            "method": "GET",
+                            "allowUndefinedResource": false
+                        },
+                        "inputFilter": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [
+                                    "equals",
+                                    [
+                                        "string",
+                                        [
+                                            "extract",
+                                            "id"
+                                        ]
+                                    ],
+                                    "25959"
+                                ],
+                                "version": "1"
+                            },
+                            "version": "1",
+                            "rules": [
+                                "equals",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "id"
+                                    ]
+                                ],
+                                "25959"
+                            ]
+                        },
+                        "adaptorType": "RESTExport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C2575",
+                "disabled": false,
+                "qa__integrationId": "6228aed6bc8a2732cfe8044c",
+                "_integrationId": "631a1266abf51e7a86c80ab4",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

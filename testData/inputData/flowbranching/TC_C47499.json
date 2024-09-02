@@ -1,0 +1,213 @@
+{
+  "name": "TC_C47499",
+  "disabled": false,
+  "_integrationId": "62f51db41677a21a108e5e3a",
+  "skipRetries": false,
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "application": "MySQL",
+        "name": "MySQL Export",
+        "_connectionId": "MYSQL CONNECTION",
+        "apiIdentifier": "e79804147b",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "rdbms": {
+          "query": "select * from automation_lookup_afe"
+        },
+        "adaptorType": "RDBMSExport"
+      }
+    }
+  ],
+  "routers": [
+    {
+      "routeRecordsUsing": "input_filters",
+      "id": "lKuOb5",
+      "routeRecordsTo": "all_matching_branches",
+      "branches": [
+        {
+          "name": "Branch1",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "Zendesk import 1",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "i5e03125f0",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mapping": {
+                  "fields": [
+                    {
+                      "generate": "user.name",
+                      "hardCodedValue": "Auto_TC_47499_1"
+                    },
+                    {
+                      "extract": "AGENT_NAME",
+                      "generate": "user.notes"
+                    }
+                  ]
+                },
+                "http": {
+                  "relativeURI": [
+                    "users"
+                  ],
+                  "method": [
+                    "POST"
+                  ],
+                  "body": [],
+                  "batchSize": 1,
+                  "sendPostMappedData": true,
+                  "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+              }
+            }
+          ],
+          "inputFilter": {
+            "rules": [
+              "equals",
+              [
+                "string",
+                [
+                  "extract",
+                  "AGENT_CODE"
+                ]
+              ],
+              "A004"
+            ]
+          }
+        },
+        {
+          "name": "Branch2",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "Zendesk import 2",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "i6ee949225",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mapping": {
+                  "fields": [
+                    {
+                      "generate": "user.name",
+                      "hardCodedValue": "Auto_TC_47499_2"
+                    },
+                    {
+                      "extract": "AGENT_NAME",
+                      "generate": "user.notes"
+                    }
+                  ]
+                },
+                "http": {
+                  "relativeURI": [
+                    "users"
+                  ],
+                  "method": [
+                    "POST"
+                  ],
+                  "body": [],
+                  "batchSize": 1,
+                  "sendPostMappedData": true,
+                  "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+              }
+            }
+          ],
+          "inputFilter": {
+            "rules": [
+              "equals",
+              [
+                "string",
+                [
+                  "extract",
+                  "AGENT_CODE"
+                ]
+              ],
+              "A010"
+            ]
+          }
+        }
+      ],
+      "script": {
+        "function": "branchRouter"
+      }
+    }
+  ],
+  "qa__expectedDashboardCount": {
+    "successCount": "4",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "expected": {
+      "zendesk": {
+        "_integrationId": "62f51db41677a21a108e5e3a",
+        "name": "TC_C47499",
+        "import": {
+          "_connectionId": "62f4c40833b1cc2065ea388d"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": {
+            "name": "Auto_TC_47499_1",
+            "notes": "Ivan"
+          },
+          "uniqueField": "name",
+          "generateSampleDropDownAvailable": false,
+          "standaloneexportflowID": "63ffdacdd6a14e3abb4022f3",
+          "importRecordType": "users",
+          "isUIFlow": true,
+          "exportapiIdentifier": "ebed365fdc"
+        }
+      },
+      "Zendesk": {
+        "_integrationId": "62f51db41677a21a108e5e3a",
+        "name": "TC_47499",
+        "import": {
+          "_connectionId": "62f4c40833b1cc2065ea388d"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": {
+            "name": "Auto_TC_47499_2",
+            "notes": "Santakumar"
+          },
+          "uniqueField": "name",
+          "generateSampleDropDownAvailable": false,
+          "standaloneexportflowID": "63ffdacdd6a14e3abb4022f3",
+          "importRecordType": "users",
+          "isUIFlow": true,
+          "exportapiIdentifier": "ebed365fdc"
+        }
+      }
+    }
+  }
+}

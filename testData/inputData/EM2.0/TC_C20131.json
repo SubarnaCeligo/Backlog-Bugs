@@ -1,0 +1,115 @@
+{
+  "name": "TC_C20131",
+  "referencename": "TC_C20131",
+  "qa__dataVerification": {},
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Export",
+            "application": "zendesk support",
+            "description": "Export test",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "parsers": [],
+            "http": {
+              "relativeURI": "/tickets",
+              "method": "GET",
+              "formType": "http",
+              "response": {
+                "resourcePath": "tickets"
+              }
+            },
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "create",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "hooks": {
+              "postSubmit": {
+                "_scriptId": "UPDATE",
+                "function": "postSubmit"
+              }
+            },
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [
+              {
+                "name": "test",
+                "map": {
+                  "test": "test"
+                },
+                "allowFailures": false
+              }
+            ],
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "raw_subject",
+                  "generate": "Name"
+                },
+                {
+                  "extract": "test",
+                  "generate": "test",
+                  "lookupName": "test"
+                }
+              ]
+            },
+            "salesforce": {
+              "operation": "insert",
+              "sObjectType": "Account",
+              "api": "soap",
+              "lookups": [
+                {
+                  "name": "test",
+                  "map": {
+                    "test": "test"
+                  },
+                  "allowFailures": false
+                }
+              ],
+              "removeNonSubmittableFields": false
+            },
+            "adaptorType": "SalesforceImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C20131",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ],
+  "scriptBody": {
+    "name": "PostSubmit_",
+    "content": "function postSubmit (options) {return options.responseData}"
+  }
+}

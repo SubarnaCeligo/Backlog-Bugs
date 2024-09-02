@@ -1,0 +1,210 @@
+{
+  "name": "TC_C47550",
+  "disabled": false,
+  "_integrationId": "62f51db41677a21a108e5e3a",
+  "skipRetries": false,
+  "scriptBody": {
+    "name": "_invalidPreSavePage",
+    "content": "function preSavePageFunction (options) {return options.test}"
+  },
+  "qa__expectedDashboardCount": {
+    "successCount": "1",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "Netsuite export",
+        "_connectionId": "NETSUITE CONNECTION",
+        "apiIdentifier": "e8b9447339",
+        "asynchronous": true,
+        "type": "test",
+        "pageSize": 5,
+        "oneToMany": false,
+        "rawData": "62f4e1190708333a17272221cd52b9cca1434ad18147ba79e04613ce",
+        "test": {
+          "limit": 1
+        },
+        "netsuite": {
+          "type": "restlet",
+          "skipGrouping": true,
+          "statsOnly": false,
+          "restlet": {
+            "recordType": "campaign",
+            "searchId": "4651",
+            "useSS2Restlets": false
+          },
+          "distributed": {
+            "useSS2Framework": false
+          }
+        },
+        "adaptorType": "NetSuiteExport"
+      }
+    }
+  ],
+  "routers": [
+    {
+      "routeRecordsUsing": "input_filters",
+      "id": "nw5EED",
+      "routeRecordsTo": "all_matching_branches",
+      "branches": [
+        {
+          "name": "R1B1",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "AutomationStandaloneImport1_afsflk",
+                "application":"zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "hooks": {
+                  "preMap": {
+                      "_scriptId": "UPDATE",
+                      "function": "preSavePageFunction"
+                  }
+              },
+                "apiIdentifier": "icf74ae963",
+
+                "mapping": {
+                    "fields": [
+                        {
+                            "extract": "Auto_{{id}}",
+                            "generate": "organization.name"
+                        },
+                        {
+                            "extract": "Title",
+                            "generate": "organization.notes"
+                        }
+                    ]
+                },
+                "http": {
+                    "relativeURI": [
+                        "organizations.json"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+              }
+            }
+          ]
+        },
+        {
+          "name": "R1B2",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "proceedOnFailure": true,
+              "qa__import": {
+                "name": "FTP import",
+                "_connectionId": "FTP CONNECTION",
+                "_sourceId": "6337e7ef675e503c6d5c32ed",
+                "apiIdentifier": "i103fbf43a",
+                "oneToMany": false,
+                "mapping": {
+                  "fields": [
+                    {
+                      "extract": "Manager",
+                      "generate": "User"
+                    },
+                    {
+                      "extract": "id",
+                      "generate": "Id"
+                    }
+                  ]
+                },
+                "file": {
+                  "fileName": "Final47550.csv",
+                  "skipAggregation": true,
+                  "type": "csv",
+                  "csv": {
+                    "rowDelimiter": "\n",
+                    "columnDelimiter": ",",
+                    "includeHeader": true,
+                    "wrapWithQuotes": false,
+                    "replaceTabWithSpace": false,
+                    "replaceNewlineWithSpace": false,
+                    "truncateLastRowDelimiter": false
+                  }
+                },
+                "ftp": {
+                  "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPimport",
+                  "fileName": "Final47550.csv"
+                },
+                "adaptorType": "FTPImport"
+              }
+            }
+          ]
+        }
+      ],
+      "script": {
+        "function": "branching"
+      }
+    }
+  ],
+  "qa__dataVerification": {
+    "expected": {
+      "zendesk": {
+        "_integrationId": "62f51db41677a21a108e5e3a",
+        "name": "TC_C47550",
+        "import": {
+          "_connectionId": "HTTP ZENDESK CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": {
+            "name": "Auto_100143",
+            "notes": "Yellow Pages"
+          },
+          "uniqueField": "name",
+          "generateSampleDropDownAvailable": false,
+          "standaloneexportflowID": "62f60a990f2ee6482b13f99e",
+          "importRecordType": "organizations",
+          "isUIFlow": true,
+          "exportapiIdentifier": "ebed365fdc"
+        }
+      },
+      "FTp": {
+        "name": "TC_C47550",
+        "_integrationId": "62f51db41677a21a108e5e3a",
+        "import": {
+          "_connectionId": "FTP CONNECTION",
+          "file": {
+            "csv": {
+              "columnDelimiter": ";"
+            }
+          }
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "fileName": "Final47550",
+          "isUIFlow": true,
+          "folderName": "/io.auto.qa/IO_UI_Automation_FTPimport",
+          "fileType": ".csv"
+        }
+      }
+    }
+  }
+}

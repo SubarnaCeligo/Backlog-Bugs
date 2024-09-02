@@ -1,0 +1,275 @@
+{
+  "qa__connectionId": "ZENDESK CONNECTION",
+  "connectionId": "ZENDESK CONNECTION",
+  "Offline_qa__connectionId": "63f30ef7a8c6e32a4f1d56ef",
+  "Offline_connectionId": "63f312781f97a22d111d468f",
+  "MockData": {
+    "page_of_records": [
+      {
+        "record": {
+          "id": "12345",
+          "name": "Mary Poppins",
+          "type": "customer",
+          "address": {
+            "street": "17 Cherry Tree Lane",
+            "City": "London"
+          }
+        }
+      },
+      {
+        "record": {
+          "id": "98765",
+          "name": "Sherlock Holmes",
+          "type": "customer",
+          "address": {
+            "street": "221B Baker Street",
+            "City": "London"
+          }
+        }
+      },
+      {
+        "record": {
+          "id": "12345",
+          "name": "Mary Poppins",
+          "type": "customer",
+          "address": {
+            "street": "17 Cherry Tree Lane",
+            "City": "London"
+          }
+        }
+      },
+      {
+        "record": {
+          "id": "98765",
+          "name": "Sherlock Holmes",
+          "type": "customer",
+          "address": {
+            "street": "221B Baker Street",
+            "City": "London"
+          }
+        }
+      },
+      {
+        "record": {
+          "id": "12345",
+          "name": "Mary Poppins",
+          "type": "customer",
+          "address": {
+            "street": "17 Cherry Tree Lane",
+            "City": "London"
+          }
+        }
+      },
+      {
+        "record": {
+          "id": "98765",
+          "name": "Sherlock Holmes",
+          "type": "customer",
+          "address": {
+            "street": "221B Baker Street",
+            "City": "London"
+          }
+        }
+      },
+      {
+        "record": {
+          "id": "12345",
+          "name": "Mary Poppins",
+          "type": "customer",
+          "address": {
+            "street": "17 Cherry Tree Lane",
+            "City": "London"
+          }
+        }
+      },
+      {
+        "record": {
+          "id": "98765",
+          "name": "Sherlock Holmes",
+          "type": "customer",
+          "address": {
+            "street": "221B Baker Street",
+            "City": "London"
+          }
+        }
+      },
+      {
+        "record": {
+          "id": "12345",
+          "name": "Mary Poppins",
+          "type": "customer",
+          "address": {
+            "street": "17 Cherry Tree Lane",
+            "City": "London"
+          }
+        }
+      },
+      {
+        "record": {
+          "id": "98765",
+          "name": "Sherlock Holmes",
+          "type": "customer",
+          "address": {
+            "street": "221B Baker Street",
+            "City": "London"
+          }
+        }
+      },
+      {
+        "record": {
+          "id": "98765",
+          "name": "Sherlock Holmes",
+          "type": "customer",
+          "address": {
+            "street": "221B Baker Street",
+            "City": "London"
+          }
+        }
+      }
+    ]
+  },
+  "InvalidMockData": {
+    "page_of_records": [
+      {
+        "test": {
+          "id": "12345",
+          "name": "Mary Poppins",
+          "type": "customer",
+          "address": {
+            "street": "17 Cherry Tree Lane",
+            "City": "London"
+          }
+        }
+      }
+    ]
+  },
+  "ValidMockData": {
+    "page_of_records": [
+      {
+        "record": {
+          "id": "12345",
+          "name": "Mary Poppins",
+          "type": "customer",
+          "address": {
+            "street": "17 Cherry Tree Lane",
+            "City": "London"
+          }
+        }
+      }
+    ]
+  },
+  "TenRecordsMockData": {
+    "page_of_records": [
+      {
+        "record": {
+          "id": "12345",
+          "name": "Mary Poppins",
+          "type": "customer",
+          "address": {
+            "street": "17 Cherry Tree Lane",
+            "City": "London"
+          }
+        }
+      },
+      {
+        "record": {
+          "id": "98765",
+          "name": "Sherlock Holmes",
+          "type": "customer",
+          "address": {
+            "street": "221B Baker Street",
+            "City": "London"
+          }
+        }
+      },
+      {
+        "record": {
+          "id": "12345",
+          "name": "Mary Poppins",
+          "type": "customer",
+          "address": {
+            "street": "17 Cherry Tree Lane",
+            "City": "London"
+          }
+        }
+      },
+      {
+        "record": {
+          "id": "98765",
+          "name": "Sherlock Holmes",
+          "type": "customer",
+          "address": {
+            "street": "221B Baker Street",
+            "City": "London"
+          }
+        }
+      },
+      {
+        "record": {
+          "id": "12345",
+          "name": "Mary Poppins",
+          "type": "customer",
+          "address": {
+            "street": "17 Cherry Tree Lane",
+            "City": "London"
+          }
+        }
+      },
+      {
+        "record": {
+          "id": "98765",
+          "name": "Sherlock Holmes",
+          "type": "customer",
+          "address": {
+            "street": "221B Baker Street",
+            "City": "London"
+          }
+        }
+      },
+      {
+        "record": {
+          "id": "12345",
+          "name": "Mary Poppins",
+          "type": "customer",
+          "address": {
+            "street": "17 Cherry Tree Lane",
+            "City": "London"
+          }
+        }
+      },
+      {
+        "record": {
+          "id": "98765",
+          "name": "Sherlock Holmes",
+          "type": "customer",
+          "address": {
+            "street": "221B Baker Street",
+            "City": "London"
+          }
+        }
+      },
+      {
+        "record": {
+          "id": "12345",
+          "name": "Mary Poppins",
+          "type": "customer",
+          "address": {
+            "street": "17 Cherry Tree Lane",
+            "City": "London"
+          }
+        }
+      },
+      {
+        "record": {
+          "id": "98765",
+          "name": "Sherlock Holmes",
+          "type": "customer",
+          "address": {
+            "street": "221B Baker Street",
+            "City": "London"
+          }
+        }
+      }
+    ]
+  }
+}

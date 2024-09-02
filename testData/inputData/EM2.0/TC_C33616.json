@@ -1,0 +1,102 @@
+{
+  "name": "TC_C33616",
+  "referencename": "TC_C33616",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "http",
+            "_connectionId": "REST CONNECTION",
+            "apiIdentifier": "e2dd5af5f3",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+              "relativeURI": "/test/orders",
+              "method": "GET",
+              "formType": "http"
+            },
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "netsuite",
+            "_connectionId": "NETSUITE CONNECTION",
+            "distributed": true,
+            "apiIdentifier": "ifa4a8b29a",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [],
+            "netsuite_da": {
+              "useSS2Restlets": false,
+              "operation": "add",
+              "recordType": "customer",
+              "lookups": [],
+              "mapping": {
+                "fields": [
+                  {
+                    "generate": "companyname",
+                    "extract": "customername",
+                    "internalId": false
+                  },
+                  {
+                    "generate": "test",
+                    "discardIfEmpty": false,
+                    "immutable": false,
+                    "hardCodedValue": "TC_C33616",
+                    "internalId": false
+                  },
+                  {
+                    "generate": "subsidiary",
+                    "internalId": true,
+                    "discardIfEmpty": false,
+                    "immutable": false,
+                    "hardCodedValue": "3"
+                  },
+                  {
+                    "generate": "custentity37",
+                    "discardIfEmpty": false,
+                    "immutable": false,
+                    "hardCodedValue": "06#2022#27",
+                    "internalId": false
+                  }
+                ],
+                "lists": []
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C33616",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

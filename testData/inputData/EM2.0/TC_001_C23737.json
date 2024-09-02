@@ -1,0 +1,149 @@
+{
+  "name": "TC_001_C23737",
+  "referencename": "TC_001_C23737",
+  "adaptorType": "NetSuiteDistributedImport",
+  "qa__expectedDashboardCount": {
+    "successCount": "1",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "qa__retry": {
+    "mapping": {
+      "fields": [
+        {
+          "generate": "companyname",
+          "extract": "first_name",
+          "internalId": false
+        },
+        {
+          "generate": "subsidiary",
+          "discardIfEmpty": false,
+          "immutable": false,
+          "hardCodedValue": "3",
+          "internalId": true
+        },
+        {
+          "generate": "email",
+          "extract": "email",
+          "internalId": false
+        }
+      ],
+      "lists": []
+    }
+  },
+  "qa__dataVerification": {
+    "importRecordJSON": {
+      "note": "C23737",
+      "last_name": "Retry",
+      "first_name": "C23737",
+      "email": "c23737retry@gmail.com"
+    },
+    "importapiIdentifier": "ifc71eda26",
+    "expected": {
+      "Netsuite": {
+        "name": "TC_001_C23737",
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "qa__dataVerification": {
+          "expectedJSON": [
+            {
+              "companyname": "C23737",
+              "entityid": "C23737",
+              "email": "c23737retry@gmail.com"
+            }
+          ],
+          "standaloneexportflowID": "6048a1dc89b5f0662a82b8cd",
+          "uniqueField": "entityid",
+          "importRecordType": "Customer",
+          "exportapiIdentifier": "e72c9eb5dc"
+        }
+      }
+    }
+  },
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Shopify customer export",
+            "_connectionId": "SHOPIFY CONNECTION",
+            "asynchronous": true,
+            "assistant": "shopify",
+            "assistantMetadata": {
+              "resource": "customer",
+              "version": "v2",
+              "operation": "searches_forcustomersthatmatchasuppliedquery"
+            },
+            "http": {
+              "relativeURI": "/customers/search.json?query=first_name:C23737",
+              "method": "GET",
+              "paging": {
+                "method": "linkheader",
+                "lastPageStatusCode": 404,
+                "linkHeaderRelation": "next"
+              },
+              "response": {
+                "resourcePath": "customers"
+              }
+            },
+            "rawData": "603ce5ede9250226dcea4608dda6230d547e4261bcf2b129528d1898",
+            "rest": {
+              "relativeURI": "/customers/search.json?query=first_name:C23737",
+              "method": "GET",
+              "resourcePath": "customers",
+              "pagingMethod": "linkheader",
+              "allowUndefinedResource": false,
+              "linkHeaderRelation": "next"
+            },
+            "adaptorType": "RESTExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Netsuite customer import",
+            "parsers": [],
+            "_connectionId": "NETSUITE CONNECTION",
+            "distributed": true,
+            "apiIdentifier": "i45477eaa3",
+            "lookups": [],
+            "netsuite_da": {
+              "useSS2Restlets": false,
+              "operation": "add",
+              "recordType": "customer",
+              "lookups": [],
+              "mapping": {
+                "fields": [],
+                "lists": []
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_001_C23737",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

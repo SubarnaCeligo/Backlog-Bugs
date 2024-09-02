@@ -1,0 +1,14 @@
+{
+  "QA_connection": {
+    "mariadb_Conn": "MariaDB_Connection"
+  },
+  "Staging_connection": {
+    "mariadb_Conn": "64a3b2449c144a318b318807"
+  },
+  "QAProd_connection": {
+    "mariadb_Conn": "6492847c0db8694c8394050a"
+  },
+  "IAQA_connection": {
+    "mariadb_Conn": "649283b174432c28902d63f5"
+  }
+}

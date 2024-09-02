@@ -1,0 +1,208 @@
+{
+    "name": "TC_C44959",
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "disabled": false,
+    "referencename": "TC_C44959",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "expected": {
+            "bigcommerce": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "TC_C44959",
+                "import": {
+                    "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+                    "qa__connectionId": "HTTP BIGCOMMERCE CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "standaloneexportflowID": "62a8c0a9d92aff47b2ebe5b3",
+                    "uniqueField": "first_name",
+                    "importRecordType": "customers",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e78d273c3f",
+                    "expectedJSON": [
+                        {
+                            "email": "Auto_TC_C44959@example.com",
+                            "first_name": "Auto_TC_C44959",
+                            "last_name": "mapper123",
+                            "company": "celigo",
+                            "addresses": [
+                                {
+                                    "address1": "Addr 1",
+                                    "address2": "",
+                                    "address_type": "residential",
+                                    "city": "San Francisco",
+                                    "company": "History",
+                                    "country_code": "US",
+                                    "first_name": "Ronald",
+                                    "last_name": "Swimmer",
+                                    "phone": "707070707",
+                                    "postal_code": "33333",
+                                    "state_or_province": "California",
+                                    "form_fields": [
+                                        {
+                                            "name": "test",
+                                            "value": "test"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "authentication": {
+                                "force_password_reset": true,
+                                "new_password": "string123"
+                            },
+                            "form_fields": [
+                                {
+                                    "name": "test",
+                                    "value": "test"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "name": "Http BC Import",
+                "application": "BigCommerce",
+                "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+                "qa__connectionId": "HTTP BIGCOMMERCE CONNECTION",
+                "apiIdentifier": "i305e6643a",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "dataType": "objectarray",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$[*]",
+                                "mappings": [
+                                    {
+                                        "extract": "$.email",
+                                        "generate": "email",
+                                        "dataType": "string"
+                                    },
+                                    {
+                                        "extract": "$.first_name",
+                                        "generate": "first_name",
+                                        "dataType": "string"
+                                    },
+                                    {
+                                        "extract": "$.last_name",
+                                        "generate": "last_name",
+                                        "dataType": "string"
+                                    },
+                                    {
+                                        "extract": "$.company",
+                                        "generate": "company",
+                                        "dataType": "string"
+                                    },
+                                    {
+                                        "generate": "addresses",
+                                        "dataType": "objectarray",
+                                        "conditional": {
+                                            "when": "extract_not_empty"
+                                        },
+                                        "buildArrayHelper": [
+                                            {
+                                                "extract": "$.addresses[*]"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "extract": "$.authentication",
+                                        "generate": "authentication",
+                                        "dataType": "object",
+                                        "conditional": {
+                                            "when": "extract_not_empty"
+                                        }
+                                    },
+                                    {
+                                        "generate": "form_fields",
+                                        "dataType": "objectarray",
+                                        "buildArrayHelper": [
+                                            {
+                                                "extract": "$.form_fields[*]",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.form_fields.name",
+                                                        "generate": "name",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.form_fields.value",
+                                                        "generate": "value",
+                                                        "dataType": "string"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "/v3/customers"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "FTP_Export_TC_C44959",
+                "_connectionId": "FTP CONNECTION",
+                "qa__path": "//SFTP_uploads//TC_C44959_Mapper.json",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                    "fileNameStartsWith": "TC_C44959_Mapper.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ]
+}

@@ -1,0 +1,221 @@
+{
+  "name": "TC_C47526",
+  "disabled": false,
+  "_integrationId": "62f51db41677a21a108e5e3a",
+  "skipRetries": false,
+  "script": {
+    "name": "C47526_PostMap_DND",
+    "content": "function postMap(options) {\n  for (var i = 0; i < options.preMapData.length; i++) {\n    options.preMapData[i].email = \"test1234@gmail.com\";\n    options.preMapData[i].postMap = \"postMap\";\n    options.preMapData[i].preSavePage =\n      options.preMapData[i].preSavePage + options.preMapData[i].postMap;\n  }\n  return options.postMapData.map((d) => {\n    return {\n      data: d,\n    };\n  });\n}"
+},
+  "qa__expectedDashboardCount": {
+    "successCount": "3",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "SF export",
+        "_connectionId": "SALESFORCE CONNECTION",
+        "apiIdentifier": "e96d71440d",
+        "asynchronous": true,
+        "type": "test",
+        "oneToMany": false,
+        "parsers": [],
+        "test": {
+          "limit": 1
+        },
+        "salesforce": {
+          "type": "soql",
+          "api": "rest",
+          "soql": {
+            "query": "SELECT Id, Name FROM Contact"
+          },
+          "distributed": {
+            "referencedFields": [],
+            "disabled": true,
+            "userDefinedReferencedFields": [],
+            "relatedLists": []
+          }
+        },
+        "transform": {
+          "type": "expression",
+          "expression": {
+            "rules": [[]],
+            "version": "1"
+          },
+          "version": "1",
+          "rules": [[]]
+        },
+        "filter": {
+          "type": "expression",
+          "expression": {
+            "rules": [],
+            "version": "1"
+          },
+          "version": "1",
+          "rules": []
+        },
+        "settings": {
+          "Name": "Vikram"
+        },
+        "adaptorType": "SalesforceExport"
+      }
+    }
+  ],
+  "routers": [
+    {
+      "routeRecordsUsing": "input_filters",
+      "id": "VI3ik9",
+      "routeRecordsTo": "all_matching_branches",
+      "branches": [
+        {
+          "name": "Branch 3.0",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "ZD imp1",
+                "application":"zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "i1f115eaae",
+                "hooks": {
+                  "postMap": {
+                    "function": "postMap"
+                  }
+                },
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "mapping": {
+                  "fields": [
+                    {
+                      "extract": "attributes.type",
+                      "generate": "user.name"
+                    }
+                  ]
+                },
+                "http": {
+                  "relativeURI": ["users"],
+                  "method": ["POST"],
+                  "body": [],
+                  "batchSize": 1,
+                  "sendPostMappedData": true,
+                  "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+              }
+            }
+          ],
+          "inputFilter": {
+            "rules": ["notempty", ["string", ["extract", "attributes.type"]]]
+          },
+          "nextRouterId": "Bcfe7u"
+        },
+        {
+          "name": "Branch 3.1",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "ZD imp2",
+                "application":"zendesk support",
+                "parsers": [],
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "i030d22647",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "http": {
+                  "relativeURI": ["users"],
+                  "method": ["POST"],
+                  "body": [],
+                  "batchSize": 1,
+                  "sendPostMappedData": true,
+                  "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+              }
+            }
+          ],
+          "inputFilter": {
+            "rules": ["empty", ["string", ["extract", "attributes.type"]]]
+          },
+          "nextRouterId": "Bcfe7u"
+        }
+      ],
+      "script": {
+        "function": "branchRouter"
+      }
+    },
+    {
+      "id": "Bcfe7u",
+      "branches": [
+        {
+          "name": "",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "SFTP",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "i507d4642d",
+                "oneToMany": false,
+                "file": {
+                  "fileName": "Lookup1-{{timestamp}}.json",
+                  "skipAggregation": false,
+                  "type": "json"
+                },
+                "ftp": {
+                  "directoryPath": "/io.auto.qa/Neetin",
+                  "fileName": "Lookup1-{{timestamp}}.json"
+                },
+                "adaptorType": "FTPImport"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "qa__dataVerification": {
+    "expected": {
+      "zendesk": {
+        "name": "TC_C47526",
+        "_integrationId": "62f51db41677a21a108e5e3a",
+        "import": {
+          "_connectionId": "HTTP ZENDESK CONNECTION"
+        },
+        "qa__dataVerification": {
+          "generateSampleDropDownAvailable": false,
+          "expectedJSON": {
+            "name": "Contact"
+          },
+          "standaloneexportflowID": "57aaf0188ec9f88049060166",
+          "uniqueField": "name",
+          "importRecordType": "users",
+          "isUIFlow": true,
+          "exportapiIdentifier": "e8c9cb6192"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        }
+      }
+    }
+  }
+}

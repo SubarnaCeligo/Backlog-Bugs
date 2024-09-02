@@ -1,0 +1,89 @@
+{
+  "flowname": "TC_C23457_FG",
+  "name": "TC_C23457_",
+  "flowGroup": "TC_C23457_FG",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "43 SF Export",
+            "adaptorType": "SalesforceExport",
+            "parsers": [],
+            "salesforce": {
+              "distributed": {
+                "relatedLists": [],
+                "userDefinedReferencedFields": [],
+                "referencedFields": []
+              },
+              "soql": {
+                "query": "Select Name from Account"
+              },
+              "api": "rest",
+              "type": "soql"
+            },
+            "transform": {
+              "rules": []
+            },
+            "asynchronous": true,
+            "_connectionId": "SALESFORCE CONNECTION"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "43 FTP import",
+            "adaptorType": "FTPImport",
+            "file": {
+              "csv": {
+                "replaceTabWithSpace": true,
+                "rowDelimiter": "\n",
+                "wrapWithQuotes": true,
+                "replaceNewlineWithSpace": true,
+                "includeHeader": true,
+                "columnDelimiter": ";",
+                "truncateLastRowDelimiter": false
+              },
+              "compressionFormat": "gzip",
+              "type": "csv"
+            },
+            "ftp": {
+              "fileName": "43SF2FTPAcc{{timestamp \"DD-Mon-YYYY hh:mm:ss\" \"Asia/Calcutta\"}}.csv",
+              "directoryPath": "/io.auto.qa/IO_UI_Automation"
+            },
+            "_connectionId": "FTP CONNECTION",
+            "qa__path": "//FTP_uploads//43SF2FTPAccFile.csv",
+            "distributed": false
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C23457_FG",
+        "disabled": false,
+        "_integrationId": "64ba68425b3619057ae0d0ff",
+        "qa__integrationId": "62e90b9f36f8f637aa253824",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "type": "export",
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ],
+  "preSavepage": "function preSavePage (options) {\r\n return {\r\n data: options.settings.flowGrouping.name,\r\n errors: options.settings.flowGrouping.email,\r\n  abort: false,\r\n newErrorsAndRetryData: []\r\n }\r\n}"
+}

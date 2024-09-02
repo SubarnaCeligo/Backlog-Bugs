@@ -1,0 +1,271 @@
+{
+    "name": "TC_47983_Flowbranching",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "timezone": "Asia/Calcutta",
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "FTP Export flow branching",
+                "adaptorType": "FTPExport",
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                    "fileNameStartsWith": "TC_47983_Flowbranching.json"
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": true,
+                    "encoding": "utf8",
+                    "type": "json"
+                },
+                "asynchronous": true,
+                "_connectionId": "FTP CONNECTION",
+                "qa__path": "//SFTP_uploads//TC_47983_Flowbranching.json"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "GKlAd3",
+            "routeRecordsTo": "all_matching_branches",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "qa__rules": [
+                        [
+                            "record.name",
+                            "equal",
+                            "Auto_TC_47983_1"
+                        ]
+                    ],
+                    "inputFilter": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "name"
+                                ]
+                            ],
+                            "Auto_TC_47983_1"
+                        ]
+                    },
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandaloneImport1_afsflk",
+                                "application":"zendesk support",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "ignoreExisting": false,
+                                "ignoreMissing": false,
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "name",
+                                            "generate": "organization.name"
+                                        },
+                                        {
+                                            "extract": "notes",
+                                            "generate": "organization.notes"
+                                        }
+                                    ]
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "organizations.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "body": [],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Branch 1.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "SF import",
+                                "_connectionId": "SALESFORCE CONNECTION",
+                                "ignoreExisting": false,
+                                "ignoreMissing": false,
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "name",
+                                            "generate": "Name"
+                                        },
+                                        {
+                                            "extract": "phone",
+                                            "generate": "Phone"
+                                        },
+                                        {
+                                            "extract": "fax",
+                                            "generate": "Fax"
+                                        },
+                                        {
+                                            "extract": "email",
+                                            "generate": "Email__c"
+                                        }
+                                    ]
+                                },
+                                "salesforce": {
+                                    "operation": "insert",
+                                    "sObjectType": "Account",
+                                    "api": "soap",
+                                    "removeNonSubmittableFields": false
+                                },
+                                "adaptorType": "SalesforceImport"
+                            }
+                        }
+                    ],
+                    "qa__rules": [
+                        [
+                            "record.email",
+                            "equal",
+                            "Auto_TC_47983_3@gmail.com"
+                        ]
+                    ],
+                    "inputFilter": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "email"
+                                ]
+                            ],
+                            "Auto_TC_47983_3@gmail.com"
+                        ]
+                    }
+                }
+            ],
+            "script": {
+                "function": "branchRouter"
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "successCount": "7",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "Netsuite": {
+                "name": "TC_47983_Flowbranching",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "import": {
+                    "_connectionId": "NETSUITE CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "1",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "expectedJSON": [
+                        {
+                            "entityid": "Auto_TC_47983_1",
+                            "subsidiary": {
+                                "internalid": "14"
+                            },
+                            "email": "Auto_TC_47983_1@gmail.com",
+                            "comments": "Auto_TC_47983_Notes_1"
+                        },
+                        {
+                            "entityid": "Auto_TC_47983_3",
+                            "subsidiary": {
+                                "internalid": "14"
+                            },
+                            "email": "Auto_TC_47983_3@gmail.com",
+                            "comments": "Auto_TC_47983_Notes_3"
+                        }
+                    ],
+                    "uniqueField": "email",
+                    "standaloneexportflowID": "62f50ecf0f2ee6482b135ea2",
+                    "importRecordType": "Customer",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e52b8316c9"
+                }
+            },
+            "zendesk": {
+                "name": "TC_47983_Flowbranching",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "import": {
+                    "_connectionId": "HTTP ZENDESK CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "1",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "expectedJSON": {
+                        "name": "Auto_TC_47983_1",
+                        "notes": "Auto_TC_47983_Notes_1"
+                    },
+                    "uniqueField": "name",
+                    "generateSampleDropDownAvailable": false,
+                    "standaloneexportflowID": "62f60a990f2ee6482b13f99e",
+                    "importRecordType": "organizations",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "ebed365fdc"
+                }
+            },
+            "Salesforce": {
+                "_integrationId": "62d6b4a955468141a906119e",
+                "name": "TC_47983_Flowbranching",
+                "import": {
+                    "_connectionId": "SALESFORCE CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "1",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "standaloneexportflowID": "57be7ecc269c3e42500c34a3",
+                    "uniqueField": "Name",
+                    "importRecordType": "Account",
+                    "isUIFlow": true,
+                    "query": "Select id,Name,Email__c, phone, fax from Account where name like 'Auto_TC_47983_3'",
+                    "exportapiIdentifier": "e8a11eeb29",
+                    "expectedJSON": [
+                        {
+                            "Phone": "55558888",
+                            "Fax": "66664444",
+                            "Name": "Auto_TC_47983_3",
+                            "Email__c": "Auto_TC_47983_3@gmail.com"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

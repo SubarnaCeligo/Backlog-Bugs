@@ -1,0 +1,37 @@
+{
+    "skipRetries": false,
+    "_integrationId": "631ec9b452e9a959edd75a41",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "HTTP Zendesk Export",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "eb46e365c4",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "parsers": [
+                    {
+                        "type": "xml",
+                        "version": "1",
+                        "rules": {
+                            "V0_json": true,
+                            "stripNewLineChars": false,
+                            "trimSpaces": false
+                        }
+                    }
+                ],
+                "debugUntil": "2022-09-15T06:28:39.686Z",
+                "http": {
+                    "relativeURI": "/api/v2/tickets/81.json",
+                    "method": "GET",
+                    "formType": "http"
+                },
+                "rawData": "631ec91d52e9a959edd75a23314e553a51eb4a808658899c60cffc97",
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ]
+}

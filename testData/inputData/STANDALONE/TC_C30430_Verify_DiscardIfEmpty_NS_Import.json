@@ -1,0 +1,53 @@
+{
+  "name": "TC_C30430_Verify_DiscardIfEmpty_NS_Import",
+  "qa__api_tdata": [
+    {
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "NS_Sales order",
+            "_connectionId": "NETSUITE CONNECTION",
+            "distributed": true,
+            "lookups": [],
+            "netsuite_da": {
+              "useSS2Restlets": false,
+              "operation": "add",
+              "recordType": "salesorder",
+              "lookups": [],
+              "mapping": {
+                "fields": [
+                  {
+                    "generate": "entity",
+                    "extract": "Customer",
+                    "discardIfEmpty": true,
+                    "immutable": false,
+                    "internalId": false
+                  }
+                ],
+                "lists": []
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C30430_Verify_DiscardIfEmpty_NS_Import",
+        "disabled": false,
+        "_integrationId": "6228aed6bc8a2732cfe8044c",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

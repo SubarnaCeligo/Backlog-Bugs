@@ -1,0 +1,38 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "Rest SendPostMappedData with body",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "mapping": {
+                    "fields": [
+                        {
+                            "extract": "Name",
+                            "generate": "Name"
+                        }
+                    ]
+                },
+                "http": {
+                    "relativeURI": [
+                        "organizations"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [
+                        "{\n  \"organization\": {\n      \"name\": \"{{record.name}}\",\n      \"notes\": \"{{record.notes}}\",\n      \"organization_fields\": {\n       \"email\": \"{{record.email}}\",\n       \"billing_address_1\": \"{{record.billing_address_1}}\",\n       \"billing_address2\": \"{{record.billing_address2}}\",\n       \"billing_city\": \"{{record.billing_city}}\",\n       \"billing_state\": \"{{record.billing_state}}\",\n       \"shipping_address_1\": \"{{record.User.0.users.0.name}}\",\n       \"shipping_city\": \"{{record.shipping_city}}\",\n       \"shipping_state\": \"{{record.shipping_state}}\",\n        \"shipping_country\": \"{{record.shipping_country}}\"\n         }\n        }\n     }"
+                    ],
+                    "batchSize": 1,
+                    "formType": "http",
+                    "qa__formType": "rest"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "pageGenerators": []
+}

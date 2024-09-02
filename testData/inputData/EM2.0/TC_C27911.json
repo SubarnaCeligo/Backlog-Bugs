@@ -1,0 +1,136 @@
+{
+  "name": "TC_C27911",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "NS export",
+            "qa__connectionId": "604078b0f973e32fb05729e5",
+            "_connectionId": "604078b0f973e32fb05729e5",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "rawData": "603ce5ede9250226dcea4608e17ecb515807449bae4b4851ce21ec39",
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "recordType": "customer",
+                "searchId": "3813",
+                "useSS2Restlets": false,
+                "criteria": [],
+                "hooks": {
+                  "preSend": {
+                    "fileInternalId": "4196666",
+                    "function": "presendHookTest1"
+                  }
+                }
+              },
+              "distributed": {
+                "useSS2Framework": false
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "FTP Connection",
+            "parsers": [],
+            "_connectionId": "6217731d97769c75085a4687",
+            "qa__connectionId": "6217385594fce7776c71a7a2",
+            "oneToMany": false,
+            "sandbox": false,
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "recordType",
+                  "generate": "recordType"
+                },
+                {
+                  "extract": "Name",
+                  "generate": "Name"
+                },
+                {
+                  "extract": "Email",
+                  "generate": "Email"
+                },
+                {
+                  "extract": "Phone",
+                  "generate": "Phone"
+                },
+                {
+                  "extract": "Priority",
+                  "generate": "Priority"
+                },
+                {
+                  "extract": "Comments",
+                  "generate": "Comments"
+                }
+              ]
+            },
+            "file": {
+              "fileName": "TC_C27910.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO Automation SFTP Imports",
+              "fileName": "TC_C27910.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C27911",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ],
+  "qa__dataVerification": {
+    "expected": {
+      "FTP": {
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "name": "TC_C27910",
+        "qa__dataVerification": {
+          "fileName": "TC_C27910",
+          "isUIFlow": true,
+          "folderName": "/io.auto.qa//IO Automation SFTP Imports",
+          "fileType": ".json"
+        },
+        "qa__expectedDashboardCount": {
+          "ignoreCount": "0",
+          "successCount": "1",
+          "errorCount": "0"
+        },
+        "import": {
+          "_connectionId": "6217385594fce7776c71a7a2"
+        }
+      }
+    }
+  }
+}

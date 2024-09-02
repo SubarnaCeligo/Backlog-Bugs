@@ -1,0 +1,222 @@
+{
+  "name": "TC_C51146",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "ftp_exp",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "e500a2ddd6",
+            "asynchronous": true,
+            "sandbox": false,
+            "ftp": {
+              "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+              "fileNameStartsWith": "TC_C52753"
+            },
+            "file": {
+              "output": "records",
+              "skipDelete": true,
+              "type": "json",
+              "groupByFields": ["nlobjRecordType"],
+              "groupEmptyValues": true
+            },
+            "adaptorType": "FTPExport",
+            "qa__path": "//FTP_uploads//TC_C52753.json"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "AutomationStandalone_ayLBH",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "ifd41c84fa",
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [
+              {
+                "name": "auto",
+                "map": {
+                  "$.nlobjRecordType": "test",
+                  "$.nlobjFieldIds.itemid": "test"
+                },
+                "allowFailures": true,
+                "default": ""
+              },
+              {
+                "name": "test",
+                "map": {
+                  "$.nlobjFieldIds.itemid": "test",
+                  "$.nlobjRecordType": "test"
+                },
+                "allowFailures": true,
+                "default": ""
+              }
+            ],
+            "mappings": [
+              {
+                "generate": "test",
+                "dataType": "objectarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                  {
+                    "extract": "$.nlobjFieldIds",
+                    "conditional": {
+                      "when": "extract_not_empty"
+                    },
+                    "sourceDataType": "objectarray",
+                    "mappings": [
+                      {
+                        "generate": "test2",
+                        "dataType": "objectarray",
+                        "status": "Active",
+                        "buildArrayHelper": [
+                          {
+                            "extract": "$.nlobjSublistIds.itemvendor.lines[*]",
+                            "sourceDataType": "objectarray",
+                            "mappings": [
+                              {
+                                "extract": "$.nlobjSublistIds.itemvendor.lines[*].celigo_itemvendorprice.nlobjRecordType",
+                                "generate": "test3",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                              },
+                              {
+                                "extract": "$.nlobjSublistIds.itemvendor.lines[*].vendorcode",
+                                "generate": "test4",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                              },
+                              {
+                                "extract": "$.nlobjSublistIds.itemvendor.lines[*].vendorcode",
+                                "generate": "test5",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                              },
+                              {
+                                "extract": "$.nlobjSublistIds.itemvendor.lines[*].preferredvendor",
+                                "generate": "test6",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "extract": "$[*].nlobjSublistIds.itemvendor.lines[*].celigo_itemvendorprice.nlobjSublistIds.itemvendorpricelines.lines[*]",
+                    "conditional": {
+                      "when": "extract_not_empty"
+                    },
+                    "sourceDataType": "objectarray",
+                    "mappings": [
+                      {
+                        "generate": "test2",
+                        "dataType": "objectarray",
+                        "status": "Draft",
+                        "buildArrayHelper": [
+                          {
+                            "sourceDataType": "string",
+                            "mappings": [
+                              {
+                                "generate": "test3",
+                                "dataType": "string",
+                                "status": "Draft",
+                                "sourceDataType": "string"
+                              },
+                              {
+                                "generate": "test4",
+                                "dataType": "string",
+                                "status": "Draft",
+                                "sourceDataType": "string"
+                              },
+                              {
+                                "generate": "test5",
+                                "dataType": "string",
+                                "status": "Draft",
+                                "sourceDataType": "string"
+                              },
+                              {
+                                "generate": "test6",
+                                "dataType": "string",
+                                "status": "Draft",
+                                "sourceDataType": "string"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "file": {
+              "fileName": "TC_33551.json",
+              "skipAggregation": false,
+              "type": "json",
+              "encoding": "utf8",
+              "lookups": [
+                {
+                  "name": "auto",
+                  "map": {
+                    "$.nlobjRecordType": "test",
+                    "$.nlobjFieldIds.itemid": "test"
+                  },
+                  "allowFailures": true,
+                  "default": ""
+                },
+                {
+                  "name": "test",
+                  "map": {
+                    "$.nlobjFieldIds.itemid": "test",
+                    "$.nlobjRecordType": "test"
+                  },
+                  "allowFailures": true,
+                  "default": ""
+                }
+              ]
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO Automation SFTP Imports",
+              "fileName": "TC_33551.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C51146",
+        "disabled": false,
+        "qa__integrationId": "56d6b23fe1fc35de53914730",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "type": "export",
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

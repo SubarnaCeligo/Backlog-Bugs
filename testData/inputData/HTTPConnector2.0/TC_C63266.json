@@ -1,0 +1,13 @@
+{ 
+    "confluence_instanceURL": "celigo",
+    "confluence_username": "sri.raj@celigo.com",
+    "confluence_Token":"Jv4Vm9RgM0lNf8lu4H0f12EA",
+    "qa__integration":"https://qa.staging.integrator.io/integrations/64203b0c72a27a166ab6ea9f/flows",
+    "qaprod__integration":"https://qaprod.staging.integrator.io/integrations/64204431530e176c8b12d246/flows",
+    "staging__integration":"https://staging.integrator.io/integrations/642043b22b4d66039d664939/flows",
+    "iaqa__integration":"https://iaqa.staging.integrator.io/integrations/642043442c6571316b81fe2f/flows",
+    "qa__flow":"https://qa.staging.integrator.io/integrations/64203b0c72a27a166ab6ea9f/flowBuilder/64203b141619336fc5965cc2",
+    "qaprod__flow":"https://qaprod.staging.integrator.io/integrations/64204431530e176c8b12d246/flowBuilder/64204437104e6f61f6c713c7",
+    "staging__flow":"https://staging.integrator.io/integrations/642043b22b4d66039d664939/flowBuilder/642043bad2152e73193c0b4e",
+    "iaqa__flow":"https://iaqa.staging.integrator.io/integrations/642043442c6571316b81fe2f/flowBuilder/6420434b932cba49410e1ce1"
+}

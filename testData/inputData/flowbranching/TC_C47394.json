@@ -1,0 +1,136 @@
+{
+    "name": "TC_C47394",
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "AutomationStandaloneExport__gsqpYL0s9w",
+                "description": "NS for multiple pages and records",
+                "_connectionId": "NETSUITE CONNECTION",
+                "asynchronous": true,
+                "pageSize": 5,
+                "oneToMany": false,
+                "sandbox": false,
+                "netsuite": {
+                    "type": "restlet",
+                    "skipGrouping": true,
+                    "statsOnly": false,
+                    "restlet": {
+                        "recordType": "customer",
+                        "searchId": "4537",
+                        "useSS2Restlets": false
+                    },
+                    "distributed": {
+                        "useSS2Framework": false
+                    }
+                },
+                "adaptorType": "NetSuiteExport"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "GKlAd3",
+            "routeRecordsTo": "all_matching_branches",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "qa__rules": [
+                        [
+                            "record.name",
+                            "equal",
+                            "Auto_TC_47983_1"
+                        ]
+                    ],
+                    "inputFilter": {
+                        "rules": []
+                    },
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandaloneImport1_afsflk",
+                                "application":"zendesk support",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "Auto_{{random 6}}",
+                                            "generate": "organization.name"
+                                        },
+                                        {
+                                            "extract": "field",
+                                            "generate": "organization.field"
+                                        }
+                                    ]
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "organizations.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Branch 1.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandaloneImport1_afsflk",
+                                "application":"zendesk support",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "http": {
+                                    "relativeURI": [
+                                        "organizations.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ],
+                    "qa__rules": [
+                        [
+                            "record.email",
+                            "equal",
+                            "Auto_TC_47983_3@gmail.com"
+                        ]
+                    ],
+                    "inputFilter": {
+                        "rules": []
+                    }
+                }
+            ],
+            "script": {
+                "function": "branchRouter"
+            }
+        }
+    ],
+    "scriptBody": {
+        "name": "editedScript",
+        "content": "function branching (options)\n{\nif (options.record.name === \"Auto_TC_47983_1\") {\nreturn[0]\n}\nelse\nreturn[0,1]\n}"
+    }
+}

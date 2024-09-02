@@ -1,0 +1,271 @@
+{
+    "name": "TC_C44664",
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "name": "44664",
+                "application":"inspectorio",
+                "_connectionId": "INSPECTORIO CONNECTION",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "lookups": [
+                    {
+                        "name": "static",
+                        "map": {
+                            "1": "2"
+                        },
+                        "allowFailures": false,
+                        "useImportHeaders": true
+                    }
+                ],
+                "mappings": [
+                    {
+                        "extract": "$.poNumber",
+                        "generate": "poNumber",
+                        "dataType": "string"
+                    },
+                    {
+                        "extract": "$.productLineId",
+                        "generate": "productLineId",
+                        "dataType": "string"
+                    },
+                    {
+                        "generate": "styles",
+                        "dataType": "objectarray",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$.styles[*]",
+                                "sourceDataType": "objectarray",
+                                "mappings": [
+                                    {
+                                        "generate": "assortments",
+                                        "dataType": "objectarray",
+                                        "buildArrayHelper": [
+                                            {
+                                                "extract": "$.styles.assortments[*]",
+                                                "sourceDataType": "objectarray",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.styles.assortments.assortmentId",
+                                                        "generate": "assortmentId",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.styles.assortments.cartonQuantity",
+                                                        "generate": "cartonQuantity",
+                                                        "dataType": "number"
+                                                    },
+                                                    {
+                                                        "generate": "items",
+                                                        "dataType": "objectarray",
+                                                        "buildArrayHelper": [
+                                                            {
+                                                                "extract": "$.styles.assortments.items[*]",
+                                                                "sourceDataType": "objectarray",
+                                                                "mappings": [
+                                                                    {
+                                                                        "extract": "$.styles.assortments.items.color",
+                                                                        "generate": "color",
+                                                                        "dataType": "string"
+                                                                    },
+                                                                    {
+                                                                        "extract": "$.styles.assortments.items.configuration",
+                                                                        "generate": "configuration",
+                                                                        "dataType": "string"
+                                                                    },
+                                                                    {
+                                                                        "extract": "$.styles.assortments.items.itemId",
+                                                                        "generate": "itemId",
+                                                                        "dataType": "string"
+                                                                    },
+                                                                    {
+                                                                        "extract": "$.styles.assortments.items.size",
+                                                                        "generate": "size",
+                                                                        "dataType": "string"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "extract": "$.styles.productCategoryId",
+                                        "generate": "productCategoryId",
+                                        "dataType": "string"
+                                    },
+                                    {
+                                        "generate": "solids",
+                                        "dataType": "objectarray",
+                                        "buildArrayHelper": [
+                                            {
+                                                "extract": "$.styles.solids[*]",
+                                                "sourceDataType": "objectarray",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.styles.solids.color",
+                                                        "generate": "color",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.styles.solids.itemId",
+                                                        "generate": "itemId",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.styles.solids.quantity",
+                                                        "generate": "quantity",
+                                                        "dataType": "number",
+                                                        "lookupName": "static"
+                                                    },
+                                                    {
+                                                        "extract": "$.styles.solids.size",
+                                                        "generate": "size",
+                                                        "dataType": "string"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "extract": "$.styles.styleId",
+                                        "generate": "styleId",
+                                        "dataType": "string"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "generate": "vendorId",
+                        "dataType": "string",
+                        "hardCodedValue": "supplier_1"
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "/api/v1/purchase-orders"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http",
+                    "lookups": [
+                        {
+                            "name": "static",
+                            "map": {
+                                "1": "2"
+                            },
+                            "allowFailures": false,
+                            "useImportHeaders": true
+                        }
+                    ]
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "1",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "expected": {
+            "inspectorio": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "TC_C44664",
+                "import": {
+                    "_connectionId": "INSPECTORIO CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "1",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "standaloneexportflowID": "62ce6cdba7777017e5a5843e",
+                    "uniqueField": "poNumber",
+                    "importRecordType": "purchase-orders",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e04f33cfae",
+                    "expectedJSON": [
+                        {
+                            "poNumber": "po_1",
+                            "productLineId": "1",
+                            "styles": [
+                                {
+                                    "assortments": [
+                                        {
+                                            "assortmentId": "string",
+                                            "cartonQuantity": 0,
+                                            "items": [
+                                                {
+                                                    "color": "blue",
+                                                    "configuration": "1",
+                                                    "itemId": "string",
+                                                    "size": "string"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "productCategoryId": "1",
+                                    "solids": [
+                                        {
+                                            "color": "blue",
+                                            "itemId": "string",
+                                            "quantity": 2,
+                                            "size": "string"
+                                        }
+                                    ],
+                                    "styleId": "style_1"
+                                }
+                            ],
+                            "vendorId": "315608_supplier_1"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "AutomationStandaloneExport__ZTso2cApqd",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                    "fileNameStartsWith": "TC_C44664.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "adaptorType": "FTPExport",
+                "qa__path": "//FTP_uploads//TC_C44664.json"
+            }
+        }
+    ]
+}

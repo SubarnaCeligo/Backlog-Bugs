@@ -1,0 +1,193 @@
+{
+    "name": "TC_C47574",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "timezone": "Asia/Calcutta",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "zendesk user",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "e698fd5e17",
+                "asynchronous": true,
+                "pageSize": 1,
+                "assistant": "zendesk",
+                "oneToMany": false,
+                "sandbox": false,
+                "assistantMetadata": {
+                    "resource": "tickets_api",
+                    "version": "v2",
+                    "operation": "list_tickets"
+                },
+                "http": {
+                    "relativeURI": "/api/v2/tickets.json",
+                    "method": "GET",
+                    "successMediaType": "json",
+                    "errorMediaType": "json",
+                    "formType": "assistant",
+                    "paging": {
+                        "method": "url",
+                        "path": "next_page",
+                        "lastPageStatusCode": 404
+                    },
+                    "response": {
+                        "resourcePath": "tickets"
+                    }
+                },
+                "rawData": "62f37ad6703e322cf5d90431b79c1142c2d74415b9c72cfe4d905b71",
+                "rest": {
+                    "relativeURI": "/api/v2/tickets.json",
+                    "method": "GET",
+                    "resourcePath": "tickets",
+                    "pagingMethod": "nextpageurl",
+                    "nextPagePath": "next_page",
+                    "allowUndefinedResource": false
+                },
+                "adaptorType": "RESTExport"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "am89yM",
+            "routeRecordsTo": "all_matching_branches",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "ftp import",
+                                "_connectionId": "FTP CONNECTION",
+                                "apiIdentifier": "id96fe45a6",
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "name",
+                                            "generate": "name"
+                                        },
+                                        {
+                                            "extract": "id",
+                                            "generate": "id"
+                                        }
+                                    ]
+                                },
+                                "file": {
+                                    "fileName": "TC_C47574_ftp",
+                                    "skipAggregation": true,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                                    "fileName": "TC_C47574_ftp.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Branch 1.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "g_drive",
+                                "_connectionId": "GOOGLEDRIVE CONNECTION",
+                                "apiIdentifier": "ifeb09cf3b",
+                                "oneToMany": false,
+                                "assistant": "googledrive",
+                                "sandbox": false,
+                                "file": {
+                                    "fileName": "TC_C47574-{{timestamp}}.json",
+                                    "skipAggregation": true,
+                                    "type": "json"
+                                },
+                                "http": {
+                                    "type": "file",
+                                    "relativeURI": [
+                                        "Gdrive_Imports"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "body": [],
+                                    "sendPostMappedData": true,
+                                    "formType": "assistant",
+                                    "response": {
+                                        "resourcePath": [
+                                            "files"
+                                        ]
+                                    }
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "successCount": "9",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "expected": {
+            "FTP": {
+                "name": "TC_C47574_ftp",
+                "_integrationId": "62f51db41677a21a108e5e3a",
+                "import": {
+                    "_connectionId": "FTP CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "9",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_C47574_ftp",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation_FTPimport",
+                    "fileType": ".json"
+                }
+            },
+            "Gdrive": {
+                "name": "TC_C47574",
+                "_integrationId": "62f51db41677a21a108e5e3a",
+                "import": {
+                    "_connectionId": "GOOGLEDRIVE CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "9",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_C47574",
+                    "folderName": "Gdrive_Imports",
+                    "fileType": ".json"
+                }
+            }
+        }
+    }
+}

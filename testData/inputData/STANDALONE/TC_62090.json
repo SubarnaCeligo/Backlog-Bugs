@@ -1,0 +1,53 @@
+{ "Mockdata" :{
+    "fieldMap": {
+  
+      "radiogroup": {
+        "id": "radiogroup",
+        "name": "radiogroup",
+        "type": "radiogroup",
+        "label": "Radio button A",
+        "description": "This example uses a simple item set",
+        "options": [
+          {
+            "items": [
+              "Create",
+              "Update",
+              "Delete"
+            ]
+          }
+        ]
+      },
+      "radiogroup2": {
+        "id": "radiogroup2",
+        "name": "radiogroup2",
+        "type": "radiogroup",
+        "label": "Radio button B",
+        "description": "This example defined separate labels and values for each item",
+        "options": [
+          {
+            "items": [
+              {
+                "label": "United States",
+                "value": "us"
+              },
+              {
+                "label": "Canada",
+                "value": "cdn"
+              },
+              {
+                "label": "India",
+                "value": "in"
+              }
+            ]
+          }
+        ]
+      }, 
+      "date": {
+        "id": "date",
+        "name": "date",
+        "type": "date",
+        "label": "Date",
+        "doNotAllowFutureDates": true
+      }
+    }
+  }}

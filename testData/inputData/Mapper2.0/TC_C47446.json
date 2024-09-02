@@ -1,0 +1,215 @@
+{
+    "name": "TC_C47446_BigCommerce_Multiple_Sources",
+    "disabled": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "timezone": "Asia/Calcutta",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "FTP_Export_TC_C47446",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "sandbox": false,
+                "adaptorType": "FTPExport",
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                    "fileNameStartsWith": "TC_C47446_Mapper2_BigCommerce.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "qa__path": "//SFTP_uploads//TC_C47446_Mapper2_BigCommerce.json"
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "3",
+        "errorCount": "0"
+    },
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "Import 1",
+                "application": "BigCommerce",
+                "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+                "qa__connectionId": "HTTP BIGCOMMERCE CONNECTION",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "extract": "Auto {{record.name}}",
+                        "generate": "name",
+                        "dataType": "string",
+                        "conditional": {
+                            "when": "extract_not_empty"
+                        }
+                    },
+                    {
+                        "generate": "category_access",
+                        "dataType": "object",
+                        "mappings": [
+                            {
+                                "extract": "$.category_access.type",
+                                "generate": "type",
+                                "dataType": "string"
+                            },
+                            {
+                                "generate": "categories",
+                                "dataType": "numberarray",
+                                "conditional": {
+                                    "when": "extract_not_empty"
+                                },
+                                "buildArrayHelper": [
+                                    {
+                                        "extract": "$.category_access.category1"
+                                    },
+                                    {
+                                        "extract": "$.category_access.category2"
+                                    },
+                                    {
+                                        "extract": "$.category_access.category3"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "/v2/customer_groups"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "Import 2",
+                "application": "BigCommerce",
+                "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+                "qa__connectionId": "HTTP BIGCOMMERCE CONNECTION",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "extract": "Auto {{record.name}}",
+                        "generate": "name",
+                        "dataType": "string",
+                        "conditional": {
+                            "when": "extract_not_empty"
+                        }
+                    },
+                    {
+                        "generate": "meta_keywords",
+                        "dataType": "stringarray",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$.meta_keyword1"
+                            },
+                            {
+                                "extract": "$.meta_keyword2"
+                            },
+                            {
+                                "extract": "$.meta_keyword3"
+                            }
+                        ]
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "/v3/catalog/brands"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "expected": {
+            "bigcommerce": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "TC_C47446_BigCommerce_Multiple_Sources",
+                "import": {
+                    "_connectionId": "HTTP BIGCOMMERCE CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "1",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "standaloneexportflowID": "62e8fb21f389ab707f5d8ef3",
+                    "uniqueField": "name",
+                    "importRecordType": "customer_groups",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e9d68fa854",
+                    "expectedJSON": {
+                        "name": "Auto 5% Discount",
+                        "category_access": {
+                            "type": "specific",
+                            "categories": [
+                                18,
+                                19,
+                                20
+                            ]
+                        }
+                    }
+                }
+            },
+            "Bigcommerce": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "TC_C47446_BigCommerce_Multiple_Sources",
+                "import": {
+                    "_connectionId": "HTTP BIGCOMMERCE CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "1",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "standaloneexportflowID": "62e6b80551208d4e704980c6",
+                    "uniqueField": "name",
+                    "importRecordType": "brands",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e90fdcc809",
+                    "expectedJSON": {
+                        "name": "Auto 5% Discount",
+                        "meta_keywords": [
+                            "modern",
+                            "clean",
+                            "contemporary"
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

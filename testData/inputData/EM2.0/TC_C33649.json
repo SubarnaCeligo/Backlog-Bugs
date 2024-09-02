@@ -1,0 +1,91 @@
+{
+  "name": "TC_C33649",
+  "referencename": "TC_C33649",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "C36710 Export",
+            "_connectionId": "NETSUITE CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "rawData": "603ce5ede9250226dcea46088d18dceb28304264b495536f4368c158",
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "recordType": "customer",
+                "searchId": "3814",
+                "useSS2Restlets": true,
+                "criteria": [
+                  {
+                    "field": "companyname",
+                    "operator": "is",
+                    "searchValue": "TC_453_NS_RT"
+                  }
+                ]
+              },
+              "distributed": {
+                "useSS2Framework": false
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Http_Import_TC_C33649",
+            "application": "zendesk support",
+            "parsers": [],
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "qa__connectionId": "ZENDESK CONNECTION",
+            "oneToMany": false,
+            "blob": true,
+            "lookups": [],
+            "http": {
+              "relativeURI": [
+                "test"
+              ],
+              "method": [
+                "POST"
+              ],
+              "body": [],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C33649",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

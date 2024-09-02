@@ -1,0 +1,199 @@
+{
+    "name": "TC_C44448",
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "disabled": false,
+    "referencename": "TC_C44448",
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "name": "TC_C44448 import",
+                "application": "HubSpot",
+                "_connectionId": "HUBSPOT CONNECTION",
+                "qa__connectionId": "5c4eaf75576d68720829a033",
+                "apiIdentifier": "iee30760f1",
+                "ignoreExisting": true,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "lookups": [
+                    {
+                        "name": "static",
+                        "map": {
+                            "1": "2"
+                        },
+                        "allowFailures": false,
+                        "useImportHeaders": true
+                    },
+                    {
+                        "name": "dynamic",
+                        "method": "GET",
+                        "relativeURI": "api/v1/orders",
+                        "extract": "data[1].orderLineId",
+                        "body": "",
+                        "allowFailures": false,
+                        "useImportHeaders": true
+                    }
+                ],
+                "mappings": [
+                    {
+                        "generate": "items",
+                        "dataType": "object",
+                        "mappings": [
+                            {
+                                "generate": "items inventory",
+                                "dataType": "objectarray",
+                                "buildArrayHelper": [
+                                    {
+                                        "extract": "$.items[*].inventory[*]",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.items.inventory.sQty",
+                                                "generate": "items qty",
+                                                "dataType": "string"
+                                            },
+                                            {
+                                                "extract": "$.items.inventory.isActive",
+                                                "generate": "Active",
+                                                "dataType": "string"
+                                            },
+                                            {
+                                                "extract": "$.items.inventory.sno",
+                                                "generate": "sno",
+                                                "dataType": "number"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "generate": "products",
+                        "dataType": "objectarray",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$.products[*].inventory[*]",
+                                "mappings": [
+                                    {
+                                        "generate": "sno",
+                                        "dataType": "stringarray",
+                                        "buildArrayHelper": [
+                                            {
+                                                "extract": "$.products.inventory.sno"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "products qty",
+                                        "dataType": "numberarray",
+                                        "buildArrayHelper": [
+                                            {
+                                                "extract": "$.products.inventory.sQty"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "Active",
+                                        "dataType": "booleanarray",
+                                        "buildArrayHelper": [
+                                            {
+                                                "extract": "$.products.inventory.isActive"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "generate": "orders",
+                        "dataType": "objectarray",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$.orders[*].inventory[*]",
+                                "mappings": [
+                                    {
+                                        "extract": "$.orders.inventory.sQty",
+                                        "generate": "orders qty",
+                                        "dataType": "string",
+                                        "lookupName": "static"
+                                    },
+                                    {
+                                        "generate": "data",
+                                        "extract": "$.brands.inventory.sQty",
+                                        "dataType": "string",
+                                        "lookupName": "dynamic"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "/contacts/v1/contact"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [
+                        "{\n      \"property\": \"{{record.items.name}}\",\n      \"value\": \"{{connection.http.unencrypted.field}}\"\n    }"
+                    ],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "ignoreExtract": "customer",
+                    "formType": "http",
+                    "lookups": [
+                        {
+                            "name": "static",
+                            "map": {
+                                "1": "2"
+                            },
+                            "allowFailures": false,
+                            "useImportHeaders": true
+                        },
+                        {
+                            "name": "dynamic",
+                            "method": "GET",
+                            "relativeURI": "api/v1/orders",
+                            "extract": "data[1].orderLineId",
+                            "body": "",
+                            "allowFailures": false,
+                            "useImportHeaders": true
+                        }
+                    ]
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "FTP_export_TC_C44448",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                    "fileNameStartsWith": "TC_C44448.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport",
+                "qa__path": "//SFTP_uploads//TC_C44448.json"
+            }
+        }
+    ],
+    "expected": "{\n  \"items\": {\n    \"items inventory\": [\n      {\n        \"items qty\": \"1\",\n        \"Active\": \"true\",\n        \"sno\": 121241221\n      },\n      {\n        \"items qty\": \"1\",\n        \"Active\": \"false\",\n        \"sno\": 121241222\n      }\n    ],\n    \"orders\": [\n      {\n        \"orders qty\": \"2\",\n        \"data\": \"[Dynamic lookup: Preview unavailable]\"\n      },\n      {\n        \"orders qty\": \"2\",\n        \"data\": \"[Dynamic lookup: Preview unavailable]\"\n      }\n    ],\n    \"products\": [\n      {\n        \"Active\": [\n          true\n        ],\n        \"products qty\": [\n          1\n        ],\n        \"sno\": [\n          \"121241221\"\n        ]\n      },\n      {\n        \"Active\": [\n          false\n        ],\n        \"products qty\": [\n          1\n        ],\n        \"sno\": [\n          \"121241222\"\n        ]\n      }\n    ]\n  }\n}"
+}

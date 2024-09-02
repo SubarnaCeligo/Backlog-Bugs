@@ -1,0 +1,173 @@
+{
+  "name": "TC_C23884",
+  "referencename": "TC_C23884",
+  "qaprod_connectionId": "63da5d7efc3afd5680efb884",
+  "updateExport": {
+    "name": "export_23884",
+    "_connectionId": "ZENDESK CONNECTION",
+    "asynchronous": true,
+    "type": "test",
+    "oneToMany": false,
+    "sandbox": false,
+    "http": {
+      "relativeURI": "/tickets.json",
+      "method": "GET",
+      "formType": "http",
+      "response": {
+        "resourcePath": "tickets"
+      }
+    },
+    "test": {
+      "limit": 1
+    },
+    "adaptorType": "HTTPExport"
+  },
+  "updateImport1": {
+    "name": "lookup_23884",
+    "_connectionId": "ZENDESK CONNECTION",
+    "asynchronous": true,
+    "isLookup": true,
+    "oneToMany": false,
+    "sandbox": false,
+    "parsers": [],
+    "http": {
+      "relativeURI": "/tickets/81/comment.json",
+      "method": "GET",
+      "formType": "http",
+      "response": {
+        "resourcePath": "comments"
+      }
+    },
+    "adaptorType": "HTTPExport"
+  },
+  "updateImport2": {
+    "name": "23884_import",
+    "parsers": [],
+    "_connectionId": "62b98b81112746097f4f5a63",
+    "salesforce": {
+      "operation": "insert",
+      "sObjectType": "Account",
+      "api": "soap",
+      "removeNonSubmittableFields": false
+    },
+    "adaptorType": "SalesforceImport"
+  },
+  "qa__api_tdata": [
+    {
+      "pageProcessors": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "lookup_23884",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "qa__connectionId": "ZENDESK CONNECTION",
+            "asynchronous": true,
+            "isLookup": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "parsers": [],
+            "http": {
+              "relativeURI": "/tickets/81/comment.json",
+              "method": "GET",
+              "formType": "http",
+              "response": {
+                "resourcePath": "comments"
+              }
+            },
+            "adaptorType": "HTTPExport"
+          },
+          "responseMapping": {
+            "fields": [
+              {
+                "extract": "data",
+                "generate": "response"
+              }
+            ],
+            "lists": []
+          }
+        },
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "23884_import",
+            "parsers": [],
+            "_connectionId": "SALESFORCE CONNECTION",
+            "salesforce": {
+              "operation": "insert",
+              "sObjectType": "Account",
+              "api": "soap",
+              "removeNonSubmittableFields": false
+            },
+            "adaptorType": "SalesforceImport"
+          },
+          "responseMapping": {
+            "lists": [],
+            "fields": []
+          }
+        }
+      ],
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "export_23884",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "qa__connectionId": "ZENDESK CONNECTION",
+            "asynchronous": true,
+            "type": "test",
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+              "relativeURI": "api/v2/tickets.json",
+              "method": "GET",
+              "formType": "http",
+              "response": {
+                "resourcePath": "tickets"
+              }
+            },
+            "test": {
+              "limit": 1
+            },
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C23884",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [
+                {
+                  "extract": "data",
+                  "generate": "response"
+                }
+              ],
+              "lists": []
+            },
+            "type": "export",
+            "_exportId": "UPDATE EXPORT ID"
+          },
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

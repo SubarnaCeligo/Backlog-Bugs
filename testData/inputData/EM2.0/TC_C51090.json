@@ -1,0 +1,120 @@
+{
+    "name": "TC_C51090",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "timezone": "Asia/Calcutta",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "zendesk user",
+                "_connectionId": "ZENDESK CONNECTION",
+                "apiIdentifier": "e698fd5e17",
+                "asynchronous": true,
+                "assistant": "zendesk",
+                "oneToMany": false,
+                "sandbox": false,
+                "assistantMetadata": {
+                    "resource": "tickets_api",
+                    "version": "v2",
+                    "operation": "show_ticket"
+                },
+                "http": {
+                    "relativeURI": "/api/v2/tickets/81.json",
+                    "method": "GET",
+                    "headers": [],
+                    "successMediaType": "json",
+                    "errorMediaType": "json",
+                    "formType": "assistant",
+                    "paging": {
+                        "method": "url",
+                        "path": "next_page",
+                        "lastPageStatusCode": 404
+                    },
+                    "response": {
+                        "resourcePath": "ticket"
+                    }
+                },
+                "rest": {
+                    "relativeURI": "/api/v2/tickets/81.json",
+                    "method": "GET",
+                    "headers": [],
+                    "resourcePath": "ticket",
+                    "pagingMethod": "nextpageurl",
+                    "nextPagePath": "next_page",
+                    "allowUndefinedResource": false
+                },
+                "adaptorType": "RESTExport"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "am89yM",
+            "routeRecordsTo": "all_matching_branches",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "import",
+                                "_connectionId": "SALESFORCE CONNECTION",
+                                "apiIdentifier": "i2cc962e5a",
+                                "ignoreExisting": false,
+                                "ignoreMissing": false,
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "salesforce": {
+                                    "operation": "insert",
+                                    "sObjectType": "Account",
+                                    "api": "soap",
+                                    "removeNonSubmittableFields": false
+                                },
+                                "adaptorType": "SalesforceImport"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Branch 1.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "contact",
+                                "_connectionId": "SALESFORCE CONNECTION",
+                                "apiIdentifier": "i5de6f216d",
+                                "ignoreExisting": false,
+                                "ignoreMissing": false,
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "salesforce": {
+                                    "operation": "insert",
+                                    "sObjectType": "Contact",
+                                    "api": "soap",
+                                    "removeNonSubmittableFields": false
+                                },
+                                "adaptorType": "SalesforceImport"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        }
+    ]
+}

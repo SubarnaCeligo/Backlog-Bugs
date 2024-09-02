@@ -1,0 +1,82 @@
+{
+  "skipRetries": false,
+  "_integrationId": "60cd9a49d99bd92eb5bd2527",
+  "pageProcessors": [],
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "38 NS Export",
+        "adaptorType": "NetSuiteExport",
+        "parsers": [],
+        "_connectionId": "628f00568f68e85ab2c63b22",
+        "asynchronous": true,
+        "netsuite": {
+          "type": "restlet",
+          "skipGrouping": true,
+          "statsOnly": false,
+          "restlet": {
+            "recordType": "customer",
+            "searchId": "1957",
+            "criteria": [],
+            "columns": [],
+            "useSS2Restlets": false
+          }
+        },
+        "qa__rules": [
+          [
+            "record.Name",
+            "equals",
+            "38.NSCustomer2FTPFlow"
+          ]
+        ],
+        "filter": {
+          "type": "expression",
+          "expression": {
+            "rules": [
+              "equals",
+              [
+                "string",
+                [
+                  "extract",
+                  "Name"
+                ]
+              ],
+              "38.NSCustomer2FTPFlow"
+            ],
+            "version": "1"
+          },
+          "version": "1",
+          "rules": [
+            "equals",
+            [
+              "string",
+              [
+                "extract",
+                "Name"
+              ]
+            ],
+            "38.NSCustomer2FTPFlow"
+          ]
+        }
+      }
+    }
+  ],
+  "importRecordJSON": {
+    "shipping_state": "TG",
+    "shipping_city": "Kukatpally",
+    "billing_country": "India",
+    "subsidiary": "HH Inc.",
+    "billing_city": "Hyderabad",
+    "phone": "1741245874",
+    "billing_state": "TS",
+    "shipping_zip": "500081",
+    "companyname": "38.NSCustomer2FTPFlow",
+    "shipping_address1": "KPHB Colony",
+    "billing_zip": "500016",
+    "fax": "1747854521",
+    "billing_address1": "GV Colony",
+    "shipping_country": "India",
+    "email": "38ns2ftp@celigo.com"
+  },
+  "importapiIdentifier": "i78cb6d9b7"
+}

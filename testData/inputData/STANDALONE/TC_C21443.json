@@ -1,0 +1,20 @@
+{
+    "name": "TC_40411_AmazonRedshift_Once_Export_To_FTP",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "application": "Amazon Redshift",
+                "qa__connectionId": "62e8e11136f8f637aa252cd0",
+                "_connectionId": "MYSQL CONNECTION",
+                "rdbms": {
+                    "query": "select * from Once_Export"
+                },
+                "adaptorType": "RDBMSExport"
+            }
+        }
+    ]
+}

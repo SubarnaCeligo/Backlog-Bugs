@@ -1,0 +1,86 @@
+{
+  "name": "TC_C36004_Verify_LastPageValues_LastPagePath_Http_Export",
+  "referencename": "TC_C36004_Verify_LastPageValues_LastPagePath_Http_Export",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "export",
+            "_connectionId": "HTTP 3D CART CONNECTION",
+            "application": "3PL",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+              "relativeURI": "3dCartWebAPI/v1/Customers?offset={{{export.http.paging.skip}}}",
+              "method": "GET",
+              "formType": "http",
+              "paging": {
+                "method": "skip",
+                "skip": 1,
+                "lastPageStatusCode": 400,
+                "lastPagePath": "0.Message",
+                "lastPageValues": [
+                  "Offset amount exceeds the total number of records"
+                ]
+              }
+            },
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "FTP IMPORT",
+            "parsers": [],
+            "_connectionId": "FTP CONNECTION",
+            "distributed": false,
+            "file": {
+              "type": "csv",
+              "csv": {
+                "rowDelimiter": "\n",
+                "columnDelimiter": ",",
+                "includeHeader": true,
+                "wrapWithQuotes": false,
+                "replaceTabWithSpace": false,
+                "replaceNewlineWithSpace": false,
+                "truncateLastRowDelimiter": false
+              }
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation",
+              "fileName": "TC_C36004_Verify_LastPageValues_LastPagePath_Http_Export.csv"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C36004_Verify_LastPageValues_LastPagePath_Http_Export",
+        "disabled": false,
+        "_integrationId": "631a1266abf51e7a86c80ab4",
+        "qa__integrationId": "6228aed6bc8a2732cfe8044c",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

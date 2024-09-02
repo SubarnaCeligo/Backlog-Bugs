@@ -1,0 +1,86 @@
+{
+  "name": "TC_C26505_Gdrive_Verify_DecryptFiles_Invalid_PrivateKey",
+  "referencename": "TC_C26505_Gdrive_Verify_DecryptFiles_Invalid_PrivateKey",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "507_GDRIVE_Export",
+            "_connectionId": "GDRIVE_PRIVATE_PUBLIC_KEY CONNECTION",
+            "assistant": "googledrive",
+            "parsers": [],
+            "http": {
+              "type": "file",
+              "relativeURI": "Gdrive_Decryption",
+              "qa__fileNameStartWith": "507_PGP_ENCRYPT_PRIVATE_KEY",
+              "method": "GET",
+              "formType": "assistant",
+              "paging": {
+                "lastPageValues": []
+              },
+              "response": {
+                "resourcePath": "files",
+                "successValues": [],
+                "failValues": []
+              }
+            },
+            "file": {
+              "output": "records",
+              "skipDelete": true,
+              "type": "json",
+              "decrypt": "pgp",
+              "groupByFields": []
+            },
+            "qa__path": "/Gdrive_uploads/tc_gdrive_json_NS.json",
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "FTP Import",
+            "parsers": [],
+            "_connectionId": "FTP_PGP_WITH_ALL_KEYS CONNECTION",
+            "oneToMany": false,
+            "file": {
+              "fileName": "TC_C26503.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation",
+              "fileName": "TC_C26503.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C26505_Gdrive_Verify_DecryptFiles_Invalid_PrivateKey",
+        "disabled": false,
+        "_integrationId": "60cd9a49d99bd92eb5bd2527",
+        "qa__integrationId": "6110bf8dc5492e2ee1f324af",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

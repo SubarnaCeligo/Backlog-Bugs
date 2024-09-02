@@ -1,0 +1,86 @@
+{
+    "flowname": "TC_C24855_FER",
+    "name": "TC_C24855_FER",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "test",
+              "_connectionId": "FTP CONNECTION",
+              "apiIdentifier": "ee30ec3286",
+              "asynchronous": true,
+              "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_C36518"
+              },
+              "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json",
+                "json": {
+                  "resourcePath": "*"
+                }
+              },
+              "adaptorType": "FTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "test",
+              "_connectionId": "FTP CONNECTION",
+              "apiIdentifier": "if8fa9bc6a",
+              "oneToMany": false,
+              "file": {
+                "fileName": "file-{{timestamp}}.csv",
+                "skipAggregation": false,
+                "type": "csv",
+                "csv": {
+                  "rowDelimiter": "\n",
+                  "columnDelimiter": ",",
+                  "includeHeader": true,
+                  "wrapWithQuotes": false,
+                  "replaceTabWithSpace": false,
+                  "replaceNewlineWithSpace": false,
+                  "truncateLastRowDelimiter": false
+                }
+              },
+              "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                "fileName": "file-{{timestamp}}.csv"
+              },
+              "adaptorType": "FTPImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C24855_FER",
+          "disabled": false,
+          "qa__integrationId": "631ec9b452e9a959edd75a41",
+          "_integrationId": "631f51ba4281e504953f9a61",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "type": "export",
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

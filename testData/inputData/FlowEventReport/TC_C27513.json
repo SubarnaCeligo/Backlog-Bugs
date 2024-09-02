@@ -1,0 +1,106 @@
+{
+    "integrationDetails": {
+      "Source_Environment": "Production",
+      "Source_Integration": "TC_C27513_INT",
+      "qa__api_tdata": [{
+        "createIntegrations": {
+          "name": "TC_C27513_INT"
+        }
+      }]
+    },
+    "flowsData": {
+      "flowname1": "TC_C27513_Flow",
+      "qa__api_tdata": [
+        {
+            "pageGenerators": [
+              {
+                "type": "export",
+                "qa__export":{
+                    "name": "Zendesk Users",
+                    "_connectionId": "ZENDESK CONNECTION",
+                    "apiIdentifier": "e307ef6684",
+                    "asynchronous": true,
+                    "assistant": "zendesk",
+                    "oneToMany": false,
+                    "sandbox": false,
+                    "assistantMetadata": {
+                        "resource": "users_api",
+                        "version": "v2",
+                        "operation": "show_user"
+                    },
+                    "http": {
+                        "relativeURI": "/api/v2/users/1473313072.json",
+                        "method": "GET",
+                        "successMediaType": "json",
+                        "errorMediaType": "json",
+                        "formType": "assistant",
+                        "paging": {
+                            "method": "url",
+                            "path": "next_page",
+                            "lastPageStatusCode": 404
+                        },
+                        "response": {
+                            "resourcePath": "user"
+                        }
+                    },
+                    "rawData": "631ec91d52e9a959edd75a2340dcb160855b4eedbd47a7ea578e30d7",
+                    "rest": {
+                        "relativeURI": "/api/v2/users/1473313072.json",
+                        "method": "GET",
+                        "resourcePath": "user",
+                        "pagingMethod": "nextpageurl",
+                        "nextPagePath": "next_page",
+                        "allowUndefinedResource": false
+                    },
+                    "adaptorType": "RESTExport"
+                }
+              }
+            ],
+            "pageProcessors": [
+              {
+                "type": "import",
+                "qa__import": {
+                    "name": "Import",
+                    "_connectionId": "FTP CONNECTION",
+                    "apiIdentifier": "idd4ab9f53",
+                    "oneToMany": false,
+                    "sandbox": false,
+                    "file": {
+                        "fileName": "file-{{timestamp}}.json",
+                        "skipAggregation": false,
+                        "type": "json"
+                    },
+                    "ftp": {
+                        "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPImports",
+                        "fileName": "file-{{timestamp}}.json"
+                    },
+                    "adaptorType": "FTPImport"
+                }
+              }
+            ],
+            "createFlow": {
+              "name": "TC_C27513_Flow",
+              "disabled": false,
+              "_integrationId": "",
+              "skipRetries": false,
+              "pageProcessors": [
+                {
+                  "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                  },
+                  "type": "import",
+                  "_importId": "UPDATE WITH NEW IMPORTID"
+                }
+              ],
+              "pageGenerators": [
+                {
+                  "_exportId": "UPDATE WITH NEW EXPORTID"
+                }
+              ]
+            }
+          }
+      ]
+    }
+
+  }

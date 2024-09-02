@@ -1,0 +1,29 @@
+{
+    "name": "TC_C45126",
+    "skipRetries": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "disabled": false,
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "FTP Export 45126",
+            "_connectionId": "FTP CONNECTION",
+            "asynchronous": true,
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                "fileNameStartsWith": "TC_45126_Flowbranching.json"
+            },
+            "file": {
+                "encoding": "utf8",
+                "type": "json",
+                "output": "records",
+                "skipDelete": true
+            },
+            "adaptorType": "FTPExport",
+            "qa__path": "//SFTP_uploads//TC_45126_Flowbranching.json"
+        }
+    }],
+    "scriptBody": {
+        "name": "editedScript_45126",
+        "content": "function branching (options)\n{\nif (options.record.name === \"Auto_TC_47983_1\") {\nreturn[1]\n}\nelse\nreturn[0]\n}"
+    }
+}

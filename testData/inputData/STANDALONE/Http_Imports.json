@@ -1,0 +1,138 @@
+[
+  {
+    "name": "Verify_when_User_selects_composite_type_as_Create_new_records_&_update_existing_records_the_header_of_the_section_is_displayed_as_Update_existing_records",
+    "disabled": false,
+    "qa__integrationId": "6228aed6bc8a2732cfe8044c",
+    "_integrationId": "603ce75ac4fec33283691f43",
+    "skipRetries": false,
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "name": "Dataloader",
+          "file": {
+            "encoding": "utf8",
+            "output": "records",
+            "skipDelete": false,
+            "type": "json",
+            "json": {
+              "resourcePath": "*"
+            }
+          },
+          "asynchronous": true,
+          "parsers": [],
+          "qa__isDataLoader": "json",
+          "qa__path": "//Dataloader_uploades//Httpcreateorupdatecomposite.json",
+          "type": "simple",
+          "adaptorType": "SimpleExport"
+        }
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "name": "Http_composite",
+          "_connectionId": "HTTP ZENDESK CONNECTION",
+          "parsers": [],
+          "adaptorType": "HTTPImport",
+          "distributed": false,
+          "http": {
+            "standalone": true,
+            "method": ["Composite"],
+            "requestType": "updateandignore"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "name": "Verify_when_User_selects_composite_type_as_Create_new_records_&_ignore_existing_records_the_header_of_the_section_is_displayed_as_Identify_existing_records",
+    "disabled": false,
+    "_integrationId": "6228aed6bc8a2732cfe8044c",
+    "skipRetries": false,
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "name": "Dataloader",
+          "file": {
+            "encoding": "utf8",
+            "output": "records",
+            "skipDelete": false,
+            "type": "json",
+            "json": {
+              "resourcePath": "*"
+            }
+          },
+          "asynchronous": true,
+          "parsers": [],
+          "qa__isDataLoader": "json",
+          "qa__path": "//Dataloader_uploades//Httpcreateorupdatecomposite.json",
+          "type": "simple",
+          "adaptorType": "SimpleExport"
+        }
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "name": "Http_composite",
+          "_connectionId": "HTTP ZENDESK CONNECTION",
+          "parsers": [],
+          "adaptorType": "HTTPImport",
+          "distributed": false,
+          "http": {
+            "standalone": true,
+            "method": ["Composite"],
+            "requestType": "createandignore"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "name": "Verify_when_User_selects_composite_type_as_Create_new_records_&_ignore_existing_records_the_header_of_the_section_is_displayed_as_Identify_existing_records",
+    "disabled": false,
+    "_integrationId": "6228aed6bc8a2732cfe8044c",
+    "skipRetries": false,
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "name": "Dataloader",
+          "file": {
+            "encoding": "utf8",
+            "output": "records",
+            "skipDelete": false,
+            "type": "json",
+            "json": {
+              "resourcePath": "*"
+            }
+          },
+          "asynchronous": true,
+          "parsers": [],
+          "qa__isDataLoader": "json",
+          "qa__path": "//Dataloader_uploades//Httpcreateorupdatecomposite.json",
+          "type": "simple",
+          "adaptorType": "SimpleExport"
+        }
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "name": "Http_composite",
+          "_connectionId": "HTTP ZENDESK CONNECTION",
+          "parsers": [],
+          "adaptorType": "HTTPImport",
+          "distributed": false,
+          "http": {
+            "standalone": true,
+            "method": ["Composite"],
+            "requestType": "createandignore"
+          }
+        }
+      }
+    ]
+  }
+]

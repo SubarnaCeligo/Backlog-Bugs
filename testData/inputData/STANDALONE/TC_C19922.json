@@ -1,0 +1,96 @@
+{
+    "flowname": "TC_C19922",
+    "name": "TC_C19922",
+      "qa__api_tdata": [
+        {
+          "pageGenerators": [
+            {
+              "type": "export",
+              "qa__export": {
+                      "name": "HTTP",
+                      "application": "zendesk support",
+                      "_connectionId":"ZENDESK CONNECTION",
+                      "apiIdentifier": "e6c52daff8",
+                      "asynchronous": true,
+                      "oneToMany": false,
+                      "sandbox": false,
+                      "http": {
+                          "relativeURI": "/tickets.json",
+                          "method": "GET",
+                          "formType": "http"
+                      },
+                      "adaptorType": "HTTPExport"
+                  }
+            },
+            {
+              "type": "export",
+              "qa__export": {
+               "name": "http",
+               "application": "zendesk support",
+              "_connectionId":"ZENDESK CONNECTION",
+              "apiIdentifier": "e8927af5a0",
+              "asynchronous": true,
+              "oneToMany": false,
+              "sandbox": false,
+              "http": {
+                  "relativeURI": "users.json",
+                  "method": "GET",
+                  "formType": "http"
+              },
+              "adaptorType": "HTTPExport"
+          }
+      }
+          ],
+          "pageProcessors": [
+            {
+              "type": "import",
+              "qa__import": {
+                      "name": "ftp",
+                      "_connectionId":"FTP CONNECTION",
+                      "apiIdentifier": "i13a780a29",
+                      "oneToMany": false,
+                      "sandbox": false,
+                      "file": {
+                          "fileName": "file-{{timestamp}}.json",
+                          "skipAggregation": false,
+                          "type": "json"
+                      },
+                      "ftp": {
+                          "directoryPath": "io.auto.qa/IO_UI_Automation_FTPImports",
+                          "fileName": "file-{{timestamp}}.json"
+                      },
+                      "adaptorType": "FTPImport"
+                  }
+              }
+          ],
+          "createFlow": {
+            "name": "TC_C19922",
+            "disabled": false,
+            "_integrationId": "631a1266abf51e7a86c80ab4",
+            "qa__integrationId": "6228aed6bc8a2732cfe8044c",
+            "skipRetries": false,
+            "pageGenerators": [
+              {
+                "type": "export",
+                "_exportId": "UPDATE EXPORT ID"
+              },
+              {
+                "type": "export",
+                "_exportId": "UPDATE WITH EXPORT ID"
+              }
+            ],
+              "pageProcessors": [
+                {
+                  "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                  },
+                  "type": "import",
+                  "_importId": "UPDATE IMPORT ID"
+                }
+
+            ]
+          }
+        }
+      ]
+    }

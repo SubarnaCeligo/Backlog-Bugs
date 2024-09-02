@@ -1,0 +1,114 @@
+{
+    "name": "TC_C47483",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "AutomationStandaloneExport__Oa323se",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "asynchronous": true,
+                        "pageSize": 5,
+                        "type": "test",
+                        "test": {
+                            "limit": 1
+                        },
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "recordType": "campaign",
+                                "searchId": "4651",
+                                "useSS2Restlets": false
+                            },
+                            "distributed": {
+                                "useSS2Framework": false
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Shopify Lookup",
+                        "application": "Shopify",
+                        "_connectionId": "HTTP SHOPIFY CONNECTION",
+                        "asynchronous": true,
+                        "isLookup": true,
+                        "type": "test",
+                        "test": {
+                            "limit": 1
+                        },
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": "/customers/search.json?fields=first_name,+admin_graphql_api_id",
+                            "method": "GET",
+                            "formType": "http",
+                            "response": {
+                                "resourcePath": "customers"
+                            }
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                },
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "AutomationStandaloneImport1_afsflk",
+                        "application": "zendesk support",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "hardCodedValue": "Auto_C47483",
+                                    "generate": "user.name"
+                                }
+                            ]
+                        },
+                        "http": {
+                            "relativeURI": [
+                                "/users"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C47483",
+                "skipRetries": false,
+                "_integrationId": "62f51db41677a21a108e5e3a",
+                "disabled": false,
+                "pageProcessors": [
+                    {
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW IMPORTID"
+                    },
+                    {
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

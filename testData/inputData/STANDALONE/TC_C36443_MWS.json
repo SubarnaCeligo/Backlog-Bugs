@@ -1,0 +1,118 @@
+{
+    "skipRetries": false,
+    "_integrationId": "63073532f3062a3f169e2dff",
+    "name": "TC_C36443_MWS",
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "_id": "6334360e22afdf34372f0116",
+                "createdAt": "2022-09-28T11:54:54.437Z",
+                "lastModified": "2022-09-28T11:54:54.506Z",
+                "name": "TC_C36443_MWS",
+                "_connectionId": "S3 CONNECTION",
+                "apiIdentifier": "i657b506a2",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "TC_C36443_MWS.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "s3": {
+                    "region": "us-east-1",
+                    "bucket": "io-automation",
+                    "fileKey": "TC_C36443_MWS.json"
+                },
+                "adaptorType": "S3Import",
+                "mappings": [
+                    {
+                        "extract": "$.ListInventorySupplyResult[*].MarketplaceId[*]._",
+                        "generate": "amazon_orderID",
+                        "dataType": "string",
+                        "status": "Active"
+                    },
+                    {
+                        "generate": "buyer_email",
+                        "dataType": "stringarray",
+                        "status": "Active",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$.ListInventorySupplyResult[*].InventorySupplyList[*].member[*].Condition[*]._"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ],
+    "timezone": "Asia/Calcutta",
+    "disabled": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "s3": {
+                "name": "TC_C36443_MWS",
+                "_integrationId": "63073532f3062a3f169e2dff",
+                "import": {
+                  "_connectionId": "S3 CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                  "successCount": "2",
+                  "ignoreCount": "0",
+                  "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                  "fileName": "TC_C36443_MWS",
+                  "isUIFlow": true,
+                  "bucketName": "io-automation",
+                  "fileType": ".json"
+                }
+              }
+        }
+    },
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "_id": "6333ebdb1a2bd979ff92555c",
+                "createdAt": "2022-09-28T06:38:19.585Z",
+                "application": "zendesk support",
+                "lastModified": "2022-09-28T11:26:30.963Z",
+                "name": "MWS Export",
+                "unencrypted": {
+                    "apiType": ""
+                },
+                "_connectionId": "AMAZON SP API CONNECTION",
+                "apiIdentifier": "e8568f8988",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "parsers": [
+                    {
+                        "type": "xml",
+                        "version": "1",
+                        "rules": {
+                            "V0_json": true,
+                            "stripNewLineChars": false,
+                            "trimSpaces": false
+                        }
+                    }
+                ],
+                "http": {
+                    "relativeURI": "/FulfillmentInventory/2010-10-01?&Action=ListInventorySupply&QueryStartDateTime=2016-11-30T18%3A30%3A00Z&ResponseGroup=Detailed",
+                    "method": "POST",
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "/"
+                    }
+                },
+                "rawData": "56d6b114e1fc35de5391472cc5a300cd0abc41eb8733d2724d10d666",
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ]
+}

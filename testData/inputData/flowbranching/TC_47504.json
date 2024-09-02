@@ -1,0 +1,131 @@
+{
+    "name": "TC_47504",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "NS_zeroRecords",
+                "_connectionId": "NETSUITE CONNECTION",
+                "apiIdentifier": "efd012baec",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "netsuite": {
+                    "type": "restlet",
+                    "skipGrouping": true,
+                    "statsOnly": false,
+                    "restlet": {
+                        "recordType": "customer",
+                        "searchId": "3152",
+                        "criteria": [],
+                        "columns": [],
+                        "useSS2Restlets": false,
+                        "markExportedBatchSize": 100
+                    },
+                    "distributed": {
+                        "executionContext": [],
+                        "executionType": [],
+                        "useSS2Framework": false
+                    }
+                },
+                "adaptorType": "NetSuiteExport"
+            },
+            "skipRetries": false
+        }
+    ],
+    "autoResolveMatchingTraceKeys": true,
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "2gR75o",
+            "routeRecordsTo": "all_matching_branches",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "FTP import",
+                                "_connectionId": "FTP CONNECTION",
+                                "apiIdentifier": "i19276e8dc",
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "file": {
+                                    "fileName": "TC_47504-1.json",
+                                    "skipAggregation": false,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                                    "fileName": "TC_47504-1.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Branch 1.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "FTPimport",
+                                "sampleData": "HG,140-1,PR,02/28/2022,-5,2,Accumulated Depreciation,2\nHG,140-1,PR,02/28/2022,5,650,Advances Paid,2\nHG,121-4,PR,02/28/2022,-200,200,ADP Tax Impound,2\nHG,149-5,PR,02/27/2022,200,220,Customer Deposits,2",
+                                "_connectionId": "FTP CONNECTION",
+                                "_sourceId": "62c2c42565af202d96b3bb6a",
+                                "apiIdentifier": "i55eafa57e",
+                                "oneToMany": false,
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "Name",
+                                            "generate": "name"
+                                        },
+                                        {
+                                            "extract": "Phone",
+                                            "generate": "PR"
+                                        }
+                                    ]
+                                },
+                                "file": {
+                                    "fileName": "TC_47504-2.json",
+                                    "skipAggregation": false,
+                                    "type": "json",
+                                    "backupPath": "/PavitejaVallabhaneni/FlowBranching/Skipagggregationtrue"
+                                },
+                                "ftp": {
+                                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                                    "fileName": "TC_47504-2.json",
+                                    "backupDirectoryPath": "/PavitejaVallabhaneni/FlowBranching/Skipagggregationtrue"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "1",
+        "errorCount": "0"
+    }
+
+}

@@ -1,0 +1,126 @@
+{
+  "name": "TC_C51887",
+  "referencename": "TC_C51887",
+  "qa__api_tdata": [
+    {
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "test",
+            "_connectionId": "S3 CONNECTION",
+            "apiIdentifier": "i867873719",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+              "fileName": "test.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "s3": {
+              "region": "us-east-1",
+              "bucket": "test",
+              "fileKey": "test.json"
+            },
+            "adaptorType": "S3Import"
+          },
+          "responseMapping": {
+            "fields": [
+              {
+                "extract": "id",
+                "generate": "_json.uploadurl "
+              }
+            ],
+            "lists": []
+          }
+        },
+        {
+          "type": "import",
+          "responseMapping": {
+            "fields": [],
+            "lists": []
+          },
+          "qa__import": {
+            "name": "test",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "apiIdentifier": "idc6cb596a",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "_json.uploadurl ",
+                  "generate": "test"
+                }
+              ]
+            },
+            "salesforce": {
+              "operation": "insert",
+              "sObjectType": "Account",
+              "api": "soap",
+              "removeNonSubmittableFields": false
+            },
+            "adaptorType": "SalesforceImport"
+          }
+        }
+      ],
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "qa__path": "//FTP_uploads//TC_C2169.json",
+            "_connectionId": "FTP CONNECTION",
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+              "fileNameStartsWith": "TC_C2169.json"
+            },
+            "file": {
+              "encoding": "utf8",
+              "output": "records",
+              "skipDelete": true,
+              "type": "json"
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C51887",
+        "disabled": false,
+        "qa__integrationId": "63232caf5342c33e615e7271",
+        "_integrationId": "63232c59d3a9897fe95f9f2a",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [
+                {
+                  "extract": "id",
+                  "generate": "_json.uploadurl "
+                }
+              ],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "636a281396ce9c222a7ec029"
+          },
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "6364eb04e28334683c47ed1a"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

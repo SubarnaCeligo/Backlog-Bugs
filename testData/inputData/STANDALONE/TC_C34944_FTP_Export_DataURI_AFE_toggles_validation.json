@@ -1,0 +1,61 @@
+{
+    "pageGenerators": [
+    {
+        "type": "export",
+        "qa__export": {
+            "name": "FTP Export",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "e92d3ec8e7",
+            "asynchronous": true,
+            "sandbox": false,
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_C30817"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json",
+                "json": {
+                    "resourcePath": "*"
+                }
+            },
+            "transform": {
+                "type": "expression",
+                "expression": {
+                    "rules": [
+                        [
+                            {
+                                "extract": "[#Number]",
+                                "generate": "number"
+                            },
+                            {
+                                "extract": "[Drug @ Name]",
+                                "generate": "name"
+                            }
+                        ]
+                    ],
+                    "version": "1"
+                },
+                "version": "1",
+                "rules": [
+                    [
+                        {
+                            "extract": "[#Number]",
+                            "generate": "number"
+                        },
+                        {
+                            "extract": "[Drug @ Name]",
+                            "generate": "name"
+                        }
+                    ]
+                ]
+            },
+            "adaptorType": "FTPExport",
+            "qa__path": "//FTP_uploads//TC_C30817.json"
+        }
+    }
+],
+"testData": "/FTP_uploads/TC_29588.json"
+}

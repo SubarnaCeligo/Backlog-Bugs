@@ -1,0 +1,586 @@
+{
+    "name": "TC_46452_rows_rows",
+    "qa__expectedDashboardCount": {
+        "successCount": "5",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "standaloneexportflowID": "",
+        "expected": {
+          "FTP": {
+            "name": "TC_46452_rows_rows",
+            "_integrationId": "56d6b23fe1fc35de53914730",
+            "qa__expectedDashboardCount": {
+              "successCount": "5",
+              "ignoreCount": "0",
+              "errorCount": "0"
+            },
+            "import": {
+                "file": {
+                  "csv": {
+                    "columnDelimiter": ","
+                  }
+                }
+              },
+            "qa__dataVerification": {
+                "fileName": "TC_46452_ftp_skipagg-1",
+              "isUIFlow": true,
+              "folderName": "io.auto.qa/IO Automation SFTP Imports",
+              "fileType": ".csv"
+            }
+          },
+          "GDRIVE": {
+            "name": "TC_46452_rows_rows",
+            "_integrationId": "56d6b23fe1fc35de53914730",
+            "qa__expectedDashboardCount": {
+              "successCount": "5",
+              "ignoreCount": "0",
+              "errorCount": "0"
+            },
+            "import": {
+                "file": {
+                  "csv": {
+                    "columnDelimiter": ","
+                  }
+                }
+              },
+            "qa__dataVerification": {
+              "fileName": "TC_46452_gdrive_skipagg-1",
+              "folderName": "Gdrive_Imports",
+              "fileType": ".csv"
+            }
+          },
+          "S3": {
+              "name": "TC_46452_rows_rows",
+              "_integrationId": "56d6b23fe1fc35de53914730",
+              "qa__expectedDashboardCount": {
+                  "successCount": "5",
+                  "ignoreCount": "0",
+                  "errorCount": "0"
+              },
+              "import": {
+                "file": {
+                  "csv": {
+                    "columnDelimiter": ","
+                  }
+                }
+              },
+              "qa__dataVerification": {
+                  "bucketName": "automations3import",
+                  "fileName": "TC_46452_s3_skipagg-1",
+                  "isUIFlow": true,
+                  "fileType": ".csv"
+              }
+          },
+          "Azure": {
+            "name": "TC_46452_rows_rows",
+            "_integrationId": "56d6b23fe1fc35de53914730",
+            "qa__expectedDashboardCount": {
+                "successCount": "5",
+                "ignoreCount": "0",
+                "errorCount": "0"
+            },
+            "import": {
+                "file": {
+                  "csv": {
+                    "columnDelimiter": ","
+                  }
+                }
+              },
+            "qa__dataVerification": {
+                "fileName": "TC_46452_azure_skipagg-1",
+            "folderName": "azureimports",
+            "fileType": ".csv",
+            "fileExtension": ".csv"
+            }
+        }
+        }
+      },
+      "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "s3",
+                        "_connectionId": "S3 CONNECTION",
+                        "apiIdentifier": "e28b670c7f",
+                        "asynchronous": true,
+                        "sandbox": false,
+                        "qa__path": "/FTP_uploads/TC_46452.json",
+                        "s3": {
+                            "region": "us-east-1",
+                            "bucket": "automations3export",
+                            "keyStartsWith": "TC_46452",
+                            "keyEndsWith": ".json"
+                        },
+                        "file": {
+                            "encoding": "utf8",
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "json",
+                            "groupByFields": [
+                                "body_html",
+                                "created_at"
+                            ],
+                            "groupEmptyValues": true
+                        },
+                        "adaptorType": "S3Export"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "ftp",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "i6e7918a4d",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "mappings": [
+                            {
+                                "dataType": "objectarray",
+                                "status": "Active",
+                                "buildArrayHelper": [
+                                    {
+                                        "extract": "$[*]",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.body_html",
+                                                "generate": "body_html",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "extract": "$.handle",
+                                                "generate": "handle",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "generate": "images",
+                                                "dataType": "objectarray",
+                                                "status": "Active",
+                                                "buildArrayHelper": [
+                                                    {
+                                                        "extract": "$.images[*]",
+                                                        "mappings": [
+                                                            {
+                                                                "extract": "$.images.id",
+                                                                "generate": "image_id",
+                                                                "dataType": "string",
+                                                                "status": "Active"
+                                                            },
+                                                            {
+                                                                "extract": "$.images.product_id",
+                                                                "generate": "product_id",
+                                                                "dataType": "string",
+                                                                "status": "Active"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "generate": "options",
+                                                "dataType": "object",
+                                                "status": "Active",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.options.id",
+                                                        "generate": "option_id",
+                                                        "dataType": "number",
+                                                        "status": "Active"
+                                                    },
+                                                    {
+                                                        "extract": "$.options.name",
+                                                        "generate": "name",
+                                                        "dataType": "string",
+                                                        "status": "Active"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "extract": "$.vendor",
+                                                "generate": "vendor",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "file": {
+                            "fileName": "TC_46452_ftp_skipagg-{{timestamp}}.csv",
+                            "skipAggregation": true,
+                            "type": "csv",
+                            "encoding": "utf8",
+                            "csv": {
+                                "rowDelimiter": "\n",
+                                "columnDelimiter": ",",
+                                "includeHeader": true,
+                                "wrapWithQuotes": false,
+                                "replaceTabWithSpace": false,
+                                "replaceNewlineWithSpace": false,
+                                "truncateLastRowDelimiter": false
+                            }
+                        },
+                        "ftp": {
+                            "directoryPath": "io.auto.qa/IO Automation SFTP Imports",
+                            "fileName": "TC_46452_ftp_skipagg-{{timestamp}}.csv"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                },
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "s3",
+                        "_connectionId": "S3 CONNECTION",
+                        "apiIdentifier": "i2b2074a6f",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "mappings": [
+                            {
+                                "dataType": "objectarray",
+                                "status": "Active",
+                                "buildArrayHelper": [
+                                    {
+                                        "extract": "$[*]",
+                                        "conditional": {
+                                            "when": "extract_not_empty"
+                                        },
+                                        "mappings": [
+                                            {
+                                                "extract": "$.body_html",
+                                                "generate": "body_html",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "extract": "$.handle",
+                                                "generate": "handle",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "generate": "images",
+                                                "dataType": "objectarray",
+                                                "status": "Active",
+                                                "buildArrayHelper": [
+                                                    {
+                                                        "extract": "$.images[*]",
+                                                        "conditional": {
+                                                            "when": "extract_not_empty"
+                                                        },
+                                                        "mappings": [
+                                                            {
+                                                                "extract": "$.images.id",
+                                                                "generate": "image_id",
+                                                                "dataType": "number",
+                                                                "status": "Active"
+                                                            },
+                                                            {
+                                                                "extract": "$.images.position",
+                                                                "generate": "position",
+                                                                "dataType": "number",
+                                                                "status": "Active"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "generate": "options",
+                                                "dataType": "object",
+                                                "status": "Active",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.options.id",
+                                                        "generate": "option_id",
+                                                        "dataType": "string",
+                                                        "status": "Active"
+                                                    },
+                                                    {
+                                                        "extract": "$.options.position",
+                                                        "generate": "option_position",
+                                                        "dataType": "number",
+                                                        "status": "Active"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "extract": "$.vendor",
+                                                "generate": "vendor",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "file": {
+                            "fileName": "TC_46452_s3_skipagg-{{timestamp}}.csv",
+                            "skipAggregation": true,
+                            "type": "csv",
+                            "encoding": "utf8",
+                            "csv": {
+                                "rowDelimiter": "\n",
+                                "columnDelimiter": ",",
+                                "includeHeader": true,
+                                "wrapWithQuotes": false,
+                                "replaceTabWithSpace": false,
+                                "replaceNewlineWithSpace": false,
+                                "truncateLastRowDelimiter": false
+                            }
+                        },
+                        "s3": {
+                            "region": "us-east-1",
+                            "bucket": "automations3import",
+                            "fileKey": "TC_46452_s3_skipagg-{{timestamp}}.csv"
+                        },
+                        "adaptorType": "S3Import"
+                    }
+                },
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "gdrive",
+                        "_connectionId": "GOOGLEDRIVE CONNECTION",
+                        "apiIdentifier": "ie0f37f9cf",
+                        "oneToMany": false,
+                        "assistant": "googledrive",
+                        "sandbox": false,
+                        "mappings": [
+                            {
+                                "dataType": "objectarray",
+                                "status": "Active",
+                                "buildArrayHelper": [
+                                    {
+                                        "extract": "$[*]",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.body_html",
+                                                "generate": "body_html",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "extract": "$.handle",
+                                                "generate": "handle",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "generate": "images",
+                                                "dataType": "objectarray",
+                                                "status": "Active",
+                                                "buildArrayHelper": [
+                                                    {
+                                                        "extract": "$.images[*]",
+                                                        "mappings": [
+                                                            {
+                                                                "extract": "$.images.id",
+                                                                "generate": "image_id",
+                                                                "dataType": "number",
+                                                                "status": "Active"
+                                                            },
+                                                            {
+                                                                "extract": "$.images.product_id",
+                                                                "generate": "product_id",
+                                                                "dataType": "number",
+                                                                "status": "Active"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "generate": "options",
+                                                "dataType": "object",
+                                                "status": "Active",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.options.id",
+                                                        "generate": "option_id",
+                                                        "dataType": "number",
+                                                        "status": "Active"
+                                                    },
+                                                    {
+                                                        "extract": "$.options.name",
+                                                        "generate": "name",
+                                                        "dataType": "string",
+                                                        "status": "Active"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "extract": "$.vendor",
+                                                "generate": "vendor",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "file": {
+                            "fileName": "TC_46452_gdrive_skipagg-{{timestamp}}.csv",
+                            "skipAggregation": true,
+                            "type": "csv",
+                            "encoding": "utf8",
+                            "csv": {
+                                "rowDelimiter": "\n",
+                                "columnDelimiter": ",",
+                                "includeHeader": true,
+                                "wrapWithQuotes": false,
+                                "replaceTabWithSpace": false,
+                                "replaceNewlineWithSpace": false,
+                                "truncateLastRowDelimiter": false
+                            }
+                        },
+                        "http": {
+                            "type": "file",
+                            "relativeURI": [
+                                "Gdrive_Imports"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "sendPostMappedData": true,
+                            "formType": "assistant",
+                            "response": {
+                                "resourcePath": [
+                                    "files"
+                                ]
+                            }
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                },
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "azure",
+                        "_connectionId": "AZURE BLOB STORAGE CONNECTION",
+                        "apiIdentifier": "i85f3106d5",
+                        "oneToMany": false,
+                        "assistant": "azurestorageaccount",
+                        "sandbox": false,
+                        "mappings": [
+                            {
+                                "dataType": "objectarray",
+                                "status": "Active",
+                                "buildArrayHelper": [
+                                    {
+                                        "extract": "$[*]",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.body_html",
+                                                "generate": "body_html",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "extract": "$.handle",
+                                                "generate": "handle",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "generate": "images",
+                                                "dataType": "objectarray",
+                                                "status": "Active",
+                                                "buildArrayHelper": [
+                                                    {
+                                                        "extract": "$.images[*]",
+                                                        "mappings": [
+                                                            {
+                                                                "extract": "$.images.id",
+                                                                "generate": "image_id",
+                                                                "dataType": "number",
+                                                                "status": "Active"
+                                                            },
+                                                            {
+                                                                "extract": "$.images.product_id",
+                                                                "generate": "product_id",
+                                                                "dataType": "number",
+                                                                "status": "Active"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "generate": "options",
+                                                "dataType": "object",
+                                                "status": "Active",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.options.id",
+                                                        "generate": "id",
+                                                        "dataType": "string",
+                                                        "status": "Active"
+                                                    },
+                                                    {
+                                                        "extract": "$.options.name",
+                                                        "generate": "option_name",
+                                                        "dataType": "string",
+                                                        "status": "Active"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "extract": "$.vendor",
+                                                "generate": "vendor",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "file": {
+                            "fileName": "TC_46452_azure_skipagg-{{timestamp}}.csv",
+                            "skipAggregation": true,
+                            "type": "csv",
+                            "encoding": "utf8",
+                            "csv": {
+                                "rowDelimiter": "\n",
+                                "columnDelimiter": ",",
+                                "includeHeader": true,
+                                "wrapWithQuotes": false,
+                                "replaceTabWithSpace": false,
+                                "replaceNewlineWithSpace": false,
+                                "truncateLastRowDelimiter": false
+                            }
+                        },
+                        "http": {
+                            "type": "file",
+                            "relativeURI": [
+                                "azureimports"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "sendPostMappedData": true,
+                            "formType": "assistant",
+                            "response": {
+                                "resourcePath": [
+                                    "files"
+                                ]
+                            }
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ]
+
+}

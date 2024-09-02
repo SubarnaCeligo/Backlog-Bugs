@@ -1,0 +1,81 @@
+{
+  "name": "TC_C30579",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "FTP_Export",
+            "_connectionId": "FTP CONNECTION",
+            "asynchronous": true,
+            "sandbox": false,
+            "qa__path": "/FTP_uploads/TC_C14518.json",
+            "ftp": {
+              "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+              "fileNameStartsWith": "TC_C14518",
+              "fileNameEndsWith": ".json"
+            },
+            "file": {
+              "encoding": "utf8",
+              "output": "records",
+              "skipDelete": true,
+              "type": "json"
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "TC_C30579",
+            "_connectionId": "NETSUITE CONNECTION",
+            "distributed": true,
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [],
+            "netsuite_da": {
+              "useSS2Restlets": false,
+              "operation": "delete",
+              "recordType": "file",
+              "internalIdLookup": {
+                "expression": "[\"internalidnumber\",\"equalto\",\"2345678\"]"
+              },
+              "lookups": [],
+              "mapping": {
+                "fields": [],
+                "lists": []
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C30579",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

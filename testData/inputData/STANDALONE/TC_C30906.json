@@ -1,0 +1,140 @@
+{
+    "name": "TC_C30906",
+    "referencename": "TC_C30906",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "ftp export",
+                        "_connectionId": "632aaccd0dbc53086e8a915f",
+                        "qa__connectionId": "632aac522870d20b3fc5ab76",
+                        "_sourceId": "63e21d68e8560250919bc90f",
+                        "apiIdentifier": "ed74cc3215",
+                        "asynchronous": true,
+                        "pageSize": 100,
+                        "sampleData": {
+                            "recordtype": "salesorder",
+                            "id": "8437",
+                            "iseitf81on": "F",
+                            "sofiles": [
+                                {
+                                    "id": "8437",
+                                    "recordType": "salesorder",
+                                    "Internal ID": "1699",
+                                    "Name": "105.NS_Xml_Export_To_Ftp.xml",
+                                    "Available": "T",
+                                    "Folder": "Images"
+                                },
+                                {
+                                    "id": "8437",
+                                    "recordType": "salesorder",
+                                    "Internal ID": "517",
+                                    "Name": "1_April_Customer 2.rar",
+                                    "Folder": "Sales Templates"
+                                }
+                            ]
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                            "fileNameStartsWith": "TC_C30906",
+                            "fileNameEndsWith": ".json"
+                        },
+                        "file": {
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "json"
+                        },
+                        "adaptorType": "FTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Salesforce",
+                        "_connectionId": "6332ebd1ca06597ef0aa8d65",
+                        "qa__connectionId": "636399aaa58e7c6a1bde8d07",
+                        "apiIdentifier": "e1d1d52f94",
+                        "asynchronous": true,
+                        "isLookup": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "salesforce": {
+                            "type": "soql",
+                            "api": "rest",
+                            "soql": {
+                                "query": "select name from attachment where {{#each record.sofiles}}name='{{Name}}'{{#unless @last}} OR {{/unless}}{{/each}}"
+                            }
+                        },
+                        "adaptorType": "SalesforceExport"
+                    }
+                },
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Ftp Import",
+                        "_connectionId": "632aaccd0dbc53086e8a915f",
+                        "qa__connectionId": "632aac522870d20b3fc5ab76",
+                        "_sourceId": "63e21d69e8560250919bc913",
+                        "distributed": false,
+                        "apiIdentifier": "ibcf888392",
+                        "oneToMany": false,
+                        "file": {
+                            "fileName": "TC_C30906.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO%20Automation%20SFTP%20Imports",
+                            "fileName": "TC_C30906.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C30906",
+                "disabled": false,
+                "qa__integrationId": "63232caf5342c33e615e7271",
+                "_integrationId": "63232c59d3a9897fe95f9f2a",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [
+                                {
+                                    "extract": "data",
+                                    "generate": "Result"
+                                }
+                            ],
+                            "lists": []
+                        },
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    },
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "3",
+        "errorCount": "0"
+    }
+}

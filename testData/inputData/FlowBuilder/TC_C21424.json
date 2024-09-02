@@ -1,0 +1,85 @@
+{
+    "name": "TC_C21424",
+    "referencename": "TC_C21424",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "HTTP export Zendesk",
+                        "application": "zendesk support",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "e33550710f",
+                        "asynchronous": true,
+                        "traceKeyTemplate": "{{join '/' record.id record.email}}",
+                        "oneToMany": false,
+                        "http": {
+                            "relativeURI": "users",
+                            "method": "GET",
+                            "formType": "http",
+                            "response": {
+                                "resourcePath": "users"
+                            }
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Http export",
+                        "application": "BigCommerce",
+                        "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+                        "apiIdentifier": "ee57de1199",
+                        "asynchronous": true,
+                        "isLookup": true,
+                        "traceKeyTemplate": "{{record._PARENT.email}}",
+                        "oneToMany": false,
+                        "pathToMany": "user_fields",
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": "/v2/customers",
+                            "method": "GET",
+                            "formType": "http"
+                        },
+                        "transform": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [
+                                    []
+                                ],
+                                "version": "1"
+                            },
+                            "version": "1",
+                            "rules": [
+                                []
+                            ]
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C21424",
+                "disabled": false,
+                "_integrationId": "62ecc42648570015ab65cfa5",
+                "qa__integrationId": "62eca1efe386b563f638451e",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

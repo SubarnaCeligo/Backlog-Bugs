@@ -1,0 +1,215 @@
+{
+    "name": "TC_C47509",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "qa__asyncHelperId": "63358c41d5276e0e7d46ebac",
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "Request Report Async",
+                "application": "Amazon Seller Central",
+                "unencrypted": {
+                    "useMWSDataFormat": true,
+                    "apiType": "Amazon-SP-API"
+                },
+                "_connectionId": "AMAZON SP API CONNECTION",
+                "_sourceId": "62e8eac72dd80523719f9df8",
+                "apiIdentifier": "e561501a3b",
+                "asynchronous": true,
+                "oneToMany": false,
+                "http": {
+                    "relativeURI": "/reports/2021-06-30/reports",
+                    "method": "POST",
+                    "body": "{\"reportType\":\"GET_MERCHANT_LISTINGS_ALL_DATA\",\"dataStartTime\":\"{{{dateAdd (dateAdd (dateFormat 'MM-DD-YYYY' date) -86400000) }}}\",\"dataEndTime\":\"{{{dateAdd (dateAdd (dateFormat 'YYYY-MM-DD' date) -0) }}}\",\"marketplaceIds\":[\"{{connection.http.unencrypted.marketplaceId}}\"]}",
+                    "_asyncHelperId": "6336e782cbd7e368390e61a9",
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "RequestReportResponse/RequestReportResult/ReportRequestInfo"
+                    }
+                },
+                "transform": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [
+                            [
+                                {
+                                    "extract": "EndDate[0]._",
+                                    "generate": "EndDate"
+                                },
+                                {
+                                    "extract": "ReportProcessingStatus[0]._",
+                                    "generate": "ReportProcessingStatus"
+                                },
+                                {
+                                    "extract": "ReportRequestId[0]._",
+                                    "generate": "ReportRequestId"
+                                },
+                                {
+                                    "extract": "ReportType[0]._",
+                                    "generate": "ReportType"
+                                },
+                                {
+                                    "extract": "Scheduled[0]._",
+                                    "generate": "Scheduled"
+                                },
+                                {
+                                    "extract": "StartDate[0]._",
+                                    "generate": "StartDate"
+                                },
+                                {
+                                    "extract": "SubmittedDate[0]._",
+                                    "generate": "SubmittedDate"
+                                }
+                            ]
+                        ],
+                        "version": "1"
+                    },
+                    "version": "1",
+                    "rules": [
+                        [
+                            {
+                                "extract": "EndDate[0]._",
+                                "generate": "EndDate"
+                            },
+                            {
+                                "extract": "ReportProcessingStatus[0]._",
+                                "generate": "ReportProcessingStatus"
+                            },
+                            {
+                                "extract": "ReportRequestId[0]._",
+                                "generate": "ReportRequestId"
+                            },
+                            {
+                                "extract": "ReportType[0]._",
+                                "generate": "ReportType"
+                            },
+                            {
+                                "extract": "Scheduled[0]._",
+                                "generate": "Scheduled"
+                            },
+                            {
+                                "extract": "StartDate[0]._",
+                                "generate": "StartDate"
+                            },
+                            {
+                                "extract": "SubmittedDate[0]._",
+                                "generate": "SubmittedDate"
+                            }
+                        ]
+                    ]
+                },
+                "adaptorType": "HTTPExport"
+            },
+            "skipRetries": false
+        }
+    ],
+    "createdAt": "2022-09-29T12:14:57.912Z",
+    "free": false,
+    "_sourceId": "62e8eac72dd80523719f9e00",
+    "autoResolveMatchingTraceKeys": true,
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "fjDZOX",
+            "routeRecordsTo": "first_matching_branch",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "_id": "63358c41d5276e0e7d46ebae",
+                                "createdAt": "2022-09-29T12:14:57.836Z",
+                                "lastModified": "2022-09-29T12:43:31.635Z",
+                                "name": "Request report",
+                                "_connectionId": "FTP CONNECTION",
+                                "_sourceId": "62e8eac72dd80523719f9dfe",
+                                "apiIdentifier": "i785742f45",
+                                "oneToMany": false,
+                                "file": {
+                                    "fileName": "TC_C47509.json",
+                                    "skipAggregation": false,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                                    "fileName": "TC_C47509.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Branch 1.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "_id": "63358c41d5276e0e7d46ebae",
+                                "createdAt": "2022-09-29T12:14:57.836Z",
+                                "lastModified": "2022-09-29T12:43:31.635Z",
+                                "name": "Request report 2",
+                                "_connectionId": "FTP CONNECTION",
+                                "_sourceId": "62e8eac72dd80523719f9dfe",
+                                "apiIdentifier": "i785742f45",
+                                "oneToMany": false,
+                                "file": {
+                                    "fileName": "TC_C47509.json",
+                                    "skipAggregation": false,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                                    "fileName": "TC_C47509.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branchRouter"
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "successCount": "44",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "expected": {
+            "FTP": {
+                "name": "TC_C47509",
+                "_integrationId": "62f51db41677a21a108e5e3a",
+                "import": {
+                    "_connectionId": "FTP CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "50",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_C47509",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".json"
+                }
+            }
+        }
+    }
+}

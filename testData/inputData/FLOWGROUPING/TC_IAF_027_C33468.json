@@ -1,0 +1,234 @@
+{
+    "qa_integrationSetting": {
+    "_id": "62905de2c51f323382314cce",
+    "name": "Edition",
+    "install": [],
+    "mode": "settings",
+    "sandbox": false,
+    "_registeredConnectionIds": [
+        "626bd636987bb423914b47c7"
+    ],
+    "installSteps": [
+        {
+            "name": "Configure ActiveCampaign Connection",
+            "description": "Configure your ActiveCampaign connection. This is common and is set up on parent",
+            "imageUrl": "/images/company-logos/netsuite.png",
+            "completed": false,
+            "type": "connection",
+            "sourceConnection": {
+                "type": "http",
+                "assistant": "activecampaign",
+                "name": "AC Test Case connection",
+                "_id": "628e152f6109d0725359d83f"
+            }
+        },
+        {
+            "name": "Integrator.io bundle install and verify",
+            "description": "Click on the link to get the IO bundle link, install and then verify the installation.",
+            "completed": false,
+            "type": "url",
+            "function": "removeStep1",
+                "_scriptId": "629dfc60170d31316db48d8a"
+        },
+        {
+                "name": "Installation Done",
+                "description": "Installation completed click on the link to proceed to setting paged",
+                "imageUrl": "/images/company-logos/netsuite.png",
+                "completed": false,
+                "type": "form",
+                "form": {
+                    "fieldMap": {
+                    },
+                    "layout": {
+                        "fields": [
+                            "installStepForm"
+                        ]
+                    },
+                    "actions": []
+                }
+            },
+            {
+                "name": "Execute scripts in hidden step",
+                "description": "Click on the link to get the IO bundle link, install and then verify the installation.",
+                "imageUrl": "/images/company-logos/netsuite.png",
+                "completed": false,
+                "type": "hidden"
+            },
+            {
+            "name": "Create resources based on edition",
+            "description": "Description goes has",
+            "completed": false,
+            "type": "edition"
+    }],
+    "uninstallSteps": [],
+    "flowGroupings": []
+},
+"integrationSetting": {
+    "_id": "631ad2f213d12134f4772d77",
+    "name": "Edition",
+    "install": [],
+    "mode": "settings",
+    "sandbox": false,
+    "_registeredConnectionIds": [
+        "626fdc6d7490300e92ffd613"
+    ],
+    "installSteps": [
+        {
+            "name": "Configure ActiveCampaign Connection",
+            "description": "Configure your ActiveCampaign connection. This is common and is set up on parent",
+            "imageUrl": "/images/company-logos/netsuite.png",
+            "completed": false,
+            "type": "connection",
+            "sourceConnection": {
+                "type": "http",
+                "assistant": "activecampaign",
+                "name": "AC Test Case connection",
+                "_id": "626fdc6d7490300e92ffd613"
+            }
+        },
+        {
+            "name": "Integrator.io bundle install and verify",
+            "description": "Click on the link to get the IO bundle link, install and then verify the installation.",
+            "completed": false,
+            "type": "url",
+            "function": "removeStep1",
+                "_scriptId": "626137e61ce14c420e01c86b"
+        },
+        {
+                "name": "Installation Done",
+                "description": "Installation completed click on the link to proceed to setting paged",
+                "imageUrl": "/images/company-logos/netsuite.png",
+                "completed": false,
+                "type": "form",
+                "form": {
+                    "fieldMap": {
+                    },
+                    "layout": {
+                        "fields": [
+                            "installStepForm"
+                        ]
+                    },
+                    "actions": []
+                }
+            },
+            {
+                "name": "Execute scripts in hidden step",
+                "description": "Click on the link to get the IO bundle link, install and then verify the installation.",
+                "imageUrl": "/images/company-logos/netsuite.png",
+                "completed": false,
+                "type": "hidden"
+            },
+            {
+                "name": "Create resources based on edition",
+                "description": "Description goes has",
+                "completed": false,
+                "type": "edition"
+        }],
+    "uninstallSteps": [],
+    "flowGroupings": []
+},
+"qa_importJson": {
+    "environment": "Production",
+    "name": "TC_IAF_027_C33468",
+    "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+    "_integrationId": "62905de2c51f323382314cce",
+    "applications": ["activecampaign"],
+    "framework": "twoDotZero",
+    "twoDotZero": {
+      "_integrationId": "62905de2c51f323382314cce"
+    }
+  },
+  "importJson": {
+    "environment": "Production",
+    "name": "TC_IAF_027_C33468",
+    "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+    "_integrationId": "631ad2f213d12134f4772d77",
+    "applications": ["activecampaign"],
+    "framework": "twoDotZero",
+    "twoDotZero": {
+      "_integrationId": "631ad2f213d12134f4772d77"
+    }
+  },
+  "setupConnection": {
+    "integrationName":"Edition",
+    "activecampaignSubdomain": "jnsajkcbajbfewfbkbjk",
+    "token": "jfbewjkfbefnevbelve",
+    "uninstall":"false"
+  },
+  "createLicense": {
+    "name": "TC_IAF_027_C33468",
+    "edition": "Edition_1"
+  },
+  "integrationName":"Edition",
+  "app": "ActiveCampaign",
+  "editionSetting": {
+    "_id":"6332e02fbb74b66e32a84734",
+    "environment": "Production",
+    "name": "TC_IAF_027_C33468",
+    "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+    "published": false,
+    "_integrationId": "631ad2f213d12134f4772d77",
+    "applications": ["activecampaign"],
+    "framework": "twoDotZero",
+    "twoDotZero": {
+        "_integrationId": "631ad2f213d12134f4772d77",
+        "editions": [{
+            "displayName":"Edition_1",
+            "order":0,
+            "resources": {
+                "_flowIds": ["629dcf277fa8000d6fd3f517"],
+                "_importIds": [],
+                "_exportIds": [],
+                "_connectionIds": [],
+                "_asyncHelperIds": [],
+                "_fileDefinitionIds": []
+            },
+            "childResources": {
+                "_flowIds": [],
+                "_importIds": [],
+                "_exportIds": [],
+                "_connectionIds": [],
+                "_asyncHelperIds": [],
+                "_fileDefinitionIds": []
+            }
+        }]
+    },
+    "init": {
+        "_scriptId": "626137e61ce14c420e01c86b",
+        "function": "updateUninstallStep"
+    }
+},
+"qa_editionSetting": {
+    "_id":"6332e00c6b757a4f30352449",
+    "environment": "Production",
+    "name": "TC_IAF_027_C33468",
+    "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+    "published": false,
+    "_integrationId": "62905de2c51f323382314cce",
+    "applications": ["activecampaign"],
+    "framework": "twoDotZero",
+    "twoDotZero": {
+        "_integrationId": "62905de2c51f323382314cce",
+        "editions": [{
+            "displayName":"Edition_1",
+            "order":0,
+            "resources": {
+                "_flowIds": ["629dcf277fa8000d6fd3f517"],
+                "_importIds": [],
+                "_exportIds": [],
+                "_connectionIds": [],
+                "_asyncHelperIds": [],
+                "_fileDefinitionIds": []
+            },
+            "childResources": {
+                "_flowIds": [],
+                "_importIds": [],
+                "_exportIds": [],
+                "_connectionIds": [],
+                "_asyncHelperIds": [],
+                "_fileDefinitionIds": []
+            }
+        }]
+    }
+}
+}

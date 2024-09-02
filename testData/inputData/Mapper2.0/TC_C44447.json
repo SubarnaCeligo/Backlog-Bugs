@@ -1,0 +1,77 @@
+{
+    "name": "TC_C44447",
+    "referencename": "TC_C44447",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "HTTP Zendesk Export",
+                        "application": "zendesk support",
+                        "_connectionId":"HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "ec3e1d87fc",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "parsers": [],
+                        "http": {
+                            "relativeURI": "/tickets",
+                            "method": "GET",
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "HTTP import",
+                        "application": "zendesk support",
+                        "_connectionId":"HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "ief0595290",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "mappings": [],
+                        "http": {
+                            "relativeURI": [
+                                "/tickets.json"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C44447",
+                "disabled": false,
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

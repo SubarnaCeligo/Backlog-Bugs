@@ -1,0 +1,48 @@
+{
+    "name": "TC_C40387",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "6228aed6bc8a2732cfe8044c",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "http",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "e231d90037",
+                "application": "zendesk support",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "users.json",
+                    "method": "GET",
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "sam",
+                "_connectionId": "SALESFORCE CONNECTION",
+                "apiIdentifier": "e044c76f50",
+                "asynchronous": true,
+                "isLookup": true,
+                "type": "blob",
+                "oneToMany": false,
+                "sandbox": false,
+                "salesforce": {
+                    "type": "soql",
+                    "api": "rest",
+                    "sObjectType": "document",
+                    "id": "ss"
+                },
+                "adaptorType": "SalesforceExport"
+            }
+        }
+    ]
+}

@@ -1,0 +1,114 @@
+{
+    "name": "TC_C27340",
+    "referencename": "TC_C27340",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Trace key export",
+                        "_connectionId": "HTTP MOCKY CONNECTION",
+                        "apiIdentifier": "eee8ac0210",
+                        "asynchronous": true,
+                        "traceKeyTemplate": "{{record.officeVerificationNumber}}",
+                        "oneToMany": false,
+                        "http": {
+                            "relativeURI": "3171da83-0f81-44b6-ad1a-ea25fe845871",
+                            "method": "GET",
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "test",
+                        "_connectionId": "HTTP MOCKY CONNECTION",
+                        "apiIdentifier": "e31c1c5377",
+                        "asynchronous": true,
+                        "isLookup": true,
+                        "traceKeyTemplate": "",
+                        "oneToMany": true,
+                        "pathToMany": "contacts",
+                        "http": {
+                            "relativeURI": "3171da83-0f81-44b6-ad1a-ea25fe845871",
+                            "method": "GET",
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                },
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Create or Update NetSuite Order from SPSC 850",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "distributed": true,
+                        "apiIdentifier": "i02d51fc64",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": true,
+                        "pathToMany": "contacts[0].lookupresp",
+                        "lookups": [],
+                        "netsuite_da": {
+                            "useSS2Restlets": false,
+                            "operation": "add",
+                            "recordType": "customer",
+                            "lookups": [],
+                            "mapping": {
+                                "fields": [
+                                    {
+                                        "extract": "_PARENT.contacts[*].lookupresp.id",
+                                        "generate": "custentity12",
+                                        "internalId": false
+                                    }
+                                ],
+                                "lists": []
+                            }
+                        },
+                        "adaptorType": "NetSuiteDistributedImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C27340",
+                "disabled": false,
+                "_integrationId": "62ecc42648570015ab65cfa5",
+                "qa__integrationId": "62eca1efe386b563f638451e",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [
+                                {
+                                    "extract": "data[0]",
+                                    "generate": "lookupresp"
+                                }
+                            ],
+                            "lists": []
+                        },
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    },
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

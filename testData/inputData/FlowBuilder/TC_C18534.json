@@ -1,0 +1,126 @@
+{
+  "name": "TC_C18534",
+  "referencename": "TC_C18534",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "http export",
+            "application": "zendesk support",
+            "_connectionId":"ZENDESK CONNECTION",
+            "apiIdentifier": "ef7cc77a76",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+              "relativeURI": "/tickets/81.json",
+              "method": "GET",
+              "formType": "http"
+            },
+            "rawData": "62ebb431e627016182cf3391cfd08e7faf5c40f98fbd2064cfdcaa6c",
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "NS import PP1",
+            "_connectionId": "NETSUITE CONNECTION",
+            "distributed": true,
+            "apiIdentifier": "i570af97cf",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [],
+            "netsuite_da": {
+              "useSS2Restlets": false,
+              "operation": "update",
+              "recordType": "salesorder",
+              "internalIdLookup": {
+                "expression": "[\"amount\",\"between\",\"{{{[Document Number]}}}\"]"
+              },
+              "lookups": [],
+              "mapping": {
+                "fields": [
+                  {
+                    "generate": "balance",
+                    "extract": "orders_count",
+                    "internalId": false
+                  }
+                ],
+                "lists": []
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        },
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Netsuite import PP2",
+            "_connectionId": "NETSUITE CONNECTION",
+            "distributed": true,
+            "apiIdentifier": "if202af8f6",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": true,
+            "pathToMany": "contacts[0].lookupresp",
+            "lookups": [],
+            "netsuite_da": {
+              "useSS2Restlets": false,
+              "operation": "add",
+              "recordType": "customer",
+              "lookups": [],
+              "mapping": {
+                "fields": [
+                  {
+                    "extract": "_PARENT.contacts[*].lookupresp[*].name",
+                    "generate": "custentity12",
+                    "internalId": false
+                  }
+                ],
+                "lists": []
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C18534",
+        "_integrationId": "62ecc42648570015ab65cfa5",
+        "qa__integrationId": "62eca1efe386b563f638451e",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH IMPORTID"
+          },
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID",
+            "skipRetries": false
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+    "name": "TC_C44468",
+    "referencename": "TC_C44468",
+    "qa__expectedDashboardCount": {
+        "successCount": "2",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "standaloneexportflowID": "",
+        "expected": {
+            "FTP": {
+                "name": "TC_C44468",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "44468",
+                    "isUIFlow": true,
+                    "folderName": "io.auto.qa/Zendesk_Tests/Automation",
+                    "fileType": ".json"
+                }
+            }
+        }
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "_id": "6331b2d7b2be184f096b838e",
+                        "createdAt": "2022-09-26T14:10:31.308Z",
+                        "lastModified": "2022-09-26T14:10:38.360Z",
+                        "name": "TC_C44468",
+                        "unencrypted": {
+                            "useMWSDataFormat": true,
+                            "apiType": "Amazon-SP-API"
+                        },
+                        "qa__connectionId": "AMAZON SP API CONNECTION",
+                        "_connectionId": "AMAZON SP API CONNECTION",
+                        "apiIdentifier": "e6eae42ffb",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "assistantMetadata": {
+                            "operation": "getShipments"
+                        },
+                        "sandbox": false,
+                        "parsers": [
+                            {
+                                "type": "xml",
+                                "version": "1",
+                                "rules": {
+                                    "V0_json": true,
+                                    "stripNewLineChars": false,
+                                    "trimSpaces": false
+                                }
+                            }
+                        ],
+                        "http": {
+                            "relativeURI": "fba/inbound/v0/shipments?MarketplaceId=ATVPDKIKX0DER&QueryType=SHIPMENT&ShipmentStatusList=CANCELLED",
+                            "method": "GET",
+                            "formType": "http",
+                            "response": {
+                                "resourcePath": "/ListInboundShipmentsResponse/ListInboundShipmentsResult/ShipmentData"
+                            }
+                        },
+                        "rawData": "56d6b114e1fc35de5391472cf8dc259dca764ee8a7578a0bce7e5d11",
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "44468-import",
+                        "qa__connectionId": "62c88089ebd1cb63e0f066ca",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "i6891c6697",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "file": {
+                            "fileName": "44468.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPImports",
+                            "fileName": "44468.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C44468",
+                "disabled": false,
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,112 @@
+{
+  "name": "TC_C26408",
+  "referencename": "TC_C26408",
+  "companyname_NS": "StartCeligo",
+  "Email_Ns": "StartCeligo@mail.com",
+  "qa__dataVerification": {
+    "importRecordJSON": {
+      "shipping_state": "TG",
+      "shipping_city": "Kukatpally",
+      "billing_country": "India",
+      "subsidiary": "HH Inc.",
+      "billing_city": "Hyderabad",
+      "phone": "65665656",
+      "billing_state": "TS",
+      "shipping_zip": "500081",
+      "companyname": "NSceligo",
+      "shipping_address1": "KPHB Colony",
+      "billing_zip": "500016",
+      "fax": "6747854521",
+      "billing_address1": "GV Colony",
+      "shipping_country": "India",
+      "email": "NSceligo@mail.com"
+    },
+    "importapiIdentifier": "i7936a9dae",
+    "exportRecordType": "customer"
+  },
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "NS Listener",
+            "_connectionId": "NETSUITE CONNECTION",
+            "asynchronous": true,
+            "type": "distributed",
+            "oneToMany": false,
+            "sandbox": false,
+            "parsers": [],
+            "netsuite": {
+              "type": "distributed",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "criteria": [],
+                "columns": []
+              },
+              "distributed": {
+                "recordType": "customer",
+                "executionContext": [
+                  "suitelet",
+                  "userinterface",
+                  "webstore"
+                ],
+                "executionType": [
+                  "create",
+                  "edit",
+                  "xedit"
+                ],
+                "sublists": [],
+                "useSS2Framework": false
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "FTP Customer",
+            "_connectionId": "FTP CONNECTION",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+              "fileName": "TC_C26408.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation",
+              "fileName": "TC_C26408.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C26408",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+    "importJson":{
+        "environment":"Production"
+    },
+    "cloneIntegration":{
+        "environment":"production",
+        "switch":"Production",
+        "integrationName":"Automation Flows_2",
+        "uninstallClone":"true"
+    },
+    "setupConnection": {
+        "integrationName":"Automation Flows_2",
+        "activecampaignSubdomain": "jnsajkcbajbfewfbkbjk",
+        "token": "jfbewjkfbefnevbelve",
+        "uninstall":"false"
+    }
+}

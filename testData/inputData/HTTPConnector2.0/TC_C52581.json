@@ -1,0 +1,7 @@
+{
+    "Name": "Orderful Basic Test Conn",
+    "BaseURI": "https://ui.orderful.com/",
+    "userName": "swatantra.rout@celigo.com",
+    "password": "NkYwbkIkSmlvZA==",
+    "AuthType": "basic"
+}

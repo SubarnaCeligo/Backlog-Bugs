@@ -1,0 +1,56 @@
+{
+    "skipRetries": false,
+    "_integrationId": "6228aed6bc8a2732cfe8044c",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "FTP xport",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "e930f9de29",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C30817"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "adaptorType": "FTPExport",
+                "qa__path": "//FTP_uploads//TC_C30817.json"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Snowflake",
+            "application": "Snowflake",
+            "_connectionId": "631a0eb24ceac669f82fb10c",
+            "qa__connectionId": "62a2d230ea24742327304a3c",
+            "idLockTemplate": "{{record.agent_name}}",
+            "dataURITemplate": "{{record.agent_code}}",
+            "oneToMany": false,
+            "sandbox": false,
+            "rdbms": {
+              "query": [
+                "INSERT INTO afe_dataurl_concurrency\n(\nAGENT_CODE,\nAGENT_NAME,\nWORKING_AREA,\nCOMMISSION,\nPHONE_NO\n)\nVALUES\n(\n{{trim record.agent_code}},\n{{trim record.agent_name}},\n{{trim record.working_area}},\n{{trim record.commission}},\n{{trim record.phone_no}}\n)"
+              ],
+              "queryType": [
+                "INSERT"
+              ]
+            },
+            "adaptorType": "RDBMSImport"
+          }
+        }
+      ],
+    "Script": "function preMap (options) {\n  options.data[0]={\n    test:options.data[0],\n    premap:23}\n  return options.data.map((d) => {\n    return {\n      data: d\n    }\n  })\n}"
+}

@@ -1,0 +1,205 @@
+{
+    "flowname1": "TC_FG_C27394_FLOW_1",
+    "flowGroup1":"TC_FG_C27394_FLOW_GROUP_1",
+    "name": "TC_FG_C273",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+            {
+              "type": "export",
+              "qa__export": {
+                "name": "43 SF Export",
+                "adaptorType": "SalesforceExport",
+                "parsers": [],
+                "salesforce": {
+                  "distributed": {
+                    "relatedLists": [],
+                    "userDefinedReferencedFields": [],
+                    "referencedFields": []
+                  },
+                  "soql": {
+                    "query": "Select Name,Email__c,phone,fax,Billingcity,Billingstreet,Billingcountry,Billingstate,BillingPostalCode,Shippingcity,Shippingstreet,Shippingcountry,ShippingPostalCode,Shippingstate from Account where name like '43.SFAccount2FTP'"
+                  },
+                  "api": "rest",
+                  "type": "soql"
+                },
+                "transform": {
+                  "rules": []
+                },
+                "asynchronous": true,
+                "_connectionId": "SALESFORCE CONNECTION"
+
+              }
+            }
+          ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "Netsuite customer import",
+              "parsers": [],
+              "_connectionId": "NETSUITE CONNECTION",
+              "distributed": true,
+              "apiIdentifier": "i45477eaa3",
+              "lookups": [],
+              "netsuite_da": {
+                "useSS2Restlets": false,
+                "operation": "add",
+                "recordType": "customer",
+                "lookups": [],
+                "mapping": {
+                  "fields": [],
+                  "lists": []
+                }
+              },
+              "adaptorType": "NetSuiteDistributedImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_FG_C27394_FLOW_1",
+          "disabled": false,
+          "_integrationId": "64ba68425b3619057ae0d0ff",
+          "qa__integrationId":"62e90b9f36f8f637aa253824",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ],
+    "SettingsJson": {
+        "fieldMap": {
+          "txtSetting2ForIntegration": {
+            "label": "Text Integration Setting",
+            "id": "txtSetting2ForIntegration",
+            "name": "txtSetting2ForIntegration",
+            "type": "text",
+            "helpText": "Provide some helpttext",
+            "layout": {
+              "fields": [
+                "txtSetting2ForIntegration"
+              ]
+            }
+          }
+        }
+      },
+      "SettingsScript": {
+        "resource": {
+          "name": "TC_C27371_FG",
+          "settings": {
+            "name": "Name"
+          },
+          "_id": "62f5dd941677a21a108e81a2",
+          "settingsForm": {
+            "form": {
+              "fieldMap": {
+                "txtSetting2ForIntegration": {
+                  "label": "Text Integration Setting",
+                  "id": "txtSetting2ForIntegration",
+                  "name": "txtSetting2ForIntegration",
+                  "type": "text",
+                  "helpText": "Provide some helpttext",
+                  "layout": {
+                    "fields": [
+                      "txtSetting2ForIntegration"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parentResource": {
+          "_id": "62e90b9f36f8f637aa253824",
+          "lastModified": "2022-08-12T05:53:29.804Z",
+          "name": "Automation_Flows",
+          "install": [],
+          "sandbox": false,
+          "_registeredConnectionIds": [
+            "62eb4be5c9c10468159c0bc7",
+            "62eb4c06c9c10468159c0bd0",
+            "62eb4c9dc9c10468159c0c09",
+            "62eb54e8c9c10468159c0d7a",
+            "62eb4d0dc9c10468159c0c1c",
+            "62ecb2e1550ed26a1f50217e",
+            "62ecaa13550ed26a1f501bdc",
+            "62f20b0e8c29d43a8b227413"
+          ],
+          "installSteps": [],
+          "uninstallSteps": [],
+          "flowGroupings": [
+            {
+              "name": "Donot_Delete_Flow_Group1",
+              "settings": {
+                "name": "flowgrouping_group1",
+                "value": "flowgrouping_grp_value"
+              },
+              "_id": "62eb5777c9c10468159c0e10"
+            },
+            {
+              "name": "Donot_Delete_Flow_Group2",
+              "settings": {
+                "name": "flowgrouping_group2",
+                "email": "flowgrouping_grp_value@email.com"
+              },
+              "_id": "62eb5793e627016182cf12ff"
+            },
+            {
+              "name": "Donot_Delete_Flow_Group3",
+              "settings": {
+                "name": "Name"
+              },
+              "_id": "62eb5a99e627016182cf13b1"
+            },
+            {
+              "name": "TC_C27371_FG",
+              "settings": {
+                "name": "Name"
+              },
+              "_id": "62f5dd941677a21a108e81a2",
+              "settingsForm": {
+                "form": {
+                  "fieldMap": {
+                    "txtSetting2ForIntegration": {
+                      "label": "Text Integration Setting",
+                      "id": "txtSetting2ForIntegration",
+                      "name": "txtSetting2ForIntegration",
+                      "type": "text",
+                      "helpText": "Provide some helpttext",
+                      "layout": {
+                        "fields": [
+                          "txtSetting2ForIntegration"
+                        ]
+                      }
+                    }
+                  }
+                },
+                "init": {
+                  "_scriptId": "62ed15a0b0a39054cda22995",
+                  "function": "formInit"
+                }
+              }
+            }
+          ],
+          "createdAt": "2022-08-02T11:33:51.875Z"
+        },
+        "grandParentResource": {},
+        "license": {},
+        "parentLicense": {},
+        "sandbox": false
+      },
+    "ScriptCode": "function formInit (options) {\noptions.resource.settingsForm.form.fieldMap.txtSetting2ForIntegration.label = options.parentResource.name\nreturn options.resource.settingsForm.form\n}"
+  }

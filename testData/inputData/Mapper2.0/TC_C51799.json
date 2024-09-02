@@ -1,0 +1,148 @@
+{
+  "name": "TC_C51799",
+  "qa__api_tdata": [
+    {
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "HTTP import",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "ied5c3c7ad",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "mappings": [
+              {
+                "generate": "test",
+                "dataType": "objectarray",
+                "status": "Draft",
+                "buildArrayHelper": [
+                  {
+                    "extract": "$.Link 1.Sub Link 2.Sub Sub Link 1",
+                    "sourceDataType": "object",
+                    "mappings": [
+                      {
+                        "generate": "test1",
+                        "dataType": "objectarray",
+                        "status": "Draft",
+                        "buildArrayHelper": [
+                          {
+                            "extract": "$.Link 1.Sub Link 2.Sub Sub Link 2",
+                            "sourceDataType": "object",
+                            "mappings": [
+                              {
+                                "generate": "test2",
+                                "dataType": "objectarray",
+                                "status": "Draft",
+                                "buildArrayHelper": [
+                                  {
+                                    "extract": "$.Link 1.Sub Link 2.Sub Sub Link 4",
+                                    "sourceDataType": "object",
+                                    "mappings": [
+                                      {
+                                        "generate": "test4",
+                                        "dataType": "objectarray",
+                                        "status": "Draft",
+                                        "buildArrayHelper": [
+                                          {
+                                            "extract": "$.Link 1.Sub Link 2.Sub Sub Link 5",
+                                            "sourceDataType": "object",
+                                            "mappings": [
+                                              {
+                                                "generate": "test5",
+                                                "dataType": "objectarray",
+                                                "status": "Draft",
+                                                "buildArrayHelper": [
+                                                  {
+                                                    "extract": "$.Link 1.Sub Link 2.Sub Sub Link 6",
+                                                    "sourceDataType": "object",
+                                                    "mappings": [
+                                                      {
+                                                        "dataType": "string",
+                                                        "status": "Draft",
+                                                        "sourceDataType": "string"
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "http": {
+              "relativeURI": ["users"],
+              "method": ["POST"],
+              "body": [],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+          }
+        }
+      ],
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "test",
+            "qa__path": "/FTP_uploads/TC_C51799.json",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "ec9d985883",
+            "asynchronous": true,
+            "sandbox": false,
+            "ftp": {
+              "directoryPath": "/test",
+              "fileNameStartsWith": "test"
+            },
+            "file": {
+              "output": "records",
+              "skipDelete": true,
+              "type": "json"
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C51799",
+        "disabled": true,
+        "skipRetries": false,
+        "qa__integrationId": "56d6b23fe1fc35de53914730",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW",
+            "skipRetries": false
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+    "qa_editSettings": {
+      "_id": "6297358f64bb3b57f4a7ce18",
+      "name": "Init Setting",
+      "install": [],
+      "sandbox": false,
+      "settingsForm": {},
+      "_registeredConnectionIds": ["626bd636987bb423914b47c7"],
+      "installSteps": [],
+      "uninstallSteps": [],
+      "flowGroupings": [
+          {
+              "name": "FG1",
+              "_id": "628c7ab22dba3e2945e6664e",
+              "settingsForm": {
+          "form": {
+              "fieldMap": {
+                  "kvSetting1ForIntegration": {
+                      "label": "Key Value Integration Setting",
+                      "id": "kvSetting1ForIntegration",
+                      "name": "kvSetting1ForIntegration",
+                      "type": "keyvalue",
+                      "helpText": "lorem ipsum",
+                      "keyName": "key",
+                      "valueName": "value"
+                  },
+                  "txtSetting2ForIntegration": {
+                      "label": "Text Integration Setting",
+                      "id": "txtSetting2ForIntegration",
+                      "name": "txtSetting2ForIntegration",
+                      "type": "text",
+                      "helpText": "Text box setting"
+                  }
+              },
+              "layout": {
+                  "fields": [
+                      "kvSetting1ForIntegration",
+                      "txtSetting2ForIntegration"
+                  ]
+              }
+          },
+             "init": {
+              "_scriptId": "628b3deefcc6f75686664a48",
+              "function": "formInit"
+            }
+      }
+          }
+      ]
+  },
+"qa_importJson": {
+    "environment": "Production",
+    "name": "TC_IAF_016_C24612",
+    "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+    "_integrationId": "6297358f64bb3b57f4a7ce18",
+    "applications": ["activecampaign"],
+    "framework": "twoDotZero",
+    "twoDotZero": {
+      "_integrationId": "6297358f64bb3b57f4a7ce18"
+    }
+  },
+  "editSettings": {
+    "_id": "631ab43f13d12134f4771ab9",
+    "name": "Init Setting",
+    "install": [],
+    "sandbox": false,
+    "settingsForm": {},
+    "_registeredConnectionIds": ["626fdc6d7490300e92ffd613"],
+    "installSteps": [],
+    "uninstallSteps": [],
+    "flowGroupings": [
+        {
+            "name": "FG1",
+            "_id": "631ab44d13d12134f4771abc",
+            "settingsForm": {
+        "form": {
+            "fieldMap": {
+                "kvSetting1ForIntegration": {
+                    "label": "Key Value Integration Setting",
+                    "id": "kvSetting1ForIntegration",
+                    "name": "kvSetting1ForIntegration",
+                    "type": "keyvalue",
+                    "helpText": "lorem ipsum",
+                    "keyName": "key",
+                    "valueName": "value"
+                },
+                "txtSetting2ForIntegration": {
+                    "label": "Text Integration Setting",
+                    "id": "txtSetting2ForIntegration",
+                    "name": "txtSetting2ForIntegration",
+                    "type": "text",
+                    "helpText": "Text box setting"
+                }
+            },
+            "layout": {
+                "fields": [
+                    "kvSetting1ForIntegration",
+                    "txtSetting2ForIntegration"
+                ]
+            }
+        },
+           "init": {
+            "_scriptId": "626137e61ce14c420e01c86b",
+            "function": "formInit"
+          }
+    }
+        }
+    ]
+},
+"importJson": {
+  "environment": "Production",
+  "name": "TC_IAF_016_C24612",
+  "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+  "_integrationId": "631ab43f13d12134f4771ab9",
+  "applications": ["activecampaign"],
+  "framework": "twoDotZero",
+  "twoDotZero": {
+    "_integrationId": "631ab43f13d12134f4771ab9"
+  }
+},
+  "setupConnection": {
+    "integrationName":"Init Setting",
+    "activecampaignSubdomain": "jnsajkcbajbfewfbkbjk",
+    "token": "jfbewjkfbefnevbelve",
+    "uninstall":"false"
+  },
+  "integrationName":"Init Setting",
+  "app": "ActiveCampaign",
+  "initFuntionFieldName":"Label Updated",
+  "old": "options.resource.settingsForm.form.fieldMap.txtSetting2ForIntegration.label = 'Label Updated'; return options.resource.settingsForm.form",
+  "new": "options.resource.settingsForm.form.fieldMap.txtSetting2ForIntegration.label = 'Label Updated New'; return options.resource.settingsForm.form"
+}

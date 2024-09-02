@@ -1,0 +1,124 @@
+{
+    "name": "TC_C51122",
+    "qa__api_tdata": [
+      {
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "name": "TC_C51122",
+                "application": "shopify",
+                "_connectionId": "HTTP SHOPIFY CONNECTION",
+                "apiIdentifier": "iaef212493",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "lookups": [
+                    {
+                        "name": "dynamic",
+                        "method": "GET",
+                        "relativeURI": "/products.json?product_type={{{items[*].product_type}}}",
+                        "extract": "products[0].variants[0].title",
+                        "body": "",
+                        "allowFailures": false,
+                        "useImportHeaders": true
+                    }
+                ],
+                "mappings": [
+                    {
+                        "extract": "$.options.name",
+                        "generate": "product.title",
+                        "dataType": "string",
+                        "status": "Active",
+                        "sourceDataType": "string"
+                    },
+                    {
+                        "generate": "title",
+                        "dataType": "string",
+                        "lookupName": "dynamic",
+                        "status": "Active",
+                        "sourceDataType": "string"
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "/products.json"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http",
+                    "lookups": [
+                        {
+                            "name": "dynamic",
+                            "method": "GET",
+                            "relativeURI": "/products.json?product_type={{{items[*].product_type}}}",
+                            "extract": "products[0].variants[0].title",
+                            "body": "",
+                            "allowFailures": false,
+                            "useImportHeaders": true
+                        }
+                    ]
+                },
+                "adaptorType": "HTTPImport"
+            }
+          }
+        ],
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "TC_C51122",
+              "qa__path": "//FTP_uploads//TC_C51795.json",
+              "_connectionId": "FTP CONNECTION",
+              "apiIdentifier": "ee66d9e367",
+              "asynchronous": true,
+              "sandbox": false,
+              "ftp": {
+                "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                "fileNameStartsWith": "TC_C51795"
+              },
+              "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json"
+              },
+              "adaptorType": "FTPExport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C51122",
+          "disabled": false,
+          "qa__integrationId": "56d6b23fe1fc35de53914730",
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "type": "export",
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

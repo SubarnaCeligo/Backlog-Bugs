@@ -1,0 +1,203 @@
+{
+    "name": "TC_C51878",
+    "referencename": "TC_C51878",
+    "qa__api_tdata": [
+        {
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "g_imp",
+                        "qa__connectionId": "GOOGLEDRIVE CONNECTION",
+                        "_connectionId": "GOOGLEDRIVE CONNECTION",
+                        "apiIdentifier": "ic53f9d144",
+                        "oneToMany": false,
+                        "assistant": "googledrive",
+                        "sandbox": false,
+                        "file": {
+                            "fileName": "file-{{timestamp}}.csv",
+                            "skipAggregation": false,
+                            "type": "csv",
+                            "csv": {
+                                "rowDelimiter": "\n",
+                                "columnDelimiter": ",",
+                                "includeHeader": true,
+                                "wrapWithQuotes": false,
+                                "replaceTabWithSpace": false,
+                                "replaceNewlineWithSpace": false,
+                                "truncateLastRowDelimiter": false
+                            }
+                        },
+                        "http": {
+                            "type": "file",
+                            "relativeURI": [
+                                "Gdrive_Exports"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "sendPostMappedData": true,
+                            "formType": "assistant",
+                            "response": {
+                                "resourcePath": [
+                                    "files"
+                                ]
+                            }
+                        },
+                        "adaptorType": "HTTPImport"
+                    },
+                    "responseMapping": {
+                        "fields": [
+                            {
+                                "extract": "statusCode",
+                                "generate": "_json.uploadurl"
+                            }
+                        ],
+                        "lists": []
+                    }
+                },
+                {
+                    "type": "import",
+                    "responseMapping": {
+                        "fields": [],
+                        "lists": []
+                    },
+                    "qa__import": {
+                        "name": "salesforce_imp",
+                        "_connectionId": "SALESFORCE CONNECTION",
+                        "apiIdentifier": "ia32569068",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "extract": "_json.uploadurl",
+                                    "generate": "Id"
+                                }
+                            ]
+                        },
+                        "salesforce": {
+                            "operation": "insert",
+                            "sObjectType": "Account",
+                            "api": "soap",
+                            "removeNonSubmittableFields": false
+                        },
+                        "adaptorType": "SalesforceImport"
+                    }
+                }
+            ],
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Azure_exp",
+                        "_connectionId": "AZURE BLOB STORAGE CONNECTION",
+                        "apiIdentifier": "ec917b0d7a",
+                        "asynchronous": true,
+                        "assistant": "azurestorageaccount",
+                        "sandbox": false,
+                        "http": {
+                            "type": "file",
+                            "relativeURI": "azureexports",
+                            "method": "GET",
+                            "formType": "assistant",
+                            "response": {
+                                "resourcePath": "files"
+                            }
+                        },
+                        "file": {
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "csv",
+                            "csv": {
+                                "columnDelimiter": ",",
+                                "rowDelimiter": "\n",
+                                "hasHeaderRow": true,
+                                "trimSpaces": true,
+                                "rowsToSkip": 0
+                            },
+                            "filter": {
+                                "type": "expression",
+                                "expression": {
+                                    "rules": [
+                                        "startswith",
+                                        [
+                                            "string",
+                                            [
+                                                "extract",
+                                                "name"
+                                            ]
+                                        ],
+                                        "File_Provide"
+                                    ],
+                                    "version": "1"
+                                },
+                                "version": "1",
+                                "rules": [
+                                    "startswith",
+                                    [
+                                        "string",
+                                        [
+                                            "extract",
+                                            "name"
+                                        ]
+                                    ],
+                                    "File_Provide"
+                                ]
+                            }
+                        },
+                        "sampleData": "id,name,year of birth,Test\r\n1,Gabriel,1879,true\r\n2,Samael,1643,\r\n3,Amandiel,1867,",
+                        "filter": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [],
+                                "version": "1"
+                            },
+                            "version": "1",
+                            "rules": []
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C51878",
+                "disabled": false,
+                "qa__integrationId": "56d6b23fe1fc35de53914730",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [
+                                {
+                                    "extract": "statusCode",
+                                    "generate": "_json.uploadurl"
+                                }
+                            ],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "636cb042195d8f369e84ffab"
+                    },
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "636cd21f4a688a7e7c300357"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

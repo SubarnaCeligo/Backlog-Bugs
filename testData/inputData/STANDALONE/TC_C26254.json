@@ -1,0 +1,9 @@
+{
+    "type": "oidc",
+    "orgId": "celigo1",
+    "oidc": {
+        "issuerURL": "https://dev-310577.okta.com",
+        "clientId": "0oah9sk4bhQm4lZYy357",
+        "clientSecret": "_0DLJzJdu_ltJzNvCmmLrlzR68DZVFcROchsRH7r"
+    }
+}

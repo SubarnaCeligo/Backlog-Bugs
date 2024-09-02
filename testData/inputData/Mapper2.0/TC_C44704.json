@@ -1,0 +1,71 @@
+{
+    "name": "TC_C44704",
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "disabled": false,
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "name": "Import_TC_C44704",
+                "application": "BigCommerce",
+                "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+                "qa__connectionId": "HTTP BIGCOMMERCE CONNECTION",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "mapping": {
+                    "fields": [
+                        {
+                            "extract": "company",
+                            "generate": "Company_Name"
+                        },
+                        {
+                            "extract": "currentYear",
+                            "generate": "randomId"
+                        }
+                    ]
+                },
+                "http": {
+                    "relativeURI": [
+                        "/v3/customers"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "FTP_Export_TC_C44704",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                    "fileNameStartsWith": "TC_C43223_FTP_to_HTTP_M1.0_Uploads.json"
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": true,
+                    "encoding": "utf8",
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport",
+                "qa__path": "//SFTP_uploads//TC_C44704.json"
+            }
+        }
+    ]
+}

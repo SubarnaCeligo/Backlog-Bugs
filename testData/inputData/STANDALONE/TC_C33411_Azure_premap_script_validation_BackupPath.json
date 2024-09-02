@@ -1,0 +1,69 @@
+{
+    "skipRetries": false,
+    "_integrationId": "6228aed6bc8a2732cfe8044c",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "FTP xport",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "e930f9de29",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C30817"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "adaptorType": "FTPExport",
+                "qa__path": "//FTP_uploads//TC_C30817.json"
+            }
+        }
+    ],
+    "pageProcessors": [
+      {
+          "type": "import",
+          "qa__import": {
+            "qa__type": "blob",
+            "name": "TC_C23043_SF_Blob_To_Azure_Blob_Import",
+            "parsers": [],
+            "qa__connectionId": "62f612fc854c044e05e13468",
+            "_connectionId": "AZURE BLOB STORAGE CONNECTION",
+            "distributed": false,
+            "oneToMany": true,
+            "pathToMany": "Attachments",
+            "blob": true,
+            "assistant": "azureblobstorage",
+            "lookups": [],
+            "file": {
+              "fileName": "{{record.Name}}"
+            },
+            "http": {
+              "type": "file",
+              "relativeURI": [
+                "azureblobimports"
+              ],
+              "method": [
+                "POST"
+              ],
+              "body": [],
+              "response": {
+                "resourcePath": [
+                  "files"
+                ]
+              }
+            },
+            "adaptorType": "HTTPImport"
+          }
+        }
+      ],
+    "Script": "function preMap (options) {\n  options.data[0]={\n    test:options.data[0],\n    premap:23}\n  return options.data.map((d) => {\n    return {\n      data: d\n    }\n  })\n}"
+}

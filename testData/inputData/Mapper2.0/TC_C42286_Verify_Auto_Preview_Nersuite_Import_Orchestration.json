@@ -1,0 +1,169 @@
+{
+  "name": "TC_C42286",
+  "disabled": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "timezone": "Asia/Calcutta",
+  "qa__api_tdata": [
+    {
+      "pageProcessors": [
+        {
+          "responseMapping": {
+            "fields": [
+              {
+                "extract": "data",
+                "generate": "test"
+              }
+            ],
+            "lists": [],
+            "qa__index": 0
+          },
+          "type": "import",
+          "qa__import": {
+            "name": "test",
+            "_connectionId": "NETSUITE CONNECTION",
+
+            "distributed": true,
+            "apiIdentifier": "i83a49ca1e",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [],
+            "netsuite_da": {
+              "useSS2Restlets": false,
+              "operation": "add",
+              "recordType": "inventoryitem",
+              "lookups": [],
+              "mapping": {
+                "fields": [],
+                "lists": [
+                  {
+                    "generate": "itemvendor",
+                    "fields": [
+                      {
+                        "generate": "celigo_itemvendorprice",
+                        "subRecordMapping": {
+                          "recordType": "itemvendorprice",
+                          "jsonPath": "$"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        },
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "FTP Import",
+            "_connectionId": "FTP CONNECTION",
+            "oneToMany": false,
+            "sandbox": false,
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "test.0.Email",
+                  "generate": "test[*].Email"
+                },
+                {
+                  "extract": "test.0.Primary Subsidiary",
+                  "generate": "test[*].Primary Subsidiary"
+                },
+                {
+                  "extract": "test.0.Name",
+                  "generate": "test[*].Name"
+                }
+              ]
+            },
+            "file": {
+              "fileName": "TC_C14293_FTP_NS_SearchCriteria_FIlter_FTP.json",
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation",
+              "fileName": "TC_C14293_FTP_NS_SearchCriteria_FIlter_FTP.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "adaptorType": "FTPExport",
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+              "fileNameStartsWith": "TC_C14293_FTP_NS.json"
+            },
+            "file": {
+              "output": "records",
+              "encoding": "utf8",
+              "skipDelete": true,
+              "type": "json"
+            },
+            "_connectionId": "FTP CONNECTION",
+            "qa__path": "//FTP_uploads//TC_C14293_FTP_NS.json"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C42286",
+        "disabled": false,
+        "qa__integrationId": "56d6b23fe1fc35de53914730",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [
+                {
+                  "extract": "data",
+                  "generate": "test"
+                }
+              ],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          },
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID",
+            "skipRetries": false
+          }
+        ],
+        "autoResolveMatchingTraceKeys": true
+      }
+    }
+  ],
+  "ExpectedData": {
+    "record": {
+      "CompanyName": "TC_C14293_FTP_NS_FTP",
+      "Email": "C14293@org.com",
+      "errors": [
+        {
+          "code": "error_code",
+          "message": "errormessage",
+          "source": "application"
+        }
+      ],
+      "ignored": false,
+      "statusCode": 200,
+      "dataURI": ""
+    }
+  }
+}
