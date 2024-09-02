@@ -374,7 +374,7 @@ test.describe("Auditlog resource Test Cases", () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
 
-  test("TC_C55430_C55431_C55434_C55435_02", async ({io,page}, testInfo) => {
+  test("@Env-All @Zephyr-IO-T15123 @Zephyr-IO-T15124 @Zephyr-IO-T15125 @Zephyr-IO-T15126 TC_C55430_C55431_C55434_C55435_02", async ({io,page}, testInfo) => {
     //Resources>imports>actions>auditlogs
     await io.homePage.loadingTime();
     await io.homePage.goToMenu("Resources","Imports");
@@ -504,7 +504,7 @@ await test.step(
     test.step("*** Testcase passed ***", async ()=>{});
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("TC_C55430_C55431_C55434_C55435_03", async ({io,page}, testInfo) => {
+  test("@Env-All @Zephyr-IO-T15123 @Zephyr-IO-T15124 @Zephyr-IO-T15125 @Zephyr-IO-T15126 TC_C55430_C55431_C55434_C55435_03", async ({io,page}, testInfo) => {
     //Resources>exports>actions>auditlogs
     await io.homePage.loadingTime();
     await io.homePage.goToMenu("Resources","Imports");
@@ -634,7 +634,7 @@ await test.step(
     test.step("*** Testcase passed ***", async ()=>{});
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("TC_C55430_C55431_C55434_C55435_04", async ({io,page}, testInfo) => {
+  test("@Env-All @Zephyr-IO-T15123 @Zephyr-IO-T15124 @Zephyr-IO-T15125 @Zephyr-IO-T15126 TC_C55430_C55431_C55434_C55435_04", async ({io,page}, testInfo) => {
     //Resources>scripts>actions>auditlogs
     await io.homePage.loadingTime();
     await io.homePage.goToMenu("Resources","Scripts");
@@ -764,7 +764,7 @@ await test.step(
     test.step("*** Testcase passed ***", async ()=>{});
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("TC_C55430_C55431_C55434_C55435_05", async ({io,page}, testInfo) => {
+  test("@Env-All @Zephyr-IO-T15123 @Zephyr-IO-T15125 @Zephyr-IO-T15126 TC_C55430_C55431_C55434_C55435_05", async ({io,page}, testInfo) => {
     //Resources>agents>actions>auditlogs
     await io.homePage.loadingTime();
     await io.homePage.goToMenu("Resources","Agents");
@@ -894,7 +894,7 @@ await test.step(
     test.step("*** Testcase passed ***", async ()=>{});
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("TC_C55430_C55431_C55434_C55435_06", async ({io,page}, testInfo) => {
+  test("@Env-All @Zephyr-IO-T15123 @Zephyr-IO-T15124 @Zephyr-IO-T15125 @Zephyr-IO-T15126 TC_C55430_C55431_C55434_C55435_06", async ({io,page}, testInfo) => {
     //Resources>stack>actions>auditlogs
     await io.homePage.loadingTime();
     await io.homePage.goToMenu("Resources","Stacks");
@@ -1024,7 +1024,7 @@ await test.step(
     test.step("*** Testcase passed ***", async ()=>{});
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("TC_C55430_C55431_C55434_C55435_07", async ({io,page}, testInfo) => {
+  test("@Env-All @Zephyr-IO-T15123 @Zephyr-IO-T15124 @Zephyr-IO-T15125 @Zephyr-IO-T15126 TC_C55430_C55431_C55434_C55435_07", async ({io,page}, testInfo) => {
     //Resources>myapi>actions>auditlogs
     await io.homePage.loadingTime();
     await io.homePage.goToMenu("Resources","My APIs");
