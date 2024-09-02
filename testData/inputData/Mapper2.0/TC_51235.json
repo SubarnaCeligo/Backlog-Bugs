@@ -1,0 +1,325 @@
+{
+    "name": "TC_51235",
+    "referencename": "TC_51235",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "51235 export",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "e3388759b2",
+                        "asynchronous": true,
+                        "sandbox": false,
+                        "sampleData": {
+                            "fName": "scott",
+                            "lName": "henderson",
+                            "altFirstName": "scooter",
+                            "additionalFirstNames": [
+                                "scoots",
+                                "mchendrix"
+                            ],
+                            "children": [
+                                {
+                                    "firstName": "abby"
+                                },
+                                {
+                                    "firstName": "paige"
+                                }
+                            ],
+                            "mother": {
+                                "fName": "mary",
+                                "lName": "henderson"
+                            },
+                            "father": {
+                                "fName": "herb",
+                                "lName": "henderson"
+                            },
+                            "siblings": [
+                                {
+                                    "fName": "james",
+                                    "lName": "henderson",
+                                    "children": [
+                                        {
+                                            "fName": "patrick"
+                                        },
+                                        {
+                                            "fName": "asher"
+                                        },
+                                        {
+                                            "fName": "cade"
+                                        },
+                                        {
+                                            "fName": "lee"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "fName": "erin",
+                                    "lName": "tuohy",
+                                    "children": [
+                                        {
+                                            "fName": "jake"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "cousins": [
+                                {
+                                    "fName": "james",
+                                    "lName": "henderson",
+                                    "children": [
+                                        {
+                                            "fName": "patrick"
+                                        },
+                                        {
+                                            "fName": "asher"
+                                        },
+                                        {
+                                            "fName": "cade"
+                                        },
+                                        {
+                                            "fName": "lee"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "fName": "erin",
+                                    "lName": "tuohy",
+                                    "children": [
+                                        {
+                                            "fName": "jake"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "books": [
+                                {
+                                    "fName": "james",
+                                    "lName": "henderson",
+                                    "children": [
+                                        {
+                                            "fName": "patrick"
+                                        },
+                                        {
+                                            "fName": "asher"
+                                        },
+                                        {
+                                            "fName": "cade"
+                                        },
+                                        {
+                                            "fName": "lee"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "fName": "erin",
+                                    "lName": "tuohy",
+                                    "children": [
+                                        {
+                                            "fName": "jake"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "snaks": [
+                                {
+                                    "fName": "james",
+                                    "lName": "henderson",
+                                    "children": [
+                                        {
+                                            "fName": "patrick"
+                                        },
+                                        {
+                                            "fName": "asher"
+                                        },
+                                        {
+                                            "fName": "cade"
+                                        },
+                                        {
+                                            "fName": "lee"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "fName": "erin",
+                                    "lName": "tuohy",
+                                    "children": [
+                                        {
+                                            "fName": "jake"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "dinner": [
+                                {
+                                    "fName": "james",
+                                    "lName": "henderson",
+                                    "children": [
+                                        {
+                                            "fName": "patrick"
+                                        },
+                                        {
+                                            "fName": "asher"
+                                        },
+                                        {
+                                            "fName": "cade"
+                                        },
+                                        {
+                                            "fName": "lee"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "fName": "erin",
+                                    "lName": "tuohy",
+                                    "children": [
+                                        {
+                                            "fName": "jake"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "lunch": [
+                                {
+                                    "fName": "james",
+                                    "lName": "henderson",
+                                    "children": [
+                                        {
+                                            "fName": "patrick"
+                                        },
+                                        {
+                                            "fName": "asher"
+                                        },
+                                        {
+                                            "fName": "cade"
+                                        },
+                                        {
+                                            "fName": "lee"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "fName": "erin",
+                                    "lName": "tuohy",
+                                    "children": [
+                                        {
+                                            "fName": "jake"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                            "fileNameStartsWith": "51235"
+                        },
+                        "file": {
+                            "output": "records",
+                            "skipDelete": false,
+                            "type": "json"
+                        },
+                        "adaptorType": "FTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Http Import",
+                        "application": "zendesk support",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "i39ed441f9",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "mappings": [
+                            {
+                                "generate": "fName",
+                                "dataType": "objectarray",
+                                "status": "Active",
+                                "buildArrayHelper": [
+                                    {
+                                        "extract": "$",
+                                        "sourceDataType": "object",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.lName",
+                                                "generate": "Lname",
+                                                "dataType": "string",
+                                                "status": "Active",
+                                                "sourceDataType": "string"
+                                            },
+                                            {
+                                                "extract": "$.mother.fName",
+                                                "generate": "altFirstName",
+                                                "dataType": "string",
+                                                "status": "Active",
+                                                "sourceDataType": "string"
+                                            },
+                                            {
+                                                "extract": "$.additionalFirstNames",
+                                                "generate": "AdditionalName",
+                                                "dataType": "string",
+                                                "status": "Active",
+                                                "sourceDataType": "string"
+                                            },
+                                            {
+                                                "extract": "$.children[*].firstName",
+                                                "generate": "C.Fname",
+                                                "dataType": "string",
+                                                "status": "Active",
+                                                "sourceDataType": "string"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "http": {
+                            "relativeURI": [
+                                "/organization"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "batchSize": 1,
+                            "requestMediaType": "urlencoded",
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_51235",
+                "disabled": true,
+                "skipRetries": false,
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "6342939beb57377ef9eb1b95"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "634064784abae969f78b53fb",
+                        "skipRetries": false
+                    }
+                ],
+                "createdAt": "2022-10-09T09:16:22.871Z",
+                "autoResolveMatchingTraceKeys": true
+            }
+        }
+    ]
+}

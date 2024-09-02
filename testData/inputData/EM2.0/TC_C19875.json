@@ -1,0 +1,148 @@
+{
+  "name": "TC_C19875",
+  "referencename": "TC_C19875",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Shopify customer export",
+            "_connectionId": "SHOPIFY CONNECTION",
+            "asynchronous": true,
+            "assistant": "shopify",
+            "assistantMetadata": {
+              "resource": "customer",
+              "version": "v2",
+              "operation": "retrieves_alistofcustomers"
+            },
+            "http": {
+              "relativeURI": "/customers.json",
+              "method": "GET",
+              "paging": {
+                "method": "linkheader",
+                "lastPageStatusCode": 404,
+                "linkHeaderRelation": "next"
+              },
+              "response": {
+                "resourcePath": "customers"
+              }
+            },
+            "rawData": "603ce5ede9250226dcea4608dda6230d547e4261bcf2b129528d1898",
+            "rest": {
+              "relativeURI": "/customers.json",
+              "method": "GET",
+              "resourcePath": "customers",
+              "pagingMethod": "linkheader",
+              "allowUndefinedResource": false,
+              "linkHeaderRelation": "next"
+            },
+            "adaptorType": "RESTExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Netsuite customer import",
+            "parsers": [],
+            "_connectionId": "NETSUITE CONNECTION",
+            "distributed": true,
+            "apiIdentifier": "i45477eaa3",
+            "lookups": [],
+            "netsuite_da": {
+              "useSS2Restlets": false,
+              "operation": "add",
+              "recordType": "customer",
+              "lookups": [],
+              "mapping": {
+                "fields": [
+                  {
+                    "generate": "isperson",
+                    "hardCodedValue": "true",
+                    "internalId": false,
+                    "immutable": false,
+                    "discardIfEmpty": false,
+                    "useAsAnInitializeValue": false
+                  },
+                  {
+                    "generate": "firstname",
+                    "extract": "first_name",
+                    "internalId": false,
+                    "immutable": false,
+                    "discardIfEmpty": false,
+                    "useAsAnInitializeValue": false
+                  },
+                  {
+                    "generate": "lastname",
+                    "extract": "last_name",
+                    "internalId": false,
+                    "immutable": false,
+                    "discardIfEmpty": false,
+                    "useAsAnInitializeValue": false
+                  },
+                  {
+                    "generate": "phone",
+                    "extract": "phone",
+                    "internalId": false,
+                    "immutable": false,
+                    "discardIfEmpty": false,
+                    "useAsAnInitializeValue": false
+                  },
+                  {
+                    "generate": "mobilephone",
+                    "extract": "phone",
+                    "internalId": false,
+                    "immutable": false,
+                    "discardIfEmpty": false,
+                    "useAsAnInitializeValue": false
+                  },
+                  {
+                    "generate": "email",
+                    "extract": "addresses[*].email1",
+                    "internalId": false,
+                    "immutable": false,
+                    "discardIfEmpty": false,
+                    "useAsAnInitializeValue": false
+                  },
+                  {
+                    "generate": "companyname",
+                    "extract": "addresses[*].company",
+                    "internalId": false,
+                    "immutable": false,
+                    "discardIfEmpty": false,
+                    "useAsAnInitializeValue": false
+                  }
+                ],
+                "lists": []
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C19875",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,218 @@
+{
+    "name": "TC_47427",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "timezone": "Asia/Calcutta",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "NS Export",
+                "description": "NS for multiple pages and records",
+                "_connectionId": "NETSUITE CONNECTION",
+                "apiIdentifier": "e3417c1a6a",
+                "asynchronous": true,
+                "pageSize": 5,
+                "oneToMany": false,
+                "sandbox": false,
+                "netsuite": {
+                    "type": "restlet",
+                    "skipGrouping": true,
+                    "statsOnly": false,
+                    "restlet": {
+                        "recordType": "customer",
+                        "searchId": "3152",
+                        "useSS2Restlets": false,
+                        "markExportedBatchSize": 100
+                    },
+                    "distributed": {
+                        "useSS2Framework": false
+                    }
+                },
+                "transform": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [
+                            []
+                        ],
+                        "version": "1"
+                    },
+                    "version": "1",
+                    "rules": [
+                        []
+                    ]
+                },
+                "adaptorType": "NetSuiteExport"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "7uV87B",
+            "routeRecordsTo": "all_matching_branches",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandaloneImport1_afsflk",
+                                "application": "zendesk support",
+                                "parsers": [],
+                                "_connectionId": "NETSUITE CONNECTION",
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "name",
+                                            "generate": "organization.name"
+                                        },
+                                        {
+                                            "extract": "notes",
+                                            "generate": "organization.notes"
+                                        }
+                                    ]
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "organizations.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "body": [],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Branch 1.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandaloneImport1_afsflk",
+                                "application": "zendesk support",
+                                "_connectionId": "NETSUITE CONNECTION",
+                                "http": {
+                                    "relativeURI": [
+                                        "organizations.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "body": [],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "1",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "Netsuite": {
+                "name": "TC_47983_Flowbranching",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "import": {
+                    "_connectionId": "NETSUITE CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "1",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "expectedJSON": [
+                        {
+                            "entityid": "Auto_TC_47983_1",
+                            "subsidiary": {
+                                "internalid": "14"
+                            },
+                            "email": "Auto_TC_47983_1@gmail.com",
+                            "comments": "Auto_TC_47983_Notes_1"
+                        },
+                        {
+                            "entityid": "Auto_TC_47983_3",
+                            "subsidiary": {
+                                "internalid": "14"
+                            },
+                            "email": "Auto_TC_47983_3@gmail.com",
+                            "comments": "Auto_TC_47983_Notes_3"
+                        }
+                    ],
+                    "uniqueField": "email",
+                    "standaloneexportflowID": "62f50ecf0f2ee6482b135ea2",
+                    "importRecordType": "Customer",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e52b8316c9"
+                }
+            },
+            "netsuite": {
+                "name": "TC_47983_Flowbranching",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "import": {
+                    "_connectionId": "NETSUITE CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "1",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "expectedJSON": [
+                        {
+                            "entityid": "Auto_TC_47983_1",
+                            "subsidiary": {
+                                "internalid": "14"
+                            },
+                            "email": "Auto_TC_47983_1@gmail.com",
+                            "comments": "Auto_TC_47983_Notes_1"
+                        },
+                        {
+                            "entityid": "Auto_TC_47983_3",
+                            "subsidiary": {
+                                "internalid": "14"
+                            },
+                            "email": "Auto_TC_47983_3@gmail.com",
+                            "comments": "Auto_TC_47983_Notes_3"
+                        }
+                    ],
+                    "uniqueField": "email",
+                    "standaloneexportflowID": "62f50ecf0f2ee6482b135ea2",
+                    "importRecordType": "Customer",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e52b8316c9"
+                }
+            }
+        }
+    }
+}

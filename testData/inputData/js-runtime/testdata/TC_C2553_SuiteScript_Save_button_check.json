@@ -1,0 +1,124 @@
+{
+    "name": "TC_C2553_SuiteScript_Save_button_check",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "NS EXPORT",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "asynchronous": true,
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "recordType": "customer",
+                                "searchId": "3160",
+                                "criteria": [
+                                    {
+                                        "field": "custentity26",
+                                        "operator": "is",
+                                        "searchValue": "Louis Fabre"
+                                    }
+                                ],
+                                "useSS2Restlets": false,
+                                "hooks": {
+                                    "preSend": {
+                                        "fileInternalId": "4536452",
+                                        "function": "preSave"
+                                    }
+                                }
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "NS import",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "distributed": true,
+                        "lookups": [],
+                        "netsuite_da": {
+                            "useSS2Restlets": false,
+                            "lookups": [],
+                            "mapping": {
+                                "lists": [],
+                                "fields": [
+                                    {
+                                        "generate": "companyname",
+                                        "hardCodedValue": "JSRuntime_exportId_SS1",
+                                        "internalId": false
+                                    },
+                                    {
+                                        "generate": "subsidiary",
+                                        "discardIfEmpty": false,
+                                        "immutable": false,
+                                        "hardCodedValue": "3",
+                                        "internalId": true
+                                    },
+                                    {
+                                        "generate": "email",
+                                        "extract": "Email",
+                                        "internalId": false
+                                    },
+                                    {
+                                        "generate": "custentity26",
+                                        "extract": "ExportID",
+                                        "internalId": false
+                                    },
+                                    {
+                                        "generate": "custentity31",
+                                        "extract": "IntegrationId",
+                                        "internalId": false
+                                    },
+                                    {
+                                        "generate": "custentity50",
+                                        "extract": "FlowId",
+                                        "internalId": false
+                                    }
+                                ]
+                            },
+                            "hooks": {
+                                "preMap": {
+                                    "fileInternalId": "65362344",
+                                    "function": "preMap"
+                                }
+                            },
+                            "recordType": "customer",
+                            "operation": "add"
+                        },
+                        "adaptorType": "NetSuiteDistributedImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C2553_SuiteScript_Save_button_check",
+                "disabled": false,
+                "qa__integrationId": "6228aed6bc8a2732cfe8044c",
+                "_integrationId": "631a1266abf51e7a86c80ab4",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

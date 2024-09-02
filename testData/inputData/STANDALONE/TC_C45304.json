@@ -1,0 +1,76 @@
+{
+    "name": "TC_C45304",
+    "referencename": "TC_C45304",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "HTTP Export",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "application": "zendesk support",
+                        "apiIdentifier": "e07561bd37",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": "users/1473313072",
+                            "method": "GET",
+                            "formType": "http"
+                        },
+                        "rawData": "6322ad700643cf0e25a017cebb9b9c16420f45faa57366e3523c26b8",
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Ftp Import",
+                        "_connectionId":"FTP CONNECTION",
+                        "apiIdentifier": "i932d2b833",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "file": {
+                            "fileName": "TC_C45304.xml",
+                            "skipAggregation": false,
+                            "type": "xml",
+                            "xml": {
+                                "body": "<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>\\n<record>\\n{{#each batch_of_records}}\\n<name>{{record.id}}</name>\\n{{/each}}\\n</record>\""
+                            }
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO%20Automation%20SFTP%20Imports",
+                            "fileName": "TC_C45304.xml"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C45304",
+                "disabled": false,
+                "qa__integrationId": "63232caf5342c33e615e7271",
+                "_integrationId": "63232c59d3a9897fe95f9f2a",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

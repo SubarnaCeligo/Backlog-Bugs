@@ -1,0 +1,80 @@
+{
+  "name": "TC_C20012_1",
+  "referencename": "TC_C20012_1",
+  "qa__dataVerification": {},
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "export 20012",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "asynchronous": true,
+            "isLookup": true,
+            "type": "blob",
+            "oneToMany": true,
+            "pathToMany": "attachments",
+            "http": {
+              "relativeURI": "{{data.content_url}}",
+              "method": "GET",
+              "formType": "http"
+            },
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "import 20012",
+            "parsers": [],
+            "_connectionId": "SALESFORCE CONNECTION",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "lookups": [],
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "body",
+                  "generate": "Name"
+                }
+              ]
+            },
+            "salesforce": {
+              "operation": "insert",
+              "sObjectType": "Account",
+              "api": "soap",
+              "removeNonSubmittableFields": false
+            },
+            "adaptorType": "SalesforceImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C20012_1",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+    "name": "TC_46916",
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "disabled": false,
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "name": "Gdrive_imports",
+                "application": "googledrive",
+                "_connectionId": "GOOGLEDRIVE CONNECTION",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "extract": "$.first_name",
+                        "generate": "first_name",
+                        "dataType": "string",
+                        "status": "Active"
+                    },
+                    {
+                        "extract": "$.last_name",
+                        "generate": "last_name",
+                        "dataType": "string",
+                        "status": "Active"
+                    },
+                    {
+                        "extract": "$.customer address[*].city",
+                        "generate": "city",
+                        "dataType": "string",
+                        "status": "Active"
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "Gdrive_imports"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "ftp",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "sandbox": false,
+                "sampleData": {
+                    "first_name": "Jane",
+                    "last_name": "Doe",
+                    "email": "mapper.email@123.com",
+                    "customer address": [
+                        {
+                            "street_1": "123 Main Street",
+                            "city": "Austin",
+                            "state": "Texas",
+                            "zip": "78751",
+                            "country": "United States",
+                            "country_iso2": "US",
+                            "email": "janedoe@email.com"
+                        },
+                        {
+                            "street_1": "1443 Main Street",
+                            "city": "mainbuzz",
+                            "state": "Texas",
+                            "zip": "78751",
+                            "country": "Japan",
+                            "country_iso2": "JP",
+                            "email": "jane@email.com"
+                        }
+                    ]
+                },
+                "qa__path": "//FTP_uploads//C36007.json",
+                "ftp": {
+                    "directoryPath": "/ io.auto.qa / IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_46468.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ]
+}

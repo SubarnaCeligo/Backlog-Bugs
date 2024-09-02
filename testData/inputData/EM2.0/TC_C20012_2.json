@@ -1,0 +1,165 @@
+{
+  "name": "TC_C20012_2",
+  "referencename": "TC_C20012_2",
+  "qa__dataVerification": {},
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "res",
+            "_connectionId": "ZENDESK CONNECTION",
+            "asynchronous": true,
+            "type": "test",
+            "assistant": "zendesk",
+            "oneToMany": false,
+            "assistantMetadata": {
+              "resource": "users_api",
+              "version": "v2",
+              "operation": "list_users"
+            },
+            "parsers": [],
+            "http": {
+              "relativeURI": "/api/v2/users.json",
+              "method": "GET",
+              "successMediaType": "json",
+              "errorMediaType": "json",
+              "formType": "assistant",
+              "paging": {
+                "method": "url",
+                "path": "next_page",
+                "lastPageStatusCode": 404
+              },
+              "response": {
+                "resourcePath": "users"
+              }
+            },
+            "test": {
+              "limit": 1
+            },
+            "rest": {
+              "relativeURI": "/api/v2/users.json",
+              "method": "GET",
+              "resourcePath": "users",
+              "pagingMethod": "nextpageurl",
+              "nextPagePath": "next_page",
+              "allowUndefinedResource": false
+            },
+            "adaptorType": "RESTExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "dd",
+            "_connectionId": "NETSUITE CONNECTION",
+            "distributed": true,
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "lookups": [],
+            "netsuite_da": {
+              "useSS2Restlets": false,
+              "operation": "add",
+              "recordType": "customer",
+              "lookups": [],
+              "mapping": {
+                "fields": [
+                  {
+                    "generate": "companyname",
+                    "extract": "name{{dateFormat “x”}}",
+                    "internalId": false
+                  },
+                  {
+                    "generate": "subsidiary",
+                    "discardIfEmpty": false,
+                    "immutable": false,
+                    "hardCodedValue": "1",
+                    "internalId": true
+                  },
+                  {
+                    "generate": "phone",
+                    "hardCodedValue": "tetet",
+                    "internalId": false
+                  }
+                ],
+                "lists": []
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        },
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "import 20012",
+            "application": "zendesk support",
+            "parsers": [],
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "qa__connectionId": "ZENDESK CONNECTION",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [],
+            "http": {
+              "relativeURI": [
+                "users"
+              ],
+              "method": [
+                "POST"
+              ],
+              "body": [],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C20012_2",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "hooks": {
+              "postResponseMap": {
+                "_scriptId": "UPDATE",
+                "function": "postResponseMap"
+              }
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          },
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ],
+  "scriptBody": {
+    "name": "invalid_postResponse",
+    "content": "function postResponseMap (options) {return options.postResponseMapData\n return {data: result,errors: options.errors}}"
+  }
+}

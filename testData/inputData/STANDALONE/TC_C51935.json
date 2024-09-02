@@ -1,0 +1,124 @@
+{
+  "name": "TC_C51935",
+  "referencename": "TC_C51935",
+  "qa__api_tdata": [
+    {
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "AS2",
+            "_connectionId": "633c347908cc753ca5675ce5",
+            "distributed": false,
+            "apiIdentifier": "i90cd037fe",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+              "skipAggregation": true,
+              "type": "json"
+            },
+            "as2": {
+              "fileNameTemplate": "file-{{timestamp}}"
+            },
+            "adaptorType": "AS2Import"
+          },
+          "responseMapping": {
+            "fields": [
+              {
+                "extract": "id",
+                "generate": "_header.contentlength"
+              }
+            ],
+            "lists": []
+          }
+        },
+        {
+          "type": "import",
+          "responseMapping": {
+            "fields": [],
+            "lists": []
+          },
+          "qa__import": {
+            "name": "test",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "apiIdentifier": "idc6cb596a",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "_header.contentlength",
+                  "generate": "test"
+                }
+              ]
+            },
+            "salesforce": {
+              "operation": "insert",
+              "sObjectType": "Account",
+              "api": "soap",
+              "removeNonSubmittableFields": false
+            },
+            "adaptorType": "SalesforceImport"
+          }
+        }
+      ],
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "qa__path": "//FTP_uploads//TC_C2169.json",
+            "_connectionId": "FTP CONNECTION",
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+              "fileNameStartsWith": "TC_C2169.json"
+            },
+            "file": {
+              "encoding": "utf8",
+              "output": "records",
+              "skipDelete": true,
+              "type": "json"
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C51935",
+        "disabled": false,
+        "qa__integrationId": "63232caf5342c33e615e7271",
+        "_integrationId": "63232c59d3a9897fe95f9f2a",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [
+                {
+                  "extract": "id",
+                  "generate": "_header.contentlength"
+                }
+              ],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "636a281396ce9c222a7ec029"
+          },
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "6364eb04e28334683c47ed1a"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,625 @@
+{
+    "name": "TC_46821_rows_rows",
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "qa__expectedDashboardCount": {
+        "successCount": "5",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "standaloneexportflowID": "",
+        "expected": {
+            "FTP": {
+                "name": "TC_46821_rows_rows",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "qa__expectedDashboardCount": {
+                    "successCount": "5",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_46821_ftp",
+                    "isUIFlow": true,
+                    "folderName": "io.auto.qa/IO Automation SFTP Imports",
+                    "fileType": ".xml"
+                }
+            },
+            "GDRIVE": {
+                "name": "TC_46821_rows_rows",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "qa__expectedDashboardCount": {
+                    "successCount": "5",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_46821_gdrive",
+                    "folderName": "Gdrive_Imports",
+                    "fileType": ".xml"
+                }
+            },
+            "S3": {
+                "name": "TC_46821_rows_rows",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "qa__expectedDashboardCount": {
+                    "successCount": "5",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "bucketName": "automations3import",
+                    "fileName": "TC_46821_s3",
+                    "isUIFlow": true,
+                    "fileType": ".xml"
+                }
+            },
+            "Azure": {
+                "name": "TC_46821_rows_rows",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "qa__expectedDashboardCount": {
+                    "successCount": "5",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_46821_azure",
+                    "folderName": "azureimports",
+                    "fileType": ".xml",
+                    "fileExtension": ".xml"
+                }
+            }
+        }
+    },
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "ftp",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_46821.json"
+                },
+                "qa__path": "/FTP_uploads/TC_46821.json",
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "ftp",
+                "_connectionId": "FTP CONNECTION",
+                "oneToMany": false,
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "dataType": "objectarray",
+                        "status": "Active",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$[*]",
+                                "mappings": [
+                                    {
+                                        "extract": "$.body_html",
+                                        "generate": "body_html",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "extract": "$.id",
+                                        "generate": "id",
+                                        "dataType": "number",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "extract": "$.handle",
+                                        "generate": "handle",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "generate": "images",
+                                        "dataType": "objectarray",
+                                        "status": "Active",
+                                        "buildArrayHelper": [
+                                            {
+                                                "extract": "$.images[*]",
+                                                "status": "Active",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.images.id",
+                                                        "generate": "image_id",
+                                                        "dataType": "string",
+                                                        "status": "Active"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "option",
+                                        "dataType": "object",
+                                        "status": "Active",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.options.id",
+                                                "generate": "option_id",
+                                                "dataType": "number",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "extract": "$.options.name",
+                                                "generate": "name",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "variants",
+                                        "dataType": "objectarray",
+                                        "status": "Active",
+                                        "buildArrayHelper": [
+                                            {
+                                                "extract": "$.variants[*]",
+                                                "status": "Active",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.variants.barcode",
+                                                        "generate": "barcode",
+                                                        "dataType": "string",
+                                                        "status": "Active"
+                                                    },
+                                                    {
+                                                        "extract": "$.variants.price",
+                                                        "generate": "price",
+                                                        "dataType": "number",
+                                                        "status": "Active"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "extract": "$.status",
+                                        "generate": "status",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "file": {
+                    "fileName": "TC_46821_ftp.xml",
+                    "skipAggregation": false,
+                    "type": "xml",
+                    "encoding": "utf8",
+                    "xml": {
+                        "body": "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<data>\n<root_817>\n  {{#each batch_of_records}} \n   <element>\n      <element>\n         <body_html>{{{this.rows.0.body_html}}}</body_html>\n         <id>{{{this.rows.0.id}}}</id>\n         <handle>{{{this.rows.0.handle}}}</handle>\n         <images>\n        <id>{{{this.rows.0.images.0.image_id}}}</id>\n      </images>\n      <options>\n        <id>{{{this.rows.0.option.option_id}}}</id>\n        <name>{{{this.rows.0.option.name}}}</name>\n      </options>\n      <variants>\n        <barcode>{{{this.rows.0.variants.0.barcode}}}</barcode>\n        <price>{{{this.rows.0.variants.0.price}}}</price>\n      </variants>\n      <variants>\n        <barcode>{{{this.rows.0.variants.1.barcode}}}</barcode>\n        <price>{{{this.rows.0.variants.1.price}}}</price>\n      </variants>\n      <variants>\n        <barcode>{{{this.rows.0.variants.2.barcode}}}</barcode>\n        <price>{{{this.rows.0.variants.2.price}}}</price>\n      </variants>\n      <variants>\n        <barcode>{{{this.rows.0.variants.3.barcode}}}</barcode>\n        <price>{{{this.rows.0.variants.3.price}}}</price>\n      </variants>\n         <status>{{{this.rows.0.status}}}</status>\n      </element>\n   </element>\n  {{/each}}\n</root_817>\n</data>"
+                    }
+                },
+                "ftp": {
+                    "directoryPath": "io.auto.qa/IO Automation SFTP Imports",
+                    "fileName": "TC_46821_ftp.xml"
+                },
+                "adaptorType": "FTPImport"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "s3",
+                "_connectionId": "S3 CONNECTION",
+                "oneToMany": false,
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "dataType": "objectarray",
+                        "status": "Active",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$[*]",
+                                "mappings": [
+                                    {
+                                        "extract": "$.body_html",
+                                        "generate": "body_html",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "extract": "$.id",
+                                        "generate": "id",
+                                        "dataType": "number",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "extract": "$.handle",
+                                        "generate": "handle",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "generate": "images",
+                                        "dataType": "objectarray",
+                                        "status": "Active",
+                                        "buildArrayHelper": [
+                                            {
+                                                "extract": "$.images[*]",
+                                                "status": "Active",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.images.id",
+                                                        "generate": "image_id",
+                                                        "dataType": "number",
+                                                        "status": "Active"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "option",
+                                        "dataType": "object",
+                                        "status": "Active",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.options.id",
+                                                "generate": "option_id",
+                                                "dataType": "number",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "extract": "$.options.name",
+                                                "generate": "name",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "variants",
+                                        "dataType": "objectarray",
+                                        "status": "Active",
+                                        "buildArrayHelper": [
+                                            {
+                                                "extract": "$.variants[*]",
+                                                "status": "Active",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.variants.barcode",
+                                                        "generate": "barcode",
+                                                        "dataType": "string",
+                                                        "status": "Active"
+                                                    },
+                                                    {
+                                                        "extract": "$.variants.price",
+                                                        "generate": "price",
+                                                        "dataType": "number",
+                                                        "status": "Active"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "extract": "$.status",
+                                        "generate": "status",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "file": {
+                    "fileName": "TC_46821_s3.xml",
+                    "skipAggregation": false,
+                    "type": "xml",
+                    "encoding": "utf8",
+                    "xml": {
+                        "body": "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<data>\n<root_817>\n  {{#each batch_of_records}} \n   <element>\n      <element>\n         <body_html>{{{this.rows.0.body_html}}}</body_html>\n         <id>{{{this.rows.0.id}}}</id>\n         <handle>{{{this.rows.0.handle}}}</handle>\n         <images>\n        <id>{{{this.rows.0.images.0.image_id}}}</id>\n      </images>\n      <options>\n        <id>{{{this.rows.0.option.option_id}}}</id>\n        <name>{{{this.rows.0.option.name}}}</name>\n      </options>\n      <variants>\n        <barcode>{{{this.rows.0.variants.0.barcode}}}</barcode>\n        <price>{{{this.rows.0.variants.0.price}}}</price>\n      </variants>\n      <variants>\n        <barcode>{{{this.rows.0.variants.1.barcode}}}</barcode>\n        <price>{{{this.rows.0.variants.1.price}}}</price>\n      </variants>\n      <variants>\n        <barcode>{{{this.rows.0.variants.2.barcode}}}</barcode>\n        <price>{{{this.rows.0.variants.2.price}}}</price>\n      </variants>\n      <variants>\n        <barcode>{{{this.rows.0.variants.3.barcode}}}</barcode>\n        <price>{{{this.rows.0.variants.3.price}}}</price>\n      </variants>\n         <status>{{{this.rows.0.status}}}</status>\n      </element>\n   </element>\n  {{/each}}\n</root_817>\n</data>"
+                    }
+                },
+                "s3": {
+                    "region": "us-east-1",
+                    "bucket": "automations3import",
+                    "fileKey": "TC_46821_s3.xml"
+                },
+                "adaptorType": "S3Import"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "gdrive",
+                "qa__connectionId": "GOOGLEDRIVE CONNECTION",
+                "_connectionId": "GOOGLEDRIVE CONNECTION",
+                "oneToMany": false,
+                "assistant": "googledrive",
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "dataType": "objectarray",
+                        "status": "Active",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$[*]",
+                                "mappings": [
+                                    {
+                                        "extract": "$.body_html",
+                                        "generate": "body_html",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "extract": "$.id",
+                                        "generate": "id",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "extract": "$.handle",
+                                        "generate": "handle",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "generate": "images",
+                                        "dataType": "objectarray",
+                                        "status": "Active",
+                                        "buildArrayHelper": [
+                                            {
+                                                "extract": "$.images[*]",
+                                                "status": "Active",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.images.id",
+                                                        "generate": "image_id",
+                                                        "dataType": "string",
+                                                        "status": "Active"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "option",
+                                        "dataType": "object",
+                                        "status": "Active",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.options.id",
+                                                "generate": "option_id",
+                                                "dataType": "number",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "extract": "$.options.name",
+                                                "generate": "name",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "variants",
+                                        "dataType": "objectarray",
+                                        "status": "Active",
+                                        "buildArrayHelper": [
+                                            {
+                                                "extract": "$.variants[*]",
+                                                "status": "Active",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.variants.barcode",
+                                                        "generate": "barcode",
+                                                        "dataType": "string",
+                                                        "status": "Active"
+                                                    },
+                                                    {
+                                                        "extract": "$.variants.price",
+                                                        "generate": "price",
+                                                        "dataType": "number",
+                                                        "status": "Active"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "extract": "$.status",
+                                        "generate": "status",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "file": {
+                    "fileName": "TC_46821_gdrive.xml",
+                    "skipAggregation": false,
+                    "type": "xml",
+                    "encoding": "utf8",
+                    "xml": {
+                        "body": "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<data>\n<root_817>\n  {{#each batch_of_records}} \n   <element>\n      <element>\n         <body_html>{{{this.rows.0.body_html}}}</body_html>\n         <id>{{{this.rows.0.id}}}</id>\n         <handle>{{{this.rows.0.handle}}}</handle>\n         <images>\n        <id>{{{this.rows.0.images.0.image_id}}}</id>\n      </images>\n      <options>\n        <id>{{{this.rows.0.option.option_id}}}</id>\n        <name>{{{this.rows.0.option.name}}}</name>\n      </options>\n      <variants>\n        <barcode>{{{this.rows.0.variants.0.barcode}}}</barcode>\n        <price>{{{this.rows.0.variants.0.price}}}</price>\n      </variants>\n      <variants>\n        <barcode>{{{this.rows.0.variants.1.barcode}}}</barcode>\n        <price>{{{this.rows.0.variants.1.price}}}</price>\n      </variants>\n      <variants>\n        <barcode>{{{this.rows.0.variants.2.barcode}}}</barcode>\n        <price>{{{this.rows.0.variants.2.price}}}</price>\n      </variants>\n      <variants>\n        <barcode>{{{this.rows.0.variants.3.barcode}}}</barcode>\n        <price>{{{this.rows.0.variants.3.price}}}</price>\n      </variants>\n         <status>{{{this.rows.0.status}}}</status>\n      </element>\n   </element>\n  {{/each}}\n</root_817>\n</data>"
+                    }
+                },
+                "http": {
+                    "type": "file",
+                    "relativeURI": [
+                        "Gdrive_Imports"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "sendPostMappedData": true,
+                    "formType": "assistant",
+                    "response": {
+                        "resourcePath": [
+                            "files"
+                        ]
+                    }
+                },
+                "adaptorType": "HTTPImport"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "azure",
+                "_connectionId": "AZURE BLOB STORAGE CONNECTION",
+                "oneToMany": false,
+                "assistant": "azurestorageaccount",
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "dataType": "objectarray",
+                        "status": "Active",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$[*]",
+                                "mappings": [
+                                    {
+                                        "extract": "$.body_html",
+                                        "generate": "body_html",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "extract": "$.id",
+                                        "generate": "id",
+                                        "dataType": "number",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "extract": "$.handle",
+                                        "generate": "handle",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "generate": "images",
+                                        "dataType": "objectarray",
+                                        "status": "Active",
+                                        "buildArrayHelper": [
+                                            {
+                                                "extract": "$.images[*]",
+                                                "status": "Active",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.images.id",
+                                                        "generate": "image_id",
+                                                        "dataType": "number",
+                                                        "status": "Active"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "option",
+                                        "dataType": "object",
+                                        "status": "Active",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.options.id",
+                                                "generate": "option_id",
+                                                "dataType": "number",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "extract": "$.options.name",
+                                                "generate": "name",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "variants",
+                                        "dataType": "objectarray",
+                                        "status": "Active",
+                                        "buildArrayHelper": [
+                                            {
+                                                "extract": "$.variants[*]",
+                                                "status": "Active",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.variants.barcode",
+                                                        "generate": "barcode",
+                                                        "dataType": "string",
+                                                        "status": "Active"
+                                                    },
+                                                    {
+                                                        "extract": "$.variants.price",
+                                                        "generate": "price",
+                                                        "dataType": "number",
+                                                        "status": "Active"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "extract": "$.status",
+                                        "generate": "status",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "file": {
+                    "fileName": "TC_46821_azure.xml",
+                    "skipAggregation": false,
+                    "type": "xml",
+                    "encoding": "utf8",
+                    "xml": {
+                        "body": "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<data>\n<root_817>\n  {{#each batch_of_records}} \n   <element>\n      <element>\n         <body_html>{{{this.rows.0.body_html}}}</body_html>\n         <id>{{{this.rows.0.id}}}</id>\n         <handle>{{{this.rows.0.handle}}}</handle>\n         <images>\n        <id>{{{this.rows.0.images.0.image_id}}}</id>\n      </images>\n      <options>\n        <id>{{{this.rows.0.option.option_id}}}</id>\n        <name>{{{this.rows.0.option.name}}}</name>\n      </options>\n      <variants>\n        <barcode>{{{this.rows.0.variants.0.barcode}}}</barcode>\n        <price>{{{this.rows.0.variants.0.price}}}</price>\n      </variants>\n      <variants>\n        <barcode>{{{this.rows.0.variants.1.barcode}}}</barcode>\n        <price>{{{this.rows.0.variants.1.price}}}</price>\n      </variants>\n      <variants>\n        <barcode>{{{this.rows.0.variants.2.barcode}}}</barcode>\n        <price>{{{this.rows.0.variants.2.price}}}</price>\n      </variants>\n      <variants>\n        <barcode>{{{this.rows.0.variants.3.barcode}}}</barcode>\n        <price>{{{this.rows.0.variants.3.price}}}</price>\n      </variants>\n         <status>{{{this.rows.0.status}}}</status>\n      </element>\n   </element>\n  {{/each}}\n</root_817>\n</data>"
+                    }
+                },
+                "http": {
+                    "type": "file",
+                    "relativeURI": [
+                        "azureimports"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "sendPostMappedData": true,
+                    "formType": "assistant",
+                    "response": {
+                        "resourcePath": [
+                            "files"
+                        ]
+                    }
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ]
+}

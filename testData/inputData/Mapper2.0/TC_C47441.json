@@ -1,0 +1,369 @@
+{
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C47441",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "disabled": false,
+    "skipRetries": false,
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "name": "Zendesk Users import",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "lookups": [
+                    {
+                        "name": "Dynamilookup",
+                        "method": "GET",
+                        "relativeURI": "search.json?query=type:organization notes:9618993995",
+                        "extract": "results[0].id",
+                        "body": "",
+                        "allowFailures": false,
+                        "useImportHeaders": true
+                    },
+                    {
+                        "name": "staticlookup",
+                        "map": {
+                            "AP": "AndhraPradesh"
+                        },
+                        "allowFailures": false,
+                        "useImportHeaders": true
+                    },
+                    {
+                        "name": "dynamic_number",
+                        "method": "GET",
+                        "relativeURI": "search.json?query=type:organization notes:9618993995",
+                        "extract": "results[0].notes",
+                        "body": "",
+                        "allowFailures": false,
+                        "useImportHeaders": true
+                    },
+                    {
+                        "name": "static_number",
+                        "map": {
+                            "900": "9000"
+                        },
+                        "allowFailures": false,
+                        "useImportHeaders": true
+                    },
+                    {
+                        "name": "dynamic_boolean",
+                        "method": "GET",
+                        "relativeURI": "search.json?query=type:organization notes:9618993995",
+                        "extract": "results[0].shared_tickets",
+                        "body": "",
+                        "allowFailures": false,
+                        "useImportHeaders": true
+                    },
+                    {
+                        "name": "static_boolean",
+                        "map": {
+                            "true": "false"
+                        },
+                        "allowFailures": false,
+                        "useImportHeaders": true
+                    }
+                ],
+                "mappings": [
+                    {
+                        "generate": "user",
+                        "dataType": "object",
+                        "status": "Active",
+                        "mappings": [
+                            {
+                                "extract": "$.email",
+                                "generate": "email",
+                                "dataType": "string",
+                                "status": "Active"
+                            },
+                            {
+                                "extract": "$.name",
+                                "generate": "name",
+                                "dataType": "string",
+                                "status": "Active"
+                            },
+                            {
+                                "generate": "phone",
+                                "dataType": "string",
+                                "hardCodedValue": "9490989913",
+                                "status": "Active"
+                            },
+                            {
+                                "extract": "$.organization_id",
+                                "generate": "organization_id",
+                                "dataType": "string",
+                                "status": "Active",
+                                "lookupName": "Dynamilookup"
+                            },
+                            {
+                                "extract": "$.notes",
+                                "generate": "notes",
+                                "dataType": "string",
+                                "status": "Active",
+                                "lookupName": "staticlookup"
+                            },
+                            {
+                                "generate": "user_fields",
+                                "dataType": "object",
+                                "status": "Active",
+                                "mappings": [
+                                    {
+                                        "extract": "{{join \"/\" record.user_fields.[billing_address_1]  record.user_fields.[billing_city]}}",
+                                        "generate": "address_1",
+                                        "dataType": "string",
+                                        "status": "Active",
+                                        "conditional": {
+                                            "when": "extract_not_empty"
+                                        }
+                                    },
+                                    {
+                                        "extract": "$.user_fields.billing_address_1",
+                                        "generate": "address_2",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "extract": "$.user_fields.billing_city",
+                                        "generate": "address_city",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "extract": "$.user_fields.billing_country",
+                                        "generate": "address_country",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "generate": "custom_numeric",
+                                        "dataType": "number",
+                                        "status": "Active",
+                                        "hardCodedValue": "78834"
+                                    },
+                                    {
+                                        "extract": "$.only_number",
+                                        "generate": "only_number",
+                                        "dataType": "number",
+                                        "status": "Active",
+                                        "lookupName": "dynamic_number"
+                                    },
+                                    {
+                                        "extract": "$.user_fields.users_count",
+                                        "generate": "users_count",
+                                        "dataType": "number",
+                                        "status": "Active",
+                                        "lookupName": "static_number"
+                                    },
+                                    {
+                                        "extract": "{{add record.user_fields.users_count record.user_fields.users_count}}",
+                                        "generate": "snowflake_id",
+                                        "dataType": "number",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "extract": "$.user_fields.once_check_box",
+                                        "generate": "once_check_box",
+                                        "dataType": "boolean",
+                                        "status": "Active",
+                                        "lookupName": "static_boolean"
+                                    },
+                                    {
+                                        "generate": "new_boolean",
+                                        "dataType": "boolean",
+                                        "status": "Active",
+                                        "hardCodedValue": "true"
+                                    },
+                                    {
+                                        "extract": "{{#if record.user_fields.once_check_box}} true {{else}} false {{/if}}",
+                                        "generate": "testcheckbox",
+                                        "dataType": "boolean",
+                                        "status": "Active",
+                                        "conditional": {
+                                            "when": "extract_not_empty"
+                                        }
+                                    },
+                                    {
+                                        "extract": "{{capitalizeAll record.name}}",
+                                        "generate": "subsidiary",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "extract": "$.user_fields.custom_date",
+                                        "generate": "custom_date",
+                                        "dataType": "string",
+                                        "status": "Active",
+                                        "extractDateFormat": "YYYY-MM-DDTHH:mm:ssZ",
+                                        "extractDateTimezone": "(GMT-02:00) Mid-Atlantic",
+                                        "generateDateFormat": "YYYY-MM-DD",
+                                        "generateDateTimezone": "(GMT-02:00) Mid-Atlantic",
+                                        "conditional": {
+                                            "when": "extract_not_empty"
+                                        }
+                                    },
+                                    {
+                                        "extract": "$.checkbox_1",
+                                        "generate": "checkbox_1",
+                                        "dataType": "boolean",
+                                        "status": "Active",
+                                        "lookupName": "dynamic_boolean"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "/users.json"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http",
+                    "lookups": [
+                        {
+                            "name": "Dynamilookup",
+                            "method": "GET",
+                            "relativeURI": "search.json?query=type:organization notes:9618993995",
+                            "extract": "results[0].id",
+                            "body": "",
+                            "allowFailures": false,
+                            "useImportHeaders": true
+                        },
+                        {
+                            "name": "staticlookup",
+                            "map": {
+                                "AP": "AndhraPradesh"
+                            },
+                            "allowFailures": false,
+                            "useImportHeaders": true
+                        },
+                        {
+                            "name": "dynamic_number",
+                            "method": "GET",
+                            "relativeURI": "search.json?query=type:organization notes:9618993995",
+                            "extract": "results[0].notes",
+                            "body": "",
+                            "allowFailures": false,
+                            "useImportHeaders": true
+                        },
+                        {
+                            "name": "static_number",
+                            "map": {
+                                "900": "9000"
+                            },
+                            "allowFailures": false,
+                            "useImportHeaders": true
+                        },
+                        {
+                            "name": "dynamic_boolean",
+                            "method": "GET",
+                            "relativeURI": "search.json?query=type:organization notes:9618993995",
+                            "extract": "results[0].shared_tickets",
+                            "body": "",
+                            "allowFailures": false,
+                            "useImportHeaders": true
+                        },
+                        {
+                            "name": "static_boolean",
+                            "map": {
+                                "true": "false"
+                            },
+                            "allowFailures": false,
+                            "useImportHeaders": true
+                        }
+                    ]
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "successCount": "2",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "expected": {
+            "zendesk": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "TC_C47441",
+                "import": {
+                    "_connectionId": "HTTP ZENDESK CONNECTION",
+                    "qa__connectionId": "HTTP ZENDESK CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "3",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "standaloneexportflowID": "62f103cda2336a017764d721",
+                    "uniqueField": "name",
+                    "importRecordType": "users",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "ec4ee6171d",
+                    "expectedJSON": [
+                        {
+                            "email": "auto_c47441@gmail.com",
+                            "name": "Auto_TC_C47441",
+                            "phone": "9490989913",
+                            "organization_id": 11289611629,
+                            "notes": "AndhraPradesh",
+                            "user_fields": {
+                                "address_1": "Celigo,Cyberpearl,Madhapur/Hyderabad",
+                                "address_2": "Celigo,Cyberpearl,Madhapur",
+                                "address_city": "Hyderabad",
+                                "address_country": "India",
+                                "custom_numeric": 78834,
+                                "only_number": 9618993995,
+                                "users_count": 9000,
+                                "snowflake_id": 1800,
+                                "once_check_box": false,
+                                "new_boolean": true,
+                                "testcheckbox": true,
+                                "subsidiary": "Auto_TC_C47441",
+                                "checkbox_1": false
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "FTP Export TC_C47441",
+                "qa__path": "//SFTP_uploads//TC_C47441.json",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C47441.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ]
+}

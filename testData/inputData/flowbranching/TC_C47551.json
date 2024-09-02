@@ -1,0 +1,236 @@
+{
+    "name": "TC_C47551",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "FTP EXPORT",
+                "_connectionId": "FTP CONNECTION",
+                "qa__path": "//SFTP_uploads//TC_C47551.json",
+                "apiIdentifier": "e52f5ee671",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                    "fileNameStartsWith": "TC_C47551.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "qOIaAz",
+            "routeRecordsTo": "all_matching_branches",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "NETSUITE IMPORT",
+                                "_connectionId": "NETSUITE CONNECTION",
+                                "_sourceId": "633d89a8b8ec38762a521d9e",
+                                "distributed": true,
+                                "apiIdentifier": "i72800743b",
+                                "ignoreExisting": false,
+                                "ignoreMissing": false,
+                                "oneToMany": false,
+                                "lookups": [
+                                    {
+                                        "name": "dynamic",
+                                        "recordType": "account",
+                                        "resultField": "custrecord1464",
+                                        "expression": "[\"description\",\"is\",\"{{{currency}}}\"]",
+                                        "allowFailures": false
+                                    }
+                                ],
+                                "netsuite_da": {
+                                    "useSS2Restlets": false,
+                                    "operation": "addupdate",
+                                    "recordType": "customer",
+                                    "internalIdLookup": {
+                                        "expression": "[\"email\",\"is\",\"{{{email}}}\"]"
+                                    },
+                                    "lookups": [
+                                        {
+                                            "name": "dynamic",
+                                            "recordType": "account",
+                                            "resultField": "custrecord1464",
+                                            "expression": "[\"description\",\"is\",\"{{{currency}}}\"]",
+                                            "allowFailures": false
+                                        }
+                                    ],
+                                    "mapping": {
+                                        "fields": [
+                                            {
+                                                "extract": "name",
+                                                "generate": "defaultaddress",
+                                                "discardIfEmpty": false,
+                                                "immutable": false,
+                                                "lookupName": "dynamic",
+                                                "internalId": false
+                                            },
+                                            {
+                                                "generate": "isperson",
+                                                "discardIfEmpty": false,
+                                                "immutable": false,
+                                                "hardCodedValue": "true",
+                                                "internalId": false
+                                            },
+                                            {
+                                                "generate": "firstname",
+                                                "extract": "first_name",
+                                                "internalId": false
+                                            },
+                                            {
+                                                "generate": "lastname",
+                                                "extract": "last_name",
+                                                "internalId": false
+                                            },
+                                            {
+                                                "generate": "phone",
+                                                "extract": "phone",
+                                                "internalId": false
+                                            },
+                                            {
+                                                "generate": "mobilephone",
+                                                "extract": "phone",
+                                                "internalId": false
+                                            },
+                                            {
+                                                "generate": "email",
+                                                "extract": "email",
+                                                "internalId": false
+                                            },
+                                            {
+                                                "generate": "companyname",
+                                                "extract": "addresses[*].company",
+                                                "internalId": false
+                                            },
+                                            {
+                                                "generate": "celigo_replaceAllLines_addressbook",
+                                                "discardIfEmpty": false,
+                                                "immutable": false,
+                                                "hardCodedValue": "true",
+                                                "internalId": false
+                                            },
+                                            {
+                                                "generate": "subsidiary",
+                                                "discardIfEmpty": false,
+                                                "immutable": false,
+                                                "hardCodedValue": "4",
+                                                "internalId": true
+                                            },
+                                            {
+                                                "generate": "entityid",
+                                                "extract": "id",
+                                                "internalId": false
+                                            }
+                                        ],
+                                        "lists": [
+                                            {
+                                                "generate": "addressbook",
+                                                "fields": [
+                                                    {
+                                                        "generate": "addr1",
+                                                        "extract": "addresses[*].address1",
+                                                        "internalId": false
+                                                    },
+                                                    {
+                                                        "generate": "addr2",
+                                                        "extract": "addresses[*].address2",
+                                                        "internalId": false
+                                                    },
+                                                    {
+                                                        "generate": "state",
+                                                        "extract": "addresses[*].province",
+                                                        "internalId": false
+                                                    },
+                                                    {
+                                                        "generate": "country",
+                                                        "extract": "addresses[*].country_code",
+                                                        "internalId": true
+                                                    },
+                                                    {
+                                                        "generate": "addrphone",
+                                                        "extract": "addresses[*].phone",
+                                                        "internalId": false
+                                                    },
+                                                    {
+                                                        "generate": "zip",
+                                                        "extract": "addresses[*].zip",
+                                                        "internalId": false
+                                                    },
+                                                    {
+                                                        "generate": "addressee",
+                                                        "extract": "addresses[*].name",
+                                                        "internalId": false
+                                                    },
+                                                    {
+                                                        "generate": "city",
+                                                        "extract": "addresses[*].city",
+                                                        "internalId": false
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                },
+                                "adaptorType": "NetSuiteDistributedImport"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Branch 1.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "S3 import",
+                                "description": "for testing .make changes",
+                                "_connectionId": "S3 CONNECTION",
+                                "apiIdentifier": "i300887266",
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "file": {
+                                    "fileName": "TC_C47551_file{{timestamp}}.json",
+                                    "skipAggregation": false,
+                                    "type": "json"
+                                },
+                                "s3": {
+                                    "region": "us-east-1",
+                                    "bucket": "io-automation",
+                                    "fileKey": "TC_C47551_file{{timestamp}}.json"
+                                },
+                                "adaptorType": "S3Import"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        }
+    ]
+}

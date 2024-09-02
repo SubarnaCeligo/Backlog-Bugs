@@ -1,0 +1,47 @@
+{
+    "qa_importJson": {
+    "name": "TC_IAF_015_C26959",
+    "_connectorID":"62ab3df10d57d901d066b89c",
+    "environment": "Production"
+    },
+    "importJson": {
+        "name": "TC_IAF_015_C26959",
+        "_connectorID":"63205b9451852e73fb07a416",
+        "environment": "Production"
+        },
+    "createLicense1": {
+        "name": "TC_IAF_015_C26959",
+        "environment": "Production"
+    },
+
+    "qa_createChildLicense1": {
+        "sandbox": true,
+        "email": "io.auto.flowgrouping.qa@celigo.com",
+        "type": "integrationAppChild",
+        "_parentId": "62ac1727ea2474232731b222"
+    },
+    "createChildLicense1": {
+        "sandbox": true,
+        "email": "io.auto.flowgrouping.qa@celigo.com",
+        "type": "integrationAppChild",
+        "_parentId": "63205ba227cca414396a0b07"
+    },
+
+    "createLicense2": {
+        "name": "TC_IAF_015_C26959",
+        "environment": "Sandbox"
+    },
+
+    "qa_createChildLicense2": {
+        "production": true,
+        "email": "io.auto.flowgrouping.qa@celigo.com",
+        "type": "integrationAppChild",
+        "_parentId": "62ac19280d57d901d066e696"
+    },
+    "createChildLicense2": {
+        "production": true,
+        "email": "io.auto.flowgrouping.qa@celigo.com",
+        "type": "integrationAppChild",
+        "_parentId": "63205c5a27cca414396a0bbd"
+    }
+}

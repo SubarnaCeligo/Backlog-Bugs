@@ -1,0 +1,94 @@
+{
+  "name": "TC_C33581",
+  "referencename": "TC_C33581",
+  "qa__dataVerification": {},
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "NS_import",
+            "_connectionId": "NETSUITE CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "parsers": [],
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "recordType": "customer",
+                "searchId": "2571",
+                "criteria": [
+                  {
+                    "field": "formulatext",
+                    "operator": "contains",
+                    "searchValue": "Text",
+                    "formula": "Formula"
+                  }
+                ],
+                "columns": [],
+                "useSS2Restlets": true
+              },
+              "distributed": {
+                "executionContext": [],
+                "executionType": [],
+                "useSS2Framework": false
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "FTP_Import",
+            "sampleData": {
+              "name": "Test3",
+              "Email": "test3@gmmail.com"
+            },
+            "parsers": [],
+            "_connectionId": "FTP CONNECTION",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+              "fileName": "Users.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "io.auto.qa/IO_UI_Automation",
+              "fileName": "Users.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C33581",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

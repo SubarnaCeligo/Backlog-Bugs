@@ -1,0 +1,10 @@
+[{
+    "name": "TC_C12145_Openairexport",
+    "disabled": false,
+    "_integrationId": "6228aed6bc8a2732cfe8044c",
+    "connectionId":"62c718d0ae93a8149332366c",
+    "qa__connectionId": "62cbd4dd8c8337627f657b9e",
+    "timezone": "Asia/Calcutta",
+    "skipRetries": false,
+    "Name": "OPENAIR CONNECTION"
+}]

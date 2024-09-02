@@ -1,0 +1,158 @@
+{
+    "name": "TC_C47547",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "FTP",
+                "_connectionId": "FTP CONNECTION",
+                "qa__path": "//FTP_uploads//TC_C47547.json",
+                "apiIdentifier": "e0f02b59f9",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                    "fileNameStartsWith": "TC_C47547.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "oDLazj",
+            "routeRecordsTo": "first_matching_branch",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "Netsuite customer import",
+                                "_connectionId": "NETSUITE CONNECTION",
+                                "distributed": true,
+                                "apiIdentifier": "i7b5e6601f",
+                                "ignoreExisting": false,
+                                "ignoreMissing": false,
+                                "oneToMany": false,
+                                "lookups": [
+                                    {
+                                        "name": "dynamic",
+                                        "recordType": "customer",
+                                        "resultField": "internalid",
+                                        "expression": "[\"internalid\",\"isnotempty\",\"\"]",
+                                        "allowFailures": false
+                                    }
+                                ],
+                                "netsuite_da": {
+                                    "useSS2Restlets": false,
+                                    "operation": "addupdate",
+                                    "recordType": "customer",
+                                    "internalIdLookup": {
+                                        "expression": "[\"email\",\"is\",\"{{{email}}}\"]"
+                                    },
+                                    "lookups": [
+                                        {
+                                            "name": "dynamic",
+                                            "recordType": "customer",
+                                            "resultField": "internalid",
+                                            "expression": "[\"internalid\",\"isnotempty\",\"\"]",
+                                            "allowFailures": false
+                                        }
+                                    ],
+                                    "mapping": {
+                                        "fields": [
+                                            {
+                                                "generate": "subsidiary",
+                                                "discardIfEmpty": false,
+                                                "immutable": false,
+                                                "hardCodedValue": "3",
+                                                "internalId": true
+                                            },
+                                            {
+                                                "generate": "test",
+                                                "discardIfEmpty": false,
+                                                "immutable": false,
+                                                "lookupName": "dynamic",
+                                                "internalId": false
+                                            },
+                                            {
+                                                "generate": "companyname",
+                                                "extract": "default_address.company",
+                                                "internalId": false
+                                            }
+                                        ],
+                                        "lists": []
+                                    }
+                                },
+                                "adaptorType": "NetSuiteDistributedImport"
+                            }
+                        }
+                    ],
+                    "inputFilter": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "id"
+                                ]
+                            ],
+                            "5145932890198"
+                        ]
+                    }
+                },
+                {
+                    "name": "Branch 1.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "S3 import",
+                                "description": "for testing .make changes",
+                                "_connectionId": "S3 CONNECTION",
+                                "apiIdentifier": "i4a82155e3",
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "file": {
+                                    "fileName": "TC_C47547_file2{{timestamp}}.json",
+                                    "skipAggregation": true,
+                                    "type": "json"
+                                },
+                                "s3": {
+                                    "region": "us-east-1",
+                                    "bucket": "io-automation",
+                                    "fileKey": "TC_C47547_file2{{timestamp}}.json"
+                                },
+                                "adaptorType": "S3Import"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        }
+    ]
+}

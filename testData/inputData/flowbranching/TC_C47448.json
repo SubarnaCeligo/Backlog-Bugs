@@ -1,0 +1,173 @@
+{
+    "name": "TC_C47448",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "timezone": "Asia/Calcutta",
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "qa__path": "//FTP_uploads//TC_C2169.json",
+                "_connectionId": "FTP CONNECTION",
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C2169.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "LKJzZz",
+            "routeRecordsTo": "all_matching_branches",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "_connectionId": "FTP CONNECTION",
+                                "file": {
+                                    "fileName": "file1-{{timestamp}}.json",
+                                    "skipAggregation": false,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "vsfg",
+                                    "fileName": "file1-{{timestamp}}.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ],
+                    "qa__rules": [
+                        [
+                            "record.id",
+                            "equal",
+                            "1"
+                        ]
+                    ],
+                    "inputFilter": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "id"
+                                ]
+                            ],
+                            "1"
+                        ]
+                    }
+                },
+                {
+                    "name": "Branch 1.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "_connectionId": "FTP CONNECTION",
+                                "file": {
+                                    "fileName": "file2-{{timestamp}}.json",
+                                    "skipAggregation": false,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "dvfg",
+                                    "fileName": "file2-{{timestamp}}.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ],
+                    "qa__rules": [
+                        [
+                            "record.id",
+                            "equal",
+                            "1"
+                        ]
+                    ],
+                    "inputFilter": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "id"
+                                ]
+                            ],
+                            "1"
+                        ]
+                    }
+                },
+                {
+                    "name": "Branch 1.2",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import" :{
+                                "_connectionId": "FTP CONNECTION",
+                                "file": {
+                                    "fileName": "file3-{{timestamp}}.json",
+                                    "skipAggregation": false,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "dsvfgb",
+                                    "fileName": "file3-{{timestamp}}.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ],
+                    "qa__rules": [
+                        [
+                            "record.id",
+                            "equal",
+                            "2"
+                        ]
+                    ],
+                    "inputFilter": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "id"
+                                ]
+                            ],
+                            "2"
+                        ]
+                    }
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        }
+    ]
+}

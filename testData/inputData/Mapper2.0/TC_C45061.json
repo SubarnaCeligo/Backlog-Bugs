@@ -1,0 +1,255 @@
+{
+    "name": "TC_C45061",
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "name": "Http Inspectorio Import",
+                "application":"inspectorio",
+                "_connectionId": "631a1a1a4ceac669f82fb93a",
+                "qa__connectionId": "62dbca5731ef343052891b61",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "lookups": [
+                    {
+                        "name": "color",
+                        "method": "GET",
+                        "relativeURI": "/api/v1/purchase-orders/Do_not_delete_po_no",
+                        "extract": "data.styles[0].assortments[0].items[0].color",
+                        "body": "",
+                        "allowFailures": false,
+                        "useImportHeaders": true
+                    }
+                ],
+                "mappings": [
+                    {
+                        "extract": "$[*].poNumber",
+                        "generate": "poNumber",
+                        "dataType": "string",
+                        "conditional": {
+                            "when": "extract_not_empty"
+                        }
+                    },
+                    {
+                        "extract": "$[*].productLineId",
+                        "generate": "productLineId",
+                        "dataType": "string"
+                    },
+                    {
+                        "extract": "$[*].vendorId",
+                        "generate": "vendorId",
+                        "dataType": "string"
+                    },
+                    {
+                        "generate": "styles",
+                        "dataType": "objectarray",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$[*].styles[*]",
+                                "mappings": [
+                                    {
+                                        "extract": "$.styles.productCategoryId",
+                                        "generate": "productCategoryId",
+                                        "dataType": "string"
+                                    },
+                                    {
+                                        "extract": "$.styles.styleId",
+                                        "generate": "styleId",
+                                        "dataType": "string",
+                                        "conditional": {
+                                            "when": "extract_not_empty"
+                                        }
+                                    },
+                                    {
+                                        "generate": "assortments",
+                                        "dataType": "objectarray",
+                                        "buildArrayHelper": [
+                                            {
+                                                "extract": "$.styles.assortments[*]",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.styles.assortments.assortmentId",
+                                                        "generate": "assortmentId",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "{{#if rows.poNumber}}0{{else}}1{{/if}}",
+                                                        "generate": "cartonQuantity",
+                                                        "dataType": "number",
+                                                        "conditional": {
+                                                            "when": "extract_not_empty"
+                                                        }
+                                                    },
+                                                    {
+                                                        "generate": "items",
+                                                        "dataType": "objectarray",
+                                                        "buildArrayHelper": [
+                                                            {
+                                                                "extract": "$.styles.assortments.items[*]",
+                                                                "mappings": [
+                                                                    {
+                                                                        "extract": "$.styles.assortments.items.brandId",
+                                                                        "generate": "brandId",
+                                                                        "dataType": "string"
+                                                                    },
+                                                                    {
+                                                                        "extract": "$.styles.assortments.items.color",
+                                                                        "generate": "color",
+                                                                        "dataType": "string",
+                                                                        "lookupName": "color"
+                                                                    },
+                                                                    {
+                                                                        "extract": "$.styles.assortments.items.configuration",
+                                                                        "generate": "configuration",
+                                                                        "dataType": "number"
+                                                                    },
+                                                                    {
+                                                                        "extract": "$.styles.assortments.items.id",
+                                                                        "generate": "id",
+                                                                        "dataType": "string"
+                                                                    },
+                                                                    {
+                                                                        "extract": "$.styles.assortments.items.itemId",
+                                                                        "generate": "itemId",
+                                                                        "dataType": "string"
+                                                                    },
+                                                                    {
+                                                                        "extract": "{{#if rows.poNumber}}L{{else}}M{{/if}}",
+                                                                        "generate": "size",
+                                                                        "dataType": "string",
+                                                                        "conditional": {
+                                                                            "when": "extract_not_empty"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "/api/v1/purchase-orders"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http",
+                    "lookups": [
+                        {
+                            "name": "color",
+                            "method": "GET",
+                            "relativeURI": "/api/v1/purchase-orders/Do_not_delete_po_no",
+                            "extract": "data.styles[0].assortments[0].items[0].color",
+                            "body": "",
+                            "allowFailures": false,
+                            "useImportHeaders": true
+                        }
+                    ]
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "expected": {
+            "inspectorio": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "TC_C47439",
+                "import": {
+                    "_connectionId": "631a1a1a4ceac669f82fb93a",
+                    "qa__connectionId": "62dbca5731ef343052891b61"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "standaloneexportflowID": "62ce6cdba7777017e5a5843e",
+                    "uniqueField": "poNumber",
+                    "importRecordType": "purchase-orders",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e04f33cfae",
+                    "expectedJSON": [
+                        {
+                            "poNumber": "Auto_TC_C45061_po_no",
+                            "productLineId": "1",
+                            "styles": [
+                                {
+                                    "assortments": [
+                                        {
+                                            "assortmentId": "string",
+                                            "cartonQuantity": 0,
+                                            "items": [
+                                                {
+                                                    "brandId": "brand_1",
+                                                    "color": "black",
+                                                    "configuration": 1,
+                                                    "id": "string",
+                                                    "itemId": "TEST",
+                                                    "size": "L"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "productCategoryId": "1",
+                                    "styleId": "style_1"
+                                }
+                            ],
+                            "vendorId": "315608_supplier_1"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "FTP Export TC_C45061",
+                "qa__path": "//SFTP_uploads//TC_C45061_Mapper.json",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                    "fileNameStartsWith": "TC_C45061_Mapper.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ]
+}

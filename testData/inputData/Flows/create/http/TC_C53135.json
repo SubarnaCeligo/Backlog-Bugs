@@ -1,0 +1,105 @@
+{
+  "name": "TC_C53135",
+  "disabled": false,
+  "_integrationId": "62c3e71af6f3f2299501f5bf",
+  "skipRetries": false,
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "zd test http",
+        "application": "zendesk support",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "asynchronous": true,
+        "type": "test",
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": "organizations",
+          "method": "GET",
+          "formType": "http",
+          "response": {
+            "resourcePath": "organizations"
+          }
+        },
+        "test": {
+          "limit": 100
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "http lookup limit",
+        "application": "zendesk support",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "asynchronous": true,
+        "isLookup": true,
+        "type": "test",
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": "organizations",
+          "method": "GET",
+          "formType": "http",
+          "response": {
+            "resourcePath": "organizations"
+          }
+        },
+        "test": {
+          "limit": 100
+        },
+        "adaptorType": "HTTPExport"
+      }
+    },
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "ftp import",
+        "_connectionId": "FTP CONNECTION",
+        "oneToMany": false,
+        "sandbox": false,
+        "file": {
+          "fileName": "TC_C53135.json",
+          "skipAggregation": false,
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "io.auto.qa/IO Automation SFTP Imports",
+          "fileName": "TC_C53135.json"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "qa__expectedDashboardCount": {
+    "successCount": "300",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "isUIFlow": true,
+    "expected": {
+      "FTP": {
+        "name": "TC_C53135",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "import": {
+          "_connectionId": "FTP CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "200",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "fileName": "TC_C53135",
+          "isUIFlow": true,
+          "folderName": "/io.auto.qa/IO Automation SFTP Imports",
+          "fileType": ".json"
+        }
+      }
+    }
+  }
+}

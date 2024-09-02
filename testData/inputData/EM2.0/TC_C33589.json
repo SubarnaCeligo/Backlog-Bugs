@@ -1,0 +1,115 @@
+{
+    "name": " TC_C33589",
+    "referencename": " TC_C33589",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "ftpexp",
+                        "_connectionId": "FTP CONNECTION",
+                        "asynchronous": true,
+                        "sandbox": false,
+                        "parsers": [],
+                        "qa__path": "/FTP_uploads/C33586.json",
+                        "ftp": {
+                            "directoryPath": "io.auto.qa/IO_Automation_SFTP_Exports",
+                            "fileNameStartsWith": "C33586"
+                        },
+                        "file": {
+                            "encoding": "utf8",
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "json",
+                            "json": {
+                                "resourcePath": "*"
+                            }
+                        },
+                        "adaptorType": "FTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "nslokup",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "asynchronous": true,
+                        "isLookup": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "parsers": [],
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "recordType": "customer",
+                                "searchId": "1970",
+                                "criteria": [
+                                    {
+                                        "field": "externalid",
+                                        "operator": "anyof",
+                                        "searchValue": "{{a+b}}"
+                                    }
+                                ],
+                                "useSS2Restlets": false
+                            },
+                            "distributed": {
+                                "useSS2Framework": false
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                },
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "ftppimp",
+                        "parsers": [],
+                        "_connectionId": "FTP CONNECTION",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "file": {
+                            "fileName": "C33589.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "io.auto.qa/IO Automation SFTP Imports",
+                            "fileName": "C33589.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": " TC_C33589",
+                "disabled": false,
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    },
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

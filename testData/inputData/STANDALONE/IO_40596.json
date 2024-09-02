@@ -1,0 +1,38 @@
+{
+    "name": "IO-40596",
+    "referencename": "IO-40596",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "IO_40596_Export",
+                "qa__connectionId": "NETSUITE CONNECTION",
+                "asynchronous": true,
+                "type": "distributed",
+                "parsers": [],
+                "distributed": {
+                    "bearerToken": "******"
+                },
+                "netsuite": {
+                    "type": "distributed",
+                    "skipGrouping": true,
+                    "statsOnly": false,
+                    "restlet": {
+                        "criteria": [],
+                        "columns": []
+                    },
+                    "distributed": {
+                        "executionContext": [
+                            "webstore"
+                        ],
+                        "executionType": [
+                            "create"
+                        ],
+                        "recordType": "account"
+                    }
+                },
+                "adaptorType": "NetSuiteExport"
+            }
+        }
+    ]
+}

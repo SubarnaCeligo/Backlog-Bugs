@@ -1,0 +1,87 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "name": "TC_C44626",
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "qa__import": {
+        "name": "44626 import",
+        "application": "shopify",
+        "_connectionId": "HTTP SHOPIFY CONNECTION",
+        "apiIdentifier": "i4091968fa",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "mappings": [
+          {
+            "generate": "id",
+            "dataType": "numberarray",
+            "buildArrayHelper": [
+              {
+                "extract": "$.custom_fields[*].id"
+              }
+            ]
+          },
+          {
+            "generate": "fieldvalue",
+            "dataType": "stringarray",
+            "buildArrayHelper": [
+              {
+                "extract": "$.fields[*].value"
+              }
+            ]
+          },
+          {
+            "generate": "tags",
+            "dataType": "booleanarray",
+            "buildArrayHelper": [
+              {
+                "extract": "$.tags"
+              }
+            ]
+          },
+          {
+            "extract": "$.is_public",
+            "generate": "ispublic",
+            "dataType": "boolean"
+          }
+        ],
+        "http": {
+          "relativeURI": ["orders"],
+          "method": ["POST"],
+          "body": [],
+          "batchSize": 1,
+          "sendPostMappedData": true,
+          "formType": "http"
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "HTTP Zendesk Export",
+        "application": "zendesk support",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "apiIdentifier": "e89ee9b797",
+        "asynchronous": true,
+        "oneToMany": false,
+        "parsers": [],
+        "http": {
+          "relativeURI": "tickets",
+          "method": "GET",
+          "formType": "http"
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ]
+}

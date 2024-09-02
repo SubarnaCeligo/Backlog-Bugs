@@ -1,0 +1,110 @@
+{
+  "name": "TC_019_C25427",
+  "referencename": "TC_019_C25427",
+  "qa__dataVerification": {
+    "importRecordJSON": [
+      {
+        "companyname": "TC_019_C25427",
+        "email": "tc_019_c25427@gmail.com"
+      },
+      {
+        "companyname": "TC_019_C25427_1",
+        "email": "tc_019_c25427_1@gmail.com"
+      }
+    ],
+    "importapiIdentifier": "i7936a9dae"
+  },
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "netsuite",
+            "_connectionId": "NETSUITE CONNECTION",
+            "asynchronous": true,
+            "rawData": "603ce5ede9250226dcea46086593cf58e3d6445f887d5b20627d20e8",
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": false,
+              "statsOnly": false,
+              "restlet": {
+                "recordType": "customer",
+                "searchId": "3622",
+                "useSS2Restlets": false
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "FTP",
+            "_connectionId": "FTP CONNECTION",
+            "sandbox": false,
+            "lookups": [
+              {
+                "name": "staticlookup",
+                "map": {
+                  "123": "456"
+                },
+                "allowFailures": false
+              }
+            ],
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "Name",
+                  "generate": "Name",
+                  "lookupName": "staticlookup"
+                }
+              ]
+            },
+            "file": {
+              "fileName": "TC_019_C25427-{{timestamp}}.json",
+              "type": "json",
+              "lookups": [
+                {
+                  "name": "staticlookup",
+                  "map": {
+                    "123": "456"
+                  },
+                  "allowFailures": false
+                }
+              ]
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation",
+              "fileName": "TC_019_C25427-{{timestamp}}.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_019_C25427",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

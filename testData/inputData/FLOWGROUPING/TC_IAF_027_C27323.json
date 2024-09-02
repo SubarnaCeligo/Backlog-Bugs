@@ -1,0 +1,43 @@
+{
+    "environment1":"Sandbox",
+    "environment":"Production",
+    "qa_createLicense": {
+        "_id": "62a4191b0d57d901d065aacf",
+        "expires": "2022-12-25T18:27:59.999Z",
+        "sandbox": true,
+        "email": "io.auto.flowgrouping.qa@celigo.com",
+        "type": "integrationApp",
+        "_editionId": "62a4199cea247423273077bb"
+    },
+    "createLicense": {
+        "_id": "6320338a51852e73fb07842d",
+        "expires": "2022-12-25T18:27:59.999Z",
+        "sandbox": true,
+        "email": "io.auto.flowgrouping.qa@celigo.com",
+        "type": "integrationApp",
+        "_editionId": "62a4199cea247423273077bb"
+    },
+    "app": "ActiveCampaign",
+    "qa_importJson": {
+        "environment": "Production",
+        "name": "TC_IAF_012_C26905",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "_integrationId": "62905de2c51f323382314cce",
+        "applications": ["activecampaign"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+          "_integrationId": "62905de2c51f323382314cce"
+        }
+      },
+      "importJson": {
+        "environment": "Production",
+        "name": "TC_IAF_012_C26905",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "_integrationId": "631ad2f213d12134f4772d77",
+        "applications": ["activecampaign"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+          "_integrationId": "631ad2f213d12134f4772d77"
+        }
+      }
+}

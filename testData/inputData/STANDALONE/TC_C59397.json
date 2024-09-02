@@ -1,0 +1,48 @@
+{
+    "name": "TC_C59397",
+    "referencename": "TC_C59397",
+    "qa__api_tdata": [
+        {
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Amazon S3 Import",
+                        "_connectionId": "S3 CONNECTION",
+                        "apiIdentifier": "i867873719",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "file": {
+                            "fileName": "test.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "s3": {
+                            "region": "us-east-1",
+                            "bucket": "test",
+                            "fileKey": "test.json"
+                        },
+                        "adaptorType": "S3Import"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C59397",
+                "disabled": false,
+                "qa__integrationId": "63232caf5342c33e615e7271",
+                "_integrationId": "63232c59d3a9897fe95f9f2a",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

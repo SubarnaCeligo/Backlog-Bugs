@@ -1,0 +1,148 @@
+{
+    "name": "TC_47495",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "GraphQl_export",
+                "application": "GraphQL",
+                "_connectionId": "GRAPH QL SHOPIFY CONNECTION",
+                "apiIdentifier": "e7e6faff46",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "method": "POST",
+                    "body": "{\"query\":\"{   orders(first: 1) {     edges {       cursor       node {         id         discountCode         updatedAt         lineItems(first: 30) {           edges {             node {               id               quantity               sku               originalUnitPrice               fulfillmentService {                 serviceName               }               taxLines {                 rate                 ratePercentage                 title               }             }           }         }         risks {           level           message         }         paymentGatewayNames         billingAddress {           address1           address2           city           company           countryCode           name           provinceCode           phone           zip         }         shippingAddress {           address1           address2           city           company           countryCode           name           provinceCode           phone           zip         }         customer {           id           email          phone         }         transactions {           amount           kind           id           gateway           status           authorizationCode           amountV2 {             currencyCode             amount           }           order {             id           }         }       }     }   } }\"}",
+                    "formType": "graph_ql",
+                    "response": {
+                        "resourcePath": "data"
+                    }
+                },
+                "rawData": "62f37ad6703e322cf5d90431ebfe56b6038240e6a40ab18264f090c4",
+                "adaptorType": "HTTPExport"
+            },
+            "skipRetries": false
+        }
+    ],
+    "autoResolveMatchingTraceKeys": true,
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "ar7i3o",
+            "routeRecordsTo": "all_matching_branches",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "FTP import",
+                                "_connectionId": "FTP CONNECTION",
+                                "apiIdentifier": "i19276e8dc",
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "file": {
+                                    "fileName": "TC_47495-1.json",
+                                    "skipAggregation": false,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                                    "fileName": "TC_47495-1.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Branch 1.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "FTP import",
+                                "_connectionId": "FTP CONNECTION",
+                                "apiIdentifier": "i5f0751718",
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "file": {
+                                    "fileName": "TC_47495-2.json",
+                                    "skipAggregation": false,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                                    "fileName": "TC_47495-2.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "3",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "expected": {
+            "FTP": {
+                "name": "TC_47495",
+                "_integrationId": "62f51db41677a21a108e5e3a",
+                "import": {
+                    "_connectionId": "FTP CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "1",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_47495-1",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".json"
+                }
+            },
+            "FTp": {
+                "name": "TC_47506",
+                "_integrationId": "62f51db41677a21a108e5e3a",
+                "import": {
+                    "_connectionId": "FTP CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "1",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_47495-2",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".json"
+                }
+            }
+        }
+    }
+}

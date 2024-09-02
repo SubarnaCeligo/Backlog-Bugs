@@ -1,0 +1,62 @@
+{
+    "name": "TC_C44452",
+    "disabled": false,
+    "skipRetries": false,
+    "timezone": "Asia/Calcutta",
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "FTP_Export",
+                "_connectionId": "FTP CONNECTION",
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C2472_FTP_To_FTP_GroupRows_Transformation_Filters.json"
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "encoding": "utf8",
+                    "groupByFields": [
+                        "id"
+                    ]
+                },
+                "transform": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [
+                            [
+                                {
+                                    "extract": "weight",
+                                    "generate": "Weight"
+                                },
+                                {
+                                    "extract": "name",
+                                    "generate": "Name"
+                                }
+                            ]
+                        ],
+                        "version": "1"
+                    },
+                    "version": "1",
+                    "rules": [
+                        [
+                            {
+                                "extract": "weight",
+                                "generate": "Weight"
+                            },
+                            {
+                                "extract": "name",
+                                "generate": "Name"
+                            }
+                        ]
+                    ]
+                },
+                "qa__path": "//FTP_uploads//TC_C2472_FTP_To_FTP_GroupRows_Transformation_Filters.json",
+                "adaptorType": "FTPExport"
+            },
+            "skipRetries": false
+        }
+    ],
+    "autoResolveMatchingTraceKeys": true
+}

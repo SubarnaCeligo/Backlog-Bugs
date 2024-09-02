@@ -1,0 +1,329 @@
+{
+  "name": "TC_C44599_allArrayDataType_Standard_Mapping",
+  "disabled": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "AutomationStandaloneExport_feff2tg",
+        "_connectionId": "FTP CONNECTION",
+        "asynchronous": true,
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+          "fileNameStartsWith": "TC_C44599_bigcommerce_products.json"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json",
+          "json": {
+            "resourcePath": "*"
+          }
+        },
+        "adaptorType": "FTPExport",
+        "qa__path": "//SFTP_uploads//TC_C44599_bigcommerce_products.json"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "export",
+      "responseMapping": {
+        "fields": [
+          {
+            "generate": "id",
+            "extract": "data[0].id"
+          }
+        ],
+        "lists": [],
+        "qa__index": 0
+      },
+      "qa__export": {
+        "name": "AutomationStandaloneLookup_feff2tg",
+        "application": "BigCommerce",
+        "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+        "qa__connectionId": "HTTP BIGCOMMERCE CONNECTION",
+        "asynchronous": true,
+        "isLookup": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": "/v3/catalog/products?name=Auto_TC_C44599_1",
+          "method": "GET",
+          "formType": "http",
+          "response": {
+            "resourcePath": "data"
+          }
+        },
+        "adaptorType": "HTTPExport"
+      }
+    },
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "AutomationStandaloneImport_feff2tg",
+        "application": "BigCommerce",
+        "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+        "qa__connectionId": "HTTP BIGCOMMERCE CONNECTION",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "lookups": [
+          {
+            "method": "GET",
+            "relativeURI": "/v3/catalog/products?name={{data.name}}",
+            "extract": "data[0].name",
+            "allowFailures": false,
+            "name": "dynaLookupForComposite",
+            "useImportHeaders": true
+          }
+        ],
+        "mappings": [
+          {
+            "extract": "$.name",
+            "generate": "name",
+            "dataType": "string",
+            "status": "Active",
+            "sourceDataType": "string"
+          },
+          {
+            "extract": "$.type",
+            "generate": "type",
+            "dataType": "string",
+            "status": "Active",
+            "sourceDataType": "string"
+          },
+          {
+            "extract": "$.weight",
+            "generate": "weight",
+            "dataType": "number",
+            "status": "Active",
+            "sourceDataType": "number"
+          },
+          {
+            "extract": "$.price",
+            "generate": "price",
+            "dataType": "number",
+            "status": "Active",
+            "sourceDataType": "number"
+          },
+          {
+            "extract": "$.sku",
+            "generate": "sku",
+            "dataType": "string",
+            "status": "Active",
+            "sourceDataType": "string"
+          },
+          {
+            "generate": "categories",
+            "dataType": "numberarray",
+            "status": "Active",
+            "buildArrayHelper": [
+              {
+                "extract": "$.categories",
+                "conditional": {
+                  "when": "extract_not_empty"
+                },
+                "sourceDataType": "numberarray"
+              }
+            ]
+          },
+          {
+            "generate": "meta_keywords",
+            "dataType": "stringarray",
+            "conditional": {
+              "when": "record_created"
+            },
+            "status": "Active",
+            "buildArrayHelper": [
+              {
+                "extract": "$.meta_keywords",
+                "conditional": {
+                  "when": "extract_not_empty"
+                },
+                "sourceDataType": "stringarray"
+              }
+            ]
+          },
+          {
+            "generate": "related_products",
+            "dataType": "numberarray",
+            "conditional": {
+              "when": "record_updated"
+            },
+            "status": "Active",
+            "buildArrayHelper": [
+              {
+                "extract": "$.related_products",
+                "sourceDataType": "numberarray"
+              }
+            ]
+          },
+          {
+            "generate": "gift_wrapping_options_list",
+            "dataType": "numberarray",
+            "conditional": {
+              "when": "record_created"
+            },
+            "status": "Active",
+            "buildArrayHelper": [
+              {
+                "extract": "$.gift_wrapping_options_list",
+                "sourceDataType": "numberarray"
+              }
+            ]
+          },
+          {
+            "generate": "createBoolArray",
+            "dataType": "booleanarray",
+            "conditional": {
+              "when": "record_created"
+            },
+            "status": "Active",
+            "buildArrayHelper": [
+              {
+                "extract": "$.is_visible",
+                "conditional": {
+                  "when": "extract_not_empty"
+                },
+                "sourceDataType": "boolean"
+              }
+            ]
+          },
+          {
+            "generate": "updateBoolArray",
+            "dataType": "booleanarray",
+            "conditional": {
+              "when": "record_updated"
+            },
+            "status": "Active",
+            "buildArrayHelper": [
+              {
+                "extract": "$.is_visible",
+                "conditional": {
+                  "when": "extract_not_empty"
+                },
+                "sourceDataType": "boolean"
+              }
+            ]
+          }
+        ],
+        "http": {
+          "relativeURI": [
+            "/v3/catalog/products/{{record.id}}",
+            "/v3/catalog/products"
+          ],
+          "method": [
+            "PUT",
+            "POST"
+          ],
+          "requestType": [
+            "UPDATE",
+            "CREATE"
+          ],
+          "sendPostMappedData": true,
+          "existingLookupName": "dynaLookupForComposite",
+          "formType": "http",
+          "lookups": [
+            {
+              "method": "GET",
+              "relativeURI": "/v3/catalog/products?name={{data.name}}",
+              "extract": "data[0].name",
+              "allowFailures": false,
+              "name": "dynaLookupForComposite",
+              "useImportHeaders": true
+            }
+          ]
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "qa__dataVerification": {
+    "importapiIdentifier": "ibaad8dc7f",
+    "importRecordJSON": {
+      "name": "Auto_TC_C44599_1",
+      "type": "physical",
+      "weight": 100,
+      "price": 8,
+      "categories": [
+        27,
+        28
+      ]
+    },
+    "application":"HTTP BIGCOMMERCE",
+    "expectedJSON": [
+      {
+        "name": "Auto_TC_C44599_1",
+        "type": "physical",
+        "weight": 10,
+        "price": 7,
+        "sku": "SM-1007",
+        "categories": [
+          23,
+          28
+        ],
+        "related_products": [
+          10,
+          11
+        ],
+        "updateBoolArray": [
+          true
+        ]
+      },
+      {
+        "name": "Auto_TC_C44599_2",
+        "type": "digital",
+        "weight": 100,
+        "price": 8,
+        "sku": "SM-1009",
+        "categories": [
+          27,
+          28
+        ],
+        "meta_keywords": [
+          "one",
+          "price",
+          "world"
+        ],
+        "gift_wrapping_options_list": [
+          3322,
+          2833
+        ],
+        "createBoolArray": [
+          true
+        ]
+      }
+    ],
+    "importapidoc": {
+      "_id": "6340c5ac46048c3afbacc3be",
+      "createdAt": "2022-10-08T00:34:52.730Z",
+      "lastModified": "2022-10-10T16:11:57.517Z",
+      "name": "Create BigCommerce products_DND",
+      "_connectionId": "631a1a0eabf51e7a86c8107f",
+      "apiIdentifier": "ibaad8dc7f",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "http": {
+        "relativeURI": [
+          "/v3/catalog/products"
+        ],
+        "method": [
+          "POST"
+        ],
+        "body": [],
+        "batchSize": 1,
+        "sendPostMappedData": true,
+        "formType": "http"
+      },
+      "adaptorType": "HTTPImport"
+    }
+  }
+}

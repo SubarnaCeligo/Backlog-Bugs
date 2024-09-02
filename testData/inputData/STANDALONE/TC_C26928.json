@@ -1,0 +1,210 @@
+{
+    "flowname": "TC_C26928",
+    "name": "TC_C26928",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "6",
+        "successCount": "0",
+        "errorCount": "0"
+      },
+      "qa__api_tdata": [
+        {
+          "pageGenerators": [
+            {
+              "type": "export",
+              "qa__export": {
+                "qa__connectionId": "628f00568f68e85ab2c63b22",
+                "_connectionId":"NETSUITE CONNECTION",
+                "apiIdentifier": "ea18bda0a9",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "rawData": "61e68956b587067a214ac5ed7404e0ea771045cfab1c534b568bc4f4",
+                "netsuite": {
+                    "type": "restlet",
+                    "skipGrouping": true,
+                    "statsOnly": false,
+                    "restlet": {
+                        "recordType": "customer",
+                        "searchId": "930",
+                        "useSS2Restlets": false
+                    },
+                    "distributed": {
+                        "useSS2Framework": false
+                    }
+                },
+                "filter": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [
+                            "notequals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "Email"
+                                ]
+                            ],
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "Email"
+                                ]
+                            ]
+                        ],
+                        "version": "1"
+                    },
+                    "version": "1",
+                    "rules": [
+                        "notequals",
+                        [
+                            "string",
+                            [
+                                "extract",
+                                "Email"
+                            ]
+                        ],
+                        [
+                            "string",
+                            [
+                                "extract",
+                                "Email"
+                            ]
+                        ]
+                    ]
+                },
+                "adaptorType": "NetSuiteExport"
+                  }
+            },
+      {
+        "type": "export",
+        "qa__export": {
+            "name": "SALESFORCE",
+            "_connectionId":"SALESFORCE CONNECTION",
+            "apiIdentifier": "e6edcdec1b",
+            "asynchronous": true,
+            "type": "distributed",
+            "oneToMany": false,
+            "sandbox": false,
+            "distributed": {
+                "bearerToken": "******"
+            },
+            "salesforce": {
+                "sObjectType": "Account",
+                "distributed": {
+                    "referencedFields": [
+                        "CreatedBy.City"
+                    ],
+                    "disabled": true,
+                    "qualifier": null,
+                    "relatedLists": [
+                        {
+                            "referencedFields": [
+                                "AccountTo.Type"
+                            ],
+                            "parentField": "AccountToId",
+                            "sObjectType": "AccountPartner",
+                            "userDefined": false
+                        }
+                    ]
+                }
+            },
+            "filter": {
+                "type": "expression",
+                "expression": {
+                    "rules": [
+                        "notequals",
+                        [
+                            "string",
+                            [
+                                "extract",
+                                "AccountNumber"
+                            ]
+                        ],
+                        [
+                            "string",
+                            [
+                                "extract",
+                                "AccountNumber"
+                            ]
+                        ]
+                    ],
+                    "version": "1"
+                },
+                "version": "1",
+                "rules": [
+                    "notequals",
+                    [
+                        "string",
+                        [
+                            "extract",
+                            "AccountNumber"
+                        ]
+                    ],
+                    [
+                        "string",
+                        [
+                            "extract",
+                            "AccountNumber"
+                        ]
+                    ]
+                ]
+            },
+            "adaptorType": "SalesforceExport"
+        }
+      }
+       ],
+          "pageProcessors": [
+            {
+              "type": "import",
+              "qa__import": {
+                "name": "FTP",
+                "_connectionId":"FTP CONNECTION",
+                "apiIdentifier": "i6381abeef",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "file-{{timestamp}}.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                    "fileName": "file-{{timestamp}}.json"
+                },
+                "adaptorType": "FTPImport"
+                  }
+              }
+          ],
+          "createFlow": {
+            "name": "TC_C26928",
+            "disabled": false,
+            "qa__integrationId":"6228aed6bc8a2732cfe8044c",
+            "_integrationId": "631a1266abf51e7a86c80ab4",
+            "skipRetries": false,
+            "pageGenerators": [
+              {
+                "type": "export",
+                "_exportId": "UPDATE EXPORT ID"
+              },
+              {
+                "type": "export",
+                "_exportId": "UPDATE WITH EXPORT ID"
+              }
+
+            ],
+              "pageProcessors": [
+                {
+                  "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                  },
+                  "type": "import",
+                  "_importId": "UPDATE IMPORT ID"
+                }
+
+            ]
+          }
+        }
+      ]
+    }

@@ -1,0 +1,98 @@
+{
+  "name": "TC_C49989",
+  "disabled": false,
+  "_integrationId": "63340890bb74b66e32a92640",
+  "skipRetries": false,
+  "pageGenerators": [
+      {
+        "qa__export": {
+          "_id": "66cc5c4d9fa0e6d55bc156a3",
+          "createdAt": "2024-08-26T10:43:25.656Z",
+          "lastModified": "2024-08-26T10:43:25.697Z",
+          "name": "FTP Export",
+          "_connectionId": "FTP CONNECTION",
+          "apiIdentifier": "ef2e32a105",
+          "asynchronous": true,
+          "sandbox": false,
+          "sampleData": {
+              "Internal ID": 48040,
+              "ID": "498207",
+              "Name": "Choco boat",
+              "Phone": "1233211234",
+              "Billing Address 1": "",
+              "Billing City": "",
+              "Billing State": {
+                  "Province": ""
+              },
+              "Sales Rep": "",
+              "Search Engine": "",
+              "Keyword Search": "",
+              "Medium": ""
+          },
+          "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports"
+          },
+          "file": {
+              "output": "records",
+              "skipDelete": false,
+              "type": "json",
+              "filter": {
+                  "type": "expression",
+                  "expression": {
+                      "version": "1",
+                      "rules": [
+                          "startswith",
+                          [
+                              "string",
+                              [
+                                  "extract",
+                                  "filename"
+                              ]
+                          ],
+                          "TC_C2468"
+                      ]
+                  },
+                  "rules": [
+                      "startswith",
+                      [
+                          "string",
+                          [
+                              "extract",
+                              "filename"
+                          ]
+                      ],
+                      "TC_C2468"
+                  ],
+                  "version": "1"
+              }
+          },
+          "adaptorType": "FTPExport"
+        }
+      }
+  ],
+  "pageProcessors": [
+      {
+          "type": "import",
+          "qa__import": {
+            "_id": "66d03f71509b368cfa223cbb",
+            "createdAt": "2024-08-29T09:29:21.577Z",
+            "lastModified": "2024-08-29T09:29:21.651Z",
+            "name": "FTP",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "i2ee78daa6",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+            "fileName": "file-{{timestamp}}.json",
+            "skipAggregation": false,
+            "type": "json"
+            },
+            "ftp": {
+            "directoryPath": "test",
+            "fileName": "file-{{timestamp}}.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+      }
+  ]
+}

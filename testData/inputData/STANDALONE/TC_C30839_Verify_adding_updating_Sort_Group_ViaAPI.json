@@ -1,0 +1,42 @@
+{
+  "skipRetries": false,
+  "_integrationId": "6228aed6bc8a2732cfe8044c",
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "FTP Export",
+        "_connectionId": "FTP CONNECTION",
+        "qa__path": "//FTP_uploads//TC_C30817.json",
+        "apiIdentifier": "ebb559587e",
+        "asynchronous": true,
+        "sandbox": false,
+        "parsers": [],
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "TC_C30817"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json",
+          "sortByFields": [
+            {
+              "field": "Drug @ Name"
+            }
+          ],
+          "groupByFields": [
+            "#Number"
+          ],
+          "groupEmptyValues": true,
+          "json": {
+            "resourcePath": "*"
+          }
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ],
+  "exportUrl": "https://qa.staging.integrator.io/exports/edit/exports/"
+}

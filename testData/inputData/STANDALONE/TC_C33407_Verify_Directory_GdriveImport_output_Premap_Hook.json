@@ -1,0 +1,63 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+    "pageGenerators": [{
+        "type": "export",
+        "qa__export": {
+            "name": "FTP xport",
+            "_connectionId": "FTP CONNECTION",
+            "asynchronous": true,
+            "sandbox": false,
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_C30817"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json",
+                "json": {
+                    "resourcePath": "*"
+                }
+            },
+            "adaptorType": "FTPExport",
+            "qa__path": "//FTP_uploads//TC_C30817.json"
+        }
+    }],
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "gdrive import",
+            "_connectionId": "GOOGLEDRIVE CONNECTION",
+            "apiIdentifier": "ib61979405",
+            "oneToMany": false,
+            "assistant": "googledrive",
+            "sandbox": false,
+            "file": {
+                "fileName": "file.json",
+                "skipAggregation": false,
+                "type": "json"
+            },
+            "http": {
+                "type": "file",
+                "relativeURI": [
+                    "gdriveimports"
+                ],
+                "method": [
+                    "POST"
+                ],
+                "body": [],
+                "sendPostMappedData": true,
+                "formType": "assistant",
+                "response": {
+                    "resourcePath": [
+                        "files"
+                    ]
+                }
+            },
+            "adaptorType": "HTTPImport"
+        }
+    }],
+    "Script": "function preMap (options) {\n  options.data[0]={\n    test:options.data[0],\n    premap:23}\n  return options.data.map((d) => {\n    return {\n      data: d\n    }\n  })\n}"
+}

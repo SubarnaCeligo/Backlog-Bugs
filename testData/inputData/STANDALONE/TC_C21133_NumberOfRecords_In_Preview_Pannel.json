@@ -1,0 +1,41 @@
+{
+    "name": "TC_C21133_NumberOfRecords_In_Preview_Pannel",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "NS_SalesOrder",
+              "_connectionId": "NETSUITE CONNECTION",
+              "netsuite": {
+                  "type": "restlet",
+                  "skipGrouping": true,
+                  "statsOnly": false,
+                  "restlet": {
+                      "recordType": "salesorder",
+                      "searchId": "4647",
+                      "useSS2Restlets": false
+                  },
+                  "distributed": {
+                      "useSS2Framework": false
+                  }
+              },
+              "adaptorType": "NetSuiteExport"
+          }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C21133_NumberOfRecords_In_Preview_Pannel",
+          "disabled": false,
+          "_integrationId": "6228aed6bc8a2732cfe8044c",
+          "skipRetries": false,
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

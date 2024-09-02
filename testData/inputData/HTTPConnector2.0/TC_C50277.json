@@ -1,0 +1,33 @@
+{
+  "Body": {
+    "name": "3PL",
+    "_connectionId": "3PL CENTRAL",
+    "apiIdentifier": "i23a9ceb48",
+    "ignoreExisting": false,
+    "ignoreMissing": false,
+    "oneToMany": false,
+    "assistant": "3plcentral",
+    "sandbox": false,
+    "assistantMetadata": {
+      "resource": "6345f57469f848d92751bfc2",
+      "version": "6345f57469f848d92751bfbf",
+      "operation": "6345f57469f848d92751bfe1"
+    },
+    "lookups": [],
+    "http": {
+      "relativeURI": ["/customers"],
+      "method": ["POST"],
+      "headers": [],
+      "requestMediaType": "json",
+      "successMediaType": "json",
+      "errorMediaType": "json",
+      "strictHandlebarEvaluation": false,
+      "sendPostMappedData": true,
+      "_httpConnectorResourceId": "6345f57469f848d92751bfc2",
+      "_httpConnectorEndpointId": "6345f57469f848d92751bfe1",
+      "formType": "assistant",
+      "lookups": []
+    },
+    "adaptorType": "HTTPImport"
+  }
+}

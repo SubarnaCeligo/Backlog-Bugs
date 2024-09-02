@@ -1,0 +1,60 @@
+{
+    "name": "NS_WebServices_Export",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export":{
+                "name": "NS_WebServices_Export",
+                "_connectionId": "NETSUITE CONNECTION",
+                "apiIdentifier": "e6729207b7",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "rawData": "61e68956b587067a214ac5edc01f239ef203471fb808be9fcdb92c40",
+                "netsuite": {
+                  "type": "search",
+                  "searches": [
+                    {
+                      "savedSearchId": "3814",
+                      "recordType": "customer",
+                      "criteria": [
+                        {
+                          "field": "companyName",
+                          "key": "EFCFEx-j0",
+                          "operator": "startswith",
+                          "searchValue": "TC"
+                        }
+                      ]
+                    }
+                  ],
+                  "skipGrouping": true,
+                  "statsOnly": false,
+                  "restlet": {
+                    "recordType": "customer",
+                    "searchId": "3814",
+                    "useSS2Restlets": false
+                  },
+                  "distributed": {
+                    "useSS2Framework": false
+                  }
+                },
+                "adaptorType": "NetSuiteExport"
+              }
+          }
+        ],
+        "createFlow": {
+          "name": "NS_WebServices_Export",
+          "_integrationId": "6228aed6bc8a2732cfe8044c",
+          "disabled": false,
+          "skipRetries": false,
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

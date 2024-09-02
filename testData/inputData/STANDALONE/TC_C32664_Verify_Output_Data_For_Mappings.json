@@ -1,0 +1,126 @@
+{
+  "skipRetries": false,
+  "_integrationId": "6228aed6bc8a2732cfe8044c",
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "FTP xport",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "e930f9de29",
+        "asynchronous": true,
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "TC_C30817"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json",
+          "json": {
+            "resourcePath": "*"
+          }
+        },
+        "adaptorType": "FTPExport",
+        "qa__path": "//FTP_uploads//TC_C30817.json"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "_connectionId": "SALESFORCE CONNECTION",
+        "apiIdentifier": "ic3f46c1b5",
+        "adaptorType": "SalesforceImport",
+        "qa__type": "blob",
+        "qa__isLookup": true,
+        "oneToMany": false,
+        "blob": true,
+        "sandbox": false,
+        "name": "SF Blob import",
+        "salesforce": {
+          "sObjectType": "contentVersion",
+          "operation": "upsert",
+          "contentVersion": {
+            "title": "C21474Test",
+            "pathOnClient": "C21474Test",
+            "contentDocumentId": "0693m00000SGchW",
+            "contentLocation": "S"
+          },
+          "removeNonSubmittableFields": false
+        }
+      }
+    },
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "FTP",
+        "_connectionId": "FTP CONNECTION",
+        "sandbox": false,
+        "file": {
+          "fileName": "handlebars_template_parse_error-{{timestamp}}.json",
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "{{handlebar}",
+          "fileName": "handlebars_template_parse_error-{{timestamp}}.json"
+        },
+        "adaptorType": "FTPImport"
+      }
+    },
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "TC_C41723 SF Import",
+        "_connectionId": "SALESFORCE CONNECTION",
+        "distributed": false,
+        "salesforce": {
+          "operation": "insert",
+          "sObjectType": "Account",
+          "api": "soap",
+          "removeNonSubmittableFields": false
+        },
+        "adaptorType": "SalesforceImport"
+      }
+    }
+  ],
+  "ResultMappingData": {
+    "record": {
+      "Drug@Name": "NaproxenandEsomeprazoleMagnesium",
+      "#Number": "6495195850",
+      "id": "1234567890",
+      "errors": [
+        {
+          "code": "error_code",
+          "message": "errormessage",
+          "source": "application"
+        }
+      ],
+      "ignored": false,
+      "statusCode": 200,
+      "dataURI": "",
+      "_json": { "responseField1": "", "responseField2": "" }
+    }
+  },
+  "ResponseMappingData": {
+    "record": {
+      "Drug@Name": "NaproxenandEsomeprazoleMagnesium",
+      "#Number": "6495195850",
+      "id": "1234567890",
+      "errors": [
+        {
+          "code": "error_code",
+          "message": "errormessage",
+          "source": "application"
+        }
+      ],
+      "ignored": false,
+      "statusCode": 200,
+      "dataURI": "",
+      "_json": { "responseField1": "", "responseField2": "" }
+    }
+  }
+}

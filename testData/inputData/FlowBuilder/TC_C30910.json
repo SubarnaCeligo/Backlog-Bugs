@@ -1,0 +1,130 @@
+{
+    "name": "TC_C30910",
+    "referencename": "TC_C30910",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "application": "MySQL",
+                        "name": "MySQL Export",
+                        "_connectionId": "MYSQL CONNECTION",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "rdbms": {
+                            "query": "select * from Templates.Order LIMIT 5"
+                        },
+                        "adaptorType": "RDBMSExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "MySQL Import ",
+                        "application": "MySQL",
+                        "_connectionId": "MYSQL CONNECTION",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "lookups": [
+                            {
+                                "map": {
+                                    "ABC": ""
+                                },
+                                "allowFailures": false,
+                                "name": "toDelete"
+                            }
+                        ],
+                        "rdbms": {
+                            "query": [
+                                "insert into"
+                            ],
+                            "queryType": [
+                                "INSERT"
+                            ],
+                            "lookups": [
+                                {
+                                    "map": {
+                                        "ABC": "XYZ"
+                                    },
+                                    "allowFailures": false,
+                                    "name": "toDelete"
+                                }
+                            ]
+                        },
+                        "adaptorType": "RDBMSImport"
+                    }
+                },
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Zendesk Import",
+                        "application":"zendesk support",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "if7f746a6b",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "extract": "orderid",
+                                    "generate": "orderid"
+                                }
+                            ]
+                        },
+                        "http": {
+                            "relativeURI": [
+                                "/tickets"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C30910",
+                "disabled": false,
+                "_integrationId": "62ecc42648570015ab65cfa5",
+                "qa__integrationId": "62eca1efe386b563f638451e",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    },
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

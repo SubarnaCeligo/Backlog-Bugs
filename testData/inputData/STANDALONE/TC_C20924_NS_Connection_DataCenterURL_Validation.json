@@ -1,0 +1,19 @@
+{
+    "importJSON": {
+        "name": "Basic netsuite test Connection",
+        "type": "netsuite",
+        "netsuite": {
+            "wsdlVersion": "next",
+            "_iClientId": "628e065a8505b63691f613e1",
+            "tokenId": "******",
+            "requestLevelCredentials": true,
+            "qa__tokenId": "YTliN2U3ZDRiZDFlNmVkNDEyMmYxYTBmYWU5MDAwYjI2OWMzMGVmZWRhYzE3MjQ1MmI1MWZmOGFkYmU1YmE5ZQ==",
+            "environment": "production",
+            "concurrencyLevel": 2,
+            "account": "TSTDRV1143616",
+            "tokenSecret": "******",
+            "qa__tokenSecret": "Y2E4MTM0YjhjNTU5Njk2ZWJiZTFjYzg5MWQ3MDcxODAxOWE1M2ZmMjNkYzRjN2M3ZTIxYjYzOWI4MGQyNzZiNA=="
+          }
+    },
+    "AccountId" : "TSTDRV1441353"
+}

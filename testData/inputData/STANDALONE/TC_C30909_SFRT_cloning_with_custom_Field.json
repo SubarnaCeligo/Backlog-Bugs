@@ -1,0 +1,85 @@
+{
+    "name": "SF - RT flow",
+    "cloneJSON2": {
+        "Flow_Name": "SF - RT flow"
+    },
+    "cloneJSON": {
+        "Source_Environment": "Production",
+        "Destination_Enviornment": "Production",
+        "Source_Integration": "Standalone Integration",
+        "Destination_Integration": "6228aed6bc8a2732cfe8044c",
+        "Flow_To_Clone": "SF - RT flow",
+        "connections": [
+            "630c68778ebe9b6853db8473",
+            "62da8ccd89e1961a9dc36c0d"
+        ],
+        "New_connection": false,
+        "Clone_Flow_Name": "Clone - SF - RT flow"
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "SF opportunity",
+                        "_connectionId": "SALESFORCE CONNECTION",
+                        "apiIdentifier": "e5abe5be16",
+                        "asynchronous": true,
+                        "type": "distributed",
+                        "parsers": [],
+                        "distributed": {
+                          "bearerToken": "******"
+                        },
+                        "salesforce": {
+                          "sObjectType": "Account",
+                          "distributed": {
+                            "qualifier": "date_test__c = null"
+                          }
+                        },
+                        "adaptorType": "SalesforceExport"
+                      }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "FTP Hooks",
+                        "_connectionId": "62da8ccd89e1961a9dc36c0d",
+                        "file": {
+                            "fileName": "TC_720_C29772_NS_Realtime_PreSend_Hook.json",
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO Automation SFTP Imports",
+                            "fileName": "TC_720_C29772_NS_Realtime_PreSend_Hook.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "SF - RT flow",
+                "disabled": false,
+                "_integrationId": "6228aed6bc8a2732cfe8044c",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

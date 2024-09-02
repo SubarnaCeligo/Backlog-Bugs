@@ -1,0 +1,139 @@
+{
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Get_Customer_OpenAir",
+                        "_connectionId": "UPDATE WITH NEW",
+                        "apiIdentifier": "e08734921c",
+                        "asynchronous": true,
+                        "application": "Open Air",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "method": "POST",
+                            "body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?> <request API_version=\"1.0\" client=\"test app\" client_ver=\"1.1\" namespace=\"{{{connection.http.unencrypted.namespace}}}\" key=\"{{{connection.http.unencrypted.apiKey}}}\">   <Auth>     <Login>       <company>{{{connection.http.unencrypted.companyId}}}</company>       <user>{{{connection.http.unencrypted.userId}}}</user>       <password>Celigo@OASF123</password>     </Login>   </Auth>   <Read type=\"Customer\" method=\"all\" limit=\"{{{export.http.paging.skip}}},1\"/> </request>",
+                            "formType": "http",
+                            "response": {
+                                "resourcePath": "/response/Read/Customer",
+                                "successPath": "/response/Read/@status",
+                                "successValues": [
+                                    "0"
+                                ]
+                            }
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "FTP Import",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "i2b2069f1f",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "file": {
+                            "fileName": "TC_C51096.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO%20Automation%20SFTP%20Imports",
+                            "fileName": "TC_C51096.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C51096",
+                "disabled": true,
+                "_integrationId": "63232caf5342c33e615e7271",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ],
+    "apiConnections": [
+        {
+            "importJSON": {
+                "type": "http",
+                "name": "HTTP Openair Connection",
+                "offline": false,
+                "debugDate": "2021-09-23T09:49:00.159Z",
+                "sandbox": false,
+                "debugUntil": "2021-09-23T09:49:00.159Z",
+                "http": {
+                    "formType": "http",
+                    "mediaType": "xml",
+                    "baseURI": "https://celigo-technologies.app.openair.com/api.pl",
+                    "concurrencyLevel": 1,
+                    "ping": {
+                        "relativeURI": "",
+                        "method": "POST",
+                        "body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?> <request API_version=\"1.0\" client=\"test app\" client_ver=\"1.1\" namespace=\"{{{connection.http.unencrypted.namespace}}}\" key=\"{{{connection.http.unencrypted.apiKey}}}\">   <Auth>     <Login>       <company>{{{connection.http.unencrypted.companyId}}}</company>       <user>{{{connection.http.unencrypted.userId}}}</user>       <password>Celigo@OASF123</password>     </Login>   </Auth>   <Read type=\"User\" method=\"all\" limit=\"{{{export.http.paging.skip}}},1\"/> </request>",
+                        "successPath": "/response/Auth/@status",
+                        "errorPath": "",
+                        "successValues": [
+                            "0"
+                        ]
+                    },
+                    "rateLimit": {
+                        "failPath": "/response/Auth/@status",
+                        "limit": 1,
+                        "failValues": [
+                            "556"
+                        ],
+                        "failStatusCode": 556
+                    },
+                    "headers": [
+                        {
+                            "name": "content-type",
+                            "value": "application/xml"
+                        }
+                    ],
+                    "unencrypted": {
+                        "namespace": "default",
+                        "apiKey": "WPXR0HiBOHYChyvToyp8",
+                        "userId": "Admin",
+                        "companyId": "Celigo Technologies"
+                    },
+                    "encrypted": "******",
+                    "auth": {
+                        "type": "custom"
+                    }
+                },
+                "queues": [
+                    {
+                        "name": "HTTP OPENAIR CONNECTION",
+                        "size": 0
+                    }
+                ]
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    }
+}

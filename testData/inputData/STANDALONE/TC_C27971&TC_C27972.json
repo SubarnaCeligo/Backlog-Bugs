@@ -1,0 +1,12 @@
+{
+    "name": "TC_C27971&TC_C27972",
+    "pageProcessors": [
+      {
+        "qa__import": {
+          "name": "HTTP Import",
+          "_connectionId": "HTTP STRIPE CONNECTION",
+          "adaptorType": "HTTPExport"
+        }
+      }
+    ]
+  }

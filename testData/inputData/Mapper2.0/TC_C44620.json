@@ -1,0 +1,501 @@
+{
+  "name": "TC_C44620_allDataType_Lookup_Handlebars_Mapping",
+  "disabled": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "AutomationStandaloneExport_l34lsftg",
+        "_connectionId": "FTP CONNECTION",
+        "asynchronous": true,
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+          "fileNameStartsWith": "TC_C44620_bigcommerce_composite_2records.json"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json",
+          "json": {
+            "resourcePath": "*"
+          }
+        },
+        "adaptorType": "FTPExport",
+        "qa__path": "//SFTP_uploads//TC_C44620_bigcommerce_composite_2records.json"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "export",
+      "responseMapping": {
+        "fields": [
+          {
+            "generate": "id",
+            "extract": "data[0].id"
+          }
+        ],
+        "lists": [],
+        "qa__index": 0
+      },
+      "qa__export": {
+        "name": "AutomationStandaloneLookup_fla43f2tg",
+        "application": "BigCommerce",
+        "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+        "qa__connectionId": "HTTP BIGCOMMERCE CONNECTION",
+        "asynchronous": true,
+        "isLookup": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": "/v3/catalog/products?name=Auto_TC_C44620",
+          "method": "GET",
+          "formType": "http",
+          "response": {
+            "resourcePath": "data"
+          }
+        },
+        "adaptorType": "HTTPExport"
+      }
+    },
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "AutomationStandaloneImport_3lKLWf2tg",
+        "application": "BigCommerce",
+        "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+        "qa__connectionId": "HTTP BIGCOMMERCE CONNECTION",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "lookups": [
+          {
+            "method": "GET",
+            "relativeURI": "/v3/catalog/products?name={{data.name}}",
+            "extract": "data[0].name",
+            "allowFailures": false,
+            "name": "dynaLookupForComposite",
+            "useImportHeaders": true
+          },
+          {
+            "name": "description_from_lookup_create_record",
+            "method": "GET",
+            "relativeURI": "/v3/catalog/products?name=Auto_TC_C44620",
+            "extract": "data[0].sku",
+            "body": "",
+            "allowFailures": false,
+            "useImportHeaders": true
+          },
+          {
+            "name": "isFreeShipping_from_lookup_create_record",
+            "method": "GET",
+            "relativeURI": "/v3/catalog/products?name=Auto_TC_C44620",
+            "extract": "data[0].is_free_shipping",
+            "body": "",
+            "allowFailures": false,
+            "useImportHeaders": true
+          },
+          {
+            "name": "width_from_lookup_create_record",
+            "method": "GET",
+            "relativeURI": "/v3/catalog/products?name=Auto_TC_C44620",
+            "extract": "data[0].width",
+            "body": "",
+            "allowFailures": false,
+            "useImportHeaders": true
+          },
+          {
+            "name": "metaDescription_from_description_update_record",
+            "method": "GET",
+            "relativeURI": "/v3/catalog/products?name=Auto_TC_C44620",
+            "extract": "data[0].description",
+            "body": "",
+            "allowFailures": false,
+            "useImportHeaders": true
+          },
+          {
+            "name": "isVisible_from_isfreeShipping_update_record",
+            "method": "GET",
+            "relativeURI": "/v3/catalog/products?name=Auto_TC_C44620",
+            "extract": "data[0].is_free_shipping",
+            "body": "",
+            "allowFailures": false,
+            "useImportHeaders": true
+          },
+          {
+            "name": "costPrice_from_price_update_record",
+            "method": "GET",
+            "relativeURI": "/v3/catalog/products?name=Auto_TC_C44620",
+            "extract": "data[0].price",
+            "body": "",
+            "allowFailures": false,
+            "useImportHeaders": true
+          }
+        ],
+        "mappings": [
+          {
+            "extract": "$.name",
+            "generate": "name",
+            "dataType": "string",
+            "status": "Active",
+            "sourceDataType": "string"
+          },
+          {
+            "extract": "$.type",
+            "generate": "type",
+            "dataType": "string",
+            "status": "Active",
+            "sourceDataType": "string"
+          },
+          {
+            "extract": "$.weight",
+            "generate": "weight",
+            "dataType": "number",
+            "status": "Active",
+            "sourceDataType": "number"
+          },
+          {
+            "extract": "$.price",
+            "generate": "price",
+            "dataType": "number",
+            "status": "Active",
+            "sourceDataType": "number"
+          },
+          {
+            "extract": "$.sku",
+            "generate": "sku",
+            "dataType": "string",
+            "status": "Active",
+            "sourceDataType": "string"
+          },
+          {
+            "generate": "categories",
+            "dataType": "numberarray",
+            "status": "Active",
+            "buildArrayHelper": [
+              {
+                "extract": "$.categories",
+                "sourceDataType": "numberarray"
+              }
+            ]
+          },
+          {
+            "generate": "description",
+            "dataType": "string",
+            "lookupName": "description_from_lookup_create_record",
+            "conditional": {
+              "when": "record_created"
+            },
+            "status": "Active",
+            "sourceDataType": "string"
+          },
+          {
+            "generate": "is_free_shipping",
+            "dataType": "boolean",
+            "lookupName": "isFreeShipping_from_lookup_create_record",
+            "conditional": {
+              "when": "record_created"
+            },
+            "status": "Active",
+            "sourceDataType": "boolean"
+          },
+          {
+            "generate": "width",
+            "dataType": "number",
+            "lookupName": "width_from_lookup_create_record",
+            "conditional": {
+              "when": "record_created"
+            },
+            "status": "Active",
+            "sourceDataType": "number"
+          },
+          {
+            "generate": "meta_description",
+            "dataType": "string",
+            "lookupName": "metaDescription_from_description_update_record",
+            "conditional": {
+              "when": "record_updated"
+            },
+            "status": "Active",
+            "sourceDataType": "string"
+          },
+          {
+            "generate": "is_visible",
+            "dataType": "boolean",
+            "lookupName": "isVisible_from_isfreeShipping_update_record",
+            "conditional": {
+              "when": "record_updated"
+            },
+            "status": "Active",
+            "sourceDataType": "boolean"
+          },
+          {
+            "generate": "cost_price",
+            "dataType": "number",
+            "lookupName": "costPrice_from_price_update_record",
+            "conditional": {
+              "when": "record_updated"
+            },
+            "status": "Active",
+            "sourceDataType": "number"
+          },
+          {
+            "extract": "warranty on {{record.name}} handlebar create record",
+            "generate": "warranty",
+            "dataType": "string",
+            "conditional": {
+              "when": "record_created"
+            },
+            "status": "Active",
+            "sourceDataType": "string"
+          },
+          {
+            "extract": "{{record.search_keywords}}",
+            "generate": "search_keywords",
+            "dataType": "string",
+            "conditional": {
+              "when": "record_updated"
+            },
+            "status": "Active",
+            "sourceDataType": "string"
+          },
+          {
+            "extract": "{{record.weight}}",
+            "generate": "depth",
+            "dataType": "number",
+            "conditional": {
+              "when": "record_created"
+            },
+            "status": "Active",
+            "sourceDataType": "string"
+          },
+          {
+            "extract": "{{record.width}}",
+            "generate": "height",
+            "dataType": "number",
+            "conditional": {
+              "when": "record_updated"
+            },
+            "status": "Active",
+            "sourceDataType": "string"
+          },
+          {
+            "extract": "{{record.is_free_shipping}}",
+            "generate": "is_price_hidden",
+            "dataType": "boolean",
+            "conditional": {
+              "when": "record_created"
+            },
+            "status": "Active",
+            "sourceDataType": "string"
+          },
+          {
+            "extract": "{{record.is_free_shipping}}",
+            "generate": "is_condition_shown",
+            "dataType": "boolean",
+            "conditional": {
+              "when": "record_updated"
+            },
+            "status": "Active",
+            "sourceDataType": "string"
+          }
+        ],
+        "http": {
+          "relativeURI": [
+            "/v3/catalog/products/{{record.id}}",
+            "/v3/catalog/products"
+          ],
+          "method": [
+            "PUT",
+            "POST"
+          ],
+          "requestType": [
+            "UPDATE",
+            "CREATE"
+          ],
+          "sendPostMappedData": true,
+          "existingLookupName": "dynaLookupForComposite",
+          "formType": "http",
+          "lookups": [
+            {
+              "method": "GET",
+              "relativeURI": "/v3/catalog/products?name={{data.name}}",
+              "extract": "data[0].name",
+              "allowFailures": false,
+              "name": "dynaLookupForComposite",
+              "useImportHeaders": true
+            },
+            {
+              "name": "description_from_lookup_create_record",
+              "method": "GET",
+              "relativeURI": "/v3/catalog/products?name=Auto_TC_C44620",
+              "extract": "data[0].sku",
+              "body": "",
+              "allowFailures": false,
+              "useImportHeaders": true
+            },
+            {
+              "name": "isFreeShipping_from_lookup_create_record",
+              "method": "GET",
+              "relativeURI": "/v3/catalog/products?name=Auto_TC_C44620",
+              "extract": "data[0].is_free_shipping",
+              "body": "",
+              "allowFailures": false,
+              "useImportHeaders": true
+            },
+            {
+              "name": "width_from_lookup_create_record",
+              "method": "GET",
+              "relativeURI": "/v3/catalog/products?name=Auto_TC_C44620",
+              "extract": "data[0].width",
+              "body": "",
+              "allowFailures": false,
+              "useImportHeaders": true
+            },
+            {
+              "name": "metaDescription_from_description_update_record",
+              "method": "GET",
+              "relativeURI": "/v3/catalog/products?name=Auto_TC_C44620",
+              "extract": "data[0].description",
+              "body": "",
+              "allowFailures": false,
+              "useImportHeaders": true
+            },
+            {
+              "name": "isVisible_from_isfreeShipping_update_record",
+              "method": "GET",
+              "relativeURI": "/v3/catalog/products?name=Auto_TC_C44620",
+              "extract": "data[0].is_free_shipping",
+              "body": "",
+              "allowFailures": false,
+              "useImportHeaders": true
+            },
+            {
+              "name": "costPrice_from_price_update_record",
+              "method": "GET",
+              "relativeURI": "/v3/catalog/products?name=Auto_TC_C44620",
+              "extract": "data[0].price",
+              "body": "",
+              "allowFailures": false,
+              "useImportHeaders": true
+            }
+          ]
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "qa__expectedDashboardCount": {
+    "successCount": "6",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "importapiIdentifier": "ibaad8dc7f",
+    "importRecordJSON": {
+      "name": "Auto_TC_C44620",
+      "type": "digital",
+      "weight": 100,
+      "price": 80,
+      "sku": "SM-10",
+      "width": 16,
+      "is_free_shipping": true,
+      "description": "<p>Type a description for this product here...</p>",
+      "categories": [
+        26,
+        25
+      ]
+    },
+    "application":"HTTP BIGCOMMERCE",
+    "expected": {
+      "bigcommerce": {
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "name": "TC_C44620_allDataType_Lookup_Handlebars_Mapping",
+        "import": {
+          "_connectionId": "HTTP BIGCOMMERCE CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "2",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "standaloneexportflowID": "62e921b7f389ab707f5db712",
+          "uniqueField": "name",
+          "importRecordType": "products",
+          "isUIFlow": true,
+          "exportapiIdentifier": "e5b46fccee",
+          "expectedJSON": [
+            {
+              "name": "Auto_TC_C44619",
+              "type": "physical",
+              "weight": 10,
+              "price": 70,
+              "sku": "SM-9",
+              "description": "SM-10",
+              "is_free_shipping": true,
+              "width": 16,
+              "meta_description": "",
+              "cost_price": "",
+              "warranty": "warranty on Auto_TC_C44619 handlebar create record",
+              "search_keywords": "",
+              "depth": 10,
+              "height": 0,
+              "is_price_hidden": false,
+              "is_condition_shown": false
+            },
+            {
+              "name": "Auto_TC_C44620",
+              "type": "digital",
+              "weight": 100,
+              "price": 80,
+              "sku": "SM-10",
+              "is_free_shipping": true,
+              "width": 16,
+              "description": "<p>Type a description for this product here...</p>",
+              "meta_description": "<p>Type a description for this product here...</p>",
+              "is_visible": true,
+              "cost_price": 80,
+              "warranty": "",
+              "search_keywords": "cook, garments, shop, attic",
+              "depth": 0,
+              "height": 16,
+              "is_price_hidden": false,
+              "is_condition_shown": true
+            }
+          ]
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "6340c5ac46048c3afbacc3be",
+      "createdAt": "2022-10-08T00:34:52.730Z",
+      "lastModified": "2022-10-10T16:11:57.517Z",
+      "name": "Create BigCommerce products_DND",
+      "_connectionId": "631a1a0eabf51e7a86c8107f",
+      "apiIdentifier": "ibaad8dc7f",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "http": {
+        "relativeURI": [
+          "/v3/catalog/products"
+        ],
+        "method": [
+          "POST"
+        ],
+        "body": [],
+        "batchSize": 1,
+        "sendPostMappedData": true,
+        "formType": "http"
+      },
+      "adaptorType": "HTTPImport"
+    }
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "Stage_connec": "FTP CONNECTION",
+  "JSON": {
+    "name": "AutomationStandaloneExport__5cPLEcjmPq",
+    "_connectionId": "FTP CONNECTION",
+    "asynchronous": true,
+    "sandbox": false,
+    "ftp": {
+      "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+      "fileNameStartsWith": "test"
+    },
+    "groupByFields": ["id"],
+    "file": {
+      "encoding": "utf8",
+      "output": "records",
+      "skipDelete": true,
+      "type": "json",
+      "groupEmptyValues": true
+    },
+    "adaptorType": "FTPExport"
+  },
+  "CSV": {
+    "name": "AutomationStandaloneExport__5cPLEcjmPq",
+    "_connectionId": "FTP CONNECTION",
+    "asynchronous": true,
+    "sandbox": false,
+    "ftp": {
+      "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+      "fileNameStartsWith": "test"
+    },
+    "groupByFields": ["id"],
+    "file": {
+      "encoding": "utf8",
+      "output": "records",
+      "skipDelete": true,
+      "type": "csv",
+      "groupEmptyValues": true,
+      "csv": {
+        "columnDelimiter": ",",
+        "rowDelimiter": "\n",
+        "hasHeaderRow": false,
+        "trimSpaces": true,
+        "rowsToSkip": 0
+      }
+    },
+    "adaptorType": "FTPExport"
+  },
+  "XML": {
+    "name": "AutomationStandaloneExport__5cPLEcjmPq",
+    "_connectionId": "FTP CONNECTION",
+    "asynchronous": true,
+    "sandbox": false,
+    "parsers": [
+      {
+        "type": "xml",
+        "version": "1",
+        "rules": {
+          "V0_json": true,
+          "trimSpaces": false,
+          "stripNewLineChars": false
+        }
+      }
+    ],
+    "ftp": {
+      "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+      "fileNameStartsWith": "test"
+    },
+    "groupByFields": ["id"],
+    "file": {
+      "encoding": "utf8",
+      "output": "records",
+      "skipDelete": true,
+      "type": "xml",
+      "groupEmptyValues": true,
+      "xml": {
+        "resourcePath": "/test"
+      }
+    },
+    "adaptorType": "FTPExport"
+  },
+  "EDIX12": {
+    "name": "AutomationStandaloneExport__5cPLEcjmPq",
+    "_connectionId": "FTP CONNECTION",
+    "asynchronous": true,
+    "sandbox": false,
+    "parsers": [
+      {
+        "type": "xml",
+        "version": "1",
+        "rules": {
+          "V0_json": true,
+          "trimSpaces": false,
+          "stripNewLineChars": false
+        }
+      }
+    ],
+    "groupByFields": ["AUTHORIZATION INFO QUAL."],
+    "ftp": {
+      "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+      "fileNameStartsWith": "test"
+    },
+    "file": {
+      "encoding": "utf8",
+      "output": "records",
+      "skipDelete": true,
+      "type": "filedefinition",
+      "groupEmptyValues": true,
+      "fileDefinition": {
+        "_fileDefinitionId": "6352696f17239838c02c2f6f"
+      }
+    },
+    "adaptorType": "FTPExport"
+  },
+  "EDIFACT": {
+    "name": "test",
+    "_connectionId": "FTP CONNECTION",
+    "asynchronous": true,
+    "sandbox": false,
+    "ftp": {
+      "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+      "fileNameStartsWith": "test"
+    },
+    "groupByFields": ["SYNTAX IDENTIFIER"],
+    "file": {
+      "output": "records",
+      "skipDelete": false,
+      "type": "filedefinition",
+      "groupEmptyValues": true,
+      "fileDefinition": {
+        "_fileDefinitionId": "635269e717239838c02c2f9c"
+      }
+    },
+    "adaptorType": "FTPExport"
+  },
+  "XLSX": {
+    "name": "test",
+    "_connectionId": "FTP CONNECTION",
+    "asynchronous": true,
+    "sandbox": false,
+    "ftp": {
+      "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+      "fileNameStartsWith": "test"
+    },
+    "groupByFields": ["id"],
+    "file": {
+      "output": "records",
+      "skipDelete": false,
+      "type": "xlsx",
+      "groupEmptyValues": true,
+      "xlsx": {
+        "hasHeaderRow": false
+      }
+    },
+    "adaptorType": "FTPExport"
+  },
+  "FIXEDWIDth": {
+    "name": "test",
+    "_connectionId": "FTP CONNECTION",
+    "asynchronous": true,
+    "sandbox": false,
+    "ftp": {
+      "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+      "fileNameStartsWith": "test"
+    },
+    "groupByFields": ["Partner ID Code"],
+    "file": {
+      "output": "records",
+      "skipDelete": false,
+      "type": "filedefinition",
+      "groupEmptyValues": true,
+      "fileDefinition": {
+        "_fileDefinitionId": "63526adf17239838c02c2fd0"
+      }
+    },
+    "adaptorType": "FTPExport"
+  }
+}

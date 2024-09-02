@@ -1,0 +1,76 @@
+{
+  "name": "TC_C33092_Verify_PostMap_Data_In_response_mapping",
+  "disabled": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "timezone": "Asia/Calcutta",
+  "pageProcessors": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "salesforce export",
+        "_connectionId": "SALESFORCE CONNECTION",
+        "apiIdentifier": "eedfbe1ac8",
+        "asynchronous": true,
+        "isLookup": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "salesforce": {
+          "type": "soql",
+          "api": "rest",
+          "soql": {
+            "query": "select Id,Name from Account where Id='0013m00002jB0ncAAC'"
+          }
+        },
+        "adaptorType": "SalesforceExport"
+      }
+    },
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "Test import",
+        "application": "freshdesk",
+        "_connectionId": "627b6bd17ca3007138a67d30",
+        "http": {
+          "relativeURI": ["organizations"],
+          "method": ["POST"],
+          "body": [
+            "{\n  \"organization\": {\n      \"name\": \"{{record.name}}\",\n      \"notes\": \"{{record.notes}}\",\n      \"organization_fields\": {\n       \"email\": \"{{record.email}}\",\n       \"billing_address_1\": \"{{record.billing_address_1}}\",\n       \"billing_address2\": \"{{record.billing_address2}}\",\n       \"billing_city\": \"{{record.billing_city}}\",\n       \"billing_state\": \"{{record.billing_state}}\",\n       \"shipping_address_1\": \"{{record.User.0.users.0.name}}\",\n       \"shipping_city\": \"{{record.shipping_city}}\",\n       \"shipping_state\": \"{{record.shipping_state}}\",\n        \"shipping_country\": \"{{record.shipping_country}}\"\n         }\n        }\n     }"
+          ],
+          "batchSize": 1,
+          "formType": "http",
+          "qa__formType": "rest"
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "export",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "apiIdentifier": "ebc85a09ff",
+        "asynchronous": true,
+        "application": "zendesk support",
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": "/tickets/81.json",
+          "method": "GET",
+          "formType": "http",
+          "response": {
+            "resourcePath": "ticket"
+          }
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ],
+  "hooks": {
+    "postMap": {
+      "_scriptId": "6311dd9e085dcc47635e726f",
+      "function": "postMap"
+    }
+  }
+}

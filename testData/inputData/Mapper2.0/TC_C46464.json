@@ -1,0 +1,458 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "name": "TC_C46464",
+  "pageProcessors": [
+    { 
+      "type": "import",
+      "qa__import":{
+        "name": "b",
+        "_connectionId": "62c88089ebd1cb63e0f066ca",
+        "apiIdentifier": "ia0eaa9fd1",
+        "oneToMany": false,
+        "sandbox": false,
+        "mappings": [
+            {
+                "dataType": "objectarray",
+                "buildArrayHelper": [
+                    {
+                        "extract": "$",
+                        "mappings": [
+                            {
+                                "extract": "$.first_name",
+                                "generate": "first_name",
+                                "dataType": "string"
+                            },
+                            {
+                                "extract": "$.last_name",
+                                "generate": "last_name",
+                                "dataType": "string"
+                            },
+                            {
+                                "extract": "$.email",
+                                "generate": "email",
+                                "dataType": "string"
+                            },
+                            {
+                                "generate": "customer address",
+                                "dataType": "objectarray",
+                                "buildArrayHelper": [
+                                    {
+                                        "extract": "$.customer address[*]",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.customer address.street_1",
+                                                "generate": "street",
+                                                "dataType": "string"
+                                            },
+                                            {
+                                                "extract": "$.customer address.city",
+                                                "generate": "city",
+                                                "dataType": "string"
+                                            },
+                                            {
+                                                "extract": "$.customer address.state",
+                                                "generate": "state",
+                                                "dataType": "string"
+                                            },
+                                            {
+                                                "extract": "$.customer address.zip",
+                                                "generate": "zip",
+                                                "dataType": "string"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "file": {
+            "fileName": "464_files.xlsx",
+            "skipAggregation": false,
+            "type": "xlsx",
+            "xlsx": {
+                "includeHeader": true
+            }
+        },
+        "ftp": {
+            "directoryPath": "/io.auto.qa/yash_modi",
+            "fileName": "464_files.xlsx"
+        },
+        "adaptorType": "FTPImport"
+      }
+    },
+    {
+     "type": "import",
+     "qa__import":{
+        "name": "c",
+        "_connectionId": "630cb8d7019d100fb7c6d2a3",
+        "_sourceId": "62d8029f6ef33428ce439374",
+        "apiIdentifier": "i3dc90cfa1",
+        "oneToMany": false,
+        "assistant": "googledrive",
+        "mappings": [
+            {
+                "dataType": "objectarray",
+                "buildArrayHelper": [
+                    {
+                        "extract": "$",
+                        "mappings": [
+                            {
+                                "extract": "$.first_name",
+                                "generate": "first_name",
+                                "dataType": "string"
+                            },
+                            {
+                                "extract": "$.last_name",
+                                "generate": "last_name",
+                                "dataType": "string"
+                            },
+                            {
+                                "extract": "$.email",
+                                "generate": "email",
+                                "dataType": "string"
+                            },
+                            {
+                                "generate": "customer address",
+                                "dataType": "objectarray",
+                                "buildArrayHelper": [
+                                    {
+                                        "extract": "$.customer address[*]",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.customer address.street_1",
+                                                "generate": "street",
+                                                "dataType": "string"
+                                            },
+                                            {
+                                                "extract": "$.customer address.city",
+                                                "generate": "city",
+                                                "dataType": "string"
+                                            },
+                                            {
+                                                "extract": "$.customer address.state",
+                                                "generate": "state",
+                                                "dataType": "string"
+                                            },
+                                            {
+                                                "extract": "$.customer address.zip",
+                                                "generate": "zip",
+                                                "dataType": "string"
+                                            },
+                                            {
+                                                "generate": "country",
+                                                "dataType": "string",
+                                                "hardCodedValue": "US"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "file": {
+            "fileName": "464_gdrive.xlsx",
+            "skipAggregation": false,
+            "type": "xlsx",
+            "xlsx": {
+                "includeHeader": true
+            }
+        },
+        "http": {
+            "type": "file",
+            "relativeURI": [
+                "Gdrive_Imports"
+            ],
+            "method": [
+                "POST"
+            ],
+            "body": [],
+            "sendPostMappedData": true,
+            "formType": "assistant",
+            "lookups": [
+                {
+                    "name": "xlsxlookup",
+                    "map": {
+                        "abby": "ABBY",
+                        "paige": "PAIGE"
+                    },
+                    "allowFailures": false,
+                    "useImportHeaders": true
+                }
+            ],
+            "response": {
+                "resourcePath": [
+                    "files"
+                ]
+            }
+        },
+        "adaptorType": "HTTPImport"
+      }
+    },
+    {
+      "type": "import",
+      "qa__import":{
+        "name": "d",
+        "_connectionId": "AZURE BLOB STORAGE CONNECTION",
+        "_sourceId": "62d8029f6ef33428ce439375",
+        "apiIdentifier": "i4bd9ed976",
+        "oneToMany": false,
+        "assistant": "azurestorageaccount",
+        "mappings": [
+            {
+                "dataType": "objectarray",
+                "buildArrayHelper": [
+                    {
+                        "extract": "$",
+                        "mappings": [
+                            {
+                                "extract": "$.first_name",
+                                "generate": "first name",
+                                "dataType": "string"
+                            },
+                            {
+                                "extract": "$.last_name",
+                                "generate": "last name",
+                                "dataType": "string"
+                            },
+                            {
+                                "extract": "$.email",
+                                "generate": "email",
+                                "dataType": "string"
+                            },
+                            {
+                                "generate": "customer address",
+                                "dataType": "objectarray",
+                                "buildArrayHelper": [
+                                    {
+                                        "extract": "$.customer address[*]",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.customer address.street_1",
+                                                "generate": "street",
+                                                "dataType": "string"
+                                            },
+                                            {
+                                                "extract": "$.customer address.city",
+                                                "generate": "city",
+                                                "dataType": "string"
+                                            },
+                                            {
+                                                "extract": "$.customer address.state",
+                                                "generate": "state",
+                                                "dataType": "string"
+                                            },
+                                            {
+                                                "extract": "$.customer address.zip",
+                                                "generate": "zip",
+                                                "dataType": "string"
+                                            },
+                                            {
+                                                "extract": "$.customer address.email",
+                                                "generate": "email",
+                                                "dataType": "string"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "file": {
+            "fileName": "464_azure.xlsx",
+            "skipAggregation": false,
+            "type": "xlsx",
+            "xlsx": {
+                "includeHeader": true
+            }
+        },
+        "http": {
+            "type": "file",
+            "relativeURI": [
+                "azureimports"
+            ],
+            "method": [
+                "POST"
+            ],
+            "body": [],
+            "sendPostMappedData": true,
+            "formType": "assistant",
+            "response": {
+                "resourcePath": [
+                    "files"
+                ]
+            }
+        },
+        "adaptorType": "HTTPImport"
+      }
+    },
+    {
+      "type": "import",
+      "qa__import":{
+        "name": "e",
+        "_connectionId": "62b6a3c3afad2d57dbdeec42",
+        "_sourceId": "62d8029f6ef33428ce439376",
+        "apiIdentifier": "i0a13107dd",
+        "oneToMany": false,
+        "mappings": [
+            {
+                "dataType": "objectarray",
+                "buildArrayHelper": [
+                    {
+                        "extract": "$",
+                        "mappings": [
+                            {
+                                "extract": "$.first_name",
+                                "generate": "first name",
+                                "dataType": "string"
+                            },
+                            {
+                                "extract": "$.last_name",
+                                "generate": "last name",
+                                "dataType": "string"
+                            },
+                            {
+                                "extract": "$.email",
+                                "generate": "email",
+                                "dataType": "string"
+                            },
+                            {
+                                "generate": "customer address",
+                                "dataType": "objectarray",
+                                "buildArrayHelper": [
+                                    {
+                                        "extract": "$.customer address[*]",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.customer address.street_1",
+                                                "generate": "street",
+                                                "dataType": "string"
+                                            },
+                                            {
+                                                "extract": "$.customer address.city",
+                                                "generate": "city",
+                                                "dataType": "string"
+                                            },
+                                            {
+                                                "extract": "$.customer address.state",
+                                                "generate": "state",
+                                                "dataType": "string"
+                                            },
+                                            {
+                                                "extract": "$.customer address.zip",
+                                                "generate": "zip",
+                                                "dataType": "string"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "file": {
+            "fileName": "464_s3.xlsx",
+            "skipAggregation": false,
+            "type": "xlsx",
+            "xlsx": {
+                "includeHeader": true
+            }
+        },
+        "s3": {
+            "region": "us-east-1",
+            "bucket": "io-automation",
+            "fileKey": "464_s3.xlsx"
+        },
+        "adaptorType": "S3Import"
+      }
+    }
+  ],
+  "timezone": "Asia/Calcutta",
+  "disabled": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "5",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "generateSampleDropDownAvailable": false,
+    "standaloneexportflowID": "",
+    "expected": {
+      "FTP": {
+        "name": "TC_C46464",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "qa__expectedDashboardCount": {
+          "successCount": "5",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "fileName": "464_files",
+          "isUIFlow": true,
+          "folderName": "/io.auto.qa/yash_modi",
+          "fileType": ".xlsx"
+        }
+      },
+      "GDRIVE": {
+        "name": "TC_C46464",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "qa__expectedDashboardCount": {
+          "successCount": "5",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "fileName": "464_gdrive",
+          "isUIFlow": true,
+          "folderName": "Gdrive_Imports",
+          "fileType": ".xlsx"
+        }
+      },
+      "S3": {
+          "name": "TC_C46464",
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "qa__expectedDashboardCount": {
+              "successCount": "5",
+              "ignoreCount": "0",
+              "errorCount": "0"
+          },
+          "qa__dataVerification": {
+              "bucketName": "io-automation",
+              "fileName": "464_s3",
+              "isUIFlow": true,
+              "fileType": ".xlsx"
+          }
+      }
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+            "name": "test",
+            "_connectionId": "6308a71acb7cf81e579c4479",
+            "_sourceId": "62d8029e6ef33428ce439371",
+            "apiIdentifier": "e7b5cf107d",
+            "asynchronous": true,
+            "oneToMany": false,
+            "http": {
+                "relativeURI": "xlxs_data",
+                "method": "GET",
+                "formType": "http"
+            },
+            "rawData": "56d6b114e1fc35de5391472c7e5b4a25fa364a0f893fb3c09c8c140f",
+            "adaptorType": "HTTPExport"
+      }
+    }
+  ]
+}

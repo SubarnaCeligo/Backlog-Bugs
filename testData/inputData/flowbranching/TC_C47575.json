@@ -1,0 +1,220 @@
+{
+  "name": "TC_C47575",
+  "disabled": false,
+  "_integrationId": "62f51db41677a21a108e5e3a",
+  "skipRetries": false,
+  "qa__expectedDashboardCount": {
+    "successCount": "27",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "47575",
+        "_connectionId": "NETSUITE CONNECTION",
+        "_sourceId": "63348cc2bb74b66e32a989fe",
+        "apiIdentifier": "e643626564",
+        "asynchronous": true,
+        "oneToMany": false,
+        "netsuite": {
+          "type": "restlet",
+          "skipGrouping": false,
+          "statsOnly": false,
+          "restlet": {
+            "recordType": "department",
+            "searchId": "3193",
+            "criteria": [],
+            "columns": [],
+            "useSS2Restlets": false
+          },
+          "distributed": {
+            "executionContext": [],
+            "executionType": [],
+            "useSS2Framework": false
+          }
+        },
+        "adaptorType": "NetSuiteExport"
+      }
+    }
+  ],
+  "routers": [
+    {
+      "routeRecordsUsing": "input_filters",
+      "id": "7jAPUY",
+      "routeRecordsTo": "first_matching_branch",
+      "branches": [
+        {
+          "name": "R1B1",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "ZD import",
+                "application":"zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "_sourceId": "6334a316ca06597ef0abd319",
+                "apiIdentifier": "if4a481798",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "mapping": {
+                  "fields": [
+                    {
+                      "extract": "Auto_{{random 6}}",
+                      "generate": "organization.name"
+                    }
+                  ]
+                },
+                "http": {
+                  "relativeURI": ["organizations.json"],
+                  "method": ["POST"],
+                  "body": [],
+                  "batchSize": 1,
+                  "sendPostMappedData": true,
+                  "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+              }
+            }
+          ],
+          "nextRouterId": "PR55V2",
+          "inputFilter": {
+            "rules": ["equals", ["string", ["extract", "id"]], "1"]
+          }
+        },
+        {
+          "name": "R1B2",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "ZD import",
+                "application":"zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "_sourceId": "6336b744cbd7e368390e289c",
+                "apiIdentifier": "id99f261f4",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "mapping": {
+                  "fields": [
+                    {
+                      "generate": "user.name",
+                      "hardCodedValue": "Auto_TC_C47457_2"
+                    },
+                    {
+                      "extract": "currency",
+                      "generate": "user.notes"
+                    },
+                    {
+                      "extract": "id",
+                      "generate": "user.details",
+                      "dataType": "string"
+                    }
+                  ]
+                },
+                "http": {
+                  "relativeURI": ["/users.json"],
+                  "method": ["POST"],
+                  "body": [],
+                  "batchSize": 1,
+                  "sendPostMappedData": true,
+                  "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+              }
+            }
+          ],
+          "nextRouterId": "PR55V2"
+        }
+      ],
+      "script": {
+        "function": "branching"
+      }
+    },
+    {
+      "id": "PR55V2",
+      "branches": [
+        {
+          "name": "",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "FTP",
+                "_connectionId": "FTP CONNECTION",
+                "_sourceId": "6335bb86bb74b66e32aa5e47",
+                "apiIdentifier": "if79310ed9",
+                "oneToMany": false,
+                "file": {
+                  "fileName": "Appskipaggfile{{timestamp \"YYYY-MM-DD hh:mm:ss\" \"America/Los_Angeles\"}}.json",
+                  "skipAggregation": true,
+                  "type": "json"
+                },
+                "ftp": {
+                  "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPimport",
+                  "fileName": "Appskipaggfile{{timestamp \"YYYY-MM-DD hh:mm:ss\" \"America/Los_Angeles\"}}.json"
+                },
+                "adaptorType": "FTPImport"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "qa__dataVerification": {
+    "expected": {
+      "FTP": {
+        "name": "TC_C47575",
+        "_integrationId": "62f51db41677a21a108e5e3a",
+        "import": {
+          "_connectionId": "FTP CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "27",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "fileName": "Appskipaggfile-1",
+          "isUIFlow": true,
+          "folderName": "/io.auto.qa/IO_UI_Automation_FTPimport",
+          "fileType": ".json"
+        }
+      },
+      "FTp": {
+        "name": "TC_C47575",
+        "_integrationId": "62f51db41677a21a108e5e3a",
+        "import": {
+          "_connectionId": "FTP CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "27",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "fileName": "Appskipaggfile-2",
+          "isUIFlow": true,
+          "folderName": "/io.auto.qa/IO_UI_Automation_FTPimport",
+          "fileType": ".json"
+        }
+      }
+    }
+  }
+}

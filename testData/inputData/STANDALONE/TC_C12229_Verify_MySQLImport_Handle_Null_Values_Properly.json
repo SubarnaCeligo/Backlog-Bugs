@@ -1,0 +1,116 @@
+{
+    "flowname": "TC_C12229_FG",
+    "name": "TC_C12229_",
+    "flowGroup": "TC_C12229_FG",
+    "qa__expectedDashboardCount": {
+        "successCount": "2",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Zendesk",
+                        "qa__connectionId": "6305ff9127287575d312dd8a",
+                        "_connectionId": "ZENDESK CONNECTION",
+                        "apiIdentifier": "e6a6eb9e8b",
+                        "asynchronous": true,
+                        "type": "test",
+                        "assistant": "zendesk",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "assistantMetadata": {
+                            "resource": "tickets_api",
+                            "version": "v2",
+                            "operation": "list_tickets"
+                        },
+                        "http": {
+                            "relativeURI": "/api/v2/tickets.json",
+                            "method": "GET",
+                            "successMediaType": "json",
+                            "errorMediaType": "json",
+                            "formType": "assistant",
+                            "paging": {
+                                "method": "url",
+                                "path": "next_page",
+                                "lastPageStatusCode": 404
+                            },
+                            "response": {
+                                "resourcePath": "tickets"
+                            }
+                        },
+                        "rawData": "61e68956b587067a214ac5ed6dec10a9a8104ffd93d601dc8b8350c4",
+                        "test": {
+                            "limit": 1
+                        },
+                        "rest": {
+                            "relativeURI": "/api/v2/tickets.json",
+                            "method": "GET",
+                            "resourcePath": "tickets",
+                            "pagingMethod": "nextpageurl",
+                            "nextPagePath": "next_page",
+                            "allowUndefinedResource": false
+                        },
+                        "adaptorType": "RESTExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "sql",
+                        "application": "MySQL",
+                        "modelMetadata": {
+                            "myField": {
+                                "default": ""
+                            }
+                        },
+                        "qa__connectionId": "62bd3a7c0a32201e8de068f8",
+                        "_connectionId": "MYSQL CONNECTION",
+                        "apiIdentifier": "i82b78e35b",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "rdbms": {
+                            "query": [
+                                "INSERT INTO Zenq\r\n(name)\r\nVALUES(\r\n{{record.external_id}}\r\n)"
+                            ],
+                            "queryType": [
+                                "INSERT"
+                            ]
+                        },
+                        "adaptorType": "RDBMSImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C12229_FG",
+                "disabled": false,
+                "_integrationId": "631a1266abf51e7a86c80ab4",
+                "qa__integrationId": "6228aed6bc8a2732cfe8044c",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

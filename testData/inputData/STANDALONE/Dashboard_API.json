@@ -1,0 +1,51 @@
+{
+  "responseBody" :{
+    "resBody3": {
+        "_flowIds": ["@#$#$#%"]
+    },
+    "resBody4": {
+        "_integrationIds": ["@#$#$#%"]
+    },
+    "resBody5": {
+        "status": "@#$#$#%"
+    },
+    "resBody6": {
+        "createdOnAndAfter": "@#$#$#%"
+    }
+  },
+  "errors": {
+    "error3" : {
+        "errors": [
+            {
+                "code": "invalid_ref",
+                "message": "Please provide a valid _flowId."
+            }
+        ]
+    },
+    "error4" : {
+        "errors": [
+            {
+                "code": "invalid_ref",
+                "message": "Please provide a valid _integrationId."
+            }
+        ]
+    },
+    "error5" : {
+        "errors": [
+            {
+                "code": "invalid_filter_request_body",
+                "message": "Value provided for status filter in the request body is invalid."
+            }
+        ]
+    },
+    "error6" : {
+        "errors": [
+            {
+                "code": "invalid_filter_request_body",
+                "message": "Value provided for createdOnAndAfter filter in the request body is invalid."
+            }
+        ]
+    }
+  }
+
+}

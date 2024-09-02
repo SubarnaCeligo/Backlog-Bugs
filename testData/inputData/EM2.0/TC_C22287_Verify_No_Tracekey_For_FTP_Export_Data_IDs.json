@@ -1,0 +1,93 @@
+{
+    "name": "TC_C22287",
+    "referencename": "TC_C22287",
+    "qa__dataVerification": {},
+    "qa__api_tdata": [
+        {
+            "qa__export": {
+                "_connectionId": "FTP CONNECTION",
+                "name": "FTPExport",
+                "asynchronous": true,
+                "qa__path": "//FTP_uploads//TC_C22287.json",
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/FTP_EXPORTS",
+                    "fileNameStartsWith": "TC_C22287"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "NetsuiteSR_update",
+                "qa__connectionId": "604078b0f973e32fb05729e5",
+                "_connectionId": "62c3c4252a8ce51203967f0a",
+                "distributed": true,
+                "apiIdentifier": "i0ef00448f",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "lookups": [],
+                "netsuite_da": {
+                    "restletVersion": "suiteapp2.0",
+                    "operation": "add",
+                    "recordType": "customer",
+                    "lookups": [],
+                    "mapping": {
+                        "fields": [
+                            {
+                                "generate": "companyname",
+                                "extract": "1232989",
+                                "internalId": false
+                            },
+                            {
+                                "generate": "custentity_esc_industry",
+                                "extract": "id",
+                                "internalId": false
+                            },
+                            {
+                                "generate": "custentity_esc_annual_revenue",
+                                "discardIfEmpty": false,
+                                "immutable": false,
+                                "hardCodedValue": "asdfghjnvfty",
+                                "internalId": false
+                            }
+                        ],
+                        "lists": []
+                    }
+                },
+                "adaptorType": "NetSuiteDistributedImport"
+            }
+        }
+    ],
+    "createFlow": {
+        "name": "TC_C22287",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+        ]
+    }
+}

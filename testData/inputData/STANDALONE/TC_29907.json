@@ -1,0 +1,94 @@
+{
+    "expectedJSON": {
+        "rest": {
+            "headers": [],
+            "authType": "basic",
+            "basicAuth": {
+                "password": "******",
+                "qa__password": "Y2VsaWdvMTIzNA==",
+                "username": "mounica.manavapati@celigo.com"
+            },
+            "baseURI": "https://celigoqa.zendesk.com/api/v2/",
+            "scope": [],
+            "mediaType": "json",
+            "pingRelativeURI": "users.json",
+            "encryptedFields": [],
+            "refreshTokenHeaders": []
+        },
+        "name": "Rest_Connection",
+        "type": "rest"
+    },
+    "apiJSON": {
+        "type": "rest",
+        "name": "Rest_Connection",
+        "offline": false,
+        "isHTTP": true,
+        "http": {
+            "formType": "http",
+            "mediaType": "json",
+            "baseURI": "https://celigoqa.zendesk.com/api/v2/",
+            "headers": [
+                {
+                    "name": "content-type",
+                    "value": "application/json"
+                }
+            ],
+            "unencrypted": {
+                "field": "value"
+            },
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "mounica.manavapati@celigo.com",
+                    "password": "******"
+                }
+            }
+        },
+        "rest": {
+            "baseURI": "https://celigoqa.zendesk.com/api/v2/",
+            "isHTTPProxy": true,
+            "mediaType": "json",
+            "authType": "basic",
+            "headers": [
+                {
+                    "name": "content-type",
+                    "value": "application/json"
+                }
+            ],
+            "encryptedFields": [],
+            "unencrypted": {
+                "field": "value"
+            },
+            "unencryptedFields": [],
+            "scope": [],
+            "basicAuth": {
+                "username": "mounica.manavapati@celigo.com",
+                "password": "******"
+            }
+        },
+        "queues": [
+            {
+                "name": "63032278515b5e4a1f8b64f4",
+                "size": 0
+            }
+        ]
+    },
+    "importJSON": {
+        "rest": {
+            "headers": [],
+            "authType": "basic",
+            "basicAuth": {
+                "password": "******",
+                "qa__password": "Y2VsaWdvMTIzNA==",
+                "username": "mounica.manavapati@celigo.com"
+            },
+            "baseURI": "https://celigoqa.zendesk.com/api/v2/",
+            "scope": [],
+            "mediaType": "json",
+            "encryptedFields": [],
+            "refreshTokenHeaders": []
+        },
+        "name": "Rest_Connection",
+        "type": "rest"
+    }
+}

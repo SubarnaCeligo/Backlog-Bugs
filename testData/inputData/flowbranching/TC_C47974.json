@@ -1,0 +1,224 @@
+{
+  "name": "TC_C47974",
+  "disabled": false,
+  "_integrationId": "62f51db41677a21a108e5e3a",
+  "skipRetries": false,
+  "timezone": "Asia/Calcutta",
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "FTP Export flow branching",
+        "adaptorType": "FTPExport",
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+          "fileNameStartsWith": "TC_C47974.json"
+        },
+        "file": {
+          "output": "records",
+          "skipDelete": true,
+          "encoding": "utf8",
+          "type": "json"
+        },
+        "asynchronous": true,
+        "_connectionId": "FTP CONNECTION",
+        "qa__path": "//SFTP_uploads//TC_C47974.json"
+      }
+    }
+  ],
+  "routers": [
+    {
+      "routeRecordsUsing": "input_filters",
+      "id": "GKlAd3",
+      "routeRecordsTo": "all_matching_branches",
+      "branches": [
+        {
+          "name": "Branch 1.0",
+          "qa__rules": [
+            [
+              "record.name",
+              "equal",
+              "Auto_TC_47974_1"
+            ]
+          ],
+          "inputFilter": {
+            "rules": [
+              "equals",
+              [
+                "string",
+                [
+                  "extract",
+                  "name"
+                ]
+              ],
+              "Auto_TC_47974_1"
+            ]
+          },
+          "nextRouterId": "yCNC4t",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "AutomationStandaloneImport1_afsflk",
+                "application":"zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "mapping": {
+                  "fields": [
+                    {
+                      "extract": "name",
+                      "generate": "organization.name"
+                    }
+                  ]
+                },
+                "lookups": [],
+                "http": {
+                  "relativeURI": [
+                    "organizations.json"
+                  ],
+                  "method": [
+                    "POST"
+                  ],
+                  "batchSize": 1,
+                  "sendPostMappedData": true,
+                  "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Branch 1.1",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "SF import",
+                "adaptorType": "SalesforceImport",
+                "salesforce": {
+                  "removeNonSubmittableFields": false,
+                  "sObjectType": "Account",
+                  "api": "soap",
+                  "operation": "insert"
+                },
+                "mapping": {
+                  "fields": [
+                    {
+                      "extract": "name",
+                      "generate": "Name"
+                    },
+                    {
+                      "extract": "phone",
+                      "generate": "Phone"
+                    },
+                    {
+                      "extract": "fax",
+                      "generate": "Fax"
+                    },
+                    {
+                      "extract": "email",
+                      "generate": "Email__c"
+                    }
+                  ]
+                },
+                "_connectionId": "SALESFORCE CONNECTION",
+                "distributed": false
+              }
+            }
+          ],
+          "qa__rules": [
+            [
+              "record.email",
+              "equal",
+              "Auto_TC_47974_3@gmail.com"
+            ]
+          ],
+          "inputFilter": {
+            "rules": [
+              "equals",
+              [
+                "string",
+                [
+                  "extract",
+                  "email"
+                ]
+              ],
+              "Auto_TC_47974_3@gmail.com"
+            ]
+          },
+          "nextRouterId": "yCNC4t"
+        }
+      ],
+      "script": {
+        "function": "branchRouter"
+      }
+    },
+    {
+      "id": "yCNC4t",
+      "branches": [
+        {
+          "name": "NS Import",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "_connectionId": "NETSUITE CONNECTION",
+                "name": "NS Import",
+                "adaptorType": "NetSuiteDistributedImport",
+                "lookups": [],
+                "distributed": true,
+                "netsuite_da": {
+                  "useSS2Restlets": false,
+                  "operation": "add",
+                  "recordType": "customer",
+                  "lookups": [],
+                  "mapping": {
+                    "lists": [],
+                    "fields": [
+                      {
+                        "generate": "companyname",
+                        "extract": "name",
+                        "internalId": false
+                      },
+                      {
+                        "generate": "subsidiary",
+                        "hardCodedValue": "14",
+                        "internalId": true
+                      },
+                      {
+                        "generate": "email",
+                        "extract": "email",
+                        "internalId": false
+                      },
+                      {
+                        "generate": "comments",
+                        "extract": "notes",
+                        "internalId": false
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "4",
+    "errorCount": "2"
+  }
+}

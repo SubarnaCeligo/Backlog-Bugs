@@ -1,0 +1,35 @@
+{
+    "importJSON": {
+        "type": "http",
+        "name": "HTTP_Connection",
+        "sandbox": false,
+        "http": {
+            "formType": "http",
+            "mediaType": "json",
+            "baseURI": "https://api.trinet.com/",
+            "unencrypted": {
+                "field": "value"
+            },
+            "encrypted": "******",
+            "auth": {
+                "type": "token",
+                "oauth": {
+                    "clientCredentialsLocation": "body"
+                },
+                "token": {
+                    "token": "******",
+                    "location": "header",
+                    "headerName": "Authorization",
+                    "scheme": "apikey",
+                    "paramName": "access_token"
+                }
+            }
+        },
+        "queues": [
+            {
+                "name": "62ed0908b0a39054cda226ed",
+                "size": 0
+            }
+        ]
+    }
+}

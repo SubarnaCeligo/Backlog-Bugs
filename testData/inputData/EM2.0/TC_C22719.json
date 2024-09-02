@@ -1,0 +1,72 @@
+{
+  "name": "TC_C22719",
+  "referencename": "TC_C22719",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "application": "MySQL",
+            "name": "AutomationStandalone_MySQL Export",
+            "_connectionId": "MYSQL CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "rawData": "603ce5ede9250226dcea46081b1f6bf448cc44bb8b1474d5322833ef",
+            "rdbms": {
+              "query": "select * from Templates.Order limit 5"
+            },
+            "adaptorType": "RDBMSExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "MySQL Import",
+            "application": "MySQL",
+            "parsers": [],
+            "_connectionId": "MYSQL CONNECTION",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [],
+            "rdbms": {
+              "query": [
+                "insert into"
+              ],
+              "queryType": [
+                "INSERT"
+              ]
+            },
+            "adaptorType": "RDBMSImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C22719",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

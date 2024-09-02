@@ -1,0 +1,141 @@
+{
+  "name": "TC_C52592",
+  "referencename": "TC_C52592",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "expected": {
+      "FTP": {
+        "name": "FTP import",
+        "_integrationId": "633408479fb96473a0c7372c",
+        "import": {
+          "_connectionId": "FTP CONNECTION",
+          "file": {
+            "csv": {
+              "columnDelimiter": ","
+            }
+          }
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "2",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "fileName": "TC_C52592",
+          "isUIFlow": true,
+          "folderName": "/io.auto.qa/IO_UI_Automation_FTPimport",
+          "fileType": ".json"
+        }
+      }
+    }
+  },
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "test",
+            "application" : "Orderful",
+            "_connectionId": "ORDERFUL CONNECTION",
+            "apiIdentifier": "e4c77699cf",
+            "asynchronous": true,
+            "type": "test",
+            "oneToMany": false,
+            "sandbox": false,
+            "assistantMetadata": {
+              "resource": "6345f57469f848d92751c01a",
+              "version": "6345f57469f848d92751c00e",
+              "operation": "6345f57469f848d92751c01b"
+            },
+            "http": {
+              "relativeURI": "/relationships",
+              "method": "GET",
+              "requestMediaType": "json",
+              "successMediaType": "json",
+              "errorMediaType": "json",
+              "formType": "http",
+              "paging": {
+                "method": "url",
+                "path": "metadata.pagination.links.next",
+                "lastPagePath": "metadata.pagination.links.next",
+                "lastPageValues": ["null"]
+              },
+              "response": {
+                "resourcePath": "data"
+              }
+            },
+            "test": {
+              "limit": 1
+            },
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "test",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "i20ceb0a76",
+            "oneToMany": false,
+            "sandbox": false,
+            "mappings": [
+              {
+                "extract": "$.sender.liveIsaId",
+                "generate": "liveIsaId",
+                "dataType": "string",
+                "status": "Active",
+                "sourceDataType": "string"
+              },
+              {
+                "extract": "$.sender.testIsaId",
+                "generate": "testIsaId",
+                "dataType": "string",
+                "status": "Active",
+                "sourceDataType": "string"
+              }
+            ],
+            "file": {
+              "fileName": "TC_C52592.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPimport",
+              "fileName": "TC_C52592.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C52592",
+        "disabled": false,
+        "qa__integrationId": "633408479fb96473a0c7372c",
+        "_integrationId": "63340890bb74b66e32a92640",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

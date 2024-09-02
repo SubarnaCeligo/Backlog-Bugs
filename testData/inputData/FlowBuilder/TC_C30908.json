@@ -1,0 +1,94 @@
+{
+    "name": "TC_C30908",
+    "disabled": false,
+    "_integrationId": "62ecc42648570015ab65cfa5",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "Data_Loader_TC_C30908",
+                "asynchronous": true,
+                "type": "simple",
+                "qa__isDataLoader": "json",
+                "qa__path": "//Dataloader_uploades//TC_C25614_OneToManyUpload.json",
+                "sandbox": false,
+                "rawData": "EMPTY RAW DATA",
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "type": "json"
+                },
+                "adaptorType": "SimpleExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "ogg",
+                "_connectionId": "MAGENTO CONNECTION",
+                "oneToMany": false,
+                "assistant": "magento",
+                "sandbox": false,
+                "assistantMetadata": {
+                    "resource": "attributes",
+                    "version": "V1",
+                    "operation": "assign_attribute_to_set"
+                },
+                "mapping": {
+                    "fields": [
+                        {
+                            "extract": "ID",
+                            "generate": "ho"
+                        }
+                    ]
+                },
+                "http": {
+                    "relativeURI": [
+                        "/V1/products/attribute-sets/attributes"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [
+                        null
+                    ],
+                    "batchSize": 1,
+                    "requestMediaType": "json",
+                    "successMediaType": "json",
+                    "errorMediaType": "json",
+                    "strictHandlebarEvaluation": true,
+                    "sendPostMappedData": true,
+                    "formType": "assistant",
+                    "response": {
+                        "resourceIdPath": [
+                            null
+                        ]
+                    }
+                },
+                "rest": {
+                    "relativeURI": [
+                        "/V1/products/attribute-sets/attributes"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [
+                        null
+                    ],
+                    "responseIdPath": [
+                        null
+                    ],
+                    "successPath": [
+                        null
+                    ],
+                    "successValues": [
+                        null
+                    ]
+                },
+                "adaptorType": "RESTImport"
+            }
+        }
+    ]
+}

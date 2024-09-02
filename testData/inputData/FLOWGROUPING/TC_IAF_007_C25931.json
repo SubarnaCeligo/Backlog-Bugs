@@ -1,0 +1,49 @@
+{
+    "qa_importJson": {
+        "_connectorid": "626bd797987bb423914b4800",
+        "name": "TC_IAF_007_C25931_C27256",
+        "published": false,
+        "applications": [
+            "activecampaign"
+        ],
+        "trialEnabled": true,
+        "trialPeriod": 30,
+        "_trialLicenseId": "62710b09ec56d555ce443016"
+    },
+    "qa_expectedJson": {
+        "name": "TC_IAF_007_C25931",
+        "handle": "c1815124",
+        "published": false,
+        "managed": false,
+        "applications": [
+            "activecampaign"
+        ],
+        "trialEnabled": true,
+        "trialPeriod": 30,
+        "_trialLicenseId": "62710b09ec56d555ce443016"
+    },
+    "importJson": {
+        "_connectorid": "631f189d798cc1729e8b33cc",
+        "name": "TC_IAF_007_C25931_C27256",
+        "published": false,
+        "applications": [
+            "activecampaign"
+        ],
+        "trialEnabled": true,
+        "trialPeriod": 30,
+        "_trialLicenseId": "631f19ca4281e504953f67a2"
+    },
+    "expectedJson": {
+        "name": "TC_IAF_007_C25931",
+        "handle": "c1815124",
+        "published": false,
+        "managed": false,
+        "applications": [
+            "activecampaign"
+        ],
+        "trialEnabled": true,
+        "trialPeriod": 30,
+        "_trialLicenseId": "631f19ca4281e504953f67a2"
+    }
+
+}

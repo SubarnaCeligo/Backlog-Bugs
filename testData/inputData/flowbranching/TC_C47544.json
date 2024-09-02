@@ -1,0 +1,179 @@
+{
+    "name": "TC_C47544",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "successCount": "4",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "AutomationStandaloneExport__ga2p0s9w",
+                "_connectionId": "S3 CONNECTION",
+                "qa__path": "//FTP_uploads//TC_C2810.csv",
+                "asynchronous": true,
+                "s3": {
+                    "region": "ap-south-1",
+                    "bucket": "automations3export",
+                    "keyStartsWith": "TC_C2810"
+                },
+                "hooks": {
+                    "preSavePage": {
+                        "_scriptId": "UPDATE",
+                        "function": "preSavePageFunction"
+                    }
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "csv",
+                    "csv": {
+                        "columnDelimiter": ",",
+                        "rowDelimiter": "\n",
+                        "hasHeaderRow": true,
+                        "trimSpaces": true,
+                        "rowsToSkip": 0
+                    }
+                },
+                "adaptorType": "S3Export"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "nw5EED",
+            "routeRecordsTo": "first_matching_branch",
+            "branches": [
+                {
+                    "name": "R1B1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandaloneImport__gssdwL0s9w",
+                                "application": "zendesk support",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "Auto_TC_47544_{{[#Number]}}",
+                                            "generate": "organization.name"
+                                        },
+                                        {
+                                            "extract": "[Drug @ Name]",
+                                            "generate": "organization.notes"
+                                        }
+                                    ]
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "organizations.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "R1B2",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandaloneImport__gsqpYL0s9w",
+                                "application": "zendesk support",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "Auto_TC_47544_{{[#Number]}}",
+                                            "generate": "organization.name"
+                                        },
+                                        {
+                                            "extract": "[Drug @ Name]",
+                                            "generate": "organization.notes"
+                                        }
+                                    ]
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "organizations.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        }
+    ],
+    "scriptBody": {
+        "name": "_invalidPreSavePage",
+        "content": "function preSavePageFunction (options) {return options.test}"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "zendesk": {
+                "_integrationId": "62f51db41677a21a108e5e3a",
+                "name": "TC_C47544",
+                "import": {
+                    "_connectionId": "HTTP ZENDESK CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "1",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "expectedJSON": [
+                        {
+                            "name": "Auto_TC_47544_6495195850",
+                            "notes": "Naproxen and Esomeprazole Magnesium"
+                        },
+                        {
+                            "name": "Auto_TC_47544_1933831154",
+                            "notes": "Horizon Pharma Inc."
+                        }
+                    ],
+                    "uniqueField": "name",
+                    "generateSampleDropDownAvailable": false,
+                    "standaloneexportflowID": "62f60a990f2ee6482b13f99e",
+                    "importRecordType": "organizations",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "ebed365fdc"
+                }
+            }
+        }
+    }
+}

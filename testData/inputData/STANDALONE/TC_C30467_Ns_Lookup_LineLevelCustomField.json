@@ -1,0 +1,52 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62c3e71af6f3f2299501f5bf",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "FTP Export",
+                "qa__path": "/FTP_uploads/TC_C30467.json",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "ea1d829613",
+                "asynchronous": true,
+                "sandbox": false,
+                "parsers": [],
+                "sampleData": [
+                    {
+                        "CustmerName": "Customer Test Export 2",
+                        "Customerid": "1779",
+                        "itemname": "ACC00001",
+                        "amount": "402",
+                        "quantity": "1",
+                        "line": "1"
+                    },
+                    {
+                        "CustmerName": "Rahul Verma",
+                        "Customerid": "119126",
+                        "itemname": "450v power supply unit",
+                        "Itemid": "5525",
+                        "amount": "50.00",
+                        "quantity": "2",
+                        "line": "1"
+                    }
+                ],
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                    "fileNameStartsWith": "TC_C30467",
+                    "fileNameEndsWith": ".json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ]
+  }

@@ -1,0 +1,73 @@
+{
+  "script": "TC_C53070",
+  "name": "TC_C53070",
+  "qa__expectedDashboardCount": {
+    "successCount": "0",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "jdbc exp test",
+            "qa__connectionId": "641f0dd9562d165a6ff84790",
+            "_connectionId": "641f0dd9562d165a6ff84790",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "jdbc": {
+              "query": "SELECT c.firstname, c.lastname, c.email, c1.memo FROM transaction as c1, Customer  as c WHERE c.id = c1.id and c.firstname is NOT NULL"
+            },
+            "adaptorType": "JDBCExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "jdbc ftp",
+            "qa__connectionId": "63f346dda8c6e32a4f1d6046",
+            "_connectionId": "63f346dda8c6e32a4f1d6046",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+              "fileName": "jdbcfile-{{timestamp}}.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPimport",
+              "fileName": "jdbcfile-{{timestamp}}.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C53070",
+        "disabled": false,
+        "_integrationId": "634e810c726b3671a96124e6",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,349 @@
+{
+    "name": "TC_C47525",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+      "successCount": "4",
+      "ignoreCount": "0",
+      "errorCount": "0"
+    },
+    "pageGenerators": [
+      {
+        "type": "export",
+        "qa__export": {
+            "name": "Zendesk export",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "asynchronous": true,
+            "type": "test",
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+                "relativeURI": "macros",
+                "method": "GET",
+                "formType": "http",
+                "response": {
+                    "resourcePath": "macros"
+                }
+            },
+            "test": {
+                "limit": 1
+            },
+            "adaptorType": "HTTPExport"
+        }
+      }
+    ],
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "EWjEE2",
+            "routeRecordsTo": "first_matching_branch",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [
+                                    {
+                                        "extract": "user.locale",
+                                        "generate": "field1"
+                                    },
+                                    {
+                                        "extract": "user.role",
+                                        "generate": "field2"
+                                    }
+                                ],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "The Zendesk Import 1",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "ignoreExisting": false,
+                                "ignoreMissing": false,
+                                "oneToMany": false,
+                                "assistant": "zendesk",
+                                "assistantMetadata": {
+                                    "resource": "users_api",
+                                    "version": "v2",
+                                    "operation": "create_users_api"
+                                },
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "actions[0].field",
+                                            "generate": "user.name"
+                                        }
+                                    ]
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "/api/v2/users.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "body": [
+                                        null
+                                    ],
+                                    "batchSize": 1,
+                                    "requestMediaType": "json",
+                                    "successMediaType": "json",
+                                    "errorMediaType": "json",
+                                    "strictHandlebarEvaluation": true,
+                                    "sendPostMappedData": true,
+                                    "formType": "assistant",
+                                    "response": {
+                                        "resourceIdPath": [
+                                            null
+                                        ]
+                                    }
+                                },
+                                "rest": {
+                                    "relativeURI": [
+                                        "/api/v2/users.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "body": [
+                                        null
+                                    ],
+                                    "responseIdPath": [
+                                        null
+                                    ],
+                                    "successPath": [
+                                        null
+                                    ],
+                                    "successValues": [
+                                        null
+                                    ]
+                                },
+                                "adaptorType": "RESTImport"
+                            }
+                        }
+                    ],
+                    "nextRouterId": "1IgVl1"
+                },
+                {
+                    "name": "Branch 1.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "The Zendesk import 2",
+                                "application":"zendesk support",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "ignoreExisting": false,
+                                "ignoreMissing": false,
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "generate": "user.name",
+                                            "hardCodedValue": "Auto_TC_47525"
+                                        },
+                                        {
+                                            "extract": "title",
+                                            "generate": "user.notes"
+                                        }
+                                    ]
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "users"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "body": [],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        },
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "1IgVl1",
+            "routeRecordsTo": "all_matching_branches",
+            "branches": [
+                {
+                    "name": "Branch 2.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "Zendesk import 3",
+                                "application":"zendesk support",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "ignoreExisting": false,
+                                "ignoreMissing": false,
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "field1",
+                                            "generate": "user.name"
+                                        }
+                                    ]
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "users"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "body": [],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Branch 2.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "Zendesk import 4",
+                                "application":"zendesk support",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "ignoreExisting": false,
+                                "ignoreMissing": false,
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "field2",
+                                            "generate": "user.name"
+                                        }
+                                    ]
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "users"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "body": [],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        }
+    ],
+    "qa__dataVerification": {
+      "expected": {
+        "zendesk": {
+          "name": "TC_C47525",
+          "_integrationId": "62f51db41677a21a108e5e3a",
+          "import": {
+            "_connectionId": "HTTP ZENDESK CONNECTION"
+          },
+          "qa__dataVerification": {
+            "generateSampleDropDownAvailable": false,
+            "expectedJSON": {
+              "name": "en-US"
+            },
+            "standaloneexportflowID": "57aaf0188ec9f88049060166",
+            "uniqueField": "name",
+            "importRecordType": "users",
+            "isUIFlow": true,
+            "exportapiIdentifier": "e8c9cb6192"
+          },
+          "qa__expectedDashboardCount": {
+            "successCount": "1",
+            "ignoreCount": "0",
+            "errorCount": "0"
+          }
+        },
+        "Zendesk": {
+          "name": "TC_C47525",
+          "_integrationId": "62f51db41677a21a108e5e3a",
+          "import": {
+            "_connectionId": "HTTP ZENDESK CONNECTION"
+          },
+          "qa__dataVerification": {
+            "generateSampleDropDownAvailable": false,
+            "expectedJSON": {
+              "name": "end-user"
+            },
+            "standaloneexportflowID": "57aaf0188ec9f88049060166",
+            "uniqueField": "name",
+            "importRecordType": "users",
+            "isUIFlow": true,
+            "exportapiIdentifier": "e8c9cb6192"
+          },
+          "qa__expectedDashboardCount": {
+            "successCount": "4",
+            "ignoreCount": "0",
+            "errorCount": "0"
+          }
+        },
+        "ZEndesk": {
+            "name": "TC_C47525",
+            "_integrationId": "62f51db41677a21a108e5e3a",
+            "import": {
+              "_connectionId": "HTTP ZENDESK CONNECTION"
+            },
+            "qa__dataVerification": {
+              "generateSampleDropDownAvailable": false,
+              "expectedJSON": {
+                "name": "status"
+              },
+              "standaloneexportflowID": "57aaf0188ec9f88049060166",
+              "uniqueField": "name",
+              "importRecordType": "users",
+              "isUIFlow": true,
+              "exportapiIdentifier": "e8c9cb6192"
+            },
+            "qa__expectedDashboardCount": {
+              "successCount": "4",
+              "ignoreCount": "0",
+              "errorCount": "0"
+            }
+          }
+      }
+    }
+  }
