@@ -9,7 +9,7 @@ test.describe("@Env-all @Zephyr-IO-T18036 @Zephyr-IO-T18034 TC_C46927_C46924", (
   test.beforeEach(async ({io}) => {
     await io.goToFlowsPage();
   });
-  test("TC_C46927_C46924", async ({io,page}, testInfo) => {
+  test("@Env-All @Zephyr-IO-T18036 @Zephyr-IO-T18034 TC_C46927_C46924", async ({io,page}, testInfo) => {
     test.step("*** Creating flow ***", async ()=>{});
     let flowID = await io.createResourceFromAPI(mapper, 'FLOWS');
 

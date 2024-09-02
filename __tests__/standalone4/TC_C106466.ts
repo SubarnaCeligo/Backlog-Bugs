@@ -10,7 +10,7 @@ test.describe("TC_C106466_C106449", () => {
     await io.homePage.loadingTime();
   });
   // FYI: No zephyr test case available
-  // test("TC_C106466", async ({io,page}, testInfo) => {
+  // test("@Zephyr-IO-T11111 @Env-All TC_C106466", async ({io,page}, testInfo) => {
   //     test.step("Clicking on Create Flow", async ()=>{});
   //     await io.flowBuilder.clickCreateFlowButton();
   //     await io.homePage.loadingTime();

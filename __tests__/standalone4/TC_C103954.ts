@@ -86,7 +86,7 @@ test.describe("TC_C103954", () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     test.step("*** Naviating to Home Page ***", async () => { });
   })
-  test("TC_C103954 Env-All @Zephyr-IO-T25648", async ({ io, page }, testInfo) => {
+  test("TC_C103954 @Env-All @Zephyr-IO-T25648", async ({ io, page }, testInfo) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();
     await io.goToFlowsPage();

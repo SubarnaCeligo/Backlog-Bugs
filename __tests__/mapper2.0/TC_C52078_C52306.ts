@@ -4,9 +4,9 @@ import * as selectors from "@celigo/aut-selectors";
 import { decrypt ,randomNumber} from "@celigo/aut-utilities";
 import TC_C52078_C52306 from "@testData/Mapper2.0/TC_C52078_C52306.json";
 
-test.describe("@Env-All @Zephyr-IO-T22542 @Zephyr-IO-T22548 TC_C52078_C52306", () => {
+test.describe(" TC_C52078_C52306", () => {
   var flows;
-  test("TC_C52078_C52306", async ({io,page}, testInfo) => {
+  test("@Env-All @Zephyr-IO-T22542 @Zephyr-IO-T22548 TC_C52078_C52306", async ({io,page}, testInfo) => {
     test.step(" *** CREATED FLOW VIA API ***", async ()=>{});
     flows = await io.api.createImpOrExpAndFlowsThruAPI(TC_C52078_C52306);
     await test.step(

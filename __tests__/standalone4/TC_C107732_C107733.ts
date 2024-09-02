@@ -33,7 +33,7 @@ test.describe("TC_C107732_C107733", () => {
       }
     }
   });
-  test("TC_C107732_C107733 @Zephyr-IO-T24119 @Zephyr-IO-T24120 Env-All", async ({ io, page }, testInfo) => {
+  test("TC_C107732_C107733 @Zephyr-IO-T24119 @Zephyr-IO-T24120 @Env-All", async ({ io, page }, testInfo) => {
     flowId = await io.createResourceFromAPI(TC, "FLOWS");
     await test.step("*** Created Flows :" + TC.name, async () => { });
     await io.homePage.loadingTime();
