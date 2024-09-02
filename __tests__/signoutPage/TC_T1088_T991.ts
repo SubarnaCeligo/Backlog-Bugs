@@ -61,9 +61,9 @@ test.describe("T1088_T991 Verify all the available fields in the Create password
     await io.homePage.loadingTime();
     let createMsg = await page.getByText("Create your password");
     expect(await createMsg.isVisible()).toBeTruthy();
-    expect(await page.isVisible(selectors.loginPagePO.PASSWORD)).toBeTruthy();
+    expect(await page.isVisible(selectors.importPagePO.PASSWORD)).toBeTruthy();
     const password = "C!" + randomString(5) + randomNumber(5);
-    await io.signInPage.fill(selectors.loginPagePO.PASSWORD, password);
+    await io.signInPage.fill(selectors.importPagePO.PASSWORD, password);
     let validationMsg = await page.getByText("Contains at least one capital letter");
     expect(await validationMsg.isVisible()).toBeTruthy();
     await io.signInPage.click(selectors.basePagePO.SUBMIT);

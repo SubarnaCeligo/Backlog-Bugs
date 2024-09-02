@@ -45,6 +45,6 @@ test.describe("C57431 Verify the success message in the forgot password page aft
     await io.signInPage.fill(selectors.loginPagePO.EMAIL_ID, process.env["IO_UserName"]);
     await io.signInPage.click(selectors.basePagePO.SUBMIT);
     await io.signInPage.waitForElementAttached(':has-text("Check your email for a link to reset your password.")')
-    await io.assert.verifyElementDisplayedByText('Forgot your password?', 'Check your email for a link to reset your password.');
+    await io.assert.verifyElementDisplayedByText('Forgot password?', 'Check your email for a link to reset your password.');
   });
 });

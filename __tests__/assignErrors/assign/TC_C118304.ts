@@ -49,7 +49,7 @@ test.describe("C118304 - Verify the assign error feature when user tries invite 
    await io.flowBuilder.fill(selectors.em2DotOLineGraphPO.NEW_USER_EMAIL, "io.auto.qa+assignuser2@celigo.com");
 
    //Validate the warning message.
-   const warningMessage = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.PAGE_INFO_TEXT)).toString();
+   const warningMessage = (await io.flowBuilder.getText(selectors.em2DotOLineGraphPO.USER_EXISTS_WARNING)).toString();
    await io.assert.expectToBeValue(
     "A user with this email address already exists in this account. Select them from the list of users above.",
     warningMessage,

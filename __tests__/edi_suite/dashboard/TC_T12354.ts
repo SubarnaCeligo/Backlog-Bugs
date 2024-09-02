@@ -5,7 +5,7 @@ import T12354_sampleData from "@testData/Exports/T12354_sample.json";
 import T12354_output from "@testData/Exports/T12354_output.json";
 
 test.describe("T12354 Test to validate auto preview on File parser window", () => {
-    test("@Env-All @Zephyr-IO-T11796 @Priority-P2 T12354 Test to validate auto preview on File parser window", async ({io, page}) => {
+    test("@Env-QA @Zephyr-IO-T11796 @Priority-P2 T12354 Test to validate auto preview on File parser window", async ({io, page}) => {
         const edi_response = await io.api.postCall('/v1/ediProfiles', T12354_edi);
 
         await io.exportsPage.addStep('*** Navigating to Exports Page ***');
@@ -44,7 +44,13 @@ test.describe("T12354 Test to validate auto preview on File parser window", () =
         await io.exportsPage.waitForElementAttached(selectors.exportsPagePO.PARSING_DEF_DROPDOWN);
         await io.exportsPage.clickByIndex(selectors.exportsPagePO.PARSING_DEF_DROPDOWN, 0);
 
+        // Parser helper
+        await io.exportsPage.clickByIndex(selectors.exportsPagePO.PARSER_HELPER, 1);
+        await io.exportsPage.loadingTime();
+        await io.exportsPage.click(selectors.exportsPagePO.CLOSE_PARSER_HELPER);
+
         await io.exportsPage.addStep('*** Saving the Export ***');
+        await io.exportsPage.waitForElementAttached(selectors.flowBuilderPagePO.DIRECTORYPATH);
         await io.exportsPage.fill(selectors.flowBuilderPagePO.DIRECTORYPATH, '/io.auto.qa/FTP_UI_AUTOMATION/EXPORTS');
         await io.exportsPage.loadingTime();
         await io.exportsPage.clickByText('Save');
@@ -60,12 +66,13 @@ test.describe("T12354 Test to validate auto preview on File parser window", () =
         }
         await io.api.putCall('/v1/exports/' + exportId, export_doc);
         await io.exportsPage.reloadPage();
+        await io.exportsPage.loadingTime();
         for (let i = 0; i < 5; i++) {
             await io.exportsPage.loadingTime();
         }
 
         await io.exportsPage.addStep('*** Clicking on EDI Parser helper ***');
-        await io.exportsPage.clickByText('Launch');
+        await io.exportsPage.clickByIndex(selectors.exportsPagePO.PARSER_HELPER, 1);
         await io.exportsPage.loadingTime();
         await io.exportsPage.loadingTime();
 

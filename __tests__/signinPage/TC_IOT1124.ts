@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("@Author-MayankOmar IO-T1124 Verify the NA region login screen when creating a shopify connection from the app store", () => {
-    
+
   test("@Env-All @Zephyr-IO-T1124 C52784 Verify the NA region login screen when creating a shopify connection from the app store", async ({
     io,
     page
@@ -31,7 +31,7 @@ test.describe("@Author-MayankOmar IO-T1124 Verify the NA region login screen whe
     );
     await io.homePage.addStep("*** Validating Signin With Google option is Present  ***");
     await io.assert.verifyElementDisplayedByText(
-        "Switch to EU domain",
+        "EU account sign in",
         "Switch to EU domain link  is not Present"
       );
     await io.homePage.addStep("*** Validating Switch To EU link  is Present  ***");
