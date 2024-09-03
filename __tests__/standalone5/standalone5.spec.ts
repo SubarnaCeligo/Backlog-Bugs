@@ -6,3 +6,4 @@ require("./TC_C28436");
 require("./TC_C28641");
 require("./TC_C28991_C50866_C36418_C45064");
 require("./TC_C32358");
+require("./TC_C26588");

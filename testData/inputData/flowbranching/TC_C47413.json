@@ -8,6 +8,7 @@
         {
             "qa__export": {
                 "_connectionId": "NETSUITE CONNECTION",
+                "name": "TC_C47413",
                 "netsuite": {
                     "type": "restlet",
                     "skipGrouping": true,

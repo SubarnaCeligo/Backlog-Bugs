@@ -1,0 +1,29 @@
+{
+    "name": "TC_C47436",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "timezone": "Asia/Calcutta",
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "AutomationStandaloneExport_Shopify",
+                "application": "Shopify",
+                "_connectionId": "HTTP SHOPIFY CONNECTION",
+                "type": "test",
+                "http": {
+                    "relativeURI": "/customers/search.json?query=first_name:Gautham",
+                    "method": "GET",
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "customers"
+                    }
+                },
+                "test": {
+                    "limit": 1
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ]
+}
