@@ -12,7 +12,7 @@ test.describe("C108513 In security tab Style is not applied for 'Enable MFA'", (
     await io.myAccountPage.click(selectors.myAccountPagePO.SECURITY);
     await io.myAccountPage.click(selectors.myAccountPagePO.MFA);
     const isToggleEnable = await io.myAccountPage.isVisible(selectors.myAccountPagePO.MFA_ON_OFF);
-    if(!isToggleEnable) await io.myAccountPage.click(selectors.myAccountPagePO.MFA_TOGGLE);
+    if(!isToggleEnable) await io.myAccountPage.click(selectors.myAccountPagePO.MFA_ENABLE_BUTTON);
     await io.assert.verifyElementDisplayedByText('Enable MFA', 'Enable MFA not visible');
     await expect(page.getByText('Enable MFA')).toHaveCSS('font-size','14px');
     await io.assert.verifyElementDisplayedByText('Connect your mobile device  *', 'Connect your mobile device text is improper');
