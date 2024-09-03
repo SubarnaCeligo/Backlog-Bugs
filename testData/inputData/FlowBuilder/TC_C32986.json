@@ -1,0 +1,131 @@
+{
+    "flowname1": "TC_C32986",
+    "flowname2": "TC_C32987",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "FTP Export",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "e16dab94fb",
+                        "asynchronous": true,
+                        "sandbox": false,
+                        "sampleData": [
+                            {
+                                "name": "Auto_TC_C44965",
+                                "type": "physical",
+                                "weight": 0,
+                                "price": 234,
+                                "categories": [
+                                    26
+                                ],
+                                "bulk_pricing_rules": [
+                                    {
+                                        "quantity_min": 1,
+                                        "quantity_max": 2,
+                                        "type": "price",
+                                        "amount": 12
+                                    }
+                                ]
+                            }
+                        ],
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                            "fileNameStartsWith": "TC_C44965_Mapper",
+                            "fileNameEndsWith": ".json"
+                        },
+                        "file": {
+                            "encoding": "utf8",
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "json",
+                            "json": {
+                                "resourcePath": "*"
+                            }
+                        },
+                        "adaptorType": "FTPExport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C32986",
+                "disabled": false,
+                "_integrationId": "",
+                "skipRetries": false,
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        },
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "application": "MySQL",
+                        "name": "MySQL Export",
+                        "_connectionId": "MYSQL CONNECTION",
+                        "apiIdentifier": "e38bc0c8e5",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "rawData": "62ebb431e627016182cf33913e6a6e6da22f4e68a06711d95fb70f76",
+                        "rdbms": {
+                            "query": "select * from Templates.Order LIMIT 1"
+                        },
+                        "adaptorType": "RDBMSExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "MySQL Import Error",
+                        "application": "MySQL",
+                        "_connectionId": "MYSQL CONNECTION",
+                        "apiIdentifier": "i6406352ca",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "rdbms": {
+                            "query": [
+                                "insert into"
+                            ],
+                            "queryType": [
+                                "INSERT"
+                            ]
+                        },
+                        "adaptorType": "RDBMSImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C32987",
+                "disabled": false,
+                "_integrationId": "",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

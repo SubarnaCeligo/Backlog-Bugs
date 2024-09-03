@@ -1,0 +1,84 @@
+{
+  "name": "IO_32097_DisplayFlowCanceledInfo",
+  "referencename": "IO_32097_DisplayFlowCanceledInfo",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "application": "MySQL",
+            "name": "AutomationStandalone_mysql export",
+            "_connectionId": "631a5194abf51e7a86c834ff",
+            "qa__connectionId": "62bdbb3be1e8ab72df1ea2f1",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "rawData": "603ce5ede9250226dcea4608bbeecb39ec21453e941914a2ce672fa3",
+            "rdbms": {
+              "query": "select * from Templates.Order"
+            },
+            "adaptorType": "RDBMSExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "imp",
+            "application":"zendesk support",
+            "_connectionId": "60a7af7aa52e49098ddfe21f",
+            "qa__connectionId": "62b432340c9c930d1bca25ab",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "customern",
+                  "generate": "ticket.comment.by"
+                }
+              ]
+            },
+            "http": {
+              "relativeURI": [
+                "/tickets.json"
+              ],
+              "method": [
+                "POST"
+              ],
+              "body": [],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "IO_32097_DisplayFlowCanceledInfo",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

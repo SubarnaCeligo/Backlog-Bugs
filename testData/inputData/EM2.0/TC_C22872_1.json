@@ -1,0 +1,19 @@
+{
+  "type": "export",
+  "qa__export": {
+    "name": "export_22872_1",
+    "application": "zendesk support",
+    "qa__connectionId": "ZENDESK CONNECTION",
+    "_connectionId": "HTTP ZENDESK CONNECTION",
+    "asynchronous": true,
+    "oneToMany": false,
+    "sandbox": false,
+    "http": {
+      "relativeURI": "tickets/81",
+      "method": "GET",
+      "formType": "http"
+    },
+    "rawData": "603ce5ede9250226dcea4608efdb83c5936145d69e611dd97fef95de",
+    "adaptorType": "HTTPExport"
+  }
+}

@@ -1,0 +1,124 @@
+{
+    "name": "TC_48546_do_nothing",
+    "disabled": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "zendesk",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "extract": "$.record1",
+                        "generate": "new_mail",
+                        "dataType": "string",
+                        "status": "Active"
+                    },
+                    {
+                        "extract": "$.record2",
+                        "generate": "new_number",
+                        "dataType": "number",
+                        "status": "Active"
+                    },
+                    {
+                        "extract": "$.record3",
+                        "generate": "new_bool",
+                        "dataType": "boolean",
+                        "status": "Active"
+                    },
+                    {
+                        "extract": "$.fName",
+                        "generate": "fName",
+                        "dataType": "string",
+                        "status": "Active"
+                    },
+                    {
+                        "extract": "$.lName",
+                        "generate": "lName",
+                        "dataType": "string",
+                        "status": "Active"
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "/tickets.json"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [
+                        "{\n  \"ticket\": {\n    \"comment\": {\n    \"body\":\"{{record.lName}}\"\n    },\n    \"subject\": \"{{record.fName}}\",\n    \"priority\": \"low\"\n  }\n}"
+                    ],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "ftp",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                    "fileNameStartsWith": "TC_46480.json"
+                },
+                "qa__path": "/FTP_uploads/TC_46480.json",
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "successCount": "2",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "ZENDESK": {
+                "name": "zendesk",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "import": {
+                    "_connectionId": "HTTP ZENDESK CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "expectedJSON": [
+                        {
+                            "subject": "scott",
+                            "raw_subject": "scott",
+                            "priority": "low"
+                        }
+                    ],
+                    "uniqueField": "subject",
+                    "standaloneexportflowID": "6322f9c6c03c6c750e5abd63",
+                    "isUIFlow": true,
+                    "importRecordType": "tickets",
+                    "exportapiIdentifier": "ea836b5c29"
+                }
+            }
+        }
+    }
+}

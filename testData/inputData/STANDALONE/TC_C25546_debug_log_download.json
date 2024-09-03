@@ -1,0 +1,65 @@
+{
+    "name": "TC_C25546",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "6228aed6bc8a2732cfe8044c",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                 "name": "NS_Subsidiary",
+    "_connectionId": "NETSUITE CONNECTION",
+    "apiIdentifier": "e4bf756bf6",
+    "asynchronous": true,
+    "netsuite": {
+        "type": "restlet",
+        "skipGrouping": true,
+        "statsOnly": false,
+        "restlet": {
+            "recordType": "subsidiary",
+            "searchId": "2343",
+            "criteria": [],
+            "columns": [],
+            "useSS2Restlets": true
+        },
+        "distributed": {
+            "executionContext": [],
+            "executionType": [],
+            "useSS2Framework": false
+        }
+    },
+    "adaptorType": "NetSuiteExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "export",
+            "qa__export": {
+               "name": "NS_Subsidiary_PP",
+    "_connectionId": "NETSUITE CONNECTION",
+    "apiIdentifier": "e9afb7974a",
+    "asynchronous": true,
+    "isLookup": true,
+    "netsuite": {
+        "type": "restlet",
+        "skipGrouping": true,
+        "statsOnly": false,
+        "restlet": {
+            "recordType": "subsidiary",
+            "searchId": "2343",
+            "criteria": [],
+            "columns": [],
+            "useSS2Restlets": true
+        },
+        "distributed": {
+            "executionContext": [],
+            "executionType": [],
+            "useSS2Framework": false
+        }
+    },
+    "adaptorType": "NetSuiteExport"
+            }
+        }
+    ]
+}

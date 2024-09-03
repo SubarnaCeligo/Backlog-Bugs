@@ -1,0 +1,121 @@
+{
+    "flowname": "TC_C26404_FG",
+    "name": "TC_C26404_",
+    "qa__expectedDashboardCount": {
+        "successCount": "0",
+        "ignoreCount": "0",
+        "errorCount": "1"
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Zendesk",
+                        "_connectionId": "ZENDESK CONNECTION",
+                        "asynchronous": true,
+                        "type": "test",
+                        "assistant": "zendesk",
+                        "oneToMany": false,
+                        "assistantMetadata": {
+                            "resource": "tickets_api",
+                            "version": "v2",
+                            "operation": "list_tickets"
+                        },
+                        "http": {
+                            "relativeURI": "/api/v2/tickets.json",
+                            "method": "GET",
+                            "successMediaType": "json",
+                            "errorMediaType": "json",
+                            "formType": "assistant",
+                            "paging": {
+                                "method": "url",
+                                "path": "next_page",
+                                "lastPageStatusCode": 404
+                            },
+                            "response": {
+                                "resourcePath": "tickets"
+                            }
+                        },
+                        "test": {
+                            "limit": 1
+                        },
+                        "rest": {
+                            "relativeURI": "/api/v2/tickets.json",
+                            "method": "GET",
+                            "resourcePath": "tickets",
+                            "pagingMethod": "nextpageurl",
+                            "nextPagePath": "next_page",
+                            "allowUndefinedResource": false
+                        },
+                        "filter": {
+                            "type": "script",
+                            "script": {
+                                "_scriptId": "UPDATE",
+                                "function": "filter"
+                            }
+                        },
+                        "adaptorType": "RESTExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "sql",
+                        "application": "MySQL",
+                        "modelMetadata": {
+                            "myField": {
+                                "default": ""
+                            }
+                        },
+                        "_connectionId": "MYSQL CONNECTION",
+                        "_sourceId": "62ea300d36f8f637aa25a195",
+                        "apiIdentifier": "ieb97bfc9d",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "rdbms": {
+                            "query": [
+                                "INSERT INTO Zenq\r\n(name)\r\nVALUES(\r\n{{record.external_id}}\r\n)"
+                            ],
+                            "queryType": [
+                                "INSERT"
+                            ]
+                        },
+                        "adaptorType": "RDBMSImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C26404_FG",
+                "disabled": false,
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "qa__integrationId": "603ce75ac4fec33283691f43",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ],
+    "scriptBody": {
+        "name": "TC_C26404",
+        "content": "function filter (options) {\r\n  throw new Error(\"tc\");\r\n}"
+    }
+}

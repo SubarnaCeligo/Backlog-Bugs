@@ -1,0 +1,143 @@
+{
+    "name": "TC_C2574",
+    "referencename": "TC_C2574",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "BG export",
+                        "application": "BigCommerce",
+                        "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+                        "apiIdentifier": "e3f8b5483f",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "http": {
+                            "relativeURI": "/v3/customers",
+                            "method": "GET",
+                            "formType": "http",
+                            "response": {
+                                "resourcePath": "data"
+                            }
+                        },
+                        "test": {
+                            "limit": 1
+                        },
+                        "transform": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [
+                                    []
+                                ],
+                                "version": "1"
+                            },
+                            "version": "1",
+                            "rules": [
+                                []
+                            ]
+                        },
+                        "filter": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [
+                                    "equals",
+                                    [
+                                        "string",
+                                        [
+                                            "extract",
+                                            "cutomerstransformrule.company"
+                                        ]
+                                    ],
+                                    "we"
+                                ],
+                                "version": "1"
+                            },
+                            "version": "1",
+                            "rules": [
+                                "equals",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "cutomerstransformrule.company"
+                                    ]
+                                ],
+                                "we"
+                            ]
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Http export",
+                        "application": "BigCommerce",
+                        "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+                        "apiIdentifier": "e3a1626d53",
+                        "asynchronous": true,
+                        "oneToMany": true,
+                        "pathToMany": "transformrule",
+                        "http": {
+                            "relativeURI": "/v3/customers?email:in=dynamiccustomer@gmail.com",
+                            "method": "GET",
+                            "formType": "http"
+                        },
+                        "filter": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [
+                                    "equals",
+                                    [
+                                        "number",
+                                        [
+                                            "extract",
+                                            "data.length"
+                                        ]
+                                    ],
+                                    12
+                                ],
+                                "version": "1"
+                            },
+                            "version": "1",
+                            "rules": [
+                                "equals",
+                                [
+                                    "number",
+                                    [
+                                        "extract",
+                                        "data.length"
+                                    ]
+                                ],
+                                12
+                            ]
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C2574",
+                "disabled": false,
+                "_integrationId": "62ecc42648570015ab65cfa5",
+                "qa__integrationId": "62eca1efe386b563f638451e",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

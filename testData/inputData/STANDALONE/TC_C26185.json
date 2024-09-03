@@ -1,0 +1,70 @@
+{
+    "referencename": "TC_C26185",
+    "name": "TC_C26185",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "TC_C26185",
+                        "type": "webhook",
+                        "sandbox": false,
+                        "webhook": {
+                            "provider": "custom",
+                            "verify": "basic",
+                            "username": "goodUser",
+                            "password": "goodPass"
+                        },
+                        "adaptorType": "WebhookExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Ftp Import",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "i160155636",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "file": {
+                            "fileName": "AS2.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "/SukeerthiSriram/SS20",
+                            "fileName": "AS2.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C26185",
+                "disabled": false,
+                "qa__integrationId": "56d6b23fe1fc35de53914730",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

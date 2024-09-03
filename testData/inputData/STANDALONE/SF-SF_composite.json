@@ -1,0 +1,93 @@
+{
+    "name": "SF-SF_composite",
+    "referencename": "SF-SF_composite",
+    "qa__dataVerification": {},
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+                "name": "sf export",
+                "_connectionId": "SALESFORCE CONNECTION",
+                "apiIdentifier": "e5bd028b61",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "sandbox": false,
+                "rawData": "624a9c14d68e2457e3b1550acc82f483bb454aceb68712bed9cf12cf",
+                "test": {
+                    "limit": 1
+                },
+                "salesforce": {
+                    "type": "soql",
+                    "api": "rest",
+                    "soql": {
+                        "query": "select name from account"
+                    },
+                    "distributed": {
+                        "referencedFields": [],
+                        "relatedLists": []
+                    }
+                },
+                "adaptorType": "SalesforceExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+            "name": "composite",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "apiIdentifier": "ifb7cd88a6",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "mapping": {
+                "fields": [
+                    {
+                        "extract": "attributes.type",
+                        "generate": "Type"
+                    },
+                    {
+                        "extract": "Name",
+                        "generate": "Name"
+                    }
+                ]
+            },
+            "salesforce": {
+                "operation": "insert",
+                "sObjectType": "Account",
+                "api": "compositerecord",
+                "removeNonSubmittableFields": false
+            },
+            "adaptorType": "SalesforceImport"
+           }
+         }
+        ],
+        "createFlow": {
+          "name": "SF-SF_composite",
+          "disabled": false,
+          "_integrationId": "6228aed6bc8a2732cfe8044c",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

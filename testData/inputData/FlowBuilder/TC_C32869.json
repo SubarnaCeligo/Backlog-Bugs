@@ -1,0 +1,38 @@
+{
+    "flowname": "TC_C32869",
+    "flowGroup": "TC_C32869_FLOW_GROUP",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "application": "MySQL",
+                        "name": "MySQL Export",
+                        "_connectionId": "MYSQL CONNECTION",
+                        "apiIdentifier": "ef3621a3e0",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "rawData": "62ebb431e627016182cf33915823dd6b741e4c6a80e64655cc92c055",
+                        "rdbms": {
+                            "query": "select * from Templates.Order LIMIT 1"
+                        },
+                        "adaptorType": "RDBMSExport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C32869",
+                "disabled": false,
+                "_integrationId": "",
+                "skipRetries": false,
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

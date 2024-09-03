@@ -1,0 +1,137 @@
+{
+  "referencename": "TC_C52756_C52764",
+  "name": "TC_C52756_C52764",
+  "ExpectedData": [
+    {
+      "test": "serviceitem",
+      "test1": "TC_C52418",
+      "auto": "itemvendorprice",
+      "auto2": "123"
+    }
+  ],
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "AutomationStandalone_H5yQy",
+            "_connectionId": "FTP CONNECTION",
+            "qa__path": "//FTP_uploads//TC_C52753.json",
+            "apiIdentifier": "e9c3edcfda",
+            "asynchronous": true,
+            "sandbox": false,
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+              "fileNameStartsWith": "TC_C52753",
+              "fileNameEndsWith": ".json"
+            },
+            "file": {
+              "encoding": "utf8",
+              "output": "records",
+              "skipDelete": true,
+              "type": "json"
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "AutomationStandaloneImport__GnBwl3T6G2",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "if3dcbb5d4",
+            "oneToMany": false,
+            "sandbox": false,
+            "mappings": [
+              {
+                "dataType": "objectarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                  {
+                    "extract": "$.nlobjFieldIds",
+                    "sourceDataType": "object",
+                    "mappings": [
+                      {
+                        "extract": "$.nlobjRecordType",
+                        "generate": "test",
+                        "dataType": "string",
+                        "status": "Active",
+                        "sourceDataType": "string"
+                      },
+                      {
+                        "extract": "$.nlobjFieldIds.itemid",
+                        "generate": "test1",
+                        "dataType": "string",
+                        "status": "Active",
+                        "sourceDataType": "string"
+                      },
+                      {
+                        "extract": "$.nlobjSublistIds.itemvendor.lines[*].celigo_itemvendorprice.nlobjRecordType",
+                        "generate": "auto",
+                        "dataType": "string",
+                        "status": "Active",
+                        "sourceDataType": "string"
+                      },
+                      {
+                        "extract": "$.nlobjSublistIds.itemvendor.lines[*].celigo_itemvendorprice.nlobjSublistIds.itemvendorpricelines.lines[*].vendorprice",
+                        "generate": "auto2",
+                        "dataType": "string",
+                        "status": "Active",
+                        "sourceDataType": "string"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "file": {
+              "fileName": "Filter123.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation",
+              "fileName": "Filter123.json"
+            },
+            "filter": {
+              "type": "expression",
+              "expression": {
+                "rules": [],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": []
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C52756_C52764",
+        "disabled": false,
+        "qa__integrationId": "63232caf5342c33e615e7271",
+        "_integrationId": "63232c59d3a9897fe95f9f2a",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "type": "export",
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

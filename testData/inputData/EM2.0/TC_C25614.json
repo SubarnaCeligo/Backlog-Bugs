@@ -1,0 +1,64 @@
+{
+    "name": "TC_C25614",
+    "disabled": false,
+    "_integrationId": "603ce75ac4fec33283691f43",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "1",
+        "errorCount": "2"
+    },
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "Data_Loader_TC_C25614",
+                "asynchronous": true,
+                "type": "simple",
+                "qa__isDataLoader": "json",
+                "qa__path": "//Dataloader_uploades//TC_C25614_OneToManyUpload.json",
+                "apiIdentifier": "e1b60663f6",
+                "sandbox": false,
+                "rawData": "EMPTY RAW DATA",
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "type": "json"
+                },
+                "adaptorType": "SimpleExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "HTTP_Import_TC_C25614",
+                "application": "zendesk support",
+                "parsers": [],
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "qa__connectionId": "ZENDESK CONNECTION",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": true,
+                "pathToMany": "attachments",
+                "sandbox": false,
+                "lookups": [],
+                "http": {
+                    "relativeURI": [
+                        "/ticket.json"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [
+                        "{\n  \"ticket\": {\n    \"comment\": {\n      \"body\": \"The smoke is very colorful.\"\n    },\n    \"priority\": \"urgent\",\n    \"subject\": \"My printer is on fire!\"\n  }\n}"
+                    ],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ]
+}

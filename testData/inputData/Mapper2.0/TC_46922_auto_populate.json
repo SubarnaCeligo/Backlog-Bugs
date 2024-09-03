@@ -1,0 +1,82 @@
+{
+    "name": "TC_46922_auto_populate",
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "disabled": false,
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "name": "ftp",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "i13c9c00c8",
+                "oneToMany": false,
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "dataType": "objectarray",
+                        "status": "Active",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$",
+                                "mappings": [
+                                    {
+                                        "extract": "$.users[*]",
+                                        "generate": "users",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "extract": "$.users[*].id",
+                                        "generate": "user_id",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "qa__path": "//FTP_uploads//TC_46922.json",
+                "file": {
+                    "fileName": "file-{{timestamp}}.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "io.auto.qa/ILM_Automation_SFTP_Import",
+                    "fileName": "file-{{timestamp}}.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ],
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "export",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "eaf21d3c91",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "/users",
+                    "method": "GET",
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "users"
+                    }
+                },
+                "rawData": "56d6b114e1fc35de5391472cf7b617216eb34bf8a2ffa381f812afa7",
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ]
+}

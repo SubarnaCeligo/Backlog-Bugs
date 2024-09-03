@@ -1,0 +1,121 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "shopify imp",
+        "_connectionId": "SHOPIFY CONNECTION",
+        "distributed": false,
+        "assistant": "shopify",
+        "assistantMetadata": {
+          "resource": "customer",
+          "version": "v2",
+          "operation": "creates_acustomer",
+          "lookups": {}
+        },
+        "http": {
+          "relativeURI": [
+            "/customers.json"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [
+            null
+          ],
+          "batchSize": 1,
+          "strictHandlebarEvaluation": true,
+          "sendPostMappedData": true,
+          "response": {
+            "resourceIdPath": [
+              null
+            ]
+          }
+        },
+        "rest": {
+          "relativeURI": [
+            "/customers.json"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [
+            null
+          ],
+          "responseIdPath": [
+            null
+          ],
+          "successPath": [
+            null
+          ],
+          "successValues": [
+            null
+          ]
+        },
+        "adaptorType": "RESTImport"
+      }
+    }
+  ],
+  "timezone": "Asia/Calcutta",
+  "name": "TC_C45870_edi",
+  "disabled": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "expected": {
+      "FTP": {
+        "name": "TC_C45870_edi",
+        "import": {
+          "_connectionId": "FTP CONNECTION",
+          "file": {
+            "csv": {
+              "columnDelimiter": ","
+            }
+          }
+        },
+        "qa__expectedDashboardCount": {
+          "ignoreCount": "0",
+          "successCount": "2",
+          "errorCount": "0",
+          "pages": "1"
+        },
+        "qa__dataVerification": {
+          "fileName": "TC_C45870-",
+          "isUIFlow": true,
+          "folderName": "io.auto.qa/Zendesk_Tests/Automation",
+          "fileType": ".edi"
+        }
+      }
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "FTP Export TC_C45870",
+        "qa__path": "//FTP_uploads//exportData.json",
+        "_connectionId": "FTP CONNECTION",
+        "asynchronous": true,
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "exportdata.json"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json",
+          "json": {
+            "resourcePath": "*"
+          }
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ]
+}

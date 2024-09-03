@@ -1,0 +1,6 @@
+{
+    "qa": "https://qa.staging.integrator.io/home",
+    "staging" : "https://staging.integrator.io/home", 
+    "qaprod":"https://qaprod.staging.integrator.io/home",
+    "iaqa":"https://iaqa.staging.integrator.io/home"
+}

@@ -1,0 +1,79 @@
+{
+    "name": "TC_C19916_C19917_C19918",
+    "disabled": false,
+    "_integrationId": "62c3e71af6f3f2299501f5bf",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "testing",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "ed0d2077f9",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "users",
+                    "method": "GET",
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "tetsinglookup",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "ebff75442f",
+                "asynchronous": true,
+                "isLookup": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "parsers": [],
+                "http": {
+                    "relativeURI": "tickets",
+                    "method": "GET",
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPExport"
+            },
+            "responseMapping": {
+                "fields": [
+                  {
+                    "extract": "data",
+                    "generate": "Lookup_Data"
+                  }
+                ],
+                "lists": [
+
+                ],
+                "qa__index": 0
+              }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "ftpimop",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "i58822eea8",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "C19916_C19917_C19918.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "io.auto.qa/IO Automation SFTP Imports",
+                    "fileName": "C19916_C19917_C19918.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ]
+}

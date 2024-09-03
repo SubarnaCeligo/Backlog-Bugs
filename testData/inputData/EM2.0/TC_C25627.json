@@ -1,0 +1,112 @@
+{
+  "name": "TC_C25627",
+  "referencename": "TC_C25627",
+  "qa__api_tdata": [
+    {
+      "pageProcessors": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "lookup_25627",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "qa__connectionId": "ZENDESK CONNECTION",
+            "asynchronous": true,
+            "isLookup": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "parsers": [],
+            "http": {
+              "relativeURI": "/tickets/81/comment.json",
+              "method": "GET",
+              "formType": "http",
+              "response": {
+                "resourcePath": "comments"
+              }
+            },
+            "adaptorType": "HTTPExport"
+          }
+        },
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "25627_import",
+            "parsers": [],
+            "_connectionId": "SALESFORCE CONNECTION",
+            "lookups": [],
+            "salesforce": {
+              "operation": "insert",
+              "sObjectType": "Account",
+              "api": "soap",
+              "removeNonSubmittableFields": false
+            },
+            "adaptorType": "SalesforceImport"
+          },
+          "responseMapping": {
+            "lists": [],
+            "fields": []
+          }
+        }
+      ],
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "export_25627",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "qa__connectionId": "ZENDESK CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "parsers": [],
+            "http": {
+              "relativeURI": "api/v2/tickets.json",
+              "method": "GET",
+              "formType": "http",
+              "response": {
+                "resourcePath": "tickets"
+              }
+            },
+            "rawData": "603ce5ede9250226dcea4608c28f65dbf1424688b4659205fcd703a1",
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C25627",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [
+                {
+                  "extract": "data",
+                  "generate": "response"
+                }
+              ],
+              "lists": []
+            },
+            "type": "export",
+            "_exportId": "UPDATE WITH EXPORTID"
+          },
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+    "name": "TC_C51933",
+    "referencename": "TC_C51933",
+    "qa__api_tdata": [
+        {
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Import",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "ib2492982f",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "file": {
+                            "fileName": "file-{{timestamp}}.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPimport",
+                            "fileName": "file-{{timestamp}}.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    },
+                    "responseMapping": {
+                        "fields": [
+                            {
+                                "extract": "id",
+                                "generate": "_headers.contentlength"
+                            }
+                        ],
+                        "lists": []
+                    }
+                },
+                {
+                    "type": "import",
+                    "responseMapping": {
+                        "fields": [],
+                        "lists": []
+                    },
+                    "qa__import": {
+                        "name": "salesforce_imp",
+                        "_connectionId": "SALESFORCE CONNECTION",
+                        "apiIdentifier": "ia32569068",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "extract": "_headers.contentlength",
+                                    "generate": "Id"
+                                }
+                            ]
+                        },
+                        "salesforce": {
+                            "operation": "insert",
+                            "sObjectType": "Account",
+                            "api": "soap",
+                            "removeNonSubmittableFields": false
+                        },
+                        "adaptorType": "SalesforceImport"
+                    }
+                }
+            ],
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "qa__path": "//FTP_uploads//TC_C51872.json",
+                        "_connectionId": "FTP CONNECTION",
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                            "fileNameStartsWith": "TC_C51872.json"
+                        },
+                        "file": {
+                            "encoding": "utf8",
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "json"
+                        },
+                        "adaptorType": "FTPExport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C51933",
+                "disabled": false,
+                "qa__integrationId": "56d6b23fe1fc35de53914730",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [
+                                {
+                                    "extract": "id",
+                                    "generate": "_headers.contentlength"
+                                }
+                            ],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "636cb042195d8f369e84ffab"
+                    },
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "636cd21f4a688a7e7c300357"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

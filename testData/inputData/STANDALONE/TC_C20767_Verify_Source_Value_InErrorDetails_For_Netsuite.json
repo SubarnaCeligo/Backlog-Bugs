@@ -1,0 +1,60 @@
+{
+  "name": "TC_C20767_Verify_Source_Value_InErrorDetails_For_Netsuite",
+  "disabled": false,
+  "timezone": "Asia/Calcutta",
+  "_integrationId": "6228aed6bc8a2732cfe8044c",
+  "skipRetries": false,
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "NS EXPORT",
+        "_connectionId": "NETSUITE CONNECTION",
+        "asynchronous": true,
+        "netsuite": {
+          "type": "restlet",
+          "skipGrouping": false,
+          "statsOnly": false,
+          "restlet": {
+            "recordType": "account",
+            "searchId": "3626",
+            "useSS2Restlets": false
+          },
+          "distributed": {
+            "disabled": false,
+            "forceReload": false
+          }
+        },
+        "adaptorType": "NetSuiteExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "FTP Import",
+        "parsers": [],
+        "_connectionId": "FTP CONNECTION",
+        "oneToMany": false,
+        "file": {
+          "fileName": "sample",
+          "skipAggregation": false,
+          "type": "csv",
+          "csv": {
+            "rowDelimiter": "",
+            "columnDelimiter": ",",
+            "includeHeader": false,
+            "wrapWithQuotes": false,
+            "replaceTabWithSpace": false,
+            "replaceNewlineWithSpace": false
+          }
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation",
+          "fileName": "sampleTest"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ]
+}

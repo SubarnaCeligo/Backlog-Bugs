@@ -1,0 +1,94 @@
+{
+    "name": "TC_C95479",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+      },
+    "referencename": "TC_C95479",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "meta",
+                        "_connectionId": "64aff400cce7a9151268e925",
+                        "qa_connectionId": "641f0dd9562d165a6ff84790",
+                        "iaqa_connecionId":"64aff47e215a08376d5b71b1",
+                        "qaprod_connectionId": "64b521fd7f49bd74db62649c",
+                        "apiIdentifier": "e2e0a6a302",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": "/act_420777788014409/ads_volume",
+                            "method": "GET",
+                            "requestMediaType": "json",
+                            "successMediaType": "json",
+                            "errorMediaType": "json",
+                            "_httpConnectorVersionId": "6425499394d9b35d2427bf04",
+                            "_httpConnectorResourceId": "64257548412ca451b7f0201b",
+                            "_httpConnectorEndpointId": "642686e9b6fef32b988f2981",
+                            "formType": "assistant",
+                            "paging": {
+                                "method": "token",
+                                "path": "paging.cursors.after",
+                                "relativeURI": "/act_420777788014409/ads_volume?cursor={{export.http.paging.token}}"
+                            },
+                            "response": {
+                                "resourcePath": "data"
+                            }
+                        },
+                        "adaptorType": "HTTPExport"
+                        }
+                        }
+            ],
+            "pageProcessors": [
+                {
+                 "type": "import",
+                 "qa__import": {
+                    "name": "ftp",
+                    "_connectionId": "63739feed48a291bac1e744d",
+                    "apiIdentifier": "i9e57a3fff",
+                    "oneToMany": false,
+                    "sandbox": false,
+                    "file": {
+                        "fileName": "facebookmeta.json",
+                        "skipAggregation": false,
+                        "type": "json"
+                    },
+                    "ftp": {
+                        "directoryPath": "/io.auto.qa/IO Automation SFTP Imports",
+                        "fileName": "facebookmeta.json"
+                    },
+                    "adaptorType": "FTPImport"
+
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C95479",
+                "disabled": false,
+                "qa__integrationId": "633408479fb96473a0c7372c",
+                "_integrationId": "631a1266abf51e7a86c80ab4",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

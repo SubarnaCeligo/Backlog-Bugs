@@ -1,0 +1,73 @@
+{
+  "flowname": "TC_C27455_FLOW_1",
+  "flowGroup": "TC_C27455_FLOW_GROUP_1",
+  "name": "TC_C27455",
+  "qa__api_tdata": [{
+      "pageGenerators": [{
+          "type": "export",
+          "qa__export": {
+              "name": "43 SF Export",
+              "adaptorType": "SalesforceExport",
+              "_connectionId": "SALESFORCE CONNECTION",
+              "parsers": [],
+              "salesforce": {
+                  "distributed": {
+                      "relatedLists": [],
+                      "userDefinedReferencedFields": [],
+                      "referencedFields": []
+                  },
+                  "soql": {
+                      "query": "Select Name,Email__c,phone,fax,Billingcity,Billingstreet,Billingcountry,Billingstate,BillingPostalCode,Shippingcity,Shippingstreet,Shippingcountry,ShippingPostalCode,Shippingstate from Account where name like '43.SFAccount2FTP'"
+                  },
+                  "api": "rest",
+                  "type": "soql"
+              },
+              "transform": {
+                  "rules": []
+              },
+              "asynchronous": true,
+              "qa__connectionId": "62eb4c06c9c10468159c0bd0"
+          }
+      }],
+      "pageProcessors": [{
+          "type": "import",
+          "qa__import": {
+              "name": "Netsuite customer import",
+              "parsers": [],
+              "_connectionId": "NETSUITE CONNECTION",
+              "distributed": true,
+              "apiIdentifier": "i45477eaa3",
+              "lookups": [],
+              "netsuite_da": {
+                  "useSS2Restlets": false,
+                  "operation": "add",
+                  "recordType": "customer",
+                  "lookups": [],
+                  "mapping": {
+                      "fields": [],
+                      "lists": []
+                  }
+              },
+              "adaptorType": "NetSuiteDistributedImport"
+          }
+      }],
+      "createFlow": {
+          "name": "TC_C27455_FLOW_1",
+          "disabled": false,
+          "_integrationId": "63232627514d5b0bf7b39ca6",
+          "qa__integrationId": "62e90b9f36f8f637aa253824",
+          "skipRetries": false,
+          "pageProcessors": [{
+              "responseMapping": {
+                  "fields": [],
+                  "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+          }],
+          "pageGenerators": [{
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+          }]
+      }
+  }]
+}

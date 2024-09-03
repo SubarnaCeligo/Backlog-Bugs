@@ -1,0 +1,63 @@
+{
+    "name": "TC_C26153",
+    "skipRetries": false,
+    "_integrationId": "6228aed6bc8a2732cfe8044c",
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "_id": "6336ce096a8f45182575691a",
+                "createdAt": "2022-09-30T11:07:53.144Z",
+                "lastModified": "2022-09-30T11:44:36.465Z",
+                "name": "AutomationStandaloneImport__5gy3E6ndYy",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "i2c76b9df6",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "AS2.xml",
+                    "skipAggregation": false,
+                    "type": "xml",
+                    "xml": {
+                        "body": "<to> Tove</to>"
+                    }
+                },
+                "ftp": {
+                    "directoryPath": "/SukeerthiSriram/SS20",
+                    "fileName": "AS2.xml"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ],
+    "timezone": "Asia/Calcutta",
+    "disabled": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "1",
+        "successCount": "0",
+        "errorCount": "0"
+    },
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "_id": "6335f7269372544c0ea92688",
+                "createdAt": "2022-09-29T19:51:02.545Z",
+                "lastModified": "2022-09-29T19:51:02.599Z",
+                "name": "TC_C26153",
+                "type": "webhook",
+                "sandbox": false,
+                "webhook": {
+                    "provider": "custom",
+                    "verify": "basic",
+                    "username": "goodUser",
+                    "password": "goodPass"
+                },
+                "adaptorType": "WebhookExport"
+            }
+        }
+    ]
+}

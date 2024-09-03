@@ -1,0 +1,101 @@
+{
+    "name": "TC_C24996",
+    "referencename": "TC_C24996",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Zendesk requets export",
+                        "_connectionId": "ZENDESK CONNECTION",
+                        "asynchronous": true,
+                        "assistant": "zendesk",
+                        "assistantMetadata": {
+                            "resource": "requests_api",
+                            "version": "v2",
+                            "operation": "list_requests"
+                        },
+                        "http": {
+                            "relativeURI": "/api/v2/requests.json",
+                            "method": "GET",
+                            "successMediaType": "json",
+                            "errorMediaType": "json",
+                            "formType": "rest",
+                            "paging": {
+                                "lastPageStatusCode": 404,
+                                "method": "url",
+                                "path": "next_page"
+                            },
+                            "response": {
+                                "resourcePath": "requests"
+                            }
+                        },
+                        "rawData": "EMPTY RAW DATA",
+                        "rest": {
+                            "method": "GET",
+                            "relativeURI": "/api/v2/requests.json",
+                            "headers": [],
+                            "pagingMethod": "nextpageurl",
+                            "nextPagePath": "next_page",
+                            "resourcePath": "requests",
+                            "allowUndefinedResource": false
+                        },
+                        "adaptorType": "RESTExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "HTTP import",
+                        "application": "zendesk support",
+                        "parsers": [],
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "qa__connectionId": "ZENDESK CONNECTION",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "lookups": [],
+                        "http": {
+                            "relativeURI": [
+                                "/ticket.json"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C24996",
+                "disabled": false,
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

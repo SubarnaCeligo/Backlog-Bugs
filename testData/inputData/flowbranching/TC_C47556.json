@@ -1,0 +1,189 @@
+{
+  "name": "TC_C47556",
+  "disabled": false,
+  "_integrationId": "62f51db41677a21a108e5e3a",
+  "skipRetries": false,
+  "qa__expectedDashboardCount": {
+    "successCount": "5",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "Netsuite export",
+        "_connectionId": "NETSUITE CONNECTION",
+        "apiIdentifier": "e77b0b9a33",
+        "asynchronous": true,
+        "pageSize": 5,
+        "oneToMany": false,
+        "netsuite": {
+          "type": "restlet",
+          "skipGrouping": true,
+          "statsOnly": false,
+          "restlet": {
+            "recordType": "campaign",
+            "searchId": "4651",
+            "criteria": [],
+            "columns": [],
+            "useSS2Restlets": false
+          },
+          "distributed": {
+            "executionContext": [],
+            "executionType": [],
+            "useSS2Framework": false
+          }
+        },
+        "adaptorType": "NetSuiteExport"
+      }
+    }
+  ],
+  "routers": [
+    {
+      "routeRecordsUsing": "input_filters",
+      "id": "nw5EED",
+      "routeRecordsTo": "all_matching_branches",
+      "branches": [
+        {
+          "name": "R1B1",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "TEST",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "i16687736a",
+                "oneToMany": false,
+                "file": {
+                  "fileName": "556{{timestamp \"YYYY-MM-DDTHH:mm:ssZ\"}}.json",
+                  "skipAggregation": false,
+                  "type": "json"
+                },
+                "ftp": {
+                  "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                  "fileName": "556{{timestamp \"YYYY-MM-DDTHH:mm:ssZ\"}}.json"
+                },
+                "adaptorType": "FTPImport"
+              }
+            }
+          ],
+          "nextRouterId": "3DsRRV"
+        },
+        {
+          "name": "R1B2",
+          "nextRouterId": "3DsRRV",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "S3 import",
+                "_connectionId": "S3 CONNECTION",
+                "apiIdentifier": "i4f63f0584",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                  "fileName": "TC_C47556_file2{{timestamp}}.json",
+                  "skipAggregation": true,
+                  "type": "json"
+                },
+                "s3": {
+                  "region": "us-east-1",
+                  "bucket": "io-automation",
+                  "fileKey": "TC_C47556_file2{{timestamp}}.json"
+                },
+                "adaptorType": "S3Import"
+              }
+            }
+          ]
+        }
+      ],
+      "script": {
+        "function": "branching"
+      }
+    },
+    {
+      "id": "3DsRRV",
+      "branches": [
+        {
+          "name": "",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "FTP import",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "i4dd81dfb8",
+                "oneToMany": false,
+                "file": {
+                  "fileName": "skipaggfileA-{{timestamp \"YYYY-MM-DDTHH:mm:ssZ\"}}.json",
+                  "skipAggregation": true,
+                  "type": "xml",
+                  "xml": {
+                    "body": "a"
+                  }
+                },
+                "ftp": {
+                  "directoryPath": "/io.auto.qa",
+                  "fileName": "skipaggfileA-{{timestamp \"YYYY-MM-DDTHH:mm:ssZ\"}}.json"
+                },
+                "adaptorType": "FTPImport"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "qa__dataVerification": {
+    "expected": {
+      "FTP": {
+        "name": "TC_C47556",
+        "_integrationId": "62f51db41677a21a108e5e3a",
+        "import": {
+          "_connectionId": "FTP CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "5",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "fileName": "skipaggfileA-1",
+          "isUIFlow": true,
+          "folderName": "/io.auto.qa",
+          "fileType": ".json"
+        }
+      },
+      "FTp": {
+        "name": "TC_C47556",
+        "_integrationId": "62f51db41677a21a108e5e3a",
+        "import": {
+          "_connectionId": "FTP CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "5",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "fileName": "skipaggfileA-2",
+          "isUIFlow": true,
+          "folderName": "/io.auto.qa",
+          "fileType": ".json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,192 @@
+{
+  "name": "TC_C51974",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "qa__api_tdata": [
+    {
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "AutomationStandaloneImport__9FKxJjL0So",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "id369d21bc",
+            "oneToMany": false,
+            "sandbox": false,
+            "mappings": [
+              {
+                "extract": "$.fName",
+                "generate": "fname",
+                "dataType": "string",
+                "status": "Active",
+                "sourceDataType": "string"
+              },
+              {
+                "extract": "$.lName",
+                "generate": "lname",
+                "dataType": "string",
+                "status": "Active",
+                "sourceDataType": "string"
+              },
+              {
+                "extract": "$.altFirstName",
+                "generate": "altFirstName",
+                "dataType": "string",
+                "status": "Active",
+                "sourceDataType": "string"
+              },
+              {
+                "generate": "test",
+                "dataType": "objectarray",
+                "status": "Draft",
+                "buildArrayHelper": [
+                  {
+                    "extract": "$.children[*].firstName",
+                    "conditional": {
+                      "when": "extract_not_empty"
+                    },
+                    "sourceDataType": "objectarray",
+                    "mappings": [
+                      {
+                        "generate": "test",
+                        "dataType": "string",
+                        "status": "Draft",
+                        "sourceDataType": "string"
+                      },
+                      {
+                        "generate": "test1",
+                        "dataType": "string",
+                        "status": "Draft",
+                        "sourceDataType": "string"
+                      },
+                      {
+                        "generate": "test2",
+                        "dataType": "string",
+                        "status": "Draft",
+                        "sourceDataType": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "extract": "$.father.fName",
+                    "conditional": {
+                      "when": "extract_not_empty"
+                    },
+                    "sourceDataType": "objectarray",
+                    "mappings": [
+                      {
+                        "generate": "test",
+                        "dataType": "string",
+                        "status": "Draft",
+                        "sourceDataType": "string"
+                      },
+                      {
+                        "generate": "test1",
+                        "dataType": "string",
+                        "status": "Draft",
+                        "sourceDataType": "string"
+                      },
+                      {
+                        "generate": "test2",
+                        "dataType": "string",
+                        "status": "Draft",
+                        "sourceDataType": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "extract": "$.cousins[*].fName",
+                    "conditional": {
+                      "when": "extract_not_empty"
+                    },
+                    "sourceDataType": "objectarray",
+                    "mappings": [
+                      {
+                        "generate": "test",
+                        "dataType": "string",
+                        "status": "Draft",
+                        "sourceDataType": "string"
+                      },
+                      {
+                        "generate": "test1",
+                        "dataType": "string",
+                        "status": "Draft",
+                        "sourceDataType": "string"
+                      },
+                      {
+                        "generate": "test2",
+                        "dataType": "string",
+                        "status": "Draft",
+                        "sourceDataType": "string"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "file": {
+              "output": "records",
+              "skipDelete": true,
+              "encoding": "utf8",
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation",
+              "fileName": "TC_C51212.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "test",
+            "qa__path": "/FTP_uploads/TC_C51211.json",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "ec9d985883",
+            "asynchronous": true,
+            "sandbox": false,
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+              "fileNameStartsWith": "TC_C51211"
+            },
+            "file": {
+              "output": "records",
+              "skipDelete": true,
+              "type": "json"
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C51974",
+        "disabled": true,
+        "skipRetries": false,
+        "qa__integrationId": "56d6b23fe1fc35de53914730",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW",
+            "skipRetries": false
+          }
+        ]
+      }
+    }
+  ]
+}

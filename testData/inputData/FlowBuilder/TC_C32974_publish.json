@@ -1,0 +1,8 @@
+[
+    {
+        "name": "AC_App",
+        "environment": "Production",
+        "app": "activecampaign",
+        "integrationName": "TC_C32974"
+    }
+]

@@ -1,0 +1,39 @@
+{
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "TC_C50831",
+                "qa__connectionId": "63579dc7374a366be0da7d09",
+                "_connectionId": "HTTP OPENAIR CONNECTION",
+                "apiIdentifier": "ec0dbb7947",
+                "application": "Open Air",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "parsers": [
+                    {
+                        "type": "xml",
+                        "version": "1",
+                        "rules": {
+                            "V0_json": false,
+                            "trimSpaces": false,
+                            "stripNewLineChars": false
+                        }
+                    }
+                ],
+                "http": {
+                    "method": "POST",
+                    "body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><request API_version=\"1.0\" client=\"test app\" client_ver=\"1.1\" namespace=\"{{{connection.http.unencrypted.namespace}}}\" key=\"{{{connection.http.unencrypted.apiKey}}}\">  <Auth>    <Login>      <company>{{{connection.http.unencrypted.companyId}}}</company>      <user>{{{connection.http.unencrypted.userId}}}</user>      <password>{{{connection.http.encrypted.password}}}</password>    </Login>  </Auth>  <Read type=\"User\" method=\"all\" limit=\"{{{export.http.paging.skip}}},1\"/></request>",
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "/response/Read/User",
+                        "successPath": "/response/Read/@status"
+                    }
+                },
+                "rawData": "56d6b114e1fc35de5391472c0470a228e9ce456591f2dfca058e494c",
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ]
+}

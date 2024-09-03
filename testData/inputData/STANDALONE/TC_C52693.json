@@ -1,0 +1,133 @@
+{
+  "Stage_conn": "HTTP ZENDESK CONNECTION",
+  "postBody": {
+    "name": "HTTP_Import_Mapper",
+    "_connectionId": "HTTP ZENDESK CONNECTION",
+    "application": "zendesk support",
+    "apiIdentifier": "i73c40fcd4",
+    "ignoreExisting": false,
+    "ignoreMissing": false,
+    "oneToMany": false,
+    "sandbox": false,
+    "mappings": [
+      {
+        "generate": "user",
+        "dataType": "object",
+        "status": "Active",
+        "mappings": [
+          {
+            "generate": "email",
+            "dataType": "string",
+            "hardCodedValue": "tesrwrewt2@gmail.com",
+            "status": "Active",
+            "sourceDataType": "string"
+          },
+          {
+            "generate": "identities",
+            "dataType": "objectarray",
+            "status": "Active",
+            "buildArrayHelper": [
+              {
+                "extract": "$.user.identities[*]",
+                "sourceDataType": "objectarray",
+                "mappings": [
+                  {
+                    "generate": "type",
+                    "dataType": "string",
+                    "hardCodedValue": "NoTyopeee",
+                    "status": "Active",
+                    "sourceDataType": "string"
+                  },
+                  {
+                    "generate": "value",
+                    "dataType": "string",
+                    "hardCodedValue": "fdsjadjsdhalk",
+                    "status": "Active",
+                    "sourceDataType": "string"
+                  },
+                  {
+                    "generate": "numbers",
+                    "dataType": "stringarray",
+                    "status": "Active",
+                    "buildArrayHelper": [
+                      {
+                        "extract": "$.user.email",
+                        "sourceDataType": "string"
+                      },
+                      {
+                        "extract": "$.user.custom_role_id",
+                        "sourceDataType": "string"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "extract": "$.user.name",
+            "generate": "name",
+            "dataType": "string",
+            "status": "Active",
+            "sourceDataType": "string"
+          },
+          {
+            "generate": "organization",
+            "dataType": "object",
+            "status": "Active",
+            "mappings": [
+              {
+                "generate": "name",
+                "dataType": "string",
+                "hardCodedValue": "Celigo",
+                "status": "Active",
+                "sourceDataType": "string"
+              }
+            ]
+          },
+          {
+            "generate": "tags",
+            "dataType": "stringarray",
+            "status": "Active",
+            "buildArrayHelper": [
+              {
+                "extract": "$.user.email",
+                "sourceDataType": "string"
+              },
+              {
+                "extract": "$.user.name",
+                "conditional": {
+                  "when": "extract_not_empty"
+                },
+                "sourceDataType": "string"
+              },
+              {
+                "extract": "$.user.organization.name",
+                "conditional": {
+                  "when": "extract_not_empty"
+                },
+                "sourceDataType": "string"
+              }
+            ]
+          },
+          {
+            "extract": "$.user.role",
+            "generate": "role",
+            "dataType": "string",
+            "status": "Active",
+            "sourceDataType": "string"
+          }
+        ]
+      }
+    ],
+    "http": {
+      "relativeURI": ["/api/v2/users"],
+      "method": ["POST"],
+      "body": [],
+      "batchSize": 1,
+      "sendPostMappedData": true,
+      "formType": "http"
+    },
+    "adaptorType": "HTTPImport"
+  }
+}

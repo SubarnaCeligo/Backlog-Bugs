@@ -1,0 +1,10 @@
+{
+    "qa":["65c4843748b01bddd57a3853","65c4844c599af7641b0d9956"],
+    "stag":["65c4843748b01bddd57a3853","65c4844c599af7641b0d9956"],
+    "qa_url":"https://qa.staging.integrator.io/marketplace/salesforce/installTemplate/preview/5d5cfd94229d2620edbe9308",
+    "stag_url":"https://staging.integrator.io/marketplace/installTemplate/preview/5d5cfd94229d2620edbe9308",
+    "qa_lic":"https://qa.staging.integrator.io/api/licenses",
+    "qaprod_lic":"https://qaprod.staging.integrator.io/api/licenses",
+    "staging_lic":"https://staging.integrator.io/api/licenses",
+    "platformone_lic":"https://platform1.dev.integrator.io/api/licenses"
+}

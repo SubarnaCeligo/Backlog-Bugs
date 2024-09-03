@@ -1,0 +1,81 @@
+{
+    "name": "TC32584_Verify_AutoMap",
+    "referencename": "TC32584_Verify_AutoMap",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "SalesForce Export",
+                        "_connectionId": "SALESFORCE CONNECTION",
+                        "apiIdentifier": "eb73a2fab8",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "rawData": "61e68956b587067a214ac5ed8b220918d7d34803be6d1fef216fb787",
+                        "salesforce": {
+                            "type": "soql",
+                            "api": "rest",
+                            "soql": {
+                                "query": "Select Name, Email__c,Alt_Email__c,Subsidiary_Name__c,Subsidiary_Internal_ID__c,phone,fax,Billingcity,Billingstreet,Billingcountry,Billingstate, BillingPostalCode,Shippingcity,Shippingstreet,Shippingcountry,ShippingPostalCode,Shippingstate from Account where name like 'Edge Communications'"
+                            }
+                        },
+                        "adaptorType": "SalesforceExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "NetSuite Import",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "distributed": true,
+                        "apiIdentifier": "icac3e62c1",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "lookups": [],
+                        "netsuite_da": {
+                            "useSS2Restlets": false,
+                            "operation": "update",
+                            "recordType": "account",
+                            "internalIdLookup": {
+                                "expression": "[\"name\",\"contains\",\"{{{Name}}}\"]"
+                            },
+                            "lookups": [],
+                            "mapping": {
+                                "fields": [],
+                                "lists": []
+                            }
+                        },
+                        "adaptorType": "NetSuiteDistributedImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC32584_Verify_AutoMap",
+                "disabled": false,
+                "_integrationId": "6228aed6bc8a2732cfe8044c",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

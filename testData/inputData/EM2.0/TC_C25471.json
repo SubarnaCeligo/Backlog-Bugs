@@ -1,0 +1,81 @@
+{
+  "name": "TC_C25471",
+  "referencename": "TC_C25471",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Rest export",
+            "_connectionId": "REST CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+              "relativeURI": "/test/orders",
+              "method": "GET",
+              "successMediaType": "json",
+              "errorMediaType": "json",
+              "formType": "rest"
+            },
+            "rawData": "603ce5ede9250226dcea4608c4caaa2baf8840678327c0ddded2d6eb",
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "operair import",
+            "application": "openair",
+            "parsers": [],
+            "useTechAdaptorForm": true,
+            "_connectionId": "OPENAIR CONNECTION",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "assistant": "openair",
+            "sandbox": false,
+            "lookups": [],
+            "http": {
+              "relativeURI": [
+                "<xsl:result-document href=\"file{id}.xml\">"
+              ],
+              "method": [
+                "POST"
+              ],
+              "body": [],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C25471",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

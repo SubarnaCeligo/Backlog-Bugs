@@ -1,0 +1,38 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "TC_35749_Without_Body",
+        "application": "zendesk support",
+        "parsers": [],
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "mapping": {
+          "fields": [
+            {
+              "extract": "Name",
+              "generate": "Name"
+            }
+          ]
+        },
+        "blob": true,
+        "lookups": [],
+        "http": {
+          "relativeURI": [
+            "organizations"
+          ],
+          "method": [
+            "POST"
+          ],
+          "batchSize": 1,
+          "sendPostMappedData": true,
+          "formType": "http"
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "pageGenerators": []
+}

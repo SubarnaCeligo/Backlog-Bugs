@@ -1,0 +1,746 @@
+{
+    "name": "TC_C36628",
+    "referencename": "TC_C36628",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "application": "MySQL",
+                        "name": "DB_TC_C36628",
+                        "_connectionId": "MYSQL CONNECTION",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "test": {
+                            "limit": 1
+                        },
+                        "rdbms": {
+                            "query": "select * from Manasa.Order_Items"
+                        },
+                        "filter": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [
+                                    "notequals",
+                                    [
+                                        "string",
+                                        [
+                                            "extract",
+                                            "base_price"
+                                        ]
+                                    ],
+                                    "45"
+                                ],
+                                "version": "1"
+                            },
+                            "version": "1",
+                            "rules": [
+                                "notequals",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "base_price"
+                                    ]
+                                ],
+                                "45"
+                            ]
+                        },
+                        "adaptorType": "RDBMSExport"
+                    }
+                },
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "application": "MySQL",
+                        "name": "DB_TC_C36628",
+                        "_connectionId": "MYSQL CONNECTION",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "test": {
+                            "limit": 1
+                        },
+                        "rdbms": {
+                            "query": "select * from Manasa.Order_Items"
+                        },
+                        "filter": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [
+                                    "notequals",
+                                    [
+                                        "string",
+                                        [
+                                            "extract",
+                                            "base_price"
+                                        ]
+                                    ],
+                                    "45"
+                                ],
+                                "version": "1"
+                            },
+                            "version": "1",
+                            "rules": [
+                                "notequals",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "base_price"
+                                    ]
+                                ],
+                                "45"
+                            ]
+                        },
+                        "adaptorType": "RDBMSExport"
+                    }
+                },
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "application": "MySQL",
+                        "name": "DB_TC_C36628",
+                        "_connectionId": "MYSQL CONNECTION",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "test": {
+                            "limit": 1
+                        },
+                        "rdbms": {
+                            "query": "select * from Manasa.Order_Items"
+                        },
+                        "filter": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [
+                                    "notequals",
+                                    [
+                                        "string",
+                                        [
+                                            "extract",
+                                            "base_price"
+                                        ]
+                                    ],
+                                    "45"
+                                ],
+                                "version": "1"
+                            },
+                            "version": "1",
+                            "rules": [
+                                "notequals",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "base_price"
+                                    ]
+                                ],
+                                "45"
+                            ]
+                        },
+                        "adaptorType": "RDBMSExport"
+                    }
+                },
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "application": "MySQL",
+                        "name": "DB_TC_C36628",
+                        "_connectionId": "MYSQL CONNECTION",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "test": {
+                            "limit": 1
+                        },
+                        "rdbms": {
+                            "query": "select * from Manasa.Order_Items"
+                        },
+                        "filter": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [
+                                    "notequals",
+                                    [
+                                        "string",
+                                        [
+                                            "extract",
+                                            "base_price"
+                                        ]
+                                    ],
+                                    "45"
+                                ],
+                                "version": "1"
+                            },
+                            "version": "1",
+                            "rules": [
+                                "notequals",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "base_price"
+                                    ]
+                                ],
+                                "45"
+                            ]
+                        },
+                        "adaptorType": "RDBMSExport"
+                    }
+                },
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "application": "MySQL",
+                        "name": "DB_TC_C36628",
+                        "_connectionId": "MYSQL CONNECTION",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "test": {
+                            "limit": 1
+                        },
+                        "rdbms": {
+                            "query": "select * from Manasa.Order_Items"
+                        },
+                        "filter": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [
+                                    "notequals",
+                                    [
+                                        "string",
+                                        [
+                                            "extract",
+                                            "base_price"
+                                        ]
+                                    ],
+                                    "45"
+                                ],
+                                "version": "1"
+                            },
+                            "version": "1",
+                            "rules": [
+                                "notequals",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "base_price"
+                                    ]
+                                ],
+                                "45"
+                            ]
+                        },
+                        "adaptorType": "RDBMSExport"
+                    }
+                },
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "application": "MySQL",
+                        "name": "DB_TC_C36628",
+                        "_connectionId": "MYSQL CONNECTION",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "test": {
+                            "limit": 1
+                        },
+                        "rdbms": {
+                            "query": "select * from Manasa.Order_Items"
+                        },
+                        "filter": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [
+                                    "notequals",
+                                    [
+                                        "string",
+                                        [
+                                            "extract",
+                                            "base_price"
+                                        ]
+                                    ],
+                                    "45"
+                                ],
+                                "version": "1"
+                            },
+                            "version": "1",
+                            "rules": [
+                                "notequals",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "base_price"
+                                    ]
+                                ],
+                                "45"
+                            ]
+                        },
+                        "adaptorType": "RDBMSExport"
+                    }
+                },
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "application": "MySQL",
+                        "name": "DB_TC_C36628",
+                        "_connectionId": "MYSQL CONNECTION",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "test": {
+                            "limit": 1
+                        },
+                        "rdbms": {
+                            "query": "select * from Manasa.Order_Items"
+                        },
+                        "filter": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [
+                                    "notequals",
+                                    [
+                                        "string",
+                                        [
+                                            "extract",
+                                            "base_price"
+                                        ]
+                                    ],
+                                    "45"
+                                ],
+                                "version": "1"
+                            },
+                            "version": "1",
+                            "rules": [
+                                "notequals",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "base_price"
+                                    ]
+                                ],
+                                "45"
+                            ]
+                        },
+                        "adaptorType": "RDBMSExport"
+                    }
+                },
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "application": "MySQL",
+                        "name": "DB_TC_C36628",
+                        "_connectionId": "MYSQL CONNECTION",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "test": {
+                            "limit": 1
+                        },
+                        "rdbms": {
+                            "query": "select * from Manasa.Order_Items"
+                        },
+                        "filter": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [
+                                    "notequals",
+                                    [
+                                        "string",
+                                        [
+                                            "extract",
+                                            "base_price"
+                                        ]
+                                    ],
+                                    "45"
+                                ],
+                                "version": "1"
+                            },
+                            "version": "1",
+                            "rules": [
+                                "notequals",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "base_price"
+                                    ]
+                                ],
+                                "45"
+                            ]
+                        },
+                        "adaptorType": "RDBMSExport"
+                    }
+                },
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "application": "MySQL",
+                        "name": "DB_TC_C36628",
+                        "_connectionId": "MYSQL CONNECTION",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "test": {
+                            "limit": 1
+                        },
+                        "rdbms": {
+                            "query": "select * from Manasa.Order_Items"
+                        },
+                        "filter": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [
+                                    "notequals",
+                                    [
+                                        "string",
+                                        [
+                                            "extract",
+                                            "base_price"
+                                        ]
+                                    ],
+                                    "45"
+                                ],
+                                "version": "1"
+                            },
+                            "version": "1",
+                            "rules": [
+                                "notequals",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "base_price"
+                                    ]
+                                ],
+                                "45"
+                            ]
+                        },
+                        "adaptorType": "RDBMSExport"
+                    }
+                },
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "application": "MySQL",
+                        "name": "DB_TC_C36628",
+                        "_connectionId": "MYSQL CONNECTION",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "test": {
+                            "limit": 1
+                        },
+                        "rdbms": {
+                            "query": "select * from Manasa.Order_Items"
+                        },
+                        "filter": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [
+                                    "notequals",
+                                    [
+                                        "string",
+                                        [
+                                            "extract",
+                                            "base_price"
+                                        ]
+                                    ],
+                                    "45"
+                                ],
+                                "version": "1"
+                            },
+                            "version": "1",
+                            "rules": [
+                                "notequals",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "base_price"
+                                    ]
+                                ],
+                                "45"
+                            ]
+                        },
+                        "adaptorType": "RDBMSExport"
+                    }
+                },
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "application": "MySQL",
+                        "name": "DB_TC_C36628",
+                        "_connectionId": "MYSQL CONNECTION",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "test": {
+                            "limit": 1
+                        },
+                        "rdbms": {
+                            "query": "select * from Manasa.Order_Items"
+                        },
+                        "filter": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [
+                                    "notequals",
+                                    [
+                                        "string",
+                                        [
+                                            "extract",
+                                            "base_price"
+                                        ]
+                                    ],
+                                    "45"
+                                ],
+                                "version": "1"
+                            },
+                            "version": "1",
+                            "rules": [
+                                "notequals",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "base_price"
+                                    ]
+                                ],
+                                "45"
+                            ]
+                        },
+                        "adaptorType": "RDBMSExport"
+                    }
+                },
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "application": "MySQL",
+                        "name": "DB_TC_C36628",
+                        "_connectionId": "MYSQL CONNECTION",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "test": {
+                            "limit": 1
+                        },
+                        "rdbms": {
+                            "query": "select * from Manasa.Order_Items"
+                        },
+                        "filter": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [
+                                    "notequals",
+                                    [
+                                        "string",
+                                        [
+                                            "extract",
+                                            "base_price"
+                                        ]
+                                    ],
+                                    "45"
+                                ],
+                                "version": "1"
+                            },
+                            "version": "1",
+                            "rules": [
+                                "notequals",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "base_price"
+                                    ]
+                                ],
+                                "45"
+                            ]
+                        },
+                        "adaptorType": "RDBMSExport"
+                    }
+                },
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "application": "MySQL",
+                        "name": "DB_TC_C36628",
+                        "_connectionId": "MYSQL CONNECTION",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "test": {
+                            "limit": 1
+                        },
+                        "rdbms": {
+                            "query": "select * from Manasa.Order_Items"
+                        },
+                        "filter": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [
+                                    "notequals",
+                                    [
+                                        "string",
+                                        [
+                                            "extract",
+                                            "base_price"
+                                        ]
+                                    ],
+                                    "45"
+                                ],
+                                "version": "1"
+                            },
+                            "version": "1",
+                            "rules": [
+                                "notequals",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "base_price"
+                                    ]
+                                ],
+                                "45"
+                            ]
+                        },
+                        "adaptorType": "RDBMSExport"
+                    }
+                },
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "http Bd",
+                        "application": "BigCommerce",
+                        "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+                        "qa__connectionId": "62dfd77960458b4f63fe6688",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": "/v3/catalog/brands",
+                            "method": "GET",
+                            "formType": "http",
+                            "response": {
+                                "resourcePath": "data"
+                            }
+                        },
+                        "test": {
+                            "limit": 1
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "multiple exports TC_C36628",
+                        "parsers": [],
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "distributed": true,
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "lookups": [],
+                        "netsuite_da": {
+                            "useSS2Restlets": false,
+                            "operation": "add",
+                            "recordType": "customer",
+                            "lookups": [],
+                            "mapping": {
+                                "fields": [],
+                                "lists": []
+                            }
+                        },
+                        "adaptorType": "NetSuiteDistributedImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C36628",
+                "disabled": false,
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID",
+                        "skipRetries": false
+                    },
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID",
+                        "skipRetries": false
+                    },
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID",
+                        "skipRetries": false
+                    },
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID",
+                        "skipRetries": false
+                    },
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID",
+                        "skipRetries": false
+                    },
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID",
+                        "skipRetries": false
+                    },
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID",
+                        "skipRetries": false
+                    },
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID",
+                        "skipRetries": false
+                    },
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID",
+                        "skipRetries": false
+                    },
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID",
+                        "skipRetries": false
+                    },
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID",
+                        "skipRetries": false
+                    },
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID",
+                        "skipRetries": false
+                    },
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID",
+                        "skipRetries": false
+                    },
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID",
+                        "skipRetries": false
+                    }
+                ]
+            }
+        }
+    ]
+}

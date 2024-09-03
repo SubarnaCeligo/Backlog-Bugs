@@ -1,0 +1,146 @@
+{
+  "timezone": "Asia/Calcutta",
+  "name": "TC_C44951",
+  "disabled": false,
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "qa__import": {
+        "name": "TC_44951",
+        "application": "BigCommerce",
+        "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+        "qa__connectionId": "HTTP BIGCOMMERCE CONNECTION",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "http": {
+          "relativeURI": [
+            "/v3/customers"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [],
+          "batchSize": 1,
+          "sendPostMappedData": true,
+          "strictHandlebarEvaluation": true,
+          "formType": "http"
+        },
+        "mappings": [
+          {
+            "dataType": "objectarray",
+            "buildArrayHelper": [
+              {
+                "extract": "$",
+                "mappings": [
+                  {
+                    "generate": "first_name",
+                    "dataType": "string",
+                    "hardCodedValue": "Auto_TC_C44951_FirstNameCreate"
+                  },
+                  {
+                    "generate": "last_name",
+                    "dataType": "string",
+                    "hardCodedValue": "Auto_TC_C44951_LastNameCreate"
+                  },
+                  {
+                    "generate": "email",
+                    "dataType": "string",
+                    "hardCodedValue": "Auto_TC_C44591@learnexample.com"
+                  },
+                  {
+                    "generate": "authentication",
+                    "dataType": "object",
+                    "mappings": [
+                      {
+                        "hardCodedValue": "true",
+                        "generate": "force_password_reset",
+                        "dataType": "boolean"
+                      },
+                      {
+                        "hardCodedValue": "String_123",
+                        "generate": "new_password",
+                        "dataType": "string"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "qa__dataVerification": {
+    "generateSampleDropDownAvailable": false,
+    "expected": {
+      "bigcommerce": {
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "name": "TC_C44951",
+        "import": {
+          "_connectionId": "HTTP BIGCOMMERCE CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "2",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "standaloneexportflowID": "62d937ce5645756e83017384",
+          "uniqueField": "first_name",
+          "importRecordType": "customers",
+          "isUIFlow": true,
+          "exportapiIdentifier": "e490f33128",
+          "expectedJSON": [
+            {
+              "authentication": {
+                "force_password_reset": true
+              },
+              "email": "Auto_TC_C44591@learnexample.com",
+              "first_name": "Auto_TC_C44951_FirstNameCreate",
+              "last_name": "Auto_TC_C44951_LastNameCreate"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "FTP Export mapper2.0",
+        "_connectionId": "FTP CONNECTION",
+        "qa__path": "//FTP_uploads//TC_C44951.json",
+        "asynchronous": true,
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+          "fileNameStartsWith": "TC_C44951.json"
+        },
+        "file": {
+          "output": "records",
+          "skipDelete": true,
+          "encoding": "utf8",
+          "type": "json",
+          "json": {
+            "resourcePath": "*"
+          }
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ]
+}

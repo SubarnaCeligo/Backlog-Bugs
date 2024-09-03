@@ -1,0 +1,12 @@
+{
+    "qa_importJson":{
+    "_connectorID":"626a3880a6b8e37fbb1db8a0",
+    "name": "TC_IAF_005_C27085",
+    "environment": "Production"
+    },
+    "importJson":{ 
+    "_connectorID":"631ee948798cc1729e8b10d3",
+    "name": "TC_IAF_005_C27085",
+    "environment": "Production"
+    }
+}

@@ -1,0 +1,21 @@
+[
+  {
+    "qa__connectionId_zd": "63e60e1840f56a4fe21eced0",
+    "staging__connectionId_zd": "631a0d3a4ceac669f82fb092",
+
+    "qa__connectionId_onlyBundle": "63e3a39865315c6a1498c7cb",
+    "staging__connectionId_onlyBundle": "63e9b3adb24b720e949e0958",
+    "qaprod__connectionId_onlyBundle": "63e9b71b05614d4dd1dbdac3",
+    "iaqa__connectionId_onlyBundle": "63e9b7830cb8f60e508e090a",
+
+    "qa__connectionId_onlySuiteApp": "63e3a4b1df03a87b0135aba1",
+    "staging__connectionId_onlySuiteApp": "63e9b2a944021109a3d48bc7",
+    "qaprod__connectionId_onlySuiteApp": "63e9b1e1b2d8b77d190c64bd",
+    "iaqa__connectionId_onlySuiteApp": "63e9b2420cb8f60e508e08a4",
+
+    "qa__connectionId_bothSuiteAppSuiteBundleInstalled": "63e9d594d7643133181e0f30",
+    "staging__connectionId_bothSuiteAppSuiteBundleInstalled": "6343b3521486c63a7cc1c23c",
+    "qaprod__connectionId_bothSuiteAppSuiteBundleInstalled": "NETSUITE CONNECTION",
+    "iaqa__connectionId_bothSuiteAppSuiteBundleInstalled": "6343b3521486c63a7cc1c23c"
+  }
+]

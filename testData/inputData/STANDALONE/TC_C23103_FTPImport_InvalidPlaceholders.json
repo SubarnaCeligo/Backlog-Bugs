@@ -1,0 +1,26 @@
+{
+    "Connections": [
+        {
+            "FTP": {
+                "connectionId": "FTP CONNECTION"
+            }
+        }
+    ],
+    "InvalidPlaceholders": [
+        {
+            "directoryPath": "{{abs field}}}"
+        }
+    ],
+    "ExpectedData": {
+        "connection": {
+            "name": "FTPCONNECTION"
+        },
+        "settings": {
+            "integration": {},
+            "flow": {},
+            "flowGrouping": {},
+            "connection": {},
+            "export": {}
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "name": "TC_C23040_NS_RT_Export_ShouldNotHave_Hook_In_API_Responce",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+                "name": "NS Customer",
+                "_connectionId": "NETSUITE CONNECTION",
+                "asynchronous": true,
+                "type": "distributed",
+                "distributed": {
+                    "bearerToken": "******"
+                },
+                "netsuite": {
+                    "type": "distributed",
+                    "skipGrouping": true,
+                    "statsOnly": false,
+                    "distributed": {
+                        "recordType": "customer",
+                        "executionContext": [
+                            "userinterface",
+                            "webstore"
+                        ],
+                        "disabled": false,
+                        "executionType": [
+                            "create",
+                            "edit"
+                        ],
+                        "qualifier": [
+                            "text:subsidiary",
+                            "=",
+                            "HH Inc."
+                        ],
+                        "sublists": [],
+                        "forceReload": false,
+                        "ioEnvironment": "staging",
+                        "ioDomain": "qa.staging.integrator.io",
+                        "useSS2Framework": false
+                    }
+                },
+                "adaptorType": "NetSuiteExport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C23040_NS_RT_Export_ShouldNotHave_Hook_In_API_Responce",
+          "disabled": false,
+          "_integrationId": "6228aed6bc8a2732cfe8044c",
+          "skipRetries": false,
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

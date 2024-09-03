@@ -1,0 +1,35 @@
+{
+    "name": "TC_C31522",
+    "pageProcessors": [
+      {
+        "qa__import": {
+           "name": "Create_feed_with_messageID",
+           "application": "Amazon Seller Central",
+            "parsers": [],
+            "_connectionId": "632418cd2c04ae2b50815e93",
+            "qa__connectionId": "62da383873c08d7560d1b68f",
+            "apiIdentifier": "i09a69ec69",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [],
+            "http": {
+                "relativeURI": [
+                    "/?Action=GetFeedSubmissionList&FeedProcessingStatusList.Status.1=_DONE_&MarketplaceIdList.Id.1={{connection.http.unencrypted.marketplaceId}}"
+                ],
+                "method": [
+                    "POST"
+                ],
+                "body": [
+                    "<?xml version='1.0' encoding='UTF-8'?>\n<AmazonEnvelope\n\txmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:noNamespaceSchemaLocation='amzn-envelope.xsd'>\n\t<Header>\n\t\t<DocumentVersion>1.01</DocumentVersion>\n\t</Header>\n\t<MessageType>Price</MessageType>\n\t<Message>\n\t\t<MessageID>1</MessageID>\n\t\t<Price>\n\t\t\t<SKU>AMZ123456</SKU>\n\t\t\t<StandardPrice currency=\"USD\">25.00</StandardPrice>\n\t\t\t<Sale>\n\t\t\t\t<StartDate>2022-05-25T00:01:01+00:00</StartDate>\n\t\t\t\t<EndDate>2022-05-27T00:01:01+00:00</EndDate>\n\t\t\t\t<SalePrice currency=\"USD\">10</SalePrice>\n\t\t\t</Sale>\n\t\t</Price>\n\t</Message>\n</AmazonEnvelope>"
+                ],
+                "batchSize": 1,
+                "sendPostMappedData": true,
+                "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+        }
+      }
+    ]
+  }

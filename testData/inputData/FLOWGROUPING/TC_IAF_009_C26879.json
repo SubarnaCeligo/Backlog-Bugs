@@ -1,0 +1,71 @@
+{
+    "qa_importJson": {
+        "_id":"6299dab895d5005bcd7e09a1",
+        "environment": "Production",
+        "name": "TC_IAF_009_C26879",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "published": false,
+        "_integrationId": "62905de2c51f323382314cce",
+        "applications": ["activecampaign"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "62905de2c51f323382314cce",
+            "editions": [{
+                "displayName":"Old",
+                "order":0
+            }]
+        }
+    },
+    "qa_editImportJson": {
+        "_id":"6299dab895d5005bcd7e09a1",
+        "environment": "Production",
+        "name": "TC_IAF_009_C26879",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "published": false,
+        "_integrationId": "62905de2c51f323382314cce",
+        "applications": ["activecampaign"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "62905de2c51f323382314cce",
+            "editions": [{
+                "displayName":"New",
+                "order":0
+            }]
+        }
+    },
+    "importJson": {
+        "_id":"63200a723bfc725f00638d4f",
+        "environment": "Production",
+        "name": "TC_IAF_009_C26879",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "published": false,
+        "_integrationId": "631ad2f213d12134f4772d77",
+        "applications": ["activecampaign"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "631ad2f213d12134f4772d77",
+            "editions": [{
+                "displayName":"Old",
+                "order":0
+            }]
+        }
+    },
+    "editImportJson": {
+        "_id":"63200a723bfc725f00638d4f",
+        "environment": "Production",
+        "name": "TC_IAF_009_C26879",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "published": false,
+        "_integrationId": "631ad2f213d12134f4772d77",
+        "applications": ["activecampaign"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "631ad2f213d12134f4772d77",
+            "editions": [{
+                "displayName":"New",
+                "order":0
+            }]
+        }
+    },
+    "name": "TC_IAF_009_C26879"
+}

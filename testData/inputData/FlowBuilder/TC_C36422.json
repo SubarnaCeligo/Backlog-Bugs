@@ -1,0 +1,59 @@
+{
+    "name": "TC_C36422",
+    "referencename": "TC_C36422",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "export zd per record",
+                        "application": "zendesk support",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "asynchronous": true,
+                        "http": {
+                            "relativeURI": "/users",
+                            "method": "GET",
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "export zd per record",
+                        "application": "zendesk support",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "asynchronous": true,
+                        "http": {
+                            "relativeURI": "/users",
+                            "method": "GET",
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C36422",
+                "disabled": false,
+                "_integrationId": "62eca1efe386b563f638451e",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

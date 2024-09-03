@@ -1,0 +1,515 @@
+{
+    "name": "TC_46468_rows_rows",
+    "qa__expectedDashboardCount": {
+        "successCount": "5",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "standaloneexportflowID": "",
+        "expected": {
+          "FTP": {
+            "name": "TC_46468_rows_rows",
+            "_integrationId": "56d6b23fe1fc35de53914730",
+            "qa__expectedDashboardCount": {
+              "successCount": "5",
+              "ignoreCount": "0",
+              "errorCount": "0"
+            },
+            "qa__dataVerification": {
+                "fileName": "TC_46468_ftp_skipagg-1",
+              "isUIFlow": true,
+              "folderName": "io.auto.qa/IO Automation SFTP Imports",
+              "fileType": ".xlsx"
+            }
+          },
+          "GDRIVE": {
+            "name": "TC_46468_rows_rows",
+            "_integrationId": "56d6b23fe1fc35de53914730",
+            "qa__expectedDashboardCount": {
+              "successCount": "5",
+              "ignoreCount": "0",
+              "errorCount": "0"
+            },
+            "qa__dataVerification": {
+              "fileName": "TC_46468_gdrive_skipagg-1",
+              "folderName": "Gdrive_Imports",
+              "fileType": ".xlsx"
+            }
+          },
+          "S3": {
+              "name": "TC_46468_rows_rows",
+              "_integrationId": "56d6b23fe1fc35de53914730",
+              "qa__expectedDashboardCount": {
+                  "successCount": "20",
+                  "ignoreCount": "0",
+                  "errorCount": "0"
+              },
+              "qa__dataVerification": {
+                  "bucketName": "automations3import",
+                  "fileName": "TC_46468_s3_skipagg-1",
+                  "isUIFlow": true,
+                  "fileType": ".xlsx"
+              }
+          },
+          "Azure": {
+            "name": "TC_46468_rows_rows",
+            "_integrationId": "56d6b23fe1fc35de53914730",
+            "qa__expectedDashboardCount": {
+                "successCount": "5",
+                "ignoreCount": "0",
+                "errorCount": "0"
+            },
+            "qa__dataVerification": {
+                "fileName": "TC_46468_azure_skipagg-1",
+            "folderName": "azureimports",
+            "fileType": ".xlsx",
+            "fileExtension": ".xlsx"
+            }
+        }
+        }
+      },
+      "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "s3",
+                        "_connectionId": "S3 CONNECTION",
+                        "apiIdentifier": "e28b670c7f",
+                        "asynchronous": true,
+                        "sandbox": false,
+                        "qa__path": "/FTP_uploads/TC_46468.json",
+                        "s3": {
+                            "region": "us-east-1",
+                            "bucket": "automations3export",
+                            "keyStartsWith": "TC_46468",
+                            "keyEndsWith": ".json"
+                        },
+                        "file": {
+                            "encoding": "utf8",
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "json",
+                            "groupByFields": [
+                                "first_name"
+                            ],
+                            "groupEmptyValues": true
+                        },
+                        "adaptorType": "S3Export"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "FTP",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "i2645c7ea0",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "mappings": [
+                            {
+                                "dataType": "objectarray",
+                                "status": "Active",
+                                "buildArrayHelper": [
+                                    {
+                                        "extract": "$[*]",
+                                        "conditional": {
+                                            "when": "extract_not_empty"
+                                        },
+                                        "mappings": [
+                                            {
+                                                "extract": "$.first_name",
+                                                "generate": "first_name",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "extract": "$.last_name",
+                                                "generate": "last_name",
+                                                "dataType": "string",
+                                                "default": "esha",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "extract": "$.email",
+                                                "generate": "mail_id",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "generate": "customer_adress",
+                                                "dataType": "objectarray",
+                                                "status": "Active",
+                                                "buildArrayHelper": [
+                                                    {
+                                                        "extract": "$.customer address[*]",
+                                                        "conditional": {
+                                                            "when": "extract_not_empty"
+                                                        },
+                                                        "mappings": [
+                                                            {
+                                                                "extract": "$.customer address.city",
+                                                                "generate": "city",
+                                                                "dataType": "string",
+                                                                "status": "Active"
+                                                            },
+                                                            {
+                                                                "extract": "$.customer address.state",
+                                                                "generate": "state",
+                                                                "dataType": "string",
+                                                                "status": "Active"
+                                                            },
+                                                            {
+                                                                "generate": "country",
+                                                                "dataType": "string",
+                                                                "hardCodedValue": "India",
+                                                                "status": "Active"
+                                                            },
+                                                            {
+                                                                "extract": "$.customer address.email",
+                                                                "generate": "email",
+                                                                "dataType": "string",
+                                                                "status": "Active"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "file": {
+                            "fileName": "TC_46468_ftp_skipagg-{{timestamp}}.xlsx",
+                            "skipAggregation": true,
+                            "type": "xlsx",
+                            "encoding": "utf8"
+                        },
+                        "ftp": {
+                            "directoryPath": "io.auto.qa/IO Automation SFTP Imports",
+                            "fileName": "TC_46468_ftp.xlsx"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                },
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "S3 import",
+                        "_connectionId": "S3 CONNECTION",
+                        "apiIdentifier": "idd8dc9ee0",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "mappings": [
+                            {
+                                "dataType": "objectarray",
+                                "status": "Active",
+                                "buildArrayHelper": [
+                                    {
+                                        "extract": "$[*]",
+                                        "conditional": {
+                                            "when": "extract_not_empty"
+                                        },
+                                        "mappings": [
+                                            {
+                                                "extract": "$.first_name",
+                                                "generate": "first_name",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "extract": "$.last_name",
+                                                "generate": "last_name",
+                                                "dataType": "string",
+                                                "default": "esha",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "extract": "$.email",
+                                                "generate": "mail_id",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "generate": "customer_adress",
+                                                "dataType": "objectarray",
+                                                "status": "Active",
+                                                "buildArrayHelper": [
+                                                    {
+                                                        "extract": "$.customer address[*]",
+                                                        "conditional": {
+                                                            "when": "extract_not_empty"
+                                                        },
+                                                        "mappings": [
+                                                            {
+                                                                "extract": "$.customer address.city",
+                                                                "generate": "city",
+                                                                "dataType": "string",
+                                                                "status": "Active"
+                                                            },
+                                                            {
+                                                                "extract": "$.customer address.state",
+                                                                "generate": "state",
+                                                                "dataType": "string",
+                                                                "status": "Active"
+                                                            },
+                                                            {
+                                                                "generate": "country",
+                                                                "dataType": "string",
+                                                                "hardCodedValue": "India",
+                                                                "status": "Active"
+                                                            },
+                                                            {
+                                                                "extract": "$.customer address.email",
+                                                                "generate": "email",
+                                                                "dataType": "string",
+                                                                "status": "Active"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "file": {
+                            "fileName": "TC_46468_s3_skipagg-{{timestamp}}.xlsx",
+                            "skipAggregation": true,
+                            "type": "xlsx",
+                            "encoding": "utf8"
+                        },
+                        "s3": {
+                            "region": "us-east-1",
+                            "bucket": "automations3import",
+                            "fileKey": "TC_46468_s3_skipagg-{{timestamp}}.xlsx"
+                        },
+                        "adaptorType": "S3Import"
+                    }
+                },
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "azure imports",
+                        "_connectionId": "AZURE BLOB STORAGE CONNECTION",
+                        "apiIdentifier": "ibee81a17e",
+                        "oneToMany": false,
+                        "assistant": "azurestorageaccount",
+                        "sandbox": false,
+                        "mappings": [
+                            {
+                                "dataType": "objectarray",
+                                "status": "Active",
+                                "buildArrayHelper": [
+                                    {
+                                        "extract": "$[*]",
+                                        "conditional": {
+                                            "when": "extract_not_empty"
+                                        },
+                                        "mappings": [
+                                            {
+                                                "extract": "$.first_name",
+                                                "generate": "first_name",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "extract": "$.last_name",
+                                                "generate": "last_name",
+                                                "dataType": "string",
+                                                "default": "esha",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "extract": "$.email",
+                                                "generate": "mail_id",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "generate": "customer_adress",
+                                                "dataType": "objectarray",
+                                                "status": "Active",
+                                                "buildArrayHelper": [
+                                                    {
+                                                        "extract": "$.customer address[*]",
+                                                        "conditional": {
+                                                            "when": "extract_not_empty"
+                                                        },
+                                                        "mappings": [
+                                                            {
+                                                                "extract": "$.customer address.city",
+                                                                "generate": "city",
+                                                                "dataType": "string",
+                                                                "status": "Active"
+                                                            },
+                                                            {
+                                                                "extract": "$.customer address.state",
+                                                                "generate": "state",
+                                                                "dataType": "string",
+                                                                "status": "Active"
+                                                            },
+                                                            {
+                                                                "generate": "country",
+                                                                "dataType": "string",
+                                                                "hardCodedValue": "India",
+                                                                "status": "Active"
+                                                            },
+                                                            {
+                                                                "extract": "$.customer address.email",
+                                                                "generate": "email",
+                                                                "dataType": "string",
+                                                                "status": "Active"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "file": {
+                            "fileName": "TC_46468_azure_skipagg-{{timestamp}}.xlsx",
+                            "skipAggregation": true,
+                            "type": "xlsx",
+                            "encoding": "utf8"
+                        },
+                        "http": {
+                            "type": "file",
+                            "relativeURI": [
+                                "azureimports"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "sendPostMappedData": true,
+                            "formType": "assistant",
+                            "response": {
+                                "resourcePath": [
+                                    "files"
+                                ]
+                            }
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                },
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Gdrive import",
+                        "_connectionId": "GOOGLEDRIVE CONNECTION",
+                        "apiIdentifier": "i87c0291cf",
+                        "oneToMany": false,
+                        "assistant": "googledrive",
+                        "sandbox": false,
+                        "mappings": [
+                            {
+                                "dataType": "objectarray",
+                                "status": "Active",
+                                "buildArrayHelper": [
+                                    {
+                                        "extract": "$[*]",
+                                        "conditional": {
+                                            "when": "extract_not_empty"
+                                        },
+                                        "mappings": [
+                                            {
+                                                "extract": "$.first_name",
+                                                "generate": "first_name",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "extract": "$.last_name",
+                                                "generate": "last_name",
+                                                "dataType": "string",
+                                                "default": "esha",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "extract": "$.email",
+                                                "generate": "mail_id",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "generate": "customer_adress",
+                                                "dataType": "objectarray",
+                                                "status": "Active",
+                                                "buildArrayHelper": [
+                                                    {
+                                                        "extract": "$.customer address[*]",
+                                                        "conditional": {
+                                                            "when": "extract_not_empty"
+                                                        },
+                                                        "mappings": [
+                                                            {
+                                                                "extract": "$.customer address.city",
+                                                                "generate": "city",
+                                                                "dataType": "string",
+                                                                "status": "Active"
+                                                            },
+                                                            {
+                                                                "extract": "$.customer address.state",
+                                                                "generate": "state",
+                                                                "dataType": "string",
+                                                                "status": "Active"
+                                                            },
+                                                            {
+                                                                "generate": "country",
+                                                                "dataType": "string",
+                                                                "hardCodedValue": "India",
+                                                                "status": "Active"
+                                                            },
+                                                            {
+                                                                "extract": "$.customer address.email",
+                                                                "generate": "email",
+                                                                "dataType": "string",
+                                                                "status": "Active"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "file": {
+                            "fileName": "TC_46468_gdrive_skipagg-{{timestamp}}.xlsx",
+                            "skipAggregation": true,
+                            "type": "xlsx",
+                            "encoding": "utf8"
+                        },
+                        "http": {
+                            "type": "file",
+                            "relativeURI": [
+                                "Gdrive_Imports"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "sendPostMappedData": true,
+                            "formType": "assistant",
+                            "response": {
+                                "resourcePath": [
+                                    "files"
+                                ]
+                            }
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ]
+
+}

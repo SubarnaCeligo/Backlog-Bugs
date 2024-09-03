@@ -1,0 +1,83 @@
+{
+    "name": "TC_23061",
+    "referencename": "TC_23061",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "NetSuite export",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "type": "test",
+                        "asynchronous": true,
+                        "test": {
+                            "limit": 1
+                        },
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "recordType": "customer",
+                                "searchId": "10",
+                                "useSS2Restlets": false
+                            },
+                            "distributed": {
+                                "disabled": false,
+                                "forceReload": false
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "MySQL import",
+                        "application": "MySQL",
+                        "modelMetadata": {},
+                        "parsers": [],
+                        "_connectionId": "MYSQL CONNECTION",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "lookups": [],
+                        "rdbms": {
+                            "query": [
+                                "INSERT INTO anusha\n(\nname\n)\nVALUES\n(\n{{record.Name}\n)"
+                            ],
+                            "queryType": [
+                                "INSERT"
+                            ]
+                        },
+                        "adaptorType": "RDBMSImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_23061",
+                "disabled": false,
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

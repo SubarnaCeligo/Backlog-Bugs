@@ -1,0 +1,117 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "name": "TC_C48553_filetype_xml)",
+    "disabled": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "sandbox": false,
+                "qa__path": "/FTP_uploads/automation.json",
+                "ftp": {
+                    "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "automation.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "qa_connectionId": "S3 CONNECTION",
+                "_connectionId": "S3 CONNECTION",
+                "qa__path": "//S3_uploads//xmlfiletype.xml",
+                "mappings": [
+                    {
+                        "extract": "$.problems[*].Diabetes[*].medications[*].medicationsClasses[*].className[*].associatedDrug[*].name",
+                        "generate": "name*34",
+                        "dataType": "string"
+                    },
+                    {
+                        "extract": "$.problems[*].Diabetes[*].medications[*].medicationsClasses[*].className[*].associatedDrug[*].dose",
+                        "generate": "dose@456_",
+                        "dataType": "string"
+                    },
+                    {
+                        "extract": "$.problems[*].Diabetes[*].medications[*].medicationsClasses[*].className[*].associatedDrug[*].strength",
+                        "generate": "strength&891*()",
+                        "dataType": "string"
+                    },
+                    {
+                        "extract": "{{base64Encode record.problems.0.Diabetes.0.medications.0.medicationsClasses.0.className.0.associatedDrug.0.name }}",
+                        "generate": "Exp_sion",
+                        "dataType": "string",
+                        "conditional": {
+                            "when": "extract_not_empty"
+                        }
+                    },
+                    {
+                        "generate": "Array",
+                        "dataType": "object",
+                        "mappings": [
+                            {
+                                "generate": "id",
+                                "dataType": "string",
+                                "hardCodedValue": "0987654321"
+                            }
+                        ]
+                    }
+                ],
+                "file": {
+                    "fileName": "xmlfiletype.xml",
+                    "skipAggregation": false,
+                    "type": "xml",
+                    "xml": {
+                        "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<data>    \n{{#each batch_of_records}} \n<Name>{{record.[name*34]}}</Name>\n<Notes>{{record.[dose@456_]}}</Notes> \n<URL>{{record.[strength&891*()]}}</URL>\n<Exp>{{record.Exp_sion}}</Exp>\n<Array><id>{{record.Array.id}}</id></Array>\n{{/each}}\n</data>"
+                    }
+                },
+                "s3": {
+                    "region": "us-east-1",
+                    "bucket": "automations3import",
+                    "fileKey": "xmlfiletype.xml"
+                },
+                "adaptorType": "S3Import"
+            }
+        }
+    ],
+    "qa__dataVerification": {
+        "expected": {
+            "S3": {
+                "name": "TC_C48553(file type xml)",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "import": {
+                    "_connectionId": "FTP CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "xmlfiletype",
+                    "bucketName": "automations3import",
+                    "fileType": ".xml"
+                }
+            }
+        }
+    }
+}

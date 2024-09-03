@@ -1,0 +1,94 @@
+{
+    "QA_connection": {
+        "FTP_Conn": "FTP CONNECTION",
+        "NS_conn": "628f00568f68e85ab2c63b22",
+        "SF_conn": "SALESFORCE CONNECTION"
+    },
+    "Staging_connections": {
+        "FTP_Conn": "FTP CONNECTION",
+        "NS_conn": "NETSUITE CONNECTION",
+        "SF_conn": "SALESFORCE CONNECTION"
+    },
+    "SF_qa":{
+        "export":
+        { "name": "SalesForce Export",
+         "_connectionId": "SALESFORCE CONNECTION",
+         "apiIdentifier": "e4c73e6cda",
+         "asynchronous": true,
+         "oneToMany": false,
+         "sandbox": false,
+         "salesforce": {
+             "type": "soql",
+             "api": "rest",
+             "soql": {
+                 "query": "Select Name, Email__c,Alt_Email__c,Subsidiary_Name__c,Subsidiary_Internal_ID__c,phone,fax,Billingcity,Billingstreet,Billingcountry,Billingstate, BillingPostalCode,Shippingcity,Shippingstreet,Shippingcountry,ShippingPostalCode,Shippingstate from Account where name like 'Edge Communications'"
+             }
+         },
+         "adaptorType": "SalesforceExport"
+     }
+     },
+     "SF_Staging":{
+        "export":
+        { "name": "SalesForce Export",
+         "_connectionId": "SALESFORCE CONNECTION",
+         "apiIdentifier": "e4c73e6cda",
+         "asynchronous": true,
+         "oneToMany": false,
+         "sandbox": false,
+         "salesforce": {
+             "type": "soql",
+             "api": "rest",
+             "soql": {
+                 "query": "Select Name, Email__c,Alt_Email__c,Subsidiary_Name__c,Subsidiary_Internal_ID__c,phone,fax,Billingcity,Billingstreet,Billingcountry,Billingstate, BillingPostalCode,Shippingcity,Shippingstreet,Shippingcountry,ShippingPostalCode,Shippingstate from Account where name like 'Edge Communications'"
+             }
+         },
+         "adaptorType": "SalesforceExport"
+     }
+     },
+     "FTP":{
+        "type": "export",
+        "qa__export": {
+          "name": "test expo normal",
+          "_connectionId": "FTP CONNECTION",
+          "asynchronous": true,
+          "sandbox": false,
+          "sampleData": {
+            "AccountName": "Tester",
+            "Email": "test@email.com"
+          },
+          "ftp": {
+            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+            "fileNameStartsWith": "errorReq.json"
+          },
+          "file": {
+            "output": "records",
+            "skipDelete": true,
+            "type": "json"
+          },
+          "adaptorType": "FTPExport"
+        }
+      },
+      "FTP_update":{
+        "type": "export",
+        "qa__export": {
+          "name": "test expo updated",
+          "_connectionId": "FTP CONNECTION",
+          "asynchronous": true,
+          "sandbox": false,
+          "sampleData": {
+            "AccountName": "Tester",
+            "Email": "test@email.com"
+          },
+          "ftp": {
+            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+            "fileNameStartsWith": "errorReq.json"
+          },
+          "file": {
+            "output": "records",
+            "skipDelete": true,
+            "type": "json"
+          },
+          "adaptorType": "FTPExport"
+        }
+      }
+}

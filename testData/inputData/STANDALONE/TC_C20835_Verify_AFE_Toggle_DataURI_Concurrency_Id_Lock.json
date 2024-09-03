@@ -1,0 +1,35 @@
+{
+    "skipRetries": false,
+    "qa__integrationId": "6228aed6bc8a2732cfe8044c",
+    "_integrationId": "631a1266abf51e7a86c80ab4",
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C20835_Httpexp",
+    "disabled": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "rest xport",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "/organizations?per_page=2",
+                    "method": "GET",
+                    "formType": "http",
+                    "paging": {
+                        "method": "relativeuri",
+                        "relativeURI": "next_page"
+                    },
+                    "response": {
+                        "resourcePath": "organizations"
+                    }
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "connection": "62f21dbccc322a7546fa5bb5",
+    "stage_connection": "63ee687ea8bbb17ee142e359"
+}

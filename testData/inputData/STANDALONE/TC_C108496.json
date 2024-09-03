@@ -1,0 +1,92 @@
+{
+    "name": " TC_C108496",
+    "referencename": " TC_C108496",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "HTTP Export",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "e18e655188",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": "/users",
+                            "method": "GET",
+                            "formType": "http",
+                            "response": {
+                                "resourcePath": "users"
+                            }
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "GraphQL Lookup",
+                        "_connectionId": "GRAPHQL CONNECTION",
+                        "apiIdentifier": "e3a4c613ee",
+                        "asynchronous": true,
+                        "isLookup": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "method": "POST",
+                            "body": "{\"query\":\"{\\\"query\\\":\\\"{   orders(first: 1) {     edges {       cursor       node {         id         discountCode         updatedAt         lineItems(first: 30) {           edges {             node {               id               quantity               sku               originalUnitPrice               fulfillmentService {                 serviceName               }               taxLines {                 rate                 ratePercentage                 title               }             }           }         }         risks {           level           message         }         paymentGatewayNames         billingAddress {           address1           address2           city           company           countryCode           name           provinceCode           phone           zip         }         shippingAddress {           address1           address2           city           company           countryCode           name           provinceCode           phone           zip         }         customer {           id           email          phone         }         transactions {           amount           kind           id           gateway           status           authorizationCode           amountV2 {             currencyCode             amount           }           order {             id           }         }       }     }   } }\\\",\\\"variables\\\":{\\\"episode\\\":\\\"JEDI\\\"}}\"}",
+                            "formType": "graph_ql",
+                            "response": {
+                                "resourcePath": "data"
+                            }
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                },
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Http Lookup",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "e4a2e77198",
+                        "asynchronous": true,
+                        "isLookup": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": "/users",
+                            "method": "GET",
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": " TC_C108496",
+                "disabled": false,
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    },
+                    {
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

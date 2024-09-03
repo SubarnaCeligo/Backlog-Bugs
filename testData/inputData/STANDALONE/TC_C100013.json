@@ -1,0 +1,208 @@
+{
+    "name": "TC_C100013",
+    "disabled": false,
+    "_integrationId": "63232caf5342c33e615e7271",
+    "qa__integrationId": "63232c59d3a9897fe95f9f2a",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "Ftp Export",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "ed604ea8eb",
+                "asynchronous": true,
+                "sandbox": false,
+                "sampleData": [
+                    {
+                        "id": 1,
+                        "name": "Records1",
+                        "email": "test@gamail.com"
+                    }
+                ],
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "C47423.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "autoResolveMatchingTraceKeys": true,
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "LLEHfr",
+            "routeRecordsTo": "all_matching_branches",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [
+                                    {
+                                        "extract": "id",
+                                        "generate": "testId"
+                                    }
+                                ],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "FTP",
+                                "_connectionId": "FTP CONNECTION",
+                                "apiIdentifier": "i702c7a3cd",
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "file": {
+                                    "fileName": "file-{{timestamp}}.json",
+                                    "skipAggregation": false,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "DFG",
+                                    "fileName": "file-{{timestamp}}.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            },
+                            "proceedOnFailure": false
+                        },
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "FTP",
+                                "_connectionId": "FTP CONNECTION",
+                                "apiIdentifier": "i702c7a3cd",
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "file": {
+                                    "fileName": "file-{{timestamp}}.json",
+                                    "skipAggregation": false,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "DFG",
+                                    "fileName": "file-{{timestamp}}.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Branch 1.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [ {
+                                    "extract": "data",
+                                    "generate": "Result"
+                                }],
+                                "lists": []
+                            },
+                            "type": "export",
+                            "qa__export": {
+                                "name": "Http Lookup",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "apiIdentifier": "e43296046b",
+                                "asynchronous": true,
+                                "isLookup": true,
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "http": {
+                                    "relativeURI": "users",
+                                    "method": "GET",
+                                    "formType": "http",
+                                    "response": {
+                                        "resourcePath": "users"
+                                    }
+                                },
+                                "transform": {
+                                    "type": "expression",
+                                    "expression": {
+                                        "rules": [
+                                            [
+                                                {
+                                                    "generate": "Id",
+                                                    "extract": "id"
+                                                },
+                                                {
+                                                    "extract": "name",
+                                                    "generate": "Name"
+                                                },
+                                                {
+                                                    "extract": "email",
+                                                    "generate": "Email"
+                                                }
+                                            ]
+                                        ],
+                                        "version": "1"
+                                    },
+                                    "version": "1",
+                                    "rules": [
+                                        [
+                                            {
+                                                "generate": "Id",
+                                                "extract": "id"
+                                            },
+                                            {
+                                                "extract": "name",
+                                                "generate": "Name"
+                                            },
+                                            {
+                                                "extract": "email",
+                                                "generate": "Email"
+                                            }
+                                        ]
+                                    ]
+                                },
+                                "adaptorType": "HTTPExport"
+                            }
+                        },
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "FTP",
+                                "_connectionId": "FTP CONNECTION",
+                                "apiIdentifier": "i702c7a3cd",
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "file": {
+                                    "fileName": "file-{{timestamp}}.json",
+                                    "skipAggregation": false,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "DFG",
+                                    "fileName": "file-{{timestamp}}.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        }
+    ]
+}

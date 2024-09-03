@@ -1,0 +1,141 @@
+{
+    "name": "TC29274_Lookup_SuggestionList",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Http Export",
+                        "application": "zendesk support",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "ea735b8976",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": "/users/1473313072",
+                            "method": "GET",
+                            "formType": "http"
+                        },
+                        "rawData": "61e68956b587067a214ac5ed49a58bbcfd49437682fe8394a68ba75c",
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Http Import",
+                        "application": "zendesk support",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "i993757a68",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "lookups": [
+                            {
+                                "name": "StaticLookup",
+                                "map": {
+                                    "admin": "normal",
+                                    "agent": "high",
+                                    "end-user": "urgent"
+                                },
+                                "allowFailures": false,
+                                "useImportHeaders": true
+                            },
+                            {
+                                "name": "DynamicLookup",
+                                "method": "GET",
+                                "relativeURI": "users",
+                                "extract": "details",
+                                "allowFailures": false,
+                                "useImportHeaders": true
+                            }
+                        ],
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "extract": "user.name",
+                                    "generate": "ticket.subject"
+                                },
+                                {
+                                    "extract": "user.notes",
+                                    "generate": "ticket.desription"
+                                },
+                                {
+                                    "extract": "user.role",
+                                    "generate": "ticket.priority",
+                                    "lookupName": "StaticLookup"
+                                },
+                                {
+                                    "extract": "user.details",
+                                    "generate": "ticket.details",
+                                    "lookupName": "DynamicLookup"
+                                }
+                            ]
+                        },
+                        "http": {
+                            "relativeURI": [
+                                "/tickets"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http",
+                            "lookups": [
+                                {
+                                    "name": "StaticLookup",
+                                    "map": {
+                                        "admin": "normal",
+                                        "agent": "high",
+                                        "end-user": "urgent"
+                                    },
+                                    "allowFailures": false,
+                                    "useImportHeaders": true
+                                },
+                                {
+                                    "name": "DynamicLookup",
+                                    "method": "GET",
+                                    "relativeURI": "users",
+                                    "extract": "details",
+                                    "allowFailures": false,
+                                    "useImportHeaders": true
+                                }
+                            ]
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC29274_Lookup_SuggestionList",
+                "disabled": false,
+                "qa__integrationId": "6228aed6bc8a2732cfe8044c",
+                "_integrationId": "631a1266abf51e7a86c80ab4",
+
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

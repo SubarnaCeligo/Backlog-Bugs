@@ -1,0 +1,72 @@
+{
+    "skipRetries": false,
+    "_integrationId": "6228aed6bc8a2732cfe8044c",
+    "name": "TC_C26193",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "TC_C26193",
+                        "type": "webhook",
+                        "sandbox": false,
+                        "webhook": {
+                            "provider": "custom",
+                            "verify": "basic",
+                            "username": "goodUser",
+                            "password": "goodPass"
+                        },
+                        "adaptorType": "WebhookExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Ftp Import",
+                        "qa__connectionId": "62ff459b2dac2950afa67340",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "i160155636",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "file": {
+                            "fileName": "AS2.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                            "fileName": "AS2.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C26193",
+                "disabled": false,
+                "qa__integrationId": "6228aed6bc8a2732cfe8044c",
+                "_integrationId": "631a1266abf51e7a86c80ab4",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

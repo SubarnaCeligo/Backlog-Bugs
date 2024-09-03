@@ -1,0 +1,143 @@
+{
+    "name": "FLOW_14925",
+    "disabled": true,
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": 
+            {
+                "name": "export",
+                "_connectionId": "FTP_OFFLINE_14925",
+                "asynchronous": true,
+                "mockOutput": {
+                    "page_of_records": [
+                        {
+                            "record": {
+                                "mockOutput": "Replace mockOutput key and value with source dat"
+                            }
+                        }
+                    ]
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/exp_folder"
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    },
+                    "filter": {
+                        "type": "expression",
+                        "expression": {
+                            "version": "1",
+                            "rules": [
+                                "startswith",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "filename"
+                                    ]
+                                ],
+                                "check1"
+                            ]
+                        },
+                        "rules": [
+                            "startswith",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "filename"
+                                ]
+                            ],
+                            "check1"
+                        ],
+                        "version": "1"
+                    }
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import":{
+
+                "name": "import",
+                "sampleData": {
+                    "erferwefwe": "{\"mockOutput\":\"Replace mockOutput key and value with source dat\"}"
+                },
+                "mockResponse": [
+                    {
+                        "id": "1234567890",
+                        "errors": [],
+                        "_json": {
+                            "mockResponse": "replace me"
+                        },
+                        "statusCode": 200,
+                        "ignored": false,
+                        "dataURI": "",
+                        "_headers": {
+                            "content-type": "application/json; charset=utf-8"
+                        }
+                    }
+                ],
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "i1c9f10d19",
+                "oneToMany": false,
+                "mapping": {
+                    "fields": [
+                        {
+                            "generate": "erfe"
+                        }
+                    ]
+                },
+                "mappings": [
+                    {
+                        "extract": "$",
+                        "generate": "erferwefwe",
+                        "dataType": "string",
+                        "status": "Active",
+                        "sourceDataType": "object"
+                    }
+                ],
+                "file": {
+                    "fileName": "file-{{timestamp}}.json",
+                    "skipAggregation": true,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/exp_folder",
+                    "fileName": "file-{{timestamp}}.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ],
+    "createFlow": {
+        "name": "FLOW_14925",
+        "disabled": true,
+        "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID",
+                "skipRetries": false
+            }
+        ],
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "autoResolveMatchingTraceKeys": true
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "PostBody": {
+        "type": "http",
+        "name": "TC_C46997_Connection",
+        "sandbox": false,
+        "http": {
+            "formType": "http",
+            "mediaType": "json",
+            "baseURI": "https://1a98-27-122-61-32.in.ngrok.io",
+            "ping": {
+                "relativeURI": "/tshirt",
+                "method": "GET"
+            },
+            "unencrypted": {
+                "field": "value"
+            },
+            "encrypted": "******",
+            "clientCertificates": {
+                "passphrase": "celigo",
+                "pfx": "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"
+            },
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "test",
+                    "password": "******"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,93 @@
+{
+    "flowname": "TC_C26414_FG",
+    "name": "TC_C26414_",
+    "flowGroup": "TC_C26414_FG",
+    "qa__expectedDashboardCount": {
+        "successCount": "0",
+        "ignoreCount": "0",
+        "errorCount": "18"
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Netsuite Export",
+                        "_connectionId": "628e26b75ce86b5798978bdf",
+                        "_sourceId": "6305d6e1d24baf42341c1d2a",
+                        "apiIdentifier": "ecd95c6c98",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "rawData": "61e68956b587067a214ac5edff607438c5024087b6c2dd299c47392c",
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "recordType": "account",
+                                "searchId": "4541",
+                                "useSS2Restlets": false,
+                                "hooks": {
+                                    "preSend": {
+                                        "fileInternalId": "null",
+                                        "function": "null"
+                                    }
+                                }
+                            },
+                            "distributed": {
+                                "useSS2Framework": false
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "ftp",
+                        "_connectionId": "62ff459b2dac2950afa67340",
+                        "_sourceId": "63158e12976915080d03d6b1",
+                        "apiIdentifier": "i79df54248",
+                        "oneToMany": false,
+                        "file": {
+                            "fileName": "file-{{timestamp}}.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "io.auto.qa/IO_UI_Automation",
+                            "fileName": "file-{{timestamp}}.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C26414_FG",
+                "disabled": false,
+                "_integrationId": "6228aed6bc8a2732cfe8044c",
+                "qa__integrationId": "6228aed6bc8a2732cfe8044c",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

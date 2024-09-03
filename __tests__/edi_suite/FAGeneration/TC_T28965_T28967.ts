@@ -48,8 +48,8 @@ test.describe("@Author-Shriti S TC_T28965-Verify that selecting File typeâ€™ = â
     await io.assert.verifyElementIsDisplayed(selectors.exportsPagePO.FA_ACKNOWLEDGEMENT, 'FA Checkbox is not displayed');
 
     //  Get Label
-    let label = (await io.exportsPage.getText(selectors.exportsPagePO.FA_ACKNOWLEDGEMENT_LABEL)).toString()
-    await io.assert.expectToBeValue('Send functional acknowledgement', label, 'FA Label is not displayed');
+    let labelVisible = await io.exportsPage.isVisible("text='Send functional acknowledgement'");
+    await io.assert.expectToBeTrue(labelVisible, 'FA Label is not displayed');
 
     //Get helptext
     await io.exportsPage.click(selectors.exportsPagePO.FA_ACKNOWLEDGEMENT_HELPTEXT_ICON);
@@ -62,7 +62,7 @@ test.describe("@Author-Shriti S TC_T28965-Verify that selecting File typeâ€™ = â
     await io.exportsPage.click(selectors.exportsPagePO.FA_ACKNOWLEDGEMENT);
 
     //Check if listener dropdown is displayed.
-    label = (await io.exportsPage.getText(selectors.exportsPagePO.FA_LISTENER_LABEL)).toString();
+    let label = (await io.exportsPage.getText(selectors.exportsPagePO.FA_LISTENER_LABEL)).toString();
     await io.assert.expectToBeValue('Select listener for functional acknowledgementâ€‰*', label, 'Label for FA listener dropdown is not displayed');
     await io.assert.verifyElementIsDisplayed(selectors.exportsPagePO.FA_LISTENER_DROPDOWN, 'FA Listener dropdwon is not displayed');
     await io.homePage.addStep("End of FTP")

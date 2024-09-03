@@ -1,0 +1,99 @@
+{
+    "name": "TC_C51283",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "skipRetries": false,
+    "pageGenerators": [
+      {
+        "type": "export",
+        "qa__export": {
+          "name": "TC_C51283",
+          "_connectionId": "FTP CONNECTION",
+          "asynchronous": true,
+          "sandbox": false,
+          "qa__path": "//FTP_uploads//TC_C51211.json",
+          "ftp": {
+            "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+            "fileNameStartsWith": "TC_C51211"
+          },
+          "file": {
+            "encoding": "utf8",
+            "output": "records",
+            "skipDelete": true,
+            "type": "json"
+          },
+          "adaptorType": "FTPExport"
+        }
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "name": "TC_C51283",
+          "_connectionId": "FTP CONNECTION",
+          "apiIdentifier": "i77d54bab9",
+          "oneToMany": false,
+          "sandbox": false,
+          "mappings": [
+            {
+                "generate": "Name",
+                "dataType": "objectarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                    {
+                        "extract": "$.children[*]",
+                        "sourceDataType": "objectarray",
+                        "mappings": [
+                            {
+                                "extract": "$.children.firstName",
+                                "generate": "Test",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "$.mother.lName",
+                                "generate": "Name",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "extract": "$.siblings[*]",
+                        "sourceDataType": "objectarray",
+                        "mappings": [
+                            {
+                                "generate": "Test",
+                                "dataType": "string",
+                                "status": "Draft",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "generate": "Name",
+                                "dataType": "string",
+                                "status": "Draft",
+                                "sourceDataType": "string"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+          "file": {
+            "fileName": "TC_C51283.json",
+            "skipAggregation": false,
+            "type": "json"
+          },
+          "ftp": {
+            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPimport",
+            "fileName": "TC_C51283.json"
+          },
+          "adaptorType": "FTPImport"
+        }
+      }
+    ]
+  }

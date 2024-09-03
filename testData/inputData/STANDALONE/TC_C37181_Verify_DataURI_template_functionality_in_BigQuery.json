@@ -1,0 +1,57 @@
+{
+  "skipRetries": false,
+  "_integrationId": "631a1266abf51e7a86c80ab4",
+  "qa__integrationId": "6228aed6bc8a2732cfe8044c",
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "FTP export",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "e930f9de29",
+        "asynchronous": true,
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "TC_C37181"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json",
+          "json": {
+            "resourcePath": "*"
+          }
+        },
+        "adaptorType": "FTPExport",
+        "qa__path": "//FTP_uploads//TC_C37181.json"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "test",
+        "application": "Google BigQuery",
+        "_connectionId": "631a092f4ceac669f82fadb2",
+        "qa__connectionId": "6319799d8d5884260e85a853",
+        "apiIdentifier": "i1bff6b693",
+        "oneToMany": false,
+        "rdbms": {
+            "query": [],
+            "queryType": [
+                "BULK INSERT"
+            ],
+            "bulkInsert": {
+                "tableName": "Cell_LABS.PULIC.MERGE_TEST365+652"
+            }
+        },
+        "adaptorType": "RDBMSImport"
+    }
+    }
+  ],
+  "dataURITemplate": "{{record.[#Number]}}"
+
+}

@@ -1,0 +1,21 @@
+{
+    "name": "TC_40411_C40413_AmazonRedshift_Once_Export_To_FTP",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "application": "Amazon Redshift",
+                "name": "TC_40415_C40413_AmazonRedshift_All_Standalone_Export_Preview",
+                "description": "TC_40415_C40413_AmazonRedshift_All_Standalone_Export_Preview",
+                "_connectionId": "AMAZON REDSHIFT CONNECTION",
+                "rdbms": {
+                    "query": "select * from sales"
+                },
+                "adaptorType": "RDBMSExport"
+            }
+        }
+    ]
+
+    }

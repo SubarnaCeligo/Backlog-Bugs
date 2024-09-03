@@ -1,0 +1,35 @@
+{
+    "name": "NetsuiteExport",
+    "_connectionId": "NETSUITE CONNECTION",
+    "apiIdentifier": "e7906e1dc8",
+    "asynchronous": true,
+    "oneToMany": false,
+    "sandbox": false,
+    "netsuite": {
+        "type": "restlet",
+        "skipGrouping": true,
+        "statsOnly": false,
+        "restlet": {
+            "recordType": "customer",
+            "searchId": "767",
+            "criteria": [
+                {
+                    "operator": "isnotempty",
+                    "field": "accountnumber"
+                },
+                {
+                    "field": "balance",
+                    "operator": "isnotempty"
+                }
+            ],
+            "columns": [],
+            "useSS2Restlets": false
+        },
+        "distributed": {
+            "executionContext": [],
+            "executionType": [],
+            "useSS2Framework": false
+        }
+    },
+    "adaptorType": "NetSuiteExport"
+}

@@ -44,13 +44,10 @@ test.describe("T24279 - Verify user is able to create export/lookup/import with 
         await io.flowBuilder.clickByTextByIndex('HTTP ZENDESK CONNECTION', 0);
 
         //Make sure Clone flow step is selected
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.CLONE_FLOW_STEP_RADIO);
-        await io.assert.verifyElementAttributeContainsText(selectors.flowBuilderPagePO.CLONE_FLOW_STEP_RADIO, "class", "Mui-checked");
-
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.CLONE_RESOURCE);
         //save
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
         await io.flowBuilder.loadingTime();
-
         //Verify that export is added
         let isExportAdded = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.EMPTY_PAGE_GENERATOR);
         await io.assert.expectToBeFalse(isExportAdded, 'Export is not saved');

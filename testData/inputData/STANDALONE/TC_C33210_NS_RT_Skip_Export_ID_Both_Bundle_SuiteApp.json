@@ -1,0 +1,56 @@
+{
+  "_connectionId": "NETSUITE CONNECTION",
+  "response": {
+    "res": [
+      {
+        "id": "category1099misc",
+        "type": "select",
+        "name": "1099-MISC Category"
+      },
+      {
+        "id": "custrecord1464",
+        "name": "Account checkbox",
+        "type": "checkbox"
+      },
+      { "id": "balance", "type": "currency", "name": "Balance" },
+      {
+        "id": "cashflowratetype",
+        "type": "select",
+        "name": "Cash Flow Rate Type"
+      },
+      { "id": "description", "type": "text", "name": "Description" },
+      { "id": "externalid", "type": "select", "name": "External ID" },
+      {
+        "id": "externalidstring",
+        "type": "text",
+        "name": "External ID (Text)"
+      },
+      { "id": "formuladate", "type": "date", "name": "Formula (Date)" },
+      { "id": "formulanumeric", "type": "float", "name": "Formula (Numeric)" },
+      { "id": "formulatext", "type": "text", "name": "Formula (Text)" },
+      {
+        "id": "generalratetype",
+        "type": "select",
+        "name": "General Rate Type"
+      },
+      { "id": "isinactive", "type": "checkbox", "name": "Inactive" },
+      { "id": "internalid", "type": "select", "name": "Internal ID" },
+      {
+        "id": "internalidnumber",
+        "type": "integer",
+        "name": "Internal ID (Number)"
+      },
+      { "id": "name", "type": "text", "name": "Name" },
+      { "id": "number", "type": "text", "name": "Number" },
+      { "id": "custrecord1837", "name": "Once Export", "type": "checkbox" },
+      {
+        "id": "custrecord_fam_account_showinfixedasset",
+        "name": "Show in Fixed Assets Management",
+        "type": "multiselect"
+      },
+      { "id": "parent", "type": "select", "name": "Subaccount of" },
+      { "id": "subsidiary", "type": "select", "name": "Subsidiaries" },
+      { "id": "type", "type": "select", "name": "Type" }
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "http",
+                "_connectionId": "GROUPING MOCK JSON CONNECTION",
+                "apiIdentifier": "e2b3420c8a",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "7b3ad0c8-9057-4de3-aacf-99013a670a5b",
+                    "method": "GET",
+                    "successMediaType": "csv",
+                    "formType": "http"
+                },
+                "file": {
+                    "type": "csv",
+                    "csv": {
+                        "columnDelimiter": ",",
+                        "rowDelimiter": "\n",
+                        "keyColumns": [
+                            "id"
+                        ],
+                        "hasHeaderRow": true,
+                        "trimSpaces": true,
+                        "rowsToSkip": 0
+                    }
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ]
+}

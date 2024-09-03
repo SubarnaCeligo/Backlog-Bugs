@@ -1,0 +1,6 @@
+[{
+    "StagingConnectionUrl": "https://staging.integrator.io/connections/edit/connections/6348e858c888a90d58a7cf51",
+    "QaConnectionUrl": "https://qa.staging.integrator.io/connections/edit/connections/6412a4926949f229ff1eeb28",
+    "QaprodConnectionUrl": "https://qaprod.staging.integrator.io/connections/edit/connections/6348e858c888a90d58a7cf51",
+    "IaqaConnectionUrl": "https://iaqa.staging.integrator.io/connections/edit/connections/6348e858c888a90d58a7cf51"
+}]

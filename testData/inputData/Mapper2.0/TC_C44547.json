@@ -1,0 +1,133 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "name": "TC_C44547",
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "name": "44547",
+                "application":"inspectorio",
+                "qa__connectionId": "62dbca5731ef343052891b61",
+                "_connectionId": "631a1a1a4ceac669f82fb93a",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "dataType": "objectarray",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$[*].measurements[*]",
+                                "mappings": [
+                                    {
+                                        "extract": "$.measurements.caption",
+                                        "generate": "caption",
+                                        "dataType": "string"
+                                    },
+                                    {
+                                        "extract": "$.measurements.pom",
+                                        "generate": "pom",
+                                        "dataType": "string"
+                                    },
+                                    {
+                                        "generate": "sizes",
+                                        "dataType": "objectarray",
+                                        "buildArrayHelper": [
+                                            {
+                                                "extract": "$.measurements.sizes[*]",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.measurements.sizes.measurement",
+                                                        "generate": "measurements sizes",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.measurements.sizes.size",
+                                                        "generate": "size size",
+                                                        "dataType": "string"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "extract": "$.measurements.tolerance",
+                                        "generate": "tolerance",
+                                        "dataType": "string"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "/api/v1/purchase-orders"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "44547",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "sandbox": false,
+                "sampleData": [
+                    [
+                        {
+                            "measurements": [
+                                {
+                                    "caption": "C01",
+                                    "pom": "Chest",
+                                    "sizes": [
+                                        {
+                                            "measurement": "2",
+                                            "size": "Medium"
+                                        }
+                                    ],
+                                    "tolerance": "1",
+                                    "toleranceLower": "1",
+                                    "toleranceUpper": "1",
+                                    "unit": "cm"
+                                }
+                            ]
+                        }
+                    ]
+                ],
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C44547.json"
+                },
+                "file": {
+                    "output": "records",
+                    "encoding": "utf8",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "adaptorType": "FTPExport",
+                "qa__path": "//FTP_uploads//TC_C44547.json"
+            }
+        }
+    ]
+}

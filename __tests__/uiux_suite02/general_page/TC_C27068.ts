@@ -49,7 +49,7 @@ test.describe("@Author-Sudhanshukumar C27068 Verify the application name is appe
         await io.exportsPage.loadingTime();
         await io.exportsPage.waitForElementAttached(selectors.flowBuilderPagePO.HELP_TEXT_ICON);
         const exportUrl = await io.homePage.getCurrentUrl();
-        await io.assert.expectToContainValue("?app=zendesk", exportUrl, "Appended URL not present")
+        await io.assert.expectToContainValue("?app=http", exportUrl, "Appended URL not present")
         await io.exportsPage.click(selectors.importPagePO.IMPORT_CLOSE_DRAWER);
         //IO-T27070 
         await io.exportsPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);

@@ -1,0 +1,81 @@
+{
+    "name": "TC_C27963_Httpexp_Httplookup_apipaging",
+    "disabled": false,
+    "_integrationId": "62c3e71af6f3f2299501f5bf",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "testing",
+                "_connectionId":"HTTP ZENDESK CONNECTION",
+                "q__connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "ed0d2077f9",
+                "asynchronous": true,
+                "oneToMany": false,
+                "application": "zendesk support",
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "users",
+                    "method": "GET",
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "tetsinglookup",
+                "_connectionId":"631a0ef54ceac669f82fb117",
+                "q__connectionId": "627b6bd17ca3007138a67d30",
+                "apiIdentifier": "ebff75442f",
+                "asynchronous": true,
+                "application": "zendesk support",
+                "isLookup": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "parsers": [],
+                "http": {
+                    "relativeURI": "tickets",
+                    "method": "GET",
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPExport"
+            },
+            "responseMapping": {
+                "fields": [
+                  {
+                    "extract": "data",
+                    "generate": "Lookup_Data"
+                  }
+                ],
+                "lists": [
+
+                ],
+                "qa__index": 0
+              }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "ftpimop",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "i58822eea8",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "C27963.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "io.auto.qa/IO Automation SFTP Imports",
+                    "fileName": "C27963.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ]
+}

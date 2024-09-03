@@ -11,6 +11,6 @@ test.describe("C68826 Verify that ftp_bridge properly handles the termination an
     await io.flowBuilder.clickByTextByIndex("1 error", 1);
     const rowSelector =  selectors.basePagePO.ROW_SELECTED;
     const locator = await page.$(`${rowSelector} td`)
-    await io.assert.verifyElementText(`${rowSelector} td`, "File object doesn't exist: sftp://io.auto.qa@celigo.com:****************@celigo.files.com/Group-QA/HRR-ui")
+    await io.assert.verifyElementText(`${rowSelector} td`, "An unexpected error has occurred; please contact Celigo Support. Underlying error: File object doesn't exist: sftp://io.auto.qa%40celigo.com:***@celigo.files.com/Group-QA/HRR-ui")
   });
 });

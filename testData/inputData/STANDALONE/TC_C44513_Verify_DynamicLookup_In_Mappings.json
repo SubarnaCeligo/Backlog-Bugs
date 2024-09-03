@@ -1,0 +1,69 @@
+{
+  "name": "TC_C44513_Verify_DynamicLookup_In_Mappings",
+  "qa__api_tdata": [
+    {
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "NS_Sales order",
+            "_connectionId": "NETSUITE CONNECTION",
+            "distributed": true,
+            "lookups": [
+              {
+                "name": "Name",
+                "recordType": "customer",
+                "resultField": "companyname",
+                "expression": "[\"internalid\",\"is\",\"8131\"]",
+                "allowFailures": false
+              }
+            ],
+            "netsuite_da": {
+              "useSS2Restlets": false,
+              "operation": "add",
+              "recordType": "salesorder",
+              "lookups": [
+                {
+                  "name": "Name",
+                  "recordType": "customer",
+                  "resultField": "companyname",
+                  "expression": "[\"internalid\",\"is\",\"8131\"]",
+                  "allowFailures": false
+                }
+              ],
+              "mapping": {
+                "fields": [
+                  {
+                    "generate": "entity",
+                    "discardIfEmpty": false,
+                    "immutable": false,
+                    "lookupName": "Name",
+                    "internalId": false
+                  }
+                ],
+                "lists": []
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C44513_Verify_DynamicLookup_In_Mappings",
+        "disabled": false,
+        "_integrationId": "6228aed6bc8a2732cfe8044c",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

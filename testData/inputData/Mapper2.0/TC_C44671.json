@@ -1,0 +1,269 @@
+{
+  "timezone": "Asia/Calcutta",
+  "name": "TC_C44671",
+  "disabled": false,
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "qa__import": {
+        "name": "Inspectorio PO",
+        "application":"inspectorio",
+        "_connectionId": "62ce6b6670b1915aa1785bf0",
+        "qa__connectionId": "62dbca5731ef343052891b61",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "lookups": [
+          {
+            "name": "dynamic_nestedarray",
+            "method": "GET",
+            "relativeURI": "/api/v1/products",
+            "extract": "data[0].productLineId",
+            "body": "",
+            "allowFailures": false,
+            "useImportHeaders": true
+          }
+        ],
+        "mappings": [
+          {
+            "extract": "$[*].clientId",
+            "generate": "clientId",
+            "dataType": "string"
+          },
+          {
+            "extract": "$[*].vendorId",
+            "generate": "vendorId",
+            "dataType": "string"
+          },
+          {
+            "extract": "$[*].uid",
+            "generate": "uid",
+            "dataType": "string"
+          },
+          {
+            "extract": "$[*].deliveryDate",
+            "generate": "deliveryDate",
+            "dataType": "string",
+            "extractDateFormat": "YYYY-MM-DDTHH:mm:ssZ",
+            "extractDateTimezone": "(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi",
+            "generateDateFormat": "YYYY-MM-DDTHH:mm:ssZ",
+            "generateDateTimezone": "(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi"
+          },
+          {
+            "extract": "$[*].poNumber",
+            "generate": "poNumber",
+            "dataType": "string"
+          },
+          {
+            "extract": "$[*].opoNumber",
+            "generate": "opoNumber",
+            "dataType": "string"
+          },
+          {
+            "extract": "$[*].productLineId",
+            "generate": "productLineId",
+            "dataType": "string"
+          },
+          {
+            "generate": "styles",
+            "dataType": "objectarray",
+            "buildArrayHelper": [
+              {
+                "extract": "$[*].styles[*]",
+                "mappings": [
+                  {
+                    "extract": "$.styles.styleId",
+                    "generate": "styleId",
+                    "dataType": "string"
+                  },
+                  {
+                    "extract": "$.styles.productCategoryId",
+                    "generate": "productCategoryId",
+                    "dataType": "string"
+                  },
+                  {
+                    "generate": "assortments",
+                    "dataType": "objectarray",
+                    "buildArrayHelper": [
+                      {
+                        "extract": "$.styles.assortments[*]",
+                        "mappings": [
+                          {
+                            "extract": "$.styles.assortments.assortmentId",
+                            "generate": "assortmentId",
+                            "dataType": "string"
+                          },
+                          {
+                            "generate": "cartonQuantity",
+                            "dataType": "number",
+                            "hardCodedValue": "0"
+                          },
+                          {
+                            "generate": "items",
+                            "dataType": "objectarray",
+                            "buildArrayHelper": [
+                              {
+                                "extract": "$.styles.assortments.items[*]",
+                                "mappings": [
+                                  {
+                                    "generate": "color",
+                                    "dataType": "string",
+                                    "hardCodedValue": "black"
+                                  },
+                                  {
+                                    "extract": "$.styles.assortments.items.brandId",
+                                    "generate": "brandId",
+                                    "dataType": "string"
+                                  },
+                                  {
+                                    "extract": "$.styles.assortments.items.id",
+                                    "generate": "id",
+                                    "dataType": "string"
+                                  },
+                                  {
+                                    "extract": "$.styles.assortments.items.configuration",
+                                    "generate": "configuration",
+                                    "dataType": "number"
+                                  },
+                                  {
+                                    "extract": "$.styles.assortments.items.itemId",
+                                    "generate": "itemId",
+                                    "dataType": "string",
+                                    "lookupName": "dynamic_nestedarray"
+                                  },
+                                  {
+                                    "extract": "$.styles.assortments.items.size",
+                                    "generate": "size",
+                                    "dataType": "string"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "http": {
+          "relativeURI": [
+            "/api/v1/purchase-orders"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [],
+          "batchSize": 1,
+          "sendPostMappedData": true,
+          "formType": "http",
+          "lookups": [
+            {
+              "name": "dynamic_nestedarray",
+              "method": "GET",
+              "relativeURI": "/api/v1/products",
+              "extract": "data[0].productLineId",
+              "body": "",
+              "allowFailures": false,
+              "useImportHeaders": true
+            }
+          ]
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "generateSampleDropDownAvailable": false,
+    "expected": {
+      "inspectorio": {
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "name": "TC_C44671",
+        "import": {
+          "_connectionId": "62ce6b6670b1915aa1785bf0",
+          "qa__connectionId": "62dbca5731ef343052891b61"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "2",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "standaloneexportflowID": "62ce6cdba7777017e5a5843e",
+          "uniqueField": "poNumber",
+          "importRecordType": "purchase-orders",
+          "isUIFlow": true,
+          "exportapiIdentifier": "e04f33cfae",
+          "expectedJSON": [
+            {
+              "poNumber": "Auto_TC_C44671_po_no",
+              "productLineId": "1",
+              "styles": [
+                {
+                  "assortments": [
+                    {
+                      "assortmentId": "string",
+                      "cartonQuantity": 0,
+                      "items": [
+                        {
+                          "brandId": "brand_1",
+                          "color": "black",
+                          "configuration": 1,
+                          "id": "string",
+                          "itemId": "1",
+                          "size": "string"
+                        }
+                      ]
+                    }
+                  ],
+                  "productCategoryId": "1",
+                  "styleId": "style_1"
+                }
+              ],
+              "vendorId": "315608_supplier_1"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "FTP Export TC_C44671",
+        "qa__path": "//SFTP_uploads//TC_C44671.json",
+        "_connectionId": "FTP CONNECTION",
+        "asynchronous": true,
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "TC_C44671.json"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json",
+          "json": {
+            "resourcePath": "*"
+          }
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+    "name": "TC_C30563_Verify_NS_Deposit_App_Created_field",
+    "qa__api_tdata": [
+      {
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "NS Deposit application",
+              "_connectionId": "NETSUITE CONNECTION",
+              "distributed": true,
+              "lookups": [],
+              "netsuite_da": {
+                "useSS2Restlets": false,
+                "operation": "add",
+                "recordType": "depositapplication",
+                "lookups": [],
+                "mapping": {
+                  "fields": [
+                    {
+                        "generate": "celigo_nlobjTransformId",
+                        "discardIfEmpty": false,
+                        "immutable": false,
+                        "hardCodedValue": "1104",
+                        "internalId": false
+                      }
+                  ],
+                  "lists": []
+                }
+              },
+              "adaptorType": "NetSuiteDistributedImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C30563_Verify_NS_Deposit_App_Created_field",
+          "disabled": false,
+          "_integrationId": "6228aed6bc8a2732cfe8044c",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

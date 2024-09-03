@@ -1,0 +1,126 @@
+{
+    "name": "TC_C25003",
+    "referencename": "TC_C25003",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Shopify customer export",
+                        "_connectionId": "SHOPIFY CONNECTION",
+                        "asynchronous": true,
+                        "assistant": "shopify",
+                        "assistantMetadata": {
+                            "resource": "customer",
+                            "version": "v2",
+                            "operation": "searches_forcustomersthatmatchasuppliedquery"
+                        },
+                        "http": {
+                            "relativeURI": "/customers/search.json?query=first_name:C23737",
+                            "method": "GET",
+                            "paging": {
+                                "method": "linkheader",
+                                "lastPageStatusCode": 404,
+                                "linkHeaderRelation": "next"
+                            },
+                            "response": {
+                                "resourcePath": "customers"
+                            }
+                        },
+                        "rawData": "603ce5ede9250226dcea4608dda6230d547e4261bcf2b129528d1898",
+                        "rest": {
+                            "relativeURI": "/customers/search.json?query=first_name:C23737",
+                            "method": "GET",
+                            "resourcePath": "customers",
+                            "pagingMethod": "linkheader",
+                            "allowUndefinedResource": false,
+                            "linkHeaderRelation": "next"
+                        },
+                        "adaptorType": "RESTExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Shopify customer export",
+                        "_connectionId": "SHOPIFY CONNECTION",
+                        "asynchronous": true,
+                        "assistant": "shopify",
+                        "assistantMetadata": {
+                            "resource": "customer",
+                            "version": "v2",
+                            "operation": "retrieves_asinglecustomer"
+                        },
+                        "http": {
+                            "relativeURI": "/customers/{{{id}}}.json",
+                            "method": "GET",
+                            "successMediaType": "json",
+                            "errorMediaType": "json",
+                            "formType": "assistant",
+                            "response": {
+                                "resourcePath": "customer"
+                            }
+                        },
+                        "rest": {
+                            "relativeURI": "/customers/{{id}}.json",
+                            "method": "GET",
+                            "resourcePath": "customer",
+                            "allowUndefinedResource": false
+                        },
+                        "adaptorType": "RESTExport",
+                        "rawData": "603ce5ede9250226dcea4608dda6230d547e4261bcf2b129528d1898"
+                    }
+                },
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Netsuite customer import",
+                        "parsers": [],
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "distributed": true,
+                        "lookups": [],
+                        "netsuite_da": {
+                            "useSS2Restlets": false,
+                            "operation": "add",
+                            "recordType": "customer",
+                            "lookups": [],
+                            "mapping": {
+                                "fields": [],
+                                "lists": []
+                            }
+                        },
+                        "adaptorType": "NetSuiteDistributedImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C25003",
+                "disabled": false,
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    },
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

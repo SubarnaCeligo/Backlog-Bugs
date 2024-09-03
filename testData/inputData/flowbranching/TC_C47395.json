@@ -1,0 +1,68 @@
+{
+    "name": "TC_C47395",
+    "referencename": "TC_C47395",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "_connectionId": "FTP CONNECTION",
+                "qa__path": "/FTP_uploads/C47423.json",
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/FTP_EXPORTS",
+                    "fileNameStartsWith": "C47423.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "AutomationStandaloneImport1_afsflk",
+                "application":"zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "http": {
+                    "relativeURI": [
+                        "organizations.json"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "AutomationStandaloneImport1_afsflk",
+                "application":"zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "http": {
+                    "relativeURI": [
+                        "organizations.json"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ]
+}

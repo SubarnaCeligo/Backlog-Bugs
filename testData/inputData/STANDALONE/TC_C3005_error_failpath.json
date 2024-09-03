@@ -1,0 +1,8 @@
+[{
+    "name": "TC_C3005_error_failpath",
+    "disabled": false,
+    "_integrationId": "6228aed6bc8a2732cfe8044c",
+    "connectionId":"HTTP ZENDESK CONNECTION",
+    "timezone": "Asia/Calcutta",
+    "skipRetries": false
+}]

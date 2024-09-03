@@ -1,0 +1,6 @@
+{
+  "exporttest": {
+    "_connectionId": "HTTP BIGCOMMERCE CONNECTION"
+  },
+  "expected":"[\n  {\n    \"field\": \"http.method\",\n    \"code\": \"missing_required_field\",\n    \"message\": \"Expected field: method to be present.\"\n  }\n]"
+}
