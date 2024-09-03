@@ -1,0 +1,9 @@
+{
+    "body": {
+        "name": "AutomationStandalone_big_query_exp",
+        "_connectionId": "BIGQUERY CONNECTION",
+        "rdbms": {
+            "query": "select * from `1234.IO_Delta`"
+        }
+    }
+}

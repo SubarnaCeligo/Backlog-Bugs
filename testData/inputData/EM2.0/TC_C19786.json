@@ -1,0 +1,172 @@
+{
+  "name": "TC_C19786",
+  "referencename": "TC_C19786",
+  "qa__dataVerification": {},
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Testexport",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "asynchronous": true,
+            "type": "test",
+            "oneToMany": false,
+            "http": {
+              "relativeURI": "/users",
+              "method": "GET",
+              "formType": "http"
+            },
+            "test": {
+              "limit": 1
+            },
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "test lookup",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "asynchronous": true,
+            "isLookup": true,
+            "type": "test",
+            "oneToMany": false,
+            "http": {
+              "relativeURI": "/users",
+              "method": "GET",
+              "formType": "http"
+            },
+            "test": {
+              "limit": 1
+            },
+            "adaptorType": "HTTPExport"
+          }
+        },
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "import19786",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "qa__connectionId": "ZENDESK CONNECTION",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "lookups": [
+              {
+                "name": "test",
+                "map": {
+                  "456": "86958905"
+                },
+                "allowFailures": false,
+                "useImportHeaders": true
+              }
+            ],
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "users[*].id",
+                  "generate": "user.id",
+                  "lookupName": "test"
+                }
+              ]
+            },
+            "http": {
+              "relativeURI": [],
+              "method": [
+                "POST"
+              ],
+              "body": [],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http",
+              "lookups": [
+                {
+                  "name": "test",
+                  "map": {
+                    "456": "86958905"
+                  },
+                  "allowFailures": false,
+                  "useImportHeaders": true
+                }
+              ]
+            },
+            "adaptorType": "HTTPImport"
+          }
+        },
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "import2",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "qa__connectionId": "ZENDESK CONNECTION",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "http": {
+              "relativeURI": [],
+              "method": [
+                "PUT"
+              ],
+              "body": [],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C19786",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "export",
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          },
+          {
+            "responseMapping": {
+              "fields": [
+                {
+                  "extract": "id",
+                  "generate": "responseMapping0_id"
+                }
+              ],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          },
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH EXPORTID",
+            "skipRetries": false
+          }
+        ]
+      }
+    }
+  ]
+}

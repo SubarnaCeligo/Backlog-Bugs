@@ -7,6 +7,7 @@ test.describe("C77923 To verify that the user is able to create new connections 
       await io.homePage.waitForElementAttached(selectors.basePagePO.MARKETPLACE);
       await io.homePage.goToMenu("Marketplace");
       await io.homePage.fill(selectors.homePagePO.SEARCH_MARKETPLACE, 'C2397_DND');
+      await io.homePage.loadingTime();
       await io.homePage.click(selectors.homePagePO.INSTALL_TEMPLATE);
       await io.homePage.clickByText("Install now");
       await io.homePage.waitForElementAttached(selectors.integrationPagePO.SETUP_INTEGRATION_CONFIGURE_BUTTON);

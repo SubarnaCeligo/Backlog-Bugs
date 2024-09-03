@@ -1,0 +1,75 @@
+{
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "FTP Export",
+        "_connectionId": "FTP CONNECTION",
+        "asynchronous": true,
+        "sandbox": false,
+        "qa__path": "//FTP_uploads//TC_C30821.csv",
+        "parsers": [],
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation",
+          "fileNameStartsWith": "TC_C30821"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "csv",
+          "sortByFields": [
+            {
+              "field": "Column5"
+            }
+          ],
+          "groupByFields": [
+            "Column5"
+          ],
+          "groupEmptyValues": true,
+          "csv": {
+            "columnDelimiter": ",",
+            "rowDelimiter": "\n",
+            "hasHeaderRow": false,
+            "trimSpaces": true,
+            "rowsToSkip": 0
+          }
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ],
+  "expectedDoc": {
+    "_id": "62df7a63868e48084085ff11",
+    "createdAt": "2022-07-26T05:23:47.537Z",
+    "lastModified": "2022-07-26T05:23:47.601Z",
+    "name": "AutomationStandaloneExport__Sx9p07Tz76",
+    "_connectionId": "FTP CONNECTION",
+    "apiIdentifier": "e90e3b622a",
+    "asynchronous": true,
+    "sandbox": false,
+    "parsers": [],
+    "sampleData": "Drug_company,Drug @ Nam,_code,Long Desc,code's,#Number,Desc(ICD),Desc(Short),$code\r\nNorthwind Pharmaceuticals,Fenofibrate,51655-010,Fall from (nonmotorized) scooter,7675,1933831154,\"Repair Left Ulnar Artery, Open Approach\",\"Oth fx of low end l rad, subs for opn fx type I/2 w nonunion\",E8850\r\nGlaxoSmithKline Consumer Healthcare LP,nicotine polacrilex,0135-0230,Other noncollision motor vehicle traffic accident injuring unspecified person,7675,3656640440,\"Supplement Left Thyroid Artery with Autol Sub, Open Approach\",\"Adverse effect of antineoplastic and immunosup drugs, init\",E8189\r\nAmerisourceBergen (Good Neighbor Pharmacy),\"Acetaminophen, Dextromethorphan Hydrobromide, Phenylephrine Hydrochloride\",46122-184,\"Open fractures involving skull or face with other bones, without mention of intracranial injury, with prolonged [more than 24 hours] loss of consciousness and return to pre-existing conscious level\",6739,3965202227,\"Destruction of Left Seminal Vesicle, Open Approach\",\"Postdysenteric arthropathy, multiple sites\",80454\r\n\"SPIRIT PHARMACEUTICALS,LLC\",FAMOTIDINE,68210-0007,Loss of weight,7675,4544913950,\"CT Scan of Bi Pulm Vein using H Osm Contrast, Unenh, Enhance\",Embolism and thrombosis of abdominal aorta,78321\r\n\"Elizabeth Arden, Inc\",Octinoxate,67938-0808,Enteritis due to other viral enteritis,7675,6357049646,\"Division of L Low Arm Subcu/Fascia, Open Approach\",\"Anterior disloc of proximal end of tibia, unsp knee, sequela\",00869\r\nHorizon Pharma Inc.,Naproxen and Esomeprazole Magnesium,75987-030,\"Benign neoplasm of eyeball, except conjunctiva, cornea, retina, and choroid\",7675,6495195850,\"Group Counseling for Substance Abuse Treatment, Vocational\",\"Benign neoplasm, unspecified site\",2240\r\nREMEDYREPACK INC.,Nortriptyline Hydrochloride,52125-965,\"Other and unspecified disorder of breast associated with childbirth, antepartum condition or complication\",8093,7050996688,\"Resection of Left Thorax Muscle, Perc Endo Approach\",\"Nondisp fx of prox phalanx of l great toe, 7thD\",67633\r\nAMOREPACIFIC,\"OCTINOXATE, TITANIUM DIOXIDE, and ZINC OXIDE\",43419-730,Cauliflower ear,9761,7971708874,\"Removal of Int Fix from L Carpal Jt, Open Approach\",\"Other effects of lightning, subsequent encounter\",7387\r\nNovo Nordisk,repaglinide and metformin hydrochloride,0169-0092,Unspecified visual loss,7675,9025710557,\"Transfer Hypoglossal Nerve to Trigem Nrv, Perc Endo Approach\",Bariatric surgery status compl preg/chldbrth,3699\r\nESTEE LAUDER INC,\"Avobenzone, Homosalate, Octisalate, Octocrylene, and Oxybenzone\",11559-037,Felty's syndrome,8018,9644580532,\"Transfer Vagus Nerve to Accessory Nerve, Open Approach\",\"Preterm prem ROM, onset labor within 24 hours of rupture\",7141\r\n",
+    "ftp": {
+      "directoryPath": "/io.auto.qa/IO_UI_Automation",
+      "fileNameStartsWith": "TC_C30821"
+    },
+    "file": {
+      "encoding": "utf8",
+      "output": "records",
+      "skipDelete": true,
+      "type": "csv",
+      "csv": {
+        "columnDelimiter": ",",
+        "rowDelimiter": "\n",
+        "hasHeaderRow": false,
+        "trimSpaces": true,
+        "rowsToSkip": 0,
+        "keyColumns": [
+          "Column5"
+        ]
+      }
+    },
+    "adaptorType": "FTPExport"
+  },
+  "errorMsg": "You’re using a deprecated option “Key Columns” to group your records. Use the new and improved option in the “How would you like to sort and group records” section. Your group settings may be affected when you use the new sorting and grouping option"
+}

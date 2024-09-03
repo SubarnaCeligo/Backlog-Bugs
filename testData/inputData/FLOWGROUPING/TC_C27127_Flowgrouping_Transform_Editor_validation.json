@@ -1,0 +1,79 @@
+{
+  "flowname": "TC_C27127_FG",
+  "name": "TC_C27127_",
+  "flowGroup": "TC_C27127_FG",
+  "qa__api_tdata": [{
+      "pageGenerators": [{
+          "type": "export",
+          "qa__export": {
+              "name": "43 SF Export",
+              "adaptorType": "SalesforceExport",
+              "_connectionId": "SALESFORCE CONNECTION",
+              "parsers": [],
+              "salesforce": {
+                  "distributed": {
+                      "relatedLists": [],
+                      "userDefinedReferencedFields": [],
+                      "referencedFields": []
+                  },
+                  "soql": {
+                      "query": "Select Name from Account"
+                  },
+                  "api": "rest",
+                  "type": "soql"
+              },
+              "transform": {
+                  "rules": []
+              },
+              "asynchronous": true,
+              "qa__connectionId": "62eb4c06c9c10468159c0bd0"
+          }
+      }],
+      "pageProcessors": [{
+          "type": "import",
+          "qa__import": {
+              "name": "43 FTP import",
+              "adaptorType": "FTPImport",
+              "_connectionId": "FTP CONNECTION",
+              "file": {
+                  "csv": {
+                      "replaceTabWithSpace": true,
+                      "rowDelimiter": "\n",
+                      "wrapWithQuotes": true,
+                      "replaceNewlineWithSpace": true,
+                      "includeHeader": true,
+                      "columnDelimiter": ";",
+                      "truncateLastRowDelimiter": false
+                  },
+                  "compressionFormat": "gzip",
+                  "type": "csv"
+              },
+              "ftp": {
+                  "fileName": "43SF2FTPAcc{{timestamp \"DD-Mon-YYYY hh:mm:ss\" \"Asia/Calcutta\"}}.csv",
+                  "directoryPath": "/io.auto.qa/IO_UI_Automation"
+              },
+              "qa__path": "//FTP_uploads//43SF2FTPAccFile.csv",
+              "distributed": false
+          }
+      }],
+      "createFlow": {
+          "name": "TC_C27127_FG",
+          "disabled": false,
+          "_integrationId": "63232627514d5b0bf7b39ca6",
+          "qa__integrationId": "62e90b9f36f8f637aa253824",
+          "skipRetries": false,
+          "pageProcessors": [{
+              "responseMapping": {
+                  "fields": [],
+                  "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+          }],
+          "pageGenerators": [{
+              "type": "export",
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+          }]
+      }
+  }]
+}

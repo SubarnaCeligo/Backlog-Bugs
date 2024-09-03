@@ -1,0 +1,38 @@
+{
+    "name": "TC_36434_Verify_Preview_inDeltaLookUP",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "Http Export",
+                "_connectionId": "62c7a300886bf3359b066527",
+                "apiIdentifier": "e1970d3f13",
+                "asynchronous": true,
+                "type": "delta",
+                "oneToMany": false,
+                "sandbox": false,
+                "parsers": [
+                    {
+                        "type": "xml",
+                        "version": "1",
+                        "rules": {
+                            "V0_json": true,
+                            "stripNewLineChars": false,
+                            "trimSpaces": false
+                        }
+                    }
+                ],
+                "http": {
+                    "relativeURI": "/orders.json?updated_at={{lastExportDateTime}}",
+                    "method": "GET",
+                    "formType": "http"
+                },
+                "rawData": "61e68956b587067a214ac5ed27350974274946c2a2a149f79d537425",
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ]
+}

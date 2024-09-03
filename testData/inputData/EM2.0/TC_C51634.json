@@ -1,0 +1,101 @@
+{
+    "name": "TC_C51634",
+    "referencename": "TC_C51634",
+    "qa__dataVerification": {},
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+                "_id": "633e686777b3de19f39e4084",
+                "createdAt": "2022-10-06T05:32:23.491Z",
+                "lastModified": "2022-10-06T07:09:08.817Z",
+                "name": "ajsbkjsbcjksb",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "e864d4f589",
+                "asynchronous": true,
+                "sandbox": false,
+                "sampleData": [
+                    {
+                        "name": "Auto_TC_51633_2"
+                    },
+                    {
+                        "name": "Auto_TC_51633_3"
+                    },
+                    {
+                        "name": "Auto_TC_51633_1"
+                    }
+                ],
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                    "fileNameStartsWith": "TC_C51635",
+                    "fileNameEndsWith": ".json"
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "adaptorType": "FTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+                "_id": "633ea516835edf6087513932",
+                "createdAt": "2022-10-06T09:51:18.723Z",
+                "lastModified": "2022-10-06T09:52:58.837Z",
+                "name": "wefer",
+                "application":"zendesk support",
+                "_connectionId": "ZENDESK CONNECTION",
+                "apiIdentifier": "i597445ddd",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": true,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": [
+                        "/"
+                    ],
+                    "method": [
+                        "DELETE"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C51634",
+          "disabled": false,
+          "_integrationId": "603ce75ac4fec33283691f43",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

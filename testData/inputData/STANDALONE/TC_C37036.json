@@ -1,0 +1,14 @@
+{
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "application": "Google BigQuery",
+                "_connectionId": "BIGQUERY CONNECTION",
+                "rdbms": {
+                    "query": "Select * from `1234.IO_Employee` a where Employee_num = ( select max(Employee_num) from `1234.IO_Employee` b where a.Employee_num=b.Employee_num);"
+                },
+                "adaptorType": "RDBMSExport"
+            }
+        }
+    ]
+}

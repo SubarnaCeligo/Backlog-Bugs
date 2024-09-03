@@ -1,0 +1,101 @@
+{
+    "import": {
+        "name": "TC_C52145 - create users",
+        "application": "zendesk support",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "_sourceId": "633ad77d2acfa473f1897073",
+        "apiIdentifier": "id6080896d",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "mappings": [
+            {
+                "generate": "Stringtags",
+                "dataType": "stringarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                    {
+                        "extract": "$.user.TestTestemail",
+                        "default": "",
+                        "sourceDataType": "string"
+                    },
+                    {
+                        "extract": "$.user.NoNOname",
+                        "default": null,
+                        "sourceDataType": "string"
+                    },
+                    {
+                        "extract": "$.user.organization.Ooutputname",
+                        "default": "StringTest",
+                        "sourceDataType": "string"
+                    }
+                ]
+            },
+            {
+                "generate": "Booleantags",
+                "dataType": "booleanarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                    {
+                        "extract": "$.user.Booleanemail",
+                        "default": null,
+                        "sourceDataType": "boolean"
+                    },
+                    {
+                        "extract": "$.user.Booleanname",
+                        "default": "",
+                        "sourceDataType": "boolean"
+                    },
+                    {
+                        "extract": "$.user.Booleanorganization.name",
+                        "default": "true",
+                        "sourceDataType": "boolean"
+                    }
+                ]
+            },
+            {
+                "generate": "Numbertags",
+                "dataType": "numberarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                    {
+                        "extract": "$.user.Numemail",
+                        "default": "",
+                        "sourceDataType": "number"
+                    },
+                    {
+                        "extract": "$.user.Numbersname",
+                        "default": null,
+                        "sourceDataType": "number"
+                    },
+                    {
+                        "extract": "$.user.Numorganization.numname",
+                        "default": 1212,
+                        "sourceDataType": "number"
+                    }
+                ]
+            },
+            {
+                "extract": "$.user.role",
+                "generate": "role",
+                "dataType": "string",
+                "status": "Active"
+            }
+        ],
+        "http": {
+            "relativeURI": [
+                "/api/v2/users"
+            ],
+            "method": [
+                "POST"
+            ],
+            "body": [],
+            "batchSize": 1,
+            "sendPostMappedData": true,
+            "formType": "http"
+        },
+        "adaptorType": "HTTPImport"
+    },
+    "staging_con": "HTTP ZENDESK CONNECTION"
+}

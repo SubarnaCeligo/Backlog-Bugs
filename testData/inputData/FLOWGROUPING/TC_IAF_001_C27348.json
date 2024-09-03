@@ -1,0 +1,147 @@
+{
+
+  "qa_createFlowGroups": {
+    "_id": "6296fdd464bb3b57f4a7c227",
+    "name": "Flow Groups",
+    "install": [],
+    "sandbox": false,
+    "settingsForm": {},
+    "_registeredConnectionIds": [
+        "626bd636987bb423914b47c7"
+    ],
+    "installSteps": [],
+    "uninstallSteps": [],
+    "flowGroupings": [{
+        "name": "FG1"
+    },{
+        "name": "FG2"
+    },{
+        "name": "FG3"
+    }]
+},
+
+    "qa_importJson": {
+      "environment": "Production",
+      "name": "TC_IAF_001_C27348",
+      "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+      "_integrationId": "6296fdd464bb3b57f4a7c227",
+      "applications": ["netsuite","activecampaign"],
+      "framework": "twoDotZero",
+      "twoDotZero": {
+        "_integrationId": "6296fdd464bb3b57f4a7c227"
+      }
+    },
+    "qa_expectedJson": {
+      "name": "TC_IAF_001_C27348",
+      "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+      "published": false,
+      "managed": false,
+      "_integrationId": "6296fdd464bb3b57f4a7c227",
+      "applications": ["ActiveCampaign"],
+      "framework": "twoDotZero",
+      "twoDotZero": {
+        "_integrationId": "6296fdd464bb3b57f4a7c227",
+        "editions": []
+      }
+    },
+    "qa_editImportJson": {
+      "name": "TC_IAF_001_C27348",
+      "trialEnabled": true,
+      "trialPeriod": "30",
+      "_trialLicenseId": "624ad0c5f938b448cde27385"
+    },
+    "qa_editExpectedJson": {
+      "name": "TC_IAF_001_C27348",
+      "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+      "published": false,
+      "managed": false,
+      "_integrationId": "6296fdd464bb3b57f4a7c227",
+      "applications": ["ActiveCampaign"],
+      "trialEnabled": true,
+      "trialPeriod": "30",
+      "framework": "twoDotZero",
+      "twoDotZero": {
+        "_integrationId": "6296fdd464bb3b57f4a7c227"
+      }
+    },
+    "qa_setupConnection": {
+      "integrationName":"Flow Groups",
+      "activecampaignSubdomain": "jnsajkcbajbfewfbkbjk",
+      "token": "jfbewjkfbefnevbelve",
+      "uninstall":"false"
+    },
+    "app": "ActiveCampaign",
+    "flowGrpNames": ["FG1", "FG2", "FG3"],
+
+      "createFlowGroups": {
+        "_id": "631ab35013d12134f4771a76",
+        "name": "Flow Groups",
+        "install": [],
+        "sandbox": false,
+        "settingsForm": {},
+        "_registeredConnectionIds": [
+            "626fdc6d7490300e92ffd613"
+        ],
+        "installSteps": [],
+        "uninstallSteps": [],
+        "flowGroupings": [{
+            "name": "FG1"
+        },{
+            "name": "FG2"
+        },{
+            "name": "FG3"
+        }]
+    },
+    
+        "importJson": {
+          "environment": "Production",
+          "name": "TC_IAF_001_C27348",
+          "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+          "_integrationId": "631ab35013d12134f4771a76",
+          "applications": ["netsuite","activecampaign"],
+          "framework": "twoDotZero",
+          "twoDotZero": {
+            "_integrationId": "631ab35013d12134f4771a76"
+          }
+        },
+        "expectedJson": {
+          "name": "TC_IAF_001_C27348",
+          "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+          "published": false,
+          "managed": false,
+          "_integrationId": "631ab35013d12134f4771a76",
+          "applications": ["ActiveCampaign"],
+          "framework": "twoDotZero",
+          "twoDotZero": {
+            "_integrationId": "631ab35013d12134f4771a76",
+            "editions": []
+          }
+        },
+        "editImportJson": {
+          "name": "TC_IAF_001_C27348",
+          "trialEnabled": true,
+          "trialPeriod": "30",
+          "_trialLicenseId": "631b0b00d2f06368a049a3fa"
+        },
+        "editExpectedJson": {
+          "name": "TC_IAF_001_C27348",
+          "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+          "published": false,
+          "managed": false,
+          "_integrationId": "631ab35013d12134f4771a76",
+          "applications": ["ActiveCampaign"],
+          "trialEnabled": true,
+          "trialPeriod": "30",
+          "framework": "twoDotZero",
+          "twoDotZero": {
+            "_integrationId": "631ab35013d12134f4771a76"
+          }
+        },
+        "setupConnection": {
+          "integrationName":"Flow Groups",
+          "activecampaignSubdomain": "jnsajkcbajbfewfbkbjk",
+          "token": "jfbewjkfbefnevbelve",
+          "uninstall":"false"
+        }
+      }
+    

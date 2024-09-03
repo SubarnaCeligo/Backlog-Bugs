@@ -1,0 +1,163 @@
+{
+    "flowname": "TC_C32961",
+    "name": "TC_C32961_DND",
+      "qa__api_tdata": [
+        {
+          "pageGenerators": [
+            {
+                "type": "export",
+                "qa__export": {
+                "name": "Zendesk",
+                "_connectionId": "6305ff9127287575d312dd8a",
+                "apiIdentifier": "eea76e38fa",
+                "asynchronous": true,
+                "assistant": "zendesk",
+                "oneToMany": false,
+                "sandbox": false,
+                "assistantMetadata": {
+                    "resource": "tickets_api",
+                    "version": "v2",
+                    "operation": "list_tickets"
+                },
+                "http": {
+                    "relativeURI": "/api/v2/tickets.json",
+                    "method": "GET",
+                    "successMediaType": "json",
+                    "errorMediaType": "json",
+                    "formType": "assistant",
+                    "paging": {
+                        "method": "url",
+                        "path": "next_page",
+                        "lastPageStatusCode": 404
+                    },
+                    "response": {
+                        "resourcePath": "tickets"
+                    }
+                },
+                "rawData": "61e68956b587067a214ac5edf55ee04a6d6d44149b4ef283abe5da20",
+                "rest": {
+                    "relativeURI": "/api/v2/tickets.json",
+                    "method": "GET",
+                    "resourcePath": "tickets",
+                    "pagingMethod": "nextpageurl",
+                    "nextPagePath": "next_page",
+                    "allowUndefinedResource": false
+                },
+                "adaptorType": "RESTExport"
+            }
+        }
+          ],
+          "pageProcessors": [
+            {
+              "type": "export",
+              "qa__export": {
+                    "name": "Zendesk",
+                    "_connectionId": "6305ff9127287575d312dd8a",
+                    "apiIdentifier": "e7ec5f4c72",
+                    "asynchronous": true,
+                    "isLookup": true,
+                    "assistant": "zendesk",
+                    "oneToMany": false,
+                    "sandbox": false,
+                    "assistantMetadata": {
+                        "resource": "ticket_fields",
+                        "version": "v2",
+                        "operation": "list_ticket_fields"
+                    },
+                    "http": {
+                        "relativeURI": "/api/v2/ticket_fields.json",
+                        "method": "GET",
+                        "successMediaType": "json",
+                        "errorMediaType": "json",
+                        "formType": "assistant",
+                        "paging": {
+                            "method": "url",
+                            "path": "next_page",
+                            "lastPageStatusCode": 404
+                        },
+                        "response": {
+                            "resourcePath": "ticket_fields"
+                        }
+                    },
+                    "rest": {
+                        "relativeURI": "/api/v2/ticket_fields.json",
+                        "method": "GET",
+                        "resourcePath": "ticket_fields",
+                        "pagingMethod": "nextpageurl",
+                        "nextPagePath": "next_page",
+                        "allowUndefinedResource": false
+                    },
+                    "transform": {
+                        "type": "expression",
+                        "expression": {
+                            "rules": [
+                                []
+                            ],
+                            "version": "1"
+                        },
+                        "version": "1",
+                        "rules": [
+                            []
+                        ]
+                    },
+                    "adaptorType": "RESTExport"
+                }
+            },
+            {
+              "type": "import",
+              "qa__import": {
+                "name": "Netsuite",
+                "_connectionId": "628e26b75ce86b5798978bdf",
+                "distributed": true,
+                "apiIdentifier": "i0f1568f8c",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "lookups": [],
+                "netsuite_da": {
+                    "useSS2Restlets": false,
+                    "operation": "add",
+                    "recordType": "account",
+                    "lookups": [],
+                    "mapping": {
+                        "fields": [],
+                        "lists": []
+                    }
+                },
+                "adaptorType": "NetSuiteDistributedImport"
+              }
+            }
+          ],
+          "createFlow": {
+            "name": "TC_C32961_DND",
+            "disabled": false,
+            "_integrationId": "6228aed6bc8a2732cfe8044c",
+            "skipRetries": false,
+            "pageProcessors": [
+              {
+                "responseMapping": {
+                  "fields": [],
+                  "lists": []
+                },
+                "type": "export",
+                "_exportId": "UPDATE EXPORT ID"
+              },
+              {
+                "responseMapping": {
+                  "fields": [],
+                  "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+              }
+            ],
+            "pageGenerators": [
+              {
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+              }
+            ]
+          }
+        }
+      ]
+    }

@@ -1,0 +1,77 @@
+{
+    "name": "TC_C20999",
+    "referencename": "TC_C20999",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "application": "MySQL",
+                "name": "MySQL Export",
+                "_connectionId": "MYSQL CONNECTION",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "rdbms": {
+                    "query": "select * from Templates.Order LIMIT 5"
+                },
+                "adaptorType": "RDBMSExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+                "name": "ftp",
+                "_connectionId": "FTP CONNECTION",
+                "oneToMany": false,
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "extract": "$.orderid",
+                        "generate": "id",
+                        "dataType": "string",
+                        "status": "Active",
+                        "sourceDataType": "number"
+                    }
+                ],
+                "file": {
+                    "fileName": "file-{{timestamp}}.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "/o",
+                    "fileName": "file-{{timestamp}}.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C20999",
+          "disabled": false,
+          "_integrationId": "62ecc42648570015ab65cfa5",
+          "qa__integrationId": "62eca1efe386b563f638451e",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

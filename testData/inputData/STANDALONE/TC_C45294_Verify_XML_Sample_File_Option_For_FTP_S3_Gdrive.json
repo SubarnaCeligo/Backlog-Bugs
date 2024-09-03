@@ -1,0 +1,91 @@
+{
+  "pageGenerators": [],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "FTP Xml import with heper",
+        "_connectionId": "FTP CONNECTION",
+        "distributed": false,
+        "file": {
+          "fileName": "test.xml",
+          "type": "xml",
+          "xml": {
+            "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<data>\n{{#each batch_of_records}} \n<Name>{{rows.0.Name}}</Name> \n<Account>{{rows.0.Account}}</Account> \n<memo>{{rows.0.Memo}}</memo> \n{{/each}}</data>"
+          }
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation",
+          "fileName": "test.xml"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "Gdrive": {
+    "pageGenerators": [],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "name": "test",
+          "_connectionId": "63328e88bb74b66e32a7fe0e",
+          "qa__connectionId": "63328d3c6b757a4f30350cbd",
+          "apiIdentifier": "ie62129f76",
+          "oneToMany": false,
+          "assistant": "googledrive",
+          "sandbox": false,
+          "file": {
+            "fileName": "file-{{timestamp}}.xml",
+            "skipAggregation": false,
+            "type": "xml",
+            "xml": {
+              "body": "abc"
+            }
+          },
+          "http": {
+            "type": "file",
+            "relativeURI": ["/test"],
+            "method": ["POST"],
+            "body": [],
+            "sendPostMappedData": true,
+            "formType": "assistant",
+            "response": {
+              "resourcePath": ["files"]
+            }
+          },
+          "adaptorType": "HTTPImport"
+        }
+      }
+    ]
+  },
+  "S3": {
+    "pageGenerators": [],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+            "name": "test",
+            "_connectionId": "S3 CONNECTION",
+            "apiIdentifier": "i889d0d5e8",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+                "fileName": "file-{{timestamp}}.xml",
+                "skipAggregation": false,
+                "type": "xml",
+                "xml": {
+                    "body": "abc"
+                }
+            },
+            "s3": {
+                "region": "us-east-1",
+                "bucket": "/test",
+                "fileKey": "file-{{timestamp}}.xml"
+            },
+            "adaptorType": "S3Import"
+        }
+      }
+    ]
+  }
+}

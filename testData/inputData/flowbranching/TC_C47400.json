@@ -1,0 +1,136 @@
+{
+  "jsonData": {
+    "name": "TC_C47400",
+    "disabled": false,
+    "_integrationId": "62f51e1f0f2ee6482b136853",
+    "qa__integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "pageGenerators": [
+      {
+        "_exportId": "UPDATE",
+        "skipRetries": false
+      }
+    ],
+    "routers": [
+      {
+        "script": {
+          "function": "branchRouter"
+        },
+        "branches": [
+          {
+            "name": "Branch 1.0",
+            "pageProcessors": [
+              {
+                "responseMapping": {
+                  "fields": [],
+                  "lists": []
+                },
+                "_importId": "UPDATE",
+                "type": "import"
+              }
+            ],
+            "nextRouterId": "52NNrU@#@!#"
+          },
+          {
+            "name": "Branch 1.1",
+            "pageProcessors": [
+              {
+                "responseMapping": {
+                  "fields": [],
+                  "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE"
+              }
+            ],
+            "nextRouterId": "52NNrU"
+          }
+        ],
+        "id": "p_QnpL678-961232435355898393277823773288377238928983773883883872882737884883883774748838737837664677328234234234243234234234I64",
+        "routeRecordsTo": "all_matching_branches",
+        "routeRecordsUsing": "input_filters"
+      },
+      {
+        "script": {
+          "function": "branchRouter"
+        },
+        "routeRecordsUsing": "input_filters",
+        "id": "skHnqD",
+        "routeRecordsTo": "first_matching_branch",
+        "branches": [
+          {
+            "name": "Branch 2.0",
+            "pageProcessors": [
+              {
+                "responseMapping": {
+                  "fields": [],
+                  "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE"
+              }
+            ]
+          },
+          {
+            "name": "Branch 2.1",
+            "pageProcessors": [
+              {
+                "responseMapping": {
+                  "fields": [],
+                  "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "52NNrU",
+        "branches": [
+          {
+            "name": "",
+            "nextRouterId": "skHnqD",
+            "pageProcessors": []
+          }
+        ]
+      }
+    ]
+  },
+  "qa__export": {
+    "name": "Zendesk export",
+    "application": "zendesk support",
+    "_connectionId": "HTTP ZENDESK CONNECTION",
+    "asynchronous": true,
+    "oneToMany": false,
+    "sandbox": false,
+    "http": {
+      "relativeURI": "macros",
+      "method": "GET",
+      "formType": "http",
+      "response": {
+        "resourcePath": "macros"
+      }
+    },
+    "adaptorType": "HTTPExport"
+  },
+  "qa__import": {
+    "name": "AutomationStandaloneImport1_afsflk",
+    "application":"zendesk support",
+    "parsers": [],
+    "_connectionId": "HTTP ZENDESK CONNECTION",
+    "http": {
+      "relativeURI": [
+        "organizations.json"
+      ],
+      "method": [
+        "POST"
+      ],
+      "batchSize": 1,
+      "sendPostMappedData": true,
+      "formType": "http"
+    },
+    "adaptorType": "HTTPImport"
+  }
+}

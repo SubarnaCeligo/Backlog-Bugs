@@ -1,0 +1,1158 @@
+{
+    "_connectionId": "NETSUITE CONNECTION",
+    "qa__connectionId": "62e8a85c36f8f637aa251cc2",
+    "response": {
+        "resp": [
+            {
+                "id": "address",
+                "type": "textarea",
+                "name": "Address"
+            },
+            {
+                "id": "addresslabel",
+                "type": "text",
+                "name": "Address Label"
+            },
+            {
+                "id": "addressphone",
+                "type": "phone",
+                "name": "Address Phone"
+            },
+            {
+                "id": "addressee",
+                "type": "text",
+                "name": "Addressee"
+            },
+            {
+                "id": "aliennumber",
+                "type": "text",
+                "name": "Alien Number"
+            },
+            {
+                "id": "anniversary",
+                "type": "date",
+                "name": "Anniversary"
+            },
+            {
+                "id": "attention",
+                "type": "text",
+                "name": "Attention"
+            },
+            {
+                "id": "authworkdate",
+                "type": "date",
+                "name": "Authorized to work until"
+            },
+            {
+                "id": "billaddress",
+                "type": "textarea",
+                "name": "Billing Address"
+            },
+            {
+                "id": "billingclass",
+                "type": "select",
+                "name": "Billing Class"
+            },
+            {
+                "id": "birthdate",
+                "type": "date",
+                "name": "Birth Date"
+            },
+            {
+                "id": "birthday",
+                "type": "date",
+                "name": "Birthday"
+            },
+            {
+                "id": "city",
+                "type": "text",
+                "name": "City"
+            },
+            {
+                "id": "class",
+                "type": "select",
+                "name": "Class"
+            },
+            {
+                "id": "commissionplan",
+                "type": "select",
+                "name": "Commission Plan"
+            },
+            {
+                "id": "ccontribution",
+                "type": "select",
+                "name": "Company Contribution"
+            },
+            {
+                "id": "concurrentwebservicesuser",
+                "type": "checkbox",
+                "name": "Concurrent Web Services User"
+            },
+            {
+                "id": "country",
+                "type": "select",
+                "name": "Country"
+            },
+            {
+                "id": "county",
+                "type": "text",
+                "name": "County/State"
+            },
+            {
+                "id": "datecreated",
+                "type": "datetime",
+                "name": "Date Created"
+            },
+            {
+                "id": "deduction",
+                "type": "select",
+                "name": "Deduction"
+            },
+            {
+                "id": "isdefaultbilling",
+                "type": "checkbox",
+                "name": "Default Billing Address"
+            },
+            {
+                "id": "isdefaultshipping",
+                "type": "checkbox",
+                "name": "Default Shipping Address"
+            },
+            {
+                "id": "department",
+                "type": "select",
+                "name": "Department"
+            },
+            {
+                "id": "custentity_2663_payment_method",
+                "name": "EFT Bill Payment",
+                "type": "checkbox"
+            },
+            {
+                "id": "earning",
+                "type": "select",
+                "name": "Earning"
+            },
+            {
+                "id": "education",
+                "type": "select",
+                "name": "Education"
+            },
+            {
+                "id": "eligibleforcommission",
+                "type": "checkbox",
+                "name": "Eligible for Commission"
+            },
+            {
+                "id": "email",
+                "type": "text",
+                "name": "Email"
+            },
+            {
+                "id": "entityid",
+                "type": "text",
+                "name": "Employee ID"
+            },
+            {
+                "id": "employeestatus",
+                "type": "select",
+                "name": "Employee Status"
+            },
+            {
+                "id": "ethnicity",
+                "type": "select",
+                "name": "Ethnicity"
+            },
+            {
+                "id": "approvallimit",
+                "type": "currency",
+                "name": "Expense Approval Limit"
+            },
+            {
+                "id": "approver",
+                "type": "select",
+                "name": "Expense Approver"
+            },
+            {
+                "id": "expenselimit",
+                "type": "currency",
+                "name": "Expense Limit"
+            },
+            {
+                "id": "externalid",
+                "type": "select",
+                "name": "External ID"
+            },
+            {
+                "id": "externalidstring",
+                "type": "text",
+                "name": "External ID (Text)"
+            },
+            {
+                "id": "fax",
+                "type": "phone",
+                "name": "Fax"
+            },
+            {
+                "id": "formuladate",
+                "type": "date",
+                "name": "Formula (Date)"
+            },
+            {
+                "id": "formulanumeric",
+                "type": "float",
+                "name": "Formula (Numeric)"
+            },
+            {
+                "id": "formulatext",
+                "type": "text",
+                "name": "Formula (Text)"
+            },
+            {
+                "id": "gender",
+                "type": "checkbox",
+                "name": "Gender"
+            },
+            {
+                "id": "giveaccess",
+                "type": "checkbox",
+                "name": "Give Access"
+            },
+            {
+                "id": "globalsubscriptionstatus",
+                "type": "select",
+                "name": "Global Subscription Status"
+            },
+            {
+                "id": "group",
+                "type": "multiselect",
+                "name": "Group"
+            },
+            {
+                "id": "hiredate",
+                "type": "date",
+                "name": "Hire Date"
+            },
+            {
+                "id": "i9verified",
+                "type": "checkbox",
+                "name": "I-9 Verified"
+            },
+            {
+                "id": "image",
+                "type": "image",
+                "name": "Image"
+            },
+            {
+                "id": "isinactive",
+                "type": "checkbox",
+                "name": "Inactive"
+            },
+            {
+                "id": "useperquest",
+                "type": "checkbox",
+                "name": "Include In US Payroll"
+            },
+            {
+                "id": "employeetypekpi",
+                "type": "checkbox",
+                "name": "Include in KPI"
+            },
+            {
+                "id": "internalid",
+                "type": "select",
+                "name": "Internal ID"
+            },
+            {
+                "id": "internalidnumber",
+                "type": "integer",
+                "name": "Internal ID (Number)"
+            },
+            {
+                "id": "salesrep",
+                "type": "checkbox",
+                "name": "Is Sales Rep"
+            },
+            {
+                "id": "supportrep",
+                "type": "checkbox",
+                "name": "Is Support Rep"
+            },
+            {
+                "id": "istemplate",
+                "type": "checkbox",
+                "name": "Is Template"
+            },
+            {
+                "id": "jobdescription",
+                "type": "text",
+                "name": "Job Description"
+            },
+            {
+                "id": "title",
+                "type": "text",
+                "name": "Job Title"
+            },
+            {
+                "id": "laborcost",
+                "type": "currency",
+                "name": "Labor Cost"
+            },
+            {
+                "id": "language",
+                "type": "select",
+                "name": "Language"
+            },
+            {
+                "id": "lastmodifieddate",
+                "type": "datetime",
+                "name": "Last Modified Date"
+            },
+            {
+                "id": "lastname",
+                "type": "text",
+                "name": "Last Name"
+            },
+            {
+                "id": "lastpaiddate",
+                "type": "date",
+                "name": "Last Paid Date"
+            },
+            {
+                "id": "lastreviewdate",
+                "type": "date",
+                "name": "Last Review Date"
+            },
+            {
+                "id": "level",
+                "type": "select",
+                "name": "Level"
+            },
+            {
+                "id": "location",
+                "type": "select",
+                "name": "Location"
+            },
+            {
+                "id": "maritalstatus",
+                "type": "select",
+                "name": "Marital Status"
+            },
+            {
+                "id": "middlename",
+                "type": "text",
+                "name": "Middle Name"
+            },
+            {
+                "id": "salutation",
+                "type": "text",
+                "name": "Mr./Ms..."
+            },
+            {
+                "id": "firstname",
+                "type": "text",
+                "name": "Name"
+            },
+            {
+                "id": "nextreviewdate",
+                "type": "date",
+                "name": "Next Review Date"
+            },
+            {
+                "id": "comments",
+                "type": "textarea",
+                "name": "Notes"
+            },
+            {
+                "id": "offlineaccess",
+                "type": "checkbox",
+                "name": "Offline Access"
+            },
+            {
+                "id": "payfrequency",
+                "type": "select",
+                "name": "Pay Frequency"
+            },
+            {
+                "id": "permission",
+                "type": "select",
+                "name": "Permission"
+            },
+            {
+                "id": "permissionchange",
+                "type": "select",
+                "name": "Permission Change"
+            },
+            {
+                "id": "permchangedate",
+                "type": "datetime",
+                "name": "Permission Change Date"
+            },
+            {
+                "id": "phone",
+                "type": "phone",
+                "name": "Phone"
+            },
+            {
+                "id": "phoneticname",
+                "type": "text",
+                "name": "Phonetic Name"
+            },
+            {
+                "id": "primaryearningamount",
+                "type": "currency",
+                "name": "Primary Earning Amount"
+            },
+            {
+                "id": "primaryearningitem",
+                "type": "text",
+                "name": "Primary Earning Item"
+            },
+            {
+                "id": "primaryearningtype",
+                "type": "text",
+                "name": "Primary Earning Type"
+            },
+            {
+                "id": "isjobresource",
+                "type": "checkbox",
+                "name": "Project Resource"
+            },
+            {
+                "id": "purchaseorderapprovallimit",
+                "type": "currency",
+                "name": "Purchase Approval Limit"
+            },
+            {
+                "id": "purchaseorderapprover",
+                "type": "select",
+                "name": "Purchase Approver"
+            },
+            {
+                "id": "purchaseorderlimit",
+                "type": "currency",
+                "name": "Purchase Limit"
+            },
+            {
+                "id": "representingsubsidiary",
+                "type": "select",
+                "name": "Represents Subsidiary"
+            },
+            {
+                "id": "residentstatus",
+                "type": "select",
+                "name": "Resident Status"
+            },
+            {
+                "id": "role",
+                "type": "select",
+                "name": "Role"
+            },
+            {
+                "id": "rolechange",
+                "type": "select",
+                "name": "Role Change"
+            },
+            {
+                "id": "rolechangedate",
+                "type": "datetime",
+                "name": "Role Change Date"
+            },
+            {
+                "id": "custentity2",
+                "name": "Sales Engineer",
+                "type": "checkbox"
+            },
+            {
+                "id": "salesrole",
+                "type": "select",
+                "name": "Sales Role"
+            },
+            {
+                "id": "custentity_skills",
+                "name": "Skills",
+                "type": "multiselect"
+            },
+            {
+                "id": "socialsecuritynumber",
+                "type": "ssnumber",
+                "name": "Social Security"
+            },
+            {
+                "id": "state",
+                "type": "select",
+                "name": "State/Province"
+            },
+            {
+                "id": "subsidiary",
+                "type": "select",
+                "name": "Subsidiary"
+            },
+            {
+                "id": "supervisor",
+                "type": "select",
+                "name": "Supervisor"
+            },
+            {
+                "id": "releasedate",
+                "type": "date",
+                "name": "Termination Date"
+            },
+            {
+                "id": "timeapprover",
+                "type": "select",
+                "name": "Time Approver"
+            },
+            {
+                "id": "employeetype",
+                "type": "select",
+                "name": "Type"
+            },
+            {
+                "id": "usetimedata",
+                "type": "checkbox",
+                "name": "Use Time Data"
+            },
+            {
+                "id": "visaexpdate",
+                "type": "date",
+                "name": "Visa Expiration Date"
+            },
+            {
+                "id": "visatype",
+                "type": "select",
+                "name": "Visa Type"
+            },
+            {
+                "id": "withholding",
+                "type": "select",
+                "name": "Withholding"
+            },
+            {
+                "id": "workcalendar",
+                "type": "select",
+                "name": "Work Calendar"
+            },
+            {
+                "id": "workplace",
+                "type": "select",
+                "name": "Workplace"
+            },
+            {
+                "id": "zipcode",
+                "type": "text",
+                "name": "Zip"
+            },
+            {
+                "id": "department.externalid",
+                "name": "Department : External ID",
+                "type": "select"
+            },
+            {
+                "id": "department.externalidstring",
+                "name": "Department : External ID (Text)",
+                "type": "text"
+            },
+            {
+                "id": "department.formuladate",
+                "name": "Department : Formula (Date)",
+                "type": "date"
+            },
+            {
+                "id": "department.formulanumeric",
+                "name": "Department : Formula (Numeric)",
+                "type": "float"
+            },
+            {
+                "id": "department.formulatext",
+                "name": "Department : Formula (Text)",
+                "type": "text"
+            },
+            {
+                "id": "department.isinactive",
+                "name": "Department : Inactive",
+                "type": "checkbox"
+            },
+            {
+                "id": "department.internalid",
+                "name": "Department : Internal ID",
+                "type": "select"
+            },
+            {
+                "id": "department.internalidnumber",
+                "name": "Department : Internal ID (Number)",
+                "type": "integer"
+            },
+            {
+                "id": "department.name",
+                "name": "Department : Name",
+                "type": "text"
+            },
+            {
+                "id": "department.subsidiary",
+                "name": "Department : Subsidiary",
+                "type": "multiselect"
+            },
+            {
+                "id": "location.address",
+                "name": "Location : Address",
+                "type": "textarea"
+            },
+            {
+                "id": "location.city",
+                "name": "Location : City",
+                "type": "text"
+            },
+            {
+                "id": "location.country",
+                "name": "Location : Country",
+                "type": "select"
+            },
+            {
+                "id": "location.county",
+                "name": "Location : County/State",
+                "type": "text"
+            },
+            {
+                "id": "location.externalid",
+                "name": "Location : External ID",
+                "type": "select"
+            },
+            {
+                "id": "location.externalidstring",
+                "name": "Location : External ID (Text)",
+                "type": "text"
+            },
+            {
+                "id": "location.formuladate",
+                "name": "Location : Formula (Date)",
+                "type": "date"
+            },
+            {
+                "id": "location.formulanumeric",
+                "name": "Location : Formula (Numeric)",
+                "type": "float"
+            },
+            {
+                "id": "location.formulatext",
+                "name": "Location : Formula (Text)",
+                "type": "text"
+            },
+            {
+                "id": "location.isinactive",
+                "name": "Location : Inactive",
+                "type": "checkbox"
+            },
+            {
+                "id": "location.internalid",
+                "name": "Location : Internal ID",
+                "type": "select"
+            },
+            {
+                "id": "location.internalidnumber",
+                "name": "Location : Internal ID (Number)",
+                "type": "integer"
+            },
+            {
+                "id": "location.makeinventoryavailable",
+                "name": "Location : Make Inventory Available",
+                "type": "checkbox"
+            },
+            {
+                "id": "location.makeinventoryavailablestore",
+                "name": "Location : Make Inventory Available in Web Store",
+                "type": "checkbox"
+            },
+            {
+                "id": "location.name",
+                "name": "Location : Name",
+                "type": "text"
+            },
+            {
+                "id": "location.phone",
+                "name": "Location : Phone",
+                "type": "phone"
+            },
+            {
+                "id": "location.isoffice",
+                "name": "Location : Staffed Location",
+                "type": "checkbox"
+            },
+            {
+                "id": "location.state",
+                "name": "Location : State/Province",
+                "type": "select"
+            },
+            {
+                "id": "location.subsidiary",
+                "name": "Location : Subsidiary",
+                "type": "multiselect"
+            },
+            {
+                "id": "location.tranprefix",
+                "name": "Location : Transaction Prefix",
+                "type": "text"
+            },
+            {
+                "id": "location.zip",
+                "name": "Location : Zip",
+                "type": "text"
+            },
+            {
+                "id": "messages.author",
+                "name": "Messages : Author",
+                "type": "select"
+            },
+            {
+                "id": "messages.bcc",
+                "name": "Messages : Bcc",
+                "type": "email"
+            },
+            {
+                "id": "messages.cc",
+                "name": "Messages : Cc",
+                "type": "email"
+            },
+            {
+                "id": "messages.messagedate",
+                "name": "Messages : Date",
+                "type": "datetime"
+            },
+            {
+                "id": "messages.externalid",
+                "name": "Messages : External ID",
+                "type": "select"
+            },
+            {
+                "id": "messages.externalidstring",
+                "name": "Messages : External ID (Text)",
+                "type": "text"
+            },
+            {
+                "id": "messages.formuladate",
+                "name": "Messages : Formula (Date)",
+                "type": "date"
+            },
+            {
+                "id": "messages.formulanumeric",
+                "name": "Messages : Formula (Numeric)",
+                "type": "float"
+            },
+            {
+                "id": "messages.formulatext",
+                "name": "Messages : Formula (Text)",
+                "type": "text"
+            },
+            {
+                "id": "messages.authoremail",
+                "name": "Messages : From Email",
+                "type": "email"
+            },
+            {
+                "id": "messages.hasattachment",
+                "name": "Messages : Has Attachment",
+                "type": "checkbox"
+            },
+            {
+                "id": "messages.internalid",
+                "name": "Messages : Internal ID",
+                "type": "select"
+            },
+            {
+                "id": "messages.internalidnumber",
+                "name": "Messages : Internal ID (Number)",
+                "type": "integer"
+            },
+            {
+                "id": "messages.internalonly",
+                "name": "Messages : Internal Only",
+                "type": "checkbox"
+            },
+            {
+                "id": "messages.isincoming",
+                "name": "Messages : Is Incoming",
+                "type": "checkbox"
+            },
+            {
+                "id": "messages.message",
+                "name": "Messages : Message",
+                "type": "clobtext"
+            },
+            {
+                "id": "messages.recipient",
+                "name": "Messages : Recipient",
+                "type": "select"
+            },
+            {
+                "id": "messages.recipientemail",
+                "name": "Messages : Recipient Email",
+                "type": "email"
+            },
+            {
+                "id": "messages.subject",
+                "name": "Messages : Subject",
+                "type": "text"
+            },
+            {
+                "id": "messages.messagetype",
+                "name": "Messages : Type",
+                "type": "select"
+            },
+            {
+                "id": "messagesfrom.author",
+                "name": "Messages From : Author",
+                "type": "select"
+            },
+            {
+                "id": "messagesfrom.bcc",
+                "name": "Messages From : Bcc",
+                "type": "email"
+            },
+            {
+                "id": "messagesfrom.cc",
+                "name": "Messages From : Cc",
+                "type": "email"
+            },
+            {
+                "id": "messagesfrom.messagedate",
+                "name": "Messages From : Date",
+                "type": "datetime"
+            },
+            {
+                "id": "messagesfrom.externalid",
+                "name": "Messages From : External ID",
+                "type": "select"
+            },
+            {
+                "id": "messagesfrom.externalidstring",
+                "name": "Messages From : External ID (Text)",
+                "type": "text"
+            },
+            {
+                "id": "messagesfrom.formuladate",
+                "name": "Messages From : Formula (Date)",
+                "type": "date"
+            },
+            {
+                "id": "messagesfrom.formulanumeric",
+                "name": "Messages From : Formula (Numeric)",
+                "type": "float"
+            },
+            {
+                "id": "messagesfrom.formulatext",
+                "name": "Messages From : Formula (Text)",
+                "type": "text"
+            },
+            {
+                "id": "messagesfrom.authoremail",
+                "name": "Messages From : From Email",
+                "type": "email"
+            },
+            {
+                "id": "messagesfrom.hasattachment",
+                "name": "Messages From : Has Attachment",
+                "type": "checkbox"
+            },
+            {
+                "id": "messagesfrom.internalid",
+                "name": "Messages From : Internal ID",
+                "type": "select"
+            },
+            {
+                "id": "messagesfrom.internalidnumber",
+                "name": "Messages From : Internal ID (Number)",
+                "type": "integer"
+            },
+            {
+                "id": "messagesfrom.internalonly",
+                "name": "Messages From : Internal Only",
+                "type": "checkbox"
+            },
+            {
+                "id": "messagesfrom.isincoming",
+                "name": "Messages From : Is Incoming",
+                "type": "checkbox"
+            },
+            {
+                "id": "messagesfrom.message",
+                "name": "Messages From : Message",
+                "type": "clobtext"
+            },
+            {
+                "id": "messagesfrom.recipient",
+                "name": "Messages From : Recipient",
+                "type": "select"
+            },
+            {
+                "id": "messagesfrom.recipientemail",
+                "name": "Messages From : Recipient Email",
+                "type": "email"
+            },
+            {
+                "id": "messagesfrom.subject",
+                "name": "Messages From : Subject",
+                "type": "text"
+            },
+            {
+                "id": "messagesfrom.messagetype",
+                "name": "Messages From : Type",
+                "type": "select"
+            },
+            {
+                "id": "messagesto.author",
+                "name": "Messages To : Author",
+                "type": "select"
+            },
+            {
+                "id": "messagesto.bcc",
+                "name": "Messages To : Bcc",
+                "type": "email"
+            },
+            {
+                "id": "messagesto.cc",
+                "name": "Messages To : Cc",
+                "type": "email"
+            },
+            {
+                "id": "messagesto.messagedate",
+                "name": "Messages To : Date",
+                "type": "datetime"
+            },
+            {
+                "id": "messagesto.externalid",
+                "name": "Messages To : External ID",
+                "type": "select"
+            },
+            {
+                "id": "messagesto.externalidstring",
+                "name": "Messages To : External ID (Text)",
+                "type": "text"
+            },
+            {
+                "id": "messagesto.formuladate",
+                "name": "Messages To : Formula (Date)",
+                "type": "date"
+            },
+            {
+                "id": "messagesto.formulanumeric",
+                "name": "Messages To : Formula (Numeric)",
+                "type": "float"
+            },
+            {
+                "id": "messagesto.formulatext",
+                "name": "Messages To : Formula (Text)",
+                "type": "text"
+            },
+            {
+                "id": "messagesto.authoremail",
+                "name": "Messages To : From Email",
+                "type": "email"
+            },
+            {
+                "id": "messagesto.hasattachment",
+                "name": "Messages To : Has Attachment",
+                "type": "checkbox"
+            },
+            {
+                "id": "messagesto.internalid",
+                "name": "Messages To : Internal ID",
+                "type": "select"
+            },
+            {
+                "id": "messagesto.internalidnumber",
+                "name": "Messages To : Internal ID (Number)",
+                "type": "integer"
+            },
+            {
+                "id": "messagesto.internalonly",
+                "name": "Messages To : Internal Only",
+                "type": "checkbox"
+            },
+            {
+                "id": "messagesto.isincoming",
+                "name": "Messages To : Is Incoming",
+                "type": "checkbox"
+            },
+            {
+                "id": "messagesto.message",
+                "name": "Messages To : Message",
+                "type": "clobtext"
+            },
+            {
+                "id": "messagesto.recipient",
+                "name": "Messages To : Recipient",
+                "type": "select"
+            },
+            {
+                "id": "messagesto.recipientemail",
+                "name": "Messages To : Recipient Email",
+                "type": "email"
+            },
+            {
+                "id": "messagesto.subject",
+                "name": "Messages To : Subject",
+                "type": "text"
+            },
+            {
+                "id": "messagesto.messagetype",
+                "name": "Messages To : Type",
+                "type": "select"
+            },
+            {
+                "id": "subsidiary.accountingbook",
+                "name": "Subsidiary : Accounting Book",
+                "type": "select"
+            },
+            {
+                "id": "subsidiary.accountingbookcurrency",
+                "name": "Subsidiary : Accounting Book Currency",
+                "type": "select"
+            },
+            {
+                "id": "subsidiary.address",
+                "name": "Subsidiary : Address",
+                "type": "textarea"
+            },
+            {
+                "id": "subsidiary.city",
+                "name": "Subsidiary : City",
+                "type": "text"
+            },
+            {
+                "id": "subsidiary.country",
+                "name": "Subsidiary : Country",
+                "type": "select"
+            },
+            {
+                "id": "subsidiary.currency",
+                "name": "Subsidiary : Currency",
+                "type": "select"
+            },
+            {
+                "id": "subsidiary.iselimination",
+                "name": "Subsidiary : Elimination",
+                "type": "checkbox"
+            },
+            {
+                "id": "subsidiary.email",
+                "name": "Subsidiary : Email",
+                "type": "email"
+            },
+            {
+                "id": "subsidiary.externalid",
+                "name": "Subsidiary : External ID",
+                "type": "select"
+            },
+            {
+                "id": "subsidiary.externalidstring",
+                "name": "Subsidiary : External ID (Text)",
+                "type": "text"
+            },
+            {
+                "id": "subsidiary.fax",
+                "name": "Subsidiary : Fax",
+                "type": "phone"
+            },
+            {
+                "id": "subsidiary.formuladate",
+                "name": "Subsidiary : Formula (Date)",
+                "type": "date"
+            },
+            {
+                "id": "subsidiary.formulanumeric",
+                "name": "Subsidiary : Formula (Numeric)",
+                "type": "float"
+            },
+            {
+                "id": "subsidiary.formulatext",
+                "name": "Subsidiary : Formula (Text)",
+                "type": "text"
+            },
+            {
+                "id": "subsidiary.isinactive",
+                "name": "Subsidiary : Inactive",
+                "type": "checkbox"
+            },
+            {
+                "id": "subsidiary.internalid",
+                "name": "Subsidiary : Internal ID",
+                "type": "select"
+            },
+            {
+                "id": "subsidiary.internalidnumber",
+                "name": "Subsidiary : Internal ID (Number)",
+                "type": "integer"
+            },
+            {
+                "id": "subsidiary.legalname",
+                "name": "Subsidiary : Legal Name",
+                "type": "text"
+            },
+            {
+                "id": "subsidiary.name",
+                "name": "Subsidiary : Name",
+                "type": "text"
+            },
+            {
+                "id": "subsidiary.phone",
+                "name": "Subsidiary : Phone",
+                "type": "phone"
+            },
+            {
+                "id": "subsidiary.state",
+                "name": "Subsidiary : State/Province",
+                "type": "select"
+            },
+            {
+                "id": "subsidiary.taxidnum",
+                "name": "Subsidiary : Tax ID",
+                "type": "text"
+            },
+            {
+                "id": "subsidiary.tranprefix",
+                "name": "Subsidiary : Transaction Prefix",
+                "type": "text"
+            },
+            {
+                "id": "subsidiary.receiptamount",
+                "name": "Subsidiary : Vendor Bill - Item Receipt Amount Tolerance",
+                "type": "float"
+            },
+            {
+                "id": "subsidiary.receiptquantitydiff",
+                "name": "Subsidiary : Vendor Bill - Item Receipt Quantity Difference",
+                "type": "float"
+            },
+            {
+                "id": "subsidiary.receiptquantity",
+                "name": "Subsidiary : Vendor Bill - Item Receipt Quantity Tolerance",
+                "type": "float"
+            },
+            {
+                "id": "subsidiary.purchaseorderamount",
+                "name": "Subsidiary : Vendor Bill - Purchase Order Amount Tolerance",
+                "type": "float"
+            },
+            {
+                "id": "subsidiary.purchaseorderquantitydiff",
+                "name": "Subsidiary : Vendor Bill - Purchase Order Quantity Difference",
+                "type": "float"
+            },
+            {
+                "id": "subsidiary.purchaseorderquantity",
+                "name": "Subsidiary : Vendor Bill - Purchase Order Quantity Tolerance",
+                "type": "float"
+            },
+            {
+                "id": "subsidiary.url",
+                "name": "Subsidiary : Web Site",
+                "type": "url"
+            },
+            {
+                "id": "subsidiary.zip",
+                "name": "Subsidiary : Zip",
+                "type": "text"
+            }
+        ]
+    }
+}

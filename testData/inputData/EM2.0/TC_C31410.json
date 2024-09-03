@@ -1,0 +1,108 @@
+{
+    "name": "TC_C31410",
+    "referencename": "TC_C31410",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Zendesk_Export_TC_31410",
+                        "_connectionId": "ZENDESK CONNECTION",
+                        "asynchronous": true,
+                        "type": "test",
+                        "assistant": "zendesk",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "assistantMetadata": {
+                            "resource": "groups",
+                            "version": "v2",
+                            "operation": "list_groups"
+                        },
+                        "http": {
+                            "relativeURI": "/api/v2/groups.json",
+                            "method": "GET",
+                            "successMediaType": "json",
+                            "errorMediaType": "json",
+                            "formType": "assistant",
+                            "paging": {
+                                "method": "url",
+                                "path": "next_page",
+                                "lastPageStatusCode": 404
+                            },
+                            "response": {
+                                "resourcePath": "groups"
+                            }
+                        },
+                        "rawData": "EMPTY RAW DATA",
+                        "test": {
+                            "limit": 1
+                        },
+                        "rest": {
+                            "relativeURI": "/api/v2/groups.json",
+                            "method": "GET",
+                            "resourcePath": "groups",
+                            "pagingMethod": "nextpageurl",
+                            "nextPagePath": "next_page",
+                            "allowUndefinedResource": false
+                        },
+                        "adaptorType": "RESTExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Salesforce_Import_TC_C31410",
+                        "_connectionId": "SALESFORCE CONNECTION",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "extract": "na",
+                                    "generate": "Name"
+                                },
+                                {
+                                    "extract": "url",
+                                    "generate": "Upsert__c"
+                                }
+                            ]
+                        },
+                        "salesforce": {
+                            "operation": "insert",
+                            "sObjectType": "Account",
+                            "api": "soap",
+                            "removeNonSubmittableFields": false
+                        },
+                        "adaptorType": "SalesforceImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C31410",
+                "disabled": false,
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

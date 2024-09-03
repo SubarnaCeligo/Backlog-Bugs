@@ -1,0 +1,66 @@
+{
+    "name": "TC_46917_more_actions",
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "disabled": false,
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "name": "ftp",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "i49de1596e",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "file-{{timestamp}}.csv",
+                    "skipAggregation": false,
+                    "type": "csv",
+                    "csv": {
+                        "rowDelimiter": "\n",
+                        "columnDelimiter": ",",
+                        "includeHeader": true,
+                        "wrapWithQuotes": false,
+                        "replaceTabWithSpace": false,
+                        "replaceNewlineWithSpace": false,
+                        "truncateLastRowDelimiter": false
+                    }
+                },
+                "qa__path": "//FTP_uploads//42ZendeskOrg2FTP_Pipe.csv",
+                "ftp": {
+                    "directoryPath": "io.auto.qa/ILM_Automation_SFTP_Import",
+                    "fileName": "file-{{timestamp}}.csv"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ],
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "export",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "eaf21d3c91",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "/users",
+                    "method": "GET",
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "users"
+                    }
+                },
+                "rawData": "56d6b114e1fc35de5391472cf7b617216eb34bf8a2ffa381f812afa7",
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ]
+}

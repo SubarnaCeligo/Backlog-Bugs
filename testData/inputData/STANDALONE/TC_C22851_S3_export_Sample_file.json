@@ -1,0 +1,18 @@
+{
+    "Sample_data": "Drug @ Name,#Number Naproxen and Esomeprazole Magnesium,649519585032 Horizon Pharma Inc.,193383115234",
+    "expected": {
+      "page_of_records": [
+        {
+          "record": {
+            "Column0": "Drug@Name",
+            "Column1": "#NumberNaproxenandEsomeprazoleMagnesium",
+            "Column2": "649519585032HorizonPharmaInc.",
+            "Column3": "193383115234"
+          }
+        }
+      ]
+    },
+    "testdata":{
+      "CSV": "/S3_uploads/TC_C2810.csv"
+    }
+}

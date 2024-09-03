@@ -1,0 +1,131 @@
+{
+    "qa_editionSetting": {
+        "_id": "62bd8828099e0d75cabc89b5",
+        "environment": "Production",
+        "name": "TC_IAF_019_C27027",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "published": false,
+        "_integrationId": "62905de2c51f323382314cce",
+        "applications": [
+            "activecampaign"
+        ],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "62905de2c51f323382314cce",
+            "editions": [
+                {
+                    "displayName": "Edition_1",
+                    "order": 0,
+                    "resources": {
+                        "_flowIds": [
+                            "6294686e2174cb0241123c01"
+                        ],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    },
+                    "childResources": {
+                        "_flowIds": [],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    }
+                }
+            ]
+        }
+    },
+    "qa_importJson": {
+        "environment": "Production",
+        "name": "TC_IAF_019_C27027",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "_integrationId": "62905de2c51f323382314cce",
+        "applications": [
+            "activecampaign"
+        ],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "62905de2c51f323382314cce"
+        }
+    },
+    "editionSetting": {
+        "_id": "6322c5c993d87d52677c33bb",
+        "environment": "Production",
+        "name": "TC_IAF_019_C27027",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "published": false,
+        "_integrationId": "631ad2f213d12134f4772d77",
+        "applications": [
+            "activecampaign"
+        ],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "631ad2f213d12134f4772d77",
+            "editions": [
+                {
+                    "displayName": "Edition_1",
+                    "order": 0,
+                    "resources": {
+                        "_flowIds": [
+                            "631ad33a3796483e5615c92e"
+                        ],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    },
+                    "childResources": {
+                        "_flowIds": [],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    }
+                }
+            ]
+        }
+    },
+    "importJson": {
+        "environment": "Production",
+        "name": "TC_IAF_019_C27027",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "_integrationId": "631ad2f213d12134f4772d77",
+        "applications": [
+            "activecampaign"
+        ],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "631ad2f213d12134f4772d77"
+        }
+    },
+    "setupConnection": {
+        "integrationName": "Edition",
+        "activecampaignSubdomain": "jnsajkcbajbfewfbkbjk",
+        "token": "jfbewjkfbefnevbelve",
+        "uninstall": "false"
+    },
+    "verification": {
+        "flowGroup": [
+            "Parent"
+        ],
+        "flow": [
+            "F1"
+        ],
+        "integrationName": "Edition",
+        "prevScript": "None",
+        "scriptName": "SETTINGS FORM",
+        "function": "formInit",
+        "errorText": "TypeError:·Cannot·read·property·'valueResource'·of·undefined"
+    },
+    "createLicense": {
+        "name": "TC_IAF_019_C27027",
+        "edition": "Edition_1"
+    },
+    "integrationName": "Edition",
+    "app": "ActiveCampaign"
+}

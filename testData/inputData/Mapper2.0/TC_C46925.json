@@ -1,0 +1,169 @@
+{
+    "skipRetries": false,
+    "_integrationId": "63073532f3062a3f169e2dff",
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "_id": "5b21461108dcec36417edadd",
+                "name": "Http_Shopify_Customers_CreateorIgnore",
+                "description": "test",
+                "sampleData": {
+                    "customer": {
+                        "admin_graphql_api_id": "gid://shopify/Customer/614695665750",
+                        "addresses": [],
+                        "last_order_name": "#7759",
+                        "tags": "",
+                        "phone": null,
+                        "tax_exempt": false,
+                        "multipass_identifier": null,
+                        "verified_email": false,
+                        "note": null,
+                        "last_order_id": 509459693654,
+                        "total_spent": "0.00",
+                        "state": "disabled",
+                        "orders_count": 1,
+                        "last_name": "shopify(SO) to NS(SO)",
+                        "first_name": "08.NS Flow#1",
+                        "updated_at": "2018-06-13T20:24:03+05:30",
+                        "created_at": "2018-06-13T20:24:03+05:30",
+                        "accepts_marketing": false,
+                        "email": null,
+                        "id": 614695665750
+                    }
+                },
+                "responseTransform": {
+                    "type": "expression",
+                    "expression": {
+                        "version": "1"
+                    },
+                    "version": "1"
+                },
+                "_connectionId": "SHOPIFY CONNECTION",
+                "distributed": false,
+                "apiIdentifier": "id763331fb",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "assistant": "shopify",
+                "sandbox": false,
+                "assistantMetadata": {
+                    "version": "v2",
+                    "resource": "customer",
+                    "operation": "creates_acustomer"
+                },
+                "mapping": {
+                    "fields": [
+                        {
+                            "extract": "first_name",
+                            "generate": "customer.first_name"
+                        },
+                        {
+                            "extract": "last_name",
+                            "generate": "customer.last_name"
+                        },
+                        {
+                            "extract": "email",
+                            "generate": "customer.email"
+                        }
+                    ]
+                },
+                "mappings": [
+                    {
+                        "generate": "Shipment Number(100)",
+                        "dataType": "string",
+                        "extract": "$.100[0].Shipment Number(100)"
+                    },
+                    {
+                        "generate": "PO Number(200)",
+                        "dataType": "number",
+                        "extract": "$.200[0].PO Number(200)"
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "/customers.json"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [
+                        null
+                    ],
+                    "batchSize": 1,
+                    "requestMediaType": "json",
+                    "successMediaType": "json",
+                    "errorMediaType": "json",
+                    "strictHandlebarEvaluation": true,
+                    "sendPostMappedData": true,
+                    "formType": "assistant",
+                    "response": {
+                        "resourceIdPath": [
+                            null
+                        ]
+                    }
+                },
+                "rest": {
+                    "relativeURI": [
+                        "/customers.json"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [
+                        null
+                    ],
+                    "responseIdPath": [
+                        null
+                    ],
+                    "successPath": [
+                        null
+                    ],
+                    "successValues": [
+                        null
+                    ]
+                },
+                "filter": {
+                    "type": "expression",
+                    "expression": {
+                        "version": "1"
+                    },
+                    "version": "1"
+                },
+                "adaptorType": "RESTImport"
+            }
+        }
+    ],
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C46925",
+    "disabled": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "FTP Export TC_C46925",
+                "qa__path": "//FTP_uploads//TC_C46925.json",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C46925.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ]
+}

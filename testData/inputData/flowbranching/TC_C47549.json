@@ -1,0 +1,196 @@
+{
+    "name": "TC_C47549",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "successCount": "1",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "AutomationStandaloneExport__s9VHi9zmdH",
+                "_connectionId": "NETSUITE CONNECTION",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "netsuite": {
+                    "type": "restlet",
+                    "skipGrouping": true,
+                    "statsOnly": false,
+                    "restlet": {
+                        "recordType": "campaign",
+                        "searchId": "4651",
+                        "useSS2Restlets": false,
+                        "markExportedBatchSize": 100
+                    },
+                    "distributed": {
+                        "useSS2Framework": false
+                    }
+                },
+                "adaptorType": "NetSuiteExport"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "nw5EED",
+            "routeRecordsTo": "all_matching_branches",
+            "branches": [
+                {
+                    "name": "R1B1",
+                    "inputFilter": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "id"
+                                ]
+                            ],
+                            "100143"
+                        ]
+                    },
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandaloneImport__gsqpYL0s9w",
+                                "application":"zendesk support",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "Auto_{{random 6}}",
+                                            "generate": "organization.name"
+                                        },
+                                        {
+                                            "extract": "Title",
+                                            "generate": "organization.notes"
+                                        }
+                                    ]
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "organizations.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "R1B2",
+                    "inputFilter": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "id"
+                                ]
+                            ],
+                            "128031"
+                        ]
+                    },
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandaloneImport__gsqpYL0s9w",
+                                "_connectionId": "NETSUITE CONNECTION",
+                                "distributed": true,
+                                "ignoreExisting": false,
+                                "ignoreMissing": false,
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "lookups": [],
+                                "netsuite_da": {
+                                    "useSS2Restlets": false,
+                                    "operation": "update",
+                                    "recordType": "campaign",
+                                    "internalIdLookup": {
+                                        "expression": "[\"title\",\"is\",\"{{{Titl}}}\"]"
+                                    },
+                                    "lookups": [],
+                                    "mapping": {
+                                        "fields": [
+                                            {
+                                                "extract": "Title",
+                                                "generate": "title",
+                                                "internalId": false
+                                            },
+                                            {
+                                                "generate": "cost",
+                                                "internalId": false,
+                                                "hardCodedValue": "1200.00"
+                                            }
+                                        ],
+                                        "lists": []
+                                    }
+                                },
+                                "adaptorType": "NetSuiteDistributedImport"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        }
+    ],
+    "qa__dataVerification": {
+        "expected": {
+            "Netsuite": {
+                "name": "TC_C47549",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "import": {
+                    "_connectionId": "NETSUITE CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "1",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "expectedJSON": {
+                        "recordType": "campaign",
+                        "Title": "Campaign Automation Testing",
+                        "Category": "Newspaper/Magazine Advertisments",
+                        "Start Date": "9/21/2022",
+                        "End Date": "9/30/2022",
+                        "Total Cost": "1200.00",
+                        "Manager": "Automation User"
+                    },
+                    "uniqueField": "Title",
+                    "standaloneexportflowID": "633412caca06597ef0ab64e0",
+                    "importRecordType": "Campaign",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e63f5325bb"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,188 @@
+{
+  "flowname1": "TC30527_Ns_Import_Field_Check_In_Dynamic_Mapping",
+  "expectedValue": "*.FileName",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Ns Export",
+            "_connectionId": "NETSUITE CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "rawData": "61e68956b587067a214ac5edc56eb9a1200645aebdc3083eb57049f0",
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": false,
+              "statsOnly": false,
+              "restlet": {
+                "recordType": "account",
+                "searchId": "3878",
+                "useSS2Restlets": false
+              },
+              "distributed": {
+                "useSS2Framework": false
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Ns_Import",
+            "_connectionId": "NETSUITE CONNECTION",
+            "distributed": true,
+            "lookups": [
+              {
+                "name": "lookup",
+                "recordType": "account",
+                "resultField": "type",
+                "expression": "[\"internalid\",\"is\",\"{{{id}}}\"]",
+                "allowFailures": false
+              }
+            ],
+            "netsuite_da": {
+              "useSS2Restlets": false,
+              "operation": "add",
+              "recordType": "salesorder",
+              "lookups": [
+                {
+                  "name": "lookup",
+                  "recordType": "account",
+                  "resultField": "type",
+                  "expression": "[\"internalid\",\"is\",\"{{{id}}}\"]",
+                  "allowFailures": false
+                }
+              ],
+              "mapping": {
+                "fields": [
+                  {
+                    "generate": "balance",
+                    "discardIfEmpty": false,
+                    "immutable": false,
+                    "lookupName": "lookup",
+                    "internalId": false
+                  },
+                  {
+                    "extract": "Name",
+                    "generate": "entity",
+                    "internalId": false
+                  }
+                ],
+                "lists": []
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC30527_Ns_Import_Field_Check_In_Dynamic_Mapping",
+        "disabled": false,
+        "_integrationId": "631a1266abf51e7a86c80ab4",
+        "qa__integrationId": "6228aed6bc8a2732cfe8044c",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    },
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Ns Export",
+            "_connectionId": "NETSUITE CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "rawData": "61e68956b587067a214ac5edc56eb9a1200645aebdc3083eb57049f0",
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": false,
+              "statsOnly": false,
+              "restlet": {
+                "recordType": "account",
+                "searchId": "3878",
+                "useSS2Restlets": false
+              },
+              "distributed": {
+                "useSS2Framework": false
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Ns_Import",
+            "_connectionId": "NETSUITE CONNECTION",
+            "distributed": true,
+            "lookups": [
+              {
+                "name": "lookup",
+                "recordType": "account",
+                "resultField": "type",
+                "expression": "[\"internalid\",\"is\",\"{{{id}}}\"]",
+                "allowFailures": false
+              }
+            ],
+            "netsuite_da": {
+              "useSS2Restlets": false,
+              "operation": "add",
+              "recordType": "salesorder",
+              "lookups": [
+                {
+                  "name": "lookup",
+                  "recordType": "account",
+                  "resultField": "type",
+                  "expression": "[\"internalid\",\"is\",\"{{{id}}}\"]",
+                  "allowFailures": false
+                }
+              ],
+              "mapping": {
+                "fields": [
+                  {
+                    "generate": "balance",
+                    "discardIfEmpty": false,
+                    "immutable": false,
+                    "lookupName": "lookup",
+                    "internalId": false
+                  },
+                  {
+                    "extract": "Name",
+                    "generate": "entity",
+                    "internalId": false
+                  }
+                ],
+                "lists": []
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        }
+      ]
+    }
+  ]
+}

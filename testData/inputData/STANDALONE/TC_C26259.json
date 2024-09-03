@@ -1,0 +1,9 @@
+{
+    "type": "oidc",
+    "orgId": "celigo1234TESTTESTTESTTEYUGT76342Y281",
+    "oidc": {
+        "issuerURL": "https://celigo-1234.okta.com",
+        "clientId": "0oam5ivuqPfruH18u5d6",
+        "clientSecret": "Uf6ngn8_oI9RySPQNf1k2ToRwx2yLfRXLtTxCphw"
+    }
+}

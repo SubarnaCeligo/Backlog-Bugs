@@ -1,0 +1,93 @@
+{
+      "flowname": "TC_C40389",
+      "name": "TC_C40389",
+        "qa__api_tdata": [
+          {
+            "pageGenerators": [
+              {
+                "type": "export",
+                "qa__export": {
+                        "name": "ftp",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "e768a341fd",
+                        "asynchronous": true,
+                        "sandbox": false,
+                        "sampleData": [
+                            {
+                                "accountname": "automation",
+                                "email": "automate@gmail.com",
+                                "phone": "123456789"
+                            }
+                        ],
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                            "fileNameStartsWith": "TC_C40389"
+                        },
+                        "file": {
+                            "output": "records",
+                            "qa__path": "//FTP_uploads//TC_C40389.json",
+                            "skipDelete": false,
+                            "type": "json",
+                            "json": {
+                                "resourcePath": "*"
+                            }
+                        },
+                        "adaptorType": "FTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+              {
+                "type": "import",
+                "qa__import": {
+                        "name": "HTTP",
+                        "application": "Slack",
+                        "qa__connectionId": "HTTP SLACK CONNECTION",
+                        "_connectionId": "HTTP SLACK CONNECTION",
+                        "apiIdentifier": "i17ce944b9",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": [
+                                "users"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+              "name": "TC_C40389",
+              "disabled": false,
+              "_integrationId": "631a1266abf51e7a86c80ab4",
+              "qa__integrationId": "6228aed6bc8a2732cfe8044c",
+              "skipRetries": false,
+              "pageProcessors": [
+                {
+                  "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                  },
+                  "type": "import",
+                  "_importId": "UPDATE WITH NEW IMPORTID"
+                }
+              ],
+              "pageGenerators": [
+                {
+                  "type": "export",
+                  "_exportId": "UPDATE WITH NEW EXPORTID"
+                }
+              ]
+            }
+          }
+        ]
+      }

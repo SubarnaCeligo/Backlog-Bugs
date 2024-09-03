@@ -1,0 +1,99 @@
+{
+    "name": "TC_C28113",
+    "referencename": "TC_C28113",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+                "name": "BG export",
+                "application": "BigCommerce",
+                "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "/v3/customers",
+                    "method": "GET",
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "data"
+                    }
+                },
+                "test": {
+                    "limit": 1
+                },
+                "transform": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [
+                            [
+                                {
+                                    "extract": "email",
+                                    "generate": "email"
+                                }
+                            ]
+                        ],
+                        "version": "1"
+                    },
+                    "version": "1",
+                    "rules": [
+                        [
+                            {
+                                "extract": "email",
+                                "generate": "email"
+                            }
+                        ]
+                    ]
+                },
+                "adaptorType": "HTTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+                "name": "FTPImp",
+                "_connectionId": "FTP CONNECTION",
+                "oneToMany": false,
+                "blob": true,
+                "sandbox": false,
+                "file": {
+                    "fileName": "testfiles",
+                    "skipAggregation": false
+                },
+                "ftp": {
+                    "directoryPath": "/something",
+                    "fileName": "testfiles"
+                },
+                "adaptorType": "FTPImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C28113",
+          "disabled": false,
+          "_integrationId": "62eca1efe386b563f638451e",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

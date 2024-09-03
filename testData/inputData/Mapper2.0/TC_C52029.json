@@ -1,0 +1,133 @@
+{
+    "referencename": "TC_C52029",
+    "qa__api_tdata": [
+        {
+            "name": "TC_C52029",
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "ftp_exp",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "e500a2ddd6",
+                        "asynchronous": true,
+                        "sandbox": false,
+                        "ftp": {
+                            "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+                            "fileNameStartsWith": "TC_C51221"
+                        },
+                        "file": {
+                            "encoding": "utf8",
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "json"
+                        },
+                        "adaptorType": "FTPExport",
+                        "qa__path": "//FTP_uploads//TC_C51221.json"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "ftp_imp",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "i7db248292",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "mappings": [
+                            {
+                                "extract": "$.father.fName",
+                                "generate": "father",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            }
+                        ],
+                        "file": {
+                            "fileName": "TC_C51221",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "io.auto.qa/IO_UI_Automation_FTPImports",
+                            "fileName": "TC_C51221"
+                        },
+                        "adaptorType": "FTPImport",
+                        "responseMapping": {
+                            "lists": [],
+                            "fields": [],
+                            "qa__index": 0
+                        }
+                    }
+                },
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "shopify_imp",
+                        "application": "shopify",
+                        "_connectionId": "HTTP SHOPIFY CONNECTION",
+                        "apiIdentifier": "idff254e08",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "mappings": [
+                            {
+                                "generate": "order",
+                                "dataType": "object",
+                                "status": "Active",
+                                "mappings": [
+                                    {
+                                        "extract": "Auto_47445@test.com",
+                                        "generate": "contact_email",
+                                        "dataType": "string",
+                                        "status": "Active",
+                                        "sourceDataType": "string"
+                                    }
+                                ]
+                            }
+                        ],
+                        "http": {
+                            "relativeURI": [
+                                "/products.json"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C51972",
+                "disabled": false,
+                "qa__integrationId": "56d6b23fe1fc35de53914730",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

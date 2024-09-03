@@ -1,0 +1,39 @@
+{
+  "Stage_conn": "HTTP ZENDESK CONNECTION",
+  "postBody": {
+    "name": "HTTP Mapper backend - Scenario 2 Invalid SourceDataType sent - Error",
+    "application": "zendesk support",
+    "_connectionId": "HTTP ZENDESK CONNECTION",
+    "_sourceId": "6332aa546b757a4f3035152c",
+    "apiIdentifier": "i32a2860b1",
+    "ignoreExisting": false,
+    "ignoreMissing": false,
+    "oneToMany": false,
+    "sandbox": false,
+    "mappings": [
+      {
+        "generate": "TestCOLLEGE",
+        "dataType": "object",
+        "status": "Active",
+        "mappings": [
+          {
+            "extract": "$.user.email",
+            "generate": "EMAILID",
+            "dataType": "string",
+            "status": "Active",
+            "sourceDataType": "sourceDataType"
+          }
+        ]
+      }
+    ],
+    "http": {
+      "relativeURI": ["/api/v2/tickets.json"],
+      "method": ["POST"],
+      "body": [],
+      "batchSize": 1,
+      "sendPostMappedData": true,
+      "formType": "http"
+    },
+    "adaptorType": "HTTPImport"
+  }
+}

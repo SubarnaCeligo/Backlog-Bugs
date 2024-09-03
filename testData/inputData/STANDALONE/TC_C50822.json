@@ -1,0 +1,55 @@
+{
+  "HTTP": {
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "name": "HTTP ZD connection",
+          "_connectionId": "HTTP ZENDESK CONNECTION",
+          "application": "zendesk support",
+          "apiIdentifier": "e6bf3024c6",
+          "asynchronous": true,
+          "oneToMany": false,
+          "sandbox": false,
+          "groupByFields": [
+            "id"
+          ],
+          "http": {
+            "relativeURI": "/tickets/81",
+            "method": "GET",
+            "formType": "http",
+            "response": {
+              "resourcePath": "ticket"
+            }
+          },
+          "settings": {
+            "name": "celigo"
+          },
+          "adaptorType": "HTTPExport"
+        }
+      }
+    ]
+  },
+  "PostSQL": {
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "application": "PostgreSQL",
+          "name": "TC_C1697_exp",
+          "_connectionId": "POSTGRESQL CONNECTION",
+          "apiIdentifier": "e00ff92ca7",
+          "asynchronous": true,
+          "oneToMany": false,
+          "sandbox": false,
+          "groupByFields": [
+            "working_area"
+          ],
+          "rdbms": {
+            "query": "select * from automation_agents"
+          },
+          "adaptorType": "RDBMSExport"
+        }
+      }
+    ]
+  },
+  "URL": "https://celigoqa.zendesk.com/api/v2/tickets/81.json"
+}

@@ -1,0 +1,156 @@
+{
+  "name": "TC_47552_Flowbranching",
+  "disabled": false,
+  "_integrationId": "62f51db41677a21a108e5e3a",
+  "skipRetries": false,
+  "timezone": "Asia/Calcutta",
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "FTP Export flow branching",
+        "adaptorType": "FTPExport",
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+          "fileNameStartsWith": "TC_C47552_flowbranching.json"
+        },
+        "file": {
+          "output": "records",
+          "skipDelete": true,
+          "encoding": "utf8",
+          "type": "json"
+        },
+        "asynchronous": true,
+        "_connectionId": "FTP CONNECTION",
+        "qa__path": "//SFTP_uploads//TC_C47552_Flowbranching.json"
+      }
+    }
+  ],
+  "routers": [
+    {
+      "routeRecordsUsing": "input_filters",
+      "id": "p6Sr2m",
+      "routeRecordsTo": "all_matching_branches",
+      "branches": [
+        {
+          "name": "Branch 1.0",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "zendesk import",
+                "application":"zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "ic32c8543e",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mapping": {
+                  "fields": [
+                    {
+                      "extract": "name",
+                      "generate": "organization.name"
+                    },
+                    {
+                      "extract": "notes",
+                      "generate": "organization.notes"
+                    }
+                  ]
+                },
+                "http": {
+                  "relativeURI": [
+                    "organizations.json"
+                  ],
+                  "method": [
+                    "POST"
+                  ],
+                  "body": [],
+                  "batchSize": 1,
+                  "sendPostMappedData": true,
+                  "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+              }
+            }
+          ]
+    },
+    {
+      "name": "Branch 1.1",
+      "pageProcessors": [
+        {
+          "responseMapping": {
+            "fields": [],
+            "lists": []
+          },
+          "type": "import",
+          "qa__import": {
+            "name": "SF",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "apiIdentifier": "i59ea89262",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [
+              {
+                "name": "dynamic",
+                "whereClause": "(CreatedById = {{{reference notes}}})",
+                "sObjectType": "AcceptedEventRelation",
+                "resultField": "CreatedById",
+                "allowFailures": false
+              }
+            ],
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "[#]",
+                  "generate": "56",
+                  "lookupName": "dynamic"
+                },
+                {
+                  "extract": "email",
+                  "generate": "Email__c"
+                },
+                {
+                  "extract": "name",
+                  "generate": "Name"
+                },
+                {
+                  "extract": "phone",
+                  "generate": "Phone"
+                },
+                {
+                  "extract": "fax",
+                  "generate": "Fax"
+                }
+              ]
+            },
+            "salesforce": {
+              "operation": "insert",
+              "sObjectType": "Account",
+              "api": "soap",
+              "lookups": [
+                {
+                  "name": "dynamic",
+                  "whereClause": "(CreatedById = {{{reference notes}}})",
+                  "sObjectType": "AcceptedEventRelation",
+                  "resultField": "CreatedById",
+                  "allowFailures": false
+                }
+              ],
+              "removeNonSubmittableFields": false
+            },
+            "adaptorType": "SalesforceImport"
+          }
+        }
+      ]}],
+      "script": {
+        "function": "branching"
+      }
+    }
+  ]
+}

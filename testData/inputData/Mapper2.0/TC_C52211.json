@@ -1,0 +1,795 @@
+{
+    "name": "TC_C52211",
+    "referencename": "TC_C51211",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "TC_C52211",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "e6ffbc0467",
+                        "asynchronous": true,
+                        "sandbox": false,
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                            "fileNameStartsWith": "51798"
+                        },
+                        "file": {
+                            "output": "records",
+                            "skipDelete": false,
+                            "type": "json"
+                        },
+                        "adaptorType": "FTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Import-1",
+                        "application": "zendesk support",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "_sourceId": "632c749f9330e00c3cb8aa36",
+                        "apiIdentifier": "i6c6943961",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "mappings": [
+                            {
+                                "extract": "$.text",
+                                "generate": "text1",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text2",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text3",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text4",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text5",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text6",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text7",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text8",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text9",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text10",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text11",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text12",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text13",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text14",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text15",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text16",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text17",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text18",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text19",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text20",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text21",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text22",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text23",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text24",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text25",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text26",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text27",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text28",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text29",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text30",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text31",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text32",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text33",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text34",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text35",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text36",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text37",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text38",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text39",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text40",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text41",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text42",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text43",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text44",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text45",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text46",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text47",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text48",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text49",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text50",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.text",
+                                "generate": "text51",
+                                "dataType": "boolean",
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.update",
+                                "generate": "update52",
+                                "dataType": "number",
+                                "status": "Active",
+                                "sourceDataType": "number"
+                            },
+                            {
+                                "extract": "$.update",
+                                "generate": "update53",
+                                "dataType": "number",
+                                "status": "Active",
+                                "sourceDataType": "number"
+                            },
+                            {
+                                "extract": "$.update",
+                                "generate": "update54",
+                                "dataType": "number",
+                                "status": "Active",
+                                "sourceDataType": "number"
+                            },
+                            {
+                                "extract": "$.update",
+                                "generate": "update55",
+                                "dataType": "number",
+                                "status": "Active",
+                                "sourceDataType": "number"
+                            },
+                            {
+                                "extract": "$.update",
+                                "generate": "update56",
+                                "dataType": "number",
+                                "status": "Active",
+                                "sourceDataType": "number"
+                            },
+                            {
+                                "extract": "$.update",
+                                "generate": "update57",
+                                "dataType": "number",
+                                "status": "Active",
+                                "sourceDataType": "number"
+                            },
+                            {
+                                "extract": "$.update",
+                                "generate": "update58",
+                                "dataType": "number",
+                                "status": "Active",
+                                "sourceDataType": "number"
+                            },
+                            {
+                                "extract": "$.update",
+                                "generate": "update59",
+                                "dataType": "number",
+                                "status": "Active",
+                                "sourceDataType": "number"
+                            },
+                            {
+                                "extract": "$.update",
+                                "generate": "update60",
+                                "dataType": "number",
+                                "status": "Active",
+                                "sourceDataType": "number"
+                            },
+                            {
+                                "extract": "$.update",
+                                "generate": "update61",
+                                "dataType": "number",
+                                "status": "Active",
+                                "sourceDataType": "number"
+                            },
+                            {
+                                "extract": "$.update",
+                                "generate": "update62",
+                                "dataType": "number",
+                                "status": "Active",
+                                "sourceDataType": "number"
+                            },
+                            {
+                                "extract": "$.update",
+                                "generate": "update63",
+                                "dataType": "number",
+                                "status": "Active",
+                                "sourceDataType": "number"
+                            },
+                            {
+                                "extract": "$.update",
+                                "generate": "update64",
+                                "dataType": "number",
+                                "status": "Active",
+                                "sourceDataType": "number"
+                            },
+                            {
+                                "extract": "$.update",
+                                "generate": "update65",
+                                "dataType": "number",
+                                "status": "Active",
+                                "sourceDataType": "number"
+                            },
+                            {
+                                "extract": "$.update",
+                                "generate": "update66",
+                                "dataType": "number",
+                                "status": "Active",
+                                "sourceDataType": "number"
+                            },
+                            {
+                                "extract": "$.update",
+                                "generate": "update67",
+                                "dataType": "number",
+                                "status": "Active",
+                                "sourceDataType": "number"
+                            },
+                            {
+                                "extract": "$.update",
+                                "generate": "update68",
+                                "dataType": "number",
+                                "status": "Active",
+                                "sourceDataType": "number"
+                            },
+                            {
+                                "extract": "$.update",
+                                "generate": "update69",
+                                "dataType": "number",
+                                "status": "Active",
+                                "sourceDataType": "number"
+                            },
+                            {
+                                "extract": "$.update",
+                                "generate": "update70",
+                                "dataType": "number",
+                                "status": "Active",
+                                "sourceDataType": "number"
+                            },
+                            {
+                                "extract": "$.update",
+                                "generate": "updatet71",
+                                "dataType": "number",
+                                "status": "Active",
+                                "sourceDataType": "number"
+                            },
+                            {
+                                "extract": "$.update",
+                                "generate": "update72",
+                                "dataType": "number",
+                                "status": "Active",
+                                "sourceDataType": "number"
+                            },
+                            {
+                                "extract": "$.update",
+                                "generate": "update73",
+                                "dataType": "number",
+                                "status": "Active",
+                                "sourceDataType": "number"
+                            },
+                            {
+                                "extract": "$.update",
+                                "generate": "update74",
+                                "dataType": "number",
+                                "status": "Active",
+                                "sourceDataType": "number"
+                            },
+                            {
+                                "extract": "$.update",
+                                "generate": "update75",
+                                "dataType": "number",
+                                "status": "Active",
+                                "sourceDataType": "number"
+                            },
+                            {
+                                "extract": "$.update",
+                                "generate": "update76",
+                                "dataType": "number",
+                                "status": "Active",
+                                "sourceDataType": "number"
+                            },
+                            {
+                                "extract": "$.update",
+                                "generate": "update77",
+                                "dataType": "number",
+                                "status": "Active",
+                                "sourceDataType": "number"
+                            },
+                            {
+                                "extract": "$.update",
+                                "generate": "update78",
+                                "dataType": "number",
+                                "status": "Active",
+                                "sourceDataType": "number"
+                            },
+                            {
+                                "extract": "$.test",
+                                "generate": "test79",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "$.test",
+                                "generate": "test80",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "$.test",
+                                "generate": "test81",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "$.test",
+                                "generate": "test82",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "$.test",
+                                "generate": "test83",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "$.test",
+                                "generate": "test84",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "$.test",
+                                "generate": "test85",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "$.test",
+                                "generate": "test86",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "$.test",
+                                "generate": "test87",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "$.test",
+                                "generate": "test88",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "$.test",
+                                "generate": "test89",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "$.test",
+                                "generate": "test90",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "$.test",
+                                "generate": "test91",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "$.test",
+                                "generate": "test92",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "$.test",
+                                "generate": "test93",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "$.test",
+                                "generate": "test94",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "$.test",
+                                "generate": "test95",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "$.test",
+                                "generate": "test96",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "$.test",
+                                "generate": "test97",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "$.test",
+                                "generate": "test98",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "$.test",
+                                "generate": "test99",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "$.test",
+                                "generate": "test100",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "$.test",
+                                "generate": "test101",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "$.test",
+                                "generate": "test102",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            }
+                        ],
+                        "http": {
+                            "relativeURI": [
+                                "test"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C52211",
+                "disabled": false,
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,135 @@
+{
+    "referencename": "TC_C51972",
+    "qa__expectedDashboardCount": {
+        "successCount": "2",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "standaloneexportflowID": "",
+        "expected": {
+            "FTP": {
+                "name": "TC_C51972",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "import": {
+                    "_connectionId": "FTP CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_C51972",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation_FTPimport",
+                    "fileType": ".json"
+                }
+            }
+        }
+    },
+    "qa__api_tdata": [
+        {
+            "name": "TC_C51972",
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "ftp_exp",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "e500a2ddd6",
+                        "asynchronous": true,
+                        "sandbox": false,
+                        "ftp": {
+                            "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+                            "fileNameStartsWith": "TC_C51221"
+                        },
+                        "file": {
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "json"
+                        },
+                        "adaptorType": "FTPExport",
+                        "qa__path": "//FTP_uploads//TC_C51221.json"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "ftp_imp",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "i7db248292",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "mappings": [
+                            {
+                                "extract": "$.father.fName",
+                                "generate": "father",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "generate": "numbers",
+                                "dataType": "numberarray",
+                                "status": "Active",
+                                "buildArrayHelper": [
+                                    {
+                                        "extract": "$.id",
+                                        "sourceDataType": "string"
+                                    },
+                                    {
+                                        "extract": "$.mother.id",
+                                        "sourceDataType": "string"
+                                    }
+                                ]
+                            }
+                        ],
+                        "file": {
+                            "encoding": "utf8",
+                            "fileName": "TC_C51972.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "io.auto.qa/IO_UI_Automation_FTPimport",
+                            "fileName": "TC_C51972.json"
+                        },
+                        "adaptorType": "FTPImport",
+                        "responseMapping": {
+                            "lists": [],
+                            "fields": [],
+                            "qa__index": 0
+                        }
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C51972",
+                "disabled": false,
+                "qa__integrationId": "56d6b23fe1fc35de53914730",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,188 @@
+{
+    "name": "TC_C45056",
+    "disabled": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "AutomationStandaloneExport__2SfgpVYOj",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                    "fileNameStartsWith": "TC_C43223_FTP_to_HTTP_M1.0_Uploads.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport",
+                "qa__path": "//SFTP_uploads//TC_C43223_FTP_to_HTTP_M1.0_Uploads.json"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "AutomationStandaloneImport__P7dfgpVYOj",
+                "application": "shopify",
+                "_connectionId": "HTTP SHOPIFY CONNECTION",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "generate": "order",
+                        "dataType": "object",
+                        "status": "Active",
+                        "mappings": [
+                            {
+                                "extract": "$.email",
+                                "generate": "contact_email",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "$.email",
+                                "generate": "email",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "{{record.isMock}}",
+                                "generate": "buyer_accepts_marketing",
+                                "dataType": "boolean",
+                                "conditional": {
+                                    "when": "extract_not_empty"
+                                },
+                                "status": "Active",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "generate": "customer",
+                                "dataType": "object",
+                                "status": "Active",
+                                "mappings": [
+                                    {
+                                        "extract": "$.first_name",
+                                        "generate": "first_name",
+                                        "dataType": "string",
+                                        "status": "Active",
+                                        "sourceDataType": "string"
+                                    },
+                                    {
+                                        "extract": "$.company",
+                                        "generate": "last_name",
+                                        "dataType": "string",
+                                        "status": "Active",
+                                        "sourceDataType": "string"
+                                    }
+                                ]
+                            },
+                            {
+                                "generate": "line_items",
+                                "dataType": "objectarray",
+                                "status": "Active",
+                                "buildArrayHelper": [
+                                    {
+                                        "extract": "$.addresses[*]",
+                                        "sourceDataType": "objectarray",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.addresses.city",
+                                                "generate": "title",
+                                                "dataType": "string",
+                                                "status": "Active",
+                                                "sourceDataType": "string"
+                                            },
+                                            {
+                                                "extract": "$.currentYear",
+                                                "generate": "price",
+                                                "dataType": "string",
+                                                "status": "Active",
+                                                "sourceDataType": "number"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "/orders.json"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "successCount": "2",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "expected": {
+            "shopify": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "TC_C45056",
+                "import": {
+                    "_connectionId": "56d6c2c95900861a56d6464f"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "uniqueField": "contact_email",
+                    "standaloneexportflowID": "62f535a30f2ee6482b1376a9",
+                    "importRecordType": "orders",
+                    "exportapiIdentifier": "e1f5b3036b",
+                    "expectedJSON": {
+                        "contact_email": "Auto_TC_C43223@example.com",
+                        "email": "Auto_TC_C43223@example.com",
+                        "buyer_accepts_marketing": true,
+                        "customer": {
+                            "first_name": "Auto_TC_C43223",
+                            "last_name": "Celigo"
+                        },
+                        "line_items": [
+                            {
+                                "title": "San Francisco",
+                                "price": "2022.00"
+                            },
+                            {
+                                "title": "New York",
+                                "price": "2022.00"
+                            },
+                            {
+                                "title": "Stanton",
+                                "price": "2022.00"
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

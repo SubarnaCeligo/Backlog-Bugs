@@ -1,0 +1,109 @@
+{
+    "name": "NS_Item_Shipment",
+    "referencename": "NS_Item_Shipment",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "SalesForce Export",
+                        "_connectionId": "SALESFORCE CONNECTION",
+                        "apiIdentifier": "eb73a2fab8",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "rawData": "61e68956b587067a214ac5ed8b220918d7d34803be6d1fef216fb787",
+                        "salesforce": {
+                            "type": "soql",
+                            "api": "rest",
+                            "soql": {
+                                "query": "Select Name, Email__c,Alt_Email__c,Subsidiary_Name__c,Subsidiary_Internal_ID__c,phone,fax,Billingcity,Billingstreet,Billingcountry,Billingstate, BillingPostalCode,Shippingcity,Shippingstreet,Shippingcountry,ShippingPostalCode,Shippingstate from Account where name like 'Edge Communications'"
+                            }
+                        },
+                        "adaptorType": "SalesforceExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Netsuite Import",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "distributed": true,
+                        "apiIdentifier": "i4f4273119",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "lookups": [],
+                        "netsuite_da": {
+                            "useSS2Restlets": false,
+                            "operation": "add",
+                            "recordType": "itemfulfillment",
+                            "lookups": [],
+                            "mapping": {
+                                "fields": [
+                                    {
+                                        "extract": "Name",
+                                        "generate": "celigo_nlobjTransformId",
+                                        "internalId": false
+                                    },
+                                    {
+                                        "extract": "BillingPostalCode",
+                                        "generate": "entity",
+                                        "internalId": true
+                                    }
+                                ],
+                                "lists": [
+                                    {
+                                        "generate": "item",
+                                        "fields": [
+                                            {
+                                                "extract": "Subsidiary_Name__c",
+                                                "generate": "itemname",
+                                                "internalId": false
+                                            },
+                                            {
+                                                "generate": "celigo_inventorydetail",
+                                                "subRecordMapping": {
+                                                    "recordType": "inventorydetail",
+                                                    "jsonPath": "$"
+                                                },
+                                                "internalId": false
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        "adaptorType": "NetSuiteDistributedImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "NS_Item_Shipment",
+                "disabled": false,
+                "qa__integrationId": "6228aed6bc8a2732cfe8044c",
+                "_integrationId": "631a1266abf51e7a86c80ab4",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

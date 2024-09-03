@@ -1,0 +1,100 @@
+{
+  "name": "TC_C33472",
+  "referencename": "TC_C33472",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "33472",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "apiIdentifier": "e690fdac44",
+            "asynchronous": true,
+            "type": "test",
+            "oneToMany": false,
+            "sandbox": false,
+            "rawData": "603ce5ede9250226dcea4608undefined",
+            "test": {
+              "limit": 1
+            },
+            "salesforce": {
+              "type": "soql",
+              "api": "rest",
+              "soql": {
+                "query": "SELECT CreatedById,CreatedDate,Description,DisplayUrl,ExternalDataSourceId,ExternalId,Family,Id,IsActive,IsDeleted,LastModifiedById,LastModifiedDate,LastReferencedDate,LastViewedDate,Name,ProductCode,QuantityUnitOfMeasure,SystemModstamp FROM Product2"
+              }
+            },
+            "adaptorType": "SalesforceExport"
+          }
+        },
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "33472-import",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "apiIdentifier": "e532794f8a",
+            "asynchronous": true,
+            "isLookup": true,
+            "type": "blob",
+            "oneToMany": false,
+            "sandbox": false,
+            "salesforce": {
+              "type": "soql",
+              "api": "rest",
+              "sObjectType": "attachment",
+              "id": "ABC"
+            },
+            "adaptorType": "SalesforceExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "33472",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "i34f855a38",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+              "fileName": "33472.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/yash_modi",
+              "fileName": "33472.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C33472",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          },
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

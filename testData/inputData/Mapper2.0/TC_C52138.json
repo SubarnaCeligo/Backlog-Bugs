@@ -1,0 +1,203 @@
+{
+  "Staging_Http": "HTTP ZENDESK CONNECTION",
+  "Staging_FTP": "FTP CONNECTION",
+  "Http_body": {
+    "name": "AutomationStandalone_hjgk",
+    "application": "zendesk support",
+    "_connectionId": "HTTP ZENDESK CONNECTION",
+    "_sourceId": "633ad77d2acfa473f1897073",
+    "apiIdentifier": "id6080896d",
+    "ignoreExisting": false,
+    "ignoreMissing": false,
+    "oneToMany": false,
+    "sandbox": false,
+    "mappings": [
+      {
+        "generate": "user",
+        "dataType": "object",
+        "status": "Active",
+        "mappings": [
+          {
+            "generate": "tags",
+            "dataType": "stringarray",
+            "status": "Active",
+            "sourceDataType": "string",
+            "buildArrayHelper": [
+              {
+                "extract": "$.user.email",
+                "default": null
+              },
+              {
+                "extract": "$.user.name",
+                "conditional": {
+                  "when": "extract_not_empty"
+                }
+              },
+              {
+                "extract": "$.user.organization.name",
+                "default": ""
+              }
+            ]
+          },
+          {
+            "generate": "tags",
+            "dataType": "booleanarray",
+            "status": "Active",
+            "sourceDataType": "boolean",
+            "buildArrayHelper": [
+              {
+                "extract": "$.user.email",
+                "default": null
+              },
+              {
+                "extract": "$.user.name",
+                "conditional": {
+                  "when": "extract_not_empty"
+                }
+              },
+              {
+                "extract": "$.user.organization.name",
+                "default": ""
+              }
+            ]
+          },
+          {
+            "generate": "tags",
+            "dataType": "numberarray",
+            "status": "Active",
+            "sourceDataType": "number",
+            "buildArrayHelper": [
+              {
+                "extract": "$.user.email",
+                "default": null
+              },
+              {
+                "extract": "$.user.name",
+                "conditional": {
+                  "when": "extract_not_empty"
+                }
+              },
+              {
+                "extract": "$.user.organization.name",
+                "default": ""
+              }
+            ]
+          },
+          {
+            "extract": "$.user.role",
+            "generate": "role",
+            "dataType": "string",
+            "status": "Active"
+          }
+        ]
+      }
+    ],
+    "http": {
+      "relativeURI": ["/api/v2/users"],
+      "method": ["POST"],
+      "body": [],
+      "batchSize": 1,
+      "sendPostMappedData": true,
+      "formType": "http"
+    },
+    "adaptorType": "HTTPImport"
+  },
+  "FTP_body": {
+    "name": "AutomationStandalone_uy",
+    "_connectionId": "FTP CONNECTION",
+    "apiIdentifier": "i6adc61427",
+    "oneToMany": false,
+    "sandbox": false,
+    "mappings": [
+      {
+        "generate": "user",
+        "dataType": "object",
+        "status": "Active",
+        "mappings": [
+          {
+            "generate": "tags",
+            "dataType": "stringarray",
+            "status": "Active",
+            "sourceDataType": "string",
+            "buildArrayHelper": [
+              {
+                "extract": "$.user.email",
+                "default": null
+              },
+              {
+                "extract": "$.user.name",
+                "conditional": {
+                  "when": "extract_not_empty"
+                }
+              },
+              {
+                "extract": "$.user.organization.name",
+                "default": ""
+              }
+            ]
+          },
+          {
+            "generate": "tags",
+            "dataType": "booleanarray",
+            "status": "Active",
+            "sourceDataType": "boolean",
+            "buildArrayHelper": [
+              {
+                "extract": "$.user.email",
+                "default": null
+              },
+              {
+                "extract": "$.user.name",
+                "conditional": {
+                  "when": "extract_not_empty"
+                }
+              },
+              {
+                "extract": "$.user.organization.name",
+                "default": ""
+              }
+            ]
+          },
+          {
+            "generate": "tags",
+            "dataType": "numberarray",
+            "status": "Active",
+            "sourceDataType": "number",
+            "buildArrayHelper": [
+              {
+                "extract": "$.user.email",
+                "default": null
+              },
+              {
+                "extract": "$.user.name",
+                "conditional": {
+                  "when": "extract_not_empty"
+                }
+              },
+              {
+                "extract": "$.user.organization.name",
+                "default": ""
+              }
+            ]
+          },
+          {
+            "extract": "$.user.role",
+            "generate": "role",
+            "dataType": "string",
+            "status": "Active"
+          }
+        ]
+      }
+    ],
+    "file": {
+      "fileName": "XML-file-0922145919.xlsx",
+      "skipAggregation": false,
+      "type": "xlsx"
+    },
+    "ftp": {
+      "directoryPath": "/GAbhinash",
+      "fileName": "XML-file-0922145919.xlsx"
+    },
+    "adaptorType": "FTPImport"
+  }
+}

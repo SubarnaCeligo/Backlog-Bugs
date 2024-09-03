@@ -1,0 +1,125 @@
+{
+  "name": "TC_C33614",
+  "referencename": "TC_C33614",
+  "qa__dataVerification": {},
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "FTP_Export",
+            "_connectionId": "FTP CONNECTION",
+            "asynchronous": true,
+            "sandbox": false,
+            "qa__path": "/FTP_uploads/TC_C33614.json",
+            "ftp": {
+              "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+              "fileNameStartsWith": "TC_C33614",
+              "fileNameEndsWith": ".json"
+            },
+            "file": {
+              "encoding": "utf8",
+              "output": "records",
+              "skipDelete": true,
+              "type": "json"
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "NS_Customer_Static_lookup",
+            "_connectionId": "NETSUITE CONNECTION",
+            "distributed": true,
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [
+              {
+                "name": "Comments",
+                "map": {
+                  "This": "Abc"
+                },
+                "allowFailures": false
+              }
+            ],
+            "netsuite_da": {
+              "useSS2Restlets": false,
+              "operation": "add",
+              "recordType": "customer",
+              "lookups": [
+                {
+                  "name": "Comments",
+                  "map": {
+                    "This": "Abc"
+                  },
+                  "allowFailures": false
+                }
+              ],
+              "mapping": {
+                "fields": [
+                  {
+                    "generate": "companyname",
+                    "extract": "companyname",
+                    "internalId": false
+                  },
+                  {
+                    "generate": "entitystatus",
+                    "extract": "status",
+                    "internalId": false
+                  },
+                  {
+                    "generate": "comments",
+                    "extract": "comments",
+                    "discardIfEmpty": false,
+                    "immutable": false,
+                    "internalId": false,
+                    "lookupName": "Comments"
+                  },
+                  {
+                    "generate": "subsidiary",
+                    "extract": "subsidiary",
+                    "internalId": false
+                  },
+                  {
+                    "generate": "customform",
+                    "extract": "form",
+                    "internalId": false
+                  }
+                ],
+                "lists": []
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C33614",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

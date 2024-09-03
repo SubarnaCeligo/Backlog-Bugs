@@ -1,0 +1,74 @@
+{
+    "name": "SFRT_with_qualifiers",
+    "referencename": "SFRT_offline_connection_flow",
+    "qa__dataVerification": {},
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "SFRT",
+              "_connectionId": "FTP CONNECTION",
+              "asynchronous": true,
+              "type": "distributed",
+              "parsers": [],
+              "distributed": {
+                "bearerToken": "******"
+              },
+              "salesforce": {
+                "sObjectType": "Account",
+                "distributed": {
+                    "disabled": true,
+                    "qualifier": "Name != 'xyz' AND Site = 'abc'"
+                }
+            },
+              "adaptorType": "SalesforceExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+                "_connectionId": "FTP CONNECTION",
+                "qa__connectionId": "62da8ccd89e1961a9dc36c0d",
+                "apiIdentifier": "i512f87d92",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "file-{{timestamp}}.json",
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPImports",
+                    "fileName": "file-{{timestamp}}.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "SFRT_with_qualifiers",
+          "disabled": false,
+          "_integrationId": "6228aed6bc8a2732cfe8044c",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

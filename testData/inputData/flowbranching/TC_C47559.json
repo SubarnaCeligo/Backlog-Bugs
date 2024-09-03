@@ -1,0 +1,119 @@
+{
+  "name": "TC_C47559",
+  "skipRetries": false,
+  "disabled": false,
+  "_integrationId": "62f51db41677a21a108e5e3a",
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "47559",
+        "_connectionId": "FTP CONNECTION",
+        "asynchronous": true,
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+          "fileNameStartsWith": "47559.json"
+        },
+        "file": {
+          "output": "records",
+          "skipDelete": true,
+          "type": "json",
+          "json": {
+            "resourcePath": "*"
+          }
+        },
+        "adaptorType": "FTPExport",
+        "qa__path": "//SFTP_uploads//47559.json"
+      }
+    }
+  ],
+  "routers": [
+    {
+      "routeRecordsUsing": "input_filters",
+      "id": "ASzGQp",
+      "routeRecordsTo": "all_matching_branches",
+      "branches": [
+        {
+          "name": "Branch 1.0",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "S3 import",
+                "_connectionId": "S3 CONNECTION",
+                "apiIdentifier": "i300887266",
+                "oneToMany": true,
+                "pathToMany": "batters.batter[0]",
+                "sandbox": false,
+                "file": {
+                  "fileName": "TC_C47559_file{{timestamp}}.json",
+                  "skipAggregation": false,
+                  "type": "json"
+                },
+                "s3": {
+                  "region": "us-east-1",
+                  "bucket": "io-automation",
+                  "fileKey": "TC_C47559_file{{timestamp}}.json"
+                },
+                "adaptorType": "S3Import"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Branch 1.1",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "AutomationStandaloneImport1_afsflk",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mapping": {
+                  "fields": [
+                    {
+                      "extract": "Auto_{{id}}",
+                      "generate": "organization.name"
+                    },
+                    {
+                      "extract": "type",
+                      "generate": "organization.notes"
+                    }
+                  ]
+                },
+                "http": {
+                  "relativeURI": [
+                    "organizations.json"
+                  ],
+                  "method": [
+                    "POST"
+                  ],
+                  "body": [],
+                  "batchSize": 1,
+                  "sendPostMappedData": true,
+                  "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+              }
+            }
+          ]
+        }
+      ],
+      "script": {
+        "function": "branching"
+      }
+    }
+  ]
+}

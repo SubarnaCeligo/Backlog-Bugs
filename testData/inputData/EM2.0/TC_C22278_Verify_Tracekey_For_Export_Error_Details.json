@@ -1,0 +1,53 @@
+{
+  "name": "TC_C22278_Verify_Tracekey_For_Export_Error_Details",
+  "disabled": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "export",
+        "application": "zendesk support",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": "3dCartWebAPI/v1/Customers?offset={{{export.http.paging.skip}}}",
+          "method": "GET",
+          "formType": "http"
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "FTP IMPORT",
+        "parsers": [],
+        "_connectionId": "FTP CONNECTION",
+        "distributed": false,
+        "file": {
+          "type": "csv",
+          "csv": {
+            "rowDelimiter": "\n",
+            "columnDelimiter": ",",
+            "includeHeader": true,
+            "wrapWithQuotes": false,
+            "replaceTabWithSpace": false,
+            "replaceNewlineWithSpace": false,
+            "truncateLastRowDelimiter": false
+          }
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation",
+          "fileName": "TC_C22278_Verify_Tracekey_For_Export_Error_Details.csv"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ]
+}

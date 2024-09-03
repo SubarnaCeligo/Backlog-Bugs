@@ -1,0 +1,121 @@
+{
+    "name": "TC_C21271",
+    "referencename": "TC_C21271",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "AutomationStandalone_NetSuite_Export_TC_C21271",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "recordType": "customer",
+                                "searchId": "1312",
+                                "useSS2Restlets": false
+                            },
+                            "distributed": {
+                                "useSS2Framework": false
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "AutomationStandalone_Zendesk_Import_TC_C21271",
+                        "parsers": [],
+                        "_connectionId": "ZENDESK CONNECTION",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "assistant": "zendesk",
+                        "sandbox": false,
+                        "assistantMetadata": {
+                            "resource": "tickets_api",
+                            "version": "v2",
+                            "operation": "create_tickets_api"
+                        },
+                        "lookups": [],
+                        "http": {
+                            "relativeURI": [
+                                "/api/v2/tickets.json"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [
+                                null
+                            ],
+                            "batchSize": 1,
+                            "requestMediaType": "json",
+                            "successMediaType": "json",
+                            "errorMediaType": "json",
+                            "requestType": [],
+                            "strictHandlebarEvaluation": true,
+                            "sendPostMappedData": true,
+                            "formType": "assistant",
+                            "response": {
+                                "resourceIdPath": [
+                                    null
+                                ]
+                            }
+                        },
+                        "rest": {
+                            "relativeURI": [
+                                "/api/v2/tickets.json"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [
+                                null
+                            ],
+                            "responseIdPath": [
+                                null
+                            ],
+                            "successPath": [
+                                null
+                            ],
+                            "successValues": [
+                                null
+                            ]
+                        },
+                        "adaptorType": "RESTImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C21271",
+                "disabled": false,
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,50 @@
+{
+    "name": "TC_C31515",
+    "pageProcessors": [
+      {
+        "qa__import": {
+            "name": "Amazon Feeds",
+            "parsers": [],
+            "useTechAdaptorForm": true,
+            "_connectionId": "632418cd2c04ae2b50815e93",
+            "qa__connectionId": "62da383873c08d7560d1b68f",
+            "_sourceId": "626a367cdd4afe56b59db773",
+            "apiIdentifier": "i5b602821d",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "assistant": "amazonmws",
+            "lookups": [],
+            "http": {
+                "relativeURI": [
+                    "/?Action=SubmitFeed&FeedType=_POST_PRODUCT_PRICING_DATA_&MarketplaceIdList.Id.1={{connection.http.unencrypted.marketplaceId}}"
+                ],
+                "method": [
+                    "POST"
+                ],
+                "body": [
+                    "<?xml version='1.0' encoding='UTF-8'?>\n<AmazonEnvelope\n\txmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:noNamespaceSchemaLocation='amzn-envelope.xsd'>\n\t<Header>\n\t\t<DocumentVersion>1.01</DocumentVersion>\n\t</Header>\n\t<MessageType>Price</MessageType>\n\t<Message>\n\t\t<Messages>1</Messages>\n\t\t<Price>\n\t\t\t<SKU>AMZ123456</SKU>\n\t\t\t<StandardPrice currency=\"USD\">25.00</StandardPrice>\n\t\t\t<Sale>\n\t\t\t\t<StartDate>2022-05-25T00:01:01+00:00</StartDate>\n\t\t\t\t<EndDate>2022-05-27T00:01:01+00:00</EndDate>\n\t\t\t\t<SalePrice currency=\"USD\">10</SalePrice>\n\t\t\t</Sale>\n\t\t</Price>\n\t</Message>\n</AmazonEnvelope>"
+                ],
+                "batchSize": 1,
+                "ignoreEmptyNodes": false,
+                "requestMediaType": "xml",
+                "sendPostMappedData": true,
+                "formType": "http",
+                "response": {
+                    "resourceIdPath": [
+                        "/SubmitFeedResponse/SubmitFeedResult/FeedSubmissionInfo"
+                    ],
+                    "successValues": [
+                        []
+                    ],
+                    "failValues": [
+                        []
+                    ]
+                }
+            },
+            "adaptorType": "HTTPImport"
+        }
+
+      }
+    ]
+  }

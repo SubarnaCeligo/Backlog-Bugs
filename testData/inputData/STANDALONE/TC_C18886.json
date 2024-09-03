@@ -1,0 +1,23 @@
+{
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "webhook stripe",
+        "type": "webhook",
+        "qa__token": "celigo",
+        "sandbox": false,
+        "webhook": {
+          "provider": "custom",
+          "verify": "secret_url",
+          "token": "******"
+        },
+        "sampleData": {
+          "object": "product",
+          "description": "stripe product description",
+          "name": "TC_C18886"
+        },
+        "adaptorType": "WebhookExport"
+      }
+    }
+  ]
+}

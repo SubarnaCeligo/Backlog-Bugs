@@ -1,0 +1,159 @@
+{
+    "name": "TC_C24368_and_C9732_NS",
+    "referencename": "TC_C24368_and_C9732_NS",
+    "updateBody": {
+        "name": "AutomationStandalone_NS RT Export",
+        "_connectionId": "NETSUITE CONNECTION",
+        "asynchronous": true,
+        "type": "distributed",
+        "oneToMany": false,
+        "sandbox": false,
+        "parsers": [],
+        "netsuite": {
+            "type": "distributed",
+            "skipGrouping": true,
+            "statsOnly": false,
+            "restlet": {
+                "criteria": [],
+                "columns": []
+            },
+            "distributed": {
+                "recordType": "customer",
+                "executionContext": [
+                    "suitelet",
+                    "userinterface",
+                    "webstore"
+                ],
+                "executionType": [
+                    "create",
+                    "edit",
+                    "xedit"
+                ],
+                "qualifier": [
+                    "comments",
+                    "=",
+                    "TC_C24368_C9732"
+                ],
+                "sublists": [],
+                "useSS2Framework": false
+            }
+        },
+        "adaptorType": "NetSuiteExport"
+    },
+    "qa__dataVerification": {
+        "importRecordJSON": {
+            "phone": "7070707070",
+            "companyname": "TC_C24368_NS",
+            "comments": "TC_C24368_C9732",
+            "subsidiary": "HH Inc."
+        },
+        "importapiIdentifier": "i7936a9dae",
+        "exportRecordType": "customer"
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "NS Listener",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "asynchronous": true,
+                        "type": "distributed",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "parsers": [],
+                        "netsuite": {
+                            "type": "distributed",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "criteria": [],
+                                "columns": []
+                            },
+                            "distributed": {
+                                "recordType": "customer",
+                                "executionContext": [
+                                    "suitelet",
+                                    "userinterface",
+                                    "webstore"
+                                ],
+                                "executionType": [
+                                    "create",
+                                    "edit",
+                                    "xedit"
+                                ],
+                                "qualifier": [
+                                    "comments",
+                                    "=",
+                                    "TC_C24368_C9732"
+                                ],
+                                "sublists": [],
+                                "useSS2Framework": false
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "FTP Customer",
+                        "_connectionId": "FTP CONNECTION",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "extract": "companyname",
+                                    "generate": "companyname"
+                                },
+                                {
+                                    "extract": "subsidiary.name",
+                                    "generate": "subsidiary"
+                                },
+                                {
+                                    "extract": "phone",
+                                    "generate": "phone"
+                                }
+                            ]
+                        },
+                        "file": {
+                            "fileName": "TC_C24368_and_C9732_NS.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                            "fileName": "TC_C24368_and_C9732_NS.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C24368_and_C9732_NS",
+                "disabled": false,
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

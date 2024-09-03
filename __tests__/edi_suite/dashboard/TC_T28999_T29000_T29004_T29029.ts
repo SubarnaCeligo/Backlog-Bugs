@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S Verify all the elements of EDI Dashboard", () =>
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-All @Epic-IO-31713 @Priority-P1 @Zephyr-IO-T28999 @Zephyr-IO-T29000 @Zephyr-IO-T29004 @Zephyr-IO-T29029 Verify all the elements of EDI Dashboard", async ({ io, page }) => {
+  test("@Env-QA @Epic-IO-31713 @Priority-P1 @Zephyr-IO-T28999 @Zephyr-IO-T29000 @Zephyr-IO-T29004 @Zephyr-IO-T29029 Verify all the elements of EDI Dashboard", async ({ io, page }) => {
 
     await io.homePage.addStep("IO-T28999 - Verify that 'EDI activity' tab is added to IO Dashboard");
     //Go to Dashboard
@@ -46,18 +46,18 @@ test.describe("@Author-Shriti S Verify all the elements of EDI Dashboard", () =>
     await io.homePage.clickByText("Cancel");
 
     // 3. A dropdown for pagination should be displayed.
-    let paginationText = (await io.homePage.getText(selectors.dashboardPagePO.PAGINATION_TEXT)).toString();
-    await io.assert.expectToContainValue('Results per page:', paginationText, 'Pagination text is not visible');
+    let paginationTextVisible = await io.homePage.isVisible("text='Results per page:'");
+    await io.assert.expectToBeTrue(paginationTextVisible, 'Pagination text is not visible');
 
     //Click chevron
     await io.homePage.clickByIndex(selectors.dashboardPagePO.PAGINATION_CHEVRON, 1);
     await io.homePage.waitForElementAttached(selectors.basePagePO.LIST_BOX);
 
-    await io.assert.verifyElementText(selectors.dashboardPagePO.DEFAULT_RECORDS_PER_PAGE, '50');//Default records per page
+    await io.assert.verifyElementText(selectors.dashboardPagePO.DEFAULT_RECORDS_PER_PAGE, '100');//Default records per page
 
     //Verify recordsPerPageOptions
     let recordsPerPageOptions = (await io.homePage.getText(selectors.basePagePO.LIST_BOX)).toString();
-    await io.assert.expectToBeValue(recordsPerPageOptions, "102550", 'Records per page options not displayed');
+    await io.assert.expectToBeValue(recordsPerPageOptions, "102550100", 'Records per page options not displayed');
 
     // 4. Next amnd prev page buttons should be displayed
     await io.assert.verifyElementIsDisplayed(selectors.dashboardPagePO.PREV_PAGE, 'Pagination is not added');

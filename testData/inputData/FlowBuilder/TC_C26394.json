@@ -1,0 +1,336 @@
+{
+  "name": "TC_C26394",
+  "referencename": "TC_C19779",
+  "qa__api_tdata": [
+    {
+  "pageGenerators": [
+    {
+        "type": "export",
+        "qa__export": {
+        "name": "Export Orders from NetSuite",
+        "_connectionId": "NETSUITE CONNECTION",
+        "_sourceId": "5e9541a01bdc022d9021d9cc",
+        "apiIdentifier": "e0c90f1705",
+        "asynchronous": true,
+        "type": "distributed",
+        "hooks": {
+          "preSavePage": {
+            "function": "preSavePageFunction",
+            "_scriptId": "62f8e9c6dd793163394919a5"
+          }
+        },
+        "distributed": {
+          "bearerToken": "******"
+        },
+        "netsuite": {
+          "type": "distributed",
+          "skipGrouping": false,
+          "statsOnly": false,
+          "distributed": {
+            "recordType": "salesorder",
+            "executionContext": ["userinterface"],
+            "disabled": false,
+            "executionType": ["edit"],
+            "qualifier": ["custbody_celigo_sfnc_salesforce_id", "empty", false],
+            "sublists": ["item"],
+            "forceReload": true,
+            "ioEnvironment": "staging",
+            "ioDomain": "qa.staging.integrator.io"
+          }
+        },
+        "transform": {
+          "type": "expression",
+          "expression": {
+            "rules": [],
+            "version": "1"
+          },
+          "version": "1",
+          "rules": []
+        },
+        "filter": {
+          "type": "expression",
+          "expression": {
+            "version": "1"
+          },
+          "version": "1"
+        },
+        "inputFilter": {
+          "type": "expression",
+          "expression": {
+            "version": "1"
+          },
+          "version": "1"
+        },
+        "adaptorType": "NetSuiteExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "Update Opportunity and Opportunity Lines in Salesforce",
+        "responseTransform": {
+          "type": "expression",
+          "expression": {
+            "version": "1"
+          },
+          "version": "1"
+        },
+        "_connectionId": "SALESFORCE CONNECTION",
+        "_sourceId": "5e979c3fbfcd223368570daa",
+        "distributed": false,
+        "apiIdentifier": "id66dd3ae1",
+        "lookups": [
+          {
+            "name": "fe69a330810a48d0baa1634b02baade1",
+            "allowFailures": true,
+            "default": "",
+            "map": null,
+            "sObjectType": "OpportunityLineItem",
+            "resultField": "Id",
+            "whereClause": "(netsuite_conn__NetSuite_Item_Key_Id__c = {{{string item(*).id}}})"
+          },
+          {
+            "name": "8c33e8295f2a4947aaab0b19a00377eb",
+            "allowFailures": false,
+            "map": null,
+            "sObjectType": "PricebookEntry",
+            "resultField": "Id",
+            "whereClause": "((Product2.netsuite_conn__netsuite_id__c = {{{string item[*].item.internalid}}}) AND (Pricebook2Id = '01s46000003sQQDAA2'))"
+          },
+          {
+            "name": "81392c67e8544143a9e9d795ac587b03",
+            "allowFailures": true,
+            "default": "",
+            "map": null,
+            "sObjectType": "OpportunityLineItem",
+            "resultField": "Id",
+            "whereClause": "(netsuite_conn__NetSuite_Item_Key_Id__c = {{{string item[*].id}}})"
+          },
+          {
+            "name": "c448aa33308e4e16ad69a799e2ef874b",
+            "allowFailures": true,
+            "default": "01s46000003sQQDAA2",
+            "map": null,
+            "sObjectType": "Pricebook2",
+            "resultField": "Id",
+            "whereClause": "((Id = {{{id 01s3w000001lNYKAA2}}}) OR (Id = {{{id 01s46000003sQQDAA2}}}))"
+          },
+          {
+            "name": "efbb82071f3c4a7c83e758302fdc03eb",
+            "allowFailures": false,
+            "map": null,
+            "sObjectType": "Pricebook2",
+            "resultField": "Id",
+            "whereClause": "(Id = {{{id 01s3w000001lNYKAA2}}})"
+          },
+          {
+            "name": "BaszwIq9u",
+            "allowFailures": false,
+            "map": null,
+            "sObjectType": "PricebookEntry",
+            "resultField": "Id",
+            "whereClause": "((Pricebook2Id = {{{reference custbody3}}}) AND (Product2.netsuite_conn__netsuite_id__c = {{{reference item[*].item.internalid}}}))"
+          }
+        ],
+        "mapping": {
+          "fields": [
+            {
+              "extract": "startdate",
+              "extractDateFormat": "M/D/YYYY",
+              "extractDateTimezone": "America/Los_Angeles",
+              "generate": "Billing_Start_Date__c"
+            },
+            {
+              "extract": "enddate",
+              "extractDateFormat": "M/D/YYYY",
+              "extractDateTimezone": "America/Los_Angeles",
+              "generate": "Billing_End_Date__c"
+            },
+            {
+              "generate": "netsuite_conn__Celigo_Update__c",
+              "hardCodedValue": "true"
+            },
+            {
+              "extract": "custbody3",
+              "generate": "Pricebook2Id"
+            },
+            {
+              "extract": "actualshipdate",
+              "generate": "Ship_Date__c"
+            }
+          ],
+          "lists": [
+            {
+              "fields": [
+                {
+                  "generate": "netsuite_conn__Pushed_From_NetSuite__c",
+                  "hardCodedValue": "true"
+                },
+                {
+                  "extract": "item[*].expectedshipdate",
+                  "extractDateFormat": "M/D/YYYY",
+                  "extractDateTimezone": "America/Los_Angeles",
+                  "generate": "Committed_Ship_Date__c"
+                },
+                {
+                  "extract": "item[*].custcol_actual_ship_date",
+                  "extractDateFormat": "M/D/YYYY",
+                  "extractDateTimezone": "America/Los_Angeles",
+                  "generate": "Actual_Ship_Date__c"
+                },
+                {
+                  "extract": "item[*].custcol_awb",
+                  "generate": "AWB__c"
+                },
+                {
+                  "extract": "item[*].quantity",
+                  "generate": "Quantity"
+                },
+                {
+                  "extract": "item[*].rate",
+                  "generate": "UnitPrice"
+                },
+                {
+                  "extract": "item[*].custcol_celigo_sfnc_line_id",
+                  "generate": "Id",
+                  "lookupName": "81392c67e8544143a9e9d795ac587b03",
+                  "default": ""
+                },
+                {
+                  "extract": "item[*].id",
+                  "generate": "netsuite_conn__NetSuite_Item_Key_Id__c"
+                },
+                {
+                  "generate": "PricebookEntryId",
+                  "lookupName": "BaszwIq9u"
+                }
+              ],
+              "generate": "OpportunityLineItems"
+            },
+            {
+              "fields": [
+                {
+                  "extract": "shipmethod.name",
+                  "generate": "Shipping_Method__c"
+                },
+                {
+                  "extract": "custbody5.name",
+                  "generate": "Shipping_Mode__c"
+                }
+              ],
+              "generate": "Opportunities1__r"
+            }
+          ]
+        },
+        "salesforce": {
+          "operation": "update",
+          "sObjectType": "Opportunity",
+          "api": "compositerecord",
+          "lookups": [
+            {
+              "name": "fe69a330810a48d0baa1634b02baade1",
+              "allowFailures": true,
+              "default": "",
+              "map": null,
+              "sObjectType": "OpportunityLineItem",
+              "resultField": "Id",
+              "whereClause": "(netsuite_conn__NetSuite_Item_Key_Id__c = {{{string item(*).id}}})"
+            },
+            {
+              "name": "8c33e8295f2a4947aaab0b19a00377eb",
+              "allowFailures": false,
+              "map": null,
+              "sObjectType": "PricebookEntry",
+              "resultField": "Id",
+              "whereClause": "((Product2.netsuite_conn__netsuite_id__c = {{{string item[*].item.internalid}}}) AND (Pricebook2Id = '01s46000003sQQDAA2'))"
+            },
+            {
+              "name": "81392c67e8544143a9e9d795ac587b03",
+              "allowFailures": true,
+              "default": "",
+              "map": null,
+              "sObjectType": "OpportunityLineItem",
+              "resultField": "Id",
+              "whereClause": "(netsuite_conn__NetSuite_Item_Key_Id__c = {{{string item[*].id}}})"
+            },
+            {
+              "name": "c448aa33308e4e16ad69a799e2ef874b",
+              "allowFailures": true,
+              "default": "01s46000003sQQDAA2",
+              "map": null,
+              "sObjectType": "Pricebook2",
+              "resultField": "Id",
+              "whereClause": "((Id = {{{id 01s3w000001lNYKAA2}}}) OR (Id = {{{id 01s46000003sQQDAA2}}}))"
+            },
+            {
+              "name": "efbb82071f3c4a7c83e758302fdc03eb",
+              "allowFailures": false,
+              "map": null,
+              "sObjectType": "Pricebook2",
+              "resultField": "Id",
+              "whereClause": "(Id = {{{id 01s3w000001lNYKAA2}}})"
+            },
+            {
+              "name": "BaszwIq9u",
+              "allowFailures": false,
+              "map": null,
+              "sObjectType": "PricebookEntry",
+              "resultField": "Id",
+              "whereClause": "((Pricebook2Id = {{{reference custbody3}}}) AND (Product2.netsuite_conn__netsuite_id__c = {{{reference item[*].item.internalid}}}))"
+            }
+          ],
+          "idLookup": {
+            "whereClause": "(Id = {{{id custbody_celigo_sfnc_salesforce_id}}})"
+          },
+          "removeNonSubmittableFields": false
+        },
+        "filter": {
+          "type": "expression",
+          "expression": {
+            "rules": [
+              "or",
+              [
+                "notequals",
+                ["string", ["extract", "internalid"]],
+                "\"105289\""
+              ],
+              ["notequals", ["string", ["extract", "internalid"]], "\"95776\""]
+            ],
+            "version": "1"
+          },
+          "version": "1",
+          "rules": [
+            "or",
+            ["notequals", ["string", ["extract", "internalid"]], "\"105289\""],
+            ["notequals", ["string", ["extract", "internalid"]], "\"95776\""]
+          ]
+        },
+        "adaptorType": "SalesforceImport"
+      }
+    }
+  ],
+  "createFlow": {
+    "name": "TC_C26394",
+    "disabled": false,
+    "_integrationId": "62eca1efe386b563f638451e",
+    "skipRetries": false,
+    "pageProcessors": [
+      {
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        },
+        "type": "import",
+        "_importId": "UPDATE WITH NEW IMPORTID"
+      }
+    ],
+    "pageGenerators": [
+      {
+        "_exportId": "UPDATE WITH NEW EXPORTID"
+      }
+    ]
+  }
+}]
+}

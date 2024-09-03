@@ -1,0 +1,158 @@
+{
+
+    "qa_integrationSetting": {
+        "_id": "62a9c6ab0d57d901d06662d0",
+        "name": "First Edition Step",
+        "install": [],
+        "sandbox": false,
+        "settingsForm": {},
+        "_registeredConnectionIds": ["626bd636987bb423914b47c7"],
+        "installSteps":  [
+            {
+            "name": "URL step",
+            "description": "Description goes has",
+            "completed": false,
+            "type": "url",
+            "url": "/marketplace?redirectusingURLfield"
+        },
+        {
+            "name": "Create resources based on edition",
+            "description": "Description goes has",
+            "completed": false,
+            "type": "edition",
+            "function": "editionError",
+            "_scriptId": "62bab10b6a5f1b674c2f4c54"
+        }],
+        "uninstallSteps": [],
+        "flowGroupings": []
+    },
+
+    "qa_editionSetting":{
+        "_id":"62bab1bcfd4b6b063391a755",
+        "environment": "Production",
+        "name": "TC_IAF_018_C26956",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "published": false,
+        "_integrationId": "62a9c6ab0d57d901d06662d0",
+        "applications": ["activecampaign"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "62a9c6ab0d57d901d06662d0",
+            "editions": [{
+                "displayName":"Edition_1",
+                "order":0,
+                "resources": {
+                    "_flowIds": [],
+                    "_importIds": [],
+                    "_exportIds": [],
+                    "_connectionIds": [],
+                    "_asyncHelperIds": [],
+                    "_fileDefinitionIds": []
+                },
+                "childResources": {
+                    "_flowIds": [],
+                    "_importIds": [],
+                    "_exportIds": [],
+                    "_connectionIds": [],
+                    "_asyncHelperIds": [],
+                    "_fileDefinitionIds": []
+                }
+            }]
+        }
+    },
+
+    "qa_importJson": {
+        "environment": "Production",
+        "name": "TC_IAF_018_C26956",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "_integrationId": "62a9c6ab0d57d901d06662d0",
+        "applications": ["activecampaign"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+          "_integrationId": "62a9c6ab0d57d901d06662d0"
+        }
+      },
+      "integrationSetting": {
+        "_id": "631ab2e63796483e5615b5cc",
+        "name": "First Edition Step",
+        "install": [],
+        "sandbox": false,
+        "settingsForm": {},
+        "_registeredConnectionIds": ["626fdc6d7490300e92ffd613"],
+        "installSteps":  [
+            {
+            "name": "URL step",
+            "description": "Description goes has",
+            "completed": false,
+            "type": "url",
+            "url": "/marketplace?redirectusingURLfield"
+        },
+        {
+            "name": "Create resources based on edition",
+            "description": "Description goes has",
+            "completed": false,
+            "type": "edition",
+            "function": "editionError",
+            "_scriptId": "626137e61ce14c420e01c86b"
+        }],
+        "uninstallSteps": [],
+        "flowGroupings": []
+    },
+
+    "editionSetting":{
+        "_id":"6322bd4c93d87d52677c2eaa",
+        "environment": "Production",
+        "name": "TC_IAF_018_C26956",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "published": false,
+        "_integrationId": "631ab2e63796483e5615b5cc",
+        "applications": ["activecampaign"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "631ab2e63796483e5615b5cc",
+            "editions": [{
+                "displayName":"Edition_1",
+                "order":0,
+                "resources": {
+                    "_flowIds": [],
+                    "_importIds": [],
+                    "_exportIds": [],
+                    "_connectionIds": [],
+                    "_asyncHelperIds": [],
+                    "_fileDefinitionIds": []
+                },
+                "childResources": {
+                    "_flowIds": [],
+                    "_importIds": [],
+                    "_exportIds": [],
+                    "_connectionIds": [],
+                    "_asyncHelperIds": [],
+                    "_fileDefinitionIds": []
+                }
+            }]
+        }
+    },
+
+    "importJson": {
+        "environment": "Production",
+        "name": "TC_IAF_018_C26956",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "_integrationId": "631ab2e63796483e5615b5cc",
+        "applications": ["activecampaign"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+          "_integrationId": "631ab2e63796483e5615b5cc"
+        }
+      },
+
+      "setupConnection": {
+        "integrationName":"First Edition Step",
+        "uninstall":"true"
+      },
+      "createLicense": {
+          "name": "TC_IAF_018_C26956",
+          "edition": "Edition_1"
+      },
+      "app": "ActiveCampaign",
+      "integrationName": "First Edition Step"
+}

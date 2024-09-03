@@ -1,0 +1,100 @@
+{
+    "flowname": "TC_C34516",
+    "name": "TC_C34516",
+    "qa__expectedDashboardCount": {
+        "successCount": "0",
+        "ignoreCount": "0",
+        "errorCount": "1"
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "export",
+                        "_connectionId": "SALESFORCE CONNECTION",
+                        "apiIdentifier": "e2195785d9",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "test": {
+                            "limit": 1
+                        },
+                        "salesforce": {
+                            "type": "soql",
+                            "api": "rest",
+                            "soql": {
+                                "query": "select Id,Name from Account"
+                            }
+                        },
+                        "adaptorType": "SalesforceExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "http import",
+                        "application":"zendesk support",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "i779798c53",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": [
+                                "/api/v2/tickets/81.json",
+                                "/api/v2/tickets/81.json"
+                            ],
+                            "method": [
+                                "PUT",
+                                "POST"
+                            ],
+                            "body": [
+                                "{\n  \"ticket\": {\n    \"comment\": {\n      \"body\": \"{{settings.integration}}\"\n    },\n    \"priority\": \"urgent\",\n    \"subject\": \"{{settings.flow}}\"\n  }\n}",
+                                "{\n  \"ticket\": {\n    \"comment\": {\n      \"body\": \"{{settings.integration}}\"\n    },\n    \"priority\": \"urgent\",\n    \"subject\": \"{{settings.flow}}\"\n  }\n}"
+                            ],
+                            "batchSize": 1,
+                            "requestType": [
+                                "UPDATE",
+                                "CREATE"
+                            ],
+                            "sendPostMappedData": true,
+                            "existingExtract": "Name",
+                            "formType": "http"
+                        },
+                        "debugUntil": "2022-09-23T06:34:40.738Z",
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C34516",
+                "disabled": false,
+                "qa__integrationId": "631ec9b452e9a959edd75a41",
+                "_integrationId": "631f51ba4281e504953f9a61",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

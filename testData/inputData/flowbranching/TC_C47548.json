@@ -1,0 +1,118 @@
+{
+  "timezone": "Asia/Calcutta",
+  "name": "TC_C47548",
+  "disabled": false,
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "errorscript": "TC_C27280_with_error",
+  "script": "TC_C27280",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "_connectionId": "FTP CONNECTION",
+        "name": "webhook",
+        "distributed": false,
+        "mapping": {
+          "fields": [
+            {
+              "extract": "name",
+              "generate": "name"
+            },
+            {
+              "extract": "description",
+              "generate": "description"
+            }
+          ]
+        },
+        "file": {
+          "type": "csv",
+          "csv": {
+            "rowDelimiter": "\n",
+            "columnDelimiter": ",",
+            "includeHeader": true,
+            "replaceTabWithSpace": false,
+            "wrapWithQuotes": false,
+            "truncateLastRowDelimiter": false,
+            "replaceNewlineWithSpace": false
+          }
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation",
+          "fileName": "TC_C27280.csv"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "qa__dataVerification": {
+    "importRecordJSON": {
+      "object": "product",
+      "description": "stripe product description",
+      "name": "TC_C27280"
+    },
+    "expected": {
+      "FTP": {
+        "name": "TC_C27280",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "import": {
+          "_connectionId": "62b5a1acc20a7316bc6f3582",
+          "file": {
+            "csv": {
+              "columnDelimiter": ","
+            }
+          }
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "generateSampleDropDownAvailable": false,
+          "fileName": "TC_C27280.csv",
+          "folderName": "/io.auto.qa/IO_UI_Automation",
+          "fileType": ".csv"
+        }
+      }
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "webhook stripe",
+        "type": "webhook",
+        "qa__token": "1234567",
+        "sandbox": false,
+        "webhook": {
+          "provider": "custom",
+          "verify": "secret_url",
+          "token": "******"
+        },
+        "sampleData": {
+          "object": "product",
+          "description": "stripe product description",
+          "name": "TC_C26927"
+        },
+        "filter": {
+          "type": "script",
+          "script": {
+            "_scriptId": "FTPErrorPostMap_DND",
+            "function": "filter",
+            "qa__function": "outputfilter"
+          }
+        },
+        "adaptorType": "WebhookExport"
+      }
+    }
+  ],
+  "scriptBody": {
+    "name": "FTPErrorPostMap_DND",
+    "content": "function filter(options) {\n  options.data[0]={\n    test:options.data[0],\n    preSavePage:23}\n    return options.data.map((d) => {\n      return {\n        data: d\n      }\n    })\n}\n"
+}
+}

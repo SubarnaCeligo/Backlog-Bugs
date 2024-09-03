@@ -1,0 +1,32 @@
+{
+    "_integrationId": "6228aed6bc8a2732cfe8044c",
+    "skipRetries": false,
+    "qa_connection": "HTTP ZENDESK CONNECTION",
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "FTP xport",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "e930f9de29",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C30817"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "adaptorType": "FTPExport",
+                "qa__path": "//FTP_uploads//TC_C30817.json"
+            }
+        }
+    ]
+
+}

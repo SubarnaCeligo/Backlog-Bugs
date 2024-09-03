@@ -1,0 +1,50 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "FTP xport",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "e930f9de29",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C30817"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "adaptorType": "FTPExport",
+                "qa__path": "//FTP_uploads//TC_C30817.json"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "import",
+                "parsers": [],
+                "_connectionId": "62f5ebca1677a21a108e845f",
+                "distributed": false,
+                "dynamodb": {
+                    "region": "us-east-1",
+                    "method": "putItem",
+                    "tableName": "afe_automation",
+                    "itemDocument": "{\n\"Name\":\"{{record.Title}}\",\n\"Active\":\"{{record.Once_Export__c}}\",\n\"Emp_id\":{{record.Order_NUmber__c}},\n\"Type\":\"{{record.LeadSource}}\",\n\"Comments\":\"This record is created by automation\"\n}"
+                },
+                "adaptorType": "DynamodbImport"
+            }
+        }
+    ],
+    "Script": "function preMap (options) {\n  options.data[0]={\n    test:options.data[0],\n    premap:23}\n  return options.data.map((d) => {\n    return {\n      data: d\n    }\n  })\n}"
+}

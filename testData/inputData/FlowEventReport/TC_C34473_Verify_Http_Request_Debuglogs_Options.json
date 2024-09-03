@@ -1,0 +1,81 @@
+{
+  "flowname": "TC_C34473_FER",
+  "name": "TC_C34473_FER",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "test",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "efb66a75eb",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+              "relativeURI": "/api/v2/tickets",
+              "method": "GET",
+              "formType": "http"
+            },
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "test",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "if8fa9bc6a",
+            "oneToMany": false,
+            "file": {
+              "fileName": "file-{{timestamp}}.csv",
+              "skipAggregation": false,
+              "type": "csv",
+              "csv": {
+                "rowDelimiter": "\n",
+                "columnDelimiter": ",",
+                "includeHeader": true,
+                "wrapWithQuotes": false,
+                "replaceTabWithSpace": false,
+                "replaceNewlineWithSpace": false,
+                "truncateLastRowDelimiter": false
+              }
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation",
+              "fileName": "file-{{timestamp}}.csv"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C34473_FER",
+        "disabled": false,
+        "qa__integrationId": "631ec9b452e9a959edd75a41",
+        "_integrationId": "631f51ba4281e504953f9a61",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "type": "export",
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

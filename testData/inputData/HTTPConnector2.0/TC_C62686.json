@@ -1,0 +1,109 @@
+{
+    "name": "TC_C62686",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+      },
+    "referencename": "TC_C62686",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "happy",
+                        "_connectionId": "63a354d5d8999f49bd8e4ad4",
+                        "apiIdentifier": "e604131cd1",
+                        "asynchronous": true,
+                        "assistant": "happyreturns",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": "/webhooks",
+                            "method": "GET",
+                            "headers": [],
+                            "requestMediaType": "json",
+                            "successMediaType": "json",
+                            "errorMediaType": "json",
+                            "_httpConnectorVersionId": "6388ccf4a68c1a989aca1eaa",
+                            "_httpConnectorResourceId": "6388ccf4a68c1a989aca1ead",
+                            "_httpConnectorEndpointId": "6388ccf4a68c1a989aca1eae",
+                            "formType": "assistant",
+                            "response": {
+                                "successValues": []
+                            }
+                        },
+                        "adaptorType": "HTTPExport"
+                        }
+                        }
+            ],
+            "pageProcessors": [
+                {
+                 "type": "import",
+                 "qa__import": {
+                    "name": "rest",
+                    "_connectionId": "6423f41031726b36dd26ad8d",
+                    "apiIdentifier": "icf72e923f",
+                    "ignoreExisting": false,
+                    "ignoreMissing": false,
+                    "oneToMany": false,
+                    "sandbox": false,
+                    "mapping": {
+                        "fields": [
+                            {
+                                "generate": "companyName",
+                                "hardCodedValue": "email7"
+                            },
+                            {
+                                "generate": "subsidiary",
+                                "hardCodedValue": "3"
+                            },
+                            {
+                                "generate": "email",
+                                "hardCodedValue": "test@gmail.com"
+                            }
+                        ]
+                    },
+                    "http": {
+                        "relativeURI": [
+                            "/record/v1/customer"
+                        ],
+                        "method": [
+                            "POST"
+                        ],
+                        "body": [],
+                        "batchSize": 1,
+                        "sendPostMappedData": true,
+                        "formType": "http"
+                    },
+                    "adaptorType": "HTTPImport"
+
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C62686",
+                "disabled": false,
+                "qa__integrationId": "633408479fb96473a0c7372c",
+                "_integrationId": "631a1266abf51e7a86c80ab4",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

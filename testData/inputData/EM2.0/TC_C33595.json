@@ -1,0 +1,142 @@
+{
+    "name": "TC_C33595",
+    "referencename": "TC_C33595",
+    "expectedreqresp": {
+        "viewRequest": "var·s·=·nlapiLoadSearch(\"dummy\",·\"3814\");",
+        "viewResponse": "com.netledger.common.exceptions.NLUserError:·The·record·type·"
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "TC_C33595 Export",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "rawData": "603ce5ede9250226dcea4608d9846c6761e649a593ac646f1c2ae77b",
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "recordType": "customer",
+                                "searchId": "3814",
+                                "useSS2Restlets": true,
+                                "criteria": [
+                                    {
+                                        "field": "companyname",
+                                        "operator": "is",
+                                        "searchValue": "TC_453_NS_RT"
+                                    }
+                                ]
+                            },
+                            "distributed": {
+                                "useSS2Framework": false
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "NetSuite Lookup",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "asynchronous": true,
+                        "isLookup": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "parsers": [],
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "recordType": "dummy",
+                                "searchId": "3814",
+                                "criteria": [],
+                                "columns": [],
+                                "useSS2Restlets": false
+                            },
+                            "distributed": {
+                                "executionContext": [],
+                                "executionType": [],
+                                "useSS2Framework": false
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                },
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "TC_C33595 Import",
+                        "_connectionId": "FTP CONNECTION",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "extract": "companyname",
+                                    "generate": "companyname"
+                                },
+                                {
+                                    "extract": "subsidiary.name",
+                                    "generate": "subsidiary"
+                                },
+                                {
+                                    "extract": "phone",
+                                    "generate": "phone"
+                                }
+                            ]
+                        },
+                        "file": {
+                            "fileName": "TC_C35154.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                            "fileName": "TC_C35154.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C33595",
+                "disabled": false,
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    },
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

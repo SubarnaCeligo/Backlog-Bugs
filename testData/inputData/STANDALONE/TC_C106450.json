@@ -1,0 +1,334 @@
+{
+    "name": "TC_C106450",
+    "disabled": false,
+    "_integrationId": "63232caf5342c33e615e7271",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "HTTP Export",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "ef5746b386",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "users",
+                    "method": "GET",
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "users"
+                    }
+                },
+                "rawData": "56d6b114e1fc35de5391472c4b5c6361ac50409e91d698e98481ce3b",
+                "transform": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [
+                            [
+                                {
+                                    "extract": "id",
+                                    "generate": "Id"
+                                },
+                                {
+                                    "extract": "name",
+                                    "generate": "Name"
+                                },
+                                {
+                                    "extract": "email",
+                                    "generate": "Email"
+                                }
+                            ]
+                        ],
+                        "version": "1"
+                    },
+                    "rules": [
+                        [
+                            {
+                                "extract": "id",
+                                "generate": "Id"
+                            },
+                            {
+                                "extract": "name",
+                                "generate": "Name"
+                            },
+                            {
+                                "extract": "email",
+                                "generate": "Email"
+                            }
+                        ]
+                    ],
+                    "version": "1"
+                },
+                "filter": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "Id"
+                                ]
+                            ],
+                            "1473313072"
+                        ],
+                        "version": "1"
+                    },
+                    "rules": [
+                        "equals",
+                        [
+                            "string",
+                            [
+                                "extract",
+                                "Id"
+                            ]
+                        ],
+                        "1473313072"
+                    ],
+                    "version": "1"
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "autoResolveMatchingTraceKeys": true,
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "LLEHfr",
+            "routeRecordsTo": "all_matching_branches",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [
+                                    {
+                                        "extract": "id",
+                                        "generate": "testId"
+                                    }
+                                ],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "Http Import",
+                                "application": "zendesk support",
+                                "parsers": [],
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "apiIdentifier": "i82753455e",
+                                "ignoreExisting": false,
+                                "ignoreMissing": false,
+                                "oneToMany": false,
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "test",
+                                            "generate": "test"
+                                        },
+                                        {
+                                            "extract": "test1",
+                                            "generate": "test1"
+                                        }
+                                    ]
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "/user"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "body": [],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            },
+                            "proceedOnFailure": true
+                        },
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "FTP Import",
+                                "_connectionId": "FTP CONNECTION",
+                                "apiIdentifier": "if61955532",
+                                "hooks": {
+                                    "postAggregate": {
+                                        "_scriptId": "UPDATE WITH NEW",
+                                        "function": "PostAggregate"
+                                    },
+                                    "postMap": {
+                                        "_scriptId": "UPDATE WITH NEW",
+                                        "function": "PostMap"
+                                    },
+                                    "postSubmit": {
+                                        "_scriptId": "UPDATE WITH NEW",
+                                        "function": "PostSubmit"
+                                    },
+                                    "preMap": {
+                                        "_scriptId": "UPDATE WITH NEW",
+                                        "function": "PreMap"
+                                    }
+                                },
+                                "file": {
+                                    "fileName": "C106450.json",
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "/io.auto.qa/IO Automation SFTP Imports",
+                                    "fileName": "C106450.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Branch 1.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [
+                                    {
+                                        "extract": "data",
+                                        "generate": "Result"
+                                    }
+                                ],
+                                "lists": []
+                            },
+                            "type": "export",
+                            "qa__export": {
+                                "name": "Http Lookup",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "apiIdentifier": "ed564fbc85",
+                                "asynchronous": true,
+                                "isLookup": true,
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "http": {
+                                    "relativeURI": "users",
+                                    "method": "GET",
+                                    "formType": "http",
+                                    "response": {
+                                        "resourcePath": "users"
+                                    }
+                                },
+                                "transform": {
+                                    "type": "expression",
+                                    "expression": {
+                                        "rules": [
+                                            [
+                                                {
+                                                    "generate": "Id",
+                                                    "extract": "id"
+                                                },
+                                                {
+                                                    "extract": "name",
+                                                    "generate": "Name"
+                                                },
+                                                {
+                                                    "extract": "email",
+                                                    "generate": "Email"
+                                                }
+                                            ]
+                                        ],
+                                        "version": "1"
+                                    },
+                                    "rules": [
+                                        [
+                                            {
+                                                "generate": "Id",
+                                                "extract": "id"
+                                            },
+                                            {
+                                                "extract": "name",
+                                                "generate": "Name"
+                                            },
+                                            {
+                                                "extract": "email",
+                                                "generate": "Email"
+                                            }
+                                        ]
+                                    ],
+                                    "version": "1"
+                                },
+                                "inputFilter": {
+                                    "type": "expression",
+                                    "expression": {
+                                        "rules": [
+                                            "equals",
+                                            [
+                                                "string",
+                                                [
+                                                    "extract",
+                                                    "Id"
+                                                ]
+                                            ],
+                                            "1473313072"
+                                        ],
+                                        "version": "1"
+                                    },
+                                    "rules": [
+                                        "equals",
+                                        [
+                                            "string",
+                                            [
+                                                "extract",
+                                                "Id"
+                                            ]
+                                        ],
+                                        "1473313072"
+                                    ],
+                                    "version": "1"
+                                },
+                                "adaptorType": "HTTPExport"
+                            }
+                        },
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "FTP",
+                                "_connectionId": "FTP CONNECTION",
+                                "apiIdentifier": "i702c7a3cd",
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "file": {
+                                    "fileName": "file-{{timestamp}}.json",
+                                    "skipAggregation": false,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "DFG",
+                                    "fileName": "file-{{timestamp}}.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        }
+    ],
+    "script": {
+        "name": "Branching_script",
+        "description": "For router in flowbranching",
+        "content": "function branching (options) {\n  return [0]\n}"
+    }
+}

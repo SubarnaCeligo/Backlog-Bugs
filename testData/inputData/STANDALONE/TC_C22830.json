@@ -1,0 +1,80 @@
+{
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "PG_Export",
+        "qa__connectionId": "SALESFORCE CONNECTION",
+        "_connectionId": "SALESFORCE CONNECTION",
+        "asynchronous": false,
+        "type": "distributed",
+        "parsers": [],
+        "distributed": {
+          "bearerToken": "******"
+        },
+        "salesforce": {
+          "sObjectType": "Account"
+        },
+        "transform": {
+          "type": "expression",
+          "expression": {
+            "rules": [
+              [
+                {
+                  "extract": "Name",
+                  "generate": "Account_Name"
+                },
+                {
+                  "extract": "Phone",
+                  "generate": "Account_Phone"
+                }
+              ]
+            ],
+            "version": "1"
+          },
+          "version": "1",
+          "rules": [
+            [
+              {
+                "extract": "Name",
+                "generate": "Account_Name"
+              },
+              {
+                "extract": "Phone",
+                "generate": "Account_Phone"
+              }
+            ]
+          ]
+        },
+        "adaptorType": "SalesforceExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "AutomationStandalone_Import",
+        "_connectionId": "FTP CONNECTION",
+        "distributed": false,
+        "file": {
+          "fileName": "TC_400_{{batch_of_records.[0].record.Subsidiary_Name__c}}.csv",
+          "type": "csv",
+          "csv": {
+            "rowDelimiter": "\n",
+            "columnDelimiter": ",",
+            "includeHeader": true,
+            "wrapWithQuotes": false,
+            "replaceTabWithSpace": false,
+            "replaceNewlineWithSpace": false,
+            "truncateLastRowDelimiter": false
+          }
+        },
+        "ftp": {
+          "directoryPath": "io.auto.qa/{{batch_of_records.[0].record.Subsidiary_Name__c}}",
+          "fileName": "TC_400_{{batch_of_records.[0].record.Subsidiary_Name__c}}.csv"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ]
+}

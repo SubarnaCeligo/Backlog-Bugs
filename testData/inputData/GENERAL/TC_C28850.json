@@ -1,0 +1,6 @@
+{
+    "qa": "https://qa.staging.integrator.io/signup",
+    "qaprod" : "https://qaprod.staging.integrator.io/signup",
+    "staging" : "https://staging.integrator.io/signup",
+    "platform1dev": "https://platform1.dev.integrator.io/signup"
+}

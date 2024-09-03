@@ -1,0 +1,97 @@
+{
+  "name": "TC_C25493",
+  "referencename": "TC_C25493",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "http export error",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "qa__connectionId": "ZENDESK CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "parsers": [],
+            "http": {
+              "relativeURI": "ticket.json",
+              "method": "GET",
+              "formType": "http"
+            },
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "FTP",
+            "parsers": [],
+            "_connectionId": "FTP CONNECTION",
+            "sandbox": false,
+            "lookups": [
+              {
+                "name": "staticlookup",
+                "map": {
+                  "123": "456"
+                },
+                "allowFailures": false
+              }
+            ],
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "Name",
+                  "generate": "Name",
+                  "lookupName": "staticlookup"
+                }
+              ]
+            },
+            "file": {
+              "fileName": "TC_021_C25783-{{timestamp}}.json",
+              "type": "json",
+              "lookups": [
+                {
+                  "name": "staticlookup",
+                  "map": {
+                    "123": "456"
+                  },
+                  "allowFailures": false
+                }
+              ]
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation",
+              "fileName": "TC_021_C25783-{{timestamp}}.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C25493",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

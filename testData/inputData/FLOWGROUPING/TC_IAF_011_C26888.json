@@ -1,0 +1,60 @@
+{
+    "qa_editionSetting": {
+        "_id":"6278b4837ea7810732a0dc69",
+        "environment": "Production",
+        "name": "TC_IAF_011_C26888",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "published": false,
+        "_integrationId": "62905de2c51f323382314cce",
+        "applications": ["activecampaign"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "62905de2c51f323382314cce",
+            "editions": [
+                {
+                    "displayName": "E1",
+                    "order": 0
+                },
+                {
+                    "displayName": "E2",
+                    "order": 1
+                },
+                {
+                    "displayName": "E3",
+                    "order": 2
+                }
+            ]
+        }
+    },
+    "editionSetting": {
+        "_id":"63201a613bfc725f00639b6a",
+        "environment": "Production",
+        "name": "TC_IAF_011_C26888",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "published": false,
+        "_integrationId": "631ad2f213d12134f4772d77",
+        "applications": ["activecampaign"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "631ad2f213d12134f4772d77",
+            "editions": [
+                {
+                    "displayName": "E1",
+                    "order": 0
+                },
+                {
+                    "displayName": "E2",
+                    "order": 1
+                },
+                {
+                    "displayName": "E3",
+                    "order": 2
+                }
+            ]
+        }
+    },
+    "verification": {
+        "name": "TC_IAF_011_C26888",
+        "editionList": ["E1", "E2", "E3"]
+    }
+}

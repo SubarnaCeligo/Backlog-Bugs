@@ -1,0 +1,235 @@
+{
+  "flowname1": "TC_C23892_FLOW_1",
+  "flowname2": "TC_C23892_FLOW_2",
+  "integration_name": "Automation_Flows",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "C23892",
+            "_connectionId": "FTP CONNECTION",
+            "asynchronous": true,
+            "sandbox": false,
+            "sampleData": {
+              "id": "13553532",
+              "recordType": "customer",
+              "Name": "Louis Fabredshggs",
+              "Email": "info@fabreartsdf.com",
+              "Phone": "(888) 888-8888",
+              "Office Phone": "77777777777",
+              "Fax": "",
+              "Internal ID": "1355",
+              "Comments": "static comment updated",
+              "once export test field": "F",
+              "Type": "An email.",
+              "Title": "test2",
+              "Memo": "test11",
+              "Direction": "Incoming",
+              "Shipping Address": "Louis Fabre\nFabre Art\n253 Main Street\nSan Francisco CA 94131",
+              "Sort_String": "S,M,L",
+              "Dateformat_A": "11/12/2019"
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/FTP_EXPORTS",
+              "fileNameStartsWith": "sample_2"
+            },
+            "file": {
+              "output": "records",
+              "skipDelete": true,
+              "type": "json"
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "23892 import",
+            "parsers": [],
+            "_connectionId": "SHOPIFY CONNECTION",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "assistant": "shopify",
+            "sandbox": false,
+            "assistantMetadata": {
+              "resource": "customer",
+              "version": "v2",
+              "operation": "creates_acustomer"
+            },
+            "lookups": [],
+            "http": {
+              "relativeURI": [
+                "/customers.json"
+              ],
+              "method": [
+                "POST"
+              ],
+              "body": [
+                null
+              ],
+              "headers": [],
+              "batchSize": 1,
+              "requestMediaType": "json",
+              "successMediaType": "json",
+              "errorMediaType": "json",
+              "requestType": [],
+              "strictHandlebarEvaluation": true,
+              "sendPostMappedData": true,
+              "formType": "assistant",
+              "lookups": [],
+              "response": {
+                "resourceIdPath": [
+                  null
+                ]
+              }
+            },
+            "rest": {
+              "relativeURI": [
+                "/customers.json"
+              ],
+              "method": [
+                "POST"
+              ],
+              "body": [
+                null
+              ],
+              "headers": [],
+              "responseIdPath": [
+                null
+              ],
+              "successPath": [
+                null
+              ],
+              "successValues": [
+                null
+              ],
+              "lookups": []
+            },
+            "adaptorType": "RESTImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C23892_FLOW_1",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    },
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "S3 export",
+            "_connectionId": "S3 CONNECTION",
+            "qa__connectionId": "62da5b39d0df537bab8e4807",
+            "asynchronous": true,
+            "sandbox": false,
+            "sampleData": {
+              "id": "13553532",
+              "recordType": "customer",
+              "Name": "Louis Fabredshggs",
+              "Email": "info@fabreartsdf.com",
+              "Phone": "(888) 888-8888",
+              "Office Phone": "77777777777",
+              "Fax": "",
+              "Internal ID": "1355",
+              "Comments": "static comment updated",
+              "once export test field": "F",
+              "Type": "An email.",
+              "Title": "test2",
+              "Memo": "test11",
+              "Direction": "Incoming",
+              "Shipping Address": "Louis Fabre\nFabre Art\n253 Main Street\nSan Francisco CA 94131",
+              "Sort_String": "S,M,L",
+              "Dateformat_A": "11/12/2019"
+            },
+            "s3": {
+              "region": "us-east-1",
+              "bucket": "automations3export",
+              "keyStartsWith": "C20697"
+            },
+            "file": {
+              "output": "records",
+              "skipDelete": true,
+              "type": "json"
+            },
+            "adaptorType": "S3Export"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "23892 import",
+            "application": "zendesk support",
+            "parsers": [],
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "qa__connectionId": "ZENDESK CONNECTION",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [],
+            "http": {
+              "relativeURI": [
+                "/ticket.json"
+              ],
+              "method": [
+                "POST"
+              ],
+              "body": [],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C23892_FLOW_2",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

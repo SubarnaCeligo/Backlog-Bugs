@@ -1,0 +1,93 @@
+{
+  "name": "TC_C33451",
+  "referencename": "TC_C33451",
+  "expectedreqresp": {
+    "viewResponse": "CANNOT_INSERT_UPDATE_ACTIVATE_ENTITY"
+  },
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "AutomationStandalone_Netsuite_export",
+            "_connectionId": "NETSUITE CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "recordType": "customer",
+                "searchId": "3160",
+                "useSS2Restlets": false,
+                "criteria": [
+                  {
+                    "field": "custentity26",
+                    "operator": "is",
+                    "searchValue": "Louis Fabre"
+                  }
+                ]
+              },
+              "distributed": {
+                "useSS2Framework": false
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "AutomationStandaloneImport__wFe72c2Gyz",
+            "parsers": [],
+            "_connectionId": "SALESFORCE CONNECTION",
+            "qa__connectionId": "633ecbff1ec4a53736ca8df5",
+            "distributed": false,
+            "lookups": [],
+            "mapping": {
+              "fields": [
+                {
+                  "generate": "Name",
+                  "hardCodedValue": "AutomationUser"
+                }
+              ]
+            },
+            "salesforce": {
+              "operation": "insert",
+              "sObjectType": "Automation__c",
+              "api": "soap",
+              "removeNonSubmittableFields": false
+            },
+            "adaptorType": "SalesforceImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C33451",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}
