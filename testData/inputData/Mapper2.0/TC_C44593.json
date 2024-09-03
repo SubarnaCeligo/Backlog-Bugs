@@ -1,0 +1,392 @@
+{
+  "name": "TC_C44593_allDataType_Standard_HardCoded_Mapping",
+  "disabled": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "AutomationStandaloneExport_feff2tg",
+        "_connectionId": "FTP CONNECTION",
+        "asynchronous": true,
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+          "fileNameStartsWith": "TC_C44593_bigcommerce_composite_2records.json"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json",
+          "json": {
+            "resourcePath": "*"
+          }
+        },
+        "adaptorType": "FTPExport",
+        "qa__path": "//SFTP_uploads//TC_C44593_bigcommerce_composite_2records.json"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "export",
+      "responseMapping": {
+        "fields": [
+          {
+            "generate": "id",
+            "extract": "data[0].id"
+          }
+        ],
+        "lists": [],
+        "qa__index": 0
+      },
+      "qa__export": {
+        "name": "AutomationStandaloneLookup_feff2tg",
+        "application": "BigCommerce",
+        "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+        "qa__connectionId": "HTTP BIGCOMMERCE CONNECTION",
+        "asynchronous": true,
+        "isLookup": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": "/v3/catalog/products?name=Auto_TC_C44593_2",
+          "method": "GET",
+          "formType": "http",
+          "response": {
+            "resourcePath": "data"
+          }
+        },
+        "adaptorType": "HTTPExport"
+      }
+    },
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "AutomationStandaloneImport_feff2tg",
+        "application": "BigCommerce",
+        "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+        "qa__connectionId": "HTTP BIGCOMMERCE CONNECTION",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "lookups": [
+          {
+            "method": "GET",
+            "relativeURI": "/v3/catalog/products?name={{data.first_name}}",
+            "extract": "data[0].name",
+            "allowFailures": false,
+            "name": "dynaLookupForComposite",
+            "useImportHeaders": true
+          }
+        ],
+        "mappings": [
+          {
+            "extract": "$.first_name",
+            "generate": "name",
+            "dataType": "string",
+            "status": "Active",
+            "sourceDataType": "string"
+          },
+          {
+            "extract": "$.type",
+            "generate": "type",
+            "dataType": "string",
+            "status": "Active",
+            "sourceDataType": "string"
+          },
+          {
+            "extract": "$.weight",
+            "generate": "weight",
+            "dataType": "number",
+            "status": "Active",
+            "sourceDataType": "number"
+          },
+          {
+            "extract": "$.price",
+            "generate": "price",
+            "dataType": "number",
+            "status": "Active",
+            "sourceDataType": "number"
+          },
+          {
+            "generate": "categories",
+            "dataType": "numberarray",
+            "status": "Active",
+            "buildArrayHelper": [
+              {
+                "extract": "$.categories",
+                "sourceDataType": "numberarray"
+              }
+            ]
+          },
+          {
+            "extract": "$.sku",
+            "generate": "sku",
+            "dataType": "string",
+            "conditional": {
+              "when": "record_updated"
+            },
+            "status": "Active",
+            "sourceDataType": "string"
+          },
+          {
+            "extract": "$.is_free_shipping",
+            "generate": "is_free_shipping",
+            "dataType": "boolean",
+            "conditional": {
+              "when": "record_updated"
+            },
+            "status": "Active",
+            "sourceDataType": "boolean"
+          },
+          {
+            "extract": "$.weight",
+            "generate": "width",
+            "dataType": "number",
+            "conditional": {
+              "when": "record_updated"
+            },
+            "status": "Active",
+            "sourceDataType": "number"
+          },
+          {
+            "generate": "depth",
+            "dataType": "number",
+            "hardCodedValue": "900",
+            "conditional": {
+              "when": "record_updated"
+            },
+            "status": "Active",
+            "sourceDataType": "string"
+          },
+          {
+            "generate": "custom_url",
+            "dataType": "object",
+            "conditional": {
+              "when": "record_updated"
+            },
+            "status": "Active",
+            "mappings": [
+              {
+                "generate": "url",
+                "dataType": "string",
+                "hardCodedValue": "/hardcoded_url_string_when_updating_records.html/",
+                "conditional": {
+                  "when": "record_updated"
+                },
+                "status": "Active",
+                "sourceDataType": "string"
+              },
+              {
+                "generate": "is_customized",
+                "dataType": "boolean",
+                "hardCodedValue": "true",
+                "status": "Active",
+                "sourceDataType": "string"
+              }
+            ]
+          },
+          {
+            "extract": "$.search_keywords",
+            "generate": "search_keywords",
+            "dataType": "string",
+            "conditional": {
+              "when": "record_created"
+            },
+            "status": "Active",
+            "sourceDataType": "string"
+          },
+          {
+            "generate": "meta_description",
+            "dataType": "string",
+            "hardCodedValue": "hardcoded meta_description while creating record with string dataType",
+            "conditional": {
+              "when": "record_created"
+            },
+            "status": "Active",
+            "sourceDataType": "string"
+          },
+          {
+            "extract": "$.is_visible",
+            "generate": "is_visible",
+            "dataType": "boolean",
+            "conditional": {
+              "when": "record_created"
+            },
+            "status": "Active",
+            "sourceDataType": "boolean"
+          },
+          {
+            "generate": "is_condition_shown",
+            "dataType": "boolean",
+            "hardCodedValue": "true",
+            "conditional": {
+              "when": "record_created"
+            },
+            "status": "Active",
+            "sourceDataType": "string"
+          },
+          {
+            "extract": "$.weight",
+            "generate": "cost_price",
+            "dataType": "number",
+            "conditional": {
+              "when": "record_created"
+            },
+            "status": "Active",
+            "sourceDataType": "number"
+          },
+          {
+            "generate": "sale_price",
+            "dataType": "number",
+            "hardCodedValue": "190",
+            "conditional": {
+              "when": "record_created"
+            },
+            "status": "Active",
+            "sourceDataType": "string"
+          }
+        ],
+        "http": {
+          "relativeURI": [
+            "/v3/catalog/products/{{record.id}}",
+            "/v3/catalog/products"
+          ],
+          "method": [
+            "PUT",
+            "POST"
+          ],
+          "requestType": [
+            "UPDATE",
+            "CREATE"
+          ],
+          "sendPostMappedData": true,
+          "existingLookupName": "dynaLookupForComposite",
+          "formType": "http",
+          "lookups": [
+            {
+              "method": "GET",
+              "relativeURI": "/v3/catalog/products?name={{data.first_name}}",
+              "extract": "data[0].name",
+              "allowFailures": false,
+              "name": "dynaLookupForComposite",
+              "useImportHeaders": true
+            }
+          ]
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "qa__expectedDashboardCount": {
+    "successCount": "6",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "importapiIdentifier": "ibaad8dc7f",
+    "importRecordJSON": {
+      "name": "Auto_TC_C44593_2",
+      "type": "digital",
+      "weight": 100,
+      "price": 8,
+      "categories": [
+        27,
+        28
+      ]
+    },
+    "application":"HTTP BIGCOMMERCE",
+    "expected": {
+      "bigcommerce": {
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "name": "TC_C44593_allDataType_Standard_HardCoded_Mapping",
+        "import": {
+          "_connectionId": "HTTP BIGCOMMERCE CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "2",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "standaloneexportflowID": "62e921b7f389ab707f5db712",
+          "uniqueField": "name",
+          "importRecordType": "products",
+          "isUIFlow": true,
+          "exportapiIdentifier": "e5b46fccee",
+          "expectedJSON": [
+            {
+              "name": "Auto_TC_C44593_1",
+              "type": "physical",
+              "weight": 10,
+              "price": 7,
+              "sku": "",
+              "is_free_shipping": false,
+              "width": 0,
+              "depth": 0,
+              "custom_url": {
+                "url": "/auto_tc_c44593_1/",
+                "is_customized": false
+              },
+              "search_keywords": "kitchen, laundry, cart, storage",
+              "meta_description": "hardcoded meta_description while creating record with string dataType",
+              "is_visible": true,
+              "is_condition_shown": true,
+              "cost_price": 10,
+              "sale_price": 190
+            },
+            {
+              "name": "Auto_TC_C44593_2",
+              "type": "digital",
+              "weight": 100,
+              "price": 8,
+              "sku": "SM-19",
+              "is_free_shipping": false,
+              "width": 100,
+              "depth": 900,
+              "custom_url": {
+                "url": "/hardcoded_url_string_when_updating_records.html/",
+                "is_customized": true
+              },
+              "search_keywords": "",
+              "meta_description": "",
+              "is_visible": true,
+              "is_condition_shown": false,
+              "cost_price": 0,
+              "sale_price": 0
+            }
+          ]
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "6340c5ac46048c3afbacc3be",
+      "createdAt": "2022-10-08T00:34:52.730Z",
+      "lastModified": "2022-10-10T16:11:57.517Z",
+      "name": "Create BigCommerce products_DND",
+      "_connectionId": "631a1a0eabf51e7a86c8107f",
+      "apiIdentifier": "ibaad8dc7f",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "http": {
+        "relativeURI": [
+          "/v3/catalog/products"
+        ],
+        "method": [
+          "POST"
+        ],
+        "body": [],
+        "batchSize": 1,
+        "sendPostMappedData": true,
+        "formType": "http"
+      },
+      "adaptorType": "HTTPImport"
+    }
+  }
+}

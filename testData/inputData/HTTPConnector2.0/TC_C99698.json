@@ -1,0 +1,488 @@
+{
+    "name": "Gusto-story",
+    "published": true,
+    "isGraphQL": false,
+    "baseURIs": [
+        "https://api.gusto-demo.com/:_version",
+        "https://api.gusto.com/:_version"
+    ],
+    "helpURL": "https://docs.celigo.com/hc/en-us/articles/14861376601243",
+    "versioning": {
+        "location": "uri"
+    },
+    "versions": [
+        {
+            "_id": "64470573ca8eb0476d9bdb8b",
+            "name": "v1",
+            "published": true,
+            "supportedBy": {}
+        }
+    ],
+    "apis": [],
+    "supportedBy": {
+        "export": {
+            "preConfiguredFields": [
+                {
+                    "path": "paging",
+                    "values": [
+                        {
+                            "method": "page",
+                            "page": 1
+                        }
+                    ]
+                },
+                {
+                    "path": "successMediaType",
+                    "values": [
+                        "json"
+                    ]
+                },
+                {
+                    "path": "errorMediaType",
+                    "values": [
+                        "json"
+                    ]
+                },
+                {
+                    "path": "requestMediaType",
+                    "values": [
+                        "json"
+                    ]
+                }
+            ]
+        },
+        "import": {
+            "preConfiguredFields": [
+                {
+                    "path": "successMediaType",
+                    "values": [
+                        "json"
+                    ]
+                },
+                {
+                    "path": "errorMediaType",
+                    "values": [
+                        "json"
+                    ]
+                },
+                {
+                    "path": "requestMediaType",
+                    "values": [
+                        "json"
+                    ]
+                }
+            ]
+        },
+        "connection": {
+            "conditions": [
+                {
+                    "_id": "6389e1886f89d33af4262998",
+                    "condition": {
+                        "type": "expression",
+                        "expression": {
+                            "rules": [
+                                "equals",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "settings.env"
+                                    ]
+                                ],
+                                "production"
+                            ],
+                            "version": "1"
+                        },
+                        "version": "1",
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "settings.env"
+                                ]
+                            ],
+                            "production"
+                        ]
+                    }
+                },
+                {
+                    "_id": "6389e1886f89d33af4262999",
+                    "condition": {
+                        "type": "expression",
+                        "expression": {
+                            "rules": [
+                                "equals",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "settings.env"
+                                    ]
+                                ],
+                                "sandbox"
+                            ],
+                            "version": "1"
+                        },
+                        "version": "1",
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "settings.env"
+                                ]
+                            ],
+                            "sandbox"
+                        ]
+                    }
+                }
+            ],
+            "preConfiguredFields": [
+                {
+                    "path": "type",
+                    "values": [
+                        "http"
+                    ]
+                },
+                {
+                    "path": "http.baseURI",
+                    "values": [
+                        "https://api.gusto.com/:_version"
+                    ],
+                    "_conditionIds": [
+                        "6389e1886f89d33af4262998"
+                    ]
+                },
+                {
+                    "path": "http.baseURI",
+                    "values": [
+                        "https://api.gusto-demo.com/:_version"
+                    ],
+                    "_conditionIds": [
+                        "6389e1886f89d33af4262999"
+                    ]
+                },
+                {
+                    "path": "http.mediaType",
+                    "values": [
+                        "json"
+                    ]
+                },
+                {
+                    "path": "http.successMediaType",
+                    "values": [
+                        "json"
+                    ]
+                },
+                {
+                    "path": "http.errorMediaType",
+                    "values": [
+                        "json"
+                    ]
+                },
+                {
+                    "path": "http.ping.method",
+                    "values": [
+                        "GET"
+                    ]
+                },
+                {
+                    "path": "http.ping.relativeURI",
+                    "values": [
+                        "/me"
+                    ]
+                },
+                {
+                    "path": "http.auth.type",
+                    "values": [
+                        "oauth"
+                    ]
+                },
+                {
+                    "path": "http.headers",
+                    "values": [
+                        [
+                            {
+                                "name": "X-Gusto-API-Version",
+                                "value": "2023-04-01"
+                            },
+                            {
+                                "name": "accept",
+                                "value": "application/json"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "path": "settingsForm",
+                    "values": [
+                        {
+                            "fieldMap": {
+                                "env": {
+                                    "id": "env",
+                                    "name": "env",
+                                    "type": "select",
+                                    "label": "Environment",
+                                    "helpText": "Please select your environment. Values: Production, Sandbox",
+                                    "options": [
+                                        {
+                                            "items": [
+                                                {
+                                                    "label": "Production",
+                                                    "value": "production"
+                                                },
+                                                {
+                                                    "label": "Sandbox",
+                                                    "value": "sandbox"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "required": true
+                                }
+                            },
+                            "layout": {
+                                "fields": [
+                                    "env"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ],
+            "fieldsUserMustSet": [
+                {
+                    "path": "settings.env"
+                },
+                {
+                    "path": "http._iClientId"
+                },
+                {
+                    "path": "http.auth.oauth.scope",
+                    "values": [
+                        {
+                            "name": "Gusto scopes",
+                            "scopes": [
+                                "employees:read",
+                                "employees:write",
+                                "payrolls:read",
+                                "payrolls:write",
+                                "employee_benefits:read",
+                                "company_benefits:read"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "iClient": {
+            "conditions": [
+                {
+                    "_id": "6389e1886f89d33af426299a",
+                    "condition": {
+                        "type": "expression",
+                        "expression": {
+                            "rules": [
+                                "equals",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "settings.env"
+                                    ]
+                                ],
+                                "production"
+                            ],
+                            "version": "1"
+                        },
+                        "version": "1",
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "settings.env"
+                                ]
+                            ],
+                            "production"
+                        ]
+                    }
+                },
+                {
+                    "_id": "6389e1886f89d33af426299b",
+                    "condition": {
+                        "type": "expression",
+                        "expression": {
+                            "rules": [
+                                "equals",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "settings.env"
+                                    ]
+                                ],
+                                "sandbox"
+                            ],
+                            "version": "1"
+                        },
+                        "version": "1",
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "settings.env"
+                                ]
+                            ],
+                            "sandbox"
+                        ]
+                    }
+                }
+            ],
+            "preConfiguredFields": [
+                {
+                    "path": "oauth2.clientCredentialsLocation",
+                    "values": [
+                        "basicauthheader"
+                    ]
+                },
+                {
+                    "path": "oauth2.validDomainNames",
+                    "values": [
+                        [
+                            "gusto-demo.com"
+                        ]
+                    ],
+                    "_conditionIds": [
+                        "6389e1886f89d33af426299b"
+                    ]
+                },
+                {
+                    "path": "oauth2.validDomainNames",
+                    "values": [
+                        [
+                            "gusto.com"
+                        ]
+                    ],
+                    "_conditionIds": [
+                        "6389e1886f89d33af426299a"
+                    ]
+                },
+                {
+                    "path": "oauth2.grantType",
+                    "values": [
+                        "authorizecode"
+                    ]
+                },
+                {
+                    "path": "oauth2.accessTokenLocation",
+                    "values": [
+                        "header"
+                    ]
+                },
+                {
+                    "path": "oauth2.accessTokenHeaderName",
+                    "values": [
+                        "Authorization"
+                    ]
+                },
+                {
+                    "path": "oauth2.scheme",
+                    "values": [
+                        "Bearer"
+                    ]
+                },
+                {
+                    "path": "oauth2.auth.uri",
+                    "values": [
+                        "https://api.gusto-demo.com/oauth/authorize"
+                    ],
+                    "_conditionIds": [
+                        "6389e1886f89d33af426299b"
+                    ]
+                },
+                {
+                    "path": "oauth2.auth.uri",
+                    "values": [
+                        "https://api.gusto.com/oauth/authorize"
+                    ],
+                    "_conditionIds": [
+                        "6389e1886f89d33af426299a"
+                    ]
+                },
+                {
+                    "path": "oauth2.token.uri",
+                    "values": [
+                        "https://api.gusto-demo.com/oauth/token"
+                    ],
+                    "_conditionIds": [
+                        "6389e1886f89d33af426299b"
+                    ]
+                },
+                {
+                    "path": "oauth2.token.uri",
+                    "values": [
+                        "https://api.gusto.com/oauth/token"
+                    ],
+                    "_conditionIds": [
+                        "6389e1886f89d33af426299a"
+                    ]
+                },
+                {
+                    "path": "settingsForm",
+                    "values": [
+                        {
+                            "fieldMap": {
+                                "env": {
+                                    "id": "env",
+                                    "name": "env",
+                                    "type": "select",
+                                    "label": "Environment",
+                                    "displayAfter": "iClient.application",
+                                    "helpText": "Please select your environment. Values: Production, Sandbox",
+                                    "options": [
+                                        {
+                                            "items": [
+                                                {
+                                                    "label": "Production",
+                                                    "value": "production"
+                                                },
+                                                {
+                                                    "label": "Sandbox",
+                                                    "value": "sandbox"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "required": false
+                                }
+                            },
+                            "layout": {
+                                "fields": [
+                                    "env"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ],
+            "fieldsUserMustSet": [
+                {
+                    "path": "settings.env"
+                },
+                {
+                    "path": "oauth2.clientId"
+                },
+                {
+                    "path": "oauth2.clientSecret"
+                }
+            ]
+        }
+    }
+}

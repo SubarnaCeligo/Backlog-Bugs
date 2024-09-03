@@ -1,0 +1,144 @@
+{
+  "flowname1": "TC_C34398_FLOW_1",
+  "flowname2": "TC_C34398_FLOW_2",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "application": "MySQL",
+            "name": "MySQL Export",
+            "_connectionId": "MYSQL CONNECTION",
+            "apiIdentifier": "eef0aeeb87",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "rawData": "62ebb431e627016182cf3391abf2064c1e484c3f85f714cf25872755",
+            "rdbms": {
+              "query": "select * from Templates.Order LIMIT 1"
+            },
+            "adaptorType": "RDBMSExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Zendesk Import",
+            "application":"zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "i087d70234",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+              "relativeURI": [
+                "tickets"
+              ],
+              "method": [
+                "POST"
+              ],
+              "body": [
+                "{\n  \"ticket\": {\n    \"comment\": {\n      \"body\": \"The smoke is very colorful.\"\n    },\n    \"priority\": \"urgent\",\n    \"subject\": \"My printer is on fire!\"\n  }\n}"
+              ],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C34398_FLOW_1",
+        "disabled": false,
+        "_integrationId": "",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    },
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "application": "MySQL",
+            "name": "MySQL Export",
+            "_connectionId": "MYSQL CONNECTION",
+            "apiIdentifier": "eef0aeeb87",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "rawData": "62ebb431e627016182cf3391abf2064c1e484c3f85f714cf25872755",
+            "rdbms": {
+              "query": "select * from Templates.Order LIMIT 1"
+            },
+            "adaptorType": "RDBMSExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "MySQL Import",
+            "application": "MySQL",
+            "_connectionId": "MYSQL CONNECTION",
+            "apiIdentifier": "id44d6b041",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "rdbms": {
+              "query": [
+                "insert into"
+              ],
+              "queryType": [
+                "INSERT"
+              ]
+            },
+            "adaptorType": "RDBMSImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C34398_FLOW_2",
+        "disabled": false,
+        "_integrationId": "",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

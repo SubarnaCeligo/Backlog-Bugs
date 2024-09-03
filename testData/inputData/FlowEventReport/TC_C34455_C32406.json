@@ -1,0 +1,50 @@
+{
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "test",
+        "_connectionId": "FTP CONNECTION",
+        "qa__path": "/FTP_uploads/TC_C34450.json",
+        "apiIdentifier": "ee30ec3286",
+        "asynchronous": true,
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "TC_C34450"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json",
+          "json": {
+            "resourcePath": "*"
+          }
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "lookup_23884",
+        "application": "zendesk support",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "asynchronous": true,
+        "isLookup": true,
+        "oneToMany": true,
+        "type": "blob",
+        "sandbox": false,
+        "parsers": [],
+        "http": {
+          "relativeURI": "/tickets",
+          "method": "GET",
+          "formType": "http"
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ]
+}

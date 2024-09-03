@@ -1,0 +1,36 @@
+{
+    "export": {
+        "name": "Http_exp",
+        "_connectionId": "62ff8199515b5e4a1f8a0b34",
+        "apiIdentifier": "e9a51b5a90",
+        "asynchronous": true,
+        "application": "zendesk support",
+        "dataURITemplate": "{{rows.0.url}}",
+        "oneToMany": false,
+        "sandbox": false,
+        "parsers": [
+            {
+                "type": "xml",
+                "version": "1",
+                "rules": {
+                    "V0_json": true,
+                    "stripNewLineChars": false,
+                    "trimSpaces": false
+                }
+            }
+        ],
+        "groupByFields": [
+            "id"
+        ],
+        "http": {
+            "relativeURI": "/tickets/81",
+            "method": "GET",
+            "formType": "http",
+            "response": {
+                "resourcePath": "ticket"
+            }
+        },
+        "rawData": "62e8102611ba17297d9be199be7169eaeeb24e76a3b8243a51ddab48",
+        "adaptorType": "HTTPExport"
+    }
+}

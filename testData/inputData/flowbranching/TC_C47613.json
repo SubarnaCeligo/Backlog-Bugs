@@ -1,0 +1,80 @@
+{
+    "name": "TC_C47613",
+    "skipRetries": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "disabled": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "NS Export",
+                "description": "NS for multiple pages and records",
+                "_connectionId": "NETSUITE CONNECTION",
+                "asynchronous": true,
+                "pageSize": 5,
+                "oneToMany": false,
+                "sandbox": false,
+                "netsuite": {
+                    "type": "restlet",
+                    "skipGrouping": true,
+                    "statsOnly": false,
+                    "restlet": {
+                        "recordType": "customer",
+                        "searchId": "4537",
+                        "useSS2Restlets": false
+                    },
+                    "distributed": {
+                        "useSS2Framework": false
+                    }
+                },
+                "transform": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [
+                            [
+                                {
+                                    "extract": "id",
+                                    "generate": "ID"
+                                },
+                                {
+                                    "extract": "Email",
+                                    "generate": "EMAIL"
+                                },
+                                {
+                                    "extract": "Name",
+                                    "generate": "NAME"
+                                },
+                                {
+                                    "extract": "recordType",
+                                    "generate": "TYPE"
+                                }
+                            ]
+                        ],
+                        "version": "1"
+                    },
+                    "version": "1",
+                    "rules": [
+                        [
+                            {
+                                "extract": "id",
+                                "generate": "ID"
+                            },
+                            {
+                                "extract": "Email",
+                                "generate": "EMAIL"
+                            },
+                            {
+                                "extract": "Name",
+                                "generate": "NAME"
+                            },
+                            {
+                                "extract": "recordType",
+                                "generate": "TYPE"
+                            }
+                        ]
+                    ]
+                },
+                "adaptorType": "NetSuiteExport"
+            }
+        }
+    ]
+}

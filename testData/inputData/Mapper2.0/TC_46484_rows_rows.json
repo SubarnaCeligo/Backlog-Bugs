@@ -1,0 +1,681 @@
+{
+    "name": "TC_46484_rows_rows",
+    "qa__expectedDashboardCount": {
+        "successCount": "5",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "standaloneexportflowID": "",
+        "expected": {
+            "FTP": {
+                "name": "TC_46484_rows_rows",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "qa__expectedDashboardCount": {
+                    "successCount": "5",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_46484_ftp",
+                    "isUIFlow": true,
+                    "folderName": "io.auto.qa/IO Automation SFTP Imports",
+                    "fileType": ".json"
+                }
+            },
+            "GDRIVE": {
+                "name": "TC_46484_rows_rows",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "qa__expectedDashboardCount": {
+                    "successCount": "5",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_46484_gdrive",
+                    "folderName": "Gdrive_Imports",
+                    "fileType": ".json"
+                }
+            },
+            "S3": {
+                "name": "TC_46484_rows_rows",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "qa__expectedDashboardCount": {
+                    "successCount": "5",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "bucketName": "automations3import",
+                    "fileName": "TC_46484_s3",
+                    "isUIFlow": true,
+                    "fileType": ".json"
+                }
+            },
+            "Azure": {
+                "name": "TC_46484_rows_rows",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "qa__expectedDashboardCount": {
+                    "successCount": "5",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_46484_azure",
+                    "folderName": "azureimports",
+                    "fileType": ".json",
+                    "fileExtension": ".json"
+                }
+            }
+        }
+    },
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "ftp",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "io.auto.qa/IO_Automation_SFTP_Exports",
+                    "fileNameStartsWith": "TC_46484.json"
+                },
+                "qa__path": "/FTP_uploads/TC_46484.json",
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "ftp_import",
+                "_connectionId": "FTP CONNECTION",
+                "oneToMany": false,
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "dataType": "objectarray",
+                        "status": "Active",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$[*]",
+                                "mappings": [
+                                    {
+                                        "extract": "$.fName",
+                                        "generate": "first_name",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "extract": "$.lName",
+                                        "generate": "last_name",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "generate": "children",
+                                        "dataType": "objectarray",
+                                        "status": "Active",
+                                        "buildArrayHelper": [
+                                            {
+                                                "extract": "$.children[*]",
+                                                "status": "Active",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.children.firstName",
+                                                        "generate": "child_name",
+                                                        "dataType": "string",
+                                                        "status": "Active"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "mother",
+                                        "dataType": "object",
+                                        "status": "Active",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.mother.fName",
+                                                "generate": "mother_name",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "father",
+                                        "dataType": "object",
+                                        "status": "Active",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.father.fName",
+                                                "generate": "father_name",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "siblings",
+                                        "dataType": "object",
+                                        "status": "Active",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.siblings[*].fName",
+                                                "generate": "sibling_name",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "generate": "sibling_children",
+                                                "dataType": "object",
+                                                "status": "Active",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.siblings[*].children[*].fName",
+                                                        "generate": "sibling_child_name",
+                                                        "dataType": "string",
+                                                        "status": "Active"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "cousins",
+                                        "dataType": "object",
+                                        "status": "Active",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.cousins[*].fName",
+                                                "generate": "cousin_name",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "books",
+                                        "dataType": "object",
+                                        "status": "Active",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.books[*].fName",
+                                                "generate": "book_name",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "file": {
+                    "fileName": "TC_46484_ftp.json",
+                    "skipAggregation": false,
+                    "type": "json",
+                    "encoding": "utf8"
+                },
+                "ftp": {
+                    "directoryPath": "io.auto.qa/IO Automation SFTP Imports",
+                    "fileName": "TC_46484_ftp.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "s3",
+                "_connectionId": "S3 CONNECTION",
+                "oneToMany": false,
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "dataType": "objectarray",
+                        "status": "Active",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$[*]",
+                                "mappings": [
+                                    {
+                                        "extract": "$.fName",
+                                        "generate": "fName",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "extract": "$.lName",
+                                        "generate": "lName",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "generate": "children",
+                                        "dataType": "object",
+                                        "status": "Active",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.children[*].firstName",
+                                                "generate": "child_name",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "mother",
+                                        "dataType": "object",
+                                        "status": "Active",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.mother.fName",
+                                                "generate": "mother_name",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "father",
+                                        "dataType": "object",
+                                        "status": "Active",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.father.fName",
+                                                "generate": "father_name",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "siblings",
+                                        "dataType": "object",
+                                        "status": "Active",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.siblings[*].fName",
+                                                "generate": "sibling_name",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "generate": "sibling_children",
+                                                "dataType": "object",
+                                                "status": "Active",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.siblings[*].children[*].fName",
+                                                        "generate": "sibling_child_name",
+                                                        "dataType": "string",
+                                                        "status": "Active"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "cousins",
+                                        "dataType": "object",
+                                        "status": "Active",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.cousins[*].fName",
+                                                "generate": "name",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "books",
+                                        "dataType": "object",
+                                        "status": "Active",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.books[*].fName",
+                                                "generate": "book_name",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "file": {
+                    "fileName": "TC_46484_s3.json",
+                    "skipAggregation": false,
+                    "type": "json",
+                    "encoding": "utf8"
+                },
+                "s3": {
+                    "region": "us-east-1",
+                    "bucket": "automations3import",
+                    "fileKey": "TC_46484_s3.json"
+                },
+                "adaptorType": "S3Import"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "gdrive",
+                "qa__connectionId": "GOOGLEDRIVE CONNECTION",
+                "_connectionId": "GOOGLEDRIVE CONNECTION",
+                "oneToMany": false,
+                "assistant": "googledrive",
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "dataType": "objectarray",
+                        "status": "Active",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$[*]",
+                                "mappings": [
+                                    {
+                                        "extract": "$.fName",
+                                        "generate": "fName",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "extract": "$.lName",
+                                        "generate": "lName",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "generate": "children",
+                                        "dataType": "object",
+                                        "status": "Active",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.children[*].firstName",
+                                                "generate": "name",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "mother",
+                                        "dataType": "object",
+                                        "status": "Active",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.mother.fName",
+                                                "generate": "mother_name",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "father",
+                                        "dataType": "object",
+                                        "status": "Active",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.father.fName",
+                                                "generate": "father_name",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "siblings",
+                                        "dataType": "object",
+                                        "status": "Active",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.siblings[*].fName",
+                                                "generate": "sibling_name",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "generate": "sibling_children",
+                                                "dataType": "object",
+                                                "status": "Active",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.siblings[*].children[*].fName",
+                                                        "generate": "child_name",
+                                                        "dataType": "string",
+                                                        "status": "Active"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "cousins",
+                                        "dataType": "object",
+                                        "status": "Active",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.cousins[*].fName",
+                                                "generate": "cousin_name",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "books",
+                                        "dataType": "object",
+                                        "status": "Active",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.books[*].fName",
+                                                "generate": "book_name",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "file": {
+                    "fileName": "TC_46484_gdrive.json",
+                    "skipAggregation": false,
+                    "type": "json",
+                    "encoding": "utf8"
+                },
+                "http": {
+                    "type": "file",
+                    "relativeURI": [
+                        "Gdrive_Imports"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "sendPostMappedData": true,
+                    "formType": "assistant",
+                    "response": {
+                        "resourcePath": [
+                            "files"
+                        ]
+                    }
+                },
+                "adaptorType": "HTTPImport"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "azure",
+                "_connectionId": "AZURE BLOB STORAGE CONNECTION",
+                "oneToMany": false,
+                "assistant": "azureblobstorage",
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "dataType": "objectarray",
+                        "status": "Active",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$[*]",
+                                "mappings": [
+                                    {
+                                        "extract": "$.fName",
+                                        "generate": "fname",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "extract": "$.lName",
+                                        "generate": "lName",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "generate": "children",
+                                        "dataType": "object",
+                                        "status": "Active",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.children[*].firstName",
+                                                "generate": "first_name",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "mother",
+                                        "dataType": "object",
+                                        "status": "Active",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.mother.fName",
+                                                "generate": "mother_name",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "father",
+                                        "dataType": "object",
+                                        "status": "Active",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.father.fName",
+                                                "generate": "father_name",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "siblings",
+                                        "dataType": "object",
+                                        "status": "Active",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.siblings[*].fName",
+                                                "generate": "name",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "cousins",
+                                        "dataType": "object",
+                                        "status": "Active",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.cousins[*].fName",
+                                                "generate": "cousins",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "generate": "cousin_children",
+                                                "dataType": "object",
+                                                "status": "Active",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.siblings[*].children[*].fName",
+                                                        "generate": "child_name",
+                                                        "dataType": "string",
+                                                        "status": "Active"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "books",
+                                        "dataType": "object",
+                                        "status": "Active",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.books[*].fName",
+                                                "generate": "book_name",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "file": {
+                    "fileName": "TC_46484_azure.json",
+                    "skipAggregation": false,
+                    "type": "json",
+                    "encoding": "utf8"
+                },
+                "http": {
+                    "type": "file",
+                    "relativeURI": [
+                        "azureimports"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "sendPostMappedData": true,
+                    "formType": "assistant",
+                    "response": {
+                        "resourcePath": [
+                            "files"
+                        ]
+                    }
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ]
+}

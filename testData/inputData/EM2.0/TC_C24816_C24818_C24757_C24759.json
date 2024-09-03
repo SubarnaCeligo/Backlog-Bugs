@@ -1,0 +1,71 @@
+{
+	"name": "TC_C24816_C24818_C24757_C24759_switchBetween_Tabs&Subtabs",
+	"referencename": "TC_C24816_C24818_C24757_switchBetween_Tabs&Subtabs",
+	"qa__api_tdata": [
+		{
+			"pageGenerators": [
+				{
+					"type": "export",
+					"qa__export": {
+						"name": "Errored_HTTP_Export",
+						"application": "zendesk support",
+						"_connectionId": "HTTP ZENDESK CONNECTION",
+						"asynchronous": true,
+						"oneToMany": false,
+						"sandbox": false,
+						"parsers": [],
+						"http": {
+							"relativeURI": "user",
+							"method": "GET",
+							"formType": "http"
+						},
+						"adaptorType": "HTTPExport"
+					}
+				}
+			],
+			"pageProcessors": [
+				{
+					"type": "import",
+					"qa__import": {
+						"name": "FTP Import",
+						"parsers": [],
+						"_connectionId": "FTP CONNECTION",
+						"oneToMany": false,
+						"sandbox": false,
+						"file": {
+							"fileName": "TC_C24816_C24818_C24757_switchBetween_Tabs&Subtabs.json",
+							"skipAggregation": false,
+							"type": "json"
+						},
+						"ftp": {
+							"directoryPath": "/io.auto.qa/IO_UI_Automation",
+							"fileName": "TC_C24816_C24818_C24757_switchBetween_Tabs&Subtabs.json"
+						},
+						"adaptorType": "FTPImport"
+					}
+				}
+			],
+			"createFlow": {
+				"name": "TC_C24816_C24818_C24757_C24759_switchBetween_Tabs&Subtabs",
+				"disabled": false,
+				"_integrationId": "603ce75ac4fec33283691f43",
+				"skipRetries": false,
+				"pageProcessors": [
+					{
+						"responseMapping": {
+							"fields": [],
+							"lists": []
+						},
+						"type": "import",
+						"_importId": "UPDATE WITH NEW IMPORTID"
+					}
+				],
+				"pageGenerators": [
+					{
+						"_exportId": "UPDATE WITH NEW EXPORTID"
+					}
+				]
+			}
+		}
+	]
+}

@@ -1,0 +1,100 @@
+{
+    "name": "TC_C23016",
+    "referencename": "TC_C23016",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "NS exp",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "asynchronous": true,
+                        "type": "delta",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "delta": {
+                            "dateField": "lastmodifieddate"
+                        },
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "recordType": "salesorder",
+                                "searchId": "-156",
+                                "criteria": [],
+                                "columns": [],
+                                "useSS2Restlets": false
+                            },
+                            "distributed": {
+                                "executionContext": [],
+                                "executionType": [],
+                                "useSS2Framework": false
+                            }
+                        },
+                        "transform": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [
+                                    []
+                                ],
+                                "version": "1"
+                            },
+                            "version": "1",
+                            "rules": [
+                                []
+                            ]
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "MySQL Import",
+                        "application": "MySQL",
+                        "_connectionId": "MYSQL CONNECTION",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "rdbms": {
+                            "query": [
+                                "insert intoo"
+                            ],
+                            "queryType": [
+                                "INSERT"
+                            ]
+                        },
+                        "adaptorType": "RDBMSImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C23016",
+                "disabled": false,
+                "_integrationId": "62ecc42648570015ab65cfa5",
+                "qa__integrationId": "62eca1efe386b563f638451e",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

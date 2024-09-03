@@ -1,0 +1,19 @@
+{
+    "qa__connectionId": "SALESFORCE CONNECTION",
+    "connectionId": "SALESFORCE CONNECTION",
+    "no_bundle_connectionId": "62d9434f12dada25252ca6ef",
+    "qa__idLookup": [
+        [
+            "Name",
+            "equalto",
+            "account.name"
+        ],
+        [
+            "Name",
+            "equalto",
+            "first name"
+        ]
+    ],
+    "endpoint": "v1/imports/",
+    "expected": "((Name = account.name) AND (Name = first name))"
+}

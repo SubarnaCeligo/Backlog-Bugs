@@ -1,0 +1,336 @@
+{
+    "name": "TC_C47519",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "successCount": "5",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "AutomationStandaloneExport__gsqpYL0s9w",
+                "_connectionId": "NETSUITE CONNECTION",
+                "asynchronous": true,
+                "type": "test",
+                "pageSize": 5,
+                "oneToMany": false,
+                "sandbox": false,
+                "test": {
+                    "limit": 1
+                },
+                "netsuite": {
+                    "type": "restlet",
+                    "skipGrouping": true,
+                    "statsOnly": false,
+                    "restlet": {
+                        "recordType": "customer",
+                        "searchId": "4537",
+                        "useSS2Restlets": false
+                    },
+                    "distributed": {
+                        "useSS2Framework": false
+                    }
+                },
+                "adaptorType": "NetSuiteExport"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "id": "062NR5",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [
+                                    {
+                                        "extract": "data[0].phone",
+                                        "generate": "phone_lookup"
+                                    }
+                                ],
+                                "lists": []
+                            },
+                            "type": "export",
+                            "qa__export": {
+                                "name": "NS_lookup",
+                                "_connectionId": "NETSUITE CONNECTION",
+                                "asynchronous": true,
+                                "isLookup": true,
+                                "type": "test",
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "test": {
+                                    "limit": 1
+                                },
+                                "netsuite": {
+                                    "type": "restlet",
+                                    "skipGrouping": true,
+                                    "statsOnly": false,
+                                    "restlet": {
+                                        "recordType": "customer",
+                                        "searchId": "979",
+                                        "useSS2Restlets": false,
+                                        "markExportedBatchSize": 100
+                                    },
+                                    "distributed": {
+                                        "useSS2Framework": false
+                                    }
+                                },
+                                "transform": {
+                                    "type": "expression",
+                                    "expression": {
+                                        "rules": [
+                                            [
+                                                {
+                                                    "extract": "[Office Phone]",
+                                                    "generate": "phone"
+                                                }
+                                            ]
+                                        ],
+                                        "version": "1"
+                                    },
+                                    "version": "1",
+                                    "rules": [
+                                        [
+                                            {
+                                                "extract": "[Office Phone]",
+                                                "generate": "phone"
+                                            }
+                                        ]
+                                    ]
+                                },
+                                "adaptorType": "NetSuiteExport"
+                            }
+                        },
+                        {
+                            "responseMapping": {
+                                "fields": [
+                                    {
+                                        "extract": "data[0].meta_description",
+                                        "generate": "description_lookup"
+                                    }
+                                ],
+                                "lists": []
+                            },
+                            "type": "export",
+                            "qa__export": {
+                                "name": "Bigcommerce lookup",
+                                "_connectionId": "BIGCOMMERCE CONNECTION",
+                                "asynchronous": true,
+                                "isLookup": true,
+                                "type": "test",
+                                "assistant": "bigcommerce",
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "assistantMetadata": {
+                                    "resource": "catalog_brands",
+                                    "version": "v3",
+                                    "operation": "list_of_all_brands"
+                                },
+                                "http": {
+                                    "relativeURI": "/v3/catalog/brands{{#compare export.http.paging.page \"!=\" \"1\"}}?page={{{export.http.paging.page}}}{{/compare}}",
+                                    "method": "GET",
+                                    "headers": [],
+                                    "successMediaType": "json",
+                                    "errorMediaType": "json",
+                                    "formType": "assistant",
+                                    "paging": {
+                                        "method": "page",
+                                        "page": 1,
+                                        "relativeURI": "/v3/catalog/brands{{#compare export.http.paging.page \"!=\" \"1\"}}?page={{{export.http.paging.page}}}{{/compare}}",
+                                        "lastPageStatusCode": 404
+                                    },
+                                    "response": {
+                                        "resourcePath": "data"
+                                    }
+                                },
+                                "test": {
+                                    "limit": 1
+                                },
+                                "rest": {
+                                    "relativeURI": "/v3/catalog/brands",
+                                    "method": "GET",
+                                    "headers": [],
+                                    "resourcePath": "data",
+                                    "pagingMethod": "pageargument",
+                                    "allowUndefinedResource": false,
+                                    "pageArgument": "page"
+                                },
+                                "adaptorType": "RESTExport"
+                            }
+                        }
+                    ],
+                    "nextRouterId": "pi1y1S"
+                }
+            ]
+        },
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "pi1y1S",
+            "routeRecordsTo": "all_matching_branches",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandaloneImport_one",
+                                "application": "zendesk support",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "distributed": false,
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "description_lookup",
+                                            "generate": "user.notes"
+                                        },
+                                        {
+                                            "extract": "phone_lookup",
+                                            "generate": "user.details"
+                                        },
+                                        {
+                                            "generate": "user.name",
+                                            "hardCodedValue": "Auto_TC_C47519_1"
+                                        }
+                                    ]
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "users.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "body": [],
+                                    "batchSize": 1,
+                                    "formType": "http",
+                                    "qa__formType": "rest",
+                                    "strictHandlebarEvaluation": true,
+                                    "sendPostMappedData": true
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Branch 1.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandaloneImport_two",
+                                "application": "zendesk support",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "distributed": false,
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "description_lookup",
+                                            "generate": "user.notes"
+                                        },
+                                        {
+                                            "extract": "phone_lookup",
+                                            "generate": "user.details"
+                                        },
+                                        {
+                                            "generate": "user.name",
+                                            "hardCodedValue": "Auto_TC_C47519_2"
+                                        }
+                                    ]
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "users.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "body": [],
+                                    "batchSize": 1,
+                                    "formType": "http",
+                                    "qa__formType": "rest",
+                                    "strictHandlebarEvaluation": true,
+                                    "sendPostMappedData": true
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        }
+    ],
+    "qa__dataVerification": {
+        "expected": {
+            "zendesk": {
+                "name": "TC_C47519",
+                "_integrationId": "62f51db41677a21a108e5e3a",
+                "import": {
+                    "_connectionId": "HTTP ZENDESK CONNECTION"
+                },
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "expectedJSON": {
+                        "name": "Auto_TC_C47519_1",
+                        "notes": "Common Good is a modern brand.",
+                        "details": "ala@yahoo.com"
+                    },
+                    "standaloneexportflowID": "57aaf0188ec9f88049060166",
+                    "uniqueField": "name",
+                    "importRecordType": "users",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e8c9cb6192"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "5",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                }
+            },
+            "Zendesk": {
+                "name": "TC_C47519",
+                "_integrationId": "62f51db41677a21a108e5e3a",
+                "import": {
+                    "_connectionId": "HTTP ZENDESK CONNECTION"
+                },
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "expectedJSON": {
+                        "name": "Auto_TC_C47519_2",
+                        "notes": "Common Good is a modern brand.",
+                        "details": "ala@yahoo.com"
+                    },
+                    "standaloneexportflowID": "57aaf0188ec9f88049060166",
+                    "uniqueField": "name",
+                    "importRecordType": "users",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e8c9cb6192"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "5",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                }
+            }
+        }
+    }
+}

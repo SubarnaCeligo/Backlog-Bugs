@@ -1,0 +1,412 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "name": "TC_C46488_json",
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "TC_C46488_gd",
+                "_connectionId": "630cb8d7019d100fb7c6d2a3",
+                "apiIdentifier": "ica2322bf6",
+                "oneToMany": false,
+                "assistant": "googledrive",
+                "sandbox": false,
+                "lookups": [
+                    {
+                        "name": "qwert",
+                        "map": {
+                            "henderson": "Henderson"
+                        },
+                        "allowFailures": false,
+                        "useImportHeaders": true
+                    }
+                ],
+                "mappings": [
+                    {
+                        "extract": "$[*].fName",
+                        "generate": "FName",
+                        "dataType": "string",
+                        "status": "Active"
+                    },
+                    {
+                        "extract": "$[*].lName",
+                        "generate": "LName",
+                        "dataType": "string",
+                        "lookupName": "qwert",
+                        "status": "Active"
+                    },
+                    {
+                        "extract": "{{rows.0.altFirstName}}",
+                        "generate": "altFN",
+                        "dataType": "string",
+                        "conditional": {
+                            "when": "extract_not_empty"
+                        },
+                        "status": "Active"
+                    },
+                    {
+                        "generate": "company",
+                        "dataType": "string",
+                        "hardCodedValue": "Celigo",
+                        "status": "Active"
+                    }
+                ],
+                "file": {
+                    "fileName": "TC_C46488_gdrive.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "http": {
+                    "type": "file",
+                    "relativeURI": [
+                        "Gdrive_Imports"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "sendPostMappedData": true,
+                    "formType": "assistant",
+                    "lookups": [
+                        {
+                            "name": "qwert",
+                            "map": {
+                                "henderson": "Henderson"
+                            },
+                            "allowFailures": false,
+                            "useImportHeaders": true
+                        }
+                    ],
+                    "response": {
+                        "resourcePath": [
+                            "files"
+                        ]
+                    }
+                },
+                "adaptorType": "HTTPImport"
+            }
+        },
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "name": "TC_C46488_import",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "i1a13b93cc",
+                "oneToMany": false,
+                "sandbox": false,
+                "lookups": [
+                    {
+                        "name": "ZDp3p",
+                        "map": {
+                            "scott": "henderson"
+                        },
+                        "allowFailures": false
+                    }
+                ],
+                "mappings": [
+                    {
+                        "extract": "$[*].children[*].firstName",
+                        "generate": "hender",
+                        "dataType": "string",
+                        "status": "Active"
+                    },
+                    {
+                        "extract": "$[*].fName",
+                        "generate": "scot",
+                        "dataType": "string",
+                        "lookupName": "ZDp3p",
+                        "status": "Active"
+                    },
+                    {
+                        "extract": "{{rows.0.children.0.firstName}}",
+                        "generate": "realName",
+                        "dataType": "string",
+                        "conditional": {
+                            "when": "extract_not_empty"
+                        },
+                        "status": "Active"
+                    },
+                    {
+                        "generate": "comp",
+                        "dataType": "string",
+                        "hardCodedValue": "celigo",
+                        "status": "Active"
+                    }
+                ],
+                "file": {
+                    "fileName": "TC_C46488_ftp.json",
+                    "skipAggregation": false,
+                    "type": "json",
+                    "lookups": [
+                        {
+                            "name": "ZDp3p",
+                            "map": {
+                                "scott": "henderson"
+                            },
+                            "allowFailures": false
+                        }
+                    ]
+                },
+                "ftp": {
+                    "directoryPath": "io.auto.qa/Zendesk_Tests/Automation",
+                    "fileName": "TC_C46488_ftp.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "TC_C46488_az",
+                "_connectionId": "AZURE BLOB STORAGE CONNECTION",
+                "apiIdentifier": "id833c42dd",
+                "oneToMany": false,
+                "assistant": "azureblobstorage",
+                "sandbox": false,
+                "lookups": [
+                    {
+                        "name": "6I55G",
+                        "map": {
+                            "mary": "name"
+                        },
+                        "allowFailures": false,
+                        "useImportHeaders": true
+                    }
+                ],
+                "mappings": [
+                    {
+                        "extract": "$[*].mother.fName",
+                        "generate": "mother",
+                        "dataType": "string",
+                        "status": "Active"
+                    },
+                    {
+                        "extract": "$[*].mother.fName",
+                        "generate": "father",
+                        "dataType": "string",
+                        "lookupName": "6I55G",
+                        "status": "Active"
+                    },
+                    {
+                        "extract": "{{rows.0.father.fName}}",
+                        "generate": "altFN",
+                        "dataType": "string",
+                        "conditional": {
+                            "when": "extract_not_empty"
+                        },
+                        "status": "Active"
+                    },
+                    {
+                        "generate": "org",
+                        "dataType": "string",
+                        "hardCodedValue": "ceLigo",
+                        "status": "Active"
+                    }
+                ],
+                "file": {
+                    "fileName": "TC_C46488_azure.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "http": {
+                    "type": "file",
+                    "relativeURI": [
+                        "azureimports"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "sendPostMappedData": true,
+                    "formType": "assistant",
+                    "lookups": [
+                        {
+                            "name": "6I55G",
+                            "map": {
+                                "mary": "name"
+                            },
+                            "allowFailures": false,
+                            "useImportHeaders": true
+                        }
+                    ],
+                    "response": {
+                        "resourcePath": [
+                            "files"
+                        ]
+                    }
+                },
+                "adaptorType": "HTTPImport"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "TC_C46488_s3",
+                "_connectionId": "S3 CONNECTION",
+                "apiIdentifier": "i8d73e2e31",
+                "oneToMany": false,
+                "sandbox": false,
+                "lookups": [
+                    {
+                        "name": "sMjiS",
+                        "map": {
+                            "henderson": "reeece"
+                        },
+                        "allowFailures": false
+                    }
+                ],
+                "mappings": [
+                    {
+                        "extract": "$[*].siblings[*].fName",
+                        "generate": "siblings",
+                        "dataType": "string",
+                        "status": "Active"
+                    },
+                    {
+                        "extract": "$[*].mother.lName",
+                        "generate": "cousin",
+                        "dataType": "string",
+                        "lookupName": "sMjiS",
+                        "status": "Active"
+                    },
+                    {
+                        "extract": "{{rows.0.books.0.fName}}",
+                        "generate": "books",
+                        "dataType": "string",
+                        "conditional": {
+                            "when": "extract_not_empty"
+                        },
+                        "status": "Active"
+                    },
+                    {
+                        "generate": "companyy",
+                        "dataType": "string",
+                        "hardCodedValue": "CeligO",
+                        "status": "Active"
+                    }
+                ],
+                "file": {
+                    "fileName": "TC_C46488_s3.json",
+                    "skipAggregation": false,
+                    "type": "json",
+                    "lookups": [
+                        {
+                            "name": "sMjiS",
+                            "map": {
+                                "henderson": "reeece"
+                            },
+                            "allowFailures": false
+                        }
+                    ]
+                },
+                "s3": {
+                    "region": "us-east-1",
+                    "bucket": "io-automation",
+                    "fileKey": "TC_C46488_s3.json"
+                },
+                "adaptorType": "S3Import"
+            }
+        }
+    ],
+    "timezone": "Asia/Calcutta",
+    "disabled": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "5",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "expected": {
+            "FTP": {
+                "name": "TC_C46488_ftp",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "qa__expectedDashboardCount": {
+                    "successCount": "5",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_C46488_ftp",
+                    "isUIFlow": true,
+                    "folderName": "io.auto.qa/Zendesk_Tests/Automation",
+                    "fileType": ".json"
+                }
+            },
+            "GDRIVE": {
+                "name": "TC_C46488_gdrive",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "qa__expectedDashboardCount": {
+                    "successCount": "5",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_C46488_gdrive",
+                    "folderName": "Gdrive_Imports",
+                    "fileType": ".json"
+                }
+            },
+            "S3": {
+                "name": "TC_C46488_s3",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "qa__expectedDashboardCount": {
+                    "successCount": "1",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "bucketName": "io-automation",
+                    "fileName": "TC_C46488_s3",
+                    "isUIFlow": true,
+                    "fileType": ".json"
+                }
+            },
+            "Azure": {
+                "name": "TC_C46488_azure",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "qa__expectedDashboardCount": {
+                    "successCount": "5",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_C46488_azure",
+                    "folderName": "azureimports",
+                    "fileType": ".json",
+                    "fileExtension": ".json"
+                }
+            }
+        }
+    },
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "FTP Export TC_C46488",
+                "qa__path": "//FTP_uploads//TC_C46488_data.json",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/FTP%20Automation%20Account",
+                    "fileNameStartsWith": "TC_C46488_data.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ]
+}

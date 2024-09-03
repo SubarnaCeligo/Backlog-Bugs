@@ -1,0 +1,294 @@
+{
+    "name": "TC_C51965",
+    "referencename": "TC_C51965",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "_id": "6342980beb57377ef9eb1c18",
+                        "createdAt": "2022-10-09T09:44:43.326Z",
+                        "lastModified": "2022-10-09T09:44:43.400Z",
+                        "name": "FTP export",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "e1a33f50b3",
+                        "asynchronous": true,
+                        "sandbox": false,
+                        "sampleData": {
+                            "body_html": "It's the small iPod with a big idea: Video.",
+                            "created_at": "2012-02-15T15:12:21-05:00",
+                            "handle": "ipod-nano",
+                            "new_variant": [
+                                39626872356922,
+                                39626872389690,
+                                39626872422458,
+                                39626872455226
+                            ],
+                            "id": 4653550239802,
+                            "images": [
+                                {
+                                    "id": 28593192435770,
+                                    "product_id": 4653550239802,
+                                    "position": 1,
+                                    "created_at": "2022-06-07T01:55:28-04:00",
+                                    "updated_at": "2022-06-07T01:55:28-04:00",
+                                    "width": 110,
+                                    "height": 140,
+                                    "src": "http://example.com/burton.jpg",
+                                    "variant_ids": [
+                                        39365759074362
+                                    ]
+                                }
+                            ],
+                            "options": {
+                                "id": 6097468391482,
+                                "product_id": 4653550239802,
+                                "name": "Color",
+                                "position": 1,
+                                "values": [
+                                    "Pink",
+                                    "Red",
+                                    "Green",
+                                    "Black"
+                                ]
+                            },
+                            "product_type": "Cult Products",
+                            "published_at": "2007-12-31T19:00:00-05:00",
+                            "published_scope": "global",
+                            "status": "active",
+                            "tags": "Emotive, Flash Memory, MP3, Music",
+                            "template_suffix": "special",
+                            "title": "IPod Nano - 8GB",
+                            "updated_at": "2012-08-24T14:01:47-04:00",
+                            "variants": [
+                                {
+                                    "barcode": "1234_pink",
+                                    "compare_at_price": null,
+                                    "created_at": "2012-08-24T14:01:47-04:00",
+                                    "fulfillment_service": "manual",
+                                    "grams": 567,
+                                    "weight": 0.2,
+                                    "weight_unit": "kg",
+                                    "id": 39365759074362,
+                                    "inventory_item_id": 41459836583994,
+                                    "inventory_management": "shopify",
+                                    "inventory_policy": "continue",
+                                    "inventory_quantity": 10,
+                                    "option1": "Pink",
+                                    "position": 1,
+                                    "price": 199.99,
+                                    "product_id": 4653550239802,
+                                    "requires_shipping": true,
+                                    "sku": "IPOD2008PINK",
+                                    "taxable": true,
+                                    "title": "Pink",
+                                    "updated_at": "2022-06-07T01:55:28-04:00"
+                                },
+                                {
+                                    "barcode": "1234_pinkcccc",
+                                    "compare_at_price": null,
+                                    "created_at": "2012-08-24T14:01:47-04:00",
+                                    "fulfillment_service": "manual",
+                                    "grams": 567,
+                                    "weight": 0.2,
+                                    "weight_unit": "kg",
+                                    "id": 39365759074362,
+                                    "inventory_item_id": 41459836583994,
+                                    "inventory_management": "shopify",
+                                    "inventory_policy": "continue",
+                                    "inventory_quantity": 10,
+                                    "option1": "Red",
+                                    "position": 1,
+                                    "price": 199.99,
+                                    "product_id": 4653550239802,
+                                    "requires_shipping": true,
+                                    "sku": "IPOD2008PINK",
+                                    "taxable": true,
+                                    "title": "Red",
+                                    "updated_at": "2022-06-07T01:55:28-04:00"
+                                },
+                                {
+                                    "barcode": "1234_pinkcccc",
+                                    "compare_at_price": null,
+                                    "created_at": "2012-08-24T14:01:47-04:00",
+                                    "fulfillment_service": "manual",
+                                    "grams": 567,
+                                    "weight": 0.2,
+                                    "weight_unit": "kg",
+                                    "id": 39365759074362,
+                                    "inventory_item_id": 41459836583994,
+                                    "inventory_management": "shopify",
+                                    "inventory_policy": "continue",
+                                    "inventory_quantity": 10,
+                                    "option1": "Black",
+                                    "position": 1,
+                                    "price": 199.99,
+                                    "product_id": 4653550239802,
+                                    "requires_shipping": true,
+                                    "sku": "IPOD2008PINK",
+                                    "taxable": true,
+                                    "title": "Black",
+                                    "updated_at": "2022-06-07T01:55:28-04:00"
+                                },
+                                {
+                                    "barcode": "1234_pinkcccc",
+                                    "compare_at_price": null,
+                                    "created_at": "2012-08-24T14:01:47-04:00",
+                                    "fulfillment_service": "manual",
+                                    "grams": 567,
+                                    "weight": 0.2,
+                                    "weight_unit": "kg",
+                                    "id": 39365759074362,
+                                    "inventory_item_id": 41459836583994,
+                                    "inventory_management": "shopify",
+                                    "inventory_policy": "continue",
+                                    "inventory_quantity": 10,
+                                    "option1": "Green",
+                                    "position": 1,
+                                    "price": 199.99,
+                                    "product_id": 4653550239802,
+                                    "requires_shipping": true,
+                                    "sku": "IPOD2008PINK",
+                                    "taxable": true,
+                                    "title": "Green",
+                                    "updated_at": "2022-06-07T01:55:28-04:00"
+                                }
+                            ],
+                            "vendor": "Apple"
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                            "fileNameStartsWith": "TC_C51965",
+                            "fileNameEndsWith": ".json"
+                        },
+                        "file": {
+                            "output": "records",
+                            "skipDelete": false,
+                            "type": "json"
+                        },
+                        "adaptorType": "FTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "_id": "63430bd2853a264fd9bfd676",
+                        "createdAt": "2022-10-09T17:58:42.273Z",
+                        "lastModified": "2022-10-09T17:59:14.241Z",
+                        "name": "qrfrw",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "iff73f79d2",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "mappings": [
+                            {
+                                "extract": "$.body_html",
+                                "generate": "body",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "$.created_at",
+                                "generate": "createdat",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            }
+                        ],
+                        "file": {
+                            "fileName": "file-{{timestamp}}.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "/IO",
+                            "fileName": "file-{{timestamp}}.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                },
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "_id": "6342939beb57377ef9eb1b95",
+                        "createdAt": "2022-10-09T09:25:47.383Z",
+                        "lastModified": "2022-10-09T09:26:54.539Z",
+                        "name": "we",
+                        "application": "BigCommerce",
+                        "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+                        "apiIdentifier": "i8a368680a",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "mappings": [
+                            {
+                                "extract": "$.body_html",
+                                "generate": "body html",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "$.id",
+                                "generate": "id",
+                                "dataType": "number",
+                                "status": "Active",
+                                "sourceDataType": "number"
+                            }
+                        ],
+                        "http": {
+                            "relativeURI": [
+                                "/"
+                            ],
+                            "method": [
+                                "PUT"
+                            ],
+                            "body": [],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C51965",
+                "disabled": true,
+                "skipRetries": false,
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "633ffd4ef91466053815e80d"
+                    },
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "6342939beb57377ef9eb1b95"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "634064784abae969f78b53fb",
+                        "skipRetries": false
+                    }
+                ],
+                "createdAt": "2022-10-09T09:16:22.871Z",
+                "autoResolveMatchingTraceKeys": true
+            }
+        }
+    ]
+}

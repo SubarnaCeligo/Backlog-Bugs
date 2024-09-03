@@ -1,0 +1,30 @@
+{
+
+    "Name":"TC_C51094",
+    "BASEuri":"https://api.orderhive.com",
+    "name-0":"id_token",
+    "name-1":"X-Amz-Date",
+    "name-2":"X-Amz-Security-Token",
+    "name-3":"Authorization",
+    "value-0":"{{connection.http.encrypted.id_token}}",
+    "value-1":"{{timestamp \"YYYYMMDDTHHmmss\" \"Etc\/GMT-0\"}}Z",
+    "value-2":"{{connection.http.encrypted.session_token}}",
+    "value-3":"{{connection.http.encrypted.session_token}}",
+    "value-4":"Signature={{{aws4 connection.http.encrypted.access_key_id connection.http.encrypted.secret_key connection.http.encrypted.session_token 'us-east-1' 'execute-api'}}}",
+    "encryptedID":{
+        "id_token_for_refresh":"eyJraWQiOiJkQlVPdGIyWnJNN1Jab1lHR2FUdDZaS25pemJpYUk2XC9rXC80dHNBUDZwdXc9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI2M2Y4ZTY0Ny02ODI5LTRiNWQtYTdhMS01MzBhYmE3ZTNlNzYiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xX1c1ZlJrQmdMaCIsImNvZ25pdG86dXNlcm5hbWUiOiI2NTU5ODIwMjItODktMTY2MjcxNDk5NzkzOEBkZXZvcmRlcmhpdmUuY29tIiwiY3VzdG9tOnVzZXJJZCI6IjY1NjEzIiwiY3VzdG9tOnRlbmFudElkIjoiNjU1OTgiLCJhdWQiOiI1ZjVvYWIyam41N2x0aGQ1bXZndDJjbDQ3ciIsImV2ZW50X2lkIjoiMDNmODNjYzUtMTkyOC00ZTY4LWFlMGMtMjgzNDExNjQyZWFjIiwiY3VzdG9tOmFwcElkIjoiMjAyMi04OS0xNjYyNzE0OTk3OTM4IiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE2NjI3MTUwNTQsImV4cCI6MTY2MjcxODY1NCwiaWF0IjoxNjYyNzE1MDU0LCJlbWFpbCI6IjY1NTk4MjAyMi04OS0xNjYyNzE0OTk3OTM4QGRldm9yZGVyaGl2ZS5jb20ifQ.Y0jg5U87kC9CNr3nh20DBlFl37y6jFs8Hm9cI-aF1vWu1x-2zc8bXtfimMGq3sDYFdO6M998N35Zfa4YiGm7hfN2XxIaYaoPRntrXv2KHm_bzmgLT_mT88i_eyrPtKpa62m73GGiYDaLZMxSCaELa5zsL8lLu5PRmVCHHX1PT5uQltuLYu-r47D7al3ZKT31wE9qTy99LyFdwnQrri1l0fZnThH9_5G1jhFbbCYNtm2o-Al2LuAzc37brninS2ytFvi2jBCLnqqXF-Ccm7TddJ64AmCYe0g6x47xA8kdPpk-HZtANsmjH-in3-c2kKNpa0WHEtKxKuMPoRi0urcfYw",
+        "refresh_token":"eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.gxel_wDfK2VgPchFgXPLx3MGRcn2inCZrW9GoP6ZT3SsXfM4lU9k1tkXaE7FvElBmEX-wG2JRVXcSdZ0V2ymrfb2_SKf0_-RD1tkWLRbksORU7Ql-gKP6nJvz1qBnIfYzIeDMRM5kRw054_r2szyHU1XaSMnsnt3cM1JPgTMV7TwaF0oobuJEm8umzRPEHjSwbQixlzGgPOC_vTwpFHyVO4DvDlygND1xvPYzdrKkLz0l4sT2p7pmqqcDfvm4H_UhwrjzETap21ntWDojcMh5-JwGtGPzC2841x2q9Ai0QYtCgHPjc1yMMYEhN9Et4HQfoX2tGfHbpnDU0j-Ml3aTw.3VHcrM3xXce8Peni.Q9D2UFs8BPjeebMCmCeTwTMtTeXrtrZYQ6vZwdlPs_zYxTD3_EQJSaXm_b8_n9unf11Z7jD0CiPP8qA9_tTlGpLI7LGIqI9MffvRI2KxcDT2XDfaCqdAzmTJ0LRybuGGO8nfr5Ej9tNs0xMaKhl2dOWqc88cAcBphzAUZlBG9nJIiEdjISkrKF9qlIYKt7EpEwAxEgBzxmkVBmEuX8hy7Lqu7qO5-kgMXiM5g59xYyKsUKKJ9heREZkngok6tjnz1Te2TGocR95zOvTfxUTcCzKEZG-er0DRYvc7h8aAqo3LB5ma3dmQAbvf-XXBks8tfVobNUhpHgqc6vrR9CIEwV9f0dM1AJm9cJYst3p9D_HMiex97p6mTR1vBJbOwx5pj4C4YA5ZnWSiP2lhjJfd82L8TLqbAJFxiT4hTzFTTrfmj_p0CpUtezKlh45jinZQ-U4VZOuhhrYOSHvym4ZAuo_l0hEdogAAeUNzJvfbNV4X1G9L8k0mYc2La4gCky8KKP0pms_y2apz4txrCASyedcw7NuVfHHOlG8D9nq20JWxicH0PP1ZmEjVkKDkjKluyfGeL4aWWwHrqOMCURYfu1nByhMsbUWtrdnbVVzlV-gzC0okvl4X9s1MUq9KRZiIUYz7YwirXi-awZ0IFSEf4BXub3C1HxZ9UIbymzfTkNaS52qYv6wB8B3_ukTQsykx03TrGXbAdjy5Tu09cUBmlCZWJaQaSwpQp-Mwx29d08GyWXatd2wqPF44fEyIAMRZVuFm5YN-pFqeyCec76lGctuyNTzVPaRZeyguwVHF9j0fiIzfYmu7sJvBd-H0qFhg0YSnVLLwHi8t6iGIRbAVDPWI-gvg2q1kagYZhHl5R9F5Z4bZRsIbpVI-G9cDnSA3WnGHenRtJNwF2bOL9JBT3Lg3jDtxjpD0DfjYipNgkWw1GDrnmzZUAq0px5hQXBKOG7dQ-aWeDerVAxjSf-ZIMotdzTSz7apcgbWZOi-fZy4ET7BGGVMqJZHFWw-CYNGJuQr2qIVr9azpB40XSTHxANyw4O5Hd10kLYbBXyNoG4mlt5hmRqTMc_5J9sZUUYnV-Co26sesM6KN1ceRt79UpgR4hMC6WasL8gei8TJ_EdPVqbl63AdddZQ4otCM2WBZasXzMHhNmcjooUBrjx8eUveM8GAXrIhKeKhun0hCeZGnfgzUBi-9ivTWmjESGnNUZzBnPcLVM6MTzTTnWylPtdGtovYKgDKiLto41niy5PY24AAgki0t9VmjpArfOPUSf6w0aTXY35bZJZTRzi1bSyBW_hc7giWNbXfnHk1OPcUxv72EdtxENPWKh4kIgvywTRUm2Uw.iZOa3XLyjLnyNV6GJddFpg"
+    },
+    "unencryptedID":{
+        "field":"value"
+    },
+    "refreshtoken":"{{connection.http.encrypted.refresh_token}}",
+    "HTTPrequestbody":{
+        "id_token":"{{connection.http.encrypted.id_token_for_refresh}}",
+        "refresh_token":"{{connection.http.encrypted.refresh_token}}"
+    },
+    "paths_encrypted":"access_key_id,secret_key,session_token,id_token",
+    "relativeURI":"/setup/category",
+    "connectionId": "633685d8cc34327a2044fc00",
+    "connectionId2": "633e64caee9ed0694468639f"
+}

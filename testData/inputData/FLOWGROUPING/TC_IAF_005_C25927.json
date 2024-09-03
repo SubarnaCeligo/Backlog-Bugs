@@ -1,0 +1,35 @@
+{
+    "qa_importJson": {
+        "environment": "Production",
+        "name": "TC_IAF_005_C25927",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "_integrationId": "62a95bfa0d57d901d06651d1",
+        "applications": ["activecampaign"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+          "_integrationId": "62a95bfa0d57d901d06651d1"
+        }
+      },
+      "importJson": {
+        "environment": "Production",
+        "name": "TC_IAF_005_C25927",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "_integrationId": "631ab4bc3796483e5615b6b9",
+        "applications": ["activecampaign"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+          "_integrationId": "631ab4bc3796483e5615b6b9"
+        }
+      },
+
+      "setupConnection": {
+        "integrationName":"No Install Steps",
+        "uninstall":"false"
+      },
+      "createLicense": {
+          "name": "TC_IAF_005_C25927"
+      },
+      "app": "ActiveCampaign",
+      "integrationName": "No Install Steps"
+}
+

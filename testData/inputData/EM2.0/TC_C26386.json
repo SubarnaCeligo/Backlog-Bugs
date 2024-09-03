@@ -1,0 +1,93 @@
+{
+  "name": "TC_C26386",
+  "referencename": "TC_C26386",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "FTP Export",
+            "_connectionId": "FTP CONNECTION",
+            "asynchronous": true,
+            "sandbox": false,
+            "sampleData": {
+              "id": "13553532",
+              "recordType": "customer",
+              "Name": "Louis Fabredshggs",
+              "Email": "info@fabreartsdf.com",
+              "Phone": "(888) 888-8888",
+              "Office Phone": "77777777777",
+              "Fax": "",
+              "Internal ID": "1355",
+              "Comments": "static comment updated",
+              "once export test field": "F",
+              "Type": "An email.",
+              "Title": "test2",
+              "Memo": "test11",
+              "Direction": "Incoming",
+              "Shipping Address": "Louis Fabre\nFabre Art\n253 Main Street\nSan Francisco CA 94131",
+              "Sort_String": "S,M,L",
+              "Dateformat_A": "11/12/2019"
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa",
+              "fileNameStartsWith": "testftp",
+              "fileNameEndsWith": ".json"
+            },
+            "file": {
+              "output": "records",
+              "skipDelete": true,
+              "type": "json"
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "SF Import",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "salesforce": {
+              "operation": "delete",
+              "sObjectType": "Customer",
+              "api": "soap",
+              "idLookup": {
+                "whereClause": "(Name = {{{string Email}}})"
+              },
+              "removeNonSubmittableFields": false
+            },
+            "adaptorType": "SalesforceImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C26386",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

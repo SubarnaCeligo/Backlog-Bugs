@@ -1,0 +1,27 @@
+{
+  "skipRetries": false,
+  "_integrationId": "63232caf5342c33e615e7271",
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "Webhook Export",
+        "type": "webhook",
+        "sandbox": false,
+        "qa__key": "1234",
+        "webhook": {
+          "provider": "custom",
+          "verify": "hmac",
+          "algorithm": "sha512",
+          "encoding": "base64",
+          "key": "******",
+          "header": "Header"
+        },
+        "sampleData": {
+          "name": "data"
+        },
+        "adaptorType": "WebhookExport"
+      }
+    }
+  ]
+}

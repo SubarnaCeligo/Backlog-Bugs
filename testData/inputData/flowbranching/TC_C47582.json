@@ -1,0 +1,138 @@
+{
+    "name": "TC_C47582",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "AutomationStandaloneExport__gsqpYL0s9w",
+                "_connectionId": "NETSUITE CONNECTION",
+                "asynchronous": true,
+                "type": "test",
+                "pageSize": 5,
+                "oneToMany": false,
+                "sandbox": false,
+                "test": {
+                    "limit": 1
+                },
+                "netsuite": {
+                    "type": "restlet",
+                    "skipGrouping": false,
+                    "statsOnly": false,
+                    "restlet": {
+                        "recordType": "customer",
+                        "searchId": "4537",
+                        "useSS2Restlets": false,
+                        "markExportedBatchSize": 100
+                    },
+                    "distributed": {
+                        "useSS2Framework": false
+                    }
+                },
+                "adaptorType": "NetSuiteExport"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "routeRecordsUsing": "script",
+            "id": "GKlAd3",
+            "routeRecordsTo": "all_matching_branches",
+            "branches": [
+                {
+                    "name": "R1B1",
+                    "inputFilter": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "name"
+                                ]
+                            ],
+                            "Auto_TC_47983_1"
+                        ]
+                    },
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "setupInProgress": true
+                        },
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandaloneImport1_afsflk",
+                                "application":"zendesk support",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "oneToMany": true,
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "Auto_{{random 6}}",
+                                            "generate": "organization.name"
+                                        }
+                                    ]
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "organizations.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            },
+                            "_importId": "UPDATE WITH NEW IMPORTID"
+                        }
+                    ]
+                },
+                {
+                    "name": "R1B2",
+                    "inputFilter": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "name"
+                                ]
+                            ],
+                            "Auto_TC_47983_1"
+                        ]
+                    },
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "setupInProgress": true
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "_scriptId": "UPDATE HERE",
+                "function": "branching"
+            }
+        }
+    ],
+    "scriptBody": {
+        "name": "editedScript",
+        "content": "function branching (options)\n{\nif (options.record.name === \"Auto_TC_47983_1\") {\nreturn[0]\n}\nelse\nreturn[0,1]\n}"
+    }
+}

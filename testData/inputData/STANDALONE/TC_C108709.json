@@ -1,0 +1,87 @@
+{
+    "name": "Webhook Exports",
+    "referencename": "Webhook Exports",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "webhook xml",
+                        "type": "webhook",
+                        "qa__token": "123789",
+                        "sandbox": false,
+                        "webhook": {
+                            "provider": "custom",
+                            "verify": "token",
+                            "token": "123789",
+                            "path": "/record/token"
+                        },
+                        "adaptorType": "WebhookExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Ftp Import",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "ic3a361949",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "file": {
+                            "fileName": "Token.csv",
+                            "skipAggregation": false,
+                            "type": "csv",
+                            "csv": {
+                                "rowDelimiter": "\n",
+                                "columnDelimiter": ",",
+                                "includeHeader": true,
+                                "wrapWithQuotes": false,
+                                "replaceTabWithSpace": false,
+                                "replaceNewlineWithSpace": false,
+                                "truncateLastRowDelimiter": false
+                            }
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                            "fileName": "Token.csv"
+                        },
+                        "filter": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [],
+                                "version": "1"
+                            },
+                            "version": "1",
+                            "rules": []
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "Webhook Exports",
+                "disabled": false,
+                "_integrationId": "63232c59d3a9897fe95f9f2a",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

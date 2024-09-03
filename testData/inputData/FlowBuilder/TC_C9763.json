@@ -1,0 +1,45 @@
+{
+    "name": "TC_C9763",
+    "referencename": "TC_C9763",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "HTTP BG Export",
+                        "application": "BigCommerce",
+                        "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+                        "apiIdentifier": "ed06493b7f",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": "/v3/customers",
+                            "method": "GET",
+                            "formType": "http"
+                        },
+                        "rawData": "62ebb431e627016182cf339123d526efd4854d4c80110dd4d96d6d45",
+                        "test": {
+                            "limit": 1
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C9763",
+                "disabled": false,
+                "_integrationId": "62ecc42648570015ab65cfa5",
+                "qa__integrationId": "62eca1efe386b563f638451e",
+                "skipRetries": false,
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

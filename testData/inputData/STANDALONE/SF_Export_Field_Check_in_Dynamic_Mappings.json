@@ -1,0 +1,118 @@
+{
+  "flowname1": "SF_Export_Field_Check_in_Dynamic_Mappings",
+  "expectedValue": "*.FileName",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "07.NS Export",
+            "qa__connectionId": "628f00568f68e85ab2c63b22",
+            "_connectionId": "NETSUITE CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "rawData": "56d6b114e1fc35de5391472cf8e81651989c47e9808a0f992e5c0828",
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": false,
+              "statsOnly": false,
+              "restlet": {
+                "recordType": "customer",
+                "searchId": "2374",
+                "useSS2Restlets": false
+              },
+              "distributed": {
+                "disabled": false,
+                "forceReload": false
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "create BOM records in Contact",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "distributed": false,
+            "lookups": [
+              {
+                "name": "lookup",
+                "whereClause": "(Name = {{{string id}}})",
+                "sObjectType": "Account",
+                "resultField": "Id",
+                "allowFailures": false
+              }
+            ],
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "File Number",
+                  "generate": "NS_Contact_ID__c",
+                  "lookupName": "lookup"
+                },
+                {
+                  "extract": "First Name",
+                  "generate": "FirstName"
+                },
+                {
+                  "extract": "Last Name",
+                  "generate": "LastName"
+                },
+                {
+                  "generate": "Title",
+                  "hardCodedValue": "Director of Systems and Strategy"
+                },
+                {
+                  "extract": "Work Contact: Work Email",
+                  "generate": "Email"
+                }
+              ]
+            },
+            "salesforce": {
+              "operation": "insert",
+              "sObjectType": "Contact",
+              "api": "soap",
+              "lookups": [
+                {
+                  "name": "lookup",
+                  "whereClause": "(Name = {{{string id}}})",
+                  "sObjectType": "Account",
+                  "resultField": "Id",
+                  "allowFailures": false
+                }
+              ],
+              "removeNonSubmittableFields": false
+            },
+            "adaptorType": "SalesforceImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "SF_Export_Field_Check_in_Dynamic_Mappings",
+        "disabled": false,
+        "_integrationId": "631a1266abf51e7a86c80ab4",
+        "qa__integrationId": "6228aed6bc8a2732cfe8044c",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

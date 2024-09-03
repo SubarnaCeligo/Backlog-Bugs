@@ -1,0 +1,71 @@
+{
+  "skipRetries": false,
+  "_integrationId": "62e8c2172dd80523719f9291",
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "application": "MySQL",
+        "name": "AutomationStandaloneExport__5EH7Ql9mow",
+        "qa__connectionId": "62e8e11136f8f637aa252cd0",
+        "_connectionId":"6362e090906d1908400c031e",
+        "apiIdentifier": "ee7243bc59",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "groupByFields": [
+            "Cust_id",
+            "Cust_name"
+        ],
+        "rdbms": {
+            "query": "Select * from {{Customer}}"
+        },
+        "transform": {
+            "type": "expression",
+            "expression": {
+                "rules": [
+                    []
+                ],
+                "version": "1"
+            },
+            "version": "1",
+            "rules": [
+                []
+            ]
+        },
+        "filter": {
+            "type": "expression",
+            "expression": {
+                "rules": [],
+                "version": "1"
+            },
+            "version": "1",
+            "rules": []
+        },
+        "adaptorType": "RDBMSExport"
+    }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "AutomationStandaloneImport__cHKsVPwzSZ",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "i79cd57dc3",
+        "oneToMany": false,
+        "sandbox": false,
+        "file": {
+          "fileName": "TC_C50817.json",
+          "skipAggregation": false,
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "io.auto.qa/IO_UI_Automation_FTPimport",
+          "fileName": "TC_C50817.json"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ]
+}

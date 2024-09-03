@@ -1,0 +1,25 @@
+{
+    "name": "TC_C30685_flow_custom_setting",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "62e8c2172dd80523719f9291",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "sam",
+                "_connectionId": "62f0dc4d7a962a0a2228ca96",
+                "apiIdentifier": "e3409b4102",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "{{settings.flow.id}}",
+                    "method": "GET",
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ]
+}

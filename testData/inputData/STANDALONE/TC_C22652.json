@@ -1,0 +1,12 @@
+{
+    "templateJSON": {
+        "Source_Environment": "Production",
+        "Source_Integration": "9/8 - C42170",
+        "Integration_Name": "9/8 - C42170",
+        "Source_Integration_Id": "6319acad0a1e6b260efc5d83",
+        "Install_Template ": true,
+        "Upload_Path": "/Template_Downloads/",
+        "New_connection": false,
+        "Total_Flows": 1
+    }
+}

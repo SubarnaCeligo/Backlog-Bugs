@@ -1,0 +1,78 @@
+{
+    "skipRetries": false,
+    "name": "TC_C30846",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "TC_651_Export",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "asynchronous": true,
+                        "type": "distributed",
+                        "parsers": [],
+                        "distributed": {
+                            "bearerToken": "******"
+                        },
+                        "netsuite": {
+                            "type": "distributed",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "criteria": [],
+                                "columns": []
+                            },
+                            "distributed": {
+                                "executionContext": [
+                                    "userinterface",
+                                    "webservices",
+                                    "csvimport",
+                                    "suitelet",
+                                    "custommassupdate",
+                                    "userevent"
+                                ],
+                                "executionType": [
+                                    "create",
+                                    "edit",
+                                    "xedit"
+                                ],
+                                "recordType": "customer",
+                                "sublists": [
+                                    "addressbook"
+                                ],
+                                "qualifier": [
+                                    "companyname",
+                                    "=",
+                                    "RealTime_Export"
+                                ],
+                                "qa__qualifier": [
+                                    "Company Name",
+                                    "is",
+                                    "RealTime_Export"
+                                ],
+                                "skipExportFieldId": "custentity38",
+                                "useSS2Framework": true
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "pageProcessors": [],
+            "createFlow": {
+                "name": "TC_C30846",
+                "disabled": false,
+                "_integrationId": "6333054cca06597ef0aaa8f0",
+                "qa__integrationId": "6228aed6bc8a2732cfe8044c",
+                "skipRetries": false,
+                "pageProcessors": [],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

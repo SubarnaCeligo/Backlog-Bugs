@@ -1,0 +1,63 @@
+{
+    "skipRetries": false,
+    "_integrationId": "6228aed6bc8a2732cfe8044c",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "FTP Export",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "e92d3ec8e7",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C30817"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "transform": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [
+                            [
+                                {
+                                    "extract": "[#Number]",
+                                    "generate": "number"
+                                },
+                                {
+                                    "extract": "[Drug @ Name]",
+                                    "generate": "name"
+                                }
+                            ]
+                        ],
+                        "version": "1"
+                    },
+                    "version": "1",
+                    "rules": [
+                        [
+                            {
+                                "extract": "[#Number]",
+                                "generate": "number"
+                            },
+                            {
+                                "extract": "[Drug @ Name]",
+                                "generate": "name"
+                            }
+                        ]
+                    ]
+                },
+                "adaptorType": "FTPExport",
+                "qa__path": "//FTP_uploads//TC_C30817.json"
+            }
+        }
+    ],
+    "Script": "function preSavePage (options) {\n  options.data[0]={\n    test:options.data[0],\n    preSavePage:23}\n  return options.data.map((d) => {\n    return {\n      data: d\n    }\n  })\n}"
+}

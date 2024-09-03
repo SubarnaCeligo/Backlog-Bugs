@@ -1,0 +1,30 @@
+{
+    "qa_importJson": {
+        "_id": "6353f3508f831b4ba58c910f",
+        "_connectorid":"627aab0e7ca3007138a64cd1",
+        "created": "2022-05-09T07:28:33.451Z",
+        "user": {
+        "email": "io.auto.flowgrouping.qa@celigo.com"
+        },
+        "type": "integrationApp",
+        "trialEndDate": "2022-12-31T07:05:47.214Z"
+    },
+    "importJson": {
+        "_id": "6353f3508f831b4ba58c910f",
+        "_connectorid":"627aab0e7ca3007138a64cd1",
+        "created": "2022-05-09T07:28:33.451Z",
+        "user": {
+        "email": "io.auto.flowgrouping.qa@celigo.com"
+        },
+        "type": "integrationApp",
+        "trialEndDate": "2022-12-31T07:05:47.214Z"
+    },
+    "expectedJson": {
+        "errors": [
+            {
+                "code": "cannot_modify_trialEndDate",
+                "message": "Cannot modify trialEndDate for a paid Integration App license."
+            }
+        ]
+    }
+}

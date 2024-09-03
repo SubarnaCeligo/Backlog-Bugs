@@ -1,0 +1,49 @@
+{
+  "name": "TC_C28402_Running_flows_Page_Validation",
+  "disabled": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "sf",
+        "_connectionId": "SALESFORCE CONNECTION",
+        "adaptorType": "SalesforceExport",
+        "asynchronous": true,
+        "parsers": [],
+        "salesforce": {
+          "type": "soql",
+          "distributed": {
+            "referencedFields": [],
+            "userDefinedReferencedFields": [],
+            "relatedLists": []
+          },
+          "api": "rest",
+          "soql": {
+            "query": "Select Name from Account"
+          }
+        }
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "qa__import": {
+        "name": "TC_C19912_Flow_Error_Link_validation",
+        "parsers": [],
+        "_connectionId": "FTP CONNECTION",
+        "file": {
+          "fileName": "sample.json",
+          "skipAggregation": false,
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation",
+          "fileName": "sampletest.json"
+        },
+        "adaptorType": "FTPImport"
+      },
+      "type": "import"
+    }
+  ]
+}

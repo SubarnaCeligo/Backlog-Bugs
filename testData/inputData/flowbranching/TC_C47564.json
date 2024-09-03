@@ -1,0 +1,210 @@
+{
+  "name": "TC_C47564",
+  "disabled": false,
+  "_integrationId": "62f51db41677a21a108e5e3a",
+  "skipRetries": false,
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "NS export",
+        "_connectionId": "NETSUITE CONNECTION",
+        "apiIdentifier": "ec2aceb4b9",
+        "asynchronous": true,
+        "type": "test",
+        "oneToMany": false,
+        "sandbox": false,
+        "test": {
+          "limit": 1
+        },
+        "netsuite": {
+          "type": "restlet",
+          "skipGrouping": false,
+          "statsOnly": false,
+          "restlet": {
+            "recordType": "department",
+            "searchId": "3193",
+            "criteria": [],
+            "columns": [],
+            "useSS2Restlets": false,
+            "markExportedBatchSize": 100
+          },
+          "distributed": {
+            "executionContext": [],
+            "executionType": [],
+            "useSS2Framework": false
+          }
+        },
+        "adaptorType": "NetSuiteExport"
+      }
+    }
+  ],
+  "routers": [
+    {
+      "routeRecordsUsing": "input_filters",
+      "id": "Yg7QM3",
+      "routeRecordsTo": "all_matching_branches",
+      "branches": [
+        {
+          "name": "Branch 1.0",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "SF import",
+                "_connectionId": "SALESFORCE CONNECTION",
+                "apiIdentifier": "i8ce4764ab",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "lookups": [
+                  {
+                    "name": "dynamic",
+                    "whereClause": "(CreatedById = {{{reference recordType}}})",
+                    "sObjectType": "AcceptedEventRelation",
+                    "resultField": "CreatedById",
+                    "allowFailures": false
+                  }
+                ],
+                "mapping": {
+                  "fields": [
+                    {
+                      "extract": "Name",
+                      "generate": "Name"
+                    },
+                    {
+                      "extract": "id",
+                      "generate": "IsDeleted",
+                      "lookupName": "dynamic"
+                    }
+                  ]
+                },
+                "salesforce": {
+                  "operation": "insert",
+                  "sObjectType": "Account",
+                  "api": "soap",
+                  "lookups": [
+                    {
+                      "name": "dynamic",
+                      "whereClause": "(CreatedById = {{{reference recordType}}})",
+                      "sObjectType": "AcceptedEventRelation",
+                      "resultField": "CreatedById",
+                      "allowFailures": false
+                    }
+                  ],
+                  "removeNonSubmittableFields": false
+                },
+                "adaptorType": "SalesforceImport"
+              }
+            }
+          ],
+          "nextRouterId": "QIfZBU"
+        },
+        {
+          "name": "Branch 1.1",
+          "nextRouterId": "QIfZBU",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "S3 import",
+                "description": "for testing .make changes",
+                "_connectionId": "S3 CONNECTION",
+                "apiIdentifier": "i300887266",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                  "fileName": "TC_C47564_file{{timestamp}}.json",
+                  "skipAggregation": false,
+                  "type": "json"
+                },
+                "s3": {
+                  "region": "us-east-1",
+                  "bucket": "io-automation",
+                  "fileKey": "TC_C47564_file{{timestamp}}.json"
+                },
+                "adaptorType": "S3Import"
+              }
+            }
+          ]
+        }
+      ],
+      "script": {
+        "function": "branching"
+      }
+    },
+    {
+      "id": "QIfZBU",
+      "branches": [
+        {
+          "name": "",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "FTP import",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "i49b0418f1",
+                "oneToMany": false,
+                "sandbox": false,
+                "lookups": [
+                  {
+                    "name": "static",
+                    "map": {
+                      "6": "8"
+                    },
+                    "allowFailures": false
+                  }
+                ],
+                "mapping": {
+                  "fields": [
+                    {
+                      "extract": "Name",
+                      "generate": "name"
+                    },
+                    {
+                      "extract": "recordType",
+                      "generate": "email",
+                      "lookupName": "static"
+                    }
+                  ]
+                },
+                "file": {
+                  "fileName": "TC_C47564-{{timestamp \"YYYY-MM-DD hh:mm:ss\" \"America/Los_Angeles\"}}.json",
+                  "skipAggregation": false,
+                  "type": "json",
+                  "lookups": [
+                    {
+                      "name": "static",
+                      "map": {
+                        "6": "8"
+                      },
+                      "allowFailures": false
+                    }
+                  ]
+                },
+                "ftp": {
+                  "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                  "fileName": "TC_C47564-{{timestamp \"YYYY-MM-DD hh:mm:ss\" \"America/Los_Angeles\"}}.json"
+                },
+                "adaptorType": "FTPImport"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

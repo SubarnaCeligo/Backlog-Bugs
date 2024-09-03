@@ -1,0 +1,141 @@
+    {
+    "name": "TC_C51852",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+      },
+    "referencename": "TC_C51852",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export":{
+                "name": "Stripe customer Export",
+                "_connectionId": "HTTP STRIPE CONNECTION",
+                "apiIdentifier": "e3a32bafc4",
+                "asynchronous": true,
+                "type": "test",
+                "assistant": "stripe",
+                "oneToMany": false,
+                "sandbox": false,
+                "assistantMetadata": {
+                "resource": "6384ac104342b8126f874b62",
+                "version": "6384ac104342b8126f874ae3",
+                "operation": "6384ac104342b8126f874b63"
+                },
+                "http": {
+                "relativeURI": "/v1/customers",
+                "method": "GET",
+                "_httpConnectorVersionId": "6384ac104342b8126f874ae3",
+                "_httpConnectorResourceId": "6384ac104342b8126f874b62",
+                "_httpConnectorEndpointId": "6384ac104342b8126f874b63",
+                "formType": "assistant",
+                "paging": {
+                "relativeURI": "/v1/customers?starting_after={{{id}}}"
+                },
+                "response": {
+                "resourcePath": "data"
+                }
+                },
+                "rawData": "60f925179593301155817734495e68f35a564daba80409478fbfaaab",
+                "test": {
+                "limit": 1
+                },
+                "adaptorType": "HTTPExport"
+                }       
+          }
+        ],
+        "pageProcessors":[
+          {
+            "type": "import",
+            "qa__import": 
+                { 
+                    "name": "Stripe customer Import",
+                    "_connectionId": "HTTP STRIPE CONNECTION",
+                    "apiIdentifier": "ic6aec817b",
+                    "ignoreExisting": false,
+                    "ignoreMissing": false,
+                    "oneToMany": false,
+                    "assistant": "stripe",
+                    "sandbox": false,
+                    "assistantMetadata": {
+                    "resource": "6384ac104342b8126f874b62",
+                    "version": "6384ac104342b8126f874ae3",
+                    "operation": [
+                    "6384ac104342b8126f874bf4",
+                    "6384ac104342b8126f874bf3"
+                    ]
+                    },
+                    "mapping": {
+                    "fields": [
+                    {
+                    "generate": "metadata[order_id]",
+                    "hardCodedValue": "1234"
+                    },
+                    {
+                    "generate": "email",
+                    "hardCodedValue": "testvikram9000@gmail.com"
+                    }
+                    ]
+                    },
+                    "http": {
+                    "relativeURI": [
+                    "/v1/customers/{{{data.0.id}}}",
+                    "/v1/customers"
+                    ],
+                    "method": [
+                    "POST",
+                    "POST"
+                    ],
+                    "body": [],
+                    "requestMediaType": "urlencoded",
+                    "successMediaType": "json",
+                    "errorMediaType": "json",
+                    "requestType": [
+                    "UPDATE",
+                    "CREATE"
+                    ],
+                    "strictHandlebarEvaluation": true,
+                    "sendPostMappedData": true,
+                    "_httpConnectorVersionId": "6384ac104342b8126f874ae3",
+                    "_httpConnectorResourceId": "6384ac104342b8126f874b62",
+                    "_httpConnectorEndpointIds": [
+                    "6384ac104342b8126f874bf4",
+                    "6384ac104342b8126f874bf3"
+                    ],
+                    "existingExtract": "id",
+                    "formType": "assistant"
+                    },
+                    "adaptorType": "HTTPImport"
+                    }
+           }
+         
+       
+        ],
+        "createFlow": {
+            "name": "TC_C51852",
+            "disabled": false,
+            "qa__integrationId": "633408479fb96473a0c7372c",
+            "_integrationId": "631a1266abf51e7a86c80ab4",
+            "skipRetries": false,
+            "pageProcessors": [
+                {
+                    "responseMapping": {
+                        "fields": [],
+                        "lists": []
+                    },
+                    "type": "import",
+                    "_importId": "UPDATE WITH NEW IMPORTID"
+                }
+            ],
+            "pageGenerators": [
+                {
+                    "_exportId": "UPDATE WITH NEW EXPORTID"
+                }
+            ]
+        }
+    }
+    ]
+}

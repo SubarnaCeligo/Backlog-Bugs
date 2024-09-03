@@ -1,0 +1,253 @@
+{
+  "name": "TC_C47500",
+  "disabled": false,
+  "_integrationId": "62f51db41677a21a108e5e3a",
+  "skipRetries": false,
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "Acumatica Export",
+        "qa__assistant": {},
+        "_connectionId": "HTTP ACUMATICA CONNECTION",
+        "apiIdentifier": "eb50bb0b7d",
+        "asynchronous": true,
+        "assistant": "acumatica",
+        "oneToMany": false,
+        "sandbox": false,
+        "type": "test",
+        "test": {
+          "limit": 1
+        },
+        "assistantMetadata": {
+          "version": "v20.200.001",
+          "resource": "customer",
+          "operation": "getall_customer"
+        },
+        "http": {
+          "relativeURI": "/Customer?$top=100{{#compare export.http.paging.skip \"!=\" \"0\"}}&$skip={{{export.http.paging.skip}}}{{/compare}}",
+          "method": "GET",
+          "successMediaType": "json",
+          "errorMediaType": "json",
+          "formType": "assistant",
+          "paging": {
+            "method": "skip",
+            "skip": 0,
+            "relativeURI": "/Customer?$top=100{{#compare export.http.paging.skip \"!=\" \"0\"}}&$skip={{{export.http.paging.skip}}}{{/compare}}",
+            "lastPageStatusCode": 404
+          }
+        },
+        "rest": {
+          "relativeURI": "/Customer?$top=100",
+          "method": "GET",
+          "pagingMethod": "skipargument",
+          "allowUndefinedResource": false,
+          "skipArgument": "$skip"
+        },
+        "transform": {
+          "type": "expression",
+          "expression": {
+            "rules": [
+              [
+                {
+                  "generate": "id",
+                  "extract": "CustomerID.value"
+                },
+                {
+                  "generate": "name",
+                  "extract": "CustomerName.value"
+                },
+                {
+                  "generate": "title",
+                  "extract": "id"
+                }
+              ]
+            ],
+            "version": "1"
+          },
+          "version": "1",
+          "rules": [
+            [
+              {
+                "generate": "id",
+                "extract": "CustomerID.value"
+              },
+              {
+                "generate": "name",
+                "extract": "CustomerName.value"
+              },
+              {
+                "generate": "title",
+                "extract": "id"
+              }
+            ]
+          ]
+        },
+        "adaptorType": "RESTExport"
+      }
+    }
+  ],
+  "routers": [
+    {
+      "routeRecordsUsing": "input_filters",
+      "id": "lKuOb4",
+      "routeRecordsTo": "all_matching_branches",
+      "branches": [
+        {
+          "name": "Branch1",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "Zendesk import 1",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "ic57a0333f",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mapping": {
+                  "fields": [
+                    {
+                      "hardCodedValue": "Auto_TC_47500_1",
+                      "generate": "user.name"
+                    },
+                    {
+                      "extract": "title",
+                      "generate": "user.notes"
+                    }
+                  ]
+                },
+                "http": {
+                  "relativeURI": [
+                    "users"
+                  ],
+                  "method": [
+                    "POST"
+                  ],
+                  "body": [],
+                  "batchSize": 1,
+                  "sendPostMappedData": true,
+                  "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Branch2",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "Zendesk import 2",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "icc8047a7c",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mapping": {
+                  "fields": [
+                    {
+                      "hardCodedValue": "Auto_TC_47500_2",
+                      "generate": "user.name"
+                    },
+                    {
+                      "extract": "title",
+                      "generate": "user.notes"
+                    }
+                  ]
+                },
+                "http": {
+                  "relativeURI": [
+                    "users"
+                  ],
+                  "method": [
+                    "POST"
+                  ],
+                  "body": [],
+                  "batchSize": 1,
+                  "sendPostMappedData": true,
+                  "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+              }
+            }
+          ]
+        }
+      ],
+      "script": {
+        "function": "branchRouter"
+      }
+    }
+  ],
+  "qa__expectedDashboardCount": {
+    "successCount": "3",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "expected": {
+      "zendesk": {
+        "_integrationId": "62f51db41677a21a108e5e3a",
+        "name": "TC_C47500",
+        "import": {
+          "_connectionId": "62f4c40833b1cc2065ea388d"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": {
+            "name": "Auto_TC_47500_1",
+            "notes": "c48bd127-bbb4-ec11-8205-e35ebdf0c2d6"
+          },
+          "uniqueField": "name",
+          "generateSampleDropDownAvailable": false,
+          "standaloneexportflowID": "63ffdacdd6a14e3abb4022f3",
+          "importRecordType": "users",
+          "isUIFlow": true,
+          "exportapiIdentifier": "ebed365fdc"
+        }
+      },
+      "Zendesk": {
+        "_integrationId": "62f51db41677a21a108e5e3a",
+        "name": "TC_47500",
+        "import": {
+          "_connectionId": "62f4c40833b1cc2065ea388d"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": {
+            "name": "Auto_TC_47500_2",
+            "notes": "c48bd127-bbb4-ec11-8205-e35ebdf0c2d6"
+          },
+          "uniqueField": "name",
+          "generateSampleDropDownAvailable": false,
+          "standaloneexportflowID": "63ffdacdd6a14e3abb4022f3",
+          "importRecordType": "users",
+          "isUIFlow": true,
+          "exportapiIdentifier": "ebed365fdc"
+        }
+      }
+    }
+  }
+}

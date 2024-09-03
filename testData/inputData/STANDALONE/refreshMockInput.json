@@ -1,0 +1,100 @@
+{
+  "name": "refreshMockInput",
+  "referencename": "refreshMockInput",
+  "data": {
+    "page_of_records": [
+      {
+        "record": {
+          "name": "Mahesh Nivrutti Sutar",
+          "email": "MaheshSutar@gmail.com",
+          "phone": "1234567891"
+        }
+      }
+    ]
+  },
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Ftp Export",
+            "_connectionId": "FTP CONNECTION",
+            "qa__path": "/FTP_uploads/TC_2568.json",
+            "apiIdentifier": "ecaacfefba",
+            "asynchronous": true,
+            "sandbox": false,
+            "sampleData": {
+              "name": "Mahesh Sutar",
+              "email": "Mahesh0@gmail.com",
+              "phone": "8989465213"
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+              "fileNameStartsWith": "TC_2568",
+              "fileNameEndsWith": ".json"
+            },
+            "file": {
+              "output": "records",
+              "skipDelete": true,
+              "type": "json"
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Http Import",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "icfa90fb0c",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+              "relativeURI": [
+                "users"
+              ],
+              "method": [
+                "POST"
+              ],
+              "body": [
+                "{\n\"user\":\n{\"name\":\"{{record.name}}\",\n\"email\":\"{{record.email}}\",\n\"phone\":\"{{record.phone}}\"\n}\n}"
+              ],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "refreshMockInput",
+        "disabled": false,
+        "qa__integrationId": "63232caf5342c33e615e7271",
+        "_integrationId": "63232c59d3a9897fe95f9f2a",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "name": "TC_C51197",
+  "referencename": "TC_C51197",
+  "sandbox": true,
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "FTP Export",
+            "qa__path": "/FTP_uploads/TC_C32404.json",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "e74769727d",
+            "asynchronous": true,
+            "sandbox": true,
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+              "fileNameStartsWith": "TC_C51965"
+            },
+            "file": {
+              "output": "records",
+              "skipDelete": true,
+              "type": "json",
+              "json": {
+                "resourcePath": "*"
+              }
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "HTTP import",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "ied5c3c7ad",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": true,
+            "http": {
+              "relativeURI": [
+                "users"
+              ],
+              "method": [
+                "POST"
+              ],
+              "body": [],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C51197",
+        "disabled": false,
+        "qa__integrationId": "6348f7b82eb41641d0073c18",
+        "_integrationId": "634cf1765537bc284701b13d",
+        "skipRetries": false,
+        "sandbox": true,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

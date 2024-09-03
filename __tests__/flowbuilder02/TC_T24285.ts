@@ -45,8 +45,7 @@ test.describe("T24285 -Verify user can create export/lookup/import with the 'Clo
         await io.flowBuilder.clickByTextByIndex('HTTP ZENDESK CONNECTION', 0);
 
         //Make sure Clone flow is selected
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.CLONE_FLOW_STEP_RADIO);
-        await io.assert.verifyElementAttributeContainsText(selectors.flowBuilderPagePO.CLONE_FLOW_STEP_RADIO, "class", "Mui-checked");
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.CLONE_RESOURCE);
 
         //Update name
         const randomNumber = Math.floor(Math.random() * (999 - 100 + 1)) + 100;

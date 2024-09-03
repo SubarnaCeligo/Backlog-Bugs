@@ -1,0 +1,27 @@
+{
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "NetsuiteExp_1.0",
+            "_connectionId": "NETSUITE CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "netsuite": {
+                "type": "restlet",
+                "skipGrouping": true,
+                "statsOnly": false,
+                "restlet": {
+                    "recordType": "customer",
+                    "searchId": "1913",
+                    "restletVersion": "suiteapp2.0",
+                    "markExportedBatchSize": 100
+                },
+                "distributed": {}
+            },
+            "adaptorType": "NetSuiteExport"
+        }
+    }]
+}
+
+
+

@@ -1,0 +1,27 @@
+
+  {
+    "name": "TC_C28174",
+    "pageGenerators": [
+      {
+        "qa__export": {
+            "name": "Page Pagination validations",
+            "_connectionId":"HTTP STRIPE CONNECTION",
+            "apiIdentifier": "e34d0ed4bd",
+            "asynchronous": true,
+            "pageSize": 1,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+              "relativeURI": "/accounts?size=1&index={{export.http.paging.page}}",
+              "method": "GET",
+              "formType": "http",
+              "paging": {
+                "method": "page"
+              }
+            },
+            "rawData": "60d9916bcf735963dc15382edb2db072a07a4fffa4940019559aa3cd",
+            "adaptorType": "HTTPExport"
+          }
+      }
+    ]
+  }

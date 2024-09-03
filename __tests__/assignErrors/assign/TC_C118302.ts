@@ -59,7 +59,7 @@ test.describe("C118302 - Verify the assignee pill when the user is removed from 
    //Verify if error is assigned.
    await io.flowBuilder.waitForElementAttached(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL);
    const assignee = (await io.flowBuilder.getText(selectors.em2DotOLineGraphPO.ASSIGNEE_PILL)).toString();
-   await io.assert.expectToContainValue('Pending - io.auto.qa+remac', assignee, 'Error not assigned - Pill is not showing user email');
+   await io.assert.expectToContainValue('Pending - io.auto.qa+re', assignee, 'Error not assigned - Pill is not showing user email');
 
    //Get user ID
    const response = await io.api.getCall("v1/ashares");

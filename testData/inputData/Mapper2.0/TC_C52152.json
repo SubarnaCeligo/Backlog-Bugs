@@ -1,0 +1,154 @@
+{
+  "import": {
+        "name": "TC_C52152 - NoSetting-ObjArray",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "i12d3e356e",
+        "oneToMany": false,
+        "sandbox": false,
+        "mappings": [
+            {
+                "dataType": "objectarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                    {
+                        "extract": "$.user",
+                        "sourceDataType": "object",
+                        "mappings": [
+                            {
+                                "generate": "id",
+                                "dataType": "objectarray",
+                                "status": "Active",
+                                "buildArrayHelper": [
+                                    {
+                                        "extract": "$.user.identities1[*]",
+                                        "default": "",
+                                        "sourceDataType": "objectarray",
+                                        "mappings": [
+                                            {
+                                                "generate": "id1",
+                                                "dataType": "objectarray",
+                                                "status": "Active",
+                                                "buildArrayHelper": [
+                                                    {
+                                                        "extract": "$.user.identities[*]",
+                                        
+                                                        "mappings": [
+                                                            {
+                                                                "generate": "id2",
+                                                                "dataType": "objectarray",
+                                                                "status": "Active",
+                                                                "buildArrayHelper": [
+                                                                    {
+                                                                        "extract": "$.user.identities11[*]"
+                                                                    
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "generate": "id3",
+                                                                "dataType": "objectarray",
+                                                                "status": "Active",
+                                                                "buildArrayHelper": [
+                                                                    {
+                                                                        "extract": "$.user.identities[*]",
+                                
+                                                                        "sourceDataType": "objectarray"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "extract": "$.NumberArray2[*]",
+                                        "default": "",
+                                        "sourceDataType": "objectarray"
+                                    },
+                                    {
+                                        "extract": "$.user.identities3[*]",
+                                        "default": "",
+                                        "sourceDataType": "objectarray"
+                                    },
+                                    {
+                                        "extract": "$.NumberArra4y4[*]",
+                                        "conditional": {
+                                            "when": "extract_not_empty"
+                                        },
+                                        "sourceDataType": "objectarray"
+                                    }
+                                ]
+                            },
+                            {
+                                "generate": "numbernull",
+                                "dataType": "objectarray",
+                                "status": "Active",
+                                "buildArrayHelper": [
+                                    {
+                                        "extract": "$.user.identities2[*]",
+                                        "default": "",
+                                        "sourceDataType": "objectarray"
+                                    },
+                                    {
+                                        "extract": "$.NumberArray3[*]",
+                                        "default": "",
+                                        "sourceDataType": "objectarray"
+                                    },
+                                    {
+                                        "extract": "$.user.identities4[*]",
+                                        "default": "",
+                                        "sourceDataType": "objectarray"
+                                    },
+                                    {
+                                        "extract": "$.NumberArra4y5[*]",
+                                        "default": "",
+                                        "sourceDataType": "objectarray"
+                                    }
+                                ]
+                            },
+                            {
+                                "generate": "booleanull",
+                                "dataType": "objectarray",
+                                "status": "Active",
+                                "buildArrayHelper": [
+                                    {
+                                        "extract": "$.user.identities33[*]",
+                                        "default": "",
+                                        "sourceDataType": "objectarray"
+                                    },
+                                    {
+                                        "extract": "$.NumberArray34[*]",
+                                        "default": "",
+                                        "sourceDataType": "objectarray"
+                                    },
+                                    {
+                                        "extract": "$.user.identities44[*]",
+                                        "default": "",
+                                        "sourceDataType": "objectarray"
+                                    },
+                                    {
+                                        "extract": "$.NumberArra4y54[*]",
+                                        "default": "",
+                                        "sourceDataType": "objectarray"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "file": {
+            "fileName": "XML-file-0922145919.xlsx",
+            "skipAggregation": false,
+            "type": "xlsx"
+        },
+        "ftp": {
+            "directoryPath": "/GAbhinash",
+            "fileName": "XML-file-0922145919.xlsx"
+        },
+        "adaptorType": "FTPImport"
+    }
+}

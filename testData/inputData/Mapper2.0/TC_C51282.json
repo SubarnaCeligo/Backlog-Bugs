@@ -1,0 +1,171 @@
+{
+  "referencename": "TC_C51282",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "TC_C51282",
+            "_connectionId": "FTP CONNECTION",
+            "asynchronous": true,
+            "sandbox": false,
+            "qa__path": "//FTP_uploads//TC_C52097.json",
+            "ftp": {
+              "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+              "fileNameStartsWith": "TC_C52097"
+            },
+            "file": {
+              "encoding": "utf8",
+              "output": "records",
+              "skipDelete": true,
+              "type": "json"
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "TC_C51282",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "i77d54bab9",
+            "oneToMany": false,
+            "sandbox": false,
+            "mappings": [
+              {
+                "generate": "Mother",
+                "dataType": "objectarray",
+                "status": "Draft",
+                "buildArrayHelper": [
+                  {
+                    "extract": "$[*].children[*]",
+                    "sourceDataType": "objectarray",
+                    "mappings": [
+                      {
+                        "generate": "test",
+                        "dataType": "objectarray",
+                        "status": "Draft",
+                        "buildArrayHelper": [
+                          {
+                            "extract": "$.children",
+                            "sourceDataType": "objectarray",
+                            "mappings": [
+                              {
+                                "dataType": "string",
+                                "status": "Draft",
+                                "sourceDataType": "string"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "generate": "test1",
+                        "dataType": "objectarray",
+                        "status": "Draft",
+                        "buildArrayHelper": [
+                          {
+                            "extract": "$.siblings[*]",
+                            "sourceDataType": "objectarray",
+                            "mappings": [
+                              {
+                                "dataType": "string",
+                                "status": "Draft",
+                                "sourceDataType": "string"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "extract": "$[*].mother",
+                    "sourceDataType": "object",
+                    "mappings": [
+                      {
+                        "generate": "test",
+                        "dataType": "objectarray",
+                        "status": "Draft",
+                        "buildArrayHelper": [
+                          {
+                            "extract": "$.mother.fName",
+                            "conditional": {
+                              "when": "extract_not_empty"
+                            },
+                            "sourceDataType": "objectarray",
+                            "mappings": [
+                              {
+                                "generate": "name",
+                                "dataType": "string",
+                                "status": "Draft",
+                                "sourceDataType": "string"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "generate": "test1",
+                        "dataType": "objectarray",
+                        "status": "Draft",
+                        "buildArrayHelper": [
+                          {
+                            "sourceDataType": "string",
+                            "mappings": [
+                              {
+                                "dataType": "string",
+                                "status": "Draft",
+                                "sourceDataType": "string"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "file": {
+              "fileName": "TC_C51282.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPimport",
+              "fileName": "TC_C51282.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C51282",
+        "disabled": false,
+        "qa__integrationId": "56d6b23fe1fc35de53914730",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "type": "export",
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

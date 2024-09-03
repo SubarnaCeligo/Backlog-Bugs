@@ -1,0 +1,81 @@
+{
+  "name": "TC_C51957",
+  "qa__api_tdata": [
+    {
+      "pageProcessors": [
+        {
+          "responseMapping": {
+            "fields": [],
+            "lists": []
+          },
+          "type": "import",
+          "qa__import": {
+            "name": "TC_C51957",
+            "_connectionId":"S3 CONNECTION",
+            "apiIdentifier": "ib0e820536",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+              "fileName": "fileTC_C51957-{{timestamp}}.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "s3": {
+              "region": "us-east-1",
+              "bucket": "io-automation",
+              "fileKey": "fileTC_C51957-{{timestamp}}.json"
+            },
+            "adaptorType": "S3Import"
+          }
+        }
+      ],
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "TC_C51957",
+            "qa__path": "//FTP_uploads//TC_C51795.json",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "ee66d9e367",
+            "asynchronous": true,
+            "sandbox": false,
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+              "fileNameStartsWith": "TC_C51795"
+            },
+            "file": {
+              "encoding": "utf8",
+              "output": "records",
+              "skipDelete": true,
+              "type": "json"
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C51957",
+        "disabled": false,
+        "qa__integrationId": "56d6b23fe1fc35de53914730",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "type": "export",
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

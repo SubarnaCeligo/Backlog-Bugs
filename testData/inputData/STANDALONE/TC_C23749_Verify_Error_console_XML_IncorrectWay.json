@@ -1,0 +1,2 @@
+{
+    "data" : "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<data>\n{{#each batch_of_records}} \n<Name>{{rows.0.Name}}</Name> \n<Account>{{rows.0.Account}}</Account> \n<memo>{{rows.0.Memo}}</memo> \n{{/each}}data>" }

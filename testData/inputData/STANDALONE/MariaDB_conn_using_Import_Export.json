@@ -1,0 +1,14 @@
+{
+  "importJSON": {
+    "type": "rdbms",
+    "name": "mariadb",
+    "rdbms": {
+      "type": "mariadb",
+      "host": "mariadb.cu9ep4kmgkck.us-east-1.rds.amazonaws.com",
+      "database": "componentTestsDB",
+      "user": "admin",
+      "password": "IzJxa0I5S2RVUEx3",
+      "disableStrictSSL": false
+    }
+  }
+}

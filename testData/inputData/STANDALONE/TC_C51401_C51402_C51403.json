@@ -1,0 +1,47 @@
+{
+    "skipRetries": false,
+    "_integrationId": "63232c59d3a9897fe95f9f2a",
+    "qa__integrationId": "63232caf5342c33e615e7271",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "ZD HTTP Export",
+                "application": "zendesk support",
+                "qa__connectionId":"HTTP ZENDESK CONNECTION",
+                "connectionId":"HTTP ZENDESK CONNECTION",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "users/1473313072",
+                    "method": "GET",
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "FTP Import",
+                "parsers": [],
+                "_connectionId": "FTP CONNECTION",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "TC_51401|02|03.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                    "fileName": "file-{{timestamp}}.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ]
+}

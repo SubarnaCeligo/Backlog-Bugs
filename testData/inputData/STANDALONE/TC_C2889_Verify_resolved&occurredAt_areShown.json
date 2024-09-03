@@ -1,0 +1,51 @@
+{
+    "name": "Errored_Export",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+                "name": "Errored_Export",
+                "_connectionId": "NETSUITE CONNECTION",
+                "apiIdentifier": "e7bd7304b6",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "parsers": [],
+                "netsuite": {
+                    "type": "restlet",
+                    "skipGrouping": true,
+                    "statsOnly": false,
+                    "restlet": {
+                        "recordType": "supportcase",
+                        "searchId": "3837",
+                        "criteria": [],
+                        "columns": [],
+                        "useSS2Restlets": false
+                    },
+                    "distributed": {
+                        "executionContext": [],
+                        "executionType": [],
+                        "useSS2Framework": false
+                    }
+                },
+                "adaptorType": "NetSuiteExport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "Errored_Export",
+          "_integrationId": "631a1266abf51e7a86c80ab4",
+          "qa__integrationId": "6228aed6bc8a2732cfe8044c",
+          "disabled": false,
+          "skipRetries": false,
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

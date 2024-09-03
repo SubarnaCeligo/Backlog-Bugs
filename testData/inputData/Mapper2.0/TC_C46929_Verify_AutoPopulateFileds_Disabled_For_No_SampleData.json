@@ -1,0 +1,72 @@
+{
+    "name": "TC_C46929_Verify_AutoPopulateFileds_Disabled_For_No_SampleData",
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "disabled": false,
+    "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "s3im",
+            "parsers": [],
+            "_connectionId": "S3 CONNECTION",
+            "apiIdentifier": "i4a61b00b7",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+              "fileName": "test.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "s3": {
+              "region": "us-east-1",
+              "bucket": "automations3import",
+              "fileKey": "test.json"
+            },
+            "adaptorType": "S3Import"
+          }
+        }
+      ],
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "name": "Get a single order from shopify",
+          "_connectionId": "SHOPIFY CONNECTION",
+          "qa__connectionId": "SHOPIFY CONNECTION",
+          "adaptorType": "RESTExport",
+          "asynchronous": true,
+          "assistant": "shopify",
+          "assistantMetadata": {
+            "resource": "order",
+            "version": "v2",
+            "operation": "receive_asingleorder"
+          },
+          "http": {
+            "relativeURI": "/orders/4501132231.json",
+            "method": "GET",
+            "paging": {
+              "lastPageValues": []
+            },
+            "response": {
+              "resourcePath": "order",
+              "successValues": []
+            }
+          },
+          "rest": {
+            "relativeURI": "/orders/4501132231.json",
+            "method": "GET",
+            "headers": [],
+            "resourcePath": "order",
+            "allowUndefinedResource": false
+          },
+          "qa__assistant": {
+            "resource": "Orders : Order",
+            "endpoint": "Retrieves a specific order",
+            "pathParams": {
+              "orderId": "4501132231"
+            }
+          }
+        }
+      }
+    ]
+  }

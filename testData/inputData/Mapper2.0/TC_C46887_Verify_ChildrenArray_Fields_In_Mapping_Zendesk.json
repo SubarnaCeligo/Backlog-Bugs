@@ -1,0 +1,58 @@
+{
+  "name": "TC_C46891_Verify_No_Case_Sensitive_for_Mapping",
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "disabled": false,
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "Create Users",
+        "application": "HubSpot",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "qa__connectionId": "5c4eaf75576d68720829a033",
+        "apiIdentifier": "ifa02f759b",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": [
+            "users"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [],
+          "batchSize": 1,
+          "sendPostMappedData": true,
+          "formType": "http",
+          "qa__formType": "rest"
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "FTP Export ",
+        "qa__path": "//FTP_uploads//TC_C46891.json",
+        "_connectionId": "FTP CONNECTION",
+        "asynchronous": true,
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "TC_C46891.json"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json"
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ]
+}

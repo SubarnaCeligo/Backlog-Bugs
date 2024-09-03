@@ -1,0 +1,119 @@
+{
+    "qa_integrationSetting":
+    {
+    "_id": "628e13339837c7515c8b0b0e",
+    "name": "Hidden",
+    "install": [],
+    "sandbox": false,
+    "_registeredConnectionIds": [
+        "628e152f6109d0725359d83f"
+    ],
+    "installSteps": [
+        {
+            "name": "Configure ActiveCampaign Connection",
+            "description": "Configure your ActiveCampaign connection. This is common and is set up on parent",
+            "imageUrl": "/images/company-logos/netsuite.png",
+            "completed": false,
+            "type": "connection",
+            "sourceConnection": {
+                "type": "http",
+                "assistant": "activecampaign",
+                "name": "AC Test Case connection",
+                "_id": "628e152f6109d0725359d83f"
+            }
+        },
+        {
+            "name": "Execute scripts in hidden step",
+            "description": "Click on the link to get the IO bundle link, install and then verify the installation.",
+            "imageUrl": "/images/company-logos/netsuite.png",
+            "completed": false,
+            "type": "hidden",
+            "function": "removeStep",
+            "_scriptId": "629dfc60170d31316db48d8a"
+        },
+        {
+            "name": "Step with redirect URL",
+            "completed": false,
+            "type": "url",
+            "url": "https://www.celigo.com/ipaas-integration-platform/"
+        }
+    ],
+    "uninstallSteps": [],
+    "flowGroupings": []
+},
+"qa_importJson": {
+    "environment": "Production",
+    "name": "TC_IAF_007_C33449",
+    "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+    "_integrationId": "628e13339837c7515c8b0b0e",
+    "applications": ["activecampaign"],
+    "framework": "twoDotZero",
+    "twoDotZero": {
+      "_integrationId": "628e13339837c7515c8b0b0e"
+    }
+  },
+  "integrationSetting":
+  {
+    "_id": "631ab3ed3796483e5615b60f",
+    "name": "Hidden",
+    "install": [],
+    "sandbox": false,
+    "_registeredConnectionIds": [
+        "626fdc6d7490300e92ffd613"
+    ],
+    "installSteps": [
+        {
+            "name": "Configure ActiveCampaign Connection",
+            "description": "Configure your ActiveCampaign connection. This is common and is set up on parent",
+            "imageUrl": "/images/company-logos/netsuite.png",
+            "completed": false,
+            "type": "connection",
+            "sourceConnection": {
+                "type": "http",
+                "assistant": "activecampaign",
+                "name": "AC Test Case connection",
+                "_id": "626fdc6d7490300e92ffd613"
+            }
+        },
+        {
+            "name": "Execute scripts in hidden step",
+            "description": "Click on the link to get the IO bundle link, install and then verify the installation.",
+            "imageUrl": "/images/company-logos/netsuite.png",
+            "completed": false,
+            "type": "hidden",
+            "function": "removeStep",
+            "_scriptId": "626137e61ce14c420e01c86b"
+        },
+        {
+            "name": "Step with redirect URL",
+            "completed": false,
+            "type": "url",
+            "url": "https://www.celigo.com/ipaas-integration-platform/"
+        }
+    ],
+    "uninstallSteps": [],
+    "flowGroupings": []
+},
+"importJson": {
+  "environment": "Production",
+  "name": "TC_IAF_007_C33449",
+  "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+  "_integrationId": "631ab3ed3796483e5615b60f",
+  "applications": ["activecampaign"],
+  "framework": "twoDotZero",
+  "twoDotZero": {
+    "_integrationId": "631ab3ed3796483e5615b60f"
+  }
+},
+  "createLicense": {
+    "name": "TC_IAF_007_C33449"
+},
+"app": "ActiveCampaign",
+"integrationName": "Hidden",
+  "setupConnection": {
+    "integrationName":"Hidden",
+    "activecampaignSubdomain": "jnsajkcbajbfewfbkbjk",
+    "token": "jfbewjkfbefnevbelve",
+    "uninstall":"false"
+  }
+}

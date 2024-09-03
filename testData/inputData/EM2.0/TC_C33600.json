@@ -1,0 +1,150 @@
+{
+    "name": "TC_C33600",
+    "referencename": "TC_C33600",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "ftpexp",
+                        "_connectionId": "FTP CONNECTION",
+                        "asynchronous": true,
+                        "sandbox": false,
+                        "parsers": [],
+                        "qa__path": "/FTP_uploads/C22768.json",
+                        "ftp": {
+                            "directoryPath": "io.auto.qa/IO_Automation_SFTP_Exports",
+                            "fileNameStartsWith": "C22768"
+                        },
+                        "file": {
+                            "encoding": "utf8",
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "json",
+                            "json": {
+                                "resourcePath": "*"
+                            }
+                        },
+                        "adaptorType": "FTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "SS1.0 Script Instruction Count Error",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "asynchronous": true,
+                        "isLookup": true,
+                        "sandbox": false,
+                        "type": "test",
+                        "oneToMany": false,
+                        "parsers": [],
+                        "test": {
+                            "limit": 1
+                        },
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "hooks": {
+                                    "preSend": {
+                                        "fileInternalId": "4118408",
+                                        "function": "postMap"
+                                    }
+                                },
+                                "recordType": "salesorder",
+                                "searchId": "194",
+                                "criteria": [],
+                                "columns": [],
+                                "useSS2Restlets": true
+                            },
+                            "distributed": {
+                                "executionContext": [],
+                                "executionType": [],
+                                "useSS2Framework": true
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                },
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "SS2.0 Script Instruction Count Error",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "distributed": true,
+                        "hooks": {
+                            "preMap": {
+                                "function": "preMap",
+                                "_scriptId": ""
+                            }
+                        },
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "lookups": [],
+                        "netsuite_da": {
+                            "useSS2Restlets": true,
+                            "operation": "add",
+                            "recordType": "customer",
+                            "lookups": [],
+                            "mapping": {
+                                "fields": [
+                                    {
+                                        "generate": "companyname",
+                                        "extract": "entity.name",
+                                        "internalId": false
+                                    },
+                                    {
+                                        "generate": "subsidiary",
+                                        "discardIfEmpty": false,
+                                        "immutable": false,
+                                        "hardCodedValue": "3",
+                                        "internalId": true
+                                    }
+                                ],
+                                "lists": []
+                            },
+                            "hooks": {
+                                "postMap": {
+                                    "fileInternalId": "4118408",
+                                    "function": "postMap"
+                                }
+                            }
+                        },
+                        "adaptorType": "NetSuiteDistributedImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C33600",
+                "disabled": false,
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    },
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

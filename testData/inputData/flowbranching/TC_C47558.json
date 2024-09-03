@@ -1,0 +1,121 @@
+{
+  "name": "TC_C47558",
+  "skipRetries": false,
+  "disabled": false,
+  "_integrationId": "62f51db41677a21a108e5e3a",
+  "scriptBody": {
+    "name": "POSTMAPTEST",
+    "content": "function postMap (options) {return options.data.map((d) => {return {data: d1}})}"
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "ftp",
+        "_connectionId": "FTP CONNECTION",
+        "asynchronous": true,
+        "pageSize": 10,
+        "hooks": {
+          "preSavePage": {
+            "_scriptId": "UPDATE",
+            "function": "postMap"
+          }
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+          "fileNameStartsWith": "TC_C47558.json"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json",
+          "json": {
+            "resourcePath": "*"
+          }
+        },
+        "adaptorType": "FTPExport",
+        "qa__path": "//SFTP_uploads//TC_C47558.json"
+      }
+    }
+  ],
+  "routers": [
+    {
+      "routeRecordsUsing": "input_filters",
+      "id": "TvzYyd",
+      "routeRecordsTo": "all_matching_branches",
+      "branches": [
+        {
+          "name": "Branch 1.0",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "NS",
+                "_connectionId": "NETSUITE CONNECTION",
+                "_sourceId": "633e7fe8e816d73e7b967edb",
+                "distributed": true,
+                "apiIdentifier": "i29ef39351",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "lookups": [],
+                "netsuite_da": {
+                  "useSS2Restlets": false,
+                  "operation": "addupdate",
+                  "recordType": "customer",
+                  "batchSize": 10,
+                  "internalIdLookup": {
+                    "expression": "[\"internalidnumber\",\"is\",\"{{{id}}}\"]"
+                  },
+                  "lookups": [],
+                  "mapping": {
+                    "fields": [],
+                    "lists": []
+                  }
+                },
+                "adaptorType": "NetSuiteDistributedImport"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Branch 1.1",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "s3",
+                "_connectionId": "S3 CONNECTION",
+                "apiIdentifier": "i8e9d7ee92",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                  "fileName": "TC_C47558_file2{{timestamp}}.json",
+                  "skipAggregation": false,
+                  "type": "json"
+                },
+                "s3": {
+                  "region": "us-east-1",
+                  "bucket": "io-automation",
+                  "fileKey": "TC_C47558_file2{{timestamp}}.json"
+                },
+                "adaptorType": "S3Import"
+              }
+            }
+          ]
+        }
+      ],
+      "script": {
+        "function": "branching"
+      }
+    }
+  ]
+}

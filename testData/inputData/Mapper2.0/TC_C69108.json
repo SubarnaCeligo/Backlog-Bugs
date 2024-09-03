@@ -1,0 +1,115 @@
+{
+    "name": "TC_C44535",
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "disabled": false,
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "name": "C69108 import",
+                "application": "zendesk",
+                "qa__connectionId": "5d3ac71c3fa37c6c9d61d218",
+                "_connectionId": "632852c40dbc53086e88e76f",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mapping": [
+                    {
+                        "generate": "user",
+                        "dataType": "object",
+                        "status": "Active",
+                        "mappings": [
+                            {
+                                "extract": "$.user.email",
+                                "generate": "email",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "$.user.name",
+                                "generate": "name",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "generate": "organization",
+                                "dataType": "object",
+                                "status": "Active",
+                                "mappings": [
+                                    {
+                                        "extract": "$.user.organization.name",
+                                        "generate": "name1",
+                                        "dataType": "string",
+                                        "status": "Active",
+                                        "sourceDataType": "string"
+                                    }
+                                ]
+                            },
+                            {
+                                "generate": "identities",
+                                "dataType": "objectarray",
+                                "status": "Active",
+                                "buildArrayHelper": [
+                                    {
+                                        "extract": "$.user.identities[*]",
+                                        "conditional": {
+                                            "when": "extract_not_empty"
+                                        },
+                                        "sourceDataType": "objectarray"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+           
+            "http": {
+                "relativeURI": [
+                    "/users.json"
+                ],
+                "method": [
+                    "POST"
+                ],
+                "body": [],
+                "batchSize": 1,
+                "sendPostMappedData": true,
+                "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+        }
+    }
+    ],
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "C69108 export",
+                "_connectionId": "57064375921d1840244bab2c",
+                "qa__connectionId": "57064375921d1840244bab2c",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C69108"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport",
+                "qa__path": "//FTP_uploads//TC_C69108.json"
+            }
+        }
+    ]
+
+}

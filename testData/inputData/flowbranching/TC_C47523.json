@@ -1,0 +1,258 @@
+{
+    "name": "TC_C47523",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+      "successCount": "4",
+      "ignoreCount": "0",
+      "errorCount": "0"
+    },
+    "pageGenerators": [
+      {
+        "type": "export",
+        "qa__export": {
+          "name": "Netsuite export",
+          "_connectionId": "NETSUITE CONNECTION",
+          "asynchronous": true,
+          "type": "test",
+          "pageSize": 5,
+          "oneToMany": false,
+          "test": {
+              "limit": 1
+          },
+          "netsuite": {
+              "type": "restlet",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                  "recordType": "campaign",
+                  "searchId": "4651",
+                  "criteria": [],
+                  "columns": [],
+                  "useSS2Restlets": false
+              },
+              "distributed": {
+                  "executionContext": [],
+                  "executionType": [],
+                  "useSS2Framework": false
+              }
+          },
+          "adaptorType": "NetSuiteExport"
+      }
+      }
+    ],
+    "routers": [
+      {
+          "routeRecordsUsing": "input_filters",
+          "id": "fjHwiR",
+          "routeRecordsTo": "all_matching_branches",
+          "branches": [
+              {
+                  "name": "Branch 1.0",
+                  "pageProcessors": [
+                      {
+                          "responseMapping": {
+                              "fields": [
+                                  {
+                                      "extract": "user.notes",
+                                      "generate": "nameField"
+                                  }
+                              ],
+                              "lists": []
+                          },
+                          "type": "import",
+                          "qa__import": {
+                              "name": "Zendesk import 1",
+                              "application":"zendesk support",
+                              "_connectionId": "HTTP ZENDESK CONNECTION",
+                              "ignoreExisting": false,
+                              "ignoreMissing": false,
+                              "oneToMany": false,
+                              "mapping": {
+                                  "fields": [
+                                      {
+                                          "extract": "recordType",
+                                          "generate": "user.name"
+                                      },
+                                      {
+                                          "extract": "Manager",
+                                          "generate": "user.notes"
+                                      }
+                                  ]
+                              },
+                              "http": {
+                                  "relativeURI": [
+                                      "users"
+                                  ],
+                                  "method": [
+                                      "POST"
+                                  ],
+                                  "body": [],
+                                  "batchSize": 1,
+                                  "sendPostMappedData": true,
+                                  "formType": "http"
+                              },
+                              "adaptorType": "HTTPImport"
+                          }
+                      },
+                      {
+                          "responseMapping": {
+                              "fields": [],
+                              "lists": []
+                          },
+                          "type": "import",
+                          "qa__import": {
+                              "name": "Zendesk import 2",
+                              "application":"zendesk support",
+                              "_connectionId": "HTTP ZENDESK CONNECTION",
+                              "ignoreExisting": false,
+                              "ignoreMissing": false,
+                              "oneToMany": false,
+                              "mapping": {
+                                  "fields": [
+                                      {
+                                          "extract": "nameField",
+                                          "generate": "user.name"
+                                      }
+                                  ]
+                              },
+                              "http": {
+                                  "relativeURI": [
+                                      "users"
+                                  ],
+                                  "method": [
+                                      "POST"
+                                  ],
+                                  "body": [],
+                                  "batchSize": 1,
+                                  "sendPostMappedData": true,
+                                  "formType": "http"
+                              },
+                              "adaptorType": "HTTPImport"
+                          }
+                      }
+                  ]
+              },
+              {
+                  "name": "Branch 1.1",
+                  "pageProcessors": [
+                      {
+                          "responseMapping": {
+                              "fields": [],
+                              "lists": []
+                          },
+                          "type": "import",
+                          "qa__import": {
+                              "name": "Zendesk import 3",
+                              "application":"zendesk support",
+                              "_connectionId": "HTTP ZENDESK CONNECTION",
+                              "ignoreExisting": false,
+                              "ignoreMissing": false,
+                              "oneToMany": false,
+                              "mapping": {
+                                  "fields": [
+                                      {
+                                          "extract": "Title",
+                                          "generate": "user.name"
+                                      }
+                                  ]
+                              },
+                              "http": {
+                                  "relativeURI": [
+                                      "users"
+                                  ],
+                                  "method": [
+                                      "POST"
+                                  ],
+                                  "body": [],
+                                  "batchSize": 1,
+                                  "sendPostMappedData": true,
+                                  "formType": "http"
+                              },
+                              "adaptorType": "HTTPImport"
+                          }
+                      }
+                  ]
+              }
+          ],
+          "script": {
+              "function": "branching"
+          }
+      }
+  ],
+    "qa__dataVerification": {
+      "expected": {
+        "zendesk": {
+          "name": "TC_C47523",
+          "_integrationId": "62f51db41677a21a108e5e3a",
+          "import": {
+            "_connectionId": "HTTP ZENDESK CONNECTION"
+          },
+          "qa__dataVerification": {
+            "generateSampleDropDownAvailable": false,
+            "expectedJSON": {
+              "name": "campaign",
+              "notes": "Joanne Miller"
+            },
+            "standaloneexportflowID": "57aaf0188ec9f88049060166",
+            "uniqueField": "name",
+            "importRecordType": "users",
+            "isUIFlow": true,
+            "exportapiIdentifier": "e8c9cb6192"
+          },
+          "qa__expectedDashboardCount": {
+            "successCount": "4",
+            "ignoreCount": "0",
+            "errorCount": "0"
+          }
+        },
+        "Zendesk": {
+          "name": "TC_C47523",
+          "_integrationId": "62f51db41677a21a108e5e3a",
+          "import": {
+            "_connectionId": "HTTP ZENDESK CONNECTION"
+          },
+          "qa__dataVerification": {
+            "generateSampleDropDownAvailable": false,
+            "expectedJSON": {
+              "name": "Yellow Pages"
+            },
+            "standaloneexportflowID": "57aaf0188ec9f88049060166",
+            "uniqueField": "name",
+            "importRecordType": "users",
+            "isUIFlow": true,
+            "exportapiIdentifier": "e8c9cb6192"
+          },
+          "qa__expectedDashboardCount": {
+            "successCount": "4",
+            "ignoreCount": "0",
+            "errorCount": "0"
+          }
+        },
+        "ZEndesk": {
+          "name": "TC_C47523",
+          "_integrationId": "62f51db41677a21a108e5e3a",
+          "import": {
+            "_connectionId": "HTTP ZENDESK CONNECTION"
+          },
+          "qa__dataVerification": {
+            "generateSampleDropDownAvailable": false,
+            "expectedJSON": {
+              "name": "Joanne Miller"
+            },
+            "standaloneexportflowID": "57aaf0188ec9f88049060166",
+            "uniqueField": "name",
+            "importRecordType": "users",
+            "isUIFlow": true,
+            "exportapiIdentifier": "e8c9cb6192"
+          },
+          "qa__expectedDashboardCount": {
+            "successCount": "4",
+            "ignoreCount": "0",
+            "errorCount": "0"
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,104 @@
+{
+    "name": "Http Import Flow",
+    "referencename": "Http Import Flow",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Ftp Export",
+                        "_connectionId": "FTP CONNECTION",
+                        "_sourceId": "626249d61ce14c420e0241d6",
+                        "apiIdentifier": "e9cddd8b64",
+                        "asynchronous": true,
+                        "sampleData": [
+                            {
+                                "name": "Auto@flow262record_One",
+                                "notes": "This Organization created for Automation Testing "
+                            },
+                            {
+                                "name": "New Organization",
+                                "notes": "This is new group"
+                            }
+                        ],
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                            "fileNameStartsWith": "CreateNew&UpdateExisting",
+                            "fileNameEndsWith": ".json"
+                        },
+                        "file": {
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "json",
+                            "json": {
+                                "resourcePath": "*"
+                            }
+                        },
+                        "adaptorType": "FTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Create New Record & Update Existing Record",
+                        "application": "zendesk support",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "i218bd2ead",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": [
+                                "/organization/356576878",
+                                "/organization"
+                            ],
+                            "method": [
+                                "PUT",
+                                "POST"
+                            ],
+                            "body": [
+                                "[\n{\n\"name\":\"{{record.name}}\",\n\"notes\":\"{{record.notes}}\"\n}\n]",
+                                "[\n{\n\"name\":\"{{record.name}}\",\n\"notes\":\"{{record.notes}}\"\n}\n]"
+                            ],
+                            "batchSize": 1,
+                            "requestType": [
+                                "UPDATE",
+                                "CREATE"
+                            ],
+                            "sendPostMappedData": true,
+                            "existingExtract": "name",
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "Http Import Flow",
+                "disabled": false,
+                "qa__integrationId": "6228aed6bc8a2732cfe8044c",
+                "_integrationId": "631a1266abf51e7a86c80ab4",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

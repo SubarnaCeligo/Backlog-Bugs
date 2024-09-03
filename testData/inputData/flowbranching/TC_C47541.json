@@ -1,0 +1,134 @@
+{
+    "name": "TC_C47541",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "AutomationStandaloneExport__gsqpYL0s9w",
+                "hooks": {
+                    "preSavePage": {
+                        "_scriptId": "UPDATE",
+                        "function": "preSavePageFunction"
+                    }
+                },
+                "_connectionId": "SALESFORCE CONNECTION",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "sandbox": false,
+                "test": {
+                    "limit": 1
+                },
+                "salesforce": {
+                    "type": "soql",
+                    "api": "rest",
+                    "soql": {
+                        "query": "select name from account"
+                    }
+                },
+                "adaptorType": "SalesforceExport"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "nw5EED",
+            "routeRecordsTo": "all_matching_branches",
+            "branches": [
+                {
+                    "name": "R1B1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandaloneImport__gsqpYL0s9w",
+                                "application":"zendesk support",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "Auto_{{random 6}}",
+                                            "generate": "organization.name"
+                                        },
+                                        {
+                                            "extract": "Email",
+                                            "generate": "organization.notes"
+                                        }
+                                    ]
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "organizations.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "R1B2",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandaloneImport__gsqpYL0s9w",
+                                "application":"zendesk support",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "Auto_{{random 6}}",
+                                            "generate": "organization.name"
+                                        },
+                                        {
+                                            "extract": "Email",
+                                            "generate": "organization.notes"
+                                        }
+                                    ]
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "organizations.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        }
+    ],
+    "scriptBody": {
+        "name": "_invalidPreSavePage",
+        "content": "function preSavePageFunction (options) {return options.test}"
+    }
+}

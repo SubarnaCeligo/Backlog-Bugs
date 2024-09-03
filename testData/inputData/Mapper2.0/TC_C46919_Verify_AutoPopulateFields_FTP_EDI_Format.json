@@ -1,0 +1,80 @@
+{
+    "name": "TC_C46919_Verify_AutoPopulateFields_FTP_EDI_Format",
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "disabled": false,
+    "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "FTP Import",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "i7258f9408",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+                "output": "records",
+                "skipDelete": true,
+                "encoding": "utf8",
+                "type": "filedefinition",
+                "qa__ediformat": "genericedi850",
+                "fileDefinition": {
+                    "_fileDefinitionId": "62bc4117a70cbd095966da18"
+                }
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation",
+              "fileName": "TC_C2661-{{timestamp \"YYYY-MM-DDTHH:mm:ssZ\" \"Asia/Calcutta\"}}.edi"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+    "pageGenerators": [
+		{
+			"qa__export": {
+				"name": "test",
+				"_connectionId": "ZENDESK CONNECTION",
+				"asynchronous": true,
+				"assistant": "zendesk support",
+				"oneToMany": false,
+				"sandbox": false,
+				"assistantMetadata": {
+					"resource": "users_api",
+					"version": "v2",
+					"operation": "search_users"
+				},
+				"http": {
+					"relativeURI": "/api/v2/users/search.json?query=filetypes_imports",
+					"method": "GET",
+					"formType": "assistant",
+					"paging": {
+						"method": "url",
+						"path": "next_page",
+						"lastPageStatusCode": 404
+					},
+					"response": {
+						"resourcePath": "users"
+					}
+				},
+				"rawData": "61027a8f9b20eb708edeef91e0bdd349376b45a784a50398ce9c5483",
+				"rest": {
+					"relativeURI": "/api/v2/users/search.json?query=filetypes_imports",
+					"method": "GET",
+					"resourcePath": "users",
+					"pagingMethod": "nextpageurl",
+					"nextPagePath": "next_page",
+					"allowUndefinedResource": false
+				},
+				"qa__assistant": {
+					"queryParams": {
+						"query": "filetypes_imports"
+					},
+					"resource": "Users",
+					"endpoint": "Search users"
+				},
+				"adaptorType": "RESTExport"
+			}
+		}
+	]
+}

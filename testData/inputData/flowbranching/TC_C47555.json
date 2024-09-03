@@ -1,0 +1,238 @@
+{
+    "name": "TC_C47555",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "successCount": "1",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "Http Export",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "ea735b8976",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "/users",
+                    "method": "GET",
+                    "formType": "http"
+                },
+                "rawData": "61e68956b587067a214ac5ed49a58bbcfd49437682fe8394a68ba75c",
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "id": "Tt6Gwy",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [
+                                    {
+                                        "extract": "data[0].first_name",
+                                        "generate": "newSourceField"
+                                    }
+                                ],
+                                "lists": []
+                            },
+                            "type": "export",
+                            "qa__export": {
+                                "name": "Shopify Lookup",
+                                "application": "Shopify",
+                                "_connectionId": "HTTP SHOPIFY CONNECTION",
+                                "asynchronous": true,
+                                "isLookup": true,
+                                "type": "test",
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "http": {
+                                    "relativeURI": "/customers/search.json?fields=first_name,+admin_graphql_api_id",
+                                    "method": "GET",
+                                    "formType": "http",
+                                    "response": {
+                                        "resourcePath": "customers"
+                                    }
+                                },
+                                "test": {
+                                    "limit": 1
+                                },
+                                "transform": {
+                                    "type": "expression",
+                                    "expression": {
+                                        "rules": [
+                                            [
+                                                {
+                                                    "extract": "laf",
+                                                    "generate": "name"
+                                                }
+                                            ]
+                                        ],
+                                        "version": "1"
+                                    },
+                                    "version": "1",
+                                    "rules": [
+                                        [
+                                            {
+                                                "extract": "laf",
+                                                "generate": "name"
+                                            }
+                                        ]
+                                    ]
+                                },
+                                "adaptorType": "HTTPExport"
+                            }
+                        }
+                    ],
+                    "nextRouterId": "G7goKX"
+                }
+            ]
+        },
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "G7goKX",
+            "routeRecordsTo": "first_matching_branch",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandaloneImport_one",
+                                "application": "zendesk support",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "distributed": false,
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "name",
+                                            "generate": "user.notes"
+                                        },
+                                        {
+                                            "extract": "newSourceField",
+                                            "generate": "user.details"
+                                        },
+                                        {
+                                            "generate": "user.name",
+                                            "hardCodedValue": "Auto_TC_C47555_1"
+                                        }
+                                    ]
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "users.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "body": [],
+                                    "batchSize": 1,
+                                    "formType": "http",
+                                    "qa__formType": "rest",
+                                    "strictHandlebarEvaluation": true,
+                                    "sendPostMappedData": true
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Branch 1.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandaloneImport_two",
+                                "application": "zendesk support",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "distributed": false,
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "query",
+                                            "generate": "user.notes"
+                                        },
+                                        {
+                                            "extract": "newSourceField",
+                                            "generate": "user.details"
+                                        },
+                                        {
+                                            "generate": "user.name",
+                                            "hardCodedValue": "Auto_TC_C47555_2"
+                                        }
+                                    ]
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "users.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "body": [],
+                                    "batchSize": 1,
+                                    "formType": "http",
+                                    "qa__formType": "rest",
+                                    "strictHandlebarEvaluation": true,
+                                    "sendPostMappedData": true
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        }
+    ],
+    "qa__dataVerification": {
+        "expected": {
+            "zendesk": {
+                "name": "TC_C47555",
+                "_integrationId": "62f51db41677a21a108e5e3a",
+                "import": {
+                    "_connectionId": "HTTP ZENDESK CONNECTION"
+                },
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "expectedJSON": {
+                        "name": "Auto_TC_C47555_1",
+                        "notes": "Accepts Marketing"
+                    },
+                    "standaloneexportflowID": "57aaf0188ec9f88049060166",
+                    "uniqueField": "name",
+                    "importRecordType": "users",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e8c9cb6192"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "1",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                }
+            }
+        }
+    }
+}

@@ -54,8 +54,7 @@ test.describe("IO-T6094 To verify create/edit flow group pages and its fields ar
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.FLOWGROUP_NAME);
     await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.FLOWGROUP_NAME, 'Flow group 1');
     await io.flowBuilder.loadingTime();
-    await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.OPENAI.FLOWGROUP_CHECKBOX, 4);
-    await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
+    await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.SAVEANDCLOSE);
     await io.flowBuilder.clickByTextByIndex('Flow group 1', 0);
     await io.flowBuilder.loadingTime();
 

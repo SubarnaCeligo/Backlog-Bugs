@@ -1,0 +1,73 @@
+{
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "_connectionId": "FTP CONNECTION",
+        "name": "FTP_To_HTTP_flow_export",
+        "asynchronous": true,
+        "adaptorType": "FTPExport",
+        "qa__path": "/FTP_uploads/jsonfile.json",
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "jsonfile"
+        },
+        "file": {
+          "output": "records",
+          "encoding": "utf8",
+          "skipDelete": true,
+          "type": "json"
+        }
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "qa__connectionId": "63999004112342701550eceb",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "name": "create_composite_flow_successpath_sucessvalues",
+        "distributed": false,
+        "adaptorType": "HTTPImport",
+        "lookups": [
+          {
+            "method": "GET",
+            "relativeURI": "search.json?query=type:user {{{user.name}}}",
+            "extract": "results[0].id",
+            "allowFailures": false,
+            "name": "getExistingID",
+            "useImportHeaders": true
+          }
+        ],
+        "parsers": [],
+        "http": {
+          "relativeURI": ["users/{{lookup.getExistingID}}", "users.json"],
+          "method": ["PUT", "POST"],
+          "body": [
+            "{{#each data}}\n{{#if @index}} , {{/if}}\n{\"user\":\n{\n  \"name\":\"{{user.name}}\",\n  \"notes\":\"{{user.email}}\"\n}\n}\n{{/each}}",
+            "{{#each data}}\n{{#if @index}} , {{/if}}\n{\n  \"user.email\":\"{{user.email}}\",\n  \"user.name\":\"{{user.name}}\"\n}\n{{/each}}"
+          ],
+          "batchSize": 1,
+          "requestType": ["UPDATE", "CREATE"],
+          "existingLookupName": "getExistingID",
+          "lookups": [
+            {
+              "method": "GET",
+              "relativeURI": "search.json?query=type:user {{{user.name}}}",
+              "extract": "results[0].id",
+              "allowFailures": false,
+              "name": "getExistingID",
+              "useImportHeaders": true
+            }
+          ],
+          "response": {
+            "successPath": ["", "user.name"],
+            "successValues": [[""], ["qwertyqwerty"]],
+            "failPath": [null, "user.name"],
+            "failValues": [[null], ["others"]]
+          }
+        }
+      }
+    }
+  ]
+}

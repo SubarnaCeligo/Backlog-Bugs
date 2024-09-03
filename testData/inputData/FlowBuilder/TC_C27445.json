@@ -1,0 +1,63 @@
+{
+    "name": "TC_C27445",
+    "_connectionId": "NETSUITE CONNECTION",
+    "asynchronous": true,
+    "type": "distributed",
+    "distributed": {
+        "bearerToken": "******"
+    },
+    "netsuite": {
+        "type": "distributed",
+        "skipGrouping": false,
+        "statsOnly": false,
+        "restlet": {
+            "criteria": [],
+            "columns": []
+        },
+        "distributed": {
+            "recordType": "salesorder",
+            "executionContext": [
+                "userinterface"
+            ],
+            "disabled": false,
+            "executionType": [
+                "edit"
+            ],
+            "qualifier": [
+                "custbody_celigo_sfnc_salesforce_id",
+                "empty",
+                false
+            ],
+            "sublists": [
+                "item"
+            ],
+            "forceReload": true,
+            "ioEnvironment": "staging",
+            "ioDomain": "qa.staging.integrator.io"
+        }
+    },
+    "transform": {
+        "type": "expression",
+        "expression": {
+            "rules": [],
+            "version": "1"
+        },
+        "version": "1",
+        "rules": []
+    },
+    "filter": {
+        "type": "expression",
+        "expression": {
+            "version": "1"
+        },
+        "version": "1"
+    },
+    "inputFilter": {
+        "type": "expression",
+        "expression": {
+            "version": "1"
+        },
+        "version": "1"
+    },
+    "adaptorType": "NetSuiteExport"
+}

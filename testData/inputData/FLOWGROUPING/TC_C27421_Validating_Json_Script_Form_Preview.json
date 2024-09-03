@@ -1,0 +1,187 @@
+{
+  "flowname": "TC_C27421_FG",
+  "name": "TC_C27421_",
+  "flowGroup": "TC_C27421_FG",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "43 SF Export",
+            "adaptorType": "SalesforceExport",
+            "parsers": [],
+            "salesforce": {
+              "distributed": {
+                "relatedLists": [],
+                "userDefinedReferencedFields": [],
+                "referencedFields": []
+              },
+              "soql": {
+                "query": "Select Name,Email__c,phone,fax,Billingcity,Billingstreet,Billingcountry,Billingstate,BillingPostalCode,Shippingcity,Shippingstreet,Shippingcountry,ShippingPostalCode,Shippingstate from Account where name like '43.SFAccount2FTP'"
+              },
+              "api": "rest",
+              "type": "soql"
+            },
+            "transform": {
+              "rules": []
+            },
+            "asynchronous": true,
+            "_connectionId": "SALESFORCE CONNECTION"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "43 FTP import",
+            "adaptorType": "FTPImport",
+            "file": {
+              "csv": {
+                "replaceTabWithSpace": true,
+                "rowDelimiter": "\n",
+                "wrapWithQuotes": true,
+                "replaceNewlineWithSpace": true,
+                "includeHeader": true,
+                "columnDelimiter": ";",
+                "truncateLastRowDelimiter": false
+              },
+              "compressionFormat": "gzip",
+              "type": "csv"
+            },
+            "ftp": {
+              "fileName": "43SF2FTPAcc{{timestamp \"DD-Mon-YYYY hh:mm:ss\" \"Asia/Calcutta\"}}.csv",
+              "directoryPath": "/io.auto.qa/IO_UI_Automation"
+            },
+            "_connectionId": "FTP CONNECTION",
+            "qa__path": "//FTP_uploads//43SF2FTPAccFile.csv",
+            "distributed": false
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C27421_FG",
+        "disabled": false,
+        "_integrationId": "64ba68425b3619057ae0d0ff",
+        "qa__integrationId": "62e90b9f36f8f637aa253824",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "type": "export",
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ],
+  "Json": {
+    "fieldMap": {
+      "kvSetting1ForIntegration": {
+        "label": "Key Value Integration Setting",
+        "id": "kvSetting1ForIntegration",
+        "name": "kvSetting1ForIntegration",
+        "type": "keyvalue",
+        "helpText": "lorem ipsum",
+        "keyName": "key",
+        "valueName": "value"
+      },
+      "txtSetting2ForIntegration": {
+        "label": "Text Integration Setting",
+        "id": "txtSetting2ForIntegration",
+        "name": "txtSetting2ForIntegration",
+        "type": "text",
+        "helpText": "Add helptext here"
+      }
+    },
+    "layout": {
+      "fields": ["txtSetting2ForIntegration", "kvSetting1ForIntegration"]
+    }
+  },
+  "Script": {
+    "resource": {
+      "name": "Donot_Delete_Flow_Group3",
+      "_id": "62eb5a99e627016182cf13b1",
+      "settingsForm": {
+        "form": {
+          "fieldMap": {
+            "kvSetting1ForIntegration": {
+              "label": "Key Value Integration Setting",
+              "id": "kvSetting1ForIntegration",
+              "name": "kvSetting1ForIntegration",
+              "type": "keyvalue",
+              "helpText": "lorem ipsum",
+              "keyName": "key",
+              "valueName": "value"
+            },
+            "txtSetting2ForIntegration": {
+              "label": "Text Integration Setting",
+              "id": "txtSetting2ForIntegration",
+              "name": "txtSetting2ForIntegration",
+              "type": "text",
+              "helpText": "Add helptext here"
+            }
+          },
+          "layout": {
+            "fields": ["txtSetting2ForIntegration", "kvSetting1ForIntegration"]
+          }
+        }
+      },
+      "parentResource": {
+        "_id": "62e90b9f36f8f637aa253824",
+        "lastModified": "2022-08-08T10:24:22.152Z",
+        "name": "Automation_Flows",
+        "install": [],
+        "sandbox": false,
+        "_registeredConnectionIds": [
+          "62eb4be5c9c10468159c0bc7",
+          "62eb4c06c9c10468159c0bd0",
+          "62eb4c9dc9c10468159c0c09",
+          "62eb54e8c9c10468159c0d7a",
+          "62eb4d0dc9c10468159c0c1c",
+          "62ecb2e1550ed26a1f50217e",
+          "62ecaa13550ed26a1f501bdc"
+        ],
+        "installSteps": [],
+        "uninstallSteps": [],
+        "flowGroupings": [
+          {
+            "name": "Donot_Delete_Flow_Group1",
+            "settings": {
+              "name": "flowgrouping_group1",
+              "value": "flowgrouping_grp_value"
+            },
+            "_id": "62eb5777c9c10468159c0e10"
+          },
+          {
+            "name": "Donot_Delete_Flow_Group2",
+            "settings": {
+              "name": "flowgrouping_group2",
+              "email": "flowgrouping_grp_value@email.com"
+            },
+            "_id": "62eb5793e627016182cf12ff"
+          },
+          {
+            "name": "Donot_Delete_Flow_Group3",
+            "_id": "62eb5a99e627016182cf13b1"
+          }
+        ],
+        "createdAt": "2022-08-02T11:33:51.875Z"
+      },
+      "grandParentResource": {},
+      "license": {},
+      "parentLicense": {},
+      "sandbox": false
+    }
+  }
+}

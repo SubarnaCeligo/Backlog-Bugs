@@ -1,0 +1,75 @@
+{
+    "skipRetries": false,
+    "name": "TC_C44456",
+    "referencename": "TC_C44456",
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "name": "44456 import",
+                "application": "zendesk support",
+                "_connectionId":"HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "i187c6b0dc",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "generate": "canonical-vid",
+                        "dataType": "object",
+                        "mappings": [
+                            {
+                                "extract": "$.canonical-vid",
+                                "generate": "id",
+                                "dataType": "string"
+                            }
+                        ]
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "/ticket.json"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+          }
+        ],
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+                "name": "44456 export",
+                "application" : "hubspot",
+                "_connectionId":"HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "e5ba4a5cd3",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "/contacts/v1/lists/all/contacts/all",
+                    "method": "GET",
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "contacts"
+                    }
+                },
+                "rawData": "56d6b114e1fc35de5391472cd0ae41fdddfe4505b2d903091c99b18d",
+                "adaptorType": "HTTPExport"
+            }
+          }
+        ]
+  }
+

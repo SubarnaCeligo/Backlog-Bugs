@@ -1,0 +1,685 @@
+{
+  "skipRetries": false,
+  "_integrationId": "63073532f3062a3f169e2dff",
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "qa__import": {
+        "name": "edi import",
+        "_connectionId": "FTP CONNECTION",
+        "oneToMany": false,
+        "sandbox": false,
+        "mappings": [
+          {
+            "generate": "hardCodedValue1",
+            "dataType": "string",
+            "hardCodedValue": "sapmleHardCodedValue"
+          },
+          {
+            "generate": "hardCodedValue2",
+            "dataType": "number",
+            "hardCodedValue": "100"
+          },
+          {
+            "generate": "hardCodedValue3",
+            "dataType": "boolean",
+            "hardCodedValue": "true"
+          },
+          {
+            "generate": "hardCodedValue4",
+            "dataType": "stringarray",
+            "hardCodedValue": "stringCheck4"
+          }
+        ],
+        "file": {
+          "fileName": "TC_C45861-{{timestamp}}.edi",
+          "skipAggregation": true,
+          "type": "fixed",
+          "qa__fileGeneratorHelper": true,
+          "qa__data": {
+            "name": "Geodis 940",
+            "description": "Geodis 940",
+            "version": "1",
+            "format": "fixed",
+            "fixed": {
+              "rowSuffix": "",
+              "rowDelimiter": "\\n",
+              "paddingChar": " "
+            },
+            "rules": [
+              {
+                "name": "File Header",
+                "required": true,
+                "maxOccurrence": 7,
+                "elements": [
+                  {
+                    "name": "B",
+                    "length": 1,
+                    "value": "B"
+                  },
+                  {
+                    "name": "CODE CLIENT",
+                    "length": 50,
+                    "value": "{{{100.0.SN100}}}"
+                  },
+                  {
+                    "name": "ENTITY",
+                    "length": 40,
+                    "value": "{{{100.0.SD}}}"
+                  },
+                  {
+                    "name": "FILE NUMBER",
+                    "length": 50,
+                    "value": "{{{110.0.SN110}}}"
+                  }
+                ],
+                "children": [
+                  {
+                    "required": true,
+                    "maxOccurrence": 100,
+                    "relativeDataPath": "File Detail Record",
+                    "elements": [
+                      {
+                        "name": "H",
+                        "length": 1,
+                        "value": "H"
+                      },
+                      {
+                        "name": "CODE CLIENT",
+                        "length": 3,
+                        "value": "{{{[CODE CLIENT]}}}"
+                      },
+                      {
+                        "name": "ENTITY",
+                        "length": 4,
+                        "value": "{{{[ENTITY]}}}"
+                      },
+                      {
+                        "name": "FILE NUMBER",
+                        "length": 10,
+                        "value": "{{{[FILE NUMBER]}}}"
+                      },
+                      {
+                        "name": "FILE TYPE",
+                        "length": 4,
+                        "value": "{{{[FILE TYPE]}}}"
+                      },
+                      {
+                        "name": "BP NUMBER",
+                        "length": 10,
+                        "value": "{{{[BP NUMBER]}}}"
+                      },
+                      {
+                        "name": "BP EMISSION DATE",
+                        "length": 8,
+                        "value": "{{{[BP EMISSION DATE]}}}"
+                      },
+                      {
+                        "name": "DELIVERY DATE",
+                        "length": 8,
+                        "value": "{{{[DELIVERY DATE]}}}"
+                      },
+                      {
+                        "name": "PICKING END DATE",
+                        "length": 8,
+                        "value": "{{{[PICKING END DATE]}}}"
+                      },
+                      {
+                        "name": "EXIT DATE",
+                        "length": 8,
+                        "value": "{{{[EXIT DATE]}}}"
+                      },
+                      {
+                        "name": "CARRIERS CODE",
+                        "length": 8,
+                        "value": "{{{[CARRIERS CODE]}}}"
+                      },
+                      {
+                        "name": "TRANSPORTATION MODE",
+                        "length": 10,
+                        "value": "{{{[TRANSPORTATION MODE]}}}"
+                      },
+                      {
+                        "name": "SHIPPED CLIENT CODE",
+                        "length": 12,
+                        "value": "{{{[SHIPPED CLIENT CODE]}}}"
+                      },
+                      {
+                        "name": "CODE CLIENT (1)",
+                        "length": 12,
+                        "value": "{{{[CODE CLIENT (1)]}}}"
+                      },
+                      {
+                        "name": "CUSTOMER PAYING CODE",
+                        "length": 12,
+                        "value": "{{{[CUSTOMER PAYING CODE]}}}"
+                      },
+                      {
+                        "name": "VAT Registration Number",
+                        "length": 14,
+                        "value": "{{{[VAT Registration Number]}}}"
+                      },
+                      {
+                        "name": "ACCOUNTING CLASS",
+                        "length": 8,
+                        "value": "{{{[ACCOUNTING CLASS]}}}"
+                      },
+                      {
+                        "name": "SPECIFIC PREPA CODE",
+                        "length": 1,
+                        "value": "{{{[SPECIFIC PREPA CODE]}}}"
+                      },
+                      {
+                        "name": "INCOTERM",
+                        "length": 3,
+                        "value": "{{{[INCOTERM]}}}"
+                      },
+                      {
+                        "name": "CURRENCY",
+                        "length": 4,
+                        "value": "{{{[CURRENCY]}}}"
+                      },
+                      {
+                        "name": "WITH OR WITHOUT PRICE",
+                        "length": 1,
+                        "value": "{{{[WITH OR WITHOUT PRICE]}}}"
+                      },
+                      {
+                        "name": "CLIENT LANGUAGE",
+                        "length": 2,
+                        "value": "{{{[CLIENT LANGUAGE]}}}"
+                      },
+                      {
+                        "name": "DELIVERY FOR REIMBURSEMENT",
+                        "length": 6,
+                        "value": "{{{[DELIVERY FOR REIMBURSEMENT]}}}"
+                      },
+                      {
+                        "name": "NET AMOUNT TO BE PAYED AT DELIVERY",
+                        "length": 14,
+                        "value": "{{{[NET AMOUNT TO BE PAYED AT DELIVERY]}}}"
+                      },
+                      {
+                        "name": "LOGISTICS COMMENT",
+                        "length": 255,
+                        "value": "{{{[LOGISTICS COMMENT]}}}"
+                      },
+                      {
+                        "name": "CLIENT COMMENTARY",
+                        "length": 255,
+                        "value": "{{{[CLIENT COMMENTARY]}}}"
+                      },
+                      {
+                        "name": "SPECIFIC INFO",
+                        "length": 255,
+                        "value": "{{{[SPECIFIC INFO]}}}"
+                      },
+                      {
+                        "name": "URGENT",
+                        "length": 1,
+                        "value": "{{{[URGENT]}}}"
+                      },
+                      {
+                        "name": "PROFORMA INVOICE",
+                        "length": 1,
+                        "value": "{{{[PROFORMA INVOICE]}}}"
+                      },
+                      {
+                        "name": "TYPE OF SALE",
+                        "length": 8,
+                        "value": "{{{[TYPE OF SALE]}}}"
+                      },
+                      {
+                        "name": "TYPE OF CARRIER",
+                        "length": 12,
+                        "value": "{{{[TYPE OF CARRIER]}}}"
+                      },
+                      {
+                        "name": "CURSOR",
+                        "length": 1,
+                        "value": "{{{[CURSOR]}}}"
+                      },
+                      {
+                        "name": "CARRIER COMMENTS",
+                        "length": 100,
+                        "value": "{{{[CARRIER COMMENTS]}}}"
+                      },
+                      {
+                        "name": "COMMENTS CS / Transport",
+                        "length": 255,
+                        "value": "{{{[COMMENTS CS / Transport]}}}"
+                      },
+                      {
+                        "name": "Incoterm Location",
+                        "length": 3,
+                        "value": "{{{[Incoterm Location]}}}"
+                      },
+                      {
+                        "name": "Shipping date",
+                        "length": 8,
+                        "value": "{{{[Shipping date]}}}"
+                      },
+                      {
+                        "name": "Specific preparation code",
+                        "length": 20,
+                        "value": "{{{[Specific preparation code]}}}"
+                      },
+                      {
+                        "name": "Type of Order",
+                        "length": 25,
+                        "value": "{{{[Type of Order]}}}"
+                      }
+                    ],
+                    "children": [
+                      {
+                        "required": true,
+                        "maxOccurrence": 100,
+                        "relativeDataPath": "File Detail D Record",
+                        "elements": [
+                          {
+                            "name": "D",
+                            "length": 1,
+                            "value": "D"
+                          },
+                          {
+                            "name": "CODE CLIENT",
+                            "length": 3,
+                            "value": "{{{[CODE CLIENT]}}}"
+                          },
+                          {
+                            "name": "ENTITY",
+                            "length": 4,
+                            "value": "{{{[ENTITY]}}}"
+                          },
+                          {
+                            "name": "FILE NUMBER",
+                            "length": 10,
+                            "value": "{{{[FILE NUMBER]}}}"
+                          },
+                          {
+                            "name": "FILE TYPE",
+                            "length": 4,
+                            "value": "{{{[FILE TYPE]}}}"
+                          },
+                          {
+                            "name": "BP NUMBER",
+                            "length": 10,
+                            "value": "{{{[BP NUMBER]}}}"
+                          },
+                          {
+                            "name": "BP LINE NUMBER",
+                            "length": 6,
+                            "value": "{{{[BP LINE NUMBER]}}}"
+                          },
+                          {
+                            "name": "ORDER CODE",
+                            "length": 10,
+                            "value": "{{{[ORDER CODE]}}}"
+                          },
+                          {
+                            "name": "LINE NUMBER OF THE ORDER",
+                            "length": 6,
+                            "value": "{{{[LINE NUMBER OF THE ORDER]}}}"
+                          },
+                          {
+                            "name": "CUSTOMER RECOMMENDATION 1",
+                            "length": 20,
+                            "value": "{{{[CUSTOMER RECOMMENDATION 1]}}}"
+                          },
+                          {
+                            "name": "CUSTOMER RECOMMENDATION 2",
+                            "length": 30,
+                            "value": "{{{[CUSTOMER RECOMMENDATION 2]}}}"
+                          },
+                          {
+                            "name": "ARTICLE REF",
+                            "length": 15,
+                            "value": "{{{[ARTICLE REF]}}}"
+                          },
+                          {
+                            "name": "WORDING",
+                            "length": 80,
+                            "value": "{{{[WORDING]}}}"
+                          },
+                          {
+                            "name": "SKU CLIENT",
+                            "length": 20,
+                            "value": "{{{[SKU CLIENT]}}}"
+                          },
+                          {
+                            "name": "QUANTITY TO PREPARE",
+                            "length": 6,
+                            "value": "{{{[QUANTITY TO PREPARE]}}}"
+                          },
+                          {
+                            "name": "QUANTITY SHIPPED",
+                            "length": 6,
+                            "value": "{{{[QUANTITY SHIPPED]}}}"
+                          },
+                          {
+                            "name": "NET PRICE",
+                            "length": 14,
+                            "value": "{{{[NET PRICE]}}}"
+                          },
+                          {
+                            "name": "FREE DESIGNATION",
+                            "length": 255,
+                            "value": "{{{[FREE DESIGNATION]}}}"
+                          },
+                          {
+                            "name": "Gross Price",
+                            "length": 14,
+                            "value": "{{{[Gross Price]}}}"
+                          },
+                          {
+                            "name": "DISCOUNT 1",
+                            "length": 14,
+                            "value": "{{{[DISCOUNT 1]}}}"
+                          },
+                          {
+                            "name": "DISCOUNT 2",
+                            "length": 14,
+                            "value": "{{{[DISCOUNT 2]}}}"
+                          },
+                          {
+                            "name": "DISCOUNT 3",
+                            "length": 14,
+                            "value": "{{{[DISCOUNT 3]}}}"
+                          }
+                        ]
+                      },
+                      {
+                        "required": false,
+                        "maxOccurrence": 100,
+                        "relativeDataPath": "File Transport Record",
+                        "elements": [
+                          {
+                            "name": "T",
+                            "length": 1,
+                            "value": "T"
+                          },
+                          {
+                            "name": "CODE CLIENT",
+                            "length": 3,
+                            "value": "{{{[CODE CLIENT]}}}"
+                          },
+                          {
+                            "name": "ENTITY",
+                            "length": 4,
+                            "value": "{{{[ENTITY]}}}"
+                          },
+                          {
+                            "name": "FILE NUMBER",
+                            "length": 10,
+                            "value": "{{{[FILE NUMBER]}}}"
+                          },
+                          {
+                            "name": "FILE TYPE",
+                            "length": 4,
+                            "value": "{{{[FILE TYPE]}}}"
+                          },
+                          {
+                            "name": "CARRIER CODE",
+                            "length": 8,
+                            "value": "{{{[CARRIER CODE]}}}"
+                          },
+                          {
+                            "name": "BP NUMBER",
+                            "length": 10,
+                            "value": "{{{[BP NUMBER]}}}"
+                          },
+                          {
+                            "name": "SHIPPING UNIT NUMBER",
+                            "length": 6,
+                            "value": "{{{[SHIPPING UNIT NUMBER]}}}"
+                          },
+                          {
+                            "name": "NB U HANDLING",
+                            "length": 6,
+                            "value": "{{{[NB U HANDLING]}}}"
+                          },
+                          {
+                            "name": "PACKAGE TRACKING NUMBER. SHIPPING UNIT",
+                            "length": 30,
+                            "value": "{{{[PACKAGE TRACKING NUMBER. SHIPPING UNIT]}}}"
+                          },
+                          {
+                            "name": "TRACKING NUMBER PACKAGE 2. SHIPPING UNIT",
+                            "length": 30,
+                            "value": "{{{[TRACKING NUMBER PACKAGE 2. SHIPPING UNIT]}}}"
+                          },
+                          {
+                            "name": "Parcel details",
+                            "length": 30,
+                            "value": "{{{[Parcel details]}}}"
+                          },
+                          {
+                            "name": "WEIGHT",
+                            "length": 14,
+                            "value": "{{{[WEIGHT]}}}"
+                          },
+                          {
+                            "name": "quantity",
+                            "length": 10,
+                            "value": "{{{[quantity]}}}"
+                          },
+                          {
+                            "name": "VOLUME",
+                            "length": 7,
+                            "value": "{{{[VOLUME]}}}"
+                          }
+                        ]
+                      },
+                      {
+                        "required": false,
+                        "maxOccurrence": 100,
+                        "relativeDataPath": "File Address Record",
+                        "elements": [
+                          {
+                            "name": "A",
+                            "length": 1,
+                            "value": "A"
+                          },
+                          {
+                            "name": "CODE CLIENT",
+                            "length": 3,
+                            "value": "{{{[CODE CLIENT]}}}"
+                          },
+                          {
+                            "name": "ENTITY",
+                            "length": 4,
+                            "value": "{{{[ENTITY]}}}"
+                          },
+                          {
+                            "name": "FILE NUMBER",
+                            "length": 10,
+                            "value": "{{{[FILE NUMBER]}}}"
+                          },
+                          {
+                            "name": "FILE TYPE",
+                            "length": 4,
+                            "value": "{{{[FILE TYPE]}}}"
+                          },
+                          {
+                            "name": "ORDER REFERENCE",
+                            "length": 10,
+                            "value": "{{{[ORDER REFERENCE]}}}"
+                          },
+                          {
+                            "name": "CODE CLIENT/FRS",
+                            "length": 12,
+                            "value": "{{{[CODE CLIENT/FRS]}}}"
+                          },
+                          {
+                            "name": "NOM1",
+                            "length": 40,
+                            "value": "{{{[NOM1]}}}"
+                          },
+                          {
+                            "name": "NOM2",
+                            "length": 30,
+                            "value": "{{{[NOM2]}}}"
+                          },
+                          {
+                            "name": "ADDRESS1",
+                            "length": 35,
+                            "value": "{{{[ADDRESS1]}}}"
+                          },
+                          {
+                            "name": "ADDRESS 2",
+                            "length": 35,
+                            "value": "{{{[ADDRESS 2]}}}"
+                          },
+                          {
+                            "name": "POSTAL CODE",
+                            "length": 10,
+                            "value": "{{{[POSTAL CODE]}}}"
+                          },
+                          {
+                            "name": "CITY",
+                            "length": 30,
+                            "value": "{{{[CITY]}}}"
+                          },
+                          {
+                            "name": "COUNTRY CODE",
+                            "length": 2,
+                            "value": "{{{[COUNTRY CODE]}}}"
+                          },
+                          {
+                            "name": "LIBELLE COUNTRY",
+                            "length": 20,
+                            "value": "{{{[LIBELLE COUNTRY]}}}"
+                          },
+                          {
+                            "name": "TELEPHONE 1",
+                            "length": 25,
+                            "value": "{{{[TELEPHONE 1]}}}"
+                          },
+                          {
+                            "name": "CONTACT 1",
+                            "length": 30,
+                            "value": "{{{[CONTACT 1]}}}"
+                          },
+                          {
+                            "name": "TELEPHONE 2",
+                            "length": 25,
+                            "value": "{{{[TELEPHONE 2]}}}"
+                          },
+                          {
+                            "name": "CONTACT 2",
+                            "length": 30,
+                            "value": "{{{[CONTACT 2]}}}"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "File Trailer Record",
+                    "required": true,
+                    "maxOccurrence": 1,
+                    "elements": [
+                      {
+                        "name": "E",
+                        "length": 1,
+                        "value": "E"
+                      },
+                      {
+                        "name": "CODE CLIENT(End)",
+                        "length": 3,
+                        "value": "{{{[CODE CLIENT(End)]}}}"
+                      },
+                      {
+                        "name": "ENTITY(End)",
+                        "length": 4,
+                        "value": "{{{[ENTITY(End)]}}}"
+                      },
+                      {
+                        "name": "FILE NUMBER(End)",
+                        "length": 16,
+                        "value": "{{{[FILE NUMBER(End)]}}}"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "fileDefinition": {
+            "_fileDefinitionId": "63066948bc3caa32976f376c"
+          }
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/Zendesk_Tests/Automation",
+          "fileName": "TC_C45861-{{timestamp}}.edi"
+        },
+        "qa__fixedwidthformat": "geodis940",
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "timezone": "Asia/Calcutta",
+  "name": "TC_C45861",
+  "disabled": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "expected": {
+      "FTP": {
+        "name": "TC_C45861",
+        "import": {
+          "_connectionId": "FTP CONNECTION",
+          "file": {
+            "csv": {
+              "columnDelimiter": ","
+            }
+          }
+        },
+        "qa__expectedDashboardCount": {
+          "ignoreCount": "0",
+          "successCount": "2",
+          "errorCount": "0",
+          "pages": "1"
+        },
+        "qa__dataVerification": {
+          "fileName": "TC_C45861",
+          "isUIFlow": true,
+          "folderName": "io.auto.qa/Zendesk_Tests/Automation",
+          "fileType": ".edi"
+        }
+      }
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "FTP Export TC_C45861",
+        "qa__path": "//FTP_uploads//exportData.json",
+        "_connectionId": "FTP CONNECTION",
+        "asynchronous": true,
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "exportData.json"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json",
+          "json": {
+            "resourcePath": "*"
+          }
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ]
+}

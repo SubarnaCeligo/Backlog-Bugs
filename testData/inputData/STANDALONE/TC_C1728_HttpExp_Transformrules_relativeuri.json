@@ -1,0 +1,55 @@
+{
+    "skipRetries": false,
+    "_integrationId": "6228aed6bc8a2732cfe8044c",
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C1728_HttpExp_Transformrules_relativeuri",
+    "disabled": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "htexp",
+                "_connectionId":"HTTP ZENDESK CONNECTION",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "organizations/11436160505",
+                    "method": "GET",
+                    "formType": "http"
+                },
+                "transform": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [
+                            [
+                                {
+                                    "extract": "organization.name",
+                                    "generate": "Name"
+                                },
+                                {
+                                    "extract": "organization.notes",
+                                    "generate": "Notes"
+                                }
+                            ]
+                        ],
+                        "version": "1"
+                    },
+                    "version": "1",
+                    "rules": [
+                        [
+                            {
+                                "extract": "organization.name",
+                                "generate": "Name"
+                            },
+                            {
+                                "extract": "organization.notes",
+                                "generate": "Notes"
+                            }
+                        ]
+                    ]
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ]
+}

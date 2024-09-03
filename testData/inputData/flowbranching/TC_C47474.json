@@ -1,0 +1,119 @@
+{
+    "jsonData": {
+        "name": "TC_C47450",
+        "disabled": false,
+        "_integrationId": "62f51e1f0f2ee6482b136853",
+        "qa__integrationId": "62f51db41677a21a108e5e3a",
+        "skipRetries": false,
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH EXPORT ID",
+                "skipRetries": false
+            }
+        ],
+        "routers": [
+            {
+                "routeRecordsUsing": "input_filters",
+                "id": "GKlAd3",
+                "routeRecordsTo": "all_matching_branches",
+                "branches": [
+                    {
+                        "name": "R1B1",
+                        "inputFilter": {
+                            "rules": [
+                                "equals",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "id"
+                                    ]
+                                ],
+                                "650920"
+                            ]
+                        },
+                        "pageProcessors": [
+                            {
+                                "responseMapping": {
+                                    "fields": [],
+                                    "lists": []
+                                },
+                                "type": "import",
+                                "_importId": "UPDATE WITH NEW IMPORTID"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "R1B2",
+                        "inputFilter": {
+                            "rules": [
+                                "equals",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "Phone"
+                                    ]
+                                ],
+                                "(949) 099-2783"
+                            ]
+                        },
+                        "pageProcessors": [
+                            {
+                                "responseMapping": {
+                                    "fields": [],
+                                    "lists": []
+                                },
+                                "type": "import",
+                                "_importId": "UPDATE WITH NEW IMPORTID"
+                            }
+                        ]
+                    }
+                ],
+                "script": {
+                    "function": "branchRouter"
+                }
+            }
+        ]
+    },
+    "qa__export": {
+        "name": "AutomationStandaloneExport__gsqpYL0s9w",
+        "description": "NS for multiple pages and records",
+        "_connectionId": "NETSUITE CONNECTION",
+        "asynchronous": true,
+        "pageSize": 5,
+        "oneToMany": false,
+        "sandbox": false,
+        "netsuite": {
+            "type": "restlet",
+            "skipGrouping": true,
+            "statsOnly": false,
+            "restlet": {
+                "recordType": "customer",
+                "searchId": "4537",
+                "useSS2Restlets": false
+            },
+            "distributed": {
+                "useSS2Framework": false
+            }
+        },
+        "adaptorType": "NetSuiteExport"
+    },
+    "qa__import": {
+        "name": "AutomationStandaloneImport__gsqpYL0s9w",
+        "application":"zendesk support",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "http": {
+            "relativeURI": [
+                "organizationsR1B1P1.json"
+            ],
+            "method": [
+                "POST"
+            ],
+            "batchSize": 1,
+            "sendPostMappedData": true,
+            "formType": "http"
+        },
+        "adaptorType": "HTTPImport"
+    }
+}

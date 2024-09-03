@@ -1,0 +1,199 @@
+{
+    "expectedJSON": {
+        "salesforce": {
+            "sandbox": false,
+            "baseURI": "https://do0000000catveay-dev-ed.my.salesforce.com",
+            "username": "celigoqa@foobar.com",
+            "oauth2FlowType": "jwtBearerToken",
+            "bearerToken": "******",
+            "packagedOAuth": true,
+            "scope": [],
+            "concurrencyLevel": 5,
+            "info": {
+                "sub": "https://login.salesforce.com/id/00Do0000000caTVEAY/005o00000010WRbAAM",
+                "user_id": "005o00000010WRbAAM",
+                "organization_id": "00Do0000000caTVEAY",
+                "preferred_username": "celigoqa@foobar.com",
+                "nickname": "celigoqa",
+                "name": "Fayaz Mohammed",
+                "email": "io.auto.qa@celigo.com",
+                "email_verified": true,
+                "given_name": "Fayaz",
+                "family_name": "Mohammed",
+                "zoneinfo": "Asia/Kolkata",
+                "photos": {
+                    "picture": "https://do0000000catveay-dev-ed--c.documentforce.com/profilephoto/005/F",
+                    "thumbnail": "https://do0000000catveay-dev-ed--c.documentforce.com/profilephoto/005/T"
+                },
+                "profile": "https://do0000000catveay-dev-ed.my.salesforce.com/005o00000010WRbAAM",
+                "picture": "https://do0000000catveay-dev-ed--c.documentforce.com/profilephoto/005/F",
+                "urls": {
+                    "enterprise": "https://do0000000catveay-dev-ed.my.salesforce.com/services/Soap/c/{version}/00Do0000000caTV",
+                    "metadata": "https://do0000000catveay-dev-ed.my.salesforce.com/services/Soap/m/{version}/00Do0000000caTV",
+                    "partner": "https://do0000000catveay-dev-ed.my.salesforce.com/services/Soap/u/{version}/00Do0000000caTV",
+                    "rest": "https://do0000000catveay-dev-ed.my.salesforce.com/services/data/v{version}/",
+                    "sobjects": "https://do0000000catveay-dev-ed.my.salesforce.com/services/data/v{version}/sobjects/",
+                    "search": "https://do0000000catveay-dev-ed.my.salesforce.com/services/data/v{version}/search/",
+                    "query": "https://do0000000catveay-dev-ed.my.salesforce.com/services/data/v{version}/query/",
+                    "recent": "https://do0000000catveay-dev-ed.my.salesforce.com/services/data/v{version}/recent/",
+                    "tooling_soap": "https://do0000000catveay-dev-ed.my.salesforce.com/services/Soap/T/{version}/00Do0000000caTV",
+                    "tooling_rest": "https://do0000000catveay-dev-ed.my.salesforce.com/services/data/v{version}/tooling/",
+                    "profile": "https://do0000000catveay-dev-ed.my.salesforce.com/005o00000010WRbAAM",
+                    "feeds": "https://do0000000catveay-dev-ed.my.salesforce.com/services/data/v{version}/chatter/feeds",
+                    "groups": "https://do0000000catveay-dev-ed.my.salesforce.com/services/data/v{version}/chatter/groups",
+                    "users": "https://do0000000catveay-dev-ed.my.salesforce.com/services/data/v{version}/chatter/users",
+                    "feed_items": "https://do0000000catveay-dev-ed.my.salesforce.com/services/data/v{version}/chatter/feed-items",
+                    "feed_elements": "https://do0000000catveay-dev-ed.my.salesforce.com/services/data/v{version}/chatter/feed-elements",
+                    "custom_domain": "https://do0000000catveay-dev-ed.my.salesforce.com"
+                },
+                "active": true,
+                "user_type": "STANDARD",
+                "language": "en_US",
+                "locale": "en_US",
+                "utcOffset": 19800000,
+                "updated_at": "2022-08-29T06:18:17Z",
+                "is_app_installed": true
+            }
+        },
+                "name": "DND_Do_Not_Modify",
+                "size": 0
+    },
+    "username":"testing",
+    "qa_url": "https://qa.staging.integrator.io/integrations/6317333395653f0f15147f47/connections/edit/connections/632b830bd54bad2deef5d1d5",
+    "staging_url": "https://staging.integrator.io/integrations/6317518c5bca603be6bc9af0/connections",
+
+    "importJSON": {
+        "type": "salesforce",
+        "name": "DND_Do_Not_Modify",
+        "offline": false,
+        "sandbox": false,
+        "salesforce": {
+            "bearerToken": "******",
+            "packagedOAuth": true,
+            "baseURI": "https://ap5.salesforce.com",
+            "scope": [],
+            "sandbox": false,
+            "username": "celigoqa@foobar.com",
+            "oauth2FlowType": "jwtBearerToken",
+            "OAuthLogin": "SalesforceApp",
+            "info": {
+                "sub": "https://login.salesforce.com/id/00D7F000000rSlOUAU/0057F000000IYb7QAG",
+                "zoneinfo": "America/Los_Angeles",
+                "utcOffset": -28800000,
+                "address": {
+                    "country": "IN"
+                },
+                "email_verified": true,
+                "profile": "https://ap5.salesforce.com/0057F000000IYb7QAG",
+                "active": true,
+                "language": "en_US",
+                "qa__password": "Y2VsaWdvQCEjNCMjIyMk",
+                "preferred_username": "celigoqa@foobar.com",
+                "locale": "en_US",
+                "given_name": "Salesforce",
+                "photos": {
+                    "thumbnail": "https://c.ap5.content.force.com/profilephoto/005/T",
+                    "picture": "https://c.ap5.content.force.com/profilephoto/005/F"
+                },
+                "picture": "https://c.ap5.content.force.com/profilephoto/005/F",
+                "urls": {
+                    "rest": "https://ap5.salesforce.com/services/data/v{version}/",
+                    "metadata": "https://ap5.salesforce.com/services/Soap/m/{version}/00D7F000000rSlO",
+                    "feed_elements": "https://ap5.salesforce.com/services/data/v{version}/chatter/feed-elements",
+                    "enterprise": "https://ap5.salesforce.com/services/Soap/c/{version}/00D7F000000rSlO",
+                    "profile": "https://ap5.salesforce.com/0057F000000IYb7QAG",
+                    "query": "https://ap5.salesforce.com/services/data/v{version}/query/",
+                    "groups": "https://ap5.salesforce.com/services/data/v{version}/chatter/groups",
+                    "users": "https://ap5.salesforce.com/services/data/v{version}/chatter/users",
+                    "search": "https://ap5.salesforce.com/services/data/v{version}/search/",
+                    "partner": "https://ap5.salesforce.com/services/Soap/u/{version}/00D7F000000rSlO",
+                    "feeds": "https://ap5.salesforce.com/services/data/v{version}/chatter/feeds",
+                    "sobjects": "https://ap5.salesforce.com/services/data/v{version}/sobjects/",
+                    "feed_items": "https://ap5.salesforce.com/services/data/v{version}/chatter/feed-items",
+                    "recent": "https://ap5.salesforce.com/services/data/v{version}/recent/"
+                },
+                "user_type": "STANDARD",
+                "updated_at": "2017-05-30T12:14:59.000+0000",
+                "user_id": "0057F000000IYb7QAG",
+                "organization_id": "00D7F000000rSlOUAU",
+                "name": "DND_Do_Not_Modify1",
+                "nickname": "celigoqa",
+                "family_name": "Connections",
+                "email": "celigoqa@foobar.com"
+            }
+        },
+        "queues": [
+            {
+                "name": "632aed490dbc53086e8ac222",
+                "size": 0
+            }
+        ]
+    },
+    "apiJSON": {
+        "type": "salesforce",
+        "name": "DND_Do_Not_Modify",
+        "offline": false,
+        "sandbox": false,
+        "salesforce": {
+            "bearerToken": "******",
+            "packagedOAuth": true,
+            "baseURI": "https://ap5.salesforce.com",
+            "scope": [],
+            "sandbox": false,
+            "username": "celigoqa@foobar.com",
+            "oauth2FlowType": "jwtBearerToken",
+            "OAuthLogin": "SalesforceApp",
+            "info": {
+                "sub": "https://login.salesforce.com/id/00D7F000000rSlOUAU/0057F000000IYb7QAG",
+                "zoneinfo": "America/Los_Angeles",
+                "utcOffset": -28800000,
+                "address": {
+                    "country": "IN"
+                },
+                "email_verified": true,
+                "profile": "https://ap5.salesforce.com/0057F000000IYb7QAG",
+                "active": true,
+                "language": "en_US",
+                "qa__password": "Y2VsaWdvQCEjNCMjIy",
+                "preferred_username": "test@foobar.com",
+                "locale": "en_US",
+                "given_name": "Salesforce",
+                "photos": {
+                    "thumbnail": "https://c.ap5.content.force.com/profilephoto/005/T",
+                    "picture": "https://c.ap5.content.force.com/profilephoto/005/F"
+                },
+                "picture": "https://c.ap5.content.force.com/profilephoto/005/F",
+                "urls": {
+                    "rest": "https://ap5.salesforce.com/services/data/v{version}/",
+                    "metadata": "https://ap5.salesforce.com/services/Soap/m/{version}/00D7F000000rSlO",
+                    "feed_elements": "https://ap5.salesforce.com/services/data/v{version}/chatter/feed-elements",
+                    "enterprise": "https://ap5.salesforce.com/services/Soap/c/{version}/00D7F000000rSlO",
+                    "profile": "https://ap5.salesforce.com/0057F000000IYb7QAG",
+                    "query": "https://ap5.salesforce.com/services/data/v{version}/query/",
+                    "groups": "https://ap5.salesforce.com/services/data/v{version}/chatter/groups",
+                    "users": "https://ap5.salesforce.com/services/data/v{version}/chatter/users",
+                    "search": "https://ap5.salesforce.com/services/data/v{version}/search/",
+                    "partner": "https://ap5.salesforce.com/services/Soap/u/{version}/00D7F000000rSlO",
+                    "feeds": "https://ap5.salesforce.com/services/data/v{version}/chatter/feeds",
+                    "sobjects": "https://ap5.salesforce.com/services/data/v{version}/sobjects/",
+                    "feed_items": "https://ap5.salesforce.com/services/data/v{version}/chatter/feed-items",
+                    "recent": "https://ap5.salesforce.com/services/data/v{version}/recent/"
+                },
+                "user_type": "STANDARD",
+                "updated_at": "2017-05-30T12:14:59.000+0000",
+                "user_id": "0057F000000IYb7QAG",
+                "organization_id": "00D7F000000rSlOUAU",
+                "name": "DND_Do_Not_Modify1",
+                "nickname": "celigoqa",
+                "family_name": "Connections",
+                "email": "celigoqa@foobar.com"
+            }
+        },
+        "queues": [
+            {
+                "name": "632aed490dbc53086e8ac222",
+                "size": 0
+            }
+        ]
+    }
+  }

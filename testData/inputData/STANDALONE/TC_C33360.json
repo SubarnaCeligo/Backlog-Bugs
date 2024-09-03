@@ -1,0 +1,23 @@
+{
+    "validEmail": {
+        "Emails": "mahesh.nivrutti.sutar+delete1@celigo.com,mahesh.nivrutti.sutar+delete2@celigo.com,mahesh.nivrutti.sutar+delete3@celigo.com,mahesh.nivrutti.sutar+delete4@celigo.com,mahesh.nivrutti.sutar+delete5@celigo.com"
+    },
+    "duplicateEmail": {
+        "Emails": "mahesh.nivrutti.sutar+user1@celigo.com,mahesh.nivrutti.sutar+user1@celigo.com,mahesh.nivrutti.sutar+user3@celigo.com,mahesh.nivrutti.sutar+user3@celigo.com,mahesh.nivrutti.sutar+user5@celigo.com"
+    },
+    "sixEmail": {
+        "Emails": "mahesh.nivrutti.sutar+user1@celigo.com,mahesh.nivrutti.sutar+user2@celigo.com,mahesh.nivrutti.sutar+user3@celigo.com,mahesh.nivrutti.sutar+user4@celigo.com,mahesh.nivrutti.sutar+user5@celigo.com,mahesh.nivrutti.sutar+user6@celigo.com"
+    },
+    "wrongEmail": {
+        "Emails": "mahesh.nivrutti.sutar+user1@celigo.com mahesh.nivrutti.sutar+user5@celigo.com"
+    },
+    "newUser": {
+        "emails": [
+            "mahesh.nivrutti.sutar+delete7@celigo.com"
+        ],
+        "accessLevel": "administrator",
+        "integrationAccessLevel": [],
+        "accountSSORequired": false,
+        "accountMFARequired": false
+    }
+}

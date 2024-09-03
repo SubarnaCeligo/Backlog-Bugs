@@ -1,0 +1,164 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "qa__import": {
+        "name": "TC_C49647_csv",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "i98ae4cd42",
+        "oneToMany": false,
+        "sandbox": false,
+        "mappings": [
+          {
+            "dataType": "objectarray",
+            "status": "Active",
+            "buildArrayHelper": [
+              {
+                "extract": "$",
+                "mappings": [
+                  {
+                    "extract": "$.isFlagShip",
+                    "generate": "FlagShip",
+                    "dataType": "string",
+                    "status": "Active"
+                  },
+                  {
+                    "extract": "$.sku",
+                    "generate": "skuu",
+                    "dataType": "string",
+                    "status": "Active"
+                  },
+                  {
+                    "generate": "variants",
+                    "dataType": "objectarray",
+                    "status": "Draft",
+                    "buildArrayHelper": [
+                      {
+                        "extract": "$.variants[*]",
+                        "status": "Draft"
+                      }
+                    ]
+                  },
+                  {
+                    "generate": "variants.countriesAvailable",
+                    "dataType": "objectarray",
+                    "status": "Active",
+                    "buildArrayHelper": [
+                      {
+                        "extract": "$.variants[*].countriesAvailableIn[*]",
+                        "status": "Active",
+                        "mappings": [
+                          {
+                            "extract": "$.variants.countriesAvailableIn.code",
+                            "generate": "variants.code",
+                            "dataType": "string",
+                            "status": "Active"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "generate": "variants.expandableStorage",
+                    "dataType": "booleanarray",
+                    "status": "Active",
+                    "buildArrayHelper": [
+                      {
+                        "extract": "$.variants[*].expandableStorage"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "file": {
+          "fileName": "TC_C49647.csv",
+          "skipAggregation": false,
+          "type": "csv",
+          "csv": {
+            "rowDelimiter": "\n",
+            "columnDelimiter": ",",
+            "includeHeader": true,
+            "wrapWithQuotes": false,
+            "replaceTabWithSpace": false,
+            "replaceNewlineWithSpace": false,
+            "truncateLastRowDelimiter": false
+          }
+        },
+        "ftp": {
+          "directoryPath": "io.auto.qa/Zendesk_Tests/Automation",
+          "fileName": "TC_C49647.csv"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "timezone": "Asia/Calcutta",
+  "name": "TC_C49647_csv",
+  "disabled": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "4",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "expected": {
+      "FTP": {
+        "name": "TC_C49647.csv",
+        "import": {
+          "_connectionId": "FTP CONNECTION",
+          "file": {
+            "csv": {
+              "columnDelimiter": ","
+            }
+          }
+        },
+        "qa__expectedDashboardCount": {
+          "ignoreCount": "0",
+          "successCount": "4",
+          "errorCount": "0",
+          "pages": "1"
+        },
+        "qa__dataVerification": {
+          "fileName": "TC_C49647",
+          "isUIFlow": true,
+          "folderName": "io.auto.qa/Zendesk_Tests/Automation",
+          "fileType": ".csv"
+        }
+      }
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "FTP Export TC_C49647",
+        "qa__path": "//FTP_uploads//TC_C49647.json",
+        "_connectionId": "FTP CONNECTION",
+        "asynchronous": true,
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "/io.auto.qa/FTP%20Automation%20Account",
+          "fileNameStartsWith": "TC_C49647.json"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json",
+          "json": {
+            "resourcePath": "*"
+          }
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ]
+}

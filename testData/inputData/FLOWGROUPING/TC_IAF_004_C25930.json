@@ -1,0 +1,17 @@
+{
+    "importJson":{
+        "environment":"Production"
+    },
+    "cloneIntegration":{
+        "environment":"sandbox",
+        "switch":"Sandbox",
+        "integrationName":"Automation Flows_2",
+        "uninstallClone":"true"
+    },
+    "setupConnection": {
+        "integrationName":"Automation Flows_2",
+        "activecampaignSubdomain": "jnsajkcbajbfewfbkbjk",
+        "token": "jfbewjkfbefnevbelve",
+        "uninstall":"false"
+    }
+}

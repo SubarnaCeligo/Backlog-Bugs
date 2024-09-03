@@ -1,0 +1,165 @@
+{
+    "name": "TC_C53169_C53170",
+    "referencename": "TC_C53169_C53170",
+    "Body": {
+        "type": "http",
+        "name": "Zendesk",
+        "offline": false,
+        "debugDate": "2022-05-19T05:01:05.294Z",
+        "sandbox": false,
+        "debugUntil": "2022-05-19T05:01:05.294Z",
+        "http": {
+            "formType": "http",
+            "mediaType": "json",
+            "baseURI": "https://celigoqa.zendesk.com/api/v2/",
+            "ping": {
+                "method": "GET",
+                "relativeURI": "users"
+            },
+            "unencrypted": {
+                "field": "value"
+            },
+            "encrypted": "******",
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "mounica.manavapati@celigo.com",
+                    "password": "celigo12rr34"
+                }
+            }
+        },
+        "microServices": {
+            "disableNetSuiteWebServices": false
+        }
+    },
+    "Body1": {
+        "type": "http",
+        "name": "Zendesk",
+        "offline": false,
+        "debugDate": "2022-05-19T05:01:05.294Z",
+        "sandbox": false,
+        "debugUntil": "2022-05-19T05:01:05.294Z",
+        "http": {
+            "formType": "http",
+            "mediaType": "json",
+            "baseURI": "https://celigoqa.zendesk.com/api/v2/",
+            "ping": {
+                "method": "GET",
+                "relativeURI": "users"
+            },
+            "unencrypted": {
+                "field": "value"
+            },
+            "encrypted": "******",
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "mounica.manavapati@celigo.com",
+                    "password": "celigo1234"
+                }
+            }
+        },
+        "microServices": {
+            "disableNetSuiteWebServices": false
+        }
+    },
+    "data": {
+        "page_of_records": [
+            {
+                "record": {
+                    "users": [
+                        {
+                            "id": 1473313072,
+                            "url": "https://celigoqa.zendesk.com/api/v2/users/1473313072.json",
+                            "name": "Celigo IO Automation",
+                            "email": "mounica.manavapati@celigo.com",
+                            "time_zone": "Chennai",
+                            "iana_time_zone": "Asia/Kolkata",
+                            "phone": null,
+                            "shared_phone_number": null,
+                            "photo": null,
+                            "locale_id": 1,
+                            "locale": "en-US",
+                            "organization_id": null,
+                            "role": "admin",
+                            "verified": true,
+                            "external_id": null,
+                            "tags": [
+                                "true"
+                            ],
+                            "alias": "",
+                            "active": true,
+                            "shared": false,
+                            "shared_agent": false,
+                            "last_login_at": "2022-11-23T10:50:10Z",
+                            "two_factor_auth_enabled": null,
+                            "signature": "",
+                            "details": "12345nov23",
+                            "notes": "testmail@gmail.com",
+                            "role_type": 4,
+                            "custom_role_id": 1900000403854,
+                            "moderator": true,
+                            "ticket_restriction": null,
+                            "only_private_comments": false,
+                            "restricted_agent": false,
+                            "suspended": false,
+                            "default_group_id": 25032922,
+                            "report_csv": true
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "qa__api_tdata": [
+        {
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Http Import",
+                        "application": "zendesk support",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "icfa90fb0c",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": [
+                                "users"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [
+                                "{\n\"user\":\n{\"name\":\"{{record.name}}\",\n\"email\":\"{{record.email}}\",\n\"phone\":\"{{record.phone}}\"\n}\n}"
+                            ],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C53169_C53170",
+                "disabled": false,
+                "qa__integrationId": "63232caf5342c33e615e7271",
+                "_integrationId": "63232c59d3a9897fe95f9f2a",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,69 @@
+{
+    "skipRetries": false,
+    "name": "TC_C44446",
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+              "name": "44446",
+              "application": "zendesk support",
+              "_connectionId":"HTTP ZENDESK CONNECTION",
+              "apiIdentifier": "i36c40c82c",
+              "ignoreExisting": false,
+              "ignoreMissing": false,
+              "oneToMany": false,
+              "sandbox": false,
+              "mappings": [
+                {
+                  "extract": "$.orderid",
+                  "generate": "id",
+                  "dataType": "string"
+                },
+                {
+                  "extract": "$.customerid",
+                  "generate": "senderid",
+                  "dataType": "string"
+                },
+                {
+                  "extract": "$.employeeid",
+                  "generate": "reademployeeid",
+                  "dataType": "string"
+                }
+              ],
+              "http": {
+                "relativeURI": ["/ticket.json"],
+                "method": ["POST"],
+                "body": [],
+                "batchSize": 1,
+                "sendPostMappedData": true,
+                "formType": "http"
+              },
+              "adaptorType": "HTTPImport"
+            }
+          }
+        ],
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "application": "MySQL",
+              "name": "44446",
+              "qa__connectionId": "MYSQL CONNECTION",
+              "_connectionId":"MSSQL CONNECTION",
+              "_sourceId": "62de3aff72bebb4e86c780fc",
+              "apiIdentifier": "e6c813aa26",
+              "asynchronous": true,
+              "oneToMany": false,
+              "parsers": [],
+              "rdbms": {
+                  "query": "SELECT * FROM Templates.Order"
+              },
+              "adaptorType": "RDBMSExport"
+            }
+          }
+        ]
+  }

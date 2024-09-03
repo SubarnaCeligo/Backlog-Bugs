@@ -1,0 +1,30 @@
+{
+	"skipRetries": false,
+	"_integrationId": "6228aed6bc8a2732cfe8044c",
+	"pageProcessors": [
+		{
+			"type": "import",
+			"qa__import": {
+				"name": "FTP Import",
+				"parsers": [],
+				"_connectionId": "FTP CONNECTION",
+				"oneToMany": false,
+				"sandbox": false,
+				"file": {
+					"fileName": "453_PGP_ENCRYPT_TWO_FISH.json",
+					"type": "json",
+					"encrypt": "pgp",
+					"pgp": {
+						"symmetricKeyAlgorithm": "twofish"
+					}
+				},
+				"ftp": {
+					"directoryPath": "/io.auto.qa/IO_UI_Automation",
+					"fileName": "TC_C2496.json"
+				},
+				"adaptorType": "FTPImport"
+			}
+		}
+	],
+	"pageGenerators": []
+}

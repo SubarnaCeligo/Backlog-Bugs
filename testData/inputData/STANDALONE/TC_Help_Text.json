@@ -1,0 +1,143 @@
+{
+    "name": "Help Text",
+    "referencename": "Help Text",
+    "qa__dataVerification": {},
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "_id": "6347e90dab1ece3c373ec9df",
+                        "createdAt": "2022-10-13T10:31:41.622Z",
+                        "lastModified": "2022-10-13T10:31:41.699Z",
+                        "name": "AutomationStandalone",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "ec79777092",
+                        "asynchronous": true,
+                        "sandbox": false,
+                        "ftp": {
+                            "directoryPath": "/test"
+                        },
+                        "file": {
+                            "encoding": "utf8",
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "json"
+                        },
+                        "adaptorType": "FTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "AutomationStandalone",
+                        "application": "zendesk support",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "ibc82a4192",
+                        "ignoreExisting": true,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "lookups": [
+                            {
+                                "method": "GET",
+                                "extract": "/user",
+                                "allowFailures": false,
+                                "name": "Dynamic",
+                                "useImportHeaders": true
+                            }
+                        ],
+                        "mappings": [
+                            {
+                                "extract": "$.Id",
+                                "generate": "Name",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            }
+                        ],
+                        "http": {
+                            "relativeURI": [
+                                ""
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [
+                                ""
+                            ],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "ignoreLookupName": "Dynamic",
+                            "formType": "http",
+                            "lookups": [
+                                {
+                                    "method": "GET",
+                                    "extract": "/user",
+                                    "allowFailures": false,
+                                    "name": "Dynamic",
+                                    "useImportHeaders": true
+                                }
+                            ]
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                },
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "AutomationStandalone",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "ib6e11f7f1",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "file": {
+                            "fileName": "file-{{timestamp}}.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "/test",
+                            "fileName": "file-{{timestamp}}.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "Help Text",
+                "disabled": false,
+                "qa__integrationId": "63232caf5342c33e615e7271",
+                "_integrationId": "63232c59d3a9897fe95f9f2a",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    },
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH EXPORTID",
+                        "skipRetries": false
+                    }
+                ]
+            }
+        }
+    ]
+}

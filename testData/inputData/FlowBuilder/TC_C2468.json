@@ -1,0 +1,128 @@
+{
+    "name": "TC_C2468",
+    "disabled": false,
+    "_integrationId": "603ce75ac4fec33283691f43",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "FTP Export",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "ef2e32a105",
+                "asynchronous": true,
+                "sandbox": false,
+                "sampleData": {
+                    "Internal ID": 48040,
+                    "ID": "498207",
+                    "Name": "Choco boat",
+                    "Phone": "1233211234",
+                    "Billing Address 1": "",
+                    "Billing City": "",
+                    "Billing State": {
+                        "Province": ""
+                    },
+                    "Sales Rep": "",
+                    "Search Engine": "",
+                    "Keyword Search": "",
+                    "Medium": ""
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports"
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": false,
+                    "type": "json",
+                    "filter": {
+                        "type": "expression",
+                        "expression": {
+                            "version": "1",
+                            "rules": [
+                                "startswith",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "filename"
+                                    ]
+                                ],
+                                "TC_C2468"
+                            ]
+                        },
+                        "rules": [
+                            "startswith",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "filename"
+                                ]
+                            ],
+                            "TC_C2468"
+                        ],
+                        "version": "1"
+                    }
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "HTTP Import",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "i592aec66e",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "extract": "$.Internal ID",
+                        "generate": "$_PARENT.Internal ID",
+                        "dataType": "string",
+                        "status": "Active",
+                        "sourceDataType": "number"
+                    },
+                    {
+                        "extract": "$.ID",
+                        "generate": "$_PARENT.ID",
+                        "dataType": "string",
+                        "status": "Active",
+                        "sourceDataType": "string"
+                    },
+                    {
+                        "extract": "$.Name",
+                        "generate": "$_PARENT.Name",
+                        "dataType": "string",
+                        "status": "Active",
+                        "sourceDataType": "string"
+                    },
+                    {
+                        "extract": "$.Phone",
+                        "generate": "$_PARENT.Phone",
+                        "dataType": "string",
+                        "status": "Active",
+                        "sourceDataType": "string"
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "/users"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "isRest": false,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ]
+}

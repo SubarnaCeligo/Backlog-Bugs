@@ -1,0 +1,79 @@
+{
+  "name": "TC_C52305",
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "disabled": false,
+  "timezone": "Asia/Calcutta",
+  "skipRetries": false,
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "TC_C52305",
+        "_connectionId": "FTP CONNECTION",
+        "asynchronous": true,
+        "sandbox": false,
+        "qa__path": "//FTP_uploads//TC_C51211.json",
+        "ftp": {
+          "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "TC_C51211"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json"
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "TC_C52305",
+        "_connectionId": "SHOPIFY CONNECTION",
+        "apiIdentifier": "ie928b7963",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "assistant": "shopify",
+        "sandbox": false,
+        "assistantMetadata": {
+          "resource": "customer",
+          "version": "v2",
+          "operation": "creates_acustomer"
+        },
+        "lookups": [],
+        "http": {
+          "relativeURI": ["/customers.json"],
+          "method": ["POST"],
+          "body": [null],
+          "headers": [],
+          "batchSize": 1,
+          "requestMediaType": "json",
+          "successMediaType": "json",
+          "errorMediaType": "json",
+          "strictHandlebarEvaluation": true,
+          "sendPostMappedData": true,
+          "formType": "assistant",
+          "lookups": [],
+          "response": {
+            "resourceIdPath": [null]
+          }
+        },
+        "rest": {
+          "relativeURI": ["/customers.json"],
+          "method": ["POST"],
+          "body": [null],
+          "headers": [],
+          "responseIdPath": [null],
+          "successPath": [null],
+          "successValues": [null],
+          "lookups": []
+        },
+        "adaptorType": "RESTImport"
+      }
+    }
+  ]
+}

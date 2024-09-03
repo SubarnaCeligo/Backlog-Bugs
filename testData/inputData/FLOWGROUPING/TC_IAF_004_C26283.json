@@ -1,0 +1,72 @@
+{
+    "qa_importJson": {
+        "name": "TC_IAF_004_C26283",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "published": true,
+        "_integrationId": "6275e6a47ea7810732a063a8",
+        "applications": [
+            "3plcentral"
+        ],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "6275e6a47ea7810732a063a8",
+            "editions": []
+        }
+    },
+
+    "qa_expectedJson": {
+        "name": "TC_IAF_004_C26283",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "handle": "ca371d81",
+        "published": false,
+        "managed": false,
+        "_integrationId": "6275e6a47ea7810732a063a8",
+        "_sharedImportIds": [],
+        "_sharedExportIds": [],
+        "_iClientIdMap": [],
+        "applications": [
+            "3plcentral"
+        ],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "6275e6a47ea7810732a063a8",
+            "editions": []
+        },
+        "trialEnabled": false
+    },
+    "importJson": {
+        "name": "TC_IAF_004_C26283",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "published": true,
+        "_integrationId": "631ab35013d12134f4771a76",
+        "applications": [
+            "3plcentral"
+        ],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "631ab35013d12134f4771a76",
+            "editions": []
+        }
+    },
+
+    "expectedJson": {
+        "name": "TC_IAF_004_C26283",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "handle": "ca371d81",
+        "published": false,
+        "managed": false,
+        "_integrationId": "631ab35013d12134f4771a76",
+        "_sharedImportIds": [],
+        "_sharedExportIds": [],
+        "_iClientIdMap": [],
+        "applications": [
+            "3plcentral"
+        ],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "631ab35013d12134f4771a76",
+            "editions": []
+        },
+        "trialEnabled": false
+    }
+}

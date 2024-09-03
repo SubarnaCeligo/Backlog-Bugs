@@ -1,0 +1,75 @@
+{
+  "skipRetries": false,
+  "qa__integrationId": "56d6b23fe1fc35de53914730",
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "disabled": false,
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "AutomationStandaloneImport__0iPjg2i4PG",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "ie48fa311f",
+        "oneToMany": false,
+        "sandbox": false,
+        "mappings": [
+          {
+            "extract": "123",
+            "generate": "test",
+            "dataType": "string",
+            "status": "Active"
+          },
+          {
+            "extract": "abc",
+            "generate": "test1",
+            "dataType": "string",
+            "status": "Active"
+          },
+          {
+            "extract": "{{testt}}",
+            "generate": "test2",
+            "dataType": "string",
+            "status": "Active"
+          },
+          {
+            "extract": "[index1,index2,â€¦]",
+            "generate": "test3",
+            "dataType": "string",
+            "status": "Active"
+          }
+        ],
+        "file": {
+          "fileName": "file-{{timestamp}}.json",
+          "skipAggregation": false,
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "/tests",
+          "fileName": "file-{{timestamp}}.json"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "test",
+        "_connectionId": "SALESFORCE CONNECTION",
+        "apiIdentifier": "ec1a751373",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "salesforce": {
+          "type": "soql",
+          "api": "rest",
+          "soql": {
+            "query": "Select Name from Account"
+          }
+        },
+        "adaptorType": "SalesforceExport"
+      }
+    }
+  ]
+}

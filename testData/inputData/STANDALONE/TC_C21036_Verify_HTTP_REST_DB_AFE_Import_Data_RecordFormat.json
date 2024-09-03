@@ -1,0 +1,8 @@
+{
+    "_connectionId": "MYSQL CONNECTION",
+    "qa__connectionId": "62bd3a7c0a32201e8de068f8",
+    "qaprod_connectionId": "62ea6af8c9c10468159bb213",
+    "iaqa_connectionId": "MYSQL CONNECTION",
+    "rest_connectionId":"HTTP ZENDESK CONNECTION",
+    "rest_qa__connectionId": "HTTP ZENDESK CONNECTION"
+}

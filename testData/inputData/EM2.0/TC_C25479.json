@@ -1,0 +1,103 @@
+{
+  "name": "TC_C25479",
+  "referencename": "TC_C25479",
+  "qa__dataVerification": {},
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Export_TC_C25479",
+            "_connectionId": "FTP CONNECTION",
+            "asynchronous": true,
+            "sandbox": false,
+            "qa__path": "/FTP_uploads/new.json",
+            "ftp": {
+              "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+              "fileNameStartsWith": "new.json"
+            },
+            "file": {
+              "encoding": "utf8",
+              "output": "records",
+              "skipDelete": true,
+              "type": "json"
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Import_Zendesk",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "qa__connectionId": "ZENDESK CONNECTION",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [
+              {
+                "method": "GET",
+                "relativeURI": "/tickets.json",
+                "extract": "invalid_name",
+                "allowFailures": false,
+                "name": "dynamicLookup",
+                "useImportHeaders": true
+              }
+            ],
+            "http": {
+              "relativeURI": [
+                "/tickets.json"
+              ],
+              "method": [
+                "POST"
+              ],
+              "body": [
+                "{\n  \"ticket\": {\n    \"comment\": {\n      \"body\": \"{{lookup \"dynamicLookup\" this}}\"\n    },\n     \"description\": \"The fire is very colorful.\",\n    \"priority\": \"urgent\",\n    \"subject\": \"My printer is on fire!\"\n  }\n}"
+              ],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http",
+              "lookups": [
+                {
+                  "method": "GET",
+                  "relativeURI": "/tickets.json",
+                  "extract": "invalid_name",
+                  "allowFailures": false,
+                  "name": "dynamicLookup",
+                  "useImportHeaders": true
+                }
+              ]
+            },
+            "adaptorType": "HTTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C25479",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

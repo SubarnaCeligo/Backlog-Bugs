@@ -1,0 +1,284 @@
+{
+    "qa_integrationSetting": {
+      "_id": "62905de2c51f323382314cce",
+      "name": "Edition",
+      "install": [],
+      "mode": "settings",
+      "sandbox": false,
+      "_registeredConnectionIds": [
+          "626bd636987bb423914b47c7"
+      ],
+      "installSteps": [
+              {
+                  "name": "Configure ActiveCampaign Connection",
+                  "description": "Configure your ActiveCampaign connection. This is common and is set up on parent",
+                  "imageUrl": "/images/company-logos/netsuite.png",
+                  "completed": false,
+                  "type": "connection",
+                  "sourceConnection": {
+                      "type": "http",
+                      "assistant":"activecampaign",
+                      "name": "AC Test Case connection",
+                      "_id": "626bd636987bb423914b47c7"
+                  }
+              },{
+              "name": "Install resources based on edition",
+              "completed": false,
+              "type": "edition"
+          }],
+      "uninstallSteps": [{
+        "name": "Remove the integrator.io bundle install and verify",
+        "description": "Click on the link to get the IO bundle link, install and then verify the installation.",
+        "imageUrl": "/images/company-logos/netsuite.png",
+         "completed": false,
+        "type": "url",
+         "url": "/marketplace/netsuite"
+      }
+      ],
+      "flowGroupings": [],
+      "initChild": {
+          "_scriptId": "62613430e4520e334e7eeb2a",
+          "function": "initChild"
+      }
+  },
+      "qa_editionSetting": {
+        "_id": "6295c409f28390765b3bf1cc",
+        "name": "TC_IAF_009_C26878",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "handle": "ce4e172c",
+        "published": false,
+        "managed": false,
+        "_integrationId": "62905de2c51f323382314cce",
+        "_sharedImportIds": [],
+        "_sharedExportIds": [],
+        "_iClientIdMap": [],
+        "applications": [
+            "activecampaign"
+        ],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "62905de2c51f323382314cce",
+            "editions": [
+                {
+                    "displayName": "Basic",
+                    "order": 0,
+                    "resources": {
+                        "_flowIds": [
+                            "6299956d95d5005bcd7dfc22"
+                        ],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    },
+                    "childResources": {
+                        "_flowIds": [],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    }
+                },
+                {
+                    "displayName": "Premium",
+                    "order": 1,
+                    "resources": {
+                        "_flowIds": [
+                            "6299954495d5005bcd7dfc19"
+                        ],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    },
+                    "childResources": {
+                        "_flowIds": [],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    }
+                }
+            ]
+        },
+        "trialEnabled": false
+    },
+  "qa_importJson": {
+      "environment": "Production",
+      "name": "TC_IAF_009_C26878",
+      "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+      "_integrationId": "62905de2c51f323382314cce",
+      "applications": ["activecampaign"],
+      "framework": "twoDotZero",
+      "twoDotZero": {
+        "_integrationId": "62905de2c51f323382314cce"
+      }
+    },
+    "qa_expectedJson": {
+      "name": "TC_IAF_009_C26878",
+      "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+      "published": false,
+      "managed": false,
+      "_integrationId": "62905de2c51f323382314cce",
+      "applications": ["ActiveCampaign"],
+      "framework": "twoDotZero",
+      "twoDotZero": {
+        "_integrationId": "62905de2c51f323382314cce",
+        "editions": []
+      }
+    },
+    "setupConnection": {
+      "integrationName":"Edition",
+      "activecampaignSubdomain": "jnsajkcbajbfewfbkbjk",
+      "token": "jfbewjkfbefnevbelve",
+      "uninstall":"false"
+    },
+    "integrationSetting": {
+        "_id": "631ad2f213d12134f4772d77",
+        "name": "Edition",
+        "install": [],
+        "mode": "settings",
+        "sandbox": false,
+        "_registeredConnectionIds": [
+            "626fdc6d7490300e92ffd613"
+        ],
+        "installSteps": [
+                {
+                    "name": "Configure ActiveCampaign Connection",
+                    "description": "Configure your ActiveCampaign connection. This is common and is set up on parent",
+                    "imageUrl": "/images/company-logos/netsuite.png",
+                    "completed": false,
+                    "type": "connection",
+                    "sourceConnection": {
+                        "type": "http",
+                        "assistant":"activecampaign",
+                        "name": "AC Test Case connection",
+                        "_id": "626fdc6d7490300e92ffd613"
+                    }
+                },{
+                "name": "Install resources based on edition",
+                "completed": false,
+                "type": "edition"
+            }],
+        "uninstallSteps": [
+            {
+                "name": "Remove the integrator.io bundle install and verify",
+               "description": "Click on the link to get the IO bundle link, install and then verify the installation.",
+                "imageUrl": "/images/company-logos/netsuite.png",
+                "completed": false,
+                "type": "url",
+                "url": "/marketplace/netsuite"
+            }
+        ],
+        "flowGroupings": [],
+        "initChild": {
+            "_scriptId": "62613430e4520e334e7eeb2a",
+            "function": "initChild"
+        }
+    },
+        "editionSetting": {
+          "_id": "6320042651852e73fb075e4f",
+          "name": "TC_IAF_009_C26878",
+          "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+          "handle": "ce4e172c",
+          "published": false,
+          "managed": false,
+          "_integrationId": "631ad2f213d12134f4772d77",
+          "_sharedImportIds": [],
+          "_sharedExportIds": [],
+          "_iClientIdMap": [],
+          "applications": [
+              "activecampaign"
+          ],
+          "framework": "twoDotZero",
+          "twoDotZero": {
+              "_integrationId": "631ad2f213d12134f4772d77",
+              "editions": [
+                  {
+                      "displayName": "Basic",
+                      "order": 0,
+                      "resources": {
+                          "_flowIds": [
+                              "631ad3673796483e5615c955"
+                          ],
+                          "_importIds": [],
+                          "_exportIds": [],
+                          "_connectionIds": [],
+                          "_asyncHelperIds": [],
+                          "_fileDefinitionIds": []
+                      },
+                      "childResources": {
+                          "_flowIds": [],
+                          "_importIds": [],
+                          "_exportIds": [],
+                          "_connectionIds": [],
+                          "_asyncHelperIds": [],
+                          "_fileDefinitionIds": []
+                      }
+                  },
+                  {
+                      "displayName": "Premium",
+                      "order": 1,
+                      "resources": {
+                          "_flowIds": [
+                              "631ad3673796483e5615c955"
+                          ],
+                          "_importIds": [],
+                          "_exportIds": [],
+                          "_connectionIds": [],
+                          "_asyncHelperIds": [],
+                          "_fileDefinitionIds": []
+                      },
+                      "childResources": {
+                          "_flowIds": [],
+                          "_importIds": [],
+                          "_exportIds": [],
+                          "_connectionIds": [],
+                          "_asyncHelperIds": [],
+                          "_fileDefinitionIds": []
+                      }
+                  }
+              ]
+          },
+          "trialEnabled": false
+      },
+    "importJson": {
+        "environment": "Production",
+        "name": "TC_IAF_009_C26878",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "_integrationId": "631ad2f213d12134f4772d77",
+        "applications": ["activecampaign"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+          "_integrationId": "631ad2f213d12134f4772d77"
+        }
+      },
+      "expectedJson": {
+        "name": "TC_IAF_009_C26878",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "published": false,
+        "managed": false,
+        "_integrationId": "631ad2f213d12134f4772d77",
+        "applications": ["ActiveCampaign"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+          "_integrationId": "631ad2f213d12134f4772d77",
+          "editions": []
+        }
+      },
+    "createLicense1": {
+        "name": "TC_IAF_009_C26878",
+        "edition": "Basic"
+    },
+    "createLicense": {
+        "name": "TC_IAF_009_C26878",
+        "edition": "Premium"
+    },
+    "app": "ActiveCampaign",
+    "integrationName": "Edition"
+
+  }

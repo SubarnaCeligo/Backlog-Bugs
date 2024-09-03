@@ -1,0 +1,36 @@
+{
+    "export": {
+        "name": "HTTP ZD export connection_DND",
+        "_connectionId": "62fd30ea7d9e902376ffd85e",
+        "apiIdentifier": "ee37bfa534",
+        "application": "zendesk support",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "groupByFields": [
+            "id",
+            "priority"
+        ],
+        "http": {
+            "relativeURI": "tickets",
+            "method": "GET",
+            "successMediaType": "csv",
+            "formType": "http"
+        },
+        "file": {
+            "type": "csv",
+            "csv": {
+                "columnDelimiter": ",",
+                "rowDelimiter": "\n",
+                "hasHeaderRow": false,
+                "trimSpaces": true,
+                "rowsToSkip": 0
+            }
+        },
+        "rawData": "EMPTY RAW DATA",
+        "settings": {
+            "name": "export_celigo"
+        },
+        "adaptorType": "HTTPExport"
+    }
+}

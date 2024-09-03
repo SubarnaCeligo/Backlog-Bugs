@@ -1,0 +1,100 @@
+{
+    "import": {
+        "name": "TC_C52143 - FTP from Postman- Mapper 2.0 Part",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "i6adc61427",
+        "oneToMany": false,
+        "sandbox": false,
+        "mappings": [
+            {
+                "generate": "user",
+                "dataType": "object",
+                "status": "Active",
+                "mappings": [
+                    {
+                        "generate": "Stringtags",
+                        "dataType": "stringarray",
+                        "status": "Active",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$.user.email",
+                                "default": null,
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "$.user.name",
+                                "default": null,
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "$.user.organization.name",
+                                "default": "",
+                                "sourceDataType": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "generate": "Booleantags",
+                        "dataType": "booleanarray",
+                        "status": "Active",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$.user.Booleanemail",
+                                "default": null,
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.user.Booleanname",
+                                "default": null,
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.user.Booleanorganization.name",
+                                "default": "",
+                                "sourceDataType": "boolean"
+                            }
+                        ]
+                    },
+                    {
+                        "generate": "Numbertags",
+                        "dataType": "numberarray",
+                        "status": "Active",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$.user.Numemail",
+                                "default": "",
+                                "sourceDataType": "number"
+                            },
+                            {
+                                "extract": "$.user.Numbersname",
+                                "default": null,
+                                "sourceDataType": "number"
+                            },
+                            {
+                                "extract": "$.user.Numorganization.numname",
+                                "default": null,
+                                "sourceDataType": "number"
+                            }
+                        ]
+                    },
+                    {
+                        "extract": "$.user.role",
+                        "generate": "role",
+                        "dataType": "string",
+                        "status": "Active"
+                    }
+                ]
+            }
+        ],
+        "file": {
+            "fileName": "TC_C52143.xlsx",
+            "skipAggregation": false,
+            "type": "xlsx"
+        },
+        "ftp": {
+            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPimport",
+            "fileName": "TC_C52143.xlsx"
+        },
+        "adaptorType": "FTPImport"
+    }
+}

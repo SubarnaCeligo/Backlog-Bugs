@@ -1,0 +1,64 @@
+{
+    "qa_integrationSetting":{
+    "_id": "62a95bfa0d57d901d06651d1",
+    "name": "No Install Steps",
+    "install": [],
+    "mode": "settings",
+    "sandbox": false,
+    "_registeredConnectionIds": [
+      "626bd636987bb423914b47c7"
+    ],
+    "installSteps":[{
+        "name": "Integrator.io bundle install and verify",
+        "description": "Click on the link to get the IO bundle link, install and then verify the installation.",
+        "imageUrl": "/images/company-logos/netsuite.png",
+        "completed": false,
+        "type": "url",
+        "function": "hiddenStep",
+        "_scriptId": "6294686e2174cb0241123bfa"
+    }],
+    "uninstallSteps": [],
+    "flowGroupings": [
+    ],
+    "initChild": {
+      "_scriptId": "629dfc60170d31316db48d8a",
+      "function": "initChildIntegration"
+    }
+  },
+
+  "integrationSetting":{
+    "_id": "631ab4bc3796483e5615b6b9",
+    "name": "No Install Steps",
+    "install": [],
+    "mode": "settings",
+    "sandbox": false,
+    "_registeredConnectionIds": [
+      "626fdc6d7490300e92ffd613"
+    ],
+    "installSteps":[{
+        "name": "Integrator.io bundle install and verify",
+        "description": "Click on the link to get the IO bundle link, install and then verify the installation.",
+        "imageUrl": "/images/company-logos/netsuite.png",
+        "completed": false,
+        "type": "url",
+        "function": "hiddenStep",
+        "_scriptId": "626137e61ce14c420e01c86b"
+    }],
+    "uninstallSteps": [],
+    "flowGroupings": [
+    ],
+    "initChild": {
+      "_scriptId": "626137e61ce14c420e01c86b",
+      "function": "initChildIntegration"
+    }
+  },
+  "errorMessage":
+  {
+    "errors": [
+        {
+            "field": "install[0].url",
+            "message": "Install step is invalid: invalid url."
+        }
+    ]
+  }
+}

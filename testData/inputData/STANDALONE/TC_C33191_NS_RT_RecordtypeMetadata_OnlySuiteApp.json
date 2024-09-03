@@ -1,0 +1,2274 @@
+{
+  "_connectionId": "62e8a85c36f8f637aa251cc2",
+  "qa__connectionId": "62e8a85c36f8f637aa251cc2",
+  "response": {
+    "res": [
+      {
+        "id": "280",
+        "scriptId": "CUSTOMLIST_REVIEW_STATUS",
+        "name": "-Solution Review Status",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=280",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "account",
+        "name": "Account",
+        "permissionId": "LIST_ACCOUNT",
+        "scriptable": true,
+        "url": "/app/accounting/account/account.nl",
+        "id": "account",
+        "userPermission": "4"
+      },
+      {
+        "id": "388",
+        "scriptId": "CUSTOMLIST_2663_ACCT_TYPE",
+        "name": "Account Type",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=388",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "advintercompanyjournalentry",
+        "name": "Advanced Intercompany Journal Entry",
+        "permissionId": "TRAN_JOURNAL",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/icjournal.nl",
+        "id": "advintercompanyjournalentry",
+        "userPermission": "4"
+      },
+      {
+        "id": "2",
+        "scriptId": "CUSTOMLIST2",
+        "name": "Advertising Preferences",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=2",
+        "userPermission": "4"
+      },
+      {
+        "id": "244",
+        "scriptId": "CUSTOMLIST244",
+        "name": "Aisle",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=244",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "allocationschedule",
+        "name": "Allocation Schedule",
+        "permissionId": "TRAN_ALLOCSCHEDULE",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/allocation.nl",
+        "doesNotSupportSearch": true,
+        "doesNotSupportUpdate": true,
+        "id": "allocationschedule",
+        "userPermission": "4"
+      },
+      {
+        "id": "16",
+        "scriptId": "CUSTOMLIST16",
+        "name": "Annual Revenue",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=16",
+        "userPermission": "4"
+      },
+      {
+        "id": "548",
+        "scriptId": "CUSTOMRECORD_TESTRECORD",
+        "name": "Anusha",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=548",
+        "permissionId": "LIST_CUSTRECORDENTRY548",
+        "userPermission": "4"
+      },
+      {
+        "id": "41",
+        "scriptId": "CUSTOMLIST_GUS_TRAVEL_APPROVAL_LIST",
+        "name": "Approval List",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=41",
+        "userPermission": "4"
+      },
+      {
+        "id": "259",
+        "scriptId": "CUSTOMLIST_BG_PROCESSLOGMSGTYPE",
+        "name": "BG Log Message Type",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=259",
+        "userPermission": "4"
+      },
+      {
+        "id": "255",
+        "scriptId": "CUSTOMLIST_BG_PROCESSACTIVITY",
+        "name": "BG Process Activity Type",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=255",
+        "userPermission": "4"
+      },
+      {
+        "id": "253",
+        "scriptId": "CUSTOMLIST_BG_PROCESSSTATUS",
+        "name": "BG Process Status",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=253",
+        "userPermission": "4"
+      },
+      {
+        "id": "394",
+        "scriptId": "CUSTOMLIST_2663_BANK_ACCT_TYPE",
+        "name": "Bank Account Type",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=394",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "vendorbill",
+        "name": "Bill",
+        "permissionId": "TRAN_VENDBILL",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/vendbill.nl",
+        "id": "vendorbill",
+        "userPermission": "4",
+        "hasSubRecord": true,
+        "subRecordConfig": [
+          {
+            "id": "item[*].celigo_inventorydetail",
+            "name": "Items : Inventory Details",
+            "subRecordType": "inventorydetail"
+          }
+        ]
+      },
+      {
+        "scriptId": "vendorcredit",
+        "name": "Bill Credit",
+        "permissionId": "TRAN_VENDCRED",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/vendcred.nl",
+        "id": "vendorcredit",
+        "userPermission": "4"
+      },
+      {
+        "id": "381",
+        "scriptId": "CUSTOMRECORD_2663_BILL_EFT_DETAILS",
+        "name": "Bill EFT Details",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=381",
+        "permissionId": "LIST_CUSTRECORDENTRY381",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "vendorpayment",
+        "name": "Bill Payment",
+        "permissionId": "TRAN_VENDPYMT",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/vendpymt.nl",
+        "id": "vendorpayment",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "billingaccount",
+        "name": "Billing Account",
+        "permissionId": "LIST_CUSTJOB",
+        "scriptable": true,
+        "url": "/app/accounting/otherlists/billingaccount.nl",
+        "id": "billingaccount",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "billingclass",
+        "name": "Billing Class",
+        "permissionId": "ADMI_ACCOUNTINGLIST",
+        "scriptable": true,
+        "url": "/app/accounting/otherlists/billingclass.nl",
+        "id": "billingclass",
+        "userPermission": "1"
+      },
+      {
+        "scriptId": "bin",
+        "name": "Bin",
+        "permissionId": "LIST_BIN",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/inventory/binnumberrecord.nl",
+        "id": "bin",
+        "userPermission": "4"
+      },
+      {
+        "id": "31",
+        "scriptId": "CUSTOMRECORD31",
+        "name": "Board Plan: Revenue Target",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=31",
+        "permissionId": "LIST_CUSTRECORDENTRY31",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "assemblyitem",
+        "name": "Build/Assembly Item",
+        "permissionId": "LIST_ITEM",
+        "scriptable": true,
+        "url": "/app/common/item/item.nl?itemtype=Assembly",
+        "urlparams": "itemtype=Assembly",
+        "id": "assemblyitem",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "bundleinstallationscript",
+        "name": "Bundle Installation Script",
+        "permissionId": "ADMI_CUSTOMSCRIPT",
+        "scriptable": true,
+        "url": "/app/common/scripting/script.nl?scripttype=BUNDLEINSTALLATION",
+        "urlparams": "scripttype=BUNDLEINSTALLATION",
+        "id": "bundleinstallationscript",
+        "userPermission": "4"
+      },
+      {
+        "id": "9",
+        "scriptId": "CUSTOMLIST9",
+        "name": "Cable Color Options",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=9",
+        "userPermission": "4"
+      },
+      {
+        "id": "10",
+        "scriptId": "CUSTOMLIST10",
+        "name": "Cable Lenght Option",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=10",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "campaign",
+        "name": "Campaign",
+        "permissionId": "LIST_CAMPAIGN",
+        "scriptable": true,
+        "url": "/app/crm/marketing/campaign.nl",
+        "id": "campaign",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "campaignresponse",
+        "name": "Campaign Response",
+        "permissionId": "LIST_CAMPAIGNHISTORY",
+        "scriptable": true,
+        "url": "/app/crm/marketing/campaignresponse.nl",
+        "doesNotSupportSearch": true,
+        "doesNotSupportUpdate": true,
+        "id": "campaignresponse",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "campaigntemplate",
+        "name": "Campaign Template",
+        "permissionId": "LIST_CRMTEMPLATE",
+        "scriptable": true,
+        "url": "/app/crm/common/merge/campaigntemplate.nl?templateversion='FREEMARKER'",
+        "urlparams": "templateversion='FREEMARKER'",
+        "id": "campaigntemplate",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "supportcase",
+        "name": "Case",
+        "permissionId": "LIST_CASE",
+        "scriptable": true,
+        "url": "/app/crm/support/supportcase.nl",
+        "id": "supportcase",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "cashrefund",
+        "name": "Cash Refund",
+        "permissionId": "TRAN_CASHRFND",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/cashrfnd.nl",
+        "id": "cashrefund",
+        "userPermission": "4",
+        "hasSubRecord": true,
+        "subRecordConfig": [
+          {
+            "id": "item[*].celigo_inventorydetail",
+            "name": "Items : Inventory Details",
+            "subRecordType": "inventorydetail"
+          }
+        ]
+      },
+      {
+        "scriptId": "cashsale",
+        "name": "Cash Sale",
+        "permissionId": "TRAN_CASHSALE",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/cashsale.nl",
+        "id": "cashsale",
+        "userPermission": "4",
+        "hasSubRecord": true,
+        "subRecordConfig": [
+          {
+            "id": "item[*].celigo_inventorydetail",
+            "name": "Items : Inventory Details",
+            "subRecordType": "inventorydetail"
+          }
+        ]
+      },
+      {
+        "id": "43",
+        "scriptId": "CUSTOMLIST_LEAD_NURTURE_CAT",
+        "name": "Category",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=43",
+        "userPermission": "4"
+      },
+      {
+        "id": "880",
+        "scriptId": "CUSTOMRECORD_CELIGO_RT2_ENVIRONMENT",
+        "name": "Celigo Environment 2",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=880",
+        "permissionId": "LIST_CUSTRECORDENTRY880",
+        "userPermission": "4"
+      },
+      {
+        "id": "882",
+        "scriptId": "CUSTOMRECORD_CELIGO_RT2_MESSAGE_QUEUE",
+        "name": "Celigo Queued Message 2",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=882",
+        "permissionId": "LIST_CUSTRECORDENTRY882",
+        "userPermission": "4"
+      },
+      {
+        "id": "881",
+        "scriptId": "CUSTOMRECORD_CELIGO_RT2_EXPORT_FLOW",
+        "name": "Celigo Reatime Export Flow 2.0",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=881",
+        "permissionId": "LIST_CUSTRECORDENTRY881",
+        "userPermission": "4"
+      },
+      {
+        "id": "878",
+        "scriptId": "CUSTOMLIST_CELIGO_RT2_UE_EXCTX",
+        "name": "Celigo UE Execution Context 2",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=878",
+        "userPermission": "4"
+      },
+      {
+        "id": "879",
+        "scriptId": "CUSTOMLIST_CELIGO_RT2_UE_EXEC_TYPES",
+        "name": "Celigo UE Execution Types 2",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=879",
+        "userPermission": "4"
+      },
+      {
+        "id": "4",
+        "scriptId": "CUSTOMLIST4",
+        "name": "Cell Phone Faceplate Colors",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=4",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "check",
+        "name": "Check",
+        "permissionId": "TRAN_CHECK",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/check.nl",
+        "id": "check",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "classification",
+        "name": "Class",
+        "permissionId": "LIST_CLASS",
+        "scriptable": true,
+        "url": "/app/common/otherlists/classtype.nl",
+        "id": "classification",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "clientscript",
+        "name": "Client Script",
+        "permissionId": "ADMI_CUSTOMSCRIPT",
+        "scriptable": true,
+        "url": "/app/common/scripting/script.nl?scripttype=CLIENT",
+        "urlparams": "scripttype=CLIENT",
+        "id": "clientscript",
+        "userPermission": "4"
+      },
+      {
+        "id": "282",
+        "scriptId": "CUSTOMLIST_CLOSEREASONLIST",
+        "name": "Close Reason List",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=282",
+        "userPermission": "4"
+      },
+      {
+        "id": "393",
+        "scriptId": "CUSTOMLISTCUSTOMLIST36",
+        "name": "Colors",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=393",
+        "userPermission": "4"
+      },
+      {
+        "id": "17",
+        "scriptId": "CUSTOMLIST17",
+        "name": "Company Size",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=17",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "competitor",
+        "name": "Competitor",
+        "permissionId": "LIST_COMPETITOR",
+        "scriptable": true,
+        "url": "/app/crm/sales/competitor.nl",
+        "id": "competitor",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "contact",
+        "name": "Contact",
+        "permissionId": "LIST_CONTACT",
+        "scriptable": true,
+        "url": "/app/common/entity/contact.nl",
+        "id": "contact",
+        "userPermission": "4"
+      },
+      {
+        "id": "284",
+        "scriptId": "CUSTOMRECORD_CONTAINER",
+        "name": "Container",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=284",
+        "permissionId": "LIST_CUSTRECORDENTRY284",
+        "userPermission": "4"
+      },
+      {
+        "id": "285",
+        "scriptId": "CUSTOMRECORD_CONTAINER_DETAILS",
+        "name": "Container Details",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=285",
+        "permissionId": "LIST_CUSTRECORDENTRY285",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "couponcode",
+        "name": "Coupon Code",
+        "permissionId": "LIST_PROMOTIONCODE",
+        "scriptable": true,
+        "url": "/app/crm/sales/couponcode.nl",
+        "id": "couponcode",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "creditcardrefund",
+        "name": "Credit Card Refund",
+        "permissionId": "TRAN_CASHRFND",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/cardrfnd.nl",
+        "id": "creditcardrefund",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "creditcardcharge",
+        "name": "Credit Card Transaction",
+        "permissionId": "TRAN_CARDCHRG",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/cardchrg.nl",
+        "id": "creditcardcharge",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "creditmemo",
+        "name": "Credit Memo",
+        "permissionId": "TRAN_CUSTCRED",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/custcred.nl",
+        "id": "creditmemo",
+        "userPermission": "4",
+        "hasSubRecord": true,
+        "subRecordConfig": [
+          {
+            "id": "item[*].celigo_inventorydetail",
+            "name": "Items : Inventory Details",
+            "subRecordType": "inventorydetail"
+          }
+        ]
+      },
+      {
+        "scriptId": "customer",
+        "name": "Customer",
+        "permissionId": "LIST_CUSTJOB",
+        "scriptable": true,
+        "url": "/app/common/entity/custjob.nl?stage=CUSTOMER",
+        "urlparams": "stage=CUSTOMER",
+        "id": "customer",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "customercategory",
+        "name": "Customer Category",
+        "permissionId": "ADMI_ACCOUNTINGLIST",
+        "scriptable": true,
+        "url": "/app/common/otherlists/accountingotherlist.nl?tname=custtype",
+        "urlparams": "tname=custtype",
+        "id": "customercategory",
+        "userPermission": "1"
+      },
+      {
+        "scriptId": "customerdeposit",
+        "name": "Customer Deposit",
+        "permissionId": "TRAN_CUSTDEP",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/custdep.nl",
+        "id": "customerdeposit",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "customerpayment",
+        "name": "Customer Payment",
+        "permissionId": "TRAN_CUSTPYMT",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/custpymt.nl",
+        "id": "customerpayment",
+        "userPermission": "4"
+      },
+      {
+        "id": "30",
+        "scriptId": "CUSTOMLIST30",
+        "name": "Customer Priority",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=30",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "customerrefund",
+        "name": "Customer Refund",
+        "permissionId": "TRAN_CUSTRFND",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/custrfnd.nl",
+        "id": "customerrefund",
+        "userPermission": "4"
+      },
+      {
+        "id": "384",
+        "scriptId": "CUSTOMLIST_2663_DAY_OF_WEEK",
+        "name": "Day of Week",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=384",
+        "userPermission": "4"
+      },
+      {
+        "id": "466",
+        "scriptId": "CUSTOMRECORD_SS_DEF_AUTOSUB_ROLE",
+        "name": "Default Subscription Role",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=466",
+        "permissionId": "LIST_CUSTRECORDENTRY466",
+        "userPermission": "4"
+      },
+      {
+        "id": "88",
+        "scriptId": "CUSTOMLIST88",
+        "name": "Demand Planning Methods",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=88",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "department",
+        "name": "Department",
+        "permissionId": "LIST_DEPARTMENT",
+        "scriptable": true,
+        "url": "/app/common/otherlists/departmenttype.nl",
+        "id": "department",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "deposit",
+        "name": "Deposit",
+        "permissionId": "TRAN_DEPOSIT",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/deposit.nl",
+        "id": "deposit",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "depositapplication",
+        "name": "Deposit Application",
+        "permissionId": "TRAN_DEPAPPL",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/depappl.nl",
+        "id": "depositapplication",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "descriptionitem",
+        "name": "Description Item",
+        "permissionId": "LIST_ITEM",
+        "scriptable": true,
+        "url": "/app/common/item/item.nl?itemtype=Description",
+        "urlparams": "itemtype=Description",
+        "id": "descriptionitem",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "discountitem",
+        "name": "Discount Item",
+        "permissionId": "LIST_ITEM",
+        "scriptable": true,
+        "url": "/app/common/item/item.nl?itemtype=Discount",
+        "urlparams": "itemtype=Discount",
+        "id": "discountitem",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "file",
+        "name": "Document",
+        "permissionId": "LIST_FILECABINET",
+        "scriptable": true,
+        "url": "/app/common/media/mediaitem.nl",
+        "doesNotSupportCreate": true,
+        "doesNotSupportUpdate": true,
+        "id": "file",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "downloaditem",
+        "name": "Download Item",
+        "permissionId": "LIST_ITEM",
+        "scriptable": true,
+        "url": "/app/common/item/item.nl?itemtype=DwnLdItem",
+        "urlparams": "itemtype=DwnLdItem",
+        "id": "downloaditem",
+        "userPermission": "4"
+      },
+      {
+        "id": "11",
+        "scriptId": "CUSTOMRECORD11",
+        "name": "E-Commerce Survey",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=11",
+        "permissionId": "LIST_CUSTRECORDENTRY11",
+        "userPermission": "4"
+      },
+      {
+        "id": "389",
+        "scriptId": "CUSTOMLIST_2663_PROCESS_STATUS",
+        "name": "EFT Processing Status",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=389",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "emailtemplate",
+        "name": "Email Template",
+        "permissionId": "LIST_EMAILTEMPLATE",
+        "scriptable": true,
+        "url": "/app/crm/common/merge/emailtemplate.nl",
+        "id": "emailtemplate",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "employee",
+        "name": "Employee",
+        "permissionId": "LIST_EMPLOYEE",
+        "scriptable": true,
+        "url": "/app/common/entity/employee.nl",
+        "id": "employee",
+        "userPermission": "4"
+      },
+      {
+        "id": "395",
+        "scriptId": "CUSTOMLIST395",
+        "name": "Eng Status",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=395",
+        "userPermission": "4"
+      },
+      {
+        "id": "391",
+        "scriptId": "CUSTOMLIST_2663_ENTITY_BANK_TYPE",
+        "name": "Entity Bank Detail Type",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=391",
+        "userPermission": "4"
+      },
+      {
+        "id": "546",
+        "scriptId": "CUSTOMRECORD546",
+        "name": "ErrorID",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=546",
+        "permissionId": "LIST_CUSTRECORDENTRY546",
+        "userPermission": "4"
+      },
+      {
+        "id": "366",
+        "scriptId": "CUSTOMRECORD_EST",
+        "name": "Estimate",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=366",
+        "permissionId": "LIST_CUSTRECORDENTRY366",
+        "userPermission": "4"
+      },
+      {
+        "id": "368",
+        "scriptId": "CUSTOMRECORD_EST_LAB",
+        "name": "Estimated Labor Costs",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=368",
+        "permissionId": "LIST_CUSTRECORDENTRY368",
+        "userPermission": "4"
+      },
+      {
+        "id": "369",
+        "scriptId": "CUSTOMRECORD_EST_MAT",
+        "name": "Estimated Material Costs",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=369",
+        "permissionId": "LIST_CUSTRECORDENTRY369",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "calendarevent",
+        "name": "Event",
+        "permissionId": "LIST_EVENT",
+        "scriptable": true,
+        "url": "/app/crm/calendar/event.nl",
+        "id": "calendarevent",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "expensecategory",
+        "name": "Expense Category",
+        "permissionId": "LIST_CATEGORY",
+        "scriptable": true,
+        "url": "/app/accounting/otherlists/expcategory.nl",
+        "id": "expensecategory",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "expensereport",
+        "name": "Expense Report",
+        "permissionId": "TRAN_EXPREPT",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/exprept.nl",
+        "id": "expensereport",
+        "userPermission": "4"
+      },
+      {
+        "id": "258",
+        "scriptId": "CUSTOMLIST_FAM_LIST_ACCRUAL_CONVENTION",
+        "name": "FAM - Accrual Convention",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=258",
+        "userPermission": "4"
+      },
+      {
+        "id": "397",
+        "scriptId": "CUSTOMLIST_NCFAR_ANNUALENTRY",
+        "name": "FAM - Annual Method Entry",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=397",
+        "userPermission": "4"
+      },
+      {
+        "id": "62",
+        "scriptId": "CUSTOMLIST_NCFAR_PROPOSALSTATUS",
+        "name": "FAM - Asset Proposal Status",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=62",
+        "userPermission": "4"
+      },
+      {
+        "id": "60",
+        "scriptId": "CUSTOMLIST_NCFAR_ASSETSTATUS",
+        "name": "FAM - Asset Status",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=60",
+        "userPermission": "4"
+      },
+      {
+        "id": "64",
+        "scriptId": "CUSTOMLIST_NCFAR_CONVENTIONS",
+        "name": "FAM - Conventions",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=64",
+        "userPermission": "4"
+      },
+      {
+        "id": "59",
+        "scriptId": "CUSTOMLIST_NCFAR_DEPRHISTMETHODS",
+        "name": "FAM - Depr History Methods",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=59",
+        "userPermission": "4"
+      },
+      {
+        "id": "61",
+        "scriptId": "CUSTOMLIST_NCFAR_DEPRACTIVE",
+        "name": "FAM - Depreciation Active",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=61",
+        "userPermission": "4"
+      },
+      {
+        "id": "54",
+        "scriptId": "CUSTOMLIST_NCFAR_DEPRPERIOD",
+        "name": "FAM - Depreciation Period",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=54",
+        "userPermission": "4"
+      },
+      {
+        "id": "58",
+        "scriptId": "CUSTOMLIST_NCFAR_DEPRRULES",
+        "name": "FAM - Depreciation Rules",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=58",
+        "userPermission": "4"
+      },
+      {
+        "id": "57",
+        "scriptId": "CUSTOMLIST_NCFAR_DISPOSALTYPE",
+        "name": "FAM - Disposal Type",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=57",
+        "userPermission": "4"
+      },
+      {
+        "id": "254",
+        "scriptId": "CUSTOMLIST_FAM_LIST_FINAL_CONVENTION",
+        "name": "FAM - Final Period Convention",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=254",
+        "userPermission": "4"
+      },
+      {
+        "id": "257",
+        "scriptId": "CUSTOMLIST_FAR_MONTHNAMES",
+        "name": "FAM - Month Names",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=257",
+        "userPermission": "4"
+      },
+      {
+        "id": "252",
+        "scriptId": "CUSTOMLIST_FAM_LIST_PERIOD_CONVENTION",
+        "name": "FAM - Period Convention",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=252",
+        "userPermission": "4"
+      },
+      {
+        "id": "56",
+        "scriptId": "CUSTOMLIST_NCFAR_REVISIONRULES",
+        "name": "FAM - Revision Rules",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=56",
+        "userPermission": "4"
+      },
+      {
+        "id": "396",
+        "scriptId": "CUSTOMLIST_NCFAR_TAXMETHODSTATUS",
+        "name": "FAM - Tax Method Status",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=396",
+        "userPermission": "4"
+      },
+      {
+        "id": "63",
+        "scriptId": "CUSTOMLIST_NCFAR_TRANSACTIONTYPE",
+        "name": "FAM - Transaction Type",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=63",
+        "userPermission": "4"
+      },
+      {
+        "id": "55",
+        "scriptId": "CUSTOMLIST_NCFAR_UNITMEASURMENT",
+        "name": "FAM - Unit of Measurement",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=55",
+        "userPermission": "4"
+      },
+      {
+        "id": "256",
+        "scriptId": "CUSTOMLIST_FAM_LIST_USEDACCOUNTS",
+        "name": "FAM - Used Accounts",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=256",
+        "userPermission": "4"
+      },
+      {
+        "id": "298",
+        "scriptId": "CUSTOMLIST298",
+        "name": "FW Level",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=298",
+        "userPermission": "4"
+      },
+      {
+        "id": "28",
+        "scriptId": "CUSTOMLIST28",
+        "name": "Finish",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=28",
+        "userPermission": "4"
+      },
+      {
+        "id": "33",
+        "scriptId": "CUSTOMLIST33",
+        "name": "Firmware Version",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=33",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "folder",
+        "name": "Folder",
+        "permissionId": "LIST_FILECABINET",
+        "scriptable": true,
+        "url": "/app/common/media/mediaitemfolder.nl",
+        "id": "folder",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "giftcertificate",
+        "name": "Gift Certificate",
+        "permissionId": "LIST_ITEM",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/giftcertificaterecord.nl",
+        "id": "giftcertificate",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "giftcertificateitem",
+        "name": "Gift Certificate Item",
+        "permissionId": "LIST_ITEM",
+        "scriptable": true,
+        "url": "/app/common/item/item.nl?itemtype=GiftCert",
+        "urlparams": "itemtype=GiftCert",
+        "id": "giftcertificateitem",
+        "userPermission": "4"
+      },
+      {
+        "id": "26",
+        "scriptId": "CUSTOMLIST26",
+        "name": "Hand",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=26",
+        "userPermission": "4"
+      },
+      {
+        "id": "29",
+        "scriptId": "CUSTOMLIST29",
+        "name": "Hardware",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=29",
+        "userPermission": "4"
+      },
+      {
+        "id": "27",
+        "scriptId": "CUSTOMLIST27",
+        "name": "Helmet Size",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=27",
+        "userPermission": "4"
+      },
+      {
+        "id": "32",
+        "scriptId": "CUSTOMLIST32",
+        "name": "Help Desk Case List",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=32",
+        "userPermission": "4"
+      },
+      {
+        "id": "6",
+        "scriptId": "CUSTOMLIST6",
+        "name": "How did you hear about us",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=6",
+        "userPermission": "4"
+      },
+      {
+        "id": "291",
+        "scriptId": "CUSTOMRECORD_MFG_OP",
+        "name": "Inactive-Operations",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=291",
+        "permissionId": "LIST_CUSTRECORDENTRY291",
+        "userPermission": "4"
+      },
+      {
+        "id": "15",
+        "scriptId": "CUSTOMLIST15",
+        "name": "Industry",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=15",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "intercompanyjournalentry",
+        "name": "Intercompany Journal Entry",
+        "permissionId": "TRAN_JOURNAL",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/journal.nl?icj=T",
+        "urlparams": "icj=T",
+        "id": "intercompanyjournalentry",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "inventoryadjustment",
+        "name": "Inventory Adjustment",
+        "permissionId": "TRAN_INVADJST",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/invadjst.nl",
+        "id": "inventoryadjustment",
+        "userPermission": "4",
+        "hasSubRecord": true,
+        "subRecordConfig": [
+          {
+            "id": "inventory[*].celigo_inventorydetail",
+            "name": "Adjustments : Inventory Details",
+            "subRecordType": "inventorydetail"
+          }
+        ]
+      },
+      {
+        "scriptId": "inventorybalance",
+        "name": "Inventory Balance",
+        "permissionId": "LIST_ITEM",
+        "scriptable": true,
+        "doesNotSupportCreate": true,
+        "doesNotSupportUpdate": true,
+        "id": "inventorybalance",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "inventorydetail",
+        "name": "Inventory Detail",
+        "permissionId": "LIST_ITEM",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/inventory/numbered/inventorydetail.nl",
+        "id": "inventorydetail",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "inventorynumber",
+        "name": "Inventory Number",
+        "permissionId": "LIST_ITEM",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/inventory/inventorynumberrecord.nl",
+        "doesNotSupportCreate": true,
+        "id": "inventorynumber",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "inventoryitem",
+        "name": "Inventory Part",
+        "permissionId": "LIST_ITEM",
+        "scriptable": true,
+        "url": "/app/common/item/item.nl?itemtype=InvtPart",
+        "urlparams": "itemtype=InvtPart",
+        "id": "inventoryitem",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "invoice",
+        "name": "Invoice",
+        "permissionId": "TRAN_CUSTINVC",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/custinvc.nl",
+        "id": "invoice",
+        "userPermission": "4",
+        "hasSubRecord": true,
+        "subRecordConfig": [
+          {
+            "id": "item[*].celigo_inventorydetail",
+            "name": "Items : Inventory Details",
+            "subRecordType": "inventorydetail"
+          }
+        ]
+      },
+      {
+        "scriptId": "item",
+        "name": "Item",
+        "permissionId": "LIST_ITEM",
+        "isSuperType": true,
+        "scriptable": false,
+        "id": "item",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "itemgroup",
+        "name": "Item Group",
+        "permissionId": "LIST_ITEM",
+        "scriptable": true,
+        "url": "/app/common/item/item.nl?itemtype=Group",
+        "urlparams": "itemtype=Group",
+        "id": "itemgroup",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "itemlocationconfiguration",
+        "name": "Item Location Configuration",
+        "permissionId": "LIST_ITEM",
+        "scriptable": true,
+        "url": "/app/common/item/itemlocationconfiguration.nl",
+        "id": "itemlocationconfiguration",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "itemreceipt",
+        "name": "Item Receipt",
+        "permissionId": "TRAN_ITEMRCPT",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/itemrcpt.nl",
+        "id": "itemreceipt",
+        "userPermission": "4",
+        "hasSubRecord": true,
+        "subRecordConfig": [
+          {
+            "id": "item[*].celigo_inventorydetail",
+            "name": "Items : Inventory Details",
+            "subRecordType": "inventorydetail"
+          }
+        ]
+      },
+      {
+        "scriptId": "itemrevision",
+        "name": "Item Revision",
+        "permissionId": "LIST_ITEM_REVISION",
+        "scriptable": true,
+        "url": "/app/common/item/itemrevision.nl",
+        "id": "itemrevision",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "itemfulfillment",
+        "name": "Item Shipment",
+        "permissionId": "TRAN_ITEMSHIP",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/itemship.nl",
+        "id": "itemfulfillment",
+        "userPermission": "4",
+        "hasSubRecord": true,
+        "subRecordConfig": [
+          {
+            "id": "item[*].celigo_inventorydetail",
+            "name": "Items : Inventory Details",
+            "subRecordType": "inventorydetail"
+          }
+        ]
+      },
+      {
+        "id": "7",
+        "scriptId": "CUSTOMLIST7",
+        "name": "Items of interest",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=7",
+        "userPermission": "4"
+      },
+      {
+        "id": "86",
+        "scriptId": "CUSTOMLIST_SKILLS",
+        "name": "Job Skills",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=86",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "journalentry",
+        "name": "Journal",
+        "permissionId": "TRAN_JOURNAL",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/journal.nl",
+        "id": "journalentry",
+        "userPermission": "4"
+      },
+      {
+        "id": "279",
+        "scriptId": "CUSTOMRECORD_PF_KB_SOL_FB",
+        "name": "KB Solution Feedback",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=279",
+        "permissionId": "LIST_CUSTRECORDENTRY279",
+        "userPermission": "4"
+      },
+      {
+        "id": "22",
+        "scriptId": "CUSTOMLIST22",
+        "name": "Keyword Search",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=22",
+        "userPermission": "4"
+      },
+      {
+        "id": "23",
+        "scriptId": "CUSTOMLIST23",
+        "name": "Keyword Search2",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=23",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "kititem",
+        "name": "Kit Item",
+        "permissionId": "LIST_ITEM",
+        "scriptable": true,
+        "url": "/app/common/item/item.nl?itemtype=Kit",
+        "urlparams": "itemtype=Kit",
+        "id": "kititem",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "lead",
+        "name": "Lead",
+        "permissionId": "LIST_CUSTJOB",
+        "scriptable": true,
+        "url": "/app/common/entity/custjob.nl?stage=LEAD",
+        "urlparams": "stage=LEAD",
+        "id": "lead",
+        "userPermission": "4"
+      },
+      {
+        "id": "281",
+        "scriptId": "CUSTOMLIST_LINKTYPELIST",
+        "name": "Link Type List",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=281",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "location",
+        "name": "Location",
+        "permissionId": "LIST_LOCATION",
+        "scriptable": true,
+        "url": "/app/common/otherlists/locationtype.nl",
+        "hasSubRecord": true,
+        "subRecordConfig": [
+          {
+            "id": "celigo_address_main",
+            "name": "Main Address",
+            "subRecordType": "mainaddress"
+          },
+          {
+            "id": "celigo_address_return",
+            "name": "Return Address",
+            "subRecordType": "returnaddress"
+          }
+        ],
+        "id": "location",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "lotnumberedassemblyitem",
+        "name": "Lot Numbered Build/Assembly Item",
+        "permissionId": "LIST_ITEM",
+        "scriptable": true,
+        "url": "/app/common/item/item.nl?itemtype=Assembly&costingmethod=LOT&islotitem=T",
+        "urlparams": "itemtype=Assembly&costingmethod=LOT&islotitem=T",
+        "id": "lotnumberedassemblyitem",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "lotnumberedinventoryitem",
+        "name": "Lot Numbered Inventory Item",
+        "permissionId": "LIST_ITEM",
+        "scriptable": true,
+        "url": "/app/common/item/item.nl?itemtype=InvtPart&costingmethod=LOT&islotitem=T",
+        "urlparams": "itemtype=InvtPart&costingmethod=LOT&islotitem=T",
+        "id": "lotnumberedinventoryitem",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "markupitem",
+        "name": "Markup Item",
+        "permissionId": "LIST_ITEM",
+        "scriptable": true,
+        "url": "/app/common/item/item.nl?itemtype=Markup",
+        "urlparams": "itemtype=Markup",
+        "id": "markupitem",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "massupdatescript",
+        "name": "Massupdate Script",
+        "permissionId": "ADMI_CUSTOMSCRIPT",
+        "scriptable": true,
+        "url": "/app/common/scripting/script.nl?scripttype=MASSUPDATE",
+        "urlparams": "scripttype=MASSUPDATE",
+        "id": "massupdatescript",
+        "userPermission": "4"
+      },
+      {
+        "id": "19",
+        "scriptId": "CUSTOMLIST19",
+        "name": "Medium",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=19",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "message",
+        "name": "Message",
+        "permissionId": "LIST_CRMMESSAGE",
+        "scriptable": true,
+        "url": "/app/crm/common/crmmessage.nl",
+        "id": "message",
+        "userPermission": "4"
+      },
+      {
+        "id": "52",
+        "scriptId": "CUSTOMRECORD_NCBGP_PROCINSTANCE",
+        "name": "NC - Process Instance",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=52",
+        "permissionId": "LIST_CUSTRECORDENTRY52",
+        "userPermission": "4"
+      },
+      {
+        "id": "53",
+        "scriptId": "CUSTOMRECORD_NCBGP_PROCLOG",
+        "name": "NC - Process Log",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=53",
+        "permissionId": "LIST_CUSTRECORDENTRY53",
+        "userPermission": "4"
+      },
+      {
+        "id": "50",
+        "scriptId": "CUSTOMLIST_NCBGP_PROCESSLOGMSGTYPE",
+        "name": "NC Log Message Type",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=50",
+        "userPermission": "4"
+      },
+      {
+        "id": "49",
+        "scriptId": "CUSTOMLIST_NCBGP_PROCESSACTIVITY",
+        "name": "NC Process Activity Type",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=49",
+        "userPermission": "4"
+      },
+      {
+        "id": "51",
+        "scriptId": "CUSTOMLIST_NCBGP_PROCESSSTATUS",
+        "name": "NC Process Status",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=51",
+        "userPermission": "4"
+      },
+      {
+        "id": "455",
+        "scriptId": "CUSTOMRECORD_SUITESOCIAL_NF_POST_LINK",
+        "name": "Newsfeed Post Link",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=455",
+        "permissionId": "LIST_CUSTRECORDENTRY455",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "nexus",
+        "name": "Nexus",
+        "permissionId": "LIST_TAXITEM",
+        "scriptable": true,
+        "url": "/app/setup/nexuses.nl",
+        "id": "nexus",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "noninventoryitem",
+        "name": "Non-Inventory Part",
+        "permissionId": "LIST_ITEM",
+        "scriptable": true,
+        "url": "/app/common/item/item.nl?itemtype=NonInvtPart",
+        "urlparams": "itemtype=NonInvtPart",
+        "id": "noninventoryitem",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "note",
+        "name": "Note",
+        "permissionId": "LIST_HISTORY",
+        "scriptable": true,
+        "url": "/app/crm/common/note.nl",
+        "id": "note",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "opportunity",
+        "name": "Opportunity",
+        "permissionId": "TRAN_OPPRTNTY",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/opprtnty.nl",
+        "id": "opportunity",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "otherchargeitem",
+        "name": "Other Charge Item",
+        "permissionId": "LIST_ITEM",
+        "scriptable": true,
+        "url": "/app/common/item/item.nl?itemtype=OthCharge",
+        "urlparams": "itemtype=OthCharge",
+        "id": "otherchargeitem",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "othername",
+        "name": "Other Name",
+        "permissionId": "LIST_OTHERNAME",
+        "scriptable": true,
+        "url": "/app/common/entity/othername.nl",
+        "id": "othername",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "partner",
+        "name": "Partner",
+        "permissionId": "LIST_PARTNER",
+        "scriptable": true,
+        "url": "/app/common/entity/partner.nl",
+        "id": "partner",
+        "userPermission": "4"
+      },
+      {
+        "id": "382",
+        "scriptId": "CUSTOMLIST_2663_BATCH_STATUS",
+        "name": "Payment Batch Status",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=382",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "paymentitem",
+        "name": "Payment Item",
+        "permissionId": "LIST_ITEM",
+        "scriptable": true,
+        "url": "/app/common/item/item.nl?itemtype=Payment",
+        "urlparams": "itemtype=Payment",
+        "id": "paymentitem",
+        "userPermission": "4"
+      },
+      {
+        "id": "387",
+        "scriptId": "CUSTOMLIST_EP_PAYMENT_PRIORITY",
+        "name": "Payment Priority",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=387",
+        "userPermission": "4"
+      },
+      {
+        "id": "390",
+        "scriptId": "CUSTOMLIST_2663_PAYMENT_TYPE",
+        "name": "Payment Type",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=390",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "phonecall",
+        "name": "Phone Call",
+        "permissionId": "LIST_CALL",
+        "scriptable": true,
+        "url": "/app/crm/calendar/call.nl",
+        "id": "phonecall",
+        "userPermission": "4"
+      },
+      {
+        "id": "243",
+        "scriptId": "CUSTOMLIST243",
+        "name": "Picking Zone",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=243",
+        "userPermission": "4"
+      },
+      {
+        "id": "288",
+        "scriptId": "CUSTOMRECORD_PFC_CONFIGURATION",
+        "name": "Picture Frame Configuration",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=288",
+        "permissionId": "LIST_CUSTRECORDENTRY288",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "portlet",
+        "name": "Portlet",
+        "permissionId": "ADMI_CUSTOMSCRIPT",
+        "scriptable": true,
+        "url": "/app/common/scripting/script.nl?scripttype=PORTLET",
+        "urlparams": "scripttype=PORTLET",
+        "id": "portlet",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "pricelevel",
+        "name": "Price Level",
+        "permissionId": "ADMI_ACCOUNTINGLIST",
+        "scriptable": true,
+        "url": "/app/common/otherlists/accountingotherlist.nl?tname=pricetype",
+        "urlparams": "tname=pricetype",
+        "id": "pricelevel",
+        "userPermission": "1"
+      },
+      {
+        "scriptId": "pricing",
+        "name": "Pricing",
+        "permissionId": "LIST_ITEM",
+        "scriptable": true,
+        "doesNotSupportCreate": true,
+        "doesNotSupportUpdate": true,
+        "id": "pricing",
+        "userPermission": "4"
+      },
+      {
+        "id": "37",
+        "scriptId": "CUSTOMLIST37",
+        "name": "Product Interest",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=37",
+        "userPermission": "4"
+      },
+      {
+        "id": "38",
+        "scriptId": "CUSTOMRECORD_PRODUCT_REVIEW",
+        "name": "Product Review",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=38",
+        "permissionId": "LIST_CUSTRECORDENTRY38",
+        "userPermission": "4"
+      },
+      {
+        "id": "35",
+        "scriptId": "CUSTOMRECORD34",
+        "name": "Product Review (old)",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=35",
+        "permissionId": "LIST_CUSTRECORDENTRY35",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "job",
+        "name": "Project",
+        "permissionId": "LIST_JOB",
+        "scriptable": true,
+        "url": "/app/accounting/project/project.nl",
+        "id": "job",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "projecttask",
+        "name": "Project Task",
+        "permissionId": "LIST_PROJECTTASK",
+        "scriptable": true,
+        "url": "/app/accounting/project/projecttask.nl",
+        "id": "projecttask",
+        "userPermission": "4"
+      },
+      {
+        "id": "474",
+        "scriptId": "CUSTOMRECORD_RM_SEARCHCRITERIA",
+        "name": "Project Task Manager Criteria",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=474",
+        "permissionId": "LIST_CUSTRECORDENTRY474",
+        "userPermission": "4"
+      },
+      {
+        "id": "475",
+        "scriptId": "CUSTOMRECORD_RM_SEARCH",
+        "name": "Project Task Manager Search",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=475",
+        "permissionId": "LIST_CUSTRECORDENTRY475",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "promotioncode",
+        "name": "Promotion",
+        "permissionId": "LIST_PROMOTIONCODE",
+        "scriptable": true,
+        "url": "/app/crm/sales/referralcode.nl",
+        "id": "promotioncode",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "prospect",
+        "name": "Prospect",
+        "permissionId": "LIST_CUSTJOB",
+        "scriptable": true,
+        "url": "/app/common/entity/custjob.nl?stage=PROSPECT",
+        "urlparams": "stage=PROSPECT",
+        "id": "prospect",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "purchaseorder",
+        "name": "Purchase Order",
+        "permissionId": "TRAN_PURCHORD",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/purchord.nl",
+        "id": "purchaseorder",
+        "userPermission": "4",
+        "hasSubRecord": true,
+        "subRecordConfig": [
+          {
+            "id": "item[*].celigo_inventorydetail",
+            "name": "Items : Inventory Details",
+            "subRecordType": "inventorydetail"
+          }
+        ]
+      },
+      {
+        "scriptId": "estimate",
+        "name": "Quote",
+        "permissionId": "TRAN_ESTIMATE",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/estimate.nl",
+        "id": "estimate",
+        "userPermission": "4"
+      },
+      {
+        "id": "245",
+        "scriptId": "CUSTOMLIST245",
+        "name": "Rack",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=245",
+        "userPermission": "4"
+      },
+      {
+        "id": "8",
+        "scriptId": "CUSTOMLIST8",
+        "name": "Rating",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=8",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "reallocateitem",
+        "name": "Reallocate Items",
+        "permissionId": "TRAN_SALESORD",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/reallocitems.nl",
+        "id": "reallocateitem",
+        "userPermission": "4"
+      },
+      {
+        "id": "89",
+        "scriptId": "CUSTOMLIST_REASONFORRETURN",
+        "name": "Reason for Return",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=89",
+        "userPermission": "4"
+      },
+      {
+        "id": "444",
+        "scriptId": "CUSTOMRECORD_RCTNI",
+        "name": "Record Code To Name and Id",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=444",
+        "permissionId": "LIST_CUSTRECORDENTRY444",
+        "userPermission": "4"
+      },
+      {
+        "id": "472",
+        "scriptId": "CUSTOMRECORD_RECORD_FLD_DEFINITION",
+        "name": "Record Field Definition",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=472",
+        "permissionId": "LIST_CUSTRECORDENTRY472",
+        "userPermission": "4"
+      },
+      {
+        "id": "458",
+        "scriptId": "CUSTOMRECORD_SS_RECORD_SUBSCRIPTION_ROLE",
+        "name": "Record Subscription Role",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=458",
+        "permissionId": "LIST_CUSTRECORDENTRY458",
+        "userPermission": "4"
+      },
+      {
+        "id": "383",
+        "scriptId": "CUSTOMLIST_2663_RECURRENCE",
+        "name": "Recurrence",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=383",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "restlet",
+        "name": "Restlet",
+        "permissionId": "ADMI_CUSTOMSCRIPT",
+        "scriptable": true,
+        "url": "/app/common/scripting/script.nl?scripttype=RESTLET",
+        "urlparams": "scripttype=RESTLET",
+        "id": "restlet",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "returnauthorization",
+        "name": "Return Authorization",
+        "permissionId": "TRAN_RTNAUTH",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/rtnauth.nl",
+        "id": "returnauthorization",
+        "userPermission": "4",
+        "hasSubRecord": true,
+        "subRecordConfig": [
+          {
+            "id": "item[*].celigo_inventorydetail",
+            "name": "Items : Inventory Details",
+            "subRecordType": "inventorydetail"
+          }
+        ]
+      },
+      {
+        "id": "25",
+        "scriptId": "CUSTOMLIST25",
+        "name": "Rope Type",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=25",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "salesorder",
+        "name": "Sales Order",
+        "permissionId": "TRAN_SALESORD",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/salesord.nl",
+        "id": "salesorder",
+        "userPermission": "4",
+        "hasSubRecord": true,
+        "subRecordConfig": [
+          {
+            "id": "item[*].celigo_inventorydetail",
+            "name": "Items : Inventory Details",
+            "subRecordType": "inventorydetail"
+          }
+        ]
+      },
+      {
+        "scriptId": "salestaxitem",
+        "name": "Sales Tax Item",
+        "permissionId": "LIST_TAXITEM",
+        "scriptable": true,
+        "url": "/app/common/item/taxitem.nl",
+        "id": "salestaxitem",
+        "userPermission": "4"
+      },
+      {
+        "id": "13",
+        "scriptId": "CUSTOMLIST13",
+        "name": "SatifactionLevel",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=13",
+        "userPermission": "4"
+      },
+      {
+        "id": "386",
+        "scriptId": "CUSTOMLIST_2663_SCHEDULE_TYPE",
+        "name": "Schedule Type",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=386",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "scheduledscript",
+        "name": "Scheduled Script",
+        "permissionId": "ADMI_CUSTOMSCRIPT",
+        "scriptable": true,
+        "url": "/app/common/scripting/script.nl?scripttype=SCHEDULED",
+        "urlparams": "scripttype=SCHEDULED",
+        "id": "scheduledscript",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "scheduledscriptinstance",
+        "name": "Scheduled Script Instance",
+        "permissionId": "ADMI_CUSTOMSCRIPT",
+        "scriptable": true,
+        "url": "/app/common/scripting/scheduledscriptinstance.nl",
+        "id": "scheduledscriptinstance",
+        "userPermission": "4"
+      },
+      {
+        "id": "440",
+        "scriptId": "CUSTOMRECORD_SCHEDULED_SCRIPT_QUEUE",
+        "name": "Scheduled Script Queue",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=440",
+        "permissionId": "LIST_CUSTRECORDENTRY440",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "scriptdeployment",
+        "name": "Script Deployment",
+        "permissionId": "ADMI_CUSTOMSCRIPT",
+        "scriptable": true,
+        "url": "/app/common/scripting/scriptrecord.nl",
+        "id": "scriptdeployment",
+        "userPermission": "4"
+      },
+      {
+        "id": "20",
+        "scriptId": "CUSTOMLIST20",
+        "name": "Search Engine",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=20",
+        "userPermission": "4"
+      },
+      {
+        "id": "270",
+        "scriptId": "CUSTOMRECORD_NS_PIVOTFIELDS",
+        "name": "Search Pivot Field",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=270",
+        "permissionId": "LIST_CUSTRECORDENTRY270",
+        "userPermission": "4"
+      },
+      {
+        "id": "269",
+        "scriptId": "CUSTOMRECORD_NS_PIVOTLAYOUT",
+        "name": "Search Pivot Layout",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=269",
+        "permissionId": "LIST_CUSTRECORDENTRY269",
+        "userPermission": "4"
+      },
+      {
+        "id": "299",
+        "scriptId": "CUSTOMRECORD_SERIAL",
+        "name": "Serial Numbers",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=299",
+        "permissionId": "LIST_CUSTRECORDENTRY299",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "serializedassemblyitem",
+        "name": "Serialized Build/Assembly Item",
+        "permissionId": "LIST_ITEM",
+        "scriptable": true,
+        "url": "/app/common/item/item.nl?itemtype=Assembly&costingmethod=SERIAL&isserialitem=T",
+        "urlparams": "itemtype=Assembly&costingmethod=SERIAL&isserialitem=T",
+        "id": "serializedassemblyitem",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "serializedinventoryitem",
+        "name": "Serialized Inventory Item",
+        "permissionId": "LIST_ITEM",
+        "scriptable": true,
+        "url": "/app/common/item/item.nl?itemtype=InvtPart&costingmethod=SERIAL&isserialitem=T",
+        "urlparams": "itemtype=InvtPart&costingmethod=SERIAL&isserialitem=T",
+        "id": "serializedinventoryitem",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "scriptexecutionlog",
+        "name": "Server Script Log",
+        "permissionId": "ADMI_CUSTOMSCRIPT",
+        "isSuperType": true,
+        "scriptable": false,
+        "url": "/app/common/scripting/scriptnote.nl",
+        "id": "scriptexecutionlog",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "serviceitem",
+        "name": "Service",
+        "permissionId": "LIST_ITEM",
+        "scriptable": true,
+        "url": "/app/common/item/item.nl?itemtype=Service",
+        "urlparams": "itemtype=Service",
+        "id": "serviceitem",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "shipitem",
+        "name": "Shipping Item",
+        "permissionId": "LIST_ITEM",
+        "scriptable": true,
+        "url": "/app/common/item/shipitem.nl",
+        "id": "shipitem",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "solution",
+        "name": "Solution",
+        "permissionId": "LIST_KNOWLEDGEBASE",
+        "scriptable": true,
+        "url": "/app/crm/support/kb/solution.nl",
+        "id": "solution",
+        "userPermission": "4"
+      },
+      {
+        "id": "87",
+        "scriptId": "CUSTOMRECORD168",
+        "name": "Sq ft added",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=87",
+        "permissionId": "LIST_CUSTRECORDENTRY87",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "statisticaljournalentry",
+        "name": "Statistical Journal Entry",
+        "permissionId": "TRAN_JOURNAL",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/statisticaljournal.nl",
+        "id": "statisticaljournalentry",
+        "userPermission": "4"
+      },
+      {
+        "id": "3",
+        "scriptId": "CUSTOMLIST3",
+        "name": "Store Warranty Types",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=3",
+        "userPermission": "4"
+      },
+      {
+        "id": "5",
+        "scriptId": "CUSTOMLIST5",
+        "name": "Store Wrnty Years",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=5",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "subtotalitem",
+        "name": "Subtotal Item",
+        "permissionId": "LIST_ITEM",
+        "scriptable": true,
+        "url": "/app/common/item/item.nl?itemtype=Subtotal",
+        "urlparams": "itemtype=Subtotal",
+        "id": "subtotalitem",
+        "userPermission": "4"
+      },
+      {
+        "id": "471",
+        "scriptId": "CUSTOMRECORD_ADDED_AUTOSUB",
+        "name": "Suite Social Added AutoSub",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=471",
+        "permissionId": "LIST_CUSTRECORDENTRY471",
+        "userPermission": "4"
+      },
+      {
+        "id": "442",
+        "scriptId": "CUSTOMRECORD_AUTOPOST_SCHEDULE",
+        "name": "SuiteSocial Auto Post Schedule",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=442",
+        "permissionId": "LIST_CUSTRECORDENTRY442",
+        "userPermission": "4"
+      },
+      {
+        "id": "459",
+        "scriptId": "CUSTOMRECORD_SUITESOCIAL_FIELD",
+        "name": "SuiteSocial Field",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=459",
+        "permissionId": "LIST_CUSTRECORDENTRY459",
+        "userPermission": "4"
+      },
+      {
+        "id": "443",
+        "scriptId": "CUSTOMRECORD_NEWSFEED_ICON",
+        "name": "SuiteSocial Icon",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=443",
+        "permissionId": "LIST_CUSTRECORDENTRY443",
+        "userPermission": "4"
+      },
+      {
+        "id": "469",
+        "scriptId": "CUSTOMRECORD_SS_MOCK_INBOX",
+        "name": "SuiteSocial Mock Inbox",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=469",
+        "permissionId": "LIST_CUSTRECORDENTRY469",
+        "userPermission": "4"
+      },
+      {
+        "id": "461",
+        "scriptId": "CUSTOMRECORD_NEWSFEED",
+        "name": "SuiteSocial News Feed",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=461",
+        "permissionId": "LIST_CUSTRECORDENTRY461",
+        "userPermission": "4"
+      },
+      {
+        "id": "464",
+        "scriptId": "CUSTOMRECORD_SSR_SS_RELATED_RECORD",
+        "name": "SuiteSocial Related Record",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=464",
+        "permissionId": "LIST_CUSTRECORDENTRY464",
+        "userPermission": "4"
+      },
+      {
+        "id": "446",
+        "scriptId": "CUSTOMRECORD_SUITESOCIAL_ROLE",
+        "name": "SuiteSocial Role",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=446",
+        "permissionId": "LIST_CUSTRECORDENTRY446",
+        "userPermission": "4"
+      },
+      {
+        "id": "468",
+        "scriptId": "CUSTOMRECORD_SUITESOCIAL_SCRIPTED_RECORD",
+        "name": "SuiteSocial Scripted Record",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=468",
+        "permissionId": "LIST_CUSTRECORDENTRY468",
+        "userPermission": "4"
+      },
+      {
+        "id": "473",
+        "scriptId": "CUSTOMRECORD_SUITESOCIAL_STANDARD_RECORD",
+        "name": "SuiteSocial Standard Record",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=473",
+        "permissionId": "LIST_CUSTRECORDENTRY473",
+        "userPermission": "4"
+      },
+      {
+        "id": "467",
+        "scriptId": "CUSTOMRECORD_SUITESOCIAL_STATUS",
+        "name": "SuiteSocial Status",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=467",
+        "permissionId": "LIST_CUSTRECORDENTRY467",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "suitelet",
+        "name": "Suitelet",
+        "permissionId": "ADMI_CUSTOMSCRIPT",
+        "scriptable": true,
+        "url": "/app/common/scripting/script.nl?scripttype=SCRIPTLET",
+        "urlparams": "scripttype=SCRIPTLET",
+        "id": "suitelet",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "task",
+        "name": "Task",
+        "permissionId": "LIST_TASK",
+        "scriptable": true,
+        "url": "/app/crm/calendar/task.nl",
+        "id": "task",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "taxacct",
+        "name": "Tax Account",
+        "permissionId": "LIST_ACCOUNT",
+        "scriptable": true,
+        "url": "/app/setup/taxacct.nl",
+        "id": "taxacct",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "taxgroup",
+        "name": "Tax Group",
+        "permissionId": "LIST_TAXITEM",
+        "scriptable": true,
+        "url": "/app/common/item/taxgroup.nl",
+        "id": "taxgroup",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "taxtype",
+        "name": "Tax Type",
+        "permissionId": "LIST_TAXITEM",
+        "scriptable": true,
+        "url": "/app/setup/taxtype.nl",
+        "id": "taxtype",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "term",
+        "name": "Term",
+        "permissionId": "ADMI_ACCOUNTINGLIST",
+        "scriptable": true,
+        "url": "/app/common/otherlists/accountingotherlist.nl?tname=terms",
+        "urlparams": "tname=terms",
+        "id": "term",
+        "userPermission": "1"
+      },
+      {
+        "scriptId": "timebill",
+        "name": "Time",
+        "permissionId": "TRAN_TIMEBILL",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/timebill.nl",
+        "id": "timebill",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "timeentry",
+        "name": "Time Entry",
+        "permissionId": "TRAN_TIMEBILL",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/timeentry.nl",
+        "id": "timeentry",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "timesheet",
+        "name": "Timesheet",
+        "permissionId": "TRAN_TIMEBILL",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/timesheet.nl",
+        "id": "timesheet",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "topic",
+        "name": "Topic",
+        "permissionId": "LIST_KNOWLEDGEBASE",
+        "scriptable": true,
+        "url": "/app/crm/support/kb/topic.nl",
+        "id": "topic",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "transaction",
+        "name": "Transaction",
+        "permissionId": null,
+        "isSuperType": true,
+        "scriptable": false,
+        "url": "/app/accounting/transactions/transaction.nl",
+        "id": "transaction",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "unitstype",
+        "name": "Units Type",
+        "permissionId": "LIST_UNIT",
+        "scriptable": true,
+        "url": "/app/common/units/unitstype.nl",
+        "id": "unitstype",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "usereventscript",
+        "name": "Userevent Script",
+        "permissionId": "ADMI_CUSTOMSCRIPT",
+        "scriptable": true,
+        "url": "/app/common/scripting/script.nl?scripttype=USEREVENT",
+        "urlparams": "scripttype=USEREVENT",
+        "id": "usereventscript",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "vendor",
+        "name": "Vendor",
+        "permissionId": "LIST_VENDOR",
+        "scriptable": true,
+        "url": "/app/common/entity/vendor.nl",
+        "id": "vendor",
+        "userPermission": "4"
+      },
+      {
+        "id": "365",
+        "scriptId": "CUSTOMLIST_VB_MEMO_LIST",
+        "name": "Vendor Bill Memo List",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=365",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "vendorcategory",
+        "name": "Vendor Category",
+        "permissionId": "ADMI_ACCOUNTINGLIST",
+        "scriptable": true,
+        "url": "/app/common/otherlists/accountingotherlist.nl?tname=vendtype",
+        "urlparams": "tname=vendtype",
+        "id": "vendorcategory",
+        "userPermission": "1"
+      },
+      {
+        "id": "46",
+        "scriptId": "CUSTOMLIST46",
+        "name": "Vendor Shipment Status",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=46",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "assemblybuild",
+        "name": "WO Build",
+        "permissionId": "TRAN_BUILD",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/build.nl",
+        "id": "assemblybuild",
+        "userPermission": "4",
+        "hasSubRecord": true,
+        "subRecordConfig": [
+          {
+            "id": "celigo_inventorydetail",
+            "name": "Inventory Detail",
+            "subRecordType": "inventorydetail"
+          },
+          {
+            "id": "component[*].celigo_inventorydetail",
+            "name": "Components : Inventory Details",
+            "subRecordType": "componentinventorydetail"
+          }
+        ]
+      },
+      {
+        "scriptId": "assemblyunbuild",
+        "name": "WO Unbuild",
+        "permissionId": "TRAN_UNBUILD",
+        "scriptable": true,
+        "url": "/app/accounting/transactions/unbuild.nl",
+        "id": "assemblyunbuild",
+        "userPermission": "4",
+        "hasSubRecord": true,
+        "subRecordConfig": [
+          {
+            "id": "celigo_inventorydetail",
+            "name": "Inventory Detail",
+            "subRecordType": "inventorydetail"
+          },
+          {
+            "id": "component[*].celigo_inventorydetail",
+            "name": "Components : Inventory Details",
+            "subRecordType": "componentinventorydetail"
+          }
+        ]
+      },
+      {
+        "id": "476",
+        "scriptId": "CUSTOMRECORD476",
+        "name": "WS_Custom Record",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=476",
+        "permissionId": "LIST_CUSTRECORDENTRY476",
+        "userPermission": "4"
+      },
+      {
+        "id": "477",
+        "scriptId": "CUSTOMRECORD477",
+        "name": "WebServices Custom Record",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=477",
+        "permissionId": "LIST_CUSTRECORDENTRY477",
+        "userPermission": "4"
+      },
+      {
+        "id": "385",
+        "scriptId": "CUSTOMLIST_2663_WEEK_OF_MONTH",
+        "name": "Week of Month",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=385",
+        "userPermission": "4"
+      },
+      {
+        "id": "18",
+        "scriptId": "CUSTOMLIST18",
+        "name": "Wine Type",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=18",
+        "userPermission": "4"
+      },
+      {
+        "scriptId": "workflowactionscript",
+        "name": "Workflow Action Script",
+        "permissionId": "ADMI_CUSTOMSCRIPT",
+        "scriptable": true,
+        "url": "/app/common/scripting/script.nl?scripttype=ACTION",
+        "urlparams": "scripttype=ACTION",
+        "id": "workflowactionscript",
+        "userPermission": "4"
+      },
+      {
+        "id": "14",
+        "scriptId": "CUSTOMLIST14",
+        "name": "YesMaybeNo",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=14",
+        "userPermission": "4"
+      },
+      {
+        "id": "12",
+        "scriptId": "CUSTOMLIST12",
+        "name": "YesNo",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=12",
+        "userPermission": "4"
+      },
+      {
+        "id": "283",
+        "scriptId": "CUSTOMLIST44",
+        "name": "YesNo (2) (2)",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=283",
+        "userPermission": "4"
+      },
+      {
+        "id": "544",
+        "scriptId": "CUSTOMRECORD544",
+        "name": "customer record",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=544",
+        "permissionId": "LIST_CUSTRECORDENTRY544",
+        "userPermission": "4"
+      },
+      {
+        "id": "543",
+        "scriptId": "CUSTOMRECORD_MYTESTRECORD",
+        "name": "customrecord_mytestrecord",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=543",
+        "permissionId": "LIST_CUSTRECORDENTRY543",
+        "userPermission": "4"
+      },
+      {
+        "id": "547",
+        "scriptId": "CUSTOMRECORD_MYTESTRECORDD",
+        "name": "customrecord_mytestrecordd",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=547",
+        "permissionId": "LIST_CUSTRECORDENTRY547",
+        "userPermission": "4"
+      },
+      {
+        "id": "550",
+        "scriptId": "CUSTOMRECORDDSDSDS",
+        "name": "ddfd",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=550",
+        "permissionId": "LIST_CUSTRECORDENTRY550",
+        "userPermission": "4"
+      },
+      {
+        "id": "551",
+        "scriptId": "CUSTOMLISTSFSFS",
+        "name": "dfdfdfd",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=551",
+        "userPermission": "4"
+      },
+      {
+        "id": "140",
+        "scriptId": "CUSTOMRECORD_EPERFORM_EZ_REVIEW_FORM",
+        "name": "eP EZ Review Form",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=140",
+        "permissionId": "LIST_CUSTRECORDENTRY140",
+        "userPermission": "4"
+      },
+      {
+        "id": "545",
+        "scriptId": "CUSTOMRECORD_FAILINGRECORD",
+        "name": "failing record",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=545",
+        "permissionId": "LIST_CUSTRECORDENTRY545",
+        "userPermission": "4"
+      },
+      {
+        "id": "549",
+        "scriptId": "CUSTOMRECORD549",
+        "name": "nnnnn",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=549",
+        "permissionId": "LIST_CUSTRECORDENTRY549",
+        "userPermission": "4"
+      },
+      {
+        "id": "552",
+        "scriptId": "CUSTOMRECORDDUMP",
+        "name": "rest Api",
+        "url": "/app/common/custom/custrecordentry.nl?rectype=552",
+        "permissionId": "LIST_CUSTRECORDENTRY552",
+        "userPermission": "4"
+      }
+    ]
+  }
+}

@@ -1,0 +1,67 @@
+{
+    "name": "TC_C25363",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "_connectionId": "FTP CONNECTION",
+                "qa__path": "//FTP_uploads//TC_C25362.json",
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C25362.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "_connectionId": "FTP CONNECTION",
+                "file": {
+                    "fileName": "TC_C25363.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                    "fileName": "TC_C25363.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ],
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "name": "TC_C25363",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "import": {
+                    "_connectionId": "FTP_PGP_WITH_ALL_KEYS CONNECTION",
+                    "qa__connectionId": "61a8da42b1ee8410587f15b3"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_C25363",
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".json"
+                }
+            }
+        }
+    }
+}

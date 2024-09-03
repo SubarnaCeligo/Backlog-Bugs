@@ -14,7 +14,6 @@ test.describe("@Epic-IO-54540  @Priority-P2  @Zephyr-IO-T27537 @Env-All", () => 
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.click(selectors.importPagePO.IMPORT_CLOSE_DRAWER);
         await io.flowBuilder.loadingTime();
-        await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_SEARCH);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'ftp');
         await io.flowBuilder.click(selectors.connectionsPagePO.FTP_CONNECTION);
         const label = await io.homePage.isVisible("text='Transfer files out of source application'")

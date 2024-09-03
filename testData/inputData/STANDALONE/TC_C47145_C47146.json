@@ -1,0 +1,350 @@
+{
+    "name": "TC_C47145_C47146_Http_Export",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Http Export",
+                        "_connectionId": "6344fe9d160be46ef0cafed0",
+                        "qa__connectionId": "6344e6c49bd2df17c16f802b",
+                        "apiIdentifier": "e1f410e62b",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "http": {
+                            "relativeURI": "xml",
+                            "method": "GET",
+                            "formType": "http"
+                        },
+                        "rawData": "EMPTY RAW DATA",
+                        "transform": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [
+                                    []
+                                ],
+                                "version": "1"
+                            },
+                            "version": "1",
+                            "rules": [
+                                []
+                            ]
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C47145_C47146_Http_Export",
+                "disabled": false,
+                "qa__integrationId": "63232caf5342c33e615e7271",
+                "_integrationId": "63232c59d3a9897fe95f9f2a",
+                "skipRetries": false,
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ],
+    "expected": {
+        "custom": {
+            "page_of_records": [
+                {
+                    "record": {
+                        "catalog_item": [
+                            {
+                                "item_number": "QWZ5671",
+                                "price": "39.95",
+                                "size": [
+                                    {
+                                        "color_swatch": [
+                                            {
+                                                "Newimage": "red_cardigan.jpg",
+                                                "&txt": "Red"
+                                            },
+                                            {
+                                                "Newimage": "burgundy_cardigan.jpg",
+                                                "&txt": "Burgundy"
+                                            }
+                                        ],
+                                        "Newdescription": "Medium"
+                                    },
+                                    {
+                                        "color_swatch": [
+                                            {
+                                                "Newimage": "red_cardigan.jpg",
+                                                "&txt": "Red"
+                                            },
+                                            {
+                                                "Newimage": "burgundy_cardigan.jpg",
+                                                "&txt": "Burgundy"
+                                            }
+                                        ],
+                                        "Newdescription": "Large"
+                                    }
+                                ],
+                                "Newgender": "Men's"
+                            },
+                            {
+                                "item_number": "RRX9856",
+                                "price": "42.50",
+                                "size": [
+                                    {
+                                        "color_swatch": [
+                                            {
+                                                "Newimage": "red_cardigan.jpg",
+                                                "&txt": "Red"
+                                            },
+                                            {
+                                                "Newimage": "navy_cardigan.jpg",
+                                                "&txt": "Navy"
+                                            },
+                                            {
+                                                "Newimage": "burgundy_cardigan.jpg",
+                                                "&txt": "Burgundy"
+                                            }
+                                        ],
+                                        "Newdescription": "Small"
+                                    },
+                                    {
+                                        "color_swatch": [
+                                            {
+                                                "Newimage": "red_cardigan.jpg",
+                                                "&txt": "Red"
+                                            },
+                                            {
+                                                "Newimage": "navy_cardigan.jpg",
+                                                "&txt": "Navy"
+                                            },
+                                            {
+                                                "Newimage": "burgundy_cardigan.jpg",
+                                                "&txt": "Burgundy"
+                                            },
+                                            {
+                                                "Newimage": "black_cardigan.jpg",
+                                                "&txt": "Black"
+                                            }
+                                        ],
+                                        "Newdescription": "Medium"
+                                    },
+                                    {
+                                        "color_swatch": [
+                                            {
+                                                "Newimage": "navy_cardigan.jpg",
+                                                "&txt": "Navy"
+                                            },
+                                            {
+                                                "Newimage": "black_cardigan.jpg",
+                                                "&txt": "Black"
+                                            }
+                                        ],
+                                        "Newdescription": "Large"
+                                    },
+                                    {
+                                        "color_swatch": [
+                                            {
+                                                "Newimage": "burgundy_cardigan.jpg",
+                                                "&txt": "Burgundy"
+                                            },
+                                            {
+                                                "Newimage": "black_cardigan.jpg",
+                                                "&txt": "Black"
+                                            }
+                                        ],
+                                        "Newdescription": "Extra Large"
+                                    }
+                                ],
+                                "Newgender": "Women's"
+                            }
+                        ],
+                        "Newdescription": "Cardigan Sweater",
+                        "Newproduct_image": "cardigan.jpg"
+                    }
+                }
+            ]
+        },
+        "automatic": {
+            "page_of_records": [
+              {
+                "record": {
+                  "$": {
+                    "description": "Cardigan Sweater",
+                    "product_image": "cardigan.jpg"
+                  },
+                  "catalog_item": [
+                    {
+                      "$": {
+                        "gender": "Men's"
+                      },
+                      "item_number": [
+                        {
+                          "_": "QWZ5671"
+                        }
+                      ],
+                      "price": [
+                        {
+                          "_": "39.95"
+                        }
+                      ],
+                      "size": [
+                        {
+                          "$": {
+                            "description": "Medium"
+                          },
+                          "color_swatch": [
+                            {
+                              "$": {
+                                "image": "red_cardigan.jpg"
+                              },
+                              "_": "Red"
+                            },
+                            {
+                              "$": {
+                                "image": "burgundy_cardigan.jpg"
+                              },
+                              "_": "Burgundy"
+                            }
+                          ]
+                        },
+                        {
+                          "$": {
+                            "description": "Large"
+                          },
+                          "color_swatch": [
+                            {
+                              "$": {
+                                "image": "red_cardigan.jpg"
+                              },
+                              "_": "Red"
+                            },
+                            {
+                              "$": {
+                                "image": "burgundy_cardigan.jpg"
+                              },
+                              "_": "Burgundy"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "$": {
+                        "gender": "Women's"
+                      },
+                      "item_number": [
+                        {
+                          "_": "RRX9856"
+                        }
+                      ],
+                      "price": [
+                        {
+                          "_": "42.50"
+                        }
+                      ],
+                      "size": [
+                        {
+                          "$": {
+                            "description": "Small"
+                          },
+                          "color_swatch": [
+                            {
+                              "$": {
+                                "image": "red_cardigan.jpg"
+                              },
+                              "_": "Red"
+                            },
+                            {
+                              "$": {
+                                "image": "navy_cardigan.jpg"
+                              },
+                              "_": "Navy"
+                            },
+                            {
+                              "$": {
+                                "image": "burgundy_cardigan.jpg"
+                              },
+                              "_": "Burgundy"
+                            }
+                          ]
+                        },
+                        {
+                          "$": {
+                            "description": "Medium"
+                          },
+                          "color_swatch": [
+                            {
+                              "$": {
+                                "image": "red_cardigan.jpg"
+                              },
+                              "_": "Red"
+                            },
+                            {
+                              "$": {
+                                "image": "navy_cardigan.jpg"
+                              },
+                              "_": "Navy"
+                            },
+                            {
+                              "$": {
+                                "image": "burgundy_cardigan.jpg"
+                              },
+                              "_": "Burgundy"
+                            },
+                            {
+                              "$": {
+                                "image": "black_cardigan.jpg"
+                              },
+                              "_": "Black"
+                            }
+                          ]
+                        },
+                        {
+                          "$": {
+                            "description": "Large"
+                          },
+                          "color_swatch": [
+                            {
+                              "$": {
+                                "image": "navy_cardigan.jpg"
+                              },
+                              "_": "Navy"
+                            },
+                            {
+                              "$": {
+                                "image": "black_cardigan.jpg"
+                              },
+                              "_": "Black"
+                            }
+                          ]
+                        },
+                        {
+                          "$": {
+                            "description": "Extra Large"
+                          },
+                          "color_swatch": [
+                            {
+                              "$": {
+                                "image": "burgundy_cardigan.jpg"
+                              },
+                              "_": "Burgundy"
+                            },
+                            {
+                              "$": {
+                                "image": "black_cardigan.jpg"
+                              },
+                              "_": "Black"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+    }
+}

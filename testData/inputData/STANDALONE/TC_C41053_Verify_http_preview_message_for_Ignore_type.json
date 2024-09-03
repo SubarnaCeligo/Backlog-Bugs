@@ -1,0 +1,80 @@
+{
+  "skipRetries": false,
+  "_integrationId": "6228aed6bc8a2732cfe8044c",
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "Organizations Data",
+        "_connectionId": "FTP CONNECTION",
+        "qa__path": "/FTP_uploads/TC_C41053.json",
+        "asynchronous": true,
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "TC_C41053"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json"
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "AutomationStandaloneImport__mt34HPoZAS",
+        "application": "Slack",
+        "parsers": [],
+        "_connectionId": "62e9084e36f8f637aa25371f",
+        "_sourceId": "62d6c88555468141a9061a8c",
+        "apiIdentifier": "i0bc4cb10c",
+        "ignoreExisting": false,
+        "ignoreMissing": true,
+        "oneToMany": false,
+        "lookups": [
+          {
+            "method": "GET",
+            "relativeURI": "/users",
+            "extract": "users[0].id",
+            "allowFailures": false,
+            "name": "UserID",
+            "useImportHeaders": true
+          }
+        ],
+        "http": {
+          "relativeURI": ["users"],
+          "method": ["PUT"],
+          "body": [
+            "{\n  \"user\": {\n    \"alias\": \"{{record.Alias}}\",\n    \"notes\": \"{{record.Notes}}\",\n    \"name\":  \"{{record.name}}\",\n    \"phone\": \"{{record.Phone}}\"\n  }\n}"
+          ],
+          "batchSize": 1,
+          "sendPostMappedData": true,
+          "ignoreLookupName": "UserID",
+          "formType": "http",
+          "lookups": [
+            {
+              "method": "GET",
+              "relativeURI": "/users/autocomplete.json?name=User-Dynamic",
+              "extract": "users[0].id",
+              "allowFailures": false,
+              "name": "UserID",
+              "useImportHeaders": true
+            }
+          ],
+          "response": {
+            "successPath": ["user.alias"],
+            "successValues": [["Updated Customer"]],
+            "failPath": ["error"],
+            "failValues": [["InvalidEndpoint"]]
+          }
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ]
+}

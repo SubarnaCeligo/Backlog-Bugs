@@ -1,0 +1,189 @@
+{
+  "name": "Revoke Token HTTP shopify",
+  "apiJSON": {
+    "type": "http",
+    "name": "Revoke Token HTTP shopify",
+    "offline": true,
+    "debugDate": "2020-07-27T13:40:01.209Z",
+    "sandbox": false,
+    "http": {
+      "formType": "http",
+      "mediaType": "json",
+      "baseURI": "https://celigo-returnly-staging.myshopify.com/admin/api/2021-04",
+      "ping": {
+        "successValues": [],
+        "failValues": [],
+        "relativeURI": "/articles/authors.json",
+        "method": "GET"
+      },
+      "headers": [
+        {
+          "name": "content-type",
+          "value": "application/json"
+        }
+      ],
+      "unencrypted": {
+        "version": "2021-04"
+      },
+      "encryptedFields": [],
+      "auth": {
+        "type": "oauth",
+        "oauth": {
+          "authURI": "https://celigo-returnly-staging.myshopify.com/admin/oauth/authorize",
+          "tokenURI": "https://celigo-returnly-staging.myshopify.com/admin/oauth/access_token",
+          "scope": [
+            "read_content",
+            "write_content",
+            "read_themes",
+            "write_themes",
+            "read_products",
+            "write_products",
+            "read_product_listings",
+            "read_customers",
+            "write_customers",
+            "read_orders",
+            "write_orders",
+            "read_draft_orders",
+            "write_draft_orders",
+            "read_inventory",
+            "write_inventory",
+            "read_locations",
+            "read_script_tags",
+            "write_script_tags",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_shipping",
+            "write_shipping",
+            "read_analytics",
+            "read_checkouts",
+            "write_checkouts",
+            "read_reports",
+            "write_reports",
+            "read_price_rules",
+            "write_price_rules",
+            "read_marketing_events",
+            "write_marketing_events",
+            "read_resource_feedbacks",
+            "write_resource_feedbacks",
+            "read_shopify_payments_payouts",
+            "unauthenticated_read_product_listings",
+            "unauthenticated_write_checkouts",
+            "unauthenticated_write_customers",
+            "unauthenticated_read_content",
+            "read_assigned_fulfillment_orders",
+            "write_assigned_fulfillment_orders"
+          ],
+          "scopeDelimiter": ","
+        },
+        "token": {
+          "token": "******",
+          "location": "header",
+          "headerName": "X-Shopify-Access-Token",
+          "scheme": " ",
+          "refreshMethod": "POST",
+          "refreshMediaType": "urlencoded",
+          "refreshHeaders": [],
+          "revoke": {
+            "uri": "https://celigo-returnly-staging.myshopify.com/admin/oauth/access_token"
+          }
+        }
+      }
+    },
+    "queues": [
+      {
+        "name": "615eceb9c418fd0602159a2b",
+        "size": 0
+      }
+    ]
+  },
+  "updatedBody": {
+    "type": "http",
+    "name": "revoke token HTTP shopify",
+    "debugDate": "2020-07-27T13:40:01.209Z",
+    "sandbox": false,
+    "isHTTP": true,
+    "http": {
+      "formType": "http",
+      "mediaType": "json",
+      "baseURI": "https://celigo-returnly-staging.myshopify.com/admin/api/2021-04",
+      "ping": {
+        "successValues": [],
+        "failValues": [],
+        "relativeURI": "/articles/authors.json",
+        "method": "GET"
+      },
+      "headers": [
+        {
+          "name": "content-type",
+          "value": "application/json"
+        }
+      ],
+      "unencrypted": {
+        "version": "2021-04"
+      },
+      "encryptedFields": [],
+      "auth": {
+        "type": "oauth",
+        "oauth": {
+          "authURI": "https://celigo-returnly-staging.myshopify.com/admin/oauth/authorize",
+          "tokenURI": "https://celigo-returnly-staging.myshopify.com/admin/oauth/access_token",
+          "scope": [
+            "read_content",
+            "write_content",
+            "read_themes",
+            "write_themes",
+            "read_products",
+            "write_products",
+            "read_product_listings",
+            "read_customers",
+            "write_customers",
+            "read_orders",
+            "write_orders",
+            "read_draft_orders",
+            "write_draft_orders",
+            "read_inventory",
+            "write_inventory",
+            "read_locations",
+            "read_script_tags",
+            "write_script_tags",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_shipping",
+            "write_shipping",
+            "read_analytics",
+            "read_checkouts",
+            "write_checkouts",
+            "read_reports",
+            "write_reports",
+            "read_price_rules",
+            "write_price_rules",
+            "read_marketing_events",
+            "write_marketing_events",
+            "read_resource_feedbacks",
+            "write_resource_feedbacks",
+            "read_shopify_payments_payouts",
+            "unauthenticated_read_product_listings",
+            "unauthenticated_write_checkouts",
+            "unauthenticated_write_customers",
+            "unauthenticated_read_content",
+            "read_assigned_fulfillment_orders",
+            "write_assigned_fulfillment_orders"
+          ],
+          "scopeDelimiter": ","
+        },
+        "token": {
+          "token": "******",
+          "location": "header",
+          "headerName": "X-Shopify-Access-Token",
+          "scheme": " ",
+          "refreshMethod": "POST",
+          "refreshMediaType": "urlencoded",
+          "refreshHeaders": [],
+          "revoke": {
+            "uri": "https://celigo-returnly-staging.test.com/admin/oauth/access_token"
+          }
+        }
+      }
+    }
+  }
+}

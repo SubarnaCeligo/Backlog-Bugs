@@ -1,0 +1,80 @@
+{
+    "name": "TC_C51273",
+    "disabled": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "33472",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "iba0d37d65",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "33472.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "test",
+                    "fileName": "33472.json"
+                },
+                "adaptorType": "FTPImport"
+            },
+            "responseMapping": {
+                "lists": [],
+                "fields": []
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "33472",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "iba0d37d65",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "33472.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "test",
+                    "fileName": "33472.json"
+                },
+                "adaptorType": "FTPImport"
+            },
+            "responseMapping": {
+                "lists": [],
+                "fields": []
+            }
+        }
+    ],
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "ftp_exp",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "e500a2ddd6",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports/TC_C51091/",
+                    "fileNameStartsWith": "TC_C51221"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport",
+                "qa__path": "//FTP_uploads//TC_C51221.json"
+            }
+        }
+    ]
+}

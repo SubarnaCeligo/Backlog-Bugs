@@ -1,0 +1,81 @@
+{
+    "name": "TC_C107060",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+      },
+    "referencename": "TC_C107060",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "gusto",
+    "_connectionId": "GUSTO DND PKCE",
+    "asynchronous": true,
+    "oneToMany": false,
+    "sandbox": false,
+    "http": {
+        "relativeURI": "/employees/fd1d1261-faad-4665-a997-af980d27a72b",
+        "method": "GET",
+        "requestMediaType": "json",
+        "successMediaType": "json",
+        "errorMediaType": "json",
+        "_httpConnectorVersionId": "64470573ca8eb0476d9bdb8b",
+        "_httpConnectorResourceId": "64470573ca8eb0476d9bdb8c",
+        "_httpConnectorEndpointId": "64470573ca8eb0476d9bdb8f",
+        "formType": "assistant"
+    },
+    "adaptorType": "HTTPExport"
+                        }
+                        }
+            ],
+            "pageProcessors": [
+                {
+                 "type": "import",
+                 "qa__import": {
+                    "name": "FTP",
+    "_connectionId": "FTP DND",
+    "oneToMany": false,
+    "sandbox": false,
+    "file": {
+        "fileName": "pkceepic.json",
+        "skipAggregation": false,
+        "type": "json"
+    },
+    "ftp": {
+        "directoryPath": "/io.auto.qa/IO Automation SFTP Imports",
+        "fileName": "pkceepic.json"
+    },
+    "adaptorType": "FTPImport"
+
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C107060",
+                "disabled": false,
+                "qa__integrationId": "633408479fb96473a0c7372c",
+                "_integrationId": "631a1266abf51e7a86c80ab4",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,98 @@
+{
+    "name": "TC_C99471",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+      },
+    "referencename": "TC_C99471",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "JAZZ HR",
+                        "_connectionId": "64b98649385d1d6779a8b2bc",
+                        "apiIdentifier": "e39e9098b4",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "parsers": [
+                            {
+                                "type": "xml",
+                                "version": "1",
+                                "rules": {
+                                    "V0_json": true,
+                                    "stripNewLineChars": false,
+                                    "trimSpaces": false
+                                }
+                            }
+                        ],
+                        "http": {
+                            "relativeURI": "/activities/user_id/usr_20211012150343_HYCHOWFOTBTTGHAL/object_id/prospect_20220316064343_XJTZZGIY6YHZUM2M/page/{{{export.http.paging.page}}}",
+                            "method": "GET",
+                            "requestMediaType": "json",
+                            "successMediaType": "json",
+                            "errorMediaType": "json",
+                            "_httpConnectorVersionId": "646740d175132373cc23e868",
+                            "_httpConnectorResourceId": "646740d175132373cc23e87c",
+                            "_httpConnectorEndpointId": "646740d175132373cc23e87d",
+                            "formType": "assistant",
+                            "paging": {
+                                "method": "page",
+                                "page": 1
+                            }
+                        },
+                        "adaptorType": "HTTPExport"
+                        }
+                        }
+            ],
+            "pageProcessors": [
+                {
+                 "type": "import",
+                 "qa__import": {
+                    "name": "FTP",
+    "_connectionId": "63739feed48a291bac1e744d",
+    "apiIdentifier": "i6382abbd0",
+    "oneToMany": false,
+    "sandbox": false,
+    "file": {
+        "fileName": "jazzhr.json",
+        "skipAggregation": false,
+        "type": "json"
+    },
+    "ftp": {
+        "directoryPath": "/io.auto.qa/IO Automation SFTP Imports",
+        "fileName": "Ware2go.json"
+    },
+    "adaptorType": "FTPImport"
+
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C99471",
+                "disabled": false,
+                "qa__integrationId": "633408479fb96473a0c7372c",
+                "_integrationId": "631a1266abf51e7a86c80ab4",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

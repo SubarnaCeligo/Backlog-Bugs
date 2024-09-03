@@ -1,0 +1,76 @@
+{
+    "name": "TC_C15501",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "63232caf5342c33e615e7271",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "FTP",
+                "_connectionId":"FTP CONNECTION",
+                "qa__path": "//FTP_uploads//Shopify_space_Flow_34.csv",
+                "apiIdentifier": "e786abe7fb",
+                "asynchronous": true,
+                "sandbox": false,
+                "sampleData": "id,rowNumber\nec5c5248-ee3a-eb11-8204-b20ba4f3a3a4,1\n",
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": false,
+                    "type": "csv",
+                    "csv": {
+                        "columnDelimiter": ",",
+                        "rowDelimiter": "\n",
+                        "keyColumns": [],
+                        "hasHeaderRow": false,
+                        "trimSpaces": true,
+                        "rowsToSkip": 0
+                    }
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "FTP",
+                "_connectionId": "FTP CONNECTION",
+                "oneToMany": false,
+                "mapping": {
+                    "fields": [
+                        {
+                            "extract": "Column0",
+                            "generate": "Column0"
+                        }
+                    ]
+                },
+                "file": {
+                    "fileName": "TC_C15501.csv",
+                    "skipAggregation": false,
+                    "type": "csv",
+                    "csv": {
+                        "rowDelimiter": "\n",
+                        "columnDelimiter": ",",
+                        "includeHeader": true,
+                        "wrapWithQuotes": false,
+                        "replaceTabWithSpace": false,
+                        "replaceNewlineWithSpace": false,
+                        "truncateLastRowDelimiter": false
+                    }
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                    "fileName": "TC_C15501.csv"
+                },
+                "adaptorType": "FTPImport"
+
+            }
+        }
+    ]
+}

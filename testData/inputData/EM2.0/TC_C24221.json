@@ -1,0 +1,126 @@
+{
+  "name": "TC_C24221",
+  "referencename": "TC_C24221",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "NS exporty",
+            "_connectionId": "NETSUITE CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "rawData": "603ce5ede9250226dcea4608e17ecb515807449bae4b4851ce21ec39",
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "recordType": "customer",
+                "searchId": "3785",
+                "useSS2Restlets": false
+              },
+              "distributed": {
+                "useSS2Framework": false
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "shopify",
+            "parsers": [],
+            "_connectionId": "SHOPIFY CONNECTION",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "assistant": "shopify",
+            "sandbox": false,
+            "assistantMetadata": {
+              "resource": "customer",
+              "version": "v2",
+              "operation": "creates_acustomer"
+            },
+            "lookups": [],
+            "http": {
+              "relativeURI": [
+                "/customers.json"
+              ],
+              "method": [
+                "POST"
+              ],
+              "body": [
+                null
+              ],
+              "headers": [],
+              "batchSize": 1,
+              "requestMediaType": "json",
+              "successMediaType": "json",
+              "errorMediaType": "json",
+              "requestType": [],
+              "strictHandlebarEvaluation": true,
+              "sendPostMappedData": true,
+              "formType": "assistant",
+              "lookups": [],
+              "response": {
+                "resourceIdPath": [
+                  null
+                ]
+              }
+            },
+            "rest": {
+              "relativeURI": [
+                "/customers.json"
+              ],
+              "method": [
+                "POST"
+              ],
+              "body": [
+                null
+              ],
+              "headers": [],
+              "responseIdPath": [
+                null
+              ],
+              "successPath": [
+                null
+              ],
+              "successValues": [
+                null
+              ],
+              "lookups": []
+            },
+            "adaptorType": "RESTImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C24221",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

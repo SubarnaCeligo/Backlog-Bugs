@@ -1,0 +1,620 @@
+{
+    "name": "TC_46432_rows_rows",
+    "qa__expectedDashboardCount": {
+        "successCount": "5",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "standaloneexportflowID": "",
+        "expected": {
+            "FTP": {
+                "name": "TC_46432_rows_rows",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "qa__expectedDashboardCount": {
+                    "successCount": "5",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_46432_ftp",
+                    "isUIFlow": true,
+                    "folderName": "io.auto.qa/IO Automation SFTP Imports",
+                    "fileType": ".json"
+                }
+            },
+            "GDRIVE": {
+                "name": "TC_46432_rows_rows",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "qa__expectedDashboardCount": {
+                    "successCount": "5",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_46432_gdrive",
+                    "folderName": "Gdrive_Imports",
+                    "fileType": ".json"
+                }
+            },
+            "S3": {
+                "name": "TC_46432_rows_rows",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "qa__expectedDashboardCount": {
+                    "successCount": "5",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "bucketName": "automations3import",
+                    "fileName": "TC_46432_s3",
+                    "isUIFlow": true,
+                    "fileType": ".json"
+                }
+            },
+            "Azure": {
+                "name": "TC_46432_rows_rows",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "qa__expectedDashboardCount": {
+                    "successCount": "5",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_46432_azure",
+                    "folderName": "azureimports",
+                    "fileType": ".json",
+                    "fileExtension": ".json"
+                }
+            }
+        }
+    },
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "ftp",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_46432.json"
+                },
+                "qa__path": "/FTP_uploads/TC_46432.json",
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "groupByFields": [
+                        "variants"
+                    ],
+                    "groupEmptyValues": true
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "ftp_import",
+                "_connectionId": "FTP CONNECTION",
+                "oneToMany": false,
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "dataType": "objectarray",
+                        "status": "Active",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$[*]",
+                                "mappings": [
+                                    {
+                                        "extract": "$.body_html",
+                                        "generate": "body_html",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "extract": "$.id",
+                                        "generate": "id",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "generate": "images",
+                                        "dataType": "objectarray",
+                                        "status": "Active",
+                                        "buildArrayHelper": [
+                                            {
+                                                "extract": "$.images[*]",
+                                                "status": "Active",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.images.id",
+                                                        "generate": "image_id",
+                                                        "dataType": "string",
+                                                        "status": "Active"
+                                                    },
+                                                    {
+                                                        "extract": "$.images.variant_ids",
+                                                        "generate": "image_variant_ids",
+                                                        "dataType": "string",
+                                                        "status": "Active"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "options",
+                                        "dataType": "object",
+                                        "status": "Active",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.options.id",
+                                                "generate": "option_id",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "extract": "$.options.values",
+                                                "generate": "values",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "variants",
+                                        "dataType": "objectarray",
+                                        "status": "Active",
+                                        "buildArrayHelper": [
+                                            {
+                                                "extract": "$.variants[*]",
+                                                "status": "Active",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.variants.barcode",
+                                                        "generate": "barcode",
+                                                        "dataType": "string",
+                                                        "status": "Active"
+                                                    },
+                                                    {
+                                                        "extract": "$.variants.product_id",
+                                                        "generate": "id",
+                                                        "dataType": "string",
+                                                        "status": "Active"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "vendor",
+                                        "dataType": "string",
+                                        "hardCodedValue": "Apple",
+                                        "status": "Active"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "file": {
+                    "fileName": "TC_46432_ftp.json",
+                    "skipAggregation": false,
+                    "type": "json",
+                    "encoding": "utf8"
+                },
+                "ftp": {
+                    "directoryPath": "io.auto.qa/IO Automation SFTP Imports",
+                    "fileName": "TC_46432_ftp.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "s3",
+                "_connectionId": "S3 CONNECTION",
+                "oneToMany": false,
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "dataType": "objectarray",
+                        "status": "Active",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$[*]",
+                                "mappings": [
+                                    {
+                                        "extract": "$.body_html",
+                                        "generate": "body_html",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "extract": "$.id",
+                                        "generate": "id",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "generate": "images",
+                                        "dataType": "objectarray",
+                                        "status": "Active",
+                                        "buildArrayHelper": [
+                                            {
+                                                "extract": "$.images[*]",
+                                                "status": "Active",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.images.id",
+                                                        "generate": "images_id",
+                                                        "dataType": "string",
+                                                        "status": "Active"
+                                                    },
+                                                    {
+                                                        "generate": "variant_id",
+                                                        "dataType": "numberarray",
+                                                        "status": "Active",
+                                                        "buildArrayHelper": [
+                                                            {
+                                                                "extract": "$.images.variant_ids"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "options",
+                                        "dataType": "object",
+                                        "status": "Active",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.options.id",
+                                                "generate": "id",
+                                                "dataType": "number",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "extract": "$.options.name",
+                                                "generate": "name",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "variants",
+                                        "dataType": "objectarray",
+                                        "status": "Active",
+                                        "buildArrayHelper": [
+                                            {
+                                                "extract": "$.variants[*]",
+                                                "status": "Active",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.variants.barcode",
+                                                        "generate": "barcode",
+                                                        "dataType": "string",
+                                                        "status": "Active"
+                                                    },
+                                                    {
+                                                        "extract": "$.variants.id",
+                                                        "generate": "id",
+                                                        "dataType": "string",
+                                                        "status": "Active"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "vendor",
+                                        "dataType": "string",
+                                        "hardCodedValue": "Apple",
+                                        "status": "Active"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "file": {
+                    "fileName": "TC_46432_s3.json",
+                    "skipAggregation": false,
+                    "type": "json",
+                    "encoding": "utf8"
+                },
+                "s3": {
+                    "region": "us-east-1",
+                    "bucket": "automations3import",
+                    "fileKey": "TC_46432_s3.json"
+                },
+                "adaptorType": "S3Import"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "gdrive",
+                "qa__connectionId": "GOOGLEDRIVE CONNECTION",
+                "_connectionId": "GOOGLEDRIVE CONNECTION",
+                "oneToMany": false,
+                "assistant": "googledrive",
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "dataType": "objectarray",
+                        "status": "Active",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$[*]",
+                                "mappings": [
+                                    {
+                                        "extract": "$.body_html",
+                                        "generate": "body_html",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "extract": "$.id",
+                                        "generate": "id",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "generate": "images",
+                                        "dataType": "objectarray",
+                                        "status": "Active",
+                                        "buildArrayHelper": [
+                                            {
+                                                "extract": "$.images[*]",
+                                                "status": "Active",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.images.id",
+                                                        "generate": "images_id",
+                                                        "dataType": "number",
+                                                        "status": "Active"
+                                                    },
+                                                    {
+                                                        "generate": "variant_id",
+                                                        "dataType": "numberarray",
+                                                        "status": "Active",
+                                                        "buildArrayHelper": [
+                                                            {
+                                                                "extract": "$.images.variant_ids"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "options",
+                                        "dataType": "object",
+                                        "status": "Active",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.options.id",
+                                                "generate": "option_id",
+                                                "dataType": "number",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "extract": "$.options.isShipped",
+                                                "generate": "isShipped",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "variants",
+                                        "dataType": "objectarray",
+                                        "status": "Active",
+                                        "buildArrayHelper": [
+                                            {
+                                                "extract": "$.variants[*]",
+                                                "status": "Active",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.variants.barcode",
+                                                        "generate": "barcode",
+                                                        "dataType": "string",
+                                                        "status": "Active"
+                                                    },
+                                                    {
+                                                        "extract": "$.variants.id",
+                                                        "generate": "id",
+                                                        "dataType": "string",
+                                                        "status": "Active"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "vendor",
+                                        "dataType": "string",
+                                        "hardCodedValue": "Apple",
+                                        "status": "Active"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "file": {
+                    "fileName": "TC_46432_gdrive.json",
+                    "skipAggregation": false,
+                    "type": "json",
+                    "encoding": "utf8"
+                },
+                "http": {
+                    "type": "file",
+                    "relativeURI": [
+                        "Gdrive_Imports"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "sendPostMappedData": true,
+                    "formType": "assistant",
+                    "response": {
+                        "resourcePath": [
+                            "files"
+                        ]
+                    }
+                },
+                "adaptorType": "HTTPImport"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "azure",
+                "_connectionId": "AZURE BLOB STORAGE CONNECTION",
+                "oneToMany": false,
+                "assistant": "azureblobstorage",
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "dataType": "objectarray",
+                        "status": "Active",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$[*]",
+                                "mappings": [
+                                    {
+                                        "extract": "$.body_html",
+                                        "generate": "body_html",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "extract": "$.new_variant",
+                                        "generate": "new_variant",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "generate": "images",
+                                        "dataType": "objectarray",
+                                        "status": "Active",
+                                        "buildArrayHelper": [
+                                            {
+                                                "extract": "$.images[*]",
+                                                "status": "Active",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.images.id",
+                                                        "generate": "id",
+                                                        "dataType": "string",
+                                                        "status": "Active"
+                                                    },
+                                                    {
+                                                        "extract": "$.images.variant_ids",
+                                                        "generate": "variant_id",
+                                                        "dataType": "string",
+                                                        "status": "Active"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "option",
+                                        "dataType": "object",
+                                        "status": "Active",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.options.id",
+                                                "generate": "option_id",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "extract": "$.options.product_id",
+                                                "generate": "product_id",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "variants",
+                                        "dataType": "objectarray",
+                                        "status": "Active",
+                                        "buildArrayHelper": [
+                                            {
+                                                "extract": "$.variants[*]",
+                                                "status": "Active",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.variants.barcode",
+                                                        "generate": "barcode",
+                                                        "dataType": "string",
+                                                        "status": "Active"
+                                                    },
+                                                    {
+                                                        "extract": "$.variants.id",
+                                                        "generate": "variant_id",
+                                                        "dataType": "string",
+                                                        "status": "Active"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "vendor",
+                                        "dataType": "string",
+                                        "hardCodedValue": "Apple",
+                                        "status": "Active"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "file": {
+                    "fileName": "TC_46432_azure.json",
+                    "skipAggregation": false,
+                    "type": "json",
+                    "encoding": "utf8"
+                },
+                "http": {
+                    "type": "file",
+                    "relativeURI": [
+                        "azureimports"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "sendPostMappedData": true,
+                    "formType": "assistant",
+                    "response": {
+                        "resourcePath": [
+                            "files"
+                        ]
+                    }
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ]
+}

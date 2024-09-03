@@ -1,0 +1,405 @@
+{
+  "name": "TC_C57163_C57164",
+  "referencename": "TC_C57163_C57164",
+  "qa__dataVerification": {},
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Http Export",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "e27dab7c47",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+              "relativeURI": "users",
+              "method": "GET",
+              "formType": "http"
+            },
+            "transform": {
+              "type": "expression",
+              "expression": {
+                "rules": [
+                  [
+                    {
+                      "extract": "users[*].id",
+                      "generate": "user.id"
+                    },
+                    {
+                      "extract": "users[*].name",
+                      "generate": "user.name"
+                    },
+                    {
+                      "extract": "users[*].email",
+                      "generate": "user.email"
+                    },
+                    {
+                      "extract": "users[*].phone",
+                      "generate": "user.phone"
+                    },
+                    {
+                      "extract": "users[*].time_zone",
+                      "generate": "user.time_zone"
+                    },
+                    {
+                      "extract": "users[*].role",
+                      "generate": "user.role"
+                    }
+                  ]
+                ],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": [
+                [
+                  {
+                    "extract": "users[*].id",
+                    "generate": "user.id"
+                  },
+                  {
+                    "extract": "users[*].name",
+                    "generate": "user.name"
+                  },
+                  {
+                    "extract": "users[*].email",
+                    "generate": "user.email"
+                  },
+                  {
+                    "extract": "users[*].phone",
+                    "generate": "user.phone"
+                  },
+                  {
+                    "extract": "users[*].time_zone",
+                    "generate": "user.time_zone"
+                  },
+                  {
+                    "extract": "users[*].role",
+                    "generate": "user.role"
+                  }
+                ]
+              ]
+            },
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Http Import",
+            "application": "zendesk support",
+            "mockResponse": [
+              {
+                  "statusCode": 200,
+                  "id": "9222623681426",
+                  "_json": {
+                      "organization": {
+                          "id": 9222623681426,
+                          "name": "Mary Poppins",
+                          "details": "17 Cherry Tree Lane"
+                      }
+                  },
+                  "_headers": {
+                      "date": "Thu, 22 Dec 2022 10:50:18 GMT",
+                      "content-type": "application/json; charset=utf-8",
+                      "x-zendesk-application-version": "v14974",
+                      "x-frame-options": "SAMEORIGIN"
+                  }
+              }
+          ],
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "mapping": {
+              "fields": [
+                  {
+                      "generate": "user.name",
+                      "hardCodedValue": "TC_C57163_C57164"
+                  }
+              ]
+          },
+            "http": {
+              "relativeURI": [
+                "users"
+              ],
+              "method": [
+                "POST"
+              ],
+              "body": [],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+          }
+        },
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Ftp Import",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "i45579d20f",
+            "oneToMany": false,
+            "file": {
+              "fileName": "MockRespons.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation",
+              "fileName": "MockRespons.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C57163_C57164",
+        "disabled": false,
+        "qa__integrationId": "63232caf5342c33e615e7271",
+        "_integrationId": "63232c59d3a9897fe95f9f2a",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [
+                {
+                  "extract": "_json.organization",
+                  "generate": "data"
+                }
+              ],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          },
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ],
+  "Body": [
+    {
+      "statusCode": 200,
+      "id": "9222623681426",
+      "_json": {
+        "organization": {
+          "id": 9222623681426,
+          "name": "Mary Poppins",
+          "details": "17 Cherry Tree Lane"
+        }
+      },
+      "_headers": {
+        "date": "Thu, 22 Dec 2022 10:50:18 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "x-zendesk-application-version": "v14974",
+        "x-frame-options": "SAMEORIGIN"
+      }
+    }
+  ],
+  "Body1": [
+    {
+      "statusCode": 200,
+      "id": "9222623681426",
+      "_json": {
+        "record": [
+          {
+            "id": 10890187998737,
+            "url": "https://celigo7961.zendesk.com/api/v2/users/10890187998737.json",
+            "name": "Mahesh Sutar",
+            "email": "mahesh.nivrutti.sutar@celigo.com",
+            "phone": null,
+            "shared_phone_number": null,
+            "photo": null,
+            "locale_id": 1,
+            "locale": "en-US",
+            "organization_id": 10890194165905,
+            "role": "admin"
+          },
+          {
+            "id": 10890194213649,
+            "url": "https://celigo7961.zendesk.com/api/v2/users/10890194213649.json",
+            "name": "The Customer",
+            "email": "customer@example.com",
+            "phone": null,
+            "shared_phone_number": null,
+            "locale_id": 1,
+            "locale": "en-US",
+            "organization_id": null,
+            "role": "end-user"
+          },
+          {
+            "id": 10891070809489,
+            "url": "https://celigo7961.zendesk.com/api/v2/users/10891070809489.json",
+            "name": "Mahesh Sutar",
+            "email": "maheshsutar@gmail.com",
+            "phone": null,
+            "shared_phone_number": null,
+            "photo": null,
+            "locale_id": 1,
+            "locale": "en-US",
+            "organization_id": null,
+            "role": "end-user"
+          },
+          {
+            "id": 10892299590801,
+            "url": "https://celigo7961.zendesk.com/api/v2/users/10892299590801.json",
+            "name": "Mahesh Sutar",
+            "email": "maheshsutar6101997@gmail.com",
+            "phone": null,
+            "shared_phone_number": null,
+            "photo": null,
+            "locale_id": 1,
+            "locale": "en-US",
+            "organization_id": null,
+            "role": "end-user"
+          },
+          {
+            "id": 11144056407697,
+            "url": "https://celigo7961.zendesk.com/api/v2/users/11144056407697.json",
+            "name": "connector Setting",
+            "email": null,
+            "phone": "65432223",
+            "shared_phone_number": false,
+            "photo": null,
+            "locale_id": 1,
+            "locale": "en-US",
+            "organization_id": null,
+            "role": "end-user"
+          },
+          {
+            "id": 11144168562193,
+            "url": "https://celigo7961.zendesk.com/api/v2/users/11144168562193.json",
+            "name": "connectora",
+            "email": null,
+            "phone": "65432223",
+            "shared_phone_number": true,
+            "photo": null,
+            "locale_id": 1,
+            "locale": "en-US",
+            "organization_id": null,
+            "role": "end-user"
+          },
+          {
+            "id": 11144193023377,
+            "url": "https://celigo7961.zendesk.com/api/v2/users/11144193023377.json",
+            "name": "connectora",
+            "email": null,
+            "phone": "65432223",
+            "shared_phone_number": true,
+            "photo": null,
+            "locale_id": 1,
+            "locale": "en-US",
+            "organization_id": null,
+            "role": "end-user"
+          },
+          {
+            "id": 11144200751377,
+            "url": "https://celigo7961.zendesk.com/api/v2/users/11144200751377.json",
+            "name": "connectora",
+            "email": null,
+            "phone": "65432223",
+            "shared_phone_number": true,
+            "photo": null,
+            "locale_id": 1,
+            "locale": "en-US",
+            "organization_id": null,
+            "role": "end-user"
+          },
+          {
+            "id": 11144217707153,
+            "url": "https://celigo7961.zendesk.com/api/v2/users/11144217707153.json",
+            "name": "connectora",
+            "email": null,
+            "phone": "65432223",
+            "shared_phone_number": true,
+            "photo": null,
+            "locale_id": 1,
+            "locale": "en-US",
+            "organization_id": null,
+            "role": "end-user"
+          },
+          {
+            "id": 11144204351377,
+            "url": "https://celigo7961.zendesk.com/api/v2/users/11144205451377.json",
+            "name": "connectora",
+            "email": null,
+            "phone": "65432223",
+            "shared_phone_number": true,
+            "photo": null,
+            "locale_id": 1,
+            "locale": "en-US",
+            "organization_id": null,
+            "role": "end-user"
+          },
+          {
+            "id": 11144334707153,
+            "url": "https://celigo7961.zendesk.com/api/v2/users/11144217747153.json",
+            "name": "connectora",
+            "email": null,
+            "phone": "65432223",
+            "shared_phone_number": true,
+            "photo": null,
+            "locale_id": 1,
+            "locale": "en-US",
+            "organization_id": null,
+            "role": "end-user"
+          }
+        ]
+      },
+      "_headers": {
+        "date": "Thu, 22 Dec 2022 10:50:18 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "x-zendesk-application-version": "v14974",
+        "x-frame-options": "SAMEORIGIN"
+      }
+    }
+  ],
+  "Body2": {
+    "ignored": false,
+    "statusCode": 200,
+    "dataURI": "",
+    "_json": {
+      "responseField1": "",
+      "responseField2": ""
+    }
+  },
+  "Body3": [
+    {
+      "id": "1234567890",
+      "errors": [
+        {
+          "code": "error_code",
+          "message": "error message",
+          "source": "application"
+        }
+      ],
+      "ignored": false,
+      "statusCode": 200,
+      "dataURI": "",
+      "_json": {
+        "responseField1": "",
+        "responseField2": ""
+      }
+    }
+  ]
+}

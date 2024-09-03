@@ -1,0 +1,55 @@
+{
+    "name": "IO-34603_auto_flow_23",
+    "referencename": "IO-34603_auto_flow_23",
+    "qaprod__connectionId": "632d5eaf087f7b71ac834a96",
+    "qaprod_connectionId": "640056f4fd8d7d3f5470c5c7",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "netsuite",
+                "_connectionId": "6343b3521486c63a7cc1c23c",
+                "qa__connectionId": "6465fd27a7c87d2390694365",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "rawData": "641ad6913378404d05e21433170a27d21dc54940ab9e804d88be2df3",
+                "netsuite": {
+                    "type": "restlet",
+                    "skipGrouping": true,
+                    "statsOnly": false,
+                    "restlet": {
+                        "recordType": "customer",
+                        "searchId": "1163",
+                        "restletVersion": "suiteapp2.0",
+                        "markExportedBatchSize": 100
+                    },
+                    "distributed": {}
+                },
+                "adaptorType": "NetSuiteExport"
+
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "_connectionId": "632aaccd0dbc53086e8a915f",
+                "qa__connectionId": "6469d490a7c87d239069a512",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "file-{{timestamp}}.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/exp_folder",
+                    "fileName": "file-{{timestamp}}.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ]
+}

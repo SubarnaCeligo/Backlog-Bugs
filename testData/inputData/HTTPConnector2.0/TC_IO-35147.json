@@ -1,0 +1,189 @@
+{
+    "expectedJSON": {
+        
+            "type": "http",
+            "name": "sage intact api connection",
+            "sandbox": false,
+            "http": {
+                "formType": "assistant",
+                "mediaType": "xml",
+                "baseURI": "https://api.intacct.com/ia/xml/xmlgw.phtml",
+                "ping": {
+                    "relativeURI": "/",
+                    "method": "POST",
+                    "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<request>\r\n  <control>\r\n    <senderid>{{connection.http.unencrypted.senderid}}</senderid>\r\n    <password>{{connection.http.encrypted.password}}</password>\r\n    <controlid>{{timestamp}}</controlid>\r\n    <uniqueid>false</uniqueid>\r\n    <dtdversion>3.0</dtdversion>\r\n    <includewhitespace>false</includewhitespace>\r\n  </control>\r\n  <operation>\r\n    <authentication>\r\n      <sessionid>{{connection.http.auth.token.token}}</sessionid>\r\n    </authentication>\r\n    <content>\r\n      <function controlid=\"{{join \"-\" (join \"-\" (join \"-\" (join \"-\" (random \"UUID\" 8) (random \"UUID\" 4)) (random \"UUID\" 4)) (random \"UUID\" 4)) (random \"UUID\" 12)}}\">\r\n        <readByName>\r\n          <object>CUSTOMER</object>\r\n          <keys>10001</keys>\r\n          <fields>*</fields>\r\n        </readByName>\r\n      </function>\r\n    </content>\r\n  </operation>\r\n</request>",
+                    "successPath": "response/control/status/text()",
+                    "successValues": [
+                        "success"
+                    ],
+                    "failPath": "response/control/status/text()",
+                    "failValues": [
+                        "failure"
+                    ],
+                    "errorPath": "/response/errormessage/error/description2/text()"
+                },
+                "headers": [
+                    {
+                        "name": "content-type",
+                        "value": "application/xml"
+                    }
+                ],
+                "unencrypted": {
+                    "companyid": "CeligoMPP-DEV2",
+                    "senderid": "CeligoMPP2"
+                    
+                },
+                "encrypted": "******",
+                "_httpConnectorId": "63d8b0e326c88c104e651728",
+                "_httpConnectorVersionId": "63ecfe96af1f5a5fa26fb309",
+                "auth": {
+                    "type": "token",
+                    "failStatusCode": 400,
+                    "failPath": "response/control/status/text()",
+                    "failValues": [
+                        "failure"
+                    ],
+                    "token": {
+                        "token": "******",
+                        "location": "header",
+                        "headerName": "Authorization",
+                        "scheme": "Bearer",
+                        "paramName": "access_token",
+                        "refreshMethod": "POST",
+                        "refreshRelativeURI": "/",
+                        "refreshMediaType": "xml",
+                        "refreshTokenPath": "response/operation/result/data/api/sessionid/text()",
+                        "refreshToken": "******"
+                    }
+                }
+            }
+            
+            
+        
+    },
+    "importJSON": {
+        
+            "type": "http",
+            "name": "sage intact api connection",
+            "sandbox": false,
+            "http": {
+                "formType": "assistant",
+                "mediaType": "xml",
+                "baseURI": "https://api.intacct.com/ia/xml/xmlgw.phtml",
+                "ping": {
+                    "relativeURI": "/",
+                    "method": "POST",
+                    "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<request>\r\n  <control>\r\n    <senderid>{{connection.http.unencrypted.senderid}}</senderid>\r\n    <password>{{connection.http.encrypted.password}}</password>\r\n    <controlid>{{timestamp}}</controlid>\r\n    <uniqueid>false</uniqueid>\r\n    <dtdversion>3.0</dtdversion>\r\n    <includewhitespace>false</includewhitespace>\r\n  </control>\r\n  <operation>\r\n    <authentication>\r\n      <sessionid>{{connection.http.auth.token.token}}</sessionid>\r\n    </authentication>\r\n    <content>\r\n      <function controlid=\"{{join \"-\" (join \"-\" (join \"-\" (join \"-\" (random \"UUID\" 8) (random \"UUID\" 4)) (random \"UUID\" 4)) (random \"UUID\" 4)) (random \"UUID\" 12)}}\">\r\n        <readByName>\r\n          <object>CUSTOMER</object>\r\n          <keys>10001</keys>\r\n          <fields>*</fields>\r\n        </readByName>\r\n      </function>\r\n    </content>\r\n  </operation>\r\n</request>",
+                    "successPath": "response/control/status/text()",
+                    "successValues": [
+                        "success"
+                    ],
+                    "failPath": "response/control/status/text()",
+                    "failValues": [
+                        "failure"
+                    ],
+                    "errorPath": "/response/errormessage/error/description2/text()"
+                },
+                "headers": [
+                    {
+                        "name": "content-type",
+                        "value": "application/xml"
+                    }
+                ],
+                "unencrypted": {
+                    "companyid": "CeligoMPP-DEV2",
+                    "senderid": "CeligoMPP2",
+                    "userid": "emma"
+                },
+                "encrypted": "******",
+                "_httpConnectorId": "63d8b0e326c88c104e651728",
+                "_httpConnectorVersionId": "63ecfe96af1f5a5fa26fb309",
+                "auth": {
+                    "type": "token",
+                    "failStatusCode": 400,
+                    "failPath": "response/control/status/text()",
+                    "failValues": [
+                        "failure"
+                    ],
+                    "token": {
+                        "token": "******",
+                        "qa__token": "NDZmMmQ3MjViYTk0NTc4NzBhZTFkYjg4MjNmYWVhOTZjMjYwN2NmMQ==",
+                        "location": "header",
+                        "headerName": "Authorization",
+                        "scheme": "Bearer",
+                        "paramName": "access_token",
+                        "refreshMethod": "POST",
+                        "refreshRelativeURI": "/",
+                        "refreshBody": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<request>\r\n  <control>\r\n    <senderid>{{connection.http.unencrypted.senderid}}</senderid>\r\n    <password>{{connection.http.encrypted.password}}</password>\r\n    <controlid>2022-06-13T06:21:56+00:00</controlid>\r\n    <uniqueid>false</uniqueid>\r\n    <dtdversion>3.0</dtdversion>\r\n    <includewhitespace>false</includewhitespace>\r\n  </control>\r\n  <operation>\r\n    <authentication>\r\n      <login>\r\n        <userid>{{connection.http.unencrypted.userid}}</userid>\r\n        <companyid>{{connection.http.unencrypted.companyid}}</companyid>\r\n        <password>{{connection.http.encrypted.loginpassword}}</password>\r\n      </login>\r\n    </authentication>\r\n    <content>\r\n      <function controlid=\"3G2DFC86-9899-4283-360X-C789142D2801\">\r\n        <getAPISession />\r\n      </function>\r\n    </content>\r\n  </operation>\r\n</request>",
+                        "refreshMediaType": "xml",
+                        "refreshTokenPath": "response/operation/result/data/api/sessionid/text()",
+                        "refreshToken": "******"
+                    }
+                }
+            }
+            
+            
+        
+    },
+    "editAPIBody": {
+        "type": "http",
+        "name": "sage intact api connection",
+        "sandbox": false,
+        "http": {
+            "formType": "assistant",
+            "mediaType": "xml",
+            "baseURI": "https://api.intacct.com/ia/xml/xmlgw.phtml",
+            "ping": {
+                "relativeURI": "/",
+                "method": "POST",
+                "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<request>\r\n  <control>\r\n    <senderid>{{connection.http.unencrypted.senderid}}</senderid>\r\n    <password>{{connection.http.encrypted.password}}</password>\r\n    <controlid>{{timestamp}}</controlid>\r\n    <uniqueid>false</uniqueid>\r\n    <dtdversion>3.0</dtdversion>\r\n    <includewhitespace>false</includewhitespace>\r\n  </control>\r\n  <operation>\r\n    <authentication>\r\n      <sessionid>{{connection.http.auth.token.token}}</sessionid>\r\n    </authentication>\r\n    <content>\r\n      <function controlid=\"{{join \"-\" (join \"-\" (join \"-\" (join \"-\" (random \"UUID\" 8) (random \"UUID\" 4)) (random \"UUID\" 4)) (random \"UUID\" 4)) (random \"UUID\" 12)}}\">\r\n        <readByName>\r\n          <object>CUSTOMER</object>\r\n          <keys>10001</keys>\r\n          <fields>*</fields>\r\n        </readByName>\r\n      </function>\r\n    </content>\r\n  </operation>\r\n</request>",
+                "successPath": "response/control/status/text()",
+                "successValues": [
+                    "success"
+                ],
+                "failPath": "response/control/status/text()",
+                "failValues": [
+                    "failure"
+                ],
+                "errorPath": "/response/errormessage/error/description2/text()"
+            },
+            "headers": [
+                {
+                    "name": "content-type",
+                    "value": "application/xml"
+                }
+            ],
+            "unencrypted": {
+                "companyid": "CeligoMPP-DEV2",
+                "senderid": "CeligoMPP2"
+                
+            },
+            "encrypted": "******",
+            "_httpConnectorId": "63d8b0e326c88c104e651728",
+            "_httpConnectorVersionId": "63ecfe96af1f5a5fa26fb309",
+            "auth": {
+                "type": "token",
+                "failStatusCode": 400,
+                "failPath": "response/control/status/text()",
+                "failValues": [
+                    "failure"
+                ],
+                "token": {
+                    "token": "******",
+                    "location": "header",
+                    "headerName": "Authorization",
+                    "scheme": "Bearer",
+                    "paramName": "access_token",
+                    "refreshMethod": "POST",
+                    "refreshRelativeURI": "/",
+                    "refreshBody": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<request>\r\n  <control>\r\n    <senderid>{{connection.http.unencrypted.senderid}}</senderid>\r\n    <password>{{connection.http.encrypted.password}}</password>\r\n    <controlid>2022-06-13T06:21:56+00:00</controlid>\r\n    <uniqueid>false</uniqueid>\r\n    <dtdversion>3.0</dtdversion>\r\n    <includewhitespace>false</includewhitespace>\r\n  </control>\r\n  <operation>\r\n    <authentication>\r\n      <login>\r\n        <userid>emma</userid>\r\n        <companyid>{{connection.http.unencrypted.companyid}}</companyid>\r\n        <password>{{connection.http.encrypted.loginpassword}}</password>\r\n      </login>\r\n    </authentication>\r\n    <content>\r\n      <function controlid=\"3G2DFC86-9899-4283-360X-C789142D2801\">\r\n        <getAPISession />\r\n      </function>\r\n    </content>\r\n  </operation>\r\n</request>",
+                    "refreshMediaType": "xml",
+                    "refreshTokenPath": "response/operation/result/data/api/sessionid/text()",
+                    "refreshToken": "******"
+                }
+            }
+        }
+        
+       
+    }
+}

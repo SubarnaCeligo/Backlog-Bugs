@@ -1,0 +1,104 @@
+{
+    "flowname": "TC_C42170_FG",
+    "name": "TC_C42170_",
+    "flowGroup": "TC_C42170_FG",
+    "qa__expectedDashboardCount": {
+        "successCount": "4",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "S3 Export",
+                        "description": "S3 Export  test.",
+                        "_connectionId": "S3 CONNECTION",
+                        "_sourceId": "6299975ba0fa6439f59749de",
+                        "apiIdentifier": "e6a9da3402",
+                        "asynchronous": true,
+                        "s3": {
+                            "region": "us-east-1",
+                            "bucket": "automations3export",
+                            "keyStartsWith": "TC_C42170"
+                        },
+                        "file": {
+                            "encoding": "utf8",
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "xlsx",
+                            "xlsx": {
+                                "hasHeaderRow": false
+                            }
+                        },
+                        "adaptorType": "S3Export"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "ftp",
+                        "qa__connectionId": "62ff60052dac2950afa67aac",
+                        "_connectionId": "FTP CONNECTION",
+                        "_sourceId": "62d7f6b56ef33428ce43910e",
+                        "apiIdentifier": "i8c470707a",
+                        "oneToMany": false,
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "extract": "tickets[*].fields[*].id",
+                                    "generate": "id"
+                                },
+                                {
+                                    "extract": "tickets[*].priority",
+                                    "generate": "priority"
+                                },
+                                {
+                                    "extract": "tickets[*].status",
+                                    "generate": "status"
+                                }
+                            ]
+                        },
+                        "file": {
+                            "fileName": "Test.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                            "fileName": "Test.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C42170_FG",
+                "disabled": false,
+                "_integrationId": "631a1266abf51e7a86c80ab4",
+                "qa__integrationId": "6228aed6bc8a2732cfe8044c",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "qa_connectorId":"627a2f58b0a39604512281fa",
+    "_connectorId":"631aed8cfb1a95581af9bbf8",
+    "qa_importJson": {
+        "expires": "2024-06-05T18:29:59.999Z",
+        "user": "io.auto.flowgrouping.qa@celigo.com",
+        "type": "integrationApp",
+        "trialEndDate": "2024-06-06T07:05:47.214Z"
+    },
+    "_importJson":{
+        "expires": "2024-06-05T18:29:59.999Z",
+        "user": "io.auto.flowgrouping.qa@celigo.com",
+        "type": "integrationApp",
+        "trialEndDate": "2024-06-06T07:05:47.214Z" 
+    }
+}

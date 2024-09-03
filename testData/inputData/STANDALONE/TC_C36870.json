@@ -1,0 +1,35 @@
+{
+  "Stage_conn": "6343b3521486c63a7cc1c23c",
+  "postBody": {
+    "pagedExport": {
+      "done": false,
+      "pageIndex": 3,
+      "issuedAt": 1642761050,
+      "sig": "04f29013d194338d74c679f6ae7a97969e8143c6104dba9acc58e952054a158b"
+    },
+    "export": {
+      "name": "Customer flow",
+      "_connectionId": "NETSUITE CONNECTION",
+      "asynchronous": true,
+      "pageSize": 10,
+      "oneToMany": false,
+      "sandbox": false,
+      "rawData": "5e8c197894e7326199c855e1fb2cbe4059e64b6fbd1823aaff41e9d9",
+      "netsuite": {
+        "type": "restlet",
+        "skipGrouping": true,
+        "statsOnly": false,
+        "restlet": {
+          "recordType": "customer",
+          "searchId": "1907",
+          "useSS2Restlets": false
+        },
+        "distributed": {
+          "disabled": false,
+          "forceReload": false
+        }
+      },
+      "adaptorType": "NetSuiteExport"
+    }
+  }
+}

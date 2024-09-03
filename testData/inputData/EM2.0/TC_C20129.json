@@ -1,0 +1,88 @@
+{
+  "name": "TC_C20129",
+  "referencename": "TC_C20129",
+  "qa__dataVerification": {},
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "export_20129",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "asynchronous": true,
+            "hooks": {
+              "preSavePage": {
+                "_scriptId": "UPDATE",
+                "function": "preSavePage"
+              }
+            },
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+              "relativeURI": "tickets/81",
+              "method": "GET",
+              "formType": "http"
+            },
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "import_20129",
+            "application": "zendesk support",
+            "parsers": [],
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [],
+            "http": {
+              "relativeURI": [
+                "tickets"
+              ],
+              "method": [
+                "POST"
+              ],
+              "body": [],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C20129",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ],
+  "scriptBody": {
+    "name": "invalid_preSavePage",
+    "content": "function transform (options) {return options.record}\nfunction preSavePage (options) {return {data: options.data,errors: options.errors,abort:false,newErrorsAndRetryData: []}"
+  }
+}

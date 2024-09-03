@@ -1,0 +1,85 @@
+{
+    "Connections": [
+        {
+            "FTP": {
+                "connectionId": "FTP CONNECTION"
+            }
+        },
+        {
+            "S3": {
+                "connectionId": "S3 CONNECTION"
+            }
+        },
+        {
+            "Gdrive": {
+                "qa__connectionId": "GOOGLEDRIVE CONNECTION",
+                "connectionId": "GOOGLEDRIVE CONNECTION"
+            }
+        }
+    ],
+    "testdata": {
+        "Json": "/FTP_uploads/TC_C30817.json",
+        "CSV": "/FTP_uploads/TC_C2810.csv",
+        "xlsx": "/FTP_uploads/79.FTPFlow6_FTP(xlsx) to ZD(Organization).xlsx"
+    },
+    "expected": {
+        "Jsonexpected": {
+            "page_of_records": [
+                {
+                    "record": {
+                        "Drug@Name": "NaproxenandEsomeprazoleMagnesium",
+                        "#Number": "6495195850"
+                    }
+                },
+                {
+                    "record": {
+                        "Drug@Name": "HorizonPharmaInc.",
+                        "#Number": "1933831154"
+                    }
+                }
+            ]
+        },
+        "Xlsxexpected": {
+            "page_of_records": [
+                {
+                    "record": {
+                        "Column0": "CompanyName",
+                        "Column1": "phone",
+                        "Column2": "EMail",
+                        "Column3": "Fax"
+                    }
+                },
+                {
+                    "record": {
+                        "Column0": "Auto@FTPtoZDOrganization_XSLX_1",
+                        "Column1": "11111111",
+                        "Column2": "AutoFTPtoZDOrganization_XSLX_1@gmail.com",
+                        "Column3": "22222222"
+                    }
+                }
+            ]
+        },
+        "Csvexpected": {
+            "page_of_records": [
+                {
+                    "record": {
+                        "Column0": "Drug@Name",
+                        "Column1": "#Number"
+                    }
+                },
+                {
+                    "record": {
+                        "Column0": "NaproxenandEsomeprazoleMagnesium",
+                        "Column1": "6495195850"
+                    }
+                },
+                {
+                    "record": {
+                        "Column0": "HorizonPharmaInc.",
+                        "Column1": "1933831154"
+                    }
+                }
+            ]
+        }
+    }
+}

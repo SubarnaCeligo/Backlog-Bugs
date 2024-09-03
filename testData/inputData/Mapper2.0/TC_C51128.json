@@ -1,0 +1,119 @@
+{
+    "name": "TC_C51128_SourceFields",
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "disabled": false,
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "name": "fa",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "generate": "ticket.comment.body",
+                        "dataType": "string",
+                        "status": "Draft",
+                        "sourceDataType": "string"
+                    },
+                    {
+                        "generate": "ticket.subject",
+                        "dataType": "string",
+                        "status": "Draft",
+                        "sourceDataType": "string"
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "tickets"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "asfd",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "sandbox": false,
+                "qa__path": "/FTP_uploads/automation.json",
+                "ftp": {
+                    "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "automation.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "body": [
+        {
+            "update": {
+                "name": "fa",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "extract": "$.email",
+                        "generate": "ticket.comment.body",
+                        "dataType": "string",
+                        "status": "Active",
+                        "sourceDataType": "string"
+                    },
+                    {
+                        "extract": "$.name",
+                        "generate": "ticket.subject",
+                        "dataType": "string",
+                        "status": "Active",
+                        "sourceDataType": "string"
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "tickets"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ]
+}
