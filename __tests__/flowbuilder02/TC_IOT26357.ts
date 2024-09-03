@@ -24,7 +24,12 @@ test.describe("IO-T26357 Magento2 Token Proxy (TC_C109195)", () => {
 
     //Open the flow
     await io.flowBuilder.clickByText("Magento2 Token Proxy_DND");
+    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
+    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
     await test.step("*** Enable and run the Flow *** ", async () => {
       await io.flowBuilder.saveandRunFlow("Magento2 Token Proxy_DND");

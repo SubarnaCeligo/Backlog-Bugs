@@ -62,6 +62,7 @@ test.describe("IO-T17166 To verify conflict message is displayed under each reso
     await io.homePage.loadingTime();
 
     await io.integrationPage.addStep("Deleting the cloned flow")
+    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
     await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Clone - T17166');
     await io.integrationPage.clickByTextByIndex('Clone - T17166', 0);
