@@ -8,7 +8,7 @@
         {
             "type": "export",
             "qa__export": {
-                "name": "TC_C33443_SF",
+                "name": "TC_C47432_SF",
                 "_connectionId": "SALESFORCE CONNECTION",
                 "asynchronous": true,
                 "type": "test",
@@ -28,28 +28,56 @@
             }
         }
     ],
-    "pageProcessors": [
+    "routers": [
         {
-            "type": "import",
-            "qa__import": {
-                "name": "Name",
-                "application": "shopify",
-                "_connectionId": "HTTP SHOPIFY CONNECTION",
-                "ignoreExisting": false,
-                "ignoreMissing": false,
-                "oneToMany": false,
-                "sandbox": false,
-                "http": {
-                    "relativeURI": [],
-                    "method": [
-                        "PUT"
-                    ],
-                    "body": [],
-                    "batchSize": 1,
-                    "sendPostMappedData": true,
-                    "formType": "http"
-                },
-                "adaptorType": "HTTPImport"
+            "routeRecordsUsing": "input_filters",
+            "id": "LLEHfr",
+            "routeRecordsTo": "first_matching_branch",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "inputFilter": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "id"
+                                ]
+                            ],
+                            "223"
+                        ]
+                    },
+                    "pageProcessors": [
+                        {
+                            "type": "import",
+                            "qa__import": {
+                                "name": "Name",
+                                "application": "shopify",
+                                "_connectionId": "HTTP SHOPIFY CONNECTION",
+                                "ignoreExisting": false,
+                                "ignoreMissing": false,
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "http": {
+                                    "relativeURI": [],
+                                    "method": [
+                                        "PUT"
+                                    ],
+                                    "body": [],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branchRouter"
             }
         }
     ]

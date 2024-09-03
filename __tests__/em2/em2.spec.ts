@@ -13,3 +13,6 @@ require("./TC_C51622_C51616");
 require("./TC_C51633_C51632_C51615");
 require("./TC_C51635_C51663");
 require("./TC_C51675");
+require("./TC_C51276_Verify_Disabled_Referesh_Enabled_30_Seconds");
+require("./TC_C51278_Verify_Retry_Successful_Error_Should_Not_Show_In_Open_Error_Tab");
+require("./TC_C51634_C51636");

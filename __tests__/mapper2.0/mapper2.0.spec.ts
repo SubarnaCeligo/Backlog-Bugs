@@ -9,3 +9,6 @@ require("./TC_C51115_Verify_Added_Expression_Persist_Save_ReOpen");
 require("./TC_C51141");
 require("./TC_C52078_C52306");
 require("./TC_C52208");
+require("./TC_51518");
+require("./TC_C51799");
+require("./TC_C52019");
