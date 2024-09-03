@@ -1,0 +1,251 @@
+{
+    "name": "47459",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "NS Export",
+                "description": "NS for multiple pages and records",
+                "_connectionId": "NETSUITE CONNECTION",
+                "apiIdentifier": "e9c3f5615c",
+                "asynchronous": true,
+                "type": "test",
+                "pageSize": 5,
+                "oneToMany": false,
+                "sandbox": false,
+                "rawData": "62f37ad6703e322cf5d90431a495c448dbeb445fbca55a3155f343df",
+                "test": {
+                    "limit": 1
+                },
+                "netsuite": {
+                    "type": "restlet",
+                    "skipGrouping": true,
+                    "statsOnly": false,
+                    "restlet": {
+                        "recordType": "item",
+                        "searchId": "2509",
+                        "useSS2Restlets": false,
+                        "markExportedBatchSize": 100
+                    },
+                    "distributed": {
+                        "useSS2Framework": false
+                    }
+                },
+                "transform": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [
+                            []
+                        ],
+                        "version": "1"
+                    },
+                    "version": "1",
+                    "rules": [
+                        []
+                    ]
+                },
+                "adaptorType": "NetSuiteExport"
+            }
+        }
+    ],
+    "autoResolveMatchingTraceKeys": true,
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "LLEHfr",
+            "routeRecordsTo": "first_matching_branch",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [
+                                    {
+                                        "extract": "id",
+                                        "generate": "testId"
+                                    }
+                                ],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandaloneImport1_afsflk",
+                                "application":"zendesk support",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "ignoreExisting": false,
+                                "ignoreMissing": false,
+                                "oneToMany": false,
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "Auto_{{random 6}}",
+                                            "generate": "organization.name"
+                                        },
+                                        {
+                                            "extract": "notes",
+                                            "generate": "organization.notes"
+                                        }
+                                    ]
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "fibwecviuvc3rjini n"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "body": [],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            },
+                            "proceedOnFailure": true
+                        },
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "Zendesk import",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "_sourceId": "63104850b4ed2736dc29a1bd",
+                                "apiIdentifier": "i6eb759511",
+                                "ignoreExisting": false,
+                                "ignoreMissing": false,
+                                "oneToMany": false,
+                                "assistant": "zendesk",
+                                "assistantMetadata": {
+                                    "resource": "users_api",
+                                    "version": "v2",
+                                    "operation": "create_users_api"
+                                },
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "Name",
+                                            "generate": "user.name"
+                                        },
+                                        {
+                                            "generate": "user.email",
+                                            "hardCodedValue": "test12344@gmail.com"
+                                        },
+                                        {
+                                            "extract": "testErrors",
+                                            "generate": "user.phone"
+                                        }
+                                    ]
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "/api/v2/users.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "body": [
+                                        null
+                                    ],
+                                    "batchSize": 1,
+                                    "requestMediaType": "json",
+                                    "successMediaType": "json",
+                                    "errorMediaType": "json",
+                                    "strictHandlebarEvaluation": true,
+                                    "sendPostMappedData": true,
+                                    "formType": "assistant",
+                                    "response": {
+                                        "resourceIdPath": [
+                                            null
+                                        ]
+                                    }
+                                },
+                                "rest": {
+                                    "relativeURI": [
+                                        "/api/v2/users.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "body": [
+                                        null
+                                    ],
+                                    "responseIdPath": [
+                                        null
+                                    ],
+                                    "successPath": [
+                                        null
+                                    ],
+                                    "successValues": [
+                                        null
+                                    ]
+                                },
+                                "adaptorType": "RESTImport"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Branch 1.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "NS Import",
+                                "_connectionId": "NETSUITE CONNECTION",
+                                "distributed": true,
+                                "apiIdentifier": "i269aebeca",
+                                "lookups": [],
+                                "netsuite_da": {
+                                    "useSS2Restlets": false,
+                                    "operation": "add",
+                                    "recordType": "customer",
+                                    "lookups": [],
+                                    "mapping": {
+                                        "lists": [],
+                                        "fields": [
+                                            {
+                                                "generate": "companyname",
+                                                "extract": "name",
+                                                "internalId": false
+                                            },
+                                            {
+                                                "generate": "subsidiary",
+                                                "hardCodedValue": "14",
+                                                "internalId": true
+                                            },
+                                            {
+                                                "generate": "email",
+                                                "extract": "email",
+                                                "internalId": false
+                                            },
+                                            {
+                                                "generate": "comments",
+                                                "extract": "notes",
+                                                "internalId": false
+                                            }
+                                        ]
+                                    }
+                                },
+                                "adaptorType": "NetSuiteDistributedImport"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        }
+    ]
+}

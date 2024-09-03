@@ -1,0 +1,287 @@
+{
+    "timezone": "Asia/Calcutta",
+    "name": "TC_002_C44482_FTP_To_HTTP_All_Field_Mappings",
+    "disabled": false,
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "name": "test create customers",
+                "application": "BigCommerce",
+                "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+                "qa__connectionId": "HTTP BIGCOMMERCE CONNECTION",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "http": {
+                    "relativeURI": [
+                        "/v3/customers"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http",
+                    "lookups": [
+                        {
+                            "name": "dynamiclookup",
+                            "method": "GET",
+                            "relativeURI": "v3/customers?name:in=XYZ",
+                            "extract": "data[0].email",
+                            "body": "",
+                            "allowFailures": true,
+                            "default": "Auto_TC_C44482@example.com",
+                            "useImportHeaders": true
+                        },
+                        {
+                            "name": "staticlookup",
+                            "map": {
+                                "History": "Celigo"
+                            },
+                            "allowFailures": true,
+                            "useImportHeaders": true
+                        }
+                    ]
+                },
+                "lookups": [
+                    {
+                        "name": "dynamiclookup",
+                        "method": "GET",
+                        "relativeURI": "v3/customers?name:in=XYZ",
+                        "extract": "data[0].email",
+                        "body": "",
+                        "allowFailures": true,
+                        "default": "Auto_TC_C44482@example.com",
+                        "useImportHeaders": true
+                    },
+                    {
+                        "name": "staticlookup",
+                        "map": {
+                            "History": "Celigo"
+                        },
+                        "allowFailures": true,
+                        "useImportHeaders": true
+                    }
+                ],
+                "mappings": [
+                    {
+                        "dataType": "objectarray",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$",
+                                "mappings": [
+                                    {
+                                        "extract": "$.email",
+                                        "generate": "email",
+                                        "dataType": "string",
+                                        "lookupName": "dynamiclookup"
+                                    },
+                                    {
+                                        "extract": "$.first_name",
+                                        "generate": "first_name",
+                                        "dataType": "string"
+                                    },
+                                    {
+                                        "extract": "{{split record.last_name \".\" 0}}",
+                                        "generate": "last_name",
+                                        "dataType": "string"
+                                    },
+                                    {
+                                        "extract": "{{#compare record.phone \"==\" null}} {{record.phone}} {{else}} {{/compare}}",
+                                        "generate": "phone",
+                                        "dataType": "string",
+                                        "default": ""
+                                    },
+                                    {
+                                        "extract": "{{split record.notes \".\"  3}}",
+                                        "generate": "notes",
+                                        "dataType": "string",
+                                        "default": "use_custom_value"
+                                    },
+                                    {
+                                        "extract": "$.company",
+                                        "generate": "company",
+                                        "dataType": "string"
+                                    },
+                                    {
+                                        "generate": "customer_group_id",
+                                        "dataType": "number",
+                                        "hardCodedValue": "0"
+                                    },
+                                    {
+                                        "generate": "accepts_product_review_abandoned_cart_emails",
+                                        "dataType": "boolean",
+                                        "hardCodedValue": "false"
+                                    },
+                                    {
+                                        "generate": "addresses",
+                                        "dataType": "objectarray",
+                                        "buildArrayHelper": [
+                                            {
+                                                "extract": "$.addresses[*]",
+                                                "mappings": [
+                                                    {
+                                                        "generate": "address1",
+                                                        "dataType": "string",
+                                                        "hardCodedValue": "Address 1"
+                                                    },
+                                                    {
+                                                        "extract": "$.addresses.address2",
+                                                        "generate": "address2",
+                                                        "dataType": "string",
+                                                        "default": "custom_default_value"
+                                                    },
+                                                    {
+                                                        "extract": "$.addresses.city",
+                                                        "generate": "city",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.addresses.company",
+                                                        "generate": "company",
+                                                        "dataType": "string",
+                                                        "lookupName": "staticlookup"
+                                                    },
+                                                    {
+                                                        "extract": "$.addresses.country_code",
+                                                        "generate": "country_code",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.addresses.first_name",
+                                                        "generate": "first_name",
+                                                        "dataType": "string",
+                                                        "default": ""
+                                                    },
+                                                    {
+                                                        "extract": "$.addresses.last_name",
+                                                        "generate": "last_name",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.addresses.state_or_province",
+                                                        "generate": "state_or_province",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.addresses.postal_code",
+                                                        "generate": "postal_code",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "generate": "addresses.form_fields",
+                                                        "dataType": "objectarray",
+                                                        "buildArrayHelper": [
+                                                            {
+                                                                "extract": "$.addresses.form_fields[*]",
+                                                                "mappings": [
+                                                                    {
+                                                                        "extract": "$.addresses.form_fields.name",
+                                                                        "generate": "name",
+                                                                        "dataType": "string"
+                                                                    },
+                                                                    {
+                                                                        "extract": "$.addresses.form_fields.value",
+                                                                        "generate": "value",
+                                                                        "dataType": "string"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "expected": {
+            "bigcommerce": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "TC_002_C44482_FTP_To_HTTP_All_Field_Mappings",
+                "import": {
+                    "_connectionId": "HTTP BIGCOMMERCE CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "standaloneexportflowID": "62a8c0a9d92aff47b2ebe5b3",
+                    "uniqueField": "first_name",
+                    "importRecordType": "customers",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e78d273c3f",
+                    "expectedJSON": [
+                        {
+                            "email": "Auto_TC_C44482@example.com",
+                            "first_name": "Auto_TC_C44482",
+                            "last_name": "Mapper2",
+                            "phone": " ",
+                            "notes": "use_custom_value",
+                            "company": "Celigo",
+                            "addresses": [
+                                {
+                                    "address1": "Address 1",
+                                    "address2": "custom_default_value",
+                                    "city": "San Francisco",
+                                    "company": "Celigo",
+                                    "country": "United States",
+                                    "country_code": "US",
+                                    "first_name": "Auto_TC_C44482",
+                                    "last_name": "Mapper2.0",
+                                    "postal_code": "33333",
+                                    "state_or_province": "California"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "FTP Export 1 mapper2.0",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                    "fileNameStartsWith": "TC_002_C44482_FTP_To_HTTP_All_Field_Mappings.json"
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": true,
+                    "encoding": "utf8",
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport",
+                "qa__path": "//SFTP_uploads//TC_002_C44482_FTP_To_HTTP_All_Field_Mappings.json"
+            }
+        }
+    ]
+}

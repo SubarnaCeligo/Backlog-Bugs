@@ -1,0 +1,46 @@
+{
+    "name": "TC_C46918_Verify_AutoPopulateFields_FileTypes_SampleFile",
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "disabled": false,
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "FTP import",
+                "adaptorType": "FTPImport",
+                "file": {
+                    "type": "json"
+                },
+                "ftp": {
+                    "fileName": "sample.json",
+                    "directoryPath": "/io.auto.qa/IO Automation SFTP Imports"
+                },
+                "_connectionId": "FTP CONNECTION",
+                "distributed": false
+            }
+        }
+    ],
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "56.SF Export",
+            "parsers": [],
+            "adaptorType": "SalesforceExport",
+            "salesforce": {
+                "soql": {
+                    "query": "Select Name from Account"
+                },
+                "api": "rest",
+                "type": "soql"
+            },
+            "asynchronous": true,
+            "_connectionId": "SALESFORCE CONNECTION",
+            "qa__connectionId": "SALESFORCE CONNECTION"
+        }
+    }],
+    "testData": {
+        "Json": "/FTP_uploads/TC_C30817.json",
+        "CSV": "/FTP_uploads/TC_C26507_FTP.csv",
+        "xml": "/FTP_uploads/108.FTP_Xml_Export_To_NS_Import.xml"
+    }
+}

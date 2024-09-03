@@ -1,0 +1,93 @@
+{
+  "name": "TC_C51114",
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "disabled": false,
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "qa__import": {
+        "name": "51114",
+        "application": "shopify",
+        "_connectionId": "HTTP SHOPIFY CONNECTION",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "mappings": [
+          {
+            "extract": "abc",
+            "generate": "handle",
+            "dataType": "string",
+            "conditional": {
+              "when": "extract_not_empty"
+            },
+            "status": "Active",
+            "sourceDataType": "string"
+          },
+          {
+            "extract": "123",
+            "generate": "id",
+            "dataType": "number",
+            "conditional": {
+              "when": "extract_not_empty"
+            },
+            "status": "Active",
+            "sourceDataType": "string"
+          },
+          {
+            "extract": "true",
+            "generate": "shipping",
+            "dataType": "boolean",
+            "conditional": {
+              "when": "extract_not_empty"
+            },
+            "status": "Active",
+            "sourceDataType": "string"
+          }
+        ],
+        "http": {
+          "relativeURI": [
+            "/products.json"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [],
+          "batchSize": 1,
+          "sendPostMappedData": true,
+          "formType": "http"
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "51114",
+        "qa__path": "//FTP_uploads//TC_C51795.json",
+        "_connectionId": "FTP CONNECTION",
+        "asynchronous": true,
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+          "fileNameStartsWith": "TC_C51795.json"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json"
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ],
+  "expected": "{\n  \"handle\": \"abc\",\n  \"id\": 123,\n  \"shipping\": true\n}"
+}

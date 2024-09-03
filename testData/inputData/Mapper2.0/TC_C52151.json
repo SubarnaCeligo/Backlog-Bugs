@@ -1,0 +1,278 @@
+{
+  "referencename": "TC_C52151",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "TC_C52151",
+            "_connectionId": "FTP CONNECTION",
+            "asynchronous": true,
+            "sandbox": false,
+            "qa__path": "//FTP_uploads//TC_C52136.json",
+            "ftp": {
+              "directoryPath": "/io.auto.qa/FTP_EXPORTS",
+              "fileNameStartsWith": "TC_C52136"
+            },
+            "file": {
+              "encoding": "utf8",
+              "output": "records",
+              "skipDelete": true,
+              "type": "json"
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "TC_C52151",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "i10f78497e",
+            "oneToMany": false,
+            "sandbox": false,
+            "mappings": [
+              {
+                "generate": "Fam",
+                "dataType": "objectarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                  {
+                    "extract": "$.children[*]",
+                    "sourceDataType": "objectarray",
+                    "mappings": [
+                      {
+                        "generate": "Name",
+                        "dataType": "stringarray",
+                        "status": "Active",
+                        "buildArrayHelper": [
+                          {
+                            "extract": "$.mother.fName",
+                            "sourceDataType": "stringarray"
+                          }
+                        ]
+                      },
+                      {
+                        "generate": "MobNumber",
+                        "dataType": "numberarray",
+                        "status": "Active",
+                        "buildArrayHelper": [
+                          {
+                            "extract": "$.father.MobNumber",
+                            "sourceDataType": "number"
+                          }
+                        ]
+                      },
+                      {
+                        "generate": "Test",
+                        "dataType": "booleanarray",
+                        "status": "Active",
+                        "buildArrayHelper": [
+                          {
+                            "extract": "$.children.firstName",
+                            "conditional": {
+                              "when": "extract_not_empty"
+                            },
+                            "sourceDataType": "booleanarray"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "extract": "$.father",
+                    "sourceDataType": "object",
+                    "mappings": [
+                      {
+                        "generate": "Name",
+                        "dataType": "string",
+                        "status": "Draft",
+                        "sourceDataType": "string"
+                      },
+                      {
+                        "generate": "MobNumber",
+                        "dataType": "numberarray",
+                        "status": "Draft"
+                      },
+                      {
+                        "generate": "Test",
+                        "dataType": "booleanarray",
+                        "status": "Draft"
+                      }
+                    ]
+                  },
+                  {
+                    "extract": "$.mother",
+                    "sourceDataType": "object",
+                    "mappings": [
+                      {
+                        "generate": "Name",
+                        "dataType": "string",
+                        "status": "Draft",
+                        "sourceDataType": "string"
+                      },
+                      {
+                        "generate": "MobNumber",
+                        "dataType": "numberarray",
+                        "status": "Draft"
+                      },
+                      {
+                        "generate": "Test",
+                        "dataType": "booleanarray",
+                        "status": "Draft"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "file": {
+              "fileName": "TC_C52151.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPimport",
+              "fileName": "TC_C52151.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C52151",
+        "disabled": false,
+        "qa__integrationId": "56d6b23fe1fc35de53914730",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "type": "export",
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ],
+  "updateBody": {
+    "name": "AutomationStandalone_97ERW",
+    "_connectionId": "FTP CONNECTION",
+    "apiIdentifier": "i51ece6418",
+    "oneToMany": false,
+    "sandbox": false,
+    "mappings": [
+      {
+        "generate": "Fam",
+        "dataType": "objectarray",
+        "status": "Active",
+        "buildArrayHelper": [
+          {
+            "extract": "$.children[*]",
+            "sourceDataType": "objectarray",
+            "mappings": [
+              {
+                "generate": "Name",
+                "dataType": "stringarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                  {
+                    "extract": "$.mother.fName",
+                    "sourceDataType": "stringarray"
+                  }
+                ]
+              },
+              {
+                "generate": "MobNumber",
+                "dataType": "numberarray",
+                "hardCodedValue": "25478",
+                "status": "Active",
+                "sourceDataType": "string"
+              },
+              {
+                "generate": "Test",
+                "dataType": "booleanarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                  {
+                    "extract": "$.children.firstName",
+                    "conditional": {
+                      "when": "extract_not_empty"
+                    },
+                    "sourceDataType": "booleanarray"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "extract": "$.father",
+            "sourceDataType": "object",
+            "mappings": [
+              {
+                "generate": "Name",
+                "dataType": "string",
+                "status": "Draft",
+                "sourceDataType": "string"
+              },
+              {
+                "generate": "MobNumber",
+                "dataType": "numberarray",
+                "status": "Draft"
+              },
+              {
+                "generate": "Test",
+                "dataType": "booleanarray",
+                "status": "Draft"
+              }
+            ]
+          },
+          {
+            "extract": "$.mother",
+            "sourceDataType": "object",
+            "mappings": [
+              {
+                "generate": "Name",
+                "dataType": "string",
+                "status": "Draft",
+                "sourceDataType": "string"
+              },
+              {
+                "generate": "MobNumber",
+                "dataType": "numberarray",
+                "status": "Draft"
+              },
+              {
+                "generate": "Test",
+                "dataType": "booleanarray",
+                "status": "Draft"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "file": {
+      "fileName": "TC_C52151.json",
+      "skipAggregation": false,
+      "type": "json"
+    },
+    "ftp": {
+      "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPimport",
+      "fileName": "TC_C52151.json"
+    },
+    "adaptorType": "FTPImport"
+  }
+}

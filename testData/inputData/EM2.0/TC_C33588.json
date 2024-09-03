@@ -1,0 +1,88 @@
+{
+    "name": "TC_C33588",
+    "referencename": "TC_C33588",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Delta field not found",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "asynchronous": true,
+                        "type": "delta",
+                        "oneToMany": false,
+                        "parsers": [],
+                        "delta": {
+                            "dateField": "custentity134"
+                        },
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": false,
+                            "statsOnly": false,
+                            "restlet": {
+                                "recordType": "salesorder",
+                                "searchId": "3908",
+                                "criteria": [],
+                                "columns": [],
+                                "useSS2Restlets": false
+                            },
+                            "distributed": {
+                                "executionContext": [],
+                                "executionType": [],
+                                "useSS2Framework": false
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "FTP JSON Import",
+                        "_connectionId": "FTP CONNECTION",
+                        "hooks": {
+                            "postMap": {
+                                "function": "PostMapHook",
+                                "_stackId": ""
+                            }
+                        },
+                        "oneToMany": false,
+                        "file": {
+                            "fileName": "Import-{{timestamp}}.json",
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "/SukeerthiSriram/SS20",
+                            "fileName": "Import-{{timestamp}}.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C33588",
+                "disabled": false,
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

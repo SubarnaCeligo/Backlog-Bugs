@@ -1,0 +1,60 @@
+{
+    "qa_integrationSetting": {
+        "_id": "62a95bfa0d57d901d06651d1",
+        "name": "No Install Steps",
+        "install": [],
+        "sandbox": false,
+        "settingsForm": {},
+        "_registeredConnectionIds": [],
+        "installSteps":  [
+    {
+      "name": "Install resources based on edition",
+      "completed": false,
+      "type": "edition"
+    }
+  ],
+        "uninstallSteps": [
+         {
+            "name": "Create resources based on edition2",
+            "description": "Description goes has",
+            "completed": false,
+            "type": "edition",
+            "url": "/marketplace?redirectusingURLfield"
+        }
+    ],
+        "flowGroupings": [],
+        "initChild": {
+    "_scriptId": "62613430e4520e334e7eeb2a",
+    "function": "initChild"
+  }
+    },
+    "integrationSetting": {
+      "_id": "631ab4bc3796483e5615b6b9",
+      "name": "No Install Steps",
+      "install": [],
+      "sandbox": false,
+      "settingsForm": {},
+      "_registeredConnectionIds": [],
+      "installSteps":  [
+  {
+    "name": "Install resources based on edition",
+    "completed": false,
+    "type": "edition"
+  }
+],
+      "uninstallSteps": [
+       {
+          "name": "Create resources based on edition2",
+          "description": "Description goes has",
+          "completed": false,
+          "type": "edition",
+          "url": "/marketplace?redirectusingURLfield"
+      }
+  ],
+      "flowGroupings": [],
+      "initChild": {
+  "_scriptId": "626137e61ce14c420e01c86b",
+  "function": "initChild"
+}
+  }
+}

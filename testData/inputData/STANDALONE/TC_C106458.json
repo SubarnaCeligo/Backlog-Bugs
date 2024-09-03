@@ -1,0 +1,142 @@
+{
+    "qa__api_tdata": [
+        {
+            "createIntegrations": {
+                "name": "TC_C106458"
+            },
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "AutomationStandalone_ISe7W",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "e5dc312888",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": "/users",
+                            "method": "GET",
+                            "formType": "http",
+                            "response": {
+                                "resourcePath": "users"
+                            }
+                        },
+                        "rawData": "56d6b114e1fc35de5391472cb5dbd0ddd28c4dfea9e4c378ade8a1ed",
+                        "test": {
+                            "limit": 10
+                        },
+                        "transform": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [
+                                    [
+                                        {
+                                            "extract": "test",
+                                            "generate": "test"
+                                        }
+                                    ]
+                                ],
+                                "version": "1"
+                            },
+                            "rules": [
+                                [
+                                    {
+                                        "extract": "test",
+                                        "generate": "test"
+                                    }
+                                ]
+                            ],
+                            "version": "1"
+                        },
+                        "filter": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [
+                                    "equals",
+                                    [
+                                        "string",
+                                        [
+                                            "extract",
+                                            "Email"
+                                        ]
+                                    ],
+                                    "mounica.manavapati@celigo.com"
+                                ],
+                                "version": "1"
+                            },
+                            "rules": [
+                                "equals",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "Email"
+                                    ]
+                                ],
+                                "mounica.manavapati@celigo.com"
+                            ],
+                            "version": "1"
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Import_Zendesk",
+                        "application": "zendesk support",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "_sourceId": "633afb9d4f7a5e78f9ee6bd9",
+                        "apiIdentifier": "i1948a0063",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": [
+                                "/v2/tickets.json"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C106458",
+                "disabled": false,
+                "sandbox": false,
+                "_integrationId": "UPDATE WITH NEW",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ],
+    "flowname": "TC_C106458",
+    "name": "TC_C106458"
+}

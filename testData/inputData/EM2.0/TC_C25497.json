@@ -1,0 +1,181 @@
+{
+    "name": "TC_C25497",
+    "referencename": "TC_C25497",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "http amazon export",
+                        "application": "Amazon Seller Central",
+                        "_connectionId": "HTTP AMAZON CONNECTION",
+                        "qa__connectionId": "62cd83c644127137d08eb428",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "parsers": [
+                            {
+                                "type": "xml",
+                                "version": "1",
+                                "rules": {
+                                    "V0_json": false,
+                                    "trimSpaces": false,
+                                    "stripNewLineChars": false
+                                }
+                            }
+                        ],
+                        "http": {
+                            "relativeURI": "/Seller/2011-07-01?Action=ListMarketplaceParticipations&Version=2011-07-01",
+                            "method": "POST",
+                            "formType": "http",
+                            "response": {
+                                "resourcePath": "/"
+                            }
+                        },
+                        "rawData": "EMPTY RAW DATA",
+                        "transform": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [
+                                    [
+                                        {
+                                            "extract": "ListMarketplaceParticipationsResult.ListMarketplaces.Marketplace[*].DefaultCountryCode",
+                                            "generate": "ListMarketplaceParticipationsResult.ListMarketplaces.Marketplace[*].DefaultCountryCode"
+                                        },
+                                        {
+                                            "extract": "ListMarketplaceParticipationsResult.ListMarketplaces.Marketplace[*].DefaultCurrencyCode",
+                                            "generate": "ListMarketplaceParticipationsResult.ListMarketplaces.Marketplace[*].DefaultCurrencyCode"
+                                        },
+                                        {
+                                            "extract": "ListMarketplaceParticipationsResult.ListMarketplaces.Marketplace[*].DefaultLanguageCode",
+                                            "generate": "ListMarketplaceParticipationsResult.ListMarketplaces.Marketplace[*].DefaultLanguageCode"
+                                        },
+                                        {
+                                            "extract": "ListMarketplaceParticipationsResult.ListMarketplaces.Marketplace[*].DomainName",
+                                            "generate": "ListMarketplaceParticipationsResult.ListMarketplaces.Marketplace[*].DomainName"
+                                        },
+                                        {
+                                            "extract": "ListMarketplaceParticipationsResult.ListMarketplaces.Marketplace[*].MarketplaceId",
+                                            "generate": "ListMarketplaceParticipationsResult.ListMarketplaces.Marketplace[*].MarketplaceId"
+                                        },
+                                        {
+                                            "extract": "ListMarketplaceParticipationsResult.ListMarketplaces.Marketplace[*].Name",
+                                            "generate": "ListMarketplaceParticipationsResult.ListMarketplaces.Marketplace[*].Name"
+                                        },
+                                        {
+                                            "extract": "ListMarketplaceParticipationsResult.ListParticipations.Participation[*].HasSellerSuspendedListings",
+                                            "generate": "ListMarketplaceParticipationsResult.ListParticipations.Participation[*].HasSellerSuspendedListings"
+                                        },
+                                        {
+                                            "extract": "ListMarketplaceParticipationsResult.ListParticipations.Participation[*].MarketplaceId",
+                                            "generate": "ListMarketplaceParticipationsResult.ListParticipations.Participation[*].MarketplaceId"
+                                        },
+                                        {
+                                            "extract": "ListMarketplaceParticipationsResult.ListParticipations.Participation[*].SellerId",
+                                            "generate": "ListMarketplaceParticipationsResult.ListParticipations.Participation[*].SellerId"
+                                        },
+                                        {
+                                            "extract": "ResponseMetadata.RequestId",
+                                            "generate": "ResponseMetadata.RequestId"
+                                        }
+                                    ]
+                                ],
+                                "version": "1"
+                            },
+                            "version": "1",
+                            "rules": [
+                                [
+                                    {
+                                        "extract": "ListMarketplaceParticipationsResult.ListMarketplaces.Marketplace[*].DefaultCountryCode",
+                                        "generate": "ListMarketplaceParticipationsResult.ListMarketplaces.Marketplace[*].DefaultCountryCode"
+                                    },
+                                    {
+                                        "extract": "ListMarketplaceParticipationsResult.ListMarketplaces.Marketplace[*].DefaultCurrencyCode",
+                                        "generate": "ListMarketplaceParticipationsResult.ListMarketplaces.Marketplace[*].DefaultCurrencyCode"
+                                    },
+                                    {
+                                        "extract": "ListMarketplaceParticipationsResult.ListMarketplaces.Marketplace[*].DefaultLanguageCode",
+                                        "generate": "ListMarketplaceParticipationsResult.ListMarketplaces.Marketplace[*].DefaultLanguageCode"
+                                    },
+                                    {
+                                        "extract": "ListMarketplaceParticipationsResult.ListMarketplaces.Marketplace[*].DomainName",
+                                        "generate": "ListMarketplaceParticipationsResult.ListMarketplaces.Marketplace[*].DomainName"
+                                    },
+                                    {
+                                        "extract": "ListMarketplaceParticipationsResult.ListMarketplaces.Marketplace[*].MarketplaceId",
+                                        "generate": "ListMarketplaceParticipationsResult.ListMarketplaces.Marketplace[*].MarketplaceId"
+                                    },
+                                    {
+                                        "extract": "ListMarketplaceParticipationsResult.ListMarketplaces.Marketplace[*].Name",
+                                        "generate": "ListMarketplaceParticipationsResult.ListMarketplaces.Marketplace[*].Name"
+                                    },
+                                    {
+                                        "extract": "ListMarketplaceParticipationsResult.ListParticipations.Participation[*].HasSellerSuspendedListings",
+                                        "generate": "ListMarketplaceParticipationsResult.ListParticipations.Participation[*].HasSellerSuspendedListings"
+                                    },
+                                    {
+                                        "extract": "ListMarketplaceParticipationsResult.ListParticipations.Participation[*].MarketplaceId",
+                                        "generate": "ListMarketplaceParticipationsResult.ListParticipations.Participation[*].MarketplaceId"
+                                    },
+                                    {
+                                        "extract": "ListMarketplaceParticipationsResult.ListParticipations.Participation[*].SellerId",
+                                        "generate": "ListMarketplaceParticipationsResult.ListParticipations.Participation[*].SellerId"
+                                    },
+                                    {
+                                        "extract": "ResponseMetadata.RequestId",
+                                        "generate": "ResponseMetadata.RequestId"
+                                    }
+                                ]
+                            ]
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "FTP_Import_TC_C25497",
+                        "parsers": [],
+                        "_connectionId": "FTP CONNECTION",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "file": {
+                            "fileName": "sample.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "testtest",
+                            "fileName": "sample.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C25497",
+                "disabled": false,
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

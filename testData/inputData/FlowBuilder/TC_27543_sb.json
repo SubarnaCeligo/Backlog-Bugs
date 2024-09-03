@@ -1,0 +1,80 @@
+{
+    "name": "TC_C29902",
+    "referencename": "TC_C29902",
+    "scriptName": "preSavePageHook1234",
+    "sandbox": true,
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                    "lastModified": "2022-09-12T15:40:15.028Z",
+                    "name": "export",
+                    "_connectionId": "HTTP ZENDESK CONNECTION SANDBOX",
+                    "apiIdentifier": "e79cbb89fe",
+                    "asynchronous": true,
+                    "oneToMany": false,
+                    "sandbox": true,
+                    "http": {
+                            "relativeURI": "/",
+                            "method": "POST",
+                            "formType": "http"
+                            },
+                    "rawData": "62ebb431e627016182cf339144a4ea611b9e458e8843955d3c49046f",
+                    "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                       "name": "import",
+                    "_connectionId": "HTTP ZENDESK CONNECTION SANDBOX",
+                    "apiIdentifier": "i3b50d7e3d",
+                    "ignoreExisting": false,
+                    "ignoreMissing": false,
+                    "oneToMany": false,
+                    "sandbox": true,
+                    "http": {
+                        "relativeURI": [
+                            "/import"
+                        ],
+                        "method": [
+                            "PATCH"
+                        ],
+                        "body": [],
+                        "batchSize": 1,
+                        "sendPostMappedData": true,
+                        "formType": "http"
+                    },
+                    "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C29902",
+                "disabled": false,
+                "skipRetries": false,
+                "_integrationId": "Automation Flows Sandbox",
+                "sandbox": true,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

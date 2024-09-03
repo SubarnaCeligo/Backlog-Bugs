@@ -1,0 +1,299 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "name": "Import customers",
+                "application": "BigCommerce",
+                "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+                "qa__connectionId": "621cad647988314f51661dfb",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "lookups": [
+                    {
+                        "name": "sd",
+                        "method": "GET",
+                        "relativeURI": "/v3/customers?email:in=testingerrermapperfialing@gmail.com",
+                        "extract": "data[0].id",
+                        "body": "",
+                        "allowFailures": true,
+                        "default": null,
+                        "useImportHeaders": true
+                    },
+                    {
+                        "name": "SS",
+                        "map": {
+                            "Map": "DontMap"
+                        },
+                        "allowFailures": true,
+                        "default": null,
+                        "useImportHeaders": true
+                    },
+                    {
+                        "name": "24fdf",
+                        "map": {
+                            "wqwe": "wewr"
+                        },
+                        "allowFailures": true,
+                        "default": null,
+                        "useImportHeaders": true
+                    },
+                    {
+                        "name": "3324",
+                        "method": "GET",
+                        "relativeURI": "/v3/customers?email:in=notpresent@example.com",
+                        "extract": "data[0].company",
+                        "body": "",
+                        "allowFailures": true,
+                        "default": null,
+                        "useImportHeaders": true
+                    }
+                ],
+                "mappings": [
+                    {
+                        "dataType": "objectarray",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$",
+                                "mappings": [
+                                    {
+                                        "extract": "$.first_name",
+                                        "generate": "first_name",
+                                        "dataType": "string"
+                                    },
+                                    {
+                                        "extract": "$.last_name",
+                                        "generate": "last_name",
+                                        "dataType": "string",
+                                        "conditional": {
+                                            "when": "extract_not_empty"
+                                        }
+                                    },
+                                    {
+                                        "extract": "$.email",
+                                        "generate": "email",
+                                        "dataType": "string"
+                                    },
+                                    {
+                                        "extract": "$.channel_ids",
+                                        "generate": "channel_ids",
+                                        "dataType": "numberarray",
+                                        "hardCodedValue": null
+                                    },
+                                    {
+                                        "extract": "$.accepts_product_review_abandoned_cart_emails",
+                                        "generate": "accepts_product_review_abandoned_cart_emails",
+                                        "dataType": "boolean",
+                                        "default": null
+                                    },
+                                    {
+                                        "extract": "$.company",
+                                        "generate": "company",
+                                        "dataType": "string",
+                                        "default": null
+                                    },
+                                    {
+                                        "extract": "{{record.email1}}",
+                                        "generate": "phone",
+                                        "dataType": "string",
+                                        "default": null
+                                    },
+                                    {
+                                        "generate": "addresses",
+                                        "dataType": "objectarray",
+                                        "buildArrayHelper": [
+                                            {
+                                                "extract": "$.addresses[*]",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.addresses.address1",
+                                                        "generate": "address1",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.addresses.address2",
+                                                        "generate": "address2",
+                                                        "dataType": "string",
+                                                        "lookupName": "24fdf"
+                                                    },
+                                                    {
+                                                        "extract": "$.addresses.city",
+                                                        "generate": "city",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.addresses.country_code",
+                                                        "generate": "country_code",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.addresses.first_name",
+                                                        "generate": "first_name",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.addresses.last_name",
+                                                        "generate": "last_name",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.addresses.postal_code",
+                                                        "generate": "postal_code",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.addresses.state_or_province",
+                                                        "generate": "state_or_province",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.company",
+                                                        "generate": "company",
+                                                        "dataType": "string",
+                                                        "lookupName": "3324"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "/v3/customers"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http",
+                    "lookups": [
+                        {
+                            "name": "sd",
+                            "method": "GET",
+                            "relativeURI": "/v3/customers?email:in=testingerrermapperfialing@gmail.com",
+                            "extract": "data[0].id",
+                            "body": "",
+                            "allowFailures": true,
+                            "default": null,
+                            "useImportHeaders": true
+                        },
+                        {
+                            "name": "SS",
+                            "map": {
+                                "Map": "DontMap"
+                            },
+                            "allowFailures": true,
+                            "default": null,
+                            "useImportHeaders": true
+                        },
+                        {
+                            "name": "24fdf",
+                            "map": {
+                                "wqwe": "wewr"
+                            },
+                            "allowFailures": true,
+                            "default": null,
+                            "useImportHeaders": true
+                        },
+                        {
+                            "name": "3324",
+                            "method": "GET",
+                            "relativeURI": "/v3/customers?email:in=notpresent@example.com",
+                            "extract": "data[0].company",
+                            "body": "",
+                            "allowFailures": true,
+                            "default": null,
+                            "useImportHeaders": true
+                        }
+                    ]
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C47443",
+    "disabled": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "expected": {
+            "bigcommerce": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "TC_C47440",
+                "import": {
+                    "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+                    "qa__connectionId": "HTTP BIGCOMMERCE CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "standaloneexportflowID": "62a8c0a9d92aff47b2ebe5b3",
+                    "uniqueField": "first_name",
+                    "importRecordType": "customers",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e78d273c3f",
+                    "expectedJSON": [
+                        {
+                            "email": "auto_c47443@gmail.com",
+                            "first_name": "Auto_C47443",
+                            "last_name": "C47443",
+                            "phone": "",
+                            "company": "",
+                            "channel_ids": null,
+                            "addresses": {
+                                "address2": "",
+                                "company": ""
+                            },
+                            "authentication": {
+                                "force_password_reset": false
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "FTP Export TC_C47443",
+                "qa__path": "//SFTP_uploads//TC_C47443.json",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C47443.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ]
+}

@@ -1,0 +1,192 @@
+{
+  "name": "TC_C20122",
+  "referencename": "TC_C20122",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "AutomationStandaloneExport__CoClYmxAzR",
+            "_connectionId": "NETSUITE CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "recordType": "customer",
+                "searchId": "2373",
+                "useSS2Restlets": false
+              },
+              "distributed": {
+                "useSS2Framework": false
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "AutomationStandaloneExport__ounECPdSfj",
+            "_connectionId": "NETSUITE CONNECTION",
+            "asynchronous": true,
+            "isLookup": true,
+            "oneToMany": false,
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "recordType": "customer",
+                "searchId": "2373",
+                "useSS2Restlets": false
+              },
+              "distributed": {
+                "useSS2Framework": false
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        },
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "AutomationStandaloneExport__lrpkrsHXOn",
+            "_connectionId": "NETSUITE CONNECTION",
+            "asynchronous": true,
+            "isLookup": true,
+            "type": "blob",
+            "oneToMany": true,
+            "pathToMany": "attachments",
+            "parsers": [],
+            "netsuite": {
+              "skipGrouping": true,
+              "statsOnly": false,
+              "internalId": "{{record.FileID}}",
+              "restlet": {
+                "criteria": [],
+                "columns": [],
+                "useSS2Restlets": false
+              },
+              "distributed": {
+                "executionContext": [],
+                "executionType": [],
+                "useSS2Framework": false
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        },
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "AutomationStandaloneImport__wFe72c2Gyz",
+            "parsers": [],
+            "_connectionId": "SALESFORCE CONNECTION",
+            "distributed": false,
+            "lookups": [],
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "Name",
+                  "generate": "Name"
+                }
+              ]
+            },
+            "salesforce": {
+              "operation": "insert",
+              "sObjectType": "Account",
+              "api": "soap",
+              "removeNonSubmittableFields": false
+            },
+            "adaptorType": "SalesforceImport"
+          }
+        },
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "AutomationStandaloneImport__ULLanswhSJ",
+            "parsers": [],
+            "_connectionId": "SALESFORCE CONNECTION",
+            "distributed": false,
+            "oneToMany": true,
+            "pathToMany": "attachments",
+            "blob": true,
+            "lookups": [],
+            "salesforce": {
+              "operation": "insert",
+              "sObjectType": "attachment",
+              "attachment": {
+                "name": "{{data.FileName}}",
+                "parentId": "{{data._PARENT.entityid}}"
+              },
+              "removeNonSubmittableFields": false
+            },
+            "adaptorType": "SalesforceImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C20122",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [
+                {
+                  "generate": "attachments",
+                  "extract": "data"
+                }
+              ],
+              "lists": []
+            },
+            "type": "export",
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          },
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "export",
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          },
+          {
+            "responseMapping": {
+              "fields": [
+                {
+                  "generate": "entityid",
+                  "extract": "id"
+                }
+              ],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          },
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "62bd896e099e0d75cabc89fd",
+            "skipRetries": false
+          }
+        ]
+      }
+    }
+  ]
+}

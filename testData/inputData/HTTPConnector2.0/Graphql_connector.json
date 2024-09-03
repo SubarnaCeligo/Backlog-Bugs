@@ -1,0 +1,62 @@
+{
+    "graphql_json":{
+        "query": "{ customers(first:1){ edges { cursor node { id firstName lastName email acceptsMarketing createdAt updatedAt state lastOrder { id name } note verifiedEmail taxExempt phone tags acceptsMarketingUpdatedAt marketingOptInLevel legacyResourceId addresses { id name address1 address2 company city provinceCode zip phone countryCodeV2 } defaultAddress{ id name address1 address2 company city provinceCode zip phone countryCodeV2 } metafields (first:150){ edges { node { id namespace key value } }  } } } }}"
+      },
+      "graphql_query":"{ customers(first:1){ edges { cursor node { id firstName lastName email acceptsMarketing createdAt updatedAt state lastOrder { id name } note verifiedEmail taxExempt phone tags acceptsMarketingUpdatedAt marketingOptInLevel legacyResourceId addresses { id name address1 address2 company city provinceCode zip phone countryCodeV2 } defaultAddress{ id name address1 address2 company city provinceCode zip phone countryCodeV2 } metafields (first:150){ edges { node { id namespace key value } }  } } } }}",
+    "graphqlvariable":{"episode":"JEDI"},
+  "jsonexpected":
+  {
+    "page_of_records": [
+      {
+        "record": {
+          "customers": {
+            "edges": [
+              {
+                "cursor": "eyJsYXN0X2lkIjo2ODgwODY0NDAzNzc3LCJsYXN0X3ZhbHVlIjoiNjg4MDg2NDQwMzc3NyJ9",
+                "node": {
+                  "id": "gid://shopify/Customer/6880864403777",
+                  "firstName": "Test",
+                  "lastName": "Cust",
+                  "email": "testcust@abc.com",
+                  "acceptsMarketing": false,
+                  "createdAt": "2023-03-29T08:07:45Z",
+                  "updatedAt": "2023-04-17T08:47:05Z",
+                  "state": "DISABLED",
+                  "lastOrder": null,
+                  "note": "ssdsd",
+                  "verifiedEmail": true,
+                  "taxExempt": false,
+                  "phone": null,
+                  "tags": [],
+                  "acceptsMarketingUpdatedAt": "2023-03-29T08:07:45Z",
+                  "marketingOptInLevel": null,
+                  "legacyResourceId": "6880864403777",
+                  "addresses": [
+                    {
+                      "id": "gid://shopify/MailingAddress/9100111774017?model_name=CustomerAddress",
+                      "name": "TestCust",
+                      "address1": "",
+                      "address2": "",
+                      "company": "",
+                      "city": "",
+                      "provinceCode": "AN",
+                      "zip": "",
+                      "phone": "",
+                      "countryCodeV2": "IN"
+                    }
+                  ]
+                  }
+                }
+              ]
+              }
+          }
+        }
+      ]
+      },
+      "importjson":
+        {
+          "query": "{customers(first:1){edges{cursornode{idfirstNamelastNameemailacceptsMarketingcreatedAtupdatedAtstatelastOrder{idname}noteverifiedEmailtaxExemptphonetagsacceptsMarketingUpdatedAtmarketingOptInLevellegacyResourceIdaddresses{idnameaddress1address2companycityprovinceCodezipphonecountryCodeV2}defaultAddress{idnameaddress1address2companycityprovinceCodezipphonecountryCodeV2}metafields(first:150){edges{node{idnamespacekeyvalue}}}}}}}"
+        }
+      
+  }
+  

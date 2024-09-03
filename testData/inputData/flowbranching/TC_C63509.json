@@ -1,0 +1,97 @@
+{
+    "name": "TC_C63509",
+    "referencename": "TC_C63509",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Http Export",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "e2868c41d0",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "parsers": [
+                            {
+                                "type": "xml",
+                                "version": "1",
+                                "rules": {
+                                    "V0_json": true,
+                                    "stripNewLineChars": false,
+                                    "trimSpaces": false
+                                }
+                            }
+                        ],
+                        "http": {
+                            "relativeURI": "/users",
+                            "method": "GET",
+                            "formType": "http",
+                            "response": {
+                                "resourcePath": "users"
+                            }
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "AutomationStandalone",
+                        "_connectionId": "FTP CONNECTION",
+                        "qa__connectionId": "62f5f34933b1cc2065ea77e2",
+                        "apiIdentifier": "ib6e11f7f1",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "file": {
+                            "fileName": "file-{{timestamp}}.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "/test",
+                            "fileName": "file-{{timestamp}}.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C63509",
+                "disabled": false,
+                "_integrationId": "62f51e1f0f2ee6482b136853",
+                "qa__integrationId": "62f51db41677a21a108e5e3a",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH EXPORTID",
+                        "skipRetries": false
+                    }
+                ]
+            }
+        }
+    ],
+    "Rule": [
+        "notempty",
+        [
+            "string",
+            [
+                "extract",
+                "myField"
+            ]
+        ]
+    ]
+}

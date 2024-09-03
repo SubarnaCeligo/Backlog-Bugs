@@ -1,0 +1,51 @@
+{
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "test",
+        "qa__path": "/FTP_uploads/TC_C34450.json",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "ee30ec3286",
+        "asynchronous": true,
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "TC_C34450"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json"
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "test",
+        "application":"zendesk support",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "apiIdentifier": "ibe2400d79",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": ["api/v2/tickets"],
+          "method": ["POST"],
+          "body": [
+            "[{\r\n              \"name\": \"fileName\",\r\n              \"value\": \"test\",\r\n              \"type\": \"inline\"\r\n            }]"
+          ],
+          "batchSize": 1,
+          "sendPostMappedData": true,
+          "formType": "http"
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ]
+}

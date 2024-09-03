@@ -1,0 +1,189 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "name": "TC_C44424_HTTP_To_HTTP",
+    "disabled": false,
+    "qa__api_tdata": [
+        {
+            "pageProcessors": [
+                {
+                    "responseMapping": {
+                        "fields": [],
+                        "lists": []
+                    },
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Import_TC_C44424_HTTP_To_HTTP",
+                        "application": "BigCommerce",
+                        "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "http": {
+                            "relativeURI": [
+                                "/v3/customers"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http",
+                            "lookups": [
+                                {
+                                    "name": "dynamiclookup",
+                                    "method": "GET",
+                                    "relativeURI": "v3/customers?name:in=XYZ",
+                                    "extract": "data[0].email",
+                                    "body": "",
+                                    "allowFailures": true,
+                                    "default": "Auto_TC_C44482@example.com",
+                                    "useImportHeaders": true
+                                },
+                                {
+                                    "name": "staticlookup",
+                                    "map": {
+                                        "History": "Celigo"
+                                    },
+                                    "allowFailures": true,
+                                    "useImportHeaders": true
+                                }
+                            ]
+                        },
+                        "lookups": [
+                            {
+                                "name": "dynamiclookup",
+                                "method": "GET",
+                                "relativeURI": "v3/customers?name:in=XYZ",
+                                "extract": "data[0].email",
+                                "body": "",
+                                "allowFailures": true,
+                                "default": "Auto_TC_C44482@example.com",
+                                "useImportHeaders": true
+                            },
+                            {
+                                "name": "staticlookup",
+                                "map": {
+                                    "History": "Celigo"
+                                },
+                                "allowFailures": true,
+                                "useImportHeaders": true
+                            }
+                        ],
+                        "mappings": [
+                            {
+                                "generate": "records",
+                                "dataType": "objectarray",
+                                "status": "Active",
+                                "buildArrayHelper": [
+                                    {
+                                        "extract": "$",
+                                        "sourceDataType": "object",
+                                        "mappings": [
+                                            {
+                                                "generate": "rec1",
+                                                "dataType": "object",
+                                                "status": "Active",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "{{record.id}}{{random}}",
+                                                        "generate": "identifier",
+                                                        "dataType": "string",
+                                                        "status": "Active",
+                                                        "conditional": {
+                                                            "when": "extract_not_empty"
+                                                        }
+                                                    },
+                                                    {
+                                                        "extract": "$.given_name",
+                                                        "generate": "name",
+                                                        "dataType": "string",
+                                                        "status": "Active"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "generate": "rec2",
+                                                "dataType": "object",
+                                                "status": "Active",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "{{record.id}}{{random}}",
+                                                        "generate": "identifier",
+                                                        "dataType": "string",
+                                                        "status": "Active",
+                                                        "conditional": {
+                                                            "when": "extract_not_empty"
+                                                        }
+                                                    },
+                                                    {
+                                                        "extract": "$.given_name",
+                                                        "generate": "name",
+                                                        "status": "Active",
+                                                        "dataType": "string"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "HTTP_Export_TC_C44424_HTTP_To_HTTP",
+                        "application" : "hubspot",
+                        "qa__connectionId": "5c4eaf75576d68720829a033",
+                        "_connectionId": "HTTP HUBSPOT CONNECTION",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "parsers": [],
+                        "http": {
+                            "relativeURI": "/v2/team-members/search",
+                            "method": "POST",
+                            "body": "{\n\"limit\": 2\n}",
+                            "formType": "http",
+                            "paging": {
+                                "method": "body",
+                                "body": "{\n\"limit\": 2,\n\"cursor\": \"{{previous_page.full_response.cursor}}\"\n}"
+                            },
+                            "response": {
+                                "resourcePath": "team_members"
+                            }
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C44424_HTTP_To_HTTP",
+                "disabled": false,
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

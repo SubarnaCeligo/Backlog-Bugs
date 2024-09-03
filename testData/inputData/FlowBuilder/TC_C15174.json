@@ -1,0 +1,192 @@
+{
+  "templateJSON": {
+    "Source_Environment": "Production",
+    "Source_Integration": "TC_C15174"
+  },
+  "testData": [
+    {
+      "importJSON": {
+        "type": "netsuite",
+        "name": "Netsuite_Automation_Delete_Please",
+        "offline": false,
+        "netsuite": {
+          "account": "TSTDRV1143616",
+          "roleId": "1109",
+          "environment": "production",
+          "requestLevelCredentials": true,
+          "dataCenterURLs": {
+            "restDomain": "https://tstdrv1143616.restlets.api.netsuite.com",
+            "webservicesDomain": "https://tstdrv1143616.suitetalk.api.netsuite.com",
+            "systemDomain": "https://tstdrv1143616.app.netsuite.com"
+          },
+          "roleName": "Int Scrum Celigo integrator.io Full Access w/o 2FA",
+          "tokenId": "******",
+          "qa__tokenId": "ZjFhNDUwZjgyYjllYjAyZmVmOTYzZDc3NjIyM2ZjMTViMzkzZjE3YTA4ZTg0NjEzNmQ5OTdiZDI1YjkzZjk5YQ==",
+          "tokenSecret": "******",
+          "qa__tokenSecret": "MWMyYzI5OTRjZjkzZmVmODQ5MmU3Y2Q4NjA2ZTlmNWM2OGFiYmE5MzQ1MmYwMTMwMGEzNmZlNTg3MzI2MTc0MA==",
+          "entityId": "98444",
+          "wsdlVersion": "2020.2",
+          "concurrencyLevel": 1,
+          "qa__iClientId": "62f10efa3dde9221e47c7a7b",
+          "_iClientId": "631a1b724ceac669f82fbabc",
+          "suiteAppInstalled": true,
+          "authType": "token"
+        }
+      }
+    }
+  ],
+  "revisionLongDescriptionVerification": {
+    "descriptionIncludes": "UPDATE WITH NEW"
+  },
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "NS_Export",
+            "_connectionId": "UPDATE WITH NEW",
+            "apiIdentifier": "eecb8159d4",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "recordType": "customlist_2663_acct_type",
+                "searchId": "835",
+                "criteria": [],
+                "columns": [],
+                "useSS2Restlets": false
+              },
+              "distributed": {
+                "executionContext": [],
+                "executionType": [],
+                "useSS2Framework": false
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "NS Import",
+            "_connectionId": "UPDATE WITH NEW",
+            "distributed": true,
+            "apiIdentifier": "ic5c66758a",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [],
+            "netsuite_da": {
+              "useSS2Restlets": false,
+              "operation": "add",
+              "recordType": "calendarevent",
+              "lookups": [],
+              "mapping": {
+                "fields": [
+                  {
+                    "generate": "title",
+                    "hardCodedValue": "Test",
+                    "internalId": false
+                  }
+                ],
+                "lists": []
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C15174",
+        "disabled": true,
+        "qa__integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "_integrationId": "",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      },
+      "createIntegrations": {
+        "name": "NEW INTEGRATION"
+      }
+    }
+  ],
+  "apiConnections": [
+    {
+      "importJSON": {
+        "type": "netsuite",
+        "name": "Netsuite_Automation_Delete_Please",
+        "offline": false,
+        "netsuite": {
+          "account": "TSTDRV1143616",
+          "roleId": "1109",
+          "environment": "production",
+          "requestLevelCredentials": true,
+          "dataCenterURLs": {
+            "restDomain": "https://tstdrv1143616.restlets.api.netsuite.com",
+            "webservicesDomain": "https://tstdrv1143616.suitetalk.api.netsuite.com",
+            "systemDomain": "https://tstdrv1143616.app.netsuite.com"
+          },
+          "roleName": "Int Scrum Celigo integrator.io Full Access w/o 2FA",
+          "tokenId": "******",
+          "qa__tokenId": "MTIxNmQ1ZTJiMjM0MTc1OTMwNWQyMjE5OTlmZjg3Njc3ZjZjZmFhOGYyNjdiNTBlNGZiYmRjNTlkODY2ZGQzNQ==",
+          "tokenSecret": "******",
+          "qa__tokenSecret": "N2MwMTQyNGQwZmMwYjI3Yjc0ODMyYTY2NTY1M2MzYjcwYjMyYmFmODMwY2FhMTVhOGEwYzM2YjhkNTUwYWI1ZQ==",
+          "entityId": "98444",
+          "wsdlVersion": "2020.2",
+          "concurrencyLevel": 1,
+          "_iClientId": "62f10efa3dde9221e47c7a7b",
+          "suiteAppInstalled": true,
+          "authType": "token"
+        }
+      },
+      "importJSON1": {
+        "type": "netsuite",
+        "name": "Netsuite_Automation_Delete_Please",
+        "offline": false,
+        "netsuite": {
+          "account": "TSTDRV1143616",
+          "roleId": "1109",
+          "environment": "production",
+          "requestLevelCredentials": true,
+          "dataCenterURLs": {
+            "restDomain": "https://tstdrv1143616.restlets.api.netsuite.com",
+            "webservicesDomain": "https://tstdrv1143616.suitetalk.api.netsuite.com",
+            "systemDomain": "https://tstdrv1143616.app.netsuite.com"
+          },
+          "roleName": "Int Scrum Celigo integrator.io Full Access w/o 2FA",
+          "tokenId": "******",
+          "qa__tokenId": "MTIxNmQ1ZTJiMjM0MTc1OTMwNWQyMjE5OTlmZjg3Njc3ZjZjZmFhOGYyNjdiNTBlNGZiYmRjNTlkODY2ZGQzNQ==",
+          "tokenSecret": "******",
+          "qa__tokenSecret": "N2MwMTQyNGQwZmMwYjI3Yjc0ODMyYTY2NTY1M2MzYjcwYjMyYmFmODMwY2FhMTVhOGEwYzM2YjhkNTUwYWI1ZQ==",
+          "entityId": "98444",
+          "wsdlVersion": "2020.2",
+          "concurrencyLevel": 1,
+          "_iClientId": "631a1b724ceac669f82fbabc",
+          "suiteAppInstalled": true,
+          "authType": "token"
+        }
+      }
+    }
+  ]
+}

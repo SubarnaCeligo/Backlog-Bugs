@@ -1,0 +1,28 @@
+{
+    "skipRetries": false,
+    "_integrationId": "631a1266abf51e7a86c80ab4",
+    "qa__integrationId": "6228aed6bc8a2732cfe8044c",
+    "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "FTP Export",
+            "_connectionId": "FTP CONNECTION",
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+              "fileNameStartsWith": "TC_363"
+            },
+            "file": {
+              "output": "records",
+              "encoding": "utf8",
+              "skipDelete": true,
+              "type": "json"
+            },
+            "adaptorType": "FTPExport",
+            "qa__path": "/FTP_uploads/TC_363.json"
+          }
+        }
+      ],
+    "qa__connectionId":"62a2d230ea24742327304a3c",
+    "connectionId":"631a0eb24ceac669f82fb10c"
+}

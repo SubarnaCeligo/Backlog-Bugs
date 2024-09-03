@@ -1,0 +1,53 @@
+{
+    "jsonData": {
+        "name": "TC_47433",
+        "disabled": true,
+        "_integrationId": "62f51db41677a21a108e5e3a",
+        "skipRetries": false,
+        "pageGenerators": [
+            {
+                "_exportId": "6332f8a226dd694803c158dc"
+            }
+        ],
+        "pageProcessors":[],
+        "autoResolveMatchingTraceKeys": true,
+        "routers": [
+            {
+                "routeRecordsUsing": "input_filters",
+                "id": "NqHnvf",
+                "routeRecordsTo": "all_matching_branches",
+                "branches": [
+                    {
+                        "name": "Branch 1.0",
+                        "pageProcessors": [
+                            {
+                                "responseMapping": {
+                                    "fields": [],
+                                    "lists": []
+                                },
+                                "type": "import",
+                                "_importId": "6332152eb2be184f096bb56f"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Branch 1.1",
+                        "pageProcessors": [
+                            {
+                                "responseMapping": {
+                                    "fields": [],
+                                    "lists": []
+                                },
+                                "type": "import",
+                                "_importId": "632f8a4761864243246bf37f"
+                            }
+                        ]
+                    }
+                ],
+                "script": {
+                    "function": "branching"
+                }
+            }
+        ]
+    }
+}

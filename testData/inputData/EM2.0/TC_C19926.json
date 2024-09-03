@@ -1,0 +1,101 @@
+{
+  "name": "TC_C19926",
+  "referencename": "TC_C19926",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "SF1",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "type": "test",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "test": {
+              "limit": 1
+            },
+            "salesforce": {
+              "type": "soql",
+              "api": "rest",
+              "soql": {
+                "query": "select name from account"
+              }
+            },
+            "adaptorType": "SalesforceExport"
+          }
+        },
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "SF2",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "type": "test",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "test": {
+              "limit": 1
+            },
+            "salesforce": {
+              "type": "soql",
+              "api": "rest",
+              "soql": {
+                "query": "select id from account"
+              }
+            },
+            "adaptorType": "SalesforceExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "MySQL Import",
+            "application": "mysql",
+            "_connectionId": "MYSQL CONNECTION",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "rdbms": {
+              "query": [
+                "insert into anusha(orderId, FirstName) values(1, \"abc\")"
+              ],
+              "queryType": [
+                "INSERT"
+              ]
+            },
+            "adaptorType": "RDBMSImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C19926",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          },
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

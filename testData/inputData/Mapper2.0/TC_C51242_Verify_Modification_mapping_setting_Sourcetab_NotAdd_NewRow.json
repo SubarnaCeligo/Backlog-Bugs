@@ -1,0 +1,87 @@
+{
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "qa__import": {
+        "name": "fa",
+        "application": "zendesk support",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "mappings": [
+          {
+            "extract": "$.email",
+            "generate": "ticket.comment.body",
+            "dataType": "string",
+            "conditional": {
+              "when": "extract_not_empty"
+            },
+            "status": "Active",
+            "sourceDataType": "string"
+          },
+          {
+            "generate": "ticket.subject",
+            "dataType": "object",
+            "conditional": {
+              "when": "extract_not_empty"
+            },
+            "status": "Active",
+            "mappings": [
+              {
+                "extract": "$[*].Diabetes[*].medications[*].medicationsClasses[*].className[*].associatedDrug[*].name",
+                "generate": "Name",
+                "dataType": "string",
+                "conditional": {
+                  "when": "extract_not_empty"
+                },
+                "status": "Active",
+                "sourceDataType": "string"
+              }
+            ]
+          }
+        ],
+        "http": {
+          "relativeURI": ["tickets"],
+          "method": ["POST"],
+          "body": [],
+          "batchSize": 1,
+          "sendPostMappedData": true,
+          "formType": "http"
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "asfd",
+        "_connectionId": "FTP CONNECTION",
+        "asynchronous": true,
+        "sandbox": false,
+        "qa__path": "/FTP_uploads/automation.json",
+        "ftp": {
+          "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "automation.json"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json",
+          "json": {
+            "resourcePath": "*"
+          }
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ]
+}

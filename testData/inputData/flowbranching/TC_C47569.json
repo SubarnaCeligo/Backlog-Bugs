@@ -1,0 +1,178 @@
+{
+    "name": "TC_C47569",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "timezone": "Asia/Calcutta",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "zendesk user",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "e698fd5e17",
+                "asynchronous": true,
+                "pageSize": 1,
+                "assistant": "zendesk",
+                "oneToMany": false,
+                "sandbox": false,
+                "assistantMetadata": {
+                    "resource": "tickets_api",
+                    "version": "v2",
+                    "operation": "list_tickets"
+                },
+                "http": {
+                    "relativeURI": "/api/v2/tickets.json",
+                    "method": "GET",
+                    "successMediaType": "json",
+                    "errorMediaType": "json",
+                    "formType": "assistant",
+                    "paging": {
+                        "method": "url",
+                        "path": "next_page",
+                        "lastPageStatusCode": 404
+                    },
+                    "response": {
+                        "resourcePath": "tickets"
+                    }
+                },
+                "rawData": "62f37ad6703e322cf5d90431b79c1142c2d74415b9c72cfe4d905b71",
+                "rest": {
+                    "relativeURI": "/api/v2/tickets.json",
+                    "method": "GET",
+                    "resourcePath": "tickets",
+                    "pagingMethod": "nextpageurl",
+                    "nextPagePath": "next_page",
+                    "allowUndefinedResource": false
+                },
+                "adaptorType": "RESTExport"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "am89yM",
+            "routeRecordsTo": "all_matching_branches",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "ftp import",
+                                "_connectionId": "FTP CONNECTION",
+                                "apiIdentifier": "id96fe45a6",
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "name",
+                                            "generate": "name"
+                                        },
+                                        {
+                                            "extract": "id",
+                                            "generate": "id"
+                                        }
+                                    ]
+                                },
+                                "file": {
+                                    "fileName": "file1{{timestamp \"YYYY-MM-DDTHH:mm:ssZ\"}}",
+                                    "skipAggregation": true,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPimport",
+                                    "fileName": "TC_C47569_{{timestamp \"YYYY-MM-DDTHH:mm:ssZ\"}}.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Branch 1.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandalone_2XStq",
+                                "_connectionId": "S3 CONNECTION",
+                                "apiIdentifier": "i8601737a1",
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "file": {
+                                    "fileName": "TC_C47574_file{{timestamp}}.json",
+                                    "skipAggregation": true,
+                                    "type": "json"
+                                },
+                                "s3": {
+                                    "region": "us-east-1",
+                                    "bucket": "io-automation",
+                                    "fileKey": "TC_C47569_file{{timestamp}}.json"
+                                },
+                                "adaptorType": "S3Import"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "successCount": "9",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "expected": {
+            "FTP": {
+                "name": "TC_C47569",
+                "_integrationId": "62f51db41677a21a108e5e3a",
+                "import": {
+                    "_connectionId": "FTP CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "9",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_C47569_",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation_FTPimport",
+                    "fileType": ".json"
+                }
+            },
+            "S3": {
+                "name": "TC_C47569",
+                "_integrationId": "62f51db41677a21a108e5e3a",
+                "qa__expectedDashboardCount": {
+                    "successCount": "9",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "bucketName": "io-automation",
+                    "fileName": "TC_C47569_file",
+                    "isUIFlow": true,
+                    "fileType": ".json"
+                }
+            }
+        }
+    }
+}

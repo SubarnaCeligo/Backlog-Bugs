@@ -1,0 +1,163 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "name": "TC_C44503",
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "44503 export",
+        "_connectionId": "FTP CONNECTION",
+        "asynchronous": true,
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "TC_C44503.json"
+        },
+        "file": {
+          "output": "records",
+          "skipDelete": true,
+          "encoding": "utf8",
+          "type": "json"
+        },
+        "adaptorType": "FTPExport",
+        "qa__path": "//FTP_uploads//TC_C44503.json"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "qa__import": {
+        "name": "44503 import",
+        "application": "zendesk support",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "mappings": [
+          {
+            "generate": "brands",
+            "dataType": "objectarray",
+            "buildArrayHelper": [
+              {
+                "extract": "$.items[*].inventory[*]",
+                "mappings": [
+                  {
+                    "extract": "$.items.inventory.sQty",
+                    "generate": "quantity",
+                    "dataType": "string"
+                  },
+                  {
+                    "extract": "$.items.inventory.sno",
+                    "generate": "nums",
+                    "dataType": "string"
+                  }
+                ]
+              },
+              {
+                "extract": "$.products[*].inventory[*]",
+                "mappings": [
+                  {
+                    "extract": "$.products.inventory.sQty",
+                    "generate": "quantity",
+                    "dataType": "string"
+                  },
+                  {
+                    "extract": "$.products.inventory.sno",
+                    "generate": "nums",
+                    "dataType": "string"
+                  }
+                ]
+              },
+              {
+                "extract": "$.orders[*].inventory[*]",
+                "mappings": [
+                  {
+                    "extract": "$.orders.inventory.sQty",
+                    "generate": "quantity",
+                    "dataType": "string"
+                  },
+                  {
+                    "extract": "$.orders.inventory.sno",
+                    "generate": "nums",
+                    "dataType": "string"
+                  }
+                ]
+              },
+              {
+                "extract": "$.news[*].inventory[*]",
+                "mappings": [
+                  {
+                    "extract": "$.news.inventory.sQty",
+                    "generate": "quantity",
+                    "dataType": "string"
+                  },
+                  {
+                    "extract": "$.news.inventory.sno",
+                    "generate": "nums",
+                    "dataType": "string"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "http": {
+          "relativeURI": [
+            "/ticket.json"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [],
+          "batchSize": 1,
+          "sendPostMappedData": true,
+          "formType": "http"
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "expectedJSON": {
+    "brands": [
+      {
+        "quantity": "1",
+        "nums": "121241221"
+      },
+      {
+        "quantity": "1",
+        "nums": "121241222"
+      },
+      {
+        "quantity": "1",
+        "nums": "121241221"
+      },
+      {
+        "quantity": "1",
+        "nums": "121241222"
+      },
+      {
+        "quantity": "1",
+        "nums": "121241221"
+      },
+      {
+        "quantity": "1",
+        "nums": "121241222"
+      },
+      {
+        "quantity": "1",
+        "nums": "121241221"
+      },
+      {
+        "quantity": "1",
+        "nums": "121241222"
+      }
+    ]
+  }
+}

@@ -1,0 +1,75 @@
+{
+    "name": "BlobFormats",
+    "referencename": "BlobFormats",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Export",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "ec2a271d14",
+                        "asynchronous": true,
+                        "application": "zendesk support",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": "/users/5951788196626",
+                            "method": "GET",
+                            "formType": "http"
+                        },
+                        "rawData": "56d6b114e1fc35de5391472ccd534ddad04a4cc692f427820dbd2ca6",
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Blob Export",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "e9d5014f82",
+                        "asynchronous": true,
+                        "isLookup": true,
+                        "type": "blob",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": "69c66302-82d4-4afb-a7d9-796f13cfde62/{{record.fileName}}",
+                            "method": "GET",
+                            "formType": "http",
+                            "response": {
+                                "blobFormat": "base64"
+                            }
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "BlobFormats",
+                "disabled": false,
+                "qa__integrationId": "6228aed6bc8a2732cfe8044c",
+                "_integrationId": "631a1266abf51e7a86c80ab4",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "export",
+                        "_exportId": "UPDATE EXPORT ID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

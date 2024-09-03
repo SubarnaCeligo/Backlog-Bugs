@@ -1,0 +1,59 @@
+{
+    "export": {
+        "name": "chargebee",
+        "_connectionId": "635226721a15075dfbffbdad",
+        "apiIdentifier": "e14364bb11",
+        "application": "chargebee",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "parsers": [
+            {
+                "type": "xml",
+                "version": "1",
+                "rules": {
+                    "V0_json": true,
+                    "stripNewLineChars": false,
+                    "trimSpaces": false
+                }
+            }
+        ],
+        "http": {
+            "relativeURI": "/v2/subscriptions",
+            "method": "GET",
+            "formType": "http"
+        },
+        "rawData": "62e8102611ba17297d9be1999040303662aa44919da72ab6c3c160aa",
+        "adaptorType": "HTTPExport"
+    },
+    "updatedExport": {
+        "name": "chargebee",
+        "_connectionId": "635226721a15075dfbffbdad",
+        "apiIdentifier": "e14364bb11",
+        "application": "chargebee",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "groupByFields": [
+            "Color"
+        ],
+        "parsers": [
+            {
+                "type": "xml",
+                "version": "1",
+                "rules": {
+                    "V0_json": true,
+                    "stripNewLineChars": false,
+                    "trimSpaces": false
+                }
+            }
+        ],
+        "http": {
+            "relativeURI": "/v2/subscriptions",
+            "method": "GET",
+            "formType": "http"
+        },
+        "rawData": "62e8102611ba17297d9be1999040303662aa44919da72ab6c3c160aa",
+        "adaptorType": "HTTPExport"
+    }
+}

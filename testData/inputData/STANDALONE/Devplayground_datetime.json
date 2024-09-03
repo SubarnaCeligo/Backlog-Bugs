@@ -1,0 +1,146 @@
+{ "Mockdata" :{
+    "fieldMap": {
+  
+      "radiogroup": {
+        "id": "radiogroup",
+        "name": "radiogroup",
+        "type": "radiogroup",
+        "label": "Radio button A",
+        "description": "This example uses a simple item set",
+        "options": [
+          {
+            "items": [
+              "Create",
+              "Update",
+              "Delete"
+            ]
+          }
+        ]
+      },
+      "radiogroup2": {
+        "id": "radiogroup2",
+        "name": "radiogroup2",
+        "type": "radiogroup",
+        "label": "Radio button B",
+        "description": "This example defined separate labels and values for each item",
+        "options": [
+          {
+            "items": [
+              {
+                "label": "United States",
+                "value": "us"
+              },
+              {
+                "label": "Canada",
+                "value": "cdn"
+              },
+              {
+                "label": "India",
+                "value": "in"
+              }
+            ]
+          }
+        ]
+      },
+      "select": {
+        "id": "select",
+        "name": "select",
+        "type": "select",
+        "label": "Select List",
+        "options": [
+          {
+            "items": [
+              "USA",
+              "Canada",
+              "India"
+            ]
+          }
+        ]
+      },
+      "multiselect": {
+        "id": "multiselect",
+        "name": "multiselect",
+        "type": "multiselect",
+        "label": "Select multiple items",
+        "options": [
+          {
+            "items": [
+              {
+                "label": "USA",
+                "value": "US"
+              },
+              {
+                "label": "Canada",
+                "value": "CDN"
+              },
+              {
+                "label": "India",
+                "value": "IN"
+              },
+              {
+                "label": "China",
+                "value": "CH"
+              },
+              {
+                "label": "South Africa",
+                "value": "SA"
+              },
+              {
+                "label": "Spain",
+                "value": "SP"
+              },
+              {
+                "label": "Mexico",
+                "value": "MX"
+              }
+            ]
+          }
+        ]
+      },
+    
+      "keyValue": {
+        "id": "keyvalue",
+        "name": "keyvalue",
+        "type": "keyvalue",
+        "keyName": "theKey",
+        "valueName": "theValue",
+        "showDelete": true,
+        "label": "Key-value pairs",
+        "description": "This input is used to collect a set of key-value pairs. The item delete action is optional and set using th showDelete prop. Also note that he key and value names can be configured as well."
+      },
+      "toggle": {
+        "id": "toggle",
+        "name": "toggle",
+        "type": "toggle",
+        "label": "Toggle button",
+        "options": [
+          {
+            "label": "United States",
+            "value": "us"
+          },
+          {
+            "label": "Canada",
+            "value": "cdn"
+          },
+          {
+            "label": "India",
+            "value": "in"
+          }
+        ]
+      },
+      "datetime": {
+        "id": "datetime",
+        "name": "datetime",
+        "type": "datetime",
+        "label": "Date/time",
+        "skipTimezoneConversion": true
+      },
+      "date": {
+        "id": "date",
+        "name": "date",
+        "type": "date",
+        "label": "Date",
+        "skipTimezoneConversion": true
+      }
+    }
+  }}

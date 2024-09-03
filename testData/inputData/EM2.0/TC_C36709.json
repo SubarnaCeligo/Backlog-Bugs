@@ -1,0 +1,117 @@
+{
+    "name": "TC_C36709",
+    "referencename": "TC_C36709",
+    "updateBody": {
+        "name": "Netsuite customer import",
+        "_connectionId": "NETSUITE CONNECTION",
+        "distributed": true,
+        "lookups": [],
+        "netsuite_da": {
+            "useSS2Restlets": false,
+            "operation": "add",
+            "recordType": "customer",
+            "lookups": [],
+            "mapping": {
+                "fields": [],
+                "lists": []
+            },
+            "hooks": {
+                "postSubmit": {
+                    "fileInternalId": "4198970",
+                    "function": "postSubmit"
+                }
+            }
+        },
+        "adaptorType": "NetSuiteDistributedImport"
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Zendesk Users",
+                        "_connectionId": "ZENDESK CONNECTION",
+                        "asynchronous": true,
+                        "assistant": "zendesk",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "assistantMetadata": {
+                            "resource": "users_api",
+                            "version": "v2",
+                            "operation": "search_users"
+                        },
+                        "http": {
+                            "relativeURI": "/api/v2/users/search.json?query=Celigo IO Automation",
+                            "method": "GET",
+                            "successMediaType": "json",
+                            "errorMediaType": "json",
+                            "formType": "assistant",
+                            "paging": {
+                                "method": "url",
+                                "path": "next_page",
+                                "lastPageStatusCode": 404
+                            },
+                            "response": {
+                                "resourcePath": "users"
+                            }
+                        },
+                        "rawData": "603ce5ede9250226dcea46083d2dbcfb5c0947a8bcf38355d43367be",
+                        "rest": {
+                            "relativeURI": "/api/v2/users/search.json?query=Celigo IO Automation",
+                            "method": "GET",
+                            "resourcePath": "users",
+                            "pagingMethod": "nextpageurl",
+                            "nextPagePath": "next_page",
+                            "allowUndefinedResource": false
+                        },
+                        "adaptorType": "RESTExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Netsuite customer import",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "distributed": true,
+                        "lookups": [],
+                        "netsuite_da": {
+                            "useSS2Restlets": false,
+                            "operation": "add",
+                            "recordType": "customer",
+                            "lookups": [],
+                            "mapping": {
+                                "fields": [],
+                                "lists": []
+                            }
+                        },
+                        "adaptorType": "NetSuiteDistributedImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C36709",
+                "disabled": false,
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

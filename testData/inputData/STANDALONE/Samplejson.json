@@ -1,0 +1,207 @@
+{
+    "name": "TestFlow",
+    "referencename": "TestFlow",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+                "name": "ZD export",
+                "qa__connectionId": "63f30de2aae687551452da76",
+                "apiIdentifier": "e4a4869f8d",
+                "asynchronous": true,
+                "type": "test",
+                "assistant": "zendesk",
+                "oneToMany": false,
+                "sandbox": false,
+                "assistantMetadata": {
+                "resource": "users_api",
+                "version": "v2",
+                "operation": "list_users"
+                },
+                "http": {
+                "relativeURI": "/api/v2/users.json",
+                "method": "GET",
+                "successMediaType": "json",
+                "errorMediaType": "json",
+                "formType": "assistant",
+                "paging": {
+                "method": "url",
+                "path": "next_page",
+                "lastPageStatusCode": 404
+                },
+                "response": {
+                "resourcePath": "users"
+                }
+                },
+                "rawData": "6322ad700643cf0e25a017ce7ab1785f59a843efb9a487ee48b8684b",
+                "test": {
+                "limit": 1
+                },
+                "rest": {
+                "relativeURI": "/api/v2/users.json",
+                "method": "GET",
+                "resourcePath": "users",
+                "pagingMethod": "nextpageurl",
+                "nextPagePath": "next_page",
+                "allowUndefinedResource": false
+                },
+                "adaptorType": "RESTExport"
+                }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "export",
+            "qa__export": {
+                "name": "ZD lookup",
+                "qa__connectionId": "63f30de2aae687551452da76",
+                "apiIdentifier": "eabaf3bf54",
+                "asynchronous": true,
+                "isLookup": true,
+                "type": "test",
+                "assistant": "zendesk",
+                "oneToMany": false,
+                "sandbox": false,
+                "assistantMetadata": {
+                "resource": "users_api",
+                "version": "v2",
+                "operation": "list_users"
+                },
+                "http": {
+                "relativeURI": "/api/v2/users.json",
+                "method": "GET",
+                "headers": [],
+                "successMediaType": "json",
+                "errorMediaType": "json",
+                "formType": "assistant",
+                "paging": {
+                "method": "url",
+                "path": "next_page",
+                "lastPageStatusCode": 404
+                },
+                "response": {
+                "resourcePath": "users"
+                }
+                },
+                "test": {
+                "limit": 1
+                },
+                "rest": {
+                "relativeURI": "/api/v2/users.json",
+                "method": "GET",
+                "headers": [],
+                "resourcePath": "users",
+                "pagingMethod": "nextpageurl",
+                "nextPagePath": "next_page",
+                "allowUndefinedResource": false
+                },
+                "adaptorType": "RESTExport"
+                }
+          },
+          {
+            "type": "import",
+            "qa__import": {
+                "name": "ZD import",
+                "qa__connectionId": "63f30de2aae687551452da76",
+                "apiIdentifier": "i00fc02b12",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "assistant": "zendesk",
+                "sandbox": false,
+                "assistantMetadata": {
+                "resource": "users_api",
+                "version": "v2",
+                "operation": "create_users_api"
+                },
+                "lookups": [],
+                "http": {
+                "relativeURI": [
+                "/api/v2/users.json"
+                ],
+                "method": [
+                "POST"
+                ],
+                "body": [
+                null
+                ],
+                "headers": [],
+                "batchSize": 1,
+                "requestMediaType": "json",
+                "successMediaType": "json",
+                "errorMediaType": "json",
+                "strictHandlebarEvaluation": true,
+                "sendPostMappedData": true,
+                "formType": "assistant",
+                "lookups": [],
+                "response": {
+                "resourceIdPath": [
+                null
+                ]
+                }
+                },
+                "rest": {
+                "relativeURI": [
+                "/api/v2/users.json"
+                ],
+                "method": [
+                "POST"
+                ],
+                "body": [
+                null
+                ],
+                "headers": [],
+                "responseIdPath": [
+                null
+                ],
+                "successPath": [
+                null
+                ],
+                "successValues": [
+                null
+                ],
+                "lookups": []
+                },
+                "adaptorType": "RESTImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TestFlow",
+          "disabled": false,
+          "_integrationId": "63232caf5342c33e615e7271",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [
+                  {
+                    "extract": "data[0]",
+                    "generate": "comment"
+                  }
+                ],
+                "lists": []
+              },
+              "type": "export",
+              "_exportId": "UPDATE EXPORT ID"
+            },
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

@@ -1,0 +1,72 @@
+{
+    "name": "TC_C51908",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "TC_C51908",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "sandbox": false,
+                "qa__path": "//FTP_uploads//TC_C51211.json",
+                "ftp": {
+                    "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C51211"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "TC_C51908",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "i77d54bab9",
+                "oneToMany": false,
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "generate": "Test",
+                        "dataType": "objectarray",
+                        "status": "Draft",
+                        "buildArrayHelper": [
+                            {
+                                "sourceDataType": "string",
+                                "mappings": [
+                                    {
+                                        "generate": "test",
+                                        "dataType": "string",
+                                        "status": "Draft",
+                                        "sourceDataType": "string"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "file": {
+                    "fileName": "TC_C52207.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPimport",
+                    "fileName": "TC_C52207.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ]
+}

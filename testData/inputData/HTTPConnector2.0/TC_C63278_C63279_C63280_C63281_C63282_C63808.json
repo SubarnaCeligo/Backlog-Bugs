@@ -1,0 +1,11 @@
+{ 
+    "channelape_token":"aded4c4b-6c79-48fa-ace7-3f4a4fd953c9",
+    "qa__integration":"https://qa.staging.integrator.io/integrationapps/Channelapeintegration_DND/64206c171bb1e64692e59405/flows",
+    "qaprod__integration":"https://qaprod.staging.integrator.io/integrationapps/Channelape_DND/6421443c14a12f78deede876/flows",
+    "staging__integration":"https://staging.integrator.io/integrationapps/Channelape_DND/6421458c2b4d66039d6696fa/flows",
+    "iaqa__integration":"https://iaqa.staging.integrator.io/integrationapps/Channelape_DND/642146c3a835845f1db64ecf/flows",
+    "qa__flow":"https://qa.staging.integrator.io/integrationapps/Channelapeintegration_DND/64206c171bb1e64692e59405/flowBuilder/64206c82c4a4da4a85aabdbb",
+    "qaprod__flow":"https://qaprod.staging.integrator.io/integrationapps/Channelape_DND/6421443c14a12f78deede876/flowBuilder/64214458f88bda1f7571c585",
+    "staging__flow":"https://staging.integrator.io/integrationapps/Channelape_DND/6421458c2b4d66039d6696fa/flowBuilder/642146044749cf6e9bbe2bbd",
+    "iaqa__flow":"https://iaqa.staging.integrator.io/integrationapps/Channelape_DND/642146c3a835845f1db64ecf/flowBuilder/642146e3a835845f1db64edb"
+}

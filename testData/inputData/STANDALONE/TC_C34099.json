@@ -1,0 +1,138 @@
+{
+    "expectedJSON": {
+        "type": "http",
+        "name": "Zoho expense connection",
+        "assistant": "zohoexpense",
+        "offline": true,
+        "sandbox": false,
+        "http": {
+            "formType": "assistant",
+            "_iClientId": "6314fb33d65c763d9399cd1c",
+            "mediaType": "json",
+            "baseURI": "https://expense.zoho.com/api/v1",
+            "ping": {
+                "relativeURI": "/projects",
+                "method": "GET"
+            },
+            "headers": [
+                {
+                    "name": "X-com-zoho-expense-organizationid",
+                    "value": "{{{connection.http.unencrypted.organizationID}}}"
+                }
+            ],
+            "unencrypted": {
+                "organizationID": "654636373"
+            },
+            "auth": {
+                "type": "oauth",
+                "oauth": {
+                    "authURI": "https://accounts.zoho.com/oauth/v2/auth?access_type=offline&prompt=consent",
+                    "tokenURI": "https://accounts.zoho.com/oauth/v2/token",
+                    "scope": [
+                        "ZohoExpense.fullaccess.ALL",
+                        "ZohoExpense.expensereport.UPDATE",
+                        "ZohoExpense.expensereport.READ",
+                        "ZohoExpense.expensereport.CREATE",
+                        "ZohoExpense.expensereport.DELETE",
+                        "ZohoExpense.approval.CREATE",
+                        "ZohoExpense.reimbursement.CREATE",
+                        "ZohoExpense.advance.UPDATE",
+                        "ZohoExpense.advance.CREATE",
+                        "ZohoExpense.advance.DELETE",
+                        "ZohoExpense.users.UPDATE",
+                        "ZohoExpense.users.CREATE",
+                        "ZohoExpense.users.DELETE",
+                        "ZohoExpense.users.READ",
+                        "ZohoExpense.orgsettings.UPDATE",
+                        "ZohoExpense.orgsettings.CREATE",
+                        "ZohoExpense.orgsettings.DELETE",
+                        "ZohoExpense.orgsettings.READ"
+                    ],
+                    "scopeDelimiter": ",",
+                    "grantType": "authorizecode"
+                },
+                "token": {
+                    "location": "header",
+                    "headerName": "Authorization",
+                    "scheme": "Zoho-oauthtoken",
+                    "refreshMethod": "POST",
+                    "refreshMediaType": "urlencoded"
+                }
+            }
+        },
+        "queues": [
+            {
+                "name": "6314fc11d65c763d9399cd55",
+                "size": 0
+            }
+        ]
+    },
+    "importJSON": {
+        "type": "http",
+        "name": "Zoho expense connection",
+        "assistant": "zohoexpense",
+        "offline": true,
+        "sandbox": false,
+        "http": {
+            "formType": "assistant",
+            "_iClientId": "6319f476abf51e7a86c7f1af",
+            "mediaType": "json",
+            "baseURI": "https://expense.zoho.com/api/v1",
+            "ping": {
+                "relativeURI": "/projects",
+                "method": "GET"
+            },
+            "headers": [
+                {
+                    "name": "X-com-zoho-expense-organizationid",
+                    "value": "{{{connection.http.unencrypted.organizationID}}}"
+                }
+            ],
+            "unencrypted": {
+                "organizationID": "654636373"
+            },
+            "auth": {
+                "type": "oauth",
+                "oauth": {
+                    "authURI": "https://accounts.zoho.com/oauth/v2/auth?access_type=offline&prompt=consent",
+                    "tokenURI": "https://accounts.zoho.com/oauth/v2/token",
+                    "scope": [
+                        "ZohoExpense.fullaccess.ALL",
+                        "ZohoExpense.expensereport.UPDATE",
+                        "ZohoExpense.expensereport.READ",
+                        "ZohoExpense.expensereport.CREATE",
+                        "ZohoExpense.expensereport.DELETE",
+                        "ZohoExpense.approval.CREATE",
+                        "ZohoExpense.reimbursement.CREATE",
+                        "ZohoExpense.advance.UPDATE",
+                        "ZohoExpense.advance.CREATE",
+                        "ZohoExpense.advance.DELETE",
+                        "ZohoExpense.users.UPDATE",
+                        "ZohoExpense.users.CREATE",
+                        "ZohoExpense.users.DELETE",
+                        "ZohoExpense.users.READ",
+                        "ZohoExpense.orgsettings.UPDATE",
+                        "ZohoExpense.orgsettings.CREATE",
+                        "ZohoExpense.orgsettings.DELETE",
+                        "ZohoExpense.orgsettings.READ"
+                    ],
+                    "scopeDelimiter": ",",
+                    "grantType": "authorizecode"
+                },
+                "token": {
+                    "location": "header",
+                    "headerName": "Authorization",
+                    "scheme": "Zoho-oauthtoken",
+                    "refreshMethod": "POST",
+                    "refreshMediaType": "urlencoded"
+                }
+            }
+        },
+        "queues": [
+            {
+                "name": "6314fc11d65c763d9399cd55",
+                "size": 0
+            }
+        ]
+    }
+}

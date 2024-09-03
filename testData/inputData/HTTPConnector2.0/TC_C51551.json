@@ -1,0 +1,139 @@
+{
+    "name": "TC_C51551",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "3",
+        "errorCount": "0"
+      },
+    "referencename": "TC_C51551",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export":{
+                "name": "Recharge",
+                "_connectionId": "RECHARGE CONNECTION",
+                "apiIdentifier": "e8611ba1f7",
+                "asynchronous": true,
+                "assistant": "recharge",
+                "oneToMany": false,
+                "sandbox": false,
+                "assistantMetadata": {
+                    "resource": "6345f57469f848d92751c03c",
+                    "version": "6345f57469f848d92751c038",
+                    "operation": "6345f57469f848d92751c03f"
+                },
+                "http": {
+                    "relativeURI": "/charges/count",
+                    "method": "GET",
+                    "requestMediaType": "json",
+                    "successMediaType": "json",
+                    "errorMediaType": "json",
+                    "_httpConnectorResourceId": "6345f57469f848d92751c03c",
+                    "_httpConnectorEndpointId": "6345f57469f848d92751c03f",
+                    "formType": "assistant"
+                },
+                "adaptorType": "HTTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "export",
+            "qa__export": {
+                "name": "loop returns",
+                "_connectionId": "LOOP RETURNS CONNECTION",
+                "apiIdentifier": "e6ba4dec9a",
+                "asynchronous": true,
+                "isLookup": true,
+                "assistant": "loopreturns",
+                "oneToMany": false,
+                "sandbox": false,
+                "assistantMetadata": {
+                    "resource": "639184209998e4b191badcb3",
+                    "version": "639184209998e4b191badcb2",
+                    "operation": "639184209998e4b191badcb7"
+                },
+                "http": {
+                    "relativeURI": "/whitelists/956484",
+                    "method": "GET",
+                    "headers": [],
+                    "requestMediaType": "json",
+                    "successMediaType": "json",
+                    "errorMediaType": "json",
+                    "_httpConnectorVersionId": "639184209998e4b191badcb2",
+                    "_httpConnectorResourceId": "639184209998e4b191badcb3",
+                    "_httpConnectorEndpointId": "639184209998e4b191badcb7",
+                    "formType": "assistant",
+                    "response": {
+                        "successValues": []
+                    }
+                },
+                "adaptorType": "HTTPExport"
+            }
+            },
+          {
+            "type": "import",
+            "qa__import": {
+                "name": "FTP",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "i1e591bf4d",
+                "oneToMany": false,
+                "sandbox": false,
+                "mapping": {
+                    "fields": [
+                        {
+                            "extract": "count",
+                            "generate": "count"
+                        }
+                    ]
+                },
+                "file": {
+                    "fileName": "TC_C51551.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                    "fileName": "TC_C51551.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+          }
+        ],
+        "createFlow": {
+            "name": "TC_C51551",
+            "disabled": false,
+            "qa__integrationId": "633408479fb96473a0c7372c",
+            "_integrationId": "631a1266abf51e7a86c80ab4",
+            "skipRetries": false,
+            "pageProcessors": [
+                {
+                    "responseMapping": {
+                        "fields": [],
+                        "lists": []
+                    },
+                    "type": "export",
+                    "_exportId": "UPDATE WITH NEW IMPORTID"
+                },
+                {
+                    "responseMapping": {
+                        "fields": [],
+                        "lists": []
+                    },
+                    "type": "import",
+                    "_importId": "UPDATE WITH NEW IMPORTID"
+                }
+
+            ],
+            "pageGenerators": [
+                {
+                    "_exportId": "UPDATE WITH NEW EXPORTID"
+                }
+            ]
+        }
+    }
+    ]
+}
+

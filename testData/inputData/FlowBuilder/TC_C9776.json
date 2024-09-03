@@ -1,0 +1,195 @@
+{
+    "name": "TC_C9776",
+    "referencename": "TC_C9776",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Export assistant ZD",
+                        "_connectionId": "ZENDESK CONNECTION",
+                        "apiIdentifier": "e15e3086ca",
+                        "asynchronous": true,
+                        "type": "delta",
+                        "assistant": "zendesk",
+                        "oneToMany": false,
+                        "assistantMetadata": {
+                            "resource": "tickets_api",
+                            "version": "v2",
+                            "operation": "list_tickets"
+                        },
+                        "http": {
+                            "relativeURI": "/api/v2/tickets.json",
+                            "method": "GET",
+                            "successMediaType": "json",
+                            "errorMediaType": "json",
+                            "formType": "assistant",
+                            "paging": {
+                                "method": "url",
+                                "path": "next_page",
+                                "lastPageStatusCode": 404
+                            },
+                            "response": {
+                                "resourcePath": "tickets"
+                            }
+                        },
+                        "rest": {
+                            "relativeURI": "/api/v2/tickets.json",
+                            "method": "GET",
+                            "resourcePath": "tickets",
+                            "pagingMethod": "nextpageurl",
+                            "nextPagePath": "next_page",
+                            "allowUndefinedResource": false
+                        },
+                        "adaptorType": "RESTExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "BigCommerce PP export",
+                        "_connectionId": "BIGCOMMERCE CONNECTION",
+                        "apiIdentifier": "ec3e9b9a2d",
+                        "asynchronous": true,
+                        "isLookup": true,
+                        "type": "delta",
+                        "assistant": "bigcommerce",
+                        "oneToMany": false,
+                        "assistantMetadata": {
+                            "resource": "customers",
+                            "version": "v3",
+                            "operation": "get_all_customers"
+                        },
+                        "http": {
+                            "relativeURI": "/v3/customers?date_modified={{{lastExportDateTime}}}{{#compare export.http.paging.page \"!=\" \"1\"}}&page={{{export.http.paging.page}}}{{/compare}}",
+                            "method": "GET",
+                            "headers": [],
+                            "successMediaType": "json",
+                            "errorMediaType": "json",
+                            "formType": "assistant",
+                            "paging": {
+                                "method": "page",
+                                "page": 1,
+                                "relativeURI": "/v3/customers?date_modified={{{lastExportDateTime}}}{{#compare export.http.paging.page \"!=\" \"1\"}}&page={{{export.http.paging.page}}}{{/compare}}",
+                                "lastPageStatusCode": 404,
+                                "maxPagePath": "meta.pagination.total_pages"
+                            },
+                            "response": {
+                                "resourcePath": "data"
+                            }
+                        },
+                        "delta": {
+                            "dateFormat": "YYYY-MM-DDTHH:mm:ss"
+                        },
+                        "rest": {
+                            "relativeURI": "/v3/customers?date_modified={{{lastExportDateTime}}}",
+                            "method": "GET",
+                            "headers": [],
+                            "resourcePath": "data",
+                            "pagingMethod": "pageargument",
+                            "allowUndefinedResource": false,
+                            "maxPagePath": "meta.pagination.total_pages",
+                            "pageArgument": "page"
+                        },
+                        "adaptorType": "RESTExport"
+                    }
+                },
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Bigcommerce import",
+                        "_connectionId": "BIGCOMMERCE CONNECTION",
+                        "apiIdentifier": "i1a0e2a505",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "assistant": "bigcommerce",
+                        "assistantMetadata": {
+                            "resource": "carts",
+                            "version": "v3",
+                            "operation": "create_a_cart"
+                        },
+                        "lookups": [],
+                        "http": {
+                            "relativeURI": [
+                                "/v3/carts"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [
+                                null
+                            ],
+                            "headers": [],
+                            "batchSize": 1,
+                            "requestMediaType": "json",
+                            "successMediaType": "json",
+                            "errorMediaType": "json",
+                            "strictHandlebarEvaluation": true,
+                            "sendPostMappedData": true,
+                            "formType": "assistant",
+                            "lookups": [],
+                            "response": {
+                                "resourceIdPath": [
+                                    null
+                                ]
+                            }
+                        },
+                        "rest": {
+                            "relativeURI": [
+                                "/v3/carts"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [
+                                null
+                            ],
+                            "headers": [],
+                            "responseIdPath": [
+                                null
+                            ],
+                            "successPath": [
+                                null
+                            ],
+                            "successValues": [
+                                null
+                            ],
+                            "lookups": []
+                        },
+                        "adaptorType": "RESTImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C9776",
+                "disabled": false,
+                "_integrationId": "62ecc42648570015ab65cfa5",
+                "qa__integrationId": "62eca1efe386b563f638451e",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    },
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

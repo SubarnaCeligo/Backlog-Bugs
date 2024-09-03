@@ -1,0 +1,11 @@
+require("./TC_62529");
+require("./TC_C44457");
+require("./TC_C44502");
+require("./TC_C44535");
+require("./TC_C45316_Verify_XML_Sample_File_Data_In_DestinationFields");
+require("./TC_C46927_C46924");
+require("./TC_C46929_Verify_AutoPopulateFileds_Disabled_For_No_SampleData");
+require("./TC_C51115_Verify_Added_Expression_Persist_Save_ReOpen");
+require("./TC_C51141");
+require("./TC_C52078_C52306");
+require("./TC_C52208");

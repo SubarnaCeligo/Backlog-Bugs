@@ -1,0 +1,90 @@
+{
+    "script": "TC_2828",
+    "name": "TC_C9805_C18205_Record_Ignore_For_Errors_Using_PostSubmit_hook",
+    "qa__expectedDashboardCount": {
+        "successCount": "4",
+        "ignoreCount": "4",
+        "errorCount": "0"
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "NS EXPORT",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "asynchronous": true,
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "recordType": "customer",
+                                "searchId": "3160",
+                                "criteria": [],
+                                "useSS2Restlets": true
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "NETSUITE CUSTOMER",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "distributed": true,
+                        "ignoreExisting": true,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "lookups": [],
+                        "netsuite_da": {
+                            "useSS2Restlets": false,
+                            "operation": "add",
+                            "recordType": "customer",
+                            "internalIdLookup": {
+                                "expression": "[\"internalidnumber\",\"equalto\",\"{{{id}}}\"]"
+                            },
+                            "lookups": [],
+                            "mapping": {
+                                "fields": [
+                                    {
+                                        "generate": "custentity139",
+                                        "hardCodedValue": "123456",
+                                        "internalId": false
+                                    }
+                                ],
+                                "lists": []
+                            }
+                        },
+                        "adaptorType": "NetSuiteDistributedImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C9805_C18205_Record_Ignore_For_Errors_Using_PostSubmit_hook",
+                "disabled": false,
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

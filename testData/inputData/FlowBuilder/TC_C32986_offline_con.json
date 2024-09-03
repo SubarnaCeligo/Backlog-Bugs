@@ -1,0 +1,36 @@
+{
+    "type": "http",
+    "name": "32896_Offline_connection",
+    "offline": true,
+    "sandbox": false,
+    "enableMicroBatchForOneToMany": true,
+    "enableCsvObjectParsing": false,
+
+    "http": {
+        "formType": "http",
+        "mediaType": "json",
+        "baseURI": "https://celigoqa.zendesk.com/api/v21",
+        "disableStrictSSL": false,
+        "concurrencyLevel": 25,
+        "targetConcurrencyLevel": 25,
+        "ping": {
+            "relativeURI": "/organizations.json",
+            "method": "GET",
+            "successPath": "",
+            "errorPath": ""
+        },
+        "unencrypted": {
+            "field": "value"
+        },
+        "encrypted": "******",
+        "isRest": false,
+        "auth": {
+            "type": "basic",
+            "basic": {
+                "username": "ioqa@celigo.com",
+                "password": "******"
+            }
+        }
+    },
+    "autoRecoverRateLimitErrors": true
+}

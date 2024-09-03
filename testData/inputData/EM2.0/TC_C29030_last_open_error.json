@@ -1,0 +1,82 @@
+{
+    "name": "TC_C29030",
+    "referencename": "TC_C29030",
+    "qa__dataVerification": {},
+    "qa__expectedDashboardCount": {
+		"ignoreCount": "0",
+		"successCount": "0",
+		"errorCount": "1"
+	},
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "SF_exp",
+              "_connectionId":"SALESFORCE CONNECTION",
+              "asynchronous": true,
+              "oneToMany": false,
+              "sandbox": false,
+              "parsers": [],
+              "salesforce": {
+                "type": "soql",
+                "api": "rest",
+                "soql": {
+                  "query": "Select id,name from Salesforce"
+                },
+                "distributed": {
+                  "referencedFields": [],
+                  "relatedLists": []
+                }
+              },
+              "adaptorType": "SalesforceExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "Ftp_imp",
+              "parsers": [],
+              "_connectionId":"FTP CONNECTION",
+              "oneToMany": false,
+              "sandbox": false,
+              "file": {
+                "fileName": "SF_error.json",
+                "skipAggregation": false,
+                "type": "json"
+              },
+              "ftp": {
+                "directoryPath": "io.auto.qa/IO_UI_Automa",
+                "fileName": "SF_error.json"
+              },
+              "adaptorType": "FTPImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C29030",
+          "disabled": false,
+          "_integrationId": "603ce75ac4fec33283691f43",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

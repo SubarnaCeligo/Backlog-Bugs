@@ -1,0 +1,189 @@
+{
+  "name": "TC_009_C24640",
+  "referencename": "TC_009_C24640",
+  "adaptorType": "RESTImport",
+  "qa__expectedDashboardCount": {
+    "successCount": "1",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "qa__retry": {
+    "mapping": {
+      "fields": [
+        {
+          "extract": "Email",
+          "generate": "customer.email",
+          "qa__isLocked": true
+        },
+        {
+          "extract": "Name",
+          "generate": "customer.first_name",
+          "qa__isLocked": true
+        },
+        {
+          "generate": "customer.last_name",
+          "hardCodedValue": "C24640"
+        }
+      ],
+      "lists": []
+    }
+  },
+  "qa__retryData": [
+    {
+      "id": "4981934",
+      "recordType": "customer",
+      "Name": "C24640editRetrydata",
+      "Email": "c24640resolve1@gmail.com",
+      "Phone": "",
+      "Office Phone": "",
+      "Fax": "",
+      "Primary Contact": "",
+      "Alt. Email": "",
+      "Medium": "",
+      "Keyword Search": "",
+      "Search Engine": "",
+      "Real time export Checkbox": "F",
+      "Priority": "50",
+      "Priority (3)": "50",
+      "Lead Company Name": "",
+      "Custom Field for Integer": "",
+      "Customer Exported": "F",
+      "Custom Multi-select Field": "",
+      "Integer custom field_A": "",
+      "Sort Numbers": "",
+      "Skip Export To Salesforce": "F"
+    }
+  ],
+  "qa__dataVerification": {
+    "importRecordJSON": [
+      {
+        "companyname": "C24640resolve1",
+        "email": "c24640resolve1@gmail.com"
+      }
+    ],
+    "importapiIdentifier": "i7936a9dae",
+    "expected": {
+      "Shopify": {
+        "name": "TC_009_C24640",
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "qa__dataVerification": {
+          "expectedJSON": [
+            {
+              "email": "c24640resolve1@gmail.com",
+              "first_name": "C24640editRetrydata",
+              "last_name": "C24640"
+            }
+          ],
+          "exportapiIdentifier": "e0751cf01e",
+          "importRecordType": "customers",
+          "uniqueField": "email",
+          "standaloneexportflowID": "605c9d3de7e0be46eb62ca5c"
+        }
+      }
+    }
+  },
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "netsuite",
+            "_connectionId": "NETSUITE CONNECTION",
+            "asynchronous": true,
+            "rawData": "603ce5ede9250226dcea46086593cf58e3d6445f887d5b20627d20e8",
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": false,
+              "statsOnly": false,
+              "restlet": {
+                "recordType": "customer",
+                "searchId": "3172",
+                "useSS2Restlets": false
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "shopify imp",
+            "_connectionId": "SHOPIFY CONNECTION",
+            "distributed": false,
+            "assistant": "shopify",
+            "assistantMetadata": {
+              "resource": "customer",
+              "version": "v2",
+              "operation": "creates_acustomer",
+              "lookups": {}
+            },
+            "http": {
+              "relativeURI": [
+                "/customers.json"
+              ],
+              "method": [
+                "POST"
+              ],
+              "body": [
+                null
+              ],
+              "batchSize": 1,
+              "strictHandlebarEvaluation": true,
+              "sendPostMappedData": true,
+              "response": {
+                "resourceIdPath": [
+                  null
+                ]
+              }
+            },
+            "rest": {
+              "relativeURI": [
+                "/customers.json"
+              ],
+              "method": [
+                "POST"
+              ],
+              "body": [
+                null
+              ],
+              "responseIdPath": [
+                null
+              ],
+              "successPath": [
+                null
+              ],
+              "successValues": [
+                null
+              ]
+            },
+            "adaptorType": "RESTImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_009_C24640",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

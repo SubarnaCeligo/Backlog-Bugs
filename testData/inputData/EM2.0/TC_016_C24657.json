@@ -1,0 +1,149 @@
+{
+  "name": "TC_016_C24657",
+  "referencename": "TC_016_C24657",
+  "qa__expectedDashboardCount": {
+    "successCount": "1",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "ZD export",
+            "_connectionId": "ZENDESK CONNECTION",
+            "asynchronous": true,
+            "assistant": "zendesk",
+            "assistantMetadata": {
+              "resource": "tickets_api",
+              "version": "v2",
+              "operation": "show_ticket"
+            },
+            "http": {
+              "relativeURI": "/api/v2/tickets/81.json",
+              "method": "GET",
+              "paging": {
+                "method": "url",
+                "path": "next_page",
+                "lastPageStatusCode": 404
+              },
+              "response": {
+                "resourcePath": "ticket"
+              }
+            },
+            "rawData": "603ce5ede9250226dcea4608d0b5bba560b24338b865df03844f5f0f",
+            "rest": {
+              "relativeURI": "/api/v2/tickets/81.json",
+              "method": "GET",
+              "resourcePath": "ticket",
+              "pagingMethod": "nextpageurl",
+              "nextPagePath": "next_page",
+              "allowUndefinedResource": false
+            },
+            "adaptorType": "RESTExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "ZD PP export",
+            "_connectionId": "ZENDESK CONNECTION",
+            "asynchronous": true,
+            "isLookup": true,
+            "type": "test",
+            "assistant": "zendesk",
+            "assistantMetadata": {
+              "resource": "ticket_comments",
+              "version": "v2",
+              "operation": "list_comments"
+            },
+            "http": {
+              "relativeURI": "/api/v2/tickets/{{{id}}}/comments.json",
+              "method": "GET",
+              "paging": {
+                "method": "url",
+                "path": "next_page",
+                "lastPageStatusCode": 404
+              },
+              "response": {
+                "resourcePath": "comments"
+              }
+            },
+            "test": {
+              "limit": 1
+            },
+            "rest": {
+              "relativeURI": "/api/v2/tickets/{{id}}/comments.json",
+              "method": "GET",
+              "resourcePath": "comments",
+              "pagingMethod": "nextpageurl",
+              "nextPagePath": "next_page",
+              "allowUndefinedResource": false
+            },
+            "adaptorType": "RESTExport"
+          }
+        },
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Netsuite customer import",
+            "parsers": [],
+            "_connectionId": "NETSUITE CONNECTION",
+            "distributed": true,
+            "apiIdentifier": "i45477eaa3",
+            "lookups": [],
+            "netsuite_da": {
+              "useSS2Restlets": false,
+              "operation": "add",
+              "recordType": "customer",
+              "lookups": [],
+              "mapping": {
+                "fields": [],
+                "lists": []
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_016_C24657",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [
+                {
+                  "extract": "data[0]",
+                  "generate": "comment"
+                }
+              ],
+              "lists": []
+            },
+            "type": "export",
+            "_exportId": "UPDATE EXPORT ID"
+          },
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

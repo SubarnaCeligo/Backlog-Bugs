@@ -1,0 +1,14 @@
+require("./TC_C1061");
+require("./TC_C1076");
+require("./TC_C1088");
+require("./TC_C1102_C1103_Verify_Updating_Offline_Connection");
+require("./TC_C19151");
+require("./TC_C20886");
+require("./TC_C2227");
+require("./TC_C22330");
+require("./TC_C22640_TC_22651_verification_of_exports_field_in_cloning");
+require("./TC_C22641");
+require("./TC_C22648");
+require("./TC_C22716");
+require("./TC_C31697");
+require("./TC_C33285");

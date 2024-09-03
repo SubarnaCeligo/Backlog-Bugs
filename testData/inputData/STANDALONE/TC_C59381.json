@@ -1,0 +1,26 @@
+{
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "FTP_EXPORT_C59381",
+            "_connectionId": "FTP CONNECTION",
+            "asynchronous": true,
+            "sandbox": false,
+            "qa__path": "//FTP_uploads//C59381.xlsx",
+            "sampleData": ",Component,Suite Name,Scrum Owner,Comments\n1,Done, AccessData ,Kaivalya,\n2,Done, Allow_Users_To_Download_All_Logs   ,Rajarshi,\n3,Done,Box_Connector   ,Khaisar,\n4,Done, Cloning   ,Rajarshi,\n5,Done, Dropbox   ,Khaisar,\n6,Done, EM2.0   ,Rajarshi,\n7,Done, End_To_End_Flows   ,AKhil,\n8,Done, FlowDebugger   ,Deepak,\n9,Done, HTTP   ,Nishita,\n10,Done, HTTP_OAuth_1.0   ,Abhinash,\n11,Done, HTTP_OAuth2.0_Redesign   ,Abhinash,\n12,Done, HTTP2.0   ,Sathwika,\n13,Done, ILM   ,Shakeer,\n14,Done, jobs_schema   ,Kaivalya,\n15,Done, Mapper2.0   ,Sindhuja,\n16,Done, ResourceAliases   ,Deepak,\n17,Done, Scripts   ,Sathwika,\n18,Done, Selective_Fetching   ,Naveen,\n19,Done, SignedURL   ,Kaivalya,\n20,Done, Stacks   ,Akhil,\n21,Done, SuiteApp   ,Sowmya,\n22,Done, Csrf_Related_TCs   ,Rajarshi,\n23,Done, AshareId_Related_TCs   ,Rajarshi,\n24,Done, ResoucesConnections   ,Khaisar,\n25, Done, standalone   ,Anitha,\n26,Done, Change_In_No_Of_Endpoints   ,Rajarshi,\n27,, Notification_emails   ,Rajarshi,\n28,, Connections   ,Abhinash,\n29,, Database_Imports   ,Randeep,\n30,, Flowbranching_router   ,Gautham,\n31,, HTTP_Adaptor_Global_iClient_support   ,Abhinash,\n32,, NetSuite   ,Sowmya,\n33,,ResourcePagination   ,Kaivalya,\n34,, SSO_Clients   ,Kaivalya,\n35,, IAF2.0   ,Anitha,\n36,,Webhook,Kaivalya,\n37,,NetSuite_JDBC,DHilip,\n38,,linearComplex_E2E_Flows,Akshaya,\n39,,FlowBranching_E2E_Flows,Akshaya,\n40,,CryptoMicroService,Shakeer,\n41,,Van Connector,Naveen & Vamsi,\n42,,FTP,Khaisar,\n43,,FlowBranching_Stability_Test_Cases,Gautham,\n44,,OptimizeSignup,Naveen,\n45,,EDI,Shakeer,\n46,,AFE,Nishitha,",
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "C59381"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "xlsx",
+                "xlsx": {
+                    "hasHeaderRow": false
+                }
+            },
+            "adaptorType": "FTPExport"
+        }
+    }]
+}

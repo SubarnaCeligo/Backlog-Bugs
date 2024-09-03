@@ -1,0 +1,92 @@
+{
+    "name": "TC_C50819_Verify_DynamoDB_FTP_Works_With_Grouping",
+    "_integrationId": "62d6b4a955468141a906119e",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "successCount": "6",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "dynamodb_export",
+                "_connectionId": "DYNAMODB CONNECTION",
+                "_sourceId": "5e5cdbdef6f85b2b9ae46775",
+                "apiIdentifier": "eb6f252971",
+                "asynchronous": true,
+                "groupByFields": [
+                    "id"
+                ],
+                "dynamodb": {
+                    "region": "us-east-1",
+                    "method": "query",
+                    "tableName": "limit-test",
+                    "keyConditionExpression": "#n1 = :p1 AND #n2 > :p2",
+                    "expressionAttributeNames": "{ \"#n1\": \"sku\", \"#n2\":\"id\"}",
+                    "expressionAttributeValues": "{ \":p1\": \"celigo-tshirt\",\":p2\": 99}"
+                },
+                "filter": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [],
+                        "version": "1"
+                    },
+                    "version": "1",
+                    "rules": []
+                },
+                "adaptorType": "DynamodbExport"
+            }
+        }
+    ],
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "standaloneexportflowID": "",
+        "expected": {
+            "FTP": {
+                "name": "TC_C50819_Verify_DynamoDB_FTP_Works_With_Grouping",
+                "_integrationId": "62e8c2172dd80523719f9291",
+                "import": {
+                    "_connectionId": "FTP CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "6",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_C50819",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation_FTPimport",
+                    "fileType": ".json"
+                }
+            }
+        }
+    },
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "ftp import",
+                "_connectionId": "FTP CONNECTION",
+                "_sourceId": "63066012bc3caa32976f352a",
+                "apiIdentifier": "if5301e9f5",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "TC_C50819.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "io.auto.qa/IO_UI_Automation_FTPimport",
+                    "fileName": "TC_C50819.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ]
+}

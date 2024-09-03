@@ -1,0 +1,98 @@
+{
+  "flowname": "TC_C27128_FG",
+  "name": "TC_C27128_",
+  "flowGroup": "TC_C27128_FG",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "export",
+            "_connectionId": "ZENDESK CONNECTION",
+            "asynchronous": true,
+            "type": "test",
+            "assistant": "zendesk",
+            "oneToMany": false,
+            "assistantMetadata": {
+              "resource": "apps",
+              "version": "v2",
+              "operation": "list_all_apps"
+            },
+            "http": {
+              "relativeURI": "/api/v2/apps.json",
+              "method": "GET",
+              "successMediaType": "json",
+              "errorMediaType": "json",
+              "formType": "assistant",
+              "paging": {
+                "method": "url",
+                "path": "next_page",
+                "lastPageStatusCode": 404
+              },
+              "response": {
+                "resourcePath": "apps"
+              }
+            },
+            "rawData": "62e9072b36f8f637aa2536af323cb745fba84d97979e601c8fc9ad3f",
+            "test": {
+              "limit": 1
+            },
+            "rest": {
+              "relativeURI": "/api/v2/apps.json",
+              "method": "GET",
+              "resourcePath": "apps",
+              "pagingMethod": "nextpageurl",
+              "nextPagePath": "next_page",
+              "allowUndefinedResource": false
+            },
+            "adaptorType": "RESTExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Import_FTP",
+            "_connectionId": "FTP CONNECTION",
+
+            "file": {
+              "fileName": "file-{{timestamp}}.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "/test",
+              "fileName": "file-{{timestamp}}.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C27128_FG",
+        "disabled": false,
+        "_integrationId": "64ba68425b3619057ae0d0ff",
+        "qa__integrationId": "62e90b9f36f8f637aa253824",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "type": "export",
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

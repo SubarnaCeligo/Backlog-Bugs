@@ -1,0 +1,226 @@
+{
+    "name": "TC_C45041",
+    "disabled": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "AutomationStandaloneExport__2SfgpVYOj",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                    "fileNameStartsWith": "TC_C47445_Mapper2_Shopify.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport",
+                "qa__path": "//SFTP_uploads//TC_C47445_Mapper2_Shopify.json"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "AutomationStandaloneImport__P7dfgpVYOj",
+                "application": "shopify",
+                "_connectionId": "HTTP SHOPIFY CONNECTION",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "lookups": [
+                    {
+                        "name": "subChildLevelBooleanLookup",
+                        "method": "GET",
+                        "relativeURI": "/orders/4434757831.json",
+                        "extract": "order.confirmed",
+                        "body": "",
+                        "allowFailures": false,
+                        "useImportHeaders": true
+                    },
+                    {
+                        "name": "subChildLevelNumberLookup",
+                        "method": "GET",
+                        "relativeURI": "/orders/4434757831.json",
+                        "extract": "order.number",
+                        "body": "",
+                        "allowFailures": false,
+                        "useImportHeaders": true
+                    }
+                ],
+                "mappings": [
+                    {
+                        "generate": "order",
+                        "dataType": "object",
+                        "status": "Active",
+                        "mappings": [
+                            {
+                                "generate": "contact_email",
+                                "dataType": "string",
+                                "hardCodedValue": "Auto_TC_C45041@example.com",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "generate": "email",
+                                "dataType": "string",
+                                "hardCodedValue": "Auto_TC_C45041@example.com",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "generate": "line_items",
+                                "dataType": "objectarray",
+                                "status": "Active",
+                                "buildArrayHelper": [
+                                    {
+                                        "extract": "$",
+                                        "sourceDataType": "object",
+                                        "mappings": [
+                                            {
+                                                "generate": "title",
+                                                "dataType": "string",
+                                                "hardCodedValue": "itemTitle",
+                                                "status": "Active",
+                                                "sourceDataType": "string"
+                                            },
+                                            {
+                                                "generate": "price",
+                                                "dataType": "string",
+                                                "hardCodedValue": "197.19",
+                                                "status": "Active",
+                                                "sourceDataType": "string"
+                                            },
+                                            {
+                                                "generate": "tax_lines",
+                                                "dataType": "objectarray",
+                                                "status": "Active",
+                                                "buildArrayHelper": [
+                                                    {
+                                                        "extract": "$.orders[*].inventory[*]",
+                                                        "sourceDataType": "objectarray",
+                                                        "mappings": [
+                                                            {
+                                                                "extract": "$.orders.inventory.SName",
+                                                                "generate": "title",
+                                                                "dataType": "string",
+                                                                "status": "Active",
+                                                                "sourceDataType": "string"
+                                                            },
+                                                            {
+                                                                "extract": "$.orders.inventory.SAmount",
+                                                                "generate": "price",
+                                                                "dataType": "string",
+                                                                "status": "Active",
+                                                                "sourceDataType": "string"
+                                                            },
+                                                            {
+                                                                "extract": "$.orders.inventory.sQty",
+                                                                "generate": "rate",
+                                                                "dataType": "number",
+                                                                "status": "Active",
+                                                                "sourceDataType": "number"
+                                                            },
+                                                            {
+                                                                "generate": "rateDynaLookup",
+                                                                "dataType": "number",
+                                                                "lookupName": "subChildLevelNumberLookup",
+                                                                "status": "Active",
+                                                                "sourceDataType": "number"
+                                                            },
+                                                            {
+                                                                "generate": "channel_liable",
+                                                                "dataType": "boolean",
+                                                                "lookupName": "subChildLevelBooleanLookup",
+                                                                "status": "Active",
+                                                                "sourceDataType": "boolean"
+                                                            },
+                                                            {
+                                                                "extract": "{{record.items.0.inventory.0.isActive}}",
+                                                                "generate": "boolHandleExp",
+                                                                "dataType": "boolean",
+                                                                "conditional": {
+                                                                    "when": "extract_not_empty"
+                                                                },
+                                                                "status": "Active",
+                                                                "sourceDataType": "string"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "/orders.json"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http",
+                    "lookups": [
+                        {
+                            "name": "subChildLevelBooleanLookup",
+                            "method": "GET",
+                            "relativeURI": "/orders/4434757831.json",
+                            "extract": "order.confirmed",
+                            "body": "",
+                            "allowFailures": false,
+                            "useImportHeaders": true
+                        },
+                        {
+                            "name": "subChildLevelNumberLookup",
+                            "method": "GET",
+                            "relativeURI": "/orders/4434757831.json",
+                            "extract": "order.number",
+                            "body": "",
+                            "allowFailures": false,
+                            "useImportHeaders": true
+                        }
+                    ]
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "expectedJSON": {
+        "order": {
+          "contact_email": "Auto_TC_C45041@example.com",
+          "email": "Auto_TC_C45041@example.com",
+          "line_items": [
+            {
+              "title": "itemTitle",
+              "price": "197.19",
+              "tax_lines": [
+                {
+                  "title": "ACC00005",
+                  "price": "778.00",
+                  "rate": 5,
+                  "rateDynaLookup": 3290,
+                  "channel_liable": true,
+                  "boolHandleExp": true
+                }
+              ]
+            }
+          ]
+        }
+      }
+}

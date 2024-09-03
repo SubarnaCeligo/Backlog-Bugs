@@ -1,0 +1,84 @@
+{
+  "name": "TC_C50809_DynnamoDB_FTP_Grouping",
+  "_integrationId": "62d6b4a955468141a906119e",
+  "disabled": false,
+  "timezone": "Asia/Calcutta",
+  "skipRetries": false,
+  "qa__expectedDashboardCount": {
+    "successCount": "20",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "TC_C50809",
+        "_connectionId": "DYNAMODB CONNECTION",
+        "apiIdentifier": "e2f6b7db9c",
+        "asynchronous": true,
+        "sandbox": false,
+        "groupByFields": [
+          "RecordType",
+          "RecordId"
+        ],
+        "dynamodb": {
+          "region": "us-east-1",
+          "method": "query",
+          "tableName": "PV_WMSIntegrationLog",
+          "keyConditionExpression": "#n1=:p1 AND #n2<:p2",
+          "expressionAttributeNames": "{ \"#n1\":\"RecordType\",\"#n2\":\"RecordId\"}",
+          "expressionAttributeValues": "{ \":p1\":\"item\",\":p2\": 11}"
+        },
+        "adaptorType": "DynamodbExport"
+      }
+    }
+  ],
+  "qa__dataVerification": {
+    "generateSampleDropDownAvailable": false,
+    "standaloneexportflowID": "",
+    "expected": {
+      "FTP": {
+        "name": "TC_C50809",
+        "_integrationId": "62e8c2172dd80523719f9291",
+        "import": {
+          "_connectionId": "FTP CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "20",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "fileName": "TC_C50809",
+          "isUIFlow": true,
+          "folderName": "/io.auto.qa/IO_UI_Automation_FTPimport",
+          "fileType": ".json"
+        }
+      }
+    }
+  },
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "TC_C50809",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "i62d8794c9",
+        "oneToMany": false,
+        "sandbox": false,
+        "file": {
+          "fileName": "TC_C50809.json",
+          "skipAggregation": false,
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPimport",
+          "fileName": "TC_C50809.json"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "Script": "function preSavePage (options) {\r\n  return {\r\n    data: options.data,\r\n    errors: options.errors,\r\n    abort: false,\r\n    newErrorsAndRetryData: []\r\n  }\r\n}"
+}

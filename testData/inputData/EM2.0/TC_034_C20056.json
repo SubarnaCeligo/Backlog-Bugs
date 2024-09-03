@@ -1,0 +1,178 @@
+{
+    "name": "TC_034_C20056",
+    "referencename": "TC_034_C20056",
+    "qa__dataVerification": {
+        "importRecordJSON": {
+            "shipping_state": "TG",
+            "shipping_city": "Kukatpally",
+            "billing_country": "India",
+            "subsidiary": "HH Inc.",
+            "billing_city": "Hyderabad",
+            "phone": "8941245874",
+            "billing_state": "TS",
+            "shipping_zip": "500081",
+            "companyname": "@NS2SFDataCheck",
+            "shipping_address1": "KPHB Colony",
+            "billing_zip": "500016",
+            "fax": "6747854521",
+            "billing_address1": "GV Colony",
+            "shipping_country": "India",
+            "email": "@NS2SFDataCheck@mail.com"
+        },
+        "importapiIdentifier": "i7936a9dae",
+        "exportRecordType": "Customer"
+    },
+    "qa__expectedDashboardCount": {
+        "successCount": "1",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "mapping": [
+        {
+            "extract": "{{{jsonSerialize this}}}",
+            "generate": "A"
+        },
+        {
+            "generate": "B",
+            "hardCodedValue": "2"
+        },
+        {
+            "extract": "ID",
+            "generate": "C"
+        }
+    ],
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "ns",
+                        "adaptorType": "NetSuiteExport",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "test": {
+                            "limit": 1
+                        },
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "recordType": "customer",
+                                "searchId": "3829",
+                                "useSS2Restlets": false
+                            },
+                            "distributed": {
+                                "useSS2Framework": false
+                            }
+                        },
+                        "transform": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [
+                                    [
+                                        {
+                                            "extract": "id",
+                                            "generate": "ID"
+                                        },
+                                        {
+                                            "extract": "Name",
+                                            "generate": "NAME"
+                                        },
+                                        {
+                                            "extract": "Priority",
+                                            "generate": "PRIORITY"
+                                        }
+                                    ]
+                                ],
+                                "version": "1"
+                            },
+                            "version": "1",
+                            "rules": [
+                                [
+                                    {
+                                        "extract": "id",
+                                        "generate": "ID"
+                                    },
+                                    {
+                                        "extract": "Name",
+                                        "generate": "NAME"
+                                    },
+                                    {
+                                        "extract": "Priority",
+                                        "generate": "PRIORITY"
+                                    }
+                                ]
+                            ]
+                        }
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "im",
+                        "_connectionId": "SNOWFLAKE CONNECTION",
+                        "qa__connectionId": "62a9a1660d57d901d0665c5b",
+                        "application": "Snowflake",
+                        "adaptorType": "RDBMSImport",
+                        "apiIdentifier": "if3a595e6d",
+                        "oneToMany": false,
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "extract": "ID",
+                                    "generate": "A"
+                                },
+                                {
+                                    "generate": "B",
+                                    "hardCodedValue": "2",
+                                    "dataType": "number"
+                                },
+                                {
+                                    "extract": "{{{jsonSerialize this}}}",
+                                    "generate": "C",
+                                    "dataType": "json"
+                                }
+                            ]
+                        },
+                        "rdbms": {
+                            "query": [],
+                            "queryType": [
+                                "BULK INSERT"
+                            ],
+                            "bulkInsert": {
+                                "tableName": "CELIGO_LABS.PUBLIC.MERGE_TEST3"
+                            }
+                        }
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_034_C20056",
+                "disabled": false,
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

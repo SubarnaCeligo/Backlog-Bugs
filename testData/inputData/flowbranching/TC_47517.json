@@ -1,0 +1,626 @@
+{
+    "name": "TC_47517",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "timezone": "Asia/Calcutta",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "NS_47517",
+                "_connectionId": "NETSUITE CONNECTION",
+                "apiIdentifier": "efe49e0769",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "sandbox": false,
+                "rawData": "62f37ad6703e322cf5d90431e13fb5be845f49d597fc8b2743731af3",
+                "test": {
+                    "limit": 1
+                },
+                "netsuite": {
+                    "type": "restlet",
+                    "skipGrouping": true,
+                    "statsOnly": false,
+                    "restlet": {
+                        "recordType": "customer",
+                        "searchId": "979",
+                        "useSS2Restlets": false,
+                        "markExportedBatchSize": 100
+                    },
+                    "distributed": {
+                        "useSS2Framework": false
+                    }
+                },
+                "adaptorType": "NetSuiteExport"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "id": "Dlk3zY",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "export",
+                            "qa__export": {
+                                "name": "NSI_47517",
+                                "_connectionId": "NETSUITE CONNECTION",
+                                "apiIdentifier": "e4c37fc466",
+                                "asynchronous": true,
+                                "isLookup": true,
+                                "type": "test",
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "test": {
+                                    "limit": 1
+                                },
+                                "netsuite": {
+                                    "type": "restlet",
+                                    "skipGrouping": true,
+                                    "statsOnly": false,
+                                    "restlet": {
+                                        "recordType": "customer",
+                                        "searchId": "979",
+                                        "criteria": [],
+                                        "columns": [],
+                                        "useSS2Restlets": false,
+                                        "markExportedBatchSize": 100
+                                    },
+                                    "distributed": {
+                                        "executionContext": [],
+                                        "executionType": [],
+                                        "useSS2Framework": false
+                                    }
+                                },
+                                "adaptorType": "NetSuiteExport"
+                            }
+                        }
+                    ],
+                    "nextRouterId": "xBRTRm"
+                }
+            ]
+        },
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "xBRTRm",
+            "routeRecordsTo": "all_matching_branches",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "FTP",
+                                "sampleData": {
+                                    "SYNTAX IDENTIFIER": {
+                                        "Syntax identifier": "UNOC",
+                                        "Syntax version number": "3"
+                                    },
+                                    "INTERCHANGE SENDER": {
+                                        "Sender identification": "<Sender GLN>",
+                                        "Partner identification code qualifier": "14"
+                                    },
+                                    "INTERCHANGE RECIPIENT": {
+                                        "Recipient identification": "<Receiver GLN>",
+                                        "Partner identification code qualifier": "14"
+                                    },
+                                    "DATE/TIME OF PREPARATION": {
+                                        "Date of preparation": "140407",
+                                        "Time of preparation": "1000"
+                                    },
+                                    "Interchange control reference": "100",
+                                    "UNB060": " ",
+                                    "UNB070": " ",
+                                    "UNB080": " ",
+                                    "UNB090": " ",
+                                    "Communications agreement ID": "EANCOM",
+                                    "Message reference number": "1",
+                                    "MESSAGE IDENTIFIER": {
+                                        "Message type identifier": "DESADV",
+                                        "Message type version number": "D",
+                                        "Message type release number": "96A",
+                                        "Controlling agency": "UN",
+                                        "Association assigned code": "EAN005"
+                                    },
+                                    "DOCUMENT/MESSAGE NAME": {
+                                        "Document/message name, coded": "351",
+                                        "BGM010-020": " ",
+                                        "Code list responsible agency, coded": "9"
+                                    },
+                                    "Document/message number": "DES587441",
+                                    "Message function, coded": "9",
+                                    "DTM": [
+                                        {
+                                            "DATE/TIME/PERIOD": {
+                                                "Date/time/period qualifier": "11",
+                                                "Date/time/period": "20140407",
+                                                "Date/time/period format qualifier": "102"
+                                            }
+                                        },
+                                        {
+                                            "DATE/TIME/PERIOD": {
+                                                "Date/time/period qualifier": "132",
+                                                "Date/time/period": "20140409",
+                                                "Date/time/period format qualifier": "102"
+                                            }
+                                        },
+                                        {
+                                            "DATE/TIME/PERIOD": {
+                                                "Date/time/period qualifier": "137",
+                                                "Date/time/period": "20140407",
+                                                "Date/time/period format qualifier": "102"
+                                            }
+                                        }
+                                    ],
+                                    "Segment Group 1": [
+                                        {
+                                            "REFERENCE": {
+                                                "Reference qualifier": "DQ",
+                                                "Reference number": "ABCD12333"
+                                            }
+                                        },
+                                        {
+                                            "REFERENCE": {
+                                                "Reference qualifier": "ON",
+                                                "Reference number": "2BB2TEST"
+                                            }
+                                        }
+                                    ],
+                                    "Segment Group 2": [
+                                        {
+                                            "Party qualifier": "DP",
+                                            "PARTY IDENTIFICATION DETAILS": {
+                                                "Party id identification": "5450534000109",
+                                                "NAD020-020": " ",
+                                                "Code list responsible agency, coded": "9"
+                                            },
+                                            "NAD030": " ",
+                                            "NAD040": " ",
+                                            "NAD050": " ",
+                                            "NAD060": " ",
+                                            "NAD070": " ",
+                                            "Postcode identification": " ",
+                                            "Country, coded": "GB"
+                                        },
+                                        {
+                                            "Party qualifier": "SU",
+                                            "PARTY IDENTIFICATION DETAILS": {
+                                                "Party id identification": "<Supplier GLN>",
+                                                "NAD020-020": " ",
+                                                "Code list responsible agency, coded": "9"
+                                            }
+                                        },
+                                        {
+                                            "Party qualifier": "SF",
+                                            "PARTY IDENTIFICATION DETAILS": {
+                                                "Party id identification": "<Warehouse GLN>",
+                                                "NAD020-020": " ",
+                                                "Code list responsible agency, coded": "9"
+                                            },
+                                            "NAD030": " ",
+                                            "NAD040": " ",
+                                            "NAD050": " ",
+                                            "NAD060": " ",
+                                            "NAD070": " ",
+                                            "Postcode identification": "ZIP CODE",
+                                            "Country, coded": "ISOCOUNTRYCODE"
+                                        }
+                                    ],
+                                    "Segment Group 6": [
+                                        {
+                                            "Transport stage qualifier": "20",
+                                            "TDT020": " ",
+                                            "Mode of transport, coded": "30",
+                                            "Type of means of transport identification": "31"
+                                        }
+                                    ],
+                                    "Segment Group 10": [
+                                        {
+                                            "Hierarchical id number": "1",
+                                            "Segment Group 11": [
+                                                {
+                                                    "Number of packages": "2",
+                                                    "PACKAGING DETAILS": {
+                                                        "PAC020-010": " "
+                                                    },
+                                                    "Type of packages identification": "201"
+                                                },
+                                                {
+                                                    "Number of packages": "2",
+                                                    "PACKAGING DETAILS": {
+                                                        "PAC020-010": " "
+                                                    },
+                                                    "Type of packages identification": "PK"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "Hierarchical id number": "2",
+                                            "Hierarchical parent id": "1",
+                                            "Segment Group 11": [
+                                                {
+                                                    "Number of packages": "1",
+                                                    "PACKAGING DETAILS": {
+                                                        "PAC020-010": " ",
+                                                        "Packaging related information, coded": "52"
+                                                    },
+                                                    "Type of packages identification": "PK",
+                                                    "MEA": [
+                                                        {
+                                                            "Measurement application qualifier": "PD",
+                                                            "Measurement dimension, coded": "LN",
+                                                            "VALUE/RANGE": {
+                                                                "Measure unit qualifier": "CMT",
+                                                                "Measurement value": "120"
+                                                            }
+                                                        },
+                                                        {
+                                                            "Measurement application qualifier": "PD",
+                                                            "Measurement dimension, coded": "WD",
+                                                            "VALUE/RANGE": {
+                                                                "Measure unit qualifier": "CMT",
+                                                                "Measurement value": "50"
+                                                            }
+                                                        },
+                                                        {
+                                                            "Measurement application qualifier": "PD",
+                                                            "Measurement dimension, coded": "HT",
+                                                            "VALUE/RANGE": {
+                                                                "Measure unit qualifier": "CMT",
+                                                                "Measurement value": "30"
+                                                            }
+                                                        },
+                                                        {
+                                                            "Measurement application qualifier": "PD",
+                                                            "Measurement dimension, coded": "AAB",
+                                                            "VALUE/RANGE": {
+                                                                "Measure unit qualifier": "KGM",
+                                                                "Measurement value": "12"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "Segment Group 12": [
+                                                        {
+                                                            "Handling instructions, coded": "BIG"
+                                                        }
+                                                    ],
+                                                    "Segment Group 13": [
+                                                        {
+                                                            "Marking instructions, coded": "33E",
+                                                            "Segment Group 14": [
+                                                                {
+                                                                    "Identity number qualifier": "BJ",
+                                                                    "Identity number": "354123450000000014"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "Segment Group 15": [
+                                                {
+                                                    "Line item number": "1",
+                                                    "LIN020": " ",
+                                                    "ITEM NUMBER IDENTIFICATION": {
+                                                        "Item number": "1234567891234",
+                                                        "Item number type, coded": "EN"
+                                                    },
+                                                    "QTY": [
+                                                        {
+                                                            "QUANTITY DETAILS": {
+                                                                "Quantity qualifier": "12",
+                                                                "Quantity": "30"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "Segment Group 20": [
+                                                        {
+                                                            "Marking instructions, coded": "17",
+                                                            "DTM": [
+                                                                {
+                                                                    "DATE/TIME/PERIOD": {
+                                                                        "Date/time/period qualifier": "361",
+                                                                        "Date/time/period": "20141121",
+                                                                        "Date/time/period format qualifier": "102"
+                                                                    }
+                                                                }
+                                                            ],
+                                                            "Segment Group 21": [
+                                                                {
+                                                                    "Identity number qualifier": "BX",
+                                                                    "Identity number": "72811023"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "Line item number": "2",
+                                                    "LIN020": " ",
+                                                    "ITEM NUMBER IDENTIFICATION": {
+                                                        "Item number": "1234567891236",
+                                                        "Item number type, coded": "EN"
+                                                    },
+                                                    "QTY": [
+                                                        {
+                                                            "QUANTITY DETAILS": {
+                                                                "Quantity qualifier": "12",
+                                                                "Quantity": "30"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "Segment Group 20": [
+                                                        {
+                                                            "Marking instructions, coded": "17",
+                                                            "DTM": [
+                                                                {
+                                                                    "DATE/TIME/PERIOD": {
+                                                                        "Date/time/period qualifier": "361",
+                                                                        "Date/time/period": "20141031",
+                                                                        "Date/time/period format qualifier": "102"
+                                                                    }
+                                                                }
+                                                            ],
+                                                            "Segment Group 21": [
+                                                                {
+                                                                    "Identity number qualifier": "BX",
+                                                                    "Identity number": "63214914"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "Hierarchical id number": "3",
+                                            "Hierarchical parent id": "1",
+                                            "Segment Group 11": [
+                                                {
+                                                    "Number of packages": "1",
+                                                    "PACKAGING DETAILS": {
+                                                        "Packaging related information, coded": "52"
+                                                    },
+                                                    "Type of packages identification": "PK",
+                                                    "MEA": [
+                                                        {
+                                                            "Measurement application qualifier": "PD",
+                                                            "Measurement dimension, coded": "LN",
+                                                            "VALUE/RANGE": {
+                                                                "Measure unit qualifier": "CMT",
+                                                                "Measurement value": "120"
+                                                            }
+                                                        },
+                                                        {
+                                                            "Measurement application qualifier": "PD",
+                                                            "Measurement dimension, coded": "WD",
+                                                            "VALUE/RANGE": {
+                                                                "Measure unit qualifier": "CMT",
+                                                                "Measurement value": "50"
+                                                            }
+                                                        },
+                                                        {
+                                                            "Measurement application qualifier": "PD",
+                                                            "Measurement dimension, coded": "HT",
+                                                            "VALUE/RANGE": {
+                                                                "Measure unit qualifier": "CMT",
+                                                                "Measurement value": "30"
+                                                            }
+                                                        },
+                                                        {
+                                                            "Measurement application qualifier": "PD",
+                                                            "Measurement dimension, coded": "AAB",
+                                                            "VALUE/RANGE": {
+                                                                "Measure unit qualifier": "KGM",
+                                                                "Measurement value": "12"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "Segment Group 12": [
+                                                        {
+                                                            "Handling instructions, coded": "BIG"
+                                                        }
+                                                    ],
+                                                    "Segment Group 13": [
+                                                        {
+                                                            "Marking instructions, coded": "33E",
+                                                            "Segment Group 14": [
+                                                                {
+                                                                    "Identity number qualifier": "BJ",
+                                                                    "Identity number": "354123450000000015"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "Segment Group 15": [
+                                                {
+                                                    "Line item number": "3",
+                                                    "PIA": [
+                                                        {
+                                                            "Product id function qualifier": "5",
+                                                            "ITEM NUMBER IDENTIFICATION": {
+                                                                "Item number": "1234567891",
+                                                                "Item number type, coded": "IB"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "QTY": [
+                                                        {
+                                                            "QUANTITY DETAILS": {
+                                                                "Quantity qualifier": "12",
+                                                                "Quantity": "20"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "Segment Group 16": [
+                                                        {
+                                                            "REFERENCE": {
+                                                                "Reference qualifier": "ON",
+                                                                "Reference number": "1AA1TEST"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "Segment Group 20": [
+                                                        {
+                                                            "Marking instructions, coded": "17",
+                                                            "DTM": [
+                                                                {
+                                                                    "DATE/TIME/PERIOD": {
+                                                                        "Date/time/period qualifier": "361",
+                                                                        "Date/time/period": "20141215",
+                                                                        "Date/time/period format qualifier": "102"
+                                                                    }
+                                                                }
+                                                            ],
+                                                            "Segment Group 21": [
+                                                                {
+                                                                    "Identity number qualifier": "BX",
+                                                                    "Identity number": "33594011"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "Number of segments in a message": "50",
+                                    "Message reference number(UNT020)": "1",
+                                    "Interchange control count": "1",
+                                    "Interchange control reference(UNZ020)": "100"
+                                },
+                                "_connectionId": "FTP CONNECTION",
+                                "_sourceId": "61d6894b9515b651c0de9ef1",
+                                "apiIdentifier": "idfb901008",
+                                "oneToMany": false,
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "type",
+                                            "generate": "type"
+                                        },
+                                        {
+                                            "extract": "name",
+                                            "generate": "name"
+                                        }
+                                    ]
+                                },
+                                "file": {
+                                    "fileName": "TC_47517-2.json",
+                                    "skipAggregation": true,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                                    "fileName": "TC_47517-2.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Branch 1.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "FTP 1",
+                                "_connectionId": "FTP CONNECTION",
+                                "apiIdentifier": "i287130608",
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "mappings": [
+                                    {
+                                        "extract": "ddd",
+                                        "generate": "dd",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    }
+                                ],
+                                "file": {
+                                    "fileName": "TC_47517-1.json",
+                                    "skipAggregation": true,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                                    "fileName": "TC_47517-1.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "4",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "expected": {
+            "FTP": {
+                "name": "TC_47517",
+                "_integrationId": "62f51db41677a21a108e5e3a",
+                "import": {
+                    "_connectionId": "FTP CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "1",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_47517-2",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".json"
+                }
+            },
+            "FTp": {
+                "name": "TC_C47420",
+                "_integrationId": "62f51db41677a21a108e5e3a",
+                "import": {
+                    "_connectionId": "FTP CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "1",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_47517-1",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".json"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,86 @@
+{
+  "name": "TC_C26548_FTP_Verify_Encryption_Files_Invalid_PublicKey",
+  "referencename": "TC_C26548_FTP_Verify_Encryption_Files_Invalid_PublicKey",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type":"export",
+          "qa__export": {
+            "name": "TC_C26548_FTP_Verify_Encryption_Files_Invalid_PublicKey",
+            "_connectionId": "FTP_PGP_ONLY_PRIVATEKEY_PASSPHRASE CONNECTION",
+            "qa__connectionId": "610a83a1b8d44e11589fe440",
+            "qa__path": "//FTP_uploads//TC_595_FTP_TO_GDRIVE.json",
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+              "fileNameStartsWith": "TC_595_FTP_TO_GDRIVE.json"
+            },
+            "file": {
+              "output": "records",
+              "skipDelete": true,
+              "type": "json",
+              "encoding": "utf8",
+              "json": {
+                "resourcePath": "*"
+              }
+            },
+            "adaptorType": "FTPExport"
+          },
+          "skipRetries": false
+        }
+      ],
+      "pageProcessors": [
+        {
+          "responseMapping": {
+            "fields": [],
+            "lists": []
+          },
+          "type": "import",
+          "qa__import": {
+            "name": "FTP Import",
+            "_connectionId": "FTP INVALID PUBLIC KEY",
+            "apiIdentifier": "i81f5764e2",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+              "fileName": "file-{{timestamp}}.json",
+              "skipAggregation": false,
+              "type": "json",
+              "encrypt": "pgp",
+              "pgp": {
+                "symmetricKeyAlgorithm": "aes256"
+              }
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation",
+              "fileName": "file-{{timestamp}}.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C26548_FTP_Verify_Encryption_Files_Invalid_PublicKey",
+        "disabled": false,
+        "_integrationId": "60cd9a49d99bd92eb5bd2527",
+        "qa__integrationId": "6110bf8dc5492e2ee1f324af",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

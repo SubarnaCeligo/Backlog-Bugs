@@ -1,0 +1,39 @@
+{
+    "name": "TC_C29066",
+    "referencename": "TC_C29066",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "application": "MySQL",
+                        "name": "MySQL test",
+                        "_connectionId": "MYSQL CONNECTION",
+                        "apiIdentifier": "e1f2761d27",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "rawData": "62ebb431e627016182cf3391ed357a9aa3944715814c35e12a688dcf",
+                        "rdbms": {
+                            "query": "select * from Templates.Order LIMIT 2"
+                        },
+                        "adaptorType": "RDBMSExport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C29066",
+                "disabled": false,
+                "_integrationId": "62ecc42648570015ab65cfa5",
+                "qa__integrationId": "62eca1efe386b563f638451e",
+                "skipRetries": false,
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

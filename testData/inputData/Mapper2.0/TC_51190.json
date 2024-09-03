@@ -1,0 +1,98 @@
+{
+    "name": "TC_C51190",
+    "referencename": "TC_C51190",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "inbound shipmnt",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "_sourceId": "606ecae6ddb7577eb1af3cec",
+                        "apiIdentifier": "ed745a1f8f",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "rawData": "56d6b114e1fc35de5391472c4497e9d15c3a4f36ab389cbfaeed876e",
+                        "test": {
+                            "limit": 1
+                        },
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": false,
+                            "statsOnly": false,
+                            "restlet": {
+                                "recordType": "inboundshipment",
+                                "searchId": "4146",
+                                "useSS2Restlets": false,
+                                "markExportedBatchSize": 100
+                            },
+                            "distributed": {
+                                "useSS2Framework": false
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                            "name": "Import-1",
+                            "application": "shopify",
+                            "_connectionId":"HTTP SHOPIFY CONNECTION",
+                            "apiIdentifier": "ib21d7fb2c",
+                            "ignoreExisting": false,
+                            "ignoreMissing": false,
+                            "oneToMany": false,
+                            "sandbox": false,
+                            "mapping": {
+                                "fields": [
+                                    {
+                                        "generate": "product.title",
+                                        "hardCodedValue": "test0627"
+                                    }
+                                ]
+                            },
+                            "http": {
+                                "relativeURI": [
+                                    "/products.json"
+                                ],
+                                "method": [
+                                    "POST"
+                                ],
+                                "body": [],
+                                "batchSize": 1,
+                                "sendPostMappedData": true,
+                                "formType": "http"
+                            },
+                            "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C51190",
+                "disabled": false,
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

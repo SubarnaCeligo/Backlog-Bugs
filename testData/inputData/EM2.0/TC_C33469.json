@@ -1,0 +1,106 @@
+{
+  "name": "TC_C33469",
+  "referencename": "TC_C33469",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "33469-exports",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "_sourceId": "61d688b79515b651c0de9c94",
+            "apiIdentifier": "e521aaa2bd",
+            "asynchronous": true,
+            "type": "test",
+            "oneToMany": false,
+            "rawData": "603ce5ede9250226dcea46088566748894bc4046bd7b7c1037b149b3",
+            "test": {
+              "limit": 1
+            },
+            "salesforce": {
+              "type": "soql",
+              "api": "rest",
+              "soql": {
+                "query": "SELECT Id FROM Contact LIMIT 1"
+              },
+              "distributed": {
+                "disabled": true
+              }
+            },
+            "adaptorType": "SalesforceExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "import-33469",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "apiIdentifier": "i9a461469f",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [
+              {
+                "name": "Yash",
+                "whereClause": "(Name = {{{string Name}}})",
+                "sObjectType": "Account",
+                "resultField": "Name",
+                "allowFailures": false
+              }
+            ],
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "Name",
+                  "generate": "LastName",
+                  "lookupName": "Yash"
+                }
+              ]
+            },
+            "salesforce": {
+              "operation": "insert",
+              "sObjectType": "Contact",
+              "api": "soap",
+              "lookups": [
+                {
+                  "name": "Yash",
+                  "whereClause": "(Name = {{{string Name}}})",
+                  "sObjectType": "Account",
+                  "resultField": "Name",
+                  "allowFailures": false
+                }
+              ],
+              "removeNonSubmittableFields": false
+            },
+            "adaptorType": "SalesforceImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C33469",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": true,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

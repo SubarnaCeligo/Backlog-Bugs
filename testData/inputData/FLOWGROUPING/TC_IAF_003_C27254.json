@@ -1,0 +1,14 @@
+[
+  {
+    "name": "CREATE IA",
+    "environment": "Sandbox",
+    "app": "Zendesk Support",
+    "integrationName": "Automation Flows"
+  },
+  {
+    "name": "CREATE IA",
+    "environment": "Production",
+    "app": "Zendesk Support",
+    "integrationName": "Automation Flows"
+  }
+]

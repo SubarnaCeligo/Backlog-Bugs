@@ -1,0 +1,46 @@
+{"qa__api_tdata": [
+    {
+      "createIntegrations": {
+        "name": "new Integration TC_C27401",
+        "install": [],
+        "sandbox": false,
+        "_registeredConnectionIds": [],
+        "installSteps": [],
+        "uninstallSteps": [],
+        "flowGroupings": [
+            {
+                "name": "group1",
+                "_id": "6322aee893d87d52677c20f2",
+                "settingsForm": {
+                    "form": {
+                        "fieldMap": {
+                            "txtSetting2ForIntegration": {
+                                "label": "Text Integration Setting",
+                                "id": "txtSetting2ForIntegration",
+                                "name": "txtSetting2ForIntegration",
+                                "type": "text",
+                                "helpText": "Choose a NetSuite GL account to deposit the balance transactions whose reporting categories are not mapped."
+                            }
+                        },
+                        "layout": {
+                            "fields": [
+                                "txtSetting2ForIntegration"
+                            ]
+                        }
+                    },
+                    "init": {
+                        "_scriptId": "63206ddcea53f4159df3dacb",
+                        "function": "formInit"
+                    }
+                }
+            }
+        ],
+        "createdAt": "2022-09-13T11:18:58.822Z"
+    }
+    }
+  ],
+  "scriptBody": {
+    "name": "TC_C27401",
+    "content": "const updateCustomSettingsForm = function (form, updateOptions) {\nfor (let formInputKey in form.fieldMap) {\nlet formInput = form.fieldMap[formInputKey]\nfor (let key in updateOptions) {\nif (formInput.hasOwnProperty(key)) {\nif (typeof updateOptions[key] === 'function') {\nupdateOptions[key](formInput, key)}\nelse {\nformInput[key] = updateOptions[key] + formInput[key]}\n}\n}\n}\nreturn form\n}\n/*\n* formInit function stub:\n*\n* The name of the function can be changed to anything you like.\n*\n* The function will be passed one 'options' argument that has the following fields:\n*   'resource' - the resource being viewed in the UI.\n*   'parentResource' - the parent of the resource being viewed in the UI.\n*   'grandparentResource': the grandparent of the resource being viewed in the UI.\n*   'license' - integration apps only.  the license provisioned to the integration.\n*   'parentLicense' - integration apps only. the parent of the license provisioned to the integration.\n*   'sandbox' - boolean value indicating whether the script is invoked for sandbox.\n*\n* The function needs to return a form object for the UI to render.\n* Throwing an exception will signal an error.\n*/\nfunction formInit (options) {\n  getFlowGroupSettings1(options)\n  return options.resource.settingsForm.form\n}/*\n* transformFunction stub:\n*\n* The name of the function can be changed to anything you like.\n*\n* The function will be passed one 'options' argument that has the following fields:\n*   'record' - object {} or array [] depending on the data source.\n*   'settings' - all custom settings in scope for the transform currently running.\n* The function needs to return the transformed record.\n* Throwing an exception will return an error for the record.\n*/\nconst getFlowGroupSettings1 = function (options) {\nlet settingsForm = options.resource.settingsForm.form\ntry {\nsettingsForm = options.resource.flowGroupings[0].settingsForm.form\n}\ncatch (e) {}\nlet formUpdateOptions = {\nlabel: 'Update Flow Field Label',\nhelpText: (fieldInput) => { fieldInput.helpText = [fieldInput.label, fieldInput.id, fieldInput.description].join('. ') }\n}\nreturn updateCustomSettingsForm(settingsForm, formUpdateOptions)\n}"
+  }
+}

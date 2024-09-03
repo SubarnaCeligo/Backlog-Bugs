@@ -1,0 +1,272 @@
+{
+    "name": "TC_C28631",
+    "referencename": "TC_C28631",
+    "qa__dataVerification": {},
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Shopify customer export",
+                        "_connectionId": "SHOPIFY CONNECTION",
+                        "asynchronous": true,
+                        "assistant": "shopify",
+                        "assistantMetadata": {
+                            "resource": "customer",
+                            "version": "v2",
+                            "operation": "retrieves_alistofcustomers"
+                        },
+                        "http": {
+                            "relativeURI": "/customers.json",
+                            "method": "GET",
+                            "paging": {
+                                "method": "linkheader",
+                                "lastPageStatusCode": 404,
+                                "linkHeaderRelation": "next"
+                            },
+                            "response": {
+                                "resourcePath": "customers"
+                            }
+                        },
+                        "rawData": "603ce5ede9250226dcea4608dda6230d547e4261bcf2b129528d1898",
+                        "rest": {
+                            "relativeURI": "/customers.json",
+                            "method": "GET",
+                            "resourcePath": "customers",
+                            "pagingMethod": "linkheader",
+                            "allowUndefinedResource": false,
+                            "linkHeaderRelation": "next"
+                        },
+                        "adaptorType": "RESTExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Import Salesforce(source mapping)",
+                        "_connectionId": "SALESFORCE CONNECTION",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "lookups": [
+                            {
+                                "name": "lookupsf",
+                                "whereClause": "(Name = {{{string first_name}}})",
+                                "sObjectType": "Account",
+                                "resultField": "Id",
+                                "allowFailures": false
+                            },
+                            {
+                                "name": "lk",
+                                "whereClause": "(Description = {{{textarea first_name}}})",
+                                "sObjectType": "Account",
+                                "resultField": "Id",
+                                "allowFailures": false
+                            }
+                        ],
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "extract": "id",
+                                    "generate": "Id",
+                                    "lookupName": "lookupsf"
+                                },
+                                {
+                                    "extract": "phone",
+                                    "generate": "Phone"
+                                },
+                                {
+                                    "extract": "id",
+                                    "generate": "Name"
+                                },
+                                {
+                                    "extract": "state",
+                                    "generate": "BillingState"
+                                },
+                                {
+                                    "extract": "state",
+                                    "generate": "ShippingState"
+                                },
+                                {
+                                    "extract": "note",
+                                    "generate": "Description"
+                                },
+                                {
+                                    "extract": "email",
+                                    "generate": "Email__c"
+                                },
+                                {
+                                    "extract": "email",
+                                    "generate": "Website"
+                                },
+                                {
+                                    "extract": "email",
+                                    "generate": "Site"
+                                },
+                                {
+                                    "extract": "email",
+                                    "generate": "AccountNumber"
+                                },
+                                {
+                                    "extract": "id",
+                                    "generate": "OwnerId"
+                                },
+                                {
+                                    "extract": "default_address.city",
+                                    "generate": "BillingCity"
+                                },
+                                {
+                                    "extract": "created_at",
+                                    "generate": "CreatedDate"
+                                },
+                                {
+                                    "extract": "default_address.country",
+                                    "generate": "BillingCountry"
+                                },
+                                {
+                                    "extract": "default_address.zip",
+                                    "generate": "BillingPostalCode"
+                                },
+                                {
+                                    "extract": "email",
+                                    "generate": "Alt_Email__c"
+                                },
+                                {
+                                    "extract": "admin_graphql_api_id",
+                                    "generate": "CreatedById"
+                                },
+                                {
+                                    "extract": "default_address.address1",
+                                    "generate": "BillingStreet"
+                                },
+                                {
+                                    "extract": "id",
+                                    "generate": "NS_Internal_ID__c"
+                                },
+                                {
+                                    "extract": "id",
+                                    "generate": "Fax"
+                                },
+                                {
+                                    "extract": "id",
+                                    "generate": "Type"
+                                },
+                                {
+                                    "extract": "id",
+                                    "generate": "NumberOfEmployees"
+                                },
+                                {
+                                    "extract": "last_name",
+                                    "generate": "Upsert__c"
+                                },
+                                {
+                                    "extract": "addresses[*].country",
+                                    "generate": "ShippingCountry"
+                                },
+                                {
+                                    "extract": "id",
+                                    "generate": "ParentId"
+                                },
+                                {
+                                    "extract": "addresses[*].address1",
+                                    "generate": "ShippingStreet"
+                                },
+                                {
+                                    "extract": "addresses[*].city",
+                                    "generate": "ShippingCity"
+                                },
+                                {
+                                    "extract": "created_at",
+                                    "generate": "SLAExpirationDate__c"
+                                },
+                                {
+                                    "extract": "id",
+                                    "generate": "Contact__c"
+                                },
+                                {
+                                    "extract": "default_address.address1",
+                                    "generate": "BillingAddress"
+                                },
+                                {
+                                    "extract": "updated_at",
+                                    "generate": "date_time__c"
+                                },
+                                {
+                                    "extract": "updated_at",
+                                    "generate": "LastModifiedDate"
+                                },
+                                {
+                                    "extract": "state",
+                                    "generate": "inactive__c"
+                                },
+                                {
+                                    "extract": "state",
+                                    "generate": "Active__c"
+                                },
+                                {
+                                    "extract": "id",
+                                    "generate": "Upsert_Field__c"
+                                },
+                                {
+                                    "generate": "Billing Zip/Posta",
+                                    "lookupName": "lk"
+                                }
+                            ]
+                        },
+                        "salesforce": {
+                            "operation": "insert",
+                            "sObjectType": "Account",
+                            "api": "soap",
+                            "lookups": [
+                                {
+                                    "name": "lookupsf",
+                                    "whereClause": "(Name = {{{string first_name}}})",
+                                    "sObjectType": "Account",
+                                    "resultField": "Id",
+                                    "allowFailures": false
+                                },
+                                {
+                                    "name": "lk",
+                                    "whereClause": "(Description = {{{textarea first_name}}})",
+                                    "sObjectType": "Account",
+                                    "resultField": "Id",
+                                    "allowFailures": false
+                                }
+                            ],
+                            "removeNonSubmittableFields": false,
+                            "blobContentVersionOperation": "insert",
+                            "blobOperation": "insert",
+                            "blobsObjectType": "Account"
+                        },
+                        "adaptorType": "SalesforceImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C28631",
+                "disabled": false,
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,118 @@
+{
+    "qa_editSettings": {
+        "_id": "629dcf107fa8000d6fd3f511",
+        "name": "PC Hidden",
+        "install": [],
+        "mode": "settings",
+        "sandbox": false,
+        "_registeredConnectionIds": [],
+        "installSteps": [
+              {
+                      "name": "Execute scripts in hidden step",
+                      "description": "Click on the link to get the IO bundle link, install and then verify the installation.",
+                      "imageUrl": "/images/company-logos/netsuite.png",
+                      "completed": false,
+                      "type": "hidden",
+                      "_scriptId": "628fb04cc51f323382311e9d",
+                      "function": "hiddenStep"
+                  },{
+                      "name": "Step with redirect URL",
+                      "completed": false,
+                      "type": "url",
+                      "url": "https://www.celigo.com/ipaas-integration-platform/"
+                  }
+          ],
+        "uninstallSteps": [],
+        "flowGroupings": [],
+        "initChild": {
+          "_scriptId": "628fb04cc51f323382311e9d",
+          "function": "initChildIntegration"
+        }
+      },
+"qa_importJson": {
+    "environment": "Production",
+    "name": "TC_IAF_011_C28092",
+    "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+    "_integrationId": "629dcf107fa8000d6fd3f511",
+    "applications": ["activecampaign"],
+    "framework": "twoDotZero",
+    "twoDotZero": {
+      "_integrationId": "629dcf107fa8000d6fd3f511"
+    }
+  },
+  "qa_expectedJson": {
+    "name": "TC_IAF_011_C28092",
+    "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+    "published": false,
+    "managed": false,
+    "_integrationId": "629dcf107fa8000d6fd3f511",
+    "applications": ["ActiveCampaign"],
+    "framework": "twoDotZero",
+    "twoDotZero": {
+      "_integrationId": "629dcf107fa8000d6fd3f511",
+      "editions": []
+    }
+  },
+  "editSettings": {
+    "_id": "631ab4e83796483e5615b74d",
+    "name": "PC Hidden",
+    "install": [],
+    "mode": "settings",
+    "sandbox": false,
+    "_registeredConnectionIds": [],
+    "installSteps": [
+          {
+                  "name": "Execute scripts in hidden step",
+                  "description": "Click on the link to get the IO bundle link, install and then verify the installation.",
+                  "imageUrl": "/images/company-logos/netsuite.png",
+                  "completed": false,
+                  "type": "hidden",
+                  "_scriptId": "626137e61ce14c420e01c86b",
+                  "function": "hiddenStep1"
+              },{
+                  "name": "Step with redirect URL",
+                  "completed": false,
+                  "type": "url",
+                  "url": "https://www.celigo.com/ipaas-integration-platform/"
+              }
+      ],
+    "uninstallSteps": [],
+    "flowGroupings": [],
+    "initChild": {
+      "_scriptId": "626137e61ce14c420e01c86b",
+      "function": "initChildIntegration"
+    }
+  },
+"importJson": {
+"environment": "Production",
+"name": "TC_IAF_011_C28092",
+"contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+"_integrationId": "631ab4e83796483e5615b74d",
+"applications": ["activecampaign"],
+"framework": "twoDotZero",
+"twoDotZero": {
+  "_integrationId": "631ab4e83796483e5615b74d"
+}
+},
+"expectedJson": {
+"name": "TC_IAF_011_C28092",
+"contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+"published": false,
+"managed": false,
+"_integrationId": "631ab4e83796483e5615b74d",
+"applications": ["ActiveCampaign"],
+"framework": "twoDotZero",
+"twoDotZero": {
+  "_integrationId": "631ab4e83796483e5615b74d",
+  "editions": []
+}
+},
+  "setupConnection": {
+    "integrationName":"PC Hidden",
+    "activecampaignSubdomain": "jnsajkcbajbfewfbkbjk",
+    "token": "jfbewjkfbefnevbelve",
+    "uninstall":"true"
+  },
+  "integrationName":"PC Hidden",
+  "app": "ActiveCampaign"
+}

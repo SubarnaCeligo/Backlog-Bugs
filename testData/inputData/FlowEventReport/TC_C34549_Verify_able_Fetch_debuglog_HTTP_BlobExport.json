@@ -1,0 +1,72 @@
+{
+    "pageProcessors": [
+      {
+        "type": "export",
+        "qa__export": {
+          "name": "HTTP blob zendesk export-PP",
+          "application": "zendesk support",
+          "_connectionId": "HTTP ZENDESK CONNECTION",
+          "adaptorType": "HTTPExport",
+          "asynchronous": true,
+          "parsers": [],
+          "isLookup": true,
+          "type": "blob",
+          "oneToMany": true,
+          "pathToMany": "attachments",
+          "http": {
+            "relativeURI": "{{data.content_url}}",
+            "method": "GET"
+          }
+        },
+        "responseMapping": {
+          "lists": [],
+          "fields": [
+            {
+              "extract": "data[0].blobKey",
+              "generate": "blobKey"
+            }
+          ],
+          "qa__index": 0
+        }
+      },
+      {
+        "type": "import",
+        "qa__import": {
+          "qa__type": "blob",
+          "name": "ftp blob import",
+          "_connectionId": "FTP CONNECTION",
+          "oneToMany": false,
+          "blobKeyPath": "blobKey",
+          "blob": true,
+          "sandbox": false,
+          "file": {
+            "fileName": "HTTP_BLOB.json",
+            "skipAggregation": false
+          },
+          "ftp": {
+            "directoryPath": "/io.auto.qa/IO_UI_Automation",
+            "fileName": "HTTP_BLOB.json"
+          },
+          "adaptorType": "FTPImport"
+        }
+      }
+    ],
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "name": "HTTP Zendesk Tickets export-PG",
+          "application": "zendesk support",
+          "_connectionId": "HTTP ZENDESK CONNECTION",
+          "adaptorType": "HTTPExport",
+          "asynchronous": true,
+          "http": {
+            "relativeURI": "api/v2/tickets/126/comments.json",
+            "method": "GET",
+            "response": {
+              "resourcePath": "comments"
+            }
+          }
+        }
+      }
+    ]
+  }

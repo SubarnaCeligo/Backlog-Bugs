@@ -1,0 +1,94 @@
+{
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "test",
+        "qa__path": "/FTP_uploads/TC_C32404.json",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "ee30ec3286",
+        "asynchronous": true,
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "TC_C32404"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json"
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "Create and update Organizations data",
+        "application":"zendesk support",
+        "parsers": [],
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "apiIdentifier": "i3fba49e77",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "lookups": [
+          {
+            "method": "GET",
+            "relativeURI": "/users/autocomplete.json?name=Celigo",
+            "extract": "users.[0].name",
+            "allowFailures": false,
+            "name": "Admin_Name",
+            "useImportHeaders": false
+          },
+          {
+            "map": {
+              "USA": "United States"
+            },
+            "allowFailures": false,
+            "name": "Country_Static",
+            "useImportHeaders": false
+          }
+        ],
+        "http": {
+          "relativeURI": [
+            "organizations/{{rows.[0].id}}",
+            "{{rows.[0].record_type}}"
+          ],
+          "method": ["PUT", "POST"],
+          "body": [
+            "{  \"organization\"}",
+            "{  \"organization\"}"
+          ],
+          "batchSize": 1,
+          "requestType": ["UPDATE", "CREATE"],
+          "strictHandlebarEvaluation": true,
+          "formType": "http",
+          "existingExtract": "id",
+          "lookups": [
+            {
+              "method": "GET",
+              "relativeURI": "/users/autocomplete.json?name=Celigo",
+              "extract": "users.[0].name",
+              "allowFailures": false,
+              "name": "Admin_Name",
+              "useImportHeaders": false
+            },
+            {
+              "map": {
+                "USA": "United States"
+              },
+              "allowFailures": false,
+              "name": "Country_Static",
+              "useImportHeaders": false
+            }
+          ]
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ]
+}

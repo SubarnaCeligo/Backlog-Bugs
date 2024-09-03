@@ -1,0 +1,293 @@
+{
+    "name": "TC_C47503_Flowbranching",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "timezone": "Asia/Calcutta",
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "_connectionId": "HUBSPOT CONNECTION",
+                "type": "test",
+                "assistant": "hubspot",
+                "oneToMany": false,
+                "sandbox": false,
+                "assistantMetadata": {
+                    "resource": "contacts",
+                    "version": "v1",
+                    "operation": "get_all_contacts"
+                },
+                "http": {
+                    "relativeURI": "/contacts/v1/lists/all/contacts/all",
+                    "method": "GET",
+                    "successMediaType": "json",
+                    "errorMediaType": "json",
+                    "formType": "assistant",
+                    "paging": {
+                        "method": "token",
+                        "path": "vid-offset",
+                        "relativeURI": "/contacts/v1/lists/all/contacts/all?vidOffset={{{export.http.paging.token}}}",
+                        "lastPageStatusCode": 404
+                    },
+                    "response": {
+                        "resourcePath": "contacts"
+                    }
+                },
+                "test": {
+                    "limit": 1
+                },
+                "qa__assistant": {
+                    "resource": "contacts",
+                    "endpoint": "Search for contacts",
+                    "queryParams": {
+                        "ids": "41052"
+                    }
+                },
+                "rest": {
+                    "relativeURI": "/contacts/v1/lists/all/contacts/all",
+                    "method": "GET",
+                    "resourcePath": "contacts",
+                    "pagingMethod": "token",
+                    "nextPagePath": "vid-offset",
+                    "allowUndefinedResource": false,
+                    "pageArgument": "vidOffset"
+                },
+                "adaptorType": "RESTExport"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "ELEtML",
+            "routeRecordsTo": "first_matching_branch",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "_connectionId": "FTP CONNECTION",
+                                "file": {
+                                    "fileName": "FTP1.json",
+                                    "skipAggregation": false,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                                    "fileName": "FTP1.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ],
+                    "inputFilter": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "[canonical-vid]"
+                                ]
+                            ],
+                            "41052"
+                        ]
+                    },
+                    "qa__rules": [
+                        [
+                            "record.[canonical-vid]",
+                            "equal",
+                            "41052"
+                        ]
+                    ],
+                    "nextRouterId": "XtJ5Cq"
+                },
+                {
+                    "name": "Branch 1.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "_connectionId": "FTP CONNECTION",
+                                "file": {
+                                    "fileName": "FTP2.json",
+                                    "skipAggregation": false,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                                    "fileName": "FTP2.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ],
+                    "inputFilter": {
+                        "rules": [
+                            "notequals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "[canonical-vid]"
+                                ]
+                            ],
+                            "41052"
+                        ]
+                    },
+                    "qa__rules": [
+                        [
+                            "record.[canonical-vid]",
+                            "not_equal",
+                            "41052"
+                        ]
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        },
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "XtJ5Cq",
+            "routeRecordsTo": "first_matching_branch",
+            "branches": [
+                {
+                    "name": "Branch 2.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "_connectionId": "FTP CONNECTION",
+                                "file": {
+                                    "fileName": "FTP3.json",
+                                    "skipAggregation": false,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                                    "fileName": "FTP3.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ],
+                    "inputFilter": {
+                        "rules": [
+                            "notequals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "[canonical-vid]"
+                                ]
+                            ],
+                            "41052"
+                        ]
+                    },
+                    "qa__rules": [
+                        [
+                            "record.[canonical-vid]",
+                            "not_equal",
+                            "41052"
+                        ]
+                    ]
+                },
+                {
+                    "name": "Branch 2.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "_connectionId": "FTP CONNECTION",
+                                "file": {
+                                    "fileName": "FTP4.json",
+                                    "skipAggregation": false,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                                    "fileName": "FTP4.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ],
+                    "inputFilter": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "[canonical-vid]"
+                                ]
+                            ],
+                            "41052"
+                        ]
+                    },
+                    "qa__rules": [
+                        [
+                            "record.[canonical-vid]",
+                            "equal",
+                            "41052"
+                        ]
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "name": "TC_C47503_Flowbranching",
+                "_integrationId": "62e10a314713213613bf5658",
+                "import": {
+                    "_connectionId": "FTP CONNECTION",
+                    "file": {
+                        "csv": {
+                            "columnDelimiter": ";"
+                        }
+                    }
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "FTP1",
+                    "folderName": "io.auto.qa/IO_UI_Automation",
+                    "fileType": ".json"
+                }
+            }
+        }
+    }
+}

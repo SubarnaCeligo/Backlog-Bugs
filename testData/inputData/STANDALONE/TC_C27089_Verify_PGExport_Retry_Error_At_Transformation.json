@@ -1,0 +1,109 @@
+{
+    "flowname": "TC_C27089_FG",
+    "name": "TC_C27089_",
+    "flowGroup": "TC_C27089_FG",
+    "qa__expectedDashboardCount": {
+        "successCount": "0",
+        "ignoreCount": "0",
+        "errorCount": "1"
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "sf_expo",
+                        "_connectionId": "630c68778ebe9b6853db8473",
+                        "apiIdentifier": "e34e02866a",
+                        "asynchronous": true,
+                        "type": "test",
+                        "dataURITemplate": "https://do0000000catveay-dev-ed.my.salesforce.com/001/o",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "rawData": "61e68956b587067a214ac5ed431e1753c79c458c897b16cf30009f2f",
+                        "test": {
+                            "limit": 1
+                        },
+                        "salesforce": {
+                            "type": "soql",
+                            "api": "rest",
+                            "soql": {
+                                "query": "select id, name from account"
+                            }
+                        },
+                        "transform": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [
+                                    [
+                                        {
+                                            "extract": "name",
+                                            "generate": "Name"
+                                        }
+                                    ]
+                                ],
+                                "version": "1"
+                            },
+                            "version": "1",
+                            "rules": [
+                                [
+                                    {
+                                        "extract": "name",
+                                        "generate": "Name"
+                                    }
+                                ]
+                            ]
+                        },
+                        "adaptorType": "SalesforceExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "ftp",
+                        "_connectionId": "62ff60052dac2950afa67aac",
+                        "apiIdentifier": "ie87d7cfbc",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "file": {
+                            "fileName": "file-{{timestamp}}.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "io.auto.qa/IO_UI_Automation",
+                            "fileName": "file-{{timestamp}}.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C27089_FG",
+                "disabled": false,
+                "_integrationId": "6228aed6bc8a2732cfe8044c",
+                "qa__integrationId": "6228aed6bc8a2732cfe8044c",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

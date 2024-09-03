@@ -1,0 +1,170 @@
+{
+    "name": "TC_C59703",
+    "disabled": false,
+    "_integrationId": "62f51e1f0f2ee6482b136853",
+    "qa__integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "qa__api_tdata": [
+        {
+            "createIntegrations": {
+                "name": "Delete_TC_C59703"
+            }
+        }
+    ],
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "Ftp Export",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "ed604ea8eb",
+                "asynchronous": true,
+                "sandbox": false,
+                "sampleData": [
+                    {
+                        "id": 1,
+                        "name": "Records1",
+                        "email": "test@gamail.com"
+                    }
+                ],
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "C47423.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "autoResolveMatchingTraceKeys": true,
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "CEqJxB",
+            "routeRecordsTo": "all_matching_branches",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "nextRouterId": "XiHUpm",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "HTTP IMPORT",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "apiIdentifier": "i437276680",
+                                "ignoreExisting": false,
+                                "ignoreMissing": false,
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "blobKey",
+                                            "generate": "blobkey"
+                                        }
+                                    ]
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "test"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "body": [],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Branch 1.1",
+                    "nextRouterId": "XiHUpm",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [
+                                    {
+                                        "extract": "data",
+                                        "generate": "Result"
+                                    }
+                                ],
+                                "lists": []
+                            },
+                            "type": "export",
+                            "qa__export": {
+                                "name": "Http Lookup",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "apiIdentifier": "e35fa77a40",
+                                "asynchronous": true,
+                                "isLookup": true,
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "http": {
+                                    "relativeURI": "users",
+                                    "method": "GET",
+                                    "formType": "http",
+                                    "response": {
+                                        "resourcePath": "users"
+                                    }
+                                },
+                                "adaptorType": "HTTPExport"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "XiHUpm",
+            "branches": [
+                {
+                    "name": "",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "FTP",
+                                "_connectionId": "FTP CONNECTION",
+                                "apiIdentifier": "i702c7a3cd",
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "file": {
+                                    "fileName": "file-{{timestamp}}.json",
+                                    "skipAggregation": false,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "DFG",
+                                    "fileName": "file-{{timestamp}}.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

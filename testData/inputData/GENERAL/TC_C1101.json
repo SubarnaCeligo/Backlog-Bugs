@@ -1,0 +1,175 @@
+{
+    "templateJSON": {
+        "Source_Environment": "Production",
+        "Source_Integration": "TC_C1101"
+    },
+    "testData": [
+        {
+            "importJSON": {
+                "type": "http",
+                "name": "Rest Zendesk Connection",
+                "sandbox": false,
+                "http": {
+                    "formType": "rest",
+                    "mediaType": "json",
+                    "baseURI": "https://celigoqa.zendesk.com",
+                    "ping": {
+                        "relativeURI": "/api/v2/tickets.json",
+                        "method": "GET"
+                    },
+                    "unencrypted": {
+                        "field": "value"
+                    },
+                    "encrypted": "******",
+                    "auth": {
+                        "type": "basic",
+                        "basic": {
+                            "username": "mounica.manavapati@celigo.com",
+                            "qa__password": "Y2VsaWdvMTIzNA=="
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "revisionLongDescriptionVerification": {
+        "descriptionIncludes": "UPDATE WITH NEW"
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "REST_Export",
+                        "application": "zendesk support",
+                        "_connectionId": "UPDATE WITH NEW",
+                        "apiIdentifier": "ee3d0991de",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "parsers": [
+                            {
+                                "type": "xml",
+                                "version": "1",
+                                "rules": {
+                                    "V0_json": true,
+                                    "stripNewLineChars": false,
+                                    "trimSpaces": false
+                                }
+                            }
+                        ],
+                        "http": {
+                            "relativeURI": "/users",
+                            "method": "GET",
+                            "formType": "http"
+                        },
+                        "rawData": "56d6b114e1fc35de5391472ccf2e56d2258549cabe1b1e952d5a7541",
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "REST_Import",
+                        "_connectionId": "UPDATE WITH NEW",
+                        "apiIdentifier": "ie152631c1",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "mappings": [
+                            {
+                                "generate": "tickets",
+                                "dataType": "objectarray",
+                                "status": "Active",
+                                "buildArrayHelper": [
+                                    {
+                                        "extract": "$.tickets[*]",
+                                        "mappings": [
+                                            {
+                                                "generate": "via",
+                                                "dataType": "object",
+                                                "status": "Active",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.tickets.via.channel",
+                                                        "generate": "channel",
+                                                        "dataType": "string",
+                                                        "status": "Active"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "http": {
+                            "relativeURI": [
+                                "/tickets.json"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "DELETE_FLOW",
+                "disabled": true,
+                "qa__integrationId": "UPDATE WITH NEW INTEGRATION ID",
+                "_integrationId": "",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            },
+            "createIntegrations": {
+                "name": "NEW INTEGRATION"
+            }
+        }
+    ],
+    "apiConnections": [
+        {
+            "importJSON": {
+                "type": "http",
+                "name": "Rest Zendesk Connection",
+                "http": {
+                    "formType": "rest",
+                    "mediaType": "json",
+                    "baseURI": "https://celigoqa.zendesk.com",
+                    "ping": {
+                        "relativeURI": "/api/v2/tickets.json",
+                        "method": "GET"
+                    },
+                    "auth": {
+                        "type": "basic",
+                        "basic": {
+                            "username": "mounica.manavapati@celigo.com"
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

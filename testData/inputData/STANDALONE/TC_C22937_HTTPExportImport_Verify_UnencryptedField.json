@@ -1,0 +1,43 @@
+[{
+    "_integrationId": "6228aed6bc8a2732cfe8044c",
+    "connectionId":"HTTP ZENDESK CONNECTION",
+    "connectionName": "ZendeskHTTP",
+    "expected": {
+        "connection": {
+          "name": "HTTPZDconnection",
+          "http": {
+            "unencrypted": {
+              "field": "value"
+            },
+            "encrypted": "********"
+          }
+        },
+        "export": {},
+        "settings": {
+          "integration": {},
+          "flow": {},
+          "flowGrouping": {},
+          "connection": {},
+          "export": {}
+        }
+      },
+    "expectedImport":{
+        "connection": {
+          "name": "HTTPZDconnection",
+          "http": {
+            "unencrypted": {
+              "field": "value"
+            },
+            "encrypted": "********"
+          }
+        },
+        "import": {},
+        "settings": {
+          "integration": {},
+          "flow": {},
+          "flowGrouping": {},
+          "connection": {},
+          "import": {}
+        }
+    }
+}]

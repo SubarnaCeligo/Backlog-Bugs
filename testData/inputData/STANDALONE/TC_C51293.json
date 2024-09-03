@@ -1,0 +1,91 @@
+{
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Ftp Export",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "ede1ad266b",
+                        "asynchronous": true,
+                        "sandbox": false,
+                        "sampleData": {
+                            "email": "Jayneeel@orderhive.com",
+                            "first_name": "Jayneel",
+                            "last_name": "Automation",
+                            "contact_number": "889-878-5538"
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                            "fileNameStartsWith": "TC_C51293",
+                            "fileNameEndsWith": ".json"
+                        },
+                        "file": {
+                            "encoding": "utf8",
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "json"
+                        },
+                        "adaptorType": "FTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Http Import",
+                        "_connectionId": "63342152b0c8001f18a6e474",
+                        "apiIdentifier": "i6cf95e1c2",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": [
+                                "/orders/customers/105053096"
+                            ],
+                            "method": [
+                                "PUT"
+                            ],
+                            "body": [
+                                "{\n\"first_name\":\"{{record.first_name}}\",\n\"last_name\": \"{{record.last_name}}\",\n\"contact_number\":\"{{record.contact_number}}\"\n}"
+                            ],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C51293",
+                "disabled": true,
+                "_integrationId": "63232caf5342c33e615e7271",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    }
+}

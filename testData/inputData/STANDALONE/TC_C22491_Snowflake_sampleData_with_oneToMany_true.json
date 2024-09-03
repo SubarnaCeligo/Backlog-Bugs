@@ -1,0 +1,79 @@
+{
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "_connectionId": "FTP CONNECTION",
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "TC_C22491.json"
+        },
+        "qa__path": "//FTP_uploads//TC_C22491.json",
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json"
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [],
+  "withoutOneToMany": {
+    "record": {
+      "first_name": "C23737",
+      "last_name": "Retry",
+      "phone": null,
+      "addresses": [
+        {
+          "first_name": "Samuel",
+          "last_name": "deChamplain",
+          "company": "FancyCo."
+        }
+      ],
+      "default_address": {
+        "first_name": "Samuel",
+        "last_name": "deChamplai"
+      }
+    },
+    "connection": {
+      "name": "SnowflakeAutoaccount"
+    },
+    "import": {},
+    "settings": {
+      "integration": {},
+      "flow": {},
+      "flowGrouping": {},
+      "connection": {},
+      "import": {}
+    }
+  },
+  "withOneToMany": {
+    "record": {
+      "_PARENT": {
+        "first_name": "C23737",
+        "last_name": "Retry",
+        "phone": null,
+        "default_address": {
+          "first_name": "Samuel",
+          "last_name": "deChamplai"
+        }
+      },
+      "first_name": "Samuel",
+      "last_name": "deChamplain",
+      "company": "FancyCo."
+    },
+    "connection": {
+      "name": "SnowflakeAutoaccount"
+    },
+    "import": {},
+    "settings": {
+      "integration": {},
+      "flow": {},
+      "flowGrouping": {},
+      "connection": {},
+      "import": {}
+    }
+  }
+}

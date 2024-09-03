@@ -1,0 +1,429 @@
+{
+  "name": "TC_C28632",
+  "referencename": "TC_C28632",
+  "qa__dataVerification": {},
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Export_TC_C28632",
+            "application": "OpenAir",
+            "_connectionId": "HTTP OPENAIR CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "parsers": [
+              {
+                "type": "xml",
+                "version": "1",
+                "rules": {
+                  "V0_json": false,
+                  "trimSpaces": false,
+                  "stripNewLineChars": false
+                }
+              }
+            ],
+            "http": {
+              "method": "POST",
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><request API_version=\"1.0\" client=\"test app\" client_ver=\"1.1\" namespace=\"{{{connection.http.unencrypted.namespace}}}\" key=\"{{{connection.http.unencrypted.apiKey}}}\">  <Auth>    <Login>      <company>{{{connection.http.unencrypted.companyId}}}</company>      <user>{{{connection.http.unencrypted.userId}}}</user>      <password>{{{connection.http.encrypted.password}}}</password>    </Login>  </Auth>  <Read type=\"Project\"  enable_custom= \"1\" method=\"all\" filter=\"newer-than\" field=\"updated\" limit=\"{{{export.http.paging.skip}}},1\"/></request>",
+              "formType": "http",
+              "response": {
+                "resourcePath": "/response/Read/Project",
+                "successPath": "response/Read/@status"
+              }
+            },
+            "rawData": "EMPTY RAW DATA",
+            "transform": {
+              "type": "expression",
+              "expression": {
+                "rules": [
+                  [
+                    {
+                      "extract": "active",
+                      "generate": "active"
+                    },
+                    {
+                      "extract": "auto_bill",
+                      "generate": "auto_bill"
+                    },
+                    {
+                      "extract": "auto_bill_cap_value",
+                      "generate": "auto_bill_cap_value"
+                    },
+                    {
+                      "extract": "budget",
+                      "generate": "budget"
+                    },
+                    {
+                      "extract": "budget_time",
+                      "generate": "budget_time"
+                    },
+                    {
+                      "extract": "created.Date.day",
+                      "generate": "created.Date.day"
+                    },
+                    {
+                      "extract": "created.Date.hour",
+                      "generate": "created.Date.hour"
+                    },
+                    {
+                      "extract": "created.Date.minute",
+                      "generate": "created.Date.minute"
+                    },
+                    {
+                      "extract": "created.Date.month",
+                      "generate": "created.Date.month"
+                    },
+                    {
+                      "extract": "created.Date.second",
+                      "generate": "created.Date.second"
+                    },
+                    {
+                      "extract": "created.Date.year",
+                      "generate": "created.Date.year"
+                    },
+                    {
+                      "extract": "customer_name",
+                      "generate": "customer_name"
+                    },
+                    {
+                      "extract": "customerid",
+                      "generate": "customerid"
+                    },
+                    {
+                      "extract": "finish_date.Date.day",
+                      "generate": "finish_date.Date.day"
+                    },
+                    {
+                      "extract": "finish_date.Date.month",
+                      "generate": "finish_date.Date.month"
+                    },
+                    {
+                      "extract": "finish_date.Date.year",
+                      "generate": "finish_date.Date.year"
+                    },
+                    {
+                      "extract": "id",
+                      "generate": "id"
+                    },
+                    {
+                      "extract": "name",
+                      "generate": "name"
+                    },
+                    {
+                      "extract": "notes",
+                      "generate": "notes"
+                    },
+                    {
+                      "extract": "notify_owner",
+                      "generate": "notify_owner"
+                    },
+                    {
+                      "extract": "per_customer_project_id_seq__c",
+                      "generate": "per_customer_project_id_seq__c"
+                    },
+                    {
+                      "extract": "picklist_label",
+                      "generate": "picklist_label"
+                    },
+                    {
+                      "extract": "project_stageid",
+                      "generate": "project_stageid"
+                    },
+                    {
+                      "extract": "rate",
+                      "generate": "rate"
+                    },
+                    {
+                      "extract": "sf_date_field__c",
+                      "generate": "sf_date_field__c"
+                    },
+                    {
+                      "extract": "sga_labor",
+                      "generate": "sga_labor"
+                    },
+                    {
+                      "extract": "start_date.Date.day",
+                      "generate": "start_date.Date.day"
+                    },
+                    {
+                      "extract": "start_date.Date.month",
+                      "generate": "start_date.Date.month"
+                    },
+                    {
+                      "extract": "start_date.Date.year",
+                      "generate": "start_date.Date.year"
+                    },
+                    {
+                      "extract": "ta_approver",
+                      "generate": "ta_approver"
+                    },
+                    {
+                      "extract": "ta_include",
+                      "generate": "ta_include"
+                    },
+                    {
+                      "extract": "tb_approver",
+                      "generate": "tb_approver"
+                    },
+                    {
+                      "extract": "te_approver",
+                      "generate": "te_approver"
+                    },
+                    {
+                      "extract": "te_include",
+                      "generate": "te_include"
+                    },
+                    {
+                      "extract": "updated.Date.day",
+                      "generate": "updated.Date.day"
+                    },
+                    {
+                      "extract": "updated.Date.hour",
+                      "generate": "updated.Date.hour"
+                    },
+                    {
+                      "extract": "updated.Date.minute",
+                      "generate": "updated.Date.minute"
+                    },
+                    {
+                      "extract": "updated.Date.month",
+                      "generate": "updated.Date.month"
+                    },
+                    {
+                      "extract": "updated.Date.second",
+                      "generate": "updated.Date.second"
+                    },
+                    {
+                      "extract": "updated.Date.year",
+                      "generate": "updated.Date.year"
+                    },
+                    {
+                      "extract": "userid",
+                      "generate": "userid"
+                    }
+                  ]
+                ],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": [
+                [
+                  {
+                    "extract": "active",
+                    "generate": "active"
+                  },
+                  {
+                    "extract": "auto_bill",
+                    "generate": "auto_bill"
+                  },
+                  {
+                    "extract": "auto_bill_cap_value",
+                    "generate": "auto_bill_cap_value"
+                  },
+                  {
+                    "extract": "budget",
+                    "generate": "budget"
+                  },
+                  {
+                    "extract": "budget_time",
+                    "generate": "budget_time"
+                  },
+                  {
+                    "extract": "created.Date.day",
+                    "generate": "created.Date.day"
+                  },
+                  {
+                    "extract": "created.Date.hour",
+                    "generate": "created.Date.hour"
+                  },
+                  {
+                    "extract": "created.Date.minute",
+                    "generate": "created.Date.minute"
+                  },
+                  {
+                    "extract": "created.Date.month",
+                    "generate": "created.Date.month"
+                  },
+                  {
+                    "extract": "created.Date.second",
+                    "generate": "created.Date.second"
+                  },
+                  {
+                    "extract": "created.Date.year",
+                    "generate": "created.Date.year"
+                  },
+                  {
+                    "extract": "customer_name",
+                    "generate": "customer_name"
+                  },
+                  {
+                    "extract": "customerid",
+                    "generate": "customerid"
+                  },
+                  {
+                    "extract": "finish_date.Date.day",
+                    "generate": "finish_date.Date.day"
+                  },
+                  {
+                    "extract": "finish_date.Date.month",
+                    "generate": "finish_date.Date.month"
+                  },
+                  {
+                    "extract": "finish_date.Date.year",
+                    "generate": "finish_date.Date.year"
+                  },
+                  {
+                    "extract": "id",
+                    "generate": "id"
+                  },
+                  {
+                    "extract": "name",
+                    "generate": "name"
+                  },
+                  {
+                    "extract": "notes",
+                    "generate": "notes"
+                  },
+                  {
+                    "extract": "notify_owner",
+                    "generate": "notify_owner"
+                  },
+                  {
+                    "extract": "per_customer_project_id_seq__c",
+                    "generate": "per_customer_project_id_seq__c"
+                  },
+                  {
+                    "extract": "picklist_label",
+                    "generate": "picklist_label"
+                  },
+                  {
+                    "extract": "project_stageid",
+                    "generate": "project_stageid"
+                  },
+                  {
+                    "extract": "rate",
+                    "generate": "rate"
+                  },
+                  {
+                    "extract": "sf_date_field__c",
+                    "generate": "sf_date_field__c"
+                  },
+                  {
+                    "extract": "sga_labor",
+                    "generate": "sga_labor"
+                  },
+                  {
+                    "extract": "start_date.Date.day",
+                    "generate": "start_date.Date.day"
+                  },
+                  {
+                    "extract": "start_date.Date.month",
+                    "generate": "start_date.Date.month"
+                  },
+                  {
+                    "extract": "start_date.Date.year",
+                    "generate": "start_date.Date.year"
+                  },
+                  {
+                    "extract": "ta_approver",
+                    "generate": "ta_approver"
+                  },
+                  {
+                    "extract": "ta_include",
+                    "generate": "ta_include"
+                  },
+                  {
+                    "extract": "tb_approver",
+                    "generate": "tb_approver"
+                  },
+                  {
+                    "extract": "te_approver",
+                    "generate": "te_approver"
+                  },
+                  {
+                    "extract": "te_include",
+                    "generate": "te_include"
+                  },
+                  {
+                    "extract": "updated.Date.day",
+                    "generate": "updated.Date.day"
+                  },
+                  {
+                    "extract": "updated.Date.hour",
+                    "generate": "updated.Date.hour"
+                  },
+                  {
+                    "extract": "updated.Date.minute",
+                    "generate": "updated.Date.minute"
+                  },
+                  {
+                    "extract": "updated.Date.month",
+                    "generate": "updated.Date.month"
+                  },
+                  {
+                    "extract": "updated.Date.second",
+                    "generate": "updated.Date.second"
+                  },
+                  {
+                    "extract": "updated.Date.year",
+                    "generate": "updated.Date.year"
+                  },
+                  {
+                    "extract": "userid",
+                    "generate": "userid"
+                  }
+                ]
+              ]
+            },
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "FTP_TC_C28632",
+            "parsers": [],
+            "_connectionId": "FTP CONNECTION",
+            "sandbox": false,
+            "file": {
+              "fileName": "FTPBRIDGE_ERROR-{{timestamp}}.json",
+              "type": "json",
+              "skipAggregation": true
+            },
+            "ftp": {
+              "directoryPath": "/wrongdirectory",
+              "fileName": "FTPBRIDGE_ERROR-{{timestamp}}.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C28632",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}
