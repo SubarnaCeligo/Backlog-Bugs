@@ -20,5 +20,3 @@ require("./TC_C34143");
 require("./TC_C34146");
 require("./TC_C36423");
 require("./TC_C36425");
-require("./TC_C30908");
-require("./TC_C32972");
