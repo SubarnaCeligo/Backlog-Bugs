@@ -32,6 +32,8 @@ test.describe("@Author-ladimanish TC_T30970_T30971_T30960_T30968_T30993_T30994_T
 
     //T30971
     await io.assert.verifyElementToBeClickable(selectors.syncPagePO.WIZARD_CLOSE);
+    await io.sync.clickOnNext();
+    await io.myAccountPage.loadingTime();
 
     //T30960 T30968 T30993 T30994 T30997
     await io.assert.verifyElementDisplayedByText(
