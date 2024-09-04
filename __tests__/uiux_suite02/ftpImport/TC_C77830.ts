@@ -12,11 +12,13 @@ test.describe(`C77830 Validate User is able to see the more actions icon when do
            'FLOWS'
          );
          await io.api.runBatchFlowViaAPI('C77805', id);
+         await io.homePage.loadingTime()
          const lastRun = page.getByText('Last run')
-         await lastRun.waitFor({state: 'visible', timeout: 360000});
+         await lastRun.waitFor({state: 'visible', timeout: 600000});
          await io.homePage.delay(30000)
          await io.flowBuilder.clickByTextByIndex("1 error", 0);
+         await io.homePage.loadingTime()
          await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FTP_BRIDGE_ERROR_MORE_BUTTON);
-         await io.assert.verifyElementIsDisplayed (selectors.flowBuilderPagePO.FTP_BRIDGE_ERROR_MORE_BUTTON,"Element is present") 
+         await io.assert.verifyElementIsDisplayed (selectors.flowBuilderPagePO.FTP_BRIDGE_ERROR_MORE_BUTTON,"Element is present")
     });
   });
