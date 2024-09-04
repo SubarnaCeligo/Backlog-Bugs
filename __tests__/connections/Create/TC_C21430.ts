@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 
 
 test.describe("TC_C21430_Online is shown blue instead of green", () => {
-    test("@Env-All TC_C21430_Online is shown blue instead of green UI_Backlog", async ({ io, page },) => {
+    test("@Env-All @Zephyr-IO-T4429 TC_C21430_Online is shown blue instead of green UI_Backlog", async ({ io, page },) => {
         await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'netsuite');

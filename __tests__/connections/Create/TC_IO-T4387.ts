@@ -17,7 +17,7 @@ test.describe("TC_IO-T4387", () => {
     }
     
   });
-  test("@Env-All Verify when the offline connection is made online, success colour is changed to green.", async ({
+  test("@Env-All @Zephyr-IO-T4387 Verify when the offline connection is made online, success colour is changed to green.", async ({
     io,
     page
   }) => {
