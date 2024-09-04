@@ -7,13 +7,14 @@ test.describe(`Zephyr-IO-T19634 C50998`, () => {
     page
   }) => {
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
+    await io.homePage.loadingTime()
     await io.homePage.click(selectors.myAccountPagePO.SECURITY);
     await io.homePage.loadingTime()
     await io.homePage.click(selectors.myAccountPagePO.MFA);
     await io.homePage.loadingTime()
     const isToggleEnable = await io.myAccountPage.isVisible(selectors.myAccountPagePO.MFA_ON_OFF);
-    
-    //Check if the MFA is enabled  
+
+    //Check if the MFA is enabled
     if(isToggleEnable) {
         await io.flowBuilder.clickByIndex(
             selectors.flowBuilderPagePO.HELP_TEXT_ICON,
@@ -30,7 +31,7 @@ test.describe(`Zephyr-IO-T19634 C50998`, () => {
           const daysPopup = await page.$(selectors.myAccountPagePO.HELP_BUBBLE);
           const daysHelpText = await daysPopup.textContent();
           expect(daysHelpText).toContain('Number of days until MFA is required again for trusted devicesIf left blank, MFA users who sign in from trusted devices are only required to enter their six-digit authentication code after 90 days of inactivity from the trusted device. To extend or reduce the default, enter the number of days of inactivity before re-authentication is required.');
-          
+
     }
     else{
     await io.flowBuilder.clickByIndex(

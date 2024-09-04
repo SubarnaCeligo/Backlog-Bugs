@@ -7,8 +7,10 @@ test.describe("C45580 Verify if the error message is shown correctly when the us
       await io.myAccountPage.click(selectors.myAccountPagePO.USERS);
       await io.myAccountPage.waitForElementAttached(selectors.flowBuilderPagePO.COLUMNS);
       await io.flowBuilder.clickByIndex(selectors.myAccountPagePO.USER_MFA_TOGGLE, 0);
+      await io.homePage.loadingTime()
       await io.assert.verifyElementIsDisplayed(selectors.basePagePO.NOTIFICATION_ID, 'Success notification did not appear');
       await io.flowBuilder.clickByIndex(selectors.myAccountPagePO.USER_MFA_TOGGLE, 0);
+      await io.homePage.loadingTime()
       await io.assert.verifyElementIsDisplayed(selectors.basePagePO.NOTIFICATION_ID, 'Disable notification did not appear');
   });
 });

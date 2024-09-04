@@ -34,9 +34,11 @@ test.describe("C42438 Verify Upgrade button changes in Home page & Subscription 
         "maxAllowedDataRetention": 60
       });
       await page.reload();
+      await io.homePage.loadingTime()
       await io.homePage.waitForElementAttached(selectors.basePagePO.RENEW_RESUME_NOW);
       await io.assert.verifyElementIsDisplayed(selectors.basePagePO.RENEW_RESUME_NOW, 'Renew or Resume now button not visible');
       await io.homePage.click(selectors.basePagePO.RENEW_RESUME_NOW);
+      await io.homePage.loadingTime()
       await io.homePage.click(selectors.basePagePO.SUBMIT_REQUEST);
       await io.assert.verifyElementIsDisplayed(selectors.basePagePO.NOTIFICATION, 'Success notification did not appear');
 
