@@ -37,3 +37,7 @@ require("./TC_C35796");
 require("./TC_C35916");
 require("./TC_C36039_VerifyDefaultPage_Set_0_InAFE");
 require("./TC_C36313");
+require("./TC_C35919_C35920");
+require("./TC_C36568_Connection_Export_pagesize");
+require("./TC_C36569_Connection_Export_pagesize");
+require("./TC_C37005_Verify_Google_BigQuery_Connection_Help_Text_Present");

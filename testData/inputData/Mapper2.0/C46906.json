@@ -22,7 +22,7 @@
                 }
             ],
             "http": {
-                "relativeURI": "/users",
+                "relativeURI": "/test",
                 "method": "GET",
                 "formType": "http"
             },

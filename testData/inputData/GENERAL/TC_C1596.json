@@ -8,7 +8,7 @@
             "usePassiveMode": true,
             "username": "io.auto.qa@celigo.com"
         },
-        "name": "Edit_Connection_FTP_SFTP",
+        "name": "1596_con",
         "type": "ftp"
     },
     "apiJSON": {
@@ -21,7 +21,7 @@
             "usePassiveMode": true,
             "username": "celigoc1"
         },
-        "name": "Edit_Connection_FTP_SFTP",
+        "name": "1596_con",
         "type": "ftp"
     },
     "importJSON": {
@@ -34,7 +34,7 @@
             "usePassiveMode": true,
             "username": "io.auto.qa@celigo.com"
         },
-        "name": "Edit_Connection_FTP_SFTP",
+        "name": "1596_con",
         "type": "ftp"
     }
 }
