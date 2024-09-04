@@ -26,15 +26,16 @@ var testCases = [
   "C112779",
   "C113404",
   "C113520",
-  "C113527",
+  // "C113527", Test connection button is removed and it is replaced by Save and Authorize 
+  //which requires authentcation at third party website
   "C113528",
   "C2044",
   "C23866",
   "C51572",
   "C51793",
-  "C52775",
-  "C52776",
-  "C52777",
+  // "C52775",//UI changed as part of new design changes Ref:https://celigo.atlassian.net/browse/IO-66876
+  // "C52776",//UI changed as part of new design changes Ref:https://celigo.atlassian.net/browse/IO-66876
+  // "C52777",//UI changed as part of new design changes Ref:https://celigo.atlassian.net/browse/IO-66876
   "C53343",
   "C53344",
   "C53345",
@@ -65,8 +66,8 @@ var testCases = [
   "C63062",
   "C63064",
   "C64961",
-  "C65462",
-  "C65490",
+  // "C65462",//Removing VAN connection cases as it is not recommended to create creating dummy servers in ECgrid
+  // "C65490",//Removing VAN connection cases as it is not recommended to create creating dummy servers in ECgrid
   "C66292",
   //"C67022", //Skipped as per discussion with TC Owner and QA team
   //"C67117", //Skipped as per discussion with TC Owner and QA team

@@ -1,21 +1,25 @@
 {
   "importJSON": {
+    "adaptorType": "FTPConnection",
+    "application": "FTP",
     "type": "ftp",
-    "name": "Create_Connection_FTP_test_offline_case",
-    "offline": true,
-    "sandbox": false,
+    "autoRecoverRateLimitErrors": true,
     "ftp": {
-      "type": "ftp",
-      "hostURI": "qa.ipaas2.net",
-      "port": 21,
+      "concurrencyLevel": 1,
+      "hostURI": "celigo.files.com",
+      "password": "Test",
+      "qa__password": "test",
+      "port": 22,
+      "requireSocketReUse": false,
+      "targetConcurrencyLevel": 1,
+      "type": "sftp",
+      "useImplicitFtps": false,
       "usePassiveMode": true,
       "userDirectoryIsRoot": false,
-      "useImplicitFtps": false,
-      "requireSocketReUse": false,
-      "username": "process.env[FTP_IPASS2_USERNAME]",
-      "qa__password": "process.env[FTP_IPASS2_PASSWORD]",
-      "password": "Test@123456"
-    }
+      "username": "io.auto.qa@celigo.com"
+    },
+    "name": "Create_Connection_FTP_test_offline_case",
+    "usePgp": false
   },
   "apiJSON": true
 }
