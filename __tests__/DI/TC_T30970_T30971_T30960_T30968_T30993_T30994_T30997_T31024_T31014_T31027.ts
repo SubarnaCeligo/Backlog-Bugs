@@ -29,9 +29,6 @@ test.describe("@Author-ladimanish TC_T30970_T30971_T30960_T30968_T30993_T30994_T
       selectors.syncPagePO.DESTINATION_APP_NAME_INPUT,
       "DESTINATION_APP_NAME_INPUT not displayed"
     );
-    await io.flowBuilder.click(selectors.syncPagePO.WIZARD_NEXT);
-    await io.myAccountPage.loadingTime();
-    await io.flowBuilder.click(selectors.syncPagePO.ADDITIONAL_SETTINGS);
 
     //T30971
     await io.assert.verifyElementToBeClickable(selectors.syncPagePO.WIZARD_CLOSE);

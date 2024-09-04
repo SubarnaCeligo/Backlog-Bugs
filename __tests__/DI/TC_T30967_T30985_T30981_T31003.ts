@@ -39,7 +39,7 @@ test.describe("@Author-ladimanish TC_T30967_T30985_T30981_T31003", () => {
     );
     await io.assert.verifyElementContainsText(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW,
-      "Use this field to configure the time zone that the integrator.io scheduler should use to run your integration sync."
+      "Set the time zone that the integrator.io scheduler should use to run your integration sync."
     );
     await io.flowBuilder.click(
       selectors.connectionsPagePO.HELPTEXT_CLOSE
