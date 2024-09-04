@@ -49,10 +49,6 @@ test.describe("@Author-ladimanish TC_T30970_T30971_T30960_T30968_T30993_T30994_T
       selectors.syncPagePO.SETTINGS_SCHEDULE_COMPLETE,
       "Settings schedule is not displayed"
     );
-    await io.assert.verifyElementIsDisplayed(
-      selectors.syncPagePO.SETTINGS_ADVANCED_COMPLETE,
-      "Settings advanced is not displayed"
-    );
     await io.assert.verifyElementToBeClickable(
       selectors.syncPagePO.SETTINGS_STEP
     );

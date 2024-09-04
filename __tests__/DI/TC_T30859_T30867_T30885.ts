@@ -56,7 +56,7 @@ test.describe("@Author-ladimanish TC_T30859_T30867_T30885", () => {
     );
     await io.assert.verifyElementContainsText(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW,
-      "The database schema to connect to."
+      "Select the destination database to store your sync data."
     );
     await io.flowBuilder.click(
       selectors.connectionsPagePO.HELPTEXT_CLOSE

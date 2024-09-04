@@ -27,7 +27,7 @@ test.describe("@Author-ladimanish TC_T30986_T30982_T31004_T30998", () => {
     );
     await io.assert.verifyElementContainsText(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW,
-      "The sync scheduler in"
+      "The sync scheduler defaults to"
     );
     await io.flowBuilder.click(
       selectors.connectionsPagePO.HELPTEXT_CLOSE

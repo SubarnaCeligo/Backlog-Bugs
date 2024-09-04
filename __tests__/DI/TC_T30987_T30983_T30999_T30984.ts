@@ -27,7 +27,7 @@ test.describe("@Author-ladimanish TC_T30987_T30983_T30999_T30984", () => {
     );
     await io.assert.verifyElementContainsText(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW,
-      "This field dictates how often your integration sync is run. Please log a support ticket if there is a specific preset frequency that you would like to see added to this list."
+      "This determines how often your sync runs."
     );
     await io.flowBuilder.click(
       selectors.connectionsPagePO.HELPTEXT_CLOSE
