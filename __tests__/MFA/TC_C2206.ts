@@ -19,6 +19,7 @@ test.describe(`C2206 Integration transfer that is cancelled in source account is
         res._id
       );
      await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL)
+     await io.homePage.loadingTime()
      await io.homePage.hover(selectors.basePagePO.NOTIFICATION_ARIA_LABEL)
      const text = await io.homePage.isVisible('text="No notifications"')
      await io.assert.expectToBeTrue(text, "Notification is found")

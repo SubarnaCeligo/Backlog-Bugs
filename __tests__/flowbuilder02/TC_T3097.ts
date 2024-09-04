@@ -36,8 +36,12 @@ test.describe("T3097 Custom settings should not be Shrinked once we select scrip
 
     //Clean up
     await io.flowBuilder.click(selectors.importPagePO.IMPORT_CLOSE_DRAWER);
+    await io.homePage.loadingTime();
+    await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
     await io.flowBuilder.waitForElementAttached(selectors.myAccountPagePO.DIALOG_BOX);
+    await io.homePage.loadingTime();
+    await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.DELETE_FLOW);

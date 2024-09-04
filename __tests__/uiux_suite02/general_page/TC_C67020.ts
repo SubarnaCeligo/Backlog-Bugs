@@ -8,6 +8,7 @@ test.describe('C67020 To verify that the delete option colour is changed to red 
     await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "Automation Flows")
     await io.homePage.loadingTime()
     await page.locator(selectors.homePagePO.LIST_VIEW).waitFor({ state: 'visible', timeout: 190000 });
+    await io.homePage.loadingTime()
     await io.homePage.clickByIndex(`:has-text("Automation Flows") ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`, 0);
     const color = await page.locator(selectors.homePagePO.DELETE_INTEGRATION).evaluate((el: any) => getComputedStyle(el).color);
     await io.assert.expectToBeValue(color, "rgb(217, 83, 79)", "Color not red");
