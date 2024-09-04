@@ -1,0 +1,109 @@
+{
+  "name": "TC_C51904",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "ftp_exp",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "e500a2ddd6",
+            "asynchronous": true,
+            "sandbox": false,
+            "ftp": {
+              "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+              "fileNameStartsWith": "TC_C52753"
+            },
+            "file": {
+              "output": "records",
+              "skipDelete": true,
+              "type": "json",
+              "groupByFields": ["nlobjRecordType"],
+              "groupEmptyValues": true
+            },
+            "adaptorType": "FTPExport",
+            "qa__path": "//FTP_uploads//TC_C52753.json"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "AutomationStandalone_3uCKQ",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "i9f749245e",
+            "oneToMany": false,
+            "sandbox": false,
+            "mappings": [
+              {
+                "dataType": "objectarray",
+                "status": "Draft",
+                "buildArrayHelper": [
+                  {
+                    "extract": "$.nlobjRecordType",
+                    "sourceDataType": "objectarray",
+                    "mappings": [
+                      {
+                        "generate": "test",
+                        "dataType": "string",
+                        "conditional": {
+                          "when": "extract_not_empty"
+                        },
+                        "status": "Draft",
+                        "sourceDataType": "string"
+                      },
+                      {
+                        "generate": "test1",
+                        "dataType": "string",
+                        "conditional": {
+                          "when": "extract_not_empty"
+                        },
+                        "status": "Draft",
+                        "sourceDataType": "string"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "file": {
+              "fileName": "file-{{timestamp}}.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "/IO",
+              "fileName": "file-{{timestamp}}.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C51904",
+        "disabled": false,
+        "qa__integrationId": "56d6b23fe1fc35de53914730",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "type": "export",
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

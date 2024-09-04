@@ -1,0 +1,268 @@
+{
+    "name": "TC_C47502",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "Zendesk export",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "macros",
+                    "method": "GET",
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "macros"
+                    }
+                },
+                "transform": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [
+                            [
+                                {
+                                    "extract": "id",
+                                    "generate": "id"
+                                },
+                                {
+                                    "extract": "title",
+                                    "generate": "title"
+                                },
+                                {
+                                    "extract": "position",
+                                    "generate": "something"
+                                }
+                            ]
+                        ],
+                        "version": "1"
+                    },
+                    "version": "1",
+                    "rules": [
+                        [
+                            {
+                                "extract": "id",
+                                "generate": "id"
+                            },
+                            {
+                                "extract": "title",
+                                "generate": "title"
+                            },
+                            {
+                                "extract": "position",
+                                "generate": "something"
+                            }
+                        ]
+                    ]
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "GKlAd3",
+            "routeRecordsTo": "all_matching_branches",
+            "branches": [
+                {
+                    "name": "R1B1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandaloneImport1_afsflk",
+                                "application":"zendesk support",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "ignoreExisting": false,
+                                "ignoreMissing": false,
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "generate": "organization.name",
+                                            "hardCodedValue": "Auto_TC_C47502_1"
+                                        },
+                                        {
+                                            "extract": "title",
+                                            "generate": "organization.notes"
+                                        }
+                                    ]
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "organizations.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "body": [],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ],
+                    "inputFilter": {
+                        "rules": [
+                            "startswith",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "title"
+                                ]
+                            ],
+                            "Customer"
+                        ]
+                    },
+                    "qa__rules": [
+                        [
+                            "record.title",
+                            "begins_with",
+                            "Customer"
+                        ]
+                    ]
+                },
+                {
+                    "name": "R1B2",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandaloneImport1_afsflk",
+                                "application":"zendesk support",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "ignoreExisting": false,
+                                "ignoreMissing": false,
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "generate": "organization.name",
+                                            "hardCodedValue": "Auto_TC_C47502_2"
+                                        },
+                                        {
+                                            "extract": "title",
+                                            "generate": "organization.notes"
+                                        }
+                                    ]
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "organizations.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "body": [],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ],
+                    "inputFilter": {
+                        "rules": [
+                            "contains",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "title"
+                                ]
+                            ],
+                            "Close"
+                        ]
+                    },
+                    "qa__rules": [
+                        [
+                            "record.title",
+                            "contains",
+                            "Close"
+                        ]
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branchRouter"
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "successCount": "6",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "zendesk": {
+                "_integrationId": "62f51db41677a21a108e5e3a",
+                "name": "TC_C47502",
+                "import": {
+                    "_connectionId": "HTTP ZENDESK CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "1",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "expectedJSON": {
+                        "name": "Auto_TC_C47502_1",
+                        "notes": "Customer not responding"
+                    },
+                    "uniqueField": "name",
+                    "generateSampleDropDownAvailable": false,
+                    "standaloneexportflowID": "62f60a990f2ee6482b13f99e",
+                    "importRecordType": "organizations",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "ebed365fdc"
+                }
+            },
+            "Zendesk": {
+                "_integrationId": "62f51db41677a21a108e5e3a",
+                "name": "TC_47584_Flowbranching",
+                "import": {
+                    "_connectionId": "HTTP ZENDESK CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "1",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "expectedJSON": {
+                        "name": "Auto_TC_C47502_2",
+                        "notes": "Close and redirect to topics"
+                    },
+                    "uniqueField": "name",
+                    "generateSampleDropDownAvailable": false,
+                    "standaloneexportflowID": "62f60a990f2ee6482b13f99e",
+                    "importRecordType": "organizations",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "ebed365fdc"
+                }
+            }
+        }
+    }
+}

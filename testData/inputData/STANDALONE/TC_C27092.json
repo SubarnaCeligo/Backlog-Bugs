@@ -1,0 +1,81 @@
+{
+    "name": "TC_C27092",
+    "qaprod_ftpcon": "62ff459b2dac2950afa67340",
+    "staging_scriptId": "64074758d7e3cb0f065820bd",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "SF opportunity",
+                        "_connectionId": "SALESFORCE CONNECTION",
+                        "apiIdentifier": "e5abe5be16",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "type": "test",
+                        "hooks": {
+                            "preSavePage": {
+                                "_scriptId": "630dc422fd1c785485e4822c",
+                                "function": "preSavePage"
+                            }
+                        },
+                        "test": {
+                            "limit": 1
+                        },
+                        "salesforce": {
+                            "type": "soql",
+                            "api": "rest",
+                            "soql": {
+                                "query": "select name from account"
+                            }
+                        },
+                        "adaptorType": "SalesforceExport"
+                      }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "FTP Hooks",
+                        "qa__connectionId": "62da8ccd89e1961a9dc36c0d",
+                        "_connectionId": "63f50c3728619c1eb3b9ca0f",
+                        "file": {
+                            "fileName": "TC_C27092.json",
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO Automation SFTP Imports",
+                            "fileName": "TC_C27092.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C27092",
+                "disabled": false,
+                "qa__integrationId": "6228aed6bc8a2732cfe8044c",
+                "_integrationId": "631a1266abf51e7a86c80ab4",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

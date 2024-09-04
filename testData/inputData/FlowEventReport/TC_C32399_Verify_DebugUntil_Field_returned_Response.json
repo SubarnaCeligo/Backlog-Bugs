@@ -1,0 +1,27 @@
+{
+    "pageGenerators": [
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "name": "Http_Import",
+          "application":"zendesk support",
+          "_connectionId": "HTTP ZENDESK CONNECTION",
+          "ignoreExisting": false,
+          "ignoreMissing": false,
+          "oneToMany": false,
+          "sandbox": false,
+          "http": {
+            "relativeURI": ["/test"],
+            "method": ["PUT"],
+            "body": [],
+            "batchSize": 1,
+            "sendPostMappedData": true,
+            "formType": "http"
+          },
+          "adaptorType": "HTTPImport"
+        }
+      }
+    ]
+  }

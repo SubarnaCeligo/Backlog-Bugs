@@ -1,0 +1,301 @@
+{
+  "name": "TC_C47487",
+  "disabled": false,
+  "_integrationId": "62f51db41677a21a108e5e3a",
+  "skipRetries": false,
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "AutomationStandaloneExport_Shopify",
+        "application": "Shopify",
+        "_connectionId": "HTTP SHOPIFY CONNECTION",
+        "type": "test",
+        "http": {
+          "relativeURI": "/customers/search.json?query=first_name:Gautham",
+          "method": "GET",
+          "formType": "http",
+          "response": {
+            "resourcePath": "customers"
+          }
+        },
+        "test": {
+          "limit": 1
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ],
+  "routers": [
+    {
+      "routeRecordsUsing": "input_filters",
+      "id": "pkqZUz",
+      "routeRecordsTo": "all_matching_branches",
+      "branches": [
+        {
+          "name": "Branch 1.0",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "AutomationStandaloneImport_FTP",
+                "_connectionId": "FTP CONNECTION",
+                "oneToMany": false,
+                "sandbox": false,
+                "mapping": {
+                  "fields": [
+                    {
+                      "extract": "email",
+                      "generate": "email"
+                    },
+                    {
+                      "extract": "first_name",
+                      "generate": "first_name"
+                    },
+                    {
+                      "extract": "last_name",
+                      "generate": "last_name"
+                    }
+                  ]
+                },
+                "file": {
+                  "fileName": "Shopify_FTP_1.json",
+                  "skipAggregation": false,
+                  "type": "json"
+                },
+                "ftp": {
+                  "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                  "fileName": "Shopify_FTP_1.json"
+                },
+                "adaptorType": "FTPImport"
+              }
+            }
+          ],
+          "inputFilter": {
+            "rules": [
+              "equals",
+              [
+                "string",
+                [
+                  "extract",
+                  "first_name"
+                ]
+              ],
+              "Gautham"
+            ]
+          },
+          "qa__rules": [
+            [
+              "record.first_name",
+              "equal",
+              "Gautham"
+            ]
+          ]
+        },
+        {
+          "name": "Branch 1.1",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "AutomationStandaloneImport_FTP",
+                "_connectionId": "FTP CONNECTION",
+                "mapping": {
+                  "fields": [
+                    {
+                      "extract": "email",
+                      "generate": "email"
+                    },
+                    {
+                      "extract": "first_name",
+                      "generate": "first_name"
+                    },
+                    {
+                      "extract": "last_name",
+                      "generate": "last_name"
+                    }
+                  ]
+                },
+                "file": {
+                  "fileName": "Shopify_FTP_2.json",
+                  "skipAggregation": false,
+                  "type": "json"
+                },
+                "ftp": {
+                  "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                  "fileName": "Shopify_FTP_2.json"
+                },
+                "adaptorType": "FTPImport"
+              }
+            }
+          ],
+          "inputFilter": {
+            "rules": [
+              "equals",
+              [
+                "string",
+                [
+                  "extract",
+                  "last_name"
+                ]
+              ],
+              "Raj"
+            ]
+          },
+          "qa__rules": [
+            [
+              "record.last_name",
+              "equal",
+              "Raj"
+            ]
+          ]
+        }
+      ],
+      "script": {
+        "function": "branching"
+      }
+    }
+  ],
+  "qa__expectedDashboardCount": {
+    "successCount": "3",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "importjson": {
+      "email": "gauthamraj.s@celigo.com",
+      "first_name": "Gautham",
+      "last_name": "Raj"
+    },
+    "application":"SHOPIFY",
+    "importapiIdentifier": "i75daa1e9a",
+    "exportRecordType": "Customer",
+    "expected": {
+      "FTP": {
+        "name": "TC_C47487",
+        "_integrationId": "62f51db41677a21a108e5e3a",
+        "import": {
+          "_connectionId": "FTP CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "3",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "fileName": "Shopify_FTP_1",
+          "isUIFlow": true,
+          "folderName": "/io.auto.qa/IO_UI_Automation",
+          "fileType": ".json"
+        }
+      },
+      "FTp": {
+        "name": "TC_C47487",
+        "_integrationId": "62f51db41677a21a108e5e3a",
+        "import": {
+          "_connectionId": "FTP CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "3",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "fileName": "Shopify_FTP_2",
+          "isUIFlow": true,
+          "folderName": "/io.auto.qa/IO_UI_Automation",
+          "fileType": ".json"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "633bde63677022566eb27b2f",
+      "createdAt": "2022-10-04T07:18:59.262Z",
+      "lastModified": "2022-10-04T07:52:42.599Z",
+      "name": "_DND-C47487",
+      "_connectionId": "59bf68cb9dca74182c1cd3f5",
+      "apiIdentifier": "i75daa1e9a",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "assistant": "shopify",
+      "sandbox": false,
+      "assistantMetadata": {
+        "resource": "customer",
+        "version": "v2",
+        "operation": "creates_acustomer"
+      },
+      "mapping": {
+        "fields": [
+          {
+            "extract": "email",
+            "generate": "customer.email"
+          },
+          {
+            "extract": "first_name",
+            "generate": "customer.first_name"
+          },
+          {
+            "extract": "last_name",
+            "generate": "customer.last_name"
+          },
+          {
+            "extract": "note",
+            "generate": "customer.note"
+          }
+        ]
+      },
+      "http": {
+        "relativeURI": [
+          "/customers.json"
+        ],
+        "method": [
+          "POST"
+        ],
+        "body": [
+          null
+        ],
+        "batchSize": 1,
+        "requestMediaType": "json",
+        "successMediaType": "json",
+        "errorMediaType": "json",
+        "strictHandlebarEvaluation": true,
+        "sendPostMappedData": true,
+        "formType": "assistant",
+        "response": {
+          "resourceIdPath": [
+            null
+          ]
+        }
+      },
+      "rest": {
+        "relativeURI": [
+          "/customers.json"
+        ],
+        "method": [
+          "POST"
+        ],
+        "body": [
+          null
+        ],
+        "responseIdPath": [
+          null
+        ],
+        "successPath": [
+          null
+        ],
+        "successValues": [
+          null
+        ]
+      },
+      "adaptorType": "RESTImport"
+    }
+  }
+}

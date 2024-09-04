@@ -1,0 +1,13 @@
+{
+  "errors": [
+      {
+          "code": "unexpected_error",
+          "message": "no error message found",
+          "source": "netsuite"
+      }
+  ],
+  "connection":{
+      "type":"netsuite",
+      "agent":false
+  }
+}

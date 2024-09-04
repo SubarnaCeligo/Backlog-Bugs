@@ -1,0 +1,258 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "name": "Bigcommerce customer create and update",
+                "application": "BigCommerce",
+                "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+                "qa__connectionId": "621cad647988314f51661dfb",
+                "apiIdentifier": "ic0a2d7c4c",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "lookups": [
+                    {
+                        "name": "companylookup",
+                        "method": "GET",
+                        "relativeURI": "/v3/customers?email:in=dynamiccustomer@gmail.com",
+                        "extract": "data[0].company",
+                        "body": "",
+                        "allowFailures": false,
+                        "useImportHeaders": true
+                    },
+                    {
+                        "name": "formfieldLookup",
+                        "map": {
+                            "T": "TEST"
+                        },
+                        "allowFailures": false,
+                        "useImportHeaders": true
+                    }
+                ],
+                "mappings": [
+                    {
+                        "dataType": "objectarray",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$",
+                                "mappings": [
+                                    {
+                                        "extract": "$.First Name",
+                                        "generate": "first_name",
+                                        "dataType": "string"
+                                    },
+                                    {
+                                        "extract": "$.company",
+                                        "generate": "company",
+                                        "dataType": "string",
+                                        "lookupName": "companylookup"
+                                    },
+                                    {
+                                        "extract": "$.Last Name",
+                                        "generate": "last_name",
+                                        "dataType": "string"
+                                    },
+                                    {
+                                        "extract": "$.email",
+                                        "generate": "email",
+                                        "dataType": "string"
+                                    },
+                                    {
+                                        "generate": "addresses",
+                                        "dataType": "objectarray",
+                                        "buildArrayHelper": [
+                                            {
+                                                "extract": "$.addresses[*]",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.addresses.address1",
+                                                        "generate": "address1",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.addresses.first_name",
+                                                        "generate": "first_name",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.addresses.last_name",
+                                                        "generate": "last_name",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.addresses.country_code",
+                                                        "generate": "country_code",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.addresses.postal_code",
+                                                        "generate": "postal_code",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "generate": "city",
+                                                        "dataType": "string",
+                                                        "hardCodedValue": "San Francisco"
+                                                    },
+                                                    {
+                                                        "extract": "{{#if record.email}}California{{else}}London{{/if}}",
+                                                        "generate": "state_or_province",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "generate": "addresses.form_fields",
+                                                        "dataType": "objectarray",
+                                                        "buildArrayHelper": [
+                                                            {
+                                                                "extract": "$.addresses.form_fields[*]",
+                                                                "mappings": [
+                                                                    {
+                                                                        "extract": "$.addresses.form_fields.name",
+                                                                        "generate": "name",
+                                                                        "dataType": "string",
+                                                                        "lookupName": "formfieldLookup"
+                                                                    },
+                                                                    {
+                                                                        "extract": "$.addresses.form_fields.value",
+                                                                        "generate": "value",
+                                                                        "dataType": "string"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "/v3/customers"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http",
+                    "lookups": [
+                        {
+                            "name": "companylookup",
+                            "method": "GET",
+                            "relativeURI": "/v3/customers?email:in=dynamiccustomer@gmail.com",
+                            "extract": "data[0].company",
+                            "body": "",
+                            "allowFailures": false,
+                            "useImportHeaders": true
+                        },
+                        {
+                            "name": "formfieldLookup",
+                            "map": {
+                                "T": "TEST"
+                            },
+                            "allowFailures": false,
+                            "useImportHeaders": true
+                        }
+                    ]
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C47438",
+    "disabled": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "expected": {
+            "bigcommerce": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "TC_C47438",
+                "import": {
+                    "_connectionId": "HTTP BIGCOMMERCE CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "standaloneexportflowID": "62a8c0a9d92aff47b2ebe5b3",
+                    "uniqueField": "first_name",
+                    "importRecordType": "customers",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e78d273c3f",
+                    "expectedJSON": [
+                        {
+                            "email": "testsnigdhap47438@example.com",
+                            "first_name": "Auto_TC_C47438",
+                            "last_name": "demo",
+                            "company": "microsoft",
+                            "addresses": [
+                                {
+                                    "first_name": "snig",
+                                    "last_name": "p",
+                                    "address1": "Downstreet",
+                                    "city": "San Francisco",
+                                    "state_or_province": "California",
+                                    "postal_code": "500081",
+                                    "country_code": "US",
+                                    "form_fields": [
+                                        {
+                                            "name": "TEST",
+                                            "value": "test"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "FTP Export TC_C47438",
+                "qa__path": "//SFTP_uploads//TC_C47438.json",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C47438.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ]
+}

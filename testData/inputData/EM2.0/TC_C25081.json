@@ -1,0 +1,72 @@
+{
+    "name": "TC_C25081",
+    "referencename": "TC_C25081",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "application": "MySQL",
+                        "name": "Export_TC_C25081",
+                        "_connectionId": "MYSQL CONNECTION",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "rawData": "603ce5ede9250226dcea4608b330c3916c7a4dedae0fcae96652ef4c",
+                        "rdbms": {
+                            "query": "select * from Manasa.Order_Items limit 1"
+                        },
+                        "adaptorType": "RDBMSExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Import_TC_C25081",
+                        "application": "MySQL",
+                        "parsers": [],
+                        "_connectionId": "MYSQL CONNECTION",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "lookups": [],
+                        "rdbms": {
+                            "query": [
+                                "insert into"
+                            ],
+                            "queryType": [
+                                "INSERT"
+                            ]
+                        },
+                        "adaptorType": "RDBMSImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C25081",
+                "disabled": false,
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

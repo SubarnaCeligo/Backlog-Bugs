@@ -1,0 +1,8 @@
+[{
+    "connectionId": "GOOGLEDRIVE CONNECTION",
+    "qa_Gdrive_Connection": "GOOGLEDRIVE CONNECTION",
+    "QA_GDrive_PGPConnection": "GDRIVE_PRIVATE_PUBLIC_KEY CONNECTION",
+    "Stage_Gdrive_PGPConnection": "GDRIVE_PRIVATE_PUBLIC_KEY CONNECTION",
+    "qa_Gdrive_PGP_PublicKey": "GDRIVE_PRIVATE_PUBLIC_KEY CONNECTION",
+    "staging_Gdrive_PGP_PublicKey": "GDRIVE_PRIVATE_PUBLIC_KEY CONNECTION"
+}]

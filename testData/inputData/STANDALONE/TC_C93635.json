@@ -1,0 +1,122 @@
+{
+  "name": "TC_C93635",
+  "referencename": "TC_C93635",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Zendesk requets export",
+            "qa__connectionId": "63f30de2aae687551452da76",
+            "_connectionId": "63f30de2aae687551452da76",
+            "asynchronous": true,
+            "assistant": "zendesk",
+            "assistantMetadata": {
+              "resource": "requests_api",
+              "version": "v2",
+              "operation": "list_requests"
+            },
+            "http": {
+              "relativeURI": "/api/v2/requests.json",
+              "method": "GET",
+              "successMediaType": "json",
+              "errorMediaType": "json",
+              "formType": "rest",
+              "paging": {
+                "lastPageStatusCode": 404,
+                "method": "url",
+                "path": "next_page"
+              },
+              "response": {
+                "resourcePath": "requests"
+              }
+            },
+            "rawData": "EMPTY RAW DATA",
+            "rest": {
+              "method": "GET",
+              "relativeURI": "/api/v2/requests.json",
+              "headers": [],
+              "pagingMethod": "nextpageurl",
+              "nextPagePath": "next_page",
+              "resourcePath": "requests",
+              "allowUndefinedResource": false
+            },
+            "adaptorType": "RESTExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "zendesk",
+            "qa__connectionId": "63f30de2aae687551452da76",
+            "_connectionId": "63f30de2aae687551452da76",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "assistant": "zendesk",
+            "sandbox": false,
+            "assistantMetadata": {
+              "resource": "tickets_api",
+              "version": "v2",
+              "operation": "create_tickets_api"
+            },
+            "lookups": [],
+            "http": {
+              "relativeURI": ["/api/v2/tickets.json"],
+              "method": ["POST"],
+              "body": [null],
+              "headers": [],
+              "batchSize": 1,
+              "requestMediaType": "json",
+              "successMediaType": "json",
+              "errorMediaType": "json",
+              "strictHandlebarEvaluation": true,
+              "sendPostMappedData": true,
+              "formType": "assistant",
+              "lookups": [],
+              "response": {
+                "resourceIdPath": [null]
+              }
+            },
+            "rest": {
+              "relativeURI": ["/api/v2/tickets.json"],
+              "method": ["POST"],
+              "body": [null],
+              "headers": [],
+              "responseIdPath": [null],
+              "successPath": [null],
+              "successValues": [null],
+              "lookups": []
+            },
+            "adaptorType": "RESTImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C93635",
+        "disabled": false,
+        "qa__integrationId": "63232caf5342c33e615e7271",
+        "_integrationId": "63232c59d3a9897fe95f9f2a",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

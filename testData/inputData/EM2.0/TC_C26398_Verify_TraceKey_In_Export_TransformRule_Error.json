@@ -1,0 +1,74 @@
+{
+  "name": "TC_C26398_Verify_TraceKey_In_Export_TransformRule_Error",
+  "referencename": "TC_C26398_Verify_TraceKey_In_Export_TransformRule_Error",
+  "qa__dataVerification": {},
+  "qa__api_tdata": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "TC_720_Export",
+        "_connectionId": "NETSUITE CONNECTION",
+        "asynchronous": true,
+        "parsers": [],
+        "distributed": {
+          "bearerToken": "******"
+        },
+        "netsuite": {
+          "type": "restlet",
+          "skipGrouping": true,
+          "statsOnly": false,
+          "restlet": {
+            "recordType": "customer",
+            "searchId": "298",
+            "criteria": [],
+            "columns": [],
+            "useSS2Restlets": false
+          }
+        }
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "TC_C26398_Verify_TraceKey_In_Export_TransformRule_Error",
+        "_connectionId": "6217731d97769c75085a4687",
+        "qa__connectionId": "6217385594fce7776c71a7a2",
+        "oneToMany": false,
+        "sandbox": false,
+        "file": {
+          "fileName": "sampletesting.json",
+          "skipAggregation": false,
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation",
+          "fileName": "sampletesting.json"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "createFlow": {
+    "name": "TC_C26398_Verify_TraceKey_In_Export_TransformRule_Error",
+    "disabled": false,
+    "_integrationId": "603ce75ac4fec33283691f43",
+    "skipRetries": false,
+    "pageProcessors": [
+      {
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        },
+        "type": "import",
+        "_importId": "UPDATE WITH NEW IMPORTID"
+      }
+    ],
+    "pageGenerators": [
+      {
+        "_exportId": "UPDATE WITH NEW EXPORTID"
+      }
+    ]
+  }
+}

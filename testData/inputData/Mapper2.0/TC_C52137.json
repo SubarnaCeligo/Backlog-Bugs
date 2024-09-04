@@ -1,0 +1,141 @@
+{
+    "import": {
+        "name": "TC_C52137",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "ie3964c86a",
+        "oneToMany": false,
+        "sandbox": false,
+        "mappings": [
+            {
+                "generate": "DifferentSourcesSettings",
+                "dataType": "stringarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                    {
+                        "extract": "$.id",
+                        "default": "Str1"
+                    },
+                    {
+                        "extract": "$.id1",
+                        "default": ""
+                    },
+                    {
+                        "extract": "$.id2",
+                        "default": null
+                    },
+                    {
+                        "extract": "$.id3",
+                        "conditional": {
+                            "when": "extract_not_empty"
+                        }
+                    }
+                ]
+            },
+            {
+                "generate": "DifferentSourcesSettings2",
+                "dataType": "stringarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                    {
+                        "extract": "$.id2",
+                        "default": "Str1"
+                    },
+                    {
+                        "extract": "$.id3",
+                        "default": ""
+                    },
+                    {
+                        "extract": "$.id4",
+                        "default": null
+                    },
+                    {
+                        "extract": "$.id5",
+                        "conditional": {
+                            "when": "extract_not_empty"
+                        }
+                    }
+                ]
+            },
+            {
+                "generate": "BooleanSameSourcesSettings",
+                "dataType": "booleanarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                    {
+                        "extract": "$.id4",
+                        "default": "true"
+                    },
+                    {
+                        "extract": "$.boolean5",
+                        "default": "false"
+                    },
+                    {
+                        "extract": "$.booleanid66",
+                        "default": "true"
+                    },
+                    {
+                        "extract": "$.booleanid88",
+                        "default": "true"
+                    }
+                ]
+            },
+            {
+                "generate": "NumberSameSourcesSettings",
+                "dataType": "numberarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                    {
+                        "extract": "$.numid4",
+                        "default": "45"
+                    },
+                    {
+                        "extract": "$.numid423",
+                        "default": "54"
+                    },
+                    {
+                        "extract": "$.numid43",
+                        "default": "23"
+                    },
+                    {
+                        "extract": "$.numid443423",
+                        "default": "321"
+                    }
+                ]
+            },
+            {
+                "generate": "NumberSameSourcesSettings",
+                "dataType": "numberarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                    {
+                        "extract": "$.numid43",
+                        "default": ""
+                    },
+                    {
+                        "extract": "$.numid42323",
+                        "default": null
+                    },
+                    {
+                        "extract": "$.numid43"
+                    },
+                    {
+                        "extract": "$.numid42323423",
+                        "conditional": {
+                            "when": "extract_not_empty"
+                        }
+                    }
+                ]
+            }
+        ],
+        "file": {
+            "fileName": "file-{{timestamp}}.json",
+            "skipAggregation": false,
+            "type": "json"
+        },
+        "ftp": {
+            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPimport",
+            "fileName": "file-{{timestamp}}.json"
+        },
+        "adaptorType": "FTPImport"
+    }
+}

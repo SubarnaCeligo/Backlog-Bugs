@@ -1,0 +1,29 @@
+{
+    "name": "TC_C1687",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "6228aed6bc8a2732cfe8044c",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "exphttp",
+                "application": "zendesk support",
+                "_connectionId" : "HTTP ZENDESK CONNECTION",
+                "asynchronous": true,
+                "type": "delta",
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "tickets/{{lastExportDateTime}}",
+                    "method": "POST",
+                    "formType": "http"
+                },
+                "delta": {
+                    "dateFormat": "DD/MM/YYYY"
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ]
+}

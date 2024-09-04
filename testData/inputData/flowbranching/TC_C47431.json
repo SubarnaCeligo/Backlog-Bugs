@@ -1,0 +1,91 @@
+{
+    "name": "47431",
+    "disabled": true,
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "_connectionId": "FTP CONNECTION",
+                "qa__path": "/FTP_uploads/C47423.json",
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "C47423.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "autoResolveMatchingTraceKeys": true,
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "OpsxpI",
+            "routeRecordsTo": "all_matching_branches",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "_connectionId": "FTP CONNECTION",
+                                "file": {
+                                    "fileName": "file1.json",
+                                    "skipAggregation": false,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                                    "fileName": "file1.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ],
+                    "nextRouterId": "9PzBbN"
+                },
+                {
+                    "name": "Branch 1.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "_connectionId": "FTP CONNECTION",
+
+                                "file": {
+                                    "fileName": "file2.json",
+                                    "skipAggregation": false,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                                    "fileName": "file2.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ],
+                    "nextRouterId": "9PzBbN"
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        }
+    ]
+}

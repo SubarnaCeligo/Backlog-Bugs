@@ -1,0 +1,255 @@
+{
+    "name": "TC_C47588",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "NS Export",
+                "description": "NS for multiple pages and records",
+                "_connectionId": "NETSUITE CONNECTION",
+                "asynchronous": true,
+                "pageSize": 5,
+                "oneToMany": false,
+                "sandbox": false,
+                "netsuite": {
+                    "type": "restlet",
+                    "skipGrouping": true,
+                    "statsOnly": false,
+                    "restlet": {
+                        "recordType": "customer",
+                        "searchId": "4537",
+                        "useSS2Restlets": false
+                    },
+                    "distributed": {
+                        "useSS2Framework": false
+                    }
+                },
+                "adaptorType": "NetSuiteExport"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "GKlAd3",
+            "routeRecordsTo": "all_matching_branches",
+            "branches": [
+                {
+                    "name": "R1B1",
+                    "inputFilter": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "id"
+                                ]
+                            ],
+                            "650920"
+                        ]
+                    },
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "setupInProgress": true
+                        }
+                    ],
+                    "nextRouterId": "osoPpx"
+                },
+                {
+                    "name": "R1B2",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "setupInProgress": true
+                        }
+                    ],
+                    "inputFilter": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "Phone"
+                                ]
+                            ],
+                            "(949) 099-2783"
+                        ]
+                    },
+                    "nextRouterId": "osoPpx"
+                },
+                {
+                    "name": "R1B3",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "setupInProgress": true
+                        }
+                    ],
+                    "inputFilter": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "Name"
+                                ]
+                            ],
+                            "MultifieldCust1"
+                        ]
+                    },
+                    "nextRouterId": "osoPpx"
+                }
+            ],
+            "script": {
+                "function": "branchRouter"
+            }
+        },
+        {
+            "id": "osoPpx",
+            "branches": [
+                {
+                    "name": "",
+                    "nextRouterId": "WXlQD6",
+                    "pageProcessors": []
+                }
+            ]
+        },
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "WXlQD6",
+            "routeRecordsTo": "first_matching_branch",
+            "branches": [
+                {
+                    "name": "R2B1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "setupInProgress": true
+                        }
+                    ],
+                    "inputFilter": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "Email"
+                                ]
+                            ],
+                            "MultifieldCust1"
+                        ]
+                    },
+                    "nextRouterId": "yCNC4t"
+                },
+                {
+                    "name": "R2B2",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "setupInProgress": true
+                        }
+                    ],
+                    "inputFilter": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "Name"
+                                ]
+                            ],
+                            "MultifieldCust1"
+                        ]
+                    },
+                    "nextRouterId": "yCNC4t"
+                },
+                {
+                    "name": "R2B3",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "setupInProgress": true
+                        }
+                    ],
+                    "inputFilter": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "id"
+                                ]
+                            ],
+                            "650920"
+                        ]
+                    },
+                    "nextRouterId": "yCNC4t"
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        },
+        {
+            "id": "yCNC4t",
+            "branches": [
+                {
+                    "name": "Merge Point",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandaloneImport1_afsflk",
+                                "application":"zendesk support",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "http": {
+                                    "relativeURI": [
+                                        "organizations.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

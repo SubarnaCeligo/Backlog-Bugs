@@ -1,0 +1,99 @@
+
+import { test, expect } from "@celigo/ui-core-automation";
+import * as selectors from "@celigo/aut-selectors";
+import TC_C49989 from "@testData/HTTPConnector2.0/TC_C49989.json";
+
+test.describe("TC_C49989", () => {
+  let flowId: string;
+  test.beforeEach(async ({io,page}, testInfo) => {
+    test.step("*** Beginning of Test Suite ***", async ()=>{});
+    await io.goToFlowsPage();
+  });
+  test.afterEach(async ({io,page}, testInfo) => {
+    await io.api.deleteFlowViaAPI(flowId)
+    test.step("*** Delete the flow ***", async ()=>{});
+  });
+  test("@Zephyr-IO-T17201 @Env-All TC_C49989", async ({io,page}, testInfo) => {
+    //*Create Flows
+    flowId = await io.createResourceFromAPI(TC_C49989, "FLOWS");
+    await test.step("Created Flow " + TC_C49989.name + " With ID " + flowId, async () => {});
+    await io.homePage.loadingTime();
+
+    test.step("*** Navigate to created flow ***", async ()=>{});
+    await io.flowBuilder.navigateToTheFlow(flowId);
+    await io.homePage.loadingTime();
+
+    test.step("*** Click on more actions***", async ()=>{});
+    await io.homePage.click(
+      selectors.integrationPagePO.OPENACTIONSMENU
+    );
+    test.step("*** Click on clone flow***", async ()=>{});
+    await io.homePage.click(selectors.flowBuilderPagePO.CLONEFLOW);
+    await io.homePage.loadingTime();
+    test.step("*** Click on sandbox***", async ()=>{});
+    await io.homePage.click(selectors.homePagePO.SANDBOX);
+    test.step("*** Select the integration***", async ()=>{});
+    await io.homePage.fillWebPage(
+      selectors.integrationPagePO.SELECT_DESTINATION_INTEGRATION,
+      "none"
+    );
+    test.step("*** Click on clone flow***", async ()=>{});
+    await io.homePage.click(
+      selectors.flowBuilderPagePO.CLONE_FLOW_BUTTON
+    );
+    await io.homePage.loadingTime();
+    test.step("*** Click on configure***", async ()=>{});
+    await io.homePage.click(
+      selectors.templatePagePO.CONFIGURE
+    );
+    await io.homePage.loadingTime();
+    test.step("*** Click on use existing connection***", async ()=>{});
+    await io.homePage.click(selectors.connectionsPagePO.EXISTING);
+    test.step("*** Select the required connection***", async ()=>{});
+    await io.homePage.click(selectors.basePagePO.CONNECTION);
+    await io.homePage.clickButtonByIndex(selectors.basePagePO.MENU_ITEM, 1);
+    test.step("*** Click on save connection***", async ()=>{});
+    await io.homePage.click(
+      selectors.basePagePO.SAVE
+    );
+
+    test.step("*** Click on sand box***", async ()=>{});
+    await io.homePage.click(selectors.homePagePO.SANDBOX_WDIO);
+    await io.homePage.loadingTime();
+    test.step("*** Navigate to sandbox integration***", async ()=>{});
+    await io.homePage.loadingTime();
+    test.step("*** Selecting the Standalone flows tile ***", async ()=>{});
+    await io.homePage.fillWebPage(
+      selectors.integrationPagePO.HOME_SEARCH,
+      "Standalone flows"
+    );
+    await io.homePage.clickButtonByIndex(selectors.homePagePO.INTEGRATION_NAME, 0);
+    await io.homePage.loadingTime();
+    await io.homePage.loadingTime();
+    test.step("*** Searching the flow ***", async ()=>{});
+    await io.homePage.click(selectors.basePagePO.SEARCH);
+    await io.homePage.fillWebPage(
+      selectors.basePagePO.SEARCH,
+      "Clone - " + TC_C49989.name
+    );
+    await io.homePage.loadingTime();
+    test.step("*** Searching the flow ***", async ()=>{});
+    var data = await io.homePage.getText(
+      selectors.basePagePO.TEMPLATESTABLENAMES
+    );
+    test.step("*** Validate the cloned flow ***", async ()=>{});
+    await expect(data).toContain("Clone - " + TC_C49989.name);
+    test.step("*** Click on more actions***", async ()=>{});
+    await io.homePage.click(
+      selectors.integrationPagePO.OPENACTIONSMENU
+    );
+    test.step("*** delete the flow ***", async ()=>{});
+    await io.homePage.click(selectors.integrationPagePO.DELETE_FLOW);
+    await io.homePage.click(
+      selectors.basePagePO.DELETE
+    );
+    await io.homePage.loadingTime();
+    test.step("*** Click on production ***", async ()=>{});
+    await io.homePage.click(selectors.homePagePO.PRODUCTION_WDIO);
+  });
+});

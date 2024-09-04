@@ -1,0 +1,49 @@
+{
+    "name": "TC_C46903",
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "disabled": false,
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "TC_C46903_import",
+                "_connectionId": "FTP CONNECTION",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "xyz.xlsx",
+                    "skipAggregation": false,
+                    "type": "xlsx"
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/TC",
+                    "fileName": "xyz.xlsx"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ],
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "TC_C46903_export",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "/users",
+                    "method": "GET",
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "users"
+                    }
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ]
+}

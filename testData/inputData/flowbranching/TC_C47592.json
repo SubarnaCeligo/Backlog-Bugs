@@ -1,0 +1,152 @@
+{
+    "name": "TC_C47592",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "AutomationStandaloneExport_asdff32",
+                "_connectionId": "HUBSPOT CONNECTION",
+                "asynchronous": true,
+                "type": "test",
+                "assistant": "hubspot",
+                "oneToMany": false,
+                "assistantMetadata": {
+                    "resource": "line_items",
+                    "version": "v3",
+                    "operation": "get_all_line_items"
+                },
+                "http": {
+                    "relativeURI": "/crm/v3/objects/line_items?properties=name, price, quantity, hs_sku, hs_product_id&associations=deals",
+                    "method": "GET",
+                    "successMediaType": "json",
+                    "errorMediaType": "json",
+                    "formType": "assistant",
+                    "paging": {
+                        "method": "token",
+                        "path": "paging.next.after",
+                        "relativeURI": "/crm/v3/objects/line_items?properties=name, price, quantity, hs_sku, hs_product_id&associations=deals&after={{{export.http.paging.token}}}",
+                        "lastPageStatusCode": 404
+                    },
+                    "response": {
+                        "resourcePath": "results"
+                    }
+                },
+                "test": {
+                    "limit": 1
+                },
+                "rest": {
+                    "relativeURI": "/crm/v3/objects/line_items?properties=name, price, quantity, hs_sku, hs_product_id&associations=deals",
+                    "method": "GET",
+                    "resourcePath": "results",
+                    "pagingMethod": "token",
+                    "nextPagePath": "paging.next.after",
+                    "allowUndefinedResource": false,
+                    "pageArgument": "after"
+                },
+                "adaptorType": "RESTExport"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "GKlAd3",
+            "routeRecordsTo": "all_matching_branches",
+            "branches": [
+                {
+                    "name": "R1B1",
+                    "inputFilter": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "id"
+                                ]
+                            ],
+                            "130028597"
+                        ]
+                    },
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "setupInProgress": true
+                        },
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "OneToMany",
+                                "application":"zendesk support",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "ignoreExisting": false,
+                                "ignoreMissing": false,
+                                "oneToMany": true,
+                                "pathToMany": "associations.deals.results",
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "_PARENT.properties.name",
+                                            "generate": "user.name"
+                                        }
+                                    ]
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "users"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "body": [],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            },
+                            "_importId": "UPDATE WITH NEW IMPORTID"
+                        }
+                    ]
+                },
+                {
+                    "name": "R1B2",
+                    "inputFilter": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "id"
+                                ]
+                            ],
+                            "130028595"
+                        ]
+                    },
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "setupInProgress": true
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        }
+    ]
+}

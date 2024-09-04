@@ -1,0 +1,76 @@
+{
+  "name": "TC_C23853_FTP_Import_Edit",
+  "disabled": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "AutomationStandalone_export",
+            "adaptorType": "SalesforceExport",
+            "parsers": [],
+            "salesforce": {
+              "distributed": {
+                "relatedLists": [],
+                "userDefinedReferencedFields": [],
+                "referencedFields": []
+              },
+              "soql": {
+                "query": "Select Name from Account Limit 3"
+              },
+              "api": "rest",
+              "type": "soql"
+            },
+            "asynchronous": true,
+            "_connectionId": "SALESFORCE CONNECTION",
+            "qa__connectionId": "62b98b81112746097f4f5a63"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "AutomationStandalone_import",
+            "parsers": [],
+            "_connectionId": "FTP CONNECTION",
+            "file": {
+              "fileName": "sample.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "testtest",
+              "fileName": "sample.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C23853_FTP_Import_Edit",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

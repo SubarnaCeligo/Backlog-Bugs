@@ -1,0 +1,131 @@
+{
+    "name": "TC_C47505",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "timezone": "Asia/Calcutta",
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "AutomationStandaloneExport_l23rk2",
+                "_connectionId": "NETSUITE CONNECTION",
+                "asynchronous": true,
+                "pageSize": 5,
+                "oneToMany": false,
+                "sandbox": false,
+                "netsuite": {
+                    "type": "restlet",
+                    "skipGrouping": true,
+                    "statsOnly": false,
+                    "restlet": {
+                        "recordType": "customer",
+                        "searchId": "4537",
+                        "useSS2Restlets": false
+                    },
+                    "distributed": {
+                        "useSS2Framework": false
+                    }
+                },
+                "adaptorType": "NetSuiteExport"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "GKlAd3",
+            "routeRecordsTo": "all_matching_branches",
+            "branches": [
+                {
+                    "name": "First Branch",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandaloneImport1_afsflk",
+                                "application":"zendesk support",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "name",
+                                            "generate": "organization.name"
+                                        },
+                                        {
+                                            "extract": "notes",
+                                            "generate": "organization.notes"
+                                        }
+                                    ]
+                                },
+                                "lookups": [],
+                                "http": {
+                                    "relativeURI": [
+                                        "organizations.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Second Branch",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "SF import",
+                                "adaptorType": "SalesforceImport",
+                                "salesforce": {
+                                    "removeNonSubmittableFields": false,
+                                    "sObjectType": "Account",
+                                    "api": "soap",
+                                    "operation": "insert"
+                                },
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "name",
+                                            "generate": "Name"
+                                        },
+                                        {
+                                            "extract": "phone",
+                                            "generate": "Phone"
+                                        },
+                                        {
+                                            "extract": "fax",
+                                            "generate": "Fax"
+                                        },
+                                        {
+                                            "extract": "email",
+                                            "generate": "Email__c"
+                                        }
+                                    ]
+                                },
+                                "_connectionId": "SALESFORCE CONNECTION",
+                                "distributed": false
+                            }
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branchRouter"
+            }
+        }
+    ]
+}

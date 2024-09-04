@@ -1,0 +1,35 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "Rest SendPostMappedData with body",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "mapping": {
+                    "fields": [
+                        {
+                            "extract": "Name",
+                            "generate": "Name"
+                        }
+                    ]
+                },
+                "http": {
+                    "relativeURI": [
+                        "organizations"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "batchSize": 1,
+                    "formType": "http",
+                    "qa__formType": "rest"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "pageGenerators": []
+}

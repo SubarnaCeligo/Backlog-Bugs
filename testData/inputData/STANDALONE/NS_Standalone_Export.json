@@ -1,0 +1,130 @@
+{
+    "name": "NS Standalone Export&Lookup Flow",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "NS Standalone Export",
+              "_connectionId": "NETSUITE CONNECTION",
+              "apiIdentifier": "e4a16e1e99",
+              "asynchronous": true,
+              "oneToMany": false,
+              "sandbox": false,
+              "rawData": "61e68956b587067a214ac5edf709270077d14408a375f2c710a1caed",
+              "netsuite": {
+                "type": "restlet",
+                "skipGrouping": true,
+                "statsOnly": false,
+                "restlet": {
+                  "recordType": "customer",
+                  "searchId": "3814",
+                  "useSS2Restlets": false,
+                  "criteria": [
+                    {
+                      "field": "companyname",
+                      "operator": "startswith",
+                      "searchValue": "TC"
+                    }
+                  ]
+                },
+                "distributed": {
+                  "useSS2Framework": false
+                }
+              },
+              "filter": {
+                "type": "expression",
+                "expression": {
+                  "rules": [
+                    "equals",
+                    [
+                      "string",
+                      [
+                        "extract",
+                        "recordType"
+                      ]
+                    ],
+                    "demo"
+                  ],
+                  "version": "1"
+                },
+                "version": "1",
+                "rules": [
+                  "equals",
+                  [
+                    "string",
+                    [
+                      "extract",
+                      "recordType"
+                    ]
+                  ],
+                  "demo"
+                ]
+              },
+              "adaptorType": "NetSuiteExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+            {
+              "type": "export",
+              "qa__export": {
+                "name": "NS Standalone Lookup",
+                "_connectionId": "NETSUITE CONNECTION",
+                "apiIdentifier": "ecc16e715d",
+                "isLookup": true,
+                "netsuite": {
+                  "type": "restlet",
+                  "skipGrouping": true,
+                  "statsOnly": false,
+                  "restlet": {
+                    "recordType": "customer",
+                    "searchId": "3814",
+                    "criteria": [
+
+                    ],
+                    "columns": [
+
+                    ],
+                    "useSS2Restlets": false
+                  },
+                  "distributed": {
+                    "executionContext": [
+
+                    ],
+                    "executionType": [
+
+                    ],
+                    "useSS2Framework": false
+                  }
+                },
+                "adaptorType": "NetSuiteExport"
+              }
+            }
+          ],
+        "createFlow": {
+          "name": "NS Standalone Export&Lookup Flow",
+          "_integrationId": "6228aed6bc8a2732cfe8044c",
+          "disabled": false,
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+
+             "type": "export",
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

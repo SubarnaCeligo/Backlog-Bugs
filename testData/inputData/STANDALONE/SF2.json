@@ -1,0 +1,73 @@
+{
+    "name": "SF2",
+    "referencename": "SF2",
+    "qa__dataVerification": {},
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+                "name": "FTP Blob EXPORT",
+                "_connectionId": "62da8ccd89e1961a9dc36c0d",
+                "apiIdentifier": "e58b7a351a",
+                "asynchronous": true,
+                "type": "blob",
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "automation"
+                },
+                "file": {
+                    "output": "blobKeys",
+                    "skipDelete": true
+                },
+                "adaptorType": "FTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "_connectionId": "SALESFORCE CONNECTION",
+              "apiidentifier":"i8d5c2b498",
+              "adaptorType": "SalesforceImport",
+              "oneToMany": false,
+              "sandbox": false,
+              "ignoreExisting": false,
+              "ignoreMissing": false,
+              "name": "SF import",
+              "salesforce": {
+                "operation": "insert",
+                "sObjectType": "Account",
+                "api": "compositerecord",
+                "removeNonSubmittableFields": false
+            }
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "SF2",
+          "disabled": false,
+          "_integrationId": "6228aed6bc8a2732cfe8044c",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

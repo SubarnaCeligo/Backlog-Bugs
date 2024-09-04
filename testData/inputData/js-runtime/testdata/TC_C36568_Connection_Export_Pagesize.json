@@ -1,0 +1,32 @@
+{
+    "_connectionId": "NETSUITE CONNECTION",
+    "createAPIBody": {
+        "export": {
+            "name": "Customer flow",
+            "_connectionId": "NETSUITE CONNECTION",
+            "asynchronous": true,
+            "pageSize": 10,
+            "oneToMany": false,
+            "sandbox": false,
+            "rawData": "5e8c197894e7326199c855e1fb2cbe4059e64b6fbd1823aaff41e9d9",
+            "netsuite": {
+                "type": "restlet",
+                "skipGrouping": true,
+                "statsOnly": false,
+                "restlet": {
+                    "recordType": "customer",
+                    "searchId": "3160",
+                    "useSS2Restlets": false
+                },
+                "distributed": {
+                    "disabled": false,
+                    "forceReload": false
+                }
+            },
+            "adaptorType": "NetSuiteExport"
+        }
+    },
+    "expected": {
+        "pageIndex": 2
+    }
+}

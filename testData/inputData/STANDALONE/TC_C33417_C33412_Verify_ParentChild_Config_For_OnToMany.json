@@ -1,0 +1,89 @@
+{
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "_connectionId": "FTP CONNECTION",
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "TC33417_TC33412.json"
+        },
+        "qa__path": "//FTP_uploads//TC33417_TC33412.json",
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json"
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [],
+  "withOneToMany": {
+    "record": {
+      "_PARENT": {
+        "first_name": "C23737",
+        "last_name": "Retry",
+        "phone": null,
+        "default_address": {
+          "first_name": "Samuel",
+          "last_name": "deChamplai"
+        }
+      },
+      "first_name": "Samuel",
+      "last_name": "deChamplain",
+      "company": "FancyCo."
+    },
+    "connection": {
+      "name": "Freshdeskconnection",
+      "http": {
+        "unencrypted": {
+          "field": "value"
+        },
+        "encrypted": "********"
+      }
+    },
+    "import": {},
+    "settings": {
+      "integration": {},
+      "flow": {},
+      "flowGrouping": {},
+      "connection": {},
+      "import": {}
+    }
+  },
+  "withOneToManyLookup": {
+    "record": {
+      "_PARENT": {
+        "first_name": "C23737",
+        "last_name": "Retry",
+        "phone": null,
+        "default_address": {
+          "first_name": "Samuel",
+          "last_name": "deChamplai"
+        }
+      },
+      "first_name": "Samuel",
+      "last_name": "deChamplain",
+      "company": "FancyCo."
+    },
+    "connection": {
+      "name": "Freshdeskconnection",
+      "http": {
+        "unencrypted": {
+          "field": "value"
+        },
+        "encrypted": "********"
+      }
+    },
+    "export": {},
+    "settings": {
+      "integration": {},
+      "flow": {},
+      "flowGrouping": {},
+      "connection": {},
+      "export": {}
+    }
+  }
+}

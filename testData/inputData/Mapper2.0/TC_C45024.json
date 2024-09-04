@@ -1,0 +1,221 @@
+{
+    "name": "TC_C45024",
+    "disabled": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "successCount": "2",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "AutomationStandaloneExport__2SfgpVYOj",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                    "fileNameStartsWith": "TC_C45024.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport",
+                "qa__path": "//SFTP_uploads//TC_C45024.json"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "AutomationStandaloneImport__P7dfgpVYOj",
+                "application": "shopify",
+                "_connectionId": "HTTP SHOPIFY CONNECTION",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "lookups": [
+                    {
+                        "name": "lookupForBoolean",
+                        "method": "GET",
+                        "relativeURI": "/orders/4434757831.json",
+                        "extract": "order.confirmed",
+                        "body": "",
+                        "allowFailures": false,
+                        "useImportHeaders": true
+                    }
+                ],
+                "mappings": [
+                    {
+                        "generate": "order",
+                        "dataType": "object",
+                        "status": "Active",
+                        "mappings": [
+                            {
+                                "extract": "$[*].contact_email",
+                                "generate": "contact_email",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "$[*].email",
+                                "generate": "email",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "generate": "line_items",
+                                "dataType": "objectarray",
+                                "status": "Active",
+                                "buildArrayHelper": [
+                                    {
+                                        "extract": "$[*].items[*]",
+                                        "sourceDataType": "objectarray",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.items.title",
+                                                "generate": "title",
+                                                "dataType": "string",
+                                                "status": "Active",
+                                                "sourceDataType": "string"
+                                            },
+                                            {
+                                                "extract": "$.items.price",
+                                                "generate": "price",
+                                                "dataType": "string",
+                                                "status": "Active",
+                                                "sourceDataType": "string"
+                                            },
+                                            {
+                                                "generate": "tax_lines",
+                                                "dataType": "objectarray",
+                                                "status": "Active",
+                                                "buildArrayHelper": [
+                                                    {
+                                                        "extract": "$.items.inventory[*]",
+                                                        "sourceDataType": "objectarray",
+                                                        "mappings": [
+                                                            {
+                                                                "extract": "$.items.inventory.SName",
+                                                                "generate": "title",
+                                                                "dataType": "string",
+                                                                "status": "Active",
+                                                                "sourceDataType": "string"
+                                                            },
+                                                            {
+                                                                "extract": "$.items.inventory.SAmount",
+                                                                "generate": "price",
+                                                                "dataType": "string",
+                                                                "status": "Active",
+                                                                "sourceDataType": "string"
+                                                            },
+                                                            {
+                                                                "extract": "$.items.inventory.sQty",
+                                                                "generate": "rate",
+                                                                "dataType": "number",
+                                                                "status": "Active",
+                                                                "sourceDataType": "number"
+                                                            },
+                                                            {
+                                                                "generate": "channel_liable",
+                                                                "dataType": "boolean",
+                                                                "lookupName": "lookupForBoolean",
+                                                                "status": "Active",
+                                                                "sourceDataType": "string"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "/users.json"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http",
+                    "lookups": [
+                        {
+                            "name": "lookupForBoolean",
+                            "method": "GET",
+                            "relativeURI": "/orders/4434757831.json",
+                            "extract": "order.confirmed",
+                            "body": "",
+                            "allowFailures": false,
+                            "useImportHeaders": true
+                        }
+                    ]
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "expected": {
+            "shopify": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "TC_C45024",
+                "import": {
+                    "_connectionId": "56d6c2c95900861a56d6464f"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "uniqueField": "contact_email",
+                    "standaloneexportflowID": "62f535a30f2ee6482b1376a9",
+                    "importRecordType": "orders",
+                    "exportapiIdentifier": "e1f5b3036b",
+                    "expectedJSON": {
+                        "contact_email": "Auto_TC_C45024@example.com",
+                        "email": "Auto_TC_C45024@example.com",
+                        "line_items": [
+                            {
+                                "title": "itemTitle",
+                                "price": "197.19",
+                                "tax_lines": [
+                                    {
+                                        "title": "ACC00001 Name",
+                                        "price": "140.00",
+                                        "rate": 1,
+                                        "channel_liable": true
+                                    },
+                                    {
+                                        "title": "ACC00002 Name",
+                                        "price": "150.00",
+                                        "rate": 2,
+                                        "channel_liable": true
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

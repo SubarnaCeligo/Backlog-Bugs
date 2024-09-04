@@ -1,0 +1,80 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "Create organizations with AFE rows",
+        "application": "zendesk support",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "mapping": {
+          "fields": [
+            {
+              "extract": "Name",
+              "generate": "Name"
+            }
+          ]
+        },
+        "apiIdentifier": "i3fd309503",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "formType": "http",
+          "qa__formType": "rest",
+          "relativeURI": [
+            "api/v2/organizations/create_many.json"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [
+            "{\n  \"organizations\": [{\n    \"name\": \"{{rows.[0].name}}\",\n    \"notes\": \"{{connection.name}}\",\n    \"organization_fields\": {\n      \"email\": \"{{rows.[0].email}}\",\n      \"billing_address_1\": \"{{join \"/\" rows.[0].billing_address_1 rows.[0].billing_city}}\",\n      \"billing_city\": \"{{rows.[0].billing_city}}\",\n      \"billing_state\": \"{{rows.[0].billing_state}}\",\n      \"shipping_address_1\": \"{{lookup \"Admin_Name\" this}}\",\n      \"shipping_city\": \"{{rows.[0].shipping_city}}\",\n      \"shipping_state\": \"{{rows.[0].shipping_state}}\",\n      \"shipping_country\": \"{{lookup \"Country_Static\" rows.[0].shipping_country}}\"\n    }\n  }]\n}"
+          ],
+          "batchSize": 1,
+          "strictHandlebarEvaluation": true,
+          "lookups": [
+            {
+              "map": {
+                "USA": "United States"
+              },
+              "allowFailures": false,
+              "name": "Country_Static",
+              "useImportHeaders": false
+            },
+            {
+              "method": "GET",
+              "relativeURI": "api/v2/users/1473313072",
+              "extract": "user.name",
+              "allowFailures": false,
+              "name": "Admin_Name",
+              "useImportHeaders": false
+            }
+          ]
+        },
+        "lookups": [
+          {
+            "map": {
+              "USA": "United States"
+            },
+            "allowFailures": false,
+            "name": "Country_Static",
+            "useImportHeaders": false
+          },
+          {
+            "method": "GET",
+            "relativeURI": "api/v2/users/1473313072",
+            "extract": "user.name",
+            "allowFailures": false,
+            "name": "Admin_Name",
+            "useImportHeaders": false
+          }
+        ],
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "pageGenerators": []
+}

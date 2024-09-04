@@ -1,0 +1,36 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "name": "TC_35749_With_Body",
+          "application": "zendesk support",
+          "parsers": [],
+          "qa__connectionId": "627b6bd17ca3007138a67d30",
+          "_connectionId": "HTTP ZENDESK CONNECTION",
+          "oneToMany": false,
+          "blob": true,
+          "sandbox": false,
+          "lookups": [],
+          "http": {
+            "relativeURI": [
+              "organizations"
+            ],
+            "method": [
+              "POST"
+            ],
+            "body": [
+              "{\"organization\":{\"name\":\"{{record.name}}\",\"notes\":\"{{record.notes}}\",\"organization_fields\":{\"email\":\"{{record.email}}\",\"billing_address_1\":\"{{record.billing_address_1}}\",\"billing_address2\":\"{{record.billing_address2}}\",\"billing_city\":\"{{record.billing_city}}\",\"billing_state\":\"{{record.billing_state}}\",\"shipping_address_1\":\"{{record.User.0.users.0.name}}\",\"shipping_city\":\"{{record.shipping_city}}\",\"shipping_state\":\"{{record.shipping_state}}\",\"shipping_country\":\"{{record.shipping_country}}\"}}}"
+            ],
+            "batchSize": 1,
+            "sendPostMappedData": true,
+            "formType": "http"
+          },
+          "adaptorType": "HTTPImport"
+        }
+      }
+    ],
+    "pageGenerators": []
+  }

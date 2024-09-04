@@ -1,0 +1,108 @@
+{
+  "name": "TC_C19872",
+  "referencename": "TC_C19872",
+  "qa__dataVerification": {},
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "application": "MySQL",
+            "name": "MySql_Export_TC_C19872",
+            "_connectionId": "MYSQL CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "rawData": "603ce5ede9250226dcea4608ebe2f49f62cb498eb8e2348f7a97f2f1",
+            "rdbms": {
+              "query": "select * from Templates.Order limit 50"
+            },
+            "adaptorType": "RDBMSExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Import_TC_C19872",
+            "modelMetadata": {
+              "orderid": {
+                "default": ""
+              },
+              "customerid": {
+                "default": ""
+              },
+              "employeeid": {
+                "default": ""
+              },
+              "shipvia": {
+                "default": ""
+              },
+              "freight": {
+                "default": ""
+              },
+              "shipname": {
+                "default": ""
+              },
+              "shipaddress": {
+                "default": ""
+              },
+              "shipcity": {
+                "default": ""
+              },
+              "shipregion": {
+                "default": ""
+              },
+              "shippostalcode": {
+                "default": ""
+              },
+              "shipcountry": {
+                "default": ""
+              }
+            },
+            "parsers": [],
+            "_connectionId": "MYSQL CONNECTION",
+            "application": "mysql",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [],
+            "rdbms": {
+              "query": [
+                "INSERT ITNO ABC"
+              ],
+              "queryType": [
+                "INSERT"
+              ]
+            },
+            "adaptorType": "RDBMSImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C19872",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

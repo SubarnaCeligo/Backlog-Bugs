@@ -1,0 +1,286 @@
+{
+  "name": "TC_C47520",
+  "disabled": false,
+  "_integrationId": "62f51db41677a21a108e5e3a",
+  "skipRetries": false,
+  "qa__expectedDashboardCount": {
+    "successCount": "5",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "Netsuite Export 47520",
+        "_connectionId": "NETSUITE CONNECTION",
+        "apiIdentifier": "e343ced12e",
+        "asynchronous": true,
+        "type": "test",
+        "oneToMany": false,
+        "test": {
+          "limit": 1
+        },
+        "netsuite": {
+          "type": "restlet",
+          "skipGrouping": true,
+          "statsOnly": false,
+          "restlet": {
+            "recordType": "contact",
+            "searchId": "2005",
+            "useSS2Restlets": false,
+            "markExportedBatchSize": 100
+          },
+          "distributed": {
+            "useSS2Framework": false
+          }
+        },
+        "transform": {
+          "type": "expression",
+          "expression": {
+            "rules": [[]],
+            "version": "1"
+          },
+          "version": "1",
+          "rules": [[]]
+        },
+        "adaptorType": "NetSuiteExport"
+      }
+    }
+  ],
+  "routers": [
+    {
+      "id": "BZeKWw",
+      "branches": [
+        {
+          "name": "Branch 1.0",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "NS Import",
+                "_connectionId": "NETSUITE CONNECTION",
+                "distributed": true,
+                "apiIdentifier": "i64d203b3c",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "lookups": [],
+                "netsuite_da": {
+                  "useSS2Restlets": false,
+                  "operation": "addupdate",
+                  "recordType": "contact",
+                  "internalIdLookup": {
+                    "expression": "[\"internalid\",\"is\",\"{{{id}}}\"]"
+                  },
+                  "lookups": [],
+                  "mapping": {
+                    "fields": [],
+                    "lists": []
+                  }
+                },
+                "adaptorType": "NetSuiteDistributedImport"
+              },
+              "proceedOnFailure": false
+            },
+            {
+              "responseMapping": {
+                "fields": [
+                  {
+                    "extract": "data.[0].Company",
+                    "generate": "details"
+                  }
+                ],
+                "lists": []
+              },
+              "type": "export",
+              "qa__export": {
+                "name": "NetSuite lookup",
+                "_connectionId": "NETSUITE CONNECTION",
+                "apiIdentifier": "e0cee35a10",
+                "asynchronous": true,
+                "isLookup": true,
+                "type": "test",
+                "oneToMany": false,
+                "test": {
+                  "limit": 1
+                },
+                "netsuite": {
+                  "type": "restlet",
+                  "skipGrouping": true,
+                  "statsOnly": false,
+                  "restlet": {
+                    "recordType": "supportcase",
+                    "searchId": "129",
+                    "criteria": [],
+                    "columns": [],
+                    "useSS2Restlets": false
+                  },
+                  "distributed": {
+                    "executionContext": [],
+                    "executionType": [],
+                    "useSS2Framework": false
+                  }
+                },
+                "adaptorType": "NetSuiteExport"
+              }
+            }
+          ],
+          "nextRouterId": "E6Ho8H"
+        }
+      ]
+    },
+    {
+      "routeRecordsUsing": "input_filters",
+      "id": "E6Ho8H",
+      "routeRecordsTo": "all_matching_branches",
+      "branches": [
+        {
+          "name": "Branch 1",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "ZD imp 1",
+                "application":"zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "i713335b50",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "mapping": {
+                  "fields": [
+                    {
+                      "generate": "user.name",
+                      "hardCodedValue": "Auto_TC_47520_1",
+                      "dataType": "string"
+                    },
+                    {
+                      "extract": "Name",
+                      "generate": "user.details"
+                    }
+                  ]
+                },
+                "http": {
+                  "relativeURI": ["users"],
+                  "method": ["POST"],
+                  "body": [],
+                  "batchSize": 1,
+                  "sendPostMappedData": true,
+                  "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Branch 1",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "ZD imp 2",
+                "application":"zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "i738e2de3b",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "mapping": {
+                  "fields": [
+                    {
+                      "generate": "user.name",
+                      "hardCodedValue": "Auto_TC_47520_2",
+                      "dataType": "string"
+                    },
+                    {
+                      "extract": "Name",
+                      "generate": "user.details"
+                    }
+                  ]
+                },
+                "http": {
+                  "relativeURI": ["users"],
+                  "method": ["POST"],
+                  "body": [],
+                  "batchSize": 1,
+                  "sendPostMappedData": true,
+                  "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+              }
+            }
+          ]
+        }
+      ],
+      "script": {
+        "function": "branching"
+      }
+    }
+  ],
+  "qa__dataVerification": {
+    "expected": {
+      "zendesk": {
+        "name": "TC_C47520",
+        "_integrationId": "62f51db41677a21a108e5e3a",
+        "import": {
+          "_connectionId": "HTTP ZENDESK CONNECTION"
+        },
+        "qa__dataVerification": {
+          "generateSampleDropDownAvailable": false,
+          "expectedJSON": {
+            "name": "Auto_TC_47520_1",
+            "details": "Pete Grogan"
+          },
+          "standaloneexportflowID": "57aaf0188ec9f88049060166",
+          "uniqueField": "name",
+          "importRecordType": "users",
+          "isUIFlow": true,
+          "exportapiIdentifier": "e8c9cb6192"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "5",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        }
+      },
+      "Zendesk": {
+        "name": "TC_C47520",
+        "_integrationId": "62f51db41677a21a108e5e3a",
+        "import": {
+          "_connectionId": "HTTP ZENDESK CONNECTION"
+        },
+        "qa__dataVerification": {
+          "generateSampleDropDownAvailable": false,
+          "expectedJSON": {
+            "name": "Auto_TC_47520_2",
+            "details": "Pete Grogan"
+          },
+          "standaloneexportflowID": "57aaf0188ec9f88049060166",
+          "uniqueField": "name",
+          "importRecordType": "users",
+          "isUIFlow": true,
+          "exportapiIdentifier": "e8c9cb6192"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "5",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+    "importJson":{
+    "contactEmail":"io.auto.flowgrouping.qa@celigo.com",
+    "editionName":"Starter",
+    "expires":"12/31/2023",
+    "changeEdition":"Standard"
+    },
+    "setupConnection":{
+    "integrationName":"Parent + Child without Edition Steps",
+    "hostname":"celigo.files.com",
+    "userName":"io.auto.qa@celigo.com",
+    "password":"*****",
+    "region":"North America"
+    },
+    "name":"Parent + Child without Edition Steps",
+    "app":"FTP",
+    "environment":"Production"
+    }
+    
+    

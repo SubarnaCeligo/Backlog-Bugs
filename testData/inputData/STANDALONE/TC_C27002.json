@@ -1,0 +1,12 @@
+{
+    "accessLevel": "administrator",
+    "integrationAccessLevel": [],
+    "accountSSORequired": false,
+    "sharedWithUser": {
+        "_id": "60f16824438fbd3f14c7d7d3",
+        "email": "ladi.manish+1@celigo.com",
+        "name": "Manish L",
+        "allowedToResetMFA": false,
+        "accountSSOLinked": "not_linked"
+    }
+}

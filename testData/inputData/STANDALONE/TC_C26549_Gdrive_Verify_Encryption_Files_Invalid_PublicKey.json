@@ -1,0 +1,109 @@
+{
+  "name": "TC_C26549_Gdrive_Verify_Encryption_Files_Invalid_PublicKey",
+  "referencename": "TC_C26549_Gdrive_Verify_Encryption_Files_Invalid_PublicKey",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type":"export",
+          "qa__export": {
+            "name": "TC_C26545_Gdrive_PGP_Without_Encryption",
+            "_connectionId": "FTP_PGP_ONLY_PRIVATEKEY_PASSPHRASE CONNECTION",
+            "qa__connectionId": "610a83a1b8d44e11589fe440",
+            "qa__path": "//FTP_uploads//TC_595_FTP_TO_GDRIVE.json",
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+              "fileNameStartsWith": "TC_595_FTP_TO_GDRIVE.json"
+            },
+            "file": {
+              "output": "records",
+              "skipDelete": true,
+              "type": "json",
+              "encoding": "utf8",
+              "json": {
+                "resourcePath": "*"
+              }
+            },
+            "adaptorType": "FTPExport"
+          },
+          "skipRetries": false
+        }
+      ],
+      "pageProcessors": [
+        {
+          "responseMapping": {
+            "fields": [],
+            "lists": []
+          },
+          "type": "import",
+          "qa__import": {
+            "name": "Gdrive import",
+            "_connectionId": "GOOGLEDRIVE CONNECTION",
+            "apiIdentifier": "ie5c3bc64e",
+            "oneToMany": false,
+            "assistant": "googledrive",
+            "sandbox": false,
+            "file": {
+              "fileName": "TC_C26549.csv",
+              "skipAggregation": false,
+              "type": "csv",
+              "encrypt": "pgp",
+              "pgp": {
+                "symmetricKeyAlgorithm": "aes256"
+              },
+              "csv": {
+                "rowDelimiter": "\n",
+                "columnDelimiter": ",",
+                "includeHeader": true,
+                "wrapWithQuotes": false,
+                "replaceTabWithSpace": false,
+                "replaceNewlineWithSpace": false,
+                "truncateLastRowDelimiter": false
+              }
+            },
+            "http": {
+              "type": "file",
+              "relativeURI": [
+                "Gdrive_Imports"
+              ],
+              "method": [
+                "POST"
+              ],
+              "body": [],
+              "sendPostMappedData": true,
+              "formType": "assistant",
+              "response": {
+                "resourcePath": [
+                  "files"
+                ]
+              }
+            },
+            "adaptorType": "HTTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C26549_Gdrive_Verify_Encryption_Files_Invalid_PublicKey",
+        "disabled": false,
+        "qa__integrationId": "6110bf8dc5492e2ee1f324af",
+        "_integrationId": "60cd9a49d99bd92eb5bd2527",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,273 @@
+{
+    "name": "TC_C64864",
+    "referencename": "TC_C64864",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "SFTP  export",
+                        "_connectionId": "FTP CONNECTION",
+                        "qa__connectionId": "FTP CONNECTION",
+                        "_sourceId": "6436670c931e470658f56b91",
+                        "apiIdentifier": "e43d6bf489",
+                        "asynchronous": true,
+                        "parsers": [],
+                        "sampleData": {
+                            "id": "",
+                            "url": "https://celigoqa.zendesk.com/api/v2/users/1473313072.json",
+                            "name": "Normaname",
+                            "StringNAME": "STringname",
+                            "email": "mounica.manavapati@celigo.com",
+                            "created_at": "2015-10-27T05:36:38Z",
+                            "updated_at": "2022-07-06T05:24:23Z",
+                            "time_zone": "Chennai"
+                        },
+                        "ftp": {
+                            "directoryPath": "io.auto.qa/IO_Automation_SFTP_Exports",
+                            "fileNameStartsWith": "TC_C64864"
+                        },
+                        "file": {
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "json"
+                        },
+                        "adaptorType": "FTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Lookup 1",
+                        "qa__connectionId": "HTTP ZENDESK CONNECTION",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "_sourceId": "643686978b239822f58792ba",
+                        "apiIdentifier": "e5f09c8eb5",
+                        "asynchronous": true,
+                        "isLookup": true,
+                        "assistant": "zendesk",
+                        "oneToMany": false,
+                        "assistantMetadata": {
+                            "resource": "organizations_api",
+                            "version": "v2",
+                            "operation": "list_organizations"
+                        },
+                        "http": {
+                            "relativeURI": "/api/v2/organizations.json",
+                            "method": "GET",
+                            "successMediaType": "json",
+                            "errorMediaType": "json",
+                            "formType": "assistant",
+                            "paging": {
+                                "method": "url",
+                                "path": "next_page",
+                                "lastPageStatusCode": 404
+                            },
+                            "response": {
+                                "resourcePath": "organizations"
+                            }
+                        },
+                        "rest": {
+                            "relativeURI": "/api/v2/organizations.json",
+                            "method": "GET",
+                            "resourcePath": "organizations",
+                            "pagingMethod": "nextpageurl",
+                            "nextPagePath": "next_page",
+                            "allowUndefinedResource": false
+                        },
+                        "adaptorType": "RESTExport"
+                    }
+                },
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Lookup 2",
+                        "qa__connectionId": "HTTP ZENDESK CONNECTION",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "_sourceId": "64368705c07bdf088cafe028",
+                        "apiIdentifier": "e5238416a7",
+                        "asynchronous": true,
+                        "isLookup": true,
+                        "assistant": "zendesk",
+                        "oneToMany": false,
+                        "assistantMetadata": {
+                            "resource": "users_api",
+                            "version": "v2",
+                            "operation": "list_users"
+                        },
+                        "http": {
+                            "relativeURI": "/api/v2/users.json",
+                            "method": "GET",
+                            "successMediaType": "json",
+                            "errorMediaType": "json",
+                            "formType": "assistant",
+                            "paging": {
+                                "method": "url",
+                                "path": "next_page",
+                                "lastPageStatusCode": 404
+                            },
+                            "response": {
+                                "resourcePath": "users"
+                            }
+                        },
+                        "rest": {
+                            "relativeURI": "/api/v2/users.json",
+                            "method": "GET",
+                            "resourcePath": "users",
+                            "pagingMethod": "nextpageurl",
+                            "nextPagePath": "next_page",
+                            "allowUndefinedResource": false
+                        },
+                        "adaptorType": "RESTExport"
+                    }
+                },
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Lookup 3",
+                        "qa__connectionId": "HTTP ZENDESK CONNECTION",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "_sourceId": "64368769c07bdf088cafe039",
+                        "apiIdentifier": "e6c90f7578",
+                        "asynchronous": true,
+                        "isLookup": true,
+                        "assistant": "zendesk",
+                        "oneToMany": false,
+                        "assistantMetadata": {
+                            "resource": "requests_api",
+                            "version": "v2",
+                            "operation": "getting_comments"
+                        },
+                        "http": {
+                            "relativeURI": "/api/v2/requests/12/comments/12.json",
+                            "method": "GET",
+                            "successMediaType": "json",
+                            "errorMediaType": "json",
+                            "formType": "assistant",
+                            "paging": {
+                                "method": "url",
+                                "path": "next_page",
+                                "lastPageStatusCode": 404
+                            },
+                            "response": {
+                                "resourcePath": "comments"
+                            }
+                        },
+                        "rest": {
+                            "relativeURI": "/api/v2/requests/12/comments/12.json",
+                            "method": "GET",
+                            "resourcePath": "comments",
+                            "pagingMethod": "nextpageurl",
+                            "nextPagePath": "next_page",
+                            "allowUndefinedResource": false
+                        },
+                        "adaptorType": "RESTExport"
+                    }
+                },
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Lookup 4",
+                        "qa__connectionId": "HTTP ZENDESK CONNECTION",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "_sourceId": "6436670c931e470658f56b90",
+                        "apiIdentifier": "e1700a2300",
+                        "asynchronous": true,
+                        "isLookup": true,
+                        "assistant": "zendesk",
+                        "oneToMany": false,
+                        "assistantMetadata": {
+                            "resource": "tickets_api",
+                            "version": "v2",
+                            "operation": "show_ticket"
+                        },
+                        "http": {
+                            "relativeURI": "/api/v2/tickets/1231.json",
+                            "method": "GET",
+                            "successMediaType": "json",
+                            "errorMediaType": "json",
+                            "formType": "assistant",
+                            "paging": {
+                                "method": "url",
+                                "path": "next_page",
+                                "lastPageStatusCode": 404
+                            },
+                            "response": {
+                                "resourcePath": "ticket"
+                            }
+                        },
+                        "rest": {
+                            "relativeURI": "/api/v2/tickets/1231.json",
+                            "method": "GET",
+                            "resourcePath": "ticket",
+                            "pagingMethod": "nextpageurl",
+                            "nextPagePath": "next_page",
+                            "allowUndefinedResource": false
+                        },
+                        "adaptorType": "RESTExport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C64864",
+                "disabled": false,
+                "_integrationId": "62f51e1f0f2ee6482b136853",
+        "qa__integrationId": "62f51db41677a21a108e5e3a",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [
+                                {
+                                    "extract": "data[0].name",
+                                    "generate": "OrganizationName"
+                                  }
+                            ],
+                            "lists": []
+                        },
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    },
+                    {
+                        "responseMapping": {
+                            "fields": [
+                                {
+                                    "extract": "data[0].name",
+                                    "generate": "UserName"
+                                  }
+                            ],
+                            "lists": []
+                        },
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    },
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    },
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID",
+                        "skipRetries": false
+                    }
+                ]
+            }
+        }
+    ]
+}

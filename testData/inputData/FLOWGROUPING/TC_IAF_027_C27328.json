@@ -1,0 +1,248 @@
+{
+    "qa_integrationSetting": {
+    "_id": "62a9c6ab0d57d901d06662d0",
+    "name": "First Edition Step",
+    "install": [],
+    "sandbox": false,
+    "_registeredConnectionIds": [
+        "626bd636987bb423914b47c7"
+    ],
+    "settingsForm": {
+        "form": {
+            "fieldMap": {
+                "kvSetting1ForIntegration": {
+                    "label": "Key Value Integration Setting",
+                    "id": "kvSetting1ForIntegration",
+                    "name": "kvSetting1ForIntegration",
+                    "type": "keyvalue",
+                    "helpText": "lorem ipsum",
+                    "keyName": "key",
+                    "valueName": "value"
+                },
+                "txtSetting2ForIntegration": {
+                    "label": "Text Integration Setting",
+                    "id": "txtSetting2ForIntegration",
+                    "name": "txtSetting2ForIntegration",
+                    "type": "text",
+                    "helpText": "Text box setting"
+                }
+            },
+            "layout": {
+                "fields": [
+                    "kvSetting1ForIntegration",
+                    "txtSetting2ForIntegration"
+                ]
+            }
+        },
+        "init": {
+            "_scriptId": "626137e61ce14c420e01c86b",
+            "function": "formInit"
+        }
+    },
+    "installSteps": [
+        {
+                "name": "Configure ActiveCampaign Connection",
+                "description": "Configure your ActiveCampaign connection. This is common and is set up on parent",
+                "imageUrl": "/images/company-logos/netsuite.png",
+                "completed": false,
+                "type": "connection",
+                "sourceConnection": {
+                    "type": "http",
+                    "assistant":"activecampaign",
+                    "name": "AC Test Case connection",
+                    "_id": "626bd636987bb423914b47c7"
+                }
+            },
+    {
+        "name": "Create resources based on edition",
+        "description": "Description goes has",
+        "completed": false,
+        "type": "edition",
+        "_scriptId": "626137e61ce14c420e01c86b",
+        "function": "updateInstallStep"
+    }],
+    "uninstallSteps": [{
+       
+        "name": "Create resources based on edition",
+        "description": "Description goes has",
+        "completed": false,
+        "type": "url",
+        "url": "/marketplace?redirectusingURLfield",
+        "init": {
+        "_scriptId": "626137e61ce14c420e01c86b",
+        "function": "updateUninstallStep"
+    }
+}
+],
+    "flowGroupings": [
+        {
+            "name": "FG1",
+            "_id": "62bc0251ee3f141dd39ba5f0",
+            "settingsForm": {
+                "form": {
+                    "fieldMap": {
+                        "kvSetting1ForIntegration": {
+                            "label": "Key Value Integration Setting",
+                            "id": "kvSetting1ForIntegration",
+                            "name": "kvSetting1ForIntegration",
+                            "type": "keyvalue",
+                            "helpText": "lorem ipsum",
+                            "keyName": "key",
+                            "valueName": "value"
+                        },
+                        "txtSetting2ForIntegration": {
+                            "label": "Text Integration Setting",
+                            "id": "txtSetting2ForIntegration",
+                            "name": "txtSetting2ForIntegration",
+                            "type": "text",
+                            "helpText": "Text box setting"
+                        }
+                    },
+                    "layout": {
+                        "fields": [
+                            "kvSetting1ForIntegration",
+                            "txtSetting2ForIntegration"
+                        ]
+                    }
+                },
+                "init": {
+                    "_scriptId": "626137e61ce14c420e01c86b",
+                    "function": "formInit"
+                }
+            }
+        }
+    ]
+},
+"integrationSetting": {
+    "_id": "631ab2e63796483e5615b5cc",
+    "name": "First Edition Step",
+    "install": [],
+    "sandbox": false,
+    "_registeredConnectionIds": [
+        "626fdc6d7490300e92ffd613"
+    ],
+    "settingsForm": {
+        "form": {
+            "fieldMap": {
+                "kvSetting1ForIntegration": {
+                    "label": "Key Value Integration Setting",
+                    "id": "kvSetting1ForIntegration",
+                    "name": "kvSetting1ForIntegration",
+                    "type": "keyvalue",
+                    "helpText": "lorem ipsum",
+                    "keyName": "key",
+                    "valueName": "value"
+                },
+                "txtSetting2ForIntegration": {
+                    "label": "Text Integration Setting",
+                    "id": "txtSetting2ForIntegration",
+                    "name": "txtSetting2ForIntegration",
+                    "type": "text",
+                    "helpText": "Text box setting"
+                }
+            },
+            "layout": {
+                "fields": [
+                    "kvSetting1ForIntegration",
+                    "txtSetting2ForIntegration"
+                ]
+            }
+        },
+        "init": {
+            "_scriptId": "628b3deefcc6f75686664a48",
+            "function": "formInit"
+        }
+    },
+    "installSteps": [
+        {
+                "name": "Configure ActiveCampaign Connection",
+                "description": "Configure your ActiveCampaign connection. This is common and is set up on parent",
+                "imageUrl": "/images/company-logos/netsuite.png",
+                "completed": false,
+                "type": "connection",
+                "sourceConnection": {
+                    "type": "http",
+                    "assistant":"activecampaign",
+                    "name": "AC Test Case connection",
+                    "_id": "626fdc6d7490300e92ffd613"
+                },
+                "_scriptId": "628b3deefcc6f75686664a48",
+                "function":"updateInstallStep"
+            },
+    {
+        "name": "Create resources based on edition",
+        "description": "Description goes has",
+        "completed": false,
+        "type": "edition",
+        "_scriptId": "628b3deefcc6f75686664a48",
+        "function": "updateUninstallStep"
+    }],
+    "uninstallSteps": [{
+       
+        "name": "Create resources based on edition",
+        "description": "Description goes has",
+        "completed": false,
+        "type": "url",
+        "url": "/marketplace?redirectusingURLfield",
+        "init": {
+        "_scriptId": "628b3deefcc6f75686664a48",
+        "function": "updateUninstallStep"
+    }
+}
+],
+    "flowGroupings": [
+        {
+            "name": "FG1",
+            "_id": "631ab3263796483e5615b5db",
+            "settingsForm": {
+                "form": {
+                    "fieldMap": {
+                        "kvSetting1ForIntegration": {
+                            "label": "Key Value Integration Setting",
+                            "id": "kvSetting1ForIntegration",
+                            "name": "kvSetting1ForIntegration",
+                            "type": "keyvalue",
+                            "helpText": "lorem ipsum",
+                            "keyName": "key",
+                            "valueName": "value"
+                        },
+                        "txtSetting2ForIntegration": {
+                            "label": "Text Integration Setting",
+                            "id": "txtSetting2ForIntegration",
+                            "name": "txtSetting2ForIntegration",
+                            "type": "text",
+                            "helpText": "Text box setting"
+                        }
+                    },
+                    "layout": {
+                        "fields": [
+                            "kvSetting1ForIntegration",
+                            "txtSetting2ForIntegration"
+                        ]
+                    }
+                },
+                "init": {
+                    "_scriptId": "628b3deefcc6f75686664a48",
+                    "function": "formInit"
+                }
+            }
+        }
+    ]
+},
+"errors":
+{
+    "errors": [
+    {
+        "field": "flowGroupings.0.settingsForm.init._scriptId",
+        "code": "invalid_ref",
+        "message": "Only a script owned by the user or a script shared by the Integration App can be used at flowGroupings.0.settingsForm.init._scriptId."
+    },
+    {
+        "field": "settingsForm.init._scriptId",
+        "code": "invalid_ref",
+        "message": "Only a script owned by the user or a script shared by the Integration App can be used at settingsForm.init._scriptId."
+    }
+]
+}
+}
+

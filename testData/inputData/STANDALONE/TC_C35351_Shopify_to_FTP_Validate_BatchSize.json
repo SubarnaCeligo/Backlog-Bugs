@@ -1,0 +1,66 @@
+{
+    "_integrationId": "6228aed6bc8a2732cfe8044c",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Get a single order from shopify",
+            "_connectionId":"SHOPIFY CONNECTION",
+            "adaptorType": "RESTExport",
+            "asynchronous": true,
+            "assistant": "shopify",
+            "assistantMetadata": {
+              "resource": "customer",
+              "version": "v2",
+              "operation": "retrieves_alistofcustomers"
+            },
+            "http": {
+              "relativeURI": "/customers.json",
+              "method": "GET",
+              "paging": {
+                "lastPageValues": []
+              },
+              "response": {
+                "resourcePath": "customers",
+                "successValues": []
+              }
+            },
+            "rest": {
+              "relativeURI": "/customers.json",
+              "method": "GET",
+              "headers": [],
+              "resourcePath": "customers",
+              "allowUndefinedResource": false
+            },
+            "qa__assistant": {
+              "resource": "Customers : Customer",
+              "endpoint": "Retrieves a list of customers"
+            }
+          }
+        }
+      ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "FTP Import",
+                "parsers": [],
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "i787a1211b",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "file-{{timestamp}}.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                    "fileName": "file-{{timestamp}}.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ]
+}

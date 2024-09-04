@@ -1,0 +1,123 @@
+{
+    "name": "TC_C28997_TC_C33096_TC_C37193_preview_map_funct_exp_and_imp_field_and_exp_crash",
+    "referencename": "TC_C28997_TC_C33096_TC_C37193_preview_map_funct_exp_and_imp_field_and_exp_crash",
+    "qa__dataVerification": {},
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "0",
+      "errorCount": "1"
+    },
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+                "name": "TC_C28997_TC_C33096_TC_C37193",
+                "_connectionId":"FTP CONNECTION",
+                "asynchronous": true,
+                "sandbox": false,
+                "sampleData": {
+                    "a": {
+                        "id": 1
+                    },
+                    "b": {
+                        "id": [
+                            "1"
+                        ]
+                    }
+                },
+                "ftp": {
+                    "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C22326",
+                    "fileNameEndsWith": ".json"
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "transform": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [
+                            [
+                                {
+                                    "extract": "a.id",
+                                    "generate": "a"
+                                }
+                            ]
+                        ],
+                        "version": "1"
+                    },
+                    "version": "1",
+                    "rules": [
+                        [
+                            {
+                                "extract": "a.id",
+                                "generate": "a"
+                            }
+                        ]
+                    ]
+                },
+                "adaptorType": "FTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+                "name": "TC_C28997_TC_C33096_TC_C37193_imp",
+                "_connectionId":"NETSUITE CONNECTION",
+                "distributed": true,
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "lookups": [],
+                "netsuite_da": {
+                    "useSS2Restlets": false,
+                    "operation": "add",
+                    "recordType": "customer",
+                    "lookups": [],
+                    "mapping": {
+                        "fields": [
+                            {
+                                "extract": "a",
+                                "generate": "firstname",
+                                "internalId": false
+                            }
+                        ],
+                        "lists": []
+                    }
+                },
+                "adaptorType": "NetSuiteDistributedImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C28997_TC_C33096_TC_C37193_preview_map_funct_exp_and_imp_field_and_exp_crash",
+          "disabled": false,
+          "_integrationId": "6317518c5bca603be6bc9af0",
+          "qa__integrationId": "6317333395653f0f15147f47",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

@@ -1,0 +1,113 @@
+{
+    "name": "TC_C12174",
+    "referencename": "TC_C12174",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "TC_C12174 Export",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "ecea74b464",
+                        "asynchronous": true,
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                            "fileNameStartsWith": "txt12174"
+                        },
+                        "file": {
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "csv",
+                            "groupByFields": [
+                                "\"WHS\""
+                            ],
+                            "groupEmptyValues": true,
+                            "csv": {
+                                "columnDelimiter": ",",
+                                "rowDelimiter": "\n",
+                                "hasHeaderRow": true,
+                                "trimSpaces": true,
+                                "rowsToSkip": 0
+                            }
+                        },
+                        "adaptorType": "FTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "TC_C12174 Import",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "ib09fe5ba1",
+                        "oneToMany": false,
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "extract": "Name",
+                                    "generate": "Name"
+                                },
+                                {
+                                    "extract": "[Office Phone]",
+                                    "generate": "OfficePhone"
+                                },
+                                {
+                                    "generate": "test",
+                                    "hardCodedValue": "QtyReceived"
+                                },
+                                {
+                                    "extract": "[\"Flag01\"]",
+                                    "generate": "flag1"
+                                }
+                            ]
+                        },
+                        "file": {
+                            "fileName": "TC_12174.csv",
+                            "skipAggregation": false,
+                            "type": "csv",
+                            "csv": {
+                                "rowDelimiter": "\n",
+                                "columnDelimiter": ",",
+                                "includeHeader": true,
+                                "wrapWithQuotes": false,
+                                "replaceTabWithSpace": false,
+                                "replaceNewlineWithSpace": false,
+                                "truncateLastRowDelimiter": false
+                            }
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/Neetin",
+                            "fileName": "TC_12174.csv"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C12174",
+                "disabled": false,
+                "_integrationId": "62ecc42648570015ab65cfa5",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID",
+                        "skipRetries": false
+                    }
+                ],
+                "autoResolveMatchingTraceKeys": true
+            }
+        }
+    ]
+}

@@ -1,0 +1,99 @@
+{
+  "jsonData": {
+    "qa__api_tdata": [
+      {
+        "createIntegrations": {
+          "name": "TC_C43037",
+          "install": [],
+          "sandbox": false,
+          "_registeredConnectionIds": [],
+          "settingsForm": {
+            "form": {
+              "fieldMap": {
+                "Sales Reps": {
+                  "id": "refreshableSFSelect",
+                  "name": "refreshableSFSelect",
+                  "type": "exportSelect",
+                  "helpText": "Choose sales rep",
+                  "label": "Choose sales reps",
+                  "resource": {
+                    "virtual": {
+                      "name": "Get Reps from Salesforce",
+                      "_connectionId": "",
+                      "type": "test",
+                      "test": {
+                        "limit": 10
+                      },
+                      "salesforce": {
+                        "type": "soql",
+                        "api": "rest",
+                        "soql": {
+                          "query": "select Name, Id, Title from User"
+                        }
+                      },
+                      "distributed": {
+                        "disabled": false
+                      },
+                      "transform": {
+                        "type": "expression",
+                        "expression": {
+                          "rules": [
+                            [
+                              {
+                                "extract": "Name",
+                                "generate": "label"
+                              },
+                              {
+                                "extract": "Name.length",
+                                "generate": "id"
+                              }
+                            ]
+                          ],
+                          "version": "1"
+                        },
+                        "version": "1",
+                        "rules": [
+                          [
+                            {
+                              "extract": "Name",
+                              "generate": "label"
+                            },
+                            {
+                              "extract": "Id",
+                              "generate": "id"
+                            }
+                          ]
+                        ]
+                      },
+                      "adaptorType": "SalesforceExport"
+                    }
+                  }
+                },
+                "select": {
+                  "id": "select",
+                  "name": "select",
+                  "type": "select",
+                  "label": "Select List",
+                  "options": [
+                    {
+                      "items": [
+                        "USA",
+                        "Canada",
+                        "India"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "installSteps": [],
+          "uninstallSteps": [],
+          "flowGroupings": []
+        }
+      }
+    ]
+  },
+  "qa_connection": "SALESFORCE CONNECTION",
+  "staging_connection": "SALESFORCE CONNECTION"
+}

@@ -1,0 +1,150 @@
+{
+    "name": "FTPExport_GroupedData_InputFilter",
+    "disabled": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "qa__inputFilter": true,
+            "name": "NS import",
+            "_connectionId": "NETSUITE CONNECTION",
+
+            "distributed": true,
+            "lookups": [],
+            "netsuite_da": {
+                "useSS2Restlets": false,
+                "operation": "add",
+                "recordType": "customer",
+                "lookups": [],
+                "mapping": {
+                    "fields": [{
+                            "generate": "companyname",
+                            "extract": "LastName",
+                            "internalId": false
+                        },
+                        {
+                            "generate": "subsidiary",
+                            "discardIfEmpty": false,
+                            "immutable": false,
+                            "hardCodedValue": "3",
+                            "internalId": true
+                        },
+                        {
+                            "generate": "comments",
+                            "discardIfEmpty": false,
+                            "immutable": false,
+                            "hardCodedValue": "TC316",
+                            "internalId": false
+                        }
+                    ],
+                    "lists": []
+                }
+            },
+            "qa__rules": [
+
+                [
+                    "rows[0].LastName",
+                    "equals",
+                    "TC316"
+                ]
+            ],
+
+            "filter": {
+                "type": "expression",
+                "expression": {
+                    "rules": [
+                        "equals",
+                        [
+                            "string",
+                            [
+                                "extract",
+                                "LastName"
+                            ]
+                        ],
+                        "TC316"
+                    ],
+                    "version": "1"
+                },
+                "version": "1",
+                "rules": [
+                    "equals",
+                    [
+                        "string",
+                        [
+                            "extract",
+                            "LastName"
+                        ]
+                    ],
+                    "TC316"
+                ]
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+        }
+    }],
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Ftpexport",
+            "_connectionId": "FTP CONNECTION",
+            "asynchronous": true,
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_316.csv"
+            },
+            "qa__path": "//FTP_uploads//TC_316.csv",
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "csv",
+                "groupByFields": [
+                    "LastName"
+                ],
+                "csv": {
+                    "columnDelimiter": " ",
+                    "rowDelimiter": "\n",
+                    "hasHeaderRow": true,
+                    "trimSpaces": true,
+                    "rowsToSkip": 0
+                }
+            },
+            "adaptorType": "FTPExport"
+        }
+    }],
+    "qa__expectedDashboardCount": {
+        "successCount": "3",
+        "ignoreCount": "1",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "Netsuite": {
+                "name": "FTPExport_GroupedData_InputFilter",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "import": {
+                    "_connectionId": "NETSUITE CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "1",
+                    "ignoreCount": "1",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "exportapiIdentifier": "e346f5d2f8",
+                    "exportRecordType": "customers",
+                    "importRecordType": "customer",
+                    "isUIFlow": true,
+                    "generateSampleDropDownAvailable": false,
+                    "standaloneexportflowID": "603cf724e9250226dcea4b51",
+                    "savedsearchId": "3165",
+                    "uniqueField": "entityid",
+                    "expectedJSON": {
+                        "companyname": "TC316",
+                        "entityid": "TC316",
+                        "Comments": "TC316"
+                    }
+                }
+            }
+        }
+    }
+}

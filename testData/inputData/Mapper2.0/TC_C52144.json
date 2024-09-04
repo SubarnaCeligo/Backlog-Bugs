@@ -1,0 +1,205 @@
+{
+  "Staging_Http": "HTTP ZENDESK CONNECTION",
+  "Staging_FTP": "FTP CONNECTION",
+  "Http_body": {
+    "name": "AutomationStandalone_jkhbjk",
+    "application": "zendesk support",
+    "_connectionId": "HTTP ZENDESK CONNECTION",
+    "_sourceId": "633ad77d2acfa473f1897073",
+    "apiIdentifier": "id6080896d",
+    "ignoreExisting": false,
+    "ignoreMissing": false,
+    "oneToMany": false,
+    "sandbox": false,
+    "mappings": [
+      {
+        "generate": "user",
+        "dataType": "object",
+        "status": "Active",
+        "mappings": [
+          {
+            "generate": "Stringtags",
+            "dataType": "stringarray",
+            "status": "Active",
+            "buildArrayHelper": [
+              {
+                "extract": "$.user.TestTestemail",
+                "default": "",
+                "sourceDataType": "string"
+              },
+              {
+                "extract": "$.user.NoNOname",
+                "default": null,
+                "sourceDataType": "string"
+              },
+              {
+                "extract": "$.user.organization.Ooutputname",
+                "default": "",
+                "sourceDataType": "string"
+              }
+            ]
+          },
+          {
+            "generate": "Booleantags",
+            "dataType": "booleanarray",
+            "status": "Active",
+            "buildArrayHelper": [
+              {
+                "extract": "$.user.Booleanemail",
+                "default": null,
+                "sourceDataType": "boolean"
+              },
+              {
+                "extract": "$.user.Booleanname",
+                "default": "",
+                "sourceDataType": "boolean"
+              },
+              {
+                "extract": "$.user.Booleanorganization.name",
+                "default": "",
+                "sourceDataType": "boolean"
+              }
+            ]
+          },
+          {
+            "generate": "Numbertags",
+            "dataType": "numberarray",
+            "status": "Active",
+            "buildArrayHelper": [
+              {
+                "extract": "$.user.Numemail",
+                "default": "",
+                "sourceDataType": "number"
+              },
+              {
+                "extract": "$.user.Numbersname",
+                "default": null,
+                "sourceDataType": "number"
+              },
+              {
+                "extract": "$.user.Numorganization.numname",
+                "default": "",
+                "sourceDataType": "number"
+              }
+            ]
+          },
+          {
+            "extract": "$.user.role",
+            "generate": "role",
+            "dataType": "string",
+            "status": "Active"
+          }
+        ]
+      }
+    ],
+    "http": {
+      "relativeURI": ["/api/v2/users"],
+      "method": ["POST"],
+      "body": [],
+      "batchSize": 1,
+      "sendPostMappedData": true,
+      "formType": "http"
+    },
+    "adaptorType": "HTTPImport"
+  },
+  "FTP_body": {
+    "name": "AutomationStandalone_jkhbk",
+    "_connectionId": "FTP CONNECTION",
+    "apiIdentifier": "i6adc61427",
+    "oneToMany": false,
+    "sandbox": false,
+     "mappings": [
+        {
+            "generate": "user",
+            "dataType": "object",
+            "status": "Active",
+            "mappings": [
+                {
+                    "generate": "Stringtags",
+                    "dataType": "stringarray",
+                    "status": "Active",
+
+                "buildArrayHelper": [
+                    {
+                        "extract": "$.user.TestTestemail",
+                        "default": "",
+                        "sourceDataType": "string"
+                    },
+                    {
+                        "extract": "$.user.NoNOname",
+                        "default": null,
+                        "sourceDataType": "string"
+                    },
+                    {
+                        "extract": "$.user.organization.Ooutputname",
+                        "default":"",
+                        "sourceDataType": "string"
+                    }
+                ]
+            },
+            {
+                "generate": "Booleantags",
+                "dataType": "booleanarray",
+                "status": "Active"
+                ,
+                "buildArrayHelper": [
+                    {
+                        "extract": "$.user.Booleanemail",
+                        "default": null,
+                        "sourceDataType": "boolean"
+                    },
+                    {
+                        "extract": "$.user.Booleanname",
+                        "default": "",
+                        "sourceDataType": "boolean"
+                    },
+                    {
+                        "extract": "$.user.Booleanorganization.name",
+                        "default":"",
+                        "sourceDataType": "boolean"
+                    }
+                ]
+            },
+            {
+                "generate": "Numbertags",
+                "dataType": "numberarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                    {
+                        "extract": "$.user.Numemail",
+                        "default": "",
+                        "sourceDataType": "number"
+                    },
+                    {
+                        "extract": "$.user.Numbersname",
+                        "default": null,
+                        "sourceDataType": "number"
+                    },
+                    {
+                        "extract": "$.user.Numorganization.numname",
+                        "default":"",
+                        "sourceDataType": "number"
+                    }
+                ]
+            },
+            {
+                "extract": "$.user.role",
+                "generate": "role",
+                "dataType": "string",
+                "status": "Active"
+                }
+        ]
+    }
+],
+"file": {
+    "fileName": "XML-file-0922145919.xlsx",
+    "skipAggregation": false,
+    "type": "xlsx"
+},
+"ftp": {
+    "directoryPath": "/GAbhinash",
+    "fileName": "XML-file-0922145919.xlsx"
+},
+"adaptorType": "FTPImport"
+}
+}

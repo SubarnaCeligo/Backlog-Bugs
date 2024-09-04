@@ -1,0 +1,82 @@
+{
+    "name": "TC_C33640",
+    "referencename": "TC_C33640",
+    "staging_scriptId": "63cf86df67316d10b29be6f5",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "FTP_Export_TC_C33640",
+                        "_connectionId": "FTP CONNECTION",
+                        "asynchronous": true,
+                        "type": "blob",
+                        "hooks": {
+                            "preSavePage": {
+                                "_scriptId": "62ce9ed61c7d25040278026a",
+                                "function": "preSavePage"
+                            }
+                        },
+                        "parsers": [],
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa",
+                            "fileNameStartsWith": "tests123"
+                        },
+                        "file": {
+                            "output": "blobKeys",
+                            "skipDelete": true
+                        },
+                        "adaptorType": "FTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "NetSuite Blob import",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "distributed": false,
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "blobKeyPath": "blobKey",
+                        "blob": true,
+                        "netsuite": {
+                            "operation": "add",
+                            "recordType": "file",
+                            "file": {
+                                "name": "{{timeStamp}}",
+                                "fileType": "",
+                                "folder": "245012235866667533573575"
+                            }
+                        },
+                        "adaptorType": "NetSuiteImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C33640",
+                "disabled": false,
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

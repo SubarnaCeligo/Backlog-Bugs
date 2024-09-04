@@ -1,0 +1,413 @@
+{
+    "name": "Ware2Go local story",
+    "published": true,
+    "isGraphQL": false,
+    "baseURIs": [
+        "https://openapi.ware2go.co/ware2go",
+        "https://openapi.ware2go.io",
+        "https://openapi.staging.ware2goproject.com/ware2go",
+        "https://openapi.staging.tryware2go.com"
+    ],
+    "helpURL": "https://docs.celigo.com/hc/en-us/sections/4409406728987-Ware2Go",
+    "legacyId": "ware2go",
+    "versions": [
+        {
+            "_id": "638880df6d37a9300c09ddef",
+            "name": "v1",
+            "published": true,
+            "supportedBy": {}
+        }
+    ],
+    "apis": [],
+    "supportedBy": {
+        "export": {
+            "preConfiguredFields": [
+                {
+                    "path": "successMediaType",
+                    "values": [
+                        "json"
+                    ]
+                },
+                {
+                    "path": "errorMediaType",
+                    "values": [
+                        "json"
+                    ]
+                },
+                {
+                    "path": "requestMediaType",
+                    "values": [
+                        "json"
+                    ]
+                },
+                {
+                    "path": "paging",
+                    "values": [
+                        {
+                            "method": "page",
+                            "page": 1,
+                            "lastPagePath": "link",
+                            "lastPageValues": [
+                                "null",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "import": {
+            "preConfiguredFields": [
+                {
+                    "path": "successMediaType",
+                    "values": [
+                        "json"
+                    ]
+                },
+                {
+                    "path": "errorMediaType",
+                    "values": [
+                        "json"
+                    ]
+                },
+                {
+                    "path": "requestMediaType",
+                    "values": [
+                        "json"
+                    ]
+                }
+            ]
+        },
+        "connection": {
+            "conditions": [
+                {
+                    "_id": "6211cb869707a085cc081a82",
+                    "condition": {
+                        "type": "expression",
+                        "expression": {
+                            "rules": [
+                                "equals",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "settings.Accounttype"
+                                    ]
+                                ],
+                                "Production"
+                            ],
+                            "version": "1"
+                        },
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "settings.Accounttype"
+                                ]
+                            ],
+                            "Production"
+                        ],
+                        "version": "1"
+                    }
+                },
+                {
+                    "_id": "6211cb869707a085cc081a83",
+                    "condition": {
+                        "type": "expression",
+                        "expression": {
+                            "rules": [
+                                "equals",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "settings.Accounttype"
+                                    ]
+                                ],
+                                "Staging"
+                            ],
+                            "version": "1"
+                        },
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "settings.Accounttype"
+                                ]
+                            ],
+                            "Staging"
+                        ],
+                        "version": "1"
+                    }
+                },
+                {
+                    "_id": "6211cb869707a085cc081a84",
+                    "condition": {
+                        "type": "expression",
+                        "expression": {
+                            "rules": [
+                                "equals",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "settings.Platformversion"
+                                    ]
+                                ],
+                                "Platform 1"
+                            ],
+                            "version": "1"
+                        },
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "settings.Platformversion"
+                                ]
+                            ],
+                            "Platform 1"
+                        ],
+                        "version": "1"
+                    }
+                },
+                {
+                    "_id": "6211cb869707a085cc081a85",
+                    "condition": {
+                        "type": "expression",
+                        "expression": {
+                            "rules": [
+                                "equals",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "settings.Platformversion"
+                                    ]
+                                ],
+                                "Platform 2"
+                            ],
+                            "version": "1"
+                        },
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "settings.Platformversion"
+                                ]
+                            ],
+                            "Platform 2"
+                        ],
+                        "version": "1"
+                    }
+                }
+            ],
+            "preConfiguredFields": [
+                {
+                    "path": "http.baseURI",
+                    "values": [
+                        "https://openapi.staging.ware2goproject.com/ware2go"
+                    ],
+                    "_conditionIds": [
+                        "6211cb869707a085cc081a83",
+                        "6211cb869707a085cc081a84"
+                    ]
+                },
+                {
+                    "path": "http.baseURI",
+                    "values": [
+                        "https://openapi.staging.tryware2go.com"
+                    ],
+                    "_conditionIds": [
+                        "6211cb869707a085cc081a83",
+                        "6211cb869707a085cc081a85"
+                    ]
+                },
+                {
+                    "path": "http.baseURI",
+                    "values": [
+                        "https://openapi.ware2go.co/ware2go"
+                    ],
+                    "_conditionIds": [
+                        "6211cb869707a085cc081a82",
+                        "6211cb869707a085cc081a84"
+                    ]
+                },
+                {
+                    "path": "http.baseURI",
+                    "values": [
+                        "https://openapi.ware2go.io"
+                    ],
+                    "_conditionIds": [
+                        "6211cb869707a085cc081a82",
+                        "6211cb869707a085cc081a85"
+                    ]
+                },
+                {
+                    "path": "type",
+                    "values": [
+                        "http"
+                    ]
+                },
+                {
+                    "path": "http.mediaType",
+                    "values": [
+                        "json"
+                    ]
+                },
+                {
+                    "path": "http.successMediaType",
+                    "values": [
+                        "json"
+                    ]
+                },
+                {
+                    "path": "http.errorMediaType",
+                    "values": [
+                        "json"
+                    ]
+                },
+                {
+                    "path": "http.auth.type",
+                    "values": [
+                        "basic"
+                    ]
+                },
+                {
+                    "path": "http.unencryptedFields",
+                    "values": [
+                        {
+                            "id": "merchantId",
+                            "name": "merchantId",
+                            "type": "text",
+                            "inputType": "text",
+                            "label": "Merchant Id",
+                            "required": true,
+                            "helpText": "Enter your Ware2Go merchant ID.\n To retrieve the merchant ID:\n 1.Sign in to your Ware2Go account․\n 2.Navigate to Merchant profile > Company information.\n 3.Copy the Merchant ID.",
+                            "helpURL": "https://docs.celigo.com/hc/en-us/articles/4409398463899#Client-Info"
+                        }
+                    ]
+                },
+                {
+                    "path": "http.ping.relativeURI",
+                    "values": [
+                        "/v1/merchants/{{{connection.http.unencrypted.merchantId}}}/inventory"
+                    ]
+                },
+                {
+                    "path": "http.ping.method",
+                    "values": [
+                        "GET"
+                    ]
+                },
+                {
+                    "path": "settingsForm",
+                    "values": [
+                        {
+                            "fieldMap": {
+                                   "Accounttype": {
+                                    "id": "Accounttype",
+                                    "name": "Accounttype",
+                                    "type": "select",
+                                    "label": "Account type",
+                                    "displayAfter": " ",
+                                    "options": [
+                                        {
+                                            "items": [
+                                                {
+                                                    "label": "Production",
+                                                    "value": "Production"
+                                                },
+                                                {
+                                                    "label": "Staging",
+                                                    "value": "Staging"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "required": true,
+                                    "helpText": "Select your Ware2Go account environment.\n If your Ware2Go account URL is https://openapi.ware2goproject.com/ware2go, select Production or if your Ware2Go account URL is https://openapi.staging.ware2goproject.com/ware2go, select Sandbox."
+                                },
+                                 "Platformversion": {
+                                    "id": "Platformversion",
+                                    "name": "Platformversion",
+                                    "type": "select",
+                                    "label": "Platform version",
+                                    "displayAfter": "connection.name",
+                                    "options": [
+                                        {
+                                            "items": [
+                                                {
+                                                    "label": "Platform 1",
+                                                    "value": "Platform 1"
+                                                },
+                                                {
+                                                    "label": "Platform 2",
+                                                    "value": "Platform 2"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "required": true,
+                                    "helpText": "Select your Ware2Go account platform version.\n If you want to connect using the access token and access secret, select Platform 1 or if you want to connect using the username and password, select Platform 2."
+                                }
+                            },
+                            "layout": {
+                                "fields": [
+                                    "Platformversion",
+                                    "Accounttype"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ],
+            "fieldsUserMustSet": [
+                 {
+                    "path": "settings.Platformversion"
+                },
+                {
+                    "path": "settings.Accounttype"
+                },
+                {
+                    "path": "http.unencrypted.merchantId"
+                },
+                {
+                    "path": "http.auth.basic.username",
+                    "_conditionIds": [
+                        "6211cb869707a085cc081a84"
+                    ],
+                    "labelOverride": "Access token"
+                },
+                {
+                    "path": "http.auth.basic.password",
+                    "_conditionIds": [
+                        "6211cb869707a085cc081a84"
+                    ],
+                    "labelOverride": "Access secret"
+                },
+                {
+                    "path": "http.auth.basic.username",
+                    "_conditionIds": [
+                        "6211cb869707a085cc081a85"
+                    ],
+                    "labelOverride": "Username"
+                },
+                {
+                    "path": "http.auth.basic.password",
+                    "_conditionIds": [
+                        "6211cb869707a085cc081a85"
+                    ],
+                    "labelOverride": "Password"
+                }
+            ]
+        }
+    }
+}

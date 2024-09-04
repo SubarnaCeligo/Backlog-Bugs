@@ -1,0 +1,86 @@
+{
+  "name": "TC_035_C32223",
+  "referencename": "TC_035_C32223",
+  "flowGroup": "TC_035_FLOW_GROUP",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Shopify customer export",
+            "_connectionId": "SHOPIFY CONNECTION",
+            "apiIdentifier": "ef0bd2249f",
+            "asynchronous": true,
+            "assistant": "shopify",
+            "assistantMetadata": {
+              "resource": "customer",
+              "version": "v2",
+              "operation": "retrieves_asinglecustomer"
+            },
+            "http": {
+              "relativeURI": "/customers/123445676.json",
+              "method": "GET",
+              "response": {
+                "resourcePath": "customer"
+              }
+            },
+            "rawData": "EMPTY RAW DATA",
+            "rest": {
+              "relativeURI": "/customers/123445676.json",
+              "method": "GET",
+              "resourcePath": "customer",
+              "allowUndefinedResource": false
+            },
+            "adaptorType": "RESTExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Netsuite customer import",
+            "parsers": [],
+            "_connectionId": "NETSUITE CONNECTION",
+            "distributed": true,
+            "apiIdentifier": "i45477eaa3",
+            "lookups": [],
+            "netsuite_da": {
+              "useSS2Restlets": false,
+              "operation": "add",
+              "recordType": "customer",
+              "lookups": [],
+              "mapping": {
+                "fields": [],
+                "lists": []
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_035_C32223",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

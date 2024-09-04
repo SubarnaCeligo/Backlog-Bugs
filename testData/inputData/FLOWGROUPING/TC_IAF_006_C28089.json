@@ -1,0 +1,55 @@
+{
+  "environment": "Production",
+  "qa_importJson": {
+    "environment": "Production",
+    "name": "TC_IAF_006_C28089",
+    "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+    "_integrationId": "628fa2cf7b6328540ab566f8",
+    "applications": ["acumatica"],
+    "framework": "twoDotZero",
+    "twoDotZero": {
+      "_integrationId": "628fa2cf7b6328540ab566f8"
+    }
+  },
+  "qa_expectedJson": {
+    "name": "TC_IAF_006_C28089",
+    "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+    "published": false,
+    "managed": false,
+    "_integrationId": "628fa2cf7b6328540ab566f8",
+    "applications": ["ActiveCampaign","acumatica"],
+    "framework": "twoDotZero",
+    "twoDotZero": {
+      "_integrationId": "628fa2cf7b6328540ab566f8",
+      "editions": []
+    }
+  },
+  "importJson": {
+    "environment": "Production",
+    "name": "TC_IAF_006_C28089",
+    "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+    "_integrationId": "62613797dd4afe56b599a2d1",
+    "applications": ["acumatica"],
+    "framework": "twoDotZero",
+    "twoDotZero": {
+      "_integrationId": "62613797dd4afe56b599a2d1"
+    }
+  },
+  "expectedJson": {
+    "name": "TC_IAF_006_C28089",
+    "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+    "published": false,
+    "managed": false,
+    "_integrationId": "62613797dd4afe56b599a2d1",
+    "applications": ["ActiveCampaign","acumatica"],
+    "framework": "twoDotZero",
+    "twoDotZero": {
+      "_integrationId": "62613797dd4afe56b599a2d1",
+      "editions": []
+    }
+  },
+  "name": "TC_IAF_006_C28089",
+  "app": "Acumatica",
+  "integrationName": "Parent Child"
+}
+  

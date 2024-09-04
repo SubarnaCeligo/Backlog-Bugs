@@ -1,0 +1,64 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "name": "test create customers",
+                "application": "BigCommerce",
+                "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+                "qa__connectionId": "HTTP BIGCOMMERCE CONNECTION",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "http": {
+                    "relativeURI": [
+                        "/v3/customers"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "1",
+        "errorCount": "0"
+    },
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C45347",
+    "disabled": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "FTP Export 1 mapper2.0",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                    "fileNameStartsWith": "TC_C45347.json"
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": true,
+                    "encoding": "utf8",
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport",
+                "qa__path": "//SFTP_uploads//TC_002_C44482_FTP_To_HTTP_All_Field_Mappings.json"
+            }
+        }
+    ]
+}

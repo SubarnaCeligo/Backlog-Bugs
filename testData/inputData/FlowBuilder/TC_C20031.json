@@ -1,0 +1,54 @@
+{
+"name": "TC_C20031",
+"disabled": false,
+"_integrationId": "62eca1efe386b563f638451e",
+"skipRetries": false,
+"pageGenerators": [
+    {
+        "qa__export": {
+            "name": "Data_Loader_TC_C20031",
+            "asynchronous": true,
+            "type": "simple",
+            "qa__isDataLoader": "json",
+            "qa__path": "//Dataloader_uploades//TC_C25614_OneToManyUpload.json",
+            "sandbox": false,
+            "rawData": "EMPTY RAW DATA",
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "type": "json"
+            },
+            "adaptorType": "SimpleExport"
+        }
+    }
+],
+"pageProcessors": [
+    {
+        "type": "import",
+        "qa__import": {
+            "_id": "6320366a61ef450637614ee1",
+            "createdAt": "2022-09-13T07:51:06.391Z",
+            "lastModified": "2022-09-13T07:51:06.457Z",
+            "name": "import",
+            "application":"Amazon Seller Central",
+            "_connectionId": "AMAZON SP API CONNECTION",
+            "apiIdentifier": "i5a6337ac8",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+                "relativeURI": [],
+                "method": [
+                    "DELETE"
+                ],
+                "body": [],
+                "batchSize": 1,
+                "sendPostMappedData": true,
+                "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+        }
+    }
+]
+}

@@ -1,0 +1,99 @@
+{
+    "name": "TC_C46902",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "disabled": false,
+    "qa__api_tdata": [
+        {
+            "pageProcessors": [
+                {
+                    "responseMapping": {
+                        "fields": [],
+                        "lists": []
+                    },
+                    "type": "import",
+                    "qa__import": {
+                        "name": "TC_C46902_import",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "ibfaabc853",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "mappings": [
+                            {
+                                "generate": "tickets",
+                                "dataType": "objectarray",
+                                "status": "Active",
+                                "buildArrayHelper": [
+                                    {
+                                        "extract": "$.tickets[*]",
+                                        "sourceDataType": "objectarray",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.tickets.id",
+                                                "generate": "id",
+                                                "dataType": "string",
+                                                "status": "Active",
+                                                "sourceDataType": "string"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "file": {
+                            "fileName": "TC_C46902.json",
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "io.auto.qa/Zendesk_Tests/Automation",
+                            "fileName": "TC_C46902.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "testingZDexp",
+                        "application": "zendesk support",
+                        "apiIdentifier": "e503d5075a",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": "tickets",
+                            "method": "GET",
+                            "body": "",
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C46902",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "disabled": false,
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

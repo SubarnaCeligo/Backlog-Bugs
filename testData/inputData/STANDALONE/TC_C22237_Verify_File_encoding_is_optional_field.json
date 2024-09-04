@@ -1,0 +1,29 @@
+{
+  "skipRetries": false,
+  "_integrationId": "631a1266abf51e7a86c80ab4",
+  "qa__integrationId": "6228aed6bc8a2732cfe8044c",
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "S3 Import",
+        "_connectionId": "S3 CONNECTION",
+        "oneToMany": false,
+        "sandbox": false,
+        "file": {
+          "fileName": "file-{{timestamp}}.json",
+          "skipAggregation": false,
+          "type": "json",
+          "encoding": "utf8"
+        },
+        "s3": {
+          "region": "us-east-1",
+          "bucket": "automations3import",
+          "fileKey": "file-{{timestamp}}.json"
+        },
+        "adaptorType": "S3Import"
+      }
+    }
+  ],
+  "pageGenerators": []
+}

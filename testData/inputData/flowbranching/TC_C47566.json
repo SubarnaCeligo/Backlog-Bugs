@@ -1,0 +1,152 @@
+{
+  "name": "TC_C47566",
+  "disabled": false,
+  "_integrationId": "62f51db41677a21a108e5e3a",
+  "skipRetries": false,
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "TC_C47566",
+        "_connectionId": "NETSUITE CONNECTION",
+        "apiIdentifier": "ed52a6e064",
+        "asynchronous": true,
+        "type": "test",
+        "oneToMany": false,
+        "sandbox": false,
+        "rawData": "62f37ad6703e322cf5d90431bc3ff8f721454223a80c3dee95ab2f6f",
+        "test": {
+          "limit": 1
+        },
+        "netsuite": {
+          "type": "restlet",
+          "skipGrouping": false,
+          "statsOnly": false,
+          "restlet": {
+            "recordType": "department",
+            "searchId": "3193",
+            "criteria": [],
+            "columns": [],
+            "useSS2Restlets": false,
+            "markExportedBatchSize": 100
+          },
+          "distributed": {
+            "executionContext": [],
+            "executionType": [],
+            "useSS2Framework": false
+          }
+        },
+        "adaptorType": "NetSuiteExport"
+      }
+    }
+  ],
+  "routers": [
+    {
+      "routeRecordsUsing": "input_filters",
+      "id": "0TnVvR",
+      "routeRecordsTo": "all_matching_branches",
+      "branches": [
+        {
+          "name": "Branch 1.0",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "flow branching-salesforce",
+                "_connectionId": "SALESFORCE CONNECTION",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": true,
+                "mapping": {
+                  "fields": [
+                    {
+                      "extract": "Name",
+                      "generate": "Name"
+                    }
+                  ]
+                },
+                "salesforce": {
+                  "operation": "insert",
+                  "sObjectType": "Account",
+                  "api": "soap",
+                  "removeNonSubmittableFields": false
+                },
+                "adaptorType": "SalesforceImport"
+              }
+            },
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "AutomationStandaloneImport__jOFxookHrY",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "ie4d2ab4d8",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                  "fileName": "TC_C47566-{{timestamp \"YYYY-MM-DD hh:mm:ss\" \"America/Los_Angeles\"}}.json",
+                  "skipAggregation": false,
+                  "type": "json"
+                },
+                "ftp": {
+                  "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                  "fileName": "TC_C47566-{{timestamp \"YYYY-MM-DD hh:mm:ss\" \"America/Los_Angeles\"}}.json"
+                },
+                "adaptorType": "FTPImport"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Branch 1.1",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "FTP_import",
+                "_connectionId": "FTP CONNECTION",
+                "oneToMany": false,
+                "sandbox": false,
+                "mapping": {
+                  "fields": [
+                    {
+                      "extract": "Name",
+                      "generate": "name"
+                    },
+                    {
+                      "extract": "recordType",
+                      "generate": "email"
+                    }
+                  ]
+                },
+                "file": {
+                  "fileName": "TC_47566file{{timestamp \"YYYY-MM-DD hh:mm:ss\" \"America/Los_Angeles\"}}.json",
+                  "skipAggregation": true,
+                  "type": "json"
+                },
+                "ftp": {
+                  "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                  "fileName": "TC_47566file{{timestamp \"YYYY-MM-DD hh:mm:ss\" \"America/Los_Angeles\"}}.json"
+                },
+                "adaptorType": "FTPImport"
+              }
+            }
+          ]
+        }
+      ],
+      "script": {
+        "function": "branching"
+      }
+    }
+  ]
+}

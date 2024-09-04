@@ -1,0 +1,228 @@
+{
+  "name": "TC_C51239",
+  "qa__api_tdata": [
+    {
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "HTTP import",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "ied5c3c7ad",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "mappings": [
+              {
+                "dataType": "objectarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                  {
+                    "extract": "$.lName",
+                    "conditional": {
+                      "when": "extract_not_empty"
+                    },
+                    "sourceDataType": "objectarray",
+                    "mappings": [
+                      {
+                        "extract": "$.children[*].firstName",
+                        "generate": "child",
+                        "dataType": "string",
+                        "status": "Active",
+                        "sourceDataType": "string"
+                      },
+                      {
+                        "extract": "$.mother.lName",
+                        "generate": "clname",
+                        "dataType": "string",
+                        "status": "Active",
+                        "sourceDataType": "string"
+                      },
+                      {
+                        "extract": "$.siblings[*].fName",
+                        "generate": "test",
+                        "dataType": "string",
+                        "status": "Active",
+                        "sourceDataType": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "extract": "$.father.lName",
+                    "conditional": {
+                      "when": "extract_not_empty"
+                    },
+                    "sourceDataType": "objectarray",
+                    "mappings": [
+                      {
+                        "generate": "child",
+                        "dataType": "string",
+                        "status": "Draft",
+                        "sourceDataType": "string"
+                      },
+                      {
+                        "generate": "clname",
+                        "dataType": "string",
+                        "status": "Draft",
+                        "sourceDataType": "string"
+                      },
+                      {
+                        "generate": "test",
+                        "dataType": "string",
+                        "status": "Draft",
+                        "sourceDataType": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "extract": "$.children[*].firstName",
+                    "conditional": {
+                      "when": "extract_not_empty"
+                    },
+                    "sourceDataType": "objectarray",
+                    "mappings": [
+                      {
+                        "generate": "child",
+                        "dataType": "string",
+                        "status": "Draft",
+                        "sourceDataType": "string"
+                      },
+                      {
+                        "generate": "clname",
+                        "dataType": "string",
+                        "status": "Draft",
+                        "sourceDataType": "string"
+                      },
+                      {
+                        "generate": "test",
+                        "dataType": "string",
+                        "status": "Draft",
+                        "sourceDataType": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "extract": "$.snaks[*].lName",
+                    "conditional": {
+                      "when": "extract_not_empty"
+                    },
+                    "sourceDataType": "objectarray",
+                    "mappings": [
+                      {
+                        "generate": "child",
+                        "dataType": "string",
+                        "status": "Draft",
+                        "sourceDataType": "string"
+                      },
+                      {
+                        "generate": "clname",
+                        "dataType": "string",
+                        "status": "Draft",
+                        "sourceDataType": "string"
+                      },
+                      {
+                        "generate": "test",
+                        "dataType": "string",
+                        "status": "Draft",
+                        "sourceDataType": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "extract": "$.lunch[*].fName",
+                    "conditional": {
+                      "when": "extract_not_empty"
+                    },
+                    "sourceDataType": "objectarray",
+                    "mappings": [
+                      {
+                        "generate": "child",
+                        "dataType": "string",
+                        "status": "Draft",
+                        "sourceDataType": "string"
+                      },
+                      {
+                        "generate": "clname",
+                        "dataType": "string",
+                        "status": "Draft",
+                        "sourceDataType": "string"
+                      },
+                      {
+                        "generate": "test",
+                        "dataType": "string",
+                        "status": "Draft",
+                        "sourceDataType": "string"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "http": {
+              "relativeURI": ["users"],
+              "method": ["POST"],
+              "body": [],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+          }
+        }
+      ],
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "test",
+            "qa__path": "/FTP_uploads/TC_C51211.json",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "ec9d985883",
+            "asynchronous": true,
+            "sandbox": false,
+            "ftp": {
+              "directoryPath": "/test",
+              "fileNameStartsWith": "test"
+            },
+            "file": {
+              "output": "records",
+              "skipDelete": true,
+              "type": "json"
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C51239",
+        "disabled": true,
+        "skipRetries": false,
+        "qa__integrationId": "56d6b23fe1fc35de53914730",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW",
+            "skipRetries": false
+          }
+        ]
+      }
+    }
+  ],
+  "ExpectedData": {
+    "fname": "scott",
+    "lname": "henderson",
+    "test": "abby,paige",
+    "Mname": "mary"
+  }
+}

@@ -1,0 +1,33 @@
+{
+    "name": "TC_C27331",
+    "skipRetries": false,
+    "_integrationId": "62eca1efe386b563f638451e",
+    "disabled": false,
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "FTP_Export_TC_C27331",
+                "adaptorType": "FTPExport",
+                "apiIdentifier": "efbffd4bba",
+                "qa__path": "//SFTP_uploads//TC_C44965_Mapper.json",
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                    "fileNameStartsWith": "TC_C44965_Mapper",
+                    "fileNameEndsWith": "json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "asynchronous": true,
+                "_connectionId": "FTP CONNECTION"
+            }
+        }
+    ]
+}

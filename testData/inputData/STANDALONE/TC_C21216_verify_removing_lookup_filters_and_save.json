@@ -1,0 +1,72 @@
+{
+    "name": "TC_C21216_verify_removing_lookup_filters",
+    "referencename": "TC_C21216_verify_removing_lookup_filters",
+    "qa__dataVerification": {},
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "SFRT",
+              "_connectionId": "SALESFORCE CONNECTION",
+              "asynchronous": true,
+              "type": "distributed",
+              "parsers": [],
+              "distributed": {
+                "bearerToken": "******"
+              },
+              "salesforce": {
+                "sObjectType": "Account"
+              },
+              "adaptorType": "SalesforceExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+                "name": "sf import",
+                "_connectionId": "SALESFORCE CONNECTION",
+                "apiIdentifier": "i0074fbd73",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "salesforce": {
+                   "operation": "update",
+                   "sObjectType": "Account",
+                    "api": "soap",
+                    "idLookup": {
+                        "whereClause": "((BillingAddress = {{{address BillingAddress}}}) AND (BillingCity = {{{string BillingCity}}}))"
+                    },
+                "removeNonSubmittableFields": false
+                }
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C21216_verify_removing_lookup_filters",
+          "disabled": false,
+          "_integrationId": "6228aed6bc8a2732cfe8044c",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

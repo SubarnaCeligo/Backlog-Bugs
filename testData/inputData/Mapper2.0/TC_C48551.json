@@ -1,0 +1,151 @@
+{
+    "name": "TC_C48551",
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "disabled": false,
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "name": "ugtjf",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "extract": "$.100[*].Audit Action(100)",
+                        "generate": "Oned",
+                        "dataType": "string",
+                        "status": "Active"
+                    },
+                    {
+                        "extract": "$.100[*].Item Shipping Date",
+                        "generate": "shell",
+                        "dataType": "string",
+                        "status": "Active"
+                    },
+                    {
+                        "generate": "company",
+                        "dataType": "string",
+                        "hardCodedValue": "celigo",
+                        "status": "Active"
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "/tickets.json"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "ds",
+                "qa__path": "//FTP_uploads//exportData.json",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "exportdata.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "body": [
+        {
+            "update": {
+                "name": "action",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "dataType": "objectarray",
+                        "status": "Active",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$",
+                                "sourceDataType": "objectarray",
+                                "mappings": [
+                                    {
+                                        "extract": "$.first_name",
+                                        "generate": "first_name",
+                                        "dataType": "string",
+                                        "hardCodedValue": "String",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "extract": "$.number",
+                                        "generate": "no",
+                                        "dataType": "number",
+                                        "hardCodedValue": "Number",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "extract": "$.bool",
+                                        "generate": "boolean",
+                                        "dataType": "boolean",
+                                        "hardCodedValue": "Boolean",
+                                        "status": "Active"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "generate": "error",
+                        "dataType": "string",
+                        "extract": "$.bool",
+                        "hardCodedValue": "sample",
+                        "status": "Active"
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "/api/v3/customers"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ]
+}

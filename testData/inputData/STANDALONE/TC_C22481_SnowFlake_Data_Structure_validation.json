@@ -1,0 +1,98 @@
+{
+  "expected_insertQuery": {
+    "record": {
+      "myField": "sample"
+    },
+    "connection": {
+      "name": "SNOWFLAKECONNECTION"
+    },
+    "import": {},
+    "settings": {
+      "integration": {},
+      "flow": {},
+      "flowGrouping": {},
+      "connection": {},
+      "import": {}
+    }
+  },
+  "expected_MergeQuery": {
+    "batch_of_records": [
+      {
+        "record": {
+          "myField": "sample"
+        }
+      },
+      {
+        "record": {
+          "myField": "sample"
+        }
+      },
+      {
+        "record": {
+          "myField": "sample"
+        }
+      },
+      {
+        "record": {
+          "myField": "sample"
+        }
+      },
+      {
+        "record": {
+          "myField": "sample"
+        }
+      }
+    ],
+    "connection": {
+      "name": "SNOWFLAKECONNECTION"
+    },
+    "import": {},
+    "settings": {
+      "integration": {},
+      "flow": {},
+      "flowGrouping": {},
+      "connection": {},
+      "import": {}
+    }
+  },
+  "expected_CopyQuery": {
+    "batch_of_records": [
+      {
+        "record": {
+          "myField": "sample"
+        }
+      },
+      {
+        "record": {
+          "myField": "sample"
+        }
+      },
+      {
+        "record": {
+          "myField": "sample"
+        }
+      },
+      {
+        "record": {
+          "myField": "sample"
+        }
+      },
+      {
+        "record": {
+          "myField": "sample"
+        }
+      }
+    ],
+    "connection": {
+      "name": "SNOWFLAKECONNECTION"
+    },
+    "import": {},
+    "settings": {
+      "integration": {},
+      "flow": {},
+      "flowGrouping": {},
+      "connection": {},
+      "import": {}
+    }
+  }
+}

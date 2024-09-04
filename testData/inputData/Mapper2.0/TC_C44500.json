@@ -1,0 +1,301 @@
+{
+    "name": "TC_C44500",
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "disabled": false,
+    "referencename": "TC_C44500",
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "name": "44500 import",
+                "application": "HubSpot",
+                "_connectionId": "HTTP HUBSPOT CONNECTION",
+                "ignoreExisting": true,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "lookups": [
+                    {
+                        "name": "static",
+                        "map": {
+                            "1": "2"
+                        },
+                        "allowFailures": false,
+                        "useImportHeaders": true
+                    },
+                    {
+                        "name": "dynamic",
+                        "method": "GET",
+                        "relativeURI": "api/v1/orders",
+                        "extract": "data[1].orderLineId",
+                        "body": "",
+                        "allowFailures": false,
+                        "useImportHeaders": true
+                    }
+                ],
+                "mappings": [
+                    {
+                        "generate": "items",
+                        "dataType": "object",
+                        "mappings": [
+                            {
+                                "generate": "items inventory",
+                                "dataType": "objectarray",
+                                "buildArrayHelper": [
+                                    {
+                                        "extract": "$.items[*].inventory[*]",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.items.inventory.sQty",
+                                                "generate": "items qty",
+                                                "dataType": "string"
+                                            },
+                                            {
+                                                "extract": "$.items.inventory.isActive",
+                                                "generate": "Active",
+                                                "dataType": "string"
+                                            },
+                                            {
+                                                "extract": "$.items.inventory.sno",
+                                                "generate": "sno",
+                                                "dataType": "number"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "generate": "products",
+                        "dataType": "objectarray",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$.products[*].inventory[*]",
+                                "mappings": [
+                                    {
+                                        "generate": "sno",
+                                        "dataType": "stringarray",
+                                        "buildArrayHelper": [
+                                            {
+                                                "extract": "$.products.inventory.sno"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "products qty",
+                                        "dataType": "numberarray",
+                                        "buildArrayHelper": [
+                                            {
+                                                "extract": "$.products.inventory.sQty"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "Active",
+                                        "dataType": "booleanarray",
+                                        "buildArrayHelper": [
+                                            {
+                                                "extract": "$.products.inventory.isActive"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "generate": "orders",
+                        "dataType": "objectarray",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$.orders[*].inventory[*]",
+                                "mappings": [
+                                    {
+                                        "extract": "$.orders.inventory.sQty",
+                                        "generate": "orders qty",
+                                        "dataType": "string",
+                                        "lookupName": "static"
+                                    },
+                                    {
+                                        "generate": "data",
+                                        "extract": "$.brands.inventory.sQty",
+                                        "dataType": "string",
+                                        "lookupName": "dynamic"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "/contacts/v1/contact"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [
+                        "{\n      \"property\": \"{{record.items.name}}\",\n      \"value\": \"{{connection.http.unencrypted.field}}\"\n    }"
+                    ],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "ignoreExtract": "customer",
+                    "formType": "http",
+                    "lookups": [
+                        {
+                            "name": "static",
+                            "map": {
+                                "1": "2"
+                            },
+                            "allowFailures": false,
+                            "useImportHeaders": true
+                        },
+                        {
+                            "name": "dynamic",
+                            "method": "GET",
+                            "relativeURI": "api/v1/orders",
+                            "extract": "data[1].orderLineId",
+                            "body": "",
+                            "allowFailures": false,
+                            "useImportHeaders": true
+                        }
+                    ]
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "FTP_export_44500",
+                "adaptorType": "FTPExport",
+                "apiIdentifier": "e04ccaf8a8",
+                "qa__path": "//FTP_uploads//TC_C44500.json",
+                "sampleData": {
+                    "customer": "Celigo",
+                    "items": [
+                        {
+                            "inventory": [
+                                {
+                                    "sQty": 1,
+                                    "sno": "121241221",
+                                    "date": "2022/06/07",
+                                    "isActive": true
+                                },
+                                {
+                                    "sQty": 1,
+                                    "sno": "121241222",
+                                    "date": "2022/06/08",
+                                    "isActive": false
+                                }
+                            ],
+                            "quantity": 2,
+                            "sku": "Iphone X"
+                        }
+                    ],
+                    "products": [
+                        {
+                            "inventory": [
+                                {
+                                    "sQty": 1,
+                                    "sno": "121241221",
+                                    "date": "2022/06/07",
+                                    "isActive": true
+                                },
+                                {
+                                    "sQty": 1,
+                                    "sno": "121241222",
+                                    "date": "2022/06/08",
+                                    "isActive": false
+                                }
+                            ],
+                            "quantity": 2,
+                            "sku": "Iphone X"
+                        }
+                    ],
+                    "orders": [
+                        {
+                            "inventory": [
+                                {
+                                    "sQty": 1,
+                                    "sno": "121241221",
+                                    "date": "2022/06/07",
+                                    "isActive": true
+                                },
+                                {
+                                    "sQty": 1,
+                                    "sno": "121241222",
+                                    "date": "2022/06/08",
+                                    "isActive": false
+                                }
+                            ],
+                            "quantity": 2,
+                            "sku": "Iphone X"
+                        }
+                    ],
+                    "news": [
+                        {
+                            "inventory": [
+                                {
+                                    "sQty": 1,
+                                    "sno": "121241221",
+                                    "date": "2022/06/07",
+                                    "isActive": true
+                                },
+                                {
+                                    "sQty": 1,
+                                    "sno": "121241222",
+                                    "date": "2022/06/08",
+                                    "isActive": false
+                                }
+                            ],
+                            "quantity": 2,
+                            "sku": "Iphone X"
+                        }
+                    ],
+                    "brands": [
+                        {
+                            "inventory": [
+                                {
+                                    "sQty": 1,
+                                    "sno": "121241221",
+                                    "date": "2022/06/07",
+                                    "isActive": true
+                                },
+                                {
+                                    "sQty": 1,
+                                    "sno": "121241222",
+                                    "date": "2022/06/08",
+                                    "isActive": false
+                                }
+                            ],
+                            "quantity": 2,
+                            "sku": "Iphone X"
+                        }
+                    ]
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                    "fileNameStartsWith": "TC_C44500.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "asynchronous": true,
+                "_connectionId": "FTP CONNECTION"
+            }
+        }
+    ],
+    "expected": "{\n  \"items\": {\n    \"items inventory\": [\n      {\n        \"items qty\": \"1\",\n        \"Active\": \"true\",\n        \"sno\": 121241221\n      },\n      {\n        \"items qty\": \"1\",\n        \"Active\": \"false\",\n        \"sno\": 121241222\n      }\n    ],\n    \"orders\": [\n      {\n        \"orders qty\": \"2\",\n        \"data\": \"[Dynamic lookup: Preview unavailable]\"\n      },\n      {\n        \"orders qty\": \"2\",\n        \"data\": \"[Dynamic lookup: Preview unavailable]\"\n      }\n    ],\n    \"products\": [\n      {\n        \"Active\": [\n          true\n        ],\n        \"products qty\": [\n          1\n        ],\n        \"sno\": [\n          \"121241221\"\n        ]\n      },\n      {\n        \"Active\": [\n          false\n        ],\n        \"products qty\": [\n          1\n        ],\n        \"sno\": [\n          \"121241222\"\n        ]\n      }\n    ]\n  }\n}"
+}

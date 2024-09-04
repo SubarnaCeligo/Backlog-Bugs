@@ -1,0 +1,58 @@
+{
+    "name": "TC_C53080",
+   "_integrationId": "6228aed6bc8a2732cfe8044c",
+   "disabled": false,
+   "timezone": "Asia/Calcutta",
+   "skipRetries": false,
+   "qa__expectedDashboardCount": {
+     "successCount": "6",
+     "ignoreCount": "0",
+     "errorCount": "6"
+   },
+   "pageGenerators": [
+     {
+       "type": "export",
+       "qa__export": {
+         "name": "TC_C53080",
+         "_connectionId": "S3 CONNECTION",
+         "asynchronous": true,
+         "sandbox": false,
+         "s3": {
+           "region": "us-east-1",
+           "bucket": "automations3export",
+           "keyStartsWith": "TC_C53080"
+         },
+         "file": {
+           "output": "records",
+           "skipDelete": true,
+           "type": "json"
+         },
+         "adaptorType": "S3Export",
+         "qa__path": "//S3_uploads//TC_C53080.json"
+       }
+     }
+   ],
+   "pageProcessors": [
+     {
+       "type": "import",
+       "qa__import": {
+        "name": "53080import",
+         "_connectionId": "S3 CONNECTION",
+         "oneToMany": false,
+         "sandbox": false,
+         "file": {
+           "fileName": "file-{{timestamp}.json",
+           "skipAggregation": false,
+           "type": "json"
+         },
+         "s3": {
+           "region": "us-east-1",
+           "bucket": "test-qa-files",
+           "fileKey": "file-{{timestamp}.json"
+         },
+         "adaptorType": "S3Import"
+       }
+     }
+   ],
+   "Script": "function preSavePage (options) {\r\n console.log('test hook');  return {\r\n    data: options.data,\r\n    errors: options.errors,\r\n    abort: false,\r\n    newErrorsAndRetryData: []\r\n  }\r\n}"
+ }

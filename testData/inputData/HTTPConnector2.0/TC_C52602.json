@@ -1,0 +1,149 @@
+{
+  "name": "TC_C52602",
+  "referencename": "TC_C52602",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "251",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "expected": {
+      "FTP": {
+        "name": "FTP import",
+        "_integrationId": "633408479fb96473a0c7372c",
+        "import": {
+          "_connectionId": "FTP CONNECTION",
+          "file": {
+            "csv": {
+              "columnDelimiter": ","
+            }
+          }
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "2",
+          "ignoreCount": "251",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "fileName": "TC_C52602",
+          "isUIFlow": true,
+          "folderName": "/io.auto.qa/IO_UI_Automation_FTPimport",
+          "fileType": ".json"
+        }
+      }
+    }
+  },
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "test",
+            "_connectionId": "ORDERFUL CONNECTION",
+            "apiIdentifier": "e3df4dad6b",
+            "asynchronous": true,
+            "type": "delta",
+            "assistant": "orderful",
+            "oneToMany": false,
+            "sandbox": false,
+            "assistantMetadata": {
+              "resource": "6345f57469f848d92751c01a",
+              "version": "6345f57469f848d92751c00e",
+              "operation": "6345f57469f848d92751c01b"
+            },
+            "http": {
+              "relativeURI": "/v3/relationships",
+              "method": "GET",
+              "requestMediaType": "json",
+              "successMediaType": "json",
+              "errorMediaType": "json",
+              "_httpConnectorResourceId": "6345f57469f848d92751c01a",
+              "_httpConnectorEndpointId": "6345f57469f848d92751c01b",
+              "formType": "assistant",
+              "paging": {
+                "method": "url",
+                "path": "metadata.pagination.links.next",
+                "lastPagePath": "metadata.pagination.links.next",
+                "lastPageValues": ["null"]
+              },
+              "response": {
+                "resourcePath": "data"
+              }
+            },
+            "filter": {
+              "type": "expression",
+              "expression": {
+                "rules": ["equals", ["string", ["extract", "id"]], "35129"],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": ["equals", ["string", ["extract", "id"]], "35129"]
+            },
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "test",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "i20ceb0a76",
+            "oneToMany": false,
+            "sandbox": false,
+            "mappings": [
+              {
+                "extract": "$.sender.liveIsaId",
+                "generate": "liveIsaId",
+                "dataType": "string",
+                "status": "Active",
+                "sourceDataType": "string"
+              },
+              {
+                "extract": "$.sender.testIsaId",
+                "generate": "testIsaId",
+                "dataType": "string",
+                "status": "Active",
+                "sourceDataType": "string"
+              }
+            ],
+            "file": {
+              "fileName": "TC_C52602.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPimport",
+              "fileName": "TC_C52602.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C52602",
+        "disabled": false,
+        "qa__integrationId": "633408479fb96473a0c7372c",
+        "_integrationId": "63340890bb74b66e32a92640",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

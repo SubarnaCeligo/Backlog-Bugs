@@ -1,0 +1,172 @@
+{
+  "name": "TC_C47573",
+  "disabled": false,
+  "_integrationId": "62f51db41677a21a108e5e3a",
+  "skipRetries": false,
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "TC_C47573",
+        "_connectionId": "NETSUITE CONNECTION",
+        "apiIdentifier": "eac442d49a",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "rawData": "62f37ad6703e322cf5d9043149d520d92f494d3e95e9cadc88371ac2",
+        "netsuite": {
+          "type": "restlet",
+          "skipGrouping": true,
+          "statsOnly": false,
+          "restlet": {
+            "recordType": "customer",
+            "searchId": "996",
+            "useSS2Restlets": false,
+            "markExportedBatchSize": 100
+          },
+          "distributed": {
+            "useSS2Framework": false
+          }
+        },
+        "adaptorType": "NetSuiteExport"
+      }
+    }
+  ],
+  "autoResolveMatchingTraceKeys": true,
+  "routers": [
+    {
+      "routeRecordsUsing": "input_filters",
+      "id": "HEjCbX",
+      "routeRecordsTo": "all_matching_branches",
+      "branches": [
+        {
+          "name": "Branch 1.0",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "FTP Import",
+                "_connectionId": "FTP CONNECTION",
+                "_sourceId": "62d8f4cddf6dc60449037294",
+                "apiIdentifier": "ib9df7ae3f",
+                "oneToMany": false,
+                "file": {
+                  "fileName": "TC_C47573file{{timestamp \"YYYY-MM-DD hh:mm:ss\" \"America/Los_Angeles\"}}.json",
+                  "skipAggregation": true,
+                  "type": "json"
+                },
+                "ftp": {
+                  "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPimport",
+                  "fileName": "TC_C47573file{{timestamp \"YYYY-MM-DD hh:mm:ss\" \"America/Los_Angeles\"}}.json"
+                },
+                "adaptorType": "FTPImport"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Branch 1.1",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "S3 import",
+                "description": "for testing .make changes",
+                "_connectionId": "S3 CONNECTION",
+                "apiIdentifier": "i897191ac6",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                  "fileName": "Finalfile47573skipagg.json",
+                  "skipAggregation": true,
+                  "type": "json"
+                },
+                "s3": {
+                  "region": "us-east-1",
+                  "bucket": "io-automation",
+                  "fileKey": "Finalfile47573.json"
+                },
+                "adaptorType": "S3Import"
+              }
+            }
+          ]
+        }
+      ],
+      "script": {
+        "function": "branching"
+      }
+    }
+  ],
+  "qa__expectedDashboardCount": {
+    "successCount": "183",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "generateSampleDropDownAvailable": false,
+    "expected": {
+      "FTP": {
+        "name": "TC_C47573",
+        "_integrationId": "62f51db41677a21a108e5e3a",
+        "import": {
+          "_connectionId": "FTP CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "183",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "fileName": "TC_C47573file",
+          "isUIFlow": true,
+          "folderName": "/io.auto.qa/IO_UI_Automation_FTPimport",
+          "fileType": ".json"
+        }
+      },
+      "S3": {
+        "name": "TC_C47569",
+        "_integrationId": "62f51db41677a21a108e5e3a",
+        "import": {
+          "_connectionId": "FTP CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "183",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "bucketName": "io-automation",
+          "fileName": "Finalfile47573skipagg-1",
+          "isUIFlow": true,
+          "fileType": ".json"
+        }
+      },
+      "s3": {
+        "name": "TC_C47569",
+        "_integrationId": "62f51db41677a21a108e5e3a",
+        "import": {
+          "_connectionId": "FTP CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "183",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "bucketName": "io-automation",
+          "fileName": "Finalfile47573skipagg-2",
+          "isUIFlow": true,
+          "fileType": ".json"
+        }
+      }
+    }
+  }
+}

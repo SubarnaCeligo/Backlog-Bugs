@@ -1,0 +1,24 @@
+{
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "ftp",
+        "_connectionId": "FTP CONNECTION",
+        "qa__path": "/FTP_uploads/TC_C34450.json",
+        "asynchronous": true,
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "/test",
+          "fileNameStartsWith": "test"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json"
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ]
+}

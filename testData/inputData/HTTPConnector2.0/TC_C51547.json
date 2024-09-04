@@ -1,0 +1,112 @@
+{
+    "name": "TC51547",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+      },
+    "referencename": "TC51547",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "loop returns",
+                        "_connectionId": "LOOP RETURNS CONNECTION",
+                        "apiIdentifier": "e36973c1cc",
+                        "asynchronous": true,
+                        "assistant": "loopreturns",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "assistantMetadata": {
+                            "resource": "639184209998e4b191badcb3",
+                            "version": "639184209998e4b191badcb2",
+                            "operation": "639184209998e4b191badcb5"
+                        },
+                        "http": {
+                            "relativeURI": "/blacklists/2949523",
+                            "method": "GET",
+                            "requestMediaType": "json",
+                            "successMediaType": "json",
+                            "errorMediaType": "json",
+                            "_httpConnectorVersionId": "639184209998e4b191badcb2",
+                            "_httpConnectorResourceId": "639184209998e4b191badcb3",
+                            "_httpConnectorEndpointId": "639184209998e4b191badcb5",
+                            "formType": "assistant"
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                             "name": "FTP",
+                            "_connectionId": "FTP CONNECTION",
+                            "apiIdentifier": "i17c78e9cd",
+                            "oneToMany": false,
+                             "sandbox": false,
+                "mapping": {
+                     "fields": [
+                   {
+                      "extract": "id",
+                       "generate": "id"
+                   },
+                {
+                "extract": "created_at",
+                "generate": "created_at"
+               },
+            {
+                "extract": "type",
+                "generate": "type"
+            },
+            {
+                "extract": "value",
+                "generate": "value"
+            },
+            {
+                "extract": "secondary_value",
+                "generate": "secondary_value"
+            }
+        ]
+    },
+    "file": {
+        "fileName": "TC_C51547.json",
+        "skipAggregation": false,
+        "type": "json"
+    },
+    "ftp": {
+        "directoryPath": "/io.auto.qa/IO_UI_Automation",
+        "fileName": "TC_C51547.json"
+    },
+    "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC51547",
+                "disabled": false,
+                "qa__integrationId": "633408479fb96473a0c7372c",
+                "_integrationId": "631a1266abf51e7a86c80ab4",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,133 @@
+{
+    "name": "TC_C36711",
+    "referencename": "TC_C36711",
+    "updateBody": {
+        "name": "Updated HTTP Import",
+        "application": "zendesk support",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "qa__connectionId": "ZENDESK CONNECTION",
+        "hooks": {
+            "postSubmit": {
+                "_scriptId": "UPDATE",
+                "function": "postSubmit"
+            }
+        },
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+            "relativeURI": [
+                "/users"
+            ],
+            "method": [
+                "POST"
+            ],
+            "body": [],
+            "batchSize": 1,
+            "sendPostMappedData": true,
+            "formType": "http",
+            "response": {
+                "resourceIdPath": [
+                    "users"
+                ]
+            }
+        },
+        "adaptorType": "HTTPImport"
+    },
+    "scriptBody": {
+        "name": "PostSubmitError_DND",
+        "content": "function postSubmit(options) {var d=options.responseData\nd[0].errors[0].message =  d[0].errors[0].message +  \" \"    +  \"Modify Error Test\"\nreturn options.responseData\n}"
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "C36711 Export",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "recordType": "customer",
+                                "searchId": "3814",
+                                "useSS2Restlets": true,
+                                "criteria": [
+                                    {
+                                        "field": "companyname",
+                                        "operator": "is",
+                                        "searchValue": "TC_453_NS_RT"
+                                    }
+                                ]
+                            },
+                            "distributed": {
+                                "useSS2Framework": false
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "C36711 Import",
+                        "application": "zendesk support",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "qa__connectionId": "ZENDESK CONNECTION",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": [
+                                "/users"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http",
+                            "response": {
+                                "resourceIdPath": [
+                                    "users"
+                                ]
+                            }
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C36711",
+                "disabled": false,
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

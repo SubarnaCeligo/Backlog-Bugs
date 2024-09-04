@@ -1,0 +1,333 @@
+{
+    "apiConnections": [
+        {
+            "importJSON": {
+                "type": "http",
+                "name": "WALMART CONNECTION",
+                "offline": false,
+                "sandbox": false,
+                "http": {
+                    "formType": "http",
+                    "mediaType": "json",
+                    "baseURI": "https://marketplace.walmartapis.com/",
+                    "ping": {
+                        "relativeURI": "v3/items/PZ-24",
+                        "method": "GET",
+                        "successPath": ""
+                    },
+                    "headers": [
+                        {
+                            "name": "wm_qos.correlation_id",
+                            "value": "1645654646541"
+                        },
+                        {
+                            "name": "wm_svc.name",
+                            "value": "Walmart Marketplace"
+                        },
+                        {
+                            "name": "wm_consumer.channel.type",
+                            "value": "511b6430-8bb3-475c-97e2-3bb5ed066780"
+                        },
+                        {
+                            "name": "authorization",
+                            "value": "Basic ZDI1YTM3OWItNDQ1Ni00NDQyLTk5OTAtNjFiOWE5MzQ2N2M0OmRFSk42RW9vU3NlVGJrS3JSb0ZITzlHVTJOdlU0cEtJTVp2OUZuNTdXdFA3UXpnT2JMbTRXd2hwSGJLQ01sUkZtYUtnRVdPcVRvS2hvOGdRU3NReTdB"
+                        }
+                    ],
+                    "unencrypted": {
+                        "field": "value"
+                    },
+                    "encrypted": "******",
+                    "auth": {
+                        "type": "token",
+                        "oauth": {
+                            "clientCredentialsLocation": "body"
+                        },
+                        "token": {
+                            "token": "******",
+                            "location": "header",
+                            "headerName": "WM_SEC.ACCESS_TOKEN",
+                            "scheme": " ",
+                            "paramName": "access_token",
+                            "refreshMethod": "POST",
+                            "refreshRelativeURI": "v3/token",
+                            "refreshBody": "{\n  \"grant_type\":\"client_credentials\"\n}",
+                            "refreshMediaType": "urlencoded",
+                            "refreshResponseMediaType": "xml",
+                            "refreshTokenPath": "access_token",
+                            "refreshHeaders": [
+                                {
+                                    "name": "authorization",
+                                    "value": "Basic ZDI1YTM3OWItNDQ1Ni00NDQyLTk5OTAtNjFiOWE5MzQ2N2M0OmRFSk42RW9vU3NlVGJrS3JSb0ZITzlHVTJOdlU0cEtJTVp2OUZuNTdXdFA3UXpnT2JMbTRXd2hwSGJLQ01sUkZtYUtnRVdPcVRvS2hvOGdRU3NReTdB"
+                                },
+                                {
+                                    "name": "wm_consumer.channel.type",
+                                    "value": "511b6430-8bb3-475c-97e2-3bb5ed066780"
+                                },
+                                {
+                                    "name": "wm_qos.correlation_id",
+                                    "value": "1645654646541"
+                                },
+                                {
+                                    "name": "wm_svc.name",
+                                    "value": "Walmart Marketplace"
+                                }
+                            ],
+                            "refreshToken": "******"
+                        }
+                    }
+                },
+                "queues": [
+                    {
+                        "name": "62f206f28c29d43a8b227296",
+                        "size": 0
+                    }
+                ]
+            },
+            "updatedBody": {
+                "type": "http",
+                "name": "WALMART CONNECTION",
+                "offline": false,
+                "sandbox": false,
+                "http": {
+                    "formType": "http",
+                    "mediaType": "json",
+                    "baseURI": "https://marketplace.walmartapis.com/",
+                    "ping": {
+                        "relativeURI": "v3/items/PZ-24",
+                        "method": "GET",
+                        "successPath": ""
+                    },
+                    "headers": [
+                        {
+                            "name": "wm_qos.correlation_id",
+                            "value": "1645654646541"
+                        },
+                        {
+                            "name": "wm_svc.name",
+                            "value": "Walmart Marketplace"
+                        },
+                        {
+                            "name": "wm_consumer.channel.type",
+                            "value": "511b6430-8bb3-475c-97e2-3bb5ed066780"
+                        },
+                        {
+                            "name": "authorization",
+                            "value": "Basic ZDI1YTM3OWItNDQ1Ni00NDQyLTk5OTAtNjFiOWE5MzQ2N2M0OmRFSk42RW9vU3NlVGJrS3JSb0ZITzlHVTJOdlU0cEtJTVp2OUZuNTdXdFA3UXpnT2JMbTRXd2hwSGJLQ01sUkZtYUtnRVdPcVRvS2hvOGdRU3NReTdB"
+                        }
+                    ],
+                    "unencrypted": {
+                        "field": "value"
+                    },
+                    "encrypted": "******",
+                    "auth": {
+                        "type": "token",
+                        "oauth": {
+                            "clientCredentialsLocation": "body"
+                        },
+                        "token": {
+                            "token": "******",
+                            "location": "header",
+                            "headerName": "WM_SEC.ACCESS_TOKEN",
+                            "scheme": " ",
+                            "paramName": "access_token",
+                            "refreshMethod": "POST",
+                            "refreshRelativeURI": "v3/token",
+                            "refreshBody": "{\n  \"grant_type\":\"client_credentials\"\n}",
+                            "refreshMediaType": "urlencoded",
+                            "refreshResponseMediaType": "dummy",
+                            "refreshTokenPath": "access_token",
+                            "refreshHeaders": [
+                                {
+                                    "name": "authorization",
+                                    "value": "Basic ZDI1YTM3OWItNDQ1Ni00NDQyLTk5OTAtNjFiOWE5MzQ2N2M0OmRFSk42RW9vU3NlVGJrS3JSb0ZITzlHVTJOdlU0cEtJTVp2OUZuNTdXdFA3UXpnT2JMbTRXd2hwSGJLQ01sUkZtYUtnRVdPcVRvS2hvOGdRU3NReTdB"
+                                },
+                                {
+                                    "name": "wm_consumer.channel.type",
+                                    "value": "511b6430-8bb3-475c-97e2-3bb5ed066780"
+                                },
+                                {
+                                    "name": "wm_qos.correlation_id",
+                                    "value": "1645654646541"
+                                },
+                                {
+                                    "name": "wm_svc.name",
+                                    "value": "Walmart Marketplace"
+                                }
+                            ],
+                            "refreshToken": "******"
+                        }
+                    }
+                },
+                "queues": [
+                    {
+                        "name": "62f206f28c29d43a8b227296",
+                        "size": 0
+                    }
+                ]
+            },
+            "updatedBody1": {
+                "type": "http",
+                "name": "WALMART CON WITH REFRESH MEDIA AS JSON",
+                "offline": false,
+                "sandbox": false,
+                "http": {
+                    "formType": "http",
+                    "mediaType": "json",
+                    "baseURI": "https://marketplace.walmartapis.com/",
+                    "ping": {
+                        "relativeURI": "v3/items/PZ-24",
+                        "method": "GET",
+                        "successPath": ""
+                    },
+                    "headers": [
+                        {
+                            "name": "wm_qos.correlation_id",
+                            "value": "1645654646541"
+                        },
+                        {
+                            "name": "wm_svc.name",
+                            "value": "Walmart Marketplace"
+                        },
+                        {
+                            "name": "wm_consumer.channel.type",
+                            "value": "511b6430-8bb3-475c-97e2-3bb5ed066780"
+                        },
+                        {
+                            "name": "authorization",
+                            "value": "Basic ZDI1YTM3OWItNDQ1Ni00NDQyLTk5OTAtNjFiOWE5MzQ2N2M0OmRFSk42RW9vU3NlVGJrS3JSb0ZITzlHVTJOdlU0cEtJTVp2OUZuNTdXdFA3UXpnT2JMbTRXd2hwSGJLQ01sUkZtYUtnRVdPcVRvS2hvOGdRU3NReTdB"
+                        }
+                    ],
+                    "unencrypted": {
+                        "field": "value"
+                    },
+                    "encrypted": "******",
+                    "auth": {
+                        "type": "token",
+                        "oauth": {
+                            "clientCredentialsLocation": "body"
+                        },
+                        "token": {
+                            "token": "******",
+                            "location": "header",
+                            "headerName": "WM_SEC.ACCESS_TOKEN",
+                            "scheme": " ",
+                            "paramName": "access_token",
+                            "refreshMethod": "POST",
+                            "refreshRelativeURI": "v3/token",
+                            "refreshBody": "{\n  \"grant_type\":\"client_credentials\"\n}",
+                            "refreshMediaType": "urlencoded",
+                            "refreshResponseMediaType": "json",
+                            "refreshTokenPath": "access_token",
+                            "refreshHeaders": [
+                                {
+                                    "name": "authorization",
+                                    "value": "Basic ZDI1YTM3OWItNDQ1Ni00NDQyLTk5OTAtNjFiOWE5MzQ2N2M0OmRFSk42RW9vU3NlVGJrS3JSb0ZITzlHVTJOdlU0cEtJTVp2OUZuNTdXdFA3UXpnT2JMbTRXd2hwSGJLQ01sUkZtYUtnRVdPcVRvS2hvOGdRU3NReTdB"
+                                },
+                                {
+                                    "name": "wm_consumer.channel.type",
+                                    "value": "511b6430-8bb3-475c-97e2-3bb5ed066780"
+                                },
+                                {
+                                    "name": "wm_qos.correlation_id",
+                                    "value": "1645654646541"
+                                },
+                                {
+                                    "name": "wm_svc.name",
+                                    "value": "Walmart Marketplace"
+                                }
+                            ],
+                            "refreshToken": "******"
+                        }
+                    }
+                },
+                "queues": [
+                    {
+                        "name": "62f206f28c29d43a8b227296",
+                        "size": 0
+                    }
+                ]
+            },
+            "updatedBody2": {
+                "type": "http",
+                "name": "WALMART CON WITH REFRESH MEDIA AS XML",
+                "sandbox": false,
+                "http": {
+                    "formType": "http",
+                    "mediaType": "xml",
+                    "baseURI": "https://marketplace.walmartapis.com/",
+                    "ping": {
+                        "relativeURI": "v3/items/PZ-24",
+                        "method": "GET",
+                        "successPath": "/ItemResponses/totalItems/text()"
+                    },
+                    "headers": [
+                        {
+                            "name": "wm_qos.correlation_id",
+                            "value": "1645654646541"
+                        },
+                        {
+                            "name": "wm_svc.name",
+                            "value": "Walmart Marketplace"
+                        },
+                        {
+                            "name": "wm_consumer.channel.type",
+                            "value": "511b6430-8bb3-475c-97e2-3bb5ed066780"
+                        },
+                        {
+                            "name": "authorization",
+                            "value": "Basic ZDI1YTM3OWItNDQ1Ni00NDQyLTk5OTAtNjFiOWE5MzQ2N2M0OmRFSk42RW9vU3NlVGJrS3JSb0ZITzlHVTJOdlU0cEtJTVp2OUZuNTdXdFA3UXpnT2JMbTRXd2hwSGJLQ01sUkZtYUtnRVdPcVRvS2hvOGdRU3NReTdB"
+                        }
+                    ],
+                    "unencrypted": {
+                        "field": "value"
+                    },
+                    "encrypted": "******",
+                    "auth": {
+                        "type": "token",
+                        "oauth": {
+                            "clientCredentialsLocation": "body"
+                        },
+                        "token": {
+                            "token": "******",
+                            "location": "header",
+                            "headerName": "WM_SEC.ACCESS_TOKEN",
+                            "scheme": " ",
+                            "paramName": "access_token",
+                            "refreshMethod": "POST",
+                            "refreshRelativeURI": "v3/token",
+                            "refreshBody": "{\n  \"grant_type\":\"client_credentials\"\n}",
+                            "refreshMediaType": "urlencoded",
+                            "refreshResponseMediaType": "xml",
+                            "refreshTokenPath": "/OAuthTokenDTO/accessToken/text()",
+                            "refreshHeaders": [
+                                {
+                                    "name": "authorization",
+                                    "value": "Basic ZDI1YTM3OWItNDQ1Ni00NDQyLTk5OTAtNjFiOWE5MzQ2N2M0OmRFSk42RW9vU3NlVGJrS3JSb0ZITzlHVTJOdlU0cEtJTVp2OUZuNTdXdFA3UXpnT2JMbTRXd2hwSGJLQ01sUkZtYUtnRVdPcVRvS2hvOGdRU3NReTdB"
+                                },
+                                {
+                                    "name": "wm_consumer.channel.type",
+                                    "value": "511b6430-8bb3-475c-97e2-3bb5ed066780"
+                                },
+                                {
+                                    "name": "wm_qos.correlation_id",
+                                    "value": "1645654646541"
+                                },
+                                {
+                                    "name": "wm_svc.name",
+                                    "value": "Walmart Marketplace"
+                                }
+                            ],
+                            "refreshToken": "******"
+                        }
+                    }
+                },
+                "queues": [
+                    {
+                        "name": "62f206b0f6915f41f8741cc0",
+                        "size": 0
+                    }
+                ]
+            }
+        }
+    ]
+}

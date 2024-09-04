@@ -1,0 +1,55 @@
+{
+  "name": "TC_C20074",
+  "disabled": false,
+  "timezone": "Asia/Calcutta",
+  "qa__integrationId": "6228aed6bc8a2732cfe8044c",
+  "_integrationId": "631a1266abf51e7a86c80ab4",
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "_connectionId": "FTP CONNECTION",
+        "qa__path": "//FTP_uploads//TC_C24486.json",
+        "pageSize": 1,
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports/",
+          "fileNameStartsWith": "TC_C24486"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json"
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "Mysql",
+        "application": "MySQL",
+        "modelMetadata": {
+          "name": {
+            "default": ""
+          }
+        },
+        "qa__connectionId": "62ea6af8c9c10468159bb213",
+        "_connectionId": "MYSQL CONNECTION",
+        "apiIdentifier": "ia3c32d3ae",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "rdbms": {
+          "query": [
+            "INSERT INTO Zenq\r\n(name)\r\nVALUES(\r\n{{record.name}}\r\n)"
+          ],
+          "queryType": ["INSERT"]
+        },
+        "adaptorType": "RDBMSImport"
+      }
+    }
+  ]
+}

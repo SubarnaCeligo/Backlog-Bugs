@@ -1,0 +1,100 @@
+{
+  "skipRetries": false,
+  "_integrationId": "6228aed6bc8a2732cfe8044c",
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "FTP xport",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "e930f9de29",
+        "asynchronous": true,
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "TC_C30817"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json",
+          "json": {
+            "resourcePath": "*"
+          }
+        },
+        "adaptorType": "FTPExport",
+        "qa__path": "//FTP_uploads//TC_C30817.json"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "MySQL Import",
+        "application": "MySQL",
+        "parsers": [],
+        "qa__connectionId": "62ea6af8c9c10468159bb213",
+        "_connectionId":"MYSQL CONNECTION",
+        "apiIdentifier": "idc5998894",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "lookups": [],
+        "rdbms": {
+          "query": [
+            "insert into"
+          ],
+          "queryType": [
+            "INSERT"
+          ]
+        },
+        "adaptorType": "RDBMSImport"
+      }
+    }
+  ],
+  "Script": "function preMap (options) {\n  options.data[0]={\n    test:options.data[0],\n    premap:23}\n  return options.data.map((d) => {\n    return {\n      data: d\n    }\n  })\n}",
+  "qa_connection": "MYSQL CONNECTION",
+  "ExpectedData": {
+    "record": {
+      "Drug@Name": "NaproxenandEsomeprazoleMagnesium",
+      "#Number": "6495195850"
+    },
+    "connection": {
+      "name": "MySQL"
+    },
+    "import": {
+      "name": "SQLImport"
+    },
+    "settings": {
+      "integration": {},
+      "flow": {},
+      "flowGrouping": {},
+      "connection": {},
+      "import": {}
+    }
+  },
+  "ChangedExpectedData": {
+    "record": {
+      "name": "Gdrivecheck01",
+      "notes": "checkingforcompressionscenario",
+      "fax": "457652652",
+      "phone": "45657565675"
+    },
+    "connection": {
+      "name": "MySQL"
+    },
+    "import": {
+      "name": "SQLImport"
+    },
+    "settings": {
+      "integration": {},
+      "flow": {},
+      "flowGrouping": {},
+      "connection": {},
+      "import": {}
+    }
+  }
+}

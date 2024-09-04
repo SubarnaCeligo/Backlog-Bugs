@@ -1,0 +1,544 @@
+{
+    "name": "TC_46440_record_record",
+    "qa__expectedDashboardCount": {
+        "successCount": "5",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "standaloneexportflowID": "",
+        "expected": {
+            "FTP": {
+                "name": "TC_46440_record_record",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "qa__expectedDashboardCount": {
+                    "successCount": "5",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_46440_ftp",
+                    "isUIFlow": true,
+                    "folderName": "io.auto.qa/IO Automation SFTP Imports",
+                    "fileType": ".json"
+                }
+            },
+            "GDRIVE": {
+                "name": "TC_46440_record_record",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "qa__expectedDashboardCount": {
+                    "successCount": "5",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_46440_gdrive",
+                    "folderName": "Gdrive_Imports",
+                    "fileType": ".json"
+                }
+            },
+            "S3": {
+                "name": "TC_46440_record_record",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "qa__expectedDashboardCount": {
+                    "successCount": "5",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "bucketName": "automations3import",
+                    "fileName": "TC_46440_s3",
+                    "isUIFlow": true,
+                    "fileType": ".json"
+                }
+            },
+            "Azure": {
+                "name": "TC_46440_record_record",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "qa__expectedDashboardCount": {
+                    "successCount": "5",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_46440_azure",
+                    "folderName": "azureimports",
+                    "fileType": ".json",
+                    "fileExtension": ".json"
+                }
+            }
+        }
+    },
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "ftp_export",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                    "fileNameStartsWith": "TC_46440.json"
+                },
+                "qa__path": "/FTP_uploads/TC_46440.json",
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "ftp",
+                "_connectionId": "FTP CONNECTION",
+                "oneToMany": false,
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "generate": "file",
+                        "dataType": "object",
+                        "status": "Active",
+                        "mappings": [
+                            {
+                                "extract": "$.body_html",
+                                "generate": "body_html",
+                                "dataType": "string",
+                                "status": "Active"
+                            },
+                            {
+                                "extract": "$.new_variant",
+                                "generate": "new_variant",
+                                "dataType": "string",
+                                "status": "Active"
+                            },
+                            {
+                                "generate": "images",
+                                "dataType": "object",
+                                "status": "Active",
+                                "mappings": [
+                                    {
+                                        "extract": "$.images[*].id",
+                                        "generate": "id",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "extract": "$.images[*].variant_ids",
+                                        "generate": "variant_id",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    }
+                                ]
+                            },
+                            {
+                                "generate": "options",
+                                "dataType": "object",
+                                "status": "Active",
+                                "mappings": [
+                                    {
+                                        "extract": "$.options.id",
+                                        "generate": "id",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "extract": "$.options.product_id",
+                                        "generate": "product_id",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    }
+                                ]
+                            },
+                            {
+                                "generate": "variants",
+                                "dataType": "object",
+                                "status": "Active",
+                                "mappings": [
+                                    {
+                                        "extract": "$.variants[*].barcode",
+                                        "generate": "barcode",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "extract": "$.variants[*].id",
+                                        "generate": "id",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    }
+                                ]
+                            },
+                            {
+                                "generate": "vendor",
+                                "dataType": "string",
+                                "hardCodedValue": "Apple",
+                                "status": "Active"
+                            }
+                        ]
+                    }
+                ],
+                "file": {
+                    "fileName": "TC_46440_ftp.json",
+                    "skipAggregation": false,
+                    "type": "json",
+                    "encoding": "utf8"
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO Automation SFTP Imports",
+                    "fileName": "TC_46440_ftp.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "s3_import",
+                "_connectionId": "S3 CONNECTION",
+                "oneToMany": false,
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "generate": "file",
+                        "dataType": "object",
+                        "status": "Active",
+                        "mappings": [
+                            {
+                                "extract": "$.body_html",
+                                "generate": "body_html",
+                                "dataType": "string",
+                                "status": "Active"
+                            },
+                            {
+                                "extract": "$.new_variant",
+                                "generate": "new_variant",
+                                "dataType": "string",
+                                "status": "Active"
+                            },
+                            {
+                                "generate": "images",
+                                "dataType": "object",
+                                "status": "Active",
+                                "mappings": [
+                                    {
+                                        "extract": "$.images[*].id",
+                                        "generate": "id",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "extract": "$.images[*].product_id",
+                                        "generate": "product_id",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    }
+                                ]
+                            },
+                            {
+                                "generate": "options",
+                                "dataType": "object",
+                                "status": "Active",
+                                "mappings": [
+                                    {
+                                        "extract": "$.options.id",
+                                        "generate": "id",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "extract": "$.options.product_id",
+                                        "generate": "product_id",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    }
+                                ]
+                            },
+                            {
+                                "generate": "variants",
+                                "dataType": "object",
+                                "status": "Active",
+                                "mappings": [
+                                    {
+                                        "extract": "$.variants[*].barcode",
+                                        "generate": "barcode",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "extract": "$.variants[*].id",
+                                        "generate": "id",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    }
+                                ]
+                            },
+                            {
+                                "generate": "vendor",
+                                "dataType": "string",
+                                "hardCodedValue": "Apple",
+                                "status": "Active"
+                            }
+                        ]
+                    }
+                ],
+                "file": {
+                    "fileName": "TC_46440_s3.json",
+                    "skipAggregation": false,
+                    "type": "json",
+                    "encoding": "utf8"
+                },
+                "s3": {
+                    "region": "us-east-1",
+                    "bucket": "automations3import",
+                    "fileKey": "TC_46440_s3.json"
+                },
+                "adaptorType": "S3Import"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "gdrive",
+                "qa__connectionId": "GOOGLEDRIVE CONNECTION",
+                "_connectionId": "GOOGLEDRIVE CONNECTION",
+                "oneToMany": false,
+                "assistant": "googledrive",
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "generate": "file",
+                        "dataType": "object",
+                        "status": "Active",
+                        "mappings": [
+                            {
+                                "extract": "$.body_html",
+                                "generate": "body_html",
+                                "dataType": "string",
+                                "status": "Active"
+                            },
+                            {
+                                "extract": "$.new_variant",
+                                "generate": "new_variant",
+                                "dataType": "string",
+                                "status": "Active"
+                            },
+                            {
+                                "generate": "images",
+                                "dataType": "object",
+                                "status": "Active",
+                                "mappings": [
+                                    {
+                                        "extract": "$.images[*].id",
+                                        "generate": "id",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "extract": "$.images[*].product_id",
+                                        "generate": "product_id",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    }
+                                ]
+                            },
+                            {
+                                "generate": "options",
+                                "dataType": "object",
+                                "status": "Active",
+                                "mappings": [
+                                    {
+                                        "extract": "$.options.id",
+                                        "generate": "id",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "extract": "$.options.product_id",
+                                        "generate": "product_id",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    }
+                                ]
+                            },
+                            {
+                                "generate": "variants",
+                                "dataType": "object",
+                                "status": "Active",
+                                "mappings": [
+                                    {
+                                        "extract": "$.variants[*].barcode",
+                                        "generate": "barcode",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "extract": "$.variants[*].id",
+                                        "generate": "id",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    }
+                                ]
+                            },
+                            {
+                                "generate": "vendor",
+                                "dataType": "string",
+                                "hardCodedValue": "Apple",
+                                "status": "Active"
+                            }
+                        ]
+                    }
+                ],
+                "file": {
+                    "fileName": "TC_46440_gdrive.json",
+                    "skipAggregation": false,
+                    "type": "json",
+                    "encoding": "utf8"
+                },
+                "http": {
+                    "type": "file",
+                    "relativeURI": [
+                        "Gdrive_Imports"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "sendPostMappedData": true,
+                    "formType": "assistant",
+                    "response": {
+                        "resourcePath": [
+                            "files"
+                        ]
+                    }
+                },
+                "adaptorType": "HTTPImport"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "azure",
+                "_connectionId": "AZURE BLOB STORAGE CONNECTION",
+                "oneToMany": false,
+                "assistant": "azureblobstorage",
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "generate": "file",
+                        "dataType": "object",
+                        "status": "Active",
+                        "mappings": [
+                            {
+                                "extract": "$.body_html",
+                                "generate": "body_html",
+                                "dataType": "string",
+                                "status": "Active"
+                            },
+                            {
+                                "extract": "$.new_variant",
+                                "generate": "new_variant",
+                                "dataType": "string",
+                                "status": "Active"
+                            },
+                            {
+                                "generate": "images",
+                                "dataType": "object",
+                                "status": "Active",
+                                "mappings": [
+                                    {
+                                        "extract": "$.images[*].id",
+                                        "generate": "id",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "extract": "$.images[*].product_id",
+                                        "generate": "product_id",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    }
+                                ]
+                            },
+                            {
+                                "generate": "options",
+                                "dataType": "object",
+                                "status": "Active",
+                                "mappings": [
+                                    {
+                                        "extract": "$.options.id",
+                                        "generate": "id",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "extract": "$.options.product_id",
+                                        "generate": "product_id",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    }
+                                ]
+                            },
+                            {
+                                "generate": "variants",
+                                "dataType": "object",
+                                "status": "Active",
+                                "mappings": [
+                                    {
+                                        "extract": "$.variants[*].barcode",
+                                        "generate": "barcode",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    },
+                                    {
+                                        "extract": "$.variants[*].id",
+                                        "generate": "id",
+                                        "dataType": "string",
+                                        "status": "Active"
+                                    }
+                                ]
+                            },
+                            {
+                                "generate": "vendor",
+                                "dataType": "string",
+                                "hardCodedValue": "Apple",
+                                "status": "Active"
+                            }
+                        ]
+                    }
+                ],
+                "file": {
+                    "fileName": "TC_46440_azure.json",
+                    "skipAggregation": false,
+                    "type": "json",
+                    "encoding": "utf8"
+                },
+                "http": {
+                    "type": "file",
+                    "relativeURI": [
+                        "azureimports"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "sendPostMappedData": true,
+                    "formType": "assistant",
+                    "response": {
+                        "resourcePath": [
+                            "files"
+                        ]
+                    }
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ]
+}

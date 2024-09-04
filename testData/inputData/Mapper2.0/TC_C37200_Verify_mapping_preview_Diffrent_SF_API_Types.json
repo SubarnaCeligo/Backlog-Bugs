@@ -1,0 +1,117 @@
+{
+  "skipRetries": false,
+  "_integrationId": "6228aed6bc8a2732cfe8044c",
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "FTP xport",
+        "_connectionId": "FTP CONNECTION",
+        "asynchronous": true,
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "TC_C30817.json"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json",
+          "json": {
+            "resourcePath": "*"
+          }
+        },
+        "adaptorType": "FTPExport",
+        "qa__path": "//FTP_uploads//TC_C30817.json"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "TC_C41730 SF Import",
+        "_connectionId": "SALESFORCE CONNECTION",
+        "distributed": false,
+        "salesforce": {
+          "operation": "insert",
+          "sObjectType": "Account",
+          "api": "soap",
+          "removeNonSubmittableFields": false
+        },
+        "adaptorType": "SalesforceImport"
+      }
+    }
+  ],
+  "ExpectedData": [
+    {
+      "Drug@Name": "NaproxenandEsomeprazoleMagnesium",
+      "#Number": "6495195850"
+    }
+  ],
+  "REST": {
+    "pageGenerators": [],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "name": "TC_C41730 SF Import",
+          "_connectionId": "SALESFORCE CONNECTION",
+          "distributed": false,
+          "salesforce": {
+            "operation": "insert",
+            "sObjectType": "Account",
+            "api": "rest",
+            "removeNonSubmittableFields": false
+          },
+          "adaptorType": "SalesforceImport"
+        }
+      }
+    ]
+  },
+  "Composite": {
+    "pageGenerators": [],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "name": "TC_C41730 SF Import",
+          "_connectionId": "SALESFORCE CONNECTION",
+          "distributed": false,
+          "salesforce": {
+            "operation": "insert",
+            "sObjectType": "Account",
+            "api": "compositerecord",
+            "removeNonSubmittableFields": false
+          },
+          "adaptorType": "SalesforceImport"
+        }
+      }
+    ],
+    "ExpectedData": [
+      {
+        "allOrNone": true,
+        "compositeRequest": [
+          {
+            "body": {
+              "allOrNone": true,
+              "records": [
+                {
+                  "attributes": {
+                    "type": "Account"
+                  },
+                  "Drug@Name": "NaproxenandEsomeprazoleMagnesium",
+                  "#Number": "6495195850"
+                }
+              ]
+            },
+            "method": "POST",
+            "referenceId": "refAccount",
+            "url": "/services/data/v54.0/composite/sobjects"
+          }
+        ]
+      }
+    ]
+  }
+}

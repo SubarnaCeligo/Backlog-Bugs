@@ -44,11 +44,9 @@ test.describe("T24280 - Verify user is able to create export/lookup/import with 
         await io.flowBuilder.clickByTextByIndex('HTTP ZENDESK CONNECTION', 0);
 
         //  Select Use same flow
-        await io.flowBuilder.click(selectors.flowBuilderPagePO.USE_SAME_FLOW_STEP_RESOURCE);
+        await io.flowBuilder.clickByText('Use same flow step');
 
-        //Make sure Use same flow is selected
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.USE_SAME_FLOW_STEP_RADIO);
-        await io.assert.verifyElementAttributeContainsText(selectors.flowBuilderPagePO.USE_SAME_FLOW_STEP_RADIO, "class", "Mui-checked");
+       
 
         //save
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);

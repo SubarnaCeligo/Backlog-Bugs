@@ -1,0 +1,59 @@
+{
+  
+  "qa_importJson": {
+    "environment": "Production",
+    "name": "TC_IAF_006_C25834",
+    "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+    "_integrationId": "626bd8fbc087e064dcc7f4bd",
+    "applications": ["activecampaign"],
+    "framework": "twoDotZero",
+    "twoDotZero": {
+      "_integrationId": "626bd8fbc087e064dcc7f4bd"
+    }
+  },
+  "qa_expectedJson": {
+    "name": "TC_IAF_006_C25834",
+    "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+    "published": false,
+    "managed": false,
+    "_integrationId": "626bd8fbc087e064dcc7f4bd",
+    "applications": ["ActiveCampaign"],
+    "framework": "twoDotZero",
+    "twoDotZero": {
+      "_integrationId": "626bd8fbc087e064dcc7f4bd",
+      "editions": []
+    }
+  },
+  "importJson": {
+    "environment": "Production",
+    "name": "TC_IAF_006_C25834",
+    "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+    "_integrationId": "631ab1f913d12134f47719fe",
+    "applications": ["activecampaign"],
+    "framework": "twoDotZero",
+    "twoDotZero": {
+      "_integrationId": "631ab1f913d12134f47719fe"
+    }
+  },
+  "expectedJson": {
+    "name": "TC_IAF_006_C25834",
+    "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+    "published": false,
+    "managed": false,
+    "_integrationId": "631ab1f913d12134f47719fe",
+    "applications": ["ActiveCampaign"],
+    "framework": "twoDotZero",
+    "twoDotZero": {
+      "_integrationId": "631ab1f913d12134f47719fe",
+      "editions": []
+    }
+  },
+  "setupConnection": {
+    "integrationName":"Automation Flows_2",
+    "activecampaignSubdomain": "jnsajkcbajbfewfbkbjk",
+    "token": "jfbewjkfbefnevbelve",
+    "uninstall":"true"
+  },
+  "app": "ActiveCampaign"
+}
+  

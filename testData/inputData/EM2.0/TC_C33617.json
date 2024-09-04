@@ -1,0 +1,128 @@
+{
+  "name": "TC_C33617",
+  "referencename": "TC_C33617",
+  "expectedreqresp": {
+    "viewRequest": "Dynamic·lookup·source·recordType:·customer——Mapped·to·field:·test1——Lookup·fiter·expression:·[\"internalid\",\"is\",\"864346\"]——Lookup·key·value:·{\"customername\":\"Test·Name\",\"shipmethod\":\"2·Day·Free\",\"date\":\"2018-05-20\",\"shipstreet\":\"123·Test·St\"\n        ,\"shipcity\":\"San·Mateo\",\"shipstate\":\"CA\",\"shipzip\":\"12345\",\"total\":\"129.50\",\"lines\":[{\"name\":\"t-shirt\",\"quantity\"\n        :\"3\",\"rate\":\"12.50\",\"amount\":\"37.50\"},{\"name\":\"shoes\",\"quantity\":\"1\",\"rate\":\"42.00\",\"amount\":\"42\"},{\"name\":\"pants\"\n        ,\"quantity\":\"2\",\"rate\":\"25.00\",\"amount\":\"50\"}]}——Rendered·filter·expression:·[\"internalid\",\"is\",\"864346\"]//·initiate·searchvar·fe·=·[\"internalid\",\"is\",\"864346\"];var·lookupSource·=·\"customer\";var·lookupValue·=·\"entityid\";var·s·=·nlapiCreateSearch(lookupSource,·fe,·[·new·nlobjSearchColumn(lookupValue)·]);//·Final·lookup·filter·expression·//·fe:·[[\"internalid\",\"is\",\"864346\"]]var·rs·=·s.runSearch().getResults(0,·10);rs.length:·0",
+    "viewResponse": "{{··\"code\":·\"VALUE_LOOKUP_FAILED\",··\"code\":·\"VALUE_LOOKUP_FAILED\",··\"message\":·\"A·mapping·error·occurred.·Could·not·find·a·match·for·\\\"[\\\"internalid\\\",\\\"is\\\",\\\"864346\\\"]\\\"·for·the·record·\n      type·\\\"Customer\\\".\"··\"message\":·\"A·mapping·error·occurred.·Could·not·find·a·match·for·\\\"[\\\"internalid\\\",\\\"is\\\",\\\"864346\\\"]\\\"·for·the·record·      type·\\\"Customer\\\".\"}}"
+  },
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "xhjgasuxhas",
+            "_connectionId": "FTP CONNECTION",
+            "asynchronous": true,
+            "sandbox": false,
+            "parsers": [],
+            "qa__path": "//FTP_uploads//TC_C30440.json",
+            "sampleData": {
+              "Customer": "001i000000c1imYAAQ",
+              "Date": "07/05/2022",
+              "Form": "Primary Sales Order Form",
+              "items": {
+                "name": "ACC00001"
+              }
+            },
+            "ftp": {
+              "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+              "fileNameStartsWith": "TC_C30440",
+              "fileNameEndsWith": ".json"
+            },
+            "file": {
+              "output": "records",
+              "skipDelete": true,
+              "type": "json"
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "hjdashdush",
+            "_connectionId": "NETSUITE CONNECTION",
+            "distributed": true,
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [],
+            "netsuite_da": {
+              "useSS2Restlets": false,
+              "operation": "add",
+              "recordType": "customer",
+              "lookups": [],
+              "mapping": {
+                "fields": [
+                  {
+                    "generate": "companyname",
+                    "internalId": false,
+                    "hardCodedValue": "shcsgscbkjasc"
+                  },
+                  {
+                    "generate": "entitystatus",
+                    "discardIfEmpty": false,
+                    "immutable": false,
+                    "hardCodedValue": "13",
+                    "internalId": true
+                  },
+                  {
+                    "generate": "subsidiary",
+                    "discardIfEmpty": false,
+                    "immutable": false,
+                    "hardCodedValue": "6",
+                    "internalId": true
+                  },
+                  {
+                    "generate": "customform",
+                    "discardIfEmpty": false,
+                    "immutable": false,
+                    "hardCodedValue": "35",
+                    "internalId": true
+                  },
+                  {
+                    "generate": "contact",
+                    "hardCodedValue": "7834789346",
+                    "internalId": false
+                  },
+                  {
+                    "generate": "phone",
+                    "internalId": false,
+                    "hardCodedValue": "ACC"
+                  }
+                ],
+                "lists": []
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C33617",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

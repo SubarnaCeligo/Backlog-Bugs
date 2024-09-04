@@ -1,0 +1,31 @@
+{
+      "export": {
+        "application": "PostgreSQL",
+        "name": "PostgreSQL",
+        "_connectionId": "6304ba3656bc0a7b2503de14",
+        "apiIdentifier": "ebf316b4a4",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "rawData": "62e8102611ba17297d9be199e1e76d9686414cc7a1db68fa9536f69a",
+        "rdbms": {
+          "query": "select * from automation_agents limit 5"
+        },
+        "adaptorType": "RDBMSExport"
+      },
+  "updateDoc": {
+    "application": "PostgreSQL",
+    "name": "postgreSQL",
+    "_connectionId": "6304ba3656bc0a7b2503de14",
+    "apiIdentifier": "ebf316b4a4",
+    "asynchronous": true,
+    "oneToMany": false,
+    "sandbox": false,
+    "groupByFields": ["agent_code", "agent_name"],
+    "rawData": "62e8102611ba17297d9be1997a6c9cb8326e41659d971ab1a7c058d9",
+    "rdbms": {
+      "query": "select * from automation_agents limit 5"
+    },
+    "adaptorType": "RDBMSExport"
+  }
+}

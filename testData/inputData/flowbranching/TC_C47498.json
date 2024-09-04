@@ -1,0 +1,222 @@
+{
+  "name": "TC_C47498",
+  "disabled": false,
+  "_integrationId": "62f51db41677a21a108e5e3a",
+  "skipRetries": false,
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "application": "Snowflake",
+        "name": "Snowflake Export",
+        "_connectionId": "SNOWFLAKE CONNECTION",
+        "apiIdentifier": "e626b5d7dd",
+        "asynchronous": true,
+        "type": "test",
+        "oneToMany": false,
+        "sandbox": false,
+        "test": {
+          "limit": 1
+        },
+        "rdbms": {
+          "query": "select * from celigo_labs.netsuite.data"
+        },
+        "transform": {
+          "type": "expression",
+          "expression": {
+            "rules": [
+              [
+                {
+                  "extract": "PRIMARYKEY",
+                  "generate": "id"
+                },
+                {
+                  "extract": "RESOURCE",
+                  "generate": "name"
+                }
+              ]
+            ],
+            "version": "1"
+          },
+          "version": "1",
+          "rules": [
+            [
+              {
+                "extract": "PRIMARYKEY",
+                "generate": "id"
+              },
+              {
+                "extract": "RESOURCE",
+                "generate": "name"
+              }
+            ]
+          ]
+        },
+        "adaptorType": "RDBMSExport"
+      }
+    }
+  ],
+  "routers": [
+    {
+      "routeRecordsUsing": "input_filters",
+      "id": "lKuOb5",
+      "routeRecordsTo": "all_matching_branches",
+      "branches": [
+        {
+          "name": "Branch1",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "Zendesk import 1",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "i5e03125f0",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mapping": {
+                  "fields": [
+                    {
+                      "generate": "user.name",
+                      "hardCodedValue": "Auto_TC_47498_1"
+                    },
+                    {
+                      "extract": "name",
+                      "generate": "user.notes"
+                    }
+                  ]
+                },
+                "http": {
+                  "relativeURI": [
+                    "users"
+                  ],
+                  "method": [
+                    "POST"
+                  ],
+                  "body": [],
+                  "batchSize": 1,
+                  "sendPostMappedData": true,
+                  "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Branch2",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "Zendesk import 2",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "i6ee949225",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mapping": {
+                  "fields": [
+                    {
+                      "generate": "user.name",
+                      "hardCodedValue": "Auto_TC_47498_2"
+                    },
+                    {
+                      "extract": "name",
+                      "generate": "user.notes"
+                    }
+                  ]
+                },
+                "http": {
+                  "relativeURI": [
+                    "users"
+                  ],
+                  "method": [
+                    "POST"
+                  ],
+                  "body": [],
+                  "batchSize": 1,
+                  "sendPostMappedData": true,
+                  "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+              }
+            }
+          ]
+        }
+      ],
+      "script": {
+        "function": "branchRouter"
+      }
+    }
+  ],
+  "qa__expectedDashboardCount": {
+    "successCount": "3",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "expected": {
+      "zendesk": {
+        "_integrationId": "62f51db41677a21a108e5e3a",
+        "name": "TC_C47498",
+        "import": {
+          "_connectionId": "62f4c40833b1cc2065ea388d"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": {
+            "name": "Auto_TC_47498_1",
+            "notes": "transaction"
+          },
+          "uniqueField": "name",
+          "generateSampleDropDownAvailable": false,
+          "standaloneexportflowID": "63ffdacdd6a14e3abb4022f3",
+          "importRecordType": "users",
+          "isUIFlow": true,
+          "exportapiIdentifier": "ebed365fdc"
+        }
+      },
+      "Zendesk": {
+        "_integrationId": "62f51db41677a21a108e5e3a",
+        "name": "TC_47498",
+        "import": {
+          "_connectionId": "62f4c40833b1cc2065ea388d"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": {
+            "name": "Auto_TC_47498_2",
+            "notes": "transaction"
+          },
+          "uniqueField": "name",
+          "generateSampleDropDownAvailable": false,
+          "standaloneexportflowID": "63ffdacdd6a14e3abb4022f3",
+          "importRecordType": "users",
+          "isUIFlow": true,
+          "exportapiIdentifier": "ebed365fdc"
+        }
+      }
+    }
+  }
+}

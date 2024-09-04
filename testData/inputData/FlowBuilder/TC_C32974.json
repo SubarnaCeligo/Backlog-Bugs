@@ -1,0 +1,37 @@
+{
+    "importJson": {
+        "environment": "Production",
+        "name": "Tile 1",
+        "contactEmail": "io.auto.qa+18@celigo.com",
+        "_integrationId": "63199b4d7847cf7845c29afd",
+        "applications": [
+            "activecampaign"
+        ],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "63199b4d7847cf7845c29afd"
+        }
+    },
+    "integrationSetting": {
+        "name": "TC32974",
+        "_connectorId": "631eefaeae9918323478a0f7",
+        "install": [],
+        "mode": "settings",
+        "tag": "sample",
+        "sandbox": false,
+        "_registeredConnectionIds": [],
+        "installSteps": [],
+        "uninstallSteps": [],
+        "flowGroupings": [],
+        "_sourceId": "63199b4d7847cf7845c29afd"
+    },
+    "setupConnection": {
+        "integrationName": "TC_C37924",
+        "uninstall": "false"
+    },
+    "createLicense": {
+        "name": "Tile 1"
+    },
+    "app": "ActiveCampaign",
+    "integrationName": "TC_C37924"
+}

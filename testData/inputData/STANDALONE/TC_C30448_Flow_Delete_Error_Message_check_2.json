@@ -1,0 +1,129 @@
+{
+  "name": "TC_C30448_Flow_Delete_Error_Message_check_2",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "NS_Subsidiary",
+            "_connectionId": "NETSUITE CONNECTION",
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "recordType": "subsidiary",
+                "searchId": "2343",
+                "useSS2Restlets": false
+              },
+              "distributed": {
+                "useSS2Framework": false
+              }
+            },
+            "filter": {
+              "type": "expression",
+              "expression": {
+                "rules": [
+                  "notempty",
+                  [
+                    "string",
+                    [
+                      "extract",
+                      "Name"
+                    ]
+                  ]
+                ],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": [
+                "notempty",
+                [
+                  "string",
+                  [
+                    "extract",
+                    "Name"
+                  ]
+                ]
+              ]
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "NS_Subsidiary",
+            "_connectionId": "NETSUITE CONNECTION",
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "recordType": "subsidiary",
+                "searchId": "2343",
+                "useSS2Restlets": false
+              },
+              "distributed": {
+                "useSS2Framework": false
+              }
+            },
+            "inputFilter": {
+              "type": "expression",
+              "expression": {
+                "rules": [
+                  "notempty",
+                  [
+                    "string",
+                    [
+                      "extract",
+                      "Name"
+                    ]
+                  ]
+                ],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": [
+                "notempty",
+                [
+                  "string",
+                  [
+                    "extract",
+                    "Name"
+                  ]
+                ]
+              ]
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C30448_Flow_Delete_Error_Message_check_2",
+        "disabled": false,
+        "_integrationId": "6228aed6bc8a2732cfe8044c",
+        "skipRetries": false,
+        "_runNextFlowIds": [],
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "export",
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

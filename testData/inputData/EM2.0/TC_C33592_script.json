@@ -1,0 +1,5 @@
+{
+    "name": "premap",
+    "sandbox": false,
+    "content": "function preMap (options) {\n  \n  options.data[0].Email = \"test@gmail.com - premap\"\n  return options.data.map((d) => {\n    return {\n      data: d\n    }\n  }) \n} "
+}

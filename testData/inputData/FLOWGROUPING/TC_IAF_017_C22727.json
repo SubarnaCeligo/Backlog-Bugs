@@ -1,0 +1,135 @@
+{
+    "qa_createFlowGroups": {
+    "_id": "6296fdd464bb3b57f4a7c227",
+    "name": "Flow Groups",
+    "install": [],
+    "sandbox": false,
+    "settingsForm": {},
+    "_registeredConnectionIds": [
+        "626bd636987bb423914b47c7"
+    ],
+    "installSteps": [],
+    "uninstallSteps": [],
+    "flowGroupings": []
+},
+
+    
+    "qa_editionSetting":{
+        "_id":"62b144f8a1cbdd6da45dfd03",
+        "environment": "Production",
+        "name": "TC_IAF_017_C22727",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "published": false,
+        "_integrationId": "6296fdd464bb3b57f4a7c227",
+        "applications": ["activecampaign"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "6296fdd464bb3b57f4a7c227",
+            "editions": [{
+                "displayName":"Edition_1",
+                "order":0,
+                "resources": {
+                    "_flowIds": [],
+                    "_importIds": [],
+                    "_exportIds": [],
+                    "_connectionIds": [],
+                    "_asyncHelperIds": [],
+                    "_fileDefinitionIds": []
+                },
+                "childResources": {
+                    "_flowIds": [],
+                    "_importIds": [],
+                    "_exportIds": [],
+                    "_connectionIds": [],
+                    "_asyncHelperIds": [],
+                    "_fileDefinitionIds": []
+                }
+            }]
+        }
+    },
+
+    "qa_importJson": {
+        "environment": "Production",
+        "name": "TC_IAF_017_C22727",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "_integrationId": "6296fdd464bb3b57f4a7c227",
+        "applications": ["activecampaign"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+          "_integrationId": "6296fdd464bb3b57f4a7c227"
+        }
+      },
+      "createFlowGroups": {
+        "_id": "631ab35013d12134f4771a76",
+        "name": "Flow Groups",
+        "install": [],
+        "sandbox": false,
+        "settingsForm": {},
+        "_registeredConnectionIds": [
+            "626fdc6d7490300e92ffd613"
+        ],
+        "installSteps": [],
+        "uninstallSteps": [],
+        "flowGroupings": []
+    },
+    
+        
+        "editionSetting":{
+            "_id":"6320775127cca414396a2a77",
+            "environment": "Production",
+            "name": "TC_IAF_017_C22727",
+            "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+            "published": false,
+            "_integrationId": "631ab35013d12134f4771a76",
+            "applications": ["activecampaign"],
+            "framework": "twoDotZero",
+            "twoDotZero": {
+                "_integrationId": "631ab35013d12134f4771a76",
+                "editions": [{
+                    "displayName":"Edition_1",
+                    "order":0,
+                    "resources": {
+                        "_flowIds": [],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    },
+                    "childResources": {
+                        "_flowIds": [],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    }
+                }]
+            }
+        },
+    
+        "importJson": {
+            "environment": "Production",
+            "name": "TC_IAF_017_C22727",
+            "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+            "_integrationId": "631ab35013d12134f4771a76",
+            "applications": ["activecampaign"],
+            "framework": "twoDotZero",
+            "twoDotZero": {
+              "_integrationId": "631ab35013d12134f4771a76"
+            }
+          },
+      "setupConnection": {
+        "integrationName":"Flow Groups",
+        "activecampaignSubdomain": "jnsajkcbajbfewfbkbjk",
+        "token": "jfbewjkfbefnevbelve",
+        "uninstall":"false"
+      },
+      "createLicense": {
+          "name": "TC_IAF_017_C22727",
+          "edition": "Edition_1"
+      },
+      "app": "ActiveCampaign",
+      "integrationName": "Flow Groups",
+      "flowGrpNames": ["FG1", "FG2", "FG3"]
+}

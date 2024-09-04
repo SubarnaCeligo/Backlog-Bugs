@@ -1,0 +1,111 @@
+{
+    "name": "TC_C51973",
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "disabled": false,
+  "timezone": "Asia/Calcutta",
+  "skipRetries": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "TC_C51973",
+        "_connectionId": "FTP CONNECTION",
+        "asynchronous": true,
+        "sandbox": false,
+        "qa__path": "//FTP_uploads//TC_C51973_Boolean_Values.json",
+        "ftp": {
+          "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "TC_C51973_Boolean_Values"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json"
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ],
+  "qa__dataVerification": {
+    "generateSampleDropDownAvailable": false,
+    "standaloneexportflowID": "",
+    "expected": {
+      "FTP": {
+        "name": "TC_C51973",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "import": {
+          "_connectionId": "FTP CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "2",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "fileName": "TC_C51973",
+          "isUIFlow": true,
+          "folderName": "/io.auto.qa/IO_UI_Automation_FTPimport",
+          "fileType": ".json"
+        }
+      }
+    }
+  },
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "TC_C51973",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "i62d8794c9",
+        "oneToMany": false,
+        "sandbox": false,
+        "mappings": [
+            {
+                "generate": "Test",
+                "dataType": "booleanarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                    {
+                        "extract": "$.children[*].firstName",
+                        "sourceDataType": "boolean"
+                    },
+                    {
+                        "extract": "$.mother.fName",
+                        "sourceDataType": "boolean"
+                    },
+                    {
+                        "extract": "$.father.fName",
+                        "sourceDataType": "boolean"
+                    }
+                ]
+            }
+        ],
+        "file": {
+            "fileName": "TC_C51973.json",
+            "skipAggregation": false,
+            "type": "json"
+        },
+        "ftp": {
+            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPimport",
+            "fileName": "TC_C51973.json"
+        },
+        "filter": {
+            "type": "expression",
+            "expression": {
+                "rules": [],
+                "version": "1"
+            },
+            "version": "1",
+            "rules": []
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+    "name": "TC_C46930_Verify_bread_crumb_when_AutoPopulateFields_Generated",
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "disabled": false,
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "name": "FTP Import",
+          "_connectionId": "FTP CONNECTION",
+          "apiIdentifier": "i7258f9408",
+          "oneToMany": false,
+          "sandbox": false,
+          "file": {
+              "output": "records",
+              "skipDelete": true,
+              "encoding": "utf8",
+              "type": "filedefinition",
+              "qa__ediformat": "genericedi850",
+              "fileDefinition": {
+                  "_fileDefinitionId": "62bc4117a70cbd095966da18"
+              }
+          },
+          "ftp": {
+            "directoryPath": "/io.auto.qa/IO_UI_Automation",
+            "fileName": "TC_C2661-{{timestamp \"YYYY-MM-DDTHH:mm:ssZ\" \"Asia/Calcutta\"}}.edi"
+          },
+          "adaptorType": "FTPImport"
+        }
+      }
+    ],
+    "pageGenerators": [
+        {
+          "qa__export": {
+            "name": "Get Zendesk user",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+              "relativeURI": "/api/v2/users.json?role=admin",
+              "method": "GET",
+              "formType": "http",
+              "qa__formType": "rest",
+              "response": {
+                "resourcePath": "users"
+              }
+            },
+            "rawData": "56d6b114e1fc35de5391472c200abe525aaf4e83b23b68257c1aadc9",
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ]
+  }

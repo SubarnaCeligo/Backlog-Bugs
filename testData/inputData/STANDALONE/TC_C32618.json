@@ -1,0 +1,23 @@
+{
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "Export",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "application": "zendesk support",
+                "apiIdentifier": "eaa65a0839",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "/users/5951788196626",
+                    "method": "GET",
+                    "formType": "http"
+                },
+                "rawData": "56d6b114e1fc35de5391472ccd534ddad04a4cc692f427820dbd2ca6",
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ]
+}

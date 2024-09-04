@@ -1,0 +1,65 @@
+{
+    "name": "TC_C25965",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "63232caf5342c33e615e7271",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "FTP",
+                "_connectionId":"FTP CONNECTION",
+                "qa__path": "/FTP_uploads/TC_C36518.json",
+                "apiIdentifier": "e5ec4acbfc",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C36518",
+                    "fileNameEndsWith": ".json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "type": "json",
+                    "output": "records",
+                    "skipDelete": true
+                  },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "Netsuite",
+                "_connectionId":"NETSUITE CONNECTION",
+                "distributed": true,
+                "apiIdentifier": "i23445f7f7",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "lookups": [],
+                "netsuite_da": {
+                    "useSS2Restlets": false,
+                    "operation": "add",
+                    "recordType": "account",
+                    "lookups": [],
+                    "mapping": {
+                        "fields": [
+                            {
+                                "generate": "unit",
+                                "extract": "name",
+                                "internalId": false
+                            }
+                        ],
+                        "lists": []
+                    }
+                },
+                "adaptorType": "NetSuiteDistributedImport"
+                }
+
+        }
+    ]
+}

@@ -1,0 +1,88 @@
+{
+  "jsonData": {
+    "name": "TC_C47404",
+    "disabled": false,
+    "_integrationId": "62f51e1f0f2ee6482b136853",
+    "qa__integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "pageGenerators": [
+      {
+        "_exportId": "UPDATE",
+        "skipRetries": false
+      }
+    ],
+    "routers": [
+      {
+        "routeRecordsUsing": "",
+        "id": "-nq9zV",
+        "routeRecordsTo": "",
+        "branches": [
+          {
+            "name": "Branch 1.0",
+            "pageProcessors": [
+              {
+                "responseMapping": {
+                  "fields": [],
+                  "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE"
+              }
+            ]
+          },
+          {
+            "name": "Branch 1.1",
+            "pageProcessors": [
+              {
+                "responseMapping": {
+                  "fields": [],
+                  "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE"
+              }
+            ]
+          }
+        ],
+        "script": {
+          "function": "branchRouter"
+        }
+      }
+    ]
+  },
+  "qa__export": {
+    "name": "Zendesk export",
+    "application": "zendesk support",
+    "_connectionId": "HTTP ZENDESK CONNECTION",
+    "asynchronous": true,
+    "oneToMany": false,
+    "sandbox": false,
+    "http": {
+      "relativeURI": "macros",
+      "method": "GET",
+      "formType": "http",
+      "response": {
+        "resourcePath": "macros"
+      }
+    },
+    "adaptorType": "HTTPExport"
+  },
+  "qa__import": {
+    "name": "AutomationStandaloneImport1_afsflk",
+    "application":"zendesk support",
+    "parsers": [],
+    "_connectionId": "HTTP ZENDESK CONNECTION",
+    "http": {
+      "relativeURI": [
+        "organizations.json"
+      ],
+      "method": [
+        "POST"
+      ],
+      "batchSize": 1,
+      "sendPostMappedData": true,
+      "formType": "http"
+    },
+    "adaptorType": "HTTPImport"
+  }
+}

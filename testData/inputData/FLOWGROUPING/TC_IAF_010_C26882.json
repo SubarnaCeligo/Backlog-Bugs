@@ -1,0 +1,97 @@
+{
+    "qa_editionSetting1": {
+        "_id":"629b26b148ba5b5c7d25bf7a",
+        "environment": "Production",
+        "name": "TC_IAF_010_C26882",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "published": false,
+        "_integrationId": "62905de2c51f323382314cce",
+        "applications": ["activecampaign"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "62905de2c51f323382314cce",
+            "editions": [{
+                "displayName":"E1",
+                "order":0
+            },
+            {
+                "displayName":"E2",
+                "order":0
+            }]
+        }
+    },
+    "editionSetting1": {
+        "_id":"632010f43bfc725f006392e6",
+        "environment": "Production",
+        "name": "TC_IAF_010_C26882",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "published": false,
+        "_integrationId": "631ad2f213d12134f4772d77",
+        "applications": ["activecampaign"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "631ad2f213d12134f4772d77",
+            "editions": [{
+                "displayName":"E1",
+                "order":0
+            },
+            {
+                "displayName":"E2",
+                "order":0
+            }]
+        }
+    },
+    "expectedJson1": {
+        "errors": [
+            {
+                "field": "twoDotZero.editions",
+                "code": "invalid_edition_order",
+                "message": "Edition order should be a non repeating positive integer in sequential order starting from 0."
+            }
+        ]
+    },
+
+    "qa_editionSetting2": {
+        "_id":"629b26b148ba5b5c7d25bf7a",
+        "environment": "Production",
+        "name": "TC_IAF_010_C26882",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "published": false,
+        "_integrationId": "62905de2c51f323382314cce",
+        "applications": ["activecampaign"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "62905de2c51f323382314cce",
+            "editions": [{
+                "displayName":"E1",
+                "order":"a"
+            }]
+        }
+    }, 
+    "editionSetting2": {
+        "_id":"632010f43bfc725f006392e6",
+        "environment": "Production",
+        "name": "TC_IAF_010_C26882",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "published": false,
+        "_integrationId": "631ad2f213d12134f4772d77",
+        "applications": ["activecampaign"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "631ad2f213d12134f4772d77",
+            "editions": [{
+                "displayName":"E1",
+                "order":"a"
+            }]
+        }
+    },
+    "expectedJson2": {
+        "errors": [
+            {
+                "field": "order",
+                "code": "invalid_field",
+                "message": "Cast to Number failed for value \"a\" at path \"order\""
+            }
+        ]
+    }
+}
