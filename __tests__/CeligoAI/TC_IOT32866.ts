@@ -30,10 +30,6 @@ test.describe("TC_IOT32866 Verify users can see the previous conversations in th
       selectors.flowBuilderPagePO.OPENAI.OPEN_HANDLEBARS_EDITOR
     );
     await io.flowBuilder.loadingTime();
-    // await io.assert.verifyElementIsDisplayed(
-    //   selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
-    //   "Celigo AI is not displayed"
-    // );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,

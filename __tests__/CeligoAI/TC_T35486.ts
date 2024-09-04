@@ -14,10 +14,6 @@ test.describe("IO-T32859  Verify user is able to use celigo AI in Salesforce SOQ
     await io.flowBuilder.clickByIndex(
       selectors.flowBuilderPagePO.SF_SOQL_QUERY,1 
     );
-    // await io.assert.verifyElementIsDisplayed(
-    //   selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
-    //   "Celigo AI is not displayed"
-    // );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
@@ -47,10 +43,6 @@ test.describe("IO-T32859  Verify user is able to use celigo AI in Salesforce SOQ
     await io.flowBuilder.clickByIndex(
       selectors.flowBuilderPagePO.SF_SOQL_QUERY,1 
     );
-    // await io.assert.verifyElementIsDisplayed(
-    //   selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
-    //   "Celigo AI is not displayed"
-    // );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,

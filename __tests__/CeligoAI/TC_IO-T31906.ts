@@ -20,17 +20,13 @@ test.describe("IO-T31906 Verify Celigo AI is displayed in transformation2.0 tab"
     //TRANSFORMATION 2.0 Celigo AI Not Displayed IO-T31907 
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RULES1);
     await io.flowBuilder.loadingTime();
-    // const isCeligoAINotVisibleInTransformation1 = !(await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT));
-    // await io.assert.expectToBeTrue(isCeligoAINotVisibleInTransformation1, "Celigo AI Not Visible for Transformation 1.0");
+    const isCeligoAINotVisibleInTransformation1 = !(await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT));
+    await io.assert.expectToBeTrue(isCeligoAINotVisibleInTransformation1, "Celigo AI Not Visible for Transformation 1.0");
     // //Verify Celigo AI are in collapsed state and disabled. IO-T31909
     await io.flowBuilder.clickByText('Rules 2.0');
     await io.flowBuilder.loadingTime();
     await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR, "aria-expanded", "false", 1);
     await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR, "aria-disabled", "true", 1);
-    // await io.assert.verifyElementIsDisplayed(
-    //   selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
-    //   "Celigo AI is not displayed"
-    // )
 
   });
   
