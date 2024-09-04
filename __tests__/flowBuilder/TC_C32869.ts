@@ -65,8 +65,7 @@ test.describe("@Env-All @Zephyr-IO-T2994 To verify Tooltip is shown for 'Delete 
     await io.exportsPage.clickByText('More');
     await io.flowBuilder.click(selectors.flowGroupingPagePO.EDIT_FG);
     await io.flowBuilder.loadingTime();
-    await io.homePage.hover('[id="name"] > div > span');
-    // await io.homePage.hover(selectors.flowBuilderPagePO.DELETE_FG_TOOLTIP);
+    await io.homePage.hover(selectors.flowBuilderPagePO.DELETE_FG_TOOLTIP);
     await expect(page.getByText("Only the flow group will be deleted. Its flows will be moved into “Unassigned”.")).toBeVisible();
   });
 });
