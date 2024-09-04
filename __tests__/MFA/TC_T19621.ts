@@ -4,6 +4,7 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe(`C50835 Verify if the owner/admin is able to retrieve the response when /api/trustedDevices/settings route is hit`, () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.loadingTime()
   });
 
   test(`@Env-All @Zephyr-IO-T19621 C50835 Verify if the owner/admin is able to retrieve the response when /api/trustedDevices/settings route is hit`, async ({ page, io }) => {
@@ -33,7 +34,7 @@ test.describe(`C50835 Verify if the owner/admin is able to retrieve the response
         await route.continue({ headers });
       });
     }
-  
+
     await io.homePage.navigateTo(
       process.env["IO_UI_CONNECTOR_URL"] + "api/accountSettings"
     );

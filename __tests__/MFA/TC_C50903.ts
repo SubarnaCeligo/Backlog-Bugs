@@ -11,7 +11,7 @@ test.describe(
        await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL)
        await io.myAccountPage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON)
        await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON)
-
+       await io.homePage.loadingTime()
        await io.homePage.click(selectors.myAccountPagePO.USERS)
        await io.myAccountPage.clickByText('Invite user')
 

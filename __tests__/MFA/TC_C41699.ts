@@ -6,6 +6,7 @@ test.describe("C41699 Verify the empty state messaging after closing the create 
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources","Imports");
+        await io.homePage.loadingTime()
         await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
         await io.homePage.click(selectors.basePagePO.CLOSE);
         const noImportText = await io.homePage.isVisible("text='You don’t have any imports'");
@@ -17,6 +18,7 @@ test.describe("C41699 Verify the empty state messaging after closing the create 
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources","Exports");
+        await io.homePage.loadingTime()
         await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
         await io.homePage.click(selectors.basePagePO.CLOSE);
         const noExportText = await io.homePage.isVisible("text='You don’t have any exports'");
@@ -28,6 +30,7 @@ test.describe("C41699 Verify the empty state messaging after closing the create 
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources","Agents");
+        await io.homePage.loadingTime()
         await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
         await io.homePage.click(selectors.basePagePO.CLOSE);
         const noAgentsText = await io.homePage.isVisible("text='You don’t have any agents'");
