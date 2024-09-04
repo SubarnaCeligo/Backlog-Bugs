@@ -1,434 +1,231 @@
 {
     "name": "TC_C51518",
     "referencename": "TC_C51518",
-    "qa__api_tdata": [
+    "pageGenerators": [
         {
-            "pageGenerators": [
-                {
-                    "type": "export",
-                    "qa__export": {
-                            "name": "51235",
-                            "_connectionId": "FTP CONNECTION",
-                            "apiIdentifier": "ec2a9c26f6",
-                            "asynchronous": true,
-                            "sandbox": false,
-                            "sampleData": {
-                                "fName": "scott",
-                                "lName": "henderson",
-                                "altFirstName": "scooter",
-                                "additionalFirstNames": [
-                                    "scoots",
-                                    "mchendrix"
-                                ],
-                                "children": [
-                                    {
-                                        "firstName": "abby"
-                                    },
-                                    {
-                                        "firstName": "paige"
-                                    }
-                                ],
-                                "mother": {
-                                    "fName": "mary",
-                                    "lName": "henderson"
-                                },
-                                "father": {
-                                    "fName": "herb",
-                                    "lName": "henderson"
-                                },
-                                "siblings": [
-                                    {
-                                        "fName": "james",
-                                        "lName": "henderson",
-                                        "children": [
-                                            {
-                                                "fName": "patrick"
-                                            },
-                                            {
-                                                "fName": "asher"
-                                            },
-                                            {
-                                                "fName": "cade"
-                                            },
-                                            {
-                                                "fName": "lee"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "fName": "erin",
-                                        "lName": "tuohy",
-                                        "children": [
-                                            {
-                                                "fName": "jake"
-                                            }
-                                        ]
-                                    }
-                                ],
-                                "cousins": [
-                                    {
-                                        "fName": "james",
-                                        "lName": "henderson",
-                                        "children": [
-                                            {
-                                                "fName": "patrick"
-                                            },
-                                            {
-                                                "fName": "asher"
-                                            },
-                                            {
-                                                "fName": "cade"
-                                            },
-                                            {
-                                                "fName": "lee"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "fName": "erin",
-                                        "lName": "tuohy",
-                                        "children": [
-                                            {
-                                                "fName": "jake"
-                                            }
-                                        ]
-                                    }
-                                ],
-                                "books": [
-                                    {
-                                        "fName": "james",
-                                        "lName": "henderson",
-                                        "children": [
-                                            {
-                                                "fName": "patrick"
-                                            },
-                                            {
-                                                "fName": "asher"
-                                            },
-                                            {
-                                                "fName": "cade"
-                                            },
-                                            {
-                                                "fName": "lee"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "fName": "erin",
-                                        "lName": "tuohy",
-                                        "children": [
-                                            {
-                                                "fName": "jake"
-                                            }
-                                        ]
-                                    }
-                                ],
-                                "snaks": [
-                                    {
-                                        "fName": "james",
-                                        "lName": "henderson",
-                                        "children": [
-                                            {
-                                                "fName": "patrick"
-                                            },
-                                            {
-                                                "fName": "asher"
-                                            },
-                                            {
-                                                "fName": "cade"
-                                            },
-                                            {
-                                                "fName": "lee"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "fName": "erin",
-                                        "lName": "tuohy",
-                                        "children": [
-                                            {
-                                                "fName": "jake"
-                                            }
-                                        ]
-                                    }
-                                ],
-                                "dinner": [
-                                    {
-                                        "fName": "james",
-                                        "lName": "henderson",
-                                        "children": [
-                                            {
-                                                "fName": "patrick"
-                                            },
-                                            {
-                                                "fName": "asher"
-                                            },
-                                            {
-                                                "fName": "cade"
-                                            },
-                                            {
-                                                "fName": "lee"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "fName": "erin",
-                                        "lName": "tuohy",
-                                        "children": [
-                                            {
-                                                "fName": "jake"
-                                            }
-                                        ]
-                                    }
-                                ],
-                                "lunch": [
-                                    {
-                                        "fName": "james",
-                                        "lName": "henderson",
-                                        "children": [
-                                            {
-                                                "fName": "patrick"
-                                            },
-                                            {
-                                                "fName": "asher"
-                                            },
-                                            {
-                                                "fName": "cade"
-                                            },
-                                            {
-                                                "fName": "lee"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "fName": "erin",
-                                        "lName": "tuohy",
-                                        "children": [
-                                            {
-                                                "fName": "jake"
-                                            }
-                                        ]
-                                    }
-                                ]
-                            },
-                            "ftp": {
-                                "directoryPath": "/io.auto.qa/IO_UI_Automation",
-                                "fileNameStartsWith": "51235"
-                            },
-                            "file": {
-                                "output": "records",
-                                "skipDelete": false,
-                                "type": "json"
-                            },
-                            "adaptorType": "FTPExport"
-                    }
-                }
-            ],
-            "pageProcessors": [
-                {
-                    "type": "import",
-                    "qa__import":{
-                            "name": "Shopify Assistant - Import",
-                            "description": "test",
-                            "sampleData": {
-                                "variant": {
-                                    "product_id": 632910392,
-                                    "title": "Pink",
-                                    "price": "199.00",
-                                    "sku": "IPOD2008PINK",
-                                    "position": 1,
-                                    "inventory_policy": "continue",
-                                    "compare_at_price": null,
-                                    "fulfillment_service": "manual",
-                                    "inventory_management": "shopify",
-                                    "option1": "Pink",
-                                    "option2": null,
-                                    "option3": null,
-                                    "created_at": "2018-11-27T13:55:06-05:00",
-                                    "updated_at": "2018-11-27T13:55:06-05:00",
-                                    "taxable": true,
-                                    "barcode": "1234_pink",
-                                    "grams": 567,
-                                    "image_id": 562641783,
-                                    "weight": 1.25,
-                                    "weight_unit": "lb",
-                                    "inventory_item_id": 808950810,
-                                    "tax_code": "DA040000",
-                                    "requires_shipping": true,
-                                    "admin_graphql_api_id": "gid://shopify/ProductVariant/808950810",
-                                    "presentment_prices": [
-                                        {
-                                            "price": {
-                                                "currency_code": "USD",
-                                                "amount": "199.00"
-                                            },
-                                            "compare_at_price": null
-                                        }
-                                    ]
-                                }
-                            },
-                            "responseTransform": {
-                                "type": "expression",
-                                "expression": {
-                                    "version": "1"
-                                },
-                                "version": "1"
-                            },
-                            "_connectionId": "SHOPIFY CONNECTION",
-                            "distributed": false,
-                            "apiIdentifier": "i514ddec4a",
-                            "ignoreExisting": false,
-                            "ignoreMissing": false,
-                            "oneToMany": false,
-                            "assistant": "shopify",
-                            "sandbox": false,
-                            "assistantMetadata": {
-                                "resource": "customer",
-                                "version": "v2",
-                                "operation": "update_customer",
-                                "lookups": {
-                                    "customerId": {
-                                        "operation": "searches_forcustomersthatmatchasuppliedquery"
-                                    }
-                                }
-                            },
-                            "lookups": [
-                                {
-                                    "method": "GET",
-                                    "postBody": "",
-                                    "name": "customerId",
-                                    "extract": "customers[0].id",
-                                    "relativeURI": "/customers/search.json?query={{Email}}"
-                                }
-                            ],
-                            "mappings": [
-                                {
-                                    "generate": "Destination",
-                                    "dataType": "objectarray",
-                                    "status": "Active",
-                                    "buildArrayHelper": [
-                                        {
-                                            "extract": "$.ns_lookup[*]",
-                                            "sourceDataType": "objectarray",
-                                            "mappings": [
-                                                {
-                                                    "extract": "$.ns_lookup.recordType",
-                                                    "generate": "recordType",
-                                                    "dataType": "string",
-                                                    "status": "Active",
-                                                    "sourceDataType": "string"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "extract": "$.children[*]",
-                                            "sourceDataType": "objectarray",
-                                            "mappings": [
-                                                {
-                                                    "generate": "recordType",
-                                                    "dataType": "string",
-                                                    "status": "Draft",
-                                                    "sourceDataType": "string"
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            ],
-                            "http": {
-                                "relativeURI": [
-                                    "/customers/{{{lookup.customerId}}}.json"
-                                ],
-                                "method": [
-                                    "PUT"
-                                ],
-                                "body": [
-                                    null
-                                ],
-                                "batchSize": 1,
-                                "requestMediaType": "json",
-                                "successMediaType": "json",
-                                "errorMediaType": "json",
-                                "strictHandlebarEvaluation": true,
-                                "sendPostMappedData": true,
-                                "formType": "assistant",
-                                "lookups": [
-                                    {
-                                        "method": "GET",
-                                        "name": "customerId",
-                                        "extract": "customers[0].id",
-                                        "relativeURI": "/customers/search.json?query={{{Email}}}",
-                                        "body": "",
-                                        "useImportHeaders": false
-                                    }
-                                ],
-                                "response": {
-                                    "resourceIdPath": [
-                                        null
-                                    ]
-                                }
-                            },
-                            "rest": {
-                                "relativeURI": [
-                                    "/customers/{{{customerId}}}.json"
-                                ],
-                                "method": [
-                                    "PUT"
-                                ],
-                                "body": [
-                                    null
-                                ],
-                                "responseIdPath": [
-                                    null
-                                ],
-                                "successPath": [
-                                    null
-                                ],
-                                "successValues": [
-                                    null
-                                ],
-                                "lookups": [
-                                    {
-                                        "method": "GET",
-                                        "postBody": "",
-                                        "name": "customerId",
-                                        "extract": "customers[0].id",
-                                        "relativeURI": "/customers/search.json?query={{Email}}"
-                                    }
-                                ]
-                            },
-                            "filter": {
-                                "type": "expression",
-                                "expression": {
-                                    "version": "1"
-                                },
-                                "version": "1"
-                            },
-                            "adaptorType": "RESTImport"
-                    }
-                }
-            ],
-            "createFlow": {
-                "name": "TC_C51518",
-                "disabled": false,
-                "_integrationId": "56d6b23fe1fc35de53914730",
-                "skipRetries": false,
-                "pageProcessors": [
-                    {
-                        "responseMapping": {
-                            "fields": [],
-                            "lists": []
-                        },
-                        "type": "import",
-                        "_importId": "UPDATE WITH NEW IMPORTID"
-                    }
-                ],
-                "pageGenerators": [
-                    {
-                        "_exportId": "UPDATE WITH NEW EXPORTID"
-                    }
-                ]
+            "type": "export",
+            "qa__export": {
+                "name": "FTP_Export_TC_C51518",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                    "fileNameStartsWith": "TC_C43223_FTP_to_HTTP_M1.0_Uploads.json"
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": true,
+                    "encoding": "utf8",
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport",
+                "qa__path": "//SFTP_uploads//TC_C44704.json"
             }
         }
-    ]
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import":{
+                    "name": "Shopify Assistant - Import",
+                    "description": "test",
+                    "sampleData": {
+                        "variant": {
+                            "product_id": 632910392,
+                            "title": "Pink",
+                            "price": "199.00",
+                            "sku": "IPOD2008PINK",
+                            "position": 1,
+                            "inventory_policy": "continue",
+                            "compare_at_price": null,
+                            "fulfillment_service": "manual",
+                            "inventory_management": "shopify",
+                            "option1": "Pink",
+                            "option2": null,
+                            "option3": null,
+                            "created_at": "2018-11-27T13:55:06-05:00",
+                            "updated_at": "2018-11-27T13:55:06-05:00",
+                            "taxable": true,
+                            "barcode": "1234_pink",
+                            "grams": 567,
+                            "image_id": 562641783,
+                            "weight": 1.25,
+                            "weight_unit": "lb",
+                            "inventory_item_id": 808950810,
+                            "tax_code": "DA040000",
+                            "requires_shipping": true,
+                            "admin_graphql_api_id": "gid://shopify/ProductVariant/808950810",
+                            "presentment_prices": [
+                                {
+                                    "price": {
+                                        "currency_code": "USD",
+                                        "amount": "199.00"
+                                    },
+                                    "compare_at_price": null
+                                }
+                            ]
+                        }
+                    },
+                    "responseTransform": {
+                        "type": "expression",
+                        "expression": {
+                            "version": "1"
+                        },
+                        "version": "1"
+                    },
+                    "_connectionId": "SHOPIFY CONNECTION",
+                    "distributed": false,
+                    "apiIdentifier": "i514ddec4a",
+                    "ignoreExisting": false,
+                    "ignoreMissing": false,
+                    "oneToMany": false,
+                    "assistant": "shopify",
+                    "sandbox": false,
+                    "assistantMetadata": {
+                        "resource": "customer",
+                        "version": "v2",
+                        "operation": "update_customer",
+                        "lookups": {
+                            "customerId": {
+                                "operation": "searches_forcustomersthatmatchasuppliedquery"
+                            }
+                        }
+                    },
+                    "lookups": [
+                        {
+                            "method": "GET",
+                            "postBody": "",
+                            "name": "customerId",
+                            "extract": "customers[0].id",
+                            "relativeURI": "/customers/search.json?query={{Email}}"
+                        }
+                    ],
+                    "mappings": [
+                        {
+                            "generate": "Destination",
+                            "dataType": "objectarray",
+                            "status": "Active",
+                            "buildArrayHelper": [
+                                {
+                                    "extract": "$.ns_lookup[*]",
+                                    "sourceDataType": "objectarray",
+                                    "mappings": [
+                                        {
+                                            "extract": "$.ns_lookup.recordType",
+                                            "generate": "recordType",
+                                            "dataType": "string",
+                                            "status": "Active",
+                                            "sourceDataType": "string"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "extract": "$.children[*]",
+                                    "sourceDataType": "objectarray",
+                                    "mappings": [
+                                        {
+                                            "generate": "recordType",
+                                            "dataType": "string",
+                                            "status": "Draft",
+                                            "sourceDataType": "string"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "http": {
+                        "relativeURI": [
+                            "/customers/{{{lookup.customerId}}}.json"
+                        ],
+                        "method": [
+                            "PUT"
+                        ],
+                        "body": [
+                            null
+                        ],
+                        "batchSize": 1,
+                        "requestMediaType": "json",
+                        "successMediaType": "json",
+                        "errorMediaType": "json",
+                        "strictHandlebarEvaluation": true,
+                        "sendPostMappedData": true,
+                        "formType": "assistant",
+                        "lookups": [
+                            {
+                                "method": "GET",
+                                "name": "customerId",
+                                "extract": "customers[0].id",
+                                "relativeURI": "/customers/search.json?query={{{Email}}}",
+                                "body": "",
+                                "useImportHeaders": false
+                            }
+                        ],
+                        "response": {
+                            "resourceIdPath": [
+                                null
+                            ]
+                        }
+                    },
+                    "rest": {
+                        "relativeURI": [
+                            "/customers/{{{customerId}}}.json"
+                        ],
+                        "method": [
+                            "PUT"
+                        ],
+                        "body": [
+                            null
+                        ],
+                        "responseIdPath": [
+                            null
+                        ],
+                        "successPath": [
+                            null
+                        ],
+                        "successValues": [
+                            null
+                        ],
+                        "lookups": [
+                            {
+                                "method": "GET",
+                                "postBody": "",
+                                "name": "customerId",
+                                "extract": "customers[0].id",
+                                "relativeURI": "/customers/search.json?query={{Email}}"
+                            }
+                        ]
+                    },
+                    "filter": {
+                        "type": "expression",
+                        "expression": {
+                            "version": "1"
+                        },
+                        "version": "1"
+                    },
+                    "adaptorType": "RESTImport"
+            }
+        }
+    ],
+    "createFlow": {
+        "name": "TC_C51518",
+        "disabled": false,
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "skipRetries": false,
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+        ]
+    }
 }
