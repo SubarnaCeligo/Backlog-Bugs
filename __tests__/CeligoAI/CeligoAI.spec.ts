@@ -26,10 +26,13 @@ var testCases = [
   "IO-T32449",
   "IO-T32859",
   "IOT32866",
-  "T35486"
+  "T35486",
+  "IO-T37757"
 ];
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
 
 (async () => {
   await filterTestCases(testCases, flakycases);
 })();
+
+// require("./TC_UIUX");

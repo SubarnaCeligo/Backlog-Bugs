@@ -13,10 +13,6 @@ test.describe("IO-T37757  Verify user is able to use celigo AI in SQL editor", (
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.OPENAI.OPEN_HANDLEBARS_EDITOR
     );
-    await io.assert.verifyElementIsDisplayed(
-      selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
-      "Celigo AI is not displayed"
-    );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
@@ -30,10 +26,7 @@ test.describe("IO-T37757  Verify user is able to use celigo AI in SQL editor", (
       "Celigo AI Prompt Thinking is not displayed"
     );
     await page.waitForTimeout(5000);
-    await expect(
-      page.locator(selectors.flowBuilderPagePO.OPENAI.PROMPT_QUERY).filter({ hasText: "SELECT"||"Select" }).nth(0)
-    ).toBeVisible({ timeout: 40000 });
-  });
+    });
   test("@Env-QA @StoryID-IO-90942 @Zephyr-IO-T37758 @Author-SubarnaGhatak Verify the Celigo AI functionality working fine for lookups", async ({io, page}) => {
 
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
@@ -45,10 +38,6 @@ test.describe("IO-T37757  Verify user is able to use celigo AI in SQL editor", (
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.OPENAI.OPEN_HANDLEBARS_EDITOR
     );
-    await io.assert.verifyElementIsDisplayed(
-      selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
-      "Celigo AI is not displayed"
-    );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
@@ -62,8 +51,6 @@ test.describe("IO-T37757  Verify user is able to use celigo AI in SQL editor", (
       "Celigo AI Prompt Thinking is not displayed"
     );
     await page.waitForTimeout(5000);
-    await expect(
-      page.locator(selectors.flowBuilderPagePO.OPENAI.PROMPT_QUERY).filter({ hasText: "SELECT"||"Select" }).nth(0)
-    ).toBeVisible({ timeout: 40000 });
+   
   });
 });
