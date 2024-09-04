@@ -13,7 +13,13 @@ test.describe("Verify the contents of delete confirmation dialog when a disabled
 
         //Click on flow toggle button to disable the flow and accept the flow disable popup
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
+        await io.homePage.loadingTime()
+        await io.homePage.loadingTime()
+        await io.homePage.loadingTime()
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
+        await io.homePage.loadingTime()
+        await io.homePage.loadingTime()
+        await io.homePage.loadingTime()
 
         //Navigate to Integration page
         io.flowBuilder.clickByText('Automation Flows');
