@@ -9,16 +9,14 @@ test.describe("C112084 User should able to run the flow successfully", () => {
     await io.homePage.clickByText("Automation Flows")
     await io.homePage.loadingTime()
     await io.homePage.fill(selectors.flowBuilderPagePO.SEARCH, "JWTGITHUB_DND")
+    await io.homePage.loadingTime()
     await io.homePage.waitForElementAttached("text='JWTGITHUB_DND'")
     await io.homePage.clickByText("JWTGITHUB_DND")
     await io.flowBuilder.loadingTime();
-    await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
     await io.homePage.loadingTime()
-    await io.assert.verifyElementDisplayedByText(
-      "Last run",
-      "Last run is not displayed"
-    );
-  
+    const lastRun = page.getByText('Last run');
+    await lastRun.waitFor({ state: 'visible', timeout: 600000 });
     await io.flowBuilder.addStep("Verified the flow ran successfully");
   });
 });

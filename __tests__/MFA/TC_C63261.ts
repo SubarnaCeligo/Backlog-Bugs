@@ -5,6 +5,7 @@ import { decrypt } from "@celigo/aut-utilities";
 test.describe("C63261 Verify 'Learn More' link on MFA page pointing to a correct KB article.", () => {
   test.beforeEach("check sign out", async ({ io, page }) => {
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
+    await io.homePage.loadingTime()
     const isNotLoggedIn = await io.loginPage.checkLoginState();
     if (!isNotLoggedIn) {
       await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT);
