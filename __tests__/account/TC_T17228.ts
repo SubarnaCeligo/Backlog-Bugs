@@ -7,7 +7,7 @@ test.describe(`C45819`, () => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
 
-  test(`@Env-All @Zephyr-IO-T17228 C45819 Verify if the Account Id and the secret key are shown when the user clicks on Manual details.`, async ({ page, io }) => {
+  test(`@Env-All @Zephyr-IO-T17228 @Priority-P2 C45819 Verify if the Account Id and the secret key are shown when the user clicks on Manual details.`, async ({ page, io }) => {
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.myAccountPage.waitForElementAttached(selectors.myAccountPagePO.SECURITY);
     await io.myAccountPage.click(selectors.myAccountPagePO.SECURITY);

@@ -7,7 +7,7 @@ test.describe(`C46937`, () => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
 
-  test(`@Env-All @Zephyr-IO-T17244 C46937 Verify if the dialog box is shown correctly when the user leaves the MFA setup in between.`, async ({ page, io }) => {
+  test(`@Env-All @Zephyr-IO-T17244 @Priority-P2 C46937 Verify if the dialog box is shown correctly when the user leaves the MFA setup in between.`, async ({ page, io }) => {
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.myAccountPage.waitForElementAttached(selectors.myAccountPagePO.SECURITY);
     await io.myAccountPage.click(selectors.myAccountPagePO.SECURITY);

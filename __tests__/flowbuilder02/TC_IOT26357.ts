@@ -5,7 +5,7 @@ test.describe("IO-T26357 Magento2 Token Proxy (TC_C109195)", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("IO-T26357 Magento2 Token Proxy (TC_C109195) @Env-All @Priority-P2", async ({ io, page }) => {
+  test("@Zephyr-IO-T26357 Magento2 Token Proxy (TC_C109195) @Env-All @Priority-P2 ", async ({ io, page }) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
 
     // Search for a flow

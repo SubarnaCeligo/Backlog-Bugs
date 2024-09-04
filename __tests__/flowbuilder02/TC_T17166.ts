@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("IO-T17166 To verify conflict message is displayed under each resource in the review changes panel", () => {
+test.describe("@Zephyr-IO-T17166 @ENV-All @Priority-P2 To verify conflict message is displayed under each resource in the review changes panel", () => {
   test.beforeEach(async ({ io, page }) => {
     await io.homePage.addStep("Creating the integration");
     await io.homePage.navigateTo(

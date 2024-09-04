@@ -6,7 +6,7 @@ test.describe("C108513 In security tab Style is not applied for 'Enable MFA'", (
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
   });
 
-  test("@Env-All @Zephyr-IO-T25364 C108513 Verify check for 'Enable MFA' and 'Connect your mobile device *'", async ({
+  test("@Env-All @Zephyr-IO-T25364 @Priority-P2 C108513 Verify check for 'Enable MFA' and 'Connect your mobile device *'", async ({
     io, page
   }) => {
     await io.myAccountPage.click(selectors.myAccountPagePO.SECURITY);
