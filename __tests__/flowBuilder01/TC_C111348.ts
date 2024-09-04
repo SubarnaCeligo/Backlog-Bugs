@@ -5,7 +5,7 @@ test.describe("TC_C111348", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("TC_C111348 @Env-All @Priority-P2", async ({ io, page }) => {
+    test("TC_C111348 @Env-All @Priority-P2 @Zephyr-IO-111348", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources","Imports");
@@ -26,7 +26,13 @@ test.describe("TC_C111348", () => {
         await io.homePage.addStep("*** Clicked on 'name' field and gave a name to our import ***");
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.homePage.addStep("*** Opened the import ***");
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.flowBuilderPagePO.DESTINATIONTABLESEARCHPOSTGRE);
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
         await io.homePage.addStep("*** Clicked on destination table search field ***");
         await io.homePage.clickByText('Agent');
         await io.homePage.addStep("*** Selected Agent table ***");
