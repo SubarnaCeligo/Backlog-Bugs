@@ -1,0 +1,81 @@
+{
+    "name": "TC_C46927_C46924",
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "disabled": false,
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "TC_C46927_import",
+                "createdAt": "2024-08-26T11:01:23.974Z",
+                "lastModified": "2024-08-26T11:01:24.073Z",
+                "_connectionId": "LOOP RETURNS CONNECTION",
+                "qa__connectionId": "66cc6074b8b88e3562fa3cdd",
+                "apiIdentifier": "i94a7fbcf7",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "assistant": "loopreturns",
+                "sandbox": false,
+                "http": {
+                    "relativeURI": [
+                        "/cart"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [
+                        "{{#each data}}\n                {\n                  {{#each this}}\n                  {{#compare @key \"==\" \"ioRecordIndex\"}}  \n                  {{else}} \n                    {{#compare @key \"==\" \"ioFirstRecord\"}}  \n                      {{else}} \n                        {{#compare @key \"==\" \"ioLastRecord\"}}  \n                        {{else}} \n                          {{#if @index}},{{/if}} {{{jsonSerialize @key}}}: {{{jsonSerialize this}}} \n                        {{/compare}} \n                      {{/compare}}   \n                  {{/compare}}\n                  {{/each}}\n                }\n                {{/each}}"
+                    ],
+                    "requestMediaType": "json",
+                    "successMediaType": "json",
+                    "errorMediaType": "json",
+                    "strictHandlebarEvaluation": false,
+                    "sendPostMappedData": true,
+                    "_httpConnectorVersionId": "639184209998e4b191badcb2",
+                    "_httpConnectorResourceId": "639184209998e4b191badcbd",
+                    "_httpConnectorEndpointIds": [
+                        "639184209998e4b191badccb"
+                    ],
+                    "isRest": false,
+                    "formType": "assistant",
+                    "response": {
+                        "errorPath": "errors.message",
+                        "failPath": [
+                            "errors.message"
+                        ],
+                        "successPath": [
+                            "token"
+                        ]
+                    }
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "TC_C46927_export",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "e64d3edbe0",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "/users",
+                    "method": "GET",
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "users"
+                    }
+                },
+                "rawData": "56d6b114e1fc35de5391472cce44f06b5293410abd91426cbc1d4190",
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ]
+}

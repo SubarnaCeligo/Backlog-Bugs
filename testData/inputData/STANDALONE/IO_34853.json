@@ -1,0 +1,22 @@
+{
+    "qa__import": {
+        
+        "name": "IO_34853ftpImport",
+        "_connectionId": "62ff459b2dac2950afa67340",
+        "qa__connectionID": "62ff459b2dac2950afa67340",
+        "oneToMany": false,
+        "sandbox": false,
+        "file": {
+            "fileName": "file-{{timestamp}}.json",
+            "skipAggregation": true,
+            "type": "json",
+            "batchSize": 2
+        },
+        "ftp": {
+            "directoryPath": "/RevathiDasari",
+            "fileName": "file-{{timestamp}}.json"
+        },
+        "adaptorType": "FTPImport"
+    
+    }
+}

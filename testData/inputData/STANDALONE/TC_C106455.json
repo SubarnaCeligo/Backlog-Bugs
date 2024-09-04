@@ -1,0 +1,166 @@
+{
+  "name": "TC_C106454",
+  "referencename": "TC_C106454",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Http Export",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "_sourceId": "65278eff193f8c68c35423fa",
+            "apiIdentifier": "e6e4ef872a",
+            "asynchronous": true,
+            "type": "test",
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+              "relativeURI": "/users",
+              "method": "GET",
+              "formType": "http",
+              "response": {
+                "resourcePath": "users"
+              }
+            },
+            "rawData": "6253c695bbf2c06775d39fe1556beb007b7e4328911e38a57d6aa913",
+            "test": {
+              "limit": 2
+            },
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Http Import",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "if4b5d13f4",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+              "relativeURI": [
+                "/test"
+              ],
+              "method": [
+                "POST"
+              ],
+              "body": [
+
+              ],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C106454",
+        "disabled": false,
+        "_integrationId": "6228aed6bc8a2732cfe8044c",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ],
+  "successFlow": {
+    "name": "TC_C106455",
+    "referencename": "TC_C106455",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "Http Export",
+              "_connectionId": "HTTP ZENDESK CONNECTION",
+              "_sourceId": "65278eff193f8c68c35423fa",
+              "apiIdentifier": "e6e4ef872a",
+              "asynchronous": true,
+              "type": "test",
+              "oneToMany": false,
+              "sandbox": false,
+              "http": {
+                "relativeURI": "/users",
+                "method": "GET",
+                "formType": "http",
+                "response": {
+                  "resourcePath": "users"
+                }
+              },
+              "rawData": "6253c695bbf2c06775d39fe1556beb007b7e4328911e38a57d6aa913",
+              "test": {
+                "limit": 2
+              },
+              "adaptorType": "HTTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "AutomationStandalone_1Xyrc",
+              "_connectionId": "FTP CONNECTION",
+              "_sourceId": "64f16ff7f5b72b61d8c7953a",
+              "apiIdentifier": "i9cdb23f90",
+              "oneToMany": false,
+              "sandbox": false,
+              "file": {
+                "fileName": "TC_C106455.json",
+                "skipAggregation": false,
+                "type": "json"
+              },
+              "ftp": {
+                "directoryPath": "/io.auto.qa/IO%20Automation%20SFTP%20Imports",
+                "fileName": "TC_C106455.json"
+              },
+              "adaptorType": "FTPImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C106455",
+          "disabled": false,
+          "_integrationId": "6228aed6bc8a2732cfe8044c",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

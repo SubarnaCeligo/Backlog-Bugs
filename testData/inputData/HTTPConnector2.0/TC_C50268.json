@@ -1,0 +1,50 @@
+{
+    "qa_connctionId": "635b806b89b20e5eae282e4d",
+    "staging_connectionId": "643b81b84517470a645b3efc",
+    "transaction": "6345f57469f848d92751c00f",
+    "operation": "6345f57469f848d92751c02e",
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "orderful",
+                "_connectionId": "ORDERFUL CONNECTION",
+                "apiIdentifier": "ic099f7b84",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "assistant": "orderful",
+                "sandbox": false,
+                "assistantMetadata": {
+                    "resource": "6345f57469f848d92751c00f",
+                    "version": "6345f57469f848d92751c00e",
+                    "operation": "6345f57469f848d92751c02e"
+                },
+                "lookups": [],
+                "http": {
+                    "relativeURI": [
+                        "/transactions/confirm-delivery"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [
+                        "[{{#each data}}\n                {\n                  {{#each this}}\n                  {{#compare @key \"==\" \"ioRecordIndex\"}}  \n                  {{else}} \n                    {{#compare @key \"==\" \"ioFirstRecord\"}}  \n                      {{else}} \n                        {{#compare @key \"==\" \"ioLastRecord\"}}  \n                        {{else}} \n                          {{#if @index}},{{/if}} {{{jsonSerialize @key}}}: {{{jsonSerialize this}}} \n                        {{/compare}} \n                      {{/compare}}   \n                  {{/compare}}\n                  {{/each}}\n                }\n                {{/each}}]"
+                    ],
+                    "headers": [],
+                    "requestMediaType": "json",
+                    "successMediaType": "json",
+                    "errorMediaType": "json",
+                    "strictHandlebarEvaluation": false,
+                    "sendPostMappedData": true,
+                    "_httpConnectorVersionId": "6345f57469f848d92751c00e",
+                    "_httpConnectorResourceId": "6345f57469f848d92751c00f",
+                    "_httpConnectorEndpointId": "6345f57469f848d92751c02e",
+                    "formType": "assistant",
+                    "lookups": []
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ]
+}

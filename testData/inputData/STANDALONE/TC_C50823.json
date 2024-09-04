@@ -1,0 +1,60 @@
+{
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "dynamodb_export",
+                "_connectionId": "DYNAMODB CONNECTION",
+                "_sourceId": "5e5cdbdef6f85b2b9ae46775",
+                "apiIdentifier": "eb6f252971",
+                "asynchronous": true,
+                "groupByFields": [
+                    "id"
+                ],
+                "dynamodb": {
+                    "region": "us-east-1",
+                    "method": "query",
+                    "tableName": "limit-test",
+                    "keyConditionExpression": "#n1 = :p1 AND #n2 > :p2",
+                    "expressionAttributeNames": "{ \"#n1\": \"sku\", \"#n2\":\"id\"}",
+                    "expressionAttributeValues": "{ \":p1\": \"celigo-tshirt\",\":p2\": 99}"
+                },
+                "filter": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [],
+                        "version": "1"
+                    },
+                    "version": "1",
+                    "rules": []
+                },
+                "adaptorType": "DynamodbExport"
+            }
+        }
+    ],
+    "BigQuery": {
+        "pageGenerators": [
+            {
+                "type": "export",
+                "qa__export": {
+                    "application": "Google BigQuery",
+                    "name": "bigquery",
+                    "_connectionId": "BIGQUERY CONNECTION",
+                    "apiIdentifier": "ef9e49cafe",
+                    "asynchronous": true,
+                    "pageSize": 1,
+                    "oneToMany": false,
+                    "sandbox": false,
+                    "groupByFields": [
+                        "ID"
+                    ],
+                    "rawData": "62e8102611ba17297d9be1992131b2e59e9140afb84e2ee1fe81471c",
+                    "rdbms": {
+                        "query": "select * from `1234.IO_TestExport` order by ID asc"
+                    },
+                    "adaptorType": "RDBMSExport"
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,64 @@
+{
+    "name": "TC_C20796",
+    "disabled": false,
+    "_integrationId": "6228aed6bc8a2732cfe8044c",
+    "Source_Environment": "Production",
+    "skipRetries": false,
+    "timezone": "Asia/Calcutta",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "1",
+        "errorCount": "0"
+    },
+    "qa__api_tdata": [
+        {
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "application": "zendesk support",
+                        "_connectionId": "HTTP SHOPIFY CONNECTION",
+                        "name": "TC_C20796_DND",
+                        "apiIdentifier": "i168674bc0",
+                        "ignoreExisting": true,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": [
+                                ""
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [
+                                ""
+                            ],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "ignoreExtract": "customer",
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C20796",
+                "disabled": false,
+                "_integrationId": "6228aed6bc8a2732cfe8044c",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

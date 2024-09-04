@@ -1,0 +1,242 @@
+{
+    "name": "TC_C51872",
+    "referencename": "TC_C51872",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "3",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "Salesforce": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "TC_C51872",
+                "import": {
+                    "_connectionId": "62c877a1ebd1cb63e0f0607c"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "3",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "uniqueField": "Name",
+                    "standaloneexportflowID": "636cfc89b095877960659001",
+                    "importRecordType": "Account",
+                    "isUIFlow": true,
+                    "query": "Select id,Name, Email__c,phone,Billingcity,Billingstreet,Billingcountry,Billingstate,BillingPostalCode,Shippingcity,Shippingstreet,Shippingcountry,ShippingPostalCode,Shippingstate from Account where name like 'SalesGdriveStart'",
+                    "exportapiIdentifier": "e5ebde5b9b",
+                    "expectedJSON": [
+                        {
+                            "Name": "SalesGdriveStart",
+                            "Email__c": "test849237@celigo.com",
+                            "Phone": null,
+                            "BillingCity": "S Nagar",
+                            "BillingStreet": "GVP Colony",
+                            "BillingCountry": "India",
+                            "BillingState": "Telangana",
+                            "BillingPostalCode": null,
+                            "ShippingCity": "Hitech",
+                            "ShippingStreet": "IZ Sec",
+                            "ShippingCountry": "India",
+                            "ShippingPostalCode": "500087",
+                            "ShippingState": "Telangana"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "qa__api_tdata": [
+        {
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "g_Drive",
+                        "_connectionId": "GOOGLEDRIVE CONNECTION",
+                        "apiIdentifier": "ifd651a22f",
+                        "oneToMany": false,
+                        "assistant": "googledrive",
+                        "sandbox": false,
+                        "file": {
+                            "fileName": "file-{{timestamp}}.csv",
+                            "skipAggregation": false,
+                            "type": "csv",
+                            "csv": {
+                                "rowDelimiter": "\n",
+                                "columnDelimiter": ",",
+                                "includeHeader": true,
+                                "wrapWithQuotes": false,
+                                "replaceTabWithSpace": false,
+                                "replaceNewlineWithSpace": false,
+                                "truncateLastRowDelimiter": false
+                            }
+                        },
+                        "http": {
+                            "type": "file",
+                            "relativeURI": [
+                                "Gdrive_Exports"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "sendPostMappedData": true,
+                            "formType": "assistant",
+                            "response": {
+                                "resourcePath": [
+                                    "files"
+                                ]
+                            }
+                        },
+                        "adaptorType": "HTTPImport"
+                    },
+                    "responseMapping": {
+                        "fields": [
+                            {
+                                "extract": "id",
+                                "generate": "_json.uploadurl"
+                            }
+                        ],
+                        "lists": []
+                    }
+                },
+                {
+                    "type": "import",
+                    "responseMapping": {
+                        "fields": [],
+                        "lists": []
+                    },
+                    "qa__import": {
+                        "name": "sales_imp",
+                        "_connectionId": "SALESFORCE CONNECTION",
+                        "apiIdentifier": "i98d0b1cc7",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "extract": "_json.uploadurl",
+                                    "generate": "Phone"
+                                },
+                                {
+                                    "extract": "Email",
+                                    "generate": "Email__c"
+                                },
+                                {
+                                    "extract": "Name",
+                                    "generate": "Name"
+                                },
+                                {
+                                    "extract": "Fax",
+                                    "generate": "Fax"
+                                },
+                                {
+                                    "extract": "BillingCity",
+                                    "generate": "BillingCity"
+                                },
+                                {
+                                    "extract": "BillingCountry",
+                                    "generate": "BillingCountry"
+                                },
+                                {
+                                    "extract": "BillingState",
+                                    "generate": "BillingState"
+                                },
+                                {
+                                    "extract": "ShippingCity",
+                                    "generate": "ShippingCity"
+                                },
+                                {
+                                    "extract": "BillingStreet",
+                                    "generate": "BillingStreet"
+                                },
+                                {
+                                    "extract": "ShippingCountry",
+                                    "generate": "ShippingCountry"
+                                },
+                                {
+                                    "extract": "ShippingStreet",
+                                    "generate": "ShippingStreet"
+                                },
+                                {
+                                    "extract": "ShippingZip",
+                                    "generate": "ShippingPostalCode"
+                                },
+                                {
+                                    "extract": "ShippingState",
+                                    "generate": "ShippingState"
+                                }
+                            ]
+                        },
+                        "salesforce": {
+                            "operation": "insert",
+                            "sObjectType": "Account",
+                            "api": "soap",
+                            "removeNonSubmittableFields": false
+                        },
+                        "adaptorType": "SalesforceImport"
+                    }
+                }
+            ],
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "qa__path": "//FTP_uploads//TC_C51872.json",
+                        "_connectionId": "FTP CONNECTION",
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                            "fileNameStartsWith": "TC_C51872.json"
+                        },
+                        "file": {
+                            "encoding": "utf8",
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "json"
+                        },
+                        "adaptorType": "FTPExport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C51872",
+                "disabled": false,
+                "qa__integrationId": "56d6b23fe1fc35de53914730",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [
+                                {
+                                    "extract": "id",
+                                    "generate": "_json.uploadurl"
+                                }
+                            ],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "636a281396ce9c222a7ec029"
+                    },
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "6364eb04e28334683c47ed1a"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

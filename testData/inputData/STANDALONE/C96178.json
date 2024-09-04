@@ -1,0 +1,5 @@
+{
+    "qa": "https://qa.staging.integrator.io/integrations/none/flowBuilder/648aec35ad0ad75ead6e4a35",
+    "staging" : "https://staging.integrator.io/integrations/none/flowBuilder/649036d55983086c370ef059",
+    "qaprod":"https://qaprod.staging.integrator.io/integrations/none/flowBuilder/64903637ac6a8c2bd5ae760a"
+}

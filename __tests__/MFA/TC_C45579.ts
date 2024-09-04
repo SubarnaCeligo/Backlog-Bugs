@@ -7,10 +7,10 @@ test.describe("C45579 Verify if the message is shown correctly when the user is 
       await io.myAccountPage.loadingTime()
       await io.myAccountPage.click(selectors.myAccountPagePO.USERS);
       await io.myAccountPage.waitForElementAttached(selectors.flowBuilderPagePO.COLUMNS);
-      await io.flowBuilder.clickByIndex(selectors.myAccountPagePO.USER_MFA_TOGGLE, 1);
+      await io.flowBuilder.clickByIndex(selectors.myAccountPagePO.USER_MFA_TOGGLE, 0);
       await io.myAccountPage.loadingTime()
       await io.assert.verifyElementIsDisplayed(selectors.basePagePO.NOTIFICATION_ID, 'Success notification did not appear');
       await io.myAccountPage.loadingTime()
-      await io.flowBuilder.clickByIndex(selectors.myAccountPagePO.USER_MFA_TOGGLE, 1);
+      await io.flowBuilder.clickByIndex(selectors.myAccountPagePO.USER_MFA_TOGGLE, 0);
   });
 });

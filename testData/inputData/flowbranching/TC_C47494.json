@@ -1,0 +1,144 @@
+{
+    "name": "TC_C47494",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "Zendesk export",
+                "_connectionId": "ZENDESK CONNECTION",
+                "asynchronous": true,
+                "assistant": "zendesk",
+                "oneToMany": false,
+                "sandbox": false,
+                "assistantMetadata": {
+                    "resource": "brands",
+                    "version": "v2",
+                    "operation": "list_brands"
+                },
+                "http": {
+                    "relativeURI": "/api/v2/brands.json",
+                    "method": "GET",
+                    "successMediaType": "json",
+                    "errorMediaType": "json",
+                    "formType": "assistant",
+                    "paging": {
+                        "method": "url",
+                        "path": "next_page",
+                        "lastPageStatusCode": 404
+                    },
+                    "response": {
+                        "resourcePath": "brands"
+                    }
+                },
+                "rest": {
+                    "relativeURI": "/api/v2/brands.json",
+                    "method": "GET",
+                    "resourcePath": "brands",
+                    "pagingMethod": "nextpageurl",
+                    "nextPagePath": "next_page",
+                    "allowUndefinedResource": false
+                },
+                "adaptorType": "RESTExport"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "GKlAd3",
+            "routeRecordsTo": "first_matching_branch",
+            "branches": [
+                {
+                    "name": "R1B1",
+                    "inputFilter": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "id"
+                                ]
+                            ],
+                            "611742"
+                        ]
+                    },
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandaloneImport1_afsflk",
+                                "application":"zendesk support",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "http": {
+                                    "relativeURI": [
+                                        "organizations.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "R1B2",
+                    "inputFilter": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "id"
+                                ]
+                            ],
+                            "611742"
+                        ]
+                    },
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandaloneImport1_afsflk",
+                                "application":"zendesk support",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "http": {
+                                    "relativeURI": [
+                                        "organizations.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branchRouter"
+            }
+        }
+    ]
+}

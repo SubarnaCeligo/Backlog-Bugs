@@ -1,0 +1,101 @@
+{
+  "name": "TC_C30591",
+  "referencename": "TC_C30591",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "application": "MySQL",
+            "name": "MySQL Export",
+            "_connectionId": "MYSQL CONNECTION",
+            "apiIdentifier": "ee895e0610",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "rawData": "62ebb431e627016182cf3391f70be9eb2dd3411da4d0feffd336a707",
+            "rdbms": {
+              "query": "select * from Templates.Order LIMIT 1"
+            },
+            "adaptorType": "RDBMSExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "MySQL Import",
+            "application": "MySQL",
+            "_connectionId": "MYSQL CONNECTION",
+            "apiIdentifier": "ia4589bab3",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [
+              {
+                "query": "select * from Templates.Order LIMIT 1",
+                "extract": "orderid",
+                "allowFailures": false,
+                "name": "orderid_lookup"
+              },
+              {
+                "query": "select * from Templates.Order LIMIT 1",
+                "extract": "shipvia",
+                "allowFailures": false,
+                "name": "ship_lookup"
+              }
+            ],
+            "rdbms": {
+              "query": [
+                "insert into"
+              ],
+              "queryType": [
+                "INSERT"
+              ],
+              "lookups": [
+                {
+                  "query": "select * from Templates.Order LIMIT 1",
+                  "extract": "orderid",
+                  "allowFailures": false,
+                  "name": "orderid_lookup"
+                },
+                {
+                  "query": "select * from Templates.Order LIMIT 1",
+                  "extract": "shipvia",
+                  "allowFailures": false,
+                  "name": "ship_lookup"
+                }
+              ]
+            },
+            "adaptorType": "RDBMSImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C30591",
+        "disabled": false,
+        "_integrationId": "62ecc42648570015ab65cfa5",
+        "qa__integrationId": "62eca1efe386b563f638451e",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

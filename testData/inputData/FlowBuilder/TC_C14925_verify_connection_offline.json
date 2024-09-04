@@ -1,0 +1,55 @@
+{
+    "name": "TC_C15333",
+    "disabled": false,
+    "_integrationId": "603ce75ac4fec33283691f43",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "Shopify http",
+                "application": "Shopify",
+                "_connectionId": "HTTP SHOPIFY CONNECTION",
+                "apiIdentifier": "e2170e9779",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "/customers.json",
+                    "method": "GET",
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "customers"
+                    }
+                },
+                "rawData": "62ebb431e627016182cf3391f46b822bc4b14ad192638ad2d07d67e4",
+                "test": {
+                    "limit": 1
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "Snowflake_import",
+                "application": "Snowflake",
+                "_connectionId": "SNOWFLAKE CONNECTION",
+                "apiIdentifier": "ie78e5645d",
+                "oneToMany": false,
+                "sandbox": false,
+                "rdbms": {
+                    "query": [
+                        "{{connection.name}}"
+                    ],
+                    "queryType": [
+                        "INSERT"
+                    ]
+                },
+                "adaptorType": "RDBMSImport"
+            }
+        }
+    ]
+}

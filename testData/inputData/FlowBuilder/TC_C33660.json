@@ -1,0 +1,101 @@
+{
+    "name": "TC_C33660",
+    "referencename": "TC_C33660",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "NS ",
+              "_connectionId": "NETSUITE CONNECTION",
+              "asynchronous": true,
+              "type": "test",
+              "oneToMany": false,
+              "sandbox": false,
+              "test": {
+                "limit": 1
+              },
+              "netsuite": {
+                "type": "restlet",
+                "skipGrouping": true,
+                "statsOnly": false,
+                "restlet": {
+                  "recordType": "salesorder",
+                  "searchId": "-156",
+                  "useSS2Restlets": false
+                },
+                "distributed": {
+                  "useSS2Framework": false
+                }
+              },
+              "transform": {
+                "type": "expression",
+                "expression": {
+                  "rules": [
+                    []
+                  ],
+                  "version": "1"
+                },
+                "version": "1",
+                "rules": [
+                  []
+                ]
+              },
+              "filter": {
+                "type": "expression",
+                "expression": {
+                  "rules": [],
+                  "version": "1"
+                },
+                "version": "1",
+                "rules": []
+              },
+              "adaptorType": "NetSuiteExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "SF",
+              "_connectionId": "SALESFORCE CONNECTION",
+              "ignoreExisting": false,
+              "ignoreMissing": false,
+              "oneToMany": false,
+              "sandbox": false,
+              "salesforce": {
+                "operation": "insert",
+                "sObjectType": "Campaign",
+                "api": "soap",
+                "removeNonSubmittableFields": false
+              },
+              "adaptorType": "SalesforceImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C33660",
+          "disabled": false,
+          "_integrationId": "62eca1efe386b563f638451e",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

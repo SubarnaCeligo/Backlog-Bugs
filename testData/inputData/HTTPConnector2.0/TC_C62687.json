@@ -1,0 +1,76 @@
+{
+    "name": "TC_C62687",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+      },
+    "referencename": "TC_C62687",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+    "name": "NETSUITE",
+    "qa__connectionId": "6423f41031726b36dd26ad8d",
+    "asynchronous": true,
+    "oneToMany": false,
+    "sandbox": false,
+    "http": {
+        "relativeURI": "/record/v1/customer/657839",
+        "method": "GET",
+        "formType": "http"
+    },
+    "adaptorType": "HTTPExport"
+                        }
+                        }
+            ],
+            "pageProcessors": [
+                {
+                 "type": "import",
+                 "qa__import": {
+                    "name": "FTP",
+                    "qa__connectionId": "63739feed48a291bac1e744d",
+                    "_connectionId": "63b2a717cb02d65053c7bfaa",
+                    "oneToMany": false,
+                    "sandbox": false,
+                    "file": {
+                        "fileName": "Netsuite1.json",
+                        "skipAggregation": false,
+                        "type": "json"
+                    },
+                    "ftp": {
+                        "directoryPath": "/io.auto.qa/IO Automation SFTP Imports",
+                        "fileName": "TC_C62687.json"
+                    },
+                    "adaptorType": "FTPImport"
+
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C62687",
+                "disabled": false,
+                "qa__integrationId": "633408479fb96473a0c7372c",
+                "_integrationId": "631a1266abf51e7a86c80ab4",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

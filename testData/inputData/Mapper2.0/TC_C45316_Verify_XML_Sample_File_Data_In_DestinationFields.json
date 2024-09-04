@@ -1,0 +1,29 @@
+{
+  "name": "C45316",
+  "disabled": false,
+  "timezone": "Asia/Calcutta",
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "FTP Xml import with helper",
+        "_connectionId": "FTP CONNECTION",
+        "distributed": false,
+        "file": {
+          "fileName": "test.xml",
+          "type": "xml",
+          "xml": {
+            "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<data>\n{{#each batch_of_records}} \n<Name>{{rows.0.Name}}</Name> \n<Account>{{rows.0.Account}}</Account> \n<memo>{{rows.0.Memo}}</memo> \n{{/each}}</data>"
+          }
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation",
+          "fileName": "test.xml"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ]
+}

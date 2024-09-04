@@ -1,0 +1,97 @@
+{
+    "updatedBody": {
+        "name": "Blob Export",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "apiIdentifier": "e9d5014f82",
+        "asynchronous": true,
+        "isLookup": true,
+        "type": "blob",
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+            "relativeURI": "69c66302-82d4-4afb-a7d9-796f13cfde62/{{record.fileName}}",
+            "method": "GET",
+            "formType": "http",
+            "response": {
+                "blobFormat": "binary"
+            }
+        },
+        "adaptorType": "HTTPExport"
+    },
+    "updatedBody1": {
+        "name": "Blob Export",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "apiIdentifier": "e9d5014f82",
+        "asynchronous": true,
+        "isLookup": true,
+        "type": "blob",
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+            "relativeURI": "69c66302-82d4-4afb-a7d9-796f13cfde62/{{record.fileName}}",
+            "method": "GET",
+            "formType": "http",
+            "response": {
+                "blobFormat": "hex"
+            }
+        },
+        "adaptorType": "HTTPExport"
+    },
+    "updatedBody2": {
+        "name": "Blob Export",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "apiIdentifier": "e9d5014f82",
+        "asynchronous": true,
+        "isLookup": true,
+        "type": "blob",
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+            "relativeURI": "69c66302-82d4-4afb-a7d9-796f13cfde62/{{record.fileName}}",
+            "method": "GET",
+            "formType": "http",
+            "response": {
+                "blobFormat": "utf-16le"
+            }
+        },
+        "adaptorType": "HTTPExport"
+    },
+    "updatedBody3": {
+        "name": "Blob Export",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "apiIdentifier": "e9d5014f82",
+        "asynchronous": true,
+        "isLookup": true,
+        "type": "blob",
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+            "relativeURI": "69c66302-82d4-4afb-a7d9-796f13cfde62/{{record.fileName}}",
+            "method": "GET",
+            "formType": "http",
+            "response": {
+                "blobFormat": "utf8"
+            }
+        },
+        "adaptorType": "HTTPExport"
+    },
+    "updatedBody4": {
+        "name": "Blob Export",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "apiIdentifier": "e9d5014f82",
+        "asynchronous": true,
+        "isLookup": true,
+        "type": "blob",
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+            "relativeURI": "69c66302-82d4-4afb-a7d9-796f13cfde62/{{record.fileName}}",
+            "method": "GET",
+            "formType": "http",
+            "response": {
+                "blobFormat": "ascii"
+            }
+        },
+        "adaptorType": "HTTPExport"
+    }
+}

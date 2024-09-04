@@ -1,0 +1,92 @@
+{
+    "name": "TC_C20893",
+    "referencename": "TC_C20893",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "export 20893",
+                        "application": "BigCommerce",
+                        "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+                        "apiIdentifier": "e3291e998a",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": "/v2/customer",
+                            "method": "GET",
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "20893 import",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "distributed": true,
+                        "apiIdentifier": "if312b6d8d",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "lookups": [],
+                        "netsuite_da": {
+                            "useSS2Restlets": false,
+                            "operation": "add",
+                            "recordType": "customer",
+                            "lookups": [],
+                            "mapping": {
+                                "fields": [
+                                    {
+                                        "generate": "internalid",
+                                        "extract": "id",
+                                        "internalId": false
+                                    },
+                                    {
+                                        "generate": "emailtransactions",
+                                        "extract": "email",
+                                        "internalId": false
+                                    },
+                                    {
+                                        "generate": "update at",
+                                        "extract": "updated_at",
+                                        "internalId": false
+                                    }
+                                ],
+                                "lists": []
+                            }
+                        },
+                        "adaptorType": "NetSuiteDistributedImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C20893",
+                "disabled": false,
+                "_integrationId": "62ecc42648570015ab65cfa5",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

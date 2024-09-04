@@ -1,0 +1,85 @@
+{
+  "name": "TC_C33453",
+  "referencename": "TC_C33453",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "test expo",
+            "_connectionId": "FTP CONNECTION",
+            "asynchronous": true,
+            "sandbox": false,
+            "sampleData": {
+              "AccountName": "Tester",
+              "Email": "test@email.com"
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/FTP_EXPORTS",
+              "fileNameStartsWith": "errorReq.json"
+            },
+            "file": {
+              "output": "records",
+              "skipDelete": true,
+              "type": "json"
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "test sf",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "AccountName",
+                  "generate": "Name"
+                }
+              ]
+            },
+            "salesforce": {
+              "operation": "update",
+              "sObjectType": "Account",
+              "api": "soap",
+              "idLookup": {
+                "whereClause": "(Name = 'tetetest')"
+              },
+              "removeNonSubmittableFields": false
+            },
+            "adaptorType": "SalesforceImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C33453",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

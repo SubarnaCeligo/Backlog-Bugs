@@ -1,0 +1,68 @@
+{
+  "name": "TC_C29687",
+  "referencename": "TC_C29687",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "ns realtime",
+            "_connectionId": "NETSUITE CONNECTION",
+            "apiIdentifier": "ec5cd165ee",
+            "asynchronous": true,
+            "type": "distributed",
+            "oneToMany": false,
+            "sandbox": false,
+            "distributed": {
+              "bearerToken": "******"
+            },
+            "netsuite": {
+              "type": "distributed",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "criteria": [],
+                "columns": []
+              },
+              "distributed": {
+                "recordType": "creditcardrefund",
+                "executionContext": [
+                  "suitelet",
+                  "userinterface",
+                  "webapplication",
+                  "webstore"
+                ],
+                "executionType": [
+                  "create",
+                  "edit",
+                  "xedit"
+                ],
+                "qualifier": [
+                  "memo",
+                  "contains",
+                  "Export_CCRefund"
+                ],
+                "sublists": [],
+                "useSS2Framework": false
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C29687",
+        "disabled": false,
+        "_integrationId": "62ecc42648570015ab65cfa5",
+        "qa__integrationId": "62eca1efe386b563f638451e",
+        "skipRetries": false,
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

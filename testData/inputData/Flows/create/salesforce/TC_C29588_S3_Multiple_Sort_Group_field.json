@@ -1,0 +1,87 @@
+{
+    "skipRetries": false,
+    "FTP_conection": "FTP CONNECTION",
+    "_integrationId": "62d6b4a955468141a906119e",
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C29588_S3_Multiple_Sort_Group_field",
+    "disabled": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "18",
+        "errorCount": "0"
+    },
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "FTP Import",
+            "_connectionId": "FTP CONNECTION",
+            "distributed": false,
+            "file": {
+                "fileName": "TC_C29588_Multiple_Sort_Group_field.json",
+                "skipAggregation": false,
+                "type": "json"
+            },
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                "fileName": "TC_C29588_Multiple_Sort_Group_field.json"
+            },
+            "adaptorType": "FTPImport"
+        }
+    }],
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "standaloneexportflowID": "",
+        "expected": {
+            "FTP": {
+                "name": "TC_C29588_Multiple_Sort_Group_field",
+                "_integrationId": "62d6b4a955468141a906119e",
+                "import": {
+                    "_connectionId": "FTP CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "18",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_C29588_Multiple_Sort_Group_field",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".json"
+                }
+            }
+        }
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "S3 Export",
+            "_connectionId": "S3 CONNECTION",
+            "qa__path": "//FTP_uploads//TC_29588.json",
+            "s3": {
+                "region": "us-east-1",
+                "bucket": "automations3export",
+                "keyStartsWith": "TC_29588"
+            },
+            "file": {
+                "output": "records",
+                "encoding": "utf8",
+                "skipDelete": true,
+                "type": "json",
+                "sortByFields": [{
+                        "field": "name",
+                        "descending": false
+                    },
+                    {
+                        "field": "age",
+                        "descending": false
+                    }
+                ],
+                "groupByFields": [
+                    "age",
+                    "name"
+                ]
+            },
+            "adaptorType": "S3Export"
+        }
+    }]
+}

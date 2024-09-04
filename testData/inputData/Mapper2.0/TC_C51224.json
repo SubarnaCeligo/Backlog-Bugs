@@ -1,0 +1,124 @@
+{
+  "name": "TC_C51224",
+  "qa__api_tdata": [
+    {
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "HTTP import",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "ied5c3c7ad",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "mappings": [
+              {
+                "extract": "$.fName",
+                "generate": "fname",
+                "dataType": "string",
+                "status": "Active",
+                "sourceDataType": "string"
+              },
+              {
+                "extract": "$.lName",
+                "generate": "lname",
+                "dataType": "string",
+                "status": "Active",
+                "sourceDataType": "string"
+              },
+              {
+                "extract": "$.children[*].firstName",
+                "generate": "test",
+                "dataType": "string",
+                "status": "Active",
+                "sourceDataType": "string"
+              },
+              {
+                "extract": "$.mother.fName",
+                "generate": "Mname",
+                "dataType": "string",
+                "status": "Active",
+                "sourceDataType": "string"
+              },
+              {
+                "generate": "firstName",
+                "dataType": "string",
+                "status": "Draft",
+                "sourceDataType": "string"
+              },
+              {
+                "generate": "child",
+                "dataType": "string",
+                "status": "Draft",
+                "sourceDataType": "string"
+              }
+            ],
+            "http": {
+              "relativeURI": ["users"],
+              "method": ["POST"],
+              "body": [],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+          }
+        }
+      ],
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "test",
+            "qa__path": "/FTP_uploads/TC_C51211.json",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "ec9d985883",
+            "asynchronous": true,
+            "sandbox": false,
+            "ftp": {
+              "directoryPath": "/test",
+              "fileNameStartsWith": "test"
+            },
+            "file": {
+              "output": "records",
+              "skipDelete": true,
+              "type": "json"
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C51224",
+        "disabled": true,
+        "skipRetries": false,
+        "qa__integrationId": "56d6b23fe1fc35de53914730",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW",
+            "skipRetries": false
+          }
+        ]
+      }
+    }
+  ],
+  "ExpectedData": {
+    "fname": "scott",
+    "lname": "henderson",
+    "test": "abby,paige",
+    "Mname": "mary"
+  }
+}

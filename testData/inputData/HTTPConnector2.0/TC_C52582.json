@@ -1,0 +1,86 @@
+{
+  "name": "TC_C52582",
+  "referencename": "TC_C52582",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "test",
+            "application": "ups",
+            "_connectionId": "UPS CONNECTION",
+            "apiIdentifier": "e484885c75",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "assistantMetadata": {
+              "resource": "631e0ec06c21e246dddcf448",
+              "version": "631e0ebf065d342533672a93",
+              "operation": "631e0ec5b0f1d441cb373b36"
+            },
+            "http": {
+              "relativeURI": "/track/v1/details/46565656",
+              "method": "GET",
+              "headers": [],
+              "requestMediaType": "json",
+              "successMediaType": "json",
+              "errorMediaType": "json",
+              "_httpConnectorResourceId": "631e0ec06c21e246dddcf448",
+              "_httpConnectorEndpointId": "631e0ec5b0f1d441cb373b36",
+              "formType": "assistant",
+              "response": {
+                "successValues": []
+              }
+            },
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "test",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "i20ceb0a76",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+              "fileName": "file-{{timestamp}}.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "/test",
+              "fileName": "file-{{timestamp}}.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C52582",
+        "disabled": false,
+        "qa__integrationId": "633408479fb96473a0c7372c",
+        "_integrationId": "63340890bb74b66e32a92640",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

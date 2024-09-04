@@ -1,0 +1,25 @@
+{
+    "importJSON": 
+    {
+    "okta": {
+        "unencrypted": 
+        {
+            "userPrivatekey": "-----BEGIN PRIVATE KEY----- MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCINMTysvmHph7YsDlbEoOdp2/inYG9YaIYlygB2yhnlSDlxbkzttknMuCsQLFdz+EKs6tUvnmbpCpL  JWN2nctGCNypcFDyXkStiri2VNmhJG7nRNjn2iKzd5Uu7ey8PhkAGYjrzt3akL/qz24KG/fhAI9CCoUHmPPq9I7uuQUId4bh3RVnNwiozDPdwh8YHVWdYtE90pWOvgEi+mnKQqv4xNJEtQo0YlB/Ep4hv8dTa+YvljbIsk5jCNgceXcy3PGgOaTXVZBIdsCnSThv0aU2ebf0hjYumM0VhmMCFWcdnv17qMtADjPAIRv4JfqDLC3jXtSo5GKqHFwb+fIL9bE9AgMBAAECggEAGN8B44tY0zM7SLgNERs1W1Fatdeq/Cjaz4CydnxNSXTKuAo9wjquNmEs82cwu/+ciTa7n1LUo937NxORsPQpTRWLLYlrzoX2JnZBOlIOF0Wu1p4UuWl0kq7QV+xsIQd5yzHedailjCaIVNkhr8jhn31Zq2Z+Wh/M0mdrvh2c1Kmv0jWQsHY/0j/4CUGk+gC2WoBGMKigqVDKVBaYnMFoWqQ4PSDwhnHdLApZqTjLrIOmzkrntK3xvbCvcsXmk3EwfzTSyHSFmtSzT/+Ho+DFCv/ZaedzE0wKBZcZJhuT1KIGQL9+MMl80P6YxPl5g7lIXCN8vd1ebbZrBF5dPVe4ZQKBgQD3pL8Wy0T3KAa2TPp1Sm6/UVFFpCDnLTI2LXOM3+GeqIZxwC15CetdsPxP7ysm0AIhUBAlbuvhKIAsnrdtxt5tKyA0nME802zTVy/FijyfhcguryojjhwkC7wdO8wv0sZACy50Qm96uc38YFBdg7hDzvc0T1UKnvAvhlEnq7P3WwKBgQCMzWCtFUMIGeap4qIX+wo+sRGjMoYIyRiKGcRJR9zILEVq6CYnkOHKAyDmpbQTYfLoR0KuuGZuWU7dhIgkY9lL3d8PNZwiAylpx2goh2expTVNl5KaEOv094pAW6FqzNmTpNnxVEPg9BxzOWd52KbY6ge6VXNFaMm2OfFnZpb1RwKBgQCHcHf+PG/ciOya2aEFcw783bmIUAqaxNI4ZUVUH8HipyLYpZV5JF6woDJueUztbkgr9gDOqEqjmyX2wVtq06AkrrhvbegVn0BemcmLzV34lQ910OFIDtn/MNfSWTkEUs+QiUz/0rHruiEZTYfGjVrC4ze6SUUmiOSt6VULUFIeDwKBgH67+ZGxOpWXIqy1RmtJVc5Z+OMo/cX4o7LiQHApU8uFNbJlZLpmSSVYrYuNiMmNd2OliJrVdbVLg5YVzajbiuIjwbvh6DghGmyQxOr9/dLDPngpvxYXtxrWmMUW9PK5kfm3/0eeLj7T2qvH9qCQ5pUGCZCpi0jlafIws1371FLPAoGBAIOv9o0RrgDwrkYh/YQdQu/LKRnUHS7LVIYawPhBXLtTiFRY+k5k5jz+1iCn7J7j/hiMEJzqBDb3ExPgdxbFjhtSoeTBnDuuoBbcQ80AZN2hqMYgvPnMPhQ8eTgDl+S6B2VNOJlkVROROvb9Of89tnObXQssihj7G68iSFZ6j01d -----END PRIVATE KEY-----"
+        },
+        "payload":
+        {
+                "aud": "https://dev-03354218.okta.com/oauth2/v1/token",
+                "iss": "0oab40qqxcngYUlYd5d7",
+                "sub": "0oab40qqxcngYUlYd5d7"
+        },
+        "baseuri":
+        {
+            "uri": "https://dev-03354218.okta.com"
+        },
+        "subdomain":
+        {
+            "domain":"dev-03354218.okta"
+        }
+    }
+   }
+}

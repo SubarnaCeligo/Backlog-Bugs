@@ -1,0 +1,256 @@
+{
+  "name": "TC_C51957_51796",
+  "qa__api_tdata": [
+    {
+      "pageProcessors": [
+        {
+          "responseMapping": {
+            "fields": [],
+            "lists": []
+          },
+          "type": "import",
+          "qa__import": {
+            "name": "TC_C51957_51796",
+            "_connectionId":"S3 CONNECTION",
+            "apiIdentifier": "i6e0101e9a",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "mappings": [
+              {
+                  "extract": "$",
+                  "generate": "$",
+                  "dataType": "object",
+                  "conditional": {
+                      "when": "extract_not_empty"
+                  },
+                  "status": "Active",
+                  "sourceDataType": "object"
+              }
+          ],
+          "file": {
+              "fileName": "fileTC_C51957_51796-{{timestamp}}.json",
+              "skipAggregation": false,
+              "type": "json"
+          },
+          "s3": {
+              "region": "us-east-1",
+              "bucket": "io-automation",
+              "fileKey": "fileTC_C51957_51796-{{timestamp}}.json"
+          },
+          "adaptorType": "S3Import"
+          }
+        }
+      ],
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "TC_C51957_51796",
+            "qa__path": "//FTP_uploads//TC_C51795.json",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "ee66d9e367",
+            "asynchronous": true,
+            "sandbox": false,
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+              "fileNameStartsWith": "TC_C51795"
+            },
+            "file": {
+              "encoding": "utf8",
+              "output": "records",
+              "skipDelete": true,
+              "type": "json"
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C51957_51796",
+        "disabled": false,
+        "qa__integrationId": "56d6b23fe1fc35de53914730",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "type": "export",
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ],
+  "updateWithObjectArray": {
+    "_connectionId": "HTTP SHOPIFY CONNECTION",
+    "mappings": [
+      {
+        "extract": "$.images[*]",
+        "generate": "images",
+        "dataType": "object",
+        "conditional": {
+          "when": "extract_not_empty"
+        },
+        "status": "Active",
+        "sourceDataType": "objectarray"
+      }
+    ],
+    "http": {
+      "relativeURI": ["/products.json"],
+      "method": ["POST"],
+      "body": [],
+      "batchSize": 1,
+      "sendPostMappedData": true,
+      "formType": "http"
+    }
+  },
+  "updateWithBooleanArray": {
+    "_connectionId": "HTTP SHOPIFY CONNECTION",
+    "mappings": [
+      {
+        "extract": "$.variants[*].taxable",
+        "generate": "taxable",
+        "dataType": "object",
+        "conditional": {
+          "when": "extract_not_empty"
+        },
+        "status": "Active",
+        "sourceDataType": "booleanarray"
+      }
+    ],
+    "http": {
+      "relativeURI": ["/products.json"],
+      "method": ["POST"],
+      "body": [],
+      "batchSize": 1,
+      "sendPostMappedData": true,
+      "formType": "http"
+    }
+  },
+  "updateWithNumberArray": {
+    "_connectionId": "HTTP SHOPIFY CONNECTION",
+    "mappings": [
+      {
+        "extract": "$.new_variant",
+        "generate": "new variant",
+        "dataType": "object",
+        "conditional": {
+          "when": "extract_not_empty"
+        },
+        "status": "Active",
+        "sourceDataType": "numberarray"
+      }
+    ],
+    "http": {
+      "relativeURI": ["/products.json"],
+      "method": ["POST"],
+      "body": [],
+      "batchSize": 1,
+      "sendPostMappedData": true,
+      "formType": "http"
+    }
+  },
+  "updateWithStringArray": {
+    "_connectionId": "HTTP SHOPIFY CONNECTION",
+    "mappings": [
+      {
+        "extract": "$.options.values",
+        "generate": "values",
+        "dataType": "object",
+        "conditional": {
+          "when": "extract_not_empty"
+        },
+        "status": "Active",
+        "sourceDataType": "stringarray"
+      }
+    ],
+    "http": {
+      "relativeURI": ["/products.json"],
+      "method": ["POST"],
+      "body": [],
+      "batchSize": 1,
+      "sendPostMappedData": true,
+      "formType": "http"
+    }
+  },
+  "updateWithBoolean": {
+    "_connectionId": "HTTP SHOPIFY CONNECTION",
+    "mappings": [
+      {
+        "extract": "$.variants[*].taxable",
+        "generate": "taxable",
+        "dataType": "object",
+        "conditional": {
+          "when": "extract_not_empty"
+        },
+        "status": "Active",
+        "sourceDataType": "boolean"
+      }
+    ],
+    "http": {
+      "relativeURI": ["/products.json"],
+      "method": ["POST"],
+      "body": [],
+      "batchSize": 1,
+      "sendPostMappedData": true,
+      "formType": "http"
+    }
+  },
+  "updateWithNumber": {
+    "_connectionId": "HTTP SHOPIFY CONNECTION",
+    "mappings": [
+      {
+        "extract": "$.id",
+        "generate": "id",
+        "dataType": "object",
+        "conditional": {
+          "when": "extract_not_empty"
+        },
+        "status": "Active",
+        "sourceDataType": "number"
+      }
+    ],
+    "http": {
+      "relativeURI": ["/products.json"],
+      "method": ["POST"],
+      "body": [],
+      "batchSize": 1,
+      "sendPostMappedData": true,
+      "formType": "http"
+    }
+  },
+  "updateWithString": {
+    "_connectionId": "HTTP SHOPIFY CONNECTION",
+    "mappings": [
+      {
+        "extract": "$.body_html",
+        "generate": "data",
+        "dataType": "object",
+        "conditional": {
+          "when": "extract_not_empty"
+        },
+        "status": "Active",
+        "sourceDataType": "string"
+      }
+    ],
+    "http": {
+      "relativeURI": ["/products.json"],
+      "method": ["POST"],
+      "body": [],
+      "batchSize": 1,
+      "sendPostMappedData": true,
+      "formType": "http"
+    }
+  }
+}

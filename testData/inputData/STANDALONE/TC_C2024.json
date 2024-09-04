@@ -1,0 +1,43 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "_connectionId": "MONGODB CONNECTION",
+                "mongodb": {
+                    "method": "insertMany",
+                    "collection": "test"
+                },
+                "adaptorType": "MongodbImport"
+            }
+        }
+    ],
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C2024_Mongo_DB_Import_Edit",
+    "disabled": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "qa__path": "//FTP_uploads//TC_C2169.json",
+                "_connectionId": "FTP CONNECTION",
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C2169.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ]
+}

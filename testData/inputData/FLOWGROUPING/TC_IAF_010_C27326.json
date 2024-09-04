@@ -1,0 +1,333 @@
+{
+    "qa_integrationSetting": {
+        "_id": "62a9c6ab0d57d901d06662d0",
+        "name": "First Edition Step",
+        "install": [],
+        "sandbox": false,
+        "_registeredConnectionIds": [
+            "626bd636987bb423914b47c7"
+        ],
+        "settingsForm": {
+            "form": {
+                "fieldMap": {
+                    "kvSetting1ForIntegration": {
+                        "label": "Key Value Integration Setting",
+                        "id": "kvSetting1ForIntegration",
+                        "name": "kvSetting1ForIntegration",
+                        "type": "keyvalue",
+                        "helpText": "lorem ipsum",
+                        "keyName": "key",
+                        "valueName": "value"
+                    },
+                    "txtSetting2ForIntegration": {
+                        "label": "Text Integration Setting",
+                        "id": "txtSetting2ForIntegration",
+                        "name": "txtSetting2ForIntegration",
+                        "type": "text",
+                        "helpText": "Text box setting"
+                    }
+                },
+                "layout": {
+                    "fields": [
+                        "kvSetting1ForIntegration",
+                        "txtSetting2ForIntegration"
+                    ]
+                }
+            },
+            "init": {
+                "_scriptId": "628b3deefcc6f75686664a48",
+                "function": "formInit"
+            }
+        },
+        "installSteps": [
+            {
+                    "name": "Configure ActiveCampaign Connection",
+                    "description": "Configure your ActiveCampaign connection. This is common and is set up on parent",
+                    "imageUrl": "/images/company-logos/netsuite.png",
+                    "completed": false,
+                    "type": "connection",
+                    "sourceConnection": {
+                        "type": "http",
+                        "assistant":"activecampaign",
+                        "name": "AC Test Case connection",
+                        "_id": "626bd636987bb423914b47c7"
+                    }
+                },
+        {
+            "name": "Create resources based on edition",
+            "description": "Description goes has",
+            "completed": false,
+            "type": "edition",
+            "_scriptId": "629dfc60170d31316db48d8a",
+            "function": "updateInstallStep"
+        }],
+        "uninstallSteps": [{
+           
+            "name": "Create resources based on edition",
+            "description": "Description goes has",
+            "completed": false,
+            "type": "url",
+            "url": "/marketplace?redirectusingURLfield",
+            "init": {
+            "_scriptId": "629dfc60170d31316db48d8a",
+            "function": "updateUninstallStep"
+        }
+    }
+    ],
+        "flowGroupings": [
+            {
+                "name": "FG1",
+                "_id": "62bc0251ee3f141dd39ba5f0",
+                "settingsForm": {
+                    "form": {
+                        "fieldMap": {
+                            "kvSetting1ForIntegration": {
+                                "label": "Key Value Integration Setting",
+                                "id": "kvSetting1ForIntegration",
+                                "name": "kvSetting1ForIntegration",
+                                "type": "keyvalue",
+                                "helpText": "lorem ipsum",
+                                "keyName": "key",
+                                "valueName": "value"
+                            },
+                            "txtSetting2ForIntegration": {
+                                "label": "Text Integration Setting",
+                                "id": "txtSetting2ForIntegration",
+                                "name": "txtSetting2ForIntegration",
+                                "type": "text",
+                                "helpText": "Text box setting"
+                            }
+                        },
+                        "layout": {
+                            "fields": [
+                                "kvSetting1ForIntegration",
+                                "txtSetting2ForIntegration"
+                            ]
+                        }
+                    },
+                    "init": {
+                        "_scriptId": "628b3deefcc6f75686664a48",
+                        "function": "formInit"
+                    }
+                }
+            }
+        ]
+    },
+    "qa_editionSetting": {
+        "_id":"62bbff10ee3f141dd39ba562",
+        "environment": "Production",
+        "name": "TC_IAF_010_C27326",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "published": false,
+        "_integrationId": "62a9c6ab0d57d901d06662d0",
+        "applications": ["activecampaign"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "62a9c6ab0d57d901d06662d0",
+            "editions": [{
+                "displayName":"Edition_1",
+                "order":0,
+                "resources": {
+                    "_flowIds": ["629dcf277fa8000d6fd3f517"],
+                    "_importIds": [],
+                    "_exportIds": [],
+                    "_connectionIds": [],
+                    "_asyncHelperIds": [],
+                    "_fileDefinitionIds": []
+                },
+                "childResources": {
+                    "_flowIds": [],
+                    "_importIds": [],
+                    "_exportIds": [],
+                    "_connectionIds": [],
+                    "_asyncHelperIds": [],
+                    "_fileDefinitionIds": []
+                }
+            }]
+        }
+    },
+"qa_importJson": {
+    "environment": "Production",
+    "name": "TC_IAF_010_C27326",
+    "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+    "_integrationId": "6297358f64bb3b57f4a7ce18",
+    "applications": ["activecampaign"],
+    "framework": "twoDotZero",
+    "twoDotZero": {
+      "_integrationId": "6297358f64bb3b57f4a7ce18"
+    }
+  },
+  "integrationSetting": {
+    "_id": "631ab2e63796483e5615b5cc",
+    "name": "First Edition Step",
+    "install": [],
+    "sandbox": false,
+    "_registeredConnectionIds": [
+        "626fdc6d7490300e92ffd613"
+    ],
+    "settingsForm": {
+        "form": {
+            "fieldMap": {
+                "kvSetting1ForIntegration": {
+                    "label": "Key Value Integration Setting",
+                    "id": "kvSetting1ForIntegration",
+                    "name": "kvSetting1ForIntegration",
+                    "type": "keyvalue",
+                    "helpText": "lorem ipsum",
+                    "keyName": "key",
+                    "valueName": "value"
+                },
+                "txtSetting2ForIntegration": {
+                    "label": "Text Integration Setting",
+                    "id": "txtSetting2ForIntegration",
+                    "name": "txtSetting2ForIntegration",
+                    "type": "text",
+                    "helpText": "Text box setting"
+                }
+            },
+            "layout": {
+                "fields": [
+                    "kvSetting1ForIntegration",
+                    "txtSetting2ForIntegration"
+                ]
+            }
+        },
+        "init": {
+            "_scriptId": "626137e61ce14c420e01c86b",
+            "function": "formInit"
+        }
+    },
+    "installSteps": [
+        {
+                "name": "Configure ActiveCampaign Connection",
+                "description": "Configure your ActiveCampaign connection. This is common and is set up on parent",
+                "imageUrl": "/images/company-logos/netsuite.png",
+                "completed": false,
+                "type": "connection",
+                "sourceConnection": {
+                    "type": "http",
+                    "assistant":"activecampaign",
+                    "name": "AC Test Case connection",
+                    "_id": "626fdc6d7490300e92ffd613"
+                },
+                "_scriptId": "626137e61ce14c420e01c86b",
+                "function":"updateInstallStep"
+            },
+    {
+        "name": "Create resources based on edition",
+        "description": "Description goes has",
+        "completed": false,
+        "type": "edition",
+        "_scriptId": "626137e61ce14c420e01c86b",
+        "function": "updateUninstallStep"
+    }],
+    "uninstallSteps": [{
+       
+        "name": "Create resources based on edition",
+        "description": "Description goes has",
+        "completed": false,
+        "type": "url",
+        "url": "/marketplace?redirectusingURLfield",
+        "init": {
+        "_scriptId": "626137e61ce14c420e01c86b",
+        "function": "updateUninstallStep"
+    }
+}
+],
+    "flowGroupings": [
+        {
+            "name": "FG1",
+            "_id": "631ab3263796483e5615b5db",
+            "settingsForm": {
+                "form": {
+                    "fieldMap": {
+                        "kvSetting1ForIntegration": {
+                            "label": "Key Value Integration Setting",
+                            "id": "kvSetting1ForIntegration",
+                            "name": "kvSetting1ForIntegration",
+                            "type": "keyvalue",
+                            "helpText": "lorem ipsum",
+                            "keyName": "key",
+                            "valueName": "value"
+                        },
+                        "txtSetting2ForIntegration": {
+                            "label": "Text Integration Setting",
+                            "id": "txtSetting2ForIntegration",
+                            "name": "txtSetting2ForIntegration",
+                            "type": "text",
+                            "helpText": "Text box setting"
+                        }
+                    },
+                    "layout": {
+                        "fields": [
+                            "kvSetting1ForIntegration",
+                            "txtSetting2ForIntegration"
+                        ]
+                    }
+                },
+                "init": {
+                    "_scriptId": "626137e61ce14c420e01c86b",
+                    "function": "formInit"
+                }
+            }
+        }
+    ]
+},
+"editionSetting": {
+    "_id":"63243157efa03a3efc241b87",
+    "environment": "Production",
+    "name": "TC_IAF_010_C27326",
+    "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+    "published": false,
+    "_integrationId": "631ab2e63796483e5615b5cc",
+    "applications": ["activecampaign"],
+    "framework": "twoDotZero",
+    "twoDotZero": {
+        "_integrationId": "631ab2e63796483e5615b5cc",
+        "editions": [{
+            "displayName":"Edition_1",
+            "order":0,
+            "resources": {
+                "_flowIds": ["631ab2fc3796483e5615b5d4"],
+                "_importIds": [],
+                "_exportIds": [],
+                "_connectionIds": [],
+                "_asyncHelperIds": [],
+                "_fileDefinitionIds": []
+            },
+            "childResources": {
+                "_flowIds": [],
+                "_importIds": [],
+                "_exportIds": [],
+                "_connectionIds": [],
+                "_asyncHelperIds": [],
+                "_fileDefinitionIds": []
+            }
+        }]
+    }
+},
+"initFuntionFieldName":"Label Updated",
+"importJson": {
+"environment": "Production",
+"name": "TC_IAF_010_C27326",
+"contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+"_integrationId": "631ab2e63796483e5615b5cc",
+"applications": ["activecampaign"],
+"framework": "twoDotZero",
+"twoDotZero": {
+  "_integrationId": "631ab2e63796483e5615b5cc"
+}
+},
+  "setupConnection": {
+    "integrationName":"First Edition Step",
+    "activecampaignSubdomain": "jnsajkcbajbfewfbkbjk",
+    "token": "jfbewjkfbefnevbelve",
+    "uninstall":"false"
+  },
+  "createLicense": {
+    "name": "TC_IAF_009_C27339",
+    "edition": "Edition_1"
+  },
+  "integrationName":"First Edition Step",
+  "app": "ActiveCampaign"
+}

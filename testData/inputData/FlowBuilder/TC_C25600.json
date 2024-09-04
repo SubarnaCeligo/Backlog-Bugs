@@ -1,0 +1,100 @@
+{
+    "name": "TC_C25600",
+    "referencename": "TC_C25600",
+    "_connectionId": "HTTP ZENDESK CONNECTION",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "HTTP export Zendesk",
+                        "application": "zendesk support",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "e33550710f",
+                        "asynchronous": true,
+                        "traceKeyTemplate": "{{join '/' record.id record.email}}",
+                        "oneToMany": false,
+                        "http": {
+                            "relativeURI": "users",
+                            "method": "GET",
+                            "formType": "http",
+                            "response": {
+                                "resourcePath": "users"
+                            }
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Open air check",
+                        "application" : "openair",
+                        "_connectionId": "HTTP OPENAIR CONNECTION JSON",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "http": {
+                          "relativeURI": "/",
+                          "method": "GET",
+                          "formType": "http"
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                },
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "HTTP bigcommerce",
+                        "application":"BigCommerce",
+                        "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+                        "apiIdentifier": "ic45dbcc2d",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "http": {
+                            "relativeURI": [
+                                "/v3/customers"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C25600",
+                "disabled": false,
+                "_integrationId": "62ecc42648570015ab65cfa5",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    },
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

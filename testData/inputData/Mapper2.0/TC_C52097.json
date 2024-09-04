@@ -1,0 +1,142 @@
+{
+  "name": "TC_C52097",
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "disabled": false,
+  "timezone": "Asia/Calcutta",
+  "skipRetries": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "TC_C52097",
+        "_connectionId": "FTP CONNECTION",
+        "asynchronous": true,
+        "sandbox": false,
+        "qa__path": "//FTP_uploads//TC_C52097.json",
+        "ftp": {
+          "directoryPath": "/io.auto.qa/FTP_EXPORTS",
+          "fileNameStartsWith": "TC_C52097"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json"
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ],
+  "qa__dataVerification": {
+    "generateSampleDropDownAvailable": false,
+    "standaloneexportflowID": "",
+    "expected": {
+      "FTP": {
+        "name": "TC_C52097",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "import": {
+          "_connectionId": "FTP CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "2",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "fileName": "TC_C52097",
+          "isUIFlow": true,
+          "folderName": "/io.auto.qa/IO_UI_Automation_FTPimport",
+          "fileType": ".json"
+        }
+      }
+    }
+  },
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "TC_C52097",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "i2fd845b3e",
+        "oneToMany": false,
+        "sandbox": false,
+        "lookups": [
+          {
+            "name": "Test",
+            "map": {
+              "@field1": "Test",
+              " $field2": "Test"
+            },
+            "allowFailures": false
+          },
+          {
+            "name": "ABC",
+            "map": {
+              "@lName": "test",
+              " $fName": "test"
+            },
+            "allowFailures": false
+          }
+        ],
+        "mappings": [
+          {
+            "generate": "Test",
+            "dataType": "objectarray",
+            "status": "Draft",
+            "buildArrayHelper": [
+              {
+                "extract": "$.mother",
+                "conditional": {
+                  "when": "extract_not_empty"
+                },
+                "sourceDataType": "object",
+                "mappings": [
+                  {
+                    "generate": "test",
+                    "dataType": "string",
+                    "lookupName": "ABC",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "file": {
+          "fileName": "TC_C52097.json",
+          "skipAggregation": false,
+          "type": "json",
+          "lookups": [
+            {
+              "name": "Test",
+              "map": {
+                "@field1": "Test",
+                " $field2": "Test"
+              },
+              "allowFailures": false
+            },
+            {
+              "name": "ABC",
+              "map": {
+                "@lName": "test",
+                " $fName": "test"
+              },
+              "allowFailures": false
+            }
+          ]
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPimport",
+          "fileName": "TC_C52097.json"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ]
+}

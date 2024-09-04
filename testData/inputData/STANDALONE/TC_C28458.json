@@ -1,0 +1,16 @@
+{
+    "name": "TC_C28458",
+    "pageProcessors": [
+      {
+        "qa__import": {
+           "name": "Import_With_Multipat",
+           "application": "stripe",
+            "parsers": [],
+            "_connectionId": "HTTP STRIPE CONNECTION",
+            "body": "{\\\"name\\\": \\\"Sample Json\\\",\\\"description\\\":\\\"Verify no error for json body for multipart media type\\\"}",
+            "adaptorType": "HTTPImport"
+        }
+       }
+
+    ]
+}

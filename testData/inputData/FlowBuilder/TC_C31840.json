@@ -1,0 +1,37 @@
+{
+    "_id": "62fc93bb0cb90e1c9f9f9b87",
+    "name": "netsuite lookup",
+    "_connectionId": "NETSUITE CONNECTION",
+    "apiIdentifier": "eaf36656fa",
+    "asynchronous": true,
+    "isLookup": true,
+    "oneToMany": false,
+    "sandbox": false,
+    "netsuite": {
+        "type": "restlet",
+        "skipGrouping": true,
+        "statsOnly": false,
+        "restlet": {
+            "recordType": "customer",
+            "searchId": "276",
+            "criteria": [
+                {
+                    "field": "accountnumber",
+                    "operator": "isnotempty"
+                },
+                {
+                    "field": "balance",
+                    "operator": "isempty"
+                }
+            ],
+            "columns": [],
+            "useSS2Restlets": false
+        },
+        "distributed": {
+            "executionContext": [],
+            "executionType": [],
+            "useSS2Framework": false
+        }
+    },
+    "adaptorType": "NetSuiteExport"
+}

@@ -1,0 +1,127 @@
+{
+  "name": "TC_C45718",
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "disabled": false,
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "qa__import": {
+        "name": "TC_C45718 import",
+        "_connectionId": "64315939f049466c2812d53b",
+        "qa__connectionId": "62c514773511941752996876",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "mappings": [
+          {
+            "dataType": "objectarray",
+            "buildArrayHelper": [
+              {
+                "extract": "$[*].variants[*].countriesAvailableIn[*]",
+                "mappings": [
+                  {
+                    "extract": "{{record.vendor}}",
+                    "generate": "name",
+                    "dataType": "string"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "http": {
+          "relativeURI": [
+            "orders"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [],
+          "batchSize": 1,
+          "sendPostMappedData": true,
+          "formType": "http"
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "45718 export",
+        "_connectionId": "FTP CONNECTION",
+        "asynchronous": true,
+        "sandbox": false,
+        "sampleData": [
+          [
+            {
+              "isFlagShip": false,
+              "sku": "Iphone X",
+              "variants": [
+                {
+                  "colour": "space gray",
+                  "countriesAvailableIn": [
+                    {
+                      "code": "IN",
+                      "name": "India"
+                    },
+                    {
+                      "code": "US",
+                      "name": "United States"
+                    }
+                  ],
+                  "expandableStorage": true
+                }
+              ],
+              "vendor": "Amazon US"
+            },
+            {
+              "isFlagShip": false,
+              "sku": "Iphone X",
+              "variants": [
+                {
+                  "colour": "gun metal",
+                  "countriesAvailableIn": [
+                    {
+                      "code": "IN",
+                      "name": "India"
+                    },
+                    {
+                      "code": "FR",
+                      "name": "France"
+                    }
+                  ],
+                  "expandableStorage": false
+                }
+              ],
+              "vendor": "Amazon US"
+            }
+          ]
+        ],
+        "ftp": {
+          "directoryPath": "/io.auto.qa",
+          "fileNameStartsWith": "TC_C45718.json"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json",
+          "json": {
+            "resourcePath": "*"
+          }
+        },
+        "adaptorType": "FTPExport",
+        "qa__path": "//FTP_uploads//TC_C45718.json"
+      }
+    }
+  ],
+  "expected": "\"\""
+}

@@ -1,0 +1,73 @@
+{
+  "name": "TC_C20228",
+  "referencename": "TC_C20228",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "http export",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "qa__connectionId": "ZENDESK CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "parsers": [],
+            "http": {
+              "relativeURI": "/tickets.json",
+              "method": "GET",
+              "formType": "http"
+            },
+            "rawData": "603ce5ede9250226dcea460816a75cfc4af44281afb03f2199b37475",
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "ftp import",
+            "parsers": [],
+            "_connectionId": "FTP CONNECTION",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+              "fileName": "TC_20228.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "io.auto.qa/IO_UI_Automation",
+              "fileName": "C20228.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C20228",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

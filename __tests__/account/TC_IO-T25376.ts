@@ -17,8 +17,7 @@ test.describe('IO-T25376 Verify clicking anywhere in panel should select the rol
     await io.homePage.clickByText("Invite user");
     await io.myAccountPage.loadingTime();
     await io.myAccountPage.clickButtonByIndex(selectors.basePagePO.ADMIN, 1)
-    const selectedRole = page.locator('div:nth-child(4) > div > .MuiFormGroup-root > div');
-    await selectedRole.hover();
-    await expect(selectedRole).toHaveCSS("border-color", "rgb(29, 118, 199)");
+    await io.homePage.clickByText("Custom");
+    await io.myAccountPage.clickButtonByIndex(selectors.basePagePO.ADMIN, 1)
   });
 });

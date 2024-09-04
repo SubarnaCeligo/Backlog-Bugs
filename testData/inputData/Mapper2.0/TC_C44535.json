@@ -1,0 +1,93 @@
+{
+  "name": "TC_C44535",
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "disabled": false,
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "qa__import": {
+        "name": "TC_C44535 import",
+        "application":"inspectorio",
+        "qa__connectionId": "62dbca5731ef343052891b61",
+        "_connectionId": "INSPECTORIO CONNECTION",
+        "ignoreExisting": false,
+        "oneToMany": false,
+        "assistant": "inspectorio",
+        "sandbox": false,
+        "assistantMetadata": {
+          "resource": "63e4ef148616ad99b4688eb3",
+          "version": "63e4ef148616ad99b4688eac",
+          "operation": "63e4ef148616ad99b4688ec8"
+        },
+        "lookups": [],
+        "http": {
+          "relativeURI": [
+            "/api/v1/brands"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [
+            "{{#each data}}\n                {\n                  {{#each this}}\n                  {{#compare @key \"==\" \"ioRecordIndex\"}}  \n                  {{else}} \n                    {{#compare @key \"==\" \"ioFirstRecord\"}}  \n                      {{else}} \n                        {{#compare @key \"==\" \"ioLastRecord\"}}  \n                        {{else}} \n                          {{#if @index}},{{/if}} {{{jsonSerialize @key}}}: {{{jsonSerialize this}}} \n                        {{/compare}} \n                      {{/compare}}   \n                  {{/compare}}\n                  {{/each}}\n                }\n                {{/each}}"
+          ],
+          "headers": [],
+          "requestMediaType": "json",
+          "successMediaType": "json",
+          "errorMediaType": "json",
+          "strictHandlebarEvaluation": false,
+          "sendPostMappedData": true,
+          "formType": "assistant",
+          "lookups": []
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "44535 export",
+        "_connectionId": "FTP CONNECTION",
+        "asynchronous": true,
+        "sandbox": false,
+        "parsers": [],
+        "sampleData": {
+          "measurements": [
+            {
+              "caption": "C01",
+              "pom": "Chest",
+              "sizes": [
+                {
+                  "measurement": "2",
+                  "size": "Medium"
+                }
+              ],
+              "tolerance": "1",
+              "toleranceLower": "1",
+              "toleranceUpper": "1",
+              "unit": "cm"
+            }
+          ]
+        },
+        "ftp": {
+          "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "TC_C44535.json"
+        },
+        "file": {
+          "output": "records",
+          "skipDelete": true,
+          "encoding": "utf8",
+          "type": "json"
+        },
+        "adaptorType": "FTPExport",
+        "qa__path": "//FTP_uploads//TC_C44535.json"
+      }
+    }
+  ]
+}

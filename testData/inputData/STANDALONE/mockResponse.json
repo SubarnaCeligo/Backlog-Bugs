@@ -1,0 +1,192 @@
+{
+    "name": "TC_C55499",
+    "referencename": "TC_C55499",
+    "qa__dataVerification": {},
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Http Export",
+                        "application": "zendesk support",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "e27dab7c47",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": "users",
+                            "method": "GET",
+                            "formType": "http"
+                        },
+                        "transform": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [
+                                    [
+                                        {
+                                            "extract": "users[*].id",
+                                            "generate": "user.id"
+                                        },
+                                        {
+                                            "extract": "users[*].name",
+                                            "generate": "user.name"
+                                        },
+                                        {
+                                            "extract": "users[*].email",
+                                            "generate": "user.email"
+                                        },
+                                        {
+                                            "extract": "users[*].phone",
+                                            "generate": "user.phone"
+                                        },
+                                        {
+                                            "extract": "users[*].time_zone",
+                                            "generate": "user.time_zone"
+                                        },
+                                        {
+                                            "extract": "users[*].role",
+                                            "generate": "user.role"
+                                        }
+                                    ]
+                                ],
+                                "version": "1"
+                            },
+                            "version": "1",
+                            "rules": [
+                                [
+                                    {
+                                        "extract": "users[*].id",
+                                        "generate": "user.id"
+                                    },
+                                    {
+                                        "extract": "users[*].name",
+                                        "generate": "user.name"
+                                    },
+                                    {
+                                        "extract": "users[*].email",
+                                        "generate": "user.email"
+                                    },
+                                    {
+                                        "extract": "users[*].phone",
+                                        "generate": "user.phone"
+                                    },
+                                    {
+                                        "extract": "users[*].time_zone",
+                                        "generate": "user.time_zone"
+                                    },
+                                    {
+                                        "extract": "users[*].role",
+                                        "generate": "user.role"
+                                    }
+                                ]
+                            ]
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Http Import",
+                        "application": "zendesk support",
+                        "mockResponse": [
+                            {
+                                "statusCode": 200,
+                                "id": "9222623681426",
+                                "_json": {
+                                    "organization": {
+                                        "id": 9222623681426,
+                                        "name": "Mary Poppins",
+                                        "details": "17 Cherry Tree Lane"
+                                    }
+                                },
+                                "_headers": {
+                                    "date": "Thu, 22 Dec 2022 10:50:18 GMT",
+                                    "content-type": "application/json; charset=utf-8",
+                                    "x-zendesk-application-version": "v14974",
+                                    "x-frame-options": "SAMEORIGIN"
+                                }
+                            }
+                        ],
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": [
+                                "users"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                },
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Ftp Import",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "i45579d20f",
+                        "oneToMany": false,
+                        "file": {
+                            "fileName": "MockRespons.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                            "fileName": "MockRespons.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C55499",
+                "disabled": false,
+                "qa__integrationId": "63232caf5342c33e615e7271",
+                "_integrationId": "63232c59d3a9897fe95f9f2a",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [
+                                {
+                                    "extract": "_json.organization",
+                                    "generate": "data"
+                                }
+                            ],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    },
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

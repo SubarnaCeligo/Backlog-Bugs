@@ -1,0 +1,41 @@
+{
+    "name": "TC_C19865_Set_And_ReSet_BatchSize",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "NS_Subsidiary",
+              "_connectionId": "NETSUITE CONNECTION",
+              "netsuite": {
+                "type": "restlet",
+                "skipGrouping": true,
+                "statsOnly": false,
+                "restlet": {
+                  "recordType": "subsidiary",
+                  "searchId": "2343",
+                  "useSS2Restlets": false
+                },
+                "distributed": {
+                  "useSS2Framework": false
+                }
+              },
+              "adaptorType": "NetSuiteExport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C19865_Set_And_ReSet_BatchSize",
+          "disabled": false,
+          "_integrationId": "6228aed6bc8a2732cfe8044c",
+          "skipRetries": false,
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

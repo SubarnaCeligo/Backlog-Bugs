@@ -1,0 +1,38 @@
+{
+  "environment": "Production",
+  "qa_importJson": {
+    "environment": "Production",
+    "name": "TC_IAF_003_C26276",
+    "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+    "_integrationId": "6295ed239427f20419269427",
+    "applications": ["activecampaign"],
+    "framework": "twoDotZero",
+    "twoDotZero": {
+      "_integrationId": "6295ed239427f20419269427"
+    }
+  },
+  "importJson": {
+    "environment": "Production",
+    "name": "TC_IAF_003_C26276",
+    "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+    "_integrationId": "631ab5133796483e5615b7d3",
+    "applications": ["activecampaign"],
+    "framework": "twoDotZero",
+    "twoDotZero": {
+      "_integrationId": "631ab5133796483e5615b7d3"
+    }
+  },
+  "setupConnection": {
+    "integrationName":"Settings",
+    "activecampaignSubdomain": "jnsajkcbajbfewfbkbjk",
+    "token": "jfbewjkfbefnevbelve",
+    "uninstall":"false"
+  },
+  "name": "TC_IAF_003_C26276",
+  "app": "ActiveCampaign",
+  "integrationName": "Settings",
+  "updateTrialPeriod": {
+    "name": "TC_IAF_003_C26276",
+    "period": "14 days"
+  }
+}

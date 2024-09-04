@@ -1,0 +1,78 @@
+{
+    "name": "TC_C33583",
+    "script": "TC_C33591",
+    "referencename": "TC_C33583",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "netsuiteexp",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "recordType": "customer",
+                                "searchId": "3855",
+                                "useSS2Restlets": true
+                            },
+                            "distributed": {
+                                "useSS2Framework": false
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "ftpimp",
+                        "parsers": [],
+                        "_connectionId": "FTP CONNECTION",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "file": {
+                            "fileName": "C33583.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "io.auto.qa/IO Automation SFTP Imports",
+                            "fileName": "C33583.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C33583",
+                "disabled": false,
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,256 @@
+{
+    "qa_importJson": {
+        "environment": "Production",
+        "name": "TC_IAF_005_C22995",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "published": true,
+        "_integrationId": "62905de2c51f323382314cce",
+        "applications": ["acumatica"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "62905de2c51f323382314cce",
+            "editions": [{
+                "displayName":"basic",
+                "order":0
+            }]
+        }
+    },
+
+    "qa_expectedJson": {
+        "name": "TC_IAF_005_C22995",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "handle": "c9746e1d",
+        "published": false,
+        "managed": false,
+        "_integrationId": "62905de2c51f323382314cce",
+        "_sharedImportIds": [],
+        "_sharedExportIds": [],
+        "_iClientIdMap": [],
+        "applications": ["acumatica"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "62905de2c51f323382314cce",
+            "editions": [
+                {
+                    "_id": "6270ed81ec56d555ce4426cf",
+                    "displayName": "basic",
+                    "order": 0,
+                    "resources": {
+                        "_flowIds": [],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    },
+                    "childResources": {
+                        "_flowIds": [],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    }
+                }
+            ]
+        },
+        "trialEnabled": false
+    },
+    "qa_editImportJson": {
+        "name": "TC_IAF_005_C22995",
+        "trialEnabled": true,
+        "expires": "12/31/2050",
+        "trialPeriod": "30",
+        "twoDotZero": {
+            "_integrationId": "62905de2c51f323382314cce",
+            "editions": [
+                {
+                    
+                    "displayName": "basic",
+                    "order": 0,
+                    "resources": {
+                        "_flowIds": [],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    },
+                    "childResources": {
+                        "_flowIds": [],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    }
+                }
+            ]
+        },
+        "_trialLicenseId": "624ad0c5f938b448cde27385"
+      },
+      "qa_editExpectedJson": {
+        "name": "TC_IAF_005_C22995",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "published": false,
+        "managed": false,
+        "_integrationId": "62905de2c51f323382314cce",
+        "applications": ["acumatica"],
+        "trialEnabled": true,
+        "trialPeriod": "30",
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "62905de2c51f323382314cce",
+            "editions": [
+                {
+                    "_id": "6270ed81ec56d555ce4426cf",
+                    "displayName": "basic",
+                    "order": 0,
+                    "resources": {
+                        "_flowIds": [],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    },
+                    "childResources": {
+                        "_flowIds": [],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    }
+                }
+            ]
+        }
+      },
+      "importJson": {
+        "environment": "Production",
+        "name": "TC_IAF_005_C22995",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "published": true,
+        "_integrationId": "631ad2f213d12134f4772d77",
+        "applications": ["acumatica"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "631ad2f213d12134f4772d77",
+            "editions": [{
+                "displayName":"basic",
+                "order":0
+            }]
+        }
+    },
+
+    "expectedJson": {
+        "name": "TC_IAF_005_C22995",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "handle": "c9746e1d",
+        "published": false,
+        "managed": false,
+        "_integrationId": "631ad2f213d12134f4772d77",
+        "_sharedImportIds": [],
+        "_sharedExportIds": [],
+        "_iClientIdMap": [],
+        "applications": ["acumatica"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "631ad2f213d12134f4772d77",
+            "editions": [
+                {
+                    "_id": "6270ed81ec56d555ce4426cf",
+                    "displayName": "basic",
+                    "order": 0,
+                    "resources": {
+                        "_flowIds": [],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    },
+                    "childResources": {
+                        "_flowIds": [],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    }
+                }
+            ]
+        },
+        "trialEnabled": false
+    },
+    "editImportJson": {
+        "name": "TC_IAF_005_C22995",
+        "trialEnabled": true,
+        "expires": "12/31/2050",
+        "trialPeriod": "30",
+        "twoDotZero": {
+            "_integrationId": "631ad2f213d12134f4772d77",
+            "editions": [
+                {
+                    
+                    "displayName": "basic",
+                    "order": 0,
+                    "resources": {
+                        "_flowIds": [],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    },
+                    "childResources": {
+                        "_flowIds": [],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    }
+                }
+            ]
+        },
+        "_trialLicenseId": "624ad0c5f938b448cde27385"
+      },
+      "editExpectedJson": {
+        "name": "TC_IAF_005_C22995",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "published": false,
+        "managed": false,
+        "_integrationId": "631ad2f213d12134f4772d77",
+        "applications": ["acumatica"],
+        "trialEnabled": true,
+        "trialPeriod": "30",
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "631ad2f213d12134f4772d77",
+            "editions": [
+                {
+                    "_id": "6270ed81ec56d555ce4426cf",
+                    "displayName": "basic",
+                    "order": 0,
+                    "resources": {
+                        "_flowIds": [],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    },
+                    "childResources": {
+                        "_flowIds": [],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    }
+                }
+            ]
+        }
+      }
+}

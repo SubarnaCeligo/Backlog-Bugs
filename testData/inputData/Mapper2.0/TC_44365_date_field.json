@@ -1,0 +1,107 @@
+{
+    "name": "TC_44365_date_field",
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "disabled": false,
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "name": "zendesk",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "i6bfed81f8",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mapping": {
+                    "fields": [
+                        {
+                            "extract": "name",
+                            "generate": "ticket.subject"
+                        }
+                    ]
+                },
+                "mappings": [
+                    {
+                        "generate": "object",
+                        "dataType": "object",
+                        "status": "Active",
+                        "mappings": [
+                            {
+                                "extract": "$.id",
+                                "generate": "id",
+                                "dataType": "string",
+                                "status": "Active"
+                            }
+                        ]
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "tickets"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "_connectionId": "ZENDESK CONNECTION",
+                "asynchronous": true,
+                "assistant": "zendesk support",
+                "qa__type": "all",
+                "assistantMetadata": {
+                  "resource": "users_api",
+                  "version": "v2",
+                  "operation": "search_users"
+                },
+                "parsers": [],
+                "http": {
+                  "relativeURI": "/api/v2/users/search.json?query=Celigo IO Automation",
+                  "method": "GET",
+                  "paging": {
+                    "method": "url",
+                    "path": "next_page",
+                    "lastPageStatusCode": 404
+                  },
+                  "response": {
+                    "resourcePath": "users"
+                  }
+                },
+                "rest": {
+                  "relativeURI": "/api/v2/users/search.json?query=Celigo IO Automation",
+                  "method": "GET",
+                  "resourcePath": "users",
+                  "pagingMethod": "nextpageurl",
+                  "nextPagePath": "next_page",
+                  "allowUndefinedResource": false
+                },
+                "qa__assistant": {
+                  "queryParams": {
+                    "query": "Celigo IO Automation"
+                  },
+                  "resource": "Users",
+                  "endpoint": "Search users"
+                },
+                "name": "PG_Export ",
+                "adaptorType": "RESTExport"
+              }
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+{
+    "jsonData": {
+        "name": "TC_C47402",
+        "disabled": false,
+        "_integrationId": "62f51e1f0f2ee6482b136853",
+        "qa__integrationId": "62f51db41677a21a108e5e3a",
+        "skipRetries": false,
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE"
+            }
+        ],
+        "routers": [
+            {
+                "routeRecordsUsing": "input_filters",
+                "routeRecordsTo": "all_matching_branches",
+                "branches": [],
+                "script": {
+                    "function": "branchRouter"
+                }
+            }
+        ]
+    },
+    "qa__export": {
+        "name": "Zendesk export",
+        "application": "zendesk support",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+            "relativeURI": "macros",
+            "method": "GET",
+            "formType": "http",
+            "response": {
+                "resourcePath": "macros"
+            }
+        },
+        "adaptorType": "HTTPExport"
+    }
+}

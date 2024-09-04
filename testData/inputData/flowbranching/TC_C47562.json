@@ -1,0 +1,259 @@
+{
+    "name": "TC_C47562",
+    "disabled": false,
+    "qa__integrationId": "62f51db41677a21a108e5e3a",
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "timezone": "Asia/Calcutta",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "AutomationStandalone_ERf5y",
+                "_connectionId": "ZENDESK CONNECTION",
+                "apiIdentifier": "e8931326fd",
+                "asynchronous": true,
+                "type": "test",
+                "pageSize": 1,
+                "assistant": "zendesk",
+                "oneToMany": false,
+                "sandbox": false,
+                "assistantMetadata": {
+                    "resource": "tickets_api",
+                    "version": "v2",
+                    "operation": "list_tickets"
+                },
+                "http": {
+                    "relativeURI": "/api/v2/tickets.json",
+                    "method": "GET",
+                    "successMediaType": "json",
+                    "errorMediaType": "json",
+                    "formType": "assistant",
+                    "paging": {
+                        "method": "url",
+                        "path": "next_page",
+                        "lastPageStatusCode": 404
+                    },
+                    "response": {
+                        "resourcePath": "tickets"
+                    }
+                },
+                "rawData": "62f37ad6703e322cf5d90431ec3465a421d5484b909e69111ef99fa7",
+                "test": {
+                    "limit": 1
+                },
+                "rest": {
+                    "relativeURI": "/api/v2/tickets.json",
+                    "method": "GET",
+                    "resourcePath": "tickets",
+                    "pagingMethod": "nextpageurl",
+                    "nextPagePath": "next_page",
+                    "allowUndefinedResource": false
+                },
+                "adaptorType": "RESTExport"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "eWj7-R",
+            "routeRecordsTo": "all_matching_branches",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [
+                                    {
+                                        "generate": "p2id",
+                                        "extract": "first}} and {{last}}"
+                                    }
+                                ],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "zendesk import 1",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "qa__inputFilter": true,
+                                "apiIdentifier": "i951e83735",
+                                "ignoreExisting": false,
+                                "ignoreMissing": false,
+                                "oneToMany": false,
+                                "pathToMany": "current_subtotal_price_set",
+                                "assistant": "zendesk",
+                                "assistantMetadata": {
+                                    "resource": "users_api",
+                                    "version": "v2",
+                                    "operation": "create_users_api"
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "/api/v2/users.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "body": [
+                                        null
+                                    ],
+                                    "batchSize": 1,
+                                    "requestMediaType": "json",
+                                    "successMediaType": "json",
+                                    "errorMediaType": "json",
+                                    "strictHandlebarEvaluation": true,
+                                    "sendPostMappedData": true,
+                                    "formType": "assistant",
+                                    "response": {
+                                        "resourceIdPath": [
+                                            null
+                                        ]
+                                    }
+                                },
+                                "rest": {
+                                    "relativeURI": [
+                                        "/api/v2/users.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "body": [
+                                        null
+                                    ],
+                                    "responseIdPath": [
+                                        null
+                                    ],
+                                    "successPath": [
+                                        null
+                                    ],
+                                    "successValues": [
+                                        null
+                                    ]
+                                },
+                                "qa__rules": [
+                                    [
+                                        "record.url",
+                                        "notempty"
+                                    ]
+                                ],
+                                "filter": {
+                                    "type": "expression",
+                                    "expression": {
+                                        "rules": [
+                                            "notempty",
+                                            [
+                                                "string",
+                                                [
+                                                    "extract",
+                                                    "url"
+                                                ]
+                                            ]
+                                        ],
+                                        "version": "1"
+                                    },
+                                    "version": "1",
+                                    "rules": [
+                                        "notempty",
+                                        [
+                                            "string",
+                                            [
+                                                "extract",
+                                                "url"
+                                            ]
+                                        ]
+                                    ]
+                                },
+                                "adaptorType": "RESTImport"
+                            },
+                            "proceedOnFailure": true
+                        },
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandalone_Vg8vN",
+                                "_connectionId": "SALESFORCE CONNECTION",
+                                "apiIdentifier": "ia01e072ec",
+                                "ignoreExisting": false,
+                                "ignoreMissing": false,
+                                "oneToMany": false,
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "description",
+                                            "generate": "Name"
+                                        }
+                                    ]
+                                },
+                                "salesforce": {
+                                    "operation": "insert",
+                                    "sObjectType": "Account",
+                                    "api": "soap",
+                                    "removeNonSubmittableFields": false
+                                },
+                                "adaptorType": "SalesforceImport"
+                            }
+                        }
+                    ],
+                    "inputFilter": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "url"
+                                ]
+                            ],
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "url"
+                                ]
+                            ]
+                        ]
+                    }
+                },
+                {
+                    "name": "Branch 1.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "test",
+                                "sampleData": "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\r\n<root>\r\n  <body_html>It&#x27;s the small iPod with a big idea: Video.</body_html>\r\n  <created_at>2012-02-15T15:12:21-05:00</created_at>\r\n  <handle>ipod-nano</handle>\r\n  <new_variant>39626872356922</new_variant>\r\n  <new_variant>39626872389690</new_variant>\r\n  <new_variant>39626872422458</new_variant>\r\n  <new_variant>39626872455226</new_variant>\r\n  <id>4653550239802</id>\r\n  <images>\r\n    <id>28593192435770</id>\r\n    <product_id>4653550239802</product_id>\r\n    <position>1</position>\r\n    <created_at>2022-06-07T01:55:28-04:00</created_at>\r\n    <updated_at>2022-06-07T01:55:28-04:00</updated_at>\r\n    <width>110</width>\r\n    <height>140</height>\r\n    <src>http://example.com/burton.jpg</src>\r\n    <variant_ids>39365759074362</variant_ids>\r\n  </images>\r\n  <options>\r\n    <id>6097468391482</id>\r\n    <product_id>4653550239802</product_id>\r\n    <name>Color</name>\r\n    <position>1</position>\r\n    <values>Pink</values>\r\n    <values>Red</values>\r\n    <values>Green</values>\r\n    <values>Black</values>\r\n  </options>\r\n  <product_type>Cult Products</product_type>\r\n  <published_at>2007-12-31T19:00:00-05:00</published_at>\r\n  <published_scope>global</published_scope>\r\n  <status>active</status>\r\n  <tags>Emotive, Flash Memory, MP3, Music</tags>\r\n  <template_suffix>special</template_suffix>\r\n  <title>IPod Nano - 8GB</title>\r\n  <updated_at>2012-08-24T14:01:47-04:00</updated_at>\r\n  <variants>\r\n    <barcode>1234_pink</barcode>\r\n    <compare_at_price/>\r\n    <created_at>2012-08-24T14:01:47-04:00</created_at>\r\n    <fulfillment_service>manual</fulfillment_service>\r\n    <grams>567</grams>\r\n    <weight>0.2</weight>\r\n    <weight_unit>kg</weight_unit>\r\n    <id>39365759074362</id>\r\n    <inventory_item_id>41459836583994</inventory_item_id>\r\n    <inventory_management>shopify</inventory_management>\r\n    <inventory_policy>continue</inventory_policy>\r\n    <inventory_quantity>10</inventory_quantity>\r\n    <option1>Pink</option1>\r\n    <position>1</position>\r\n    <price>199.99</price>\r\n    <product_id>4653550239802</product_id>\r\n    <requires_shipping>true</requires_shipping>\r\n    <sku>IPOD2008PINK</sku>\r\n    <taxable>true</taxable>\r\n    <title>Pink</title>\r\n    <updated_at>2022-06-07T01:55:28-04:00</updated_at>\r\n  </variants>\r\n  <variants>\r\n    <barcode>1234_pinkcccc</barcode>\r\n    <compare_at_price/>\r\n    <created_at>2012-08-24T14:01:47-04:00</created_at>\r\n    <fulfillment_service>manual</fulfillment_service>\r\n    <grams>567</grams>\r\n    <weight>0.2</weight>\r\n    <weight_unit>kg</weight_unit>\r\n    <id>39365759074362</id>\r\n    <inventory_item_id>41459836583994</inventory_item_id>\r\n    <inventory_management>shopify</inventory_management>\r\n    <inventory_policy>continue</inventory_policy>\r\n    <inventory_quantity>10</inventory_quantity>\r\n    <option1>Red</option1>\r\n    <position>1</position>\r\n    <price>199.99</price>\r\n    <product_id>4653550239802</product_id>\r\n    <requires_shipping>true</requires_shipping>\r\n    <sku>IPOD2008PINK</sku>\r\n    <taxable>true</taxable>\r\n    <title>Red</title>\r\n    <updated_at>2022-06-07T01:55:28-04:00</updated_at>\r\n  </variants>\r\n  <variants>\r\n    <barcode>1234_pinkcccc</barcode>\r\n    <compare_at_price/>\r\n    <created_at>2012-08-24T14:01:47-04:00</created_at>\r\n    <fulfillment_service>manual</fulfillment_service>\r\n    <grams>567</grams>\r\n    <weight>0.2</weight>\r\n    <weight_unit>kg</weight_unit>\r\n    <id>39365759074362</id>\r\n    <inventory_item_id>41459836583994</inventory_item_id>\r\n    <inventory_management>shopify</inventory_management>\r\n    <inventory_policy>continue</inventory_policy>\r\n    <inventory_quantity>10</inventory_quantity>\r\n    <option1>Black</option1>\r\n    <position>1</position>\r\n    <price>199.99</price>\r\n    <product_id>4653550239802</product_id>\r\n    <requires_shipping>true</requires_shipping>\r\n    <sku>IPOD2008PINK</sku>\r\n    <taxable>true</taxable>\r\n    <title>Black</title>\r\n    <updated_at>2022-06-07T01:55:28-04:00</updated_at>\r\n  </variants>\r\n  <variants>\r\n    <barcode>1234_pinkcccc</barcode>\r\n    <compare_at_price/>\r\n    <created_at>2012-08-24T14:01:47-04:00</created_at>\r\n    <fulfillment_service>manual</fulfillment_service>\r\n    <grams>567</grams>\r\n    <weight>0.2</weight>\r\n    <weight_unit>kg</weight_unit>\r\n    <id>39365759074362</id>\r\n    <inventory_item_id>41459836583994</inventory_item_id>\r\n    <inventory_management>shopify</inventory_management>\r\n    <inventory_policy>continue</inventory_policy>\r\n    <inventory_quantity>10</inventory_quantity>\r\n    <option1>Green</option1>\r\n    <position>1</position>\r\n    <price>199.99</price>\r\n    <product_id>4653550239802</product_id>\r\n    <requires_shipping>true</requires_shipping>\r\n    <sku>IPOD2008PINK</sku>\r\n    <taxable>true</taxable>\r\n    <title>Green</title>\r\n    <updated_at>2022-06-07T01:55:28-04:00</updated_at>\r\n  </variants>\r\n  <vendor>Apple</vendor>\r\n</root>",
+                                "_connectionId": "FTP CONNECTION",
+                                "_sourceId": "62f3c3756e7527033714103f",
+                                "apiIdentifier": "ie193fb73f",
+                                "oneToMany": false,
+                                "file": {
+                                    "fileName": "TC_C47562-{{uuid}}.json",
+                                    "skipAggregation": false,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPimport",
+                                    "fileName": "TC_C47562-{{uuid}}.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branchRouter"
+            }
+        }
+    ]
+}

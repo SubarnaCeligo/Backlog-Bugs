@@ -1,0 +1,136 @@
+{
+    "name": "TC_C22324",
+    "referencename": "TC_C22324",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "1",
+        "successCount": "0",
+        "errorCount": "1"
+      },
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export":{
+                "name": "FTP",
+                "_connectionId":"FTP CONNECTION",
+                "apiIdentifier": "e1973d5bbf",
+                "asynchronous": true,
+                "sandbox": false,
+                "sampleData": {
+                    "id": [
+                        1,
+                        1,
+                        {
+                            "a": 1
+                        }
+                    ]
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "C22324"
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+                "name": "Zendesk",
+                "_connectionId":"ZENDESK CONNECTION",
+                "apiIdentifier": "i28782f1b0",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "assistant": "zendesk",
+                "sandbox": false,
+                "assistantMetadata": {
+                    "resource": "apps",
+                    "version": "v2",
+                    "operation": "create_app"
+                },
+                "mapping": {
+                    "fields": [
+                        {
+                            "extract": "id",
+                            "generate": "id"
+                        }
+                    ]
+                },
+                "http": {
+                    "relativeURI": [
+                        "/api/v2/apps.json"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [
+                        null
+                    ],
+                    "batchSize": 1,
+                    "requestMediaType": "json",
+                    "strictHandlebarEvaluation": true,
+                    "sendPostMappedData": true,
+                    "formType": "assistant",
+                    "response": {
+                        "resourceIdPath": [
+                            null
+                        ]
+                    }
+                },
+                "rest": {
+                    "relativeURI": [
+                        "/api/v2/apps.json"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [
+                        null
+                    ],
+                    "responseIdPath": [
+                        null
+                    ],
+                    "successPath": [
+                        null
+                    ],
+                    "successValues": [
+                        null
+                    ]
+                },
+                "adaptorType": "RESTImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C22324",
+          "disabled": false,
+          "_integrationId": "6317518c5bca603be6bc9af0",
+          "qa__integrationId": "6317333395653f0f15147f47",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

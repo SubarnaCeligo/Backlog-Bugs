@@ -1,0 +1,164 @@
+{
+    "name": "TC_47561",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "AutomationStandaloneExport_AF43w",
+                "_connectionId": "NETSUITE CONNECTION",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "sandbox": false,
+                "test": {
+                    "limit": 1
+                },
+                "netsuite": {
+                    "type": "restlet",
+                    "skipGrouping": false,
+                    "statsOnly": false,
+                    "restlet": {
+                        "recordType": "department",
+                        "searchId": "3193",
+                        "useSS2Restlets": false,
+                        "markExportedBatchSize": 100
+                    },
+                    "distributed": {
+                        "useSS2Framework": false
+                    }
+                },
+                "adaptorType": "NetSuiteExport"
+            },
+            "skipRetries": false
+        }
+    ],
+    "autoResolveMatchingTraceKeys": true,
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "0TnVvR",
+            "routeRecordsTo": "all_matching_branches",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "flow branching-salesforce",
+                                "_connectionId": "SALESFORCE CONNECTION",
+                                "hooks": {
+                                    "postMap": {
+                                        "_scriptId": "UPDATE",
+                                        "function": "postMaps"
+                                    }
+                                },
+                                "ignoreExisting": false,
+                                "ignoreMissing": false,
+                                "oneToMany": false,
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "Name",
+                                            "generate": "Name"
+                                        }
+                                    ]
+                                },
+                                "salesforce": {
+                                    "operation": "insert",
+                                    "sObjectType": "Account",
+                                    "api": "soap",
+                                    "removeNonSubmittableFields": false
+                                },
+                                "adaptorType": "SalesforceImport"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Branch 1.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "FTP_import",
+                                "_connectionId": "FTP CONNECTION",
+                                "apiIdentifier": "i715c1b646",
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "Name",
+                                            "generate": "name"
+                                        },
+                                        {
+                                            "extract": "recordType",
+                                            "generate": "email"
+                                        }
+                                    ]
+                                },
+                                "file": {
+                                    "fileName": "TC_47561d.json",
+                                    "skipAggregation": true,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                                    "fileName": "TC_47561d.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "3",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "expected": {
+            "FTP": {
+                "name": "TC_47561",
+                "_integrationId": "62f51db41677a21a108e5e3a",
+                "import": {
+                    "_connectionId": "FTP CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "1",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_47561d",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".json"
+                }
+            }
+        }
+    },
+    "scriptBody": {
+        "name": "oneChildRecordFailingPostMapScript",
+        "content": "function postMap (options) {\n  for(let i=0;i<options.preMapData.length; i++) {\n    if(options.preMapData[i].currency_code == \"ruppes\") {\n      delete(options.postMapData[i].organization.name);\n    }\n  }\n  return options.postMapData.map((d) => {return {data: d}})}"
+    }
+}

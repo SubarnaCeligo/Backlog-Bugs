@@ -1,0 +1,112 @@
+{
+    "name": "TC41051_Verify_preview_button",
+    "referencename": "TC41055_Verify_preview_button",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Ftp Export",
+                        "_connectionId": "FTP CONNECTION",
+                        "_sourceId": "626249d61ce14c420e0241d6",
+                        "apiIdentifier": "e9cddd8b64",
+                        "asynchronous": true,
+                        "sampleData": [
+                            {
+                                "name": "New Automation Organization",
+                                "notes": "This is new group"
+                            },
+                            {
+                                "name": "Automation@Flow",
+                                "notes": "Auto@flow262record_One@mail.com"
+                            }
+                        ],
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                            "fileNameStartsWith": "CreateNew&UpdateExisting1",
+                            "fileNameEndsWith": ".json"
+                        },
+                        "file": {
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "json",
+                            "json": {
+                                "resourcePath": "*"
+                            }
+                        },
+                        "adaptorType": "FTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Create New Record & Ignore Existing Record",
+                        "application": "zendesk support",
+                        "_connectionId": "ZENDESK CONNECTION",
+                        "apiIdentifier": "i6f715aa42",
+                        "ignoreExisting": true,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "extract": "name",
+                                    "generate": "organization.name"
+                                },
+                                {
+                                    "extract": "notes",
+                                    "generate": "organization.description"
+                                }
+                            ]
+                        },
+                        "http": {
+                            "relativeURI": [
+                                "/organizations.json"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [
+                                ""
+                            ],
+                            "batchSize": 1,
+                            "requestType": [
+                                "UPDATE",
+                                "CREATE"
+                            ],
+                            "sendPostMappedData": true,
+                            "ignoreExtract": "id",
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC41051_Verify_preview_button",
+                "disabled": false,
+                "qa__integrationId": "6228aed6bc8a2732cfe8044c",
+                "_integrationId": "631a1266abf51e7a86c80ab4",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

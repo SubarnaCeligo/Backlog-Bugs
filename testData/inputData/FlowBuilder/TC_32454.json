@@ -1,0 +1,90 @@
+{
+    "qa_integrationSetting": {
+        "_id": "Update With New",
+        "name": "TC_32454",
+        "install": [],
+        "sandbox": false,
+        "settingsForm": {},
+        "_registeredConnectionIds": [],
+        "installSteps": [
+            {
+                "name": "Integrator.io bundle install and verify",
+                "description": "Click on the link to get the IO bundle link, install and then verify the installation.",
+                "imageUrl": "/images/company-logos/netsuite.png",
+                "completed": false,
+                "type": "url",
+                "function": "hiddenStep",
+                "_scriptId": "6322d6560643cf0e25a021f5",
+                "getUrlFunction": "CustomException"
+            }
+        ],
+        "uninstallSteps": [],
+        "flowGroupings": []
+    },
+    "integrationSetting": {
+        "_id": "Update With New",
+        "name": "TC_32454",
+        "install": [],
+        "sandbox": false,
+        "settingsForm": {},
+        "_registeredConnectionIds": [],
+        "installSteps": [
+            {
+                "name": "Integrator.io bundle install and verify",
+                "description": "Click on the link to get the IO bundle link, install and then verify the installation.",
+                "imageUrl": "/images/company-logos/netsuite.png",
+                "completed": false,
+                "type": "url",
+                "function": "hiddenStep",
+                "_scriptId": "6328b3c10dbc53086e893846",
+                "getUrlFunction": "CustomException"
+            }
+        ],
+        "uninstallSteps": [],
+        "flowGroupings": []
+    },
+    "qa_importJson": {
+        "environment": "Production",
+        "name": "TC_32454",
+        "contactEmail": "io.auto.qa+18@celigo.com",
+        "_integrationId": "Update With New",
+        "applications": [
+            "activecampaign"
+        ],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "Update With New"
+        }
+    },
+    "importJson": {
+        "environment": "Production",
+        "name": "TC_32454",
+        "contactEmail": "io.auto.qa+18@celigo.com",
+        "_integrationId": "Update With New",
+        "applications": [
+            "activecampaign"
+        ],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "Update With New"
+        }
+    },
+    "setupConnection": {
+        "integrationName": "TC_32454",
+        "uninstall": "false"
+    },
+    "createLicense": {
+        "name": "TC_32454"
+    },
+    "app": "ActiveCampaign",
+    "integrationName": "TC_32454",
+    "Json": {
+        "qa__api_tdata": [
+            {
+                "createIntegrations": {
+                    "name": "TC_32454"
+                }
+            }
+        ]
+    }
+}

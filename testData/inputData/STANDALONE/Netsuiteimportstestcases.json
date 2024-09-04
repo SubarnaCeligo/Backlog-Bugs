@@ -1,0 +1,83 @@
+{
+    "name": "NetsuiteImporttestcases",
+    "qa__api_tdata": [
+      {
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+                "name": "Attach Consolidated Exchange Rate",
+                "_connectionId": "628f00568f68e85ab2c63b22",
+                "distributed": true,
+                "netsuite_da": {
+                  "useSS2Restlets": false,
+                  "operation": "attach",
+                  "recordType": "consolidatedexchangerate",
+                  "mapping": {
+                    "fields": [
+                      {
+                        "generate": "celigo_nlobjAttachToId",
+                        "discardIfEmpty": false,
+                        "immutable": false,
+                        "hardCodedValue": "345",
+                        "internalId": false
+                      },
+                      {
+                        "generate": "celigo_nlobjAttachedType",
+                        "discardIfEmpty": false,
+                        "immutable": false,
+                        "hardCodedValue": "customer",
+                        "internalId": false
+                      },
+                      {
+                        "generate": "celigo_nlobjAttachedId",
+                        "discardIfEmpty": false,
+                        "immutable": false,
+                        "hardCodedValue": "678",
+                        "internalId": false
+                      },
+                      {
+                        "generate": "celigo_ignore_mandatory_fields",
+                        "discardIfEmpty": false,
+                        "immutable": false,
+                        "hardCodedValue": "true",
+                        "internalId": false
+                      },
+                      {
+                        "generate": "fromcurrency",
+                        "discardIfEmpty": false,
+                        "immutable": false,
+                        "extract": "EURO",
+                        "lookupName": "test",
+                        "internalId": false
+                      }
+                    ],
+                    "lists": [
+                      
+                    ]
+                  }
+                },
+                "adaptorType": "NetSuiteDistributedImport"
+              }
+          }
+        ],
+        "createFlow": {
+          "name": "NetsuiteImporttestcases",
+          "disabled": false,
+          "_integrationId": "6228aed6bc8a2732cfe8044c",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }
+  

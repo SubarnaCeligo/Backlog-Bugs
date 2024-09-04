@@ -1,0 +1,97 @@
+{
+    "script": "TC_21860",
+    "script_1": "TC_21860_1",
+    "name": "TC_C21860_Jsruntime_Function_Hook_Error_Message_Check",
+    "referencename": "TC_C21860_Jsruntime_Function_Hook_Error_Message_Check",
+    "qa__expectedDashboardCount": {
+        "successCount": "0",
+        "ignoreCount": "0",
+        "errorCount": "1"
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "MAIN EXPORT",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "asynchronous": true,
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "recordType": "customer",
+                                "searchId": "3160",
+                                "criteria": [
+                                    {
+                                        "field": "custentity26",
+                                        "operator": "is",
+                                        "searchValue": "Louis Fabre"
+                                    }
+                                ],
+                                "useSS2Restlets": false
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "SF Main Import",
+                        "_connectionId": "SALESFORCE CONNECTION",
+                        "distributed": false,
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "extract": "Name",
+                                    "generate": "Name"
+                                },
+                                {
+                                    "extract": "res1",
+                                    "generate": "Description"
+                                },
+                                {
+                                    "generate": "Phone",
+                                    "hardCodedValue": "TC_001"
+                                }
+                            ]
+                        },
+                        "salesforce": {
+                            "operation": "insert",
+                            "sObjectType": "Account",
+                            "api": "soap",
+                            "removeNonSubmittableFields": false
+                        },
+                        "adaptorType": "SalesforceImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C21860_Jsruntime_Function_Hook_Error_Message_Check",
+                "disabled": false,
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

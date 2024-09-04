@@ -7,16 +7,14 @@ test.describe(`C45819`, () => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
 
-  test(`@Env-All @Zephyr-IO-T17228 C45819 Verify if the Account Id and the secret key are shown when the user clicks on Manual details.`, async ({ page, io }) => {
+  test(`@Env-All @Zephyr-IO-T17228 @Priority-P2 C45819 Verify if the Account Id and the secret key are shown when the user clicks on Manual details.`, async ({ page, io }) => {
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.myAccountPage.waitForElementAttached(selectors.myAccountPagePO.SECURITY);
     await io.myAccountPage.click(selectors.myAccountPagePO.SECURITY);
     await io.myAccountPage.waitForElementAttached(selectors.myAccountPagePO.MFA);
     await io.myAccountPage.click(selectors.myAccountPagePO.MFA);
     await io.myAccountPage.loadingTime();
-    const isToggleEnable = await io.myAccountPage.isVisible(selectors.myAccountPagePO.MFA_ON_OFF);
-    if(!isToggleEnable) 
-      await io.myAccountPage.click(selectors.myAccountPagePO.MFA_TOGGLE);
+    await io.myAccountPage.click(selectors.myAccountPagePO.MFA_ENABLE_BUTTON);
     await io.myAccountPage.clickByText('View account & secret key');
     await io.myAccountPage.fill(selectors.basePagePO.NEW_PASSWORD, decrypt(process.env["IO_Password"]));
     await io.myAccountPage.click(selectors.myAccountPagePO.REAUTH);

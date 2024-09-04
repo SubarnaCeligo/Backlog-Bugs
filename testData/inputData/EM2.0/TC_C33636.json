@@ -1,0 +1,122 @@
+{
+    "name": "TC_C33636",
+    "referencename": "TC_C33636",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "NS_Export_TC_C33636",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "rawData": "603ce5ede9250226dcea460892c3d440b1944000a2f82e6575601055",
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "recordType": "customer",
+                                "searchId": "2373",
+                                "useSS2Restlets": false
+                            },
+                            "distributed": {
+                                "useSS2Framework": false
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "NS Blob Export TC_C33636",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "asynchronous": true,
+                        "isLookup": true,
+                        "type": "blob",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "netsuite": {
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "internalId": "4196666",
+                            "restlet": {
+                                "useSS2Restlets": false
+                            },
+                            "distributed": {
+                                "useSS2Framework": false
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                },
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Http Blob import",
+                        "application": "zendesk support",
+                        "parsers": [],
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "qa__connectionId": "ZENDESK CONNECTION",
+                        "oneToMany": false,
+                        "blob": true,
+                        "sandbox": false,
+                        "lookups": [],
+                        "http": {
+                            "relativeURI": [
+                                "/uploads.json?filename={{}}"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "headers": [
+                                {
+                                    "name": "Content-Type",
+                                    "value": "application/binary"
+                                }
+                            ],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C33636",
+                "disabled": false,
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    },
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

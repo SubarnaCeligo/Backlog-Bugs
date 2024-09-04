@@ -1,0 +1,70 @@
+{
+    "name": "TC_C30425",
+    "referencename": "TC_C30425",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "application": "MySQL",
+                        "name": "MySQL Export",
+                        "_connectionId": "MYSQL CONNECTION",
+                        "apiIdentifier": "e587289a03",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "rawData": "62ebb431e627016182cf33916c350fa1583f4329bb3fa214fa14776f",
+                        "rdbms": {
+                            "query": "select * from Templates.Order LIMIT 1"
+                        },
+                        "transform": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [
+                                    [
+                                        {
+                                            "extract": "freight",
+                                            "generate": "freight"
+                                        },
+                                        {
+                                            "extract": "shipname",
+                                            "generate": "shipname"
+                                        }
+                                    ]
+                                ],
+                                "version": "1"
+                            },
+                            "version": "1",
+                            "rules": [
+                                [
+                                    {
+                                        "extract": "freight",
+                                        "generate": "freight"
+                                    },
+                                    {
+                                        "extract": "shipname",
+                                        "generate": "shipname"
+                                    }
+                                ]
+                            ]
+                        },
+                        "adaptorType": "RDBMSExport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C30425",
+                "disabled": false,
+                "_integrationId": "62ecc42648570015ab65cfa5",
+                "qa__integrationId": "62eca1efe386b563f638451e",
+                "skipRetries": false,
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

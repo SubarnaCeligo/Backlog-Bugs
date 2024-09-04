@@ -1,0 +1,212 @@
+{
+  "name": "TC_C20709",
+  "referencename": "TC_C20709",
+  "qa__api_tdata": [
+    {
+      "qa__export": {
+        "name": "20709",
+        "_connectionId": "FTP CONNECTION",
+        "asynchronous": true,
+        "sandbox": false,
+        "sampleData": [
+          {
+            "Internal ID": 48040,
+            "ID": "498207",
+            "Name": "Choco boat",
+            "Phone": "1233211234",
+            "Billing Address 1": "",
+            "Billing City": "",
+            "Billing State": {
+              "Province": ""
+            },
+            "Sales Rep": "",
+            "Search Engine": "",
+            "Keyword Search": "",
+            "Medium": ""
+          }
+        ],
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "TC_C20709"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json"
+        },
+        "adaptorType": "FTPExport",
+        "qa__path": "//FTP_uploads//TC_C20709.json"
+      }
+    }
+  ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Netsuite customer import",
+            "_connectionId": "NETSUITE CONNECTION",
+            "adaptorType": "NetSuiteDistributedImport",
+            "distributed": true,
+            "lookups": [],
+            "netsuite_da": {
+              "recordType": "customer",
+              "internalIdLookup": {
+                "expression": "[\"email\",\"is\",\"{{{email}}}\"]",
+                "qa__expression": [
+                  [
+                    "email",
+                    "is",
+                    "{{{email}}}"
+                  ]
+                ]
+              },
+              "operation": "addupdate",
+              "lookups": [
+                {
+                  "name": "dynamic",
+                  "recordType": "customer",
+                  "resultField": "externalid",
+                  "expression": "[\"internalidnumber\",\"equalto\",\"{{{[Internal ID]}}}\"]",
+                  "qa__expression": [
+                    [
+                      "internalidnumber",
+                      "equalto",
+                      "{{{[Internal ID]}}}"
+                    ]
+                  ],
+                  "allowFailures": false
+                }
+              ],
+              "mapping": {
+                "fields": [
+                  {
+                    "generate": "phone",
+                    "extract": "Phone",
+                    "internalId": false
+                  },
+                  {
+                    "generate": "mobilephone",
+                    "extract": "Phone",
+                    "internalId": false
+                  },
+                  {
+                    "generate": "email",
+                    "extract": "email",
+                    "internalId": false
+                  },
+                  {
+                    "extract": "Billing State.Province",
+                    "generate": "Billing State.Province"
+                  },
+                  {
+                    "generate": "salesrep",
+                    "extract": "['Sales Rep']",
+                    "internalId": false
+                  },
+                  {
+                    "generate": "custentity15",
+                    "extract": "['Search Engine']",
+                    "internalId": false
+                  },
+                  {
+                    "generate": "custentity14",
+                    "extract": "['Keyword Search']",
+                    "internalId": false
+                  },
+                  {
+                    "generate": "custentity13",
+                    "extract": "Medium",
+                    "internalId": false,
+                    "discardIfEmpty": false,
+                    "immutable": false
+                  },
+                  {
+                    "generate": "subsidiary",
+                    "discardIfEmpty": false,
+                    "immutable": false,
+                    "hardCodedValue": "4",
+                    "internalId": true
+                  },
+                  {
+                    "generate": "isperson",
+                    "discardIfEmpty": false,
+                    "immutable": false,
+                    "hardCodedValue": "true",
+                    "internalId": false
+                  },
+                  {
+                    "generate": "lastname",
+                    "discardIfEmpty": false,
+                    "immutable": false,
+                    "internalId": false,
+                    "hardCodedValue": "sharma"
+                  },
+                  {
+                    "generate": "externalid",
+                    "extract": "externalid",
+                    "discardIfEmpty": false,
+                    "immutable": false,
+                    "lookupName": "dynamic",
+                    "internalId": false
+                  },
+                  {
+                    "generate": "firstname",
+                    "discardIfEmpty": false,
+                    "immutable": false,
+                    "hardCodedValue": "Keertana",
+                    "internalId": false
+                  }
+                ],
+                "lists": [
+                  {
+                    "generate": "_billing_addressbook",
+                    "fields": [
+                      {
+                        "generate": "addr1",
+                        "extract": "['Billing Address 1']",
+                        "internalId": false
+                      },
+                      {
+                        "generate": "city",
+                        "extract": "['Billing City']",
+                        "internalId": false
+                      }
+                    ]
+                  }
+                ]
+              },
+              "filter": {
+                "type": "expression",
+                "expression": {
+                  "version": "1"
+                },
+                "version": "1"
+              }
+            }
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C20709",
+        "disabled": false,
+        "_integrationId": "62ecc42648570015ab65cfa5",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH EXPORTID",
+            "skipRetries": false
+          }
+        ]
+      }
+    }

@@ -1,0 +1,286 @@
+{
+    "name": "TC_C47426_proceedOnFailure",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "AutomationStandaloneExport__NnT8IUIk",
+                "_connectionId": "NETSUITE CONNECTION",
+                "asynchronous": true,
+                "pageSize": 5,
+                "oneToMany": false,
+                "sandbox": false,
+                "netsuite": {
+                    "type": "restlet",
+                    "skipGrouping": true,
+                    "statsOnly": false,
+                    "restlet": {
+                        "recordType": "campaign",
+                        "searchId": "4651",
+                        "useSS2Restlets": false
+                    },
+                    "distributed": {
+                        "useSS2Framework": false
+                    }
+                },
+                "adaptorType": "NetSuiteExport"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "nw5EED",
+            "routeRecordsTo": "all_matching_branches",
+            "branches": [
+                {
+                    "name": "R1B1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandaloneImport__n3AT8IUIk",
+                                "_connectionId": "FTP CONNECTION",
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "Manager",
+                                            "generate": "User"
+                                        },
+                                        {
+                                            "extract": "id",
+                                            "generate": "Id"
+                                        }
+                                    ]
+                                },
+                                "file": {
+                                    "fileName": "TC_C47426_proceedOnFailure.json",
+                                    "skipAggregation": true,
+                                    "type": "json",
+                                    "encoding": "utf8"
+                                },
+                                "ftp": {
+                                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                                    "fileName": "TC_C47426_proceedOnFailure.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ],
+                    "nextRouterId": "9jT3ys"
+                },
+                {
+                    "name": "R1B2",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "proceedOnFailure": true,
+                            "qa__import": {
+                                "name": "AutomationStandaloneImport__fn28IUIk",
+                                "_connectionId": "FTP CONNECTION",
+                                "hooks": {
+                                    "postMap": {
+                                        "_scriptId": "UPDATE",
+                                        "function": "filter"
+                                    }
+                                },
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "Manager",
+                                            "generate": "User"
+                                        },
+                                        {
+                                            "extract": "id",
+                                            "generate": "Id"
+                                        }
+                                    ]
+                                },
+                                "file": {
+                                    "fileName": "file2-{{timestamp \"HHmmss\" \"Asia/Calcutta\"}}.csv",
+                                    "skipAggregation": true,
+                                    "type": "csv",
+                                    "csv": {
+                                        "rowDelimiter": "\n",
+                                        "columnDelimiter": ",",
+                                        "includeHeader": true,
+                                        "wrapWithQuotes": false,
+                                        "replaceTabWithSpace": false,
+                                        "replaceNewlineWithSpace": false,
+                                        "truncateLastRowDelimiter": false
+                                    }
+                                },
+                                "ftp": {
+                                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                                    "fileName": "file2-{{timestamp \"HHmmss\" \"Asia/Calcutta\"}}.csv"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ],
+                    "nextRouterId": "9jT3ys"
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        },
+        {
+            "id": "9jT3ys",
+            "branches": [
+                {
+                    "name": "",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandaloneImport__3HttkKo8iR",
+                                "application":"zendesk support",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "ignoreExisting": false,
+                                "ignoreMissing": false,
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "{{id}}_response",
+                                            "generate": "user.name"
+                                        },
+                                        {
+                                            "extract": "Title",
+                                            "generate": "user.notes"
+                                        }
+                                    ]
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "/users"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "body": [],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "filter": {
+                                    "type": "expression",
+                                    "expression": {
+                                        "rules": [
+                                            "equals",
+                                            [
+                                                "string",
+                                                [
+                                                    "extract",
+                                                    "id"
+                                                ]
+                                            ],
+                                            "100143"
+                                        ],
+                                        "version": "1"
+                                    },
+                                    "version": "1",
+                                    "rules": [
+                                        "equals",
+                                        [
+                                            "string",
+                                            [
+                                                "extract",
+                                                "id"
+                                            ]
+                                        ],
+                                        "100143"
+                                    ]
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "successCount": "12",
+        "ignoreCount": "8",
+        "errorCount": "5"
+    },
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "expected": {
+            "FTP": {
+                "name": "TC_C47426_proceedOnFailure",
+                "_integrationId": "62f51db41677a21a108e5e3a",
+                "import": {
+                    "_connectionId": "FTP CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "5",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_C47426_proceedOnFailure",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".json"
+                }
+            },
+            "zendesk": {
+                "name": "TC_C47426_proceedOnFailure",
+                "_integrationId": "62f51db41677a21a108e5e3a",
+                "import": {
+                    "_connectionId": "HTTP ZENDESK CONNECTION"
+                },
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "expectedJSON": [
+                        {
+                            "name": "100143_response",
+                            "notes": "Yellow Pages"
+                        },
+                        {
+                            "name": "100143_response",
+                            "notes": "Yellow Pages"
+                        }
+                    ],
+                    "standaloneexportflowID": "57aaf0188ec9f88049060166",
+                    "uniqueField": "name",
+                    "importRecordType": "users",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e8c9cb6192"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                }
+            }
+        }
+    },
+    "scriptBody": {
+        "name": "FTPErrorPostMap_DND",
+        "content": "function filter(options) {\n  options.data[0]={\n    test:options.data[0],\n    preSavePage:23}\n    return options.data.map((d) => {\n      return {\n        data: d\n      }\n    })\n}"
+    }
+}

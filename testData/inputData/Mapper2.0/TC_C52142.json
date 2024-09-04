@@ -1,0 +1,100 @@
+{
+    "import":{
+        "name": "C52142 - FTP from Postman- Mapper 2.0 Part",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "i6adc61427",
+        "oneToMany": false,
+        "sandbox": false,
+        "mappings": [
+            {
+                "generate": "user",
+                "dataType": "object",
+                "status": "Active",
+                "mappings": [
+                    {
+                        "generate": "Stags",
+                        "dataType": "stringarray",
+                        "status": "Active",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$.user.email",
+                                "default": "",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "$.user.name",
+                                "default": "",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "$.user.organization.name",
+                                "default": "",
+                                "sourceDataType": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "generate": "Btags",
+                        "dataType": "booleanarray",
+                        "status": "Active",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$.user.Booleanemail",
+                                "default": "",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.user.Booleanname",
+                                "default": "",
+                                "sourceDataType": "boolean"
+                            },
+                            {
+                                "extract": "$.user.Booleanorganization.name",
+                                "default": "",
+                                "sourceDataType": "boolean"
+                            }
+                        ]
+                    },
+                    {
+                        "generate": "Ntags",
+                        "dataType": "numberarray",
+                        "status": "Active",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$.user.Numemail",
+                                "default": "",
+                                "sourceDataType": "number"
+                            },
+                            {
+                                "extract": "$.user.Numbersname",
+                                "default": "",
+                                "sourceDataType": "number"
+                            },
+                            {
+                                "extract": "$.user.Numorganization.numname",
+                                "default": "",
+                                "sourceDataType": "number"
+                            }
+                        ]
+                    },
+                    {
+                        "extract": "$.user.role",
+                        "generate": "role",
+                        "dataType": "string",
+                        "status": "Active"
+                    }
+                ]
+            }
+        ],
+        "file": {
+            "fileName": "XML-file-0922145919.xlsx",
+            "skipAggregation": false,
+            "type": "xlsx"
+        },
+        "ftp": {
+            "directoryPath": "/GAbhinash",
+            "fileName": "XML-file-0922145919.xlsx"
+        },
+        "adaptorType": "FTPImport"
+    }
+}

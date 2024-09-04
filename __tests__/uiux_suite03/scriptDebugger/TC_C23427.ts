@@ -23,7 +23,7 @@ test.describe('C23427 Verify Message column is present in the script debugger', 
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ACTIONS_SELECTOR);
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.ACTIONS_SELECTOR, 0);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.VIEW_EXECUTION_LOGS);
-        await io.flowBuilder.clickByText("Run now");
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_NOW);
         let flowID = await io.api.getFlowId(C23427.name);
         await io.api.verifyFlowStatusThroughAPI(
           "C23427",

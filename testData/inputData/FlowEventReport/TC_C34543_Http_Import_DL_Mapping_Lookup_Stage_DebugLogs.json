@@ -1,0 +1,98 @@
+{
+    "pageGenerators": [
+      {
+        "type": "export",
+        "qa__export": {
+          "name": "test",
+          "qa__path": "/FTP_uploads/TC_C34450.json",
+          "_connectionId": "FTP CONNECTION",
+          "apiIdentifier": "ee30ec3286",
+          "asynchronous": true,
+          "ftp": {
+            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+            "fileNameStartsWith": "TC_C34450"
+          },
+          "file": {
+            "encoding": "utf8",
+            "output": "records",
+            "skipDelete": true,
+            "type": "json"
+          },
+          "adaptorType": "FTPExport"
+        }
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "export",
+        "qa__export": {
+          "name": "ddgd",
+          "application": "zendesk support",
+          "_connectionId": "HTTP ZENDESK CONNECTION",
+          "apiIdentifier": "e53f9a0f00",
+          "asynchronous": true,
+          "isLookup": true,
+          "oneToMany": true,
+          "sandbox": false,
+          "http": {
+            "relativeURI": "api/v2/tickets",
+            "method": "GET",
+            "formType": "http"
+          },
+          "adaptorType": "HTTPExport"
+        }
+      },
+      {
+        "type": "import",
+        "qa__import": {
+          "name": "Import_Zendesk",
+          "_connectionId": "HTTP ZENDESK CONNECTION",
+          "ignoreExisting": false,
+          "ignoreMissing": false,
+          "oneToMany": false,
+          "sandbox": false,
+          "lookups": [
+            {
+              "method": "GET",
+              "relativeURI": "/tickets",
+              "extract": "invalid_name",
+              "allowFailures": true,
+              "default": null,
+              "name": "test",
+              "useImportHeaders": true
+            }
+          ],
+          "mapping": {
+            "fields": [
+              {
+                "extract": "ticket",
+                "generate": "test1",
+                "lookupName": "test",
+                "dataType": "string"
+              }
+            ]
+          },
+          "http": {
+            "relativeURI": ["/test"],
+            "method": ["POST"],
+            "body": ["{{lookup.test}}"],
+            "batchSize": 1,
+            "sendPostMappedData": true,
+            "formType": "http",
+            "lookups": [
+              {
+                "method": "GET",
+                "relativeURI": "/test",
+                "extract": "invalid_name",
+                "allowFailures": true,
+                "default": "Default Static Value",
+                "name": "test",
+                "useImportHeaders": true
+              }
+            ]
+          },
+          "adaptorType": "HTTPImport"
+        }
+      }
+    ]
+  }

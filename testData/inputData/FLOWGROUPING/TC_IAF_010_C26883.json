@@ -1,0 +1,61 @@
+{
+    "qa_editionSetting": {
+        "_id":"629b2b8cbbe3f43a8c74e72e",
+        "environment": "Production",
+        "name": "TC_IAF_010_C26883",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "published": false,
+        "_integrationId": "62905de2c51f323382314cce",
+        "applications": ["activecampaign"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "62905de2c51f323382314cce",
+            "editions": [{
+                "displayName":"E1",
+                "order":0
+            },
+            {
+                "displayName":"E2",
+                "order":2
+            },
+            {
+                "displayName":"E3",
+                "order":3
+            }]
+        }
+    },
+    "editionSetting": {
+        "_id":"632012993bfc725f0063966a",
+        "environment": "Production",
+        "name": "TC_IAF_010_C26883",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "published": false,
+        "_integrationId": "631ad2f213d12134f4772d77",
+        "applications": ["activecampaign"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "631ad2f213d12134f4772d77",
+            "editions": [{
+                "displayName":"E1",
+                "order":0
+            },
+            {
+                "displayName":"E2",
+                "order":2
+            },
+            {
+                "displayName":"E3",
+                "order":3
+            }]
+        }
+    },
+    "expectedJson": {
+        "errors": [
+            {
+                "field": "twoDotZero.editions",
+                "code": "invalid_edition_order",
+                "message": "Edition order should be a non repeating positive integer in sequential order starting from 0."
+            }
+        ]
+    }
+}

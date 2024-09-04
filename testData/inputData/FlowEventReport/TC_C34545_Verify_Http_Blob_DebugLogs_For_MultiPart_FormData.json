@@ -1,0 +1,86 @@
+{
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "salesforce",
+        "_connectionId": "SALESFORCE CONNECTION",
+        "apiIdentifier": "ee7bd28796",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "rawData": "631ec91d52e9a959edd75a2397d9019b184f41d090493992bb7af36b",
+        "salesforce": {
+          "type": "soql",
+          "api": "rest",
+          "soql": {
+            "query": "Select id,Name,phone,fax,(select id,name from attachments),(select id,title,body from notes) from Account where name='TC_510_NS_Import_AFE'"
+          }
+        },
+        "adaptorType": "SalesforceExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "sf blob",
+        "type": "blob",
+        "_connectionId": "SALESFORCE CONNECTION",
+        "adaptorType": "SalesforceExport",
+        "parsers": [],
+        "asynchronous": true,
+        "isLookup": "true",
+        "oneToMany": true,
+        "pathToMany": "Attachments",
+        "salesforce": {
+          "sObjectType": "attachment",
+          "type": "soql",
+          "api": "rest",
+          "distributed": {
+            "referencedFields": [],
+            "userDefinedReferencedFields": [],
+            "relatedLists": []
+          },
+          "id": "{{data.Id}}"
+        }
+      },
+      "responseMapping": {
+        "lists": [],
+        "fields": [
+          {
+            "extract": "data[0].blobKey",
+            "generate": "blobKey"
+          }
+        ],
+        "qa__index": 0
+      }
+    },
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "http blob import",
+        "application":"zendesk support",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "apiIdentifier": "i6699f0df4",
+        "oneToMany": true,
+        "pathToMany": "Attachments",
+        "blobKeyPath": "blobKey",
+        "blob": true,
+        "sandbox": false,
+        "http": {
+          "relativeURI": ["api/v2/uploads.json?filename={{data.Name}}"],
+          "method": ["POST"],
+          "body": [
+            "[{\n              \"name\": \"fileName\",\n              \"value\": \"{{blob}}\",\n              \"type\": \"attachment\"\n            }]"
+          ],
+          "batchSize": 1,
+          "sendPostMappedData": true,
+          "formType": "http"
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ]
+}

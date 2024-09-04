@@ -1,0 +1,9 @@
+[{
+    "qa__connectionId":"FTP CONNECTION",
+    "connectionId":"FTP CONNECTION",
+    "expected": "TC:C29688",
+    "FERqa__connectionId":"631f4f539fe3d52f9cc87b1e",
+    "FER_ConnectionId":"FTP CONNECTION",
+    "FTPQAConn_Standalone3": "FTP CONNECTION",
+    "FTPStage_Standalone3": "FTP CONNECTION"
+}]

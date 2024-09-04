@@ -1,0 +1,800 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "name": "TC_C46817",
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "a",
+                "_connectionId": "62c88089ebd1cb63e0f066ca",
+                "_sourceId": "62f3c3e66e7527033714105a",
+                "apiIdentifier": "i31de30c2d",
+                "oneToMany": false,
+                "mappings": [
+                    {
+                        "dataType": "objectarray",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$",
+                                "mappings": [
+                                    {
+                                        "generate": "root_817",
+                                        "dataType": "object",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.body_html",
+                                                "generate": "body_html",
+                                                "dataType": "string"
+                                            },
+                                            {
+                                                "extract": "$.created_at",
+                                                "generate": "created_at",
+                                                "dataType": "string"
+                                            },
+                                            {
+                                                "extract": "$.handle",
+                                                "generate": "handle",
+                                                "dataType": "string"
+                                            },
+                                            {
+                                                "generate": "new_variant",
+                                                "dataType": "numberarray",
+                                                "buildArrayHelper": [
+                                                    {
+                                                        "extract": "$.new_variant"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "extract": "$.id",
+                                                "generate": "id",
+                                                "dataType": "string"
+                                            },
+                                            {
+                                                "generate": "images",
+                                                "dataType": "object",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.images[*].id",
+                                                        "generate": "id",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.images[*].product_id",
+                                                        "generate": "product_id",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.images[*].position",
+                                                        "generate": "position",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.images[*].created_at",
+                                                        "generate": "created_at",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.images[*].updated_at",
+                                                        "generate": "updated_at",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.images[*].width",
+                                                        "generate": "width",
+                                                        "dataType": "number"
+                                                    },
+                                                    {
+                                                        "extract": "$.images[*].height",
+                                                        "generate": "height",
+                                                        "dataType": "number"
+                                                    },
+                                                    {
+                                                        "extract": "$.images[*].src",
+                                                        "generate": "src",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "generate": "variant_ids",
+                                                        "dataType": "numberarray",
+                                                        "buildArrayHelper": [
+                                                            {
+                                                                "extract": "$.images[*].variant_ids"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "generate": "options",
+                                                "dataType": "object",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.options.id",
+                                                        "generate": "id",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.options.product_id",
+                                                        "generate": "product_id",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.options.name",
+                                                        "generate": "name",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.options.position",
+                                                        "generate": "position",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "generate": "values",
+                                                        "dataType": "stringarray",
+                                                        "buildArrayHelper": [
+                                                            {
+                                                                "extract": "$.options.values"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "extract": "$.product_type",
+                                                "generate": "product_type",
+                                                "dataType": "string"
+                                            },
+                                            {
+                                                "extract": "$.published_at",
+                                                "generate": "published_at",
+                                                "dataType": "string"
+                                            },
+                                            {
+                                                "extract": "$.published_scope",
+                                                "generate": "published_scope",
+                                                "dataType": "string"
+                                            },
+                                            {
+                                                "extract": "$.status",
+                                                "generate": "status",
+                                                "dataType": "string"
+                                            },
+                                            {
+                                                "extract": "$.tags",
+                                                "generate": "tags",
+                                                "dataType": "string"
+                                            },
+                                            {
+                                                "extract": "$.template_suffix",
+                                                "generate": "template_suffix",
+                                                "dataType": "string"
+                                            },
+                                            {
+                                                "extract": "$.title",
+                                                "generate": "title",
+                                                "dataType": "string"
+                                            },
+                                            {
+                                                "extract": "$.updated_at",
+                                                "generate": "updated_at",
+                                                "dataType": "string"
+                                            },
+                                            {
+                                                "generate": "variants",
+                                                "dataType": "objectarray",
+                                                "buildArrayHelper": [
+                                                    {
+                                                        "extract": "$.variants[*]",
+                                                        "mappings": [
+                                                            {
+                                                                "extract": "$.variants.barcode",
+                                                                "generate": "barcode",
+                                                                "dataType": "string"
+                                                            },
+                                                            {
+                                                                "generate": "compare_at_price",
+                                                                "dataType": "object",
+                                                                "mappings": [
+                                                                    {
+                                                                        "extract": "$.body_html",
+                                                                        "generate": "compare_at_price",
+                                                                        "dataType": "string"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "extract": "$.created_at",
+                                                                "generate": "created_at",
+                                                                "dataType": "string"
+                                                            },
+                                                            {
+                                                                "extract": "$.variants.fulfillment_service",
+                                                                "generate": "fulfillment_service",
+                                                                "dataType": "string"
+                                                            },
+                                                            {
+                                                                "extract": "$.variants.grams",
+                                                                "generate": "grams",
+                                                                "dataType": "number"
+                                                            },
+                                                            {
+                                                                "extract": "$.variants.weight",
+                                                                "generate": "weight",
+                                                                "dataType": "number"
+                                                            },
+                                                            {
+                                                                "extract": "$.variants.weight_unit",
+                                                                "generate": "weight_unit",
+                                                                "dataType": "string"
+                                                            },
+                                                            {
+                                                                "extract": "$.variants.id",
+                                                                "generate": "id",
+                                                                "dataType": "string"
+                                                            },
+                                                            {
+                                                                "extract": "$.variants.inventory_item_id",
+                                                                "generate": "inventory_item_id",
+                                                                "dataType": "number"
+                                                            },
+                                                            {
+                                                                "extract": "$.variants.inventory_management",
+                                                                "generate": "inventory_management",
+                                                                "dataType": "string"
+                                                            },
+                                                            {
+                                                                "extract": "$.variants.inventory_policy",
+                                                                "generate": "inventory_policy",
+                                                                "dataType": "string"
+                                                            },
+                                                            {
+                                                                "extract": "$.variants.inventory_quantity",
+                                                                "generate": "inventory_quantity",
+                                                                "dataType": "number"
+                                                            },
+                                                            {
+                                                                "extract": "$.variants.option1",
+                                                                "generate": "option1",
+                                                                "dataType": "string"
+                                                            },
+                                                            {
+                                                                "extract": "$.variants.price",
+                                                                "generate": "price",
+                                                                "dataType": "number"
+                                                            },
+                                                            {
+                                                                "extract": "$.variants.product_id",
+                                                                "generate": "product_id",
+                                                                "dataType": "number"
+                                                            },
+                                                            {
+                                                                "extract": "$.variants.requires_shipping",
+                                                                "generate": "requires_shipping",
+                                                                "dataType": "boolean"
+                                                            },
+                                                            {
+                                                                "extract": "$.variants.sku",
+                                                                "generate": "sku",
+                                                                "dataType": "string"
+                                                            },
+                                                            {
+                                                                "extract": "$.variants.taxable",
+                                                                "generate": "taxable",
+                                                                "dataType": "boolean"
+                                                            },
+                                                            {
+                                                                "extract": "$.variants.title",
+                                                                "generate": "title",
+                                                                "dataType": "string"
+                                                            },
+                                                            {
+                                                                "extract": "{{timestamp format \"Asia/Calcutta\"}}",
+                                                                "generate": "updated_at",
+                                                                "dataType": "string",
+                                                                "conditional": {
+                                                                    "when": "extract_not_empty"
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "extract": "$.vendor",
+                                                "generate": "vendor",
+                                                "dataType": "string"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "file": {
+                    "fileName": "C817_files.xml",
+                    "skipAggregation": false,
+                    "type": "xml",
+                    "xml": {
+                        "body": "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<data>\n<root_817>\n  {{#each batch_of_records}} \n  {{#each rows}}\n  <body_html>{{{root_817.body_html}}}</body_html>\n  <created_at>2012-02-15T15:12:21-05:00</created_at>\n  <handle>{{{root_817.handle}}}</handle>\n  <new_variant>{{root_817.new_variant}}</new_variant>\n  <id>4653550239802</id>\n  <images>\n    <id>28593192435770</id>\n    <product_id>4653550239802</product_id>\n    <position>1</position>\n    <created_at>2022-06-07T01:55:28-04:00</created_at>\n    <updated_at>2022-06-07T01:55:28-04:00</updated_at>\n    <width>{{root_817.images.width}}</width>\n    <height>140</height>\n    <src>http://example.com/burton.jpg</src>\n    <variant_ids>39365759074362</variant_ids>\n  </images>\n  <options>\n    <id>6097468391482</id>\n    <product_id>4653550239802</product_id>\n    <name>Color</name>\n    <position>1</position>\n    <values>Pink</values>\n    <values>Red</values>\n    <values>Green</values>\n    <values>Black</values>\n  </options>\n  <product_type>Cult Products</product_type>\n  <published_at>2007-12-31T19:00:00-05:00</published_at>\n  <published_scope>global</published_scope>\n  <status>active</status>\n  <tags>Emotive, Flash Memory, MP3, Music</tags>\n  <template_suffix>special</template_suffix>\n  <title>IPod Nano - 8GB</title>\n  <updated_at>2012-08-24T14:01:47-04:00</updated_at>\n  <variants>\n  {{#each root_817.variants}}\n  <variant>\n    <barcode>{{this.fulfillment_service}}</barcode>\n    <compare_at_price/>\n    <created_at>2012-08-24T14:01:47-04:00</created_at>\n    <fulfillment_service>manual</fulfillment_service>\n    <grams>567</grams>\n    <weight>{{ceil weight}}</weight>\n    <weight_unit>kg</weight_unit>\n    <id>{{multiply grams id}}</id>\n    <inventory_item_id>41459836583994</inventory_item_id>\n    <inventory_management>shopify</inventory_management>\n    <inventory_policy>continue</inventory_policy>\n    <inventory_quantity>10</inventory_quantity>\n    <option1>Pink</option1>\n    <position>1</position>\n    <price>199.99</price>\n    <product_id>4653550239802</product_id>\n    <requires_shipping>true</requires_shipping>\n    <sku>IPOD2008PINK</sku>\n    <taxable>true</taxable>\n    <title>Pink</title>\n    <updated_at>2022-06-07T01:55:28-04:00</updated_at>\n    </variant>\n  {{/each}}\n  </variants>\n  <vendor>Apple</vendor>\n  {{/each}}\n  {{/each}}\n</root_817>\n</data>"
+                    }
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/yash_modi",
+                    "fileName": "C817_files.xml"
+                },
+                "adaptorType": "FTPImport"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "b",
+                "_connectionId": "62b6a3c3afad2d57dbdeec42",
+                "apiIdentifier": "iaab162649",
+                "oneToMany": false,
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "dataType": "objectarray",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$",
+                                "mappings": [
+                                    {
+                                        "generate": "root_817",
+                                        "dataType": "object",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.body_html",
+                                                "generate": "body_html",
+                                                "dataType": "string"
+                                            },
+                                            {
+                                                "extract": "$.created_at",
+                                                "generate": "created_at",
+                                                "dataType": "string"
+                                            },
+                                            {
+                                                "extract": "$.handle",
+                                                "generate": "handle",
+                                                "dataType": "string"
+                                            },
+                                            {
+                                                "extract": "$.id",
+                                                "generate": "id",
+                                                "dataType": "number"
+                                            },
+                                            {
+                                                "generate": "images",
+                                                "dataType": "object",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.images[*].id",
+                                                        "generate": "id",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.images[*].product_id",
+                                                        "generate": "product_id",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.images[*].position",
+                                                        "generate": "position",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.images[*].width",
+                                                        "generate": "width",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.images[*].height",
+                                                        "generate": "height",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.images[*].src",
+                                                        "generate": "src",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "generate": "variant_ids",
+                                                        "dataType": "numberarray",
+                                                        "buildArrayHelper": [
+                                                            {
+                                                                "extract": "$.images[*].variant_ids"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "generate": "options",
+                                                "dataType": "object",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.options.id",
+                                                        "generate": "id",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.options.product_id",
+                                                        "generate": "product_id",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.options.name",
+                                                        "generate": "name",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.options.position",
+                                                        "generate": "position",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "generate": "values",
+                                                        "dataType": "stringarray",
+                                                        "buildArrayHelper": [
+                                                            {
+                                                                "extract": "$.options.values"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "file": {
+                    "fileName": "817_s3.xml",
+                    "skipAggregation": false,
+                    "type": "xml",
+                    "xml": {
+                        "body": "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<data>\n<root_817>\n  {{#each batch_of_records}} \n  {{#each rows}}\n  <body_html>{{{root_817.body_html}}}</body_html>\n  <created_at>2012-02-15T15:12:21-05:00</created_at>\n  <handle>{{{root_817.handle}}}</handle>\n  <new_variant>{{root_817.new_variant}}</new_variant>\n  <id>4653550239802</id>\n  <images>\n    <id>28593192435770</id>\n    <product_id>4653550239802</product_id>\n    <position>1</position>\n    <created_at>2022-06-07T01:55:28-04:00</created_at>\n    <updated_at>2022-06-07T01:55:28-04:00</updated_at>\n    <width>{{root_817.images.width}}</width>\n    <height>140</height>\n    <src>http://example.com/burton.jpg</src>\n    <variant_ids>39365759074362</variant_ids>\n  </images>\n  <options>\n    <id>6097468391482</id>\n    <product_id>4653550239802</product_id>\n    <name>Color</name>\n    <position>1</position>\n    <values>Pink</values>\n    <values>Red</values>\n    <values>Green</values>\n    <values>Black</values>\n  </options>\n  <product_type>Cult Products</product_type>\n  <published_at>2007-12-31T19:00:00-05:00</published_at>\n  <published_scope>global</published_scope>\n  <status>active</status>\n  <tags>Emotive, Flash Memory, MP3, Music</tags>\n  <template_suffix>special</template_suffix>\n  <title>IPod Nano - 8GB</title>\n  <updated_at>2012-08-24T14:01:47-04:00</updated_at>\n  <vendor>Apple</vendor>\n  {{/each}}\n  {{/each}}\n</root_817>\n</data>"
+                    }
+                },
+                "s3": {
+                    "region": "us-east-1",
+                    "bucket": "io-automation",
+                    "fileKey": "817_s3.xml"
+                },
+                "adaptorType": "S3Import"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "c",
+                "_connectionId": "AZURE BLOB STORAGE CONNECTION",
+                "apiIdentifier": "i263dfcd1c",
+                "oneToMany": false,
+                "assistant": "azureblobstorage",
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "dataType": "objectarray",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$",
+                                "mappings": [
+                                    {
+                                        "generate": "root_817",
+                                        "dataType": "object",
+                                        "mappings": [
+                                            {
+                                                "generate": "variants",
+                                                "dataType": "objectarray",
+                                                "buildArrayHelper": [
+                                                    {
+                                                        "extract": "$.variants[*]",
+                                                        "mappings": [
+                                                            {
+                                                                "extract": "$.variants.barcode",
+                                                                "generate": "barcode",
+                                                                "dataType": "string"
+                                                            },
+                                                            {
+                                                                "generate": "compare_at_price",
+                                                                "dataType": "object",
+                                                                "mappings": [
+                                                                    {
+                                                                        "extract": "$.body_html",
+                                                                        "generate": "compare_at_price",
+                                                                        "dataType": "string"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "extract": "$.created_at",
+                                                                "generate": "created_at",
+                                                                "dataType": "string"
+                                                            },
+                                                            {
+                                                                "extract": "$.variants.fulfillment_service",
+                                                                "generate": "fulfillment_service",
+                                                                "dataType": "string"
+                                                            },
+                                                            {
+                                                                "extract": "$.variants.grams",
+                                                                "generate": "grams",
+                                                                "dataType": "number"
+                                                            },
+                                                            {
+                                                                "extract": "$.variants.weight",
+                                                                "generate": "weight",
+                                                                "dataType": "number"
+                                                            },
+                                                            {
+                                                                "extract": "$.variants.weight_unit",
+                                                                "generate": "weight_unit",
+                                                                "dataType": "string"
+                                                            },
+                                                            {
+                                                                "extract": "$.variants.id",
+                                                                "generate": "id",
+                                                                "dataType": "string"
+                                                            },
+                                                            {
+                                                                "extract": "$.variants.inventory_policy",
+                                                                "generate": "inventory_policy",
+                                                                "dataType": "string"
+                                                            },
+                                                            {
+                                                                "extract": "$.variants.inventory_quantity",
+                                                                "generate": "inventory_quantity",
+                                                                "dataType": "string"
+                                                            },
+                                                            {
+                                                                "extract": "$.variants.option1",
+                                                                "generate": "option1",
+                                                                "dataType": "string"
+                                                            },
+                                                            {
+                                                                "extract": "$.variants.price",
+                                                                "generate": "price",
+                                                                "dataType": "number"
+                                                            },
+                                                            {
+                                                                "extract": "$.variants.product_id",
+                                                                "generate": "product_id",
+                                                                "dataType": "number"
+                                                            },
+                                                            {
+                                                                "extract": "$.variants.requires_shipping",
+                                                                "generate": "requires_shipping",
+                                                                "dataType": "boolean"
+                                                            },
+                                                            {
+                                                                "extract": "$.variants.sku",
+                                                                "generate": "sku",
+                                                                "dataType": "string"
+                                                            },
+                                                            {
+                                                                "extract": "$.variants.taxable",
+                                                                "generate": "taxable",
+                                                                "dataType": "boolean"
+                                                            },
+                                                            {
+                                                                "extract": "$.variants.title",
+                                                                "generate": "title",
+                                                                "dataType": "string"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "file": {
+                    "fileName": "817_azure.xml",
+                    "skipAggregation": false,
+                    "type": "xml",
+                    "xml": {
+                        "body": "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<data>\n<root_817>\n  {{#each batch_of_records}} \n  {{#each rows}}\n  <variants>\n  {{#each root_817.variants}}\n  <variant>\n    <barcode>{{this.fulfillment_service}}</barcode>\n    <compare_at_price/>\n    <created_at>2012-08-24T14:01:47-04:00</created_at>\n    <fulfillment_service>manual</fulfillment_service>\n    <grams>567</grams>\n    <weight>{{ceil weight}}</weight>\n    <weight_unit>kg</weight_unit>\n    <id>{{multiply grams id}}</id>\n    <inventory_item_id>41459836583994</inventory_item_id>\n    <inventory_management>shopify</inventory_management>\n    <inventory_policy>continue</inventory_policy>\n    <inventory_quantity>10</inventory_quantity>\n    <option1>Pink</option1>\n    <position>1</position>\n    <price>199.99</price>\n    <product_id>4653550239802</product_id>\n    <requires_shipping>true</requires_shipping>\n    <sku>IPOD2008PINK</sku>\n    <taxable>true</taxable>\n    <title>Pink</title>\n    <updated_at>2022-06-07T01:55:28-04:00</updated_at>\n    </variant>\n  {{/each}}\n  </variants>\n  <vendor>Apple</vendor>\n  {{/each}}\n  {{/each}}\n</root_817>\n</data>"
+                    }
+                },
+                "http": {
+                    "type": "file",
+                    "relativeURI": [
+                        "azureimports"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "sendPostMappedData": true,
+                    "formType": "assistant",
+                    "response": {
+                        "resourcePath": [
+                            "files"
+                        ]
+                    }
+                },
+                "adaptorType": "HTTPImport"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "e",
+                "_connectionId": "630cb8d7019d100fb7c6d2a3",
+                "apiIdentifier": "i09bd6acdc",
+                "oneToMany": false,
+                "assistant": "googledrive",
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "dataType": "objectarray",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$",
+                                "mappings": [
+                                    {
+                                        "generate": "root_817",
+                                        "dataType": "object",
+                                        "mappings": [
+                                            {
+                                                "generate": "options",
+                                                "dataType": "object",
+                                                "mappings": [
+                                                    {
+                                                        "extract": "$.options.id",
+                                                        "generate": "id",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.options.product_id",
+                                                        "generate": "product_id",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.options.name",
+                                                        "generate": "name",
+                                                        "dataType": "string"
+                                                    },
+                                                    {
+                                                        "extract": "$.options.position",
+                                                        "generate": "position",
+                                                        "dataType": "number"
+                                                    },
+                                                    {
+                                                        "generate": "values",
+                                                        "dataType": "stringarray",
+                                                        "buildArrayHelper": [
+                                                            {
+                                                                "extract": "$.options.values"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "file": {
+                    "fileName": "817_gdrive.xml",
+                    "skipAggregation": false,
+                    "type": "xml",
+                    "xml": {
+                        "body": "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<data>\n<root_817>\n  {{#each batch_of_records}} \n  {{#each rows}}\n  <options>\n    <id>6097468391482</id>\n    <product_id>4653550239802</product_id>\n    <name>Color</name>\n    <position>1</position>\n    <values>Pink</values>\n    <values>Red</values>\n    <values>Green</values>\n    <values>Black</values>\n  </options>\n  <product_type>Cult Products</product_type>\n  <published_at>2007-12-31T19:00:00-05:00</published_at>\n  <published_scope>global</published_scope>\n  <status>active</status>\n  <tags>Emotive, Flash Memory, MP3, Music</tags>\n  <template_suffix>special</template_suffix>\n  <title>IPod Nano - 8GB</title>\n  <updated_at>2012-08-24T14:01:47-04:00</updated_at>\n  <vendor>Apple</vendor>\n  {{/each}}\n  {{/each}}\n</root_817>\n</data>"
+                    }
+                },
+                "http": {
+                    "type": "file",
+                    "relativeURI": [
+                        "Gdrive_Imports"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "sendPostMappedData": true,
+                    "formType": "assistant",
+                    "response": {
+                        "resourcePath": [
+                            "files"
+                        ]
+                    }
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "timezone": "Asia/Calcutta",
+    "disabled": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "5",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "standaloneexportflowID": "",
+        "expected": {
+            "FTP": {
+                "name": "TC_C46817",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "qa__expectedDashboardCount": {
+                    "successCount": "5",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "C817_files",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/yash_modi",
+                    "fileType": ".xml"
+                }
+            },
+            "S3": {
+                "name": "TC_C46817",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "qa__expectedDashboardCount": {
+                    "successCount": "5",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "bucketName": "io-automation",
+                    "fileName": "817_s3",
+                    "isUIFlow": true,
+                    "fileType": ".xml"
+                }
+            },
+            "GDRIVE": {
+                "name": "TC_C46817",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "qa__expectedDashboardCount": {
+                    "successCount": "5",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "817_gdrive",
+                    "folderName": "Gdrive_Imports",
+                    "fileType": ".xml"
+                }
+            }
+        }
+    },
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "a",
+                "_connectionId": "62c88089ebd1cb63e0f066ca",
+                "asynchronous": true,
+                "qa__path": "//FTP_uploads//C46817.json",
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa",
+                    "fileNameStartsWith": "C46817.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ]
+}

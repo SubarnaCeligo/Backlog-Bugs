@@ -1,0 +1,97 @@
+{
+    "name": "TC_C48548",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Ftp Export",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "ea83792002",
+                        "asynchronous": true,
+                        "sampleData": [
+                            {
+                                "Subject": "Please solve query",
+                                "Description": "Query is impacting our business work flow"
+                            }
+                        ],
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                            "fileNameStartsWith": "TC_C48548",
+                            "fileNameEndsWith": ".json"
+                        },
+                        "file": {
+                            "encoding": "utf8",
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "json",
+                            "json": {
+                                "resourcePath": "*"
+                            }
+                        },
+                        "adaptorType": "FTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Import_Zendesk",
+                        "application": "zendesk support",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "ibdfa30e5a",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "mappings": [
+                            {
+                                "extract": "$.name",
+                                "generate": "name",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            }
+                        ],
+                        "http": {
+                            "relativeURI": [
+                                "/v2/tickets.json"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C48548",
+                "disabled": false,
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

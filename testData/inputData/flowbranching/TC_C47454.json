@@ -1,0 +1,311 @@
+{
+    "name": "TC_C47454",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "timezone": "Asia/Calcutta",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "path2many",
+                "_connectionId": "FTP CONNECTION",
+                "_sourceId": "62e292140f8c6245e7497b28",
+                "apiIdentifier": "e125a8a85e",
+                "asynchronous": true,
+                "sampleData": {
+                    "id": 4106697703482,
+                    "admin_graphql_api_id": "gid://shopify/Order/4106697703482",
+                    "app_id": 1311240,
+                    "browser_ip": null,
+                    "buyer_accepts_marketing": false,
+                    "cancel_reason": null,
+                    "cancelled_at": null,
+                    "cart_token": null,
+                    "checkout_id": null,
+                    "checkout_token": null,
+                    "closed_at": null,
+                    "confirmed": true,
+                    "contact_email": null,
+                    "created_at": "2021-12-09T07:06:27-05:00",
+                    "currency": "USD",
+                    "current_subtotal_price": "500.00",
+                    "current_subtotal_price_set": [
+                        {
+                            "amount": "500.00",
+                            "currency_code": "USD"
+                        },
+                        {
+                            "amount": "900.00",
+                            "currency_code": "dollar"
+                        },
+                        {
+                            "amount": "700.00",
+                            "currency_code": "ruppes"
+                        }
+                    ],
+                    "current_total_discounts": "0.00",
+                    "current_total_discounts_set": [
+                        {
+                            "shop_money": {
+                                "amount": "0.00",
+                                "currency_code": "USD"
+                            },
+                            "presentment_money": {
+                                "amount": "0.00",
+                                "currency_code": "USD"
+                            }
+                        }
+                    ],
+                    "current_total_duties_set": null,
+                    "current_total_price": "500.00",
+                    "current_total_price_set": [
+                        {
+                            "shop_money": {
+                                "amount": "500.00",
+                                "currency_code": "USD"
+                            },
+                            "presentment_money": {
+                                "amount": "500.00",
+                                "currency_code": "USD"
+                            }
+                        }
+                    ],
+                    "payment_terms": null,
+                    "refunds": [],
+                    "shipping_lines": []
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C47454",
+                    "fileNameEndsWith": ".json"
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "eWj7-R",
+            "routeRecordsTo": "first_matching_branch",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "rest io",
+                                "_connectionId": "ZENDESK CONNECTION",
+                                "_sourceId": "62e292140f8c6245e7497b2a",
+                                "apiIdentifier": "id5ca7c50d",
+                                "ignoreExisting": false,
+                                "ignoreMissing": false,
+                                "oneToMany": true,
+                                "pathToMany": "current_subtotal_price_set",
+                                "assistant": "zendesk",
+                                "assistantMetadata": {
+                                    "resource": "users_api",
+                                    "version": "v2",
+                                    "operation": "create_users_api"
+                                },
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "currency_code",
+                                            "generate": "user"
+                                        }
+                                    ]
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "/api/v2/users.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "body": [
+                                        null
+                                    ],
+                                    "batchSize": 1,
+                                    "requestMediaType": "json",
+                                    "successMediaType": "json",
+                                    "errorMediaType": "json",
+                                    "strictHandlebarEvaluation": true,
+                                    "sendPostMappedData": true,
+                                    "formType": "assistant",
+                                    "response": {
+                                        "resourceIdPath": [
+                                            null
+                                        ]
+                                    }
+                                },
+                                "rest": {
+                                    "relativeURI": [
+                                        "/api/v2/users.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "body": [
+                                        null
+                                    ],
+                                    "responseIdPath": [
+                                        null
+                                    ],
+                                    "successPath": [
+                                        null
+                                    ],
+                                    "successValues": [
+                                        null
+                                    ]
+                                },
+                                "adaptorType": "RESTImport"
+                            },
+                            "proceedOnFailure": true
+                        },
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "flow branching-salesforce",
+                                "_connectionId": "SALESFORCE CONNECTION",
+                                "_sourceId": "62c57c8d3511941752998336",
+                                "apiIdentifier": "i256c8e91c",
+                                "ignoreExisting": false,
+                                "ignoreMissing": false,
+                                "oneToMany": false,
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "current_subtotal_price_set[0].currency_code",
+                                            "generate": "Name"
+                                        }
+                                    ]
+                                },
+                                "salesforce": {
+                                    "operation": "insert",
+                                    "sObjectType": "Account",
+                                    "api": "soap",
+                                    "removeNonSubmittableFields": false
+                                },
+                                "adaptorType": "SalesforceImport"
+                            }
+                        }
+                    ],
+                    "inputFilter": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "currency"
+                                ]
+                            ],
+                            "USD"
+                        ]
+                    }
+                },
+                {
+                    "name": "Branch 1.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "one2many",
+                                "_connectionId": "NETSUITE CONNECTION",
+                                "_sourceId": "62e292140f8c6245e7497b2b",
+                                "distributed": true,
+                                "apiIdentifier": "i4959f4c5f",
+                                "ignoreExisting": false,
+                                "ignoreMissing": false,
+                                "oneToMany": true,
+                                "pathToMany": "current_subtotal_price_set",
+                                "lookups": [],
+                                "netsuite_da": {
+                                    "useSS2Restlets": false,
+                                    "operation": "add",
+                                    "recordType": "salesorder",
+                                    "lookups": [],
+                                    "mapping": {
+                                        "fields": [
+                                            {
+                                                "generate": "currency",
+                                                "extract": "_PARENT.currency",
+                                                "internalId": false
+                                            },
+                                            {
+                                                "generate": "total",
+                                                "extract": "_PARENT.current_total_discounts_set[*].presentment_money.amount",
+                                                "internalId": false
+                                            }
+                                        ],
+                                        "lists": [
+                                            {
+                                                "generate": "item",
+                                                "fields": [
+                                                    {
+                                                        "generate": "itemtype",
+                                                        "extract": "_PARENT.current_total_price_set[*].shop_money.currency_code",
+                                                        "internalId": false
+                                                    },
+                                                    {
+                                                        "generate": "item",
+                                                        "extract": "_PARENT.current_total_price_set[*].presentment_money.currency_code",
+                                                        "internalId": false
+                                                    },
+                                                    {
+                                                        "generate": "celigo_inventorydetail",
+                                                        "subRecordMapping": {
+                                                            "recordType": "inventorydetail",
+                                                            "jsonPath": "_PARENT.current_total_price_set",
+                                                            "mapping": {
+                                                                "fields": [
+                                                                    {
+                                                                        "extract": "shop_money.currency_code",
+                                                                        "generate": "item",
+                                                                        "internalId": false,
+                                                                        "useAsAnInitializeValue": false
+                                                                    }
+                                                                ],
+                                                                "lists": []
+                                                            },
+                                                            "lookups": []
+                                                        },
+                                                        "internalId": false
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                },
+                                "adaptorType": "NetSuiteDistributedImport"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branchRouter"
+            }
+        }
+    ]
+}

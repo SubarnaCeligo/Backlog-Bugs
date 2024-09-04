@@ -11,20 +11,14 @@ test.describe(
        await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL)
        await io.myAccountPage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON)
        await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON)
-
+       await io.homePage.loadingTime()
        await io.homePage.click(selectors.myAccountPagePO.USERS)
        await io.myAccountPage.clickByText('Invite user')
 
         await io.myAccountPage.waitForElementAttached(selectors.myAccountPagePO.ACCOUNT_MFA_REQUIRED)
-        // Find the "Require MFA" toggle element
-        const mfaToggle = await page.$(selectors.myAccountPagePO.ACCOUNT_MFA_REQUIRED);
 
         // Check if the toggle is unchecked
-        const isChecked = await mfaToggle.$eval('input', input => input.checked);
-
-        // Assert that the toggle is unchecked
-        expect(isChecked).toBeFalsy();
-
+        await io.assert.verifyElementAttributeContainsText(selectors.myAccountPagePO.ACCOUNT_MFA_REQUIRED, 'aria-checked', 'false');
 
     });
   }

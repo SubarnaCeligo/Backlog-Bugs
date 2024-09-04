@@ -1,0 +1,109 @@
+{
+    "name": "TC_C20844",
+    "referencename": "TC_C20844",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "AutomationStandaloneExport__uqNdU2oWjt",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "e4b9c0dde2",
+                        "asynchronous": true,
+                        "sandbox": false,
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports"
+                        },
+                        "file": {
+                            "encoding": "utf8",
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "json",
+                            "json": {
+                                "resourcePath": "*"
+                            },
+                            "filter": {
+                                "type": "expression",
+                                "expression": {
+                                    "rules": [
+                                        "contains",
+                                        [
+                                            "string",
+                                            [
+                                                "extract",
+                                                "filename"
+                                            ]
+                                        ],
+                                        "TC_C20844"
+                                    ],
+                                    "version": "1"
+                                },
+                                "rules": [
+                                    "contains",
+                                    [
+                                        "string",
+                                        [
+                                            "extract",
+                                            "filename"
+                                        ]
+                                    ],
+                                    "TC_C20844"
+                                ],
+                                "version": "1"
+                            }
+                        },
+                        "adaptorType": "FTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "S3 import",
+                        "description": "for testing",
+                        "_connectionId": "S3 CONNECTION",
+                        "apiIdentifier": "i300887266",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "file": {
+                            "fileName": "20844file-{{timestamp}}.json",
+                            "skipAggregation": true,
+                            "type": "json"
+                        },
+                        "s3": {
+                            "region": "us-east-1",
+                            "bucket": "automations3import",
+                            "fileKey": "20844file-{{timestamp}}.json"
+                        },
+                        "adaptorType": "S3Import"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C20844",
+                "disabled": false,
+                "_integrationId": "62ecc42648570015ab65cfa5",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID",
+                        "skipRetries": false
+                    }
+                ],
+                "autoResolveMatchingTraceKeys": true
+            }
+        }
+    ]
+}

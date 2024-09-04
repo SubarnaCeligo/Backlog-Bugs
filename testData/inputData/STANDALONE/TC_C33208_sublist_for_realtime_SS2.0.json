@@ -1,0 +1,91 @@
+{
+    "_connectionId": "NETSUITE CONNECTION",
+    "response": {
+        "res": [
+            {
+                "id": "contact",
+                "name": "Contacts"
+            },
+            {
+                "id": "partners",
+                "name": "Partners"
+            },
+            {
+                "id": "activities",
+                "name": "Activities"
+            },
+            {
+                "id": "mediaitem",
+                "name": "Files"
+            },
+            {
+                "id": "usernotes",
+                "name": "User Notes"
+            },
+            {
+                "id": "addressbook",
+                "name": "Address"
+            },
+            {
+                "id": "salesteam",
+                "name": "Sales Team"
+            },
+            {
+                "id": "opportunities",
+                "name": "Opportunities"
+            },
+            {
+                "id": "qualification",
+                "name": "Qualification"
+            },
+            {
+                "id": "s_subscript",
+                "name": "Subscriptions"
+            },
+            {
+                "id": "currency",
+                "name": "Currencies"
+            },
+            {
+                "id": "eftacct",
+                "name": "Electronic Funds Transfer"
+            },
+            {
+                "id": "paymentinstruments",
+                "name": "Payment Instruments"
+            },
+            {
+                "id": "grouppricing",
+                "name": "Group Pricing"
+            },
+            {
+                "id": "itempricing",
+                "name": "Item Pricing"
+            },
+            {
+                "id": "subscriptions",
+                "name": "Subscriptions"
+            },
+            {
+                "id": "subscriptionmsgmach",
+                "name": "Subscription Message History"
+            },
+            {
+                "id": "events",
+                "name": "Events"
+            },
+            {
+                "id": "tasks",
+                "name": "Tasks"
+            },
+            {
+                "id": "calls",
+                "name": "Phone Calls"
+            },
+            {
+                "id": "contactroles",
+                "name": "Contact Roles"
+            }
+        ]
+    }
+}

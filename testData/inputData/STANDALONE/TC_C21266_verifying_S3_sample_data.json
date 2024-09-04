@@ -1,0 +1,30 @@
+{
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "S3 Export",
+        "_connectionId": "S3 CONNECTION",
+        "qa__path": "//FTP_uploads//sortAndgroupFile.json",
+        "s3": {
+          "region": "us-east-1",
+          "bucket": "automations3export",
+          "keyStartsWith": "sortAndgroupFile"
+        },
+        "file": {
+          "output": "records",
+          "encoding": "utf8",
+          "skipDelete": true,
+          "type": "json",
+          "sortByFields": [
+            {
+              "field": "age",
+              "descending": true
+            }
+          ]
+        },
+        "adaptorType": "S3Export"
+      }
+    }
+  ],
+  "pathName": "/FTP_uploads/TC_C30838.json"
+}

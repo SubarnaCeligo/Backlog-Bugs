@@ -1,0 +1,109 @@
+{
+    "name": "TC_C20705",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "6",
+        "successCount": "10",
+        "errorCount": "0"
+    },
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "_connectionId": "SALESFORCE CONNECTION",
+                "qa__connectionId": "6333ef841a2bd979ff9256be",
+                "salesforce": {
+                    "type": "soql",
+                    "api": "rest",
+                    "soql": {
+                        "query": "Select id,Name,phone,fax,(select id,name from attachments),(select id,title,body from notes) from Account where name='Auto@199Account'"
+                    },
+                    "distributed": {
+                        "referencedFields": [],
+                        "disabled": false,
+                        "userDefinedReferencedFields": [],
+                        "relatedLists": []
+                    }
+                },
+                "adaptorType": "SalesforceExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "export",
+            "qa__export": {
+                "_connectionId": "SALESFORCE CONNECTION",
+                "qa__connectionId": "6333ef841a2bd979ff9256be",
+                "asynchronous": true,
+                "isLookup": true,
+                "type": "blob",
+                "oneToMany": true,
+                "pathToMany": "Attachments",
+                "sandbox": false,
+                "salesforce": {
+                    "type": "soql",
+                    "api": "rest",
+                    "sObjectType": "attachment",
+                    "id": "{{data.Id}}"
+                },
+                "adaptorType": "SalesforceExport"
+            },
+            "responseMapping": {
+                "lists": [],
+                "fields": [
+                    {
+                        "extract": "data[0].blobKey",
+                        "generate": "blobKey"
+                    }
+                ],
+                "qa__index": 0
+            }
+        },
+        {
+            "qa__import": {
+                "_connectionId": "FTP CONNECTION",
+                "oneToMany": true,
+                "pathToMany": "Attachments",
+                "blobKeyPath": "blobKey",
+                "qa__type":"blob",
+                "blob": true,
+                "sandbox": false,
+                "file": {
+                    "fileName": "TC_C20705.xml",
+                    "skipAggregation": false
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                    "fileName": "TC_C20705.xml"
+                },
+                "adaptorType": "FTPImport"
+            },
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import"
+        }
+    ],
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "name": "TC_C20705",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "import": {
+                    "_connectionId": "FTP_PGP_WITH_ALL_KEYS CONNECTION",
+                    "qa__connectionId": "61a8da42b1ee8410587f15b3"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "3",
+                    "ignoreCount": "1",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_C20705",
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".xml"
+                }
+            }
+        }
+    }
+}

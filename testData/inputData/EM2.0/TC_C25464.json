@@ -1,0 +1,108 @@
+{
+    "name": "TC_C25464",
+    "referencename": "TC_C25464",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Zendesk Get Users",
+                        "_connectionId": "ZENDESK CONNECTION",
+                        "asynchronous": true,
+                        "assistant": "zendesk",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "assistantMetadata": {
+                            "resource": "users_api",
+                            "version": "v2",
+                            "operation": "list_users"
+                        },
+                        "http": {
+                            "relativeURI": "/api/v2/users.json",
+                            "method": "GET",
+                            "successMediaType": "json",
+                            "errorMediaType": "json",
+                            "formType": "assistant",
+                            "paging": {
+                                "method": "url",
+                                "path": "next_page",
+                                "lastPageStatusCode": 404
+                            },
+                            "response": {
+                                "resourcePath": "users"
+                            }
+                        },
+                        "rest": {
+                            "relativeURI": "/api/v2/users.json",
+                            "method": "GET",
+                            "resourcePath": "users",
+                            "pagingMethod": "nextpageurl",
+                            "nextPagePath": "next_page",
+                            "allowUndefinedResource": false
+                        },
+                        "adaptorType": "RESTExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "HTTP Import(Shopify Customers)",
+                        "application": "shopify",
+                        "_connectionId": "HTTP SHOPIFY CONNECTION",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "mappings": [
+                            {
+                                "extract": "$.name",
+                                "generate": "Name",
+                                "dataType": "string",
+                                "status": "Active"
+                            }
+                        ],
+                        "http": {
+                            "relativeURI": [
+                                "/customers.json"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [
+                                "{\"firstName\":\"snigdha\",\"lastName\":\"panigrahy\"}"
+                            ],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C25464",
+                "disabled": false,
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

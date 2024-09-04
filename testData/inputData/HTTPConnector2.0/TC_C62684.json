@@ -1,0 +1,79 @@
+{
+    "name": "TC_C62684",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+      },
+    "referencename": "TC_C62684",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+    "name": "HTTP",
+    "qa__connectionId":"6419dad4b03e4a523ff067ce",
+    "_connectionId": "6414505be214b9670b0c817b",
+    "apiIdentifier": "e73e3a8a0b",
+    "asynchronous": true,
+    "oneToMany": false,
+    "sandbox": false,
+    "http": {
+        "relativeURI": "2/users?ids=2244994945,6253282",
+        "method": "GET",
+        "formType": "http"
+    },
+    "adaptorType": "HTTPExport"
+                        }
+                        }
+            ],
+            "pageProcessors": [
+                {
+                 "type": "import",
+                 "qa__import": {
+    "name": "FTP",
+    "qa__connectionId": "637c6b881f36ed619e41ef51",
+    "_connectionId": "62c471314a31df1b3e04f0b5",
+    "apiIdentifier": "i986a0e2f0",
+    "oneToMany": false,
+    "sandbox": false,
+    "file": {
+        "fileName": "Twitter.json",
+        "skipAggregation": false,
+        "type": "json"
+    },
+    "ftp": {
+        "directoryPath": "/io.auto.qa/IO Automation SFTP Imports",
+        "fileName": "Twitter.json"
+    },
+    "adaptorType": "FTPImport"
+
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C62684",
+                "disabled": false,
+                "qa__integrationId": "633408479fb96473a0c7372c",
+                "_integrationId": "631a1266abf51e7a86c80ab4",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

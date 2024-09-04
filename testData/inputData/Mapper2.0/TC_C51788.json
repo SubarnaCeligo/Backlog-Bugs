@@ -1,0 +1,58 @@
+{
+  "name": "TC_C51788",
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "disabled": false,
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "qa__import": {
+        "name": "TC_C51788",
+        "application": "shopify",
+        "_connectionId": "HTTP SHOPIFY CONNECTION",
+        "apiIdentifier": "i6e0101e9a",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": ["/products.json"],
+          "method": ["POST"],
+          "body": [],
+          "batchSize": 1,
+          "sendPostMappedData": true,
+          "formType": "http"
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "TC_C51788",
+        "qa__path": "//FTP_uploads//TC_C51795.json",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "ee66d9e367",
+        "asynchronous": true,
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+          "fileNameStartsWith": "TC_C51795"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json"
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ]
+}

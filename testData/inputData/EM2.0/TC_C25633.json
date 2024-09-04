@@ -1,0 +1,77 @@
+{
+  "name": "TC_C25633",
+  "referencename": "TC_C25633",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "FTP Export",
+            "_connectionId": "FTP CONNECTION",
+            "asynchronous": true,
+            "type": "blob",
+            "ftp": {
+              "directoryPath": "/io.auto.qa",
+              "fileNameStartsWith": "tests123"
+            },
+            "file": {
+              "output": "blobKeys",
+              "skipDelete": true
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Http Import",
+            "application": "zendesk support",
+            "parsers": [],
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "qa__connectionId": "ZENDESK CONNECTION",
+            "oneToMany": false,
+            "blob": true,
+            "lookups": [],
+            "http": {
+              "relativeURI": [
+                "test"
+              ],
+              "method": [
+                "POST"
+              ],
+              "body": [],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C25633",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

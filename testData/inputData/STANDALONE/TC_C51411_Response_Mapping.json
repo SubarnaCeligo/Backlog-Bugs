@@ -1,0 +1,89 @@
+{
+    "skipRetries": false,
+    "_integrationId": "63232c59d3a9897fe95f9f2a",
+    "qa__integrationId": "63232caf5342c33e615e7271",
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "ftp",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "qa__type": "blob",
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "2436_testdata"
+                },
+                "file": {
+                    "output": "blobKeys",
+                    "skipDelete": true
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "CMR",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "iedefec97a",
+                "oneToMany": false,
+                "blobKeyPath": "blobKey",
+                "blob": true,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": [
+                        "/uploads.json?filename={{data.fileMeta.fileName}}"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "headers": [
+                        {
+                            "name": "Content-Type",
+                            "value": "application/binary"
+                        }
+                    ],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "zendesk",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "ib43f7ed17",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": [
+                        "/tickets/create_many.json"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "batchSize": 2,
+                    "sendPostMappedData": true,
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": [
+                            "tickets"
+                        ]
+                    }
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ]
+}

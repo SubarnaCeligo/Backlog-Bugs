@@ -1,0 +1,91 @@
+{
+    "name": "TC_C99581",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "4",
+        "errorCount": "0"
+      },
+    "referencename": "TC_C99581",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "ftp",
+                        "_connectionId": "63739feed48a291bac1e744d",
+                        "qa__path": "//FTP_uploads//TC_C99581.json",
+                        "apiIdentifier": "ef8b7cc8ac",
+                        "asynchronous": true,
+                        "sandbox": false,
+                        "sampleData": "\"Epic\",\"Feature\",\"Story\",\"FAILED\",\"BROKEN\",\"PASSED\",\"SKIPPED\",\"UNKNOWN\"\n\"\",\"\",\"\",\"0\",\"0\",\"8\",\"0\",\"0\"\n",
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/FTP_EXPORTS",
+                            "fileNameStartsWith": "behaviors",
+                            "fileNameEndsWith": ".csv"
+                        },
+                        "file": {
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "csv",
+                            "csv": {
+                                "columnDelimiter": ",",
+                                "rowDelimiter": "\n",
+                                "hasHeaderRow": false,
+                                "trimSpaces": true,
+                                "rowsToSkip": 0,
+                                "disableQuoteAndStripEnclosingQuotes": true
+                            }
+                        },
+                        "adaptorType": "FTPExport"
+                        }
+                        }
+            ],
+            "pageProcessors": [
+                {
+                 "type": "import",
+                 "qa__import": {
+                    "name": "ftp import",
+                    "_connectionId": "63739feed48a291bac1e744d",
+                    "apiIdentifier": "i171acf910",
+                    "oneToMany": false,
+                    "sandbox": false,
+                    "file": {
+                        "fileName": "sample report.json",
+                        "skipAggregation": false,
+                        "type": "json"
+                    },
+                    "ftp": {
+                        "directoryPath": "/io.auto.qa/IO Automation SFTP Imports",
+                        "fileName": "sample report.json"
+                    },
+                    "adaptorType": "FTPImport"
+
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C99581",
+                "disabled": false,
+                "qa__integrationId": "633408479fb96473a0c7372c",
+                "_integrationId": "631a1266abf51e7a86c80ab4",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

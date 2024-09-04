@@ -1,0 +1,44 @@
+{
+    "skipRetries": false,
+    "_integrationId": "631a1266abf51e7a86c80ab4",
+    "qa__integrationId": "6228aed6bc8a2732cfe8044c",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "FTP Export",
+                "qa__path": "/FTP_uploads/TC30491.json",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "ea1d829613",
+                "asynchronous": true,
+                "sandbox": false,
+                "parsers": [],
+                "sampleData": [
+                    {
+                        "CustmerName": "Customer Test Export 2",
+                        "Customerid": "1779",
+                        "itemname": "ACC00001",
+                        "amount": "402",
+                        "quantity": "1",
+                        "line": "1"
+                    }
+                ],
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                    "fileNameStartsWith": "TC30491",
+                    "fileNameEndsWith": ".json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ]
+  }

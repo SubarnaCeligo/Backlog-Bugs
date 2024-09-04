@@ -1,0 +1,154 @@
+{
+
+    "qa_editionSetting":{
+        "_id": "62ac447cea2474232731c549",
+        "name": "TC_IAF_015_C26961",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "handle": "c1c1ebb7",
+        "published": false,
+        "managed": false,
+        "_integrationId": "62905de2c51f323382314cce",
+        "_sharedImportIds": [],
+        "_sharedExportIds": [],
+        "_iClientIdMap": [],
+        "applications": [
+            "activecampaign"
+        ],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "62905de2c51f323382314cce",
+            "editions":  [
+                {
+                "displayName": "Edition_1",
+                "order": 0,
+                "resources": {
+                        "_flowIds": ["6299956d95d5005bcd7dfc22","62ac465dea2474232731c772"],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    },
+                    "childResources": {
+                        "_flowIds": ["6299954495d5005bcd7dfc19","62ac48590d57d901d0670b2d"],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    }
+                
+                }]
+        },
+        "trialEnabled": false
+    },
+
+    "qa_importJson": {
+        "environment": "Production",
+        "name": "TC_IAF_015_C26961",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "_integrationId": "62905de2c51f323382314cce",
+        "applications": ["activecampaign"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+          "_integrationId": "62905de2c51f323382314cce"
+        }
+      },
+      "qa_expectedJson": {
+        "name": "TC_IAF_015_C26961",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "published": false,
+        "managed": false,
+        "_integrationId": "62905de2c51f323382314cce",
+        "applications": ["ActiveCampaign"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+          "_integrationId": "62905de2c51f323382314cce",
+          "editions": []
+        }
+      },
+      "editionSetting":{
+        "_id": "63205e6327cca414396a115e",
+        "name": "TC_IAF_015_C26961",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "handle": "c1c1ebb7",
+        "published": false,
+        "managed": false,
+        "_integrationId": "631ad2f213d12134f4772d77",
+        "_sharedImportIds": [],
+        "_sharedExportIds": [],
+        "_iClientIdMap": [],
+        "applications": [
+            "activecampaign"
+        ],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "631ad2f213d12134f4772d77",
+            "editions":  [
+                {
+                "displayName": "Edition_1",
+                "order": 0,
+                "resources": {
+                        "_flowIds": ["631ad3673796483e5615c955","62ac465dea2474232731c772"],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    },
+                    "childResources": {
+                        "_flowIds": ["6299954495d5005bcd7dfc19","62ac48590d57d901d0670b2d"],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    }
+                
+                }]
+        },
+        "trialEnabled": false
+    },
+
+    "importJson": {
+        "environment": "Production",
+        "name": "TC_IAF_015_C26961",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "_integrationId": "631ad2f213d12134f4772d77",
+        "applications": ["activecampaign"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+          "_integrationId": "631ad2f213d12134f4772d77"
+        }
+      },
+      "expectedJson": {
+        "name": "TC_IAF_015_C26961",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "published": false,
+        "managed": false,
+        "_integrationId": "631ad2f213d12134f4772d77",
+        "applications": ["ActiveCampaign"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+          "_integrationId": "631ad2f213d12134f4772d77",
+          "editions": []
+        }
+      },
+      "setupConnection": {
+        "integrationName":"Edition",
+        "activecampaignSubdomain": "jnsajkcbajbfewfbkbjk",
+        "token": "jfbewjkfbefnevbelve",
+        "uninstall":"false"
+      },
+      "createLicense": {
+          "name": "TC_IAF_015_C26961",
+          "edition": "Edition_1"
+      },
+      "verification":{
+          "flowGroup":"Unassigned",
+          "flow":["Sample C Flow","Sample P Flow"],
+          "integrationName": "Edition"
+      },
+      "app": "ActiveCampaign",
+      "integrationName": "Edition"
+}

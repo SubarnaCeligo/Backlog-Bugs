@@ -1,0 +1,16 @@
+{
+    "type": "ftp",
+    "name": "Don't use",
+    "sandbox": false,
+    "ftp": {
+        "type": "sftp",
+        "hostURI": "celigo.files.com",
+        "username": "io.auto.qa@celigo.com",
+        "password": "******",
+        "port": 22,
+        "usePassiveMode": true,
+        "userDirectoryIsRoot": false,
+        "useImplicitFtps": false,
+        "requireSocketReUse": false
+    }
+}

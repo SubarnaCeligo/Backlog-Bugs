@@ -1,0 +1,91 @@
+{
+    "flowname": "TC_C34519",
+    "name": "TC_C34519",
+    "qa__expectedDashboardCount": {
+        "successCount": "0",
+        "ignoreCount": "0",
+        "errorCount": "1"
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "HTTP Zendesk Export",
+                        "application": "zendesk support",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "eb46e365c4",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "parsers": [
+                            {
+                                "type": "xml",
+                                "version": "1",
+                                "rules": {
+                                    "V0_json": true,
+                                    "stripNewLineChars": false,
+                                    "trimSpaces": false
+                                }
+                            }
+                        ],
+                        "debugUntil": "2022-09-15T06:28:39.686Z",
+                        "http": {
+                            "relativeURI": "/api/v2/tickets/81.json",
+                            "method": "GET",
+                            "formType": "http"
+                        },
+                        "rawData": "631ec91d52e9a959edd75a23314e553a51eb4a808658899c60cffc97",
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Import",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "idd4ab9f53",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "file": {
+                            "fileName": "file-{{timestamp}}.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPImports",
+                            "fileName": "file-{{timestamp}}.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C34519",
+                "disabled": false,
+                "qa__integrationId": "631ec9b452e9a959edd75a41",
+                "_integrationId": "631f51ba4281e504953f9a61",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

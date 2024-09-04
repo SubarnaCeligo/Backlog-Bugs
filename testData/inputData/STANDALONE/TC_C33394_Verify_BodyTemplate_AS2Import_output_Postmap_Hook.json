@@ -1,0 +1,61 @@
+{
+    "skipRetries": false,
+    "_integrationId": "6228aed6bc8a2732cfe8044c",
+    "iaqa_connectionId": "62a359886e4b5b50f555e564",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "FTP xport",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "e930f9de29",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C30817"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "adaptorType": "FTPExport",
+                "qa__path": "//FTP_uploads//TC_C30817.json"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "as",
+                "_connectionId": "62fb73650de29f14e15c4261",
+                "distributed": false,
+                "apiIdentifier": "i8ea1aa8ad",
+                "hooks": {
+                    "postMap": {
+                        "_scriptId": "62f344dcd0402833c6fef3db",
+                        "function": "postMap"
+                    }
+                },
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "skipAggregation": true,
+                    "type": "json"
+                },
+                "as2": {
+                    "fileNameTemplate": "file-{{timestamp}}"
+                },
+                "adaptorType": "AS2Import"
+            }
+        }
+    ],
+    "Script": "function postMap (options) {\n  options.postMapData[0]={\n    test:options.postMapData[0],\n    postmap:23}\n  return options.postMapData.map((d) => {\n    return {\n      data: d\n    }\n  })\n}",
+    "PreMapScript": "function preMap (options) {\n  options.data[0]={\n    test:options.data[0],\n    premap:23}\n  return options.data.map((d) => {\n    return {\n      data: d\n    }\n  })\n}"
+}

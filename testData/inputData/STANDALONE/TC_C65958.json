@@ -1,0 +1,120 @@
+{
+    "name": "TC_C65958",
+    "referencename": "TC_C65958",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "HTTP Export",
+                        "application": "zendesk support",
+                        "qa__connectionId": "632c3cfb9330e00c3cb89b31",
+                        "_connectionId": "632c3be63eea0d15ecfd1999",
+                        "apiIdentifier": "e50959c4c8",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "parsers": [
+                            {
+                                "type": "xml",
+                                "version": "1",
+                                "rules": {
+                                    "V0_json": true,
+                                    "stripNewLineChars": false,
+                                    "trimSpaces": false
+                                }
+                            }
+                        ],
+                        "http": {
+                            "relativeURI": "/users",
+                            "method": "GET",
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Lookup",
+                        "qa__connectionId": "632c3cfb9330e00c3cb89b31",
+                        "_connectionId": "632c3be63eea0d15ecfd1999",
+                        "apiIdentifier": "ef4ed7bb9f",
+                        "application": "zendesk support",
+                        "asynchronous": true,
+                        "isLookup": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": "users",
+                            "method": "GET",
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                },
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Import",
+                        "application": "zendesk support",
+                        "_connectionId": "632c3be63eea0d15ecfd1999",
+                        "qa__connectionId": "632c3cfb9330e00c3cb89b31",
+                        "apiIdentifier": "i1341edb2b",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": [
+                                "organizations"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C65958",
+                "disabled": false,
+                "qa__integrationId": "63232caf5342c33e615e7271",
+                "_integrationId": "63232c59d3a9897fe95f9f2a",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    },
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID",
+                        "skipRetries": false
+                    }
+                ]
+            }
+        }
+    ]
+}

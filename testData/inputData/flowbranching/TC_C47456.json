@@ -1,0 +1,208 @@
+{
+    "name": "TC_C47456",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "AutomationStandaloneExport__afw8IUIk",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                    "fileNameStartsWith": "Pathtomany.json"
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "qa__path": "//SFTP_uploads//Pathtomany.json",
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "nw5EED",
+            "routeRecordsTo": "first_matching_branch",
+            "branches": [
+                {
+                    "name": "R1B1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "proceedOnFailure": true,
+                            "qa__import": {
+                                "name": "AutomationStandaloneImport__2faIUIk",
+                                "application":"zendesk support",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "ignoreExisting": false,
+                                "ignoreMissing": false,
+                                "oneToMany": true,
+                                "pathToMany": "current_subtotal_price_set",
+                                "sandbox": false,
+                                "hooks": {
+                                    "postMap": {
+                                        "_scriptId": "UPDATE",
+                                        "function": "postMap"
+                                    }
+                                },
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "Auto_TC_{{_PARENT.id}}_{{currency_code}}",
+                                            "generate": "organization.name"
+                                        },
+                                        {
+                                            "extract": "amount",
+                                            "generate": "organization.notes"
+                                        }
+                                    ]
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "organizations.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        },
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandaloneImport__PPfkKo8iR",
+                                "application":"zendesk support",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "ignoreExisting": false,
+                                "ignoreMissing": false,
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "Auto_TC_{{id}}",
+                                            "generate": "user.name"
+                                        },
+                                        {
+                                            "extract": "currency",
+                                            "generate": "user.notes"
+                                        }
+                                    ]
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "/users.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "body": [],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "R1B2",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandaloneImport__2223UIk",
+                                "application":"zendesk support",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "http": {
+                                    "relativeURI": [
+                                        "/users"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "successCount": "3",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "Zendesk": {
+                "_integrationId": "62f51db41677a21a108e5e3a",
+                "name": "TC_C47456",
+                "import": {
+                    "_connectionId": "HTTP ZENDESK CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "3",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "expectedJSON": [
+                        {
+                            "name": "Auto_TC_4106697703482_dollar",
+                            "notes": "900.00"
+                        },
+                        {
+                            "name": "Auto_TC_4106697703482_USD",
+                            "notes": "500.00"
+                        },
+                        {
+                            "name": "Auto_TC_4106697703482_ruppes",
+                            "notes": "700.00"
+                        }
+                    ],
+                    "uniqueField": "name",
+                    "standaloneexportflowID": "62f60a990f2ee6482b13f99e",
+                    "importRecordType": "organizations",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "ebed365fdc"
+                }
+            }
+        }
+    },
+    "scriptBody": {
+        "name": "oneChildRecordFailingPostMapScript",
+        "content": "function postMaps (options) {\n  for(let i=0;i<options.preMapData.length; i++) {\n    if(options.preMapData[i].currency_code == \"ruppes\") {\n      delete(options.postMapData[i].organization.name);\n    }\n  }\n  return options.postMapData.map((d) => {return {data: d}})}"
+    }
+}

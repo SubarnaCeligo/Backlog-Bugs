@@ -1,0 +1,111 @@
+{
+  "name": "TC_028_C22718",
+  "referencename": "TC_028_C22718",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "FTPexport",
+            "adaptorType": "FTPExport",
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+              "fileNameEndsWith": ".json",
+              "fileNameStartsWith": "TC_028_C22718"
+            },
+            "file": {
+              "output": "records",
+              "skipDelete": true,
+              "encoding": "utf8",
+              "type": "json",
+              "json": {
+                "resourcePath": "*"
+              }
+            },
+            "asynchronous": true,
+            "_connectionId": "FTP CONNECTION"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "shopify imp",
+            "_connectionId": "SHOPIFY CONNECTION",
+            "distributed": false,
+            "assistant": "shopify",
+            "assistantMetadata": {
+              "resource": "customer",
+              "version": "v2",
+              "operation": "creates_acustomer",
+              "lookups": {}
+            },
+            "http": {
+              "relativeURI": [
+                "/customers.json"
+              ],
+              "method": [
+                "POST"
+              ],
+              "body": [
+                null
+              ],
+              "batchSize": 1,
+              "strictHandlebarEvaluation": true,
+              "sendPostMappedData": true,
+              "response": {
+                "resourceIdPath": [
+                  null
+                ]
+              }
+            },
+            "rest": {
+              "relativeURI": [
+                "/customers.json"
+              ],
+              "method": [
+                "POST"
+              ],
+              "body": [
+                null
+              ],
+              "responseIdPath": [
+                null
+              ],
+              "successPath": [
+                null
+              ],
+              "successValues": [
+                null
+              ]
+            },
+            "adaptorType": "RESTImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_028_C22718",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "qa_importJson": {
+    "name": "First_Integration_app_creation_Test001",
+    "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+    "_integrationId": "6243fc851b138e2e822a18bd",
+    "applications": ["netsuite"],
+    "framework": "twoDotZero",
+    "twoDotZero": {
+      "_integrationId": "6243fc851b138e2e822a18bd",
+      "editions": []
+    }
+  },
+  "qa_expectedJson": {
+    "name": "First_Integration_app_creation_Test001",
+    "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+    "published": false,
+    "managed": false,
+    "_integrationId": "6243fc851b138e2e822a18bd",
+    "applications": ["netsuite"],
+    "framework": "twoDotZero",
+    "twoDotZero": {
+      "_integrationId": "6243fc851b138e2e822a18bd",
+      "editions": []
+    }
+  },
+  "qa_editImportJson": {
+    "name": "First_Integration_app_creation_Test001",
+    "trialEnabled": true,
+    "trialPeriod": "30",
+    "_trialLicenseId": "624ad0c5f938b448cde27385"
+  },
+  "qa_editExpectedJson": {
+    "name": "First_Integration_app_creation_Test001_Edited",
+    "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+    "published": false,
+    "managed": false,
+    "_integrationId": "6243fc851b138e2e822a18bd",
+    "applications": ["netsuite"],
+    "trialEnabled": true,
+    "trialPeriod": "30",
+    "framework": "twoDotZero",
+    "twoDotZero": {
+      "_integrationId": "6243fc851b138e2e822a18bd",
+      "editions": []
+    }
+  },
+
+  "importJson": {
+    "name": "First_Integration_app_creation_Test001",
+    "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+    "_integrationId": "6243fdd2d68e2457e3b01f34",
+    "applications": ["netsuite"],
+    "framework": "twoDotZero",
+    "twoDotZero": {
+      "_integrationId": "6243fdd2d68e2457e3b01f34",
+      "editions": []
+    }
+  },
+  "expectedJson": {
+    "name": "First_Integration_app_creation_Test001",
+    "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+    "published": false,
+    "managed": false,
+    "_integrationId": "6243fdd2d68e2457e3b01f34",
+    "applications": ["netsuite"],
+    "framework": "twoDotZero",
+    "twoDotZero": {
+      "_integrationId": "6243fdd2d68e2457e3b01f34",
+      "editions": []
+    }
+  },
+  "editImportJson": {
+    "name": "First_Integration_app_creation_Test001",
+    "trialEnabled": true,
+    "trialPeriod": "30",
+    "_trialLicenseId": "631ae80ed2f06368a0498b4a"
+  },
+  "editExpectedJson": {
+    "name": "First_Integration_app_creation_Test001_Edited",
+    "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+    "published": false,
+    "managed": false,
+    "_integrationId": "6243fdd2d68e2457e3b01f34",
+    "applications": ["netsuite"],
+    "trialEnabled": true,
+    "trialPeriod": "30",
+    "framework": "twoDotZero",
+    "twoDotZero": {
+      "_integrationId": "6243fdd2d68e2457e3b01f34",
+      "editions": []
+    }
+  }
+}
+

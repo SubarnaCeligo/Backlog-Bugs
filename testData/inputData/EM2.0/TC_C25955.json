@@ -1,0 +1,272 @@
+{
+  "name": "TC_C25955",
+  "referencename": "TC_C25955",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Salesforce Account__AutomationStandalone__sf94zbiivo5c03roxyaz",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "asynchronous": true,
+            "parsers": [],
+            "salesforce": {
+              "type": "soql",
+              "api": "rest",
+              "soql": {
+                "query": "Select id,Name,phone,fax,(select id,name from attachments),(select id,title,body from notes) from Account where name='Auto@199Account'"
+              },
+              "distributed": {
+                "referencedFields": [],
+                "disabled": false,
+                "userDefinedReferencedFields": [],
+                "relatedLists": []
+              }
+            },
+            "transform": {
+              "type": "expression",
+              "expression": {
+                "version": "1"
+              },
+              "version": "1"
+            },
+            "filter": {
+              "type": "expression",
+              "expression": {
+                "rules": [],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": []
+            },
+            "inputFilter": {
+              "type": "expression",
+              "expression": {
+                "version": "1"
+              },
+              "version": "1"
+            },
+            "adaptorType": "SalesforceExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "responseMapping": {
+            "fields": [
+              {
+                "extract": "data[0].blobKey",
+                "generate": "blobKey"
+              }
+            ],
+            "lists": []
+          },
+          "type": "export",
+          "qa__export": {
+            "name": "Salesforce Blob__AutomationStandalone__d3eztypw3rpc5uu2wfz5",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "asynchronous": true,
+            "type": "blob",
+            "oneToMany": true,
+            "pathToMany": "Attachments",
+            "parsers": [],
+            "salesforce": {
+              "sObjectType": "attachment",
+              "id": "{{data.Id}}",
+              "distributed": {
+                "referencedFields": [],
+                "disabled": false,
+                "userDefinedReferencedFields": [],
+                "relatedLists": []
+              }
+            },
+            "transform": {
+              "type": "expression",
+              "expression": {
+                "version": "1"
+              },
+              "version": "1"
+            },
+            "filter": {
+              "type": "expression",
+              "expression": {
+                "rules": [],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": []
+            },
+            "inputFilter": {
+              "type": "expression",
+              "expression": {
+                "version": "1"
+              },
+              "version": "1"
+            },
+            "adaptorType": "SalesforceExport"
+          }
+        },
+        {
+          "responseMapping": {
+            "fields": [
+              {
+                "extract": "upload.token",
+                "generate": "token"
+              }
+            ],
+            "lists": []
+          },
+          "type": "import",
+          "qa__import": {
+            "name": "http blob__AutomationStandalone__8s5ne2oko740m4pwfgqm",
+            "application": "zendesk support",
+            "responseTransform": {
+              "type": "expression",
+              "expression": {
+                "version": "1"
+              },
+              "version": "1"
+            },
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "distributed": false,
+            "oneToMany": true,
+            "pathToMany": "Attachments",
+            "blobKeyPath": "blobKey",
+            "blob": true,
+            "http": {
+              "relativeURI": [
+                "/uploas.json?filename={{data.Name}}"
+              ],
+              "method": [
+                "POST"
+              ],
+              "body": [
+                ""
+              ],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http",
+              "response": {
+                "resourceIdPath": [
+                  "test"
+                ]
+              }
+            },
+            "filter": {
+              "type": "expression",
+              "expression": {
+                "rules": [],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": []
+            },
+            "adaptorType": "HTTPImport"
+          }
+        },
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "hhtp import",
+            "application": "zendesk support",
+            "sampleResponseData": "",
+            "responseTransform": {
+              "type": "expression",
+              "expression": {
+                "version": "1"
+              },
+              "version": "1"
+            },
+            "parsers": [],
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "distributed": false,
+            "lookups": [],
+            "http": {
+              "relativeURI": [
+                "tickets.json"
+              ],
+              "method": [
+                "POST"
+              ],
+              "body": [
+                "{{#each data}}{{#if @index}} , {{/if}}{\"ticket\": {\"Subject\": \"teses\",\"description\": \"This is attachment test\",\"comment\": {\"uploads\": [{{#each this.Attachments}}{{#if @index}} , {{/if}} \"{{token}}\"{{/each}}]},\"blobKey\": \"{{blobKey}}\"}}{{/each}}"
+              ],
+              "batchSize": 1,
+              "ignoreEmptyNodes": false,
+              "requestMediaType": "json",
+              "successMediaType": "json",
+              "errorMediaType": "json",
+              "sendPostMappedData": true,
+              "formType": "http",
+              "response": {
+                "errorPath": ""
+              }
+            },
+            "filter": {
+              "type": "expression",
+              "expression": {
+                "rules": [],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": []
+            },
+            "adaptorType": "HTTPImport"
+          },
+          "responseMapping": {
+            "fields": [],
+            "lists": []
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C25955",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [
+                {
+                  "extract": "data[0].blobKey",
+                  "generate": "blobKey"
+                }
+              ],
+              "lists": []
+            },
+            "type": "export",
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          },
+          {
+            "responseMapping": {
+              "fields": [
+                {
+                  "extract": "upload.token",
+                  "generate": "token"
+                }
+              ],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          },
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

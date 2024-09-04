@@ -1,0 +1,54 @@
+{
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "Ns Export",
+                "_connectionId": "NETSUITE CONNECTION",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "rawData": "61e68956b587067a214ac5edc56eb9a1200645aebdc3083eb57049f0",
+                "netsuite": {
+                    "type": "restlet",
+                    "skipGrouping": false,
+                    "statsOnly": false,
+                    "restlet": {
+                        "recordType": "account",
+                        "searchId": "3878",
+                        "useSS2Restlets": false
+                    },
+                    "distributed": {
+                        "useSS2Framework": false
+                    }
+                },
+                "adaptorType": "NetSuiteExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "s3im",
+            "parsers": [],
+            "_connectionId": "S3 CONNECTION",
+            "apiIdentifier": "i4a61b00b7",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+              "fileName": "TC_C28931_handlebar.json",
+              "skipAggregation": false,
+              "type": "json",
+              "encoding": "utf8"
+            },
+            "s3": {
+              "region": "us-east-1",
+              "bucket": "automations3import",
+              "fileKey": "TC_C28931_handlebar.json"
+            },
+            "adaptorType": "S3Import"
+          }
+        }
+      ]
+}

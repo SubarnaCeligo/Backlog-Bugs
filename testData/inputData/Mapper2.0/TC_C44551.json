@@ -1,0 +1,117 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "name": "TC_C44551",
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "qa__import": {
+        "name": "44551 import",
+        "application": "zendesk support",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": [
+            "/api/v1/products"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [],
+          "batchSize": 1,
+          "sendPostMappedData": true,
+          "formType": "http"
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "44551",
+        "_connectionId": "FTP CONNECTION",
+        "asynchronous": true,
+        "sandbox": false,
+        "sampleData": [
+          {
+            "id": "218412",
+            "recordType": "customer",
+            "Name": "Mithun reddy",
+            "First Name": "Mithun",
+            "Last Name": "reddy",
+            "Email": "mithu@gmail.com",
+            "ns_lookup": [
+              {
+                "id": "229270",
+                "recordType": "customer",
+                "First Name": "Mariyala",
+                "Last Name": "Soumya",
+                "Email": "soumyam@gmail.com",
+                "Phone": ""
+              },
+              {
+                "id": "229271",
+                "recordType": "customer",
+                "First Name": "soumya",
+                "Last Name": "shiny",
+                "Email": "shinysoumya@gmail.com",
+                "Phone": "(756) 924-1345"
+              }
+            ]
+          },
+          {
+            "id": "216703",
+            "recordType": "customer",
+            "Name": "Mithun Reddy",
+            "First Name": "Mithun",
+            "Last Name": "Reddy",
+            "Email": "mithunreddy@email.com",
+            "ns_lookup": [
+              {
+                "id": "229270",
+                "recordType": "customer",
+                "First Name": "Mariyala",
+                "Last Name": "Soumya",
+                "Email": "soumyam@gmail.com",
+                "Phone": ""
+              },
+              {
+                "id": "229271",
+                "recordType": "customer",
+                "First Name": "soumya",
+                "Last Name": "shiny",
+                "Email": "shinysoumya@gmail.com",
+                "Phone": "(756) 924-1345"
+              }
+            ]
+          }
+        ],
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "TC_C44663.json"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json",
+          "json": {
+            "resourcePath": "*"
+          }
+        },
+        "adaptorType": "FTPExport",
+        "qa__path": "//FTP_uploads//TC_C44551.json"
+      }
+    }
+  ],
+  "expected": "{\n  \"record\": {\n    \"id\": \"218412\",\n    \"recordType\": \"customer\",\n    \"Name\": \"Mithun reddy\",\n    \"First Name\": \"Mithun\",\n    \"Last Name\": \"reddy\",\n    \"Email\": \"mithu@gmail.com\",\n    \"ns_lookup\": [\n      {\n        \"id\": \"229270\",\n        \"recordType\": \"customer\",\n        \"First Name\": \"Mariyala\",\n        \"Last Name\": \"Soumya\",\n        \"Email\": \"soumyam@gmail.com\",\n        \"Phone\": \"\"\n      },\n      {\n        \"id\": \"229271\",\n        \"recordType\": \"customer\",\n        \"First Name\": \"soumya\",\n        \"Last Name\": \"shiny\",\n        \"Email\": \"shinysoumya@gmail.com\",\n        \"Phone\": \"(756) 924-1345\"\n      }\n    ]\n  },\n  \"settings\": {\n    \"integration\": {},\n    \"flow\": {},\n    \"flowGrouping\": {},\n    \"connection\": {},\n    \"import\": {}\n  }\n}"
+}

@@ -1,0 +1,46 @@
+{
+    "mappings": [
+        {
+            "generate": "data",
+            "dataType": "object",
+            "mappings": [
+                {
+                    "extract": "$.addresses[*].city",
+                    "generate": "cities",
+                    "dataType": "string"
+                },
+                {
+                    "extract": "$.company",
+                    "generate": "company",
+                    "dataType": "string"
+                },
+                {
+                    "extract": "$.authentication.force_password_reset",
+                    "generate": "active",
+                    "dataType": "string"
+                }
+            ]
+        }
+    ],
+    "expectedPreviewData": {
+            "data": {
+              "cities": "San Francisco,New York,Stanton",
+              "company": "Celigo",
+              "active": "true"
+            }
+    },
+    "cloneJSON": {
+        "Source_Environment": "Production",
+        "Destination_Enviornment": "Production",
+        "Source_Integration": "Automation_Flows",
+        "Destination_Integration": "56d6b23fe1fc35de53914730",
+        "Flow_To_Clone": "TC_C43223_FTP_To_HTTP_M1.0",
+        "connections": [
+            "FTP CONNECTION",
+            "HTTP BIGCOMMERCE CONNECTION"
+        ],
+        "New_connection": false,
+        "Clone_Flow_Name": "Clone-TC_C43223_FTP_To_HTTP_M1.0"
+
+    }
+}

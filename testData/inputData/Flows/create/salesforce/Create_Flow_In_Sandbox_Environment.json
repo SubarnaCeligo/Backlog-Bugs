@@ -1,0 +1,96 @@
+{
+    "skipRetries": false,
+    "qa__integrationURL": "https://qa.staging.integrator.io/integrations/62d4eb448cd959052510a9eb/flows",
+    "staging__integrationURL": "https://staging.integrator.io/integrations/632456f24fa66856fa0a0be5/flows",
+    "connectionId": "NETSUITE CONNECTION",
+    "staging_connectionId": "63241cb5efa03a3efc240948",
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "1",
+      "errorCount": "0"
+    },
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "_connectionId": "NETSUITE CONNECTION",
+          "staging_connectionId": "63241cb5efa03a3efc240948",
+          "name": "NetsuiteCustomerImport",
+          "lookups": [],
+          "distributed": true,
+          "adaptorType": "NetSuiteDistributedImport",
+          "netsuite_da": {
+            "useSS2Restlets": false,
+            "lookups": [],
+            "mapping": {
+              "lists": [],
+              "fields": [
+                {
+                  "internalId": false,
+                  "extract": "Alt_Email__c",
+                  "generate": "altemail"
+                },
+                {
+                  "internalId": false,
+                  "extract": "Name",
+                  "generate": "companyname"
+                },
+                {
+                  "internalId": true,
+                  "extract": "Subsidiary_Internal_ID__c",
+                  "generate": "subsidiary"
+                },
+                {
+                  "internalId": false,
+                  "extract": "Email__c",
+                  "generate": "email"
+                },
+                {
+                  "internalId": false,
+                  "extract": "Phone",
+                  "generate": "phone"
+                },
+                {
+                  "internalId": false,
+                  "extract": "Fax",
+                  "generate": "fax"
+                }
+              ]
+            },
+            "recordType": "customer",
+            "operation": "add"
+          }
+        }
+      }
+    ],
+    "timezone": "Asia/Calcutta",
+    "name": "12.SF Flow#01_SF(Account) to NS(Cust)_ALL",
+    "disabled": false,
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "salesforce": {
+            "soql": {
+              "query": "Select Name, Email__c,Alt_Email__c,Subsidiary_Name__c,Subsidiary_Internal_ID__c,phone,fax,Billingcity,Billingstreet,Billingcountry,Billingstate, BillingPostalCode,Shippingcity,Shippingstreet,Shippingcountry,ShippingPostalCode,Shippingstate from Account where name like '12.SFAccount2NSCustomerAll'"
+            },
+            "distributed": {
+              "referencedFields": [],
+              "userDefinedReferencedFields": [],
+              "relatedLists": []
+            },
+            "api": "rest",
+            "type": "soql"
+          },
+          "transform": {
+            "rules": []
+          },
+          "asynchronous": true,
+          "_connectionId": "SALESFORCE CONNECTION",
+          "staging_connectionId":"632459554fa66856fa0a0e9e",
+          "name": "SalesforceExportAccount",
+          "parsers": [],
+          "adaptorType": "SalesforceExport"
+        }
+      }
+    ]
+  }

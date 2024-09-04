@@ -1,0 +1,159 @@
+{
+    "name": "TC_C44398",
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "disabled": false,
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "name": "44398 import",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "lookups": [
+                    {
+                        "name": "EfbA5",
+                        "map": {
+                            "Medium": "Tall"
+                        },
+                        "allowFailures": false,
+                        "useImportHeaders": true
+                    },
+                    {
+                        "name": "dynamic",
+                        "method": "GET",
+                        "relativeURI": "/tickets/81.json",
+                        "extract": "invalid_value",
+                        "body": "",
+                        "allowFailures": true,
+                        "default": "32",
+                        "useImportHeaders": true
+                    }
+                ],
+                "mappings": [
+                    {
+                        "generate": "measrements",
+                        "dataType": "object",
+                        "mappings": [
+                            {
+                                "extract": "$.measurements[*].caption",
+                                "generate": "id",
+                                "dataType": "string"
+                            },
+                            {
+                                "generate": "pom",
+                                "dataType": "string",
+                                "hardCodedValue": "partofmeasurement"
+                            },
+                            {
+                                "generate": "sizes",
+                                "dataType": "object",
+                                "mappings": [
+                                    {
+                                        "extract": "$.measurements[*].sizes[*].size",
+                                        "generate": "size",
+                                        "dataType": "string",
+                                        "lookupName": "EfbA5"
+                                    },
+                                    {
+                                        "extract": "$.measurements[*].sizes[*].size",
+                                        "generate": "tolerance",
+                                        "dataType": "string",
+                                        "lookupName": "dynamic"
+                                    },
+                                    {
+                                        "extract": "{{toFixed 123.4}}",
+                                        "generate": "measurements",
+                                        "dataType": "string"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "/tickets.json"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http",
+                    "lookups": [
+                        {
+                            "name": "EfbA5",
+                            "map": {
+                                "Medium": "Tall"
+                            },
+                            "allowFailures": false,
+                            "useImportHeaders": true
+                        },
+                        {
+                            "name": "dynamic",
+                            "method": "GET",
+                            "relativeURI": "/tickets/81.json",
+                            "extract": "invalid_value",
+                            "body": "",
+                            "allowFailures": true,
+                            "default": "32",
+                            "useImportHeaders": true
+                        }
+                    ]
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "44398",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "sandbox": false,
+                "sampleData": {
+                    "measurements": [
+                        {
+                            "caption": "C01",
+                            "pom": "Chest",
+                            "sizes": [
+                                {
+                                    "measurement": "2",
+                                    "size": "Medium"
+                                }
+                            ],
+                            "tolerance": "1",
+                            "toleranceLower": "1",
+                            "toleranceUpper": "1",
+                            "unit": "cm"
+                        }
+                    ]
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C44535.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport",
+                "qa__path": "//FTP_uploads//TC_C44535.json"
+            }
+        }
+    ]
+}

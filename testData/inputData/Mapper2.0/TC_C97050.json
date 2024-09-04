@@ -1,0 +1,71 @@
+{
+    "name": "TC_C97050",
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "disabled": false,
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "name": "TC_C97050 import",
+                "application": "zendesk",
+                "qa__connectionId": "5d3ac71c3fa37c6c9d61d218",
+                "_connectionId": "632852c40dbc53086e88e76f",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mapping": {
+                    "fields": [
+                        {
+                            "extract": "authentication",
+                            "generate": "boolean",
+                            "dataType": "boolean"
+                        }
+                    ]
+                },
+                "http": {
+                    "relativeURI": [
+                        "/users.json"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "TC_C97050 export",
+                "application": "BigCommerce",
+                "_connectionId": "6444b2cb668b287823e72f5a",
+                "qa__connectionId": "62ab40a8ea247423273187cd",
+                "asynchronous": true,
+                "isLookup": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "/v3/customers",
+                    "method": "GET",
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "data"
+                    }
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ]
+}

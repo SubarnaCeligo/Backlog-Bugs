@@ -1,0 +1,18 @@
+{
+    "fieldMap": {
+        "numField": {
+            "id": "numField",
+            "name": "numField",
+            "helpText": "Enter a number",
+            "type": "text",
+            "inputType": "number",
+            "label": "Enter a number",
+            "defaultValue": 4320
+        }
+    },
+    "layout": {
+        "fields": [
+            "numField"
+        ]
+    }
+}
