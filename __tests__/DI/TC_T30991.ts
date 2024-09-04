@@ -1,8 +1,8 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("@Author-ladimanish TC_T30986_T30982_T31004_T30998", () => {
-  test("@Env-PLATFORMTHREE @Env-QA  @Epic-IO-68754 @Priority-P1 @Zephyr-IO-T30986 @Zephyr-IO-T30982 @Zephyr-IO-T31004 @Zephyr-IO-T30998 TC_T30986_T30982_T31004_T30998", async ({
+test.describe("@Author-ladimanish TC_T30991", () => {
+  test("@Env-PLATFORMTHREE @Env-QA  @Epic-IO-68754 @Priority-P1 @Zephyr-IO-T30991 TC_T30991", async ({
     io,
     page
   }) => {
@@ -20,33 +20,18 @@ test.describe("@Author-ladimanish TC_T30986_T30982_T31004_T30998", () => {
     await io.sync.clickOnNext();
     const syncName = await io.sync.generateRandomName("Sync");
     await io.sync.enterSyncName(syncName);
+    await io.sync.selectFrequency("Once weekly");
 
-    //T30986
+    //T30991
     await io.flowBuilder.clickByIndex(
-      selectors.flowBuilderPagePO.HELP_TEXT_ICON,3
+      selectors.flowBuilderPagePO.HELP_TEXT_ICON,5
     );
     await io.assert.verifyElementContainsText(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW,
-      "The sync scheduler defaults to"
+      "Set the first time that you want your sync to run each day."
     );
     await io.flowBuilder.click(
       selectors.connectionsPagePO.HELPTEXT_CLOSE
     );
-
-    //T30982 T31004
-    await io.assert.expectToBeTrue(
-      await (
-        await page.$(selectors.syncPagePO.USE_PRESET_RADIO_BUTTON)
-      ).isChecked(),
-      "Preset option is not checked"
-    );
-
-    //T30998
-    await io.flowBuilder.click(selectors.syncPagePO.USE_CRON_RADIO_BUTTON);
-    await io.assert.verifyElementIsDisplayed(
-      selectors.syncPagePO.CRON_EXP_INPUT,
-      "Cron not displayed"
-    );
-
   });
 });

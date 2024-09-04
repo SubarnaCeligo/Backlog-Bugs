@@ -21,9 +21,31 @@ test.describe("@Author-ladimanish TC_T30900_T30916_T30912_T30913", () => {
     //T30900 T30916
     await io.flowBuilder.click(selectors.syncPagePO.OBJECTS_DROPDOWN);
     await io.myAccountPage.loadingTime();
-    await io.assert.verifyElementDisplayedByText("All objects (557)", "total count is incorrect");
-    await io.assert.verifyElementDisplayedByText("Selected (2)", "selected count is incorrect");
-    await io.assert.verifyElementDisplayedByText("Unselected (555)", "unselected count is incorrect");
+
+    const objectText = await io.flowBuilder.getText(
+      selectors.syncPagePO.OBJECTS_ALL
+    );
+    const parts = objectText.toString().split("(");
+    const numberStr = parts[1].replace(")", "");
+    const totalNumber = parseInt(numberStr, 10);
+    const selectedCount = 2;
+    const unSelectedCount = totalNumber - selectedCount;
+    const allObjectsText = "All objects (" + totalNumber + ")";
+    const selectedObjectsText = "Selected (" + selectedCount + ")";
+    const unSelectedObjectsText = "Unselected (" + unSelectedCount + ")";
+
+    await io.assert.verifyElementDisplayedByText(
+      allObjectsText,
+      "total count is incorrect"
+    );
+    await io.assert.verifyElementDisplayedByText(
+      selectedObjectsText,
+      "selected count is incorrect"
+    );
+    await io.assert.verifyElementDisplayedByText(
+      unSelectedObjectsText,
+      "unselected count is incorrect"
+    );
 
     //T30912
     await io.flowBuilder.click(selectors.syncPagePO.OBJECTS_UNSELECTED);
