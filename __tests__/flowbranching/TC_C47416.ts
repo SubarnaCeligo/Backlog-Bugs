@@ -2,7 +2,7 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import flowbranch from "@testData/flowbranching/TC_C47416.json";
-import { increaseDrawer, decreaseDrawer } from "./utils";
+import { increaseDrawer, decreaseDrawer } from "./utils"
 
 test.describe("@Author-ParthPatel TC_C47416", () => {
   let flowId;
