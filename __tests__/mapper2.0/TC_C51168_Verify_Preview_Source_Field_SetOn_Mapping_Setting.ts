@@ -5,12 +5,12 @@ import { decrypt ,randomNumber} from "@celigo/aut-utilities";
 import TC from "@testData/Mapper2.0/TC_C51168_Verify_Preview_Source_Field_SetOn_Mapping_Setting.json";
 import { allure } from "allure-playwright";
 
-test.describe("@Env-All @Zephyr-IO-T22370 TC_C51168_Verify_Preview_Source_Field_SetOn_Mapping_Setting", () => {
+test.describe("TC_C51168_Verify_Preview_Source_Field_SetOn_Mapping_Setting", () => {
   test.beforeEach(async ({io,page}, testInfo) => {
     test.step("*** Beginning of Test Suite ***", async ()=>{});
     await io.goToFlowsPage();
   });
-  test("TC_C51168_Verify_Preview_Source_Field_SetOn_Mapping_Setting", async ({io,page}, testInfo) => {
+  test("@Env-All @Zephyr-IO-T22370 TC_C51168_Verify_Preview_Source_Field_SetOn_Mapping_Setting", async ({io,page}, testInfo) => {
     let flowID = await io.createResourceFromAPI(TC, 'FLOWS');
     await io.flowBuilder.navigateToTheFlow(flowID);
 
