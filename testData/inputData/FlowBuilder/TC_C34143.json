@@ -1,0 +1,162 @@
+{
+  "name": "TC_C34143_Flow_DND",
+  "disabled": true,
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "S3 Export DND",
+        "_connectionId": "S3 CONNECTION",
+        "apiIdentifier": "e044ebff13",
+        "asynchronous": true,
+        "sandbox": false,
+        "sampleData": [
+          {
+            "node1": "ltAc3jutmkKn8Ts9XzWlLgOPTzNGlIgwKQkBN5mSaYs74riw8IzamJpEB5Ck2A6X6L6TtH9Vi60rbfoHLu1yJu6QnfYcu13ZGfIX",
+            "node2": "SO6w0FrtzEn58JIyz8MZPuRTlHuvC5j5fbqfoMIguNBhGvHSRFmJ9PzqWEu7ZmSxTNkI3Nbag1smzdyCjGENlqwIEHbQCupkRPOi",
+            "node3": "zWWNmaj6TO08uAHucW39cJNYN78YAju4DHuxk8Hg9fy1lUuFGGkC1xZjXiDVxbiy6FiuC1lHEXm8HkIkJAUvaCfnIG8itbqE93Kz",
+            "node4": "a5MuG7fK9ZRMlaqsbYVvBS6wZj5HMV79KeYbKejrnDlk2Vq7giBbIGzlDxWcQeIGxEBtnu9mLJ1reeIlGDwAyvxvnuLe3bv70YAY",
+            "node5": "JoP4sdJBn4YgJzUvjkhUEqd3st8xmxjBEJ3dvlROg2ZyeqZVAbjpgEj5JBH73fN0VUN4S5EmizAoCCpqZ8Al3NL0aJXogxzra9Rb",
+            "node6": "rjdTVYVikzPQXaSaE4ZTSzc59Pv78dNP7o4HXIbwCKKtURyryYRbkbddgGSJwGOfAXag24Fyb6gXapm6AHCGjgp5Fgi0l9CL9R03",
+            "node7": "pPESx7B6r6OaKnEXL6ti4pknMNuSeNjW8CziNDDNElLnYKRdpJ8y5ikS4c2PuHo7FAEljUe72B693pHuwf5xMXsJsGR8WagNjMPh",
+            "node8": "LldKXuTlxYzhIE9zNZ5Sk5heXFgcxAf6fVzZV1ZjP2XhgAnU6rSl9DXtrKcmUwFSfr0dtePZSQ1acHxYr2Kkwcl7jOSPdkWzkwkf",
+            "node9": "RDFVBPfuBToJo5jdanxrx1pQIswQu03t2DFjslnclk8gkQCl0D1yYr0yB1VGr5R3WHRpLT7TIyAuaKzWHbyp6w4d0wOYQiiNsObX",
+            "node10": "PPCzEm7m6jeN2qiG81hi315KL6KRm9MIiRurnaWSKdxLzA0OcdBgsYfc3vR7NzRiPXmYj6g6QrT75uEV5fHHbJmZoMWQnxwRrRpP"
+          },
+          {
+            "node1": "xhRWhhneKqvmIBpinUzpX7iVrnSp544G7aLOyOyUYpJZpcZnPDiDJ3d414CfzuhNVPTYAuuWrzIz2lr21qBx9Ln7ox912mreuk6W",
+            "node2": "52u2X6Mk2vXZh9cc9vP1vPhjCHSPlJcHyRTuCeFbFJx30efLl0uXz2WTp2aOEdGa6VnNHVRlOmfJKNSbzvfkoSVF2CyI86d1FDeZ",
+            "node3": "0lamYZlnNfsegPC7QcJKF4u6yeq9rQSjE9HgSYqRhlQv6qsDsim6tOxsc2sxP4iYsnjZXjo3ClBKybuqK0mHUsn32YoUcH03Djiw",
+            "node4": "cMH4YAzdzXPABTIkWVXYvLTImhCcEBPK4qnl4EbAPsWvgFLYOPqng1ft7HXwykJJLPn9kDB7ybLnGJTtts3YEFRrGh5Ki0YhWJ9c",
+            "node5": "fDLi7PgVKKoU3rFAE0bD7RWjnSeSrKqNwL23mMtrdOYo3ihNpNUEXlWwYg67RhNZj0VAKdp7jfmfDgxQmUNMMElx5NSkHIPpj8ov",
+            "node6": "RjWYh4bfaeuT1BUQgjMw4XViZFvWoGuYOwHLoCDe08DptKjz9GUxfWhIZe0ywo2cUg7wbZGUH05Nvpj9j0BTmfHFUVpHuIYZVoge",
+            "node7": "6gLuOATxaJNilR2RXKBJQahoOMHx7XXx35dttXe7NHdZ5qZk7HuMYypEmPFPvCnvMJqDqkfdrlzDC2vKxZr2fdBBj25g6rKmmZH3",
+            "node8": "IynGQj9cwfUXpsTFSTZjAiqGNvOFNO2tJlV8hQvVCLM7l5h8jMMQpdQWaW1RqY3qUQ0Z7Lo0POsgtGzidzfimWx24p5G0a3w30UP",
+            "node9": "e4b4Sp7mX1TMPktYWWVhIQVC44fvmeQjjfLtlcHSsiKCAehBNbNUPrC8bMkHBo5UtRxy32HpmHmjm5h6vvNda5nfH2PzfGWhRawX",
+            "node10": "64wKYRUobTpghUL9vSAQmYiZoepoMB94ZuRbfoGUwevu46ZOMvFqYeD8obDvaeDxfvR17BjJyceE4cTV4uYAiLzezNN99USqsR8l"
+          },
+          {
+            "node1": "gGZ9m9c3lgC5l7YYytAh6DJzfiRKDzr2wPeCgQLUz4Skb6cC0crWS8V2RJ50fJzprnUxS4an0j7sOctFapCQhfVph8JkSNBPfk0J",
+            "node2": "qTqxN9qYiyllvK6iJi2x1VpPtYscUfLm5If0JZvI3OKsDkD4gXnbf9xPGPkX4dPrxoyy8CIahRVVwwxyH3OvmDDSKo0ax02pNW4n",
+            "node3": "8f9K328dr3gFr346nWan7wQ5na0pWel3aeKzC6y2HPRBFPTBj8k9xB5dkdCi6UThVDDuyaKJ6qF6iiWu5ul4SBOZZW2yUPtR43rL",
+            "node4": "TPEx2mPPekxgGkFEKbp8FgD5tYm7zymoctpGsSMiWN1rMEHWvs8OAI1avhHqdvgI6SRqFJa2sH0reNdSfZXfVJVT5R0E7pVoXXyy",
+            "node5": "VQEgLVnFWM5kE2QiysZC7a2Yx49VGovDIkEL02j3qBgfT0J5nBAgGa82bkH5Fi9D3it4WFKS4U4KWHzzlmxFM61O8AMZmPxnKPjR",
+            "node6": "x6vH9gfMI1zVKHsJBGGaOCOi6FMt0ELskrhTzRZY3bOU7KqRFox4Al7kFvvqmzpeGhLEoyvuJbjm7nlpx8BxQb6sndXJenit3iiZ",
+            "node7": "CRb7msoRPBhcYilvzimi69pgtZCiQLt9khFBwtHWAyxFtr0mmiDMMB5nDUVzmXvNXrGekMOuDbrwzN8zI4GroM6ZhvdF0kQo3Ku8",
+            "node8": "K5x0tCnyNWwtwFbnlhHwgd3s8BVYN90eMzGviHDvOLMCPQeT1spEwiHpHmAcZmT3l5Shg3xkQLh9iElMOw5FxgH3OD79v0KSR71o",
+            "node9": "Nsl4bq7gDVRVixM1cneGMWJ9ubfS8UDO5RB5C6uJDn5EJaM5bkVLu4Bgx48KDFenAFcSFWgEFZvuIlFPQzVTTwoFnORmNNni2f2O",
+            "node10": "zjlc8cXmS7d0asdCIBQ7ZZz4ypPQ1e5R4NDCOj0MBUB44y5EuLStmokig86S3iYlO2YVXWbXdbWZbvtNuatn43tD2iWUCrzUjl60"
+          },
+          {
+            "node1": "W2oWAGiEGUeTXJVZZANmU7Le2PPnDx6ScHcJMqjn1fmOGdUNiMxI25TnvxOA2szQQ8YmkJf3di4j2CEA0XbjoiULpFobSj7DS03B",
+            "node2": "bMOcphVFVYrOQGRKqfrMQwtVkGRhc1A24FmZdV7JSATM9kvjXHXXs8uPMWd3vQREaWoapCKoDRCy3cddQ24JRfNZB4SXF754Al3k",
+            "node3": "1zjSOpQK6rQyiZJrzo0aTTCKQIJQN51caYbJyfUybS9T9Le8NpAh1RjgJXGCGR2f3uXr0XhCvqTqJXAvx91HF60p4aJNd2hOB7vt",
+            "node4": "GSzIV4QaxbNkOjwiVqldb0uVsD2c4e6DpPItdqkbdsE5WKGJsFYmOdW9wUaK02LNcB6dY5deBN343PAba4AFJ1uNN5FG58Em87KA",
+            "node5": "9L56OVff4MUQKRFWuIBQWoIjCUn9gVRT9wX58amUkVHKcfHyzjZ36BbphE94G3fXhAMqsNhetNAlvPOcZTxQgu4HKY65KFUFVxey",
+            "node6": "XGFewU6q6n6DWaA3W3UcaQMbUnFzstAz9q5dpKL9Z8miPW3WwiX6iQuhdGIFHoL9T6QCRCP3qCsrG9f8tmTv6oWy9E4f0q0grkf1",
+            "node7": "z3i0kWYCDYMnN994Ta4Fx8YFB4ICJAQFsptVEmr7aTVQNBXW5Lk2RiDk0usRwZmvLDXdNuh23EaBZMesYlZ8Bbnnabp3mkoL95mO",
+            "node8": "QFLsk39l87eIWaE1ajawlwFjEHy01f2mXF6WUhEwKOGEebvSr4eGginprnINnQqap7tPYQw2U3cOvFKoT31RRGL7tlO1CVC3ejBy",
+            "node9": "63l38ygi6sAXFmev1J6xaB7c4uKWINRA2crqcxJTzhoy6PsfSsULcMs7E0pgyKJ7THHrd4oq2xbJyrBTX4YBEXH4zNEUb2354Gch",
+            "node10": "rb6yNgt4dNQ0ErfiNE0DZVeboKl0NzdfwFadLYP6YM671iFxxGFWevbHoBpLK6NpvClmT0yhjcXp0y8J1Bw16LQUIT6VuBPsTRVX"
+          }
+        ],
+        "s3": {
+          "region": "us-east-1",
+          "bucket": "fileadaptor",
+          "keyPrefix": "IO-60664"
+        },
+        "file": {
+          "output": "records",
+          "skipDelete": true,
+          "type": "json",
+          "json": {
+            "resourcePath": "*"
+          },
+          "filter": {
+            "type": "expression",
+            "expression": {
+              "version": "1",
+              "rules": [
+                "contains",
+                [
+                  "string",
+                  [
+                    "extract",
+                    "filename"
+                  ]
+                ],
+                "IO-60664_3"
+              ]
+            },
+            "rules": [
+              "contains",
+              [
+                "string",
+                [
+                  "extract",
+                  "filename"
+                ]
+              ],
+              "IO-60664_3"
+            ],
+            "version": "1"
+          }
+        },
+        "adaptorType": "S3Export"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "FTP Import DND",
+        "description": "FTP Import",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "ia704e1435",
+        "oneToMany": false,
+        "sandbox": false,
+        "file": {
+          "fileName": "IO-60664-{{timestamp}}.csv",
+          "skipAggregation": false,
+          "type": "csv",
+          "csv": {
+            "rowDelimiter": "\n",
+            "columnDelimiter": ",",
+            "includeHeader": true,
+            "wrapWithQuotes": false,
+            "replaceTabWithSpace": false,
+            "replaceNewlineWithSpace": false,
+            "truncateLastRowDelimiter": false
+          }
+        },
+        "ftp": {
+          "directoryPath": "/KhaisarAhmad/IO-60664",
+          "fileName": "IO-60664-{{timestamp}}.csv"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "createFlow": {
+      "name": "TC_C34143_Flow_DND",
+      "disabled": false,
+      "pageGenerators": [
+          {
+              "_exportId": "UPDATE WITH NEW EXPORTID",
+              "skipRetries": false
+          }
+      ],
+      "pageProcessors": [
+          {
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID",
+              "responseMapping": {
+                  "fields": [],
+                  "lists": []
+              }
+          }
+      ],
+      "autoResolveMatchingTraceKeys": true
+  }
+}

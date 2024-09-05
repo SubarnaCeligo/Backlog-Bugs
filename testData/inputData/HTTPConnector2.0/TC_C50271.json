@@ -1,0 +1,52 @@
+{
+  "importJson": {
+    "name": "TC_C50271_Template_DND",
+    "contactEmail": "io.auto.qa+27@celigo.com",
+    "published": true,
+    "_integrationId": "63a1b054d8999f49bd8e2413",
+    "applications": ["activecampaign"],
+    "framework": "twoDotZero",
+    "twoDotZero": {
+      "_integrationId": "63a1b054d8999f49bd8e2413",
+      "editions": []
+    }
+  },
+  "name": "TC_C50271_Template_DND",
+  "environment": "Production",
+  "app": "activecampaign",
+  "integrationName": "TC_C52701_Template",
+  "body": {
+    "_id": "63bc0e1044101872327e0e1f",
+    "name": "TC_C52701_Template",
+    "install": [],
+    "mode": "settings",
+    "sandbox": false,
+    "_registeredConnectionIds": [],
+    "installSteps": [
+      {
+        "name": "Configure ActiveCampaign Connection",
+        "description": "Configure your ActiveCampaign connection. This is common and is set up on parent",
+        "imageUrl": "/images/company-logos/netsuite.png",
+        "completed": false,
+        "type": "connection",
+        "sourceConnection": {
+          "type": "http",
+          "assistant": "activecampaign",
+          "name": "ac connection",
+          "_id": "63bc107c6c8488070e83b7ad"
+        }
+      },
+      {
+        "name": "Install resources based on edition",
+        "completed": false,
+        "type": "edition"
+      }
+    ],
+    "uninstallSteps": [],
+    "flowGroupings": [],
+    "initChild": {
+      "_scriptId": "63bc100e44101872327e14cd",
+      "function": "initChildIntegration"
+    }
+  }
+}

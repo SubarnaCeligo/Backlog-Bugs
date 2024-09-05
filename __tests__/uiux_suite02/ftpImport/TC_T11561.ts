@@ -8,8 +8,9 @@ test.describe("TC_T11561 Verify the UI of the CSV generator", () => {
     await io.homePage.loadingTime();
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Tools", "Flow builder");
+    await io.homePage.loadingTime()
     await io.homePage.click(selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP);
-
+    await io.homePage.loadingTime()
     await io.flowBuilder.addStep('*** Creating a FTP Import from flowbuilder and launching csv parser generator ***')
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'FTP');
     await io.flowBuilder.clickByText('FTP');
@@ -29,6 +30,7 @@ test.describe("TC_T11561 Verify the UI of the CSV generator", () => {
     await io.flowBuilder.addStep('*** Validating the preview and auto preview buttons ***')
     await expect(page.locator(selectors.flowBuilderPagePO.AUTO_PREVIEW), 'Auto preview is not visible').toBeVisible();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.AUTO_PREVIEW);
+    await io.homePage.loadingTime()
     await expect(page.locator(selectors.flowBuilderPagePO.PREVIEW), 'Preview is not visible').toBeVisible();
 
     await io.flowBuilder.clickByTextByIndex('Include header', 1, { exact: false });

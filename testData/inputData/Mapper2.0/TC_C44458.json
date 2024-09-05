@@ -1,0 +1,101 @@
+{
+  "name": "TC_C44458",
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "disabled": false,
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "qa__import": {
+        "name": "44458 import",
+        "application": "zendesk support",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "mappings": [
+          {
+            "generate": "measurements",
+            "dataType": "objectarray",
+            "buildArrayHelper": [
+              {
+                "extract": "$.measurements[*]",
+                "mappings": [
+                  {
+                    "extract": "$.measurements.caption",
+                    "generate": "cap",
+                    "dataType": "string"
+                  },
+                  {
+                    "extract": "$.measurements.pom",
+                    "generate": "pom",
+                    "dataType": "string"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "http": {
+          "relativeURI": [
+            "/ticket.json"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [],
+          "batchSize": 1,
+          "sendPostMappedData": true,
+          "formType": "http"
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "44458 export",
+        "_connectionId": "FTP CONNECTION",
+        "asynchronous": true,
+        "sandbox": false,
+        "sampleData": {
+          "measurements": [
+            {
+              "caption": "C01",
+              "pom": "Chest",
+              "sizes": [
+                {
+                  "measurement": "2",
+                  "size": "Medium"
+                }
+              ],
+              "tolerance": "1",
+              "toleranceLower": "1",
+              "toleranceUpper": "1",
+              "unit": "cm"
+            }
+          ]
+        },
+        "ftp": {
+          "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "TC_C44535.json"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json"
+        },
+        "adaptorType": "FTPExport",
+        "qa__path": "//FTP_uploads//TC_C44458.json"
+      }
+    }
+  ]
+}

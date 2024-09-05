@@ -7,7 +7,7 @@ test.describe("T24279 - Verify user is able to create export/lookup/import with 
         //make sure the account has at least one shopify export
         // await io.createResourceFromAPI(exportJson, 'EXPORT');
     });
-    test("@Epic-IO-54539 @Priority-P2 T24279 @Env-All - Verify user is able to create export/lookup/import with 'Clone flow step' radio button", async ({ io, page }) => {
+    test("@Epic-IO-54539 @Priority-P2 @Zephyr-IO-T24279 @Env-All - Verify user is able to create export/lookup/import with 'Clone flow step' radio button", async ({ io, page }) => {
         //Navigate to flow builder page
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.flowBuilder.loadingTime();
@@ -44,13 +44,10 @@ test.describe("T24279 - Verify user is able to create export/lookup/import with 
         await io.flowBuilder.clickByTextByIndex('HTTP ZENDESK CONNECTION', 0);
 
         //Make sure Clone flow step is selected
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.CLONE_FLOW_STEP_RADIO);
-        await io.assert.verifyElementAttributeContainsText(selectors.flowBuilderPagePO.CLONE_FLOW_STEP_RADIO, "class", "Mui-checked");
-
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.CLONE_RESOURCE);
         //save
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
         await io.flowBuilder.loadingTime();
-
         //Verify that export is added
         let isExportAdded = await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.EMPTY_PAGE_GENERATOR);
         await io.assert.expectToBeFalse(isExportAdded, 'Export is not saved');

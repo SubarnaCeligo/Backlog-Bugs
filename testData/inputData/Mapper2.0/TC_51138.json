@@ -1,0 +1,109 @@
+{
+    "name": "TC_C51138",
+    "referencename": "TC_C51138",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "51798_exp",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "e6ffbc0467",
+                        "asynchronous": true,
+                        "sandbox": false,
+                        "sampleData": {
+                            "Link 1": {
+                                "href": "www.celigo.com",
+                                "Sub Link 1": {
+                                    "href": "www.celigo.com"
+                                },
+                                "Sub Link 2": {
+                                    "href": "www.celigo.com",
+                                    "Sub Sub Link 1": {
+                                        "href": "www.celigo.com"
+                                    },
+                                    "Sub Sub Link 2": {
+                                        "href": "www.celigo.com"
+                                    },
+                                    "Sub Sub Link 3": {
+                                        "href": "www.celigo.com"
+                                    },
+                                    "Sub Sub Link 4": {
+                                        "href": "www.celigo.com"
+                                    },
+                                    "Sub Sub Link 5": {
+                                        "href": "www.celigo.com"
+                                    },
+                                    "Sub Sub Link 6": {
+                                        "href": "www.celigo.com"
+                                    }
+                                }
+                            }
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                            "fileNameStartsWith": "51798"
+                        },
+                        "file": {
+                            "output": "records",
+                            "skipDelete": false,
+                            "type": "json"
+                        },
+                        "adaptorType": "FTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import":{
+                        "name": "Import-1",
+                        "application": "shopify",
+                        "_connectionId": "HTTP SHOPIFY CONNECTION",
+                        "_sourceId": "6329b09c676c0425cb1972a7",
+                        "apiIdentifier": "i50e15c95a",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": [
+                                "/products.json"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C51138",
+                "disabled": false,
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

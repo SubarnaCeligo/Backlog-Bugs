@@ -1,0 +1,84 @@
+{
+  "name": "TC_C14292",
+  "referencename": "TC_C14292",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "TC_C14292",
+            "_connectionId": "FTP CONNECTION",
+            "asynchronous": true,
+            "sandbox": false,
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+              "fileNameStartsWith": "TC_C14292"
+            },
+            "file": {
+              "encoding": "utf8",
+              "output": "records",
+              "skipDelete": true,
+              "type": "json",
+              "json": {
+                "resourcePath": "*"
+              }
+            },
+            "adaptorType": "FTPExport",
+            "qa__path": "//FTP_uploads//TC_C14292.json"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "S3 import",
+            "description": "for testing",
+            "_connectionId": "S3 CONNECTION",
+            "apiIdentifier": "i300887266",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+              "fileName": "14292file-{{timestamp}}.json",
+              "skipAggregation": true,
+              "type": "json"
+            },
+            "s3": {
+              "region": "us-east-1",
+              "bucket": "automations3import",
+              "fileKey": "14292file-{{timestamp}}.json"
+            },
+            "adaptorType": "S3Import"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C14292",
+        "disabled": false,
+        "_integrationId": "62ecc42648570015ab65cfa5",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ],
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "59",
+    "errorCount": "0"
+  }
+}

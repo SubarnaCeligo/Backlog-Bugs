@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("@Author-ladimanish TC_T30966_T30972_T30973_T30969_T30978_T30962", () => {
-  test("@Env-PLATFORMTHREE @Epic-IO-68754 @Priority-P1 @Zephyr-IO-T30966 @Zephyr-IO-T30972 @Zephyr-IO-T30973 @Zephyr-IO-T30969 @Zephyr-IO-T30978 @Zephyr-IO-T30962S TC_T30966_T30972_T30973_T30969_T30978_T30962", async ({
+  test("@Env-PLATFORMTHREE @Env-QA  @Epic-IO-68754 @Priority-P1 @Zephyr-IO-T30966 @Zephyr-IO-T30972 @Zephyr-IO-T30973 @Zephyr-IO-T30969 @Zephyr-IO-T30978 @Zephyr-IO-T30962S TC_T30966_T30972_T30973_T30969_T30978_T30962", async ({
     io,
     page
   }) => {
@@ -20,17 +20,16 @@ test.describe("@Author-ladimanish TC_T30966_T30972_T30973_T30969_T30978_T30962",
     await io.sync.clickOnNext();
 
     //T30966
-    // await io.flowBuilder.click(
-    //   selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT
-    // );
-    // await io.assert.verifyElementContainsText(
-    //   selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW,
-    //   "text to be added"
-    // );
-    // await io.flowBuilder.clickByIndex(
-    //   selectors.connectionsPagePO.HELPTEXT_CLOSE,
-    //   0
-    // );
+    await io.flowBuilder.clickByIndex(
+      selectors.flowBuilderPagePO.HELP_TEXT_ICON,0
+    );
+    await io.assert.verifyElementContainsText(
+      selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW,
+      "Please name your sync so that you can easily reference it from other parts of the application."
+    );
+    await io.flowBuilder.click(
+      selectors.connectionsPagePO.HELPTEXT_CLOSE
+    );
 
     //T30972
     await io.sync.enterSyncName(

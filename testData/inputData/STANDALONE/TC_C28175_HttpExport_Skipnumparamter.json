@@ -1,0 +1,9 @@
+[{
+    "name": "TC_C28175_HttpExport_Skipnumparamter",
+    "disabled": false,
+    "_integrationId": "6228aed6bc8a2732cfe8044c",
+    "connectionId":"HTTP ZENDESK CONNECTION",
+    "qaprod_connectionId": "63b7f72594c1c323cd99fd70",
+    "timezone": "Asia/Calcutta",
+    "skipRetries": false
+}]

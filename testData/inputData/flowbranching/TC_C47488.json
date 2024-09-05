@@ -1,0 +1,182 @@
+{
+    "name": "TC_C47488",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "_connectionId": "FTP CONNECTION",
+                "qa__path": "//FTP_uploads//TC_C47488.csv",
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C47488.csv"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "csv",
+                    "csv": {
+                        "columnDelimiter": ",",
+                        "rowDelimiter": "\n",
+                        "keyColumns": [],
+                        "hasHeaderRow": true,
+                        "trimSpaces": true,
+                        "rowsToSkip": 0
+                    }
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "lAOIPZ",
+            "routeRecordsTo": "first_matching_branch",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "description": "FTP import 1",
+                                "_connectionId": "FTP CONNECTION",
+                                "file": {
+                                    "fileName": "FTP_file_1.json",
+                                    "skipAggregation": false,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                                    "fileName": "FTP_file_1.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ],
+                    "inputFilter": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "ID"
+                                ]
+                            ],
+                            "1"
+                        ]
+                    },
+                    "qa__rules": [
+                        [
+                            "record.ID",
+                            "equal",
+                            "1"
+                        ]
+                    ]
+                },
+                {
+                    "name": "Branch 1.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "_connectionId": "FTP CONNECTION",
+                                "file": {
+                                    "fileName": "FTP_file_2.json",
+                                    "skipAggregation": false,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                                    "fileName": "FTP_file_2.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ],
+                    "inputFilter": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "ID"
+                                ]
+                            ],
+                            "2"
+                        ]
+                    },
+                    "qa__rules": [
+                        [
+                            "record.ID",
+                            "equal",
+                            "2"
+                        ]
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "successCount": "5",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "expected": {
+          "FTP": {
+            "name": "TC_C47488",
+            "_integrationId": "62f51db41677a21a108e5e3a",
+            "import": {
+              "_connectionId": "FTP CONNECTION"
+            },
+            "qa__expectedDashboardCount": {
+              "successCount": "5",
+              "ignoreCount": "0",
+              "errorCount": "0"
+            },
+            "qa__dataVerification": {
+              "fileName": "FTP_file_1",
+              "isUIFlow": true,
+              "folderName": "/io.auto.qa/IO_UI_Automation",
+              "fileType": ".json"
+            }
+          },
+          "FTp": {
+            "name": "TC_C47488",
+            "_integrationId": "62f51db41677a21a108e5e3a",
+            "import": {
+              "_connectionId": "FTP CONNECTION"
+            },
+            "qa__expectedDashboardCount": {
+              "successCount": "5",
+              "ignoreCount": "0",
+              "errorCount": "0"
+            },
+            "qa__dataVerification": {
+              "fileName": "FTP_file_2",
+              "isUIFlow": true,
+              "folderName": "/io.auto.qa/IO_UI_Automation",
+              "fileType": ".json"
+            }
+          }
+        }
+      }
+}

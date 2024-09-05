@@ -1,0 +1,82 @@
+{
+    "name": "TC_C26383",
+    "referencename": "TC_C26383",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "FTP  export",
+                        "_connectionId": "FTP CONNECTION",
+                        "qa__path": "//FTP_uploads//TC_24864.json",
+                        "asynchronous": true,
+                        "sampleData": {
+                            "CompanyName": "TC_C30397",
+                            "SubsidaryName": "HH Inc.",
+                            "Status": "CUSTOMER-Closed Won",
+                            "Form": "Customer Form",
+                            "Phone": "(707) 070-7070"
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/FTP_EXPORTS",
+                            "fileNameStartsWith": "TC_24864",
+                            "fileNameEndsWith": ".json"
+                        },
+                        "file": {
+                            "encoding": "utf8",
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "json"
+                        },
+                        "adaptorType": "FTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "rest import",
+                        "_connectionId": "SALESFORCE CONNECTION",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "salesforce": {
+                            "operation": "delete",
+                            "sObjectType": "Account",
+                            "api": "rest",
+                            "idLookup": {
+                                "whereClause": "(Name = {{{string Status}}})"
+                            },
+                            "removeNonSubmittableFields": false
+                        },
+                        "adaptorType": "SalesforceImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C26383",
+                "disabled": false,
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

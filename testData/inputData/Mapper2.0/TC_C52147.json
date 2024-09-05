@@ -1,0 +1,113 @@
+{
+  "import": {
+    "name": "C52147",
+    "application": "zendesk support",
+    "_connectionId": "HTTP ZENDESK CONNECTION",
+    "ignoreExisting": false,
+    "ignoreMissing": false,
+    "oneToMany": false,
+    "sandbox": false,
+    "mappings": [
+      {
+        "dataType": "objectarray",
+        "status": "Active",
+        "buildArrayHelper": [
+          {
+            "extract": "$",
+            "sourceDataType": "object",
+            "mappings": [
+              {
+                "generate": "11stringArray",
+                "dataType": "stringarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                  {
+                    "extract": "$.email"
+                  },
+                  {
+                    "extract": "$.first_name"
+                  },
+                  {
+                    "extract": "$.last_name"
+                  }
+                ]
+              },
+              {
+                "generate": "12NumstringArray",
+                "dataType": "numberarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                  {
+                    "extract": "$.nos"
+                  },
+                  {
+                    "extract": "$.NOS"
+                  },
+                  {
+                    "extract": "$.NOSS"
+                  }
+                ]
+              },
+              {
+                "generate": "22BooleanstringArray",
+                "dataType": "booleanarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                  {
+                    "extract": "$.BOOLEANemail"
+                  },
+                  {
+                    "extract": "$.Booleanfirst_name"
+                  },
+                  {
+                    "extract": "$.Booleanlast_name"
+                  }
+                ]
+              },
+              {
+                "generate": "stringArray",
+                "dataType": "stringarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                  {
+                    "extract": "$.email"
+                  },
+                  {
+                    "extract": "$.first_name"
+                  },
+                  {
+                    "extract": "$.last_name"
+                  }
+                ]
+              },
+              {
+                "generate": "test",
+                "dataType": "string",
+                "hardCodedValue": "Test",
+                "status": "Active",
+                "sourceDataType": "string"
+              },
+              {
+                "extract": "{{record.notes}}",
+                "generate": "notes",
+                "dataType": "string",
+                "default": "testnotes",
+                "status": "Active",
+                "sourceDataType": "string"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "http": {
+      "relativeURI": ["/api/v2/users"],
+      "method": ["POST"],
+      "body": [],
+      "batchSize": 1,
+      "sendPostMappedData": true,
+      "formType": "http"
+    },
+    "adaptorType": "HTTPImport"
+  }
+}

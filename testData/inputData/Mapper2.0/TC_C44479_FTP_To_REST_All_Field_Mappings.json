@@ -1,0 +1,129 @@
+{
+    "timezone": "Asia/Calcutta",
+    "name": "TC_001_C44479_FTP_To_REST_All_Field_Mappings",
+    "disabled": false,
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "name": "RESt mapper 2.0 import",
+                "adaptorType": "RESTImport",
+                "http": {
+                    "relativeURI": [
+                        "organizations.json"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "formType": "http",
+                    "qa__formType": "rest",
+                    "strictHandlebarEvaluation": true
+                },
+                "mappings": [
+                    {
+                        "generate": "organization",
+                        "dataType": "object",
+                        "mappings": [
+                            {
+                                "extract": "{{#compare record.name \"!==\" null}} {{record.name}} {{else}} null {{/compare}}",
+                                "generate": "name",
+                                "dataType": "string"
+                            },
+                            {
+                                "extract": "$.notes",
+                                "generate": "notes",
+                                "dataType": "string"
+                            },
+                            {
+                                "generate": "organization_fields",
+                                "dataType": "object",
+                                "mappings": [
+                                    {
+                                        "generate": "phone",
+                                        "dataType": "string",
+                                        "hardCodedValue": "33335555"
+                                    },
+                                    {
+                                        "extract": "$.fax",
+                                        "generate": "fax",
+                                        "dataType": "string"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "distributed": false
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "1",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "expected": {
+            "zendesk": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "TC_001_C44479_FTP_To_REST_All_Field_Mappings",
+                "import": {
+                    "_connectionId": "HTTP ZENDESK CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "1",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "standaloneexportflowID": "57aad5298ec9f8804906006d",
+                    "uniqueField": "notes",
+                    "importRecordType": "organizations",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "edb8215601",
+                    "expectedJSON": [
+                        {
+                            "organization_fields": {
+                                "phone": "33335555",
+                                "fax": "11112222"
+                            },
+                            "notes": "Auto@TC_001_C44479_FTP_To_REST_All_Field_Mappings@gmail.com",
+                            "name": "Auto@TC_001_C44479_FTP_To_REST_All_Field_Mappings"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "FTP Export mapper2.0",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                    "fileNameStartsWith": "TC_001_C44479_FTP_To_REST_All_Field_Mappings.json"
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": true,
+                    "encoding": "utf8",
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport",
+                "qa__path": "//SFTP_uploads//TC_001_C44479_FTP_To_REST_All_Field_Mappings.json"
+            }
+        }
+    ]
+}

@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("@Author-ladimanish TC_T30859_T30867_T30885", () => {
-  test("@Env-PLATFORMTHREE @Epic-IO-63085 @Priority-P1 @Zephyr-IO-T30859 @Zephyr-IO-T30867 @Zephyr-IO-T30885 TC_T30859_T30867_T30885", async ({
+  test("@Env-PLATFORMTHREE @Env-QA  @Epic-IO-63085 @Priority-P1 @Zephyr-IO-T30859 @Zephyr-IO-T30867 @Zephyr-IO-T30885 TC_T30859_T30867_T30885", async ({
     io,
     page
   }) => {
@@ -26,40 +26,52 @@ test.describe("@Author-ladimanish TC_T30859_T30867_T30885", () => {
     await io.assert.verifyElementToBeClickable(selectors.syncPagePO.WIZARD_BACK);
 
     //T30885
-    // await io.flowBuilder.click(
-    //   selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT
-    // );
-    // await io.assert.verifyElementContainsText(
-    //   selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW,
-    //   "text to be added"
-    // );
-    // await io.flowBuilder.clickByIndex(
-    //   selectors.connectionsPagePO.HELPTEXT_CLOSE,
-    //   1
-    // );
+    //Choose destination help text
+    await io.flowBuilder.clickByIndex(
+      selectors.flowBuilderPagePO.HELP_TEXT_ICON,0
+    );
+    await io.assert.verifyElementContainsText(
+      selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW,
+      "Select the destination application that will provide data for the sync. Start typing to filter the list by application name"
+    );
+    await io.flowBuilder.click(
+      selectors.connectionsPagePO.HELPTEXT_CLOSE
+    );
 
-    // await io.flowBuilder.click(
-    //   selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT
-    // );
-    // await io.assert.verifyElementContainsText(
-    //   selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW,
-    //   "text to be added"
-    // );
-    // await io.flowBuilder.clickByIndex(
-    //   selectors.connectionsPagePO.HELPTEXT_CLOSE,
-    //   2
-    // );
+    //Connect to destination help text
+    await io.flowBuilder.clickByIndex(
+      selectors.flowBuilderPagePO.HELP_TEXT_ICON,1
+    );
+    await io.assert.verifyElementContainsText(
+      selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW,
+      "Choose an existing connection, or click the + icon to create a new connection. You can change your connection later."
+    );
+    await io.flowBuilder.click(
+      selectors.connectionsPagePO.HELPTEXT_CLOSE
+    );
 
-    // await io.flowBuilder.click(
-    //   selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT
-    // );
-    // await io.assert.verifyElementContainsText(
-    //   selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW,
-    //   "text to be added"
-    // );
-    // await io.flowBuilder.clickByIndex(
-    //   selectors.connectionsPagePO.HELPTEXT_CLOSE,
-    //   3
-    // );
+    //Database help text
+    await io.flowBuilder.clickByIndex(
+      selectors.flowBuilderPagePO.HELP_TEXT_ICON,2
+    );
+    await io.assert.verifyElementContainsText(
+      selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW,
+      "Select the destination database to store your sync data."
+    );
+    await io.flowBuilder.click(
+      selectors.connectionsPagePO.HELPTEXT_CLOSE
+    );
+
+    //Name your destination schema help text
+    await io.flowBuilder.clickByIndex(
+      selectors.flowBuilderPagePO.HELP_TEXT_ICON,3
+    );
+    await io.assert.verifyElementContainsText(
+      selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW,
+      "Give the schema an easily identifiable name. You can't use this schema for anything other than this sync, and you can't change the schema name after it is created."
+    );
+    await io.flowBuilder.click(
+      selectors.connectionsPagePO.HELPTEXT_CLOSE
+    );
   });
 });

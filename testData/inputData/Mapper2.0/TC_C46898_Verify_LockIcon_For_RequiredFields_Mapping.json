@@ -1,0 +1,85 @@
+{
+  "name": "TC_C46898_Verify_LockIcon_For_RequiredFields_Mapping",
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "disabled": false,
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "shopify imp",
+        "_connectionId": "SHOPIFY CONNECTION",
+        "distributed": false,
+        "assistant": "shopify",
+        "assistantMetadata": {
+          "resource": "customer",
+          "version": "v2",
+          "operation": "creates_acustomer",
+          "lookups": {}
+        },
+        "http": {
+          "relativeURI": [
+            "/customers.json"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [
+            null
+          ],
+          "batchSize": 1,
+          "strictHandlebarEvaluation": true,
+          "sendPostMappedData": true,
+          "response": {
+            "resourceIdPath": [
+              null
+            ]
+          }
+        },
+        "rest": {
+          "relativeURI": [
+            "/customers.json"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [
+            null
+          ],
+          "responseIdPath": [
+            null
+          ],
+          "successPath": [
+            null
+          ],
+          "successValues": [
+            null
+          ]
+        },
+        "adaptorType": "RESTImport"
+      }
+    }
+  ],
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "FTP Export TC_C47441",
+        "qa__path": "//SFTP_uploads//TC_C47441.json",
+        "_connectionId": "FTP CONNECTION",
+        "asynchronous": true,
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "TC_C47441.json"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json"
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ]
+}

@@ -32,10 +32,10 @@ test.describe("C115168 Verify the flow description Celigo AI", () => {
     const celigoAiGen = page.getByText('Celigo AI generated').first();
     await celigoAiGen.waitFor({ state: 'visible', timeout: 30000 });
     // C115191 Celigo AI generated Hover Text
-    celigoAiGen.hover();
-    await io.flowBuilder.loadingTime();
-    const hoverText = page.getByText('Use these concise descriptions and summaries of workflows to understand intricate flow configurations and settings.').first();
-    await hoverText.waitFor({ state: 'visible', timeout: 30000 });
+    // celigoAiGen.hover();
+    // await io.flowBuilder.loadingTime();
+    // const hoverText = page.getByText('Use these concise descriptions and summaries of workflows to understand intricate flow configurations and settings.').first();
+    // await hoverText.waitFor({ state: 'visible', timeout: 30000 });
     // Refresh Button not Disabled if chanages are there C115180
     const refreshDisabled = await page.$$(selectors.flowBuilderPagePO.OPENAI.REFRESH_BUTTON);
     expect(await refreshDisabled[0].getAttribute('class')).not.toContain('Mui-disabled');

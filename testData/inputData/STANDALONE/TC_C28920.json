@@ -1,0 +1,34 @@
+{
+  "pageGenerators": [],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "test",
+        "qa__connectionId": "6348e80ec888a90d58a7cf40",
+        "_connectionId": "AZURE BLOB STORAGE CONNECTION",
+        "apiIdentifier": "i9416c035b",
+        "oneToMany": false,
+        "assistant": "azurestorageaccount",
+        "sandbox": false,
+        "file": {
+          "fileName": "file-{{timestamp}}.json",
+          "skipAggregation": false,
+          "type": "json"
+        },
+        "http": {
+          "type": "file",
+          "relativeURI": ["test"],
+          "method": ["POST"],
+          "body": [],
+          "sendPostMappedData": true,
+          "formType": "assistant",
+          "response": {
+            "resourcePath": ["files"]
+          }
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ]
+}

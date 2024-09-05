@@ -1,0 +1,124 @@
+{
+  
+    "qa_importJson": {
+      "environment": "Production",
+      "name": "1TC_IAF_002_C27255",
+      "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+      "_integrationId": "626bd8fbc087e064dcc7f4bd",
+      "applications": ["netsuite","activecampaign"],
+      "framework": "twoDotZero",
+      "twoDotZero": {
+        "_integrationId": "626bd8fbc087e064dcc7f4bd"
+      }
+    },
+    "qa_expectedJson": {
+      "name": "1TC_IAF_002_C27255",
+      "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+      "published": false,
+      "managed": false,
+      "_integrationId": "626bd8fbc087e064dcc7f4bd",
+      "applications": ["netsuite","activecampaign"],
+      "framework": "twoDotZero",
+      "twoDotZero": {
+        "_integrationId": "626bd8fbc087e064dcc7f4bd",
+        "editions": []
+      }
+    },
+    "qa_editImportJson": {
+      "environment": "Production",
+      "name": "1TC_IAF_002_C27255",
+      "trialEnabled": true,
+      "trialPeriod": "30",
+      "_trialLicenseId": "624ad0c5f938b448cde27385"
+    },
+    "qa_editExpectedJson": {
+      "name": "1TC_IAF_002_C27255",
+      "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+      "published": false,
+      "managed": false,
+      "_integrationId": "626bd8fbc087e064dcc7f4bd",
+      "applications": ["ActiveCampaign"],
+      "trialEnabled": true,
+      "trialPeriod": "30",
+      "framework": "twoDotZero",
+      "twoDotZero": {
+        "_integrationId": "626bd8fbc087e064dcc7f4bd"
+      }
+    },
+    "qa_setupConnection": {
+      "integrationName":"Automation Flows_2",
+      "activecampaignSubdomain": "jnsajkcbajbfewfbkbjk",
+      "token": "jfbewjkfbefnevbelve",
+      "uninstall":"true"
+    },
+    "qa_paidLicense": {
+        "name": "1TC_IAF_002_C27255",
+        "environment": "Sandbox"
+    },
+    "qa_freeLicense": {
+        "name": "1TC_IAF_002_C27255",
+        "environment": "Production"
+    },
+    "importJson": {
+      "environment": "Production",
+      "name": "1TC_IAF_002_C27255",
+      "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+      "_integrationId": "631ab1f913d12134f47719fe",
+      "applications": ["netsuite","activecampaign"],
+      "framework": "twoDotZero",
+      "twoDotZero": {
+        "_integrationId": "626bd8fbc087e064dcc7f4bd"
+      }
+    },
+    "expectedJson": {
+      "name": "1TC_IAF_002_C27255",
+      "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+      "published": false,
+      "managed": false,
+      "_integrationId": "631ab1f913d12134f47719fe",
+      "applications": ["netsuite","activecampaign"],
+      "framework": "twoDotZero",
+      "twoDotZero": {
+        "_integrationId": "631ab1f913d12134f47719fe",
+        "editions": []
+      }
+    },
+    "editImportJson": {
+      "environment": "Production",
+      "name": "1TC_IAF_002_C27255",
+      "trialEnabled": true,
+      "trialPeriod": "30",
+      "_trialLicenseId": "624ad0c5f938b448cde27385"
+    },
+    "editExpectedJson": {
+      "name": "1TC_IAF_002_C27255",
+      "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+      "published": false,
+      "managed": false,
+      "_integrationId": "631ab1f913d12134f47719fe",
+      "applications": ["ActiveCampaign"],
+      "trialEnabled": true,
+      "trialPeriod": "30",
+      "framework": "twoDotZero",
+      "twoDotZero": {
+        "_integrationId": "631ab1f913d12134f47719fe"
+      }
+    },
+    "setupConnection": {
+      "integrationName":"Automation Flows_2",
+      "activecampaignSubdomain": "jnsajkcbajbfewfbkbjk",
+      "token": "jfbewjkfbefnevbelve",
+      "uninstall":"true"
+    },
+    "paidLicense": {
+        "name": "1TC_IAF_002_C27255",
+        "environment": "Sandbox"
+    },
+    "freeLicense": {
+        "name": "1TC_IAF_002_C27255",
+        "environment": "Production"
+    },
+    "app": "ActiveCampaign",
+    "environment": "Sandbox"
+  }
+    

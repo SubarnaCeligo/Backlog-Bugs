@@ -1,0 +1,123 @@
+{
+  "name": "TC_C24381",
+  "referencename": "TC_C24381",
+  "qa__dataVerification": {},
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Get Salesforce products 24381",
+            "description": "Get all products from Salesforce that are created since the last flow run time.",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "asynchronous": true,
+            "type": "test",
+            "oneToMany": false,
+            "parsers": [],
+            "test": {
+              "limit": 1
+            },
+            "salesforce": {
+              "type": "soql",
+              "api": "rest",
+              "soql": {
+                "query": "SELECT CreatedById,CreatedDate,Description,DisplayUrl,ExternalDataSourceId,ExternalId,Family,Id,IsActive,IsDeleted,LastModifiedById,LastModifiedDate,LastReferencedDate,LastViewedDate,Name,ProductCode,QuantityUnitOfMeasure,SystemModstamp FROM Product2"
+              },
+              "distributed": {
+                "referencedFields": [],
+                "disabled": false,
+                "relatedLists": []
+              }
+            },
+            "transform": {
+              "type": "expression",
+              "expression": {
+                "version": "1"
+              },
+              "version": "1"
+            },
+            "filter": {
+              "type": "expression",
+              "expression": {
+                "version": "1"
+              },
+              "version": "1"
+            },
+            "inputFilter": {
+              "type": "expression",
+              "expression": {
+                "version": "1"
+              },
+              "version": "1"
+            },
+            "adaptorType": "SalesforceExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Import NetSuite items",
+            "description": "Add or ignore items into NetSuite with configured custom field  as the lookup identifier.",
+            "responseTransform": {
+              "type": "expression",
+              "expression": {
+                "version": "1"
+              },
+              "version": "1"
+            },
+            "parsers": [],
+            "_connectionId": "NETSUITE CONNECTION",
+            "distributed": true,
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "dataURITemplate": "https://d5a000000by31uac-dev-ed.my.salesforce.com/01t5A000006xXUWQA2",
+            "oneToMany": false,
+            "lookups": [],
+            "netsuite_da": {
+              "useSS2Restlets": false,
+              "operation": "add",
+              "recordType": "inventoryitem",
+              "lookups": [],
+              "mapping": {
+                "fields": [],
+                "lists": []
+              }
+            },
+            "filter": {
+              "type": "expression",
+              "expression": {
+                "version": "1"
+              },
+              "version": "1"
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C24381",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

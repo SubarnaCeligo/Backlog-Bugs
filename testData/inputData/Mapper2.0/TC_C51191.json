@@ -1,0 +1,93 @@
+{
+  "name": "TC_C51191",
+  "qa__api_tdata": [
+    {
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "HTTP import",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "ied5c3c7ad",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "mappings": [
+              {
+                "extract": "123467",
+                "generate": "test",
+                "dataType": "string",
+                "status": "Active",
+                "sourceDataType": "string"
+              },
+              {
+                "extract": "$.fName",
+                "generate": "\"123456\" ",
+                "dataType": "string",
+                "status": "Active",
+                "sourceDataType": "string"
+              }
+            ],
+            "http": {
+              "relativeURI": ["users"],
+              "method": ["POST"],
+              "body": [],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+          }
+        }
+      ],
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "test",
+            "qa__path": "/FTP_uploads/TC_C51211.json",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "ec9d985883",
+            "asynchronous": true,
+            "sandbox": false,
+            "ftp": {
+              "directoryPath": "/test",
+              "fileNameStartsWith": "test"
+            },
+            "file": {
+              "output": "records",
+              "skipDelete": true,
+              "type": "json"
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C51191",
+        "disabled": true,
+        "skipRetries": false,
+        "qa__integrationId": "56d6b23fe1fc35de53914730",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW",
+            "skipRetries": false
+          }
+        ]
+      }
+    }
+  ],
+  "ExpectedData": {"test":"123467","\"123456\"":"scott"}
+}

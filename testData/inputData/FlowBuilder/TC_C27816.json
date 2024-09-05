@@ -1,0 +1,107 @@
+{
+    "name": "TC_C27816",
+    "referencename": "TC_C27816",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Shopify customer export",
+                        "application": "shopify",
+                        "_connectionId": "HTTP SHOPIFY CONNECTION",
+                        "apiIdentifier": "e5eb7fd0ef",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "http": {
+                            "relativeURI": "/customers.json",
+                            "method": "GET",
+                            "formType": "http",
+                            "response": {
+                                "resourcePath": "customers"
+                            }
+                        },
+                        "test": {
+                            "limit": 1
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Shopify customer export",
+                        "application": "shopify",
+                        "_connectionId": "HTTP SHOPIFY CONNECTION",
+                        "apiIdentifier": "e5eb7fd0ef",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "http": {
+                            "relativeURI": "/customers.json",
+                            "method": "GET",
+                            "formType": "http",
+                            "response": {
+                                "resourcePath": "customers"
+                            }
+                        },
+                        "test": {
+                            "limit": 1
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                },
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Netsuite customer import",
+                        "parsers": [],
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "distributed": true,
+                        "lookups": [],
+                        "netsuite_da": {
+                            "useSS2Restlets": false,
+                            "operation": "add",
+                            "recordType": "customer",
+                            "lookups": [],
+                            "mapping": {
+                                "fields": [],
+                                "lists": []
+                            }
+                        },
+                        "adaptorType": "NetSuiteDistributedImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C27816",
+                "disabled": false,
+                "_integrationId": "62ecc42648570015ab65cfa5",
+                "qa__integrationId": "62eca1efe386b563f638451e",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    },
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

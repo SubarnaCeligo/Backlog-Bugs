@@ -1,0 +1,183 @@
+{
+    "name": "TC_C20762",
+    "disabled": false,
+    "_integrationId": "603ce75ac4fec33283691f43",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "59",
+        "errorCount": "0"
+    },
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "20762",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/FTP_EXPORTS",
+                    "fileNameStartsWith": "TC_C20762_2"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "adaptorType": "FTPExport",
+                "qa__path": "//FTP_uploads//TC_C20762.json"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "Netsuite customer import",
+                "_connectionId": "NETSUITE CONNECTION",
+                "adaptorType": "NetSuiteDistributedImport",
+                "distributed": true,
+                "lookups": [],
+                "netsuite_da": {
+                    "recordType": "customer",
+                    "internalIdLookup": {
+                        "expression": "[\"email\",\"is\",\"{{{email}}}\"]",
+                        "qa__expression": [
+                            [
+                                "email",
+                                "is",
+                                "{{{email}}}"
+                            ]
+                        ]
+                    },
+                    "operation": "addupdate",
+                    "lookups": [
+                        {
+                            "name": "dynamic",
+                            "recordType": "customer",
+                            "resultField": "externalid",
+                            "expression": "[\"internalidnumber\",\"equalto\",\"{{{[Internal ID]}}}\"]",
+                            "qa__expression": [
+                                [
+                                    "internalidnumber",
+                                    "equalto",
+                                    "{{{[Internal ID]}}}"
+                                ]
+                            ],
+                            "allowFailures": false
+                        }
+                    ],
+                    "mapping": {
+                        "fields": [
+                            {
+                                "generate": "phone",
+                                "extract": "Phone",
+                                "internalId": false
+                            },
+                            {
+                                "generate": "mobilephone",
+                                "extract": "Phone",
+                                "internalId": false
+                            },
+                            {
+                                "generate": "email",
+                                "extract": "email",
+                                "internalId": false
+                            },
+                            {
+                                "extract": "Billing State.Province",
+                                "generate": "Billing State.Province"
+                            },
+                            {
+                                "generate": "salesrep",
+                                "extract": "['Sales Rep']",
+                                "internalId": false
+                            },
+                            {
+                                "generate": "custentity15",
+                                "extract": "['Search Engine']",
+                                "internalId": false
+                            },
+                            {
+                                "generate": "custentity14",
+                                "extract": "['Keyword Search']",
+                                "internalId": false
+                            },
+                            {
+                                "generate": "custentity13",
+                                "extract": "Medium",
+                                "internalId": false,
+                                "discardIfEmpty": false,
+                                "immutable": false
+                            },
+                            {
+                                "generate": "subsidiary",
+                                "discardIfEmpty": false,
+                                "immutable": false,
+                                "hardCodedValue": "4",
+                                "internalId": true
+                            },
+                            {
+                                "generate": "isperson",
+                                "discardIfEmpty": false,
+                                "immutable": false,
+                                "hardCodedValue": "true",
+                                "internalId": false
+                            },
+                            {
+                                "generate": "lastname",
+                                "discardIfEmpty": false,
+                                "immutable": false,
+                                "internalId": false,
+                                "hardCodedValue": "sharma"
+                            },
+                            {
+                                "generate": "externalid",
+                                "extract": "externalid",
+                                "discardIfEmpty": false,
+                                "immutable": false,
+                                "lookupName": "dynamic",
+                                "internalId": false
+                            },
+                            {
+                                "generate": "firstname",
+                                "discardIfEmpty": false,
+                                "immutable": false,
+                                "hardCodedValue": "Keertana",
+                                "internalId": false
+                            }
+                        ],
+                        "lists": [
+                            {
+                                "generate": "_billing_addressbook",
+                                "fields": [
+                                    {
+                                        "generate": "addr1",
+                                        "extract": "['Billing Address 1']",
+                                        "internalId": false
+                                    },
+                                    {
+                                        "generate": "city",
+                                        "extract": "['Billing City']",
+                                        "internalId": false
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "filter": {
+                        "type": "expression",
+                        "expression": {
+                            "version": "1"
+                        },
+                        "version": "1"
+                    }
+                }
+            }
+        }
+    ]
+}

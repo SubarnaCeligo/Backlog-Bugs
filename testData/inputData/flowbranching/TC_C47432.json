@@ -1,0 +1,84 @@
+{
+    "name": "TC_C47432",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "timezone": "Asia/Calcutta",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "TC_C47432_SF",
+                "_connectionId": "SALESFORCE CONNECTION",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "sandbox": false,
+                "test": {
+                    "limit": 1
+                },
+                "salesforce": {
+                    "type": "soql",
+                    "api": "rest",
+                    "soql": {
+                        "query": "Select name, id from Account"
+                    }
+                },
+                "adaptorType": "SalesforceExport"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "LLEHfr",
+            "routeRecordsTo": "first_matching_branch",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "inputFilter": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "id"
+                                ]
+                            ],
+                            "223"
+                        ]
+                    },
+                    "pageProcessors": [
+                        {
+                            "type": "import",
+                            "qa__import": {
+                                "name": "Name",
+                                "application": "shopify",
+                                "_connectionId": "HTTP SHOPIFY CONNECTION",
+                                "ignoreExisting": false,
+                                "ignoreMissing": false,
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "http": {
+                                    "relativeURI": [],
+                                    "method": [
+                                        "PUT"
+                                    ],
+                                    "body": [],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branchRouter"
+            }
+        }
+    ]
+}

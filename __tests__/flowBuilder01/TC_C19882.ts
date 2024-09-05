@@ -5,7 +5,7 @@ test.describe("C19882_verify user can able to view number of resolved errors sub
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C19882_verify user can able to view number of resolved errors submitted UI_Backlog @Env-All @Priority-P2", async ({ io, page, }) => {
+    test("C19882_verify user can able to view number of resolved errors submitted UI_Backlog @Env-All @Priority-P2 @Zephyr-IO-T19882", async ({ io, page, }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "Tags 1000 errors- Mysql to mysql flow1_DND");
         await io.homePage.addStep("*** Searched for the integration ***");
@@ -19,6 +19,12 @@ test.describe("C19882_verify user can able to view number of resolved errors sub
         await io.homePage.addStep("*** Running the flow ***");
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.reloadPage()
+        await io.flowBuilder.reloadPage()
+        await io.flowBuilder.reloadPage()
         await io.flowBuilder.waitForElementAttached(selectors.basePagePO.RUNFLOW);
         await io.homePage.addStep("*** Flow ran successfully ***");
         await io.flowBuilder.loadingTime();

@@ -1,0 +1,83 @@
+{
+    "name": "TC_20878_NS_FTP_FLOW",
+    "referencename": "TC_20878_NS_FTP_FLOW",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Netsuite Export",
+                        "_connectionId": "628f00568f68e85ab2c63b22",
+                        "apiIdentifier": "e7bef86658",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "recordType": "account",
+                                "searchId": "1973",
+                                "criteria": [],
+                                "columns": [],
+                                "useSS2Restlets": false
+                            },
+                            "distributed": {
+                                "executionContext": [],
+                                "executionType": [],
+                                "useSS2Framework": false
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+				"name": "FTP Import",
+				"parsers": [],
+				"_connectionId": "FTP CONNECTION",
+				"apiIdentifier": "i70fa08883",
+				"oneToMany": false,
+				"sandbox": false,
+				"file": {
+					"fileName": "TC_C20878.json",
+					"skipAggregation": false,
+					"type": "json"
+				},
+				"ftp": {
+					"directoryPath": "/io.auto.qa/IO_UI_Automation",
+					"fileName": "TC_C20878.json"
+				},
+				"adaptorType": "FTPImport"
+			}
+                }
+            ],
+            "createFlow": {
+                "name": "TC_20878_NS_FTP_FLOW",
+                "disabled": false,
+                "_integrationId": "6228aed6bc8a2732cfe8044c",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

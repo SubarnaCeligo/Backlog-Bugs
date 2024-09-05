@@ -1,0 +1,103 @@
+{
+  "name": "NS_NS_flow",
+  "referencename": "NS_NS_flow",
+  "qa__dataVerification": {},
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "NS export",
+            "qa__connectionId": "628f00568f68e85ab2c63b22",
+            "_connectionId": "NETSUITE CONNECTION",
+            "apiIdentifier": "efcc384366",
+            "asynchronous": true,
+            "type": "distributed",
+            "oneToMany": false,
+            "sandbox": false,
+            "distributed": {
+              "bearerToken": "******"
+            },
+            "netsuite": {
+              "type": "distributed",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "criteria": [],
+                "columns": []
+              },
+              "distributed": {
+                "recordType": "account",
+                "executionContext": [
+                  "userinterface",
+                  "webstore"
+                ],
+                "executionType": [
+                  "create",
+                  "edit",
+                  "xedit"
+                ],
+                "sublists": [],
+                "useSS2Framework": false
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "NS import",
+            "qa__connectionId": "628f00568f68e85ab2c63b22",
+            "_connectionId": "NETSUITE CONNECTION",
+            "distributed": true,
+            "apiIdentifier": "ib5a04ee6a",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [],
+            "netsuite_da": {
+              "useSS2Restlets": false,
+              "operation": "addupdate",
+              "recordType": "salesorder",
+              "internalIdLookup": {
+                "expression": "[\"avsstreetmatch\",\"noneof\",\"{{{acctnumber}}}\"]"
+              },
+              "lookups": [],
+              "mapping": {
+                "fields": [],
+                "lists": []
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "NS_NS_flow",
+        "disabled": false,
+        "_integrationId": "6228aed6bc8a2732cfe8044c",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

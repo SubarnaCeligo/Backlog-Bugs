@@ -1,0 +1,75 @@
+{
+    "name": "TC_C33443",
+    "referencename": "TC_C33443",
+    "qa__dataVerification": {},
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "TC_C33443_SF",
+                        "_connectionId": "SALESFORCE CONNECTION",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "test": {
+                            "limit": 1
+                        },
+                        "salesforce": {
+                            "type": "soql",
+                            "api": "rest",
+                            "soql": {
+                                "query": "Select name, id from Account"
+                            }
+                        },
+                        "adaptorType": "SalesforceExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "TC_C33443_FTP",
+                        "_connectionId": "FTP CONNECTION",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "file": {
+                            "fileName": "TC_C33433.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "io.auto.qa/IO_UI_Automation",
+                            "fileName": "TC_C33443.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C33443",
+                "disabled": false,
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

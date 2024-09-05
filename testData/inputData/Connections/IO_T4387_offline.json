@@ -4,7 +4,7 @@
   "offline": true,
   "sandbox": false,
   "ftp": {
-    "type": "ftp",
+    "type": "sftp",
     "hostURI": "qa.ipaas2.net",
     "port": 21,
     "usePassiveMode": true,

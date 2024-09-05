@@ -9,8 +9,9 @@ test.describe("TC_T11538 CSV generator helper: Verify the save is working well",
     await io.homePage.loadingTime();
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Tools", "Flow builder");
+    await io.homePage.loadingTime()
     await io.homePage.click(selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP);
-
+    await io.homePage.loadingTime()
     await io.flowBuilder.addStep('*** Creating a FTP Import from flowbuilder and launching csv parser generator ***')
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'FTP');
     await io.flowBuilder.clickByText('FTP');
@@ -38,6 +39,7 @@ test.describe("TC_T11538 CSV generator helper: Verify the save is working well",
     await io.assert.expectToContainValue(sampleData, "\"title\",\"author\",\"genre\",\"published_year\",\"rating\"\"A Good Girl's Guide to Murder\",\"Holly Jackson\",\"Mystery\",\"2019\",\"4.5\"\"One of Us Is Lying\",\"Karen M. McManus\",\"Mystery\",\"2017\",\"4.3\"\"Death on the Nile\",\"Agatha Christie\",\"Mystery\",\"1937\",\"4.6\"\"And Then There Were None\",\"Agatha Christie\",\"Mystery\",\"1939\",\"4.7\"\"Project Hail Mary\",\"Andy Weir\",\"Science Fiction\",\"2021\",\"4.8\"", 'Incorrect preview')
 
     await io.flowBuilder.clickByIndex(selectors.basePagePO.SAVE, 1);
+    await io.homePage.loadingTime()
     await io.flowBuilder.clickByTextByIndex('Include header', 1, { exact: false });
     await io.flowBuilder.loadingTime();
     sampleData =  (await io.exportsPage.getText(selectors.basePagePO.RESULT_PREVIEW_CONTENT)).toString();

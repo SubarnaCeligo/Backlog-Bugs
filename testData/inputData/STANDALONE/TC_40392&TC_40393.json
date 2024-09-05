@@ -1,0 +1,51 @@
+{
+    "name": "TC_C40392&TC_C40393_Flow",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Http Export",
+                        "application": "zendesk support",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "eefcd6a434",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "parsers": [
+                            {
+                                "type": "xml",
+                                "version": "1",
+                                "rules": {
+                                    "V0_json": true,
+                                    "stripNewLineChars": false,
+                                    "trimSpaces": false
+                                }
+                            }
+                        ],
+                        "http": {
+                            "relativeURI": "/users",
+                            "method": "GET",
+                            "formType": "http"
+                        },
+                        "rawData": "61e68956b587067a214ac5eddcef414602344e2aa931d6f2c2f79af8",
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C40392&TC_C40393_Flow",
+                "disabled": false,
+                "_integrationId": "6228aed6bc8a2732cfe8044c",
+                "skipRetries": false,
+                "pageGenerators": [
+                    {
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

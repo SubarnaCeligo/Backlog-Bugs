@@ -1,0 +1,43 @@
+{
+    "name": "Errored_Export",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+                "_connectionId": "SALESFORCE CONNECTION",
+                "apiIdentifier": "e4ae2f4fad",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "parsers": [],
+                "salesforce": {
+                  "type": "soql",
+                  "api": "rest",
+                  "soql": {
+                    "query": "select na@@me from account"
+                  },
+                  "distributed": {
+                  "referencedFields": [],
+                  "relatedLists": []
+                  }
+                },
+                "adaptorType": "SalesforceExport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "Errored_Export",
+          "_integrationId": "6228aed6bc8a2732cfe8044c",
+          "disabled": false,
+          "skipRetries": false,
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

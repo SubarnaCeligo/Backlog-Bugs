@@ -1,0 +1,39 @@
+{
+    "qa_importJson": {
+        "_connectorid":"626bd797987bb423914b4800",
+        "name": "TC_IAF_007_C25931_C27256",
+        "_id": "62710b09ec56d555ce443016",
+        "sandbox": true,
+        "user": {
+            "email": "io.auto.flowgrouping.qa@celigo.com",
+            "_id": "6243fafe42b2f435fddb6831",
+            "name": "Flow grouping",
+            "company": "IAF2.0 | FLOW GROUPING"
+        },
+        "type": "integrationApp",
+        "trialEndDate": "currentDate123"
+    },
+    "importJson": {
+        "_connectorid":"631f189d798cc1729e8b33cc",
+        "name": "TC_IAF_007_C25931_C27256",
+        "_id": "631f19ca4281e504953f67a2",
+        "sandbox": true,
+        "user": {
+            "email": "io.auto.flowgrouping.qa@celigo.com",
+            "_id": "6243fafe42b2f435fddb6831",
+            "name": "Flow grouping",
+            "company": "IAF2.0 | FLOW GROUPING"
+        },
+        "type": "integrationApp",
+        "trialEndDate": "currentDate123"
+    },
+    "expectedJson": {
+        "errors": [
+            {
+                "field": "trialEndDate",
+                "code": "invalid_field",
+                "message": "Cast to date failed for value \"currentDate123\" at path \"trialEndDate\""
+            }
+        ]
+    }
+}

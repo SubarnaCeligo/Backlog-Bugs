@@ -1,0 +1,109 @@
+{
+  "name": "TC_C1626",
+  "referencename": "TC_C1626",
+  "qa__dataVerification": {},
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "AutomationStandaloneExport_232lk4lssG",
+            "_connectionId": "FTP CONNECTION",
+            "asynchronous": true,
+            "sandbox": false,
+            "sampleData": [
+              {
+                "adjustmentlocation": "New York",
+                "date": "10-10-2020",
+                "subsidiary": 3,
+                "lines": [
+                  {
+                    "3plquantity": 5,
+                    "location": 7,
+                    "netsuiteitem": "LOT00001",
+                    "netsuitequantity": 6,
+                    "variance": 1
+                  },
+                  {
+                    "3plquantity": 8,
+                    "location": 7
+                  }
+                ]
+              }
+            ],
+            "ftp": {
+              "directoryPath": "/io.auto.qa/FTP_EXPORTS",
+              "fileNameStartsWith": "s1"
+            },
+            "file": {
+              "output": "records",
+              "skipDelete": true,
+              "type": "json",
+              "json": {
+                "resourcePath": "*"
+              }
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "AutomationStandaloneExport_232lk4lssG",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "mappings": [
+              {
+                "extract": "$.date",
+                "generate": "date",
+                "status": "Active",
+                "dataType": "string"
+              }
+            ],
+            "http": {
+              "relativeURI": [
+                "/ticket.json"
+              ],
+              "method": [
+                "POST"
+              ],
+              "body": [],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C1626",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

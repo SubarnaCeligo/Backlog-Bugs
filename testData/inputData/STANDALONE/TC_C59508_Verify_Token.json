@@ -1,0 +1,119 @@
+{
+    "name": "TC_C59508",
+    "referencename": "TC_C59508",
+    "qa__token": "123789",
+    "importRecordJSON": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><record><object>product</object><description>webhook XML</description><name>TC_542_Webhook_Export_Token_XML_to_FTP</name><token>123789</token></record>",
+    "FTP": {
+        "name": "TC_C59508",
+        "qa__integrationId": "63232caf5342c33e615e7271",
+        "_integrationId": "63232c59d3a9897fe95f9f2a",
+        "import": {
+            "_connectionId": "FTP CONNECTION",
+            "file": {
+                "csv": {
+                    "columnDelimiter": ","
+                }
+            }
+        },
+        "qa__expectedDashboardCount": {
+            "successCount": "1",
+            "ignoreCount": "0",
+            "errorCount": "0"
+        },
+        "qa__dataVerification": {
+            "generateSampleDropDownAvailable": false,
+            "fileName": "Token",
+            "folderName": "/io.auto.qa/IO_UI_Automation",
+            "fileType": ".csv"
+        }
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "webhook xml",
+                        "type": "webhook",
+                        "qa__token": "123789",
+                        "sandbox": false,
+                        "webhook": {
+                          "provider": "custom",
+                          "verify": "token",
+                          "token": "123789",
+                          "path": "/record/token"
+                        },
+                        "adaptorType": "WebhookExport"
+                      }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Ftp Import",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "ic3a361949",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "file": {
+                            "fileName": "Token.csv",
+                            "skipAggregation": false,
+                            "type": "csv",
+                            "csv": {
+                                "rowDelimiter": "\n",
+                                "columnDelimiter": ",",
+                                "includeHeader": true,
+                                "wrapWithQuotes": false,
+                                "replaceTabWithSpace": false,
+                                "replaceNewlineWithSpace": false,
+                                "truncateLastRowDelimiter": false
+                            }
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                            "fileName": "Token.csv"
+                        },
+                        "filter": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [],
+                                "version": "1"
+                            },
+                            "version": "1",
+                            "rules": []
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C59508",
+                "disabled": false,
+                "qa__integrationId": "63232caf5342c33e615e7271",
+                "_integrationId": "63232c59d3a9897fe95f9f2a",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    }
+}

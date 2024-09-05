@@ -1,0 +1,99 @@
+{
+  "name": "TC_C27566",
+  "referencename": "TC_C27566",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "FTP Export TC_C27566",
+            "_connectionId": "FTP CONNECTION",
+            "asynchronous": true,
+            "sandbox": false,
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+              "fileNameStartsWith": "TC_C27566",
+              "fileNameEndsWith": ".json"
+            },
+            "file": {
+              "encoding": "utf8",
+              "output": "records",
+              "skipDelete": true,
+              "type": "json"
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "ZD EXPORT",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "eaed929ed0",
+            "asynchronous": true,
+            "isLookup": true,
+            "oneToMany": true,
+            "pathToMany": "user_fields",
+            "traceKeyTemplate": "{{join '/' record.email}}",
+            "http": {
+              "relativeURI": "/userscheck",
+              "method": "GET",
+              "formType": "http"
+            },
+            "adaptorType": "HTTPExport"
+          }
+        },
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Zendesk import",
+            "application":"zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "i087c4a05d",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "http": {
+              "relativeURI": ["/users"],
+              "method": ["POST"],
+              "body": [],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C27566",
+        "disabled": false,
+        "qa__integrationId": "62eca1efe386b563f638451e",
+        "_integrationId": "62ecc42648570015ab65cfa5",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "type": "export",
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          },
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

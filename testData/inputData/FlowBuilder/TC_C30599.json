@@ -1,0 +1,94 @@
+{
+    "name": "TC_C30599",
+    "referencename": "TC_C30599",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "application": "MySQL",
+                "name": "AutomationStandaloneExport__SSrVBCSX17",
+                "_connectionId": "MYSQL CONNECTION",
+                "apiIdentifier": "e185e3bced",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "sandbox": false,
+                "rawData": "62ebb431e627016182cf339196cef07686bd4d0f9a25a3e644fab08d",
+                "test": {
+                    "limit": 1
+                },
+                "rdbms": {
+                    "query": "select * from mysqldev.MYSQL_Import_InsertorUpdate_lookup LIMIT 2"
+                },
+                "adaptorType": "RDBMSExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+                "name": "MySQL Import",
+                "application": "MySQL",
+                "_connectionId": "MYSQL CONNECTION",
+                "apiIdentifier": "i2af806380",
+                "ignoreExisting": true,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "lookups": [
+                    {
+                        "query": "SELECT * FROM mysqldev.MYSQL_Import_InsertorUpdate_lookup Where Name={{data.Name}};",
+                        "extract": "Name",
+                        "allowFailures": false,
+                        "name": "nameoflookup"
+                    }
+                ],
+                "rdbms": {
+                    "query": [
+                        "insert into mysqldev.MYSQL_Import_InsertorUpdate_lookup"
+                    ],
+                    "queryType": [
+                        "INSERT"
+                    ],
+                    "ignoreLookupName": "nameoflookup",
+                    "lookups": [
+                        {
+                            "query": "SELECT * FROM mysqldev.MYSQL_Import_InsertorUpdate_lookup Where Name={{data.Name}};",
+                            "extract": "Name",
+                            "allowFailures": false,
+                            "name": "nameoflookup"
+                        }
+                    ]
+                },
+                "adaptorType": "RDBMSImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C30599",
+          "disabled": false,
+          "_integrationId": "62ecc42648570015ab65cfa5",
+          "qa__integrationId": "62eca1efe386b563f638451e",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

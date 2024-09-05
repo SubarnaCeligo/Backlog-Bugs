@@ -1,0 +1,122 @@
+{
+    "skipRetries": false,
+    "_integrationId": "63073532f3062a3f169e2dff",
+    "name": "TC_C36443_SP_API",
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "_id": "6334360e22afdf34372f0116",
+                "createdAt": "2022-09-28T11:54:54.437Z",
+                "lastModified": "2022-09-28T11:54:54.506Z",
+                "name": "TC_C36443_MWS",
+                "_connectionId": "S3 CONNECTION",
+                "apiIdentifier": "i657b506a2",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "TC_C36443_SP_API.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "s3": {
+                    "region": "us-east-1",
+                    "bucket": "io-automation",
+                    "fileKey": "TC_C36443_SP_API.json"
+                },
+                "adaptorType": "S3Import",
+                "mappings": [
+                    {
+                        "generate": "buyer_email",
+                        "dataType": "stringarray",
+                        "status": "Active",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$.BuyerInfo.BuyerEmail"
+                            }
+                        ]
+                    },
+                    {
+                        "generate": "amazon_orderID",
+                        "dataType": "stringarray",
+                        "status": "Active",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$.AmazonOrderId"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ],
+    "timezone": "Asia/Calcutta",
+    "disabled": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "20",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "s3": {
+                "name": "TC_C36443_SP_API",
+                "_integrationId": "63073532f3062a3f169e2dff",
+                "import": {
+                  "_connectionId": "S3 CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                  "successCount": "20",
+                  "ignoreCount": "0",
+                  "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                  "fileName": "TC_C36443_SP_API",
+                  "isUIFlow": true,
+                  "bucketName": "io-automation",
+                  "fileType": ".json"
+                }
+              }
+        }
+    },
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "_id": "6334281622afdf34372efd6c",
+                "createdAt": "2022-09-28T10:55:18.498Z",
+                "lastModified": "2022-09-28T11:01:09.514Z",
+                "application": "Shopify",
+                "name": "AutomationStandaloneExport__4WLoWRGIww",
+                "unencrypted": {
+                    "apiType": "Amazon-SP-API"
+                },
+                "_connectionId": "AMAZON SP API CONNECTION",
+                "apiIdentifier": "e57fe05cb4",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "parsers": [
+                    {
+                        "type": "xml",
+                        "version": "1",
+                        "rules": {
+                            "V0_json": true,
+                            "stripNewLineChars": false,
+                            "trimSpaces": false
+                        }
+                    }
+                ],
+                "http": {
+                    "relativeURI": "/orders/v0/orders?MarketplaceIds={{connection.http.unencrypted.marketplaceId}}&CreatedAfter=2020-01-01",
+                    "method": "GET",
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "payload.Orders"
+                    }
+                },
+                "rawData": "56d6b114e1fc35de5391472c92d790b62fb24b7e87e83a2b005eb398",
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ]
+}

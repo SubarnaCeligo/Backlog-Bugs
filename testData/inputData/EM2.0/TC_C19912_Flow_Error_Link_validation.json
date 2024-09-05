@@ -1,0 +1,50 @@
+{
+  "name": "TC_C19912_Flow_Error_Link_validation",
+  "disabled": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "254 FTPexport",
+        "adaptorType": "FTPExport",
+        "ftp": {
+          "directoryPath": "/io.auto.qa/FTP_EXPORTS",
+          "fileNameStartsWith": "TC_C36518.json"
+        },
+        "file": {
+          "output": "records",
+          "skipDelete": true,
+          "json": {
+            "resourcePath": "*"
+          },
+          "encoding": "utf8",
+          "type": "json"
+        },
+        "asynchronous": true,
+        "_connectionId": "FTP CONNECTION",
+        "qa__path": "/FTP_uploads/TC_C36518.json"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "qa__import": {
+        "name": "TC_C19912_Flow_Error_Link_validation",
+        "parsers": [],
+        "_connectionId": "FTP CONNECTION",
+        "file": {
+          "fileName": "sample.json",
+          "skipAggregation": false,
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "testtest",
+          "fileName": "sample.json"
+        },
+        "adaptorType": "FTPImport"
+      },
+      "type": "import"
+    }
+  ]
+}

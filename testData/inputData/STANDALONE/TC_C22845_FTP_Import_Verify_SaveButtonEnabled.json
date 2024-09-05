@@ -1,0 +1,95 @@
+{
+  "name": "FTP import",
+  "disabled": false,
+  "_integrationId": "6228aed6bc8a2732cfe8044c",
+  "timezone": "Asia/Calcutta",
+  "skipRetries": false,
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "_connectionId": "FTP CONNECTION",
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "FTP_Trns_Filter.json"
+        },
+        "qa__path": "//FTP_uploads//FTP_Trns_Filter.json",
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json"
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "FTP Import",
+        "parsers": [],
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "if4bd598f3",
+        "oneToMany": false,
+        "sandbox": false,
+        "file": {
+          "fileName": "TC_C28845.csv",
+          "skipAggregation": false,
+          "type": "csv",
+          "csv": {
+            "rowDelimiter": "\n",
+            "columnDelimiter": ",",
+            "includeHeader": true,
+            "wrapWithQuotes": false,
+            "replaceTabWithSpace": false,
+            "replaceNewlineWithSpace": false,
+            "truncateLastRowDelimiter": false
+          }
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPImports",
+          "fileName": "TC_C28845.csv"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "qa__samplefile": {
+    "batch_of_records": [
+      {
+        "record": {
+          "myField": "sample123"
+        }
+      },
+      {
+        "record": {
+          "myField": "sample456"
+        }
+      },
+      {
+        "record": {
+          "myField": "sample5"
+        }
+      },
+      {
+        "record": {
+          "myField": "sample2"
+        }
+      },
+      {
+        "record": {
+          "myField": "sample"
+        }
+      }
+    ],
+    "settings": {
+      "integration": {},
+      "flow": {},
+      "flowGrouping": {},
+      "connection": {},
+      "import": {}
+    }
+  }
+}

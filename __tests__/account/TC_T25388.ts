@@ -20,7 +20,7 @@ test.describe("T25388 Verify UX changes when we don't have any integration selec
         selectors.myAccountPagePO.INVITE_USER_EMAIL,
         "qaautomation1+emailcheck@celigo.com"
       );
-      await io.myAccountPage.click(selectors.integrationPagePO.CUSTOM);
+      await io.myAccountPage.clickByText("Custom");
       await io.myAccountPage.click(selectors.basePagePO.INVITEUSER2);
       const errorMessage = (
         await io.homePage.getText(selectors.basePagePO.INTEGRATIONSTOMONITOR)

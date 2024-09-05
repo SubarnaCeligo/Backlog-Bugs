@@ -1,0 +1,108 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "name": "TC_C44502",
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "qa__import": {
+        "name": "TC_C44502_import",
+        "createdAt": "2024-08-26T10:50:52.381Z",
+        "lastModified": "2024-08-26T10:54:33.881Z",
+        "qa__connectionId": "66c5724c55a0585788e4c996",
+        "_connectionId": "SHOPIFY CONNECTION",
+        "apiIdentifier": "ic09c0f354",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "assistant": "shopify",
+        "sandbox": false,
+        "mappings": [
+          {
+            "generate": "arr1",
+            "dataType": "objectarray",
+            "status": "Active",
+            "buildArrayHelper": [
+              {
+                "extract": "$.tickets[*]",
+                "sourceDataType": "objectarray",
+                "mappings": [
+                  {
+                    "extract": "$.tickets.url",
+                    "generate": "pom",
+                    "dataType": "string",
+                    "status": "Active",
+                    "sourceDataType": "string"
+                  },
+                  {
+                    "extract": "ID-{{record.tickets.id}}",
+                    "generate": "id",
+                    "dataType": "string",
+                    "conditional": {
+                      "when": "extract_not_empty"
+                    },
+                    "status": "Active",
+                    "sourceDataType": "string"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "http": {
+          "relativeURI": [
+            "/orders.json"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [],
+          "requestMediaType": "json",
+          "successMediaType": "json",
+          "errorMediaType": "json",
+          "strictHandlebarEvaluation": false,
+          "sendPostMappedData": true,
+          "_httpConnectorResourceId": "66bc4e7d43dac735cad191a9",
+          "_httpConnectorEndpointIds": [
+            "66bc4e7d43dac735cad1927d"
+          ],
+          "isRest": false,
+          "formType": "assistant"
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "TC_C44502_export",
+        "_connectionId": "HTTP ZENDESK",
+        "apiIdentifier": "e5ac689505",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": "tickets",
+          "method": "GET",
+          "isRest": false,
+          "formType": "http",
+          "response": {
+            "twoDArray": {
+              "doNotNormalize": false,
+              "hasHeader": false
+            }
+          }
+        },
+        "rawData": "66c572314424cd63a8ef5ab8fe468f7741e541ae8f2e337aa0021d9d",
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ],
+  "expectedPreviewData": "\"{\"arr1\":[{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/1.json\",\"id\":\"ID-1\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/2.json\",\"id\":\"ID-2\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/4.json\",\"id\":\"ID-4\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/8.json\",\"id\":\"ID-8\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/12.json\",\"id\":\"ID-12\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/14.json\",\"id\":\"ID-14\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/15.json\",\"id\":\"ID-15\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/16.json\",\"id\":\"ID-16\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/17.json\",\"id\":\"ID-17\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/18.json\",\"id\":\"ID-18\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/19.json\",\"id\":\"ID-19\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/20.json\",\"id\":\"ID-20\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/21.json\",\"id\":\"ID-21\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/22.json\",\"id\":\"ID-22\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/24.json\",\"id\":\"ID-24\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/25.json\",\"id\":\"ID-25\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/26.json\",\"id\":\"ID-26\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/28.json\",\"id\":\"ID-28\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/29.json\",\"id\":\"ID-29\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/30.json\",\"id\":\"ID-30\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/31.json\",\"id\":\"ID-31\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/32.json\",\"id\":\"ID-32\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/33.json\",\"id\":\"ID-33\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/34.json\",\"id\":\"ID-34\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/35.json\",\"id\":\"ID-35\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/36.json\",\"id\":\"ID-36\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/38.json\",\"id\":\"ID-38\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/39.json\",\"id\":\"ID-39\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/40.json\",\"id\":\"ID-40\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/41.json\",\"id\":\"ID-41\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/51.json\",\"id\":\"ID-51\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/52.json\",\"id\":\"ID-52\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/53.json\",\"id\":\"ID-53\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/54.json\",\"id\":\"ID-54\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/785.json\",\"id\":\"ID-785\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/789.json\",\"id\":\"ID-789\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/790.json\",\"id\":\"ID-790\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/791.json\",\"id\":\"ID-791\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/792.json\",\"id\":\"ID-792\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/793.json\",\"id\":\"ID-793\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/794.json\",\"id\":\"ID-794\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/795.json\",\"id\":\"ID-795\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/796.json\",\"id\":\"ID-796\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/797.json\",\"id\":\"ID-797\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/798.json\",\"id\":\"ID-798\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/799.json\",\"id\":\"ID-799\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/800.json\",\"id\":\"ID-800\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/801.json\",\"id\":\"ID-801\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/802.json\",\"id\":\"ID-802\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/803.json\",\"id\":\"ID-803\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/804.json\",\"id\":\"ID-804\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/805.json\",\"id\":\"ID-805\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/806.json\",\"id\":\"ID-806\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/807.json\",\"id\":\"ID-807\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/808.json\",\"id\":\"ID-808\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/809.json\",\"id\":\"ID-809\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/810.json\",\"id\":\"ID-810\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/811.json\",\"id\":\"ID-811\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/812.json\",\"id\":\"ID-812\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/813.json\",\"id\":\"ID-813\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/814.json\",\"id\":\"ID-814\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/815.json\",\"id\":\"ID-815\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/816.json\",\"id\":\"ID-816\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/817.json\",\"id\":\"ID-817\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/818.json\",\"id\":\"ID-818\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/819.json\",\"id\":\"ID-819\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/820.json\",\"id\":\"ID-820\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/821.json\",\"id\":\"ID-821\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/822.json\",\"id\":\"ID-822\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/823.json\",\"id\":\"ID-823\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/824.json\",\"id\":\"ID-824\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/825.json\",\"id\":\"ID-825\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/826.json\",\"id\":\"ID-826\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/827.json\",\"id\":\"ID-827\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/828.json\",\"id\":\"ID-828\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/829.json\",\"id\":\"ID-829\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/830.json\",\"id\":\"ID-830\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/831.json\",\"id\":\"ID-831\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/832.json\",\"id\":\"ID-832\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/833.json\",\"id\":\"ID-833\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/834.json\",\"id\":\"ID-834\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/835.json\",\"id\":\"ID-835\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/836.json\",\"id\":\"ID-836\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/837.json\",\"id\":\"ID-837\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/838.json\",\"id\":\"ID-838\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/839.json\",\"id\":\"ID-839\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/840.json\",\"id\":\"ID-840\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/841.json\",\"id\":\"ID-841\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/861.json\",\"id\":\"ID-861\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/862.json\",\"id\":\"ID-862\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/863.json\",\"id\":\"ID-863\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/864.json\",\"id\":\"ID-864\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/865.json\",\"id\":\"ID-865\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/866.json\",\"id\":\"ID-866\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/867.json\",\"id\":\"ID-867\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/868.json\",\"id\":\"ID-868\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/869.json\",\"id\":\"ID-869\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/870.json\",\"id\":\"ID-870\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/871.json\",\"id\":\"ID-871\"},{\"pom\":\"https://d3v-celigolabs.zendesk.com/api/v2/tickets/872.json\",\"id\":\"ID-872\"}]}\""
+}

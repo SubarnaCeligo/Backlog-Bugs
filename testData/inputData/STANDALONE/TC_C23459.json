@@ -1,0 +1,83 @@
+{
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "_connectionId": "FTP CONNECTION",
+                "qa__path": "//FTP_uploads//TC_C23459.json",
+                "ftp": {
+                    "directoryPath": "vcsxv s",
+                    "fileNameStartsWith": "xc sfv"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": false,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "transform": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [
+                            [
+                                {
+                                    "extract": "*.0.email",
+                                    "generate": "*.0.0.email"
+                                }
+                            ]
+                        ],
+                        "version": "1"
+                    },
+                    "version": "1",
+                    "rules": [
+                        [
+                            {
+                                "extract": "*.0.email",
+                                "generate": "*.0.0.email"
+                            }
+                        ]
+                    ]
+                },
+                "filter": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "0.email"
+                                ]
+                            ],
+                            "w"
+                        ],
+                        "version": "1"
+                    },
+                    "version": "1",
+                    "rules": [
+                        "equals",
+                        [
+                            "string",
+                            [
+                                "extract",
+                                "0.email"
+                            ]
+                        ],
+                        "w"
+                    ]
+                },
+                "qa__rules": [
+                    [
+                        "rows[0].0.email",
+                        "equal",
+                        "w"
+                    ]
+                ],
+                "adaptorType": "FTPExport"
+            }
+        }
+    ]
+}

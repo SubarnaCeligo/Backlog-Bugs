@@ -1,0 +1,10 @@
+{
+    "httpconnectionId": "HTTP ZENDESK CONNECTION",
+    "sqlconnectionId": "MYSQL CONNECTION",
+    "mongoDBconnectionId": "MONGODB CONNECTION",
+    "postgresqlconnectionId": "POSTGRESQL CONNECTION",
+    "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+    "sql_connectionId": "MYSQL CONNECTION",
+    "mangoDB_connectionId": "MONGODB CONNECTION",
+    "postGre_connectionId": "POSTGRESQL CONNECTION"
+}

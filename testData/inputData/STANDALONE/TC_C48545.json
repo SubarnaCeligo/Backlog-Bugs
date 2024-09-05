@@ -1,0 +1,162 @@
+{
+    "name": "TC_C48545",
+    "_integrationId": "62d6b4a955468141a906119e",
+    "asynchelperId": "6362867360fcdc5c81e3916e",
+    "staging_asynchelperId": "63650220a8af0e6842744f85",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "successCount": "7",
+        "ignoreCount": "2",
+        "errorCount": "0"
+    },
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "AutomationStandalone_DWCR3",
+                "_connectionId": "GROUPING MOCK JSON CONNECTION",
+                "apiIdentifier": "e0699ec581",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "/d6034a00-c3d5-4622-bc65-84bd64b85abe",
+                    "method": "GET",
+                    "formType": "http"
+                },
+                "rawData": "56d6b114e1fc35de5391472cbf101ead6c7a4979bc77cf3132f81c84",
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "standaloneexportflowID": "",
+        "expected": {
+            "FTP": {
+                "name": "TC_C48545",
+                "_integrationId": "62e8c2172dd80523719f9291",
+                "import": {
+                    "_connectionId": "FTP CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "7",
+                    "ignoreCount": "2",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_C48545",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".json"
+                }
+            }
+        }
+    },
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "PP async",
+                "_connectionId": "GROUPING MOCK JSON CONNECTION",
+                "apiIdentifier": "i255788eed",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "qa__inputFilter": true,
+                "qa__inputFilterIndex": 1,
+                "http": {
+                    "relativeURI": [
+                        "/3a78075b-a04b-4687-a121-6c21f6c2006b"
+                    ],
+                    "method": [
+                        "PUT"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "_asyncHelperId": "6362867360fcdc5c81e3916e",
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "filter": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "color"
+                                ]
+                            ],
+                            "Red"
+                        ],
+                        "version": "1"
+                    },
+                    "version": "1",
+                    "rules": [
+                        "equals",
+                        [
+                            "string",
+                            [
+                                "extract",
+                                "color"
+                            ]
+                        ],
+                        "Red"
+                    ]
+                },
+                "qa__rules": [
+                    [
+                        "record.color",
+                        "equals",
+                        "Red"
+                    ]
+                ],
+                "inputFilter": {
+                    "rules": [
+                        "equals",
+                        [
+                            "string",
+                            [
+                                "extract",
+                                "color"
+                            ]
+                        ],
+                        "Red"
+                    ]
+                },
+                "adaptorType": "HTTPImport"
+            },
+            "responseMapping": {
+                "lists": [],
+                "fields": [],
+                "qa__index": 0
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "AutomationStandaloneImport__cwn7Ja2JB0",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "ida2f934f4",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "TC_C48545.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                    "fileName": "TC_C48545.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ]
+}

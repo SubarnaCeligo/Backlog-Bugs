@@ -1,0 +1,6 @@
+[{
+    "FTP_PGP_connection": "610a84c4137a8d6c8b74bad4",
+    "connectionId": "FTP_PGP_WITH_ALL_KEYS CONNECTION",
+    "Connection_Url": "https://qa.staging.integrator.io/connections/edit/connections/",
+    "Staging_Connection_Url": "https://staging.integrator.io/connections/edit/connections/"
+}]

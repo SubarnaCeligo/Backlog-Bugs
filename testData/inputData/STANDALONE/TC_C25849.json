@@ -1,0 +1,21 @@
+{
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "_connectionId": "FTP CONNECTION",
+                "adaptorType": "FTPExport",
+                "qa__path": "//FTP_uploads//jsonfile.json",
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C23161.json"
+                },
+                "file": {
+                    "output": "records",
+                    "encoding": "utf8",
+                    "skipDelete": true,
+                    "type": "json"
+                }
+            }
+        }
+    ]
+}

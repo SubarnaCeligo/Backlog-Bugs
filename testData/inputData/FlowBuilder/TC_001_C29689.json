@@ -1,0 +1,26 @@
+{
+    "page_of_records": [
+      {
+        "record": {
+          "id": 922,
+          "authentication": {
+            "force_password_reset": true
+          },
+          "company": "Company B",
+          "customer_group_id": 0,
+          "email": "democustomer6@example.com",
+          "first_name": "malla",
+          "last_name": "customer6",
+          "notes": "",
+          "phone": "",
+          "registration_ip_address": "",
+          "tax_exempt_category": "",
+          "accepts_product_review_abandoned_cart_emails": true,
+          "origin_channel_id": 1,
+          "channel_ids": [
+            1
+          ]
+        }
+      }
+    ]
+  }

@@ -1,0 +1,288 @@
+{
+    "name": "TC_C29242",
+    "referencename": "TC_C29242",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Azure export",
+                        "application": "Azure Blob Storage",
+                        "_connectionId": "HTTP MIVA CONNECTION",
+                        "asynchronous": true,
+                        "traceKeyTemplate": "{{{record.id}}}",
+                        "assistant": "azurestorageaccount",
+                        "sandbox": false,
+                        "parsers": [],
+                        "http": {
+                            "type": "file",
+                            "relativeURI": "azureexports",
+                            "method": "GET",
+                            "formType": "assistant",
+                            "response": {
+                                "resourcePath": "files"
+                            }
+                        },
+                        "file": {
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "json",
+                            "json": {
+                                "resourcePath": "*"
+                            },
+                            "filter": {
+                                "type": "expression",
+                                "expression": {
+                                    "rules": [
+                                        "and",
+                                        [
+                                            "startswith",
+                                            [
+                                                "string",
+                                                [
+                                                    "extract",
+                                                    "name"
+                                                ]
+                                            ],
+                                            "TC_24"
+                                        ],
+                                        [
+                                            "endswith",
+                                            [
+                                                "string",
+                                                [
+                                                    "extract",
+                                                    "name"
+                                                ]
+                                            ],
+                                            ".json"
+                                        ]
+                                    ],
+                                    "version": "1"
+                                },
+                                "version": "1",
+                                "rules": [
+                                    "and",
+                                    [
+                                        "startswith",
+                                        [
+                                            "string",
+                                            [
+                                                "extract",
+                                                "name"
+                                            ]
+                                        ],
+                                        "TC_24"
+                                    ],
+                                    [
+                                        "endswith",
+                                        [
+                                            "string",
+                                            [
+                                                "extract",
+                                                "name"
+                                            ]
+                                        ],
+                                        ".json"
+                                    ]
+                                ]
+                            }
+                        },
+                        "sampleData": [
+                            {
+                                "id": "0001",
+                                "type": "donut",
+                                "name": "Cake",
+                                "ppu": 0.55,
+                                "batters": {
+                                    "batter": [
+                                        {
+                                            "id": "1001",
+                                            "type": "Regular"
+                                        },
+                                        {
+                                            "id": "1002",
+                                            "type": "Chocolate"
+                                        },
+                                        {
+                                            "id": "1003",
+                                            "type": "Blueberry"
+                                        },
+                                        {
+                                            "id": "1004",
+                                            "type": "Devil's Food"
+                                        }
+                                    ]
+                                },
+                                "topping": [
+                                    {
+                                        "id": "5001",
+                                        "type": "None"
+                                    },
+                                    {
+                                        "id": "5002",
+                                        "type": "Glazed"
+                                    },
+                                    {
+                                        "id": "5005",
+                                        "type": "Sugar"
+                                    },
+                                    {
+                                        "id": "5007",
+                                        "type": "Powdered Sugar"
+                                    },
+                                    {
+                                        "id": "5006",
+                                        "type": "Chocolate with Sprinkles"
+                                    },
+                                    {
+                                        "id": "5003",
+                                        "type": "Chocolate"
+                                    },
+                                    {
+                                        "id": "5004",
+                                        "type": "Maple"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "0002",
+                                "type": "donut",
+                                "name": "Raised",
+                                "ppu": 0.55,
+                                "batters": {
+                                    "batter": [
+                                        {
+                                            "id": "1001",
+                                            "type": "Regular"
+                                        }
+                                    ]
+                                },
+                                "topping": [
+                                    {
+                                        "id": "5001",
+                                        "type": "None"
+                                    },
+                                    {
+                                        "id": "5002",
+                                        "type": "Glazed"
+                                    },
+                                    {
+                                        "id": "5005",
+                                        "type": "Sugar"
+                                    },
+                                    {
+                                        "id": "5003",
+                                        "type": "Chocolate"
+                                    },
+                                    {
+                                        "id": "5004",
+                                        "type": "Maple"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "0003",
+                                "type": "donut",
+                                "name": "Old Fashioned",
+                                "ppu": 0.55,
+                                "batters": {
+                                    "batter": [
+                                        {
+                                            "id": "1001",
+                                            "type": "Regular"
+                                        },
+                                        {
+                                            "id": "1002",
+                                            "type": "Chocolate"
+                                        }
+                                    ]
+                                },
+                                "topping": [
+                                    {
+                                        "id": "5001",
+                                        "type": "None"
+                                    },
+                                    {
+                                        "id": "5002",
+                                        "type": "Glazed"
+                                    },
+                                    {
+                                        "id": "5003",
+                                        "type": "Chocolate"
+                                    },
+                                    {
+                                        "id": "5004",
+                                        "type": "Maple"
+                                    }
+                                ]
+                            }
+                        ],
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "customer",
+                        "parsers": [],
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "distributed": true,
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "lookups": [],
+                        "netsuite_da": {
+                            "useSS2Restlets": false,
+                            "operation": "add",
+                            "recordType": "customer",
+                            "lookups": [],
+                            "mapping": {
+                                "fields": [
+                                    {
+                                        "extract": "first_name",
+                                        "generate": "companyname",
+                                        "internalId": false
+                                    },
+                                    {
+                                        "generate": "subsidiary",
+                                        "discardIfEmpty": false,
+                                        "immutable": false,
+                                        "hardCodedValue": "3",
+                                        "internalId": true
+                                    }
+                                ],
+                                "lists": []
+                            }
+                        },
+                        "adaptorType": "NetSuiteDistributedImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C29242",
+                "disabled": false,
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

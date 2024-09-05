@@ -1,0 +1,33 @@
+{
+  "nlobjRecordType": "serviceitem",
+  "nlobjFieldIds": {
+    "itemid": "TC_C52418",
+    "taxschedule": 1
+  },
+  "nlobjSublistIds": {
+    "itemvendor": {
+      "lines": [
+        {
+          "vendor": 4572893,
+          "vendorcode": "",
+          "preferredvendor": "",
+          "celigo_itemvendorprice": {
+            "nlobjRecordType": "itemvendorprice",
+            "nlobjSublistIds": {
+              "itemvendorpricelines": {
+                "lines": [
+                  {
+                    "vendorprice": "123",
+                    "vendorcurrency": "USA",
+                    "_keys": ["vendorcurrency"]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "documentIndex": 0
+}

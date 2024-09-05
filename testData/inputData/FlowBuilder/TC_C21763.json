@@ -1,0 +1,91 @@
+{
+    "name": "TC_C21763",
+    "disabled": false,
+    "_integrationId": "62ecc42648570015ab65cfa5",
+    "qa__integrationId": "62eca1efe386b563f638451e",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "FTP export",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "e88ee9815d",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C21763"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "groupByFields": [
+                        "ID"
+                    ],
+                    "groupEmptyValues": true,
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "adaptorType": "FTPExport",
+                "qa__path": "//FTP_uploads//TC_C21763.json"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "Netsuite import",
+                "_connectionId": "NETSUITE CONNECTION",
+                "distributed": true,
+                "apiIdentifier": "i8f4f7fbf2",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "lookups": [],
+                "netsuite_da": {
+                    "useSS2Restlets": false,
+                    "operation": "add",
+                    "recordType": "customer",
+                    "lookups": [],
+                    "mapping": {
+                        "fields": [
+                            {
+                                "generate": "internalid",
+                                "extract": "id",
+                                "internalId": false
+                            },
+                            {
+                                "generate": "emailtransactions",
+                                "extract": "email",
+                                "internalId": false
+                            },
+                            {
+                                "generate": "update at",
+                                "extract": "updated_at",
+                                "internalId": false
+                            }
+                        ],
+                        "lists": [
+                            {
+                                "generate": "_billing_addressbook",
+                                "fields": [
+                                    {
+                                        "generate": "addr1",
+                                        "extract": "shipaddress",
+                                        "internalId": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "adaptorType": "NetSuiteDistributedImport"
+            }
+        }
+    ]
+}

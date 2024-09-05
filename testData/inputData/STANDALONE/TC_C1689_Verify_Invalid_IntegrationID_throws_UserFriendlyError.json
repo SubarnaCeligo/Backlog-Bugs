@@ -1,0 +1,11 @@
+{
+    "integrationID":"123abc",
+    "expected":{
+        "errors": [
+            {
+                "code": "invalid_ref",
+                "message": "Please provide a valid _id."
+            }
+        ]
+    }
+}

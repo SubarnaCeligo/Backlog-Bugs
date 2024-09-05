@@ -1,0 +1,11 @@
+[
+    {
+        "name": "Stack test1",
+        "type": "server",
+        "server": {
+            "systemToken": "******",
+            "hostURI": "https://staging.integrator.io",
+            "ipRanges": []
+        }
+    }
+]

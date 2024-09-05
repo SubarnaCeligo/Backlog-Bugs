@@ -1,0 +1,110 @@
+{
+  "name": "TC_C33615",
+  "referencename": "TC_C33615",
+  "req": "Dynamic·lookup·source·recordType:·customer",
+  "expectedreqresp": {
+    "viewRequest": "Dynamic·lookup·source·recordType:·customer——Mapped·to·field:·test1——Lookup·fiter·expression:·[\"internalid\",\"is\",\"864346\"]——Lookup·key·value:·{\"customername\":\"Test·Name\",\"shipmethod\":\"2·Day·Free\",\"date\":\"2018-05-20\",\"shipstreet\":\"123·Test·St\"\n        ,\"shipcity\":\"San·Mateo\",\"shipstate\":\"CA\",\"shipzip\":\"12345\",\"total\":\"129.50\",\"lines\":[{\"name\":\"t-shirt\",\"quantity\"\n        :\"3\",\"rate\":\"12.50\",\"amount\":\"37.50\"},{\"name\":\"shoes\",\"quantity\":\"1\",\"rate\":\"42.00\",\"amount\":\"42\"},{\"name\":\"pants\"\n        ,\"quantity\":\"2\",\"rate\":\"25.00\",\"amount\":\"50\"}]}——Rendered·filter·expression:·[\"internalid\",\"is\",\"864346\"]//·initiate·searchvar·fe·=·[\"internalid\",\"is\",\"864346\"];var·lookupSource·=·\"customer\";var·lookupValue·=·\"entityid\";var·s·=·nlapiCreateSearch(lookupSource,·fe,·[·new·nlobjSearchColumn(lookupValue)·]);//·Final·lookup·filter·expression·//·fe:·[[\"internalid\",\"is\",\"864346\"]]var·rs·=·s.runSearch().getResults(0,·10);rs.length:·0",
+    "viewResponse": "{{··\"code\":·\"VALUE_LOOKUP_FAILED\",··\"code\":·\"VALUE_LOOKUP_FAILED\",··\"message\":·\"A·mapping·error·occurred.·Could·not·find·a·match·for·\\\"[\\\"internalid\\\",\\\"is\\\",\\\"864346\\\"]\\\"·for·the·record·\n      type·\\\"Customer\\\".\"··\"message\":·\"A·mapping·error·occurred.·Could·not·find·a·match·for·\\\"[\\\"internalid\\\",\\\"is\\\",\\\"864346\\\"]\\\"·for·the·record·      type·\\\"Customer\\\".\"}}"
+  },
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Rest export",
+            "_connectionId": "REST CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+              "relativeURI": "/test/orders",
+              "method": "GET",
+              "successMediaType": "json",
+              "errorMediaType": "json",
+              "formType": "http",
+              "qa__formType": "rest"
+            },
+            "rawData": "603ce5ede9250226dcea4608c4caaa2baf8840678327c0ddded2d6eb",
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Netsuite customer import",
+            "_connectionId": "NETSUITE CONNECTION",
+            "distributed": true,
+            "lookups": [
+              {
+                "name": "dynamic",
+                "recordType": "customer",
+                "resultField": "entityid",
+                "expression": "[\"internalid\",\"is\",\"864346\"]",
+                "allowFailures": false
+              }
+            ],
+            "netsuite_da": {
+              "useSS2Restlets": false,
+              "operation": "add",
+              "recordType": "customer",
+              "lookups": [
+                {
+                  "name": "dynamic",
+                  "recordType": "customer",
+                  "resultField": "entityid",
+                  "expression": "[\"internalid\",\"is\",\"864346\"]",
+                  "allowFailures": false
+                }
+              ],
+              "mapping": {
+                "fields": [
+                  {
+                    "generate": "test1",
+                    "extract": "",
+                    "internalId": false,
+                    "discardIfEmpty": false,
+                    "immutable": false,
+                    "lookupName": "dynamic"
+                  },
+                  {
+                    "generate": "subsidiary",
+                    "discardIfEmpty": false,
+                    "immutable": false,
+                    "hardCodedValue": "3",
+                    "internalId": true
+                  }
+                ],
+                "lists": []
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C33615",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

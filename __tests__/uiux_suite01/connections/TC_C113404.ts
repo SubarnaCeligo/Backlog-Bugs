@@ -172,7 +172,7 @@ test.describe("C113404", () => {
         try {
           id = iclient._id;
           const name = iclient.name;
-          if (name == "3PL") {
+          if (name == "3PL ICLIENT") {
             break;
           }
 

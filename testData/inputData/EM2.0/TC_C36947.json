@@ -1,0 +1,174 @@
+{
+    "name": "TC_C36947_map_HandlingMode_InSOMappings",
+    "referencename": "TC_C36947_map_HandlingMode_InSOMappings",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "1",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "netsuite": {
+                "_integrationId": "62834fec26c05c588e38ec62",
+                "name": "TC_C36947_map_HandlingMode_InSOMappings",
+                "import": {
+                    "_connectionId": "NETSUITE CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "1",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "savedsearchId": "3822",
+                    "generateSampleDropDownAvailable": false,
+                    "expectedJSON": [
+                        {
+                            "memo": "TC_C36947",
+                            "handlingmode": {
+                                "internalid": "SAVE_ONLY",
+                                "name": "Save Only"
+                            },
+                            "item": [
+                                {
+                                    "amount": 100,
+                                    "item": {
+                                        "internalid": "387",
+                                        "name": "ACC00001"
+                                    },
+                                    "quantity": 1
+                                }
+                            ],
+                            "subsidiary": {
+                                "name": "HH Inc."
+                            },
+                            "currencyname": "USA",
+                            "entity": {
+                                "name": "AutomationDemo"
+                            }
+                        }
+                    ],
+                    "standaloneexportflowID": "62d13dd170b1915aa179fc89",
+                    "uniqueField": "memo",
+                    "isUIFlow": true,
+                    "importRecordType": "salesorder",
+                    "exportRecordType": "salesorder",
+                    "exportapiIdentifier": "eb8daba08e"
+                }
+            }
+        }
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "New_Export",
+                        "_connectionId": "FTP CONNECTION",
+                        "asynchronous": true,
+                        "sandbox": false,
+                        "ftp": {
+                            "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+                            "fileNameStartsWith": "C36947_SO",
+                            "fileNameEndsWith": ".json"
+                        },
+                        "file": {
+                            "encoding": "utf8",
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "json"
+                        },
+                        "adaptorType": "FTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "NS_Import",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "distributed": true,
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "lookups": [],
+                        "netsuite_da": {
+                            "useSS2Restlets": false,
+                            "operation": "add",
+                            "recordType": "salesorder",
+                            "lookups": [],
+                            "mapping": {
+                                "fields": [
+                                    {
+                                        "generate": "handlingmode",
+                                        "hardCodedValue": "SAVE_ONLY",
+                                        "internalId": true,
+                                        "discardIfEmpty": false,
+                                        "immutable": false
+                                    },
+                                    {
+                                        "generate": "entity",
+                                        "extract": "Name",
+                                        "internalId": false
+                                    },
+                                    {
+                                        "generate": "memo",
+                                        "internalId": false,
+                                        "extract": "memo"
+                                    }
+                                ],
+                                "lists": [
+                                    {
+                                        "generate": "item",
+                                        "fields": [
+                                            {
+                                                "generate": "item",
+                                                "extract": "Item",
+                                                "internalId": false
+                                            },
+                                            {
+                                                "generate": "quantity",
+                                                "extract": "Quantity",
+                                                "internalId": false
+                                            },
+                                            {
+                                                "generate": "amount",
+                                                "extract": "Amount",
+                                                "internalId": false
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        "adaptorType": "NetSuiteDistributedImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C36947_map_HandlingMode_InSOMappings",
+                "disabled": false,
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

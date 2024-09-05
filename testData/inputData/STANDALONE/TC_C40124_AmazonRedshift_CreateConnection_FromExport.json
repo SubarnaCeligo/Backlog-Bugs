@@ -1,0 +1,42 @@
+{
+    "expectedJSON": {
+        "type": "rdbms",
+        "name": "AmazonRedshift_Connection_FromExport",
+        "rdbms": 
+        {
+        "type": "redshift",
+        "database": "dev",
+        "user": "awsuser",
+        "options": [],
+        "disableStrictSSL": false,
+        "redshift": {
+            "aws": {
+                "accessKeyId": "AKIAZZ6SHOEMIDMIEVOO",
+                "secretAccessKey": "******"
+            },
+            "clusterIdentifier": "redshift-cluster-1",
+            "region": "ap-south-1"
+        }
+        }
+    },
+    "importJSON": {
+        "type": "rdbms",
+        "name": "AmazonRedshift_Connection_FromExport",
+        "rdbms": {
+            "type": "redshift",
+            "database": "dev",
+            "user": "awsuser",
+            "options": [],
+            "disableStrictSSL": false,
+            "redshift": {
+                "aws": {
+                    "accessKeyId": "AKIAZZ6SHOEMIDMIEVOO",
+                    "secretAccessKey": "******",
+                    "qa__secretAccessKey": "OTRLY1VhQS9nZE5HMG10YU94YXFIUGxvbmxoZC9yK0lRSjNwcEE1Sg=="
+                },
+                "clusterIdentifier": "redshift-cluster-1",
+                "region": "ap-south-1"
+            }
+    }
+}
+}

@@ -1,0 +1,63 @@
+{
+    "qa_importJson": {
+        "environment": "Production",
+        "name": "Tile 2",
+        "contactEmail": "io.auto.qa+18@celigo.com",
+        "_integrationId": "632933b0db4daa753b84a5d9",
+        "applications": [
+            "activecampaign"
+        ],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "632933b0db4daa753b84a5d9"
+        }
+    },
+        "importJson": {
+            "environment": "Production",
+            "name": "Tile 2",
+            "contactEmail": "io.auto.qa+18@celigo.com",
+            "_integrationId": "632933d50dbc53086e898522",
+            "applications": [
+                "activecampaign"
+            ],
+            "framework": "twoDotZero",
+            "twoDotZero": {
+                "_integrationId": "632933d50dbc53086e898522"
+            }
+        },
+    "qa_integrationSetting": {
+        "name": "TC32993_DND",
+        "_connectorId": "631eefaeae9918323478a0f7",
+        "install": [],
+        "mode": "settings",
+        "tag": "sample",
+        "sandbox": false,
+        "_registeredConnectionIds": [],
+        "installSteps": [],
+        "uninstallSteps": [],
+        "flowGroupings": [],
+        "_sourceId": "632933b0db4daa753b84a5d9"
+    },
+    "_integrationSetting": {
+        "name": "TC32993_DND",
+        "_connectorId": "63244e5fefa03a3efc2437ba",
+        "install": [],
+        "mode": "settings",
+        "tag": "sample",
+        "sandbox": false,
+        "_registeredConnectionIds": [],
+        "installSteps": [],
+        "uninstallSteps": [],
+        "flowGroupings": [],
+        "_sourceId": "632933d50dbc53086e898522"
+    },
+    "setupConnection": {
+        "integrationName": "TC32993_DND",
+        "uninstall": "false"
+    },
+    "createLicense": {
+        "name": "Tile 2"
+    },
+    "app": "ActiveCampaign",
+    "integrationName": "TC32993_DND"
+}

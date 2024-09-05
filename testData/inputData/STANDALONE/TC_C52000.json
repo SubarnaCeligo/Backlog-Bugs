@@ -1,0 +1,148 @@
+{
+    "name": "TC_C52000",
+    "referencename": "TC_C52000",
+    "qa__api_tdata": [
+        {
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "g_Drive",
+                        "_connectionId": "GOOGLEDRIVE CONNECTION",
+                        "apiIdentifier": "ifd651a22f",
+                        "oneToMany": false,
+                        "assistant": "googledrive",
+                        "sandbox": false,
+                        "file": {
+                            "fileName": "file-{{timestamp}}.csv",
+                            "skipAggregation": false,
+                            "type": "csv",
+                            "csv": {
+                                "rowDelimiter": "\n",
+                                "columnDelimiter": ",",
+                                "includeHeader": true,
+                                "wrapWithQuotes": false,
+                                "replaceTabWithSpace": false,
+                                "replaceNewlineWithSpace": false,
+                                "truncateLastRowDelimiter": false
+                            }
+                        },
+                        "http": {
+                            "type": "file",
+                            "relativeURI": [
+                                "Gdrive_Exports"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "sendPostMappedData": true,
+                            "formType": "assistant",
+                            "response": {
+                                "resourcePath": [
+                                    "files"
+                                ]
+                            }
+                        },
+                        "adaptorType": "HTTPImport"
+                    },
+                    "responseMapping": {
+                        "fields": [
+                            {
+                                "extract": "id",
+                                "generate": "_id"
+                            }
+                        ],
+                        "lists": []
+                    }
+                },
+                {
+                    "type": "import",
+                    "responseMapping": {
+                        "fields": [],
+                        "lists": []
+                    },
+                    "qa__import": {
+                        "name": "salesforce_imp",
+                        "_connectionId": "SALESFORCE CONNECTION",
+                        "apiIdentifier": "ia32569068",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "extract": "_id",
+                                    "generate": "Id"
+                                }
+                            ]
+                        },
+                        "salesforce": {
+                            "operation": "insert",
+                            "sObjectType": "Account",
+                            "api": "soap",
+                            "removeNonSubmittableFields": false
+                        },
+                        "adaptorType": "SalesforceImport"
+                    }
+                }
+            ],
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "qa__path": "//FTP_uploads//TC_C51872.json",
+                        "_connectionId": "FTP CONNECTION",
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                            "fileNameStartsWith": "TC_C51872.json"
+                        },
+                        "file": {
+                            "encoding": "utf8",
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "json"
+                        },
+                        "adaptorType": "FTPExport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C52000",
+                "disabled": false,
+                "qa__integrationId": "56d6b23fe1fc35de53914730",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [
+                                {
+                                    "extract": "id",
+                                    "generate": "_id"
+                                }
+                            ],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "636a281396ce9c222a7ec029"
+                    },
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "6364eb04e28334683c47ed1a"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

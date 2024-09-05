@@ -1,0 +1,101 @@
+{
+    "integrationDetails": {
+      "qa__api_tdata": [{
+        "createIntegrations": {
+          "name": "TC_C34395"
+        }
+      }]
+    },
+    "flowsData": {
+      "name": "THE FLOW",
+      "referencename": "THE FLOW",
+      "qa__api_tdata": [
+          {
+              "pageGenerators": [
+                  {
+                      "type": "export",
+                      "qa__export": {
+                        "name": "EXP1",
+                        "application": "zendesk support",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "eab24d530c",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": "/",
+                            "method": "GET",
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                  }
+              ],
+              "pageProcessors": [
+                  {
+                      "type": "import",
+                      "qa__import": {
+                        "name": "IMP1",
+                        "application":"zendesk support",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "id150db849",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": [
+                                "/"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                  }
+              ],
+              "createFlow": {
+                "name": "TC_C34395 THE FLOW",
+                "disabled": false,
+                "_integrationId": "",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID",
+                        "skipRetries": false
+                    }
+                ],
+                "autoResolveMatchingTraceKeys": true
+            }
+          }
+      ]
+  },
+    "flowGroupDetails": {
+        "name": "Flow Group 1"
+    },
+    "cloneJSON": {
+        "Source_Environment": "Production",
+        "Destination_Enviornment": "Production",
+        "Source_Integration": "TC_C34395",
+        "Destination_Integration": "none",
+        "Flow_To_Clone": "TC_C34395 THE FLOW",
+        "New_connection": false,
+        "connections": ["HTTP ZENDESK CONNECTION","HTTP ZENDESK CONNECTION"],
+        "Clone_Flow_Name": "TC_C34395 THE CLONED FLOW"
+    }
+  }

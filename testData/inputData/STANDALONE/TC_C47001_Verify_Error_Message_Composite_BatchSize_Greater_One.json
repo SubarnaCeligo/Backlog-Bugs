@@ -1,0 +1,94 @@
+{
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "test",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "application": "zendesk support",
+        "apiIdentifier": "efb66a75eb",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": "/tickets.json",
+          "method": "GET",
+          "formType": "http"
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "composite flows",
+        "application": "zendesk support",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "http": {
+          "relativeURI": [
+            "/tickets/81.json",
+            "/tickets.json"
+          ],
+          "method": [
+            "PUT",
+            "POST"
+          ],
+          "body": [
+            "{\r\n  \"ticket\": {\r\n    \"comment\": {\r\n      \"body\": \"The smoke is very colorful.\"\r\n    },\r\n    \"priority\": \"urgent\",\r\n    \"subject\": \"My printer is on fire!\"\r\n  }\r\n}",
+            "{\r\n  \"ticket\": {\r\n    \"comment\": {\r\n      \"body\": \"The smoke is very colorful.\"\r\n    },\r\n    \"priority\": \"urgent\",\r\n    \"subject\": \"My printer is on fire!\"\r\n  }\r\n}"
+          ],
+          "batchSize": 1,
+          "requestType": [
+            "UPDATE",
+            "CREATE"
+          ],
+          "sendPostMappedData": true,
+          "existingExtract": "count",
+          "formType": "http"
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "Body":{
+      "name": "AutomationStandaloneImport__VSBPLysFyx",
+      "application": "zendesk support",
+      "_connectionId": "HTTP ZENDESK CONNECTION",
+      "apiIdentifier": "i00b598af2",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "http": {
+          "relativeURI": [
+              "/tickets/81.json",
+              "/tickets.json"
+          ],
+          "method": [
+              "PUT",
+              "POST"
+          ],
+          "body": [
+              "{\n  \"ticket\": {\n    \"comment\": {\n      \"body\": \"The smoke is very colorful.\"\n    },\n    \"priority\": \"urgent\",\n    \"subject\": \"My printer is on fire!\"\n  }\n}",
+              "{\n  \"ticket\": {\n    \"comment\": {\n      \"body\": \"The smoke is very colorful.\"\n    },\n    \"priority\": \"urgent\",\n    \"subject\": \"My printer is on fire!\"\n  }\n}"
+          ],
+          "batchSize": 2,
+          "response": {
+          "resourcePath": [
+            "files",
+            "test"
+          ]
+        },
+          "requestType": [
+              "UPDATE",
+              "CREATE"
+          ],
+          "sendPostMappedData": true,
+          "existingExtract": "count",
+          "formType": "http"
+      },
+      "adaptorType": "HTTPImport"
+  }
+}

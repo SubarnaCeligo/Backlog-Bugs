@@ -1,0 +1,95 @@
+{
+    "name": "TC_C51123",
+    "referencename": "TC_C51123",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "FTP export",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "e53abfc655",
+                        "asynchronous": true,
+                        "sandbox": false,
+                        "sampleData": [
+                            [
+                                {
+                                    "name": "Auto_TC_C51123_1"
+                                },
+                                {
+                                    "name": "Auto_TC_C51123_2"
+                                }
+                            ]
+                        ],
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                            "fileNameStartsWith": "TC_C51189",
+                            "fileNameEndsWith": ".json"
+                        },
+                        "file": {
+                            "output": "records",
+                            "skipDelete": false,
+                            "type": "json",
+                            "json": {
+                                "resourcePath": "*"
+                            }
+                        },
+                        "adaptorType": "FTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "name",
+                        "application": "BigCommerce",
+                        "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+                        "apiIdentifier": "iaec91ea02",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": [
+                                "/"
+                            ],
+                            "method": [
+                                "PUT"
+                            ],
+                            "body": [],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C51123",
+                "disabled": true,
+                "skipRetries": false,
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "6342939beb57377ef9eb1b95"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "634064784abae969f78b53fb",
+                        "skipRetries": false
+                    }
+                ],
+                "autoResolveMatchingTraceKeys": true
+            }
+        }
+    ]
+}

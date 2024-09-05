@@ -1,0 +1,55 @@
+{
+    "name": "TC_C40380",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "56228aed6bc8a2732cfe8044c",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "testt",
+                "_connectionId": "HTTP SHOPIFY CONNECTION",
+                "apiIdentifier": "e55bb408c9",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "account",
+                    "method": "GET",
+                    "formType": "http"
+                },
+                "rawData": "EMPTY RAW DATA",
+                "test": {
+                    "limit": 1
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "sam",
+                "application": "freshdesk",
+                "_connectionId": "627b6bd17ca3007138a67d30",
+                "apiIdentifier": "i457846464",
+                "oneToMany": false,
+                "blob": true,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": [],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ]
+}

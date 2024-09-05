@@ -1,0 +1,97 @@
+{
+  "name": "TC_C20845",
+  "referencename": "TC_C20845",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "zendesk",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "e2a59b9c9a",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+              "relativeURI": "tickets.json",
+              "method": "GET",
+              "formType": "http"
+            },
+            "rawData": "62ebb431e627016182cf3391c0674b816a344981949d6e7268696cee",
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "TC_C20845",
+            "_connectionId": "NETSUITE CONNECTION",
+            "distributed": true,
+            "apiIdentifier": "i824ca1a23",
+            "ignoreExisting": true,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [],
+            "netsuite_da": {
+              "useSS2Restlets": false,
+              "operation": "add",
+              "recordType": "customer",
+              "internalIdLookup": {
+                "expression": "[\"accountnumber\",\"is\",\"{{{id}}}\"]"
+              },
+              "lookups": [],
+              "mapping": {
+                "fields": [
+                  {
+                    "generate": "internalid",
+                    "extract": "id",
+                    "internalId": false
+                  },
+                  {
+                    "generate": "emailtransactions",
+                    "extract": "email",
+                    "internalId": false
+                  },
+                  {
+                    "generate": "update at",
+                    "extract": "updated_at",
+                    "internalId": false
+                  }
+                ],
+                "lists": []
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C20845",
+        "disabled": false,
+        "_integrationId": "62ecc42648570015ab65cfa5",
+        "qa__integrationId": "62eca1efe386b563f638451e",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

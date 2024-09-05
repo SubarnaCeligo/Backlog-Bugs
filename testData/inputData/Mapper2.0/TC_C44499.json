@@ -1,0 +1,260 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "name": "TC_C44499",
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "name": "AutomationStandaloneImport__crXHsPqA4I",
+                "application": "Amazon Seller Central",
+                "_connectionId": "HTTP AMAZON CONNECTION",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "generate": "brands",
+                        "dataType": "objectarray",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$.brands[*].inventory[*]",
+                                "mappings": [
+                                    {
+                                        "extract": "$.brands.inventory.sQty",
+                                        "generate": "brands quantity",
+                                        "dataType": "string"
+                                    },
+                                    {
+                                        "generate": "Active",
+                                        "dataType": "booleanarray",
+                                        "buildArrayHelper": [
+                                            {
+                                                "extract": "$.brands.inventory.isActive"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "generate": "news",
+                        "dataType": "objectarray",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$.news[*].inventory[*]",
+                                "mappings": [
+                                    {
+                                        "extract": "$.news.inventory.sQty",
+                                        "generate": "news quantity",
+                                        "dataType": "string"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "generate": "orders",
+                        "dataType": "objectarray",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$.orders[*].inventory[*]",
+                                "mappings": [
+                                    {
+                                        "extract": "$.orders.inventory.sQty",
+                                        "generate": "orders quantity",
+                                        "dataType": "string"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "generate": "products",
+                        "dataType": "objectarray",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$.products[*].inventory[*]",
+                                "mappings": [
+                                    {
+                                        "extract": "$.products.inventory.sQty",
+                                        "generate": "products quantity",
+                                        "dataType": "string"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "generate": "items",
+                        "dataType": "objectarray",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$.items[*].inventory[*]",
+                                "mappings": [
+                                    {
+                                        "generate": "item quantity",
+                                        "dataType": "stringarray",
+                                        "buildArrayHelper": [
+                                            {
+                                                "extract": "$.items.inventory.sQty"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "/?Action=SubmitFeed&FeedType=_POST_PRODUCT_PRICING_DATA_&MarketplaceIdList.Id.1={{connection.http.unencrypted.marketplaceId}}"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [
+                        "<?xml version='1.0' encoding='UTF-8'?>\n<AmazonEnvelope\n\txmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:noNamespaceSchemaLocation='amzn-envelope.xsd'>\n\t<Header>\n\t\t<DocumentVersion>1.01</DocumentVersion>\n\t</Header>\n\t<MessageType>Price</MessageType>\n\t<Message>\n\t\t<MessageID>{{{add @index 1}}}</MessageID>\n\t\t<Price>\n\t\t\t<SKU>AMZ123456</SKU>\n\t\t\t<StandardPrice currency=\"USD\">25.00</StandardPrice>\n\t\t\t<Sale>\n\t\t\t\t<StartDate>2022-05-25T00:01:01+00:00</StartDate>\n\t\t\t\t<EndDate>2022-05-27T00:01:01+00:00</EndDate>\n\t\t\t\t<SalePrice currency=\"USD\">10</SalePrice>\n\t\t\t</Sale>\n\t\t</Price>\n\t</Message>\n</AmazonEnvelope>"
+                    ],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "pageGenerators": [
+        {
+            "type": "44499 export",
+            "qa__export": {
+                "name": "44499",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "sandbox": false,
+                "sampleData": {
+                    "customer": "Celigo",
+                    "items": [
+                        {
+                            "inventory": [
+                                {
+                                    "sQty": 1,
+                                    "sno": "121241221",
+                                    "date": "2022/06/07",
+                                    "isActive": true
+                                },
+                                {
+                                    "sQty": 1,
+                                    "sno": "121241222",
+                                    "date": "2022/06/08",
+                                    "isActive": false
+                                }
+                            ],
+                            "quantity": 2,
+                            "sku": "Iphone X"
+                        }
+                    ],
+                    "products": [
+                        {
+                            "inventory": [
+                                {
+                                    "sQty": 1,
+                                    "sno": "121241221",
+                                    "date": "2022/06/07",
+                                    "isActive": true
+                                },
+                                {
+                                    "sQty": 1,
+                                    "sno": "121241222",
+                                    "date": "2022/06/08",
+                                    "isActive": false
+                                }
+                            ],
+                            "quantity": 2,
+                            "sku": "Iphone X"
+                        }
+                    ],
+                    "orders": [
+                        {
+                            "inventory": [
+                                {
+                                    "sQty": 1,
+                                    "sno": "121241221",
+                                    "date": "2022/06/07",
+                                    "isActive": true
+                                },
+                                {
+                                    "sQty": 1,
+                                    "sno": "121241222",
+                                    "date": "2022/06/08",
+                                    "isActive": false
+                                }
+                            ],
+                            "quantity": 2,
+                            "sku": "Iphone X"
+                        }
+                    ],
+                    "news": [
+                        {
+                            "inventory": [
+                                {
+                                    "sQty": 1,
+                                    "sno": "121241221",
+                                    "date": "2022/06/07",
+                                    "isActive": true
+                                },
+                                {
+                                    "sQty": 1,
+                                    "sno": "121241222",
+                                    "date": "2022/06/08",
+                                    "isActive": false
+                                }
+                            ],
+                            "quantity": 2,
+                            "sku": "Iphone X"
+                        }
+                    ],
+                    "brands": [
+                        {
+                            "inventory": [
+                                {
+                                    "sQty": 1,
+                                    "sno": "121241221",
+                                    "date": "2022/06/07",
+                                    "isActive": true
+                                },
+                                {
+                                    "sQty": 1,
+                                    "sno": "121241222",
+                                    "date": "2022/06/08",
+                                    "isActive": false
+                                }
+                            ],
+                            "quantity": 2,
+                            "sku": "Iphone X"
+                        }
+                    ]
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa",
+                    "fileNameStartsWith": "TC_C44499.json"
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": true,
+                    "encoding": "utf8",
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport",
+                "qa__path": "//FTP_uploads//TC_C44499.json"
+            }
+        }
+    ],
+    "expectedPreviewData": "{\n  \"items\": [\n    {\n      \"item quantity\": [\n        \"1\"\n      ]\n    },\n    {\n      \"item quantity\": [\n        \"1\"\n      ]\n    }\n  ],\n  \"products\": [\n    {\n      \"products quantity\": \"1\"\n    },\n    {\n      \"products quantity\": \"1\"\n    }\n  ],\n  \"orders\": [\n    {\n      \"orders quantity\": \"1\"\n    },\n    {\n      \"orders quantity\": \"1\"\n    }\n  ],\n  \"news\": [\n    {\n      \"news quantity\": \"1\"\n    },\n    {\n      \"news quantity\": \"1\"\n    }\n  ],\n  \"brands\": [\n    {\n      \"brands quantity\": \"1\",\n      \"Active\": [\n        true\n      ]\n    },\n    {\n      \"brands quantity\": \"1\",\n      \"Active\": [\n        false\n      ]\n    }\n  ]\n}"
+}

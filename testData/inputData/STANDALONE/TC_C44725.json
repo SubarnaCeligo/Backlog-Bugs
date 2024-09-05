@@ -1,0 +1,67 @@
+{
+    "pageGenerators": [
+      {
+        "type": "export",
+        "qa__export": {
+          "name": "TC_C29270",
+          "_connectionId": "FTP CONNECTION",
+          "asynchronous": true,
+          "sandbox": false,
+          "qa__path": "//FTP_uploads//TC_C22209.json",
+          "ftp": {
+            "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+            "fileNameStartsWith": "TC_C22209"
+          },
+          "file": {
+            "encoding": "utf8",
+            "output": "records",
+            "skipDelete": true,
+            "type": "json"
+          },
+          "adaptorType": "FTPExport"
+        }
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "name": "ZD HTTP Import",
+          "application": "zendesk support",
+          "_connectionId": "HTTP ZENDESK CONNECTION",
+          "apiIdentifier": "ie5a9b0ef9",
+          "ignoreExisting": false,
+          "ignoreMissing": false,
+          "oneToMany": false,
+          "sandbox": false,
+          "mappings": [
+            {
+              "extract": "$.A",
+              "generate": "test",
+              "dataType": "string",
+              "status": "Active",
+              "sourceDataType": "string"
+            }
+          ],
+          "http": {
+            "relativeURI": ["users"],
+            "method": ["POST"],
+            "body": [],
+            "batchSize": 1,
+            "sendPostMappedData": true,
+            "formType": "http"
+          },
+          "filter": {
+            "type": "expression",
+            "expression": {
+              "rules": [],
+              "version": "1"
+            },
+            "version": "1",
+            "rules": []
+          },
+          "adaptorType": "HTTPImport"
+        }
+      }
+    ]
+}

@@ -13,7 +13,7 @@ test.describe("T3825 To verify formula textbox field is disabled for the users w
         // Create a flow
         const pa = await io.api.processAshareData(testData);
         errorFlowId = await io.createResourceFromAPI(T3825, "FLOWS");
-        await io.homePage.loadingTime()
+        await page.locator(`//*[contains(@class,'MuiTypography-root') and contains(text(),'Loading')]`).first().waitFor({ state: "hidden", timeout: 600000 });
 
         // Open the Netsuite export
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.EXPORT);
@@ -22,7 +22,7 @@ test.describe("T3825 To verify formula textbox field is disabled for the users w
         // Open Additional Search Criteria
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADDITIONAL_SEARCHCRITERIAB);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADDITIONAL_SEARCHCRITERIAB);
-        
+
         // Check if Formula field is disabled
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADDITIONAL_SEARCHCRITERIAF0);
         await io.assert.verifyElementAttributeContainsText(`${selectors.flowBuilderPagePO.ADDITIONAL_SEARCHCRITERIAF0} div`, 'class', 'Mui-disabled');

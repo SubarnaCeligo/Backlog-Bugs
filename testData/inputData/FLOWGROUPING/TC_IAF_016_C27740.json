@@ -1,0 +1,126 @@
+{
+
+    "qa_integrationSetting":{
+        "_id": "62973c6064bb3b57f4a7cfa1",
+        "name": "Form Install Step",
+        "install": [],
+        "sandbox": false,
+        "settingsForm": {},
+        "_registeredConnectionIds": [
+            "626bd636987bb423914b47c7"
+        ],
+        "installSteps": [],
+        "uninstallSteps": [],
+        "flowGroupings": [
+            {
+                "name": "FG1",
+                "_id": "628c7ab22dba3e2945e6664e",
+                "settingsForm": {
+            "form": {
+                "fieldMap": {
+                    "kvSetting1ForIntegration": {
+                        "label": "Key Value Integration Setting",
+                        "id": "kvSetting1ForIntegration",
+                        "name": "kvSetting1ForIntegration",
+                        "type": "keyvalue",
+                        "helpText": "lorem ipsum",
+                        "keyName": "key",
+                        "valueName": "value"
+                    },
+                "layout": {
+                    "fields": [
+                        "txtSetting2ForIntegration",
+                        "kvSetting1ForIntegration"
+                    ]
+                }
+            },
+            "init": {
+                "_scriptId": "62b160f4a1cbdd6da45e0111",
+                "function": "formInit"
+            }
+        }
+            }
+            }
+        ]
+    },
+
+    "qa_importJson": {
+        "environment": "Production",
+        "name": "TC_IAF_016_C27740",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "_integrationId": "62973c6064bb3b57f4a7cfa1",
+        "applications": ["activecampaign"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+          "_integrationId": "62973c6064bb3b57f4a7cfa1"
+        }
+      },
+      "integrationSetting":{
+        "_id": "631ab3cd13d12134f4771a93",
+        "name": "Form Install Step",
+        "install": [],
+        "sandbox": false,
+        "settingsForm": {},
+        "_registeredConnectionIds": [
+            "626fdc6d7490300e92ffd613"
+        ],
+        "installSteps": [],
+        "uninstallSteps": [],
+        "flowGroupings": [
+            {
+                "name": "FG1",
+                "_id": "631ab3d83796483e5615b606",
+                "settingsForm": {
+            "form": {
+                "fieldMap": {
+                    "kvSetting1ForIntegration": {
+                        "label": "Key Value Integration Setting",
+                        "id": "kvSetting1ForIntegration",
+                        "name": "kvSetting1ForIntegration",
+                        "type": "keyvalue",
+                        "helpText": "lorem ipsum",
+                        "keyName": "key",
+                        "valueName": "value"
+                    },
+                "layout": {
+                    "fields": [
+                        "txtSetting2ForIntegration",
+                        "kvSetting1ForIntegration"
+                    ]
+                }
+            },
+            "init": {
+                "_scriptId": "626137e61ce14c420e01c86b",
+                "function": "formInit1"
+            }
+        }
+            }
+            }
+        ]
+    },
+
+    "importJson": {
+        "environment": "Production",
+        "name": "TC_IAF_016_C27740",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "_integrationId": "631ab3cd13d12134f4771a93",
+        "applications": ["activecampaign"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+          "_integrationId": "631ab3cd13d12134f4771a93"
+        }
+      },
+
+      "setupConnection": {
+        "integrationName":"Form Install Step",
+        "uninstall":"false"
+      },
+      "verification": {
+        "prevScript": "None",
+        "scriptName": "SETTINGS FORM",
+        "function": "formInit",
+        "errorText": "TypeError:·Cannot·read·property·'valueResource'·of·undefined"
+      },
+      "app": "ActiveCampaign",
+      "integrationName": "Form Install Step"
+}

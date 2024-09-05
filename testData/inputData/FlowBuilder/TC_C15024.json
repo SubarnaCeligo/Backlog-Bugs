@@ -1,0 +1,189 @@
+{
+    "name": "TC_C15024",
+    "referencename": "TC_C15024",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Test NS Case",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "_sourceId": "62c417823511941752992347",
+                        "apiIdentifier": "ef8208eab7",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "rawData": "62ebb431e627016182cf3391e0bb2409a9c84530954c4fe426e06251",
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "recordType": "supportcase",
+                                "searchId": "129",
+                                "useSS2Restlets": false
+                            },
+                            "distributed": {
+                                "useSS2Framework": false
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Test ZD Import",
+                        "application":"zendesk support",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "extract": "Subject",
+                                    "generate": "organization.name",
+                                    "dataType": "string"
+                                }
+                            ]
+                        },
+                        "http": {
+                            "relativeURI": [
+                                "/api/v2/organizations"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "headers": [
+                                {
+                                    "name": "mediaType",
+                                    "value": "{{connection.http.mediaType}}"
+                                }
+                            ],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "filter": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [
+                                    "equals",
+                                    [
+                                        "string",
+                                        [
+                                            "extract",
+                                            "Company"
+                                        ]
+                                    ],
+                                    [
+                                        "uppercase",
+                                        [
+                                            "string",
+                                            [
+                                                "extract",
+                                                "Company"
+                                            ]
+                                        ]
+                                    ]
+                                ],
+                                "version": "1"
+                            },
+                            "version": "1",
+                            "rules": [
+                                "equals",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "Company"
+                                    ]
+                                ],
+                                [
+                                    "uppercase",
+                                    [
+                                        "string",
+                                        [
+                                            "extract",
+                                            "Company"
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                },
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "FTP Redshift Import",
+                        "_connectionId": "FTP CONNECTION",
+                        "_sourceId": "62cfbc3370b735433c807db7",
+                        "apiIdentifier": "ie7cb2c7ab",
+                        "oneToMany": false,
+                        "file": {
+                            "fileName": "file-{{timestamp}}.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "/VamsiRayapati/RedShift",
+                            "fileName": "file-{{timestamp}}.json"
+                        },
+                        "filter": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [],
+                                "version": "1"
+                            },
+                            "version": "1",
+                            "rules": []
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C15024",
+                "disabled": false,
+                "_integrationId": "62ecc42648570015ab65cfa5",
+                "qa__integrationId": "62eca1efe386b563f638451e",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [
+                                {
+                                    "extract": "headers",
+                                    "generate": "headers"
+                                }
+                            ],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "63104e63d096ed1b2752990d"
+                    },
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "63104e63d096ed1b2752990c"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "63104e63d096ed1b2752990a",
+                        "skipRetries": false
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,39 @@
+{
+  "Body": {
+    "name": "3PL Central",
+    "_connectionId": "3PL CENTRAL",
+    "apiIdentifier": "e610e9c723",
+    "asynchronous": true,
+    "type": "test",
+    "assistant": "3plcentral",
+    "oneToMany": false,
+    "sandbox": false,
+    "assistantMetadata": {
+      "resource": "6345f57469f848d92751bfc2",
+      "version": "6345f57469f848d92751bfbf",
+      "operation": "6345f57469f848d92751bfc3"
+    },
+    "http": {
+      "relativeURI": "/customers?pgnum={{{export.http.paging.page}}}",
+      "method": "GET",
+      "requestMediaType": "json",
+      "successMediaType": "json",
+      "errorMediaType": "json",
+      "_httpConnectorResourceId": "6345f57469f848d92751bfc2",
+      "_httpConnectorEndpointId": "6345f57469f848d92751bfc3",
+      "formType": "assistant",
+      "paging": {
+        "method": "page",
+        "page": 1
+      },
+      "response": {
+        "resourcePath": "ResourceList"
+      }
+    },
+    "rawData": "6333fb239fb96473a0c7343bb99d64ea2e3d4f2eaa09a5f74bd3e448",
+    "test": {
+      "limit": 1
+    },
+    "adaptorType": "HTTPExport"
+  }
+}

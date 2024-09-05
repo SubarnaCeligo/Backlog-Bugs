@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("@Author-ladimanish TC_T30987_T30983_T30999_T30984", () => {
-  test("@Env-PLATFORMTHREE @Epic-IO-68754 @Priority-P1 @Zephyr-IO-T30987 @Zephyr-IO-T30983 @Zephyr-IO-T30999 Zephyr-IO-T30984 TC_T30987_T30983_T30999_T30984", async ({
+  test("@Env-PLATFORMTHREE @Env-QA  @Epic-IO-68754 @Priority-P1 @Zephyr-IO-T30987 @Zephyr-IO-T30983 @Zephyr-IO-T30999 Zephyr-IO-T30984 TC_T30987_T30983_T30999_T30984", async ({
     io,
     page
   }) => {
@@ -22,17 +22,16 @@ test.describe("@Author-ladimanish TC_T30987_T30983_T30999_T30984", () => {
     await io.sync.enterSyncName(syncName);
 
     //T30987
-    // await io.flowBuilder.click(
-    //   selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT
-    // );
-    // await io.assert.verifyElementContainsText(
-    //   selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW,
-    //   "text to be added"
-    // );
-    // await io.flowBuilder.clickByIndex(
-    //   selectors.connectionsPagePO.HELPTEXT_CLOSE,
-    //   4
-    // );
+    await io.flowBuilder.clickByIndex(
+      selectors.flowBuilderPagePO.HELP_TEXT_ICON,4
+    );
+    await io.assert.verifyElementContainsText(
+      selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW,
+      "This determines how often your sync runs."
+    );
+    await io.flowBuilder.click(
+      selectors.connectionsPagePO.HELPTEXT_CLOSE
+    );
 
     //T30983
     await io.assert.verifyElementDisplayedByText(

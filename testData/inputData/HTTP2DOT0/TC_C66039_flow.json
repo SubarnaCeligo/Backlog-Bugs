@@ -5,7 +5,7 @@
     {
       "qa__export": {
         "name": "Loop Returns Export",
-        "_connectionId": "A loop returns no version 1 dnd",
+        "_connectionId": "LOOP RETURNS NO VERSION",
         "apiIdentifier": "e6140f00ae",
         "asynchronous": true,
         "assistant": "loopreturns",
@@ -41,7 +41,7 @@
       "type": "import",
       "qa__import": {
         "name": "Loop Returns Import",
-        "_connectionId": "A loop returns no version 1 dnd",
+        "_connectionId": "LOOP RETURNS NO VERSION",
         "apiIdentifier": "i93349202e",
         "ignoreExisting": false,
         "ignoreMissing": false,

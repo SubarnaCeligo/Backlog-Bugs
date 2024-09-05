@@ -1,0 +1,206 @@
+{
+  "name": "TC_C51957_51789",
+  "qa__expectedDashboardCount": {
+    "successCount": "2",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "qa__api_tdata": [
+    {
+      "pageProcessors": [
+        {
+          "responseMapping": {
+            "fields": [],
+            "lists": []
+          },
+          "type": "import",
+          "qa__import": {
+            "name": "TC_C51957_51789",
+            "_connectionId":"S3 CONNECTION",
+            "apiIdentifier": "ibadf42098",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "mappings": [
+              {
+                "generate": "body_html",
+                "dataType": "stringarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                  {
+                    "extract": "$.body_html",
+                    "sourceDataType": "string"
+                  }
+                ]
+              },
+              {
+                "generate": "id",
+                "dataType": "stringarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                  {
+                    "extract": "$.id",
+                    "sourceDataType": "number"
+                  }
+                ]
+              },
+              {
+                "generate": "shipping",
+                "dataType": "stringarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                  {
+                    "extract": "$.variants[*].requires_shipping",
+                    "sourceDataType": "boolean"
+                  }
+                ]
+              },
+              {
+                "generate": "values",
+                "dataType": "stringarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                  {
+                    "extract": "$.options.values",
+                    "sourceDataType": "stringarray"
+                  }
+                ]
+              },
+              {
+                "generate": "new_variant",
+                "dataType": "stringarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                  {
+                    "extract": "$.new_variant",
+                    "sourceDataType": "numberarray"
+                  }
+                ]
+              },
+              {
+                "generate": "tax",
+                "dataType": "stringarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                  {
+                    "extract": "$.variants[*].taxable",
+                    "sourceDataType": "boolean"
+                  }
+                ]
+              },
+              {
+                "generate": "data",
+                "dataType": "stringarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                  {
+                    "extract": "$",
+                    "sourceDataType": "object"
+                  }
+                ]
+              },
+              {
+                "generate": "images",
+                "dataType": "stringarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                  {
+                    "extract": "$.images[*]",
+                    "sourceDataType": "objectarray"
+                  }
+                ]
+              }
+            ],
+            "file": {
+              "fileName": "fileTC_C51957_51789-{{timestamp}}.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "s3": {
+              "region": "us-east-1",
+              "bucket": "io-automation",
+              "fileKey": "fileTC_C51957_51789-{{timestamp}}.json"
+            },
+            "adaptorType": "S3Import"
+          }
+        }
+      ],
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "TC_C51957_51789",
+            "qa__path": "//FTP_uploads//TC_C51795.json",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "ee66d9e367",
+            "asynchronous": true,
+            "sandbox": false,
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+              "fileNameStartsWith": "TC_C51795"
+            },
+            "file": {
+              "encoding": "utf8",
+              "output": "records",
+              "skipDelete": true,
+              "type": "json"
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C51957_51789",
+        "disabled": false,
+        "qa__integrationId": "56d6b23fe1fc35de53914730",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "type": "export",
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      },
+      "qa__expectedDashboardCount": {
+        "successCount": "2",
+        "ignoreCount": "0",
+        "errorCount": "0"
+      },
+      "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "expected": {
+          "S3": {
+            "name": "TC_C51957_51789",
+            "qa__integrationId": "56d6b23fe1fc35de53914730",
+            "import": {
+              "_connectionId": "HTTP SHOPIFY CONNECTION"
+            },
+            "qa__expectedDashboardCount": {
+              "successCount": "2",
+              "ignoreCount": "0",
+              "errorCount": "0"
+            },
+            "qa__dataVerification": {
+              "bucketName": "io-automation",
+              "fileName": "fileTC_C51957_51789",
+              "isUIFlow": true,
+              "fileType": ".json"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

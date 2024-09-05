@@ -1,0 +1,177 @@
+{
+    "referencename": "TC_C51218",
+    "name": "TC_C51218",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "ftp_exp",
+                        "_connectionId": "FTP CONNECTION",
+                        "_sourceId": "6349032703b87c2be89a2886",
+                        "apiIdentifier": "e822e43474",
+                        "asynchronous": true,
+                        "sandbox": false,
+                        "ftp": {
+                            "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+                            "fileNameStartsWith": "TC_C51221"
+                        },
+                        "file": {
+                            "output": "records",
+                            "skipDelete": false,
+                            "type": "json"
+                        },
+                        "adaptorType": "FTPExport",
+                        "qa__path": "//FTP_uploads//TC_C51221.json"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Http Import",
+                        "application": "zendesk support",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "ia43375eba",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "extract": "name",
+                                    "generate": "organization.name"
+                                },
+                                {
+                                    "extract": "notes",
+                                    "generate": "organization.notes"
+                                }
+                            ]
+                        },
+                        "mappings": [
+                            {
+                                "extract": "$.fName",
+                                "generate": "name",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "generate": "family",
+                                "dataType": "objectarray",
+                                "status": "Draft",
+                                "buildArrayHelper": [
+                                    {
+                                        "extract": "$.father",
+                                        "sourceDataType": "object",
+                                        "mappings": [
+                                            {
+                                                "generate": "fname",
+                                                "dataType": "string",
+                                                "status": "Draft",
+                                                "sourceDataType": "string"
+                                            },
+                                            {
+                                                "generate": "lname",
+                                                "dataType": "string",
+                                                "status": "Draft",
+                                                "sourceDataType": "string"
+                                            },
+                                            {
+                                                "generate": "test",
+                                                "dataType": "string",
+                                                "status": "Draft",
+                                                "sourceDataType": "string"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "extract": "$.mother",
+                                        "sourceDataType": "object",
+                                        "mappings": [
+                                            {
+                                                "generate": "fname",
+                                                "dataType": "string",
+                                                "status": "Draft",
+                                                "sourceDataType": "string"
+                                            },
+                                            {
+                                                "generate": "lname",
+                                                "dataType": "string",
+                                                "status": "Draft",
+                                                "sourceDataType": "string"
+                                            },
+                                            {
+                                                "generate": "test",
+                                                "dataType": "string",
+                                                "status": "Draft",
+                                                "sourceDataType": "string"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "extract": "$.siblings[*].children[*]",
+                                        "sourceDataType": "objectarray",
+                                        "mappings": [
+                                            {
+                                                "generate": "fname",
+                                                "dataType": "string",
+                                                "status": "Draft",
+                                                "sourceDataType": "string"
+                                            },
+                                            {
+                                                "generate": "lname",
+                                                "dataType": "string",
+                                                "status": "Draft",
+                                                "sourceDataType": "string"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "http": {
+                            "relativeURI": [
+                                "/organizations/7440964686482"
+                            ],
+                            "method": [
+                                "PUT"
+                            ],
+                            "body": [],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C51218",
+                "disabled": false,
+                "qa__integrationId": "56d6b23fe1fc35de53914730",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,212 @@
+{
+    "skipRetries": false,
+    "_integrationId": "6228aed6bc8a2732cfe8044c",
+    "name": "TC_C26162",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "TC_C26162",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "asynchronous": true,
+                        "type": "distributed",
+                        "parsers": [],
+                        "distributed": {
+                            "bearerToken": "******"
+                        },
+                        "netsuite": {
+                            "type": "distributed",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "criteria": [],
+                                "columns": []
+                            },
+                            "distributed": {
+                                "executionContext": [
+                                    "userinterface",
+                                    "webservices",
+                                    "csvimport",
+                                    "suitelet",
+                                    "custommassupdate",
+                                    "userevent"
+                                ],
+                                "executionType": [
+                                    "create",
+                                    "edit",
+                                    "xedit"
+                                ],
+                                "recordType": "customer",
+                                "sublists": [
+                                    "addressbook"
+                                ],
+                                "qualifier": [
+                                    "companyname",
+                                    "=",
+                                    "RealTime_Export"
+                                ],
+                                "qa__qualifier": [
+                                    "Company Name",
+                                    "is",
+                                    "RealTime_Export"
+                                ],
+                                "skipExportFieldId": "custentity38",
+                                "useSS2Framework": true
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "pageProcessors": [],
+            "createFlow": {
+                "name": "TC_C26162",
+                "disabled": false,
+                "_integrationId": "6333054cca06597ef0aaa8f0",
+                "qa__integrationId": "6228aed6bc8a2732cfe8044c",
+                "skipRetries": false,
+                "pageProcessors": [],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ],
+    "SF": {
+        "qa__api_tdata": [
+            {
+                "pageGenerators": [
+                    {
+                        "type": "export",
+                        "qa__export": {
+                            "name": "salesforce",
+                            "_connectionId": "SALESFORCE CONNECTION",
+                            "apiIdentifier": "ec70cebea7",
+                            "asynchronous": true,
+                            "type": "distributed",
+                            "oneToMany": false,
+                            "sandbox": false,
+                            "distributed": {
+                                "bearerToken": "******"
+                            },
+                            "salesforce": {
+                                "sObjectType": "Customer",
+                                "distributed": {
+                                    "referencedFields": [
+                                        "CreatedBy.City"
+                                    ],
+                                    "disabled": true,
+                                    "qualifier": null,
+                                    "relatedLists": [
+                                        {
+                                            "referencedFields": [
+                                                "CreatedBy.City"
+                                            ],
+                                            "parentField": "TargetObjectId",
+                                            "sObjectType": "ProcessInstanceHistory",
+                                            "userDefined": false
+                                        }
+                                    ]
+                                }
+                            },
+                            "transform": {
+                                "type": "expression",
+                                "expression": {
+                                    "rules": [
+                                        [
+                                            {
+                                                "generate": "NAME",
+                                                "extract": "id"
+                                            }
+                                        ]
+                                    ],
+                                    "version": "1"
+                                },
+                                "version": "1",
+                                "rules": [
+                                    [
+                                        {
+                                            "generate": "NAME",
+                                            "extract": "id"
+                                        }
+                                    ]
+                                ]
+                            },
+                            "adaptorType": "SalesforceExport"
+                        }
+                    }
+                ],
+                "pageProcessors": [],
+                "createFlow": {
+                    "name": "TC_C26162_SF",
+                    "disabled": false,
+                    "_integrationId": "6333054cca06597ef0aaa8f0",
+                    "qa__integrationId": "6228aed6bc8a2732cfe8044c",
+                    "skipRetries": false,
+                    "pageProcessors": [],
+                    "pageGenerators": [
+                        {
+                            "_exportId": "UPDATE WITH NEW EXPORTID"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "Webhook": {
+        "qa__api_tdata": [
+            {
+                "pageGenerators": [
+                    {
+                        "type": "export",
+                        "qa__export": {
+                            "name": "Webhook",
+                            "type": "webhook",
+                            "sandbox": false,
+                            "webhook": {
+                                "provider": "custom",
+                                "verify": "basic",
+                                "username": "goodUser",
+                                "password": "goodPass"
+                            },
+                            "filter": {
+                                "type": "expression",
+                                "expression": {
+                                    "rules": [
+                                        "empty",
+                                        "YGYJYHJ"
+                                    ],
+                                    "version": "1"
+                                },
+                                "version": "1",
+                                "rules": [
+                                    "empty",
+                                    "YGYJYHJ"
+                                ]
+                            },
+                            "adaptorType": "WebhookExport"
+                        }
+                    }
+                ],
+                "pageProcessors": [],
+                "createFlow": {
+                    "name": "TC_C26162_WH",
+                    "disabled": false,
+                    "_integrationId": "6333054cca06597ef0aaa8f0",
+                    "qa__integrationId": "6228aed6bc8a2732cfe8044c",
+                    "skipRetries": false,
+                    "pageProcessors": [],
+                    "pageGenerators": [
+                        {
+                            "_exportId": "UPDATE WITH NEW EXPORTID"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,99 @@
+{
+  "name": "TC_C22288",
+  "referencename": "TC_C22288",
+  "expectedreqresp": {
+    "viewResponse": "{··\"code\":·\"USER_ERROR\",··\"message\":·\"Before·you·can·create·the·Inventory·Detail,·please·enter·values·for:·\\nLocation\"}"
+  },
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "AutomationStandalone_Tracekey test",
+            "_connectionId": "FTP CONNECTION",
+            "asynchronous": true,
+            "ftp": {
+              "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+              "fileNameStartsWith": "TC_C22288_upload.json"
+            },
+            "file": {
+              "encoding": "utf8",
+              "output": "records",
+              "skipDelete": true,
+              "type": "json"
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "test",
+            "_connectionId": "NETSUITE CONNECTION",
+            "distributed": true,
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "lookups": [],
+            "netsuite_da": {
+              "useSS2Restlets": false,
+              "operation": "add",
+              "recordType": "customer",
+              "lookups": [],
+              "mapping": {
+                "fields": [
+                  {
+                    "generate": "companyname",
+                    "internalId": false,
+                    "extract": "1232989"
+                  },
+                  {
+                    "generate": "custentity_esc_industry",
+                    "internalId": false,
+                    "extract": "id"
+                  },
+                  {
+                    "generate": "custentity_esc_annual_revenue",
+                    "internalId": false,
+                    "hardCodedValue": "asdfghjnvfty"
+                  },
+                  {
+                    "generate": "subsidiary",
+                    "hardCodedValue": "fd",
+                    "internalId": false
+                  }
+                ],
+                "lists": []
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C22288",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

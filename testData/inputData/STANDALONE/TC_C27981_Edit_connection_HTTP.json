@@ -1,0 +1,68 @@
+{
+    "expectedJSON": {
+        "type": "http",
+        "name": "Connection_Custom_Setting",
+        "sandbox": false,
+        "http": {
+            "formType": "http",
+            "mediaType": "json",
+            "baseURI": "https://celigoqa.zendesk.com/api/v2/",
+            "ping": {
+                "relativeURI": "users.json",
+                "method": "GET"
+            },
+            "headers": [
+                {
+                    "name": "content-type",
+                    "value": "application/json"
+                }
+            ],
+            "unencrypted": {
+                "field": "value"
+            },
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "mounica.manavapati@celigo.com",
+                    "password": "******"
+                }
+            }
+        }
+    },
+    "apiJSON": {
+        "http": {
+            "headers": [],
+            "authType": "basic",
+            "basicAuth": {
+                "password": "******",
+                "qa__password": "Y2VsaWdvMTIzNA==",
+                "username": "mounica.manavapati@celigo.com"
+            },
+            "baseURI": "https://celigoqa.zendesk.com/api/v2/",
+            "scope": [],
+            "mediaType": "json",
+            "pingRelativeURI": "users.json",
+            "encryptedFields": [],
+            "refreshTokenHeaders": []
+        },
+        "name": "Connection_Custom_Setting",
+        "type": "http"
+    },
+    "importJSON": {
+        "http": {
+            "basicAuth": {
+                "password": "******",
+                "qa__password": "Y2VsaWdvMTIzNA==",
+                "username": "mounica.manavapati@celigo.com"
+            },
+            "baseURI": "https://celigoqa.zendesk.com/api/v2/",
+            "scope": [],
+            "mediaType": "json",
+            "pingRelativeURI": "users.json",
+            "encryptedFields": [],
+            "refreshTokenHeaders": []
+        },
+        "name": "Connection_Custom_Setting",
+        "type": "http"
+    }
+}

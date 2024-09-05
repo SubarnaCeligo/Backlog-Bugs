@@ -65,9 +65,14 @@ test.describe("C118306 - Verify Assign error flyout when errors assigned to mult
   await io.flowBuilder.click(selectors.em2DotOLineGraphPO.ASSIGN_ERRORS);
   await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
   
-  const message = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.PAGE_INFO_TEXT)).toString();
-  await io.assert.expectToContainValue(message, 
-  'The selected errors are not assigned to the same user. ,Assigning a user here will replace the existing assigned user on all selected errors.',
+  const message1 = (await io.flowBuilder.isVisible("text='The selected errors are not assigned to the same user.'"));
+  await io.assert.expectToBeTrue( 
+  message1,
+  'Warning message is not displayed');
+
+  const message2 = (await io.flowBuilder.isVisible("text='Assigning a user here will replace the existing assigned user on all selected errors.'"));
+  await io.assert.expectToBeTrue( 
+  message2,
   'Warning message is not displayed');
 
   //Clear all assignments

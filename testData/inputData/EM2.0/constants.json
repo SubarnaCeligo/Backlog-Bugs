@@ -1,0 +1,100 @@
+{
+    "errorDrawer": {
+        "openErrors": [
+            "",
+            "Message",
+            "Code",
+            "Source",
+            "Classification",
+            "Timestamp",
+            "Actions"
+        ],
+        "resolvedErrors": [
+            "",
+            "Message",
+            "Code",
+            "Source",
+            "Classification",
+            "Timestamp",
+            "Resolved by",
+            "Resolved at",
+            "Actions"
+        ],
+        "errorActions": [
+            "Edit retry data",
+            "Resolve",
+            "Retry",
+            "View error details",
+            "View HTTP request",
+            "View HTTP response"
+        ]
+    },
+    "runHistory": {
+        "columns": [
+            "Flow",
+            "Status",
+            "Duration",
+            "Started",
+            "Completed",
+            "Success",
+            "Ignored",
+            "Errors",
+            "Pages",
+            "Actions"
+        ]
+    },
+    "stepsErrorList": {
+        "columns": [
+            "Application",
+            "Type",
+            "Flow step name",
+            "Errors",
+            "Last open error"
+        ]
+    },
+    "graphs": {
+        "list": [
+            "Flow: Success",
+            "Average processing time/success record",
+            "Flow: Errors",
+            "Flow: Ignored",
+            "Flow: Resolved"
+        ]
+    },
+    "months": [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+    ],
+    "timeStamps": {
+        "filters": [
+            "Today",
+            "Yesterday",
+            "Last 24 hours",
+            "Last 7 days",
+            "Last 15 days",
+            "Last 30 days",
+            "Custom"
+        ]
+    },
+    "qaprod_timeStamps": {
+        "filters": [
+            "Today",
+            "Last 36 hours",
+            "Last 24 hours",
+            "Last 7 days",
+            "Last 15 days",
+            "Last 30 days",
+            "Custom"
+        ]
+    }
+}

@@ -1,0 +1,40 @@
+{
+  "Redshift": {
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "application": "Amazon Redshift",
+          "name": "AutomationStandaloneExport__RCdUoNu5ir",
+          "_connectionId": "AMAZON REDSHIFT CONNECTION",
+          "apiIdentifier": "ecbaab417c",
+          "asynchronous": true,
+          "oneToMany": false,
+          "sandbox": false,
+          "rdbms": {
+            "query": "select * from venue order by venuecity asc"
+          },
+          "adaptorType": "RDBMSExport"
+        }
+      }
+    ]
+  },
+  "Snowflake": {
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "application": "Snowflake",
+          "name": "AutomationStandaloneExport__bKmtN4t6WU",
+          "_connectionId": "62e8d63c36f8f637aa252a52",
+          "apiIdentifier": "e4d7b3bef4",
+          "asynchronous": true,
+          "oneToMany": false,
+          "sandbox": false,
+          "rdbms": {
+            "query": "select * from Grouping_5MB order by COLOR desc"
+          },
+          "adaptorType": "RDBMSExport"
+        }
+      }
+    ]
+  }
+}

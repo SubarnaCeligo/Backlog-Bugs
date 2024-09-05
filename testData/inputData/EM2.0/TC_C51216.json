@@ -1,0 +1,79 @@
+{
+    "name": "TC_C51216",
+    "disabled": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "qaprod_connectionId": "63da5d7efc3afd5680efb884",
+    "skipRetries": false,
+    "pageProcessors": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "sf blob",
+                "type": "blob",
+                "_connectionId": "SALESFORCE CONNECTION",
+                "apiIdentifier": "e48cd6e3cc",
+                "asynchronous": true,
+                "isLookup": true,
+                "oneToMany": true,
+                "sandbox": false,
+                "salesforce": {
+                    "type": "soql",
+                    "api": "rest",
+                    "sObjectType": "attachment",
+                    "id": "test"
+                },
+                "adaptorType": "SalesforceExport"
+            },
+            "responseMapping": {
+                "lists": [],
+                "fields": [],
+                "qa__index": 0
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "qa__type": "blob",
+                "name": "FTP Blob",
+                "_connectionId": "FTP CONNECTION",
+                "adaptorType": "FTPImport",
+                "distributed": false,
+                "qa__isLookup": true,
+                "oneToMany": true,
+                "pathToMany": "Attachments",
+                "blobKeyPath": "blobKey",
+                "parsers": [],
+                "ftp": {
+                    "directoryPath": "test",
+                    "fileName": "{{data.Name}}"
+                }
+            },
+            "responseMapping": {
+                "lists": [],
+                "fields": []
+            }
+        }
+    ],
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "Http Export",
+                "application": "zendesk support",
+                "qa__connectionId": "ZENDESK CONNECTION",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "eb1acc5436",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "/tickets",
+                    "method": "GET",
+                    "formType": "http"
+                },
+                "rawData": "603ce5ede9250226dcea4608f54266c9f47b40c997b50a6854fc1695",
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ]
+}

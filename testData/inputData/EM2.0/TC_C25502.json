@@ -1,0 +1,98 @@
+{
+  "name": "TC_C25502",
+  "referencename": "TC_C25502",
+  "qa__dataVerification": {},
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Export_TC_C25502",
+            "application": "Miva",
+            "_connectionId": "HTTP MIVA CONNECTION",
+            "qa__connectionId": "62c424584a31df1b3e04d9ef",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+              "relativeURI": "/jso",
+              "method": "POST",
+              "body": "{\"Store_Code\":\"{{connection.http.unencrypted.Store_Code}}\",\"Function\":\"CustomerList_Load_Query\",\"Count\":1,\"Miva_Request_Timestamp\":\"{{dateFormat 'X'}}\",\"Filter\":[{\"name\":\"ondemandcolumns\",\"value\":[\"CustomField_Values:*\"]}]}",
+              "formType": "http",
+              "response": {
+                "resourcePath": "data.data",
+                "successPath": "success"
+              }
+            },
+            "rawData": "EMPTY RAW DATA",
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Import_TC_C25502",
+            "parsers": [],
+            "_connectionId": "FTP CONNECTION",
+            "oneToMany": false,
+            "sandbox": false,
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "Name",
+                  "generate": "Name"
+                },
+                {
+                  "extract": "Phone",
+                  "generate": "phone"
+                },
+                {
+                  "extract": "Ownership",
+                  "generate": "Ownership"
+                },
+                {
+                  "extract": "Description",
+                  "generate": "Description"
+                }
+              ]
+            },
+            "file": {
+              "fileName": "TC_C25502.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa//IO_UI_Automation",
+              "fileName": "TC_C25502.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C25502",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

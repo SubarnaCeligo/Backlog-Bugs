@@ -1,0 +1,17 @@
+[{
+    "connectionId":"FTP CONNECTION",
+    "S3ConnectionID": "S3 CONNECTION",
+    "FTP_conection": "FTP CONNECTION",
+    "QA_FTP_PGPConnection": "62d958066c21e2320cfdbbfb",
+    "Stage_FTP_PGPConnection": "FTP_PGP_PRIVATE_KEY CONNECTION",
+    "QA_S3_PGPConnection": "61a9a9fcb1ee8410587f3ec2",
+    "Stage_S3_PGPConnection": "60dc6226caf3f658b50afb0e",
+    "QA_GDrive_PGPConnection": "GDRIVE_PRIVATE_PUBLIC_KEY CONNECTION",
+    "Stage_Gdrive_PGPConnection": "GDRIVE_PRIVATE_PUBLIC_KEY CONNECTION",
+    "S3_Invalid_PrivateKey": "62e362d9012e6e4f6ed2beb2",
+    "S3_Invalid_PassPhrase": "62e75e9cd61e942a8d4eb917",
+    "FTP_Invalid_PublicKey": "62e766e2d61e942a8d4ebc1d",
+    "FTP_Invalid_PrivateKey": "62e76725d61e942a8d4ebc33",
+    "Snowflake_connection":"SNOWFLAKE CONNECTION",
+    "Snowflake_connection_staging":"SNOWFLAKE CONNECTION"
+}]

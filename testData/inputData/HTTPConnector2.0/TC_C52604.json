@@ -1,0 +1,104 @@
+{
+    "name": "TC_C52604",
+    "referencename": "TC_C52604",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "stripe",
+                        "_connectionId": "STRIPE CONNECTION",
+                        "_sourceId": "63a897e3dc41b55fafe1b9b7",
+                        "apiIdentifier": "ec9e9d8aee",
+                        "asynchronous": true,
+                        "assistant": "stripe",
+                        "oneToMany": false,
+                        "assistantMetadata": {
+                            "resource": "6384ac104342b8126f874af4",
+                            "version": "6384ac104342b8126f874ae3",
+                            "operation": "6384ac104342b8126f874af6"
+                        },
+                        "http": {
+                            "relativeURI": "/v1/radar/value_lists/rsl_1M4OLBCvObCsxWo8uYxijTWU",
+                            "method": "GET",
+                            "_httpConnectorResourceId": "6384ac104342b8126f874af4",
+                            "_httpConnectorEndpointId": "6384ac104342b8126f874af6",
+                            "formType": "assistant"
+                        },
+                        "rawData": "6333fb239fb96473a0c7343bf7b776a3743842eab950eab7024a9313",
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "stripe",
+                        "_connectionId": "STRIPE CONNECTION",
+                        "_sourceId": "63a89811dc41b55fafe1b9bf",
+                        "apiIdentifier": "if48c3990b",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "assistant": "stripe",
+                        "assistantMetadata": {
+                            "resource": "6384ac104342b8126f874af4",
+                            "version": "6384ac104342b8126f874ae3",
+                            "operation": "6384ac104342b8126f874b84"
+                        },
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "extract": "{{add field field}}{{alias}}{{alias}}",
+                                    "generate": "alias"
+                                }
+                            ]
+                        },
+                        "http": {
+                            "relativeURI": [
+                                "/v1/radar/value_lists/{{{data.0.id}}}"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "requestMediaType": "urlencoded",
+                            "successMediaType": "json",
+                            "errorMediaType": "json",
+                            "strictHandlebarEvaluation": false,
+                            "sendPostMappedData": true,
+                            "_httpConnectorResourceId": "6384ac104342b8126f874af4",
+                            "_httpConnectorEndpointId": "6384ac104342b8126f874b84",
+                            "formType": "assistant"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C52604",
+                "disabled": false,
+                "qa__integrationId": "633408479fb96473a0c7372c",
+                "_integrationId": "63340890bb74b66e32a92640",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

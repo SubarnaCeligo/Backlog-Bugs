@@ -1,0 +1,130 @@
+{
+    "qa_integrationSetting": {
+        "_id": "62905de2c51f323382314cce",
+        "name": "Edition",
+        "install": [],
+        "mode": "settings",
+        "sandbox": false,
+        "_registeredConnectionIds": [
+            "626bd636987bb423914b47c7"
+        ],
+        "installSteps": [
+            {
+                "name": "Integrator.io bundle install and verify",
+                "description": "Click on the link to get the IO bundle link, install and then verify the installation.",
+                "imageUrl": "/images/company-logos/netsuite.png",
+                "completed": false,
+                "type": "url"
+            },
+            {
+                    "name": "Installation Done",
+                    "description": "Installation completed click on the link to proceed to setting paged",
+                    "imageUrl": "/images/company-logos/netsuite.png",
+                    "completed": false,
+                    "type": "form",
+                    "form": {
+                        "fieldMap": {
+                            "installStepForm": {
+                                "label": "Choose a value",
+                                "id": "installStepForm",
+                                "type": "select",
+                                "name": "installStepForm",
+                                "options": [
+                                    {
+                                        "items": [
+                                            {
+                                                "label": "Option 1",
+                                                "value": "1"
+                                            },
+                                            {
+                                                "label": "Option 2",
+                                                "value": "2"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        "layout": {
+                            "fields": [
+                                "installStepForm"
+                            ]
+                        },
+                        "actions": []
+                    },
+                    "function": "hiddenStep",
+                    "_scriptId": "60de8dbc9310477767cb20d9",
+                    "getUrlFunction": "CustomException"
+                }],
+        "uninstallSteps": [],
+        "flowGroupings": [],
+        "initChild": {
+            "_scriptId": "62613430e4520e334e7eeb2a",
+            "function": "initChild"
+        }
+    },
+    "integrationSetting": {
+        "_id": "631ad2f213d12134f4772d77",
+        "name": "Edition",
+        "install": [],
+        "mode": "settings",
+        "sandbox": false,
+        "_registeredConnectionIds": [
+            "626fdc6d7490300e92ffd613"
+        ],
+        "installSteps": [
+            {
+                "name": "Integrator.io bundle install and verify",
+                "description": "Click on the link to get the IO bundle link, install and then verify the installation.",
+                "imageUrl": "/images/company-logos/netsuite.png",
+                "completed": false,
+                "type": "url"
+            },
+            {
+                    "name": "Installation Done",
+                    "description": "Installation completed click on the link to proceed to setting paged",
+                    "imageUrl": "/images/company-logos/netsuite.png",
+                    "completed": false,
+                    "type": "form",
+                    "form": {
+                        "fieldMap": {
+                            "installStepForm": {
+                                "label": "Choose a value",
+                                "id": "installStepForm",
+                                "type": "select",
+                                "name": "installStepForm",
+                                "options": [
+                                    {
+                                        "items": [
+                                            {
+                                                "label": "Option 1",
+                                                "value": "1"
+                                            },
+                                            {
+                                                "label": "Option 2",
+                                                "value": "2"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        "layout": {
+                            "fields": [
+                                "installStepForm"
+                            ]
+                        },
+                        "actions": []
+                    },
+                    "function": "hiddenStep",
+                    "_scriptId": "626137e61ce14c420e01c86b",
+                    "getUrlFunction": "CustomException"
+                }],
+        "uninstallSteps": [],
+        "flowGroupings": [],
+        "initChild": {
+            "_scriptId": "626137e61ce14c420e01c86b",
+            "function": "initChild"
+        }
+    }
+}

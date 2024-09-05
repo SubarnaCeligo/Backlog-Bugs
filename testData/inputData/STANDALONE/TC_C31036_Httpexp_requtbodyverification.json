@@ -1,0 +1,26 @@
+{
+    "skipRetries": false,
+    "_integrationId": "6228aed6bc8a2732cfe8044c",
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C31036_Httpexp_requtbodyverification",
+    "disabled": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "httpzdexp",
+                "_connectionId":"HTTP ZENDESK CONNECTION",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "parsers": [],
+                "http": {
+                    "relativeURI": "Sampleuri",
+                    "method": "POST",
+                    "body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n<request API_version=\"1.0\" client=\"integrator.iop\" client_ver=\"1.1\" namespace=\"{{{connection.http.unencrypted.namespace}}}\" key=\"{{{connection.http.unencrypted.apiKey}}}\">\r\n    <Auth>\r\n        <Login>\r\n            <company>\r\n                {{{connection.http.unencrypted.companyId}}}\r\n            </company>\r\n            <user>\r\n                {{{connection.http.unencrypted.userId}}}\r\n            </user>\r\n            <password>\r\n                {{{connection.http.encrypted.password}}}\r\n            </password>\r\n        </Login>\r\n    </Auth>\r\n    <Read type=\"Contact\" method=\"all\" limit=\"{{{export.http.paging.skip}}},10\"/>\r\n</request>",
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ]
+}

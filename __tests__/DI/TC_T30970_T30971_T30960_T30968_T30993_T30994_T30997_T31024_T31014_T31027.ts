@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("@Author-ladimanish TC_T30970_T30971_T30960_T30968_T30993_T30994_T30997_T31024_T31014_T31027", () => {
-  test("@Env-PLATFORMTHREE @Epic-IO-68754 @Priority-P1 @Zephyr-IO-T30970 @Zephyr-IO-T30971 @Zephyr-IO-T30960 @Zephyr-IO-T30968 @Zephyr-IO-T30993 @Zephyr-IO-T30994 @Zephyr-IO-T30997 @Zephyr-IO-T31024 @Zephyr-IO-T31014 @Zephyr-IO-T31027 TC_T30970_T30971_T30960_T30968_T30993_T30994_T30997_T31024_T31014_T31027", async ({
+  test("@Env-PLATFORMTHREE @Env-QA  @Epic-IO-68754 @Priority-P1 @Zephyr-IO-T30970 @Zephyr-IO-T30971 @Zephyr-IO-T30960 @Zephyr-IO-T30968 @Zephyr-IO-T30993 @Zephyr-IO-T30994 @Zephyr-IO-T30997 @Zephyr-IO-T31024 @Zephyr-IO-T31014 @Zephyr-IO-T31027 TC_T30970_T30971_T30960_T30968_T30993_T30994_T30997_T31024_T31014_T31027", async ({
     io,
     page
   }) => {
@@ -29,12 +29,11 @@ test.describe("@Author-ladimanish TC_T30970_T30971_T30960_T30968_T30993_T30994_T
       selectors.syncPagePO.DESTINATION_APP_NAME_INPUT,
       "DESTINATION_APP_NAME_INPUT not displayed"
     );
-    await io.flowBuilder.click(selectors.syncPagePO.WIZARD_NEXT);
-    await io.myAccountPage.loadingTime();
-    await io.flowBuilder.click(selectors.syncPagePO.ADDITIONAL_SETTINGS);
 
     //T30971
     await io.assert.verifyElementToBeClickable(selectors.syncPagePO.WIZARD_CLOSE);
+    await io.sync.clickOnNext();
+    await io.myAccountPage.loadingTime();
 
     //T30960 T30968 T30993 T30994 T30997
     await io.assert.verifyElementDisplayedByText(
@@ -48,10 +47,6 @@ test.describe("@Author-ladimanish TC_T30970_T30971_T30960_T30968_T30993_T30994_T
     await io.assert.verifyElementIsDisplayed(
       selectors.syncPagePO.SETTINGS_SCHEDULE_COMPLETE,
       "Settings schedule is not displayed"
-    );
-    await io.assert.verifyElementIsDisplayed(
-      selectors.syncPagePO.SETTINGS_ADVANCED_COMPLETE,
-      "Settings advanced is not displayed"
     );
     await io.assert.verifyElementToBeClickable(
       selectors.syncPagePO.SETTINGS_STEP

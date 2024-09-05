@@ -1,0 +1,227 @@
+{
+    "skipRetries": false,
+    "_integrationId": "6228aed6bc8a2732cfe8044c",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "FTP xport",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "e930f9de29",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C30817"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "adaptorType": "FTPExport",
+                "qa__path": "//FTP_uploads//TC_C30817.json"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "FTP",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "ifc13c6adb",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "file-{{timestamp}}.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "/IO_automation",
+                    "fileName": "file-{{timestamp}}.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ],
+    "Script": "function preMap (options) {\n  options.data[0]={\n    test:options.data[0],\n    premap:23}\n  return options.data.map((d) => {\n    return {\n      data: d\n    }\n  })\n}",
+    "HTTP": {
+        "pageGenerators": [
+            {
+                "type": "export",
+                "qa__export": {
+                    "name": "FTP xport",
+                    "_connectionId": "FTP CONNECTION",
+                    "apiIdentifier": "e930f9de29",
+                    "asynchronous": true,
+                    "sandbox": false,
+                    "ftp": {
+                        "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                        "fileNameStartsWith": "TC_C30817"
+                    },
+                    "file": {
+                        "encoding": "utf8",
+                        "output": "records",
+                        "skipDelete": true,
+                        "type": "json",
+                        "json": {
+                            "resourcePath": "*"
+                        }
+                    },
+                    "adaptorType": "FTPExport",
+                    "qa__path": "//FTP_uploads//TC_C30817.json"
+                }
+            }
+        ],
+        "pageProcessors": [
+            {
+                "type": "import",
+                "qa__import": {
+                    "name": "HTTP Import",
+                    "application": "freshdesk",
+                    "_connectionId": "HTTP ZENDESK CONNECTION",
+                    "qa__connectionId": "627b6bd17ca3007138a67d30",
+                    "apiIdentifier": "i936627148",
+                    "ignoreExisting": false,
+                    "ignoreMissing": false,
+                    "oneToMany": false,
+                    "sandbox": false,
+                    "http": {
+                        "relativeURI": [
+                            "/users"
+                        ],
+                        "method": [
+                            "POST"
+                        ],
+                        "body": [],
+                        "batchSize": 1,
+                        "sendPostMappedData": true,
+                        "formType": "http"
+                    },
+                    "adaptorType": "HTTPImport"
+                }
+            }
+        ]
+    },
+    "NS": {
+        "pageGenerators": [
+            {
+                "type": "export",
+                "qa__export": {
+                    "name": "FTP xport",
+                    "_connectionId": "FTP CONNECTION",
+                    "apiIdentifier": "e930f9de29",
+                    "asynchronous": true,
+                    "sandbox": false,
+                    "ftp": {
+                        "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                        "fileNameStartsWith": "TC_C30817"
+                    },
+                    "file": {
+                        "encoding": "utf8",
+                        "output": "records",
+                        "skipDelete": true,
+                        "type": "json",
+                        "json": {
+                            "resourcePath": "*"
+                        }
+                    },
+                    "adaptorType": "FTPExport",
+                    "qa__path": "//FTP_uploads//TC_C30817.json"
+                }
+            }
+        ],
+        "pageProcessors": [
+            {
+                "type": "import",
+                "qa__import": {
+                    "name": "NetSuite Blob import",
+                    "qa__type": "blob",
+                    "_connectionId": "NETSUITE CONNECTION",
+                    "qa__connectionId": "628f00568f68e85ab2c63b22",
+                    "distributed": false,
+                    "apiIdentifier": "i59022b30e",
+                    "ignoreExisting": false,
+                    "ignoreMissing": false,
+                    "oneToMany": false,
+                    "blobKeyPath": "blobKey",
+                    "blob": true,
+                    "netsuite": {
+                        "operation": "add",
+                        "recordType": "file",
+                        "file": {
+                            "name": "{{timeStamp}}",
+                            "fileType": "",
+                            "folder": "245012235866667533573575"
+                        }
+                    },
+                    "adaptorType": "NetSuiteImport"
+                }
+            }
+        ]
+    },
+    "SF": {
+        "pageGenerators": [
+            {
+                "type": "export",
+                "qa__export": {
+                    "name": "FTP xport",
+                    "_connectionId": "FTP CONNECTION",
+                    "apiIdentifier": "e930f9de29",
+                    "asynchronous": true,
+                    "sandbox": false,
+                    "ftp": {
+                        "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                        "fileNameStartsWith": "TC_C30817"
+                    },
+                    "file": {
+                        "encoding": "utf8",
+                        "output": "records",
+                        "skipDelete": true,
+                        "type": "json",
+                        "json": {
+                            "resourcePath": "*"
+                        }
+                    },
+                    "adaptorType": "FTPExport",
+                    "qa__path": "//FTP_uploads//TC_C30817.json"
+                }
+            }
+        ],
+        "pageProcessors": [
+            {
+                "type": "import",
+                "qa__import": {
+                    "name": "AutomationStandaloneImport__ULLanswhSJ",
+                "parsers": [],
+                "_connectionId": "SALESFORCE CONNECTION",
+                "qa__connectionId": "SALESFORCE CONNECTION",
+                "_sourceId": "6013fa740f0ac62d08bb6d32",
+                "distributed": false,
+                "apiIdentifier": "i9d44bb924",
+                "oneToMany": true,
+                "pathToMany": "attachments",
+                "qa__type": "blob",
+                "blob": true,
+                "lookups": [],
+                "salesforce": {
+                  "operation": "insert",
+                  "sObjectType": "attachment",
+                  "attachment": {
+                    "name": "{{data.FileName}}",
+                    "parentId": "{{data._PARENT.entityid}}"
+                  },
+                  "removeNonSubmittableFields": false
+                },
+                "adaptorType": "SalesforceImport"
+                }
+            }
+        ]
+    }
+}

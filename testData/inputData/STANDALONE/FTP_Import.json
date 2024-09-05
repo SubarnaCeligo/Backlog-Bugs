@@ -1,0 +1,50 @@
+{
+    "name": "FTP import",
+    "disabled": false,
+    "_integrationId": "6228aed6bc8a2732cfe8044c",
+    "timezone": "Asia/Calcutta",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "_connectionId": "FTP CONNECTION",
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "FTP_Trns_Filter.json"
+                },
+                "qa__path": "//FTP_uploads//FTP_Trns_Filter.json",
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "BG to FTP Delta",
+                "description": "BG to FTP Delta test",
+                "parsers": [],
+                "_connectionId": "FTP CONNECTION",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "BiGquery_Delta.json",
+                    "type": "json",
+                    "batchSize": 10
+                },
+                "ftp": {
+                    "directoryPath": "io.auto.qa/IO_UI_Automation",
+                    "fileName": "BiGquery_Delta.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ]
+}

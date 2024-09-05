@@ -1,0 +1,130 @@
+{
+
+    "qa_editionSetting": {
+        "_id": "62b15c0da1cbdd6da45e0056",
+        "name": "TC_IAF_017_C27817",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "handle": "c1c1ebb7",
+        "published": false,
+        "managed": false,
+        "_integrationId": "62905de2c51f323382314cce",
+        "_sharedImportIds": [],
+        "_sharedExportIds": [],
+        "_iClientIdMap": [],
+        "applications": [
+            "activecampaign"
+        ],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "62905de2c51f323382314cce",
+            "editions":  [
+                {
+                    "_id": "62b15ad7a1cbdd6da45e001b",
+                "displayName": "Edition_1",
+                "order": 0,
+                "resources": {
+                        "_flowIds": [],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    },
+                    "childResources": {
+                        "_flowIds": [],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    }
+                },
+                {
+                    "_id": "62b15ad7a1cbdd6da45e001b",
+                "displayName": "Edition_2",
+                "order": 1,
+                "resources": {
+                        "_flowIds": [],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    },
+                    "childResources": {
+                        "_flowIds": [],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    }
+                }]
+        },
+        "trialEnabled": false
+    },
+    "editionSetting": {
+        "_id": "6320f3d427cca414396a888d",
+        "name": "TC_IAF_017_C27817",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "handle": "c1c1ebb7",
+        "published": false,
+        "managed": false,
+        "_integrationId": "631ad2f213d12134f4772d77",
+        "_sharedImportIds": [],
+        "_sharedExportIds": [],
+        "_iClientIdMap": [],
+        "applications": [
+            "activecampaign"
+        ],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "631ad2f213d12134f4772d77",
+            "editions":  [
+                {
+                    "_id": "62b15ad7a1cbdd6da45e001b",
+                "displayName": "Edition_1",
+                "order": 0,
+                "resources": {
+                        "_flowIds": [],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    },
+                    "childResources": {
+                        "_flowIds": [],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    }
+                },
+                {
+                    "_id": "62b15ad7a1cbdd6da45e001b",
+                "displayName": "Edition_2",
+                "order": 1,
+                "resources": {
+                        "_flowIds": [],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    },
+                    "childResources": {
+                        "_flowIds": [],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    }
+                }]
+        },
+        "trialEnabled": false
+    }
+
+}

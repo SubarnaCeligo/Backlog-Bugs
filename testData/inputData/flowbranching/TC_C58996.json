@@ -1,0 +1,184 @@
+{
+    "name": "TC_C58996",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "Dropbox",
+                "application": "Dropbox",
+                "_connectionId": "DROPBOX CONNECTION",
+                "apiIdentifier": "eee05e32a0",
+                "asynchronous": true,
+                "assistant": "dropbox",
+                "sandbox": false,
+                "http": {
+                    "type": "file",
+                    "relativeURI": "/FolderA/Dropboxtesting/Dropbox/Boxtesting",
+                    "method": "POST",
+                    "formType": "assistant",
+                    "response": {
+                        "resourcePath": "files"
+                    }
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "sampleData": [
+                    {
+                        "id": 1,
+                        "first_name": "Delila",
+                        "last_name": "Sibbert",
+                        "email": "dsibbert0@addthis.com",
+                        "gender": "Female",
+                        "ip_address": "6.175.34.115"
+                    },
+                    {
+                        "id": 2,
+                        "first_name": "Nisse",
+                        "last_name": "Binch",
+                        "email": "nbinch1@freewebs.com",
+                        "gender": "Female",
+                        "ip_address": "47.124.122.89"
+                    },
+                    {
+                        "id": 3,
+                        "first_name": "Tobiah",
+                        "last_name": "Beetham",
+                        "email": "tbeetham2@list-manage.com",
+                        "gender": "Male",
+                        "ip_address": "194.128.164.77"
+                    },
+                    {
+                        "id": 4,
+                        "first_name": "Amity",
+                        "last_name": "Kynnd",
+                        "email": "akynnd3@bizjournals.com",
+                        "gender": "Female",
+                        "ip_address": "210.226.94.228"
+                    },
+                    {
+                        "id": 5,
+                        "first_name": "Lionel",
+                        "last_name": "Messi",
+                        "email": "gogger4@howstuffworks.com",
+                        "gender": "Male",
+                        "ip_address": "205.208.186.124"
+                    }
+                ],
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "autoResolveMatchingTraceKeys": true,
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "FBIZ4g",
+            "routeRecordsTo": "all_matching_branches",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "Dropbox import",
+                                "application": "dropbox",
+                                "qa__connectionId": "63d017ec317b385e47733fbe",
+                                "_connectionId": "DROPBOX CONNECTION",
+                                "apiIdentifier": "ibd1d63555",
+                                "oneToMany": false,
+                                "assistant": "dropbox",
+                                "sandbox": false,
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "id",
+                                            "generate": "id"
+                                        },
+                                        {
+                                            "extract": "email",
+                                            "generate": "email"
+                                        }
+                                    ]
+                                },
+                                "file": {
+                                    "fileName": "Dropboxflowbranching.json",
+                                    "skipAggregation": false,
+                                    "type": "json"
+                                },
+                                "http": {
+                                    "type": "file",
+                                    "relativeURI": [
+                                        "/FolderA"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "body": [],
+                                    "sendPostMappedData": true,
+                                    "formType": "assistant",
+                                    "response": {
+                                        "resourcePath": [
+                                            "files"
+                                        ]
+                                    }
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Branch 1.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "FTP",
+                                "_connectionId": "FTP CONNECTION",
+                                "apiIdentifier": "ibe49fe987",
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "file": {
+                                    "fileName": "TC_C58996.json",
+                                    "skipAggregation": false,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                                    "fileName": "TC_C58996.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "15",
+        "errorCount": "0"
+    }
+}
