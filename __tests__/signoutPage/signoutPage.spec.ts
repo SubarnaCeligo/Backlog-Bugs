@@ -1,10 +1,10 @@
 import { filterTestCases } from "@celigo/aut-utilities";
 var testCases = [
- // "C65744",//Commenting this as "google sign in" is not working.@sushantceligo is looking into this
+  // "C65744",//Commenting this as "google sign in" is not working.@sushantceligo is looking into this
   "C66306",
   "C66316",
   "C67008",
- // "C67037",//Commenting this as "google sign in" is not working.@sushantceligo is looking into this
+  // "C67037",//Commenting this as "google sign in" is not working.@sushantceligo is looking into this
   "C66306",
   "C67038",
   "C100968",
@@ -36,8 +36,12 @@ var testCases = [
   "C19144",
   "C41259",
   "T968",
-  "T1088_T991"
-
+  "T1088_T991",
+  "IO-T37495",
+  "IO-T37502",
+  "IO-T37489",
+  "IO-T37520",
+  "IO-T37507",
 ];
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
 (async () => {
