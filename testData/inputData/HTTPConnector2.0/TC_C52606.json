@@ -9,44 +9,38 @@
     "pageGenerators": [
       {
         "qa__export": {
-          "name": "3PL Central",
-          "_connectionId": "3PL CENTRAL",
-          "apiIdentifier": "ea487325d9",
+          "name": "test",
+          "application" : "Orderful",
+          "_connectionId": "ORDERFUL CONNECTION",
+          "apiIdentifier": "e4c77699cf",
           "asynchronous": true,
           "type": "test",
-          "assistant": "3plcentral",
           "oneToMany": false,
           "sandbox": false,
           "assistantMetadata": {
-            "resource": "6345f57469f848d92751bfc2",
-            "version": "6345f57469f848d92751bfbf",
-            "operation": "6345f57469f848d92751bfc3"
+            "resource": "6345f57469f848d92751c01a",
+            "version": "6345f57469f848d92751c00e",
+            "operation": "6345f57469f848d92751c01b"
           },
           "http": {
-            "relativeURI": "/customers?pgnum={{{export.http.paging.page}}}",
+            "relativeURI": "v3/relationships",
             "method": "GET",
-            "headers": [],
             "requestMediaType": "json",
             "successMediaType": "json",
             "errorMediaType": "json",
-            "_httpConnectorResourceId": "6345f57469f848d92751bfc2",
-            "_httpConnectorEndpointId": "6345f57469f848d92751bfc3",
-            "formType": "assistant",
+            "formType": "http",
             "paging": {
-              "method": "page",
-              "page": 1
+              "method": "url",
+              "path": "metadata.pagination.links.next",
+              "lastPagePath": "metadata.pagination.links.next",
+              "lastPageValues": ["null"]
             },
             "response": {
-              "resourcePath": "ResourceList",
-              "successValues": []
+              "resourcePath": "data"
             }
           },
           "test": {
             "limit": 1
-          },
-          "qa__assistant": {
-            "resource": "Customers",
-            "endpoint": "Get all Customers"
           },
           "adaptorType": "HTTPExport"
         }
@@ -67,7 +61,7 @@
             "type": "json"
           },
           "ftp": {
-            "directoryPath": "/io.auto.qa/IO_UI_Automation",
+            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPimport",
             "fileName": "TC_C52606.json"
           },
           "adaptorType": "FTPImport"
@@ -92,11 +86,10 @@
           },
           "qa__dataVerification": {
             "fileName": "TC_C52606",
-            "folderName": "/io.auto.qa/IO_UI_Automation",
+            "folderName": "/io.auto.qa/IO_UI_Automation_FTPimport",
             "fileType": ".json"
           }
         }
       }
     }
   }
-  

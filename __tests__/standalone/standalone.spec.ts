@@ -17,3 +17,8 @@ require("./TC_AFE_Testcases_Standalone");
 require("./TC_AmazonVendorCentralConnection");
 require("./TC_Auditlog");
 require("./TC_Auditlogresources");
+require("./TC_C1081_Verify_User_Able_Click_Stacks_Page");
+require("./TC_C1083_stack_edit");
+require("./TC_C1084_Verify_able_to_delete_stake");
+require("./TC_C1085_Verify_Able_to_Share_Stack");
+require("./TC_C14291");

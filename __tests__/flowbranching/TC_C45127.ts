@@ -50,7 +50,7 @@ test.describe("@Author-ParthPatel TC_C45127_C45114_C45102_C45139_C45162_C45158_C
     await io.assert.expectToBeValue(String(uniqueApplicationDrawer), "Add branching", "");
     
     const [type, branches] = await io.flowbranching.flowBranchingPage.getList(
-      selectors.myAccountPagePO.STEPS_MFA_ENABLED_OWNER_4
+      selectors.flowBranchingPO.HEADING5_TEXT
     );
     await io.assert.expectToBeValue(String(type), "Branching type", "");
     await io.assert.expectToBeValue(String(branches), "Branches", "");

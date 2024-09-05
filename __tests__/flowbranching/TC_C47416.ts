@@ -2,6 +2,7 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import flowbranch from "@testData/flowbranching/TC_C47416.json";
+import { increaseDrawer, decreaseDrawer } from "./utils";
 
 test.describe("@Author-ParthPatel TC_C47416", () => {
   let flowId;
@@ -22,11 +23,8 @@ test.describe("@Author-ParthPatel TC_C47416", () => {
 
   test.afterEach(async ({ io, page }, testInfo) => {
     await test.step("*** Deleting flow.***", async () => {
+      await decreaseDrawer(io, page, selectors);
       await io.api.deleteFlowsWithId([flowId]);
-      await io.flowbranching.flowBranchingPage.clickButtonNTimes(
-        selectors.flowBranchingPO.FLOW_BUILDER_BOTTOM_DRAWER_DOWN,
-        1
-      );
     });
   });
 
@@ -41,14 +39,7 @@ test.describe("@Author-ParthPatel TC_C47416", () => {
     );
     await io.homePage.loadingTime();
     //Removing the pendo badge from the page as due to this we are not able to increase the height of the Run panel
-    const element = await page.locator('[id*="_pendo-badge_"]');
-    if (await element.count() > 0) {
-      await element.evaluate(node => node.remove());
-    }
-    await io.flowbranching.flowBranchingPage.clickButtonNTimes(
-      selectors.flowBranchingPO.FLOW_BUILDER_BOTTOM_DRAWER_UP,
-      1
-    );
+    await increaseDrawer(io, page, selectors);
     await io.homePage.loadingTime();
     let errors = await io.flowbranching.flowBranchingPage.getList(
       selectors.flowBuilderPagePO.JOB_ERRORS

@@ -7,8 +7,7 @@
             "type": "export",
             "qa__export": {
               "name": "Shopify customer export",
-              "_connectionId": "62c7a300886bf3359b066527",
-              "qa__connectionId": "628cbf7233ba7d08b0d4f365",
+              "_connectionId": "SHOPIFY CONNECTION",
               "asynchronous": true,
               "assistant": "shopify",
               "assistantMetadata": {
@@ -74,7 +73,6 @@
           "name": "TC_C14291",
           "disabled": false,
           "_integrationId": "631a1266abf51e7a86c80ab4",
-          "qa__integrationId": "6228aed6bc8a2732cfe8044c",
           "skipRetries": false,
           "pageProcessors": [
             {
