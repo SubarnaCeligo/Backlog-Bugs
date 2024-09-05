@@ -25,9 +25,9 @@ test.describe("@Author-ParthPatel TC_C45120", () => {
 
     //Verify first maching is selected by default
     await io.assert.verifyElementAttributeContainsText(
-      selectors.flowBranchingPO.FIRSTMATCHINGBRANCH + " >span",
-      "class",
-      "Mui-checked",
+      selectors.flowBranchingPO.FIRSTMATCHINGBRANCH,
+      "data-state",
+      "checked",
       0
     );
     //Verify if the branches are draggable/sortable

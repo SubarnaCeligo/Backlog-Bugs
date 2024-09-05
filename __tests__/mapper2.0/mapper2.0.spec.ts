@@ -12,3 +12,6 @@ require("./TC_C52208");
 require("./TC_51518");
 require("./TC_C51799");
 require("./TC_C52019");
+require("./TC_C51168_Verify_Preview_Source_Field_SetOn_Mapping_Setting");
+require("./TC_C51242_Verify_Modification_mapping_setting_Sourcetab_NotAdd_NewRow");
+require("./TC_C52131");
