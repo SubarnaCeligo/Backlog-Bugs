@@ -10,19 +10,6 @@ test.describe("@Author-ladimanish TC_T30835_T30836_T30838", () => {
     const integrationName = await io.sync.generateRandomName("Integration");
     await io.sync.createNewIntegration(integrationName);
 
-    // //T30835
-    // await io.flowBuilder.click(
-    //   selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT
-    // );
-    // await io.assert.verifyElementContainsText(
-    //   selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW,
-    //   "text to be added"
-    // );
-    // await io.flowBuilder.clickByIndex(
-    //   selectors.connectionsPagePO.HELPTEXT_CLOSE,
-    //   0
-    // );
-
     //T30836
     await io.sync.chooseSourceApplication("Salesforce");
     await page.keyboard.press("Tab");
@@ -42,6 +29,33 @@ test.describe("@Author-ladimanish TC_T30835_T30836_T30838", () => {
     await io.assert.verifyElementDisplayedByText(
       "SALESFORCE CONNECTION",
       "Existing connections are not displayed"
+    );
+
+    //T30835
+    await io.flowBuilder.clickByIndex(
+      selectors.flowBuilderPagePO.HELP_TEXT_ICON,1
+    );
+    await io.assert.verifyElementContainsText(
+      selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW,
+      "Choose an existing connection, or click the + icon to create a new connection. You can change your connection later."
+    );
+    await io.flowBuilder.click(
+      selectors.connectionsPagePO.HELPTEXT_CLOSE
+    );
+
+    await io.sync.selectExistingConnection("SALESFORCE CONNECTION");
+    await io.flowBuilder.loadingTime();
+
+    // T30918 objects help text
+    await io.flowBuilder.clickByIndex(
+      selectors.flowBuilderPagePO.HELP_TEXT_ICON,2
+    );
+    await io.assert.verifyElementContainsText(
+      selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW,
+      "Check the box next to each object that contains source data to send to the sync destination."
+    );
+    await io.flowBuilder.click(
+      selectors.connectionsPagePO.HELPTEXT_CLOSE
     );
   });
 });

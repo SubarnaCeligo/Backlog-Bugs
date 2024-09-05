@@ -9,8 +9,9 @@ test.describe("TC_T11537 CSV generator helper: Verify the preview is working wel
     await io.homePage.loadingTime();
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
     await io.homePage.goToMenu("Tools", "Flow builder");
+    await io.homePage.loadingTime()
     await io.homePage.click(selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP);
-
+    await io.homePage.loadingTime()
     await io.flowBuilder.addStep('*** Creating a FTP Import from flowbuilder and launching csv parser generator ***')
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'FTP');
     await io.flowBuilder.clickByText('FTP');
