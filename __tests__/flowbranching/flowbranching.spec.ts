@@ -26,3 +26,5 @@ require("./TC_C47436");
 require("./TC_C47448");
 require("./TC_C47450");
 require("./TC_C47453");
+require("./TC_C47454");
+require("./TC_C47470");

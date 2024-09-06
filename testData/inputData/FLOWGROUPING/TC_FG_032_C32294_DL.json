@@ -1,0 +1,279 @@
+{
+  "skipRetries": false,
+  "_integrationId": "6243fdd2d68e2457e3b01f34",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "3",
+    "errorCount": "0"
+  },
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "PPImport",
+        "_connectionId": "6246ad808d05aa7c65b40d9d",
+        "adaptorType": "NetSuiteDistributedImport",
+        "lookups": [
+          {
+            "name": "03480935db6b42ff930bca1eecb6121b",
+            "recordType": "customer",
+            "allowFailures": true,
+            "resultField": "companyname",
+            "default": "Default Customer",
+            "useDefaultOnMultipleMatches": true,
+            "expression": "[\"companyname\",\"is\",\"{{{Customer}}}\"]"
+          },
+          {
+            "name": "121ebb9e2cf947f29d1eb8e95adfe748",
+            "allowFailures": true,
+            "default": "Default Static Value",
+            "map": {
+              "CE": "Celigo",
+              "INT": "Integrator"
+            }
+          }
+        ],
+        "distributed": true,
+        "netsuite_da": {
+          "lookups": [
+            {
+              "default": "Default Customer",
+              "useDefaultOnMultipleMatches": true,
+              "expression": "[\"companyname\",\"is\",\"{{{Customer}}}\"]",
+              "recordType": "customer",
+              "name": "47f5aac27fb94e369ec17839d1275ddc",
+              "qa__expression": [["companyname", "is", "Customer"]],
+              "resultField": "companyname",
+              "allowFailures": true
+            },
+            {
+              "default": "Default Static Value",
+              "name": "2bd62b2e297d4f61914e5d52ae8c8f65",
+              "allowFailures": true,
+              "map": {
+                "CE": "Celigo",
+                "INT": "Integrator"
+              }
+            }
+          ],
+          "mapping": {
+            "lists": [
+              {
+                "fields": [
+                  {
+                    "extract": "['Address 1']",
+                    "dataType": "string",
+                    "discardIfEmpty": true,
+                    "generate": "addr1",
+                    "internalId": false
+                  },
+                  {
+                    "discardIfEmpty": true,
+                    "extract": "['Address 2']",
+                    "generate": "addr2",
+                    "internalId": false
+                  },
+                  {
+                    "discardIfEmpty": true,
+                    "extract": "['Address City']",
+                    "generate": "city",
+                    "internalId": false
+                  },
+                  {
+                    "discardIfEmpty": true,
+                    "extract": "['Address State']",
+                    "generate": "state",
+                    "internalId": false
+                  },
+                  {
+                    "internalId": true,
+                    "hardCodedValue": "AU",
+                    "generate": "country"
+                  }
+                ],
+                "generate": "addressbook"
+              }
+            ],
+            "fields": [
+              {
+                "internalId": false,
+                "discardIfEmpty": true,
+                "extract": "['Contact']",
+                "generate": "entityid"
+              },
+              {
+                "internalId": false,
+                "extract": "['Customer']",
+                "generate": "company",
+                "lookupName": "47f5aac27fb94e369ec17839d1275ddc"
+              },
+              {
+                "internalId": false,
+                "discardIfEmpty": true,
+                "extract": "['Email']",
+                "generate": "email"
+              },
+              {
+                "internalId": false,
+                "extract": "{{#if $.Phone}} 9090909090 {{else}} {{$.Phone}}{{/if}}",
+                "generate": "phone"
+              },
+              {
+                "internalId": false,
+                "discardIfEmpty": true,
+                "extract": "['Fax']",
+                "generate": "fax"
+              },
+              {
+                "internalId": false,
+                "extract": "['Job Title']",
+                "generate": "title",
+                "lookupName": "2bd62b2e297d4f61914e5d52ae8c8f65"
+              },
+              {
+                "internalId": false,
+                "extract": "{{$.Comments}}{{$.Comments}}",
+                "generate": "comments"
+              },
+              {
+                "internalId": false,
+                "hardCodedValue": "9490992768",
+                "generate": "mobilephone"
+              }
+            ]
+          },
+          "recordType": "contact",
+          "internalIdLookup": {
+            "expression": "[\"email\",\"is\",\"{{{Email}}}\"]",
+            "qa__expression": [["email", "is", "Email"]]
+          },
+          "operation": "addupdate"
+        }
+      }
+    }
+  ],
+  "name": "TC_FG_031_C32294",
+  "disabled": false,
+  "qa__dataVerification": {
+    "expected": {
+      "netsuite": {
+        "qa__dataVerification": {
+          "expectedJSON": [
+            {
+              "comments": "New Automation ContactNew Automation Contact",
+              "addressbook": [
+                {
+                  "country": {
+                    "internalid": "AU",
+                    "name": "Australia"
+                  },
+                  "addressee": "AutoDataLoaderContact1",
+                  "addr2": "InOrbit Mall",
+                  "city": "Hyderabad",
+                  "addr1": "AscendesVBIT",
+                  "label": "AscendesVBIT",
+                  "state": "Telangana"
+                }
+              ],
+              "phone": "(909) 090-9090",
+              "mobilephone": "(949) 099-2768",
+              "entityid": "AutoDataLoaderContact1",
+              "company": {
+                "name": "DL Customer 1"
+              },
+              "fax": "090-232323",
+              "title": "Celigo",
+              "email": "dlautomationcon1@gmail.com"
+            },
+            {
+              "comments": "New Automation ContactNew Automation Contact",
+              "addressbook": [
+                {
+                  "country": {
+                    "internalid": "AU",
+                    "name": "Australia"
+                  },
+                  "addressee": "AutoDataLoaderContact2",
+                  "addr2": "InOrbit Mall",
+                  "city": "Hyderabad",
+                  "addr1": "AscendesVBIT",
+                  "label": "AscendesVBIT",
+                  "state": "Telangana"
+                }
+              ],
+              "phone": "(909) 090-9090",
+              "mobilephone": "(949) 099-2768",
+              "entityid": "AutoDataLoaderContact2",
+              "company": {
+                "name": "Default Customer"
+              },
+              "fax": "090-232323",
+              "title": "Integrator",
+              "email": "dlautomationcon2@gmail.com"
+            },
+            {
+              "comments": "New Automation ContactNew Automation Contact",
+              "addressbook": [
+                {
+                  "country": {
+                    "internalid": "AU",
+                    "name": "Australia"
+                  },
+                  "addressee": "AutoDataLoaderContact3",
+                  "addr2": "InOrbit Mall",
+                  "city": "Hyderabad",
+                  "addr1": "AscendesVBIT",
+                  "label": "AscendesVBIT",
+                  "state": "Telangana"
+                }
+              ],
+              "phone": "(909) 090-9090",
+              "mobilephone": "(949) 099-2768",
+              "entityid": "AutoDataLoaderContact3",
+              "company": {
+                "name": "DL Customer 1"
+              },
+              "fax": "090-232323",
+              "title": "Default Static Value",
+              "email": "dlautomationcon3@gmail.com"
+            }
+          ],
+          "uniqueField": "entityid",
+          "standaloneexportflowID": "591d8094b8842b300787a7f9",
+          "importapiIdentifier": "i45477eaa3",
+          "importRecordType": "Contact",
+          "isUIFlow": true,
+          "savedsearchId": "1928",
+          "exportapiIdentifier": "eb2eb09884"
+        }
+      }
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "DataloaderExport",
+        "transform": {
+          "rules": []
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "type": "csv",
+          "csv": {
+            "columnDelimiter": "|",
+            "rowDelimiter": "\n",
+            "hasHeaderRow": true,
+            "trimSpaces": true,
+            "rowsToSkip": 0
+          }
+        },
+        "asynchronous": true,
+        "qa__isDataLoader": "csv",
+        "qa__path": "/Dataloader_uploades/DL to NS Contact Flow1.csv",
+        "type": "simple",
+        "adaptorType": "SimpleExport"
+      }
+    }
+  ]
+}

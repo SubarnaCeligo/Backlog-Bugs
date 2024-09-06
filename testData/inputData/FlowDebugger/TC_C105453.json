@@ -1,0 +1,170 @@
+{
+  "name": "TC_C105453",
+  "referencename": "TC_C105453",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Http test",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "_sourceId": "64f07241ac92e86071d81e19",
+            "apiIdentifier": "ec87219f6b",
+            "asynchronous": true,
+            "oneToMany": false,
+            "http": {
+              "relativeURI": "/users",
+              "method": "GET",
+              "formType": "http",
+              "response": {
+                "resourcePath": "users"
+              }
+            },
+            "rawData": "6253c695bbf2c06775d39fe1b630d1093dfa46549651e02e4d9af7f6",
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "AutomationStandalone_1Xyrc",
+            "responseTransform": {
+              "type": "expression",
+              "expression": {
+                "rules": [
+                  [
+                    {
+                      "extract": "record.id",
+                      "generate": "id"
+                    },
+                    {
+                      "extract": "record.name",
+                      "generate": "Name"
+                    }
+                  ]
+                ],
+                "version": "1"
+              },
+              "rules": [
+                [
+                  {
+                    "extract": "record.id",
+                    "generate": "id"
+                  },
+                  {
+                    "extract": "record.name",
+                    "generate": "Name"
+                  }
+                ]
+              ],
+              "version": "1"
+            },
+            "mockResponse": [
+              {
+                "_json": {
+                  "record": {
+                    "id": 1473313072,
+                    "name": "Celigo IO Automation",
+                    "email": "mounica.manavapati@celigo.com"
+                  }
+                },
+                "statusCode": 200
+              }
+            ],
+            "_connectionId": "FTP CONNECTION",
+            "_sourceId": "64f054dc2c7ee160c3a755d0",
+            "apiIdentifier": "i0ae6e0be5",
+            "oneToMany": false,
+            "file": {
+              "fileName": "TC_C105453.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO%20Automation%20SFTP%20Imports",
+              "fileName": "TC_C105453.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        },
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "AutomationStandalone_1Xyrc",
+            "_connectionId": "FTP CONNECTION",
+            "_sourceId": "64f054dc2c7ee160c3a755d0",
+            "apiIdentifier": "i377b30942",
+            "oneToMany": false,
+            "file": {
+              "fileName": "TC_C105453.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO%20Automation%20SFTP%20Imports",
+              "fileName": "TC_C105453.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C105453",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [
+                {
+                  "extract": "id",
+                  "generate": "Id"
+                }
+              ],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          },
+          {
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ],
+  "text":{
+    "_json": {
+      "id": 1473313072,
+      "name": "Celigo IO Automation",
+      "email": "mounica.manavapati@celigo.com"
+    },
+    "statusCode": 200
+  },
+  "text1":{
+    "_json": {},
+    "statusCode": 200
+  },
+  "mockResponse": [
+    {
+      "_json": {
+        "record": {
+          "ID": 1473313072,
+          "NAME": "Celigo IO Automation",
+          "EMAIL": "mounica.manavapati@celigo.com"
+        }
+      },
+      "statusCode": 200
+    }
+  ]
+}

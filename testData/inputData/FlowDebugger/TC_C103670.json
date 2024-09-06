@@ -1,0 +1,158 @@
+{
+    "name": "TC_C103670",
+    "referencename": "TC_C103670",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Http Export",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "ee948d377f",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": "users",
+                            "method": "GET",
+                            "formType": "http",
+                            "response": {
+                                "resourcePath": "users"
+                            }
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Http Lookup",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "e0c802137c",
+                        "asynchronous": true,
+                        "isLookup": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": "users",
+                            "method": "GET",
+                            "formType": "http",
+                            "response": {
+                                "resourcePath": "users"
+                            }
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                },
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Http Import",
+                        "application": "zendesk support",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "i0d238d03b",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "extract": "name",
+                                    "generate": "user.name"
+                                },
+                                {
+                                    "extract": "email",
+                                    "generate": "user.description"
+                                }
+                            ]
+                        },
+                        "http": {
+                            "relativeURI": [
+                                "users"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                },
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "FTP Import",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "ie0ee7949d",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "file": {
+                            "fileName": "file-{{timestamp}}.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "/",
+                            "fileName": "file-{{timestamp}}.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C103670",
+                "disabled": false,
+                "_integrationId": "63232c59d3a9897fe95f9f2a",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW IMPORTID"
+                    },
+                    {
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    },
+                    {
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ],
+    "ghostText": {
+        "page_of_records": [
+            {
+                "record": {
+                    "mockOutput": "Replace mockOutput key and value with source data. You may be able to refer to your source app's API for examples."
+                }
+            }
+        ]
+    },
+    "ghostText1": {
+        "page_of_records": [
+            {
+                "record": {
+                    "ockOutput": "Replace ockOutput key and value with source data. You may be able to refer to your source app's API for examples."
+                }
+            }
+        ]
+    }
+}

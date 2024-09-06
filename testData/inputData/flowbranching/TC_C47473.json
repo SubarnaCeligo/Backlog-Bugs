@@ -63,6 +63,7 @@
                             "qa__import": {
                                 "name": "AutomationStandaloneImport1_afsflk",
                                 "application":"zendesk support",
+                                "parsers": [],
                                 "_connectionId": "HTTP ZENDESK CONNECTION",
                                 "mapping": {
                                     "fields": [
@@ -105,6 +106,7 @@
                             "qa__import": {
                                 "name": "AutomationStandaloneImport1_afsflk",
                                 "application":"zendesk support",
+                                "parsers": [],
                                 "_connectionId": "HTTP ZENDESK CONNECTION",
                                 "mapping": {
                                     "fields": [

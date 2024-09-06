@@ -1,0 +1,203 @@
+{
+    "name": "TC_C109353",
+    "referencename": "TC_C109353",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Postgre Export",
+                        "_connectionId": "POSTGRESQL CONNECTION",
+                        "apiIdentifier": "eda1558f0d",
+                        "asynchronous": true,
+                        "type": "delta",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "rdbms": {
+                            "query": "SELECT * FROM public.\"Automation\"  where \"Date\">={{lastExportDateTime}}"
+                        },
+                        "adaptorType": "RDBMSExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Import",
+                        "_connectionId": "POSTGRESQL CONNECTION",
+                        "apiIdentifier": "i5e8f248fa",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "rdbms": {
+                            "query": [
+                                "select * from test"
+                            ],
+                            "queryType": [
+                                "INSERT"
+                            ]
+                        },
+                        "adaptorType": "RDBMSImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C109353",
+                "disabled": false,
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ],
+    "new": {
+        "name": "TC_C105452",
+        "referencename": "TC_C105452",
+        "qa__api_tdata": [
+            {
+                "pageGenerators": [
+                    {
+                        "type": "export",
+                        "qa__export": {
+                            "name": "Http Export",
+                            "_connectionId": "HTTP ZENDESK CONNECTION",
+                            "apiIdentifier": "ec21eaea2d",
+                            "asynchronous": true,
+                            "oneToMany": false,
+                            "sandbox": false,
+                            "http": {
+                                "relativeURI": "/users",
+                                "method": "GET",
+                                "formType": "http",
+                                "response": {
+                                    "resourcePath": "users"
+                                }
+                            },
+                            "rawData": "6253c695bbf2c06775d39fe16b8bd93bf59d464fa8c1528fe911f899",
+                            "adaptorType": "HTTPExport"
+                        }
+                    }
+                ],
+                "pageProcessors": [
+                    {
+                        "type": "import",
+                        "qa__import": {
+                            "name": "Http Import",
+                            "responseTransform": {
+                                "type": "expression",
+                                "expression": {
+                                    "rules": [
+                                        []
+                                    ],
+                                    "version": "1"
+                                },
+                                "rules": [
+                                    []
+                                ],
+                                "version": "1"
+                            },
+                            "mockResponse": [
+                                {
+                                    "id": "1234567890",
+                                    "errors": [],
+                                    "_json": {
+                                        "id": "1234567890",
+                                        "mockResponse": "replace me"
+                                    },
+                                    "statusCode": 200,
+                                    "ignored": false,
+                                    "dataURI": "",
+                                    "_headers": {
+                                        "content-type": "application/json; charset=utf-8"
+                                    }
+                                }
+                            ],
+                            "_connectionId": "HTTP ZENDESK CONNECTION",
+                            "apiIdentifier": "i8671bcf8d",
+                            "ignoreExisting": false,
+                            "ignoreMissing": false,
+                            "oneToMany": false,
+                            "sandbox": false,
+                            "http": {
+                                "relativeURI": [
+                                    "/users"
+                                ],
+                                "method": [
+                                    "POST"
+                                ],
+                                "body": [],
+                                "batchSize": 1,
+                                "sendPostMappedData": true,
+                                "formType": "http"
+                            },
+                            "adaptorType": "HTTPImport"
+                        }
+                    },
+                    {
+                        "type": "import",
+                        "qa__import": {
+                            "name": "AutomationStandalone_1Xyrc",
+                            "_connectionId": "FTP CONNECTION",
+                            "_sourceId": "64f054dc2c7ee160c3a755d0",
+                            "apiIdentifier": "i377b30942",
+                            "oneToMany": false,
+                            "file": {
+                                "fileName": "TC_C105452.json",
+                                "skipAggregation": false,
+                                "type": "json"
+                            },
+                            "ftp": {
+                                "directoryPath": "/io.auto.qa/IO%20Automation%20SFTP%20Imports",
+                                "fileName": "TC_C105452.json"
+                            },
+                            "adaptorType": "FTPImport"
+                        }
+                    }
+                ],
+                "createFlow": {
+                    "name": "TC_C105452",
+                    "disabled": false,
+                    "_integrationId": "603ce75ac4fec33283691f43",
+                    "skipRetries": false,
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [
+                                    {
+                                        "extract": "id",
+                                        "generate": "testId"
+                                    }
+                                ],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "_importId": "UPDATE WITH NEW IMPORTID"
+                        },
+                        {
+                            "type": "import",
+                            "_importId": "UPDATE WITH NEW IMPORTID"
+                        }
+                    ],
+                    "pageGenerators": [
+                        {
+                            "_exportId": "UPDATE WITH NEW EXPORTID"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

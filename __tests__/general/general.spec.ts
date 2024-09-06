@@ -39,3 +39,8 @@ require("./TC_C33304");
 require("./TC_C33562");
 require("./TC_C33565");
 require("./TC_C33566");
+require("./TC_C19140");
+require("./TC_C20867");
+require("./TC_C22555");
+require("./TC_C2600_sortingExports_byClicking_onColumnHeader_inTables");
+require("./TC_C2601_sortingImports_byClicking_onColumnHeader_inTables");

@@ -1,0 +1,705 @@
+{
+    "name": "TC_C75268",
+    "referencename": "TC_C75268",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "AutomationStandalone_96Hlh",
+              "_connectionId": "NETSUITE CONNECTION",
+              "apiIdentifier": "ea32346cee",
+              "asynchronous": true,
+              "type": "test",
+              "oneToMany": false,
+              "rawData": "648079a4e26e647491cad2af97e48f2ec02a4aa49ba104fac9c8cbe2",
+              "test": {
+                "limit": 10
+              },
+              "netsuite": {
+                "type": "restlet",
+                "skipGrouping": true,
+                "statsOnly": false,
+                "restlet": {
+                  "recordType": "account",
+                  "searchId": "4649",
+                  "restletVersion": "suitebundle",
+                  "markExportedBatchSize": 100
+                },
+                "distributed": {}
+              },
+              "adaptorType": "NetSuiteExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "Http zendesk create tickets",
+              "responseTransform": {
+                "type": "expression",
+                "expression": {
+                  "rules": [
+                    [
+                      {
+                        "extract": "ticket.id",
+                        "generate": "Ticket_Id"
+                      },
+                      {
+                        "extract": "ticket.assignee_id",
+                        "generate": "Ticket_Assignee_Id"
+                      }
+                    ]
+                  ],
+                  "version": "1"
+                },
+                "version": "1",
+                "rules": [
+                  [
+                    {
+                      "extract": "ticket.id",
+                      "generate": "Ticket_Id"
+                    },
+                    {
+                      "extract": "ticket.assignee_id",
+                      "generate": "Ticket_Assignee_Id"
+                    }
+                  ]
+                ]
+              },
+              "mockResponse": [
+                {
+                  "statusCode": 200,
+                  "id": 572625,
+                  "_json": {
+                    "ticket": {
+                      "url": "https://celigoqa.zendesk.com/api/v2/tickets/572625.json",
+                      "id": 572625,
+                      "external_id": null,
+                      "via": {
+                        "channel": "api",
+                        "source": {
+                          "rel": null
+                        }
+                      },
+                      "created_at": "2023-06-25T12:54:17Z",
+                      "updated_at": "2023-06-25T12:54:17Z",
+                      "type": "task",
+                      "subject": "My printer is on fire!",
+                      "raw_subject": "My printer is on fire!",
+                      "description": "The smoke is very colorful.",
+                      "priority": "urgent",
+                      "status": "open",
+                      "recipient": null,
+                      "requester_id": 1473313072,
+                      "submitter_id": 1473313072,
+                      "assignee_id": 1473313072,
+                      "organization_id": null,
+                      "group_id": 25032922,
+                      "collaborator_ids": [],
+                      "follower_ids": [],
+                      "email_cc_ids": [],
+                      "forum_topic_id": null,
+                      "problem_id": null,
+                      "has_incidents": false,
+                      "is_public": true,
+                      "due_at": null,
+                      "tags": ["true"],
+                      "custom_fields": [
+                        {
+                          "id": 4485575108882,
+                          "value": null
+                        },
+                        {
+                          "id": 24838175,
+                          "value": null
+                        },
+                        {
+                          "id": 360005417319,
+                          "value": null
+                        },
+                        {
+                          "id": 32855665,
+                          "value": null
+                        },
+                        {
+                          "id": 360021374599,
+                          "value": null
+                        },
+                        {
+                          "id": 26700425,
+                          "value": null
+                        },
+                        {
+                          "id": 24786059,
+                          "value": null
+                        },
+                        {
+                          "id": 25373679,
+                          "value": null
+                        }
+                      ],
+                      "satisfaction_rating": null,
+                      "sharing_agreement_ids": [],
+                      "fields": [
+                        {
+                          "id": 4485575108882,
+                          "value": null
+                        },
+                        {
+                          "id": 24838175,
+                          "value": null
+                        },
+                        {
+                          "id": 360005417319,
+                          "value": null
+                        },
+                        {
+                          "id": 32855665,
+                          "value": null
+                        },
+                        {
+                          "id": 360021374599,
+                          "value": null
+                        },
+                        {
+                          "id": 26700425,
+                          "value": null
+                        },
+                        {
+                          "id": 24786059,
+                          "value": null
+                        },
+                        {
+                          "id": 25373679,
+                          "value": null
+                        }
+                      ],
+                      "followup_ids": [],
+                      "brand_id": 611742,
+                      "allow_channelback": false,
+                      "allow_attachments": true,
+                      "from_messaging_channel": false
+                    },
+                    "audit": {
+                      "id": 12156005983378,
+                      "ticket_id": 572625,
+                      "created_at": "2023-06-25T12:54:17Z",
+                      "author_id": 1473313072,
+                      "metadata": {
+                        "system": {
+                          "ip_address": "65.2.74.102",
+                          "location": "Mumbai, MH, India",
+                          "latitude": 19.0748,
+                          "longitude": 72.8856
+                        }
+                      },
+                      "events": [
+                        {
+                          "id": 12156005983506,
+                          "type": "Comment",
+                          "author_id": 1473313072,
+                          "body": "The smoke is very colorful.",
+                          "html_body": "<div class=\"zd-comment\" dir=\"auto\"><p dir=\"auto\">The smoke is very colorful.</p></div>",
+                          "plain_body": "The smoke is very colorful.",
+                          "public": true,
+                          "attachments": [],
+                          "audit_id": 12156005983378
+                        },
+                        {
+                          "id": 12156005983634,
+                          "type": "Create",
+                          "value": "urgent",
+                          "field_name": "priority"
+                        },
+                        {
+                          "id": 12156005983762,
+                          "type": "Create",
+                          "value": "My printer is on fire!",
+                          "field_name": "subject"
+                        },
+                        {
+                          "id": 12156005983890,
+                          "type": "Create",
+                          "value": "1473313072",
+                          "field_name": "requester_id"
+                        },
+                        {
+                          "id": 12156005984018,
+                          "type": "Create",
+                          "value": null,
+                          "field_name": "type"
+                        },
+                        {
+                          "id": 12156005984146,
+                          "type": "Create",
+                          "value": "open",
+                          "field_name": "status"
+                        },
+                        {
+                          "id": 12156005984274,
+                          "type": "Create",
+                          "value": "1473313072",
+                          "field_name": "assignee_id"
+                        },
+                        {
+                          "id": 12156005984402,
+                          "type": "Create",
+                          "value": "25032922",
+                          "field_name": "group_id"
+                        },
+                        {
+                          "id": 12156005984530,
+                          "type": "Create",
+                          "value": ["true"],
+                          "field_name": "tags"
+                        },
+                        {
+                          "id": 12156005984658,
+                          "type": "Create",
+                          "value": "9635919491602",
+                          "field_name": "ticket_form_id"
+                        },
+                        {
+                          "id": 12156005984786,
+                          "type": "External",
+                          "via": {
+                            "channel": "rule",
+                            "source": {
+                              "from": {
+                                "deleted": false,
+                                "title": "Copy of staging webhook",
+                                "id": 137207489
+                              },
+                              "rel": "trigger"
+                            }
+                          },
+                          "resource": "20811445",
+                          "body": "{\n\n  \"title\": \"{{ticket.title}}\",\"description\":\"{{ticket.description}}\",\"link\":\"{{ticket.link}}\",\"new field\":\"{{ticket.status}}\"\n}"
+                        },
+                        {
+                          "id": 12156005984914,
+                          "type": "WebhookEvent",
+                          "via": {
+                            "channel": "rule",
+                            "source": {
+                              "from": {
+                                "deleted": false,
+                                "title": "Copy of staging webhook (copy)",
+                                "id": 8243572848786
+                              },
+                              "rel": "trigger"
+                            }
+                          }
+                        },
+                        {
+                          "id": 12156005985042,
+                          "type": "WebhookEvent",
+                          "via": {
+                            "channel": "rule",
+                            "source": {
+                              "from": {
+                                "deleted": false,
+                                "title": "staging webhook",
+                                "id": 137059849
+                              },
+                              "rel": "trigger"
+                            }
+                          }
+                        },
+                        {
+                          "id": 12156005985170,
+                          "type": "External",
+                          "via": {
+                            "channel": "rule",
+                            "source": {
+                              "from": {
+                                "deleted": false,
+                                "title": "Workato integration trigger for recipe #904939",
+                                "id": 360005050579
+                              },
+                              "rel": "trigger"
+                            }
+                          },
+                          "resource": 360000057339,
+                          "body": "test"
+                        },
+                        {
+                          "id": 12156005985298,
+                          "type": "External",
+                          "via": {
+                            "channel": "rule",
+                            "source": {
+                              "from": {
+                                "deleted": false,
+                                "title": "Workato integration trigger for recipe #956490",
+                                "id": 360011364480
+                              },
+                              "rel": "trigger"
+                            }
+                          },
+                          "resource": 360000160899,
+                          "body": "test"
+                        },
+                        {
+                          "id": 12156005985426,
+                          "type": "WebhookEvent",
+                          "via": {
+                            "channel": "rule",
+                            "source": {
+                              "from": {
+                                "deleted": false,
+                                "title": "Slack Ticket Trigger",
+                                "id": 360011364179
+                              },
+                              "rel": "trigger"
+                            }
+                          }
+                        },
+                        {
+                          "id": 12156005985554,
+                          "type": "External",
+                          "via": {
+                            "channel": "rule",
+                            "source": {
+                              "from": {
+                                "deleted": false,
+                                "title": "Workato integration trigger for recipe #957088",
+                                "id": 360011414579
+                              },
+                              "rel": "trigger"
+                            }
+                          },
+                          "resource": 360000162820,
+                          "body": "test"
+                        },
+                        {
+                          "id": 12156005985682,
+                          "type": "External",
+                          "via": {
+                            "channel": "rule",
+                            "source": {
+                              "from": {
+                                "deleted": false,
+                                "title": "Workato integration trigger for recipe #957088",
+                                "id": 360011417579
+                              },
+                              "rel": "trigger"
+                            }
+                          },
+                          "resource": 360000162840,
+                          "body": "test"
+                        },
+                        {
+                          "id": 12156005985810,
+                          "type": "External",
+                          "via": {
+                            "channel": "rule",
+                            "source": {
+                              "from": {
+                                "deleted": false,
+                                "title": "Workato integration trigger for recipe #965216",
+                                "id": 360012332859
+                              },
+                              "rel": "trigger"
+                            }
+                          },
+                          "resource": 360000168419,
+                          "body": "test"
+                        },
+                        {
+                          "id": 12156005985938,
+                          "type": "External",
+                          "via": {
+                            "channel": "rule",
+                            "source": {
+                              "from": {
+                                "deleted": false,
+                                "title": "Workato integration trigger for recipe #965239",
+                                "id": 360012333659
+                              },
+                              "rel": "trigger"
+                            }
+                          },
+                          "resource": 360000170140,
+                          "body": "test"
+                        },
+                        {
+                          "id": 12156005986066,
+                          "type": "External",
+                          "via": {
+                            "channel": "rule",
+                            "source": {
+                              "from": {
+                                "deleted": false,
+                                "title": "Workato integration trigger for recipe #965239",
+                                "id": 360012301060
+                              },
+                              "rel": "trigger"
+                            }
+                          },
+                          "resource": 360000170160,
+                          "body": "test"
+                        },
+                        {
+                          "id": 12156005986194,
+                          "type": "External",
+                          "via": {
+                            "channel": "rule",
+                            "source": {
+                              "from": {
+                                "deleted": false,
+                                "title": "Workato integration trigger for recipe #967506",
+                                "id": 360012599939
+                              },
+                              "rel": "trigger"
+                            }
+                          },
+                          "resource": 360000171860,
+                          "body": "test"
+                        },
+                        {
+                          "id": 12156005986322,
+                          "type": "External",
+                          "via": {
+                            "channel": "rule",
+                            "source": {
+                              "from": {
+                                "deleted": false,
+                                "title": "Workato integration trigger for recipe #968059",
+                                "id": 360012640459
+                              },
+                              "rel": "trigger"
+                            }
+                          },
+                          "resource": 360000172380,
+                          "body": "test"
+                        },
+                        {
+                          "id": 12156005986450,
+                          "type": "External",
+                          "via": {
+                            "channel": "rule",
+                            "source": {
+                              "from": {
+                                "deleted": false,
+                                "title": "Zendesk tickets to Slack chats(Trigger)",
+                                "id": 360030331100
+                              },
+                              "rel": "trigger"
+                            }
+                          },
+                          "resource": "360000305019",
+                          "body": "[[\"ticket_id\", \"{{ticket.id}}\"], [\"status\", \"{{ticket.status}}\"], [\"updated_at\", \"{{ticket.updated_at_with_timestamp}}\"], [\"subdomain\", \"{{ticket.account}}\"], [\"ticket_latest_comment\", \"{{ticket.latest_comment}}\"], [\"updated_by\", \"{{current_user.name}}\"]]"
+                        },
+                        {
+                          "id": 12156005986578,
+                          "type": "Change",
+                          "via": {
+                            "channel": "rule",
+                            "source": {
+                              "from": {
+                                "deleted": false,
+                                "title": "test",
+                                "id": 360075660959
+                              },
+                              "rel": "trigger"
+                            }
+                          },
+                          "value": "task",
+                          "field_name": "type",
+                          "previous_value": null
+                        },
+                        {
+                          "id": 12156005986706,
+                          "type": "External",
+                          "via": {
+                            "channel": "rule",
+                            "source": {
+                              "from": {
+                                "deleted": false,
+                                "title": "Test 2",
+                                "id": 360077643139
+                              },
+                              "rel": "trigger"
+                            }
+                          },
+                          "resource": "360000686560",
+                          "body": "{\n\t\"ticket_id\": \"{{ticket.id}}\",\n\t \"status\": \"{{ticket.status}}\",\n\t \"updated_at\": \"{{ticket.updated_at_with_timestamp}}\",\n\t \"subdomain\": \"{{ticket.account}}\",\n\t \"ticket_latest_comment\": \"{{ticket.latest_comment}}\",\n\t \"updated_by\": \"{{current_user.name}}\"\n}"
+                        }
+                      ],
+                      "via": {
+                        "channel": "api",
+                        "source": {
+                          "rel": null
+                        }
+                      }
+                    }
+                  },
+                  "_headers": {
+                    "date": "Sun, 25 Jun 2023 12:54:18 GMT",
+                    "content-type": "application/json; charset=utf-8",
+                    "content-length": "6884",
+                    "connection": "close",
+                    "x-zendesk-api-version": "v2",
+                    "x-zendesk-application-version": "v17330",
+                    "x-frame-options": "SAMEORIGIN",
+                    "location": "https://celigoqa.zendesk.com/api/v2/tickets/572625.json",
+                    "x-rate-limit": "700",
+                    "rate-limit": "700",
+                    "x-rate-limit-remaining": "532",
+                    "rate-limit-remaining": "532",
+                    "rate-limit-reset": "42",
+                    "strict-transport-security": "max-age=31536000;",
+                    "etag": "W/\"c57fda1fe6bb11596ecec58c4bf62118\"",
+                    "cache-control": "max-age=0, private, must-revalidate",
+                    "x-zendesk-origin-server": "classic-app-server-68794699fc-md75v",
+                    "set-cookie": [
+                      "_zendesk_cookie=BAhJIhl7ImRldmljZV90b2tlbnMiOnt9fQY6BkVU--459ed01949a36415c1716b5711271c3d08918307; path=/; expires=Sun, 23 Jun 2024 22:28:47 GMT; secure; HttpOnly; SameSite=None",
+                      "__cfruid=d068f1c8d5bad27294c0da71f5d10f116fb05ea9-1687697658; path=/; domain=.celigoqa.zendesk.com; HttpOnly; Secure; SameSite=None"
+                    ],
+                    "x-request-id": "7dcd5bb60a9e85fa-BOM, 7dcd5bb60a9e85fa-BOM",
+                    "x-runtime": "0.912401",
+                    "x-zendesk-zorg": "yes",
+                    "cf-cache-status": "DYNAMIC",
+                    "report-to": "{\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v3?s=YEbsZbWreku%2BoD6modImfsEMmHtUXy7QniIRuQ%2BnL3%2BIkWFdCwozht%2B9sNbzykq0aYCB87IKC0kryg7wFeiTMKScNcjz05p3YgTJPJ6Jsda9LgqpAC9iGZw7SRFL2IVX5bY5%2FuEB\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
+                    "nel": "{\"success_fraction\":0.01,\"report_to\":\"cf-nel\",\"max_age\":604800}",
+                    "server": "cloudflare",
+                    "cf-ray": "7dcd5bb60a9e85fa-BOM"
+                  }
+                }
+              ],
+              "_connectionId": "HTTP ZENDESK CONNECTION",
+              "_sourceId": "64802c1299eeed61c2d875cc",
+              "apiIdentifier": "ic9a70993a",
+              "ignoreExisting": false,
+              "ignoreMissing": false,
+              "oneToMany": false,
+              "mapping": {
+                "fields": [
+                  {
+                    "extract": "Balance",
+                    "generate": "Balance"
+                  }
+                ]
+              },
+              "http": {
+                "relativeURI": ["/tickets"],
+                "method": ["POST"],
+                "body": [
+                  "{\n  \"ticket\": {\n    \"comment\": {\n      \"body\": \"The smoke is very colorful.\"\n    },\n    \"priority\": \"urgent\",\n    \"subject\": \"My printer is on fire!\"\n  }\n}"
+                ],
+                "batchSize": 1,
+                "sendPostMappedData": true,
+                "formType": "http"
+              },
+              "adaptorType": "HTTPImport"
+            }
+          },
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "Ftp Import",
+              "responseTransform": {
+                "type": "expression",
+                "expression": {
+                  "rules": [
+                    [
+                      {
+                        "extract": "mockResponse",
+                        "generate": "Response"
+                      }
+                    ]
+                  ],
+                  "version": "1"
+                },
+                "version": "1",
+                "rules": [
+                  [
+                    {
+                      "extract": "mockResponse",
+                      "generate": "Response"
+                    }
+                  ]
+                ]
+              },
+              "mockResponse": [
+                {
+                  "id": "1234567890",
+                  "errors": [],
+                  "_json": {
+                    "mockResponse": "replace me"
+                  },
+                  "statusCode": 200,
+                  "ignored": false,
+                  "dataURI": "",
+                  "_headers": {
+                    "content-type": "application/json; charset=utf-8"
+                  }
+                }
+              ],
+              "_connectionId": "FTP CONNECTION",
+              "_sourceId": "647ed953e9fd4b447efd28ea",
+              "apiIdentifier": "i25851d15b",
+              "oneToMany": false,
+              "file": {
+                "fileName": "Mapping_ResponseMapping_ResultMapping.json",
+                "skipAggregation": false,
+                "type": "json",
+                "encoding": "utf8",
+                "backupPath": "/Group-QA/Mahesh/Backup"
+              },
+              "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                "fileName": "Mapping_ResponseMapping_ResultMapping.json",
+                "backupDirectoryPath": "/Group-QA/Mahesh/Backup"
+              },
+              "filter": {
+                "type": "expression",
+                "expression": {
+                  "rules": ["equals", ["string", ["extract", "id"]], "12345"],
+                  "version": "1"
+                },
+                "version": "1",
+                "rules": ["equals", ["string", ["extract", "id"]], "12345"]
+              },
+              "adaptorType": "FTPImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C75268",
+          "disabled": false,
+          "_integrationId": "603ce75ac4fec33283691f43",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [
+                  {
+                    "extract": "_json.Ticket_Assignee_Id",
+                    "generate": "Ticket_Assignee_Id"
+                  }
+                ],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            },
+            {
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }
+  

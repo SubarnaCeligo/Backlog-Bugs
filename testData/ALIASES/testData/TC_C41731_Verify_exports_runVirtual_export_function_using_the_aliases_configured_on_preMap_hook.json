@@ -1,0 +1,134 @@
+{
+    "script": {
+        "name": "TC_C41731",
+        "content": "import api from 'integrator-api';\nfunction preMap (options) {\n  let resp = api.exports.runVirtual({\n  export: {\n    \"name\": \"MAIN EXPORT\",\n    \"_connectionId\": \"REPLACE\",\n    \"apiIdentifier\": \"ed9cd039b6\",\n    \"asynchronous\": true,\n    \"parsers\": [],\n    \"netsuite\": {\n        \"type\": \"restlet\",\n        \"skipGrouping\": true,\n        \"statsOnly\": false,\n        \"restlet\": {\n            \"recordType\": \"customer\",\n            \"searchId\": \"1149\",\n            \"criteria\": [],\n            \"columns\": [],\n            \"useSS2Restlets\": false\n        }\n    },\n    \"adaptorType\": \"NetSuiteExport\"\n  }})\n  return options.data.map((d) => {\n    return {\n      data: d\n    }\n  })\n}"
+    },
+    "name": "TC_C41731",
+    "aliasName": "TC_C41731",
+    "aliasResourceType": "connections",
+    "aliasResourceName": "NETSUITE CONNECTION",
+    "skipRetries": false,
+    "_connectionId": "NETSUITE CONNECTION",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "name": "TC_C41731.json",
+                "_integrationId": "",
+                "import": {
+                    "_connectionId": "FTP CONNECTION"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_C41731",
+                    "isUIFlow": false,
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".json"
+                }
+            }
+        }
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "TC_C41731_Export",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "apiIdentifier": "e0e0938649",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "recordType": "customer",
+                                "searchId": "3281",
+                                "useSS2Restlets": false,
+                                "markExportedBatchSize": 100
+                            },
+                            "distributed": {
+                                "useSS2Framework": false
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "TC_C41731_Import",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "i9b1c3c5f5",
+                        "hooks": {
+                            "preMap": {
+                                "_scriptId": "",
+                                "function": "preMap"
+                            }
+                        },
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "extract": "Name",
+                                    "generate": "Name"
+                                },
+                                {
+                                    "extract": "id",
+                                    "generate": "ID"
+                                },
+                                {
+                                    "extract": "recordType",
+                                    "generate": "recordType"
+                                }
+                            ]
+                        },
+                        "file": {
+                            "fileName": "TC_C41731.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                            "fileName": "TC_C41731.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C41731",
+                "disabled": false,
+                "_integrationId": "",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            },
+            "createIntegrations": {
+                "name": "Delete_TC_ILM_C41731"
+            }
+        }
+    ]
+}

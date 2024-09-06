@@ -1,0 +1,195 @@
+{
+    "name": "TC_C108137",
+    "referencename": "TC_C108137",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Http Export",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "_sourceId": "64e4dbac40d56271a1189e33",
+                        "apiIdentifier": "eedae7beea",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "groupByFields": [
+                            "id"
+                        ],
+                        "mockOutput": {
+                            "page_of_records": [
+                                {
+                                    "rows": [
+                                        {
+                                            "id": 1473313072,
+                                            "name": "Celigo IO Automation",
+                                            "email": "mounica.manavapati@celigo.com",
+                                            "phone": null,
+                                            "role": "admin"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "rows": [
+                                        {
+                                            "id": 7421797851922,
+                                            "name": "TC_C29919_Company1",
+                                            "email": "tc29919company1@gmail.com",
+                                            "phone": "(785) 634-5679",
+                                            "role": "end-user"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "rows": [
+                                        {
+                                            "id": 13550568204946,
+                                            "name": "64f8c23a1c6f04541205b8fa",
+                                            "email": null,
+                                            "phone": null,
+                                            "role": "end-user"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "rows": [
+                                        {
+                                            "id": 13551411539218,
+                                            "name": "Roger Wilco",
+                                            "email": "test@user.com",
+                                            "phone": null,
+                                            "role": "agent"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "rows": [
+                                        {
+                                            "id": 13551719801106,
+                                            "name": "Roger34 Wilco23",
+                                            "email": "test234@user.com",
+                                            "phone": "9664644335",
+                                            "role": "agent"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "http": {
+                            "relativeURI": "users",
+                            "method": "GET",
+                            "formType": "http",
+                            "response": {
+                                "resourcePath": "users"
+                            }
+                        },
+                        "rawData": "6253c695bbf2c06775d39fe11fbff8fb758c4d688e7a8ec0e18fc008",
+                        "test": {
+                            "limit": 18
+                        },
+                        "filter": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [
+                                    "notempty",
+                                    [
+                                        "string",
+                                        [
+                                            "extract",
+                                            "id"
+                                        ]
+                                    ]
+                                ],
+                                "version": "1"
+                            },
+                            "rules": [
+                                "notempty",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "id"
+                                    ]
+                                ]
+                            ],
+                            "version": "1"
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                },
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Mongo Export",
+                        "_connectionId": "MONGODB CONNECTION",
+                        "apiIdentifier": "e82f10a91e",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "groupByFields": [
+                            "id"
+                        ],
+                        "rawData": "64c123109afedb1fee467c16undefined",
+                        "mongodb": {
+                            "method": "find",
+                            "collection": "TEST NEW"
+                        },
+                        "adaptorType": "MongodbExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "FTP Import",
+                        "_connectionId": "FTP CONNECTION",
+                        "_sourceId": "6380f727f0c4341b8ef471c3",
+                        "apiIdentifier": "iede5ecd65",
+                        "oneToMany": false,
+                        "file": {
+                            "fileName": "TC_C108137.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO%20Automation%20SFTP%20Imports",
+                            "fileName": "TC_C108137.json"
+                        },
+                        "filter": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [],
+                                "version": "1"
+                            },
+                            "rules": [],
+                            "version": "1"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C108137",
+                "disabled": false,
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    },
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}
