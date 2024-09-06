@@ -104,15 +104,16 @@ test.describe("@Author-ParthPatel TC_C45128_C45129_C45117_C45110_C45113_C45112_C
     await io.homePage.loadingTime();
     await io.homePage.click(selectors.flowBuilderPagePO.FIT_WINDOW_WITH_BUTTON);
 
-    //TC_45156 | Verify hover text for edit branch window
-    await page.mouse.move(0, 0);
-    const router = await page.locator(selectors.flowBranchingPO.ROUTERS).nth(0);
-    await router.hover();
-    let hoverText = await page.locator(selectors.mappings.TOOLTIP).textContent();
-    await io.assert.expectToBeValue(String(hoverText), "Edit branching", "");
-
     //TC_C45133 | Verify branching icon for Branching type = ”All branches where conditions are met”
-    const routerText = await router.textContent();
+    const routerText = await io.homePage.getText(selectors.flowBranchingPO.ROUTERS);
     expect(String(routerText)).toContain("ALL");
+
+    //TC_45156 | Verify hover text for edit branch window
+    await io.homePage.clickByIndex(selectors.flowBranchingPO.ROUTERS, 0);
+    await io.homePage.click(selectors.basePagePO.CLOSE);
+    await io.homePage.loadingTime();
+    await io.homePage.hover(selectors.flowBranchingPO.ROUTERS, 0, true);
+    let hoverText = await io.homePage.getText(selectors.mappings.TOOLTIP);
+    await io.assert.expectToContainValue("Edit branching",String(hoverText), "");
   });
 });
