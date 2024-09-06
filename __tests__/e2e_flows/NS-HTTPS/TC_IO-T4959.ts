@@ -13,7 +13,7 @@ test.describe("TC_IO-T4959_IO-T4958_IO-T4956_IO-T4954_IO-T4955", () => {
         await io.api.deleteFlowViaAPI(flowMap.get(IO_T4959.qa__api_tdata[0].name)['flowId']);
         await io.api.deleteScriptViaAPI(preMap);
     });
-    test("@Env-All @Zephyr-IO-T4959 Verify the fetching progress bar indicator is shown for listener logs and script logs", async ({ 
+    test("@Env-All Verify the fetching progress bar indicator is shown for listener logs and script logs", async ({ 
         io, page
     }) => {
         //IO-T4959
@@ -31,7 +31,9 @@ test.describe("TC_IO-T4959_IO-T4958_IO-T4956_IO-T4954_IO-T4955", () => {
         await page.getByText("Fetching logs...", { exact: false }).waitFor({ state: `visible`, timeout: 10000 })
         await io.flowBuilder.click(selectors.flowBuilderPagePO.LISTENER_LOGS_TIME);
         await io.flowBuilder.clickByText("Custom");
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.CALENDER_PREVIOS)
         let buttonList = await page.$$(selectors.flowBuilderPagePO.CALENDER_DAY_SELECTOR);
+
         // Filter the enabled buttons
         let enabledButtons = [];
         for (const button of buttonList) {
@@ -40,10 +42,9 @@ test.describe("TC_IO-T4959_IO-T4958_IO-T4956_IO-T4954_IO-T4955", () => {
                 enabledButtons.push(button);
             }
         }
-
         expect(enabledButtons.length).toBeGreaterThan(10);
         await enabledButtons[0].click();
-        await enabledButtons[enabledButtons.length-7].click();
+        await enabledButtons[enabledButtons.length-1].click();
         await io.flowBuilder.clickByText("Apply");
 
         //Verfiy Script Log fetching progress is visible
@@ -73,6 +74,7 @@ test.describe("TC_IO-T4959_IO-T4958_IO-T4956_IO-T4954_IO-T4955", () => {
         //IO-T4958 verify the fetching percentage is shown as expected for listener logs & Script logs
         await io.flowBuilder.clickByText("Yesterday");
         await io.flowBuilder.clickByText("Custom");
+        await io.flowBuilder.click(selectors.flowBuilderPagePO.CALENDER_PREVIOS)
         buttonList = await page.$$(selectors.flowBuilderPagePO.CALENDER_DAY_SELECTOR);
 
         // Filter the enabled buttons
@@ -85,7 +87,7 @@ test.describe("TC_IO-T4959_IO-T4958_IO-T4956_IO-T4954_IO-T4955", () => {
         }
         expect(enabledButtons.length).toBeGreaterThan(10);
         await enabledButtons[0].click();
-        await enabledButtons[enabledButtons.length-7].click();
+        await enabledButtons[enabledButtons.length-1].click();
         await io.flowBuilder.clickByText("Apply");
 
         //Verfiy Script Log fetching progress is visible
