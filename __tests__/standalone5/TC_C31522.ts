@@ -9,7 +9,7 @@ test.describe("TC_C31522_FeedExport_With_MessageID_Field", () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
 
-  test("@Zephyr-IO-T9683 TC_C31522_FeedExport_With_MessageID_Field", async ({io,page}, testInfo) => {
+  test("@Zephyr-IO-T9683 @Env-All TC_C31522_FeedExport_With_MessageID_Field", async ({io,page}, testInfo) => {
     await io.flowBuilder.clickCreateFlowButton();
     test.step("*** Create Flow Selected ***", async ()=>{});
 

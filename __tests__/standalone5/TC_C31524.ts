@@ -10,7 +10,7 @@ test.describe("TC_C31524_MFNImport_With_MessageID_Field", () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
 
-  test("@Zephyr-IO-T9684 TC_C31524_MFNImport_With_MessageID_Field", async ({io,page}, testInfo) => {
+  test("@Zephyr-IO-T9684 @Env-All TC_C31524_MFNImport_With_MessageID_Field", async ({io,page}, testInfo) => {
     await io.homePage.isPageReady();
     await io.homePage.loadingTime();
     await io.flowBuilder.clickCreateFlowButton();

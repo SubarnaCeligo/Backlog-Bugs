@@ -8,7 +8,7 @@ test.describe("TC_C19140_Help_centre", () => {
     await test.step("*** Navigate to Home Page ***", () => { });
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@zephyr-IO-T2241 @Env-All TC_C19140_Help_centre", async ({ io, page }, testInfo) => {
+  test("@Zephyr-IO-T2241 @Env-All TC_C19140_Help_centre", async ({ io, page }, testInfo) => {
     await io.homePage.loadingTime()
     await io.homePage.click(selectors.homePagePO.HELPER_MENU);
     await test.step("*** Help center selected ***", () => { });

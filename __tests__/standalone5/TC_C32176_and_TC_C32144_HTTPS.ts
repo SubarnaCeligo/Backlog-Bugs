@@ -11,7 +11,7 @@ test.describe("HTTP_standalone_imports", () => {
     await io.homePage.loadingTime()
   });
 
-  test("@Zephyr-IO-T9692 TC_C32176_Ignore new records & update existing records.", async ({io,page}, testInfo) => {
+  test("@Zephyr-IO-T9692 @Env-All TC_C32176_Ignore new records & update existing records.", async ({io,page}, testInfo) => {
     await io.flowBuilder.clickCreateFlowButton();
     test.step("*** Create Flow Selected ***", async ()=>{});
     await io.homePage.loadingTime()
@@ -52,7 +52,7 @@ test.describe("HTTP_standalone_imports", () => {
     var res = await io.homePage.getTextFromElement(selectors.importPagePO.UPDATE_VERIFY, "Update existing records");
     await io.assert.expectToBeTrue(res, "");
   });
-  test("@Zephyr-IO-T9689 TC_C32144_Create new  & update existing records.", async ({io,page}, testInfo) => {
+  test("@Zephyr-IO-T9689 @Env-All TC_C32144_Create new  & update existing records.", async ({io,page}, testInfo) => {
     await io.flowBuilder.clickCreateFlowButton();
     test.step("*** Create Flow Selected ***", async ()=>{});
     await io.homePage.loadingTime();

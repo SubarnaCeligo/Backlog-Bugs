@@ -11,7 +11,7 @@ test.describe("Verification of leave popup dialogue in create lookup page", () =
     await io.homePage.loadingTime();
   });
 
-  test("@Zephyr-IO-T2623 TC_C33163_Rest", async ({io,page}, testInfo) => {
+  test("@Zephyr-IO-T2623 @Env-All TC_C33163_Rest", async ({io,page}, testInfo) => {
     await io.flowBuilder.clickCreateFlowButton();
     test.step("*** Create Flow Selected ***", async ()=>{});
     await io.homePage.loadingTime();
