@@ -1,0 +1,94 @@
+{
+    "name": "TC_C94594",
+    "referencename": "TC_C94594",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "Netsuite Export",
+              "_connectionId": "NETSUITE CONNECTION",
+              "_sourceId": "64802bca99eeed61c2d875a3",
+              "apiIdentifier": "e4a25b35bd",
+              "asynchronous": true,
+              "type": "test",
+              "oneToMany": false,
+              "rawData": "648079a4e26e647491cad2afd26749589b0949639086907e8c2a5251",
+              "test": {
+                "limit": 10
+              },
+              "netsuite": {
+                "type": "restlet",
+                "skipGrouping": true,
+                "statsOnly": false,
+                "restlet": {
+                  "recordType": "account",
+                  "searchId": "4649",
+                  "restletVersion": "suiteapp2.0",
+                  "markExportedBatchSize": 100
+                },
+                "distributed": {}
+              },
+              "adaptorType": "NetSuiteExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "NS Transfer ADd",
+              "_connectionId": "NETSUITE CONNECTION",
+              "_sourceId": "649d51cef32be813774420cc",
+              "distributed": false,
+              "apiIdentifier": "i7da7727c1",
+              "ignoreExisting": false,
+              "ignoreMissing": false,
+              "oneToMany": false,
+              "blobKeyPath": "blobKey",
+              "blob": true,
+              "netsuite": {
+                "operation": "add",
+                "recordType": "file",
+                "file": {
+                  "name": "{{data.id}}",
+                  "fileType": "{{data.recordType}}",
+                  "folderInternalId": "{{data.dataURI}}",
+                  "internalId": "{{record.id}}"
+                }
+              },
+              "filter": {
+                "type": "expression",
+                "expression": {
+                  "rules": [],
+                  "version": "1"
+                },
+                "version": "1",
+                "rules": []
+              },
+              "adaptorType": "NetSuiteImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C94594",
+          "disabled": false,
+          "_integrationId": "603ce75ac4fec33283691f43",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }
+  

@@ -26,10 +26,6 @@
                                         {
                                             "extract": "freight",
                                             "generate": "freight"
-                                        },
-                                        {
-                                            "extract": "shipname",
-                                            "generate": "shipname"
                                         }
                                     ]
                                 ],

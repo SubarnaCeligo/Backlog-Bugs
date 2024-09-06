@@ -1,0 +1,460 @@
+{
+  "name": "TC_C64986",
+  "referencename": "TC_C64986",
+  "scriptData": {
+    "name": "preSave Page",
+    "content": "function preSavePage (options) {\n  options.data[0].email = \"mounica.manavapati@celigo.com\"\n  return {\n    data: options.data,\n    errors: options.errors,\n    abort: false,\n    newErrorsAndRetryData: []\n  }\n}"
+  },
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "AutomationStandalone_1qn47",
+            "_connectionId": "NETSUITE CONNECTION",
+            "apiIdentifier": "e868e79c71",
+            "asynchronous": true,
+            "type": "test",
+            "oneToMany": false,
+            "sandbox": false,
+            "rawData": "648079a4e26e647491cad2af596515758aa445b1b4664a9faf035763",
+            "test": {
+              "limit": 1
+            },
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "recordType": "account",
+                "searchId": "3633",
+                "criteria": [],
+                "columns": [],
+                "restletVersion": "suitebundle",
+                "markExportedBatchSize": 100
+              },
+              "distributed": {
+                "executionContext": [],
+                "executionType": []
+              }
+            },
+            "transform": {
+              "type": "expression",
+              "expression": {
+                "rules": [
+                  [
+                    {
+                      "extract": "id",
+                      "generate": "apk"
+                    }
+                  ]
+                ],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": [
+                [
+                  {
+                    "extract": "id",
+                    "generate": "apk"
+                  }
+                ]
+              ]
+            },
+            "filter": {
+              "type": "expression",
+              "expression": {
+                "rules": [
+                  "equals",
+                  [
+                    "string",
+                    [
+                      "extract",
+                      "apk"
+                    ]
+                  ],
+                  "8683"
+                ],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": [
+                "equals",
+                [
+                  "string",
+                  [
+                    "extract",
+                    "apk"
+                  ]
+                ],
+                "8683"
+              ]
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        },
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "AutomationStandalone_8azgL",
+            "_connectionId": "NETSUITE CONNECTION",
+            "apiIdentifier": "e0cf2abedc",
+            "asynchronous": true,
+            "type": "test",
+            "oneToMany": false,
+            "sandbox": false,
+            "mockOutput": {
+              "page_of_records": [
+                {
+                  "record": {
+                    "id": "8683",
+                    "recordType": "account",
+                    "Name": "ZAccount 1",
+                    "Display Name": "1.0 ZAccount 1",
+                    "Account Type": "Bank",
+                    "Description": "",
+                    "Balance": "-114",
+                    "Show in Fixed Assets Management": "",
+                    "Once Export": "T",
+                    "dataURI": "/app/accounting/account/account.nl?id=8683&compid=TSTDRV1143616"
+                  }
+                },
+                {
+                  "record": {
+                    "id": "27805",
+                    "recordType": "account",
+                    "Name": "ZAccount 9",
+                    "Display Name": "1.33711083E8 ZAccount 9",
+                    "Account Type": "Bank",
+                    "Description": "",
+                    "Balance": "0",
+                    "Show in Fixed Assets Management": "",
+                    "Once Export": "F",
+                    "dataURI": "/app/accounting/account/account.nl?id=27805&compid=TSTDRV1143616"
+                  }
+                }
+              ]
+            },
+            "rawData": "648079a4e26e647491cad2af596515758aa445b1b4664a9faf035763",
+            "test": {
+              "limit": 1
+            },
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "recordType": "account",
+                "searchId": "3633",
+                "restletVersion": "suitebundle",
+                "markExportedBatchSize": 100
+              },
+              "distributed": {}
+            },
+            "transform": {
+              "type": "expression",
+              "expression": {
+                "rules": [
+                  [
+                    {
+                      "extract": "id",
+                      "generate": "apk"
+                    }
+                  ]
+                ],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": [
+                [
+                  {
+                    "extract": "id",
+                    "generate": "apk"
+                  }
+                ]
+              ]
+            },
+            "filter": {
+              "type": "expression",
+              "expression": {
+                "rules": [
+                  "and",
+                  [
+                    "equals",
+                    [
+                      "string",
+                      [
+                        "extract",
+                        "apk"
+                      ]
+                    ],
+                    "8683"
+                  ],
+                  [
+                    "equals",
+                    [
+                      "string",
+                      [
+                        "extract",
+                        "apk"
+                      ]
+                    ],
+                    "8683"
+                  ],
+                  [
+                    "notequals",
+                    [
+                      "string",
+                      [
+                        "extract",
+                        "apk"
+                      ]
+                    ],
+                    "86831"
+                  ]
+                ],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": [
+                "and",
+                [
+                  "equals",
+                  [
+                    "string",
+                    [
+                      "extract",
+                      "apk"
+                    ]
+                  ],
+                  "8683"
+                ],
+                [
+                  "equals",
+                  [
+                    "string",
+                    [
+                      "extract",
+                      "apk"
+                    ]
+                  ],
+                  "8683"
+                ],
+                [
+                  "notequals",
+                  [
+                    "string",
+                    [
+                      "extract",
+                      "apk"
+                    ]
+                  ],
+                  "86831"
+                ]
+              ]
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        },
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "AutomationStandalone_VWAfZ",
+            "_connectionId": "NETSUITE CONNECTION",
+            "apiIdentifier": "eb2a4506ab",
+            "asynchronous": true,
+            "type": "distributed",
+            "oneToMany": false,
+            "sandbox": false,
+            "distributed": {
+              "bearerToken": "******"
+            },
+            "netsuite": {
+              "type": "distributed",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "criteria": [],
+                "columns": [],
+                "restletVersion": "suitebundle",
+                "markExportedBatchSize": 100
+              },
+              "distributed": {
+                "recordType": "account",
+                "executionContext": [
+                  "userinterface",
+                  "webstore"
+                ],
+                "disabled": false,
+                "executionType": [
+                  "create",
+                  "edit",
+                  "xedit"
+                ],
+                "sublists": [],
+                "frameworkVersion": "suiteapp2.0"
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "AutomationStandalone_zXW7Z",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "e6d061114f",
+            "asynchronous": true,
+            "isLookup": true,
+            "type": "test",
+            "hooks": {
+              "preSavePage": {
+                "function": "preSavePage",
+                "_scriptId": "Update With New"
+              }
+            },
+            "oneToMany": false,
+            "http": {
+              "relativeURI": "/tickets.json",
+              "method": "GET",
+              "formType": "http",
+              "response": {
+                "resourcePath": "tickets"
+              }
+            },
+            "test": {
+              "limit": 1
+            },
+            "transform": {
+              "type": "expression",
+              "expression": {
+                "rules": [
+                  [
+                    {
+                      "extract": "description",
+                      "generate": "Details"
+                    },
+                    {
+                      "extract": "assignee_id",
+                      "generate": "Assignee Id"
+                    },
+                    {
+                      "extract": "raw_subject",
+                      "generate": "Name"
+                    }
+                  ]
+                ],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": [
+                [
+                  {
+                    "extract": "description",
+                    "generate": "Details"
+                  },
+                  {
+                    "extract": "assignee_id",
+                    "generate": "Assignee Id"
+                  },
+                  {
+                    "extract": "raw_subject",
+                    "generate": "Name"
+                  }
+                ]
+              ]
+            },
+            "adaptorType": "HTTPExport"
+          }
+        },
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "AutomationStandalone_E8AFV",
+            "responseTransform": {
+              "type": "expression",
+              "expression": {
+                "rules": [
+                  [
+                    {
+                      "extract": "mockResponse",
+                      "generate": "Response"
+                    }
+                  ]
+                ],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": [
+                [
+                  {
+                    "extract": "mockResponse",
+                    "generate": "Response"
+                  }
+                ]
+              ]
+            },
+            "mockResponse": [
+              {
+                "id": "1234567890",
+                "errors": [],
+                "_json": {
+                  "mockResponse": "replace me"
+                },
+                "statusCode": 200,
+                "ignored": false,
+                "dataURI": "",
+                "_headers": {
+                  "content-type": "application/json; charset=utf-8"
+                }
+              }
+            ],
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "i996d3d290",
+            "oneToMany": false,
+            "file": {
+              "fileName": "import.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation",
+              "fileName": "import.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C64986",
+        "disabled": false,
+        "skipRetries": false,
+        "_integrationId": "63232c59d3a9897fe95f9f2a",
+        "pageProcessors": [
+          {
+            "type": "export",
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          },
+          {
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          },
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          },
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

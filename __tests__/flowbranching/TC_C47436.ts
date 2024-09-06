@@ -17,7 +17,7 @@ test.describe("@Author-ParthPatel TC_C47436_C47412", () => {
   });
   test("@Env-All @Zephyr-IO-T17515 TC_C47436", async ({io,page}, testInfo) => {
     await test.step("*** Creating Flow ***", async ()=>{
-      flowId = await io.flowbranching.createFlowBranchFromAPI( flowbranch);
+      flowId = await io.flowbranching.createFlowBranchFromAPI(flowbranch);
       await io.flowBuilderDashboard.navigateToEm2Flow(flowId);
       await io.homePage.loadingTime();
     });

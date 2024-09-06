@@ -7,3 +7,8 @@ require("./TC_C28641");
 require("./TC_C28991_C50866_C36418_C45064");
 require("./TC_C32358");
 require("./TC_C26588");
+require("./TC_C31522");
+require("./TC_C31524");
+require("./TC_C32175");
+require("./TC_C32176_and_TC_C32144_HTTPS");
+require("./TC_C33163_Rest");

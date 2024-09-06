@@ -1,0 +1,222 @@
+{
+  "name": "TC_C94978",
+  "referencename": "TC_C94978",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "S3 export",
+            "_connectionId": "S3 CONNECTION",
+            "_sourceId": "6487f6a61de43560f92b89e9",
+            "apiIdentifier": "e105c03564",
+            "asynchronous": true,
+            "dataURITemplate": "{{abs record.Details}}",
+            "traceKeyTemplate": "{{record.ExportCategory}}",
+            "mockOutput": {
+              "page_of_records": [
+                {
+                  "record": {
+                    "id": 1473313072,
+                    "url": "https://celigoqa.zendesk.com/api/v2/users/1473313072.json",
+                    "name": "Celigo IO Automation",
+                    "email": "mounica.manavapati@celigo.com",
+                    "created_at": "2015-10-27T05:36:38Z",
+                    "updated_at": "2023-06-30T10:12:00Z"
+                  }
+                },
+                {
+                  "record": {
+                    "id": 7421797851922,
+                    "url": "https://celigoqa.zendesk.com/api/v2/users/7421797851922.json",
+                    "name": "TC_C29919_Company1",
+                    "email": "tc29919company1@gmail.com",
+                    "created_at": "2022-09-01T01:26:00Z",
+                    "updated_at": "2022-09-01T01:26:00Z"
+                  }
+                },
+                {
+                  "record": {
+                    "id": 12232242025362,
+                    "url": "https://celigoqa.zendesk.com/api/v2/users/12232242025362.json",
+                    "name": "inboundshipment",
+                    "email": "restbodytest@gmail.com",
+                    "created_at": "2023-06-29T17:05:42Z",
+                    "updated_at": "2023-06-29T17:05:42Z"
+                  }
+                },
+                {
+                  "record": {
+                    "id": 12232281718418,
+                    "url": "https://celigoqa.zendesk.com/api/v2/users/12232281718418.json",
+                    "name": "absolute_ticket",
+                    "email": "absolute@gmail.com",
+                    "created_at": "2023-06-29T17:08:24Z",
+                    "updated_at": "2023-06-29T17:08:24Z"
+                  }
+                },
+                {
+                  "record": {
+                    "id": 12233965992722,
+                    "url": "https://celigoqa.zendesk.com/api/v2/users/12233965992722.json",
+                    "name": "649dddf648b63021fc1a9422",
+                    "email": null,
+                    "created_at": "2023-06-29T19:40:38Z",
+                    "updated_at": "2023-06-29T19:42:09Z"
+                  }
+                },
+                {
+                  "record": {
+                    "id": 12234015509138,
+                    "url": "https://celigoqa.zendesk.com/api/v2/users/12234015509138.json",
+                    "name": "Johnny Agent",
+                    "email": null,
+                    "created_at": "2023-06-29T19:47:20Z",
+                    "updated_at": "2023-06-29T19:47:20Z"
+                  }
+                },
+                {
+                  "record": {
+                    "id": 12234017719570,
+                    "url": "https://celigoqa.zendesk.com/api/v2/users/12234017719570.json",
+                    "name": "Johnny Agent",
+                    "email": null,
+                    "created_at": "2023-06-29T19:49:07Z",
+                    "updated_at": "2023-06-29T19:49:07Z"
+                  }
+                },
+                {
+                  "record": {
+                    "id": 12234048875922,
+                    "url": "https://celigoqa.zendesk.com/api/v2/users/12234048875922.json",
+                    "name": "Johnny Agent",
+                    "email": null,
+                    "created_at": "2023-06-29T19:49:07Z",
+                    "updated_at": "2023-06-29T19:49:07Z"
+                  }
+                },
+                {
+                  "record": {
+                    "id": 12234064704402,
+                    "url": "https://celigoqa.zendesk.com/api/v2/users/12234064704402.json",
+                    "name": "Johnny Agent",
+                    "email": null,
+                    "created_at": "2023-06-29T19:49:06Z",
+                    "updated_at": "2023-06-29T19:49:06Z"
+                  }
+                },
+                {
+                  "record": {
+                    "id": 12234064713106,
+                    "url": "https://celigoqa.zendesk.com/api/v2/users/12234064713106.json",
+                    "name": "Johnny Agent",
+                    "email": null,
+                    "created_at": "2023-06-29T19:49:07Z",
+                    "updated_at": "2023-06-29T19:49:07Z"
+                  }
+                }
+              ]
+            },
+            "s3": {
+              "region": "us-east-1",
+              "bucket": "qamahesh",
+              "keyStartsWith": "Testing (1)",
+              "keyEndsWith": ".json",
+              "backupBucket": "qamahesh/Backup"
+            },
+            "file": {
+              "encoding": "utf8",
+              "output": "records",
+              "skipDelete": true,
+              "type": "json",
+              "backupPath": "qamahesh/Backup",
+              "json": {
+                "resourcePath": "*"
+              }
+            },
+            "transform": {
+              "type": "expression",
+              "expression": {
+                "rules": [[]],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": [[]]
+            },
+            "adaptorType": "S3Export"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "S3 import",
+            "mockResponse": [
+              {
+                "id": "1234567890",
+                "errors": [],
+                "_json": {
+                  "mockResponse": "replace me"
+                },
+                "statusCode": 200,
+                "ignored": false,
+                "dataURI": "",
+                "_headers": {
+                  "content-type": "application/json; charset=utf-8"
+                }
+              }
+            ],
+            "_connectionId": "S3 CONNECTION",
+            "_sourceId": "6487f6d71de43560f92b89eb",
+            "apiIdentifier": "i01a5baa5b",
+            "oneToMany": false,
+            "file": {
+              "fileName": "{{batch_of_records.[0].record.url}}",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "s3": {
+              "region": "us-east-1",
+              "bucket": "{{batch_of_records.[0].record.name}}",
+              "fileKey": "{{batch_of_records.[0].record.url}}"
+            },
+            "filter": {
+              "type": "expression",
+              "expression": {
+                "rules": [],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": []
+            },
+            "adaptorType": "S3Import"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C94978",
+        "disabled": false,
+        "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID",
+            "skipRetries": false
+          }
+        ]
+      }
+    }
+  ]
+}

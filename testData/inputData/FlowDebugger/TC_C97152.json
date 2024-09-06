@@ -1,0 +1,143 @@
+{
+  "name": "TC_C97152",
+  "referencename": "TC_C97152",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Test Export 1",
+            "description": "Test Export 1",
+            "_connectionId": "NETSUITE CONNECTION",
+            "apiIdentifier": "e2725558f8",
+            "asynchronous": true,
+            "type": "test",
+            "oneToMany": false,
+            "sandbox": false,
+            "test": {
+              "limit": 1
+            },
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "recordType": "customer",
+                "searchId": "2449",
+                "restletVersion": "suiteapp2.0",
+                "markExportedBatchSize": 100
+              },
+              "distributed": {}
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Test Lookup 1",
+            "description": "Test Lookup 1",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "ea1a46965d",
+            "asynchronous": true,
+            "isLookup": true,
+            "type": "test",
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+              "relativeURI": "/tickets.json",
+              "method": "GET",
+              "formType": "http"
+            },
+            "test": {
+              "limit": 1
+            },
+            "transform": {
+              "type": "expression",
+              "expression": {
+                "rules": [[]],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": [[]]
+            },
+            "adaptorType": "HTTPExport"
+          }
+        },
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "AutomationStandalone_0EDKH",
+            "mockResponse": [
+              {
+                "id": "1234567890",
+                "errors": [],
+                "_json": {
+                  "mockResponse": "replace me"
+                },
+                "statusCode": 200,
+                "ignored": false,
+                "dataURI": "",
+                "_headers": {
+                  "content-type": "application/json; charset=utf-8"
+                }
+              }
+            ],
+            "_connectionId": "NETSUITE CONNECTION",
+            "distributed": true,
+            "apiIdentifier": "i6ba4efae5",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [],
+            "netsuite_da": {
+              "restletVersion": "suitebundle",
+              "operation": "add",
+              "recordType": "account",
+              "lookups": [],
+              "mapping": {
+                "fields": [],
+                "lists": []
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C97152",
+        "disabled": false,
+        "skipRetries": false,
+        "_integrationId": "63232c59d3a9897fe95f9f2a",
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "export",
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          },
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID",
+            "skipRetries": false
+          }
+        ]
+      }
+    }
+  ]
+}

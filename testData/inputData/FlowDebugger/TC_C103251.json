@@ -1,0 +1,407 @@
+{
+    "name": "TC_C103251",
+    "referencename": "TC_C103251",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Netsuite Export",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "_sourceId": "64f975abaade5a6c106d7674",
+                        "apiIdentifier": "e0ea85764f",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "mockOutput": {
+                            "page_of_records": [
+                                {
+                                    "record": {
+                                        "id": "17590",
+                                        "recordType": "customer",
+                                        "Name": "Int1",
+                                        "Email": "",
+                                        "Phone": "",
+                                        "Office Phone": "",
+                                        "Fax": "",
+                                        "Primary Contact": "",
+                                        "Medium": "",
+                                        "Keyword Search": "",
+                                        "Search Engine": "",
+                                        "Real time export Checkbox": false,
+                                        "Priority": "50",
+                                        "Priority (3)": "50",
+                                        "Internal ID": "17590",
+                                        "dataURI": "https://tstdrv1143616.app.netsuite.com/app/common/entity/custjob.nl?id=17590&compid=TSTDRV1143616",
+                                        "Alt. Email": ""
+                                    }
+                                },
+                                {
+                                    "record": {
+                                        "id": "17591",
+                                        "recordType": "customer",
+                                        "Name": "Int2",
+                                        "Email": "int2@gmail.com",
+                                        "Phone": "77887665",
+                                        "Office Phone": "",
+                                        "Fax": "",
+                                        "Primary Contact": "",
+                                        "Medium": "",
+                                        "Keyword Search": "",
+                                        "Search Engine": "",
+                                        "Real time export Checkbox": false,
+                                        "Priority": "50",
+                                        "Priority (3)": "50",
+                                        "Internal ID": "17591",
+                                        "dataURI": "https://tstdrv1143616.app.netsuite.com/app/common/entity/custjob.nl?id=17591&compid=TSTDRV1143616",
+                                        "Alt. Email": ""
+                                    }
+                                },
+                                {
+                                    "record": {
+                                        "id": "18691",
+                                        "recordType": "customer",
+                                        "Name": "Company101",
+                                        "Email": "C1@gmail.com",
+                                        "Phone": "21212121",
+                                        "Office Phone": "",
+                                        "Fax": "",
+                                        "Primary Contact": "",
+                                        "Medium": "",
+                                        "Keyword Search": "",
+                                        "Search Engine": "",
+                                        "Real time export Checkbox": false,
+                                        "Priority": "50",
+                                        "Priority (3)": "50",
+                                        "Internal ID": "18691",
+                                        "dataURI": "https://tstdrv1143616.app.netsuite.com/app/common/entity/custjob.nl?id=18691&compid=TSTDRV1143616",
+                                        "Alt. Email": ""
+                                    }
+                                },
+                                {
+                                    "record": {
+                                        "id": "19092",
+                                        "recordType": "customer",
+                                        "Name": "Int5",
+                                        "Email": "int5@gmail.com",
+                                        "Phone": "(666) 766-5665",
+                                        "Office Phone": "",
+                                        "Fax": "",
+                                        "Primary Contact": "",
+                                        "Medium": "",
+                                        "Keyword Search": "",
+                                        "Search Engine": "",
+                                        "Real time export Checkbox": false,
+                                        "Priority": "50",
+                                        "Priority (3)": "50",
+                                        "Internal ID": "19092",
+                                        "dataURI": "https://tstdrv1143616.app.netsuite.com/app/common/entity/custjob.nl?id=19092&compid=TSTDRV1143616",
+                                        "Alt. Email": ""
+                                    }
+                                },
+                                {
+                                    "record": {
+                                        "id": "21705",
+                                        "recordType": "prospect",
+                                        "Name": "Teja",
+                                        "Email": "",
+                                        "Phone": "878654321",
+                                        "Office Phone": "",
+                                        "Fax": "",
+                                        "Primary Contact": "",
+                                        "Medium": "",
+                                        "Keyword Search": "",
+                                        "Search Engine": "",
+                                        "Real time export Checkbox": false,
+                                        "Priority": "50",
+                                        "Priority (3)": "50",
+                                        "Internal ID": "21705",
+                                        "dataURI": "https://tstdrv1143616.app.netsuite.com/app/common/entity/custjob.nl?id=21705&compid=TSTDRV1143616",
+                                        "Alt. Email": ""
+                                    }
+                                },
+                                {
+                                    "record": {
+                                        "id": "27611",
+                                        "recordType": "customer",
+                                        "Name": "M SF Example 4",
+                                        "Email": "",
+                                        "Phone": "(876) 543-2109",
+                                        "Office Phone": "",
+                                        "Fax": "786542091",
+                                        "Primary Contact": "",
+                                        "Medium": "",
+                                        "Keyword Search": "",
+                                        "Search Engine": "",
+                                        "Real time export Checkbox": false,
+                                        "Priority": "50",
+                                        "Priority (3)": "50",
+                                        "Internal ID": "27611",
+                                        "dataURI": "https://tstdrv1143616.app.netsuite.com/app/common/entity/custjob.nl?id=27611&compid=TSTDRV1143616",
+                                        "Alt. Email": ""
+                                    }
+                                },
+                                {
+                                    "record": {
+                                        "id": "27612",
+                                        "recordType": "customer",
+                                        "Name": "M SF Example 5",
+                                        "Email": "",
+                                        "Phone": "(897) 654-2013",
+                                        "Office Phone": "",
+                                        "Fax": "760981342",
+                                        "Primary Contact": "",
+                                        "Medium": "",
+                                        "Keyword Search": "",
+                                        "Search Engine": "",
+                                        "Real time export Checkbox": false,
+                                        "Priority": "50",
+                                        "Priority (3)": "50",
+                                        "Internal ID": "27612",
+                                        "dataURI": "https://tstdrv1143616.app.netsuite.com/app/common/entity/custjob.nl?id=27612&compid=TSTDRV1143616",
+                                        "Alt. Email": ""
+                                    }
+                                },
+                                {
+                                    "record": {
+                                        "id": "27613",
+                                        "recordType": "customer",
+                                        "Name": "M SF Example 8",
+                                        "Email": "",
+                                        "Phone": "87690852010",
+                                        "Office Phone": "",
+                                        "Fax": "908761321",
+                                        "Primary Contact": "",
+                                        "Medium": "",
+                                        "Keyword Search": "",
+                                        "Search Engine": "",
+                                        "Real time export Checkbox": false,
+                                        "Priority": "50",
+                                        "Priority (3)": "50",
+                                        "Internal ID": "27613",
+                                        "dataURI": "https://tstdrv1143616.app.netsuite.com/app/common/entity/custjob.nl?id=27613&compid=TSTDRV1143616",
+                                        "Alt. Email": ""
+                                    }
+                                },
+                                {
+                                    "record": {
+                                        "id": "27614",
+                                        "recordType": "customer",
+                                        "Name": "M SF Example 10",
+                                        "Email": "",
+                                        "Phone": "(898) 765-20100",
+                                        "Office Phone": "",
+                                        "Fax": "(481) 321-165",
+                                        "Primary Contact": "",
+                                        "Medium": "",
+                                        "Keyword Search": "",
+                                        "Search Engine": "",
+                                        "Real time export Checkbox": false,
+                                        "Priority": "50",
+                                        "Priority (3)": "50",
+                                        "Internal ID": "27614",
+                                        "dataURI": "https://tstdrv1143616.app.netsuite.com/app/common/entity/custjob.nl?id=27614&compid=TSTDRV1143616",
+                                        "Alt. Email": ""
+                                    }
+                                },
+                                {
+                                    "record": {
+                                        "id": "27615",
+                                        "recordType": "customer",
+                                        "Name": "M SF Example 9",
+                                        "Email": "",
+                                        "Phone": "(897) 654-1087",
+                                        "Office Phone": "",
+                                        "Fax": "675432901",
+                                        "Primary Contact": "",
+                                        "Medium": "",
+                                        "Keyword Search": "",
+                                        "Search Engine": "",
+                                        "Real time export Checkbox": false,
+                                        "Priority": "50",
+                                        "Priority (3)": "50",
+                                        "Internal ID": "27615",
+                                        "dataURI": "https://tstdrv1143616.app.netsuite.com/app/common/entity/custjob.nl?id=27615&compid=TSTDRV1143616",
+                                        "Alt. Email": ""
+                                    }
+                                }
+                            ]
+                        },
+                        "rawData": "64c123109afedb1fee467c165ce0447329be4b3f8744eb35daf51e8d",
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "hooks": {
+                                    "preSend": {
+                                        "fileInternalId": "4425771",
+                                        "function": "preSend"
+                                    },
+                                    "batchSize": 2
+                                },
+                                "recordType": "customer",
+                                "searchId": "996",
+                                "restletVersion": "suiteapp2.0",
+                                "batchSize": 2,
+                                "markExportedBatchSize": 100
+                            },
+                            "distributed": {}
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Netsuite Lookup",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "_sourceId": "64f97615588916256bef998a",
+                        "apiIdentifier": "e9d8e12e8f",
+                        "asynchronous": true,
+                        "isLookup": true,
+                        "oneToMany": false,
+                        "mockOutput": {
+                            "page_of_records": [
+                                {
+                                    "record": {
+                                        "id": "27615",
+                                        "recordType": "customer",
+                                        "Name": "M SF Example 9",
+                                        "Email": "",
+                                        "Phone": "(897) 654-1087",
+                                        "Office Phone": "",
+                                        "Fax": "675432901",
+                                        "Primary Contact": "",
+                                        "Medium": "",
+                                        "Keyword Search": "",
+                                        "Search Engine": "",
+                                        "Real time export Checkbox": false,
+                                        "Priority": "50",
+                                        "Priority (3)": "50",
+                                        "Internal ID": "27615",
+                                        "dataURI": "/app/common/entity/custjob.nl?id=27615&compid=TSTDRV1143616",
+                                        "Alt. Email": ""
+                                    }
+                                }
+                            ]
+                        },
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "hooks": {
+                                    "preSend": {
+                                        "fileInternalId": "4425771",
+                                        "function": "preSend"
+                                    }
+                                },
+                                "recordType": "customer",
+                                "searchId": "996",
+                                "criteria": [
+                                    {
+                                        "field": "internalid",
+                                        "operator": "anyof",
+                                        "searchValue": "{{id}}"
+                                    }
+                                ],
+                                "columns": [],
+                                "restletVersion": "suiteapp2.0"
+                            },
+                            "distributed": {
+                                "executionContext": [],
+                                "executionType": []
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                },
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Netsuite Import",
+                        "mockResponse": [
+                            {
+                                "id": "1234567890",
+                                "errors": [],
+                                "_json": {
+                                    "id": "1234567890",
+                                    "mockResponse": "replace me"
+                                },
+                                "statusCode": 200,
+                                "ignored": false,
+                                "dataURI": "",
+                                "_headers": {
+                                    "content-type": "application/json; charset=utf-8"
+                                }
+                            }
+                        ],
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "_sourceId": "64f98c5c537351088df0e1d9",
+                        "distributed": true,
+                        "apiIdentifier": "i08e4555d8",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "lookups": [],
+                        "netsuite_da": {
+                            "restletVersion": "suiteapp2.0",
+                            "operation": "add",
+                            "recordType": "customer",
+                            "batchSize": 2,
+                            "lookups": [],
+                            "mapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "hooks": {
+                                "postMap": {
+                                    "fileInternalId": "4425771",
+                                    "function": "postMap"
+                                },
+                                "postSubmit": {
+                                    "fileInternalId": "4425771",
+                                    "function": "postSubmit"
+                                }
+                            }
+                        },
+                        "adaptorType": "NetSuiteDistributedImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C103251",
+                "disabled": false,
+                "_integrationId": "63232c59d3a9897fe95f9f2a",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    },
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID",
+                        "skipRetries": false
+                    }
+                ]
+            }
+        }
+    ]
+}
