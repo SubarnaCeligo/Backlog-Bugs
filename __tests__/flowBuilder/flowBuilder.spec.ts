@@ -1,5 +1,3 @@
-require("./TC_32993");
-require("./TC_33019");
 require("./TC_C14370");
 require("./TC_C14371");
 require("./TC_C14925_verify_connection_offline");
