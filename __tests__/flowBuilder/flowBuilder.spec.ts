@@ -1,6 +1,3 @@
-require("./TC_32989");
-require("./TC_32993");
-require("./TC_33019");
 require("./TC_C14370");
 require("./TC_C14371");
 require("./TC_C14925_verify_connection_offline");
@@ -26,3 +23,9 @@ require("./TC_C29687");
 require("./TC_C29689");
 require("./TC_C30908");
 require("./TC_C32972");
+require("./TC_C29902");
+require("./TC_C30425");
+require("./TC_C32989");
+require("./TC_C32993");
+require("./TC_C33017");
+require("./TC_C33019");

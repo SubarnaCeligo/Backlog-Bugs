@@ -1,7 +1,6 @@
 
-import { test, expect } from "@celigo/ui-core-automation";
+import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import { decrypt ,randomNumber} from "@celigo/aut-utilities";
 
 
 test.describe("TC_C102889_C102894_C102897_C102898_C102899", () => {
@@ -49,7 +48,7 @@ test.describe("TC_C102889_C102894_C102897_C102898_C102899", () => {
       "Suggestion message is not displayed"
     );
     test.step("*** Verified label for popular integration ***", async ()=>{});
-    var length = (await page.$$(selectors.marketplacePagePO.CONTACTLESS_REQUEST_DEMO)).length;
+    var length = (await page.$$(selectors.marketplacePagePO.CARD_ACTIONS_BUTTON)).length;
     await io.assert.expectToBeValue(String(length), String(4), "");
     test.step("*** Verified It should suggest 4 popular apps ***", async ()=>{});
 
@@ -63,10 +62,9 @@ test.describe("TC_C102889_C102894_C102897_C102898_C102899", () => {
     //TC_C102898 Verify search result header should display when result are drawn.
     await io.homePage.fillWebPage(selectors.flowBuilderPagePO.SEARCHBUTTON, "HTTP");
     await io.homePage.loadingTime();
-    await io.assert.verifyElementDisplayedByText(
-      "integration app(s) and template(s)",
-      "Search result header is not displayed"
-    );
+    const searchHeader = await page.$$(selectors.marketplacePagePO.SEARCH_RESULTS_MESSAGE);
+    const resultMessage = await searchHeader[0].textContent();
+    await io.assert.expectToContainValue("integration app(s) and template(s)", resultMessage, "Search result header is not displayed");
     test.step("*** Verified header label ***", async ()=>{});
     await io.homePage.click(selectors.marketplacePagePO.CLEAR_SEARCH_BUTTON);  
     test.step("*** Clicking on clear search ***", async ()=>{});

@@ -1,0 +1,94 @@
+{
+    "name": "TC_C94870",
+    "referencename": "TC_C94870",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "AutomationStandalone_96Hlh",
+              "_connectionId": "NETSUITE CONNECTION",
+              "apiIdentifier": "ea32346cee",
+              "asynchronous": true,
+              "type": "test",
+              "oneToMany": false,
+              "rawData": "648079a4e26e647491cad2af97e48f2ec02a4aa49ba104fac9c8cbe2",
+              "test": {
+                "limit": 10
+              },
+              "netsuite": {
+                "type": "restlet",
+                "skipGrouping": true,
+                "statsOnly": false,
+                "restlet": {
+                  "recordType": "account",
+                  "searchId": "4649",
+                  "restletVersion": "suitebundle",
+                  "markExportedBatchSize": 100
+                },
+                "distributed": {}
+              },
+              "adaptorType": "NetSuiteExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "Salesforce Attachment",
+              "_connectionId": "SALESFORCE CONNECTION",
+              "_sourceId": "6491ac86ea29855bcd599ed8",
+              "apiIdentifier": "i5aee848a0",
+              "ignoreExisting": false,
+              "ignoreMissing": false,
+              "oneToMany": false,
+              "blobKeyPath": "blobKey",
+              "blob": true,
+              "salesforce": {
+                "operation": "update",
+                "sObjectType": "attachment",
+                "attachment": {
+                  "id": "{{data.id}}",
+                  "name": "{{data.Name}",
+                  "parentId": "{{data.recordType}}",
+                  "contentType": "{{data.Balance}}",
+                  "description": "{{data.Name}}"
+                },
+                "removeNonSubmittableFields": false
+              },
+              "filter": {
+                "type": "expression",
+                "expression": {
+                  "rules": [],
+                  "version": "1"
+                },
+                "version": "1",
+                "rules": []
+              },
+              "adaptorType": "SalesforceImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C94870",
+          "disabled": false,
+          "_integrationId": "603ce75ac4fec33283691f43",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }
+  

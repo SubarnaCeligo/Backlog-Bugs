@@ -1,0 +1,313 @@
+{
+    "name": "TC_C94293",
+    "referencename": "TC_C94293",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "AutomationStandalone_0Ne96",
+              "_connectionId": "NETSUITE CONNECTION",
+              "apiIdentifier": "e48cfa10de",
+              "asynchronous": true,
+              "type": "test",
+              "oneToMany": false,
+              "mockOutput": {
+                "page_of_records": [
+                  {
+                    "record": {
+                      "id": "42416",
+                      "recordType": "account",
+                      "Name": "0Account 1",
+                      "Display Name": "10.0 0Account 1",
+                      "Account Type": "Bank",
+                      "Description": "",
+                      "Balance": ".00",
+                      "Show in Fixed Assets Management": "",
+                      "dataURI": "/app/accounting/account/account.nl?id=42416&compid=TSTDRV1143616"
+                    }
+                  }
+                ]
+              },
+              "test": {
+                "limit": 1
+              },
+              "netsuite": {
+                "type": "restlet",
+                "skipGrouping": true,
+                "statsOnly": false,
+                "restlet": {
+                  "recordType": "account",
+                  "searchId": "4649",
+                  "restletVersion": "suitebundle"
+                },
+                "distributed": {}
+              },
+              "transform": {
+                "type": "expression",
+                "expression": {
+                  "rules": [
+                    [
+                      {
+                        "extract": "id",
+                        "generate": "user_id"
+                      },
+                      {
+                        "extract": "Name",
+                        "generate": "name"
+                      }
+                    ]
+                  ],
+                  "version": "1"
+                },
+                "version": "1",
+                "rules": [
+                  [
+                    {
+                      "extract": "id",
+                      "generate": "user_id"
+                    },
+                    {
+                      "extract": "Name",
+                      "generate": "name"
+                    }
+                  ]
+                ]
+              },
+              "filter": {
+                "type": "expression",
+                "expression": {
+                  "rules": [
+                    "contains",
+                    ["string", ["extract", "name"]],
+                    "Account"
+                  ],
+                  "version": "1"
+                },
+                "version": "1",
+                "rules": ["contains", ["string", ["extract", "name"]], "Account"]
+              },
+              "adaptorType": "NetSuiteExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "AutomationStandalone_vndHz",
+              "responseTransform": {
+                "type": "expression",
+                "expression": {
+                  "rules": [
+                    [
+                      {
+                        "extract": "mockResponse",
+                        "generate": "mockRes"
+                      }
+                    ]
+                  ],
+                  "version": "1"
+                },
+                "version": "1",
+                "rules": [
+                  [
+                    {
+                      "extract": "mockResponse",
+                      "generate": "mockRes"
+                    }
+                  ]
+                ]
+              },
+              "mockResponse": [
+                {
+                  "id": "1234567890",
+                  "errors": [],
+                  "_json": {
+                    "mockResponse": "replace me"
+                  },
+                  "statusCode": 200,
+                  "ignored": false,
+                  "dataURI": "",
+                  "_headers": {
+                    "content-type": "application/json; charset=utf-8"
+                  }
+                }
+              ],
+              "_connectionId": "HTTP ZENDESK CONNECTION",
+              "apiIdentifier": "ib86de9b50",
+              "ignoreExisting": false,
+              "ignoreMissing": false,
+              "oneToMany": false,
+              "http": {
+                "relativeURI": ["/users"],
+                "method": ["POST"],
+                "body": [],
+                "batchSize": 1,
+                "sendPostMappedData": true,
+                "formType": "http"
+              },
+              "filter": {
+                "type": "expression",
+                "expression": {
+                  "rules": [
+                    "contains",
+                    ["string", ["extract", "name"]],
+                    "Account"
+                  ],
+                  "version": "1"
+                },
+                "version": "1",
+                "rules": ["contains", ["string", ["extract", "name"]], "Account"]
+              },
+              "adaptorType": "HTTPImport"
+            }
+          },
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "AutomationStandalone_2RGOj",
+              "mockResponse": [
+                {
+                  "id": "1234567890",
+                  "errors": [],
+                  "_json": {
+                    "mockResponse": {
+                      "record": {
+                        "id": "1",
+                        "name": "Mary Poppins",
+                        "type": "customer",
+                        "address": {
+                          "street": "17 Cherry Tree Lane",
+                          "City": "London"
+                        }
+                      }
+                    }
+                  },
+                  "statusCode": 200,
+                  "ignored": false,
+                  "dataURI": "",
+                  "_headers": {
+                    "content-type": "application/json; charset=utf-8"
+                  }
+                },
+                {
+                  "id": "1234567890",
+                  "errors": [],
+                  "_json": {
+                    "mockResponse": {
+                      "record": {
+                        "id": "2",
+                        "name": "Sherlock Holmes",
+                        "type": "customer",
+                        "address": {
+                          "street": "221B Baker Street",
+                          "City": "London"
+                        }
+                      }
+                    }
+                  },
+                  "statusCode": 200,
+                  "ignored": false,
+                  "dataURI": "",
+                  "_headers": {
+                    "content-type": "application/json; charset=utf-8"
+                  }
+                }
+              ],
+              "_connectionId": "HTTP ZENDESK CONNECTION",
+              "apiIdentifier": "i984c212d2",
+              "hooks": {
+                "preMap": {
+                  "function": "preMap",
+                  "_scriptId": "64a00523e9f86b2802cd639c"
+                },
+                "postMap": {
+                  "function": "postMap",
+                  "_scriptId": "64a00523e9f86b2802cd639e"
+                },
+                "postSubmit": {
+                  "function": "postSubmit",
+                  "_scriptId": "64a00524f32be8137744f2bd"
+                }
+              },
+              "ignoreExisting": false,
+              "ignoreMissing": false,
+              "oneToMany": false,
+              "mapping": {
+                "fields": [
+                  {
+                    "extract": "Name",
+                    "generate": "user.name"
+                  }
+                ]
+              },
+              "mappings": [
+                {
+                  "extract": "$.Id",
+                  "generate": "id",
+                  "dataType": "string",
+                  "status": "Active",
+                  "sourceDataType": "string"
+                }
+              ],
+              "http": {
+                "relativeURI": ["/users"],
+                "method": ["POST"],
+                "body": [],
+                "batchSize": 1,
+                "sendPostMappedData": true,
+                "formType": "http"
+              },
+              "filter": {
+                "type": "expression",
+                "expression": {
+                  "rules": [],
+                  "version": "1"
+                },
+                "version": "1",
+                "rules": []
+              },
+              "adaptorType": "HTTPImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C94293",
+          "disabled": false,
+          "skipRetries": false,
+          "_integrationId": "63232c59d3a9897fe95f9f2a",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [
+                  {
+                    "extract": "errors",
+                    "generate": "error"
+                  }
+                ],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            },
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }
+  

@@ -1,0 +1,109 @@
+{
+  "name": "TC_C94630",
+  "referencename": "TC_C94630",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Http Export",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "_sourceId": "648063390b61007b743c7281",
+            "apiIdentifier": "eeab9d533f",
+            "asynchronous": true,
+            "type": "test",
+            "oneToMany": false,
+            "http": {
+              "relativeURI": "/users",
+              "method": "GET",
+              "formType": "http",
+              "response": {
+                "resourcePath": "users"
+              }
+            },
+            "test": {
+              "limit": 12
+            },
+            "transform": {
+              "type": "expression",
+              "expression": {
+                "rules": [[]],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": [[]]
+            },
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Bigquery import",
+            "mockResponse": [
+              {
+                "id": "1234567890",
+                "errors": [],
+                "_json": {
+                  "mockResponse": "replace me"
+                },
+                "statusCode": 200,
+                "ignored": false,
+                "dataURI": "",
+                "_headers": {
+                  "content-type": "application/json; charset=utf-8"
+                }
+              }
+            ],
+            "_connectionId": "BIGQUERY CONNECTION",
+            "_sourceId": "64926ad0fe27bf17fc2a3bf6",
+            "apiIdentifier": "i41c26687e",
+            "oneToMany": false,
+            "rdbms": {
+              "query": [],
+              "queryType": ["BULK INSERT"],
+              "bulkInsert": {
+                "tableName": "IO_BulkImportc"
+              }
+            },
+            "filter": {
+              "type": "expression",
+              "expression": {
+                "rules": ["contains", ["string", ["extract", "id"]], "1"],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": ["contains", ["string", ["extract", "id"]], "1"]
+            },
+            "adaptorType": "RDBMSImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C94630",
+        "disabled": false,
+        "skipRetries": false,
+        "_integrationId": "63232c59d3a9897fe95f9f2a",
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID",
+            "skipRetries": false
+          }
+        ]
+      }
+    }
+  ]
+}

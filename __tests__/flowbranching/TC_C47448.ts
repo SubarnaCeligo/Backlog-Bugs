@@ -20,7 +20,6 @@ test.describe("@Author-ParthPatel TC_C47448_Flowbranching_To_Validate_the_Previe
       await io.flowBuilderDashboard.navigateToEm2Flow(flowId);
       await io.homePage.loadingTime();
     });
-    await page.pause();
     await io.flowbranching.flowBranchingPage.fitScreenViewInFlowBranch();
     await io.homePage.click(selectors.flowBuilderPagePO.EDIT_BRANCHING);
     await io.homePage.loadingTime();

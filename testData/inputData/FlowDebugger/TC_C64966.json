@@ -1,0 +1,477 @@
+{
+    "name": "TC_C64966",
+    "referencename": "TC_C64966",
+    "qa__expectedDashboardCount": {
+      "successCount": "20",
+      "ignoreCount": "0",
+      "errorCount": "0"
+    },
+    "qa__dataVerification": {
+      "generateSampleDropDownAvailable": false,
+      "standaloneexportflowID": "",
+      "expected": {
+        "FTP": {
+          "name": "TC_C64966",
+          "_integrationId": "62e8c2172dd80523719f9291",
+          "import": {
+            "_connectionId": "FTP CONNECTION"
+          },
+          "qa__expectedDashboardCount": {
+            "successCount": "20",
+            "ignoreCount": "0",
+            "errorCount": "0"
+          },
+          "qa__dataVerification": {
+            "fileName": "TC_C64966",
+            "isUIFlow": true,
+            "folderName": "/io.auto.qa/IO_UI_Automation",
+            "fileType": ".json"
+          }
+        }
+      }
+    },
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "AutomationStandalone_0bP8U",
+              "_connectionId": "NETSUITE CONNECTION",
+              "apiIdentifier": "e5457f1f15",
+              "asynchronous": true,
+              "type": "test",
+              "oneToMany": false,
+              "mockOutput": {
+                "page_of_records": [
+                  {
+                    "record": {
+                      "id": "44207",
+                      "recordType": "account",
+                      "Name": "0Account 1",
+                      "Display Name": "10.0 0Account 1",
+                      "Account Type": "Bank",
+                      "Description": "",
+                      "Balance": ".00",
+                      "Show in Fixed Assets Management": "",
+                      "dataURI": "/app/accounting/account/account.nl?id=44207&compid=TSTDRV1143616"
+                    }
+                  },
+                  {
+                    "record": {
+                      "id": "44208",
+                      "recordType": "account",
+                      "Name": "0Account 2",
+                      "Display Name": "130.0 0Account 2",
+                      "Account Type": "Bank",
+                      "Description": "",
+                      "Balance": ".00",
+                      "Show in Fixed Assets Management": "",
+                      "dataURI": "/app/accounting/account/account.nl?id=44208&compid=TSTDRV1143616"
+                    }
+                  },
+                  {
+                    "record": {
+                      "id": "656",
+                      "recordType": "account",
+                      "Name": "Automation_DH",
+                      "Display Name": "12345678 Automation_DH",
+                      "Account Type": "Bank",
+                      "Description": "",
+                      "Balance": "1.00",
+                      "Show in Fixed Assets Management": "",
+                      "dataURI": "/app/accounting/account/account.nl?id=656&compid=TSTDRV1143616"
+                    }
+                  },
+                  {
+                    "record": {
+                      "id": "44007",
+                      "recordType": "account",
+                      "Name": "C47503 Automation",
+                      "Display Name": "123 C47503 Automation",
+                      "Account Type": "Bank",
+                      "Description": "",
+                      "Balance": ".00",
+                      "Show in Fixed Assets Management": "",
+                      "dataURI": "/app/accounting/account/account.nl?id=44007&compid=TSTDRV1143616"
+                    }
+                  },
+                  {
+                    "record": {
+                      "id": "652",
+                      "recordType": "account",
+                      "Name": "CS",
+                      "Display Name": "111 CS",
+                      "Account Type": "Bank",
+                      "Description": "",
+                      "Balance": "-2065.00",
+                      "Show in Fixed Assets Management": "",
+                      "dataURI": "/app/accounting/account/account.nl?id=652&compid=TSTDRV1143616"
+                    }
+                  },
+                  {
+                    "record": {
+                      "id": "537",
+                      "recordType": "account",
+                      "Name": "New NS Account",
+                      "Display Name": "200311 New NS Account",
+                      "Account Type": "Bank",
+                      "Description": "",
+                      "Balance": "1473.29",
+                      "Show in Fixed Assets Management": "",
+                      "dataURI": "/app/accounting/account/account.nl?id=537&compid=TSTDRV1143616"
+                    }
+                  },
+                  {
+                    "record": {
+                      "id": "201",
+                      "recordType": "account",
+                      "Name": "PTL Account",
+                      "Display Name": "7777 PTL Account",
+                      "Account Type": "Bank",
+                      "Description": "",
+                      "Balance": "2359789.94",
+                      "Show in Fixed Assets Management": "",
+                      "dataURI": "/app/accounting/account/account.nl?id=201&compid=TSTDRV1143616"
+                    }
+                  },
+                  {
+                    "record": {
+                      "id": "538",
+                      "recordType": "account",
+                      "Name": "TEst",
+                      "Display Name": "12121 TEst",
+                      "Account Type": "Bank",
+                      "Description": "",
+                      "Balance": "5025.38",
+                      "Show in Fixed Assets Management": "",
+                      "dataURI": "/app/accounting/account/account.nl?id=538&compid=TSTDRV1143616"
+                    }
+                  }
+                ]
+              },
+              "rawData": "648079a4e26e647491cad2af76e5a89e02a7457695b5ba6bbd1b71ac",
+              "test": {
+                "limit": 10
+              },
+              "netsuite": {
+                "type": "restlet",
+                "skipGrouping": true,
+                "statsOnly": false,
+                "restlet": {
+                  "recordType": "account",
+                  "searchId": "4649",
+                  "restletVersion": "suitebundle",
+                  "markExportedBatchSize": 100
+                },
+                "distributed": {}
+              },
+              "transform": {
+                "type": "expression",
+                "expression": {
+                  "rules": [
+                    [
+                      {
+                        "extract": "id",
+                        "generate": "ids"
+                      }
+                    ]
+                  ],
+                  "version": "1"
+                },
+                "version": "1",
+                "rules": [
+                  [
+                    {
+                      "extract": "id",
+                      "generate": "ids"
+                    }
+                  ]
+                ]
+              },
+              "adaptorType": "NetSuiteExport"
+            }
+          },
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "AutomationStandalone_2EvVR",
+              "_connectionId": "NETSUITE CONNECTION",
+              "apiIdentifier": "e7cfc563b5",
+              "asynchronous": true,
+              "type": "test",
+              "oneToMany": false,
+              "rawData": "648079a4e26e647491cad2af76e5a89e02a7457695b5ba6bbd1b71ac",
+              "test": {
+                "limit": 10
+              },
+              "netsuite": {
+                "type": "restlet",
+                "skipGrouping": true,
+                "statsOnly": false,
+                "restlet": {
+                  "recordType": "account",
+                  "searchId": "4649",
+                  "restletVersion": "suitebundle",
+                  "markExportedBatchSize": 100
+                },
+                "distributed": {}
+              },
+              "adaptorType": "NetSuiteExport"
+            }
+          },
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "AutomationStandalone_kTslP",
+              "_connectionId": "FTP CONNECTION",
+              "apiIdentifier": "edebc7f4fb",
+              "asynchronous": true,
+              "mockOutput": {
+                "page_of_records": [
+                  {
+                    "record": {
+                      "id": "44207",
+                      "recordType": "account",
+                      "Name": "0Account 1",
+                      "Display Name": "10.0 0Account 1",
+                      "Account Type": "Bank",
+                      "Description": "",
+                      "Balance": ".00",
+                      "Show in Fixed Assets Management": "",
+                      "dataURI": "/app/accounting/account/account.nl?id=44207&compid=TSTDRV1143616"
+                    }
+                  },
+                  {
+                    "record": {
+                      "id": "44208",
+                      "recordType": "account",
+                      "Name": "0Account 2",
+                      "Display Name": "130.0 0Account 2",
+                      "Account Type": "Bank",
+                      "Description": "",
+                      "Balance": ".00",
+                      "Show in Fixed Assets Management": "",
+                      "dataURI": "/app/accounting/account/account.nl?id=44208&compid=TSTDRV1143616"
+                    }
+                  },
+                  {
+                    "record": {
+                      "id": "656",
+                      "recordType": "account",
+                      "Name": "Automation_DH",
+                      "Display Name": "12345678 Automation_DH",
+                      "Account Type": "Bank",
+                      "Description": "",
+                      "Balance": "1.00",
+                      "Show in Fixed Assets Management": "",
+                      "dataURI": "/app/accounting/account/account.nl?id=656&compid=TSTDRV1143616"
+                    }
+                  },
+                  {
+                    "record": {
+                      "id": "44007",
+                      "recordType": "account",
+                      "Name": "C47503 Automation",
+                      "Display Name": "123 C47503 Automation",
+                      "Account Type": "Bank",
+                      "Description": "",
+                      "Balance": ".00",
+                      "Show in Fixed Assets Management": "",
+                      "dataURI": "/app/accounting/account/account.nl?id=44007&compid=TSTDRV1143616"
+                    }
+                  },
+                  {
+                    "record": {
+                      "id": "652",
+                      "recordType": "account",
+                      "Name": "CS",
+                      "Display Name": "111 CS",
+                      "Account Type": "Bank",
+                      "Description": "",
+                      "Balance": "-2065.00",
+                      "Show in Fixed Assets Management": "",
+                      "dataURI": "/app/accounting/account/account.nl?id=652&compid=TSTDRV1143616"
+                    }
+                  },
+                  {
+                    "record": {
+                      "id": "537",
+                      "recordType": "account",
+                      "Name": "New NS Account",
+                      "Display Name": "200311 New NS Account",
+                      "Account Type": "Bank",
+                      "Description": "",
+                      "Balance": "1473.29",
+                      "Show in Fixed Assets Management": "",
+                      "dataURI": "/app/accounting/account/account.nl?id=537&compid=TSTDRV1143616"
+                    }
+                  },
+                  {
+                    "record": {
+                      "id": "201",
+                      "recordType": "account",
+                      "Name": "PTL Account",
+                      "Display Name": "7777 PTL Account",
+                      "Account Type": "Bank",
+                      "Description": "",
+                      "Balance": "2359789.94",
+                      "Show in Fixed Assets Management": "",
+                      "dataURI": "/app/accounting/account/account.nl?id=201&compid=TSTDRV1143616"
+                    }
+                  },
+                  {
+                    "record": {
+                      "id": "538",
+                      "recordType": "account",
+                      "Name": "TEst",
+                      "Display Name": "12121 TEst",
+                      "Account Type": "Bank",
+                      "Description": "",
+                      "Balance": "5025.38",
+                      "Show in Fixed Assets Management": "",
+                      "dataURI": "/app/accounting/account/account.nl?id=538&compid=TSTDRV1143616"
+                    }
+                  }
+                ]
+              },
+              "sampleData": [
+                {
+                  "ids": "45016"
+                },
+                {
+                  "ids": "45017"
+                },
+                {
+                  "ids": "656"
+                },
+                {
+                  "ids": "44907"
+                },
+                {
+                  "ids": "5"
+                },
+                {
+                  "ids": "1"
+                },
+                {
+                  "ids": "652"
+                },
+                {
+                  "ids": "537"
+                },
+                {
+                  "ids": "3"
+                },
+                {
+                  "ids": "4"
+                }
+              ],
+              "ftp": {
+                "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                "fileNameStartsWith": "TC_C64966",
+                "fileNameEndsWith": ".json"
+              },
+              "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json",
+                "json": {
+                  "resourcePath": "*"
+                }
+              },
+              "adaptorType": "FTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "AutomationStandalone_0BXin",
+              "responseTransform": {
+                "type": "expression",
+                "expression": {
+                  "rules": [
+                    [
+                      {
+                        "extract": "mockResponse",
+                        "generate": "Response"
+                      }
+                    ]
+                  ],
+                  "version": "1"
+                },
+                "version": "1",
+                "rules": [
+                  [
+                    {
+                      "extract": "mockResponse",
+                      "generate": "Response"
+                    }
+                  ]
+                ]
+              },
+              "mockResponse": [
+                {
+                  "id": "1234567890",
+                  "errors": [],
+                  "_json": {
+                    "mockResponse": "replace me"
+                  },
+                  "statusCode": 200,
+                  "ignored": false,
+                  "dataURI": "",
+                  "_headers": {
+                    "content-type": "application/json; charset=utf-8"
+                  }
+                }
+              ],
+              "_connectionId": "FTP CONNECTION",
+              "apiIdentifier": "i982338e6f",
+              "oneToMany": false,
+              "file": {
+                "fileName": "TC_C64966.json",
+                "skipAggregation": false,
+                "type": "json"
+              },
+              "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                "fileName": "TC_C64966.json"
+              },
+              "adaptorType": "FTPImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C64966",
+          "disabled": false,
+          "skipRetries": false,
+          "_integrationId": "63232c59d3a9897fe95f9f2a",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            },
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            },
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }
+  

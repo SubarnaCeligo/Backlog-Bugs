@@ -1,0 +1,471 @@
+{
+    "name": "TC_C108682",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "Salesforce export test",
+                "_connectionId": "SALESFORCE CONNECTION",
+                "_sourceId": "64f07273ac92e86071d81e2a",
+                "apiIdentifier": "e333b4fb64",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "test": {
+                  "limit": 20
+                },
+                "salesforce": {
+                  "type": "soql",
+                  "api": "rest",
+                  "soql": {
+                    "query": "Select Name,Email__c,phone,fax,Shippingcountry,ShippingPostalCode,Shippingstate from Account"
+                  }
+                },
+                "transform": {
+                  "type": "expression",
+                  "expression": {
+                    "rules": [
+                      [
+                        {
+                          "extract": "Name",
+                          "generate": "Name"
+                        },
+                        {
+                          "extract": "Email__c",
+                          "generate": "Email"
+                        },
+                        {
+                          "extract": "Phone",
+                          "generate": "Phone"
+                        },
+                        {
+                          "extract": "Fax",
+                          "generate": "Fax"
+                        },
+                        {
+                          "extract": "ShippingCountry",
+                          "generate": "Shipping Country"
+                        }
+                      ]
+                    ],
+                    "version": "1"
+                  },
+                  "rules": [
+                    [
+                      {
+                        "extract": "Name",
+                        "generate": "Name"
+                      },
+                      {
+                        "extract": "Email__c",
+                        "generate": "Email"
+                      },
+                      {
+                        "extract": "Phone",
+                        "generate": "Phone"
+                      },
+                      {
+                        "extract": "Fax",
+                        "generate": "Fax"
+                      },
+                      {
+                        "extract": "ShippingCountry",
+                        "generate": "Shipping Country"
+                      }
+                    ]
+                  ],
+                  "version": "1"
+                },
+                "filter": {
+                  "type": "expression",
+                  "expression": {
+                    "rules": [
+                      "empty",
+                      [
+                        "string",
+                        [
+                          "extract",
+                          "Email"
+                        ]
+                      ]
+                    ],
+                    "version": "1"
+                  },
+                  "rules": [
+                    "empty",
+                    [
+                      "string",
+                      [
+                        "extract",
+                        "Email"
+                      ]
+                    ]
+                  ],
+                  "version": "1"
+                },
+                "adaptorType": "SalesforceExport"
+              }
+        }
+    ],
+    "createdAt": "2022-09-22T06:50:38.055Z",
+    "autoResolveMatchingTraceKeys": true,
+    "routers": [
+        {
+            "name": "Branching Test",
+            "routeRecordsUsing": "input_filters",
+            "id": "UpfbfyhbOGT",
+            "routeRecordsTo": "all_matching_branches",
+            "branches": [
+            
+            {
+                    "name": "Branch 1.0",
+                    "pageProcessors": [
+                        {
+                          "responseMapping": {
+                            "fields": [
+                            {
+                            "extract": "data",
+                            "generate": "testid"
+                            }
+                            ]
+                          },
+                            "type": "export",
+                            "qa__export": {
+                                "name": "Http lookup",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "apiIdentifier": "e71b82cc0b",
+                                "asynchronous": true,
+                                "isLookup": true,
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "http": {
+                                    "relativeURI": "/tickets",
+                                    "method": "GET",
+                                    "formType": "http",
+                                    "response": {
+                                        "resourcePath": "users"
+                                    }
+                                },
+                                "filter": {
+                                    "type": "expression",
+                                    "expression": {
+                                        "rules": [],
+                                        "version": "1"
+                                    },
+                                    "rules": [],
+                                    "version": "1"
+                                },
+                                "inputFilter": {
+                                    "type": "expression",
+                                    "expression": {
+                                        "rules": [
+                                            "notempty",
+                                            [
+                                                "string",
+                                                [
+                                                    "extract",
+                                                    "Name"
+                                                ]
+                                            ]
+                                        ],
+                                        "version": "1"
+                                    },
+                                    "rules": [
+                                        "notempty",
+                                        [
+                                            "string",
+                                            [
+                                                "extract",
+                                                "Name"
+                                            ]
+                                        ]
+                                    ],
+                                    "version": "1"
+                                },
+                                "adaptorType": "HTTPExport"
+                            }
+                        },
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "Zendesk import",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "_sourceId": "63104850b4ed2736dc29a1bd",
+                                "apiIdentifier": "i6eb759511",
+                                "ignoreExisting": false,
+                                "ignoreMissing": false,
+                                "oneToMany": false,
+                                "assistant": "zendesk",
+                                "assistantMetadata": {
+                                    "resource": "users_api",
+                                    "version": "v2",
+                                    "operation": "create_users_api"
+                                },
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "Name",
+                                            "generate": "user.name"
+                                        },
+                                        {
+                                            "generate": "user.email",
+                                            "hardCodedValue": "test12344@gmail.com"
+                                        },
+                                        {
+                                            "extract": "testErrors",
+                                            "generate": "user.phone"
+                                        }
+                                    ]
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "/api/v2/users.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "body": [
+                                        null
+                                    ],
+                                    "batchSize": 1,
+                                    "requestMediaType": "json",
+                                    "successMediaType": "json",
+                                    "errorMediaType": "json",
+                                    "strictHandlebarEvaluation": true,
+                                    "sendPostMappedData": true,
+                                    "formType": "assistant",
+                                    "response": {
+                                        "resourceIdPath": [
+                                            null
+                                        ]
+                                    }
+                                },
+                                "rest": {
+                                    "relativeURI": [
+                                        "/api/v2/users.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "body": [
+                                        null
+                                    ],
+                                    "responseIdPath": [
+                                        null
+                                    ],
+                                    "successPath": [
+                                        null
+                                    ],
+                                    "successValues": [
+                                        null
+                                    ]
+                                },
+                                "adaptorType": "RESTImport"
+                            }
+                        }
+                    ]
+                },
+                {
+                  "name": "Branch 1.1",
+                  "pageProcessors": [
+                      {
+                          "responseMapping": {
+                              "fields": [
+                                  {
+                                      "extract": "id",
+                                      "generate": "testId"
+                                  }
+                              ],
+                              "lists": []
+                          },
+                          "type": "import",
+                          "qa__import": {
+                              "name": "Http Import",
+                              "responseTransform": {
+                                "type": "expression",
+                                "expression": {
+                                  "rules": [
+                                    [
+  
+                                    ]
+                                  ],
+                                  "version": "1"
+                                },
+                                "rules": [
+                                  [
+  
+                                  ]
+                                ],
+                                "version": "1"
+                              },
+                              "_connectionId": "HTTP ZENDESK CONNECTION",
+                              "apiIdentifier": "i8671bcf8d",
+                              "ignoreExisting": false,
+                              "ignoreMissing": false,
+                              "oneToMany": false,
+                              "sandbox": false,
+                              "mapping": {
+                                "fields": [
+                                  {
+                                    "extract": "test",
+                                    "generate": "test"
+                                  }
+                                ]
+                              },
+                              "http": {
+                                "relativeURI": [
+                                  "/test"
+                                ],
+                                "method": [
+                                  "POST"
+                                ],
+                                "body": [
+  
+                                ],
+                                "batchSize": 1,
+                                "sendPostMappedData": true,
+                                "formType": "http"
+                              },
+                              "filter": {
+                                "type": "expression",
+                                "expression": {
+                                  "rules": [
+                                    "notempty",
+                                    [
+                                      "string",
+                                      [
+                                        "extract",
+                                        "Name"
+                                      ]
+                                    ]
+                                  ],
+                                  "version": "1"
+                                },
+                                "rules": [
+                                  "notempty",
+                                  [
+                                    "string",
+                                    [
+                                      "extract",
+                                      "Name"
+                                    ]
+                                  ]
+                                ],
+                                "version": "1"
+                              },
+                              "adaptorType": "HTTPImport"
+                            },
+                          "proceedOnFailure": false
+                      },
+                      {
+                          "responseMapping": {
+                              "fields": [],
+                              "lists": []
+                          },
+                          "type": "import",
+                          "qa__import": {
+                              "name": "Zendesk import",
+                              "_connectionId": "HTTP ZENDESK CONNECTION",
+                              "_sourceId": "63104850b4ed2736dc29a1bd",
+                              "apiIdentifier": "i6eb759511",
+                              "ignoreExisting": false,
+                              "ignoreMissing": false,
+                              "oneToMany": false,
+                              "assistant": "zendesk",
+                              "assistantMetadata": {
+                                  "resource": "users_api",
+                                  "version": "v2",
+                                  "operation": "create_users_api"
+                              },
+                              "mapping": {
+                                  "fields": [
+                                      {
+                                          "extract": "Name",
+                                          "generate": "user.name"
+                                      },
+                                      {
+                                          "generate": "user.email",
+                                          "hardCodedValue": "test12344@gmail.com"
+                                      },
+                                      {
+                                          "extract": "testErrors",
+                                          "generate": "user.phone"
+                                      }
+                                  ]
+                              },
+                              "http": {
+                                  "relativeURI": [
+                                      "/api/v2/users.json"
+                                  ],
+                                  "method": [
+                                      "POST"
+                                  ],
+                                  "body": [
+                                      null
+                                  ],
+                                  "batchSize": 1,
+                                  "requestMediaType": "json",
+                                  "successMediaType": "json",
+                                  "errorMediaType": "json",
+                                  "strictHandlebarEvaluation": true,
+                                  "sendPostMappedData": true,
+                                  "formType": "assistant",
+                                  "response": {
+                                      "resourceIdPath": [
+                                          null
+                                      ]
+                                  }
+                              },
+                              "rest": {
+                                  "relativeURI": [
+                                      "/api/v2/users.json"
+                                  ],
+                                  "method": [
+                                      "POST"
+                                  ],
+                                  "body": [
+                                      null
+                                  ],
+                                  "responseIdPath": [
+                                      null
+                                  ],
+                                  "successPath": [
+                                      null
+                                  ],
+                                  "successValues": [
+                                      null
+                                  ]
+                              },
+                              "adaptorType": "RESTImport"
+                          }
+                      }
+                  ],
+                  "inputFilter": {
+                    "rules": [
+                    "equals",
+                    [
+                    "string",
+                    [
+                    "extract",
+                    "Name"
+                    ]
+                    ],
+                    "0013m000036Fs6pAAC"
+                    ]
+                    }
+              }
+               
+            ],
+            "script": {
+                "function": "branching"
+            }
+        }
+    ]
+}

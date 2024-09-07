@@ -1,0 +1,39 @@
+{
+    "qa_requestBody": {
+        "name": "Standalone Integration",
+        "sandbox": false,
+        "_registeredConnectionIds": [
+            "NETSUITE CONNECTION",
+            "SALESFORCE CONNECTION"
+        ],
+        "aliases": [
+            {
+                "alias": "alias_on_non_registered_connectionId",
+                "_connectionId": "SALESFORCE CONNECTION"
+            }
+        ]
+    },
+    "requestBody": {
+        "name": "Standalone Integration",
+        "sandbox": false,
+        "_registeredConnectionIds": [
+            "NETSUITE CONNECTION",
+            "SALESFORCE CONNECTION"
+        ],
+        "aliases": [
+            {
+                "alias": "alias_on_non_registered_connection",
+                "_connectionId": "SALESFORCE CONNECTION"
+            }
+        ]
+    },
+    "error": {
+        "errors": [
+            {
+                "field": "aliases",
+                "code": "update_not_allowed",
+                "message": "The target resource must be attached to a connection that is registered to the same integration."
+            }
+        ]
+    }
+}

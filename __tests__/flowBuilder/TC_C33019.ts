@@ -1,7 +1,7 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("Checking the continue setup tile status", () => {
+test.describe("", () => {
 
   test("@Zephyr-IO-T3050 @Env-All Checking the continue setup tile status", async ({io,page}) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
