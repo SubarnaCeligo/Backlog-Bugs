@@ -36,7 +36,7 @@ test.describe("@Author_MaheshNivruttiSutar IO-IO-80201 Epic automation", () => {
             }
         }
     });
-    test("@Epic-IO-IO-80201 @Priority-P2 @Env-All @Zephyr-IO-T37495 @Zephyr-IO-T37494 @Zephyr-IO-T37509 @Zephyr-IO-T37484", async ({ io, page }) => {
+    test("@Epic-IO-80201 @Priority-P2 @Env-All @Zephyr-IO-T37495 @Zephyr-IO-T37494 @Zephyr-IO-T37509 @Zephyr-IO-T37484", async ({ io, page }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
         await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
