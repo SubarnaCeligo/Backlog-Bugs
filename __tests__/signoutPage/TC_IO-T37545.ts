@@ -1,8 +1,8 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import { decrypt } from "@celigo/aut-utilities";
+import { randomString, randomNumber, decrypt } from "@celigo/aut-utilities";
 
-test.describe("@Author_MaheshNivruttiSutar Verify that the 'Already have an account? Sign in' link redirects to the sign-in page.", () => {
+test.describe("@Author_MaheshNivruttiSutar IO-IO-80201 Epic automation", () => {
     // test.beforeEach('check sign out', async ({ io, page }) => {
     //     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     //     const isNotLoggedIn = await io.loginPage.checkLoginState();
@@ -36,25 +36,28 @@ test.describe("@Author_MaheshNivruttiSutar Verify that the 'Already have an acco
     //         }
     //     }
     // });
-    test("@Epic-IO-80201 @Priority-P2 @Env-All @Zephyr-IO-T37502", async ({ io, page }) => {
+    test("@Epic-IO-IO-80201 @Priority-P2 @Env-All @Zephyr-IO-T37545", async ({ io, page }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
         await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
         await io.homePage.click(selectors.basePagePO.SIGN_OUT);
+        await io.homePage.addStep("*** Navigated to Signin page ***");
         await io.homePage.loadingTime();
+        await page.getByText("Loading...").waitFor({ state: "hidden", timeout: 360000 });
 
-        await io.signInPage.navigateTo(process.env.IO_UI_CONNECTOR_URL + "signup");
+        await io.homePage.navigateTo(
+            process.env.IO_UI_CONNECTOR_URL + "accept-invite/681e45e607f3429da067db26fb52efba"
+        );
+        await io.homePage.addStep("*** Navigated to Invitation link page ***");
         await io.homePage.loadingTime();
-        await io.flowBuilder.click(selectors.loginPagePO.SIGNUP_SIGNIN_FOOTER);
-        //IO-T37502 Verify that the 'Already have an account? Sign in' link redirects to the sign-in page.
+        await io.flowBuilder.click(selectors.signUpPagePO.SIGNIN);
         await io.homePage.loadingTime();
-        const regex2 = /signin$/;
-        await page.waitForURL(regex2);
+        const regex1 = /signin$/;
+        await page.waitForURL(regex1);
         await io.assert.expectToContainValue(
             "signin",
             page.url(),
             "URL doesn't contain signin"
         );
-
     });
 });

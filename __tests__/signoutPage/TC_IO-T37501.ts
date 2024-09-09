@@ -1,8 +1,8 @@
-import { expect, test } from "@celigo/ui-core-automation";
+import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import { decrypt } from "@celigo/aut-utilities";
+import { randomString, randomNumber, decrypt } from "@celigo/aut-utilities";
 
-test.describe("@Author_MaheshNivruttiSutar Verify that the 'Already have an account? Sign in' link redirects to the sign-in page.", () => {
+test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T37489 @Zephyr-IO-T37501", () => {
     // test.beforeEach('check sign out', async ({ io, page }) => {
     //     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     //     const isNotLoggedIn = await io.loginPage.checkLoginState();
@@ -36,25 +36,20 @@ test.describe("@Author_MaheshNivruttiSutar Verify that the 'Already have an acco
     //         }
     //     }
     // });
-    test("@Epic-IO-80201 @Priority-P2 @Env-All @Zephyr-IO-T37502", async ({ io, page }) => {
+    test("@Epic-IO-80201 @Priority-P2 @Env-All @Zephyr-IO-T37501", async ({ io, page }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
         await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
         await io.homePage.click(selectors.basePagePO.SIGN_OUT);
         await io.homePage.loadingTime();
 
+        //IO-T37501 Verify that the region selection (North America, European Union) works correctly from sign-up Page
         await io.signInPage.navigateTo(process.env.IO_UI_CONNECTOR_URL + "signup");
         await io.homePage.loadingTime();
-        await io.flowBuilder.click(selectors.loginPagePO.SIGNUP_SIGNIN_FOOTER);
-        //IO-T37502 Verify that the 'Already have an account? Sign in' link redirects to the sign-in page.
+        await io.homePage.click(selectors.signUpPagePO.EUROPEAN_UNION);
         await io.homePage.loadingTime();
-        const regex2 = /signin$/;
-        await page.waitForURL(regex2);
-        await io.assert.expectToContainValue(
-            "signin",
-            page.url(),
-            "URL doesn't contain signin"
-        );
-
+        // verify sign in page
+        const euLoginUrl = await io.homePage.getCurrentUrl();
+        await io.assert.expectToContainValue("https://eu.integrator.io/signup", euLoginUrl, "Incorrect EU url")
     });
 });
