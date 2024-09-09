@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import { randomString, randomNumber, decrypt } from "@celigo/aut-utilities";
 
-test.describe("@Author_MaheshNivruttiSutar IO-IO-80201 Epic automation", () => {
+test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T37495 @Zephyr-IO-T37494 @Zephyr-IO-T37509 @Zephyr-IO-T37484", () => {
     // test.beforeEach('check sign out', async ({ io, page }) => {
     //     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     //     const isNotLoggedIn = await io.loginPage.checkLoginState();

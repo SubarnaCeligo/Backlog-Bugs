@@ -2,7 +2,7 @@ import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import { randomString, randomNumber, decrypt } from "@celigo/aut-utilities";
 
-test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T37489 @Zephyr-IO-T37501", () => {
+test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T37501", () => {
     // test.beforeEach('check sign out', async ({ io, page }) => {
     //     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     //     const isNotLoggedIn = await io.loginPage.checkLoginState();
