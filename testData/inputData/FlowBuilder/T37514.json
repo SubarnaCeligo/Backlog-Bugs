@@ -1,0 +1,78 @@
+{
+    "name": "IO-T37514",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "Http Export",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "_sourceId": "652d1061fa3afc50c88e20cf",
+                "apiIdentifier": "ec179fa173",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "http": {
+                    "relativeURI": "/users",
+                    "method": "GET",
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "users"
+                    }
+                },
+                "test": {
+                    "limit": 13
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "Http Import",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "_sourceId": "6500270cb522194d10688013",
+                "apiIdentifier": "i335578e39",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": [
+                        "/users"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "createFlow": {
+        "name": "IO-T37514",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+        ]
+    }
+}
