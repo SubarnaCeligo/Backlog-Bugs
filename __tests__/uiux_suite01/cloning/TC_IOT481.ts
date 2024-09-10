@@ -10,6 +10,7 @@ test.describe(`TC_IOT481 To verify all the modified changes in existing scripts 
     io,
   }) => {
     await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
+    
     await io.homePage.addStep("*** Waiting for home page Search Bar ***")
     await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Clone - TC_IOT481_DND');
     await io.homePage.addStep("*** Searching for Clone - TC_IOT481_DND ***")
@@ -31,7 +32,9 @@ test.describe(`TC_IOT481 To verify all the modified changes in existing scripts 
     await io.homePage.addStep("*** Filled Description Input ***")
     await io.flowBuilder.click(selectors.integrationPagePO.NEXT);
     await io.homePage.addStep("*** Clicked on Next Button ***")
+    
     await io.homePage.loadingTime();
+    
     await io.assert.verifyElementDisplayedByText(
         "Scripts",
         "Scripts accordian is not Displayed"
