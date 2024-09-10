@@ -1,5 +1,5 @@
 {
-    "name": "TC_C40380",
+    "name": "TC_C40398",
     "disabled": false,
     "timezone": "Asia/Calcutta",
     "_integrationId": "56228aed6bc8a2732cfe8044c",
@@ -30,7 +30,7 @@
             "qa__import": {
                 "name": "Http Import123",
                 "application": "Slack",
-                "_connectionId": "62fe04462ef76961b3ee5a79",
+                "_connectionId": "SLACK CONNECTION",
                 "apiIdentifier": "ie8724b5da",
                 "ignoreExisting": false,
                 "ignoreMissing": false,
@@ -48,7 +48,7 @@
                 },
                 "http": {
                     "relativeURI": [
-                        "/customers"
+                        "/conversations.close?channel=G1234567890"
                     ],
                     "method": [
                         "POST"

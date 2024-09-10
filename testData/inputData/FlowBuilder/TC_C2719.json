@@ -91,7 +91,6 @@
             "createFlow": {
                 "name": "TC_C2719",
                 "disabled": false,
-                "_integrationId": "62ecc42648570015ab65cfa5",
                 "skipRetries": false,
                 "pageProcessors": [
                     {
@@ -109,7 +108,8 @@
                             "lists": []
                         },
                         "type": "import",
-                        "_importId": "UPDATE WITH NEW IMPORTID"
+                        "_importId": "UPDATE WITH NEW IMPORTID",
+                        "name":"http import 2719"
                     },
                     {
                         "responseMapping": {
@@ -117,7 +117,8 @@
                             "lists": []
                         },
                         "type": "import",
-                        "_importId": "UPDATE WITH NEW IMPORTID"
+                        "_importId": "UPDATE WITH NEW IMPORTID",
+                        "name":"NS export 2719"
                     }
                 ],
                 "pageGenerators": [

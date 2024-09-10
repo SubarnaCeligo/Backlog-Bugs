@@ -7,38 +7,24 @@
         {
           "type": "export",
           "qa__export": {
-            "name": "ajsbkjsbcjksb",
-            "_connectionId": "FTP CONNECTION",
-            "apiIdentifier": "e864d4f589",
+            "name": "AutomationStandalone_121RL",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "apiIdentifier": "ec136d0bda",
             "asynchronous": true,
+            "oneToMany": false,
+            "type": "test",
             "sandbox": false,
-            "sampleData": [
-              [
-                {
-                  "name": "Auto_TC_47420_2"
-                },
-                {
-                  "name": "Auto_TC_47420_3"
-                }
-              ],
-              {
-                "name": "Auto_TC_47420_1"
-              }
-            ],
-            "ftp": {
-              "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
-              "fileNameStartsWith": "TC_C47420",
-              "fileNameEndsWith": ".json"
+            "test": {
+              "limit": 1
             },
-            "file": {
-              "output": "records",
-              "skipDelete": true,
-              "type": "json",
-              "json": {
-                "resourcePath": "*"
+            "salesforce": {
+              "type": "soql",
+              "api": "rest",
+              "soql": {
+                "query": "Select name, id from Account"
               }
             },
-            "adaptorType": "FTPExport"
+            "adaptorType": "SalesforceExport"
           }
         }
       ],

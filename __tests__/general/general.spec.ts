@@ -44,3 +44,7 @@ require("./TC_C20867");
 require("./TC_C22555");
 require("./TC_C2600_sortingExports_byClicking_onColumnHeader_inTables");
 require("./TC_C2601_sortingImports_byClicking_onColumnHeader_inTables");
+require("./TC_C33284");
+require("./TC_C33286");
+require("./TC_C33287");
+require("./TC_C33288");

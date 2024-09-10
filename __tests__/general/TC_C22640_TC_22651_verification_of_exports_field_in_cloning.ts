@@ -33,11 +33,11 @@ test.describe("TC_C22640_TC_C22651", () => {
 
     var env_label = await io.homePage.getTextFromElement(selectors.basePagePO.CLONE_ENV_TXT, "Environment");
     await io.assert.expectToBeTrue(env_label, "");
-    var prod = await (await page.locator(selectors.homePagePO.PRODUCTION + " input")
-    ).getAttribute("type");
+    var prod = await (await page.locator(selectors.homePagePO.PRODUCTION + " button")
+    ).getAttribute("role");
     await io.assert.expectToBeValue(prod, "radio", "");
-    var sandbox = await (await page.locator(selectors.homePagePO.SANDBOX+ " input")
-    ).getAttribute("type");
+    var sandbox = await (await page.locator(selectors.homePagePO.SANDBOX+ " button")
+    ).getAttribute("role");
     await io.assert.expectToBeValue(sandbox, "radio", "");
 
     var ariaExpandedExport = await (await page.locator(selectors.basePagePO.CLONE_EXP_MENU_BAR)

@@ -81,7 +81,7 @@
                             "type": "import",
                             "qa__import": {
                                 "name": "AutomationStandaloneImport1_afsflk",
-                                "application":"zendesk support",
+                                "application": "zendesk support",
                                 "_connectionId": "HTTP ZENDESK CONNECTION",
                                 "ignoreExisting": false,
                                 "ignoreMissing": false,
@@ -90,8 +90,8 @@
                                 "mapping": {
                                     "fields": [
                                         {
-                                            "generate": "organization.name",
-                                            "hardCodedValue": "Auto_TC_C47502_1"
+                                            "extract": "Auto_{{random 16}}",
+                                            "generate": "organization.name"
                                         },
                                         {
                                             "extract": "title",
@@ -147,7 +147,7 @@
                             "type": "import",
                             "qa__import": {
                                 "name": "AutomationStandaloneImport1_afsflk",
-                                "application":"zendesk support",
+                                "application": "zendesk support",
                                 "_connectionId": "HTTP ZENDESK CONNECTION",
                                 "ignoreExisting": false,
                                 "ignoreMissing": false,
@@ -156,8 +156,8 @@
                                 "mapping": {
                                     "fields": [
                                         {
-                                            "generate": "organization.name",
-                                            "hardCodedValue": "Auto_TC_C47502_2"
+                                            "extract": "Auto_{{random 16}}",
+                                            "generate": "organization.name"
                                         },
                                         {
                                             "extract": "title",
@@ -209,7 +209,7 @@
         }
     ],
     "qa__expectedDashboardCount": {
-        "successCount": "6",
+        "successCount": "9",
         "ignoreCount": "0",
         "errorCount": "0"
     },

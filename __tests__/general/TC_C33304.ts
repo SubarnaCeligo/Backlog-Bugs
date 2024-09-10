@@ -48,10 +48,12 @@ test.describe("TC_C33304", () => {
     await io.assert.expectToContainValue("ago",lastUpdatedArray1[0],"");
     }
     await test.step(" Verified Last updated columns the time is displayed in Relative. ***",()=>{});
-
+    await io.homePage.loadingTime();
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();
+    await io.homePage.loadingTime();
     await io.homePage.selectTabInProfileMenu("Profile")
+
     await io.homePage.loadingTime();
     await io.homePage.isPageLoaded();
     await io.homePage.isPageReady();
