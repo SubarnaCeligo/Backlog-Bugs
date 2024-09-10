@@ -15,7 +15,7 @@
         "s3": {
           "region": "us-east-1",
           "bucket": "io-automation",
-          "keyStartsWith": "TC_C47569"
+          "keyStartsWith": "TC_C47569_file_test"
         },
         "file": {
           "output": "records",
@@ -61,26 +61,21 @@
                 "name": "ZD IMP 1",
                 "application": "zendesk support",
                 "_connectionId": "HTTP ZENDESK CONNECTION",
-                "apiIdentifier": "iaa67d5657",
-                "ignoreExisting": false,
-                "ignoreMissing": false,
-                "oneToMany": false,
-                "sandbox": false,
                 "mapping": {
                   "fields": [
                     {
-                      "generate": "user.name",
-                      "hardCodedValue": "Auto_TC_C47491_1"
+                      "extract": "Auto_{{random 16}}",
+                      "generate": "organization.name"
                     },
                     {
-                      "extract": "Name",
-                      "generate": "user.notes"
+                      "extract": "notes",
+                      "generate": "organization.notes"
                     }
                   ]
                 },
                 "http": {
                   "relativeURI": [
-                    "users"
+                    "organizations.json"
                   ],
                   "method": [
                     "POST"
@@ -121,26 +116,21 @@
                 "name": "ZD IMP 2",
                 "application": "zendesk support",
                 "_connectionId": "HTTP ZENDESK CONNECTION",
-                "apiIdentifier": "i7e6ddb094",
-                "ignoreExisting": false,
-                "ignoreMissing": false,
-                "oneToMany": false,
-                "sandbox": false,
                 "mapping": {
                   "fields": [
                     {
-                      "generate": "user.name",
-                      "hardCodedValue": "Auto_TC_C47491_2"
+                      "extract": "Auto_{{random 16}}",
+                      "generate": "organization.name"
                     },
                     {
-                      "extract": "Name",
-                      "generate": "user.notes"
+                      "extract": "notes",
+                      "generate": "organization.notes"
                     }
                   ]
                 },
                 "http": {
                   "relativeURI": [
-                    "users"
+                    "organizations.json"
                   ],
                   "method": [
                     "POST"
@@ -175,7 +165,7 @@
     }
   ],
   "qa__expectedDashboardCount": {
-    "successCount": "126",
+    "successCount": "22",
     "ignoreCount": "0",
     "errorCount": "0"
   },

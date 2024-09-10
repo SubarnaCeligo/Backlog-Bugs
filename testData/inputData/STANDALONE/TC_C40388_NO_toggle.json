@@ -33,7 +33,7 @@
             "qa__import": {
                 "name": "sam",
                 "application": "freshdesk",
-                "_connectionId": "627b6bd17ca3007138a67d30",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
                 "apiIdentifier": "i457846464",
                 "oneToMany": false,
                 "blob": true,

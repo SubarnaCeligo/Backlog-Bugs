@@ -68,18 +68,23 @@
                         "mapping": {
                             "fields": [
                                 {
-                                    "hardCodedValue": "Auto_C47483",
-                                    "generate": "user.name"
+                                    "extract": "Auto_{{random 16}}",
+                                    "generate": "organization.name"
+                                },
+                                {
+                                    "extract": "notes",
+                                    "generate": "organization.notes"
                                 }
                             ]
                         },
                         "http": {
                             "relativeURI": [
-                                "/users"
+                                "organizations.json"
                             ],
                             "method": [
                                 "POST"
                             ],
+                            "body": [],
                             "batchSize": 1,
                             "sendPostMappedData": true,
                             "formType": "http"

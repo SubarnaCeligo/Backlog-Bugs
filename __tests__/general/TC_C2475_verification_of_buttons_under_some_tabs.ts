@@ -37,7 +37,6 @@ test.describe("TC_C2475 | Golden", () => {
     var users = await io.homePage.getCurrentUrl();
     await io.assert.expectToContainValue("/users",users,  "");
 
-    await page.pause();
 
     await io.homePage.click("[data-test='Subscription']");
     var subs = await io.homePage.getCurrentUrl();

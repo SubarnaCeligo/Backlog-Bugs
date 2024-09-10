@@ -1,4 +1,5 @@
 {
+  "name": "C37479_flow_errors",
   "skipRetries": false,
   "_integrationId": "62e8c2172dd80523719f9291",
   "pageGenerators": [
@@ -8,7 +9,7 @@
         "application": "MySQL",
         "name": "AutomationStandaloneExport__5EH7Ql9mow",
         "qa__connectionId": "62e8e11136f8f637aa252cd0",
-        "_connectionId":"6362e090906d1908400c031e",
+        "_connectionId":"MYSQL CONNECTION",
         "apiIdentifier": "ee7243bc59",
         "asynchronous": true,
         "oneToMany": false,
