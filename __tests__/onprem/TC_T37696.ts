@@ -6,7 +6,7 @@ test.describe("T37696_Verify cloning of flow with old import form agent connecti
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Epic-IO-46210 @Env-QA @Priority-P2 @Zephyr-IO-T37696 T37696_Verify cloning of flow with old import form agent connection", async ({ io, page }) => {
+  test("@Epic-IO-46210 @Env-QA @Env-PLATFORMFIVE @Priority-P2 @Zephyr-IO-T37696 T37696_Verify cloning of flow with old import form agent connection", async ({ io, page }) => {
     T37696.name = `${T37696.name}-${Math.random().toString(36).slice(2, 7)}`;
     await io.flowBuilder.addStep("*** Create a new flow ***");
     const flowid = await io.createResourceFromAPI(T37696, "FLOWS");
