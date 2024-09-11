@@ -7,11 +7,8 @@ test.describe(`C2127 Verify Transfer list must be updated with lastmodified at t
     page,
     io
   }) => {
-    const res = await io.api.postCall(`v1/transfers/invite`, testData);
-    let data = await io.api.putCall(`v1/transfers/${res._id}/cancel`, {});
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.myAccountPage.click(selectors.homePagePO.TRANSFER);
-    
     await page.waitForSelector("table");
     await io.homePage.loadingTime();
     await io.homePage.loadingTime();

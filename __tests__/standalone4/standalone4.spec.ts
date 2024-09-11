@@ -34,3 +34,6 @@ require("./TC_C56103 & TC_C56631");
 require("./TC_C56634 & TC_C56635");
 require("./TC_C56636 & TC_C56637");
 require("./TC_C56638 & TC_C56642");
+require("./TC_C108557");
+require("./TC_C108872");
+require("./TC_C54426 & TC_C54427");

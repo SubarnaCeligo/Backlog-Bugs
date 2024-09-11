@@ -23,12 +23,14 @@ test.describe("@Author-ParthPatel TC_C47456_oneToMany Test to set 'Proceed to Fa
   test.afterEach(async ({io,page}, testInfo) => {
     await test.step("*** Deleting flow.***", async ()=>{
       await io.homePage.loadingTime();
+      await io.flowBuilderDashboard.navigateToEm2Flow(flowId);
+      await io.flowbranching.flowBranchingPage.decreaseDrawer();
       await io.api.deleteFlowsWithId([flowId]);
     });
   });
   
   test("@Env-All @Zephyr-IO-T17525 TC_C47456_oneToMany", async ({io,page}, testInfo) => {
-    flowId = await io.flowbranching.createFlowBranchFromAPI( flowbranch);
+    flowId = await io.flowbranching.createFlowBranchFromAPI(flowbranch);
     await io.api.checkJobStatusFromAPI(
       flowbranch.name,
       flowId,
@@ -39,6 +41,7 @@ test.describe("@Author-ParthPatel TC_C47456_oneToMany Test to set 'Proceed to Fa
     await io.flowbranching.flowBranchingPage.fitScreenViewInFlowBranch();
     await io.homePage.loadingTime();
     await io.flowbranching.flowBranchingPage.increaseDrawer();
+    await io.homePage.loadingTime();
     let errors = await io.flowbranching.flowBranchingPage.getList(
       selectors.flowBuilderPagePO.JOB_ERRORS
     );
@@ -59,6 +62,10 @@ test.describe("@Author-ParthPatel TC_C47456_oneToMany Test to set 'Proceed to Fa
     await io.homePage.loadingTime();
     await io.flowBuilderDashboard.clickButtonAtTopOfArray(selectors.basePagePO.SAVE_AND_CLOSE);
     await io.homePage.loadingTime();
+    await io.homePage.reloadPage();
+    await io.homePage.loadingTime();
+    await io.homePage.click(selectors.flowBuilderPagePO.REFRESH_JOBS_BOARD);
+    await io.homePage.loadingTime();
     await io.homePage.clickByIndex(selectors.flowBuilderPagePO.RUN_CONSOLE_ERROR_ICON, 0);
     await io.homePage.loadingTime();
     await io.homePage.click(selectors.myAccountPagePO.ERROR_CHECKBOX);
@@ -72,7 +79,6 @@ test.describe("@Author-ParthPatel TC_C47456_oneToMany Test to set 'Proceed to Fa
     expect(errs).toEqual(4);
     await io.homePage.click(selectors.importPagePO.IMPORT_HANDLEBAR_CLOSE_DRAWER);
     await io.homePage.loadingTime();
-    await io.flowbranching.flowBranchingPage.decreaseDrawer();
     await io.homePage.reloadPage();
     await io.homePage.loadingTime();
     //Validation in upstream Apps

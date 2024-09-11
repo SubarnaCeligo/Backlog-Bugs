@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S Verify filter tooling section is added on the ED
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-QA @Epic-IO-89826 @Priority-P2 @Zephyr-IO-T37558 Verify filter tooling section is added on the EDI documents dashboard", async ({ io, page }) => {
+  test("@Env-QA @Env-IAQA @Epic-IO-89826 @Priority-P2 @Zephyr-IO-T37558 Verify filter tooling section is added on the EDI documents dashboard", async ({ io, page }) => {
 
     //Go to Dashboard
     await io.myAccountPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "dashboard");
@@ -34,7 +34,7 @@ test.describe("@Author-Shriti S Verify filter tooling section is added on the ED
     await io.homePage.click(selectors.dashboardPagePO.DOCTYPE_FILTER);
     await io.homePage.waitForElementAttached(selectors.dashboardPagePO.FILTER_VALUES);
     list = (await io.homePage.getText(selectors.dashboardPagePO.FILTER_VALUES)).toString();
-    await io.assert.expectToBeValue('IN,PO', list, 'All filter values are not shown');
+    await io.assert.expectToBeValue('IN,PO,PC,SH,PR', list, 'All filter values are not shown');
     await io.homePage.click(selectors.dashboardPagePO.DOCTYPE_FILTER);
 
     await io.homePage.click(selectors.dashboardPagePO.FILETYPE_FILTER);

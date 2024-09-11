@@ -159,18 +159,17 @@
                 "mapping": {
                   "fields": [
                     {
-                      "generate": "user.name",
-                      "hardCodedValue": "Auto_TC_47520_1",
-                      "dataType": "string"
+                      "extract": "Auto_{{random 16}}",
+                      "generate": "organization.name"
                     },
                     {
-                      "extract": "Name",
-                      "generate": "user.details"
+                      "extract": "notes",
+                      "generate": "organization.notes"
                     }
                   ]
                 },
                 "http": {
-                  "relativeURI": ["users"],
+                  "relativeURI": ["organizations.json"],
                   "method": ["POST"],
                   "body": [],
                   "batchSize": 1,
@@ -202,18 +201,17 @@
                 "mapping": {
                   "fields": [
                     {
-                      "generate": "user.name",
-                      "hardCodedValue": "Auto_TC_47520_2",
-                      "dataType": "string"
+                      "extract": "Auto_{{random 16}}",
+                      "generate": "organization.name"
                     },
                     {
-                      "extract": "Name",
-                      "generate": "user.details"
+                      "extract": "notes",
+                      "generate": "organization.notes"
                     }
                   ]
                 },
                 "http": {
-                  "relativeURI": ["users"],
+                  "relativeURI": ["organizations.json"],
                   "method": ["POST"],
                   "body": [],
                   "batchSize": 1,

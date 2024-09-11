@@ -55,13 +55,13 @@
             "_connectionId": "FTP CONNECTION",
             "name": "FTP Import",
             "file": {
-                "fileName": "TC_C22867.json",
+                "fileName": "TC_C22867-{{batch_of_records.0.record.Drug_company}}-{{timestamp \"YYYY-MM-DDTHH:mm:ssZ\" \"Asia/Calcutta\"}}.json",
                 "skipAggregation": true,
                 "type": "json"
             },
             "ftp": {
                 "directoryPath": "/io.auto.qa/IO_UI_Automation",
-                "fileName": "TC_C22867.json"
+                "fileName": "TC_C22867-{{batch_of_records.0.record.Drug_company}}-{{timestamp \"YYYY-MM-DDTHH:mm:ssZ\" \"Asia/Calcutta\"}}.json"
             },
             "adaptorType": "FTPImport"
         }

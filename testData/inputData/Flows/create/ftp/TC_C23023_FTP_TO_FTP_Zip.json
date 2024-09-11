@@ -19,14 +19,14 @@
         "sandbox": false,
         "parsers": [],
         "file": {
-          "fileName": "skipaggZip.json",
+          "fileName": "skipaggZip-{{timestamp \"YYYY-MM-DD hh:mm:ss\" \"Asia/Calcutta\"}}.json",
           "skipAggregation": true,
           "type": "json",
           "compressionFormat": "zip"
         },
         "ftp": {
           "directoryPath": "io.auto.qa/IO Automation SFTP Imports",
-          "fileName": "skipaggZip.json",
+          "fileName": "skipaggZip-{{timestamp \"YYYY-MM-DD hh:mm:ss\" \"Asia/Calcutta\"}}.json",
           "inProgressFileName": "Temporary file"
         },
         "_connectionId":"FTP CONNECTION",

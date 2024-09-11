@@ -31,7 +31,7 @@ test.describe("TC_C108496", () => {
     await io.homePage.loadingTime();
     await io.homePage.click(selectors.importPagePO.ADVANCED);
     test.step("*** clicking on the advanced dropdown  ***", async ()=>{});
-    var async = await io.homePage.isVisible("[data-test='configureAsyncHelper']");
+    var async = await io.homePage.isVisible(selectors.flowBuilderPagePO.CONFIGASYNCHELPER);
     await io.assert.expectToBeFalse(async, "");
     test.step("*** Veriied Configure Async Helper should be hidden for GraphQL Lookups ***", async ()=>{});
     await io.homePage.click(selectors.basePagePO.CLOSE);
@@ -43,7 +43,7 @@ test.describe("TC_C108496", () => {
     await io.homePage.loadingTime();
     await io.homePage.click(selectors.importPagePO.ADVANCED);
     test.step("*** clicking on the advanced dropdown  ***", async ()=>{});
-    var async1 = await io.homePage.isVisible("[data-test='configureAsyncHelper']");
+    var async1 = await io.homePage.isVisible(selectors.flowBuilderPagePO.CONFIGASYNCHELPER);
     await io.assert.expectToBeFalse(async1, "");
     test.step("*** Veriied Configure Async Helper should be hidden for HTTP Lookups ***", async ()=>{});
     await io.homePage.click(selectors.basePagePO.CLOSE);
