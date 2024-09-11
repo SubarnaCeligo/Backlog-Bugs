@@ -37,6 +37,10 @@ test.describe("C1055 Verify on IO account is opened successfuly upon selecting t
     }
   })
   test("@Env-All @Zephyr-IO-T931 C1055 Verify on IO account is opened successfuly upon selecting the google account", async ({ io, page }) => {
+    await io.homePage.loadingTime()
+    await io.homePage.loadingTime()
+    await io.homePage.loadingTime()
+    await io.homePage.loadingTime()
     await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.click(selectors.basePagePO.SIGN_OUT);

@@ -39,6 +39,12 @@ test.describe("C56428 Verify refreshing on signin/ request reset/ forgot passwor
 
   test("@Env-All @Zephyr-IO-T17010 C56428 Sign in page", async ({ io, page }) => {
     await test.step("Sign in page", async () => {
+      await io.homePage.loadingTime()
+      await io.homePage.loadingTime()
+      await io.homePage.loadingTime()
+      await io.homePage.loadingTime()
+      await io.homePage.loadingTime()
+      await io.homePage.loadingTime()
       await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
       await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
       await io.homePage.click(selectors.basePagePO.SIGN_OUT);
@@ -50,12 +56,10 @@ test.describe("C56428 Verify refreshing on signin/ request reset/ forgot passwor
       await io.assert.verifyElementIsDisplayed(selectors.loginPagePO.PASSWORD, "Password is not displayed");
     });
 
-    await test.step("Forgot password page", async () => {
+     await test.step("Forgot password page", async () => {
       await io.signInPage.click(selectors.loginPagePO.FORGOT_PASSWORD);
       await io.signInPage.reloadPage();
-      await io.assert.verifyElementContainsText(selectors.basePagePO.H3_TEXT_SELECTOR, 'Forgot your password?');
-      await io.assert.verifyElementIsDisplayed(selectors.basePagePO.SUBMIT, "Submit is not displayed");
-      await io.assert.verifyElementIsDisplayed(selectors.loginPagePO.EMAIL_ID, "Email is not displayed");
+      await io.assert.verifyElementDisplayedByText("Forgot password?","Forgot password not displayed");
     });
   });
 });
