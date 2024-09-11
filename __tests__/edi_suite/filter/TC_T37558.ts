@@ -34,7 +34,7 @@ test.describe("@Author-Shriti S Verify filter tooling section is added on the ED
     await io.homePage.click(selectors.dashboardPagePO.DOCTYPE_FILTER);
     await io.homePage.waitForElementAttached(selectors.dashboardPagePO.FILTER_VALUES);
     list = (await io.homePage.getText(selectors.dashboardPagePO.FILTER_VALUES)).toString();
-    await io.assert.expectToBeValue('IN,PO', list, 'All filter values are not shown');
+    await io.assert.expectToBeValue('IN,PO,PC,SH,PR', list, 'All filter values are not shown');
     await io.homePage.click(selectors.dashboardPagePO.DOCTYPE_FILTER);
 
     await io.homePage.click(selectors.dashboardPagePO.FILETYPE_FILTER);
