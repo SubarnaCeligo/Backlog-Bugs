@@ -82,8 +82,7 @@ test.describe("CIO46374", () => {
     const concurrencyHelptext = (await io.flowBuilder.getText(
       selectors.myAccountPagePO.HELP_BUBBLE
     )) as string;
-    await io.assert.expectToContainValue(
-      `Concurrency ID lock templateEnter a handlebars expression to reference a unique ID for each record to ensure that it isn't processed by two concurrent import requests. A Concurrency ID lock template prevents integrator.io from simultaneously submitting duplicate records when the import connection has a concurrency level greater than 1. For example, if you are importing Zendesk records into NetSuite, then you could enter the {{{record.id}}} field to identify unique Zendesk records. No two records with the same Zendesk ID value would import into NetSuite at the same time.Was this helpful?Field path: import.idLockTemplate`,
+    await io.assert.expectToContainValue(`Concurrency ID lock templateEnter a handlebars expression to reference a unique ID for each record to ensure that it isn't processed by two concurrent import requests. A Concurrency ID lock template prevents integrator.io from simultaneously submitting duplicate records when the import connection has a concurrency level greater than 1. For example, if you are importing Zendesk records into NetSuite, then you could enter the {0}} field to identify unique Zendesk records. No two records with the same Zendesk ID value would import into NetSuite at the same time.Was this helpful?Field path: import.idLockTemplate`,
       concurrencyHelptext,
       "helptext not found"
     );
@@ -200,7 +199,7 @@ test.describe("CIO46374", () => {
     ConnName[1].fill("CT19565");
     await io.flowBuilder.fill(
       selectors.importPagePO.HTTP_BASEURI,
-      "https://5634b9e3-4bde-425a-adba-c5a031019b7a.mock.pstmn.io"
+      "http://demo4443199.mockable.io/"
     );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.MEDIA_TYPE);
     await io.flowBuilder.clickByText("XML");
@@ -213,7 +212,7 @@ test.describe("CIO46374", () => {
     await io.flowBuilder.click(selectors.exportsPagePO.HTTP_METHOD);
     await io.flowBuilder.clickByText("GET");
     await io.homePage.loadingTime();
-    await io.flowBuilder.fill(selectors.flowBuilderPagePO.URI, "/xmlparser");
+    await io.flowBuilder.fill(selectors.flowBuilderPagePO.URI, "xmlparser");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.TYPE);
     await io.flowBuilder.clickByText("All - always export all data");
     await io.homePage.loadingTime();
