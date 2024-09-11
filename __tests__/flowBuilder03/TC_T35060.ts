@@ -4,7 +4,7 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe("Verify user is able to access the execution details(testMode field) via handlebar in Export AFE screens", () => {
     let flowMap;
-    test("@Env-All @Zephyr-IO_T35060 IO_T35061 IO-35063 IO-35068 IO-35069 Verify user is able to access the execution details(testMode field) via handlebar in Export AFE screens", async ({
+    test("@Env-All @Zephyr-IO_T35060 @Zephyr-IO_T35061 @Zephyr-IO-35063 @Zephyr-IO-35068 IO-35069 Verify user is able to access the execution details(testMode field) via handlebar in Export AFE screens", async ({
         io, page
     }, testInfo) => {
         flowMap = await io.api.createImpOrExpAndFlowsThruAPI(IO_T35060, false);
