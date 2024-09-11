@@ -19,7 +19,7 @@
           "limit": 1
         },
         "rdbms": {
-          "query": "select * from celigo_labs.netsuite.data"
+          "query": "select * from LOAD"
         },
         "transform": {
           "type": "expression",
@@ -27,11 +27,11 @@
             "rules": [
               [
                 {
-                  "extract": "PRIMARYKEY",
+                  "extract": "ID",
                   "generate": "id"
                 },
                 {
-                  "extract": "RESOURCE",
+                  "extract": "NAME",
                   "generate": "name"
                 }
               ]
@@ -42,11 +42,11 @@
           "rules": [
             [
               {
-                "extract": "PRIMARYKEY",
+                "extract": "ID",
                 "generate": "id"
               },
               {
-                "extract": "RESOURCE",
+                "extract": "NAME",
                 "generate": "name"
               }
             ]
@@ -83,18 +83,18 @@
                 "mapping": {
                   "fields": [
                     {
-                      "generate": "user.name",
-                      "hardCodedValue": "Auto_TC_47498_1"
+                      "extract": "Auto_{{random 16}}",
+                      "generate": "organization.name"
                     },
                     {
-                      "extract": "name",
-                      "generate": "user.notes"
+                      "extract": "notes",
+                      "generate": "organization.notes"
                     }
                   ]
                 },
                 "http": {
                   "relativeURI": [
-                    "users"
+                    "organizations.json"
                   ],
                   "method": [
                     "POST"
@@ -130,18 +130,18 @@
                 "mapping": {
                   "fields": [
                     {
-                      "generate": "user.name",
-                      "hardCodedValue": "Auto_TC_47498_2"
+                      "extract": "Auto_{{random 16}}",
+                      "generate": "organization.name"
                     },
                     {
-                      "extract": "name",
-                      "generate": "user.notes"
+                      "extract": "notes",
+                      "generate": "organization.notes"
                     }
                   ]
                 },
                 "http": {
                   "relativeURI": [
-                    "users"
+                    "organizations.json"
                   ],
                   "method": [
                     "POST"

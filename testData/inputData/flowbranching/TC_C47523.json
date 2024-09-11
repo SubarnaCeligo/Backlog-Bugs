@@ -70,20 +70,20 @@
                               "ignoreMissing": false,
                               "oneToMany": false,
                               "mapping": {
-                                  "fields": [
-                                      {
-                                          "extract": "recordType",
-                                          "generate": "user.name"
-                                      },
-                                      {
-                                          "extract": "Manager",
-                                          "generate": "user.notes"
-                                      }
-                                  ]
+                                "fields": [
+                                  {
+                                    "extract": "Auto_{{random 16}}",
+                                    "generate": "organization.name"
+                                  },
+                                  {
+                                    "extract": "notes",
+                                    "generate": "organization.notes"
+                                  }
+                                ]
                               },
                               "http": {
                                   "relativeURI": [
-                                      "users"
+                                      "organizations.json"
                                   ],
                                   "method": [
                                       "POST"
@@ -110,16 +110,20 @@
                               "ignoreMissing": false,
                               "oneToMany": false,
                               "mapping": {
-                                  "fields": [
-                                      {
-                                          "extract": "nameField",
-                                          "generate": "user.name"
-                                      }
-                                  ]
+                                "fields": [
+                                  {
+                                    "extract": "Auto_{{random 16}}",
+                                    "generate": "organization.name"
+                                  },
+                                  {
+                                    "extract": "notes",
+                                    "generate": "organization.notes"
+                                  }
+                                ]
                               },
                               "http": {
                                   "relativeURI": [
-                                      "users"
+                                    "organizations.json"
                                   ],
                                   "method": [
                                       "POST"
@@ -151,16 +155,20 @@
                               "ignoreMissing": false,
                               "oneToMany": false,
                               "mapping": {
-                                  "fields": [
-                                      {
-                                          "extract": "Title",
-                                          "generate": "user.name"
-                                      }
-                                  ]
+                                "fields": [
+                                  {
+                                    "extract": "Auto_{{random 16}}",
+                                    "generate": "organization.name"
+                                  },
+                                  {
+                                    "extract": "notes",
+                                    "generate": "organization.notes"
+                                  }
+                                ]
                               },
                               "http": {
                                   "relativeURI": [
-                                      "users"
+                                      "organizations.json"
                                   ],
                                   "method": [
                                       "POST"
