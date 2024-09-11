@@ -51,8 +51,8 @@
                     "pages": "1"
                 },
                 "qa__dataVerification": {
-                    "fileName": "TC_C2661",
-                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileName": "file-{{timestamp}}TC_C2661",
+                    "folderName": "/io.auto.qa/IO_UI_Automation_FTPImports",
                     "fileType": ".edi"
                 }
             }
@@ -67,7 +67,7 @@
             "oneToMany": false,
             "sandbox": false,
             "file": {
-                "fileName": "TC_C2661.edi",
+                "fileName": "file-{{timestamp}}TC_C2661.edi",
                 "skipAggregation": true,
                 "type": "filedefinition",
                 "qa__type": "delimited/edifact",
@@ -654,8 +654,8 @@
                 }
             },
             "ftp": {
-                "directoryPath": "/io.auto.qa/IO_UI_Automation",
-                "fileName": "TC_C2661.edi"
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPImports",
+                "fileName": "file-{{timestamp}}TC_C2661.edi"
             },
             "adaptorType": "FTPImport"
         }
