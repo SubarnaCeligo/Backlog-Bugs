@@ -8,7 +8,7 @@ test.describe("TC_C32175_Verify_Header_For_Ignore&Update", () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
 
-  test("@Zephyr-IO-T9691 @Env-All TC_C32175_Verify_Header_For_Ignore&Update", async ({io,page}, testInfo) => {
+  test("@Zephyr-IO-T9684 @Env-All TC_C32175_Verify_Header_For_Ignore&Update", async ({io,page}, testInfo) => {
     await io.homePage.loadingTime();
     await io.flowBuilder.clickCreateFlowButton();
     test.step("*** Create Flow Selected ***", async ()=>{});

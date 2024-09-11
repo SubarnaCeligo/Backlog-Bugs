@@ -29,8 +29,10 @@ test.describe("TC_C35747_Verify_SendPostMappedData_WithBody", () => {
     await io.homePage.loadingTime();
 
     const flowDoc = await io.api.getCall("v1/flows/" + flowId);
+    await io.homePage.loadingTime();
     importId = flowDoc.pageProcessors[0]._importId;
     const importDoc = await io.api.getCall("v1/imports/" + importId);
+    await io.homePage.loadingTime();
 
     await io.assert.expectToBeTrue(importDoc?.http?.sendPostMappedData == true, "");
     test.step("*** sendPostMappedData flag is set to true for Rest import created with body ***", async ()=>{});
@@ -39,10 +41,13 @@ test.describe("TC_C35747_Verify_SendPostMappedData_WithBody", () => {
   test("@Zephyr-IO-T9706 @Env-All TC_C35747_Verify_SendPostMappedData_WithoutBody", async ({io,page}, testInfo) => {
      test.step("*** Creating flow ***", async ()=>{});
      flowId = await io.createResourceFromAPI(RestBodyWithoutBody, "FLOWS");
+     await io.homePage.loadingTime();
  
      const flowDoc = await io.api.getCall("v1/flows/" + flowId);
+     await io.homePage.loadingTime();
      importId = flowDoc.pageProcessors[0]._importId;
      const importDoc = await io.api.getCall("v1/imports/" + importId);
+     await io.homePage.loadingTime();
  
      await io.assert.expectToBeTrue(importDoc?.http?.sendPostMappedData == true, "");
      test.step("*** sendPostMappedData flag is set to true for Rest import created with body ***", async ()=>{});
