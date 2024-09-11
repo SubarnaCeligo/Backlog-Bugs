@@ -1,0 +1,134 @@
+{
+    "name": "TC_C98588",
+    "referencename": "TC_C98588",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "AutomationStandalone_0bP8U",
+              "_connectionId": "NETSUITE CONNECTION",
+              "apiIdentifier": "e5457f1f15",
+              "asynchronous": true,
+              "type": "test",
+              "oneToMany": false,
+              "rawData": "648079a4e26e647491cad2af76e5a89e02a7457695b5ba6bbd1b71ac",
+              "test": {
+                "limit": 10
+              },
+              "netsuite": {
+                "type": "restlet",
+                "skipGrouping": true,
+                "statsOnly": false,
+                "restlet": {
+                  "recordType": "account",
+                  "searchId": "4649",
+                  "restletVersion": "suitebundle",
+                  "markExportedBatchSize": 100
+                },
+                "distributed": {}
+              },
+              "transform": {
+                "type": "expression",
+                "expression": {
+                  "rules": [
+                    [
+                      {
+                        "extract": "id",
+                        "generate": "ids"
+                      }
+                    ]
+                  ],
+                  "version": "1"
+                },
+                "version": "1",
+                "rules": [
+                  [
+                    {
+                      "extract": "id",
+                      "generate": "ids"
+                    }
+                  ]
+                ]
+              },
+              "adaptorType": "NetSuiteExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "AutomationStandalone_5RISQ",
+              "mockResponse": [
+                {
+                  "id": "1234567890",
+                  "errors": [],
+                  "_json": {
+                    "mockResponse": "replace me"
+                  },
+                  "statusCode": 200,
+                  "ignored": false,
+                  "dataURI": "",
+                  "_headers": {
+                    "content-type": "application/json; charset=utf-8"
+                  }
+                }
+              ],
+              "_connectionId": "NETSUITE CONNECTION",
+              "distributed": true,
+              "apiIdentifier": "i5bce7c8f1",
+              "ignoreExisting": false,
+              "ignoreMissing": false,
+              "oneToMany": false,
+              "sandbox": false,
+              "lookups": [],
+              "netsuite_da": {
+                "restletVersion": "suitebundle",
+                "operation": "add",
+                "recordType": "account",
+                "lookups": [],
+                "mapping": {
+                  "fields": [],
+                  "lists": []
+                }
+              },
+              "filter": {
+                "type": "expression",
+                "expression": {
+                  "rules": ["contains", ["string", ["extract", "name"]], "c"],
+                  "version": "1"
+                },
+                "version": "1",
+                "rules": ["contains", ["string", ["extract", "name"]], "c"]
+              },
+              "adaptorType": "NetSuiteDistributedImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C98588",
+          "disabled": false,
+          "skipRetries": false,
+          "_integrationId": "63232c59d3a9897fe95f9f2a",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }
+  

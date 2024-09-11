@@ -22,7 +22,8 @@ test.describe("TC_C1597", () => {
     await io.homePage.click(selectors.integrationPagePO.EDIT);
     await io.homePage.isPageLoaded();
     await io.homePage.isPageReady();
-     await io.homePage.clearTextValue('#name input')
+    await io.homePage.clearTextValue('#name input')
+
     await io.homePage.fillWebPage('#name input', "stack");
     await io.homePage.click(selectors.basePagePO.SAVE_AND_CLOSE);
     test.step("*** Clicking on save and close  ***", async ()=>{});
@@ -36,6 +37,12 @@ test.describe("TC_C1597", () => {
     await io.homePage.clickButtonBasedOnLabelName(selectors.basePagePO.UPDATEUSER, "Update");
     await io.homePage.clickButtonByIndex("//a[contains(text(),'stack')]", 0);
     test.step("*** Stack field is updated in audit log   ***", async ()=>{});
+    await io.homePage.navigateTo(io.connectorUrl + "stacks");
+    test.step("*** Navigate to Stack  ***", async ()=>{});
+    await io.homePage.isPageLoaded();
+    await io.homePage.isPageReady();
+    await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
+    await io.homePage.click(selectors.integrationPagePO.EDIT);
     await io.homePage.isPageLoaded();
     await io.homePage.isPageReady();
     await io.homePage.clearTextValue('#name input')

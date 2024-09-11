@@ -1,0 +1,277 @@
+{
+  "name": "TC_C97788",
+  "referencename": "TC_C97788",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "AutomationStandalone_4hLbl",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "apiIdentifier": "eebbd23175",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "mockOutput": {
+              "page_of_records": [
+                {
+                  "record": {
+                    "attributes": {
+                      "type": "Account",
+                      "url": "/services/data/v54.0/sobjects/Account/0013m00002SIi9IAAT"
+                    },
+                    "Id": "0013m00002SIi9IAAT"
+                  }
+                },
+                {
+                  "record": {
+                    "attributes": {
+                      "type": "Account",
+                      "url": "/services/data/v54.0/sobjects/Account/0013m00002SJqp9AAD"
+                    },
+                    "Id": "0013m00002SJqp9AAD"
+                  }
+                },
+                {
+                  "record": {
+                    "attributes": {
+                      "type": "Account",
+                      "url": "/services/data/v54.0/sobjects/Account/0013m00002VfgfUAAR"
+                    },
+                    "Id": "0013m00002VfgfUAAR"
+                  }
+                },
+                {
+                  "record": {
+                    "attributes": {
+                      "type": "Account",
+                      "url": "/services/data/v54.0/sobjects/Account/0013m00002ejSqLAAU"
+                    },
+                    "Id": "0013m00002ejSqLAAU"
+                  }
+                },
+                {
+                  "record": {
+                    "attributes": {
+                      "type": "Account",
+                      "url": "/services/data/v54.0/sobjects/Account/0013m00002hsTmNAAU"
+                    },
+                    "Id": "0013m00002hsTmNAAU"
+                  }
+                },
+                {
+                  "record": {
+                    "attributes": {
+                      "type": "Account",
+                      "url": "/services/data/v54.0/sobjects/Account/0013m00002jAaB3AAK"
+                    },
+                    "Id": "0013m00002jAaB3AAK"
+                  }
+                },
+                {
+                  "record": {
+                    "attributes": {
+                      "type": "Account",
+                      "url": "/services/data/v54.0/sobjects/Account/0013m00002uEDm5AAG"
+                    },
+                    "Id": "0013m00002uEDm5AAG"
+                  }
+                },
+                {
+                  "record": {
+                    "attributes": {
+                      "type": "Account",
+                      "url": "/services/data/v54.0/sobjects/Account/0013m000031FAzxAAG"
+                    },
+                    "Id": "0013m000031FAzxAAG"
+                  }
+                },
+                {
+                  "record": {
+                    "attributes": {
+                      "type": "Account",
+                      "url": "/services/data/v54.0/sobjects/Account/0013m000031FB4JAAW"
+                    },
+                    "Id": "0013m000031FB4JAAW"
+                  }
+                },
+                {
+                  "record": {
+                    "attributes": {
+                      "type": "Account",
+                      "url": "/services/data/v54.0/sobjects/Account/0013m000031FB4xAAG"
+                    },
+                    "Id": "0013m000031FB4xAAG"
+                  }
+                }
+              ]
+            },
+            "rawData": "648079a4e26e647491cad2afaadc505dae2645639969d6a099fc6a8c",
+            "salesforce": {
+              "type": "soql",
+              "api": "rest",
+              "soql": {
+                "query": "select id from Account"
+              }
+            },
+            "adaptorType": "SalesforceExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Test",
+            "mockResponse": [
+              {
+                "id": "1234567890",
+                "errors": [],
+                "_json": {
+                  "mockResponse": "replace me"
+                },
+                "statusCode": 200,
+                "ignored": false,
+                "dataURI": "",
+                "_headers": {
+                  "content-type": "application/json; charset=utf-8"
+                }
+              }
+            ],
+            "_connectionId": "SALESFORCE CONNECTION",
+            "apiIdentifier": "i86babeadd",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "attributes.type",
+                  "generate": "Id"
+                }
+              ]
+            },
+            "salesforce": {
+              "operation": "insert",
+              "sObjectType": "Account",
+              "api": "soap",
+              "removeNonSubmittableFields": false
+            },
+            "adaptorType": "SalesforceImport"
+          }
+        },
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Test",
+            "mockResponse": [
+              {
+                "id": "1234567890",
+                "errors": [],
+                "_json": {
+                  "mockResponse": "replace me"
+                },
+                "statusCode": 200,
+                "ignored": false,
+                "dataURI": "",
+                "_headers": {
+                  "content-type": "application/json; charset=utf-8"
+                }
+              }
+            ],
+            "_connectionId": "SALESFORCE CONNECTION",
+            "apiIdentifier": "i86babeadd",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "attributes.type",
+                  "generate": "Id"
+                }
+              ]
+            },
+            "salesforce": {
+              "operation": "insert",
+              "sObjectType": "Account",
+              "api": "rest",
+              "removeNonSubmittableFields": false
+            },
+            "adaptorType": "SalesforceImport"
+          }
+        },
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Test",
+            "mockResponse": [
+              {
+                "id": "1234567890",
+                "errors": [],
+                "_json": {
+                  "mockResponse": "replace me"
+                },
+                "statusCode": 200,
+                "ignored": false,
+                "dataURI": "",
+                "_headers": {
+                  "content-type": "application/json; charset=utf-8"
+                }
+              }
+            ],
+            "_connectionId": "SALESFORCE CONNECTION",
+            "apiIdentifier": "i86babeadd",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "attributes.type",
+                  "generate": "Id"
+                }
+              ]
+            },
+            "salesforce": {
+              "operation": "insert",
+              "sObjectType": "Account",
+              "api": "rest",
+              "removeNonSubmittableFields": false
+            },
+            "adaptorType": "SalesforceImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C97788",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          },
+          {
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          },
+          {
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

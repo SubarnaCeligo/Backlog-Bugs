@@ -1,0 +1,226 @@
+{
+    "name": "TC_C65002",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "type": "exports",
+            "qa__export": {
+                "name": "AutomationStandaloneExport__1kEZvlWvQm",
+                "_connectionId": "FTP CONNECTION",
+                "qa__path": "/SFTP_uploads/TC_C47420.json",
+                "apiIdentifier": "e5408e4189",
+                "asynchronous": true,
+                "pageSize": 1,
+                "sandbox": false,
+                "sampleData": [
+                    [
+                        [
+                            {
+                                "name": "Auto_TC_47420_2"
+                            },
+                            {
+                                "name": "Auto_TC_47420_3"
+                            }
+                        ]
+                    ],
+                    {
+                        "name": "Auto_TC_47420_1"
+                    }
+                ],
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                    "fileNameStartsWith": "TC_C47420.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "batchSize": null,
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "adaptorType": "FTPExport"
+            },
+            "skipRetries": false
+        },
+        {
+            "type": "exports",
+            "qa__export": {
+                "name": "HTTP Export{Users}",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "e9261ba430",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "/users",
+                    "method": "GET",
+                    "formType": "http"
+                },
+                "test": {
+                    "limit": 11
+                },
+                "adaptorType": "HTTPExport"
+            },
+            "skipRetries": false
+        }
+    ],
+    "createdAt": "2022-09-22T06:50:38.055Z",
+    "autoResolveMatchingTraceKeys": true,
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "GGZPWa",
+            "routeRecordsTo": "all_matching_branches",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandaloneImport__5EigSk7ZZL",
+                                "_connectionId": "FTP CONNECTION",
+                                "apiIdentifier": "id2ccb60ce",
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "name",
+                                            "generate": "name"
+                                        }
+                                    ]
+                                },
+                                "file": {
+                                    "fileName": "file1{{timestamp \"YYYY-MM-DDTHH:mm:ssZ\"}}",
+                                    "skipAggregation": true,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                                    "fileName": "file1{{timestamp \"YYYY-MM-DDTHH:mm:ssZ\"}}.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ],
+                    "nextRouterId": "rKtpem",
+                    "qa__rules": [
+                        [
+                            "record.name",
+                            "equal",
+                            "Auto_TC_47420_2"
+                        ]
+                    ],
+                    "inputFilter": {
+                        "rules": [
+                            "not",
+                            [
+                                "equals",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "name"
+                                    ]
+                                ],
+                                "Auto_TC_47420_2"
+                            ]
+                        ]
+                    }
+                },
+                {
+                    "name": "Branch 1.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "somename",
+                                "_connectionId": "FTP CONNECTION",
+                                "apiIdentifier": "i6faee5fd4",
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "name",
+                                            "generate": "name"
+                                        }
+                                    ]
+                                },
+                                "file": {
+                                    "fileName": "file2{{timestamp \"YYYY-MM-DDTHH:mm:ssZ\"}}.csv",
+                                    "skipAggregation": true,
+                                    "type": "csv",
+                                    "csv": {
+                                        "rowDelimiter": "\n",
+                                        "columnDelimiter": ",",
+                                        "includeHeader": true,
+                                        "wrapWithQuotes": false,
+                                        "replaceTabWithSpace": false,
+                                        "replaceNewlineWithSpace": false,
+                                        "truncateLastRowDelimiter": false
+                                    }
+                                },
+                                "ftp": {
+                                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                                    "fileName": "file2{{timestamp \"YYYY-MM-DDTHH:mm:ssZ\"}}.csv"
+                                },
+                                "adaptorType": "FTPImport"
+                            },
+                            "proceedOnFailure": false
+                        }
+                    ],
+                    "nextRouterId": "rKtpem"
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        },
+        {
+            "id": "rKtpem",
+            "branches": [
+                {
+                    "name": "",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "_connectionId": "FTP CONNECTION",
+                                "file": {
+                                    "fileName": "Finalfileskipaggfile{{timestamp \"YYYY-MM-DDTHH:mm:ssZ\"}}.json",
+                                    "skipAggregation": true,
+                                    "type": "json"
+                                },
+                                "ftp": {
+                                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                                    "fileName": "Finalfileskipaggfile{{timestamp \"YYYY-MM-DDTHH:mm:ssZ\"}}.json"
+                                },
+                                "adaptorType": "FTPImport"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

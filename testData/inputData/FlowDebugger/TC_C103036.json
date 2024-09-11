@@ -1,0 +1,318 @@
+{
+    "name": "TC_C103036",
+    "referencename": "TC_C103036",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "application": "Google BigQuery",
+                        "name": "Bigquery grouping",
+                        "_connectionId": "BIGQUERY CONNECTION",
+                        "apiIdentifier": "e0917c2c03",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "rdbms": {
+                            "query": "select * from `1234.IO_TestExport` order by ID asc"
+                        },
+                        "adaptorType": "RDBMSExport"
+                    }
+                },
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Netsuite export",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "apiIdentifier": "ea782c4a4e",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "recordType": "customer",
+                                "searchId": "1970",
+                                "criteria": [],
+                                "columns": [],
+                                "restletVersion": "suiteapp2.0",
+                                "markExportedBatchSize": 100
+                            },
+                            "distributed": {
+                                "executionContext": [],
+                                "executionType": []
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                },
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "AutomationStandalone_FCeKm",
+                        "_connectionId": "AZURE BLOB STORAGE CONNECTION",
+                        "apiIdentifier": "e7fdf7e43d",
+                        "asynchronous": true,
+                        "assistant": "azurestorageaccount",
+                        "sandbox": false,
+                        "http": {
+                            "type": "file",
+                            "relativeURI": "azureexports",
+                            "method": "GET",
+                            "formType": "assistant",
+                            "response": {
+                                "resourcePath": "files"
+                            }
+                        },
+                        "file": {
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "csv",
+                            "csv": {
+                                "columnDelimiter": ",",
+                                "rowDelimiter": "\n",
+                                "hasHeaderRow": true,
+                                "trimSpaces": true,
+                                "rowsToSkip": 0
+                            },
+                            "filter": {
+                                "type": "expression",
+                                "expression": {
+                                    "rules": [
+                                        "startswith",
+                                        [
+                                            "string",
+                                            [
+                                                "extract",
+                                                "name"
+                                            ]
+                                        ],
+                                        "File_Provide"
+                                    ],
+                                    "version": "1"
+                                },
+                                "version": "1",
+                                "rules": [
+                                    "startswith",
+                                    [
+                                        "string",
+                                        [
+                                            "extract",
+                                            "name"
+                                        ]
+                                    ],
+                                    "File_Provide"
+                                ]
+                            }
+                        },
+                        "sampleData": "id,name,year of birth,Test\r\n1,Gabriel,1879,true\r\n2,Samael,1643,\r\n3,Amandiel,1867,",
+                        "filter": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [],
+                                "version": "1"
+                            },
+                            "version": "1",
+                            "rules": []
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                },
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "AS2 CONNECTION",
+                        "_connectionId": "64df46322702f90b8255bc55",
+                        "apiIdentifier": "eed3c289ee",
+                        "asynchronous": true,
+                        "type": "webhook",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "file": {
+                            "type": "json",
+                            "json": {
+                                "resourcePath": "*"
+                            }
+                        },
+                        "sampleData": [
+                            {
+                                "id": 1234,
+                                "CustomerName": "Celigo IO Automation",
+                                "details": "",
+                                "Details": "12345"
+                            }
+                        ],
+                        "adaptorType": "AS2Export"
+                    }
+                },
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Netsuite Transfer Export",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "apiIdentifier": "ea5a160ace",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "sampleData": [
+                            {
+                                "id": 12232,
+                                "raw": "This is new updated view",
+                                "title": "Update my view",
+                                "description": "View update successfully"
+                            },
+                            {
+                                "id": 12233,
+                                "raw": "Please update view at right time ",
+                                "title": "Update my second view",
+                                "description": "View not updated"
+                            }
+                        ],
+                        "netsuite": {
+                            "type": "file",
+                            "skipGrouping": false,
+                            "statsOnly": false,
+                            "restlet": {
+                                "criteria": [],
+                                "columns": []
+                            },
+                            "distributed": {
+                                "executionContext": [],
+                                "executionType": []
+                            },
+                            "file": {
+                                "folderInternalId": "11",
+                                "fileNameStartsWith": "UpdateView.json",
+                                "fileNameEndsWith": ".json"
+                            }
+                        },
+                        "file": {
+                            "output": "records",
+                            "skipDelete": false,
+                            "type": "json",
+                            "json": {
+                                "resourcePath": "*"
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Http Import",
+                        "application": "zendesk support",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "i0d238d03b",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "extract": "Name",
+                                    "generate": "organization.name"
+                                },
+                                {
+                                    "extract": "Email",
+                                    "generate": "organization.notes"
+                                }
+                            ]
+                        },
+                        "http": {
+                            "relativeURI": [
+                                "organizations"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C103036",
+                "disabled": false,
+                "_integrationId": "63232c59d3a9897fe95f9f2a",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    },
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    },
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    },
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    },
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ],
+    "ghostText": {
+        "page_of_records": [
+            {
+                "record": {
+                    "mockOutput": "Replace mockOutput key and value with source data. You may be able to refer to your source app's API for examples."
+                }
+            }
+        ]
+    },
+    "ghostText1": {
+        "page_of_records": [
+            {
+                "rows": [
+                    {
+                        "mockOutput": "Replace mockOutput key and value with source data. You may be able to refer to your source app's API for examples."
+                    }
+                ]
+            }
+        ]
+    },
+    "mockresponseGhostText": {
+        "page_of_records": [
+            {
+                "record": {
+                    "id": 11144056407697,
+                    "name": "connector Setting",
+                    "email": null,
+                    "length": 102,
+                    "time_zone": "Asia/Kolkata",
+                    "iana_time_zone": "Asia/Kolkata",
+                    "phone": "65432223",
+                    "shared_phone_number": false,
+                    "locale_id": 1,
+                    "locale": "en-US",
+                    "role": "end-user"
+                }
+            }
+        ]
+    }
+}

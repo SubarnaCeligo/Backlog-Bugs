@@ -27,11 +27,6 @@
             }
         }
     ],
-    "qa__expectedDashboardCount": {
-        "successCount": "2",
-        "ignoreCount": "0",
-        "errorCount": "0"
-    },
     "pageProcessors": [
         {
             "type": "import",

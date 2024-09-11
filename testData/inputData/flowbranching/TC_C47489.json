@@ -73,7 +73,7 @@
                                 "mapping": {
                                     "fields": [
                                         {
-                                            "extract": "name",
+                                            "extract": "Auto_{{random 16}}",
                                             "generate": "organization.name"
                                         },
                                         {
@@ -139,7 +139,7 @@
                                 "mapping": {
                                     "fields": [
                                         {
-                                            "extract": "name",
+                                            "extract": "Auto_{{random 16}}",
                                             "generate": "organization.name"
                                         },
                                         {

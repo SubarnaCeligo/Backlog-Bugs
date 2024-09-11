@@ -1,0 +1,155 @@
+{
+  "name": "TC_C95733",
+  "referencename": "TC_C95733",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "AutomationStandalone_2EvVR",
+            "_connectionId": "NETSUITE CONNECTION",
+            "apiIdentifier": "e7cfc563b5",
+            "asynchronous": true,
+            "type": "test",
+            "oneToMany": false,
+            "test": {
+              "limit": 10
+            },
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "recordType": "account",
+                "searchId": "4649",
+                "restletVersion": "suitebundle",
+                "markExportedBatchSize": 100
+              },
+              "distributed": {}
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "AutomationStandalone_6MIqp",
+            "description": "Test Lookup 1",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "edc4a8aa52",
+            "asynchronous": true,
+            "isLookup": true,
+            "type": "test",
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+              "relativeURI": "/tickets.json",
+              "method": "GET",
+              "formType": "http"
+            },
+            "test": {
+              "limit": 1
+            },
+            "transform": {
+              "type": "expression",
+              "expression": {
+                "rules": [
+                  []
+                ],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": [
+                []
+              ]
+            },
+            "adaptorType": "HTTPExport"
+          }
+        },
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "AutomationStandalone_2RGOj",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "i984c212d2",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "Name",
+                  "generate": "user.name"
+                }
+              ]
+            },
+            "mappings": [
+              {
+                "extract": "$.Id",
+                "generate": "id",
+                "dataType": "string",
+                "status": "Active",
+                "sourceDataType": "string"
+              }
+            ],
+            "http": {
+              "relativeURI": [
+                "/users"
+              ],
+              "method": [
+                "POST"
+              ],
+              "body": [],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http"
+            },
+            "filter": {
+              "type": "expression",
+              "expression": {
+                "rules": [],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": []
+            },
+            "adaptorType": "HTTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C95733",
+        "disabled": false,
+        "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "export",
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          },
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID",
+            "skipRetries": false
+          }
+        ]
+      }
+    }
+  ]
+}

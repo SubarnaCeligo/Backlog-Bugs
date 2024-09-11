@@ -1,0 +1,98 @@
+{
+  "name": "TC_C94942",
+  "referencename": "TC_C94942",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Http Export",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "_sourceId": "648063390b61007b743c7281",
+            "apiIdentifier": "eb3216515c",
+            "asynchronous": true,
+            "type": "test",
+            "oneToMany": false,
+            "http": {
+              "relativeURI": "/users",
+              "method": "GET",
+              "formType": "http",
+              "response": {
+                "resourcePath": "users"
+              }
+            },
+            "test": {
+              "limit": 12
+            },
+            "transform": {
+              "type": "expression",
+              "expression": {
+                "rules": [[]],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": [[]]
+            },
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Salesforce Attachment",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "_sourceId": "6491ac86ea29855bcd599ed8",
+            "apiIdentifier": "i5aee848a0",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "blobKeyPath": "blobKey",
+            "blob": true,
+            "salesforce": {
+              "operation": "insert",
+              "sObjectType": "attachment",
+              "attachment": {
+                "id": "{{data.id}}",
+                "name": "{{data.email}}",
+                "parentId": "{{data.url}}",
+                "contentType": "{{data.email}}",
+                "description": "{{data.name}}"
+              },
+              "removeNonSubmittableFields": false
+            },
+            "filter": {
+              "type": "expression",
+              "expression": {
+                "rules": [],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": []
+            },
+            "adaptorType": "SalesforceImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C94942",
+        "disabled": false,
+        "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

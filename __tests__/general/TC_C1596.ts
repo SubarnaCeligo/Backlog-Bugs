@@ -10,6 +10,7 @@ test.describe("TC_C1596", () => {
   });
   test("@Zephyr-IO-T1414 @Env-All TC_C1596_Audit_Logs_Connection", async ({io,page}, testInfo) => {
     await test.step("*** Beginning of Test ***",()=>{});
+    await io.connections.deleteConnection( FTP.importJSON.name);
     await io.connections.createConnectionViaAPI(  FTP.apiJSON);
     // *Edit Connection
     await test.step("*** Editing Connection ***",()=>{});

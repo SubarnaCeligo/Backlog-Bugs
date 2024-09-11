@@ -1,0 +1,4 @@
+{
+  "name": "postResponse",
+  "content": "function postResponseMap (options) {\n  return options.postResponseMapData\n}"
+}

@@ -1,0 +1,4 @@
+{
+  "name": "Filter",
+  "content": "function filter (options) {\n  return true\n}"
+}

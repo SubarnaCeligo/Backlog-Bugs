@@ -1,0 +1,315 @@
+{
+    "name": "TC_C64965",
+    "referencename": "TC_C64965",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "Http Export users",
+              "_connectionId": "HTTP ZENDESK CONNECTION",
+              "_sourceId": "647ed5a8c8b74d6454789f5c",
+              "apiIdentifier": "e11e282e7f",
+              "asynchronous": true,
+              "type": "test",
+              "dataURITemplate": "{{record.id}}",
+              "oneToMany": false,
+              "mockOutput": {
+                "page_of_records": [
+                  {
+                    "record": {
+                      "id": 1,
+                      "name": "Celigo IO Automation",
+                      "email": "mounica.manavapati@celigo.com",
+                      "time_zone": "Chennai",
+                      "custom_role_id": 190
+                    }
+                  },
+                  {
+                    "record": {
+                      "id": 2,
+                      "name": "Celigo",
+                      "email": "Celigo@celigo.com",
+                      "time_zone": "Chennai",
+                      "custom_role_id": 191
+                    }
+                  },
+                  {
+                    "record": {
+                      "id": 3,
+                      "name": "IO Automation",
+                      "email": " IO.Automation@celigo.com",
+                      "time_zone": "Chennai",
+                      "custom_role_id": 192
+                    }
+                  },
+                  {
+                    "record": {
+                      "id": 4,
+                      "name": "Celigo Automation",
+                      "email": "Celigo.Automation@celigo.com",
+                      "time_zone": "Chennai",
+                      "custom_role_id": 193
+                    }
+                  },
+                  {
+                    "record": {
+                      "id": 5,
+                      "name": "Celigo IO",
+                      "email": "Celigo.IO@celigo.com",
+                      "time_zone": "Chennai",
+                      "custom_role_id": 194
+                    }
+                  }
+                ]
+              },
+              "http": {
+                "relativeURI": "/users",
+                "method": "GET",
+                "body": "asdf",
+                "formType": "http",
+                "response": {
+                  "resourcePath": "users"
+                }
+              },
+              "test": {
+                "limit": 10
+              },
+              "transform": {
+                "type": "expression",
+                "expression": {
+                  "rules": [[]],
+                  "version": "1"
+                },
+                "version": "1",
+                "rules": [[]]
+              },
+              "adaptorType": "HTTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "Http Import create users",
+              "responseTransform": {
+                "type": "expression",
+                "expression": {
+                  "rules": [[]],
+                  "version": "1"
+                },
+                "version": "1",
+                "rules": [[]]
+              },
+              "mockResponse": [
+                {
+                  "id": "1234567890",
+                  "errors": [],
+                  "_json": {
+                    "mockResponse": {
+                      "record": {
+                        "id": "1",
+                        "name": "Mary Poppins",
+                        "type": "customer",
+                        "address": {
+                          "street": "17 Cherry Tree Lane",
+                          "City": "London"
+                        }
+                      }
+                    }
+                  },
+                  "statusCode": 200,
+                  "ignored": false,
+                  "dataURI": "",
+                  "_headers": {
+                    "content-type": "application/json; charset=utf-8"
+                  }
+                },
+                {
+                  "id": "1234567890",
+                  "errors": [],
+                  "_json": {
+                    "mockResponse": {
+                      "record": {
+                        "id": "2",
+                        "name": "Sherlock Holmes",
+                        "type": "customer",
+                        "address": {
+                          "street": "221B Baker Street",
+                          "City": "London"
+                        }
+                      }
+                    }
+                  },
+                  "statusCode": 200,
+                  "ignored": false,
+                  "dataURI": "",
+                  "_headers": {
+                    "content-type": "application/json; charset=utf-8"
+                  }
+                }
+              ],
+              "_connectionId": "HTTP ZENDESK CONNECTION",
+              "_sourceId": "647ece910373055b9166f22b",
+              "apiIdentifier": "i7e66f5ac1",
+              "ignoreExisting": false,
+              "ignoreMissing": false,
+              "oneToMany": false,
+              "lookups": [
+                {
+                  "method": "GET",
+                  "relativeURI": "users/{{data.id}}",
+                  "extract": "ticket.name",
+                  "allowFailures": false,
+                  "name": "Dynamic",
+                  "useImportHeaders": true
+                }
+              ],
+              "mapping": {
+                "fields": [
+                  {
+                    "extract": "id",
+                    "generate": "ID"
+                  },
+                  {
+                    "extract": "name",
+                    "generate": "Name"
+                  },
+                  {
+                    "extract": "email",
+                    "generate": "Email"
+                  },
+                  {
+                    "extract": "custom_role_id",
+                    "generate": "Custom_Role_Id"
+                  }
+                ]
+              },
+              "http": {
+                "relativeURI": ["/users"],
+                "method": ["POST"],
+                "body": [
+                  "{\"ticket\": {\"comment\": {\"body\": \"THis is ticket\"},\"description\": \"{{lookup \"Dynamic\" this}}\",\"priority\": \"urgent\",\"subject\": \"My printer is on fire!\"  }}"
+                ],
+                "batchSize": 1,
+                "sendPostMappedData": true,
+                "formType": "http",
+                "lookups": [
+                  {
+                    "method": "GET",
+                    "relativeURI": "users/{{data.id}}",
+                    "extract": "ticket.name",
+                    "allowFailures": false,
+                    "name": "Dynamic",
+                    "useImportHeaders": true
+                  }
+                ]
+              },
+              "filter": {
+                "type": "expression",
+                "expression": {
+                  "rules": [],
+                  "version": "1"
+                },
+                "version": "1",
+                "rules": []
+              },
+              "adaptorType": "HTTPImport"
+            }
+          },
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "Ftp Import",
+              "responseTransform": {
+                "type": "expression",
+                "expression": {
+                  "rules": [
+                    [
+                      {
+                        "extract": "mockResponse",
+                        "generate": "Response"
+                      }
+                    ]
+                  ],
+                  "version": "1"
+                },
+                "version": "1",
+                "rules": [
+                  [
+                    {
+                      "extract": "mockResponse",
+                      "generate": "Response"
+                    }
+                  ]
+                ]
+              },
+              "mockResponse": [
+                {
+                  "id": "1234567890",
+                  "errors": [],
+                  "_json": {
+                    "mockResponse": "replace me"
+                  },
+                  "statusCode": 200,
+                  "ignored": false,
+                  "dataURI": "",
+                  "_headers": {
+                    "content-type": "application/json; charset=utf-8"
+                  }
+                }
+              ],
+              "_connectionId": "FTP CONNECTION",
+              "_sourceId": "647ed953e9fd4b447efd28ea",
+              "apiIdentifier": "ic034e7c11",
+              "oneToMany": false,
+              "file": {
+                "fileName": "import.json",
+                "skipAggregation": false,
+                "type": "json"
+              },
+              "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                "fileName": "import.json"
+              },
+              "adaptorType": "FTPImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C64965",
+          "disabled": false,
+          "skipRetries": false,
+          "_integrationId": "63232c59d3a9897fe95f9f2a",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [
+                  {
+                    "extract": "_json.mockResponse.record.name",
+                    "generate": "Result_Name"
+                  }
+                ],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            },
+            {
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID",
+              "skipRetries": false
+            }
+          ]
+        }
+      }
+    ]
+  }
+  

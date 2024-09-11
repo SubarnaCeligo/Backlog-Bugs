@@ -6,6 +6,8 @@ test.describe("@Env-All @Zephyr-IO-T3016|@Zephyr-IO-T3034 ", () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.flowBuilder.fill(selectors.integrationPagePO.HOME_SEARCH,'3015');
     await io.homePage.loadingTime();
+    await io.homePage.click(selectors.homePagePO.LIST_VIEW);
+    await io.homePage.loadingTime();
     const label = await page.locator("tr:nth-child(1) > td:nth-child(3) > div> button");
     const succ = await label.textContent();
     expect(succ).toBe('Success');
@@ -16,8 +18,8 @@ test.describe("@Env-All @Zephyr-IO-T3016|@Zephyr-IO-T3034 ", () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();
     test.step("Selecting list view", async ()=>{});
-    await io.homePage.click(selectors.homePagePO.LIST_VIEW);
     await io.flowBuilder.fill(selectors.integrationPagePO.HOME_SEARCH,'Standalone flows');
+    await io.homePage.click(selectors.homePagePO.LIST_VIEW);
     await io.homePage.loadingTime();
     const actionMenu = await page.locator("tr:nth-child(1) > td:nth-child(6) > button");
     const isAvailable = await actionMenu.isVisible();

@@ -6,9 +6,10 @@ import { decrypt ,randomNumber} from "@celigo/aut-utilities";
 test.describe("TC_C22648", () => {
   test.beforeEach(async ({io}) => {
     await io.goToFlowsPage();
+    await io.homePage.loadingTime();
   });
   test("@Zephyr-IO-T2255 @Env-All TC_C22648_Verify_the_Clone_page", async ({io,page}, testInfo) => {
-    await io.goToFlowsPage();
+    await io.homePage.loadingTime();
     await io.homePage.isPageLoaded();
     var rel = await page.$$(selectors.connectionsPagePO.ACTIONS_MENU_BUTTON);
     await rel[1].click()

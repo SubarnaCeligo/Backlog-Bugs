@@ -17,7 +17,7 @@
           "qa__export": {
             "name": "AutomationStandalone_H5yQy",
             "_connectionId": "FTP CONNECTION",
-            "qa__path": "//FTP_uploads//TC_C52753.json",
+            "qa__path": "/FTP_uploads/TC_C52753.json",
             "apiIdentifier": "e9c3edcfda",
             "asynchronous": true,
             "sandbox": false,

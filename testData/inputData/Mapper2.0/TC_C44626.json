@@ -22,39 +22,51 @@
           {
             "generate": "id",
             "dataType": "numberarray",
+            "status": "Active",
             "buildArrayHelper": [
               {
-                "extract": "$.custom_fields[*].id"
+                "extract": "$.tickets[*].custom_fields[*].id",
+                "sourceDataType": "number"
               }
             ]
           },
           {
             "generate": "fieldvalue",
             "dataType": "stringarray",
+            "status": "Active",
             "buildArrayHelper": [
               {
-                "extract": "$.fields[*].value"
+                "extract": "$.tickets[*].fields[*].value",
+                "sourceDataType": "string"
               }
             ]
           },
           {
-            "generate": "tags",
+            "generate": "followupIds",
             "dataType": "booleanarray",
+            "status": "Active",
             "buildArrayHelper": [
               {
-                "extract": "$.tags"
+                "extract": "$.tickets[*].followup_ids[*]",
+                "sourceDataType": "booleanarray"
               }
             ]
           },
           {
-            "extract": "$.is_public",
-            "generate": "ispublic",
-            "dataType": "boolean"
+            "extract": "$.next_page",
+            "generate": "nextPage",
+            "dataType": "boolean",
+            "status": "Active",
+            "sourceDataType": "string"
           }
         ],
         "http": {
-          "relativeURI": ["orders"],
-          "method": ["POST"],
+          "relativeURI": [
+            "orders"
+          ],
+          "method": [
+            "POST"
+          ],
           "body": [],
           "batchSize": 1,
           "sendPostMappedData": true,

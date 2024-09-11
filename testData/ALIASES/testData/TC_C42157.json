@@ -1,0 +1,119 @@
+{
+    "qa_requestBody": {
+        "name": "Standalone Integration",
+        "sandbox": false,
+        "_registeredConnectionIds": [
+            "NETSUITE CONNECTION",
+            "SALESFORCE CONNECTION"
+        ],
+        "aliases": [
+            {
+                "alias": "alias_flowId",
+                "_flowId": ""
+            }
+        ]
+    },
+    "requestBody": {
+        "name": "Standalone Integration",
+        "sandbox": false,
+        "_registeredConnectionIds": [
+            "NETSUITE CONNECTION",
+            "SALESFORCE CONNECTION"
+        ],
+        "aliases": [
+            {
+                "alias": "alias_flowId",
+                "_flowId": ""
+            }
+        ]
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "FTP Export",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "e915125cd2",
+                        "asynchronous": true,
+                        "sandbox": false,
+                        "sampleData": [
+                            {
+                                "ItemName": "ACC00001",
+                                "BasePrice": "114.00",
+                                "CustomerName": "Automation5",
+                                "Memo": "TC_C2472",
+                                "Qty": "1",
+                                "Amount": "10.00"
+                            }
+                        ],
+                        "ftp": {
+                            "directoryPath": "/"
+                        },
+                        "file": {
+                            "output": "records",
+                            "skipDelete": false,
+                            "type": "json",
+                            "json": {
+                                "resourcePath": "*"
+                            }
+                        },
+                        "adaptorType": "FTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "FTP Import",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "ie0ee7949d",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "file": {
+                            "fileName": "file-{{timestamp}}.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "/",
+                            "fileName": "file-{{timestamp}}.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C42157_validate_error_for_flowId",
+                "disabled": false,
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ],
+    "error": {
+        "errors": [
+            {
+                "field": "aliases",
+                "code": "update_not_allowed",
+                "message": "The target flow must be attached to the same integration."
+            }
+        ]
+    }
+}

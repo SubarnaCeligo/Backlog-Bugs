@@ -1,4 +1,7 @@
 {
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "name": "TC_C51242",
   "pageProcessors": [
     {
       "responseMapping": {
@@ -16,17 +19,17 @@
         "sandbox": false,
         "mappings": [
           {
-            "extract": "$.email",
-            "generate": "ticket.comment.body",
+            "extract": "$.id",
+            "generate": "ticketID",
             "dataType": "string",
             "conditional": {
               "when": "extract_not_empty"
             },
             "status": "Active",
-            "sourceDataType": "string"
+            "sourceDataType": "number"
           },
           {
-            "generate": "ticket.subject",
+            "generate": "ticket",
             "dataType": "object",
             "conditional": {
               "when": "extract_not_empty"
@@ -34,8 +37,8 @@
             "status": "Active",
             "mappings": [
               {
-                "extract": "$[*].Diabetes[*].medications[*].medicationsClasses[*].className[*].associatedDrug[*].name",
-                "generate": "Name",
+                "extract": "$.currency",
+                "generate": "curr",
                 "dataType": "string",
                 "conditional": {
                   "when": "extract_not_empty"
@@ -47,8 +50,12 @@
           }
         ],
         "http": {
-          "relativeURI": ["tickets"],
-          "method": ["POST"],
+          "relativeURI": [
+            "tickets"
+          ],
+          "method": [
+            "POST"
+          ],
           "body": [],
           "batchSize": 1,
           "sendPostMappedData": true,
@@ -60,27 +67,43 @@
   ],
   "pageGenerators": [
     {
-      "type": "export",
       "qa__export": {
-        "name": "asfd",
-        "_connectionId": "FTP CONNECTION",
+        "name": "export_TC_C51168",
+        "_connectionId": "SHOPIFY CONNECTION",
+        "qa__connectionId": "SHOPIFY CONNECTION",
+        "adaptorType": "RESTExport",
         "asynchronous": true,
-        "sandbox": false,
-        "qa__path": "/FTP_uploads/automation.json",
-        "ftp": {
-          "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
-          "fileNameStartsWith": "automation.json"
+        "assistant": "shopify",
+        "assistantMetadata": {
+          "resource": "order",
+          "version": "v2",
+          "operation": "receive_asingleorder"
         },
-        "file": {
-          "encoding": "utf8",
-          "output": "records",
-          "skipDelete": true,
-          "type": "json",
-          "json": {
-            "resourcePath": "*"
+        "http": {
+          "relativeURI": "/orders/4501132231.json",
+          "method": "GET",
+          "paging": {
+            "lastPageValues": []
+          },
+          "response": {
+            "resourcePath": "order",
+            "successValues": []
           }
         },
-        "adaptorType": "FTPExport"
+        "rest": {
+          "relativeURI": "/orders/4501132231.json",
+          "method": "GET",
+          "headers": [],
+          "resourcePath": "order",
+          "allowUndefinedResource": false
+        },
+        "qa__assistant": {
+          "resource": "Orders : Order",
+          "endpoint": "Retrieves a specific order",
+          "pathParams": {
+            "orderId": "4501132231"
+          }
+        }
       }
     }
   ]
