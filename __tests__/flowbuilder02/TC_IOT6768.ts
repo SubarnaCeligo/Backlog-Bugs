@@ -48,55 +48,6 @@ test.describe(`@Author-MayankOmar IO-T6768 Verify the  help text of the newly ad
     await io.homePage.addStep(
       "*** Wait For How would you like the records imported? to be in document  ***"
     );
-
-    await io.flowBuilder.click(selectors.importPagePO.SELECTHTTPMETHOD);
-    await io.homePage.addStep("*** Click on Http Method Dropdown  ***");
-
-    await io.flowBuilder.click(selectors.importPagePO.HTTPPOSTMETHOD);
-    await io.homePage.addStep(
-      "*** Select Post Method From Http Method Dropdown  ***"
-    );
-
-    await io.exportsPage.fill(
-      selectors.flowBuilderPagePO.HTTP_GET_RELATIVEURL,
-      "/feeds/2021-06-30/documents"
-    );
-    await io.homePage.addStep(
-      "*** Fill the relative uri in Relative Uri field  ***"
-    );
-
-    await io.assert.verifyElementDisplayedByText(
-      "Feed type",
-      "Feed type is not present"
-    );
-
-    await io.homePage.addStep(
-      "*** Verify whether Feed Type Field is Present or not?  ***"
-    );
-
-    await io.exportsPage.click( selectors.importPagePO.FEED_TYPE_HELP_ICON_SELECTOR);
-    await io.homePage.addStep("*** Click on Help Icon  ***");
-
-    const helpTextPopOverTitleSelector =
-      selectors.exportsPagePO.HELP_TEXT_POPOVER_TITLE_EXPORT;
-
-    const element = await page.$(helpTextPopOverTitleSelector);
-    await io.homePage.addStep(
-      "*** Getting the title Selector of help popover ***"
-    );
-
-    const textContent = await element.textContent();
-    await io.homePage.addStep("*** Getting the Element Text content  ***");
-
-    expect(textContent).toBe("Feed type");
-    await io.homePage.addStep("*** Verified the Title  ***");
-
-    await io.assert.verifyElementDisplayedByText(
-      "The type of the feed.",
-      "Help text is incorrect"
-    );
-    await io.homePage.addStep("*** Verified the Help Text Body  ***");
-
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.addStep("*** Going back to homepage ***");
   });

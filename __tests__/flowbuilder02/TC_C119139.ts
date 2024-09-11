@@ -7,7 +7,17 @@ test.describe("C119139 Verify After refreshing page also Dashboard showing Runni
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.click(selectors.basePagePO.DASHBOARD);
         await io.homePage.click(selectors.dashboardPagePO.COMPLETED_FLOWS);
+        await io.homePage.loadingTime()
+        await io.homePage.loadingTime()
+        await io.homePage.loadingTime()
+        await io.homePage.loadingTime()
         await io.homePage.reloadPage();
+        await io.homePage.reloadPage();
+        await io.homePage.reloadPage();
+        await io.homePage.reloadPage();
+        await io.homePage.loadingTime()
+        await io.homePage.loadingTime()
+        await io.homePage.loadingTime()
         await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.COMPLETED_FLOWS, 'Flows are not displayed');
     });
 });
