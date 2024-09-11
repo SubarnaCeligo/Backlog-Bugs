@@ -5,7 +5,7 @@
     {
       "qa__export": {
         "name": "Loop Returns Export",
-        "_connectionId": "LOOP RETURNS NO VERSION",
+        "_connectionId": "LOOP RETURNS NO VERSION NEW",
         "apiIdentifier": "e6140f00ae",
         "asynchronous": true,
         "assistant": "loopreturns",
@@ -41,7 +41,7 @@
       "type": "import",
       "qa__import": {
         "name": "Loop Returns Import",
-        "_connectionId": "LOOP RETURNS NO VERSION",
+        "_connectionId": "LOOP RETURNS NO VERSION NEW",
         "apiIdentifier": "i93349202e",
         "ignoreExisting": false,
         "ignoreMissing": false,
