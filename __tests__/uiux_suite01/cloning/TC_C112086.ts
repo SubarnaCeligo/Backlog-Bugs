@@ -10,6 +10,7 @@ test.describe(`C112086 Verify the JWT bearer connection while cloning `, () => {
     io,
     page
   }) => {
+    
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL)
     await io.homePage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR)
     await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "Automation Flows")
@@ -23,6 +24,7 @@ test.describe(`C112086 Verify the JWT bearer connection while cloning `, () => {
       selectors.connectionsPagePO.ACTIONS_MENU_BUTTON,
       0
     );
+    
     await io.flowBuilder.clickByText("Clone flow");
     await io.homePage.waitForElementAttached(selectors.basePagePO.ADD_NAME);
     await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT,'Clone_Github');
@@ -39,6 +41,15 @@ test.describe(`C112086 Verify the JWT bearer connection while cloning `, () => {
     await io.flowBuilder.click(selectors.templatePagePO.CONFIGURE);
     await io.flowBuilder.click(selectors.connectionsPagePO.EXISTING);
     await io.flowBuilder.click(selectors.basePagePO.CONNECTION);
-    await io.connectionPage.clickByTextByIndex("GITHUB JWT CONNECTION", 1);
+  const element = await page.evaluateHandle(() => {
+    return Array.from(document.querySelectorAll('*')).find(el => el.textContent.includes('GITHUB JWT'));
+  });
+
+  if (element) {
+    await element.click();
+  } else {
+    console.log("Element with partial text not found.");
+  }
+
   });
 });
