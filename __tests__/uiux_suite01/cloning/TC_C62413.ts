@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Connections/Narvar.json";
 
 test.describe(`C62413 Verify New Outh 2.0 iclient form is getting display if you set up a new connection while cloning a flow`, () => {
-  test(`@Env-STAGING @Env-QA @Zephyr-IO-T16936 C62413 Verify New Outh 2.0 iclient form is getting display if you set up a new connection while cloning a flow`, async ({
+  test(`@Env-QA @Zephyr-IO-T16936 C62413 Verify New Outh 2.0 iclient form is getting display if you set up a new connection while cloning a flow`, async ({
     io,
     page
   }) => {
@@ -25,7 +25,9 @@ test.describe(`C62413 Verify New Outh 2.0 iclient form is getting display if you
     await page.getByRole("menuitem").nth(1).click();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLONE_FLOW_BUTTON);
     await io.flowBuilder.clickByText("Configure");
+    await io.flowBuilder.clickByText('HTTP');
     await io.flowBuilder.click(selectors.integrationPagePO.ADDNEWRESOURCE);
+  
     await io.assert.verifyElementIsDisplayed(
       selectors.connectionsPagePO.OAUTH2_CLIENT_ID,
       "'Client ID' field not displayed"
