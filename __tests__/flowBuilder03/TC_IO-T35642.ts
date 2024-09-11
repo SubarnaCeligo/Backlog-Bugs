@@ -6,7 +6,7 @@ test.describe("@Author_MaheshNivruttiSutar Verify Inconsistent Capitalization of
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.myAccountPage.loadingTime();
     });
-    test("@Bug-IO-87902 @Priority-P2 @Env-QA @Zephyr-IO-T35642", async ({ io, page }) => {
+    test("@Bug-IO-87902 @Priority-P2 @Env-All @Zephyr-IO-T35642", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.loadingTime();
         await io.homePage.click(selectors.basePagePO.CONNECTIONS);

@@ -5,7 +5,7 @@ test.describe("TC_T37428_Test to validate closing tag is added automatically whe
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Zephyr-IO-T37428 @Env-QA @Priority-P2", async ({ io, page }) => {
+    test("@Zephyr-IO-T37428 @Env-All @Priority-P2", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.goToMenu("Tools", "Playground");
         await io.homePage.addStep("*** navigating to Tools >> Playground ***");

@@ -1,6 +1,6 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import T17393 from "../../../testData/inputData/Flows/T17393.json";
+import T17393 from "../../testData/inputData/Flows/T17393.json";
 
 
 test.describe('T17393 Verify scheduling set for parent integration flow is present in cloned integration flow', () => {

@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("@Author_MaheshNivruttiSutar Verify Path/Query parameters are not being shown before selecting connection for HTTP 2.0 connectors", () => {
-    test("@Bug-IO-86320 @Env-QA @Priority-P2 @Zephyr-IO-T35133 Export", async ({ io, page }) => {
+    test("@Bug-IO-86320 @Env-All @Priority-P2 @Zephyr-IO-T35133 Export", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.loadingTime()
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
@@ -30,7 +30,7 @@ test.describe("@Author_MaheshNivruttiSutar Verify Path/Query parameters are not 
         await io.flowBuilder.loadingTime();
         await io.assert.verifyElementIsDisplayed(selectors.flowBuilderPagePO.PATH_FIELD_ID, "Query parameters is not displayed properly");
     });
-    test("@Bug-IO-86320 @Env-QA @Priority-P2 @Zephyr-IO-T35133 Import", async ({ io, page }) => {
+    test("@Bug-IO-86320 @Env-All @Priority-P2 @Zephyr-IO-T35133 Import", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.loadingTime()
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);

@@ -5,7 +5,7 @@ test.describe("TC_T37424_Test to validate closing brackets are automatically add
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Zephyr-IO-T37424 @Env-QA @Priority-P2", async ({ io, page }) => {
+    test("@Zephyr-IO-T37424 @Env-All @Priority-P2", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.goToMenu("Tools", "Playground");
         await io.homePage.addStep("*** navigating to Tools >> Playground ***");

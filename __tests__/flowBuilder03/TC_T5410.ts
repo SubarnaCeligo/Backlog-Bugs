@@ -1,6 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import TC from '../../../testData/inputData/FlowBuilder/TC_T5410.json';
+import TC from '../../testData/inputData/FlowBuilder/TC_T5410.json';
 
 test.describe("T5410 Verify Preview, save and close buttons on AFE2.0", () => {
     let flowId;

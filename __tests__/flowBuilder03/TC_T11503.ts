@@ -1,6 +1,6 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import T11503 from "../../../testData/inputData/Flows/T11503.json";
+import T11503 from "../../testData/inputData/Flows/T11503.json";
 
 test.describe('T11503 Verify Sample data is shown when we apply resource path for FTP/S3 exports', () => {
     let id;

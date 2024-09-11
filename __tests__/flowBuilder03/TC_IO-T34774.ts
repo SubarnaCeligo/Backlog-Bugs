@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import TC from '@testData/FlowBuilder/T34774.json';
 
 test.describe("@Author_MaheshNivruttiSutar Verify SQL Query is not clearing If user update 'useAsPrimaryInterface' setting from true to false", () => {
-    test("@Bug-IO-85442 @Env-QA @Priority-P2 @Zephyr-IO-T34774", async ({ io, page }) => {
+    test("@Bug-IO-85442 @Env-All @Priority-P2 @Zephyr-IO-T34774", async ({ io, page }) => {
         const id = await io.createResourceFromAPI(TC, "FLOWS");
         await io.homePage.loadingTime();
 

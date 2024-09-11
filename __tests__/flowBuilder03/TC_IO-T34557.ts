@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("@Author_MaheshNivruttiSutar Verify the preview panel appears while creating a file lookup.", () => {
-    test("@Bug-IO-84282 @Env-QA @Priority-P2 @Zephyr-IO-T34557", async ({ io, page }) => {
+    test("@Bug-IO-84282 @Env-All @Priority-P2 @Zephyr-IO-T34557", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.loadingTime()
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);

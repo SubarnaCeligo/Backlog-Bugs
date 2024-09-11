@@ -10,7 +10,7 @@ test.describe(`@Author_MaheshNivruttiSutar @Zephyr-IO-T37326 @Zephyr-IO-T37327`,
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.loadingTime();
     });
-    test(`@Epic-IO-90427 @Priority-P2 @Env-QA @Zephyr-IO-T37326 @Zephyr-IO-T37327 `, async ({ page, io }) => {
+    test(`@Epic-IO-90427 @Priority-P2 @Env-All @Zephyr-IO-T37326 @Zephyr-IO-T37327 `, async ({ page, io }) => {
         //IO-T37326 Verify that the ‘Test connection’ button UI is displayed properly while installing integation.
         await io.homePage.navigateTo(`${io.data.links.HOME_PAGE_URL}/installIntegration`);
         await io.flowBuilder.loadingTime();
