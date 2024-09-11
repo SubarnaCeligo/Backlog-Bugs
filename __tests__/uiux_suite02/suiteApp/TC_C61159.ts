@@ -21,7 +21,7 @@ test.describe(`C61159 Verify IIf all the NS stepsn my integration are solely con
     await io.homePage.addStep("Uploaded integration zip file");
     await io.homePage.clickByText("Install integration");
     await io.homePage.click(selectors.basePagePO.DIALOG_PROCEED_BUTTON);
-    await page.getByText("Loading...").waitFor({ state: "hidden" });
+    await page.locator(`//*[contains(@class,'MuiTypography-root') and contains(text(),'Loading')]`).first().waitFor({ state: "hidden", timeout: 600000 });
     await io.assert.verifyElementDisplayedByText(
       "Integrator SuiteApp",
       "Integrator SuiteApp is not visible"

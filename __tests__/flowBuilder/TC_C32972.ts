@@ -78,8 +78,13 @@ test.describe("@Env-All @Zephyr-IO-T3025|@Env-All @Zephyr-IO-T3027|@Env-All @Zep
     await expect(text).toBeVisible();
     await io.homePage.loadingTime();
     await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
-    await io.homePage.click(selectors.integrationPagePO.PIN_INTEGRATION)
+    await io.homePage.click(selectors.integrationPagePO.PIN_INTEGRATION);
+    await io.homePage.loadingTime();
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.loadingTime();
+    await io.homePage.click(
+      selectors.homePagePO.LIST_VIEW
+    );
     await io.homePage.loadingTime();
     await io.homePage.clickByIndex(selectors.integrationPagePO.OPENACTIONSMENU,0);
     const unpin = await page.getByText("Unpin Integration");

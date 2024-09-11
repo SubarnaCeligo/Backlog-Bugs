@@ -124,5 +124,21 @@
                 "adaptorType": "HTTPImport"
             }
         }
-    ]
+    ],
+    "createFlow": {
+        "name": "TC_C2468",
+        "disabled": false,
+        "skipRetries": false,
+        "pageProcessors": [
+            {
+                "type": "export",
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+        ],
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+        ]
+    }
 }

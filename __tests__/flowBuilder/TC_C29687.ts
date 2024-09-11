@@ -7,8 +7,11 @@ test.describe("@Env-All @Zephyr-IO-T2884|Verify the preview is working fine for 
 
   test("@Env-All @Zephyr-IO-T2884|Verify the preview is working fine for the realtime exports ", async ({io}) => {
     // Creating Page Generators
+    let flowId
     test.step("*** Creating PageGenerator ***", async ()=>{});
-    await io.createResourceFromAPI(TC_C29687, "FLOWS");
+    await io.api.createImpOrExpAndFlowsThruAPI(TC_C29687);
+    flowId = await io.api.getFlowId(TC_C29687.name);
+    await io.flowBuilderDashboard.navigateToFlowBuilderInFB(flowId);
     await io.homePage.loadingTime();
     test.step("*** Opening the flow ***", async ()=>{});
     await io.homePage.click(
