@@ -1,0 +1,121 @@
+{
+  "name": "TC_C52079",
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "AutomationStandalone_aygjLBH",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "e500a2ddd6",
+        "asynchronous": true,
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "TC_C52753"
+        },
+        "file": {
+          "output": "records",
+          "skipDelete": true,
+          "type": "json",
+          "groupByFields": ["nlobjRecordType"],
+          "groupEmptyValues": true
+        },
+        "adaptorType": "FTPExport",
+        "qa__path": "//FTP_uploads//TC_C52753.json"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "AutomationStandalone_6YoAx",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "ie869bd9fb",
+        "oneToMany": false,
+        "sandbox": false,
+        "mappings": [
+          {
+            "generate": "test",
+            "dataType": "objectarray",
+            "status": "Active",
+            "buildArrayHelper": [
+              {
+                "extract": "$.nlobjFieldIds",
+                "sourceDataType": "object",
+                "mappings": [
+                  {
+                    "generate": "test1",
+                    "dataType": "objectarray",
+                    "status": "Active",
+                    "buildArrayHelper": [
+                      {
+                        "extract": "$.nlobjFieldIds",
+                        "sourceDataType": "object",
+                        "mappings": [
+                          {
+                            "extract": "$.nlobjRecordType",
+                            "generate": "test2",
+                            "dataType": "string",
+                            "status": "Active",
+                            "sourceDataType": "string"
+                          }
+                        ]
+                      },
+                      {
+                        "extract": "$.nlobjSublistIds.itemvendor.lines[*]",
+                        "sourceDataType": "objectarray",
+                        "mappings": [
+                          {
+                            "generate": "test3",
+                            "dataType": "string",
+                            "status": "Draft",
+                            "sourceDataType": "string"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "file": {
+          "fileName": "TC_33549.json",
+          "skipAggregation": false,
+          "type": "json",
+          "encoding": "utf8"
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO Automation SFTP Imports",
+          "fileName": "TC_33549.json"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "createFlow": {
+    "name": "TC_C52079",
+    "disabled": false,
+    "qa__integrationId": "56d6b23fe1fc35de53914730",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "pageProcessors": [
+      {
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        },
+        "type": "import",
+        "_importId": "UPDATE WITH NEW IMPORTID"
+      }
+    ],
+    "pageGenerators": [
+      {
+        "type": "export",
+        "_exportId": "UPDATE WITH NEW EXPORTID"
+      }
+    ]
+  }
+}

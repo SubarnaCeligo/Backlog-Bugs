@@ -1,0 +1,127 @@
+{
+  "ProdToSandbox": {
+    "Source_Integration": "Delete_TC_C42138",
+    "templateJSON": {
+      "Source_Environment": "Production",
+      "Source_Integration": "Delete_TC_C42138",
+      "Clone_To_Integrate": "Delete_TC_Clone_SB_C42138"
+    },
+    "Source_Environment": "Production",
+    "Destination_Enviornment": "Sandbox",
+    "Clone_To_Integrate": "Delete_TC_Clone_SB_C42138",
+    "Integration_Clone": true,
+    "New_connection": false,
+    "connections": [
+      "63273d9db144bd24fd6f9631"
+    ],
+    "qa__connections": [
+      "632735e0ea2387339de3e348"
+    ]
+  },
+  "SandboxToProd": {
+    "Source_Integration": "Delete_TC_Clone_SB_C42138",
+    "templateJSON": {
+      "Source_Environment": "Sandbox",
+      "Source_Integration": "Delete_TC_Clone_SB_C42138",
+      "Clone_To_Integrate": "Delete_TC_Clone_C42138"
+    },
+    "Source_Environment": "Sandbox",
+    "Destination_Enviornment": "Production",
+    "Clone_To_Integrate": "Delete_TC_Clone_C42138",
+    "Integration_Clone": true,
+    "New_connection": false,
+    "connections": [
+      "HTTP ZENDESK CONNECTION"
+    ],
+    "qa__connections": [
+      "HTTP ZENDESK CONNECTION"
+    ]
+  },
+  "createAliasConnection": {
+    "Source_Integration": "Delete_TC_C42138",
+    "aliasResourceType": "connections",
+    "aliasResourceName": "",
+    "aliasName": "connectionalias123"
+  },
+  "verifyAliases": [
+    {
+      "alias": "connectionalias123",
+      "_connectionId": ""
+    }
+  ],
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Delete_TC_C42138_Http_Export",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "parsers": [],
+            "http": {
+              "relativeURI": "/test",
+              "method": "GET",
+              "formType": "http"
+            },
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Delete_TC_C42138_Http_Import",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+              "relativeURI": [
+                "/test"
+              ],
+              "method": [
+                "PUT"
+              ],
+              "body": [],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "Del_TC_C42138_FLOW",
+        "disabled": true,
+        "qa__integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      },
+      "createIntegrations": {
+        "name": "Delete_TC_C42138"
+      }
+    }
+  ]
+}

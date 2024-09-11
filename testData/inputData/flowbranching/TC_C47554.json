@@ -1,0 +1,145 @@
+{
+  "name": "TC_C47554",
+   "expectedjson": {
+       "id": "9aac63a8a9334444a9c88a7c2c830860",
+       "host": "s3",
+      "aggregateOrBatchId": "64ad165110e88d434dceabcf -64ad165110e88d434dceabcd",
+      "fileInfo": {
+       "fileName": "TC_C47554-Tue, 11 Jul 2023 08:43:35 GMT.csv",
+       "fileLocation": "/io.auto.qa/Neetin",
+        "backupFileLocation": "/io.auto.qa/"
+      }},
+  "disabled": false,
+  "_integrationId": "62f51db41677a21a108e5e3a",
+  "skipRetries": false,
+  "ftpFileData": "name,PR\nAnushaRMR,",
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "NS Export",
+        "_connectionId": "NETSUITE CONNECTION",
+        "apiIdentifier": "e69841a925",
+        "asynchronous": true,
+        "oneToMany": false,
+        "netsuite": {
+          "type": "restlet",
+          "skipGrouping": false,
+          "statsOnly": false,
+          "restlet": {
+            "recordType": "salesorder",
+            "searchId": "1069",
+            "useSS2Restlets": false,
+            "markExportedBatchSize": 100
+          },
+          "distributed": {
+            "useSS2Framework": false
+          }
+        },
+        "adaptorType": "NetSuiteExport"
+      }
+    }
+  ],
+  "routers": [
+    {
+      "routeRecordsUsing": "input_filters",
+      "id": "e2LIyg",
+      "routeRecordsTo": "all_matching_branches",
+      "branches": [
+        {
+          "name": "Branch 1.0",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "FTPimport",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "i22cfa3ae2",
+                "oneToMany": false,
+                "mapping": {
+                  "fields": [
+                    {
+                      "extract": "Name",
+                      "generate": "name"
+                    },
+                    {
+                      "extract": "Phone",
+                      "generate": "PR"
+                    }
+                  ]
+                },
+                "file": {
+                  "fileName": "RetryNSexportrecordspagesize-{{timestamp}}.csv",
+                  "skipAggregation": false,
+                  "type": "csv",
+                  "backupPath": "/PavitejaVallabhaneni/FlowBranching/Skipagggregationtrue",
+                  "csv": {
+                    "rowDelimiter": "\n",
+                    "columnDelimiter": ",",
+                    "includeHeader": true,
+                    "wrapWithQuotes": false,
+                    "replaceTabWithSpace": false,
+                    "replaceNewlineWithSpace": false,
+                    "truncateLastRowDelimiter": false
+                  }
+                },
+                "ftp": {
+                  "directoryPath": "/PavitejaVallabhaneni/FlowBranching/test4records",
+                  "fileName": "RetryNSexportrecordspagesize-{{timestamp}}.csv",
+                  "backupDirectoryPath": "/PavitejaVallabhaneni/FlowBranching/Skipagggregationtrue"
+                },
+                "adaptorType": "FTPImport"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Branch 1.1",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "SF _ account1",
+                "_connectionId": "SALESFORCE CONNECTION",
+                "apiIdentifier": "i5c1fe39a7",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": true,
+                "mapping": {
+                  "fields": [
+                    {
+                      "extract": "Amount",
+                      "generate": "Phone"
+                    },
+                    {
+                      "extract": "Name",
+                      "generate": "Name"
+                    }
+                  ]
+                },
+                "salesforce": {
+                  "operation": "insert",
+                  "sObjectType": "Account",
+                  "api": "soap",
+                  "removeNonSubmittableFields": false
+                },
+                "adaptorType": "SalesforceImport"
+              }
+            }
+          ]
+        }
+      ],
+      "script": {
+        "function": "branchRouter"
+      }
+    }
+  ]
+}

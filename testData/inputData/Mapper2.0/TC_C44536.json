@@ -1,0 +1,123 @@
+{
+    "name": "TC_C44536",
+    "referencename": "TC_C44536",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "FTP export for TC_C44536",
+                        "_connectionId": "FTP CONNECTION",
+                        "asynchronous": true,
+                        "sampleData": {
+                            "measurements": [
+                                {
+                                    "caption": "C01",
+                                    "pom": "Chest",
+                                    "sizes": [
+                                        {
+                                            "measurement": "2",
+                                            "size": "Medium"
+                                        }
+                                    ],
+                                    "tolerance": "1",
+                                    "toleranceLower": "1",
+                                    "toleranceUpper": "1",
+                                    "unit": "cm"
+                                }
+                            ]
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                            "fileNameStartsWith": "TC_C44536.json"
+                        },
+                        "file": {
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "json",
+                            "json": {
+                                "resourcePath": "measurements.*"
+                            }
+                        },
+                        "adaptorType": "FTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Inspectorio",
+                        "application":"inspectorio",
+                        "qa__connectionId": "62dbca5731ef343052891b61",
+                        "_connectionId": "INSPECTORIO CONNECTION",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "mappings": [
+                            {
+                                "extract": "$.caption",
+                                "generate": "description",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "$.unit",
+                                "generate": "unit",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "extract": "{{substring record.sizes.0.size 0 1}}",
+                                "generate": "size",
+                                "dataType": "string",
+                                "conditional": {
+                                    "when": "extract_not_empty"
+                                },
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            }
+                        ],
+                        "http": {
+                            "relativeURI": [
+                                "/api/v1/organizations"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C44536",
+                "disabled": false,
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,155 @@
+{
+    "name": "TC_C52600",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "AutomationStandalone_j2tIs",
+                        "_connectionId": "FTP CONNECTION",
+                        "qa__path": "/FTP_uploads/TC_C37181.json",
+                        "apiIdentifier": "e99aa2e13a",
+                        "asynchronous": true,
+                        "sandbox": false,
+                        "sampleData": [
+                            {
+                                "Drug @ Name": "Naproxen and Esomeprazole Magnesium",
+                                "#Number": "6495195850"
+                            }
+                        ],
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                            "fileNameStartsWith": "TC_C30817"
+                        },
+                        "file": {
+                            "encoding": "utf8",
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "json",
+                            "json": {
+                                "resourcePath": "*"
+                            }
+                        },
+                        "adaptorType": "FTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "List of customers",
+                        "_connectionId": "3PL CENTRAL CONNECTION",
+                        "apiIdentifier": "ef809b6ef8",
+                        "asynchronous": true,
+                        "isLookup": true,
+                        "assistant": "3plcentral",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "assistantMetadata": {
+                            "resource": "6345f57469f848d92751bfc2",
+                            "version": "6345f57469f848d92751bfbf",
+                            "operation": "6345f57469f848d92751bfc3"
+                        },
+                        "http": {
+                            "relativeURI": "/customers?pgnum={{{export.http.paging.page}}}",
+                            "method": "GET",
+                            "headers": [],
+                            "requestMediaType": "json",
+                            "successMediaType": "json",
+                            "errorMediaType": "json",
+                            "_httpConnectorResourceId": "6345f57469f848d92751bfc2",
+                            "_httpConnectorEndpointId": "6345f57469f848d92751bfc3",
+                            "formType": "assistant",
+                            "paging": {
+                                "method": "page",
+                                "page": 1
+                            },
+                            "response": {
+                                "resourcePath": "ResourceList",
+                                "successValues": []
+                            }
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                },
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "AutomationStandalone_8Pa90",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "i1266d1c43",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "file": {
+                            "fileName": "TC_C52600.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                            "fileName": "TC_C52600.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C52600",
+                "disabled": false,
+                "_integrationId": "633408479fb96473a0c7372c",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "export",
+                        "_exportId": "UPDATE EXPORT ID"
+                    },
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "successCount": "3",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "name": "TC_C52600",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "import": {
+                    "_connectionId": "FTP CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "3",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_C52600",
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".json"
+                }
+            }
+        }
+    }
+}

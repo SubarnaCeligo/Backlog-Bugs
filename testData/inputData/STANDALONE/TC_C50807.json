@@ -1,0 +1,49 @@
+{
+    "name": "TC_C50807_Verify_Snowflake_FTP_Export_Error_Details",
+    "disabled": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "application": "Snowflake",
+                "name": "Snowflake",
+                "_connectionId": "SNOWFLAKE CONNECTION",
+                "_sourceId": "6350d93e5336913636bc5e0e",
+                "apiIdentifier": "e364abd821",
+                "asynchronous": true,
+                "oneToMany": false,
+                "groupByFields": [
+                    "COLOR"
+                ],
+                "rdbms": {
+                    "query": "select * from Grouping_5MB order by COLOR desc"
+                },
+                "adaptorType": "RDBMSExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "ftp import",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "ib6aa4364a",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "file-{{timestamp}}.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "io.auto.qa/IO_UI_Automation_FTPimport",
+                    "fileName": "file-{{timestamp}}.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ]
+}

@@ -1,115 +1,115 @@
 {
-    "name": "TC_C107846",
-    "qa__expectedDashboardCount": {
-      "ignoreCount": "0",
-      "successCount": "2",
-      "errorCount": "0"
-    },
+  "name": "TC_C107846",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "NS_C107846_Export",
+        "_connectionId": "NETSUITE CONNECTION",
+        "asynchronous": true,
+        "oneToMany": false,
+        "type": "test",
+        "aiDescription": {
+          "summary": null,
+          "detailed": null,
+          "generatedOn": null
+        },
+        "rawData": "64ff5a3670fd665c5211d1d2af2686d012214573a60044c7249d8c0f",
+        "test": {
+          "limit": 1
+        },
+        "netsuite": {
+          "type": "restlet",
+          "skipGrouping": true,
+          "statsOnly": false,
+          "restlet": {
+            "recordType": "account",
+            "searchId": "59266",
+            "criteria": [
+              {
+                "field": "name",
+                "operator": "contains",
+                "searchValue": "C107885"
+              }
+            ],
+            "restletVersion": "suiteapp2.0",
+            "markExportedBatchSize": 100
+          },
+          "distributed": {}
+        },
+        "adaptorType": "NetSuiteExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "FTP_C107846_Import",
+        "_connectionId": "FTP CONNECTION",
+        "oneToMany": false,
+        "aiDescription": {
+          "summary": null,
+          "detailed": null,
+          "generatedOn": null
+        },
+        "mappings": [
+          {
+            "generate": "DateCreated",
+            "dataType": "string",
+            "hardCodedValue": "2024-02-06 03:12 PM",
+            "status": "Active",
+            "sourceDataType": "string"
+          },
+          {
+            "dataType": "string",
+            "status": "Draft",
+            "sourceDataType": "string"
+          }
+        ],
+        "file": {
+          "fileName": "file-{{timestamp}}.json",
+          "skipAggregation": false,
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPimport",
+          "fileName": "file-{{timestamp}}.json"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "createFlow": {
+    "name": "TC_C107885 Flow",
+    "disabled": false,
     "pageGenerators": [
       {
-        "type": "export",
-        "qa__export": {
-          "name": "NS_C107846_Export",
-          "_connectionId": "NETSUITE CONNECTION",
-          "asynchronous": true,
-          "oneToMany": false,
-          "type": "test",
-          "aiDescription": {
-            "summary": null,
-            "detailed": null,
-            "generatedOn": null
-          },
-          "rawData": "64ff5a3670fd665c5211d1d2af2686d012214573a60044c7249d8c0f",
-          "test": {
-            "limit": 1
-        },
-          "netsuite": {
-            "type": "restlet",
-            "skipGrouping": true,
-            "statsOnly": false,
-            "restlet": {
-              "recordType": "account",
-              "searchId": "59266",
-              "criteria": [
-                {
-                  "field": "name",
-                  "operator": "contains",
-                  "searchValue": "C107885"
-                }
-              ],
-              "restletVersion": "suiteapp2.0",
-              "markExportedBatchSize": 100
-            },
-            "distributed": {}
-          },
-          "adaptorType": "NetSuiteExport"
-        }
+        "_exportId": "UPDATE WITH NEW EXPORTID",
+        "skipRetries": false
       }
     ],
     "pageProcessors": [
       {
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        },
         "type": "import",
-        "qa__import": {
-          "name": "FTP_C107846_Import",
-          "_connectionId": "FTP CONNECTION",
-          "oneToMany": false,
-          "aiDescription": {
-            "summary": null,
-            "detailed": null,
-            "generatedOn": null
-          },
-          "mappings": [
-            {
-              "generate": "DateCreated",
-              "dataType": "string",
-              "hardCodedValue": "2024-02-06 03:12 PM",
-              "status": "Active",
-              "sourceDataType": "string"
-            },
-            {
-              "dataType": "string",
-              "status": "Draft",
-              "sourceDataType": "string"
-            }
-          ],
-          "file": {
-            "fileName": "file-{{timestamp}}.json",
-            "skipAggregation": false,
-            "type": "json"
-          },
-          "ftp": {
-            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPimport",
-            "fileName": "file-{{timestamp}}.json"
-          },
-          "adaptorType": "FTPImport"
-        }
+        "_importId": "UPDATE WITH NEW IMPORTID"
       }
     ],
-    "createFlow": {
-      "name": "TC_C107885 Flow",
-      "disabled": false,
-      "pageGenerators": [
-        {
-          "_exportId": "UPDATE WITH NEW EXPORTID",
-          "skipRetries": false
-        }
-      ],
-      "pageProcessors": [
-        {
-          "responseMapping": {
-            "fields": [],
-            "lists": []
-          },
-          "type": "import",
-          "_importId": "UPDATE WITH NEW IMPORTID"
-        }
-      ],
-      "free": false,
-      "autoResolveMatchingTraceKeys": true,
-      "aiDescription": {
-        "summary": null,
-        "detailed": null,
-        "generatedOn": null
-      }
+    "free": false,
+    "autoResolveMatchingTraceKeys": true,
+    "aiDescription": {
+      "summary": null,
+      "detailed": null,
+      "generatedOn": null
     }
   }
+}

@@ -1,0 +1,272 @@
+{
+    "name": "TC_47424",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "NS Export",
+                "description": "NS for multiple pages and records",
+                "_connectionId": "NETSUITE CONNECTION",
+                "apiIdentifier": "e9c3f5615c",
+                "asynchronous": true,
+                "pageSize": 5,
+                "oneToMany": false,
+                "sandbox": false,
+                "rawData": "62f37ad6703e322cf5d90431636c1725492443e5bc48c0fa4d2a042d",
+                "netsuite": {
+                    "type": "restlet",
+                    "skipGrouping": true,
+                    "statsOnly": false,
+                    "restlet": {
+                        "recordType": "item",
+                        "searchId": "2509",
+                        "useSS2Restlets": false,
+                        "markExportedBatchSize": 100
+                    },
+                    "distributed": {
+                        "useSS2Framework": false
+                    }
+                },
+                "transform": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [
+                            []
+                        ],
+                        "version": "1"
+                    },
+                    "version": "1",
+                    "rules": [
+                        []
+                    ]
+                },
+                "adaptorType": "NetSuiteExport"
+            }
+        }
+    ],
+    "autoResolveMatchingTraceKeys": true,
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "CEqJxB",
+            "routeRecordsTo": "all_matching_branches",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "nextRouterId": "XiHUpm",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "export",
+                            "qa__export": {
+                                "name": "NS_lookup",
+                                "_connectionId": "NETSUITE CONNECTION",
+                                "apiIdentifier": "e57e88d5a9",
+                                "asynchronous": true,
+                                "isLookup": true,
+                                "type": "test",
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "test": {
+                                    "limit": 1
+                                },
+                                "netsuite": {
+                                    "type": "restlet",
+                                    "skipGrouping": true,
+                                    "statsOnly": false,
+                                    "restlet": {
+                                        "recordType": "customer",
+                                        "searchId": "979",
+                                        "useSS2Restlets": false,
+                                        "markExportedBatchSize": 100
+                                    },
+                                    "distributed": {
+                                        "useSS2Framework": false
+                                    }
+                                },
+                                "transform": {
+                                    "type": "expression",
+                                    "expression": {
+                                        "rules": [
+                                            [
+                                                {
+                                                    "extract": "[Office Phone]",
+                                                    "generate": "phone"
+                                                }
+                                            ]
+                                        ],
+                                        "version": "1"
+                                    },
+                                    "version": "1",
+                                    "rules": [
+                                        [
+                                            {
+                                                "extract": "[Office Phone]",
+                                                "generate": "phone"
+                                            }
+                                        ]
+                                    ]
+                                },
+                                "adaptorType": "NetSuiteExport"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Branch 1.1",
+                    "nextRouterId": "XiHUpm",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "export",
+                            "qa__export": {
+                                "name": "NSI_47517",
+                                "_connectionId": "NETSUITE CONNECTION",
+                                "apiIdentifier": "e4c37fc466",
+                                "asynchronous": true,
+                                "isLookup": true,
+                                "type": "test",
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "test": {
+                                    "limit": 1
+                                },
+                                "netsuite": {
+                                    "type": "restlet",
+                                    "skipGrouping": true,
+                                    "statsOnly": false,
+                                    "restlet": {
+                                        "recordType": "customer",
+                                        "searchId": "979",
+                                        "criteria": [],
+                                        "columns": [],
+                                        "useSS2Restlets": false,
+                                        "markExportedBatchSize": 100
+                                    },
+                                    "distributed": {
+                                        "executionContext": [],
+                                        "executionType": [],
+                                        "useSS2Framework": false
+                                    }
+                                },
+                                "adaptorType": "NetSuiteExport"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        },
+        {
+            "id": "XiHUpm",
+            "branches": [
+                {
+                    "name": "",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "export",
+                            "qa__export": {
+                                "name": "FTP import2",
+                               "_connectionId": "FTP CONNECTION",
+                                "_sourceId": "63104850b4ed2736dc29a1b7",
+                                "apiIdentifier": "e55ce66d97",
+                                "asynchronous": true,
+                                "isLookup": true,
+                                "type": "blob",
+                                "ftp": {
+                                    "directoryPath": "/ADP_Payroll",
+                                    "fileNameStartsWith": "Test"
+                                },
+                                "file": {
+                                    "output": "blobKeys",
+                                    "skipDelete": false
+                                },
+                                "adaptorType": "FTPExport"
+                            },
+                            "proceedOnFailure": true
+                        },
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                    "name": "AutomationStandaloneImport__5EigSk7ZZL",
+                                    "_connectionId": "FTP CONNECTION",
+                                    "apiIdentifier": "i5e358ab57",
+                                    "oneToMany": false,
+                                    "sandbox": false,
+                                    "mapping": {
+                                        "fields": [
+                                            {
+                                                "extract": "Name",
+                                                "generate": "name"
+                                            },
+                                            {
+                                                "extract": "Type",
+                                                "generate": "type"
+                                            }
+                                        ]
+                                    },
+                                    "file": {
+                                        "fileName": "TC_47424d.json",
+                                        "skipAggregation": true,
+                                        "type": "json"
+                                    },
+                                    "ftp": {
+                                        "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                                        "fileName": "TC_47424d.json"
+                                    },
+                                    "adaptorType": "FTPImport"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "10",
+        "errorCount": "4"
+    },
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "expected": {
+            "FTP": {
+                "name": "TC_47424",
+                "_integrationId": "62f51db41677a21a108e5e3a",
+                "import": {
+                    "_connectionId": "FTP CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_47424d",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".json"
+                }
+            }
+        }
+    }
+}

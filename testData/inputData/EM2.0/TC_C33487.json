@@ -1,0 +1,71 @@
+{
+  "name": "TC_C33487",
+  "referencename": "TC_C33487",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "33487-export",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "apiIdentifier": "e87339d411",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "salesforce": {
+              "type": "soql",
+              "api": "rest",
+              "soql": {
+                "query": "Select ID,name,email from Account"
+              }
+            },
+            "adaptorType": "SalesforceExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "33487-import",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "apiIdentifier": "iac54b34ef",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "salesforce": {
+              "operation": "insert",
+              "sObjectType": "Account",
+              "api": "soap",
+              "removeNonSubmittableFields": false
+            },
+            "adaptorType": "SalesforceImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C33487",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": true,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

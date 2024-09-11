@@ -1,0 +1,154 @@
+{
+    "flowname": "TC_C32960",
+    "name": "TC_C32960",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "zendesk_zero",
+                        "_connectionId": "ZENDESK CONNECTION",
+                        "apiIdentifier": "e3b5815323",
+                        "asynchronous": true,
+                        "type": "delta",
+                        "assistant": "zendesk",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "assistantMetadata": {
+                            "resource": "users_api",
+                            "version": "v2",
+                            "operation": "search_users"
+                        },
+                        "http": {
+                            "relativeURI": "/api/v2/users/search.json?query=/test2424",
+                            "method": "GET",
+                            "successMediaType": "json",
+                            "errorMediaType": "json",
+                            "formType": "assistant",
+                            "paging": {
+                                "method": "url",
+                                "path": "next_page",
+                                "lastPageStatusCode": 404
+                            },
+                            "response": {
+                                "resourcePath": "users"
+                            }
+                        },
+                        "rawData": "56d6b114e1fc35de5391472c55a0c7702baf44a89016e840fe4d62d7",
+                        "delta": {
+                            "dateFormat": "YYYY-MM-DDTHH:mm:ss[Z]"
+                        },
+                        "rest": {
+                            "relativeURI": "/api/v2/users/search.json?query=/test2424",
+                            "method": "GET",
+                            "resourcePath": "users",
+                            "pagingMethod": "nextpageurl",
+                            "nextPagePath": "next_page",
+                            "allowUndefinedResource": false
+                        },
+                        "adaptorType": "RESTExport"
+                    }
+                },
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "zendesk_zero",
+                        "_connectionId": "ZENDESK CONNECTION",
+                        "apiIdentifier": "e3b5815323",
+                        "asynchronous": true,
+                        "type": "delta",
+                        "assistant": "zendesk",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "assistantMetadata": {
+                            "resource": "users_api",
+                            "version": "v2",
+                            "operation": "search_users"
+                        },
+                        "http": {
+                            "relativeURI": "/api/v2/users/search.json?query=/test2424",
+                            "method": "GET",
+                            "successMediaType": "json",
+                            "errorMediaType": "json",
+                            "formType": "assistant",
+                            "paging": {
+                                "method": "url",
+                                "path": "next_page",
+                                "lastPageStatusCode": 404
+                            },
+                            "response": {
+                                "resourcePath": "users"
+                            }
+                        },
+                        "rawData": "56d6b114e1fc35de5391472c55a0c7702baf44a89016e840fe4d62d7",
+                        "delta": {
+                            "dateFormat": "YYYY-MM-DDTHH:mm:ss[Z]"
+                        },
+                        "rest": {
+                            "relativeURI": "/api/v2/users/search.json?query=/test2424",
+                            "method": "GET",
+                            "resourcePath": "users",
+                            "pagingMethod": "nextpageurl",
+                            "nextPagePath": "next_page",
+                            "allowUndefinedResource": false
+                        },
+                        "adaptorType": "RESTExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Import",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "ib2492982f",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "file": {
+                            "fileName": "file-{{timestamp}}.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPimport",
+                            "fileName": "file-{{timestamp}}.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C32960",
+                "disabled": false,
+                "qa__integrationId": "56d6b23fe1fc35de53914730",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    },
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

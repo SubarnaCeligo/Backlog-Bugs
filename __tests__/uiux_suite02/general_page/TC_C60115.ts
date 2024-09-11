@@ -14,6 +14,7 @@ test.describe("C60115 To verify that the user is able to load integration from d
     await io.homePage.goToMenu("Tools", "Playground");
     await io.homePage.loadingTime()
     await io.homePage.clickByText("Automation Flows");
+    await io.homePage.loadingTime()
     await io.homePage.clickByText("C32362_DND")
     await io.homePage.loadingTime()
     await io.homePage.clickByText("Open in Flow Builder");

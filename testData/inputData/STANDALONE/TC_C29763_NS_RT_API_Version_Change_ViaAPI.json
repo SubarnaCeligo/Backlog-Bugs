@@ -1,0 +1,45 @@
+{
+  "name": "TC_C29763_NS_RT_API_Version_Change_ViaAPI",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "NS_Customer",
+            "_connectionId": "NETSUITE CONNECTION",
+            "type": "distributed",
+            "netsuite": {
+              "type": "distributed",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "criteria": [],
+                "columns": []
+              },
+              "distributed": {
+                "recordType": "customer",
+                "executionContext": ["userinterface", "webstore"],
+                "executionType": ["create", "edit", "xedit"],
+                "sublists": [],
+                "useSS2Framework": true
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C29763_NS_RT_API_Version_Change_ViaAPI",
+        "disabled": false,
+        "_integrationId": "6228aed6bc8a2732cfe8044c",
+        "skipRetries": false,
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

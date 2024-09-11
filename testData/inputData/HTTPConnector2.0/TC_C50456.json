@@ -1,0 +1,98 @@
+{
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "successCount": "1",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "order ful exp",
+                "_connectionId": "ORDERFUL CONNECTION",
+                "asynchronous": true,
+                "assistant": "orderful",
+                "oneToMany": false,
+                "sandbox": false,
+                "assistantMetadata": {
+                    "resource": "62de4cf372bebb4e86c785cd",
+                    "version": "62de4cf272bebb4e86c785b9",
+                    "operation": "62de4cf672bebb4e86c785d5"
+                },
+                "qa__assistant": {
+                    "resource": "Relationship",
+                    "operation": "List Relationships",
+                    "queryParams": [{
+                        "limit": "10"
+                    }]
+                },
+                "http": {
+                    "relativeURI": "/relationships?limit=10",
+                    "method": "GET",
+                    "_httpConnectorVersionId": "62de4cf272bebb4e86c785b9",
+                    "_httpConnectorResourceId": "62de4cf372bebb4e86c785cd",
+                    "_httpConnectorEndpointId": "62de4cf672bebb4e86c785d5",
+                    "formType": "assistant",
+                    "paging": {
+                        "method": "url",
+                        "path": "metadata.pagination.links.next",
+                        "lastPagePath": "metadata.pagination.links.next",
+                        "lastPageValues": [
+                            "null"
+                        ]
+                    },
+                    "response": {
+                        "resourcePath": "data"
+                    }
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "import",
+                "parsers": [],
+                "_connectionId": "FTP CONNECTION",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "TC_482_Omnisend_Export.json",
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                    "fileName": "TC_482_Omnisend_Export.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ],
+    "name": "TC_C50456",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "name": "TC_C50456",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "import": {
+                    "_connectionId": "FTP CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "1",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_482_Omnisend_Export",
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".json"
+                }
+            }
+        }
+    }
+}

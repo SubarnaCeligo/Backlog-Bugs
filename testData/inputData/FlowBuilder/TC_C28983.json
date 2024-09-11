@@ -1,0 +1,101 @@
+{
+    "name": "TC_C113640",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "Netsuite export",
+                "_connectionId": "NETSUITE CONNECTION",
+                "_sourceId": "64f98e0c537351088df0e20b",
+                "apiIdentifier": "e283c9481b",
+                "asynchronous": true,
+                "oneToMany": false,
+                "rawData": "64c123109afedb1fee467c1646d5afd9847c43da80f274f188f7fce2",
+                "netsuite": {
+                    "type": "restlet",
+                    "skipGrouping": true,
+                    "statsOnly": false,
+                    "restlet": {
+                        "hooks": {
+                            "preSend": {
+                                "fileInternalId": "4425770",
+                                "function": "preSend"
+                            },
+                            "batchSize": 2
+                        },
+                        "recordType": "customer",
+                        "searchId": "996",
+                        "restletVersion": "suitebundle",
+                        "batchSize": 2,
+                        "markExportedBatchSize": 100
+                    },
+                    "distributed": {}
+                },
+                "adaptorType": "NetSuiteExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "Netsuite Import",
+                "_connectionId": "NETSUITE CONNECTION",
+                "_sourceId": "64f98e280645f2197355ed4d",
+                "distributed": true,
+                "apiIdentifier": "if70e84b4d",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "lookups": [],
+                "netsuite_da": {
+                    "restletVersion": "suitebundle",
+                    "operation": "add",
+                    "recordType": "customer",
+                    "batchSize": 2,
+                    "lookups": [],
+                    "mapping": {
+                        "fields": [],
+                        "lists": []
+                    },
+                    "hooks": {
+                        "preMap": {
+                            "fileInternalId": "4425770",
+                            "function": "preMap"
+                        },
+                        "postMap": {
+                            "fileInternalId": "4425770",
+                            "function": "postMap"
+                        },
+                        "postSubmit": {
+                            "fileInternalId": "4425770",
+                            "function": "postSubmit"
+                        }
+                    }
+                },
+                "adaptorType": "NetSuiteDistributedImport"
+            }
+        }
+    ],
+    "createFlow": {
+        "name": "TC_C113640",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+        ]
+    }
+}

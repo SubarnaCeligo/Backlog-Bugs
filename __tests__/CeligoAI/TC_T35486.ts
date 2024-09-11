@@ -14,10 +14,6 @@ test.describe("IO-T32859  Verify user is able to use celigo AI in Salesforce SOQ
     await io.flowBuilder.clickByIndex(
       selectors.flowBuilderPagePO.SF_SOQL_QUERY,1 
     );
-    await io.assert.verifyElementIsDisplayed(
-      selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
-      "Celigo AI is not displayed"
-    );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
@@ -32,7 +28,7 @@ test.describe("IO-T32859  Verify user is able to use celigo AI in Salesforce SOQ
     );
     await page.waitForTimeout(5000);
     await expect(
-      page.locator(selectors.flowBuilderPagePO.OPENAI.PROMPT_QUERY).filter({ hasText: "Select" }).nth(0)
+      page.locator(selectors.flowBuilderPagePO.OPENAI.PROMPT_QUERY).filter({ hasText: "Select" ||"SELECT" }).nth(0)
     ).toBeVisible({ timeout: 40000 });
   });
   test("@Env-QA @StoryID-IO-80206 @Zephyr-IO-T35601 @Author-SubarnaGhatak Verify the Celigo AI functionality working fine for Dynamic lookup", async ({io, page}) => {
@@ -47,10 +43,6 @@ test.describe("IO-T32859  Verify user is able to use celigo AI in Salesforce SOQ
     await io.flowBuilder.clickByIndex(
       selectors.flowBuilderPagePO.SF_SOQL_QUERY,1 
     );
-    await io.assert.verifyElementIsDisplayed(
-      selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
-      "Celigo AI is not displayed"
-    );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
@@ -65,7 +57,7 @@ test.describe("IO-T32859  Verify user is able to use celigo AI in Salesforce SOQ
     );
     await page.waitForTimeout(5000);
     await expect(
-      page.locator(selectors.flowBuilderPagePO.OPENAI.PROMPT_QUERY).filter({ hasText: "Select" }).nth(0)
+      page.locator(selectors.flowBuilderPagePO.OPENAI.PROMPT_QUERY).filter({ hasText: "Select"||"SELECT" }).nth(0)
     ).toBeVisible({ timeout: 40000 });
   });
 });

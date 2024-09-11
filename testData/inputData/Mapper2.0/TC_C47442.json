@@ -1,0 +1,410 @@
+{
+  "name": "TC_C47442",
+  "disabled": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "timezone": "Asia/Calcutta",
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "FTP Export",
+        "_connectionId": "FTP CONNECTION",
+        "asynchronous": true,
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "TC_C47442.json"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json"
+        },
+        "adaptorType": "FTPExport",
+        "qa__path": "//FTP_uploads//TC_C47442.json"
+      }
+    }
+  ],
+  "qa__expectedDashboardCount": {
+    "successCount": "5",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "47442(1)",
+        "application": "BigCommerce",
+        "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+        "qa__connectionId": "HTTP BIGCOMMERCE CONNECTION",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "mappings": [
+          {
+            "extract": "Auto_47442 {{record.name}}",
+            "generate": "name",
+            "dataType": "string",
+            "status": "Active"
+          },
+          {
+            "generate": "category_access",
+            "dataType": "object",
+            "status": "Active",
+            "mappings": [
+              {
+                "generate": "categories",
+                "dataType": "numberarray",
+                "buildArrayHelper": [
+                  {
+                    "extract": "$.category_access.categories"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "generate": "discount_rules",
+            "dataType": "objectarray",
+            "status": "Active",
+            "buildArrayHelper": [
+              {
+                "extract": "$.discount_rules[*]",
+                "mappings": [
+                  {
+                    "extract": "$.discount_rules.type",
+                    "generate": "type",
+                    "dataType": "string",
+                    "status": "Active"
+                  },
+                  {
+                    "extract": "$.discount_rules.method",
+                    "generate": "method",
+                    "dataType": "string",
+                    "status": "Active"
+                  },
+                  {
+                    "extract": "$.discount_rules.amount",
+                    "generate": "amount",
+                    "dataType": "string",
+                    "status": "Active"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "http": {
+          "relativeURI": [
+            "/v2/customer_groups"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [],
+          "batchSize": 1,
+          "sendPostMappedData": true,
+          "formType": "http"
+        },
+        "adaptorType": "HTTPImport"
+      }
+    },
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "47442(2)",
+        "application": "BigCommerce",
+        "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+        "qa__connectionId": "HTTP BIGCOMMERCE CONNECTION",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "mappings": [
+          {
+            "extract": "Auto_47442 {{record.display_name}}",
+            "generate": "name",
+            "dataType": "string",
+            "status": "Active"
+          },
+          {
+            "generate": "meta_keywords",
+            "dataType": "stringarray",
+            "status": "Active",
+            "buildArrayHelper": [
+              {
+                "extract": "$.meta_keywords"
+              }
+            ]
+          }
+        ],
+        "http": {
+          "relativeURI": [
+            "/v3/catalog/brands"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [],
+          "batchSize": 1,
+          "sendPostMappedData": true,
+          "formType": "http"
+        },
+        "adaptorType": "HTTPImport"
+      }
+    },
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "47442(3)",
+        "application": "BigCommerce",
+        "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+        "qa__connectionId": "HTTP BIGCOMMERCE CONNECTION",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "mappings": [
+          {
+            "generate": "name",
+            "dataType": "string",
+            "hardCodedValue": "Auto 6% discount",
+            "status": "Active"
+          },
+          {
+            "generate": "category_access",
+            "dataType": "object",
+            "status": "Active",
+            "mappings": [
+              {
+                "generate": "categories",
+                "dataType": "numberarray",
+                "hardCodedValue": "18, 19, 23, 34"
+              }
+            ]
+          },
+          {
+            "generate": "discount_rules",
+            "dataType": "objectarray",
+            "status": "Active",
+            "buildArrayHelper": [
+              {
+                "extract": "$.discount_rules[*]",
+                "mappings": [
+                  {
+                    "extract": "$.discount_rules.type",
+                    "generate": "type",
+                    "dataType": "string",
+                    "status": "Active"
+                  },
+                  {
+                    "extract": "$.discount_rules.method",
+                    "generate": "method",
+                    "dataType": "string",
+                    "status": "Active"
+                  },
+                  {
+                    "extract": "$.discount_rules.amount",
+                    "generate": "amount",
+                    "dataType": "string",
+                    "status": "Active",
+                    "conditional": {
+                      "when": "extract_not_empty"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "http": {
+          "relativeURI": [
+            "/v2/customer_groups"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [],
+          "batchSize": 1,
+          "sendPostMappedData": true,
+          "formType": "http"
+        },
+        "adaptorType": "HTTPImport"
+      }
+    },
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "47442(4)",
+        "application": "BigCommerce",
+        "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+        "qa__connectionId": "HTTP BIGCOMMERCE CONNECTION",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "mappings": [
+          {
+            "generate": "name",
+            "dataType": "string",
+            "hardCodedValue": "Auto_brand",
+            "status": "Active"
+          },
+          {
+            "generate": "meta_keywords",
+            "dataType": "stringarray",
+            "status": "Active",
+            "hardCodedValue": "[\"modern, clean, contemporary\"]"
+          }
+        ],
+        "http": {
+          "relativeURI": [
+            "/v3/catalog/brands"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [],
+          "batchSize": 1,
+          "sendPostMappedData": true,
+          "formType": "http"
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "qa__dataVerification": {
+    "generateSampleDropDownAvailable": false,
+    "expected": {
+      "bigcommerce": {
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "name": "TC_C47442",
+        "import": {
+          "_connectionId": "HTTP BIGCOMMERCE CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "4",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "standaloneexportflowID": "62e8fb21f389ab707f5d8ef3",
+          "uniqueField": "name",
+          "importRecordType": "customer_groups",
+          "isUIFlow": true,
+          "exportapiIdentifier": "e9d68fa854",
+          "expectedJSON": {
+            "name": "Auto_47442 5% Discount",
+            "category_access": {
+              "categories": [
+                18192334
+              ]
+            },
+            "discount_rules": [
+              {
+                "type": "all",
+                "method": "percent",
+                "amount": "5.0000"
+              }
+            ]
+          }
+        }
+      },
+      "Bigcommerce": {
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "name": "TC_C47442",
+        "import": {
+          "_connectionId": "HTTP BIGCOMMERCE CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "4",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "standaloneexportflowID": "62e6b80551208d4e704980c6",
+          "uniqueField": "name",
+          "importRecordType": "brands",
+          "isUIFlow": true,
+          "exportapiIdentifier": "e90fdcc809",
+          "expectedJSON": {
+            "name": "Auto_47442 ABCP",
+            "meta_keywords": {
+              "meta_keywords": [
+                "modern, clean, contemporary"
+              ]
+            }
+          }
+        }
+      },
+      "BigCommerce": {
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "name": "TC_C47442",
+        "import": {
+          "_connectionId": "HTTP BIGCOMMERCE CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "4",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "standaloneexportflowID": "62e8fb21f389ab707f5d8ef3",
+          "uniqueField": "name",
+          "importRecordType": "customer_groups",
+          "isUIFlow": true,
+          "exportapiIdentifier": "e9d68fa854",
+          "expectedJSON": {
+            "name": "Auto 6% discount",
+            "category_access": {
+              "categories": [
+                18,
+                19,
+                23,
+                34
+              ]
+            },
+            "discount_rules": [
+              {
+                "type": "all",
+                "method": "percent",
+                "amount": "5.0000"
+              }
+            ]
+          }
+        }
+      },
+      "bigCommerce": {
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "name": "TC_C47442",
+        "import": {
+          "_connectionId": "HTTP BIGCOMMERCE CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "4",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "standaloneexportflowID": "62e6b80551208d4e704980c6",
+          "uniqueField": "name",
+          "importRecordType": "brands",
+          "isUIFlow": true,
+          "exportapiIdentifier": "e90fdcc809",
+          "expectedJSON": {
+            "name": "Auto_brand",
+            "meta_keywords": [
+              "\"modern",
+              " clean",
+              " contemporary\""
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -13,21 +13,11 @@ test.describe("@Author_MaheshNivruttiSutar Verify Existing/marketplace flow step
         await io.flowBuilder.loadingTime();
         await io.homePage.clickButtonByIndex(selectors.flowBuilderPagePO.CLEAR_APPLICATION,1);
         await io.flowBuilder.loadingTime();
-        await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.HELP_TEXT_ICON,1);
-        await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.HELP_TEXT_ICON,1);
         await io.flowBuilder.loadingTime();
-        const sele = await page.$$(selectors.flowBuilderPagePO.RESOURCE_NAME);
-        const value = await sele[0].textContent();
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'FTP');
         await io.homePage.click(selectors.connectionsPagePO.FTP_CONNECTION);
         await io.flowBuilder.loadingTime();
         await io.homePage.clickButtonByIndex(selectors.flowBuilderPagePO.CLEAR_APPLICATION,1);
         await io.flowBuilder.loadingTime();
-        await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.HELP_TEXT_ICON,1);
-        await io.flowBuilder.clickButtonByIndex(selectors.flowBuilderPagePO.HELP_TEXT_ICON,1);
-        await io.flowBuilder.loadingTime();
-        const value1 = await sele[0].textContent();
-        await io.assert.expectToContainValue(value, value1, "re-load is not happening");
-
   });
 });

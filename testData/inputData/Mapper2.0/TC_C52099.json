@@ -1,0 +1,111 @@
+{
+    "name": "TC_C52099",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "TC_C52099",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "sandbox": false,
+                "qa__path": "//FTP_uploads//TC_C51211.json",
+                "ftp": {
+                    "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C51211"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "AutomationStandaloneImport__p2uXVQIfWO",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "if6b85f99a",
+                "oneToMany": false,
+                "sandbox": false,
+                "lookups": [
+                    {
+                        "name": "test_lookup",
+                        "map": {
+                            "1": "fname",
+                            "2": "fname"
+                        },
+                        "allowFailures": false
+                    }
+                ],
+                "mappings": [
+                    {
+                        "extract": "$[*].fName",
+                        "generate": "fname",
+                        "dataType": "string",
+                        "lookupName": "test_lookup",
+                        "status": "Active",
+                        "sourceDataType": "string"
+                    },
+                    {
+                        "generate": "lname",
+                        "dataType": "string",
+                        "status": "Draft",
+                        "sourceDataType": "string"
+                    }
+                ],
+                "file": {
+                    "fileName": "TC_C52099.json",
+                    "skipAggregation": false,
+                    "type": "json",
+                    "lookups": [
+                        {
+                            "name": "test_lookup",
+                            "map": {
+                                "1": "fname",
+                                "2": "fname"
+                            },
+                            "allowFailures": false
+                        }
+                    ]
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPimport",
+                    "fileName": "TC_C52099.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ],
+    "createFlow": {
+        "name": "TC_C52099",
+        "disabled": false,
+        "qa__integrationId": "56d6b23fe1fc35de53914730",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "skipRetries": false,
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "pageGenerators": [
+            {
+                "type": "export",
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+        ]
+    }
+}

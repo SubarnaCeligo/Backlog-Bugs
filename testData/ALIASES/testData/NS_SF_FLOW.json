@@ -1,0 +1,108 @@
+{
+    "name": "NS_SF_FLOW",
+    "aliasName": "AUTOMATION_NS_SF_FLOW",
+    "aliasExpectedName": "AUTOMATION_NS_SF_FLOW",
+    "aliasResourceType": "connections",
+    "aliasResourceName": "NETSUITE CONNECTION",
+    "skipRetries": false,
+    "_integrationId": "63200dc43bfc725f00638e41",
+    "qa__integrationId": "639ac0022a818e4415960959",
+    "expectedJSON": {
+        "alias": "automation_ns_sf_flow",
+        "_connectionId": "NETSUITE CONNECTION"
+    },
+    "qa__expectedJSON": {
+        "alias": "automation_ns_sf_flow",
+        "_connectionId": "NETSUITE CONNECTION"
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "NS Export",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "apiIdentifier": "ea49e22e48",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "test": {
+                            "limit": 1
+                        },
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "recordType": "customer",
+                                "searchId": "4537",
+                                "useSS2Restlets": false
+                            },
+                            "distributed": {
+                                "useSS2Framework": false
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "SF_import",
+                        "_connectionId": "SALESFORCE CONNECTION",
+                        "distributed": false,
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "extract": "Name",
+                                    "generate": "Name"
+                                },
+                                {
+                                    "extract": "res1",
+                                    "generate": "Description"
+                                },
+                                {
+                                    "generate": "Phone",
+                                    "hardCodedValue": "NS_SF_FLOW"
+                                }
+                            ]
+                        },
+                        "salesforce": {
+                            "operation": "insert",
+                            "sObjectType": "Account",
+                            "api": "soap",
+                            "removeNonSubmittableFields": false
+                        },
+                        "adaptorType": "SalesforceImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "NS_SF_FLOW",
+                "disabled": false,
+                "_integrationId": "63200dc43bfc725f00638e41",
+                "qa__integrationId": "639ac0022a818e4415960959",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

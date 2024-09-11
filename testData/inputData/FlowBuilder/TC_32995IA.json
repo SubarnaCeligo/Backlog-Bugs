@@ -1,0 +1,91 @@
+{
+    "qa_importJson": {
+        "environment": "Production",
+        "name": "Tile 1",
+        "contactEmail": "io.auto.qa+18@celigo.com",
+        "_integrationId": "644388527f432a22c2a8f8ad",
+        "applications": [
+            "activecampaign"
+        ],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "644388527f432a22c2a8f8ad"
+        }
+    },
+    "QaProd": {
+        "qa_importJson": {
+            "environment": "Production",
+            "name": "Tile 1",
+            "contactEmail": "io.auto.qa+18@celigo.com",
+            "_integrationId": "64449b79d142683e7bf088aa",
+            "applications": [
+                "activecampaign"
+            ],
+            "framework": "twoDotZero",
+            "twoDotZero": {
+                "_integrationId": "64449b79d142683e7bf088aa"
+            }
+        }
+    },
+    "importJson": {
+        "environment": "Production",
+        "name": "Tile 1",
+        "contactEmail": "io.auto.qa+18@celigo.com",
+        "_integrationId": "6328ac1e3eea0d15ecfa7346",
+        "applications": [
+            "activecampaign"
+        ],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "6328ac1e3eea0d15ecfa7346"
+        }
+    },
+    "qa_integrationSetting": {
+        "name": "TC_32995DND",
+        "_connectorId": "62f1db898c29d43a8b2269a0",
+        "install": [],
+        "mode": "settings",
+        "tag": "sample",
+        "sandbox": false,
+        "_registeredConnectionIds": [],
+        "installSteps": [],
+        "uninstallSteps": [],
+        "flowGroupings": [],
+        "_sourceId": "644388527f432a22c2a8f8ad"
+    },
+    "qaprod_integrationSetting": {
+        "name": "TC_32995DND",
+        "_connectorId": "62f1db898c29d43a8b2269a0",
+        "install": [],
+        "mode": "settings",
+        "tag": "sample",
+        "sandbox": false,
+        "_registeredConnectionIds": [],
+        "installSteps": [],
+        "uninstallSteps": [],
+        "flowGroupings": [],
+        "_sourceId": "64449b79d142683e7bf088aa"
+    },
+    "integrationSetting": {
+        "name": "TC_32995DND",
+        "_connectorId": "63218ef327cca414396af399",
+        "install": [],
+        "mode": "settings",
+        "tag": "sample",
+        "sandbox": false,
+        "_registeredConnectionIds": [],
+        "installSteps": [],
+        "uninstallSteps": [],
+        "flowGroupings": [],
+        "_sourceId": "6328ac1e3eea0d15ecfa7346"
+    },
+    "setupConnection": {
+        "integrationName": "TC_32995DND",
+        "uninstall": "false"
+    },
+    "createLicense": {
+        "name": "Tile 1"
+    },
+    "app": "ActiveCampaign",
+    "integrationName": "TC_32995DND"
+}

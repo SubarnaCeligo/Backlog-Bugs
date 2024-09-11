@@ -1,0 +1,65 @@
+{
+  "name": "TC_C46928_Auto_Populate_DestinationField_Help_Text",
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "disabled": false,
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "FTP import",
+        "adaptorType": "FTPImport",
+        "_connectionId": "FTP CONNECTION",
+        "file": {
+          "type": "json"
+        },
+        "ftp": {
+          "fileName": "sample.json",
+          "directoryPath": "/io.auto.qa//io.auto.qa/IO_UI_Automation"
+        }
+      }
+    }
+  ],
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "Get a single order from shopify",
+        "_connectionId": "SHOPIFY CONNECTION",
+        "qa__connectionId": "SHOPIFY CONNECTION",
+        "adaptorType": "RESTExport",
+        "asynchronous": true,
+        "assistant": "shopify",
+        "assistantMetadata": {
+          "resource": "order",
+          "version": "v2",
+          "operation": "receive_asingleorder"
+        },
+        "http": {
+          "relativeURI": "/orders/4501132231.json",
+          "method": "GET",
+          "paging": {
+            "lastPageValues": []
+          },
+          "response": {
+            "resourcePath": "order",
+            "successValues": []
+          }
+        },
+        "rest": {
+          "relativeURI": "/orders/4501132231.json",
+          "method": "GET",
+          "headers": [],
+          "resourcePath": "order",
+          "allowUndefinedResource": false
+        },
+        "qa__assistant": {
+          "resource": "Orders : Order",
+          "endpoint": "Retrieves a specific order",
+          "pathParams": {
+            "orderId": "4501132231"
+          }
+        }
+      }
+    }
+  ]
+}

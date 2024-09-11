@@ -1,0 +1,76 @@
+{
+  "name": "TC_C51667",
+  "referencename": "TC_C51667",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "AutomationStandalone_121RL",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "apiIdentifier": "ec136d0bda",
+            "asynchronous": true,
+            "oneToMany": false,
+            "type": "test",
+            "sandbox": false,
+            "test": {
+              "limit": 1
+            },
+            "salesforce": {
+              "type": "soql",
+              "api": "rest",
+              "soql": {
+                "query": "Select name, id from Account"
+              }
+            },
+            "adaptorType": "SalesforceExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "w45gwrtg",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "i91267f7e2",
+            "oneToMany": true,
+            "sandbox": false,
+            "file": {
+              "fileName": "file-{{timestamp}}.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPimport",
+              "fileName": "file-{{timestamp}}.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C51667",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

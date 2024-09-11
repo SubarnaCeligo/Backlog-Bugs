@@ -1,0 +1,78 @@
+{
+    "flowname": "TC_C103085",
+    "name": "TC_C103085",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "2",
+      "errorCount": "0"
+  },
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+                "name": "okta_flow_RSHA-256",
+                "_connectionId": "OKTA_RSHA-256_CONNECTION_DND",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "/api/v1/users",
+                    "method": "GET",
+                    "_httpConnectorVersionId": "63be63da9c29d59f7add89ce",
+                    "_httpConnectorResourceId": "63be63da9c29d59f7add89cf",
+                    "_httpConnectorEndpointId": "63be63da9c29d59f7add89d4",
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPExport"
+          }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+                "name": "FTP_flow_rsha-256",
+                "_connectionId": "FTP CONNECTION",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "okta_06_sep_rsha-256.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO Automation SFTP Imports",
+                    "fileName": "okta_06_sep_rsha-256.json"
+                },
+                "adaptorType": "FTPImport"
+          }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C103085",
+          "disabled": false,
+          "_integrationId": "64fede0009fb154e88445ca1",
+          "qa__integrationId": "64fede0009fb154e88445ca1",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

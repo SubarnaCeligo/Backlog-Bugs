@@ -1,0 +1,212 @@
+{
+  "name": "TC_C94499",
+  "referencename": "TC_C94499",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "AS2 Export",
+            "_connectionId": "AS2 CONNECTION",
+            "_sourceId": "649508cd8dcb3b16060f5387",
+            "apiIdentifier": "e31331bb25",
+            "asynchronous": true,
+            "type": "webhook",
+            "oneToMany": false,
+            "mockOutput": {
+              "page_of_records": [
+                {
+                  "record": {
+                    "id": 1473313072,
+                    "url": "https://celigoqa.zendesk.com/api/v2/users/1473313072.json",
+                    "name": "Celigo IO Automation",
+                    "email": "mounica.manavapati@celigo.com",
+                    "role": "admin",
+                    "verified": true
+                  }
+                },
+                {
+                  "record": {
+                    "id": 5935680625426,
+                    "url": "https://celigoqa.zendesk.com/api/v2/users/5935680625426.json",
+                    "name": "TC_C29918_Company1",
+                    "email": "tc29918company1@gmail.com",
+                    "role": "end-user",
+                    "verified": true
+                  }
+                },
+                {
+                  "record": {
+                    "id": 5951788196626,
+                    "url": "https://celigoqa.zendesk.com/api/v2/users/5951788196626.json",
+                    "name": "TC_C29920_Company1",
+                    "email": "tc29920company1@gmail.com",
+                    "role": "end-user",
+                    "verified": false
+                  }
+                },
+                {
+                  "record": {
+                    "id": 7421797851922,
+                    "url": "https://celigoqa.zendesk.com/api/v2/users/7421797851922.json",
+                    "name": "TC_C29919_Company1",
+                    "email": "tc29919company1@gmail.com",
+                    "role": "end-user",
+                    "verified": false
+                  }
+                },
+                {
+                  "record": {
+                    "id": 12064046716306,
+                    "url": "https://celigoqa.zendesk.com/api/v2/users/12064046716306.json",
+                    "name": "Auto@21ZD2SFUpdateIgnore#1",
+                    "email": "auto21zd2sf@celigo.com",
+                    "role": "end-user",
+                    "verified": false
+                  }
+                },
+                {
+                  "record": {
+                    "id": 12064062387986,
+                    "url": "https://celigoqa.zendesk.com/api/v2/users/12064062387986.json",
+                    "name": "Auto@21ZD2SFUpdateIgnore#2",
+                    "email": null,
+                    "role": "end-user",
+                    "verified": false
+                  }
+                },
+                {
+                  "record": {
+                    "id": 12064110818066,
+                    "url": "https://celigoqa.zendesk.com/api/v2/users/12064110818066.json",
+                    "name": "Auto@ZDusertoSFContact_Once1",
+                    "email": null,
+                    "role": "end-user",
+                    "verified": false
+                  }
+                },
+                {
+                  "record": {
+                    "id": 12064143719698,
+                    "url": "https://celigoqa.zendesk.com/api/v2/users/12064143719698.json",
+                    "name": "Auto@ZDUserSFcontact_DELTA1",
+                    "email": null,
+                    "role": "end-user",
+                    "verified": false
+                  }
+                },
+                {
+                  "record": {
+                    "id": 12064338417810,
+                    "url": "https://celigoqa.zendesk.com/api/v2/users/12064338417810.json",
+                    "name": "Johnny Agent",
+                    "email": null,
+                    "role": "end-user",
+                    "verified": false
+                  }
+                },
+                {
+                  "record": {
+                    "id": 12064338418066,
+                    "url": "https://celigoqa.zendesk.com/api/v2/users/12064338418066.json",
+                    "name": "Johnny Agent",
+                    "email": null,
+                    "role": "end-user",
+                    "verified": false
+                  }
+                }
+              ]
+            },
+            "file": {
+              "type": "json",
+              "json": {
+                "resourcePath": "*"
+              }
+            },
+            "sampleData": [
+              {
+                "Memo": "67673434",
+                "NetSuiteCustomerID": 6306537,
+                "Company Name": "1736341 Special_Customer1",
+                "Address 1": "address1 details",
+                "Address 2": "address2 details",
+                "Zip Code": "50505",
+                "DD/MM/YYYY w/Time": "26/04/2023T01:00:00.6Z",
+                "ISO Date w/Time": "2023-04-26T01:00:00.6Z",
+                "DD-MM-YYYY w/Time": "26/04/2023T01:00:00.6Z",
+                "MM/DD/YYYY w/Time": "04/26/2023T01:00:00.6Z",
+                "MM-DD-YYYY w/Time": "04262023 01:00:00",
+                "DD/MM/YYYY w/o Time": "26/04/2023",
+                "ISO Date w/o Time": "2023-04-26",
+                "DD-MM-YYYY w/o Time": "26/04/2023",
+                "MM/DD/YYYY w/o Time": "04/26/2023",
+                "MM-DD-YYYY w/o Time": "04-26-2023"
+              }
+            ],
+            "adaptorType": "AS2Export"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "AS2 Import",
+            "mockResponse": [
+              {
+                "id": "1234567890",
+                "errors": [],
+                "_json": {
+                  "mockResponse": "replace me"
+                },
+                "statusCode": 200,
+                "ignored": false,
+                "dataURI": "",
+                "_headers": {
+                  "content-type": "application/json; charset=utf-8"
+                }
+              }
+            ],
+            "_connectionId": "AS2 CONNECTION",
+            "_sourceId": "649509118dcb3b16060f538c",
+            "distributed": false,
+            "apiIdentifier": "ib740ced21",
+            "oneToMany": false,
+            "file": {
+              "skipAggregation": true,
+              "type": "json"
+            },
+            "as2": {
+              "fileNameTemplate": "{{data.[0].name}}",
+              "messageIdTemplate": "{{data.[0].name}}"
+            },
+            "adaptorType": "AS2Import"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C94499",
+        "disabled": false,
+        "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID",
+            "skipRetries": false
+          }
+        ]
+      }
+    }
+  ]
+}

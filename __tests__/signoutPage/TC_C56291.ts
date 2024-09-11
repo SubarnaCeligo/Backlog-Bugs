@@ -51,14 +51,34 @@ test.describe("C56291 Verify if the user is able to signup and login with the de
       page.locator("h3").filter({ hasText: "Sign up" })
     ).toBeVisible();
     await io.homePage.addStep("Verified Sign up text is displayed");
-    await expect(page.getByPlaceholder("Name*")).toBeVisible();
+
+
+    await io.assert.verifyElementIsDisplayed(
+      selectors.basePagePO.ADD_NAME,
+      "Name field is not displayed"
+    );
     await io.homePage.addStep("Verified Name field is displayed");
-    await expect(page.getByPlaceholder("Business email*")).toBeVisible();
+
+    await io.assert.verifyElementIsDisplayed(
+      selectors.basePagePO.EMAIL,
+      "Business email field is not displayed"
+    );
     await io.homePage.addStep("Verified Business email field is displayed");
-    await expect(page.getByPlaceholder("Company")).toBeVisible();
+
+    await io.assert.verifyElementIsDisplayed(
+      selectors.loginPagePO.COMPANY,
+      "Company field is not displayed"
+    );
+
     await io.homePage.addStep("Verified Company field is displayed");
-    await expect(page.getByPlaceholder("Phone")).toBeVisible();
+
+    await io.assert.verifyElementIsDisplayed(
+      selectors.signUpPagePO.PHONE,
+      "Phone field is not displayed"
+    );
     await io.homePage.addStep("Verified Phone field is displayed");
+
+
     await io.assert.verifyElementIsDisplayed(
       "#agreeTOSAndPP",
       "I agree to the Terms of Service and Privacy Policy checkbox is not displayed"

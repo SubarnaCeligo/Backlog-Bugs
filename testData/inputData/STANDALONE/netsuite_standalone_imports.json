@@ -1,0 +1,18 @@
+{
+    "qa__connectionId":"NETSUITE CONNECTION",
+    "connectionId":"NETSUITE CONNECTION",
+    "qa__connectionId_ns_onlyBundle": "62e7806662bde02ff36d91dd",
+    "ns_connectionId": "628f00568f68e85ab2c63b22",
+    "staging_ns_connectionId": "62b9db496d35c36b8b3a972a",
+    "qa__connectionID_ns_OnlySuiteApp": "62e8a85c36f8f637aa251cc2",
+    "connectionId_ns_onlyBundle":"62f4fd100f2ee6482b134f27",
+    "connectionID_ns_OnlySuiteApp":"62f4fa060f2ee6482b134e05",
+    "qa__connectionID_suite1": "NETSUITE CONNECTION",
+    "Amazons3_connection": "S3 CONNECTION",
+    "qa_Amazons3_PGP_connection": "62da86ceb9969613dc8a544a",
+    "Amazons3_PGP_connection": "631a19afabf51e7a86c80f78",
+    "snowflake_connection": "SNOWFLAKE CONNECTION",
+    "qa__Netsuite_SD2": "NETSUITE CONNECTION",
+    "_Connection_Netsuite_SD2": "6343b3521486c63a7cc1c23c",
+    "staging_connection_NS": "NETSUITE CONNECTION"
+}

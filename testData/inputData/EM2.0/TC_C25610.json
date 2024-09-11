@@ -1,0 +1,102 @@
+{
+  "name": "TC_C25610",
+  "referencename": "TC_C25610",
+  "qaprod_connectionId": "63da5d7efc3afd5680efb884",
+  "qa__api_tdata": [
+    {
+      "pageProcessors": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "http blob",
+            "_connectionId": "MOCKY HTTP CONNECTION",
+            "asynchronous": true,
+            "isLookup": true,
+            "type": "blob",
+            "oneToMany": false,
+            "sandbox": false,
+            "parsers": [],
+            "http": {
+              "relativeURI": "/test",
+              "method": "GET",
+              "formType": "http"
+            },
+            "adaptorType": "HTTPExport"
+          }
+        },
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Netsuite customer import",
+            "parsers": [],
+            "_connectionId": "NETSUITE CONNECTION",
+            "distributed": true,
+            "apiIdentifier": "i34f8b034d",
+            "lookups": [],
+            "netsuite_da": {
+              "useSS2Restlets": false,
+              "operation": "add",
+              "recordType": "customer",
+              "lookups": [],
+              "mapping": {
+                "fields": [],
+                "lists": []
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        }
+      ],
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "export csv",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+              "relativeURI": "/tickets/81.json",
+              "method": "GET",
+              "formType": "http"
+            },
+            "rawData": "603ce5ede9250226dcea4608d85e95cb37a64f21b95b0ba9646b7c1b",
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C25610",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "export",
+            "_exportId": "UPDATE WITH EXPORT ID"
+          },
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH IMPORT ID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH EXPORT ID",
+            "skipRetries": false
+          }
+        ]
+      }
+    }
+  ]
+}

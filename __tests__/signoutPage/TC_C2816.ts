@@ -45,6 +45,6 @@ test.describe("C2816 Credential should be scoped to a valid region, not 'us-west
     await io.signInPage.fill(selectors.loginPagePO.EMAIL_ID, process.env["IO_UserName"]);
     await io.signInPage.click(selectors.basePagePO.SUBMIT);
     await io.signInPage.waitForElementAttached(':has-text("Check your email for a link to reset your password.")')
-    await io.assert.verifyElementDisplayedByText('Forgot your password?', 'Check your email for a link to reset your password.');
+    await io.assert.verifyElementDisplayedByText('Forgot password?', 'Check your email for a link to reset your password.');
   });
 });

@@ -1,0 +1,68 @@
+{
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "_connectionId": "FTP CONNECTION",
+                "name": "FTP_To_HTTP_flow_export",
+                "asynchronous": true,
+                "adaptorType": "FTPExport",
+                "qa__path": "//FTP_uploads//jsonfile.json",
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "jsonfile"
+                },
+                "file": {
+                    "output": "records",
+                    "encoding": "utf8",
+                    "skipDelete": true,
+                    "type": "json"
+                }
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "_connectionId": "628614b055d59467d4f08787",
+                "name": "HTTPImport2459",
+                "application": "freshdesk",
+                "adaptorType": "HTTPImport",
+                "parsers": [],
+                "distributed": false,
+                "lookups": [
+                    {
+                        "method": "GET",
+                        "relativeURI": "search.json?query=type:organization notes:{{{data.Email}}}",
+                        "extract": "results[0].id",
+                        "allowFailures": false,
+                        "name": "newhttplookupjson",
+                        "useImportHeaders": true
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "organizations.json"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [
+                        "{{#each data}} {{#if @index}} , {{/if}} {\"organization\": {\"name\": \"{{this.0.Name}}\",\"notes\": \"{{add this.0.[Add One] this.0.[Add two]}}\", \"organization_fields\": { \"address_address_1\": \"{{toFixed this.0.ToFixed \"3\"}}\", \"address_address_2\": \"{{toPrecision this.0.ToPrecision \"4\"}}\",\"address_city\": \"{{#unless this.0.Unless}} Empty {{else}} {{Unless}} {{/unless}}\", \"address_country_internalid\": null, \"address_state\": \"{{uppercase this.0.Uppercase}}\", \"address_zip\": \"{{join \"***\" this.0.[Join One] this.0.[Join two]}}\", \"billing_attention\": \"{{capitalizeAll this.0.[Capitalize All]}}\", \"billing_city\": \"{{{decodeURI this.0.DecodeURI}}}\", \"billing_country_id\": \"{{floor this.0.Floor}}\", \"billing_custom_field\": \"{{#ifEven this.0.IfEven}} This is Even {{else}} This is not even {{/ifEven}}\", \"billing_phone\": \"{{ceil this.0.Ceil}}\", \"billing_state\": \"{{divide this.0.[Divide fieldone] this.0.[Divide fieldtwo]}}\", \"billing_zip\": \"{{{encodeURI this.0.EncodeURI}}}\", \"dropdown\": null, \"email\": \"{{#and this.0.[And Field1] this.0.[And Field2]}} True {{else}} False {{/and}}\", \"fax\": \"{{{base64Encode this.0.[Base64Encode Username] this.0.[Base64Encode Pass]}}}\", \"int_number\": null, \"location\": null, \"multiple_values\": null, \"multi_line_text_field\": null, \"onceexport\": false, \"phone\": \"{{avg this.0.Avg1 this.0.Avg2}}\", \"prav_custom_number\": null, \"shipping_addressee\": \"{{lowercase this.0.[Lower Case]}}\", \"shipping_address_1\": \"{{multiply this.0.[Multiply One] this.0.[Multiple Two]}}\", \"shipping_address_2\": \"{{#neither this.0.[Neither One] this.0.[Neither two]}} No Value is True {{else}} Atlease One value is True {{/neither}}\", \"shipping_attention\": \"{{#if this.0.Name}} Present {{else}} Absent {{/if}}\", \"shipping_city\": \"{{replace this.0.Replace \"n\" \"mmmm\"}}\", \"shipping_country_id\": \"{{toExponential this.0.Toexponentail \"3\"}}\", \"shipping_phone\": \"{{#or this.0.[OR Fun] this.0.Ceil}} At least one is True {{else}} Nothing is True {{/or}}\", \"shipping_state\": \"{{round this.0.Round}}\", \"shipping_zipcode\": \"{{subtract this.0.[Substract One] this.0.[Substract two]}}\", \"sort_num\": null, \"sort_string\": null, \"subsidiary_id\": \"{{capitalize this.0.Capitalize}}\", \"subsidiary_name\": \"{{base64Encode this.0.[Base64Encodehtml Username] this.0.[Base64Encodehtml Pass]}}\", \"test_customfield1\": null, \"test_customfield_2_\": null, \"title\": null, \"usernotes_date\": null, \"usernotes_direction\": \"test\", \"usernotes_direction_internalid\": null, \"usernotes_memo\": null, \"usernotes_title\": null, \"usernotes_type\": \"{{uppercase (replace field string string)}}\", \"usernotes_type_internalid\": null } } } {{/each}}"
+                    ],
+                    "batchSize": 1,
+                    "lookups": [
+                        {
+                            "method": "GET",
+                            "relativeURI": "search.json?query=type:organization notes:{{{data.Email}}}",
+                            "extract": "results[0].id",
+                            "allowFailures": false,
+                            "name": "newhttplookupjson",
+                            "useImportHeaders": true
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

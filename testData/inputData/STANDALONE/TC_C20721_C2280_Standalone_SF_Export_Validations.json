@@ -1,0 +1,54 @@
+{
+  "skipRetries": false,
+  "referenceData": "InvalidField",
+  "_integrationId": "62bf0e1f8e2d42667862521c",
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "PG_Export",
+        "_connectionId": "SALESFORCE CONNECTION",
+        "asynchronous": false,
+        "type": "distributed",
+        "parsers": [],
+        "distributed": {
+          "bearerToken": "******"
+        },
+        "salesforce": {
+          "sObjectType": "Account"
+        },
+        "transform": {
+          "type": "expression",
+          "expression": {
+            "rules": [
+              [
+                {
+                  "extract": "Name",
+                  "generate": "Account_Name"
+                },
+                {
+                  "extract": "Phone",
+                  "generate": "Account_Phone"
+                }
+              ]
+            ],
+            "version": "1"
+          },
+          "version": "1",
+          "rules": [
+            [
+              {
+                "extract": "Name",
+                "generate": "Account_Name"
+              },
+              {
+                "extract": "Phone",
+                "generate": "Account_Phone"
+              }
+            ]
+          ]
+        },
+        "adaptorType": "SalesforceExport"
+      }
+    }
+  ]
+}

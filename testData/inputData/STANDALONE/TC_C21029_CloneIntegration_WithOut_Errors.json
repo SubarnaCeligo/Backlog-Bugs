@@ -1,0 +1,24 @@
+{
+    "templateJSON": {
+      "Source_Environment": "Production",
+      "Source_Integration": "TC_C21029",
+      "Clone_To_Integrate": "TC_C21029_Clone"
+    },
+    "Source_Environment": "Production",
+    "Source_Integration": "TC_C21029",
+    "Destination_Enviornment": "Production",
+    "Clone_To_Integrate": "TC_C21029_Clone",
+    "Integration_Clone": true,
+    "New_connection": false,
+    "connections": ["63273d9db144bd24fd6f9631"],
+    "qa__connections":["632735e0ea2387339de3e348"],
+    "qa__api_tdata": [{
+      "createIntegrations": {
+        "name": "TC_C21029"
+      }
+    }],
+    "name": "Zendesk Support test connection",
+    "subDomain": "celigo_9337",
+    "userName": "mounica.manavapati@celigo.com",
+    "passoword": "celigo1234"
+  }

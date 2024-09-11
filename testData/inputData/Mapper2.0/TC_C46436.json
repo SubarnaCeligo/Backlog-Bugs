@@ -1,0 +1,148 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "qa__import": {
+        "name": "FTP-import_46920",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "i96c529ecd",
+        "oneToMany": false,
+        "sandbox": false,
+        "lookups": [
+          {
+            "name": "StaticColour",
+            "map": {
+              "gun metal": "GM",
+              "space gray": "SG"
+            },
+            "allowFailures": true
+          }
+        ],
+        "mappings": [
+          {
+            "dataType": "objectarray",
+            "buildArrayHelper": [
+              {
+                "extract": "$[*]",
+                "mappings": [
+                  {
+                    "generate": "vendor",
+                    "dataType": "string",
+                    "hardCodedValue": "US"
+                  },
+                  {
+                    "generate": "Availability ",
+                    "dataType": "stringarray",
+                    "conditional": {
+                      "when": "extract_not_empty"
+                    },
+                    "buildArrayHelper": [
+                      {
+                        "extract": "$.variants[*].countriesAvailableIn[*].name"
+                      }
+                    ]
+                  },
+                  {
+                    "extract": "$.variants[*].colour",
+                    "generate": "Colour",
+                    "dataType": "string",
+                    "lookupName": "StaticColour",
+                    "conditional": {
+                      "when": "extract_not_empty"
+                    }
+                  },
+                  {
+                    "extract": "{{{rows.sku}}}",
+                    "generate": "Item Name",
+                    "dataType": "string",
+                    "conditional": {
+                      "when": "extract_not_empty"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "file": {
+          "fileName": "final_436.json",
+          "skipAggregation": false,
+          "type": "json",
+          "lookups": [
+            {
+              "name": "StaticColour",
+              "map": {
+                "gun metal": "GM",
+                "space gray": "SG"
+              },
+              "allowFailures": true
+            }
+          ]
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/TC_C436",
+          "fileName": "final_436.json"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "timezone": "Asia/Calcutta",
+  "name": "TC_C46436",
+  "disabled": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "4",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "generateSampleDropDownAvailable": false,
+    "standaloneexportflowID": "",
+    "expected": {
+      "FTP": {
+        "name": "TC_C46436",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "qa__expectedDashboardCount": {
+          "successCount": "4",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "fileName": "final_436",
+          "isUIFlow": true,
+          "folderName": "/io.auto.qa/TC_C436",
+          "fileType": ".json"
+        }
+      }
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "TC_C46436 export",
+        "qa__path": "//FTP_uploads//TC_46436.json",
+        "_connectionId": "FTP CONNECTION",
+        "qa__connectionId": "62c88089ebd1cb63e0f066ca",
+        "asynchronous": true,
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "/io.auto.qa",
+          "fileNameStartsWith": "TC_46436.json"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json"
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ]
+}

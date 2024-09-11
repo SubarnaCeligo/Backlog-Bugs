@@ -1,0 +1,160 @@
+{
+    "name": "TC_C44965",
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "disabled": false,
+    "referencename": "TC_C44965",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "expected": {
+            "bigcommerce": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "TC_C44965",
+                "import": {
+                    "_connectionId": "HTTP BIGCOMMERCE CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "standaloneexportflowID": "62e921b7f389ab707f5db712",
+                    "uniqueField": "name",
+                    "importRecordType": "products",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e5b46fccee",
+                    "expectedJSON": {
+                        "name": "Auto_TC_C44965",
+                        "type": "physical",
+                        "weight": 0,
+                        "price": 234,
+                        "categories": [
+                            26
+                        ],
+                        "bulk_pricing_rules": [
+                            {
+                                "quantity_min": 1,
+                                "quantity_max": 2,
+                                "type": "price",
+                                "amount": 12
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "name": "HTTP BC Import",
+                "application": "BigCommerce",
+                "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+                "qa__connectionId": "HTTP BIGCOMMERCE CONNECTION",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "extract": "$.name",
+                        "generate": "name",
+                        "dataType": "string",
+                        "status": "Active"
+                    },
+                    {
+                        "extract": "$.type",
+                        "generate": "type",
+                        "dataType": "string",
+                        "status": "Active"
+                    },
+                    {
+                        "extract": "$.weight",
+                        "generate": "weight",
+                        "dataType": "number",
+                        "status": "Active"
+                    },
+                    {
+                        "extract": "$.price",
+                        "generate": "price",
+                        "dataType": "number",
+                        "status": "Active"
+                    },
+                    {
+                        "generate": "categories",
+                        "dataType": "numberarray",
+                        "status": "Active",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$.categories"
+                            }
+                        ]
+                    },
+                    {
+                        "generate": "bulk_pricing_rules",
+                        "dataType": "objectarray",
+                        "status": "Active",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$.bulk_pricing_rules[*]",
+                                "conditional": {
+                                    "when": "extract_not_empty"
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "/v3/catalog/products"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "FTP_Export_TC_C44965",
+                "_connectionId": "FTP CONNECTION",
+                "qa__path": "//SFTP_uploads//TC_C44965_Mapper.json",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                    "fileNameStartsWith": "TC_C44965_Mapper.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ]
+}

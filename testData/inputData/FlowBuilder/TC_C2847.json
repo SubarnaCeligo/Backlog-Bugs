@@ -1,0 +1,88 @@
+{
+  "name": "TC_C2847",
+  "disabled": false,
+  "_integrationId": "603ce75ac4fec33283691f43",
+  "skipRetries": false,
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "HTTP export Zendesk",
+        "application": "zendesk support",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "apiIdentifier": "e1a1bb09d2",
+        "asynchronous": true,
+        "oneToMany": false,
+        "http": {
+          "relativeURI": "/users",
+          "method": "GET",
+          "formType": "http"
+        },
+        "rawData": "62ebb431e627016182cf3391dfb816b9a6c34015949176ef00d545ed",
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "Http BC Import",
+        "application": "BigCommerce",
+        "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+        "apiIdentifier": "i6aa9111d3",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "mappings": [
+          {
+            "extract": "$.users[*].id",
+            "generate": "id",
+            "dataType": "string",
+            "status": "Active"
+          },
+          {
+            "extract": "$.users[*].url",
+            "generate": "url",
+            "status": "Active",
+            "dataType": "string"
+          }
+        ],
+        "http": {
+          "relativeURI": [
+            "/v3/catalog/products"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [],
+          "batchSize": 1,
+          "sendPostMappedData": true,
+          "formType": "http"
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "createFlow": {
+    "name": "TC_C2847",
+    "disabled": false,
+    "_integrationId": "62ecc42648570015ab65cfa5",
+    "skipRetries": false,
+    "pageProcessors": [
+      {
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        },
+        "type": "import",
+        "_importId": "UPDATE WITH NEW IMPORTID"
+      }
+    ],
+    "pageGenerators": [
+      {
+        "_exportId": "UPDATE WITH NEW EXPORTID"
+      }
+    ]
+  }
+}

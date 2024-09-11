@@ -1,0 +1,65 @@
+{
+  "name": "TC_C25083",
+  "timezone": "Asia/Calcutta",
+  "description": " ",
+  "disabled": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "AutomationStandaloneImport__4TWP1RUTL7",
+        "application": "zendesk support",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "apiIdentifier": "i1341edb2b",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": ["organizations"],
+          "method": ["POST"],
+          "body": [],
+          "batchSize": 1,
+          "sendPostMappedData": true,
+          "formType": "http"
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "AutomationStandaloneExport__1uh7hvMrYL",
+        "qa__path": "/FTP_uploads/TC_C51211.json",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "ea7fd7bf35",
+        "asynchronous": true,
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "TC_C51211.json"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json"
+        },
+        "filter": {
+          "type": "expression",
+          "expression": {
+            "rules": ["equals", ["string", ["extract", "fName"]], "Test cust1"],
+            "version": "1"
+          },
+          "version": "1",
+          "rules": ["equals", ["string", ["extract", "fName"]], "Test cust1"]
+        },
+        "qa__rules": [["record.fName", "equals", "Test cust1"]],
+        "adaptorType": "FTPExport"
+      }
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+{
+    "name": "TC_C47546",
+    "disabled": false,
+    "_integrationId": "62f51db41677a21a108e5e3a",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "AutomationStandaloneExport__gsqpYL0s9w",
+                "application": "zendesk support",
+                "hooks": {
+                    "preSavePage": {
+                        "_scriptId": "UPDATE",
+                        "function": "preSavePageFunction"
+                    }
+                },
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "e59dd482c6",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "macros",
+                    "method": "GET",
+                    "formType": "http",
+                    "paging": {
+                        "method": "url",
+                        "path": "qw"
+                    },
+                    "response": {
+                        "resourcePath": "macros"
+                    }
+                },
+                "rawData": "62f37ad6703e322cf5d904312ade27bb3b9e4f90a5fe2e9c5b0c4e8a",
+                "transform": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [
+                            [
+                                {
+                                    "generate": "id",
+                                    "extract": "id"
+                                },
+                                {
+                                    "generate": "title",
+                                    "extract": "title"
+                                },
+                                {
+                                    "generate": "something",
+                                    "extract": "position"
+                                }
+                            ]
+                        ],
+                        "version": "1"
+                    },
+                    "version": "1",
+                    "rules": [
+                        [
+                            {
+                                "generate": "id",
+                                "extract": "id"
+                            },
+                            {
+                                "generate": "title",
+                                "extract": "title"
+                            },
+                            {
+                                "generate": "something",
+                                "extract": "position"
+                            }
+                        ]
+                    ]
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "nw5EED",
+            "routeRecordsTo": "all_matching_branches",
+            "branches": [
+                {
+                    "name": "R1B1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandaloneImport__gsqpYL0s9w",
+                                "application":"zendesk support",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "Auto_{{random 6}}",
+                                            "generate": "organization.name"
+                                        },
+                                        {
+                                            "extract": "Email",
+                                            "generate": "organization.notes"
+                                        }
+                                    ]
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "organizations.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "R1B2",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandaloneImport__gsqpYL0s9w",
+                                "application":"zendesk support",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "Auto_{{random 6}}",
+                                            "generate": "organization.name"
+                                        },
+                                        {
+                                            "extract": "Email",
+                                            "generate": "organization.notes"
+                                        }
+                                    ]
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "organizations.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        }
+    ],
+    "scriptBody": {
+        "name": "_invalidPreSavePage",
+        "content": "function preSavePageFunction (options) {return options.test}"
+    }
+}

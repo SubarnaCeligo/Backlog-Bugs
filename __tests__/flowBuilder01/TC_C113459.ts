@@ -9,6 +9,5 @@ test.describe("TC_C113459", () => {
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);
         await io.assert.checkElementState(selectors.flowBuilderPagePO.FILTER_CONDITION,"isVisible");
-        await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE);
     });
 });

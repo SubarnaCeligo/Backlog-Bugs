@@ -1,0 +1,51 @@
+{
+    "name": "TC_C46920",
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "disabled": false,
+    "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "TC_C46920_import",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "icbd0e7c6a",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+                "fileName": "xyz.json",
+                "skipAggregation": false,
+                "type": "json"
+            },
+            "ftp": {
+                "directoryPath": "/io.auto.qa",
+                "fileName": "xyz.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+      }
+    ],
+    "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "HTTP Zendesk Export",
+                        "application": "zendesk support",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "ec3e1d87fc",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "parsers": [],
+                        "http": {
+                            "relativeURI": "organizations",
+                            "method": "GET",
+                            "formType": "http",
+                            "response": {
+                                "resourcePath": "organizations"
+                            }
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+    ]
+}

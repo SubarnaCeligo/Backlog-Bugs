@@ -1,0 +1,4 @@
+{
+  "name": "Filter",
+  "content": "function postMap (options) {\n  for(let i=0;i<options.preMapData.length; i++) {\n    if(options.preMapData[i].currency_code == \"ruppes\") {\n      delete(options.postMapData[i].organization.name);\n    }\n  }\n  return options.postMapData.map((d) => {return {data: d}})}"
+}

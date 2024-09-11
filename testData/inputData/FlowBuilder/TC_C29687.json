@@ -1,0 +1,69 @@
+{
+  "name": "TC_C29687",
+  "referencename": "TC_C29687",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export":{
+            "name": "NS Realtime",
+            "_connectionId": "NETSUITE CONNECTION",
+            "apiIdentifier": "e817bf03c3",
+            "asynchronous": true,
+            "type": "distributed",
+            "oneToMany": false,
+            "sandbox": false,
+            "distributed": {
+                "bearerToken": "******"
+            },
+            "netsuite": {
+                "type": "distributed",
+                "skipGrouping": true,
+                "statsOnly": false,
+                "restlet": {
+                    "restletVersion": "suitebundle",
+                    "criteria": [],
+                    "columns": []
+                },
+                "distributed": {
+                    "recordType": "creditcardrefund",
+                    "executionContext": [
+                        "suitelet",
+                        "userinterface",
+                        "webapplication",
+                        "webstore"
+                    ],
+                    "disabled": true,
+                    "executionType": [
+                        "create",
+                        "edit",
+                        "xedit"
+                    ],
+                    "qualifier": [
+                        "memo",
+                        "contains",
+                        "Export_CCRefund"
+                    ],
+                    "sublists": [],
+                    "useSS2Framework": false,
+                    "frameworkVersion": "suitebundle"
+                }
+            },
+            "adaptorType": "NetSuiteExport"
+        }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C29687",
+        "disabled": false,
+        "skipRetries": false,
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

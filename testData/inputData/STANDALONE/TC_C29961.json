@@ -1,0 +1,58 @@
+{
+    "name": "TC_29961",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "6228aed6bc8a2732cfe8044c",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "Http Export",
+                "_connectionId": "62d8d1b46ef33428ce43ad5e",
+                "apiIdentifier": "e7d400cb26",
+                "application": "Shopify",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "/Customer?$filter=CustomerName eq 'Sareesh Goruju'&$top=2&$skip={{{export.http.paging.skip}}}",
+                    "method": "GET",
+                    "formType": "http",
+                    "paging": {
+                        "method": "skip"
+                    }
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "Lookup",
+                "_connectionId": "62d8d1b46ef33428ce43ad5e",
+                "apiIdentifier": "ee0dbca233",
+                "asynchronous": true,
+                "application": "Shopify",
+                "isLookup": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "parsers": [],
+                "http": {
+                    "relativeURI": "/Customer?$filter=CustomerName eq 'Sareesh Goruju'&$top=2&$skip={{{export.http.paging.skip}}}",
+                    "method": "GET",
+                    "formType": "http",
+                    "paging": {
+                        "method": "skip"
+                    }
+                },
+                "adaptorType": "HTTPExport"
+            },
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            }
+        }
+    ]
+}

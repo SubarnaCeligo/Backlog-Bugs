@@ -1,0 +1,122 @@
+{
+  "name": "TC_C23110",
+  "referencename": "TC_C23110",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "netsuite",
+            "_connectionId": "NETSUITE CONNECTION",
+            "asynchronous": true,
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "recordType": "customer",
+                "searchId": "3160",
+                "useSS2Restlets": false,
+                "criteria": [
+                  {
+                    "field": "custentity26",
+                    "operator": "is",
+                    "searchValue": "Louis Fabre"
+                  }
+                ]
+              },
+              "distributed": {
+                "useSS2Framework": false
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "responseMapping": {
+            "fields": [],
+            "lists": []
+          },
+          "type": "import",
+          "qa__import": {
+            "name": "Gdriveimp",
+            "parsers": [],
+            "_connectionId": "GOOGLEDRIVE CONNECTION",
+            "oneToMany": false,
+            "assistant": "googledrive",
+            "sandbox": false,
+            "lookups": [],
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "name",
+                  "generate": "Name"
+                },
+                {
+                  "extract": "phone",
+                  "generate": "Phone"
+                },
+                {
+                  "extract": "notes",
+                  "generate": "Notes"
+                },
+                {
+                  "extract": "fax",
+                  "generate": "Fax"
+                }
+              ]
+            },
+            "file": {
+              "fileName": "{{invalidhandlebar}}",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "http": {
+              "type": "file",
+              "relativeURI": [
+                "{{invalidhandlebar}}"
+              ],
+              "method": [
+                "POST"
+              ],
+              "body": [],
+              "sendPostMappedData": true,
+              "formType": "assistant",
+              "response": {
+                "resourcePath": [
+                  "files"
+                ]
+              }
+            },
+            "adaptorType": "HTTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C23110",
+        "disabled": false,
+        "qa__integrationId": "603ce75ac4fec33283691f43",
+        "_integrationId":"603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

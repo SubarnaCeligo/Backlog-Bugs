@@ -1,0 +1,9 @@
+{
+    "Name": "Amazon_redshift_test",
+    "Access_key": "AKIASXM4V7ZFRT6PT6OB",
+    "secret_key": "V3d1S1ByQWN0WXFyV1MxaS9qUVpTVmVoVStvSERNWWZxcXZvQ25HbQ==",
+    "user_name": "celigo_qa",
+    "cluster": "integrator-dev-cluster",
+    "db": "qa",
+    "TC_40115_Name": "Amazon_redshift_Sample"
+}

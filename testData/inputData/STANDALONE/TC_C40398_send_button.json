@@ -1,0 +1,65 @@
+{
+    "name": "TC_C40398",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "56228aed6bc8a2732cfe8044c",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "HTTP Export",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "e7b10f0d22",
+                "application": "zendesk support",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "/users",
+                    "method": "GET",
+                    "formType": "http"
+                },
+                "rawData": "61e68956b587067a214ac5ed7c385e7a16384da2a5c802079b8c8aa0",
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "Http Import123",
+                "application": "Slack",
+                "_connectionId": "SLACK CONNECTION",
+                "apiIdentifier": "ie8724b5da",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mapping": {
+                    "fields": [
+                        {
+                            "extract": "user.phone",
+                            "generate": "Phone Number",
+                            "dataType": "number",
+                            "discardIfEmpty": true
+                        }
+                    ]
+                },
+                "http": {
+                    "relativeURI": [
+                        "/conversations.close?channel=G1234567890"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "adaptorType": "FTPConnection",
+    "application": "FTP",
+    "type": "ftp",
+    "autoRecoverRateLimitErrors": true,
+    "ftp": {
+        "concurrencyLevel": 1,
+        "hostURI": "celigo.files.com",
+        "password": "123",
+        "port": 22,
+        "requireSocketReUse": false,
+        "targetConcurrencyLevel": 1,
+        "type": "sftp",
+        "useImplicitFtps": false,
+        "usePassiveMode": true,
+        "userDirectoryIsRoot": false,
+        "username": "123"
+    },
+    "name": "FTP_OFFLINE_14925",
+    "usePgp": false,
+    "sandbox": false
+}

@@ -1,0 +1,115 @@
+{
+  "name": "TC_C24368_Verify_SF_RT_RunHistory",
+  "referencename": "TC_C24368_Verify_SF_RT_RunHistory",
+  "qa__dataVerification": {
+    "importRecordJSON": {
+      "phone": "7070707070",
+      "name": "TC_C24368_SF",
+      "description": "TC_C24368",
+      "Ownership": "Public"
+    },
+    "importapiIdentifier": "i08480efba",
+    "exportRecordType": "Account"
+  },
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "SF listener",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "asynchronous": true,
+            "type": "distributed",
+            "oneToMany": false,
+            "sandbox": false,
+            "parsers": [],
+            "distributed": {
+              "bearerToken": "******"
+            },
+            "salesforce": {
+              "sObjectType": "Account",
+              "distributed": {
+                "referencedFields": [],
+                "disabled": false,
+                "qualifier": "Name = 'TC_C24368_SF'",
+                "relatedLists": [
+                  {
+                    "referencedFields": [],
+                    "parentField": "AccountId",
+                    "sObjectType": "Contact",
+                    "orderBy": "CreatedDate Asc",
+                    "userDefined": false
+                  }
+                ]
+              }
+            },
+            "adaptorType": "SalesforceExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "FTP Account Import",
+            "_connectionId": "FTP CONNECTION",
+            "oneToMany": false,
+            "sandbox": false,
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "Name",
+                  "generate": "Name"
+                },
+                {
+                  "extract": "Phone",
+                  "generate": "phone"
+                },
+                {
+                  "extract": "Ownership",
+                  "generate": "Ownership"
+                },
+                {
+                  "extract": "Description",
+                  "generate": "Description"
+                }
+              ]
+            },
+            "file": {
+              "fileName": "TC_C24368.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa//IO_UI_Automation",
+              "fileName": "TC_C24368.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C24368_Verify_SF_RT_RunHistory",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

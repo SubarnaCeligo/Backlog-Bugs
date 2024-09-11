@@ -1,0 +1,422 @@
+{
+  "name": "TC_C47538",
+  "skipRetries": false,
+  "disabled": false,
+  "_integrationId": "62f51db41677a21a108e5e3a",
+  "qa__expectedDashboardCount": {
+    "successCount": "2",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "scriptBody": {
+    "name": "NSRealTimeScript_DND",
+    "content": "function preSavePage (options) {\n  for(let i=0;i< options.data.length;i++) {\n    options.data[i]={...options.data[i], mobilephone: options.data[i].fax};\n    delete(options.data[i].supPhone);\n  }\n  return {\n    data: options.data\n  }\n}"
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "type": "distributed",
+        "name": "AutomationStandaloneExport_realtime",
+        "_connectionId": "NETSUITE CONNECTION",
+        "asynchronous": true,
+        "parsers": [],
+        "distributed": {
+          "bearerToken": "******"
+        },
+        "hooks": {
+          "preSavePage": {
+            "_scriptId": "UPDATE",
+            "function": "preSavePage"
+          }
+        },
+        "netsuite": {
+          "type": "distributed",
+          "skipGrouping": true,
+          "restlet": {
+            "criteria": [],
+            "columns": [],
+            "useSS2Restlets": false
+          },
+          "statsOnly": false,
+          "distributed": {
+            "executionContext": [
+              "userinterface",
+              "webservices",
+              "suitelet",
+              "custommassupdate",
+              "userevent"
+            ],
+            "executionType": [
+              "create",
+              "edit",
+              "xedit"
+            ],
+            "recordType": "contact",
+            "qualifier": [
+              "email",
+              "=",
+              "AutoFlowBranchingNSRT_C47538@mail.com"
+            ],
+            "sublists": [
+              "usernotes"
+            ]
+          }
+        },
+        "transform": {
+          "type": "expression",
+          "expression": {
+            "rules": [
+              [
+                {
+                  "extract": "altemail",
+                  "generate": "altemail"
+                },
+                {
+                  "extract": "supervisorphone",
+                  "generate": "supPhone"
+                },
+                {
+                  "extract": "category",
+                  "generate": "category"
+                },
+                {
+                  "extract": "email",
+                  "generate": "email"
+                },
+                {
+                  "extract": "entityid",
+                  "generate": "entityid"
+                },
+                {
+                  "extract": "fax",
+                  "generate": "fax"
+                }
+              ]
+            ],
+            "version": "1"
+          },
+          "version": "1",
+          "rules": [
+            [
+              {
+                "extract": "altemail",
+                "generate": "altemail"
+              },
+              {
+                "extract": "supervisorphone",
+                "generate": "supPhone"
+              },
+              {
+                "extract": "category",
+                "generate": "category"
+              },
+              {
+                "extract": "email",
+                "generate": "email"
+              },
+              {
+                "extract": "entityid",
+                "generate": "entityid"
+              },
+              {
+                "extract": "fax",
+                "generate": "fax"
+              }
+            ]
+          ]
+        },
+        "adaptorType": "NetSuiteExport"
+      }
+    }
+  ],
+  "routers": [
+    {
+      "routeRecordsUsing": "input_filters",
+      "id": "GKlAd3",
+      "routeRecordsTo": "first_matching_branch",
+      "branches": [
+        {
+          "name": "R1B1",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "AutomationStandaloneImport_one",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "distributed": false,
+                "mapping": {
+                  "fields": [
+                    {
+                      "extract": "entityid",
+                      "generate": "user.name"
+                    },
+                    {
+                      "extract": "email",
+                      "generate": "user.notes"
+                    },
+                    {
+                      "extract": "fax",
+                      "generate": "user.user_fields.fax"
+                    },
+                    {
+                      "extract": "mobilephone",
+                      "generate": "user.phone"
+                    }
+                  ]
+                },
+                "http": {
+                  "relativeURI": [
+                    "users.json"
+                  ],
+                  "method": [
+                    "POST"
+                  ],
+                  "body": [],
+                  "batchSize": 1,
+                  "formType": "http",
+                  "qa__formType": "rest",
+                  "strictHandlebarEvaluation": true,
+                  "sendPostMappedData": true
+                },
+                "adaptorType": "HTTPImport"
+              }
+            }
+          ]
+        },
+        {
+          "name": "R1B2",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "AutomationStandaloneImport_two",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "distributed": false,
+                "mapping": {
+                  "fields": [
+                    {
+                      "extract": "entityid",
+                      "generate": "user.name"
+                    },
+                    {
+                      "extract": "email",
+                      "generate": "user.notes"
+                    },
+                    {
+                      "extract": "fax",
+                      "generate": "user.user_fields.fax"
+                    },
+                    {
+                      "extract": "mobilephone",
+                      "generate": "user.phone"
+                    }
+                  ]
+                },
+                "http": {
+                  "relativeURI": [
+                    "users.json"
+                  ],
+                  "method": [
+                    "POST"
+                  ],
+                  "body": [],
+                  "batchSize": 1,
+                  "formType": "http",
+                  "qa__formType": "rest",
+                  "strictHandlebarEvaluation": true,
+                  "sendPostMappedData": true
+                },
+                "adaptorType": "HTTPImport"
+              }
+            }
+          ]
+        }
+      ],
+      "script": {
+        "function": "branchRouter"
+      }
+    }
+  ],
+  "qa__dataVerification": {
+    "expected": {
+      "zendesk": {
+        "name": "TC_C47538",
+        "_integrationId": "62f51db41677a21a108e5e3a",
+        "import": {
+          "_connectionId": "HTTP ZENDESK CONNECTION"
+        },
+        "qa__dataVerification": {
+          "generateSampleDropDownAvailable": false,
+          "expectedJSON": {
+            "name": "Auto@FlowBranchingNSRT_C47538",
+            "notes": "AutoFlowBranchingNSRT_C47538@mail.com",
+            "user_fields": {
+              "fax": "(123) 456-7890"
+            }
+          },
+          "standaloneexportflowID": "57aaf0188ec9f88049060166",
+          "uniqueField": "name",
+          "importRecordType": "users",
+          "isUIFlow": true,
+          "exportapiIdentifier": "e8c9cb6192"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        }
+      }
+    },
+    "importapiIdentifier": "i03c86ff01",
+    "importRecordJSON": {
+      "zip": "56161717",
+      "addr2": "address2",
+      "addressee": "Addressee",
+      "mobilephone": "285106101",
+      "entityid": "Auto@FlowBranchingNSRT_C47538",
+      "state": "Washington",
+      "fax": "1234567890",
+      "email": "AutoFlowBranchingNSRT_C47538@mail.com",
+      "MEMO": "Memo"
+    },
+    "application":"NETSUITE",
+    "importapidoc": {
+      "_id": "5be40cd78093cb14903622fd",
+      "createdAt": "2018-11-08T10:15:51.740Z",
+      "lastModified": "2019-12-20T11:37:55.863Z",
+      "name": "Clone 29.NS (Contact) to REST(ZD User) - REALTIME_ALL",
+      "responseTransform": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "_connectionId": "56d6b65d6f8ed15e4d0f9b8c",
+      "distributed": true,
+      "apiIdentifier": "i03c86ff01",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "lookups": [],
+      "netsuite_da": {
+        "restletVersion": "suitebundle",
+        "operation": "add",
+        "recordType": "contact",
+        "lookups": [],
+        "mapping": {
+          "lists": [
+            {
+              "generate": "_billing_addressbook",
+              "fields": [
+                {
+                  "generate": "addr2",
+                  "extract": "addr2",
+                  "internalId": false,
+                  "immutable": false,
+                  "discardIfEmpty": false
+                },
+                {
+                  "generate": "addressee",
+                  "extract": "addressee",
+                  "internalId": false,
+                  "immutable": false,
+                  "discardIfEmpty": false
+                },
+                {
+                  "generate": "state",
+                  "extract": "state",
+                  "internalId": false,
+                  "immutable": false,
+                  "discardIfEmpty": false
+                },
+                {
+                  "generate": "zip",
+                  "extract": "zip",
+                  "internalId": false,
+                  "immutable": false,
+                  "discardIfEmpty": false
+                }
+              ]
+            },
+            {
+              "generate": "usernotes",
+              "fields": [
+                {
+                  "generate": "title",
+                  "extract": "TITLE",
+                  "internalId": false,
+                  "immutable": false,
+                  "discardIfEmpty": false
+                },
+                {
+                  "generate": "note",
+                  "extract": "MEMO",
+                  "internalId": false,
+                  "immutable": false,
+                  "discardIfEmpty": false
+                }
+              ]
+            }
+          ],
+          "fields": [
+            {
+              "generate": "entityid",
+              "extract": "entityid",
+              "internalId": false,
+              "immutable": false,
+              "discardIfEmpty": false
+            },
+            {
+              "generate": "email",
+              "extract": "email",
+              "internalId": false,
+              "immutable": false,
+              "discardIfEmpty": false
+            },
+            {
+              "generate": "mobilephone",
+              "extract": "mobilephone",
+              "internalId": false,
+              "immutable": false,
+              "discardIfEmpty": false
+            },
+            {
+              "generate": "fax",
+              "extract": "fax",
+              "internalId": false,
+              "immutable": false,
+              "discardIfEmpty": false
+            },
+            {
+              "generate": "subsidiary",
+              "hardCodedValue": "3",
+              "internalId": true,
+              "immutable": false,
+              "discardIfEmpty": false
+            }
+          ]
+        }
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "adaptorType": "NetSuiteDistributedImport"
+    }
+  }
+}

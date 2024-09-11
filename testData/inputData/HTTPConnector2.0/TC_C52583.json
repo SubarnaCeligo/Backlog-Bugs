@@ -1,0 +1,43 @@
+{
+  "Body": {
+    "type": "http",
+    "name": "HTTP ORDERFUL CONNECTION",
+    "assistant": "orderful",
+    "sandbox": false,
+    "http": {
+      "formType": "assistant",
+      "mediaType": "json",
+      "baseURI": "https://api.orderful.com/v3",
+      "ping": {
+        "relativeURI": "/organizations/me",
+        "method": "GET"
+      },
+      "unencrypted": {
+        "field": "value",
+        "version": "hghdjdgkhdljkhfkl"
+      },
+      "encrypted": "******",
+      "_httpConnectorId": "6345f57469f848d92751c00d",
+      "_httpConnectorVersionId": "dfjkdgjfjfdgj",
+      "auth": {
+        "type": "token",
+        "oauth": {
+          "clientCredentialsLocation": "body"
+        },
+        "token": {
+          "token": "******",
+          "location": "header",
+          "headerName": "orderful-api-key",
+          "scheme": " ",
+          "paramName": "access_token"
+        }
+      }
+    },
+    "queues": [
+      {
+        "name": "63976561dfed000b7ca29422",
+        "size": 0
+      }
+    ]
+  }
+}

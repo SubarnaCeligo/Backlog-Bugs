@@ -1,0 +1,33 @@
+{
+    "qa_requestBody" : {
+        "name": "DND_NS_SF_FLOW",
+        "_exportId": "6319c0a30c6bf6039c08d1f6",
+        "_importId": "6319c0a30c6bf6039c08d1f8",
+        "aliases": [
+          {
+            "alias": "new_alias",
+            "_importId": "63035f4e972083139cfaad2a"
+          }
+        ]
+    },
+    "requestBody" : {
+        "name": "DND_NS_SF_FLOW",
+        "_exportId": "63200e583bfc725f00638e7c",
+        "_importId": "63200e593bfc725f00638e7f",
+        "aliases": [
+          {
+            "alias": "new_alias",
+            "_importId": "63200de951852e73fb07642b"
+          }
+        ]
+    },
+    "error" : {
+        "errors": [
+            {
+                "field": "aliases",
+                "code": "alias_not_supported",
+                "message": "Aliases are not supported on a standalone flow. The flow must be attached to an integration."
+            }
+        ]
+    }
+}

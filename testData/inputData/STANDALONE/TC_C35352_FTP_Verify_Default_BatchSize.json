@@ -1,0 +1,75 @@
+{
+  "skipRetries": false,
+  "_integrationId": "631a1266abf51e7a86c80ab4",
+  "qa__integrationId": "6228aed6bc8a2732cfe8044c",
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "HTTP Export",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "parsers": [],
+        "http": {
+          "relativeURI": "/data",
+          "method": "POST"
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "FTP Import",
+        "parsers": [],
+        "_connectionId": "FTP CONNECTION",
+        "oneToMany": false,
+        "sandbox": false,
+        "file": {
+          "fileName": "file-{{timestamp}}.json",
+          "skipAggregation": false,
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation",
+          "fileName": "file-{{timestamp}}.json"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "Script": "function postMap (options) {\n  options.postMapData[0]={\n    test:options.postMapData[0],\n    postmap:23}\n  return options.postMapData.map((d) => {\n    return {\n      data: d\n    }\n  })\n}",
+  "FTPExport": {
+    "pageGenerators": [
+      {
+        "type": "export",
+        "qa__export": {
+          "name": "FTP xport",
+          "_connectionId": "FTP CONNECTION",
+          "apiIdentifier": "e930f9de29",
+          "asynchronous": true,
+          "sandbox": false,
+          "ftp": {
+            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+            "fileNameStartsWith": "TC_C30817"
+          },
+          "file": {
+            "encoding": "utf8",
+            "output": "records",
+            "skipDelete": true,
+            "type": "json",
+            "json": {
+              "resourcePath": "*"
+            }
+          },
+          "adaptorType": "FTPExport",
+          "qa__path": "//FTP_uploads//TC_C30817.json"
+        }
+      }
+    ]
+  }
+}

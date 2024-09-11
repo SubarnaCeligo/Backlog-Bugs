@@ -1,0 +1,55 @@
+{
+    "name": "TC_C34941_Verify_AFE_toggles_REST_Import",
+    "disabled": false,
+    "_integrationId": "62c3e71af6f3f2299501f5bf",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "testing",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "ed0d2077f9",
+                "application": "zendesk support",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "users",
+                    "method": "GET",
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "HTTP Import",
+                "application": "freshdesk",
+                "parsers": [],
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "i33c84266e",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "lookups": [],
+                "http": {
+                    "relativeURI": [
+                        "/users"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ]
+}

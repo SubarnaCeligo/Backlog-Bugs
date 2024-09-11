@@ -1,0 +1,142 @@
+{
+  "integrationDetails": {
+    "Source_Environment": "Production",
+    "Source_Integration": "TC_C59504_Del",
+    "Destination_Enviornment": "Production",
+    "Clone_To_Integrate": "TC_Clone_C59504_Del",
+    "Integration_Clone": true,
+    "New_connection": false,
+    "connections": [
+      "FTP CONNECTION"
+    ],
+    "qa__connections": [
+      "FTP CONNECTION"
+    ],
+    "qa__api_tdata": [
+      {
+        "createIntegrations": {
+          "name": "TC_C59504_Del"
+        }
+      }
+    ]
+  },
+  "pull": {
+    "integrationToPull": "TC_C59504_Del"
+  },
+  "flowsData": {
+    "flowname1": "TC_C59504",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "Ftp Export",
+              "_connectionId": "FTP CONNECTION",
+              "apiIdentifier": "e57136f758",
+              "asynchronous": true,
+              "sandbox": false,
+              "sampleData": [
+                {
+                  "Drug @ Name": "Naproxen and Esomeprazole Magnesium",
+                  "#Number": "6495195850"
+                },
+                {
+                  "Drug @ Name": "Horizon Pharma Inc.",
+                  "#Number": "1933831154"
+                }
+              ],
+              "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_C30817"
+              },
+              "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json",
+                "json": {
+                  "resourcePath": "*"
+                }
+              },
+              "adaptorType": "FTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "Ftp Import",
+              "_connectionId": "FTP CONNECTION",
+              "apiIdentifier": "idb0217c37",
+              "oneToMany": false,
+              "file": {
+                  "fileName": "file-{{timestamp}}.json",
+                  "skipAggregation": false,
+                  "type": "json"
+              },
+              "ftp": {
+                  "directoryPath": "io.auto.qa/IO_UI_Automation",
+                  "fileName": "file-{{timestamp}}.json"
+              },
+              "adaptorType": "FTPImport"
+          }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C59504",
+          "disabled": false,
+          "_integrationId": "",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "updatedBody": {
+    "_id": "",
+    "name": "Ftp Import",
+    "_connectionId": "FTP CONNECTION",
+    "_sourceId": "63d8ae29d89bf713bdc98fcd",
+    "apiIdentifier": "i936bff7c9",
+    "oneToMany": false,
+    "sandbox": false,
+    "mapping": {
+      "fields": [
+          {
+              "extract": "[#Number]",
+              "generate": "Number"
+          },
+          {
+              "extract": "[Drug @ Name]",
+              "generate": "Drug Name"
+          }
+      ]
+  },
+  "file": {
+      "fileName": "file-{{timestamp}}.json",
+      "skipAggregation": false,
+      "type": "json"
+  },
+  "ftp": {
+      "directoryPath": "io.auto.qa/IO_UI_Automation",
+      "fileName": "file-{{timestamp}}.json"
+  },
+  "adaptorType": "FTPImport"
+  }
+}

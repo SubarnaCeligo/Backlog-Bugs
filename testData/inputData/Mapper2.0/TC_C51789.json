@@ -1,0 +1,153 @@
+{
+    "name": "TC_C51789",
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "disabled": false,
+    "pageProcessors": [
+      {
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        },
+        "type": "import",
+        "qa__import": {
+            "name": "TC_C51789",
+            "application": "shopify",
+            "_connectionId": "HTTP SHOPIFY CONNECTION",
+            "apiIdentifier": "ibadf42098",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "mappings": [
+                {
+                    "generate": "bodyhtml",
+                    "dataType": "stringarray",
+                    "status": "Active",
+                    "buildArrayHelper": [
+                        {
+                            "extract": "$.body_html",
+                            "sourceDataType": "string"
+                        }
+                    ]
+                },
+                {
+                    "generate": "id",
+                    "dataType": "stringarray",
+                    "status": "Active",
+                    "buildArrayHelper": [
+                        {
+                            "extract": "$.id",
+                            "sourceDataType": "number"
+                        }
+                    ]
+                },
+                {
+                    "generate": "shipping",
+                    "dataType": "stringarray",
+                    "status": "Active",
+                    "buildArrayHelper": [
+                        {
+                            "extract": "$.variants[*].requires_shipping",
+                            "sourceDataType": "boolean"
+                        }
+                    ]
+                },
+                {
+                    "generate": "values",
+                    "dataType": "stringarray",
+                    "status": "Active",
+                    "buildArrayHelper": [
+                        {
+                            "extract": "$.options.values",
+                            "sourceDataType": "stringarray"
+                        }
+                    ]
+                },
+                {
+                    "generate": "new variant",
+                    "dataType": "stringarray",
+                    "status": "Active",
+                    "buildArrayHelper": [
+                        {
+                            "extract": "$.new_variant",
+                            "sourceDataType": "numberarray"
+                        }
+                    ]
+                },
+                {
+                    "generate": "tax",
+                    "dataType": "stringarray",
+                    "status": "Active",
+                    "buildArrayHelper": [
+                        {
+                            "extract": "$.variants[*].taxable",
+                            "sourceDataType": "boolean"
+                        }
+                    ]
+                },
+                {
+                    "generate": "data",
+                    "dataType": "stringarray",
+                    "status": "Active",
+                    "buildArrayHelper": [
+                        {
+                            "extract": "$",
+                            "sourceDataType": "object"
+                        }
+                    ]
+                },
+                {
+                    "generate": "images",
+                    "dataType": "stringarray",
+                    "status": "Active",
+                    "buildArrayHelper": [
+                        {
+                            "extract": "$.images[*]",
+                            "sourceDataType": "objectarray"
+                        }
+                    ]
+                }
+            ],
+            "http": {
+                "relativeURI": [
+                    "/products.json"
+                ],
+                "method": [
+                    "POST"
+                ],
+                "body": [],
+                "batchSize": 1,
+                "sendPostMappedData": true,
+                "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+        }
+      }
+    ],
+    "pageGenerators": [
+      {
+        "type": "export",
+        "qa__export": {
+            "name": "TC_C51789",
+            "qa__path": "//FTP_uploads//TC_C51795.json",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "ee66d9e367",
+            "asynchronous": true,
+            "sandbox": false,
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                "fileNameStartsWith": "TC_C51795"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json"
+            },
+            "adaptorType": "FTPExport"
+        }
+      }
+    ],
+    "expected": "{\n  \"images\": [\n    \"{\\\"id\\\":28593192435770,\\\"product_id\\\":4653550239802,\\\"position\\\":1,\\\"created_at\\\":\\\"2022-06-07T01:55:28-04:00\\\",\\\"updated_at\\\":\\\"2022-06-07T01:55:28-04:00\\\",\\\"width\\\":110,\\\"height\\\":140,\\\"src\\\":\\\"http://example.com/burton.jpg\\\",\\\"variant_ids\\\":[39365759074362]}\"\n  ],\n  \"data\": [\n    \"{\\\"body_html\\\":\\\"It's the small iPod with a big idea: Video.\\\",\\\"created_at\\\":\\\"2012-02-15T15:12:21-05:00\\\",\\\"handle\\\":\\\"ipod-nano\\\",\\\"new_variant\\\":[39626872356922,39626872389690,39626872422458,39626872455226],\\\"id\\\":4653550239802,\\\"images\\\":[{\\\"id\\\":28593192435770,\\\"product_id\\\":4653550239802,\\\"position\\\":1,\\\"created_at\\\":\\\"2022-06-07T01:55:28-04:00\\\",\\\"updated_at\\\":\\\"2022-06-07T01:55:28-04:00\\\",\\\"width\\\":110,\\\"height\\\":140,\\\"src\\\":\\\"http://example.com/burton.jpg\\\",\\\"variant_ids\\\":[39365759074362]}],\\\"options\\\":{\\\"id\\\":6097468391482,\\\"product_id\\\":4653550239802,\\\"name\\\":\\\"Color\\\",\\\"position\\\":1,\\\"values\\\":[\\\"Pink\\\",\\\"Red\\\",\\\"Green\\\",\\\"Black\\\"]},\\\"product_type\\\":\\\"Cult Products\\\",\\\"published_at\\\":\\\"2007-12-31T19:00:00-05:00\\\",\\\"published_scope\\\":\\\"global\\\",\\\"status\\\":\\\"active\\\",\\\"tags\\\":\\\"Emotive, Flash Memory, MP3, Music\\\",\\\"template_suffix\\\":\\\"special\\\",\\\"title\\\":\\\"IPod Nano - 8GB\\\",\\\"updated_at\\\":\\\"2012-08-24T14:01:47-04:00\\\",\\\"variants\\\":[{\\\"barcode\\\":\\\"1234_pink\\\",\\\"compare_at_price\\\":null,\\\"created_at\\\":\\\"2012-08-24T14:01:47-04:00\\\",\\\"fulfillment_service\\\":\\\"manual\\\",\\\"grams\\\":567,\\\"weight\\\":0.2,\\\"weight_unit\\\":\\\"kg\\\",\\\"id\\\":39365759074362,\\\"inventory_item_id\\\":41459836583994,\\\"inventory_management\\\":\\\"shopify\\\",\\\"inventory_policy\\\":\\\"continue\\\",\\\"inventory_quantity\\\":10,\\\"option1\\\":\\\"Pink\\\",\\\"position\\\":1,\\\"price\\\":199.99,\\\"product_id\\\":4653550239802,\\\"requires_shipping\\\":true,\\\"sku\\\":\\\"IPOD2008PINK\\\",\\\"taxable\\\":true,\\\"title\\\":\\\"Pink\\\",\\\"updated_at\\\":\\\"2022-06-07T01:55:28-04:00\\\"},{\\\"barcode\\\":\\\"1234_pinkcccc\\\",\\\"compare_at_price\\\":null,\\\"created_at\\\":\\\"2012-08-24T14:01:47-04:00\\\",\\\"fulfillment_service\\\":\\\"manual\\\",\\\"grams\\\":567,\\\"weight\\\":0.2,\\\"weight_unit\\\":\\\"kg\\\",\\\"id\\\":39365759074362,\\\"inventory_item_id\\\":41459836583994,\\\"inventory_management\\\":\\\"shopify\\\",\\\"inventory_policy\\\":\\\"continue\\\",\\\"inventory_quantity\\\":10,\\\"option1\\\":\\\"Red\\\",\\\"position\\\":1,\\\"price\\\":199.99,\\\"product_id\\\":4653550239802,\\\"requires_shipping\\\":true,\\\"sku\\\":\\\"IPOD2008PINK\\\",\\\"taxable\\\":true,\\\"title\\\":\\\"Red\\\",\\\"updated_at\\\":\\\"2022-06-07T01:55:28-04:00\\\"},{\\\"barcode\\\":\\\"1234_pinkcccc\\\",\\\"compare_at_price\\\":null,\\\"created_at\\\":\\\"2012-08-24T14:01:47-04:00\\\",\\\"fulfillment_service\\\":\\\"manual\\\",\\\"grams\\\":567,\\\"weight\\\":0.2,\\\"weight_unit\\\":\\\"kg\\\",\\\"id\\\":39365759074362,\\\"inventory_item_id\\\":41459836583994,\\\"inventory_management\\\":\\\"shopify\\\",\\\"inventory_policy\\\":\\\"continue\\\",\\\"inventory_quantity\\\":10,\\\"option1\\\":\\\"Black\\\",\\\"position\\\":1,\\\"price\\\":199.99,\\\"product_id\\\":4653550239802,\\\"requires_shipping\\\":true,\\\"sku\\\":\\\"IPOD2008PINK\\\",\\\"taxable\\\":true,\\\"title\\\":\\\"Black\\\",\\\"updated_at\\\":\\\"2022-06-07T01:55:28-04:00\\\"},{\\\"barcode\\\":\\\"1234_pinkcccc\\\",\\\"compare_at_price\\\":null,\\\"created_at\\\":\\\"2012-08-24T14:01:47-04:00\\\",\\\"fulfillment_service\\\":\\\"manual\\\",\\\"grams\\\":567,\\\"weight\\\":0.2,\\\"weight_unit\\\":\\\"kg\\\",\\\"id\\\":39365759074362,\\\"inventory_item_id\\\":41459836583994,\\\"inventory_management\\\":\\\"shopify\\\",\\\"inventory_policy\\\":\\\"continue\\\",\\\"inventory_quantity\\\":10,\\\"option1\\\":\\\"Green\\\",\\\"position\\\":1,\\\"price\\\":199.99,\\\"product_id\\\":4653550239802,\\\"requires_shipping\\\":true,\\\"sku\\\":\\\"IPOD2008PINK\\\",\\\"taxable\\\":true,\\\"title\\\":\\\"Green\\\",\\\"updated_at\\\":\\\"2022-06-07T01:55:28-04:00\\\"}],\\\"vendor\\\":\\\"Apple\\\"}\"\n  ],\n  \"tax\": [\n    \"true\",\n    \"true\",\n    \"true\",\n    \"true\"\n  ],\n  \"new variant\": [\n    \"39626872356922\",\n    \"39626872389690\",\n    \"39626872422458\",\n    \"39626872455226\"\n  ],\n  \"values\": [\n    \"Pink\",\n    \"Red\",\n    \"Green\",\n    \"Black\"\n  ],\n  \"shipping\": [\n    \"true\",\n    \"true\",\n    \"true\",\n    \"true\"\n  ],\n  \"id\": [\n    \"4653550239802\"\n  ],\n  \"bodyhtml\": [\n    \"It's the small iPod with a big idea: Video.\"\n  ]\n}"
+  }

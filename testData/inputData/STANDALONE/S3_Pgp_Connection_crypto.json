@@ -1,0 +1,15 @@
+{
+    "S3Pgp": {
+        "qa__connectionId": "61a9a9fcb1ee8410587f3ec2",
+        "connectionId": "60dc6226caf3f658b50afb0e",
+        "qa_S3_PGP_PrivateKey": "S3 CONNECTION",
+        "staging_S3_PGP_PrivateKey": "60dc61c1d8686e5a2fc14ec1",
+        "qa_S3_PGP_PublicKey": "610a8583b8d44e11589fe4a1",
+        "staging_S3_PGP_PublicKey": "60dc6150844415637ae17ed5",
+        "TC_C26559_qa": "63a0034107bba731708c05f6",
+        "TC_C26559_iaqa": "63a0053a5ed0262b4a9e4c25",
+        "TC_C26559_staging": "63a00468ce4c443afa86042e",
+        "TC_C26559_qaprod" : "63a00cf881f8274ccfa85a6d"
+        
+    }
+}

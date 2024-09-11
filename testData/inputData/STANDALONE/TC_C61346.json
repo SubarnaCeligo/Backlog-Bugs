@@ -1,0 +1,38 @@
+{
+    "apiJSON": {
+        "type": "http",
+        "name": "Http Zendesk_C61346",
+        "assistant": "zendesk",
+        "sandbox": false,
+        "http": {
+            "formType": "http",
+            "mediaType": "json",
+            "baseURI": "https://celigoqa.zendesk.com/api/v2/",
+            "ping": {
+                "relativeURI": "/users",
+                "method": "GET"
+            },
+            "headers": [
+                {
+                    "name": "content-type",
+                    "value": "application/json"
+                }
+            ],
+            "unencrypted": {
+                "field": "value"
+            },
+            "encrypted": "******",
+            "_httpConnectorId": "6399b3f6551928082acd2239",
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "mounica.manavapati@celigo.com",
+                    "password": "******"
+                }
+            }
+        },
+        "microServices": {
+            "disableNetSuiteWebServices": false
+        }
+    }
+}

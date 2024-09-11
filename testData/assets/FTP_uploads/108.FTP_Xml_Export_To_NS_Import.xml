@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <recordType>salesorder</recordType>
+    <Name>108.FTP_Xml_Export_To_NS_Imp</Name>
+    <CustomFieldTest>Custom  field</CustomFieldTest>
+    <Checkboxtest>F</Checkboxtest>
+    <sublists>
+      <sublist>
+        <Type>Sales Order</Type>
+        <Item>ACC00001</Item>
+     <Amount> 109.00 </Amount>
+        <Quantity>1</Quantity>
+        <Title>Title Title</Title>
+        <Memo>Memo</Memo>
+        <Direction>Incoming</Direction>
+      </sublist>
+      <sublist>
+        <Type>Sales Order</Type>
+        <Item>ACC00002</Item>
+     <Amount> 100.00 </Amount>
+        <Quantity>1</Quantity>
+        <Title>Title Title</Title>
+        <Memo>Memo</Memo>
+        <Direction>Incoming</Direction>
+      </sublist>
+    </sublists>
+</data>

@@ -1,0 +1,297 @@
+{
+    "name": "TC_C65023",
+    "referencename": "TC_C65023",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Ftp Export",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "ed145a44bd",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": "tickets",
+                            "method": "GET",
+                            "formType": "http",
+                            "response": {
+                                "resourcePath": "tickets"
+                            }
+                        },
+                        "test": {
+                            "limit": 10
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                },
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Http Export",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "e4d8d9e495",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": "organizations",
+                            "method": "GET",
+                            "formType": "http",
+                            "response": {
+                                "resourcePath": "organizations"
+                            }
+                        },
+                        "test": {
+                            "limit": 10
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                },
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Http Export",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "edafcd86e9",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": "users",
+                            "method": "GET",
+                            "formType": "http",
+                            "response": {
+                                "resourcePath": "users"
+                            }
+                        },
+                        "test": {
+                            "limit": 10
+                        },
+                        "transform": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [
+                                    []
+                                ],
+                                "version": "1"
+                            },
+                            "version": "1",
+                            "rules": [
+                                []
+                            ]
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Http Import",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": [
+                                "users"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C65023",
+                "disabled": false,
+                "qa__integrationId": "63232caf5342c33e615e7271",
+                "_integrationId": "63232c59d3a9897fe95f9f2a",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    },
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    },
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ],
+    "New": {
+        "name": "TC_C65023_1",
+        "referencename": "TC_C65023_1",
+        "qa__api_tdata": [
+            {
+                "pageGenerators": [
+                    {
+                        "type": "export",
+                        "qa__export": {
+                            "name": "Ftp Export",
+                            "_connectionId": "HTTP ZENDESK CONNECTION",
+                            "apiIdentifier": "ed145a44bd",
+                            "asynchronous": true,
+                            "type": "test",
+                            "oneToMany": false,
+                            "sandbox": false,
+                            "http": {
+                                "relativeURI": "tickets",
+                                "method": "GET",
+                                "formType": "http",
+                                "response": {
+                                    "resourcePath": "tickets"
+                                }
+                            },
+                            "test": {
+                                "limit": 10
+                            },
+                            "adaptorType": "HTTPExport"
+                        }
+                    },
+                    {
+                        "type": "export",
+                        "qa__export": {
+                            "name": "Http Export",
+                            "_connectionId": "HTTP ZENDESK CONNECTION",
+                            "apiIdentifier": "e4d8d9e495",
+                            "asynchronous": true,
+                            "type": "test",
+                            "oneToMany": false,
+                            "sandbox": false,
+                            "http": {
+                                "relativeURI": "organizations",
+                                "method": "GET",
+                                "formType": "http",
+                                "response": {
+                                    "resourcePath": "organizations"
+                                }
+                            },
+                            "test": {
+                                "limit": 10
+                            },
+                            "adaptorType": "HTTPExport"
+                        }
+                    },
+                    {
+                        "type": "export",
+                        "qa__export": {
+                            "name": "Http Export",
+                            "_connectionId": "HTTP ZENDESK CONNECTION",
+                            "apiIdentifier": "edafcd86e9",
+                            "asynchronous": true,
+                            "type": "test",
+                            "oneToMany": false,
+                            "sandbox": false,
+                            "http": {
+                                "relativeURI": "users",
+                                "method": "GET",
+                                "formType": "http",
+                                "response": {
+                                    "resourcePath": "users"
+                                }
+                            },
+                            "test": {
+                                "limit": 10
+                            },
+                            "transform": {
+                                "type": "expression",
+                                "expression": {
+                                    "rules": [
+                                        []
+                                    ],
+                                    "version": "1"
+                                },
+                                "version": "1",
+                                "rules": [
+                                    []
+                                ]
+                            },
+                            "adaptorType": "HTTPExport"
+                        }
+                    }
+                ],
+                "pageProcessors": [
+                    {
+                        "type": "import",
+                        "qa__import": {
+                            "name": "Http Import",
+                            "_connectionId": "HTTP ZENDESK CONNECTION",
+                            "ignoreExisting": false,
+                            "ignoreMissing": false,
+                            "oneToMany": false,
+                            "sandbox": false,
+                            "http": {
+                                "relativeURI": [
+                                    "users"
+                                ],
+                                "method": [
+                                    "POST"
+                                ],
+                                "body": [],
+                                "batchSize": 1,
+                                "sendPostMappedData": true,
+                                "formType": "http"
+                            },
+                            "adaptorType": "HTTPImport"
+                        }
+                    }
+                ],
+                "createFlow": {
+                    "name": "TC_C65023_1",
+                    "disabled": false,
+                    "_integrationId": "63232c59d3a9897fe95f9f2a",
+                    "skipRetries": false,
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "_importId": "UPDATE WITH NEW IMPORTID"
+                        }
+                    ],
+                    "pageGenerators": [
+                        {
+                            "_exportId": "UPDATE WITH NEW EXPORTID"
+                        },
+                        {
+                            "_exportId": "UPDATE WITH NEW EXPORTID"
+                        },
+                        {
+                            "_exportId": "UPDATE WITH NEW EXPORTID"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

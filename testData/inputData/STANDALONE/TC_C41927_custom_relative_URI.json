@@ -1,0 +1,34 @@
+{
+  "name": "TC_C41931",
+  "disabled": false,
+  "timezone": "Asia/Calcutta",
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "qa__export": {
+    "name": "graph",
+    "qa__connectionId": "62e0c08365a0bf24aba55e33",
+    "_connectionId": "62ebb6525b6faa0d0119b0c6",
+    "apiIdentifier": "e480e19d3b",
+    "application": "graph ql",
+    "asynchronous": true,
+    "oneToMany": false,
+    "sandbox": false,
+    "http": {
+      "method": "POST",
+      "body": "{\"query\":\"{   orders(first: 1) {     edges {       cursor       node {         id         discountCode         updatedAt         lineItems(first: 30) {           edges {             node {               id               quantity               sku               originalUnitPrice               fulfillmentService {                 serviceName               }               taxLines {                 rate                 ratePercentage                 title               }             }           }         }         risks {           level           message         }         paymentGatewayNames         billingAddress {           address1           address2           city           company           countryCode           name           provinceCode           phone           zip         }         shippingAddress {           address1           address2           city           company           countryCode           name           provinceCode           phone           zip         }         customer {           id           email          phone         }         transactions {           amount           kind           id           gateway           status           authorizationCode           amountV2 {             currencyCode             amount           }           order {             id           }         }       }     }   } }\"}",
+      "formType": "graph_ql",
+      "paging": {
+        "method": "relativeuri",
+        "relativeURI": "1",
+        "lastPageStatusCode": 404,
+        "lastPagePath": "errorMessage",
+        "lastPageValues": ["No more pages"]
+      },
+      "response": {
+        "resourcePath": "data"
+      }
+    },
+    "rawData": "61e68956b587067a214ac5ed841def7040c04e84962c3e9fae7d2289",
+    "adaptorType": "HTTPExport"
+  }
+}

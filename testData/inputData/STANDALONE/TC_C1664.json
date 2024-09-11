@@ -1,0 +1,80 @@
+{
+    "name": "TC_C1664",
+    "disabled": false,
+    "qa__integrationId": "63232caf5342c33e615e7271",
+    "_integrationId": "63232c59d3a9897fe95f9f2a",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "Data loader",
+                "apiIdentifier": "e4262b9305",
+                "asynchronous": true,
+                "type": "simple",
+                "qa__isDataLoader": "csv",
+                "qa__path": "//Dataloader_uploades//TC_C1664.csv",
+                "sandbox": false,
+                "sampleData": "Name,Email\r\nVijay Ilage,Vijay@gmail.com\r\nSourabh Patil,Sourabh@Gmail.com\r\nFayan Fakir,Fayan@gmail.com",
+                "rawData": "df93fc47167440559d4c4b915a35e5bb",
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "type": "csv",
+                    "csv": {
+                        "columnDelimiter": ",",
+                        "rowDelimiter": "\n",
+                        "hasHeaderRow": true,
+                        "trimSpaces": true,
+                        "rowsToSkip": 0
+                    }
+                },
+                "adaptorType": "SimpleExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "Http Import",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "i0d238d03b",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mapping": {
+                    "fields": [
+                        {
+                            "extract": "Name",
+                            "generate": "organization.name"
+                        },
+                        {
+                            "extract": "Email",
+                            "generate": "organization.notes"
+                        }
+                    ]
+                },
+                "http": {
+                    "relativeURI": [
+                        "organizations"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ]
+}

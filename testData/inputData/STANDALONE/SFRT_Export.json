@@ -1,0 +1,22 @@
+{
+  "skipRetries": false,
+  "_integrationId": "62bf0e1f8e2d42667862521c",
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "SF_qualifier_check_export",
+        "_connectionId": "SALESFORCE CONNECTION",
+        "asynchronous": true,
+        "type": "distributed",
+        "parsers": [],
+        "distributed": {
+          "bearerToken": "******"
+        },
+        "salesforce": {
+          "sObjectType": "Account"
+        },
+        "adaptorType": "SalesforceExport"
+      }
+    }
+  ]
+}

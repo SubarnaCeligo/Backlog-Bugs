@@ -1,0 +1,60 @@
+{
+    "qa_importJson": {
+      "name": "TC_IAF_008_C23533",
+      "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+      "_integrationId": "6243fc851b138e2e822a18bd",
+      "applications": ["netsuite","activecampaign","acumatica","salesforce","asana"],
+      "framework": "twoDotZero",
+      "twoDotZero": {
+        "_integrationId": "6243fc851b138e2e822a18bd",
+        "editions": []
+      }
+    },
+    "qa_editImportJson": {
+      "name": "TC_IAF_008_C23533",
+      "trialEnabled": true,
+      "trialPeriod": "30",
+      "_trialLicenseId": "624ad0c5f938b448cde27385"
+    },
+    "qa_editExpectedJson": {
+      "name": "TC_IAF_008_C23533",
+      "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+      "published": false,
+      "managed": false,
+      "_integrationId": "6243fc851b138e2e822a18bd",
+      "applications": ["netsuite","activecampaign","acumatica","salesforce"],
+      "trialEnabled": true,
+      "trialPeriod": "30",
+      "framework": "twoDotZero",
+      "twoDotZero": {
+        "_integrationId": "6243fc851b138e2e822a18bd",
+        "editions": []
+      }
+    },
+    "importJson": {
+      "name": "TC_IAF_008_C23533",
+      "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+      "_integrationId": "6243fdd2d68e2457e3b01f34",
+      "applications": ["netsuite","activecampaign","acumatica","salesforce","asana"],
+      "framework": "twoDotZero",
+      "twoDotZero": {
+        "_integrationId": "6243fdd2d68e2457e3b01f34",
+        "editions": []
+      }
+    },
+    "editExpectedJson": {
+      "name": "TC_IAF_008_C23533",
+      "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+      "published": false,
+      "managed": false,
+      "_integrationId": "6243fdd2d68e2457e3b01f34",
+      "applications": ["netsuite","activecampaign","acumatica","salesforce"],
+      "trialEnabled": true,
+      "trialPeriod": "30",
+      "framework": "twoDotZero",
+      "twoDotZero": {
+        "_integrationId": "6243fdd2d68e2457e3b01f34",
+        "editions": []
+      }
+    }
+  }

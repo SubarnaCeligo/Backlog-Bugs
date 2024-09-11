@@ -1,0 +1,242 @@
+{
+    "name": "TC_C104124",
+    "referencename": "TC_C104124",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "http delta",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "_sourceId": "64f054daae63a1601b1aeb1c",
+                        "apiIdentifier": "e97357f22b",
+                        "asynchronous": true,
+                        "type": "delta",
+                        "oneToMany": false,
+                        "http": {
+                            "relativeURI": "/users/search.json?query=updated>{{{lastExportDateTime}}}",
+                            "method": "GET",
+                            "formType": "http",
+                            "response": {
+                                "resourcePath": "users"
+                            }
+                        },
+                        "delta": {
+                            "dateFormat": "YYYY-MM-DDTHH:mm:ss[Z]"
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                },
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "http delta export",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "_sourceId": "64f054db2c7ee160c3a755cc",
+                        "apiIdentifier": "e58b02b010",
+                        "asynchronous": true,
+                        "type": "delta",
+                        "oneToMany": false,
+                        "http": {
+                            "relativeURI": "/users/search.json?query=updated>{{{lastExportDateTime}}}",
+                            "method": "GET",
+                            "formType": "http",
+                            "response": {
+                                "resourcePath": "users"
+                            }
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                },
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "shopify delta with mockoutput",
+                        "_connectionId": "SHOPIFY CONNECTION",
+                        "_sourceId": "64f054db67d75f6ed9390126",
+                        "apiIdentifier": "e0ae0d81d7",
+                        "asynchronous": true,
+                        "type": "delta",
+                        "assistant": "shopify",
+                        "oneToMany": false,
+                        "assistantMetadata": {
+                            "resource": "customer",
+                            "version": "v2",
+                            "operation": "retrieves_alistofcustomers"
+                        },
+                        "mockOutput": {
+                            "page_of_records": [
+                                {
+                                    "record": {
+                                        "id": 6515357712470,
+                                        "email": "_____bbcc64867@gmail.com",
+                                        "first_name": "___456!@#e2e_automation",
+                                        "last_name": "___456!@#e2e_automation"
+                                    }
+                                },
+                                {
+                                    "record": {
+                                        "id": 6515357679702,
+                                        "email": "____bddc64867@gmail.com",
+                                        "first_name": "123--@_&-2-3e2e_automation",
+                                        "last_name": "123--@_&-2-3e2e_automation"
+                                    }
+                                },
+                                {
+                                    "record": {
+                                        "id": 6515357614166,
+                                        "email": "_____bdec64867@gmail.com",
+                                        "first_name": "___456!@#e2e_automation_1",
+                                        "last_name": "___456!@#e2e_automation"
+                                    }
+                                }
+                            ]
+                        },
+                        "http": {
+                            "relativeURI": "/customers.json?updated_at_min={{{lastExportDateTime}}}",
+                            "method": "GET",
+                            "successMediaType": "json",
+                            "errorMediaType": "json",
+                            "formType": "assistant",
+                            "paging": {
+                                "method": "linkheader",
+                                "lastPageStatusCode": 404,
+                                "linkHeaderRelation": "next"
+                            },
+                            "response": {
+                                "resourcePath": "customers"
+                            }
+                        },
+                        "delta": {
+                            "dateFormat": "YYYY-MM-DDTHH:mm:ss[Z]"
+                        },
+                        "rest": {
+                            "relativeURI": "/customers.json?updated_at_min={{{lastExportDateTime}}}",
+                            "method": "GET",
+                            "resourcePath": "customers",
+                            "pagingMethod": "linkheader",
+                            "allowUndefinedResource": false,
+                            "linkHeaderRelation": "next"
+                        },
+                        "transform": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [
+                                    []
+                                ],
+                                "version": "1"
+                            },
+                            "rules": [
+                                []
+                            ],
+                            "version": "1"
+                        },
+                        "filter": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [],
+                                "version": "1"
+                            },
+                            "rules": [],
+                            "version": "1"
+                        },
+                        "adaptorType": "RESTExport"
+                    }
+                },
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Http test",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "_sourceId": "64f07241ac92e86071d81e19",
+                        "apiIdentifier": "ec87219f6b",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "http": {
+                            "relativeURI": "/users",
+                            "method": "GET",
+                            "formType": "http"
+                        },
+                        "rawData": "6253c695bbf2c06775d39fe1b181640ccb804073872ca815a4e7892e",
+                        "adaptorType": "HTTPExport"
+                    }
+                },
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Salesforce export test",
+                        "_connectionId": "SALESFORCE CONNECTION",
+                        "_sourceId": "64f07273ac92e86071d81e2a",
+                        "apiIdentifier": "e333b4fb64",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "salesforce": {
+                            "type": "soql",
+                            "api": "rest",
+                            "soql": {
+                                "query": "select Name, Email__c, Immutable_Number1__c from Account"
+                            }
+                        },
+                        "adaptorType": "SalesforceExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Ftp Import",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "ic4682b739",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "file": {
+                            "fileName": "TC_C104124.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO%20Automation%20SFTP%20Imports",
+                            "fileName": "TC_C104124.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C104124",
+                "disabled": false,
+                "_integrationId": "63232c59d3a9897fe95f9f2a",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    },
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    },
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    },
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    },
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

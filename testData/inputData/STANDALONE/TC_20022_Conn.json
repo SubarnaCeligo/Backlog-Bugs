@@ -1,0 +1,32 @@
+{"importJSON": {
+        "type": "netsuite",
+        "name": "Netsuite_Automation_NEW",
+        "offline": false,
+        "debugDate": "2022-07-14T11:07:55.651Z",
+        "sandbox": false,
+        "debugUntil": "2022-07-14T11:07:55.651Z",
+        "concurrency":"6303855d14f77f1bd13e7846",
+        "netsuite": {
+            "account": "TSTDRV1143616",
+            "roleId": "1109",
+            "environment": "production",
+            "requestLevelCredentials": true,
+            "dataCenterURLs": {
+                "restDomain": "https://tstdrv1143616.restlets.api.netsuite.com",
+                "webservicesDomain": "https://tstdrv1143616.suitetalk.api.netsuite.com",
+                "systemDomain": "https://tstdrv1143616.app.netsuite.com"
+            },
+            "roleName": "Int Scrum Celigo integrator.io Full Access w/o 2FA",
+            "tokenId": "******",
+            "qa__tokenId": "YTliN2U3ZDRiZDFlNmVkNDEyMmYxYTBmYWU5MDAwYjI2OWMzMGVmZWRhYzE3MjQ1MmI1MWZmOGFkYmU1YmE5ZQ==",
+            "tokenSecret": "******",
+            "qa__tokenSecret": "Y2E4MTM0YjhjNTU5Njk2ZWJiZTFjYzg5MWQ3MDcxODAxOWE1M2ZmMjNkYzRjN2M3ZTIxYjYzOWI4MGQyNzZiNA==",
+            "entityId": "98444",
+            "wsdlVersion": "2020.2",
+            "concurrencyLevel": 1,
+            "_iClientId": "629b02c6bbe3f43a8c74e282",
+            "suiteAppInstalled": true,
+            "authType": "token"
+        }
+    }
+}

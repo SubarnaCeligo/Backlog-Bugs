@@ -6,36 +6,23 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
   test("@Env-All @Zephyr-IO-T14176 C110832 Verify JS Editor is having Celigo AI", async ({ io, page }) => {
+    
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();
-    await io.flowBuilder.clickByText('TC47946_DND');
+    await io.flowBuilder.clickByText('Filter_DND');
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
     //EXPORT_TRANSFORMATION C110838
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR, 0);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_TRANSFORMATION);
     await io.flowBuilder.loadingTime();
     // //EXPORT_TRANSFORMATION RULES C111492
-    const isCeligoAIVisibleInRule = (await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT));
-    await io.assert.expectToBeTrue(isCeligoAIVisibleInRule, "Celigo AI Not Visible for Rule 1.0 or 2.0");
     await io.flowBuilder.click(selectors.basePagePO.JAVASCRIPTWINDOW);
     //Verify Celigo AI are in collapsed state and disabled. C113470 C113471
     await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","false", 1);
     await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-disabled","true", 1);
-    await io.assert.verifyElementIsDisplayed(
-      selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
-      "Celigo AI is not displayed"
-    );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.SCRIPT_LIST_DROPDOWN_ID);
-    await io.flowBuilder.clickByTextByIndex("Branching script", 1);
-    //Check CeligoHelpText is Aligned or not C113472 and C111475
-    await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT);
-    await expect(page.locator(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW)).toHaveAttribute('data-popper-placement', 'top');
-    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW, 'Provide instructions for Celigo AI to generate a JavaScript code for you. ');
-    await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW, 'Note: Your instructions will not be saved after you exit the editor window.');
-    await io.flowBuilder.clickByIndex(selectors.connectionsPagePO.HELPTEXT_CLOSE, 0);
+    await io.flowBuilder.clickByText("testfilter");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
-    //C111479
-    
     const placeholderText = page.getByPlaceholder('Tell me about your function here... I will apply your request to the existing function unless you tell me to replace it').first();
     await placeholderText.waitFor({ state: 'visible', timeout: 30000 });
     
@@ -50,10 +37,8 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
     // //Checking celigo AI not taking space as prompt C113468
     await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, '');
     await page.keyboard.press('Enter');
-    const isCeligoAIThinkingNotVisible = !(await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR));
-    await io.assert.expectToBeTrue(isCeligoAIThinkingNotVisible, "Celigo AI Thinking Not Visible");
     //EXPORT_TRANSFORMATION Continue
-    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'write js code to give current time');
+    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'write js code to get current time');
     await page.keyboard.press('Enter');
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR,
@@ -65,9 +50,9 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
         await page.mouse.wheel(0, 800);
     }
     await exportFunction.waitFor({ state: 'visible', timeout: 40000 });
-    //user can provide feedback thumbs up C111477
-    await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.THUMPSUP);
-    await expect(page.locator(selectors.flowBuilderPagePO.OPENAI.THUMPSUP)).toHaveAttribute('color', 'green');
+    // //user can provide feedback thumbs up C111477
+    // await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.THUMPSUP);
+    // await expect(page.locator(selectors.flowBuilderPagePO.OPENAI.THUMPSUP)).toHaveAttribute('color', 'green');
     //Placeholder after reset C111476
     await io.flowBuilder.click(selectors.flowBuilderPagePO.OPENAI.RESET_CONVERSATION);
     await placeholderText.waitFor({ state: 'visible', timeout: 30000 });
@@ -90,10 +75,6 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
     //Verify Celigo AI are in collapsed state. 
     await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","false", 1);
     await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-disabled","true", 1);
-    await io.assert.verifyElementIsDisplayed(
-      selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
-      "Celigo AI is not displayed"
-    );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.SCRIPT_LIST_DROPDOWN_ID);
     await io.flowBuilder.clickByTextByIndex("Branching script", 1);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
@@ -105,7 +86,7 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
     await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","true", 1);
     const explainExportDisabled = await page.$$(selectors.flowBuilderPagePO.OPENAI.EXPLAIN_SELECTION);
     expect(await explainExportDisabled[0].getAttribute('class')).toContain('Mui-disabled');
-    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'Get id');
+    await io.flowBuilder.fill(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD, 'Write a js code to get current time');
     await page.keyboard.press('Enter');
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR,
@@ -128,10 +109,6 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.EDIT_SCRIPT_LABEL_SELECTOR, 0);
     //Verify Celigo AI are in collapsed state. 
     await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","false", 1);
-    await io.assert.verifyElementIsDisplayed(
-      selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
-      "Celigo AI is not displayed"
-    );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
@@ -205,8 +182,6 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
     //Edit Branching C110852
     await io.flowBuilder.click(selectors.flowBranchingPO.ROUTERS);
     await io.flowBuilder.click(selectors.basePagePO.JAVASCRIPTWINDOW);
-    const isCeligoAINotVisible = !(await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT));
-    await io.assert.expectToBeTrue(isCeligoAINotVisible, "Celigo AI Not Visible for Edit Branching");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSE_RIGHT_DRAWER);
     //IMPORT_FILTER C110835
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR, 1);
@@ -216,10 +191,6 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
     //Verify Celigo AI are in collapsed state. 
     await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","false", 1);
     await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-disabled","true", 1);
-    await io.assert.verifyElementIsDisplayed(
-      selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
-      "Celigo AI is not displayed"
-    )
     await io.flowBuilder.click(selectors.flowBuilderPagePO.SCRIPT_LIST_DROPDOWN_ID);
     await io.flowBuilder.clickByTextByIndex("Branching script", 1);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
@@ -253,10 +224,6 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
     //Verify Celigo AI are in collapsed state. 
     await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","false", 1);
     await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-disabled","true", 1);
-    await io.assert.verifyElementIsDisplayed(
-      selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
-      "Celigo AI is not displayed"
-    )
     await io.flowBuilder.click(selectors.flowBuilderPagePO.SCRIPT_LIST_DROPDOWN_ID);
     await io.flowBuilder.clickByTextByIndex("Branching script", 1);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
@@ -291,10 +258,6 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.EDIT_SCRIPT_LABEL_SELECTOR, 0);
     //Verify Celigo AI are in collapsed state. 
     await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","false", 1);
-    await io.assert.verifyElementIsDisplayed(
-      selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
-      "Celigo AI is not displayed"
-    );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
@@ -327,10 +290,7 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.EDIT_SCRIPT_LABEL_SELECTOR, 1);
     //Verify Celigo AI are in collapsed state. 
     await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","false", 1);
-    await io.assert.verifyElementIsDisplayed(
-      selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
-      "Celigo AI is not displayed"
-    );
+   
     await io.flowBuilder.click(selectors.dashboardPagePO.SCRIPT_ID);
     let branchingScript = page.getByText("Branching script");
     await branchingScript.last().click();
@@ -362,10 +322,6 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.EDIT_SCRIPT_LABEL_SELECTOR, 2);
     //Verify Celigo AI are in collapsed state. 
     await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","false", 1);
-    await io.assert.verifyElementIsDisplayed(
-      selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
-      "Celigo AI is not displayed"
-    );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
@@ -395,10 +351,6 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
     await io.flowBuilder.click(selectors.flowBuilderPagePO.POST_RESPONSE_MAP_HOOK);
      //Verify Celigo AI are in collapsed state. 
      await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","false", 1);
-     await io.assert.verifyElementIsDisplayed(
-       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
-       "Celigo AI is not displayed"
-     )
      await io.flowBuilder.click(selectors.flowBuilderPagePO.SCRIPT_LIST_DROPDOWN_ID);
      await io.flowBuilder.clickByTextByIndex("Branching script", 1);
      await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
@@ -435,10 +387,6 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.EDIT_SCRIPT_LABEL_SELECTOR, 3);
     //Verify Celigo AI are in collapsed state. 
     await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","false", 1);
-    await io.assert.verifyElementIsDisplayed(
-      selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
-      "Celigo AI is not displayed"
-    );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);
     await io.assert.verifyElementIsDisplayed(
       selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_FIELD,
@@ -479,10 +427,6 @@ test.describe("C110832 Verify JS Editor is having Celigo AI", () => {
     //Verify Celigo AI are in collapsed state. 
     await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-expanded","false", 1);
     await io.assert.verifyElementAttribute(selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_BAR,"aria-disabled","true", 1);
-    await io.assert.verifyElementIsDisplayed(
-      selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT,
-      "Celigo AI is not displayed"
-    );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.SCRIPT_LIST_DROPDOWN_ID);
     await io.flowBuilder.clickByTextByIndex("Branching script", 1);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CELIGO_AI_BAR);

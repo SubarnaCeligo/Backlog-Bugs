@@ -1,0 +1,125 @@
+{
+    "name": "TC51549",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+      },
+    "referencename": "TC51549",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "FTP",
+                        "_connectionId": "FTP CONNECTION",
+                        "qa__path":"//FTP_uploads//TC_C51549.json",
+                        "apiIdentifier": "e77db31a0f",
+                        "asynchronous": true,
+                        "sandbox": false,
+                        "sampleData": [
+                            {
+                                "type": "order",
+                                "value": "1234"
+                            }
+                        ],
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/FTP_EXPORTS",
+                            "fileNameStartsWith": "TC_C51548",
+                            "fileNameEndsWith": ".json"
+                        },
+                        "file": {
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "json",
+                            "json": {
+                                "resourcePath": "*"
+                            }
+                        },
+                        "adaptorType": "FTPExport"
+                        }
+                        }
+            ],
+            "pageProcessors": [
+                {
+                 "type": "import",
+                 "qa__import": {
+                    "name": "Loop returns",
+                    "_connectionId": "LOOP RETURNS CONNECTION",
+                    "apiIdentifier": "ia7dae7208",
+                    "ignoreExisting": false,
+                    "ignoreMissing": false,
+                    "oneToMany": false,
+                    "assistant": "loopreturns",
+                    "sandbox": false,
+                    "assistantMetadata": {
+                        "resource": "639184209998e4b191badcb3",
+                        "version": "639184209998e4b191badcb2",
+                        "operation": "639184209998e4b191badcc3"
+                    },
+                    "mapping": {
+                        "fields": [
+                            {
+                                "extract": "type",
+                                "generate": "type"
+                            },
+                            {
+                                "extract": "value",
+                                "generate": "value"
+                            }
+                        ]
+                    },
+                    "http": {
+                        "relativeURI": [
+                            "blacklists"
+                        ],
+                        "method": [
+                            "POST"
+                        ],
+                        "body": [
+                            "{{#each data}}\n                {\n                  {{#each this}}\n                  {{#compare @key \"==\" \"ioRecordIndex\"}}  \n                  {{else}} \n                    {{#compare @key \"==\" \"ioFirstRecord\"}}  \n                      {{else}} \n                        {{#compare @key \"==\" \"ioLastRecord\"}}  \n                        {{else}} \n                          {{#if @index}},{{/if}} {{{jsonSerialize @key}}}: {{{jsonSerialize this}}} \n                        {{/compare}} \n                      {{/compare}}   \n                  {{/compare}}\n                  {{/each}}\n                }\n                {{/each}}"
+                        ],
+                        "requestMediaType": "json",
+                        "successMediaType": "json",
+                        "errorMediaType": "json",
+                        "strictHandlebarEvaluation": false,
+                        "sendPostMappedData": true,
+                        "_httpConnectorVersionId": "639184209998e4b191badcb2",
+                        "_httpConnectorResourceId": "639184209998e4b191badcb3",
+                        "_httpConnectorEndpointId": "639184209998e4b191badcc3",
+                        "_httpConnectorEndpointIds": [
+                            "639184209998e4b191badcc3"
+                        ],
+                        "formType": "assistant"
+                    },
+                    "adaptorType": "HTTPImport"
+
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC51549",
+                "disabled": false,
+                "qa__integrationId": "633408479fb96473a0c7372c",
+                "_integrationId": "631a1266abf51e7a86c80ab4",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

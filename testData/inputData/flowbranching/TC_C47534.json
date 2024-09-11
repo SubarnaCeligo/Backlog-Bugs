@@ -1,0 +1,641 @@
+{
+  "name": "TC_C47534",
+  "skipRetries": false,
+  "disabled": false,
+  "_integrationId": "62f51db41677a21a108e5e3a",
+  "qa__expectedDashboardCount": {
+    "successCount": "3",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "AutomationStandaloneExport",
+        "_connectionId": "SALESFORCE CONNECTION",
+        "asynchronous": true,
+        "type": "distributed",
+        "parsers": [],
+        "distributed": {
+          "bearerToken": "******"
+        },
+        "salesforce": {
+          "sObjectType": "Account",
+          "distributed": {
+            "qualifier": "Email__c = 'AutoFlowBranchingSFRT_C47534@mail.com'",
+            "disabled": false
+          }
+        },
+        "adaptorType": "SalesforceExport"
+      }
+    }
+  ],
+  "routers": [
+    {
+      "routeRecordsUsing": "input_filters",
+      "id": "GKlAd3",
+      "routeRecordsTo": "all_matching_branches",
+      "branches": [
+        {
+          "name": "R1B1",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "AutomationStandaloneImport_one",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "distributed": false,
+                "mapping": {
+                  "fields": [
+                    {
+                      "extract": "{{Name}}_1",
+                      "generate": "user.name"
+                    },
+                    {
+                      "extract": "Email__c",
+                      "generate": "user.notes"
+                    },
+                    {
+                      "extract": "Fax",
+                      "generate": "user.user_fields.fax"
+                    },
+                    {
+                      "extract": "Phone",
+                      "generate": "user.phone"
+                    }
+                  ]
+                },
+                "http": {
+                  "relativeURI": [
+                    "users.json"
+                  ],
+                  "method": [
+                    "POST"
+                  ],
+                  "body": [],
+                  "batchSize": 1,
+                  "formType": "http",
+                  "qa__formType": "rest",
+                  "strictHandlebarEvaluation": true,
+                  "sendPostMappedData": true
+                },
+                "adaptorType": "HTTPImport"
+              }
+            }
+          ]
+        },
+        {
+          "name": "R1B2",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "AutomationStandaloneImport_two",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "distributed": false,
+                "mapping": {
+                  "fields": [
+                    {
+                      "extract": "{{Name}}_2",
+                      "generate": "user.name"
+                    },
+                    {
+                      "extract": "Email__c",
+                      "generate": "user.notes"
+                    },
+                    {
+                      "extract": "Fax",
+                      "generate": "user.user_fields.fax"
+                    },
+                    {
+                      "extract": "Phone",
+                      "generate": "user.phone"
+                    }
+                  ]
+                },
+                "http": {
+                  "relativeURI": [
+                    "users.json"
+                  ],
+                  "method": [
+                    "POST"
+                  ],
+                  "body": [],
+                  "batchSize": 1,
+                  "formType": "http",
+                  "qa__formType": "rest",
+                  "strictHandlebarEvaluation": true,
+                  "sendPostMappedData": true
+                },
+                "adaptorType": "HTTPImport"
+              }
+            }
+          ]
+        }
+      ],
+      "script": {
+        "function": "branchRouter"
+      }
+    }
+  ],
+  "qa__dataVerification": {
+    "importapiIdentifier": "i43d04080f",
+    "importRecordJSON": {
+      "Subsidiary ID": "234",
+      "BillingCity": "Madhapur",
+      "Alt_Email": "AutoFlowBranchingSFRT_C47534@gmail.com",
+      "ShippingStreet": "IT Sez",
+      "BillingCountry": "India",
+      "BillingStreet": "GVS Colony",
+      "BillingState": "Telangana",
+      "Phone": "1234567890",
+      "Fax": "9090999090",
+      "Name": "Auto@FlowBranchingSFRT_C47534",
+      "Email": "AutoFlowBranchingSFRT_C47534@mail.com"
+    },
+    "application":"SALESFORCE",
+    "expected": {
+      "zendesk": {
+        "name": "TC_C47534",
+        "_integrationId": "62f51db41677a21a108e5e3a",
+        "import": {
+          "_connectionId": "HTTP ZENDESK CONNECTION"
+        },
+        "qa__dataVerification": {
+          "generateSampleDropDownAvailable": false,
+          "expectedJSON": {
+            "name": "Auto@FlowBranchingSFRT_C47534_1",
+            "notes": "AutoFlowBranchingSFRT_C47534@mail.com",
+            "user_fields": {
+              "fax": "9090999090"
+            }
+          },
+          "standaloneexportflowID": "57aaf0188ec9f88049060166",
+          "uniqueField": "name",
+          "importRecordType": "users",
+          "isUIFlow": true,
+          "exportapiIdentifier": "e8c9cb6192"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        }
+      },
+      "Zendesk": {
+        "name": "TC_C47534",
+        "_integrationId": "62f51db41677a21a108e5e3a",
+        "import": {
+          "_connectionId": "HTTP ZENDESK CONNECTION"
+        },
+        "qa__dataVerification": {
+          "generateSampleDropDownAvailable": false,
+          "expectedJSON": {
+            "name": "Auto@FlowBranchingSFRT_C47534_2",
+            "notes": "AutoFlowBranchingSFRT_C47534@mail.com",
+            "user_fields": {
+              "fax": "9090999090"
+            }
+          },
+          "standaloneexportflowID": "57aaf0188ec9f88049060166",
+          "uniqueField": "name",
+          "importRecordType": "users",
+          "isUIFlow": true,
+          "exportapiIdentifier": "e8c9cb6192"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "57bd48862e526bcf669fc0b1",
+      "lastModified": "2016-09-01T12:47:38.847Z",
+      "name": "14.SF Flow -- SF to Shopify",
+      "sampleData": [
+        {
+          "name": "Account Description",
+          "id": "Description"
+        },
+        {
+          "name": "Account Fax",
+          "id": "Fax"
+        },
+        {
+          "name": "Account ID",
+          "id": "Id"
+        },
+        {
+          "name": "Account Name",
+          "id": "Name"
+        },
+        {
+          "name": "Account Number",
+          "id": "AccountNumber"
+        },
+        {
+          "name": "Account Phone",
+          "id": "Phone"
+        },
+        {
+          "name": "Account Rating",
+          "id": "Rating"
+        },
+        {
+          "name": "Account Site",
+          "id": "Site"
+        },
+        {
+          "name": "Account Source",
+          "id": "AccountSource"
+        },
+        {
+          "name": "Account Type",
+          "id": "Type"
+        },
+        {
+          "name": "Active",
+          "id": "Active__c"
+        },
+        {
+          "name": "Alt Email",
+          "id": "Alt_Email__c"
+        },
+        {
+          "name": "Annual Revenue",
+          "id": "AnnualRevenue"
+        },
+        {
+          "name": "Billing Address",
+          "id": "BillingAddress"
+        },
+        {
+          "name": "Billing City",
+          "id": "BillingCity"
+        },
+        {
+          "name": "Billing Country",
+          "id": "BillingCountry"
+        },
+        {
+          "name": "Billing Geocode Accuracy",
+          "id": "BillingGeocodeAccuracy"
+        },
+        {
+          "name": "Billing Latitude",
+          "id": "BillingLatitude"
+        },
+        {
+          "name": "Billing Longitude",
+          "id": "BillingLongitude"
+        },
+        {
+          "name": "Billing State/Province",
+          "id": "BillingState"
+        },
+        {
+          "name": "Billing Street",
+          "id": "BillingStreet"
+        },
+        {
+          "name": "Billing Zip/Postal Code",
+          "id": "BillingPostalCode"
+        },
+        {
+          "name": "Category Internal ID",
+          "id": "Category_Internal_ID__c"
+        },
+        {
+          "name": "Category Name",
+          "id": "Category_Name__c"
+        },
+        {
+          "name": "Clean Status",
+          "id": "CleanStatus"
+        },
+        {
+          "name": "Created By ID",
+          "id": "CreatedById"
+        },
+        {
+          "name": "Created Date",
+          "id": "CreatedDate"
+        },
+        {
+          "name": "Custom Date Field",
+          "id": "Custom_Date_Field__c"
+        },
+        {
+          "name": "Customer Priority",
+          "id": "CustomerPriority__c"
+        },
+        {
+          "name": "D&B Company ID",
+          "id": "DandbCompanyId"
+        },
+        {
+          "name": "D-U-N-S Number",
+          "id": "DunsNumber"
+        },
+        {
+          "name": "Data.com Key",
+          "id": "Jigsaw"
+        },
+        {
+          "name": "Deleted",
+          "id": "IsDeleted"
+        },
+        {
+          "name": "Email",
+          "id": "Email__c"
+        },
+        {
+          "name": "Employees",
+          "id": "NumberOfEmployees"
+        },
+        {
+          "name": "Error Message",
+          "id": "Error_Message__c"
+        },
+        {
+          "name": "Error Test",
+          "id": "Error_Test__c"
+        },
+        {
+          "name": "Immutable Number1",
+          "id": "Immutable_Number1__c"
+        },
+        {
+          "name": "Industry",
+          "id": "Industry"
+        },
+        {
+          "name": "Jigsaw Company ID",
+          "id": "JigsawCompanyId"
+        },
+        {
+          "name": "Last Activity",
+          "id": "LastActivityDate"
+        },
+        {
+          "name": "Last Modified By ID",
+          "id": "LastModifiedById"
+        },
+        {
+          "name": "Last Modified Date",
+          "id": "LastModifiedDate"
+        },
+        {
+          "name": "Last Referenced Date",
+          "id": "LastReferencedDate"
+        },
+        {
+          "name": "Last Viewed Date",
+          "id": "LastViewedDate"
+        },
+        {
+          "name": "Master Record ID",
+          "id": "MasterRecordId"
+        },
+        {
+          "name": "NAICS Code",
+          "id": "NaicsCode"
+        },
+        {
+          "name": "NAICS Description",
+          "id": "NaicsDesc"
+        },
+        {
+          "name": "NS Internal ID",
+          "id": "NS_Internal_ID__c"
+        },
+        {
+          "name": "New Email",
+          "id": "New_Email__c"
+        },
+        {
+          "name": "Number of Locations",
+          "id": "NumberofLocations__c"
+        },
+        {
+          "name": "Once Export",
+          "id": "Once_Export__c"
+        },
+        {
+          "name": "Owner ID",
+          "id": "OwnerId"
+        },
+        {
+          "name": "Ownership",
+          "id": "Ownership"
+        },
+        {
+          "name": "Parent Account ID",
+          "id": "ParentId"
+        },
+        {
+          "name": "Photo URL",
+          "id": "PhotoUrl"
+        },
+        {
+          "name": "SIC Code",
+          "id": "Sic"
+        },
+        {
+          "name": "SIC Description",
+          "id": "SicDesc"
+        },
+        {
+          "name": "SLA",
+          "id": "SLA__c"
+        },
+        {
+          "name": "SLA Expiration Date",
+          "id": "SLAExpirationDate__c"
+        },
+        {
+          "name": "SLA Serial Number",
+          "id": "SLASerialNumber__c"
+        },
+        {
+          "name": "Shipping Address",
+          "id": "ShippingAddress"
+        },
+        {
+          "name": "Shipping City",
+          "id": "ShippingCity"
+        },
+        {
+          "name": "Shipping Country",
+          "id": "ShippingCountry"
+        },
+        {
+          "name": "Shipping Geocode Accuracy",
+          "id": "ShippingGeocodeAccuracy"
+        },
+        {
+          "name": "Shipping Latitude",
+          "id": "ShippingLatitude"
+        },
+        {
+          "name": "Shipping Longitude",
+          "id": "ShippingLongitude"
+        },
+        {
+          "name": "Shipping State/Province",
+          "id": "ShippingState"
+        },
+        {
+          "name": "Shipping Street",
+          "id": "ShippingStreet"
+        },
+        {
+          "name": "Shipping Zip/Postal Code",
+          "id": "ShippingPostalCode"
+        },
+        {
+          "name": "Static Text Test",
+          "id": "Static_Text_Test__c"
+        },
+        {
+          "name": "Subsidiary Internal ID",
+          "id": "Subsidiary_Internal_ID__c"
+        },
+        {
+          "name": "Subsidiary Name",
+          "id": "Subsidiary_Name__c"
+        },
+        {
+          "name": "System Modstamp",
+          "id": "SystemModstamp"
+        },
+        {
+          "name": "Ticker Symbol",
+          "id": "TickerSymbol"
+        },
+        {
+          "name": "Tradestyle",
+          "id": "Tradestyle"
+        },
+        {
+          "name": "Upsell Opportunity",
+          "id": "UpsellOpportunity__c"
+        },
+        {
+          "name": "Upsert",
+          "id": "Upsert__c"
+        },
+        {
+          "name": "Upsert Field",
+          "id": "Upsert_Field__c"
+        },
+        {
+          "name": "Website",
+          "id": "Website"
+        },
+        {
+          "name": "Year Started",
+          "id": "YearStarted"
+        }
+      ],
+      "_connectionId": "571f99ac7dcd19f174d07ad8",
+      "distributed": false,
+      "apiIdentifier": "i43d04080f",
+      "mapping": {
+        "fields": [
+          {
+            "extract": "Name",
+            "generate": "Name"
+          },
+          {
+            "extract": "Email",
+            "generate": "Email__c"
+          },
+          {
+            "extract": "Subsidiary ID",
+            "generate": "Subsidiary_Internal_ID__c"
+          },
+          {
+            "extract": "Phone",
+            "generate": "Phone"
+          },
+          {
+            "extract": "Fax",
+            "generate": "Fax"
+          },
+          {
+            "extract": "Alt_Email",
+            "generate": "Alt_Email__c"
+          },
+          {
+            "extract": "Upsert Field",
+            "generate": "Upsert_Field__c"
+          },
+          {
+            "extract": "BillingStreet",
+            "generate": "BillingStreet"
+          },
+          {
+            "extract": "BillingCity",
+            "generate": "BillingCity"
+          },
+          {
+            "extract": "BillingState",
+            "generate": "BillingState"
+          },
+          {
+            "extract": "BillingPostalCode",
+            "generate": "BillingPostalCode"
+          },
+          {
+            "extract": "BillingCountry",
+            "generate": "BillingCountry"
+          },
+          {
+            "extract": "ShippingStreet",
+            "generate": "ShippingStreet"
+          },
+          {
+            "extract": "ShippingCity",
+            "generate": "ShippingCity"
+          },
+          {
+            "extract": "ShippingState",
+            "generate": "ShippingState"
+          },
+          {
+            "extract": "ShippingPostalCode",
+            "generate": "ShippingPostalCode"
+          },
+          {
+            "extract": "ShippingCountry",
+            "generate": "ShippingCountry"
+          },
+          {
+            "extract": "Acc Description",
+            "generate": "Description"
+          }
+        ]
+      },
+      "salesforce": {
+        "operation": "insert",
+        "sObjectType": "Account",
+        "api": "rest",
+        "removeNonSubmittableFields": false
+      },
+      "adaptorType": "SalesforceImport"
+    }
+  }
+}

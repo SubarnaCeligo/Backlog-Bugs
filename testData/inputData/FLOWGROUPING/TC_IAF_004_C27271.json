@@ -1,0 +1,50 @@
+{
+    "qa_importJson": {
+        "_id": "6353f39f17239838c02cb907",
+        "_connectorid":"627aab0e7ca3007138a64cd1",
+        "sandbox": true,
+        "user": {
+            "email": "io.auto.flowgrouping.qa@celigo.com",
+            "_id": "6243fafe42b2f435fddb6831",
+            "name": "Flow grouping",
+            "company": "IAF2.0 | FLOW GROUPING"
+        },
+        "_integrationId": "626bd8fbc087e064dcc7f4bd",
+        "type": "integrationApp",
+        "trialEndDate": "2051-12-31T07:05:47.214Z"
+    },
+    "qa_expectedJson": {
+        "_id": "6353f39f17239838c02cb907",
+        "created": "2022-05-09T13:39:25.940Z",
+        "sandbox": true,
+        "user": {
+            "email": "io.auto.flowgrouping.qa@celigo.com"
+        },
+        "type": "integrationApp",
+        "trialEndDate": "2051-12-31T07:05:47.214Z"
+    },
+    "importJson": {
+        "_id": "6353f39f17239838c02cb907",
+        "_connectorid":"627aab0e7ca3007138a64cd1",
+        "sandbox": true,
+        "user": {
+            "email": "io.auto.flowgrouping.qa@celigo.com",
+            "_id": "6243fafe42b2f435fddb6831",
+            "name": "Flow grouping",
+            "company": "IAF2.0 | FLOW GROUPING"
+        },
+        "_integrationId": "631ab1f913d12134f47719fe",
+        "type": "integrationApp",
+        "trialEndDate": "2051-12-31T07:05:47.214Z"
+    },
+    "expectedJson": {
+        "_id": "6353f39f17239838c02cb907",
+        "created": "2022-05-09T13:39:25.940Z",
+        "sandbox": true,
+        "user": {
+            "email": "io.auto.flowgrouping.qa@celigo.com"
+        },
+        "type": "integrationApp",
+        "trialEndDate": "2051-12-31T07:05:47.214Z"
+    }
+}

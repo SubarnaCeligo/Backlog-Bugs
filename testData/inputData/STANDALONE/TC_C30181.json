@@ -1,0 +1,222 @@
+{
+    "name": "TC_C30181",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "staging_scriptId": "636b7a5d8334797cedfdc698",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "successCount": "6",
+        "ignoreCount": "6",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "standaloneexportflowID": "",
+        "expected": {
+            "FTP": {
+                "name": "Azure_C30181",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "import": {
+                    "_connectionId": "FTP CONNECTION",
+                    "file": {
+                        "csv": {
+                          "columnDelimiter": ","
+                        }
+                      }
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "6",
+                    "ignoreCount": "6",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "Azure_C30181",
+                    "isUIFlow": true,
+                    "generateSampleDropDownAvailable": false,
+                    "folderName": "/io.auto.qa/IO_UI_Automation_FTPimport",
+                    "fileType": ".csv"
+                }
+            }
+        }
+    },
+    "qa__api_tdata": [
+        {
+            "name": "TC_C30181",
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Azure_exp",
+                        "_connectionId": "AZURE BLOB STORAGE CONNECTION",
+                        "apiIdentifier": "ec836819d6",
+                        "asynchronous": true,
+                        "hooks": {
+                            "preSavePage": {
+                                "_scriptId": "636b36bd96ce9c222a7ee4ec",
+                                "function": "preSavePage"
+                            }
+                        },
+                        "assistant": "azurestorageaccount",
+                        "sandbox": false,
+                        "http": {
+                            "type": "file",
+                            "relativeURI": "azureexports",
+                            "method": "GET",
+                            "formType": "assistant",
+                            "response": {
+                                "resourcePath": "files"
+                            }
+                        },
+                        "file": {
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "csv",
+                            "csv": {
+                                "columnDelimiter": ",",
+                                "rowDelimiter": "\n",
+                                "hasHeaderRow": true,
+                                "trimSpaces": true,
+                                "rowsToSkip": 0
+                            },
+                            "filter": {
+                                "type": "expression",
+                                "expression": {
+                                    "rules": [
+                                        "startswith",
+                                        [
+                                            "string",
+                                            [
+                                                "extract",
+                                                "name"
+                                            ]
+                                        ],
+                                        "File_Provide"
+                                    ],
+                                    "version": "1"
+                                },
+                                "version": "1",
+                                "rules": [
+                                    "startswith",
+                                    [
+                                        "string",
+                                        [
+                                            "extract",
+                                            "name"
+                                        ]
+                                    ],
+                                    "File_Provide"
+                                ]
+                            }
+                        },
+                        "sampleData": "id,name,year of birth,Test\r\n1,Gabriel,1879,true\r\n2,Samael,1643,\r\n3,Amandiel,1867,",
+                        "filter": {
+                            "type": "expression",
+                            "expression": {
+                                "rules": [
+                                    "notempty",
+                                    [
+                                        "string",
+                                        [
+                                            "extract",
+                                            "Test"
+                                        ]
+                                    ]
+                                ],
+                                "version": "1"
+                            },
+                            "version": "1",
+                            "rules": [
+                                "notempty",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "Test"
+                                    ]
+                                ]
+                            ]
+                        },
+                        "qa__rules": [
+                            [
+                                "record.Test",
+                                "is not empty"
+                            ]
+                        ],
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Get data from Azure",
+                        "_connectionId": "FTP CONNECTION",
+                        "_sourceId": "612cc1c1c029af28db3da5da",
+                        "apiIdentifier": "i1f1afa5d7",
+                        "oneToMany": false,
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "extract": "fileName",
+                                    "generate": "FileName"
+                                },
+                                {
+                                    "extract": "name",
+                                    "generate": "Name"
+                                },
+                                {
+                                    "extract": "id",
+                                    "generate": "id"
+                                }
+                            ]
+                        },
+                        "file": {
+                            "fileName": "Azure_C30181.csv",
+                            "skipAggregation": false,
+                            "type": "csv",
+                            "csv": {
+                                "rowDelimiter": "\n",
+                                "columnDelimiter": ",",
+                                "includeHeader": true,
+                                "wrapWithQuotes": false,
+                                "replaceTabWithSpace": false,
+                                "replaceNewlineWithSpace": false,
+                                "truncateLastRowDelimiter": false
+                            }
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPimport",
+                            "fileName": "Azure_C30181.csv"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C30181",
+                "disabled": false,
+                "qa__integrationId": "56d6b23fe1fc35de53914730",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

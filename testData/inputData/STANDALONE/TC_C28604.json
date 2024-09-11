@@ -1,0 +1,250 @@
+{
+    "name": "TC_C28604",
+    "referencename": "TC_C28604",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "3",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "Salesforce": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "TC_C28604",
+                "import": {
+                    "_connectionId": "62c877a1ebd1cb63e0f0607c"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "3",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "uniqueField": "Name",
+                    "standaloneexportflowID": "636d18d05772f25f7e6655f4",
+                    "importRecordType": "Account",
+                    "isUIFlow": true,
+                    "query": "Select id,Name, Email__c,phone,Billingcity,Billingstreet,Billingcountry,Billingstate,BillingPostalCode,Shippingcity,Shippingstreet,Shippingcountry,ShippingPostalCode,Shippingstate from Account where name like 'SalesGdrivexlsxStart'",
+                    "exportapiIdentifier": "ed4ff242ba",
+                    "expectedJSON": [
+                        {
+                            "Name": "SalesGdrivexlsxStart",
+                            "Email__c": "test84dfsd@celigo.com",
+                            "Phone": null,
+                            "BillingCity": "S Nagar",
+                            "BillingStreet": "GVP Colony",
+                            "BillingCountry": "India",
+                            "BillingState": "Telangana",
+                            "BillingPostalCode": null,
+                            "ShippingCity": "Hitech",
+                            "ShippingStreet": "IZ Sec",
+                            "ShippingCountry": "India",
+                            "ShippingPostalCode": "500087",
+                            "ShippingState": "Telangana"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "qa__api_tdata": [
+        {
+            "pageProcessors": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "azure_lookup",
+                        "_connectionId": "AZURE BLOB STORAGE CONNECTION",
+                        "apiIdentifier": "e01648e778",
+                        "asynchronous": true,
+                        "isLookup": true,
+                        "type": "blob",
+                        "assistant": "azurestorageaccount",
+                        "sandbox": false,
+                        "http": {
+                            "type": "file",
+                            "relativeURI": "azureexports",
+                            "method": "GET",
+                            "formType": "assistant",
+                            "response": {
+                                "resourcePath": "files"
+                            }
+                        },
+                        "file": {
+                            "output": "blobKeys",
+                            "skipDelete": false,
+                            "filter": {
+                                "type": "expression",
+                                "expression": {
+                                    "rules": [
+                                        "startswith",
+                                        [
+                                            "string",
+                                            [
+                                                "extract",
+                                                "name"
+                                            ]
+                                        ],
+                                        "File_Provide"
+                                    ],
+                                    "version": "1"
+                                },
+                                "version": "1",
+                                "rules": [
+                                    "startswith",
+                                    [
+                                        "string",
+                                        [
+                                            "extract",
+                                            "name"
+                                        ]
+                                    ],
+                                    "File_Provide"
+                                ]
+                            }
+                        },
+                        "adaptorType": "HTTPExport"
+                    },
+                    "responseMapping": {
+                        "fields": [
+                            {
+                                "extract": "id",
+                                "generate": "_headers.contentlength"
+                            }
+                        ],
+                        "lists": []
+                    }
+                },
+                {
+                    "type": "import",
+                    "responseMapping": {
+                        "fields": [],
+                        "lists": []
+                    },
+                    "qa__import": {
+                        "name": "sales_imp",
+                        "_connectionId": "SALESFORCE CONNECTION",
+                        "apiIdentifier": "i98d0b1cc7",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "extract": "id",
+                                    "generate": "Phone"
+                                },
+                                {
+                                    "extract": "Email",
+                                    "generate": "Email__c"
+                                },
+                                {
+                                    "extract": "Name",
+                                    "generate": "Name"
+                                },
+                                {
+                                    "extract": "Fax",
+                                    "generate": "Fax"
+                                },
+                                {
+                                    "extract": "BillingCity",
+                                    "generate": "BillingCity"
+                                },
+                                {
+                                    "extract": "BillingCountry",
+                                    "generate": "BillingCountry"
+                                },
+                                {
+                                    "extract": "BillingState",
+                                    "generate": "BillingState"
+                                },
+                                {
+                                    "extract": "ShippingCity",
+                                    "generate": "ShippingCity"
+                                },
+                                {
+                                    "extract": "BillingStreet",
+                                    "generate": "BillingStreet"
+                                },
+                                {
+                                    "extract": "ShippingCountry",
+                                    "generate": "ShippingCountry"
+                                },
+                                {
+                                    "extract": "ShippingStreet",
+                                    "generate": "ShippingStreet"
+                                },
+                                {
+                                    "extract": "ShippingZip",
+                                    "generate": "ShippingPostalCode"
+                                },
+                                {
+                                    "extract": "ShippingState",
+                                    "generate": "ShippingState"
+                                }
+                            ]
+                        },
+                        "salesforce": {
+                            "operation": "insert",
+                            "sObjectType": "Account",
+                            "api": "soap",
+                            "removeNonSubmittableFields": false
+                        },
+                        "adaptorType": "SalesforceImport"
+                    }
+                }
+            ],
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "qa__path": "//FTP_uploads//TC_C51932.json",
+                        "_connectionId": "FTP CONNECTION",
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                            "fileNameStartsWith": "TC_C51932.json"
+                        },
+                        "file": {
+                            "encoding": "utf8",
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "json"
+                        },
+                        "adaptorType": "FTPExport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C28604",
+                "disabled": false,
+                "qa__integrationId": "56d6b23fe1fc35de53914730",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "export",
+                        "_exportId": "636a281396ce9c222a7ec029"
+                    },
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "6364eb04e28334683c47ed1a"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

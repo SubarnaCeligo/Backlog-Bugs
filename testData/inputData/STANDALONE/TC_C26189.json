@@ -1,0 +1,54 @@
+{
+    "name": "TC_C26189",
+    "skipRetries": false,
+    "_integrationId": "6228aed6bc8a2732cfe8044c",
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "name": "Ftp Import",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "i160155636",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "AS2.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "/SukeerthiSriram/SS20",
+                    "fileName": "AS2.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ],
+    "timezone": "Asia/Calcutta",
+    "disabled": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "1",
+        "successCount": "0",
+        "errorCount": "0"
+    },
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "TC_C26189",
+                "type": "webhook",
+                "sandbox": false,
+                "webhook": {
+                    "provider": "custom",
+                    "verify": "basic",
+                    "username": "goodUser",
+                    "password": "goodPass"
+                },
+                "adaptorType": "WebhookExport"
+            }
+        }
+    ]
+}

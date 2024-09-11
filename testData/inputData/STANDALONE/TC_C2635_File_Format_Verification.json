@@ -1,0 +1,703 @@
+{
+    "skipRetries": false,
+    "_integrationId": "FTP CONNECTION",
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "EDIFACT_Export",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "e3d75793b8",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "EDIFACT_Sample"
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": true,
+                    "encoding": "utf8",
+                    "type": "filedefinition",
+                    "qa__type": "delimited/edifact",
+                    "qa__ediformat": "amazonvcedifactorders",
+                    "fileDefinition": {
+                        "_fileDefinitionId": "61c40c142341004bf2f98be1"
+                    },
+                    "qa__fileGeneratorHelper": true,
+                    "qa__data": {
+                        "resourcePath": "",
+                        "fileDefinition": {
+                          "name": "Amazon Vendor Central EDIFACT ORDERS",
+                          "description": "Purchase Order",
+                          "version": 1,
+                          "format": "/X12",
+                          "delimited": {
+                            "rowSuffix": "'",
+                            "rowDelimiter": "\\n",
+                            "colDelimiter": "+"
+                          },
+                          "rules": [
+                            {
+                              "maxOccurrence": 1,
+                              "required": true,
+                              "skipRowSuffix": true,
+                              "elements": [
+                                {
+                                  "name": "UNB",
+                                  "value": "UNB"
+                                },
+                                {
+                                  "name": "SYNTAX IDENTIFIER",
+                                  "value": {
+                                    "delimiter": ":",
+                                    "elements": [
+                                      {
+                                        "name": "Syntax identifier",
+                                        "value": "UNB010-010"
+                                      },
+                                      {
+                                        "name": "Syntax version number",
+                                        "value": "UNB010-020"
+                                      }
+                                    ]
+                                  }
+                                },
+                                {
+                                  "name": "INTERCHANGE SENDER",
+                                  "value": {
+                                    "delimiter": ":",
+                                    "elements": [
+                                      {
+                                        "name": "Sender identification",
+                                        "value": "UNB020-010"
+                                      },
+                                      {
+                                        "name": "Partner identification code qualifier",
+                                        "value": "UNB020-020"
+                                      }
+                                    ]
+                                  }
+                                },
+                                {
+                                  "name": "INTERCHANGE RECIPIENT",
+                                  "value": {
+                                    "delimiter": ":",
+                                    "elements": [
+                                      {
+                                        "name": "Recipient identification",
+                                        "value": "UNB030-010"
+                                      },
+                                      {
+                                        "name": "Partner identification code qualifier",
+                                        "value": "UNB030-020"
+                                      }
+                                    ]
+                                  }
+                                },
+                                {
+                                  "name": "DATE/TIME OF PREPARATION",
+                                  "value": {
+                                    "delimiter": ":",
+                                    "elements": [
+                                      {
+                                        "name": "Date of preparation",
+                                        "value": "UNB040-010"
+                                      },
+                                      {
+                                        "name": "Time of preparation",
+                                        "value": "UNB040-020"
+                                      }
+                                    ]
+                                  }
+                                },
+                                {
+                                  "name": "Interchange control reference",
+                                  "value": "UNB050"
+                                },
+                                {
+                                  "name": "UNB060",
+                                  "value": "UNB060"
+                                },
+                                {
+                                  "name": "UNB070",
+                                  "value": "UNB070"
+                                },
+                                {
+                                  "name": "UNB080",
+                                  "value": "UNB080"
+                                },
+                                {
+                                  "name": "Acknowledgement request",
+                                  "value": "UNB090"
+                                },
+                                {
+                                  "name": "Communications agreement ID",
+                                  "value": "UNB100"
+                                }
+                              ],
+                              "children": [
+                                {
+                                  "maxOccurrence": 1,
+                                  "skipRowSuffix": true,
+                                  "required": true,
+                                  "elements": [
+                                    {
+                                      "name": "UNH",
+                                      "value": "UNH"
+                                    },
+                                    {
+                                      "name": "Message reference number",
+                                      "value": "UNH010"
+                                    },
+                                    {
+                                      "name": "MESSAGE IDENTIFIER",
+                                      "value": {
+                                        "delimiter": ":",
+                                        "elements": [
+                                          {
+                                            "name": "Message type identifier",
+                                            "value": "UNH020-010"
+                                          },
+                                          {
+                                            "name": "Message type version number",
+                                            "value": "UNH020-020"
+                                          },
+                                          {
+                                            "name": "Message type release number",
+                                            "value": "UNH020-030"
+                                          },
+                                          {
+                                            "name": "Controlling agency",
+                                            "value": "UNH020-040"
+                                          },
+                                          {
+                                            "name": "Association assigned code",
+                                            "value": "UNH020-050"
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ],
+                                  "children": [
+                                    {
+                                      "maxOccurrence": 1,
+                                      "skipRowSuffix": true,
+                                      "required": true,
+                                      "elements": [
+                                        {
+                                          "name": "BGM",
+                                          "value": "BGM"
+                                        },
+                                        {
+                                          "name": "DOCUMENT/MESSAGE NAME",
+                                          "value": {
+                                            "delimiter": ":",
+                                            "elements": [
+                                              {
+                                                "name": "Document/message name, coded",
+                                                "value": "BGM010-010"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        {
+                                          "name": "Document/message number",
+                                          "value": "BGM020"
+                                        },
+                                        {
+                                          "name": "Message function, coded",
+                                          "value": "BGM030"
+                                        }
+                                      ],
+                                      "children": [
+                                        {
+                                          "maxOccurrence": 1,
+                                          "skipRowSuffix": true,
+                                          "required": true,
+                                          "elements": [
+                                            {
+                                              "name": "DTM",
+                                              "value": "DTM"
+                                            },
+                                            {
+                                              "name": "DATE/TIME/PERIOD",
+                                              "value": {
+                                                "delimiter": ":",
+                                                "elements": [
+                                                  {
+                                                    "name": "Date/time/period qualifier",
+                                                    "value": "DTM010-010"
+                                                  },
+                                                  {
+                                                    "name": "Date/time/period",
+                                                    "value": "DTM010-020"
+                                                  },
+                                                  {
+                                                    "name": "Date/time/period format qualifier",
+                                                    "value": "DTM010-030"
+                                                  }
+                                                ]
+                                              }
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "name": "DTM",
+                                          "maxOccurrence": 2,
+                                          "skipRowSuffix": true,
+                                          "container": true,
+                                          "children": [
+                                            {
+                                              "required": true,
+                                              "elements": [
+                                                {
+                                                  "name": "DTM",
+                                                  "value": "DTM"
+                                                },
+                                                {
+                                                  "name": "DATE/TIME/PERIOD",
+                                                  "value": {
+                                                    "delimiter": ":",
+                                                    "elements": [
+                                                      {
+                                                        "name": "Date/time/period qualifier",
+                                                        "value": "DTM010-010"
+                                                      },
+                                                      {
+                                                        "name": "Date/time/period",
+                                                        "value": "DTM010-020"
+                                                      },
+                                                      {
+                                                        "name": "Date/time/period format qualifier",
+                                                        "value": "DTM010-030"
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "name": "Segment Group 1",
+                                          "maxOccurrence": 10,
+                                          "container": true,
+                                          "children": [
+                                            {
+                                              "required": false,
+                                              "skipRowSuffix": true,
+                                              "elements": [
+                                                {
+                                                  "name": "RFF",
+                                                  "value": "RFF"
+                                                },
+                                                {
+                                                  "name": "REFERENCE",
+                                                  "value": {
+                                                    "delimiter": ":",
+                                                    "elements": [
+                                                      {
+                                                        "name": "Reference qualifier",
+                                                        "value": "RFF010-010"
+                                                      },
+                                                      {
+                                                        "name": "Reference number",
+                                                        "value": "RFF010-020"
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "name": "Segment Group 2",
+                                          "maxOccurrence": 4,
+                                          "container": true,
+                                          "children": [
+                                            {
+                                              "required": true,
+                                              "skipRowSuffix": true,
+                                              "elements": [
+                                                {
+                                                  "name": "NAD",
+                                                  "value": "NAD"
+                                                },
+                                                {
+                                                  "name": "Party qualifier",
+                                                  "value": "NAD010"
+                                                },
+                                                {
+                                                  "name": "PARTY IDENTIFICATION DETAILS",
+                                                  "value": {
+                                                    "delimiter": ":",
+                                                    "elements": [
+                                                      {
+                                                        "name": "Party id. identification",
+                                                        "value": "NAD020-010"
+                                                      },
+                                                      {
+                                                        "name": "NAD020-020",
+                                                        "value": "NAD020-020"
+                                                      },
+                                                      {
+                                                        "name": "Code list responsible agency, coded",
+                                                        "value": "NAD020-030"
+                                                      }
+                                                    ]
+                                                  }
+                                                },
+                                                {
+                                                  "name": "NAD030",
+                                                  "value": "NAD030"
+                                                },
+                                                {
+                                                  "name": "PARTY NAME",
+                                                  "value": {
+                                                    "delimiter": ":",
+                                                    "elements": [
+                                                      {
+                                                        "name": "Party name",
+                                                        "value": "NAD040-010"
+                                                      },
+                                                      {
+                                                        "name": "Party name(NAD040-020)",
+                                                        "value": "NAD040-020"
+                                                      }
+                                                    ]
+                                                  }
+                                                },
+                                                {
+                                                  "name": "STREET",
+                                                  "value": {
+                                                    "delimiter": ":",
+                                                    "elements": [
+                                                      {
+                                                        "name": "Street and number/p.o. box",
+                                                        "value": "NAD050-010"
+                                                      },
+                                                      {
+                                                        "name": "Street and number/p.o. box(NAD050-020)",
+                                                        "value": "NAD050-020"
+                                                      }
+                                                    ]
+                                                  }
+                                                },
+                                                {
+                                                  "name": "City name",
+                                                  "value": "NAD060"
+                                                },
+                                                {
+                                                  "name": "Country sub-entity identification",
+                                                  "value": "NAD070"
+                                                },
+                                                {
+                                                  "name": "Postcode identification",
+                                                  "value": "NAD080"
+                                                },
+                                                {
+                                                  "name": "Country, coded",
+                                                  "value": "NAD090"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "maxOccurrence": 1,
+                                              "required": false,
+                                              "skipRowSuffix": true,
+                                              "elements": [
+                                                {
+                                                  "name": "RFF",
+                                                  "value": "RFF"
+                                                },
+                                                {
+                                                  "name": "REFERENCE",
+                                                  "value": {
+                                                    "delimiter": ":",
+                                                    "elements": [
+                                                      {
+                                                        "name": "Reference qualifier",
+                                                        "value": "RFF010-010"
+                                                      },
+                                                      {
+                                                        "name": "Reference number",
+                                                        "value": "RFF010-020"
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "name": "Segment Group 7",
+                                          "maxOccurrence": 5,
+                                          "container": true,
+                                          "children": [
+                                            {
+                                              "required": true,
+                                              "skipRowSuffix": true,
+                                              "elements": [
+                                                {
+                                                  "name": "CUX",
+                                                  "value": "CUX"
+                                                },
+                                                {
+                                                  "name": "CURRENCY DETAILS",
+                                                  "value": {
+                                                    "delimiter": ":",
+                                                    "elements": [
+                                                      {
+                                                        "name": "Currency details qualifier",
+                                                        "value": "CUX010-010"
+                                                      },
+                                                      {
+                                                        "name": "Currency, coded",
+                                                        "value": "CUX010-020"
+                                                      },
+                                                      {
+                                                        "name": "Currency qualifier",
+                                                        "value": "CUX010-030"
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "name": "Segment Group 25",
+                                          "maxOccurrence": 200000,
+                                          "container": true,
+                                          "children": [
+                                            {
+                                              "required": true,
+                                              "skipRowSuffix": true,
+                                              "elements": [
+                                                {
+                                                  "name": "LIN",
+                                                  "value": "LIN"
+                                                },
+                                                {
+                                                  "name": "Line item number",
+                                                  "value": "LIN010"
+                                                },
+                                                {
+                                                  "name": "LIN020",
+                                                  "value": "LIN020"
+                                                },
+                                                {
+                                                  "name": "ITEM NUMBER IDENTIFICATION",
+                                                  "value": {
+                                                    "delimiter": ":",
+                                                    "elements": [
+                                                      {
+                                                        "name": "Item number",
+                                                        "value": "LIN030-010"
+                                                      },
+                                                      {
+                                                        "name": "Item number type, coded",
+                                                        "value": "LIN030-020"
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "maxOccurrence": 1,
+                                              "required": false,
+                                              "skipRowSuffix": true,
+                                              "elements": [
+                                                {
+                                                  "name": "PIA",
+                                                  "value": "PIA"
+                                                },
+                                                {
+                                                  "name": "Product id. function qualifier",
+                                                  "value": "PIA010"
+                                                },
+                                                {
+                                                  "name": "ITEM NUMBER IDENTIFICATION(PIA020)",
+                                                  "value": {
+                                                    "delimiter": ":",
+                                                    "elements": [
+                                                      {
+                                                        "name": "Item number",
+                                                        "value": "PIA020-010"
+                                                      },
+                                                      {
+                                                        "name": "Item number type, coded",
+                                                        "value": "PIA020-020"
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "maxOccurrence": 1,
+                                              "required": true,
+                                              "skipRowSuffix": true,
+                                              "elements": [
+                                                {
+                                                  "name": "QTY",
+                                                  "value": "QTY"
+                                                },
+                                                {
+                                                  "name": "QUANTITY DETAILS",
+                                                  "value": {
+                                                    "delimiter": ":",
+                                                    "elements": [
+                                                      {
+                                                        "name": "Quantity qualifier",
+                                                        "value": "QTY010-010"
+                                                      },
+                                                      {
+                                                        "name": "Quantity",
+                                                        "value": "QTY010-020"
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "name": "Segment Group 28",
+                                              "maxOccurrence": 25,
+                                              "container": true,
+                                              "children": [
+                                                {
+                                                  "required": true,
+                                                  "skipRowSuffix": true,
+                                                  "elements": [
+                                                    {
+                                                      "name": "PRI",
+                                                      "value": "PRI"
+                                                    },
+                                                    {
+                                                      "name": "PRICE INFORMATION",
+                                                      "value": {
+                                                        "delimiter": ":",
+                                                        "elements": [
+                                                          {
+                                                            "name": "Price qualifier",
+                                                            "value": "PRI010-010"
+                                                          },
+                                                          {
+                                                            "name": "Price",
+                                                            "value": "PRI010-020"
+                                                          }
+                                                        ]
+                                                      }
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "maxOccurrence": 1,
+                                          "required": true,
+                                          "skipRowSuffix": true,
+                                          "elements": [
+                                            {
+                                              "name": "UNS",
+                                              "value": "UNS"
+                                            },
+                                            {
+                                              "name": "Section identification",
+                                              "value": "UNS010"
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                      "closeRule": {
+                                        "name": "CNT",
+                                        "maxOccurrence": 10,
+                                        "container": true,
+                                        "children": [
+                                          {
+                                            "required": true,
+                                            "skipRowSuffix": true,
+                                            "elements": [
+                                              {
+                                                "name": "CNT",
+                                                "value": "CNT"
+                                              },
+                                              {
+                                                "name": "CONTROL",
+                                                "value": {
+                                                  "delimiter": ":",
+                                                  "elements": [
+                                                    {
+                                                      "name": "Control qualifier",
+                                                      "value": "CNT010-010"
+                                                    },
+                                                    {
+                                                      "name": "Control value",
+                                                      "value": "CNT010-020"
+                                                    }
+                                                  ]
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ],
+                                  "closeRule": {
+                                    "maxOccurrence": 1,
+                                    "required": true,
+                                    "skipRowSuffix": true,
+                                    "elements": [
+                                      {
+                                        "name": "UNT",
+                                        "value": "UNT"
+                                      },
+                                      {
+                                        "name": "Number of segments in a message",
+                                        "value": "UNT010"
+                                      },
+                                      {
+                                        "name": "Message reference number(UNT020)",
+                                        "value": "UNT020"
+                                      }
+                                    ]
+                                  }
+                                }
+                              ],
+                              "closeRule": {
+                                "maxOccurrence": 1,
+                                "required": true,
+                                "skipRowSuffix": true,
+                                "elements": [
+                                  {
+                                    "name": "UNZ",
+                                    "value": "UNZ"
+                                  },
+                                  {
+                                    "name": "Interchange control count",
+                                    "value": "UNZ010"
+                                  },
+                                  {
+                                    "name": "Interchange control reference(UNZ020)",
+                                    "value": "UNZ020"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ]
+}

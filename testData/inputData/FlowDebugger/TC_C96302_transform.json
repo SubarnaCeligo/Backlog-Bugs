@@ -1,0 +1,4 @@
+{
+  "name": "Transform",
+  "content": "function transform (options) {\n  return options.record\n}"
+}

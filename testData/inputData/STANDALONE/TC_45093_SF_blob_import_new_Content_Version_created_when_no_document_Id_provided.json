@@ -1,0 +1,88 @@
+
+  {
+    "name": "TC_45093_FTP_SF_Blob_Content_version",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "apidataidentifier" : "e8eed6501e",
+    "skipRetries": false,
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "_connectionId": "SALESFORCE CONNECTION",
+          "apiIdentifier": "iec347d6c3",
+          "adaptorType": "SalesforceImport",
+          "qa__type": "blob",
+          "qa__isLookup": true,
+          "oneToMany": false,
+          "blob": true,
+          "sandbox": false,
+          "name": "SF Blob import",
+          "salesforce": {
+            "sObjectType": "contentVersion",
+            "operation": "upsert",
+            "contentVersion": {
+              "title": "automation blob",
+              "pathOnClient": "customerfile",
+              "contentLocation": "S"
+            },
+            "removeNonSubmittableFields": false
+          }
+        }
+      }
+    ],
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "name": "FTP Blob EXPORT",
+          "adaptorType": "FTPExport",
+          "apiIdentifier": "eb23be749d",
+          "qa__type": "blob",
+          "ftp": {
+            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+            "fileNameStartsWith": "automation"
+          },
+          "file": {
+            "skipDelete": true
+          },
+          "asynchronous": true,
+          "_connectionId": "62da8ccd89e1961a9dc36c0d"
+        }
+      }
+    ],
+    "qa__expectedDashboardCount": {
+      "successCount": "1",
+      "ignoreCount": "0",
+      "errorCount": "0"
+    },
+    "qa__dataVerification": {
+      "expected": {
+        "salesforce": {
+          "name": "TC_45093_FTP_SF_Blob_Content_version",
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "import": {
+            "_connectionId": "SALESFORCE CONNECTION"
+          },
+          "qa__expectedDashboardCount": {
+            "successCount": "1",
+            "ignoreCount": "0",
+            "errorCount": "0"
+          },
+          "qa__dataVerification": {
+            "standaloneexportflowID": "62e0de5cdd3ef760602e3933",
+            "exportRecordType": "Content Version",
+            "isUIFlow": true,
+            "query": "select contentDocumentId from ContentVersion where Title = 'automation blob'",
+            "exportapiIdentifier": "ef4f14867a",
+            "expectedJSON": [
+              {
+                "ContentDocumentId": "0693m00000Rb532AAB",
+                "attributes": {
+                  "type": "ContentVersion"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }

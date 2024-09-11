@@ -1,0 +1,174 @@
+{
+  "name": "TC_C9697",
+  "referencename": "TC_C9697",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "NS blob Export",
+            "_connectionId": "NETSUITE CONNECTION",
+            "apiIdentifier": "eabd581dfa",
+            "asynchronous": true,
+            "isLookup": true,
+            "type": "blob",
+            "oneToMany": false,
+            "pathToMany": "attachments",
+            "netsuite": {
+              "skipGrouping": true,
+              "statsOnly": false,
+              "internalId": "271",
+              "restlet": {
+                "markExportedBatchSize": 100,
+                "useSS2Restlets": false
+              },
+              "distributed": {
+                "useSS2Framework": false
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Zendesk blob import",
+            "application":"zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "i08eb31847",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "blobKeyPath": "blobKey",
+            "blob": true,
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "Company",
+                  "generate": "organization.name",
+                  "dataType": "string"
+                }
+              ]
+            },
+            "http": {
+              "relativeURI": [
+                "/uploads.json?filename=XYZ"
+              ],
+              "method": [
+                "POST"
+              ],
+              "body": [
+                ""
+              ],
+              "headers": [
+                {
+                  "name": "Content-Type",
+                  "value": "application/binary"
+                }
+              ],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http"
+            },
+            "filter": {
+              "type": "expression",
+              "expression": {
+                "rules": [],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": []
+            },
+            "adaptorType": "HTTPImport"
+          }
+        },
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "FTP Redshift Import",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "i9029988b3",
+            "oneToMany": false,
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "header",
+                  "generate": "ftp_header"
+                }
+              ]
+            },
+            "file": {
+              "fileName": "TC_9697-Mon, 26 Sep 2022 10:46:15 GMT.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/Neetin",
+              "fileName": "TC_9697-Mon, 26 Sep 2022 10:46:15 GMT.json"
+            },
+            "filter": {
+              "type": "expression",
+              "expression": {
+                "rules": [],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": []
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C9697",
+        "disabled": false,
+        "qa__integrationId": "62eca1efe386b563f638451e",
+        "_integrationId": "62ecc42648570015ab65cfa5",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [
+                {
+                  "extract": "headers",
+                  "generate": "header"
+                },
+                {
+                  "extract": "upload.token",
+                  "generate": "token"
+                }
+              ],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID",
+            "proceedOnFailure": false
+          },
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID",
+            "skipRetries": false
+          }
+        ],
+        "autoResolveMatchingTraceKeys": true
+      }
+    }
+  ],
+  "qa__expectedDashboardCount": {
+    "successCount": "3",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  }
+}

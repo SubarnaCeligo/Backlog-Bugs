@@ -1,0 +1,79 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "name": "TC_C51168",
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "qa__import": {
+        "name": "import_C51168",
+        "application": "zendesk support",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "apiIdentifier": "iba8856bdf",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": [
+            "tickets"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [],
+          "batchSize": 1,
+          "sendPostMappedData": true,
+          "formType": "http"
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "export_TC_C51168",
+        "_connectionId": "SHOPIFY CONNECTION",
+        "qa__connectionId": "SHOPIFY CONNECTION",
+        "adaptorType": "RESTExport",
+        "asynchronous": true,
+        "assistant": "shopify",
+        "assistantMetadata": {
+          "resource": "order",
+          "version": "v2",
+          "operation": "receive_asingleorder"
+        },
+        "http": {
+          "relativeURI": "/orders/4501132231.json",
+          "method": "GET",
+          "paging": {
+            "lastPageValues": []
+          },
+          "response": {
+            "resourcePath": "order",
+            "successValues": []
+          }
+        },
+        "rest": {
+          "relativeURI": "/orders/4501132231.json",
+          "method": "GET",
+          "headers": [],
+          "resourcePath": "order",
+          "allowUndefinedResource": false
+        },
+        "qa__assistant": {
+          "resource": "Orders : Order",
+          "endpoint": "Retrieves a specific order",
+          "pathParams": {
+            "orderId": "4501132231"
+          }
+        }
+      }
+    }
+  ]
+}

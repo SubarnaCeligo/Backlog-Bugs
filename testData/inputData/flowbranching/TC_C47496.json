@@ -1,0 +1,213 @@
+{
+  "name": "TC_C47496",
+  "disabled": false,
+  "_integrationId": "62f51db41677a21a108e5e3a",
+  "skipRetries": false,
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "application": "Google BigQuery",
+        "name": "BIg Query Export",
+        "_connectionId": "BIGQUERY CONNECTION",
+        "apiIdentifier": "e8aa5e680c",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "rdbms": {
+          "query": "SELECT distinct ID, Name FROM `ioqa-342912.1234.Employee` where (ID is not null and Name is not null)"
+        },
+        "adaptorType": "RDBMSExport"
+      }
+    }
+  ],
+  "routers": [
+    {
+      "routeRecordsUsing": "input_filters",
+      "id": "lKuOb5",
+      "routeRecordsTo": "all_matching_branches",
+      "branches": [
+        {
+          "name": "Branch1",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "Zendesk import 1",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "i5e03125f0",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mapping": {
+                  "fields": [
+                    {
+                      "extract": "Auto_{{random 16}}",
+                      "generate": "organization.name"
+                    },
+                    {
+                      "extract": "notes",
+                      "generate": "organization.notes"
+                    }
+                  ]
+                },
+                "http": {
+                  "relativeURI": [
+                    "organizations.json"
+                  ],
+                  "method": [
+                    "POST"
+                  ],
+                  "body": [],
+                  "batchSize": 1,
+                  "sendPostMappedData": true,
+                  "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+              }
+            }
+          ],
+          "inputFilter": {
+            "rules": [
+              "equals",
+              [
+                "string",
+                [
+                  "extract",
+                  "ID"
+                ]
+              ],
+              "1"
+            ]
+          }
+        },
+        {
+          "name": "Branch2",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "qa__import": {
+                "name": "Zendesk import 2",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "i6ee949225",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mapping": {
+                  "fields": [
+                    {
+                      "extract": "Auto_{{random 16}}",
+                      "generate": "organization.name"
+                    },
+                    {
+                      "extract": "notes",
+                      "generate": "organization.notes"
+                    }
+                  ]
+                },
+                "http": {
+                  "relativeURI": [
+                    "organizations.json"
+                  ],
+                  "method": [
+                    "POST"
+                  ],
+                  "body": [],
+                  "batchSize": 1,
+                  "sendPostMappedData": true,
+                  "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+              }
+            }
+          ],
+          "inputFilter": {
+            "rules": [
+              "equals",
+              [
+                "string",
+                [
+                  "extract",
+                  "ID"
+                ]
+              ],
+              "183"
+            ]
+          }
+        }
+      ],
+      "script": {
+        "function": "branchRouter"
+      }
+    }
+  ],
+  "qa__expectedDashboardCount": {
+    "successCount": "6",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "expected": {
+      "zendesk": {
+        "_integrationId": "62f51db41677a21a108e5e3a",
+        "name": "TC_C47496",
+        "import": {
+          "_connectionId": "62f4c40833b1cc2065ea388d"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "2",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": {
+            "name": "Auto_TC_47496_1",
+            "notes": "Gautham"
+          },
+          "uniqueField": "name",
+          "generateSampleDropDownAvailable": false,
+          "standaloneexportflowID": "63ffdacdd6a14e3abb4022f3",
+          "importRecordType": "users",
+          "isUIFlow": true,
+          "exportapiIdentifier": "ebed365fdc"
+        }
+      },
+      "Zendesk": {
+        "_integrationId": "62f51db41677a21a108e5e3a",
+        "name": "TC_47496",
+        "import": {
+          "_connectionId": "62f4c40833b1cc2065ea388d"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": {
+            "name": "Auto_TC_47496_2",
+            "notes": "Gautham"
+          },
+          "uniqueField": "name",
+          "generateSampleDropDownAvailable": false,
+          "standaloneexportflowID": "63ffdacdd6a14e3abb4022f3",
+          "importRecordType": "users",
+          "isUIFlow": true,
+          "exportapiIdentifier": "ebed365fdc"
+        }
+      }
+    }
+  }
+}

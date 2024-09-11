@@ -22,30 +22,28 @@ test.describe("@Author-ladimanish TC_T30967_T30985_T30981_T31003", () => {
     await io.sync.enterSyncName(syncName);
 
     //T30967
-    // await io.flowBuilder.click(
-    //   selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT
-    // );
-    // await io.assert.verifyElementContainsText(
-    //   selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW,
-    //   "text to be added"
-    // );
-    // await io.flowBuilder.clickByIndex(
-    //   selectors.connectionsPagePO.HELPTEXT_CLOSE,
-    //   1
-    // );
+    await io.flowBuilder.clickByIndex(
+      selectors.flowBuilderPagePO.HELP_TEXT_ICON,1
+    );
+    await io.assert.verifyElementContainsText(
+      selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW,
+      "Describe your sync so that other users can quickly understand its function and purpose"
+    );
+    await io.flowBuilder.click(
+      selectors.connectionsPagePO.HELPTEXT_CLOSE
+    );
 
     //T30985
-    // await io.flowBuilder.click(
-    //   selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT
-    // );
-    // await io.assert.verifyElementContainsText(
-    //   selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW,
-    //   "text to be added"
-    // );
-    // await io.flowBuilder.clickByIndex(
-    //   selectors.connectionsPagePO.HELPTEXT_CLOSE,
-    //   2
-    // );
+    await io.flowBuilder.clickByIndex(
+      selectors.flowBuilderPagePO.HELP_TEXT_ICON,2
+    );
+    await io.assert.verifyElementContainsText(
+      selectors.flowBuilderPagePO.OPENAI.CELIGO_AI_HELPTEXT_WINDOW,
+      "Set the time zone that the integrator.io scheduler should use to run your integration sync."
+    );
+    await io.flowBuilder.click(
+      selectors.connectionsPagePO.HELPTEXT_CLOSE
+    );
 
     //T30981 T31001
     await io.assert.verifyElementDisplayedByText(

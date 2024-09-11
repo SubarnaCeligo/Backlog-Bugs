@@ -38,7 +38,13 @@ test.describe("C41259 check iframe in different browsers", () => {
   });
 
   test("@Env-All @Zephyr-IO-T1077 C41259 check iframe in different browsers", async ({ io, page }) => {
-    await test.step("Sign in page", async () => {
+      await test.step("Sign in page", async () => {
+      await io.homePage.loadingTime()
+      await io.homePage.loadingTime()
+      await io.homePage.loadingTime()
+      await io.homePage.loadingTime()
+      await io.homePage.loadingTime()
+      await io.homePage.loadingTime()
       await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
       await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
       await io.homePage.click(selectors.basePagePO.SIGN_OUT);

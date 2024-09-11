@@ -4,8 +4,11 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe("C45581 Verify if the IO account user is able to view the option to enable MFA settings under the Security tab.", () => {
     test("@Env-All @Zephyr-IO-T17223 C45581 Verify if the IO account user is able to view the option to enable MFA settings under the Security tab.", async ({io, page}) => {
         await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
+        await io.homePage.loadingTime()
         await io.myAccountPage.click(selectors.myAccountPagePO.SECURITY);
+        await io.homePage.loadingTime()
         await io.myAccountPage.click(selectors.myAccountPagePO.MFA);
+        await io.homePage.loadingTime()
         await io.assert.verifyElementDisplayedByText('Enable MFA', 'Enable MFA not visible');
         const isToggleEnable = await io.myAccountPage.isVisible(`${selectors.myAccountPagePO.MFA_ON_OFF} .react-toggle--checked`);
         if(isToggleEnable) await io.myAccountPage.click(`${selectors.myAccountPagePO.MFA_ON_OFF} .react-toggle--checked`);

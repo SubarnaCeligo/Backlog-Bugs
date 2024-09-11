@@ -1,0 +1,66 @@
+{
+  "postBody_QA": {
+    "pagedExportState": {
+      "done": false,
+      "pageIndex": 18,
+      "issuedAt": 1670318492,
+      "sig": "daee0aaa10dcff8af4521d4f1fdb0164b02495d06ad5ceaba99fd210a9efcdbd"
+    },
+    "export": {
+      "name": "Customer flow",
+      "_connectionId": "NETSUITE CONNECTION",
+      "asynchronous": true,
+      "pageSize": 10,
+      "oneToMany": false,
+      "sandbox": false,
+      "rawData": "5e8c197894e7326199c855e1fb2cbe4059e64b6fbd1823aaff41e9d9",
+      "netsuite": {
+        "type": "restlet",
+        "skipGrouping": true,
+        "statsOnly": false,
+        "restlet": {
+          "recordType": "customer",
+          "searchId": "1907",
+          "useSS2Restlets": false
+        },
+        "distributed": {
+          "disabled": false,
+          "forceReload": false
+        }
+      },
+      "adaptorType": "NetSuiteExport"
+    }
+  },
+  "postBody_Stage": {
+    "pagedExportState": {
+      "done": false,
+      "pageIndex": 18,
+      "issuedAt": 1670328759,
+      "sig": "cfe1646d6d38f1d97725fdcedd95cf0094c5f64aa5e665f34e22c492c5787bcc"
+    },
+    "export": {
+      "name": "Customer flow",
+      "_connectionId": "6343b3521486c63a7cc1c23c",
+      "asynchronous": true,
+      "pageSize": 10,
+      "oneToMany": false,
+      "sandbox": false,
+      "rawData": "5e8c197894e7326199c855e1fb2cbe4059e64b6fbd1823aaff41e9d9",
+      "netsuite": {
+        "type": "restlet",
+        "skipGrouping": true,
+        "statsOnly": false,
+        "restlet": {
+          "recordType": "customer",
+          "searchId": "1907",
+          "useSS2Restlets": false
+        },
+        "distributed": {
+          "disabled": false,
+          "forceReload": false
+        }
+      },
+      "adaptorType": "NetSuiteExport"
+    }
+  }
+}

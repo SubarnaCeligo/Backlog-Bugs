@@ -49,6 +49,9 @@ test.describe("@Author_MaheshNivruttiSutar @Bug-IO-80306 @Bug-IO-80221 @Env-QA @
         await io.assert.expectToBeTrue(pageCheck, "Flowbuilder page is not shown");
         await io.exportsPage.click(selectors.flowBuilderPagePO.CLOSE);
         await io.exportsPage.click(selectors.basePagePO.DISCARD_CHANGES);
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
         await io.flowBuilder.deleteFlow();
     });
 });

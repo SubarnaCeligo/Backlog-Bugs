@@ -1,0 +1,35 @@
+{
+  "Source_Integration": "TC_C42291",
+  "Source_Environment": "Production",
+  "templateJSON": {
+    "Install_Template": true,
+    "Source_Environment": "Production",
+    "waitBeforeClickInstall": true,
+    "Upload_Path": "/testData/ALIASES/testData/632973a164726c352bf38415.zip",
+    "New_connection": false,
+    "connections": [
+      "HTTP ZENDESK CONNECTION:HTTP ZENDESK CONNECTION"
+    ]
+  },
+  "flowName": "TC_C42291",
+  "flowId": "632973a164726c352bf38415",
+  "New_connection": false,
+  "connections": [
+    "HTTP ZENDESK CONNECTION"
+  ],
+  "qa__connections": [
+    "HTTP ZENDESK CONNECTION"
+  ],
+  "createAliasConnection": {
+    "Source_Integration": "TC_C42291",
+    "aliasResourceType": "connections",
+    "aliasResourceName": "",
+    "aliasName": "connectionalias123"
+  },
+  "verifyAliases": [
+    {
+      "alias": "connectionalias123",
+      "_connectionId": ""
+    }
+  ]
+}

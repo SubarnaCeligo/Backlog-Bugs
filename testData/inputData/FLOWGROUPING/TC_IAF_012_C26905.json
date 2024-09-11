@@ -1,0 +1,106 @@
+{
+    "qa_editionSetting":{
+        "_id": "62a4191b0d57d901d065aacf",
+        "name": "TC_IAF_012_C26905",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "handle": "c1c1ebb7",
+        "published": false,
+        "managed": false,
+        "_integrationId": "62905de2c51f323382314cce",
+        "_sharedImportIds": [],
+        "_sharedExportIds": [],
+        "_iClientIdMap": [],
+        "applications": [
+            "activecampaign"
+        ],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "62905de2c51f323382314cce",
+            "editions": [
+                {
+                    "_id": "62a4199cea247423273077bb",
+                    "displayName": "Edition_1",
+                    "order": 0,
+                    "resources": {
+                        "_flowIds": ["6299956d95d5005bcd7dfc22"],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    },
+                    "childResources": {
+                        "_flowIds": [],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    }
+                }
+            ]
+        },
+        "trialEnabled": false
+    },
+
+    "qa_createLicense": {
+        "_id": "62a4191b0d57d901d065aacf",
+        "expires": "2022-12-25T18:27:59.999Z",
+        "sandbox": false,
+        "email": "io.auto.flowgrouping.qa@celigo.com",
+        "type": "integrationApp",
+        "_editionId": "62a4199cea247423273077bb"
+    },
+    "editionSetting":{
+        "_id": "6320338a51852e73fb07842d",
+        "name": "TC_IAF_012_C26905",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "handle": "c1c1ebb7",
+        "published": false,
+        "managed": false,
+        "_integrationId": "631ad2f213d12134f4772d77",
+        "_sharedImportIds": [],
+        "_sharedExportIds": [],
+        "_iClientIdMap": [],
+        "applications": [
+            "activecampaign"
+        ],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+            "_integrationId": "631ad2f213d12134f4772d77",
+            "editions": [
+                {
+                    "_id": "62a4199cea247423273077bb",
+                    "displayName": "Edition_1",
+                    "order": 0,
+                    "resources": {
+                        "_flowIds": ["631ad3673796483e5615c955"],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    },
+                    "childResources": {
+                        "_flowIds": [],
+                        "_importIds": [],
+                        "_exportIds": [],
+                        "_connectionIds": [],
+                        "_asyncHelperIds": [],
+                        "_fileDefinitionIds": []
+                    }
+                }
+            ]
+        },
+        "trialEnabled": false
+    },
+
+    "createLicense": {
+        "_id": "6320338a51852e73fb07842d",
+        "expires": "2022-12-25T18:27:59.999Z",
+        "sandbox": false,
+        "email": "io.auto.flowgrouping.qa@celigo.com",
+        "type": "integrationApp",
+        "_editionId": "62a4199cea247423273077bb"
+    }
+}

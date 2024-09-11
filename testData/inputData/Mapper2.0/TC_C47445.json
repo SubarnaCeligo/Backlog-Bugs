@@ -1,0 +1,326 @@
+{
+    "name": "TC_C47445_Shopify_Multiple_Sources",
+    "disabled": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "FTP_Export_TC_C47445",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                    "fileNameStartsWith": "TC_C47445_Mapper2_Shopify.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport",
+                "qa__path": "//SFTP_uploads//TC_C47445_Mapper2_Shopify.json"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "Shopify create order",
+                "_connectionId": "SHOPIFY CONNECTION",
+                "qa__connectionId": "SHOPIFY CONNECTION",
+                "ignoreExisting": false,
+                "oneToMany": false,
+                "assistant": "shopify",
+                "sandbox": false,
+                "assistantMetadata": {
+                    "resource": "order",
+                    "version": "v2",
+                    "operation": "creates_anorder"
+                },
+                "mapping": {
+                    "lists": [
+                        {
+                            "fields": [
+                                {
+                                    "generate": "quantity"
+                                }
+                            ],
+                            "generate": "order.line_items"
+                        }
+                    ]
+                },
+                "mappings": [
+                    {
+                        "generate": "order",
+                        "dataType": "object",
+                        "status": "Active",
+                        "mappings": [
+                            {
+                                "generate": "contact_email",
+                                "dataType": "string",
+                                "hardCodedValue": "Auto_47445@test.com",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "generate": "email",
+                                "dataType": "string",
+                                "hardCodedValue": "Auto_47445@test.com",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            },
+                            {
+                                "generate": "customer",
+                                "dataType": "object",
+                                "status": "Active",
+                                "mappings": [
+                                    {
+                                        "extract": "$.customer firstname",
+                                        "generate": "first_name",
+                                        "dataType": "string",
+                                        "status": "Active",
+                                        "sourceDataType": "string"
+                                    },
+                                    {
+                                        "extract": "$.customer lastname",
+                                        "generate": "last_name",
+                                        "dataType": "string",
+                                        "status": "Active",
+                                        "sourceDataType": "string"
+                                    }
+                                ]
+                            },
+                            {
+                                "generate": "line_items",
+                                "dataType": "objectarray",
+                                "status": "Active",
+                                "buildArrayHelper": [
+                                    {
+                                        "extract": "$.items[*].inventory[*]",
+                                        "sourceDataType": "objectarray",
+                                        "status": "Active",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.items.inventory.SName",
+                                                "generate": "title",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "extract": "$.items.inventory.sQty",
+                                                "generate": "quantity",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "extract": "$.items.inventory.SAmount",
+                                                "generate": "price",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "extract": "$.products[*].inventory[*]",
+                                        "status": "Active",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.products.inventory.SName",
+                                                "generate": "title",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "extract": "$.products.inventory.sQty",
+                                                "generate": "quantity",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "extract": "$.products.inventory.SAmount",
+                                                "generate": "price",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "extract": "$.orders[*].inventory[*]",
+                                        "status": "Active",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.orders.inventory.SName",
+                                                "generate": "title",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "extract": "$.orders.inventory.sQty",
+                                                "generate": "quantity",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "extract": "$.orders.inventory.SAmount",
+                                                "generate": "price",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "extract": "$.news[*].inventory[*]",
+                                        "status": "Active",
+                                        "mappings": [
+                                            {
+                                                "extract": "$.news.inventory.SName",
+                                                "generate": "title",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "extract": "$.news.inventory.sQty",
+                                                "generate": "quantity",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            },
+                                            {
+                                                "extract": "$.news.inventory.SAmount",
+                                                "generate": "price",
+                                                "dataType": "string",
+                                                "status": "Active"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "/orders.json"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [
+                        null
+                    ],
+                    "batchSize": 1,
+                    "requestMediaType": "json",
+                    "successMediaType": "json",
+                    "errorMediaType": "json",
+                    "strictHandlebarEvaluation": true,
+                    "sendPostMappedData": true,
+                    "formType": "assistant",
+                    "response": {
+                        "resourceIdPath": [
+                            null
+                        ]
+                    }
+                },
+                "rest": {
+                    "relativeURI": [
+                        "/orders.json"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [
+                        null
+                    ],
+                    "responseIdPath": [
+                        null
+                    ],
+                    "successPath": [
+                        null
+                    ],
+                    "successValues": [
+                        null
+                    ]
+                },
+                "adaptorType": "RESTImport"
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "successCount": "2",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "expected": {
+            "shopify": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "TC_C47445_Shopify_Multiple_Sources",
+                "import": {
+                    "_connectionId": "56d6c2c95900861a56d6464f",
+                    "qa__connectionId": "56d6c2c95900861a56d6464f"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "uniqueField": "contact_email",
+                    "standaloneexportflowID": "62f535a30f2ee6482b1376a9",
+                    "importRecordType": "orders",
+                    "exportapiIdentifier": "e1f5b3036b",
+                    "expectedJSON": {
+                        "contact_email": "Auto_47445@test.com",
+                        "email": "Auto_47445@test.com",
+                        "customer": {
+                            "first_name": "Mapper2.0",
+                            "last_name": "Cust"
+                        },
+                        "line_items": [
+                            {
+                                "title": "ACC00001 Name",
+                                "quantity": "1",
+                                "price": "140.00"
+                            },
+                            {
+                                "title": "ACC00002 Name",
+                                "quantity": "2",
+                                "price": "150.00"
+                            },
+                            {
+                                "title": "ACC00003",
+                                "quantity": "3",
+                                "price": "213.00"
+                            },
+                            {
+                                "title": "ACC00004",
+                                "quantity": "4",
+                                "price": "991.00"
+                            },
+                            {
+                                "title": "ACC00005",
+                                "quantity": "5",
+                                "price": "778.00"
+                            },
+                            {
+                                "title": "formal shirts",
+                                "quantity": "1",
+                                "price": "990.00"
+                            },
+                            {
+                                "title": "ACC00010",
+                                "quantity": "3",
+                                "price": "1000.00"
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

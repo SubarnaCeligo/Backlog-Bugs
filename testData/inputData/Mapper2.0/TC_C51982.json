@@ -1,0 +1,141 @@
+{
+    "name": "TC_C51982",
+    "referencename": "TC_C51982",
+    "_integrationId": "5cbd8a75878b79415201be28",
+    "Source_Environment": "Sandbox",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "FTP Export",
+                        "_connectionId": "FTP CONNECTION",
+                        "asynchronous": true,
+                        "sandbox": true,
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                            "fileNameStartsWith": "TC_C51965"
+                        },
+                        "file": {
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "json"
+                        },
+                        "adaptorType": "FTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "FTP import",
+                        "_connectionId": "FTP CONNECTION",
+                        "oneToMany": false,
+                        "sandbox": true,
+                        "mappings": [
+                            {
+                                "generate": "dest",
+                                "dataType": "objectarray",
+                                "status": "Active",
+                                "buildArrayHelper": [
+                                    {
+                                        "extract": "$.images[*]",
+                                        "conditional": {
+                                            "when": "extract_not_empty"
+                                        },
+                                        "sourceDataType": "objectarray"
+                                    },
+                                    {
+                                        "extract": "$.options",
+                                        "conditional": {
+                                            "when": "extract_not_empty"
+                                        },
+                                        "sourceDataType": "object"
+                                    }
+                                ]
+                            }
+                        ],
+                        "file": {
+                            "fileName": "file-{{timestamp}}.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/Neetin",
+                            "fileName": "file-{{timestamp}}.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                },
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "HTTP import",
+                        "application": "zendesk support",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": true,
+                        "mappings": [
+                            {
+                                "extract": "$.body_html",
+                                "generate": "body",
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
+                            }
+                        ],
+                        "http": {
+                            "relativeURI": [
+                                "users"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C51982",
+                "disabled": true,
+                "_integrationId": "5cbd8a75878b79415201be28",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE"
+                    },
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE",
+                        "skipRetries": false
+                    }
+                ],
+                "sandbox": true,
+                "autoResolveMatchingTraceKeys": true
+            }
+        }
+    ]
+}

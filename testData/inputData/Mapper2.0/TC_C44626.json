@@ -1,0 +1,99 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "name": "TC_C44626",
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "qa__import": {
+        "name": "44626 import",
+        "application": "shopify",
+        "_connectionId": "HTTP SHOPIFY CONNECTION",
+        "apiIdentifier": "i4091968fa",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "mappings": [
+          {
+            "generate": "id",
+            "dataType": "numberarray",
+            "status": "Active",
+            "buildArrayHelper": [
+              {
+                "extract": "$.tickets[*].custom_fields[*].id",
+                "sourceDataType": "number"
+              }
+            ]
+          },
+          {
+            "generate": "fieldvalue",
+            "dataType": "stringarray",
+            "status": "Active",
+            "buildArrayHelper": [
+              {
+                "extract": "$.tickets[*].fields[*].value",
+                "sourceDataType": "string"
+              }
+            ]
+          },
+          {
+            "generate": "followupIds",
+            "dataType": "booleanarray",
+            "status": "Active",
+            "buildArrayHelper": [
+              {
+                "extract": "$.tickets[*].followup_ids[*]",
+                "sourceDataType": "booleanarray"
+              }
+            ]
+          },
+          {
+            "extract": "$.next_page",
+            "generate": "nextPage",
+            "dataType": "boolean",
+            "status": "Active",
+            "sourceDataType": "string"
+          }
+        ],
+        "http": {
+          "relativeURI": [
+            "orders"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [],
+          "batchSize": 1,
+          "sendPostMappedData": true,
+          "formType": "http"
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "HTTP Zendesk Export",
+        "application": "zendesk support",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "apiIdentifier": "e89ee9b797",
+        "asynchronous": true,
+        "oneToMany": false,
+        "parsers": [],
+        "http": {
+          "relativeURI": "tickets",
+          "method": "GET",
+          "formType": "http"
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ]
+}

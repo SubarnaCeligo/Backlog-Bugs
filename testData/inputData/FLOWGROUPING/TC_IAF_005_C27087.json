@@ -1,0 +1,25 @@
+{
+    "qa_importJson": {
+        "environment": "Production",
+        "name": "TC_IAF_005_C27087",
+        "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+        "_integrationId": "628fa2cf7b6328540ab566f8",
+        "applications": ["3plcentral"],
+        "framework": "twoDotZero",
+        "twoDotZero": {
+          "_integrationId": "628fa2cf7b6328540ab566f8"
+        }
+    },
+    "importJson": {
+      "environment": "Production",
+      "name": "TC_IAF_005_C27087",
+      "contactEmail": "io.auto.flowgrouping.qa@celigo.com",
+      "_integrationId": "62613797dd4afe56b599a2d1",
+      "applications": ["3plcentral"],
+      "framework": "twoDotZero",
+      "twoDotZero": {
+        "_integrationId": "62613797dd4afe56b599a2d1"
+      }
+  },
+    "period":"12/12/2025"
+}

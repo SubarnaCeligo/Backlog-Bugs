@@ -11,9 +11,17 @@ test.describe("IO_T6148 Verfiy List of logs can be paginated to see the next 50 
         await io.flowBuilder.navigateTo(process.env.IO_Integration_URL + "flowBuilder/" + flowMap.get('NS - fetch listner log Test')['flowId']);
 
         await io.flowBuilder.saveandRunFlow('IO_T6148');
+        await io.homePage.click(selectors.basePagePO.RUNFLOW);
+        await io.homePage.addStep("*** Running the flow ***");
         await io.homePage.loadingTime()
         await io.homePage.reloadPage()
-        await io.flowBuilder.delay(1000 * 60 * 2);
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.waitForElementAttached(selectors.basePagePO.RUNFLOW);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ERROR_BUBBLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.VIEW_DEBUG_LOG);

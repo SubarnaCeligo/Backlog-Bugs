@@ -1,0 +1,43 @@
+{
+    "referencename": "TC_C26155",
+    "name": "TC_C26155",
+    "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "webhook",
+                        "type": "webhook",
+                        "qa__token": "123456",
+                        "sandbox": false,
+                        "webhook": {
+                          "provider": "custom",
+                          "verify": "secret_url",
+                          "token": "******"
+                        },
+                        "adaptorType": "WebhookExport"
+                      }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Ftp Import",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "i160155636",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "file": {
+                            "fileName": "AS2.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "/SukeerthiSriram/SS20",
+                            "fileName": "AS2.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ]
+        }

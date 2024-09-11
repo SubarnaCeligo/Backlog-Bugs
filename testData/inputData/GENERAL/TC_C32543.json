@@ -1,0 +1,129 @@
+{
+    "name": "TC_C32543",
+    "referencename": "TC_C32543",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "0",
+        "errorCount": "0"
+      },
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export":{
+                "name": "zendesk",
+                "qa__connectionId": "631869f100179f7f286e5f08",
+                "_connectionId":"ZENDESK CONNECTION",
+                "apiIdentifier": "e3b1c835e0",
+                "asynchronous": true,
+                "assistant": "zendesk",
+                "oneToMany": false,
+                "sandbox": false,
+                "assistantMetadata": {
+                    "resource": "bookmarks",
+                    "version": "v2",
+                    "operation": "list_bookmarks"
+                },
+                "http": {
+                    "relativeURI": "/api/v2/bookmarks.json",
+                    "method": "GET",
+                    "successMediaType": "json",
+                    "errorMediaType": "json",
+                    "formType": "assistant",
+                    "paging": {
+                        "method": "url",
+                        "path": "next_page",
+                        "lastPageStatusCode": 404
+                    },
+                    "response": {
+                        "resourcePath": "bookmarks"
+                    }
+                },
+                "rest": {
+                    "relativeURI": "/api/v2/bookmarks.json",
+                    "method": "GET",
+                    "resourcePath": "bookmarks",
+                    "pagingMethod": "nextpageurl",
+                    "nextPagePath": "next_page",
+                    "allowUndefinedResource": false
+                },
+                "adaptorType": "RESTExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+               "name": "FTP",
+             "_connectionId":"FTP CONNECTION",
+             "apiIdentifier": "i0a072ba29",
+            "oneToMany": false,
+            "sandbox": false,
+           "file": {
+               "fileName": "C32543.json",
+               "skipAggregation": false,
+               "type": "json"
+            },
+        "ftp": {
+             "directoryPath": "/io.auto.qa/IO Automation SFTP Imports",
+            "fileName": "C32543.json"
+        },
+          "adaptorType": "FTPImport"
+            }
+          },
+          {
+            "type": "import",
+            "qa__import": {
+            "name": "FTP",
+            "_connectionId":"FTP CONNECTION",
+            "apiIdentifier": "ic0aa273c7",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+                "fileName": "32543.json",
+                "skipAggregation": false,
+                "type": "json"
+            },
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO Automation SFTP Imports",
+                "fileName": "32543.json"
+            },
+            "adaptorType": "FTPImport"
+        }
+    }
+        ],
+        "createFlow": {
+          "name": "TC_C32543",
+          "disabled": false,
+          "_integrationId": "6317518c5bca603be6bc9af0",
+          "qa__integrationId": "6317333395653f0f15147f47",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            },
+            {
+                "responseMapping": {
+                  "fields": [],
+                  "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+              }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

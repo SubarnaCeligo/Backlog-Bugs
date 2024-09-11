@@ -1,0 +1,99 @@
+{
+  "flowname": "Octet Stream ",
+  "name": "Octet Stream ",
+  "skipRetries": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+},
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Http Dropbox",
+            "_connectionId": "HTTP Dropbox refresh token API",
+            "asynchronous": true,
+            "type": "blob",
+            "oneToMany": false,
+            "http": {
+                "relativeURI": "files/download",
+                "method": "POST",
+                "headers": [
+                    {
+                        "name": "Dropbox-API-Arg",
+                        "value": "{\"path\": \"/Abhinash_Blob/Sept_certificate.pfx\"}"
+                    }
+                ],
+                "formType": "http"
+            },
+            "settings": {
+                "blob": true
+            },
+            "adaptorType": "HTTPExport"
+        }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Import files to dropbox",
+            "_connectionId": "HTTP Dropbox refresh token API",
+            "oneToMany": false,
+            "blob": true,
+            "http": {
+                "relativeURI": [
+                    "files/upload"
+                ],
+                "method": [
+                    "POST"
+                ],
+                "body": [
+                    ""
+                ],
+                "headers": [
+                    {
+                        "value": "{\"path\": \"/XMLFileUload/XML-File{{random \"uuid\" 5}}.xml\",\"mode\": \"add\",\"autorename\": true,\"mute\": false,\"strict_conflict\": false}",
+                        "name": "Dropbox-API-Arg"
+                    }
+                ],
+                "batchSize": 1,
+                "requestMediaType": "octet-stream",
+                "sendPostMappedData": true,
+                "formType": "http"
+            },
+            "settings": {
+                "blob": true
+            },
+            "adaptorType": "HTTPImport"
+        }
+        }
+      ],
+      "createFlow": {
+        "name": "Octet Stream",
+        "disabled": false,
+        "_integrationId": "64fede0009fb154e88445ca1",
+        "qa__integrationId": "64fede0009fb154e88445ca1",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

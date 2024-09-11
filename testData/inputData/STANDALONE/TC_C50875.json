@@ -1,0 +1,43 @@
+{
+  "DynamoDB": {
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "name": "AutomationStandaloneExport__EGQv0fzrIy",
+          "_connectionId": "DYNAMODB CONNECTION",
+          "apiIdentifier": "ec5ce5d622",
+          "asynchronous": true,
+          "sandbox": false,
+          "dynamodb": {
+            "region": "us-east-1",
+            "method": "query",
+            "tableName": "limit-test",
+            "keyConditionExpression": "#n1 = :p1 AND #n2 > :p2",
+            "expressionAttributeNames": "{ \"#n1\": \"sku\", \"#n2\":\"id\"}",
+            "expressionAttributeValues": "{ \":p1\": \"celigo-tshirt\",\":p2\": 99}"
+          },
+          "adaptorType": "DynamodbExport"
+        }
+      }
+    ]
+  },
+  "MongoDB": {
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "name": "AutomationStandaloneExport__DslVvBfZG8",
+          "_connectionId": "MONGODB CONNECTION",
+          "apiIdentifier": "eac323d362",
+          "asynchronous": true,
+          "oneToMany": false,
+          "sandbox": false,
+          "mongodb": {
+            "method": "find",
+            "collection": "afe_dataurl_concurrency"
+          },
+          "adaptorType": "MongodbExport"
+        }
+      }
+    ]
+  }
+}

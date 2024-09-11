@@ -1,0 +1,135 @@
+{
+    "name": "TC_C20019_Verify_markExportedBatchSize_functionality_NS_OnceExport",
+    "referencename": "TC_C20019_Verify_markExportedBatchSize_functionality_NS_OnceExport",
+    "qa__expectedDashboardCount": {
+        "successCount": "1",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "importRecordJSON": [
+            {
+                "subsidiary": "HH Inc.",
+                "phone": "7070707070",
+                "companyname": "TC_C20019_customer",
+                "comments": "TC_C20019_customer"
+            }
+        ],
+        "importapiIdentifier": "i7936a9dae",
+        "expected": {
+            "FTP": {
+                "name": "TC_C20019_Verify_markExportedBatchSize_functionality_NS_OnceExport",
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "import": {
+                    "_connectionId": "FTP CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "1",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_C20019_Verify_markExportedBatchSize_functionality_NS_OnceExport",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".json"
+                }
+            }
+        }
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "NS Once Export",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "asynchronous": true,
+                        "type": "once",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "rawData": "56d6b114e1fc35de5391472c6f4e3a4d4d8a4a36bfcf9e1bb9f60554",
+                        "once": {
+                            "booleanField": "custentity23"
+                        },
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "recordType": "customer",
+                                "searchId": "3902",
+                                "useSS2Restlets": false,
+                                "markExportedBatchSize": 1
+                            },
+                            "distributed": {
+                                "useSS2Framework": false
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "FTP Import",
+                        "_connectionId": "FTP CONNECTION",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "extract": "[Company Name]",
+                                    "generate": "Name"
+                                },
+                                {
+                                    "extract": "Comments",
+                                    "generate": "Comments"
+                                },
+                                {
+                                    "extract": "Phone",
+                                    "generate": "Phone"
+                                }
+                            ]
+                        },
+                        "file": {
+                            "fileName": "TC_C20019_Verify_markExportedBatchSize_functionality_NS_OnceExport.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                            "fileName": "TC_C20019_Verify_markExportedBatchSize_functionality_NS_OnceExport.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C20019_Verify_markExportedBatchSize_functionality_NS_OnceExport",
+                "disabled": false,
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

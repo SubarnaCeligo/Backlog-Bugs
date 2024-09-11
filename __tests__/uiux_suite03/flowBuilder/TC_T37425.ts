@@ -25,6 +25,8 @@ test.describe("TC_T37425_Test to validate closing brackets are automatically add
         await page.keyboard.type("{{na");
         await io.homePage.addStep("*** Filtering out the abs helper ***");
         await page.keyboard.press('Control+Space');
+        await page.keyboard.press('Control+Space');
+        await page.keyboard.press('Control+Space');
         await page.keyboard.press('Enter');
         await io.homePage.addStep("*** Selecting a feild***");
         await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.HANDLEBAR_CONTENT, '"ad{{name}}dResult": {{add id age}}');

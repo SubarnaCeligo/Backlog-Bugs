@@ -8,13 +8,13 @@ test.describe("C119819", () => {
     await io.homePage.waitForElementAttached(selectors.basePagePO.BREADCRUMB);
     let invite = selectors.homePagePO.INVITATION_TAB;
     await io.myAccountPage.click(invite);
-    const isEnabled = await page.$eval(selectors.basePagePO.ENABLESSO, element =>
+    const isEnabled = await page.$eval(selectors.basePagePO.ENABLE_INVITE_TOGGLE, element =>
       element.hasAttribute("Mui-disable")
     );
     console.log("true or false " + isEnabled);
     if (isEnabled == false) {
       // enable is true
-      await io.myAccountPage.click(selectors.basePagePO.ENABLESSO);
+      await io.myAccountPage.click(selectors.basePagePO.ENABLE_INVITE_TOGGLE);
     }
     //Navigate to default integration
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);

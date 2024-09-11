@@ -1,0 +1,37 @@
+{
+    "skipRetries": false,
+    "_integrationId": "6228aed6bc8a2732cfe8044c",
+    "qaprod_httpcon": "62cbe5c13f2f4c78a6a6ee29",
+    "qaprod1_httpcon": "63999004112342701550eceb",
+    "iaqa_httpcon": "HTTP ZENDESK CONNECTION",
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "name": "rest xport",
+          "_connectionId": "HTTP ZENDESK CONNECTION",
+          "qa__connectionId": "639881b7a0fcd94f7bd8ad36",
+          "asynchronous": true,
+          "oneToMany": false,
+          "application": "zendesk support",
+          "sandbox": false,
+          "http": {
+            "relativeURI": "/organizations?per_page=2",
+            "method": "GET",
+            "formType": "http",
+            "paging": {
+              "method": "relativeuri",
+              "relativeURI": "next_page"
+            },
+            "response": {
+              "resourcePath": "organizations"
+            }
+          },
+          "adaptorType": "HTTPExport"
+        }
+      }
+    ],
+    "qa_connection": "HTTP ZENDESK CONNECTION",
+    "snowflake_connection": "62a2d230ea24742327304a3c",
+    "snowflake_connection_Staging": "631a0eb24ceac669f82fb10c",
+    "snowflake_connection_iaqa": "63973046d0437c67c73a0dfb"
+  }

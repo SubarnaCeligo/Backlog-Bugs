@@ -1,0 +1,80 @@
+{
+  "name": "TC_C30484",
+  "qa__api_tdata": [
+    {
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "NS import",
+            "qa__connectionId": "628f00568f68e85ab2c63b22",
+            "_connectionId": "NETSUITE CONNECTION",
+            "distributed": true,
+            "apiIdentifier": "ib1e4807d2",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [],
+            "netsuite_da": {
+              "useSS2Restlets": false,
+              "operation": "attach",
+              "recordType": "salesorder",
+              "internalIdLookup": {
+                "expression": "[\"avsstreetmatch\",\"noneof\",\"{{{acctnumber}}}\"]"
+              },
+              "lookups": [],
+              "mapping": {
+                "fields": [],
+                "lists": []
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C30484",
+        "disabled": false,
+        "_integrationId": "631a1266abf51e7a86c80ab4",
+        "qa__integrationId": "6228aed6bc8a2732cfe8044c",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ]
+      }
+    }
+  ],
+  "updateDoc":{
+    "name": "AutomationStandalone_NS import",
+    "_connectionId": "628f00568f68e85ab2c63b22",
+    "distributed": true,
+    "apiIdentifier": "ib1e4807d2",
+    "ignoreExisting": false,
+    "ignoreMissing": false,
+    "oneToMany": false,
+    "sandbox": false,
+    "lookups": [],
+    "netsuite_da": {
+        "useSS2Restlets": false,
+        "operation": "detach",
+        "recordType": "salesorder",
+        "internalIdLookup": {
+            "expression": "[\"avsstreetmatch\",\"noneof\",\"{{{acctnumber}}}\"]"
+        },
+        "lookups": [],
+        "mapping": {
+            "fields": [],
+            "lists": []
+        }
+    },
+    "adaptorType": "NetSuiteDistributedImport"
+  }
+}

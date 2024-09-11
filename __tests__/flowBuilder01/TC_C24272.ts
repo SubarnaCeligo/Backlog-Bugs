@@ -12,7 +12,10 @@ test.describe("TC_C24272", () => {
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FTP);
 
     await page.waitForTimeout(5000);
-    
+    await io.homePage.loadingTime()
+    await io.homePage.loadingTime()
+    await io.homePage.loadingTime()
+    await io.homePage.loadingTime()
     let elements = await page.$$(selectors.flowBuilderPagePO.EXISTING_RESOURCE_APPLICATIONS);
     let result = undefined;
     for (let element of elements) {

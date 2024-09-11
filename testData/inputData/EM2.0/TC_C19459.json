@@ -1,0 +1,204 @@
+{
+  "name": "TC_C19459",
+  "referencename": "TC_C19459",
+  "script1": "TC_C19459_script_0",
+  "script2": "TC_C19459_script_1",
+  "qa__dataVerification": {
+    "importJSON": {
+      "skipRetries": false,
+      "_integrationId": "603ce75ac4fec33283691f43",
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "NETSUITE CUSTOMER",
+            "_connectionId": "NETSUITE CONNECTION",
+            "distributed": true,
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "lookups": [],
+            "netsuite_da": {
+              "useSS2Restlets": false,
+              "operation": "add",
+              "recordType": "customer",
+              "lookups": [],
+              "mapping": {
+                "fields": [
+                  {
+                    "generate": "name",
+                    "hardCodedValue": "TC_C23369",
+                    "internalId": false
+                  },
+                  {
+                    "extract": "email",
+                    "generate": "email",
+                    "internalId": false
+                  },
+                  {
+                    "extract": "preSavePage",
+                    "generate": "comments",
+                    "internalId": false
+                  },
+                  {
+                    "generate": "subsidiary",
+                    "discardIfEmpty": false,
+                    "immutable": false,
+                    "hardCodedValue": "3",
+                    "internalId": true
+                  }
+                ],
+                "lists": []
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        }
+      ],
+      "name": "TC_C19459",
+      "disabled": false,
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "FTP TC_032 export",
+            "adaptorType": "FTPExport",
+            "ftp": {
+              "directoryPath": "/io.auto.qa/FTP_EXPORTS",
+              "fileNameEndsWith": ".json",
+              "fileNameStartsWith": "CreateSO"
+            },
+            "sampleData": {
+              "Name": "DH_Automation",
+              "special": "$"
+            },
+            "file": {
+              "output": "records",
+              "skipDelete": true,
+              "encoding": "utf8",
+              "type": "json",
+              "json": {
+                "resourcePath": "*"
+              }
+            },
+            "asynchronous": true,
+            "_connectionId": "FTP CONNECTION"
+          }
+        }
+      ]
+    }
+  },
+  "testdata": {
+    "Json": "/FTP_uploads/CreateSO.json"
+  },
+  "pageGenerators": [
+    {
+      "qa__isEdit": true,
+      "type": "export",
+      "qa__export": {
+        "qa__path": "/FTP_uploads/CreateSO.json",
+        "adaptorType": "FTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "qa__isIgnore": true
+    }
+  ],
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "FTP TC_032 export",
+            "adaptorType": "FTPExport",
+            "ftp": {
+              "directoryPath": "/io.auto.qa/FTP_EXPORTS",
+              "fileNameStartsWith": "CreateSO.json"
+            },
+            "file": {
+              "output": "records",
+              "skipDelete": true,
+              "encoding": "utf8",
+              "type": "json",
+              "json": {
+                "resourcePath": "*"
+              }
+            },
+            "asynchronous": true,
+            "_connectionId": "FTP CONNECTION"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "NETSUITE CUSTOMER",
+            "_connectionId": "NETSUITE CONNECTION",
+            "distributed": true,
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "lookups": [],
+            "netsuite_da": {
+              "useSS2Restlets": false,
+              "operation": "add",
+              "recordType": "customer",
+              "lookups": [],
+              "mapping": {
+                "fields": [
+                  {
+                    "generate": "name",
+                    "hardCodedValue": "TC_C23369",
+                    "internalId": false
+                  },
+                  {
+                    "extract": "email",
+                    "generate": "email",
+                    "internalId": false
+                  },
+                  {
+                    "extract": "preSavePage",
+                    "generate": "comments",
+                    "internalId": false
+                  },
+                  {
+                    "generate": "subsidiary",
+                    "discardIfEmpty": false,
+                    "immutable": false,
+                    "hardCodedValue": "3",
+                    "internalId": true
+                  }
+                ],
+                "lists": []
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C19459",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

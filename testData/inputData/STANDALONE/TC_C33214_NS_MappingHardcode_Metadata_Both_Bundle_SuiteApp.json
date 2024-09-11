@@ -1,0 +1,18 @@
+{
+  "_connectionId": "NETSUITE CONNECTION",
+  "response": {
+    "res": [
+      { "id": "3", "name": "HH Inc." },
+      { "id": "6", "name": "HH Inc. : Honeycomb Canada" },
+      { "id": "4", "name": "HH Inc. : Honeycomb Europe" },
+      { "id": "7", "name": "HH Inc. : Honeycomb Mexico" },
+      { "id": "1", "name": "HH Inc. : Honeycomb Mfg." },
+      { "id": "5", "name": "HH Inc. : Honeycomb UK" },
+      { "id": "14", "name": "HH Inc. : NS Prod3" },
+      { "id": "8", "name": "HH Inc. : Outsourced Manufacturing" },
+      { "id": "12", "name": "HH Inc. : PTL Subsidary3" },
+      { "id": "15134", "name": "HH Inc. : SS2.0 testnewsub" },
+      { "id": "9", "name": "HH Inc. : xElimination" }
+    ]
+  }
+}

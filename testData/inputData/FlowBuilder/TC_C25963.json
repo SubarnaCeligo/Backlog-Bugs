@@ -1,0 +1,97 @@
+{
+    "name": "TC_C25963",
+    "referencename": "TC_C25963",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "HTTP export Zendesk",
+                        "application": "zendesk support",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "e33550710f",
+                        "asynchronous": true,
+                        "traceKeyTemplate": "{{join '/' record.id record.email}}",
+                        "oneToMany": false,
+                        "http": {
+                            "relativeURI": "users",
+                            "method": "GET",
+                            "formType": "http",
+                            "response": {
+                                "resourcePath": "users"
+                            }
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Salesforce import",
+                        "_connectionId": "SALESFORCE CONNECTION",
+                        "apiIdentifier": "i465dea4dc",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "extract": "id",
+                                    "generate": "Id"
+                                },
+                                {
+                                    "extract": "date_modified",
+                                    "generate": "Last Modified Date"
+                                },
+                                {
+                                    "extract": "id",
+                                    "generate": "ParentId"
+                                },
+                                {
+                                    "extract": "id",
+                                    "generate": "OwnerId"
+                                },
+                                {
+                                    "extract": "Date",
+                                    "generate": "CreatedDate"
+                                }
+                            ]
+                        },
+                        "salesforce": {
+                            "operation": "insert",
+                            "sObjectType": "Name",
+                            "api": "soap",
+                            "removeNonSubmittableFields": false
+                        },
+                        "adaptorType": "SalesforceImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C25963",
+                "disabled": false,
+                "_integrationId": "62ecc42648570015ab65cfa5",
+                "qa__integrationId": "62eca1efe386b563f638451e",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

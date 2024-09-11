@@ -1,0 +1,231 @@
+{
+  "Staging_Http": "HTTP ZENDESK CONNECTION",
+  "Staging_FTP": "FTP CONNECTION",
+  "Http_body": {
+    "name": "C52149 - Postman",
+    "application": "zendesk support",
+    "_connectionId": "HTTP ZENDESK CONNECTION",
+    "_sourceId": "633ad77d2acfa473f1897073",
+    "apiIdentifier": "id6080896d",
+    "ignoreExisting": false,
+    "ignoreMissing": false,
+    "oneToMany": false,
+    "sandbox": false,
+    "mappings": [
+      {
+        "dataType": "objectarray",
+        "status": "Active",
+        "buildArrayHelper": [
+          {
+            "extract": "$.user",
+            "sourceDataType": "object",
+            "mappings": [
+              {
+                "generate": "id",
+                "dataType": "objectarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                  {
+                    "extract": "$.user.identities1[*]",
+                    "default": "",
+                    "sourceDataType": "objectarray"
+                  },
+                  {
+                    "extract": "$.NumberArray2[*]",
+                    "default": "",
+                    "sourceDataType": "objectarray"
+                  },
+                  {
+                    "extract": "$.user.identities3[*]",
+                    "default": "",
+                    "sourceDataType": "objectarray"
+                  },
+                  {
+                    "extract": "$.NumberArra4y4[*]",
+                    "default": "",
+                    "sourceDataType": "objectarray"
+                  }
+                ]
+              },
+              {
+                "generate": "numbernull",
+                "dataType": "objectarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                  {
+                    "extract": "$.user.identities2[*]",
+                    "default": "",
+                    "sourceDataType": "objectarray"
+                  },
+                  {
+                    "extract": "$.NumberArray3[*]",
+                    "default": "",
+                    "sourceDataType": "objectarray"
+                  },
+                  {
+                    "extract": "$.user.identities4[*]",
+                    "default": "",
+                    "sourceDataType": "objectarray"
+                  },
+                  {
+                    "extract": "$.NumberArra4y5[*]",
+                    "default": "",
+                    "sourceDataType": "objectarray"
+                  }
+                ]
+              },
+              {
+                "generate": "booleanull",
+                "dataType": "objectarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                  {
+                    "extract": "$.user.identities33[*]",
+                    "default": "",
+                    "sourceDataType": "objectarray"
+                  },
+                  {
+                    "extract": "$.NumberArray34[*]",
+                    "default": "",
+                    "sourceDataType": "objectarray"
+                  },
+                  {
+                    "extract": "$.user.identities44[*]",
+                    "default": "",
+                    "sourceDataType": "objectarray"
+                  },
+                  {
+                    "extract": "$.NumberArra4y54[*]",
+                    "default": "",
+                    "sourceDataType": "objectarray"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "http": {
+      "relativeURI": ["/api/v2/users"],
+      "method": ["POST"],
+      "body": [],
+      "batchSize": 1,
+      "sendPostMappedData": true,
+      "formType": "http"
+    },
+    "adaptorType": "HTTPImport"
+  },
+  "FTP_body": {
+    "name": "AutomationStandalone_jkhbk",
+    "_connectionId": "FTP CONNECTION",
+    "apiIdentifier": "i6adc61427",
+    "oneToMany": false,
+    "sandbox": false,
+    "mappings": [
+      {
+        "dataType": "objectarray",
+        "status": "Active",
+        "buildArrayHelper": [
+          {
+            "extract": "$.user",
+            "sourceDataType": "object",
+            "mappings": [
+              {
+                "generate": "id",
+                "dataType": "objectarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                  {
+                    "extract": "$.user.identities1[*]",
+                    "default": "",
+                    "sourceDataType": "objectarray"
+                  },
+                  {
+                    "extract": "$.NumberArray2[*]",
+                    "default": "",
+                    "sourceDataType": "objectarray"
+                  },
+                  {
+                    "extract": "$.user.identities3[*]",
+                    "default": "",
+                    "sourceDataType": "objectarray"
+                  },
+                  {
+                    "extract": "$.NumberArra4y4[*]",
+                    "default": "",
+                    "sourceDataType": "objectarray"
+                  }
+                ]
+              },
+              {
+                "generate": "numbernull",
+                "dataType": "objectarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                  {
+                    "extract": "$.user.identities2[*]",
+                    "default": "",
+                    "sourceDataType": "objectarray"
+                  },
+                  {
+                    "extract": "$.NumberArray3[*]",
+                    "default": "",
+                    "sourceDataType": "objectarray"
+                  },
+                  {
+                    "extract": "$.user.identities4[*]",
+                    "default": "",
+                    "sourceDataType": "objectarray"
+                  },
+                  {
+                    "extract": "$.NumberArra4y5[*]",
+                    "default": "",
+                    "sourceDataType": "objectarray"
+                  }
+                ]
+              },
+              {
+                "generate": "booleanull",
+                "dataType": "objectarray",
+                "status": "Active",
+                "buildArrayHelper": [
+                  {
+                    "extract": "$.user.identities33[*]",
+                    "default": "",
+                    "sourceDataType": "objectarray"
+                  },
+                  {
+                    "extract": "$.NumberArray34[*]",
+                    "default": "",
+                    "sourceDataType": "objectarray"
+                  },
+                  {
+                    "extract": "$.user.identities44[*]",
+                    "default": "",
+                    "sourceDataType": "objectarray"
+                  },
+                  {
+                    "extract": "$.NumberArra4y54[*]",
+                    "default": "",
+                    "sourceDataType": "objectarray"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "file": {
+      "fileName": "XML-file-0922145919.xlsx",
+      "skipAggregation": false,
+      "type": "xlsx"
+    },
+    "ftp": {
+      "directoryPath": "/GAbhinash",
+      "fileName": "XML-file-0922145919.xlsx"
+    },
+    "adaptorType": "FTPImport"
+  }
+}
