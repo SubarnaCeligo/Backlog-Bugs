@@ -11,33 +11,6 @@
                 {
                     "type": "export",
                     "qa__export": {
-                        "name": "ftpexp",
-                        "_connectionId": "FTP CONNECTION",
-                        "asynchronous": true,
-                        "sandbox": false,
-                        "parsers": [],
-                        "qa__path": "/FTP_uploads/C33586.json",
-                        "ftp": {
-                            "directoryPath": "io.auto.qa/IO_Automation_SFTP_Exports",
-                            "fileNameStartsWith": "C33586"
-                        },
-                        "file": {
-                            "encoding": "utf8",
-                            "output": "records",
-                            "skipDelete": true,
-                            "type": "json",
-                            "json": {
-                                "resourcePath": "*"
-                            }
-                        },
-                        "adaptorType": "FTPExport"
-                    }
-                }
-            ],
-            "pageProcessors": [
-                {
-                    "type": "export",
-                    "qa__export": {
                         "name": "nslokup",
                         "_connectionId": "NETSUITE CONNECTION",
                         "asynchronous": true,
@@ -63,6 +36,33 @@
                             }
                         },
                         "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "ftpexp",
+                        "_connectionId": "FTP CONNECTION",
+                        "asynchronous": true,
+                        "sandbox": false,
+                        "parsers": [],
+                        "qa__path": "/FTP_uploads/C33586.json",
+                        "ftp": {
+                            "directoryPath": "io.auto.qa/IO_Automation_SFTP_Exports",
+                            "fileNameStartsWith": "C33586"
+                        },
+                        "file": {
+                            "encoding": "utf8",
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "json",
+                            "json": {
+                                "resourcePath": "*"
+                            }
+                        },
+                        "adaptorType": "FTPExport"
                     }
                 },
                 {

@@ -25,12 +25,18 @@
                     "filter": {
                         "type": "expression",
                         "expression": {
-                        "rules": [
-                            "startswith",
-                            ["string", ["extract", "filename"]],
-                            "TC_C47524.json1"
-                          ],
-                          "version": "1"
+                            "rules": [
+                                "startswith",
+                                [
+                                    "string",
+                                    [
+                                        "extract",
+                                        "filename"
+                                    ]
+                                ],
+                                "TC_C47524.json"
+                            ],
+                            "version": "1"
                         }
                     }
                 },
@@ -40,6 +46,68 @@
         }
     ],
     "routers": [
+        {
+            "id": "062NR5",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [
+                                    {
+                                        "generate": "notes",
+                                        "extract": "organization.notes"
+                                    },
+                                    {
+                                        "generate": "DomainAsTags",
+                                        "extract": "organization.domain_names"
+                                    }
+                                ],
+                                "lists": [],
+                                "qa__index": 0
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "First Import with response mappings",
+                                "application": "zendesk support",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "ignoreExisting": false,
+                                "ignoreMissing": false,
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "Auto_{{random 16}}",
+                                            "generate": "organization.name"
+                                        },
+                                        {
+                                            "extract": "notes",
+                                            "generate": "organization.notes"
+                                        }
+                                    ]
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "organizations.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "body": [],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ],
+                    "nextRouterId": "FWoAmP"
+                }
+            ]
+        },
         {
             "routeRecordsUsing": "input_filters",
             "id": "FWoAmP",
@@ -56,7 +124,7 @@
                             "type": "import",
                             "qa__import": {
                                 "name": "First branch import",
-                                "application":"zendesk support",
+                                "application": "zendesk support",
                                 "_connectionId": "HTTP ZENDESK CONNECTION",
                                 "ignoreExisting": false,
                                 "ignoreMissing": false,
@@ -65,12 +133,8 @@
                                 "mapping": {
                                     "fields": [
                                         {
-                                            "extract": "{{name}}_response",
+                                            "extract": "Auto_{{random 16}}",
                                             "generate": "organization.name"
-                                        },
-                                        {
-                                            "extract": "DomainAsTags",
-                                            "generate": "organization.tags"
                                         },
                                         {
                                             "extract": "notes",
@@ -126,7 +190,7 @@
                             "type": "import",
                             "qa__import": {
                                 "name": "AutomationStandaloneImport__5hEqhndhLP",
-                                "application":"zendesk support",
+                                "application": "zendesk support",
                                 "_connectionId": "HTTP ZENDESK CONNECTION",
                                 "ignoreExisting": false,
                                 "ignoreMissing": false,
@@ -135,12 +199,8 @@
                                 "mapping": {
                                     "fields": [
                                         {
-                                            "extract": "{{name}}_response",
+                                            "extract": "Auto_{{random 16}}",
                                             "generate": "organization.name"
-                                        },
-                                        {
-                                            "extract": "DomainAsTags",
-                                            "generate": "organization.tags"
                                         },
                                         {
                                             "extract": "notes",
@@ -253,64 +313,5 @@
                 }
             }
         }
-    },
-    "inBetweenPP": {
-        "pageProcessors": [
-            {
-                "responseMapping": {
-                    "fields": [
-                        {
-                            "generate": "notes",
-                            "extract": "organization.notes"
-                        },
-                        {
-                            "generate": "DomainAsTags",
-                            "extract": "organization.domain_names"
-                        }
-                    ],
-                    "lists": [],
-                    "qa__index": 0
-                },
-                "type": "import",
-                "qa__import": {
-                    "name": "First Import with response mappings",
-                    "application":"zendesk support",
-                    "_connectionId": "HTTP ZENDESK CONNECTION",
-                    "ignoreExisting": false,
-                    "ignoreMissing": false,
-                    "oneToMany": false,
-                    "sandbox": false,
-                    "mapping": {
-                        "fields": [
-                            {
-                                "extract": "name",
-                                "generate": "organization.name"
-                            },
-                            {
-                                "extract": "domain_names",
-                                "generate": "organization.domain_names"
-                            },
-                            {
-                                "hardCodedValue": "For Automation Can Delete",
-                                "generate": "organization.notes"
-                            }
-                        ]
-                    },
-                    "http": {
-                        "relativeURI": [
-                            "organizations.json"
-                        ],
-                        "method": [
-                            "POST"
-                        ],
-                        "body": [],
-                        "batchSize": 1,
-                        "sendPostMappedData": true,
-                        "formType": "http"
-                    },
-                    "adaptorType": "HTTPImport"
-                }
-            }
-        ]
     }
 }

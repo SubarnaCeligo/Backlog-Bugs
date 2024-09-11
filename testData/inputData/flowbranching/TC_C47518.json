@@ -17,7 +17,6 @@
         "_connectionId": "HTTP ZENDESK CONNECTION",
         "apiIdentifier": "ea735b8976",
         "asynchronous": true,
-        "type": "test",
         "oneToMany": false,
         "sandbox": false,
         "http": {
@@ -97,22 +96,18 @@
                 "mapping": {
                   "fields": [
                     {
-                      "extract": "name",
-                      "generate": "user.notes"
+                      "extract": "Auto_{{random 16}}",
+                      "generate": "organization.name"
                     },
                     {
-                      "extract": "newSourceField",
-                      "generate": "user.details"
-                    },
-                    {
-                      "generate": "user.name",
-                      "hardCodedValue": "Auto_TC_C47518_1"
+                      "extract": "notes",
+                      "generate": "organization.notes"
                     }
                   ]
                 },
                 "http": {
                   "relativeURI": [
-                    "users.json"
+                    "organizations.json"
                   ],
                   "method": [
                     "POST"

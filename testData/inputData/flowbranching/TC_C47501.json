@@ -101,18 +101,18 @@
                 "mapping": {
                   "fields": [
                     {
-                      "generate": "user.name",
-                      "hardCodedValue": "Auto_TC_47501_1"
+                      "extract": "Auto_{{random 16}}",
+                      "generate": "organization.name"
                     },
                     {
-                      "extract": "name",
-                      "generate": "user.notes"
+                      "extract": "notes",
+                      "generate": "organization.notes"
                     }
                   ]
                 },
                 "http": {
                   "relativeURI": [
-                    "users"
+                    "organizations.json"
                   ],
                   "method": [
                     "POST"
@@ -136,7 +136,7 @@
                   "id"
                 ]
               ],
-              "112-2228090-7067457"
+              "112-6398482-0637030"
             ]
           }
         },
@@ -161,18 +161,18 @@
                 "mapping": {
                   "fields": [
                     {
-                      "generate": "user.name",
-                      "hardCodedValue": "Auto_TC_47501_2"
+                      "extract": "Auto_{{random 16}}",
+                      "generate": "organization.name"
                     },
                     {
-                      "extract": "name",
-                      "generate": "user.notes"
+                      "extract": "notes",
+                      "generate": "organization.notes"
                     }
                   ]
                 },
                 "http": {
                   "relativeURI": [
-                    "users"
+                    "organizations.json"
                   ],
                   "method": [
                     "POST"
@@ -196,7 +196,7 @@
                   "id"
                 ]
               ],
-              "111-8852338-6175405"
+              "112-1204150-2471412"
             ]
           }
         }
@@ -207,7 +207,7 @@
     }
   ],
   "qa__expectedDashboardCount": {
-    "successCount": "12",
+    "successCount": "4",
     "ignoreCount": "0",
     "errorCount": "0"
   },

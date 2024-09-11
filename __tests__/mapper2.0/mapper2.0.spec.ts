@@ -22,3 +22,6 @@ require("./TC_C52099");
 require("./TC_C44703");
 require("./TC_C51212");
 require("./TC_C51955");
+require("./TC_C44465");
+require("./TC_C46891_C46888_Verify_No_CaseSensitive_for_Mapping_And_ChildArray");
+require("./TC_C51224");
