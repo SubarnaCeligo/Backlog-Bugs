@@ -10,7 +10,7 @@ test.describe("@Env-All @Zephyr-IO-T9782 TC_C33570", () => {
     await io.goToFlowsPage();
   });
 
-  test("TC_C33570", async ({io,page}, testInfo) => {
+  test("@Env-All @Zephyr-IO-T9782 TC_C33570", async ({io,page}, testInfo) => {
     //*Create Flows
     var flows = await io.api.createImpOrExpAndFlowsThruAPI(TC_C33570);
 await test.step(
