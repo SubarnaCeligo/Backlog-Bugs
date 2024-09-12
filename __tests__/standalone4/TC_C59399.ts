@@ -2,12 +2,12 @@
 import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("TC_C59399 @Env-All @Zephyr-IO-T1919", () => {
+test.describe("TC_C59399", () => {
   test.beforeEach(async ({io,page}, testInfo) => {
     test.step("*** Navigate to Home Page ***", async ()=>{});
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("TC_C59399", async ({io,page}, testInfo) => {
+  test("@Env-All @Zephyr-IO-T1919 TC_C59399", async ({io,page}, testInfo) => {
     await io.homePage.loadingTime();
     await io.homePage.goToMenu("Tools", "Data loader");
     await io.homePage.loadingTime();
