@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S Verify that default page size on EDI dashboard i
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Epic-IO-89827 @Env-QA @Zephyr-IO-T37331 @Priority-P2 Verify that default page size on EDI dashboard is 100", async ({ io, page }) => {
+  test("@Epic-IO-89827 @Env-QA @Env-IAQA @Zephyr-IO-T37331 @Priority-P2 Verify that default page size on EDI dashboard is 100", async ({ io, page }) => {
 
     //Go to Dashboard
     await io.myAccountPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "dashboard");

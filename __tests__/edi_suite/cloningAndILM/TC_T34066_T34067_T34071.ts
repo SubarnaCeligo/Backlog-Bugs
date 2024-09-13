@@ -5,6 +5,27 @@ import FDR from "@testData/edi_suite/FDR.json"
 test.describe("@Author-Shriti S Verify proper error message is shown when trying to update the export with random fileDefinitions", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+    //Cleanup
+    let integrationID = await io.api.getIntegrationId('FACloneTest_ToBeDeleted');
+    let flows = await io.api.getAllFlowsInIntegration(integrationID);
+
+    if (flows && Array.isArray(flows) && flows.length > 0) {
+      const flowIDs = flows
+        .map(flowID => flowID?._id)
+        .filter(flowID => flowID !== undefined);
+
+      flowIDs.forEach(flowID => {
+        if (flowID) {
+          io.api.deleteFlowsWithId(flowID);
+        }
+      });
+    }
+
+    // Delete integration
+    if (integrationID) {
+      await io.api.deleteIntegration(integrationID);
+    }
+    await io.homePage.reloadPage();
 
   });
   test("@Env-All @Epic-IO-59196 @Priority-P2 @Zephyr-IO-T34066 @Zephyr-IO-T34067 @Zephyr-IO-T34071 Verify proper error message is shown when trying to update the export with random fileDefinitions", async ({ io, page }) => {
@@ -26,7 +47,7 @@ test.describe("@Author-Shriti S Verify proper error message is shown when trying
 
     //Input name
     await io.homePage.waitForElementAttached(selectors.basePagePO.ADD_NAME);
-    await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT,'FACloneTest_ToBeDeleted');
+    await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'FACloneTest_ToBeDeleted');
 
     //Clone
     await io.homePage.waitForElementAttached(selectors.integrationPagePO.CLONE_INTEGRATION_BUTTON);
@@ -66,19 +87,19 @@ test.describe("@Author-Shriti S Verify proper error message is shown when trying
     await io.exportsPage.waitForElementAttached(selectors.exportsPagePO.PARSER_HELPER);
     await io.exportsPage.clickByIndex(selectors.exportsPagePO.PARSER_HELPER, 1);
     await io.homePage.loadingTime();
-    
-     // Locate the textarea
+
+    // Locate the textarea
     const textarea = await page.$(selectors.flowBuilderPagePO.RULE);
 
     if (textarea) {
-    // Click the textarea to focus on it
-    await textarea.click();
+      // Click the textarea to focus on it
+      await textarea.click();
 
-    // Select all text and delete it
-    await io.homePage.loadingTime();
-    await page.keyboard.press('Control+A');
-    await page.keyboard.press('Meta+A');
-    await page.keyboard.press('Backspace');
+      // Select all text and delete it
+      await io.homePage.loadingTime();
+      await page.keyboard.press('Control+A');
+      await page.keyboard.press('Meta+A');
+      await page.keyboard.press('Backspace');
     }
     //Add new FDR
     await io.homePage.loadingTime();
@@ -114,39 +135,32 @@ test.describe("@Author-Shriti S Verify proper error message is shown when trying
     await io.assert.expectToContainValue('Please provide a valid _id.', errorMessage, "Error message not displayed for invalid FDR ID");
 
     await io.homePage.loadingTime();
-    
+
   });
 
   test.afterEach(async ({ io, page }) => {
-    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+    //Cleanup
+    let integrationID = await io.api.getIntegrationId('FACloneTest_ToBeDeleted');
+    let flows = await io.api.getAllFlowsInIntegration(integrationID);
 
-    //search for the integration
-    await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "FACloneTest_ToBeDeleted");
-    await io.homePage.loadingTime();
+    if (flows && Array.isArray(flows) && flows.length > 0) {
+      const flowIDs = flows
+        .map(flowID => flowID?._id)
+        .filter(flowID => flowID !== undefined);
 
-    await io.homePage.clickByTextByIndex('FACloneTest_ToBeDeleted', 0);
-    await io.homePage.waitForElementAttached(selectors.templatePagePO.FLOWS);
-    await io.homePage.loadingTime();
+      flowIDs.forEach(flowID => {
+        if (flowID) {
+          io.api.deleteFlowsWithId(flowID);
+        }
+      });
+    }
 
-    //Delete the flows inside the integration
-    await io.integrationPage.clickByIndex(selectors.integrationPagePO.OPENACTIONSMENU, 2);
-    await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.DELETE_FLOW);
-    await io.integrationPage.click(selectors.integrationPagePO.DELETE_FLOW);
-    await io.integrationPage.click(selectors.basePagePO.DELETE_BUTTON);
-    
-    await io.homePage.loadingTime();
-    await io.integrationPage.clickByIndex(selectors.integrationPagePO.OPENACTIONSMENU, 1);
-    await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.DELETE_FLOW);
-    await io.integrationPage.click(selectors.integrationPagePO.DELETE_FLOW);
-    await io.integrationPage.click(selectors.basePagePO.DELETE_BUTTON);
-
-    //Delete cloned integration
-    await io.homePage.loadingTime();
-    await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.DELETE_INTEGRATION);
-    await io.integrationPage.click(selectors.integrationPagePO.DELETE_INTEGRATION);
-    await io.integrationPage.waitForElementAttached(selectors.basePagePO.DELETE_BUTTON);
-    await io.integrationPage.click(selectors.basePagePO.DELETE_BUTTON);
-    await io.homePage.loadingTime();
+    // Delete integration
+    if (integrationID) {
+      await io.api.deleteIntegration(integrationID);
+    }
+    await io.homePage.reloadPage();
 
   });
 
