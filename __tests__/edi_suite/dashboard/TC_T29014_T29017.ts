@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S Verify that entries on Flows dashboard are pagin
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-QA @Epic-IO-31713 @Priority-P2 @Zephyr-IO-T29014 @Zephyr-IO-T29017 Verify that entries on Flows dashboard are paginated.", async ({ io, page }) => {
+  test("@Env-QA @Env-IAQA @Epic-IO-31713 @Priority-P2 @Zephyr-IO-T29014 @Zephyr-IO-T29017 Verify that entries on Flows dashboard are paginated.", async ({ io, page }) => {
 
     //Go to Dashboard
     await io.myAccountPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "dashboard");

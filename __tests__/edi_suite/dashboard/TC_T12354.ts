@@ -5,7 +5,7 @@ import T12354_sampleData from "@testData/Exports/T12354_sample.json";
 import T12354_output from "@testData/Exports/T12354_output.json";
 
 test.describe("T12354 Test to validate auto preview on File parser window", () => {
-    test("@Env-QA @Zephyr-IO-T11796 @Priority-P2 T12354 Test to validate auto preview on File parser window", async ({io, page}) => {
+    test("@Env-QA @Env-IAQA @Zephyr-IO-T11796 @Priority-P2 T12354 Test to validate auto preview on File parser window", async ({io, page}) => {
         const edi_response = await io.api.postCall('/v1/ediProfiles', T12354_edi);
 
         await io.exportsPage.addStep('*** Navigating to Exports Page ***');
