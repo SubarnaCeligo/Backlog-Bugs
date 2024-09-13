@@ -67,6 +67,11 @@ test.describe("T37696_Verify cloning of flow with old import form agent connecti
     await io.flowBuilder.clickByText(`Clone - ${T37696.name}`);
     await io.flowBuilder.loadingTime();
 
+    await io.flowBuilder.addStep("*** Zoom out ***");
+    await io.flowBuilder.click('[aria-label="Zoom out"]');
+    await io.flowBuilder.click('[aria-label="Zoom out"]');
+    await io.flowBuilder.loadingTime();
+
     await io.flowBuilder.addStep("*** Open PostgreSQL import ***");
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.IMPORT, 0);
     await io.flowBuilder.loadingTime();
