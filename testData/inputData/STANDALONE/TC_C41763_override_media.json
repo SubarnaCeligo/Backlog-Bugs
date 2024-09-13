@@ -1,5 +1,5 @@
 {
-    "name": "TC_29961",
+    "name": "TC_C41763",
     "disabled": false,
     "timezone": "Asia/Calcutta",
     "_integrationId": "6228aed6bc8a2732cfe8044c",
@@ -8,7 +8,7 @@
         {
             "qa__export": {
                 "name": "GraphQl",
-                "_connectionId": "62e0c08365a0bf24aba55e33",
+                "_connectionId": "GRAPHQL CONNECTION",
                 "apiIdentifier": "e2244a99f1",
                 "asynchronous": true,
                 "oneToMany": false,

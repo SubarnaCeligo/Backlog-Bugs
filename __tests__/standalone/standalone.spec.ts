@@ -34,3 +34,13 @@ require("./TC_C1685_TC_C1087_Verify_Shared_Stack_Able_See_In_List_Delete_Shared_
 require("./TC_C1687");
 require("./TC_C1689_Verify_Invalid_IntegrationID_throws_UserFriendlyError");
 require("./TC_C1726_FTP_Blob_Export_Verify_Skip_Delete");
+require("./TC_C19770");
+require("./TC_C19810");
+require("./TC_C1991");
+require("./TC_C1996");
+require("./TC_C1997");
+require("./TC_C1998");
+require("./TC_C1999");
+require("./TC_C2000");
+require("./TC_C2001");
+require("./TC_C2003");
