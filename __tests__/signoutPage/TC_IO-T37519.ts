@@ -74,7 +74,7 @@ test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T37519 @Zephyr-IO-T37544",
         const leftPannel = await page.$$(selectors.signUpPagePO.LEFT_PANNEL);
         const element = leftPannel[1];
         const screenshot = await element.screenshot();
-        expect(screenshot).toMatchSnapshot("T37517.png", { maxDiffPixelRatio: 0.2 });
+        expect(screenshot).toMatchSnapshot("T37519.png", { maxDiffPixelRatio: 0.2 });
 
         //IO-T37544 Verify Layout and UI Elements when Activation link expire
         const modifiedUrl = cleanedLink + '3rt3';

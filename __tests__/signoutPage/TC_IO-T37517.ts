@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import { randomString, randomNumber, decrypt } from "@celigo/aut-utilities";
 
-test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T37536 @Zephyr-IO-T37517 @Zephyr-IO-T37540 @Zephyr-IO-T37537", () => {
+test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T37536 @Zephyr-IO-T37517 @Zephyr-IO-T37540", () => {
     // test.beforeEach('check sign out', async ({ io, page }) => {
     //     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     //     const isNotLoggedIn = await io.loginPage.checkLoginState();
@@ -36,7 +36,7 @@ test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T37536 @Zephyr-IO-T37517 @
     //         }
     //     }
     // });
-    test("@Epic-IO-80201 @Priority-P2 @Env-All @Zephyr-IO-T37536 @Zephyr-IO-T37517 @Zephyr-IO-T37540 @Zephyr-IO-T37537", async ({ io, page }) => {
+    test("@Epic-IO-80201 @Priority-P2 @Env-All @Zephyr-IO-T37536 @Zephyr-IO-T37517 @Zephyr-IO-T37540", async ({ io, page }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
         await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
