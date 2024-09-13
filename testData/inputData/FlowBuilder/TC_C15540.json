@@ -1,43 +1,28 @@
 {
-    "name": "TC_C15540",
-    "referencename": "TC_C15540",
+    "name": "TC_C22944",
+    "referencename": "TC_C22944",
     "qa__api_tdata": [
         {
             "pageGenerators": [
                 {
                     "type": "export",
                     "qa__export": {
-                        "name": "Greenhouse export",
-                        "_connectionId": "GREENHOUSE CONNECTION",
-                        "apiIdentifier": "ef403fff2f",
+                        "name": "HTTP export Zendesk",
+                        "application": "zendesk support",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "e1a1bb09d2",
                         "asynchronous": true,
-                        "assistant": "greenhouse",
+                        "traceKeyTemplate": "{{join '/' record.id record.email}}",
                         "oneToMany": false,
-                        "assistantMetadata": {
-                            "resource": "candidates",
-                            "version": "v1",
-                            "operation": "list_candidates"
-                        },
                         "http": {
-                            "relativeURI": "/candidates",
+                            "relativeURI": "/search.json?query=TC_C34158",
                             "method": "GET",
-                            "successMediaType": "json",
-                            "errorMediaType": "json",
-                            "formType": "assistant",
-                            "paging": {
-                                "method": "linkheader",
-                                "lastPageStatusCode": 404,
-                                "linkHeaderRelation": "next"
+                            "formType": "http",
+                            "response": {
+                                "resourcePath": "users"
                             }
                         },
-                        "rest": {
-                            "relativeURI": "/candidates",
-                            "method": "GET",
-                            "pagingMethod": "linkheader",
-                            "allowUndefinedResource": false,
-                            "linkHeaderRelation": "next"
-                        },
-                        "adaptorType": "RESTExport"
+                        "adaptorType": "HTTPExport"
                     }
                 }
             ],
@@ -69,7 +54,7 @@
                 }
             ],
             "createFlow": {
-                "name": "TC_C15540",
+                "name": "TC_C22944",
                 "disabled": false,
                 "_integrationId": "62ecc42648570015ab65cfa5",
                 "qa__integrationId": "62eca1efe386b563f638451e",
