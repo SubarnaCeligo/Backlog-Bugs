@@ -50,10 +50,10 @@ test.describe("@Author-Shriti S Verify all the elements of EDI Dashboard", () =>
     await io.assert.expectToBeTrue(paginationTextVisible, 'Pagination text is not visible');
 
     //Click chevron
-    await io.homePage.clickByIndex(selectors.dashboardPagePO.PAGINATION_CHEVRON, 1);
+    await io.homePage.clickByIndex(selectors.dashboardPagePO.PAGINATION_CHEVRON, 2);
     await io.homePage.waitForElementAttached(selectors.basePagePO.LIST_BOX);
 
-    await io.assert.verifyElementText(selectors.dashboardPagePO.DEFAULT_RECORDS_PER_PAGE, '100');//Default records per page
+    await io.assert.verifyElementIsDisplayed('[value="100"]','Default pagination is not displayed');//Default records per page
 
     //Verify recordsPerPageOptions
     let recordsPerPageOptions = (await io.homePage.getText(selectors.basePagePO.LIST_BOX)).toString();

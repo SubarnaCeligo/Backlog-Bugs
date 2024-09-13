@@ -34,7 +34,7 @@ test.describe("@Author-Shriti S Verify that entries on Documents dashboard are p
     await io.assert.expectToBeValue('100', numOfRows.toString(), '100 rows are not displayed');
 
     //Change Records per page to 10
-    await io.homePage.clickByIndex(selectors.dashboardPagePO.PAGINATION_CHEVRON, 1);
+    await io.homePage.clickByIndex(selectors.dashboardPagePO.PAGINATION_CHEVRON, 2);
     await io.homePage.waitForElementAttached(selectors.dashboardPagePO.TEN_ITEMS_PER_PAGE);
     await io.homePage.click(selectors.dashboardPagePO.TEN_ITEMS_PER_PAGE);
     await io.homePage.loadingTime();

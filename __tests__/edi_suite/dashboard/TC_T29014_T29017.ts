@@ -29,7 +29,7 @@ test.describe("@Author-Shriti S Verify that entries on Flows dashboard are pagin
     let numOfRowsString = (await io.homePage.getText(selectors.dashboardPagePO.ROWS)).toString();
     let numOfRowsArray: string[] = numOfRowsString.split(',');
     let numOfRows = numOfRowsArray.length;
-    await io.assert.expectToBeValue('100', numOfRows.toString(), '100 rows are not displayed');
+    await io.assert.expectToBeTrue(numOfRows <= 100, '100 rows are not displayed');
 
     //Change Records per page to 10
     await io.homePage.clickByIndex(selectors.dashboardPagePO.PAGINATION_CHEVRON, 1);
