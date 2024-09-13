@@ -27,8 +27,10 @@ test.describe("@Author-Shriti S Verify sorting on other sortable columns on docu
     await io.homePage.clickByText('Apply');
     await io.homePage.loadingTime();
 
-    await io.homePage.clickByTextByIndex('Doc no.', 0);
+    
+    await io.homePage.click(selectors.flowBuilderPagePO.NAME_WDIO + ' span');
     await io.homePage.loadingTime();
+   
     await io.homePage.click(selectors.dashboardPagePO.DOWNWARD_ARROW);
     // await io.homePage.clickByTextByIndex('Doc no.', 0);
     await io.homePage.waitForElementAttached(selectors.dashboardPagePO.DESCENDING);
