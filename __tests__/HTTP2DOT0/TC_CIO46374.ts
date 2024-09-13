@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("CIO46374", () => {
-  test.skip("@Env-All @Zephyr-IO-T26354 Verify configure refresh token is enabled", async ({
+  test("@Env-All @Zephyr-IO-T26354 Verify configure refresh token is enabled", async ({
     io,
     page
   }) => {
@@ -45,7 +45,7 @@ test.describe("CIO46374", () => {
   });
 
 
-  test.skip("@Env-All @Zephyr-IO-T26351 Verify help text for concurrency ID lock template", async ({
+  test("@Env-All @Zephyr-IO-T26351 Verify help text for concurrency ID lock template", async ({
     io,
     page
   }) => {
@@ -89,7 +89,7 @@ test.describe("CIO46374", () => {
   });
 
 
-  test.skip("@Env-All @Zephyr-IO-T28950 Verify success and error values are saved when media type is plain text", async ({
+  test("@Env-All @Zephyr-IO-T28950 Verify success and error values are saved when media type is plain text", async ({
     io,
     page
   }) => {
