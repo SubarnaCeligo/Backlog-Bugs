@@ -22,7 +22,7 @@
           },
           "mongodb": {
               "method": "find",
-              "collection": "test"
+              "collection": "TEST NEW"
           },
           "adaptorType": "MongodbExport"
       }
@@ -49,7 +49,7 @@
                               "oneToMany": false,
                               "mongodb": {
                                   "method": "find",
-                                  "collection": "test"
+                                  "collection": "TEST NEW"
                               },
                               "adaptorType": "MongodbExport"
                           }
@@ -81,16 +81,20 @@
                               "ignoreMissing": false,
                               "oneToMany": false,
                               "mapping": {
-                                  "fields": [
-                                      {
-                                          "extract": "Name",
-                                          "generate": "user.name"
-                                      }
-                                  ]
+                                "fields": [
+                                  {
+                                    "extract": "Auto_{{random 16}}",
+                                    "generate": "organization.name"
+                                  },
+                                  {
+                                    "extract": "notes",
+                                    "generate": "organization.notes"
+                                  }
+                                ]
                               },
                               "http": {
                                   "relativeURI": [
-                                      "users"
+                                      "organizations.json"
                                   ],
                                   "method": [
                                       "POST"
@@ -122,16 +126,20 @@
                               "ignoreMissing": false,
                               "oneToMany": false,
                               "mapping": {
-                                  "fields": [
-                                      {
-                                          "extract": "People.[0]",
-                                          "generate": "user.name"
-                                      }
-                                  ]
+                                "fields": [
+                                  {
+                                    "extract": "Auto_{{random 16}}",
+                                    "generate": "organization.name"
+                                  },
+                                  {
+                                    "extract": "notes",
+                                    "generate": "organization.notes"
+                                  }
+                                ]
                               },
                               "http": {
                                   "relativeURI": [
-                                      "users"
+                                      "organizations.json"
                                   ],
                                   "method": [
                                       "POST"

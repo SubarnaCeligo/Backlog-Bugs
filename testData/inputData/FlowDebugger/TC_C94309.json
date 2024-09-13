@@ -1,0 +1,209 @@
+{
+  "name": "TC_C94309",
+  "referencename": "TC_C94309",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Http Export",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "_sourceId": "648063390b61007b743c7281",
+            "apiIdentifier": "ef86e3d5b6",
+            "asynchronous": true,
+            "type": "test",
+            "oneToMany": false,
+            "http": {
+              "relativeURI": "/users",
+              "method": "GET",
+              "formType": "http",
+              "response": {
+                "resourcePath": "users"
+              }
+            },
+            "test": {
+              "limit": 12
+            },
+            "transform": {
+              "type": "expression",
+              "expression": {
+                "rules": [[]],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": [[]]
+            },
+            "adaptorType": "HTTPExport"
+          }
+        },
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "AutomationStandalone_cRYcd",
+            "type": "webhook",
+            "sandbox": false,
+            "mockOutput": {
+              "page_of_records": [
+                {
+                  "record": {
+                    "id": 8316996124945,
+                    "title": "abc",
+                    "body_html": "abc",
+                    "vendor": "Deepak Jain111",
+                    "product_type": "",
+                    "created_at": "2023-04-18T02:33:37-04:00",
+                    "handle": "abc",
+                    "updated_at": "2023-04-18T02:33:37-04:00",
+                    "published_at": "2023-04-18T02:33:37-04:00",
+                    "template_suffix": "",
+                    "status": "active",
+                    "published_scope": "web",
+                    "tags": "",
+                    "admin_graphql_api_id": "gid://shopify/Product/8316996124945",
+                    "variants": [
+                      {
+                        "id": 44978207097105,
+                        "product_id": 8316996124945,
+                        "title": "Default Title",
+                        "price": "0.00",
+                        "sku": "",
+                        "position": 1,
+                        "inventory_policy": "deny",
+                        "compare_at_price": null,
+                        "fulfillment_service": "manual",
+                        "inventory_management": "shopify",
+                        "option1": "Default Title",
+                        "option2": null,
+                        "option3": null,
+                        "created_at": "2023-04-18T02:33:37-04:00",
+                        "updated_at": "2023-04-18T02:33:37-04:00",
+                        "taxable": true,
+                        "barcode": "",
+                        "grams": 0,
+                        "image_id": null,
+                        "weight": 0,
+                        "weight_unit": "kg",
+                        "inventory_item_id": 47026276565265,
+                        "inventory_quantity": 0,
+                        "old_inventory_quantity": 0,
+                        "presentment_prices": [
+                          {
+                            "price": {
+                              "amount": "0.00",
+                              "currency_code": "INR"
+                            },
+                            "compare_at_price": null
+                          }
+                        ],
+                        "requires_shipping": true,
+                        "admin_graphql_api_id": "gid://shopify/ProductVariant/44978207097105"
+                      }
+                    ],
+                    "options": [
+                      {
+                        "id": 10536949219601,
+                        "product_id": 8316996124945,
+                        "name": "Title",
+                        "position": 1,
+                        "values": ["Default Title"]
+                      }
+                    ],
+                    "images": [],
+                    "image": null
+                  }
+                }
+              ]
+            },
+            "qa__token": "abcd",
+            "webhook": {
+              "provider": "custom",
+              "verify": "token",
+              "token": "abcd",
+              "path": "token",
+              "successStatusCode": 200,
+              "successBody": "{{record.id}}",
+              "successMediaType": "plaintext"
+            },
+            "adaptorType": "WebhookExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "SF import",
+            "mockResponse": [
+              {
+                "id": "1234567890",
+                "errors": [],
+                "_json": {
+                  "mockResponse": "replace me"
+                },
+                "statusCode": 200,
+                "ignored": false,
+                "dataURI": "",
+                "_headers": {
+                  "content-type": "application/json; charset=utf-8"
+                }
+              }
+            ],
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "_sourceId": "6490360cb8a3b1358ead0a4e",
+            "apiIdentifier": "i83f2418a6",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "Name",
+                  "generate": "users.name"
+                },
+                {
+                  "extract": "Id",
+                  "generate": "users.notes"
+                }
+              ]
+            },
+            "http": {
+              "relativeURI": ["/users"],
+              "method": ["POST"],
+              "body": [],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C94309",
+        "disabled": false,
+        "skipRetries": false,
+        "_integrationId": "63232c59d3a9897fe95f9f2a",
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID",
+            "skipRetries": false
+          },
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

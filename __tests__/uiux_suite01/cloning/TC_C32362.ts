@@ -8,6 +8,7 @@ test.describe(`C32362 Verify cloned integration has the updated flow after updat
     page
   }) => {
     await io.homePage.navigateTo(process.env.IO_Integration_URL);
+   
     await io.homePage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR)
     await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "C32362_DND")
     await io.homePage.clickByTextByIndex("C32362_DND", 0);
@@ -22,21 +23,21 @@ test.describe(`C32362 Verify cloned integration has the updated flow after updat
     await io.flowBuilder.clickByText("Use existing connection");
     await io.flowBuilder.click(selectors.basePagePO.CONNECTION);
     let connMap = await io.api.loadConnections();
-    var connId = connMap.get("SALESFORCE CONNECTION");
+    var connId = connMap.get("FTP CONNECTION");
     await io.homePage.selectTextfromDropDown(page, connId)
     await io.homePage.addStep("Selected connection from dropdown");
     await io.homePage.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.clickByTextByIndex("Configure", 0);
     await io.flowBuilder.clickByText("Use existing connection");
     await io.flowBuilder.click(selectors.basePagePO.CONNECTION);
-    connId = connMap.get("FTP CONNECTION");
+    connId = connMap.get("NETSUITE CONNECTION");
     await io.homePage.selectTextfromDropDown(page, connId)
     await io.homePage.addStep("Selected connection from dropdown");
     await io.homePage.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.clickByTextByIndex("Configure", 0);
     await io.flowBuilder.clickByText("Use existing connection");
     await io.flowBuilder.click(selectors.basePagePO.CONNECTION);
-    connId = connMap.get("NETSUITE 353 CONNECTION");
+    connId = connMap.get("Salesforce Connection");
     await io.homePage.selectTextfromDropDown(page, connId)
     await io.homePage.click(selectors.basePagePO.SAVE);
     await io.flowBuilder.loadingTime();
@@ -45,16 +46,16 @@ test.describe(`C32362 Verify cloned integration has the updated flow after updat
     await io.homePage.clickByTextByIndex("Clone_C32362", 0);
     await io.homePage.click(selectors.flowBuilderPagePO.NOTIFICATION_CONNECTIONS);
     await io.assert.verifyElementDisplayedByText(
-      "NETSUITE 353 CONNECTION",
-      "NETSUITE 353 CONNECTION step is not displayed"
+      "NETSUITE CONNECTION",
+      "NETSUITE CONNECTION step is not displayed"
     );
     await io.assert.verifyElementDisplayedByText(
       "FTP CONNECTION",
       "FTP connection step is not displayed"
     );
     await io.assert.verifyElementDisplayedByText(
-      "SALESFORCE CONNECTION",
-      "SALESFORCE CONNECTION step is not displayed"
+      "Salesforce Connection",
+      "Salesforce Connection step is not displayed"
     );
   });
 });

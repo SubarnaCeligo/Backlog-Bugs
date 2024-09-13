@@ -33,10 +33,16 @@ test.describe("C19144 Verify user is able to proceed further on after entering p
     //       console.log('Retrying sign-in after wait');
     //       await attemptSignIn();
     //     }
-      // }
+    //   }
     // }
   });
   test("@Env-All @Zephyr-IO-T1068 C19144 Verify user is able to proceed further on after entering password with opened eye button", async ({ io, page }) => {
+    await io.homePage.loadingTime()
+    await io.homePage.loadingTime()
+    await io.homePage.loadingTime()
+    await io.homePage.loadingTime()
+    await io.homePage.loadingTime()
+    await io.homePage.loadingTime()
     await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.click(selectors.basePagePO.SIGN_OUT);

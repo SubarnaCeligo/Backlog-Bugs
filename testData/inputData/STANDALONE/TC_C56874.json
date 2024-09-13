@@ -13,7 +13,7 @@
           "type": "export",
           "qa__export": {
             "name": "DEMO [EXPORT]-01(FLOW)",
-            "_connectionId": "63f31d681da08011375b6352",
+            "_connectionId": "REST MAGENTO OAUTH1.0_HMAC-SHA256 CONNECTION",
             "asynchronous": true,
             "oneToMany": false,
             "sandbox": false,

@@ -20,32 +20,30 @@
         "sandbox": false,
         "mappings": [
           {
-            "extract": "abc",
-            "generate": "handle",
-            "dataType": "string",
-            "conditional": {
-              "when": "extract_not_empty"
-            },
-            "status": "Active",
-            "sourceDataType": "string"
-          },
-          {
             "extract": "123",
-            "generate": "id",
-            "dataType": "number",
-            "conditional": {
-              "when": "extract_not_empty"
-            },
+            "generate": "test",
+            "dataType": "string",
             "status": "Active",
             "sourceDataType": "string"
           },
           {
-            "extract": "true",
-            "generate": "shipping",
-            "dataType": "boolean",
-            "conditional": {
-              "when": "extract_not_empty"
-            },
+            "extract": "abc",
+            "generate": "test1",
+            "dataType": "string",
+            "status": "Active",
+            "sourceDataType": "string"
+          },
+          {
+            "extract": "{{record.id}}",
+            "generate": "test2",
+            "dataType": "string",
+            "status": "Active",
+            "sourceDataType": "string"
+          },
+          {
+            "extract": "[index1,index2]",
+            "generate": "test4",
+            "dataType": "string",
             "status": "Active",
             "sourceDataType": "string"
           }
@@ -68,26 +66,45 @@
   ],
   "pageGenerators": [
     {
-      "type": "export",
       "qa__export": {
-        "name": "51114",
-        "qa__path": "//FTP_uploads//TC_C51795.json",
-        "_connectionId": "FTP CONNECTION",
+        "name": "export_TC_C51114",
+        "_connectionId": "SHOPIFY CONNECTION",
+        "qa__connectionId": "SHOPIFY CONNECTION",
+        "adaptorType": "RESTExport",
         "asynchronous": true,
-        "sandbox": false,
-        "ftp": {
-          "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
-          "fileNameStartsWith": "TC_C51795.json"
+        "assistant": "shopify",
+        "assistantMetadata": {
+          "resource": "order",
+          "version": "v2",
+          "operation": "receive_asingleorder"
         },
-        "file": {
-          "encoding": "utf8",
-          "output": "records",
-          "skipDelete": true,
-          "type": "json"
+        "http": {
+          "relativeURI": "/orders/4501132231.json",
+          "method": "GET",
+          "paging": {
+            "lastPageValues": []
+          },
+          "response": {
+            "resourcePath": "order",
+            "successValues": []
+          }
         },
-        "adaptorType": "FTPExport"
+        "rest": {
+          "relativeURI": "/orders/4501132231.json",
+          "method": "GET",
+          "headers": [],
+          "resourcePath": "order",
+          "allowUndefinedResource": false
+        },
+        "qa__assistant": {
+          "resource": "Orders : Order",
+          "endpoint": "Retrieves a specific order",
+          "pathParams": {
+            "orderId": "4501132231"
+          }
+        }
       }
     }
   ],
-  "expected": "{\n  \"handle\": \"abc\",\n  \"id\": 123,\n  \"shipping\": true\n}"
+  "expected": "\"{\\n  \\\"test\\\": \\\"123\\\",\\n  \\\"test1\\\": \\\"abc\\\",\\n  \\\"test2\\\": \\\"4501132231\\\",\\n  \\\"test4\\\": \\\"[index1,index2]\\\"\\n}\""
 }

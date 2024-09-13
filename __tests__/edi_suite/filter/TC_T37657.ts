@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S Verify that filter results are updated when the 
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-QA @Epic-IO-89826 @Priority-P2 @Zephyr-IO-T37657 Verify that filter results are updated when the user updates the date range filter on the EDI dashboard", async ({ io, page }) => {
+  test("@Env-QA @Env-IAQA @Epic-IO-89826 @Priority-P2 @Zephyr-IO-T37657 Verify that filter results are updated when the user updates the date range filter on the EDI dashboard", async ({ io, page }) => {
 
     //Go to Dashboard
     await io.myAccountPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "dashboard");

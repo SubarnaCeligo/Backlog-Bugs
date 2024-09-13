@@ -1,0 +1,108 @@
+{
+  "Source_Integration": "Delete_TC_ILM_C43290",
+  "createAlias": {
+    "Source_Integration": "Delete_TC_ILM_C43290",
+    "aliasResourceType": "exports",
+    "aliasResourceName": "",
+    "aliasName": "exportalias123"
+  },
+  "createAliasFlow": {
+    "Source_Integration": "Delete_TC_ILM_C43290",
+    "aliasResourceType": "imports",
+    "aliasResourceName": "",
+    "aliasName": "importalias123"
+  },
+  "Script_Name": "preSavePage_C43290",
+  "Script_Data": {
+    "content": "function preSavePage (options) {\n  return options\n}",
+    "name": "preSavePage_C43290"
+  },
+  "verifyAliases": [
+    {
+      "alias": "importalias123",
+      "_importId": ""
+    },
+    {
+      "alias": "exportalias123",
+      "_exportId": "",
+      "_parentId": ""
+    }
+  ],
+  "qa__api_tdata": [{
+    "pageGenerators": [{
+        "type": "export",
+        "qa__export": {
+          "name": "Delete_TC_ILM_C43290_Netsuite_Export",
+          "_connectionId": "NETSUITE CONNECTION",
+          "asynchronous": true,
+          "oneToMany": false,
+          "hooks": {
+            "preSavePage": {
+                "_scriptId": "",
+                "function": "preSavePage"
+            }
+          },
+          "netsuite": {
+            "type": "restlet",
+            "skipGrouping": true,
+            "statsOnly": false,
+            "restlet": {
+              "recordType": "customer",
+              "searchId": "3906",
+              "useSS2Restlets": false
+            },
+            "distributed": {
+              "useSS2Framework": false
+            }
+          },
+          "adaptorType": "NetSuiteExport"
+        }
+    }],
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+          "name": "Delete_TC_ILM_C43290_Http_Import",
+          "application":"zendesk support",
+          "_connectionId": "HTTP ZENDESK CONNECTION",
+          "ignoreExisting": false,
+          "ignoreMissing": false,
+          "oneToMany": false,
+          "sandbox": false,
+          "http": {
+              "relativeURI": [
+                  "/test"
+              ],
+              "method": [
+                  "PUT"
+              ],
+              "body": [],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http"
+          },
+          "adaptorType": "HTTPImport"
+      }
+    }],
+    "createFlow": {
+        "name": "Del_TC_ILM_C43290_FLOW",
+        "disabled": true,
+        "qa__integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "skipRetries": false,
+        "pageProcessors": [{
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+        }],
+        "pageGenerators": [{
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+        }]
+    },
+    "createIntegrations": {
+      "name": "Delete_TC_ILM_C43290"
+    }
+  }]
+}

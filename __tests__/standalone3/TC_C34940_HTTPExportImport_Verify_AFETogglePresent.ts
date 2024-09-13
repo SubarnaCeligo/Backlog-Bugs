@@ -76,11 +76,13 @@ test.describe("TC_C34940_HTTPExportImport_Verify_AFETogglePresent", () => {
     test.step("*** Clicking on save and close button ***", async ()=>{});
     await io.homePage.clickButtonByIndex(selectors.basePagePO.SAVE_AND_CLOSE, 1);
     test.step("*** Clicking on HTTP Request Body Handlebar ***", async ()=>{});
+    await io.homePage.waitForElementAttached(selectors.exportsPagePO.HTTP_BODY)
     await io.homePage.click(selectors.exportsPagePO.HTTP_BODY);
     test.step("*** Entering the data into AFE2.0 Handlebar Template ***", async ()=>{});
     await io.homePage.fillWebPage(selectors.flowBuilderPagePO.HTTPREQUSTBODY, "{{data.name}}");
     test.step("*** Clicking on save and close button ***", async ()=>{});
     await io.homePage.clickButtonByIndex(selectors.basePagePO.SAVE_AND_CLOSE, 1);
+    await io.homePage.loadingTime()
     test.step(" Selecting Export type ***", async ()=>{});
     await io.homePage.fillWebPage(selectors.exportsPagePO.EXPORT_TYPE_DROPDOWN, "all");
 
@@ -100,7 +102,7 @@ test.describe("TC_C34940_HTTPExportImport_Verify_AFETogglePresent", () => {
 
     test.step("*** Clicked on close ***", async ()=>{});
     await io.homePage.clickButtonByIndex(selectors.basePagePO.CLOSE, 1);
-
+    await io.homePage.waitForElementAttached(selectors.exportsPagePO.HTTP_BODY)
     await io.homePage.click(selectors.exportsPagePO.HTTP_BODY);
     test.step("*** Clicked on HTTP Requestbody Openhandler ***", async ()=>{});
 

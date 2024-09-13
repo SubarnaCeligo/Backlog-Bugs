@@ -1,0 +1,100 @@
+{
+    "requestBodyFlow": {
+        "_integrationId": "",
+        "name": "TC_C42903",
+        "_exportId": "",
+        "_importId": "",
+        "aliases": [
+            {
+                "alias": "new_alias",
+                "_connectionId": "SALESFORCE CONNECTION"
+            }
+        ]
+    },
+    "requestBody": {
+        "name": "Delete_TC_ILM_C42903",
+        "sandbox": false,
+        "_registeredConnectionIds": [
+            "SALESFORCE CONNECTION",
+            "SALESFORCE CONNECTION"
+        ],
+        "aliases": [
+            {
+                "alias": "new_alias",
+                "_connectionId": "SALESFORCE CONNECTION"
+            }
+        ]
+    },
+    "name": "TC_C42903",
+    "_connectionId": "SALESFORCE CONNECTION",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "TC_C42903",
+                        "_connectionId": "SALESFORCE CONNECTION",
+                        "apiIdentifier": "e6b2b81a1d",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "salesforce": {
+                            "type": "soql",
+                            "api": "rest",
+                            "soql": {
+                                "query": "abcd"
+                            }
+                        },
+                        "adaptorType": "SalesforceExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "TC_C42903_Import",
+                        "_connectionId": "SALESFORCE CONNECTION",
+                        "apiIdentifier": "if686f090a",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "salesforce": {
+                            "operation": "insert",
+                            "sObjectType": "OmniDataPackFeed",
+                            "api": "soap",
+                            "removeNonSubmittableFields": false
+                        },
+                        "adaptorType": "SalesforceImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C42903",
+                "disabled": true,
+                "skipRetries": false,
+                "_integrationId": "",
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            },
+            "createIntegrations": {
+                "name": "Delete_TC_ILM_C42903"
+            }
+        }
+    ]
+}

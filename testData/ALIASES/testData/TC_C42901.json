@@ -1,0 +1,44 @@
+{
+    "qa_requestBody": {
+        "name": "Standalone Integration",
+        "sandbox": false,
+        "_registeredConnectionIds": [
+            "NETSUITE CONNECTION",
+            "SALESFORCE CONNECTION"
+        ],
+        "aliases": [
+            {
+                "alias": "nonexisting_resource",
+                "_exportId": "#$#$#$"
+            }
+        ]
+    },
+    "requestBody": {
+        "name": "Standalone Integration",
+        "sandbox": false,
+        "_registeredConnectionIds": [
+            "NETSUITE CONNECTION",
+            "SALESFORCE CONNECTION"
+        ],
+        "aliases": [
+            {
+                "alias": "nonexisting_resource",
+                "_exportId": "#$#$#$"
+            }
+        ]
+    },
+    "error": {
+        "errors": [
+            {
+                "field": "_exportId",
+                "code": "invalid_field",
+                "message": "Cast to ObjectId failed for value \"#$#$#$\" at path \"_exportId\""
+            },
+            {
+                "field": "aliases.0",
+                "code": "missing_required_field",
+                "message": "The alias must reference a resource."
+            }
+        ]
+    }
+}

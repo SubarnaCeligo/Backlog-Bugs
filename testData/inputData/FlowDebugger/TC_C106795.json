@@ -1,0 +1,480 @@
+{
+    "name": "TC_C106795",
+    "referencename": "TC_C106795",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Http test",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "_sourceId": "64f07241ac92e86071d81e19",
+                        "apiIdentifier": "edfcae027a",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "http": {
+                          "relativeURI": "/users",
+                          "method": "GET",
+                          "formType": "http",
+                          "response": {
+                            "resourcePath": "users"
+                          }
+                        },
+                        "rawData": "6253c695bbf2c06775d39fe1a5bc51065dff436e8114d371e3c86fbd",
+                        "test": {
+                          "limit": 12
+                        },
+                        "adaptorType": "HTTPExport"
+                      }
+                },
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Salesforce export test",
+                        "_connectionId": "SALESFORCE CONNECTION",
+                        "_sourceId": "64f07273ac92e86071d81e2a",
+                        "apiIdentifier": "e333b4fb64",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "rawData": "EMPTY RAW DATA",
+                        "test": {
+                          "limit": 20
+                        },
+                        "salesforce": {
+                          "type": "soql",
+                          "api": "rest",
+                          "soql": {
+                            "query": "Select Name,Email__c,phone,fax,Shippingcountry,ShippingPostalCode,Shippingstate from Account"
+                          }
+                        },
+                        "transform": {
+                          "type": "expression",
+                          "expression": {
+                            "rules": [
+                              [
+                                {
+                                  "extract": "Name",
+                                  "generate": "name"
+                                },
+                                {
+                                  "extract": "Email__c",
+                                  "generate": "Email"
+                                },
+                                {
+                                  "extract": "Phone",
+                                  "generate": "Phone"
+                                },
+                                {
+                                  "extract": "Fax",
+                                  "generate": "Fax"
+                                },
+                                {
+                                  "extract": "ShippingCountry",
+                                  "generate": "Shipping Country"
+                                }
+                              ]
+                            ],
+                            "version": "1"
+                          },
+                          "rules": [
+                            [
+                              {
+                                "extract": "Name",
+                                "generate": "name"
+                              },
+                              {
+                                "extract": "Email__c",
+                                "generate": "Email"
+                              },
+                              {
+                                "extract": "Phone",
+                                "generate": "Phone"
+                              },
+                              {
+                                "extract": "Fax",
+                                "generate": "Fax"
+                              },
+                              {
+                                "extract": "ShippingCountry",
+                                "generate": "Shipping Country"
+                              }
+                            ]
+                          ],
+                          "version": "1"
+                        },
+                        "filter": {
+                          "type": "expression",
+                          "expression": {
+                            "rules": [
+                              "empty",
+                              [
+                                "string",
+                                [
+                                  "extract",
+                                  "Email"
+                                ]
+                              ]
+                            ],
+                            "version": "1"
+                          },
+                          "rules": [
+                            "empty",
+                            [
+                              "string",
+                              [
+                                "extract",
+                                "Email"
+                              ]
+                            ]
+                          ],
+                          "version": "1"
+                        },
+                        "adaptorType": "SalesforceExport"
+                      }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import":
+                    {
+                        "name": "AutomationStandalone_1Xyrc",
+                        "_connectionId": "FTP CONNECTION",
+                        "_sourceId": "64f054dc2c7ee160c3a755d0",
+                        "apiIdentifier": "i377b30942",
+                        "hooks": {
+                          "preMap": {
+                            "_scriptId": "65003b36d2d9ee17057e1140",
+                            "function": "preMap"
+                          }
+                        },
+                        "oneToMany": false,
+                        "mapping": {
+                          "fields": [
+                            {
+                              "extract": "Name",
+                              "generate": "Name"
+                            },
+                            {
+                              "extract": "Fax",
+                              "generate": "Fax"
+                            },
+                            {
+                              "extract": "Email",
+                              "generate": "Email"
+                            },
+                            {
+                              "extract": "Phone",
+                              "generate": "Phone"
+                            },
+                            {
+                              "extract": "[Shipping Country]",
+                              "generate": "Shipping Country"
+                            }
+                          ]
+                        },
+                        "file": {
+                          "fileName": "TC_C106795.json",
+                          "skipAggregation": false,
+                          "type": "json"
+                        },
+                        "ftp": {
+                          "directoryPath": "/io.auto.qa/IO%20Automation%20SFTP%20Imports",
+                          "fileName": "TC_C106795.json"
+                        },
+                        "filter": {
+                          "type": "expression",
+                          "expression": {
+                            "rules": [
+                              "notempty",
+                              [
+                                "string",
+                                [
+                                  "extract",
+                                  "name"
+                                ]
+                              ]
+                            ],
+                            "version": "1"
+                          },
+                          "rules": [
+                            "notempty",
+                            [
+                              "string",
+                              [
+                                "extract",
+                                "name"
+                              ]
+                            ]
+                          ],
+                          "version": "1"
+                        },
+                        "adaptorType": "FTPImport"
+                      }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C106795",
+                "disabled": false,
+                "_integrationId": "603ce75ac4fec33283691f43",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    },
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ],
+    "script": {
+        "name": "New",
+        "content": "function preMap (options) {\n  return options.data.map((d) => {\n    return {\n      data: d\n    }\n  })\n}"
+      },
+      "new": {
+        "name": "TC_C107015",
+        "referencename": "TC_C107015",
+        "qa__api_tdata": [
+            {
+                "pageGenerators": [
+                    {
+                        "type": "export",
+                        "qa__export": {
+                            "name": "Http test",
+                            "_connectionId": "HTTP ZENDESK CONNECTION",
+                            "_sourceId": "64f07241ac92e86071d81e19",
+                            "apiIdentifier": "edfcae027a",
+                            "asynchronous": true,
+                            "type": "test",
+                            "oneToMany": false,
+                            "http": {
+                              "relativeURI": "/users",
+                              "method": "GET",
+                              "formType": "http",
+                              "response": {
+                                "resourcePath": "users"
+                              }
+                            },
+                            "rawData": "6253c695bbf2c06775d39fe1a5bc51065dff436e8114d371e3c86fbd",
+                            "test": {
+                              "limit": 12
+                            },
+                            "adaptorType": "HTTPExport"
+                          }
+                    },
+                    {
+                        "type": "export",
+                        "qa__export": {
+                            "name": "Salesforce export test",
+                            "_connectionId": "SALESFORCE CONNECTION",
+                            "_sourceId": "64f07273ac92e86071d81e2a",
+                            "apiIdentifier": "e333b4fb64",
+                            "asynchronous": true,
+                            "type": "test",
+                            "oneToMany": false,
+                            "rawData": "EMPTY RAW DATA",
+                            "test": {
+                              "limit": 20
+                            },
+                            "salesforce": {
+                              "type": "soql",
+                              "api": "rest",
+                              "soql": {
+                                "query": "Select Name,Email__c,phone,fax,Shippingcountry,ShippingPostalCode,Shippingstate from Account"
+                              }
+                            },
+                            "transform": {
+                              "type": "expression",
+                              "expression": {
+                                "rules": [
+                                  [
+                                    {
+                                      "extract": "Name",
+                                      "generate": "name"
+                                    },
+                                    {
+                                      "extract": "Email__c",
+                                      "generate": "Email"
+                                    },
+                                    {
+                                      "extract": "Phone",
+                                      "generate": "Phone"
+                                    },
+                                    {
+                                      "extract": "Fax",
+                                      "generate": "Fax"
+                                    },
+                                    {
+                                      "extract": "ShippingCountry",
+                                      "generate": "Shipping Country"
+                                    }
+                                  ]
+                                ],
+                                "version": "1"
+                              },
+                              "rules": [
+                                [
+                                  {
+                                    "extract": "Name",
+                                    "generate": "name"
+                                  },
+                                  {
+                                    "extract": "Email__c",
+                                    "generate": "Email"
+                                  },
+                                  {
+                                    "extract": "Phone",
+                                    "generate": "Phone"
+                                  },
+                                  {
+                                    "extract": "Fax",
+                                    "generate": "Fax"
+                                  },
+                                  {
+                                    "extract": "ShippingCountry",
+                                    "generate": "Shipping Country"
+                                  }
+                                ]
+                              ],
+                              "version": "1"
+                            },
+                            "filter": {
+                              "type": "expression",
+                              "expression": {
+                                "rules": [
+                                  "empty",
+                                  [
+                                    "string",
+                                    [
+                                      "extract",
+                                      "Email"
+                                    ]
+                                  ]
+                                ],
+                                "version": "1"
+                              },
+                              "rules": [
+                                "empty",
+                                [
+                                  "string",
+                                  [
+                                    "extract",
+                                    "Email"
+                                  ]
+                                ]
+                              ],
+                              "version": "1"
+                            },
+                            "adaptorType": "SalesforceExport"
+                          }
+                    }
+                ],
+                "pageProcessors": [
+                    {
+                        "type": "import",
+                        "qa__import":
+                        {
+                            "name": "AutomationStandalone_1Xyrc",
+                            "_connectionId": "FTP CONNECTION",
+                            "_sourceId": "64f054dc2c7ee160c3a755d0",
+                            "apiIdentifier": "i377b30942",
+                            "oneToMany": false,
+                            "mapping": {
+                              "fields": [
+                                {
+                                  "extract": "Name",
+                                  "generate": "Name"
+                                },
+                                {
+                                  "extract": "Fax",
+                                  "generate": "Fax"
+                                },
+                                {
+                                  "extract": "Email",
+                                  "generate": "Email"
+                                },
+                                {
+                                  "extract": "Phone",
+                                  "generate": "Phone"
+                                },
+                                {
+                                  "extract": "[Shipping Country]",
+                                  "generate": "Shipping Country"
+                                }
+                              ]
+                            },
+                            "file": {
+                              "fileName": "TC_C106795.json",
+                              "skipAggregation": false,
+                              "type": "json"
+                            },
+                            "ftp": {
+                              "directoryPath": "/io.auto.qa/IO%20Automation%20SFTP%20Imports",
+                              "fileName": "TC_C106795.json"
+                            },
+                            "filter": {
+                              "type": "expression",
+                              "expression": {
+                                "rules": [
+                                  "notempty",
+                                  [
+                                    "string",
+                                    [
+                                      "extract",
+                                      "name"
+                                    ]
+                                  ]
+                                ],
+                                "version": "1"
+                              },
+                              "rules": [
+                                "notempty",
+                                [
+                                  "string",
+                                  [
+                                    "extract",
+                                    "name"
+                                  ]
+                                ]
+                              ],
+                              "version": "1"
+                            },
+                            "adaptorType": "FTPImport"
+                          }
+                    }
+                ],
+                "createFlow": {
+                    "name": "TC_C107015",
+                    "disabled": false,
+                    "_integrationId": "603ce75ac4fec33283691f43",
+                    "skipRetries": false,
+                    "pageProcessors": [
+                        {
+                            "type": "import",
+                            "_importId": "UPDATE WITH NEW IMPORTID"
+                        }
+                    ],
+                    "pageGenerators": [
+                        {
+                            "_exportId": "UPDATE WITH NEW EXPORTID"
+                        },
+                        {
+                            "_exportId": "UPDATE WITH NEW EXPORTID"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

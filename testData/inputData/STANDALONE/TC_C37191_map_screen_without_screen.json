@@ -1,0 +1,51 @@
+{
+    "name": "TC_C32431",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "testt",
+                "_connectionId": "HTTP SHOPIFY CONNECTION",
+                "apiIdentifier": "e55bb408c9",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "account",
+                    "method": "GET",
+                    "formType": "http"
+                },
+                "rawData": "EMPTY RAW DATA",
+                "test": {
+                    "limit": 1
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "Salesforce",
+                "_connectionId": "SALESFORCE CONNECTION",
+                "apiIdentifier": "i00c15b564",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "salesforce": {
+                    "operation": "insert",
+                    "sObjectType": "Account",
+                    "api": "soap",
+                    "removeNonSubmittableFields": false
+                },
+                "adaptorType": "SalesforceImport"
+            }
+        }
+    ]
+}

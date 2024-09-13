@@ -20,7 +20,7 @@
                         ],
                         "ftp": {
                             "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
-                            "fileNameStartsWith": "TC_C37181"
+                            "fileNameStartsWith": "TC_C30817"
                         },
                         "file": {
                             "encoding": "utf8",
