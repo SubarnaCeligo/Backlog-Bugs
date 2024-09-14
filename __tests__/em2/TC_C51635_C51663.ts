@@ -19,6 +19,7 @@ test.describe("TC_C51635_C51663", () => {
 
     test.step("***Clicked On Flow Which Has Errors***", async ()=>{});
     await io.homePage.loadingTime();
+    await io.homePage.delay(10000);
     await io.homePage.click(selectors.flowBuilderPagePO.RUN_CONSOLE_ERROR_ICON);
     test.step("Error Table is opened", async ()=>{});
 

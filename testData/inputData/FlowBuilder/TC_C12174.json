@@ -6,14 +6,15 @@
             "pageGenerators": [
                 {
                     "type": "export",
-                    "qa__export": {
-                        "name": "TC_C12174 Export",
+                    "qa__export": 
+                    {
+                        "name": "AutomationStandalone_SomPN",
                         "_connectionId": "FTP CONNECTION",
-                        "apiIdentifier": "ecea74b464",
+                        "apiIdentifier": "ef86de1ca7",
                         "asynchronous": true,
+                        "sampleData": "\"\"\"WHS\"\"\",\"\"\"RECEIPT\"\"\",\"\"\"ATA\"\"\",\"\"\"PO\"\"\",\"\"\"GS1\"\"\",\"\"\"QtyReceived\"\"\",\"\"\"SupplierPO\"\"\",\"\"\"Text01\"\"\",\"\"\"Text02\"\"\",\"\"\"Text03\"\"\",\"\"\"Flag01\"\"\",\"\"\"Flag02\"\"\",\"\"\"Flag03\"\"\"\r\n\"\"\"AUMEL\"\"\",\"\"\"POBO00000513\"\"\",\"\"\"20180306\"\"\",\"\"\"POBO00000510\"\"\",\"\"\"9351510238232\"\"\",\"\"\"1\"\"\",\"\"\"\"\"\",\"\"\"\"\"\",\"\"\"BNKR\"\"\",\"\"\"\"\"\",\"\"\"\"\"\",\"\"\"\"\"\",\"\"\"\"\"\"\r\n\"\"\"AUMEL\"\"\",\"\"\"POBO00000513\"\"\",\"\"\"20180306\"\"\",\"\"\"POBO00000510\"\"\",\"\"\"9351510238232\"\"\",\"\"\"5\"\"\",\"\"\"\"\"\",\"\"\"\"\"\",\"\"\"BNKR\"\"\",\"\"\"\"\"\",\"\"\"\"\"\",\"\"\"\"\"\",\"\"\"\"\"\"\r\n\"\"\"AUMEL\"\"\",\"\"\"POBO00000513\"\"\",\"\"\"20180306\"\"\",\"\"\"POBO00000510\"\"\",\"\"\"9351510238232\"\"\",\"\"\"6\"\"\",\"\"\"\"\"\",\"\"\"\"\"\",\"\"\"BNKR\"\"\",\"\"\"\"\"\",\"\"\"\"\"\",\"\"\"\"\"\",\"\"\"\"\"\"\r\n\"\"\"AUMEL\"\"\",\"\"\"POBO00000513\"\"\",\"\"\"20180306\"\"\",\"\"\"POBO00000510\"\"\",\"\"\"9351510238232\"\"\",\"\"\"8\"\"\",\"\"\"\"\"\",\"\"\"\"\"\",\"\"\"BNKR\"\"\",\"\"\"\"\"\",\"\"\"\"\"\",\"\"\"\"\"\",\"\"\"\"\"\"",
                         "ftp": {
-                            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
-                            "fileNameStartsWith": "txt12174"
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports"
                         },
                         "file": {
                             "output": "records",
@@ -28,7 +29,37 @@
                                 "rowDelimiter": "\n",
                                 "hasHeaderRow": true,
                                 "trimSpaces": true,
-                                "rowsToSkip": 0
+                                "rowsToSkip": 0,
+                                "disableQuoteAndStripEnclosingQuotes": false
+                            },
+                            "filter": {
+                                "type": "expression",
+                                "expression": {
+                                    "rules": [
+                                        "startswith",
+                                        [
+                                            "string",
+                                            [
+                                                "extract",
+                                                "filename"
+                                            ]
+                                        ],
+                                        "txt12174"
+                                    ],
+                                    "version": "1"
+                                },
+                                "rules": [
+                                    "startswith",
+                                    [
+                                        "string",
+                                        [
+                                            "extract",
+                                            "filename"
+                                        ]
+                                    ],
+                                    "txt12174"
+                                ],
+                                "version": "1"
                             }
                         },
                         "adaptorType": "FTPExport"
@@ -88,7 +119,6 @@
             "createFlow": {
                 "name": "TC_C12174",
                 "disabled": false,
-                "_integrationId": "62ecc42648570015ab65cfa5",
                 "skipRetries": false,
                 "pageProcessors": [
                     {

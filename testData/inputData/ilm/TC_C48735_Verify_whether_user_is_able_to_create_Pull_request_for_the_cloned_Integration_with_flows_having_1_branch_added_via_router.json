@@ -1,0 +1,136 @@
+{
+    "pull": [
+        {
+            "integrationToPull": "48735_DELETE",
+            "oldConnections": [
+                "631ae17fd2f06368a0498470"
+            ],
+            "qa__oldConnections": [
+                "62ceb6fe1c7d25040278087d"
+            ]
+        }
+    ],
+    "Revert_Description": "Reverted to Pull",
+    "revisionLongDescriptionVerification": {
+        "descriptionIncludes": "Reverted to Pull"
+    },
+    "templateJSON": {
+        "createPull": true,
+        "Source_Environment": "Production",
+        "Source_Integration": "48735_Clone_DELETE",
+        "Integration_Clone": true,
+        "Clone_To_Integrate": "48735_DELETE",
+        "type": "Pull",
+        "status": "Completed",
+        "connections": [
+            "631ae17fd2f06368a0498470"
+        ],
+        "qa__connections": [
+            "62ceb6fe1c7d25040278087d"
+        ],
+        "Destination_Enviornment": "Production",
+        "Flow_Name_Update_Integration": "48735_Clone_DELETE"
+    },
+    "jsonDataClone": {
+        "Source_Environment": "Production",
+        "Source_Integration": "48735_DELETE",
+        "Integration_Clone": true,
+        "Clone_To_Integrate": "48735_Clone_DELETE",
+        "Destination_Enviornment": "Production",
+        "connections": [
+            "NETSUITE CONNECTION"
+        ],
+        "qa__connections": [
+            "NETSUITE CONNECTION"
+        ],
+        "Flow_Name_Update_Integration": "48735_Clone_DELETE"
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Delete_TC_ILM_C45250_Netsuite_Export",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "recordType": "customer",
+                                "searchId": "1692",
+                                "useSS2Restlets": false
+                            },
+                            "distributed": {
+                                "useSS2Framework": false
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "Del_TC_ILM_C48735_FLOW",
+                "disabled": true,
+                "_integrationId": "",
+                "skipRetries": false,
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            },
+            "createIntegrations": {
+                "name": "48735_DELETE"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "routeRecordsTo": "all_matching_branches",
+            "routeRecordsUsing": "input_filters",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "qa__rules": [
+                        [
+                            "record.[Company Name]",
+                            "equal",
+                            "NStoFTP Test1"
+                        ]
+                    ],
+                    "pageProcessors": [
+                        {
+                            "type": "import",
+                            "qa__import": {
+                                "name": "Delete_TC_ILM_C48735_B1_Import",
+                                "application": "zendesk support",
+                                "_connectionId": "631ae17fd2f06368a0498470",
+                                "ignoreExisting": false,
+                                "ignoreMissing": false,
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "http": {
+                                    "relativeURI": [
+                                        "/test"
+                                    ],
+                                    "method": [
+                                        "PUT"
+                                    ],
+                                    "body": [],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

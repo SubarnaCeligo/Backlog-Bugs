@@ -1,0 +1,12 @@
+{
+    "templateJSON": {
+        "Source_Environment": "Production",
+        "Source_Integration": "ILM_Integration",
+        "Integration_Name": "ILM_Integration",
+        "Source_Integration_Id": "6272d1763e37572f451b0cfa",
+        "Install_Template ": true,
+        "Upload_Path": "/Template_Downloads/",
+        "New_connection": false,
+        "Total_Flows": 22
+    }
+}

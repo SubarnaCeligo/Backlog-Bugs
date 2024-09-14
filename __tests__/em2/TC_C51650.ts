@@ -20,6 +20,8 @@ test.describe("TC_C51650", () => {
     const lastRun = page.getByText('Last run')
     await lastRun.waitFor({state: 'visible', timeout: 180000});
     test.step("*** Clicking on the error ***", async ()=>{});
+    await io.homePage.loadingTime();
+    await io.homePage.delay(10000);
     await io.homePage.click(
       selectors.flowBuilderPagePO.RUN_CONSOLE_ERROR_ICON
     );

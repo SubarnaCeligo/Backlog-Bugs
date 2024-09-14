@@ -1,0 +1,97 @@
+{
+	"templateJSON": {
+		"Source_Environment": "Sandbox",
+		"Source_Integration": "Test_ILM_sandbox",
+		"createSnapshot": true
+	},
+	"qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Shopify customer export",
+            "_connectionId": "SHOPIFY CONNECTION",
+            "asynchronous": true,
+            "assistant": "shopify",
+            "assistantMetadata": {
+              "resource": "customer",
+              "version": "v2",
+              "operation": "searches_forcustomersthatmatchasuppliedquery"
+            },
+            "sandbox": true,
+            "http": {
+              "relativeURI": "/customers/search.json?query=first_name:C23737",
+              "method": "GET",
+              "paging": {
+                "method": "linkheader",
+                "lastPageStatusCode": 404,
+                "linkHeaderRelation": "next"
+              },
+              "response": {
+                "resourcePath": "customers"
+              }
+            },
+            "rawData": "603ce5ede9250226dcea4608dda6230d547e4261bcf2b129528d1898",
+            "rest": {
+              "relativeURI": "/customers/search.json?query=first_name:C23737",
+              "method": "GET",
+              "resourcePath": "customers",
+              "pagingMethod": "linkheader",
+              "allowUndefinedResource": false,
+              "linkHeaderRelation": "next"
+            },
+            "adaptorType": "RESTExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Netsuite customer import",
+            "parsers": [],
+            "_connectionId": "62ce9f968776da07ca347f57",
+            "distributed": true,
+            "apiIdentifier": "i45477eaa3",
+            "sandbox": true,
+            "lookups": [],
+            "netsuite_da": {
+              "useSS2Restlets": false,
+              "operation": "add",
+              "recordType": "customer",
+              "lookups": [],
+              "mapping": {
+                "fields": [],
+                "lists": []
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "flow_TC_C41205",
+        "disabled": true,
+        "_integrationId": "62cd6f12f605ee31f3246b95",
+        "skipRetries": false,
+        "sandbox": true,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

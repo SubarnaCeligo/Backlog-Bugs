@@ -1,0 +1,15 @@
+{
+  "templateJSON": {
+    "Source_Environment": "Production",
+    "Source_Integration": "TC_C41142_C41144",
+    "Clone_To_Integrate": "TC_Cl_C41142_C41144"
+  },
+  "T_SRC_Integration": "T_SRC_C41142_C41144",
+  "Source_Environment": "Production",
+  "Source_Integration": "TC_C41142_C41144",
+  "Clone_To_Integrate": "TC_Cl_C41142_C41144",
+  "T_SRC_ID": "631f020b4281e504953f52a2",
+  "qa__T_SRC_ID": "62eccdcc5e6e1f3f1109d08b",
+  "TemplateId": "631f02b34281e504953f52d5",
+  "qa__TemplateId": "62eccdef9f8dc337e2f49130"
+}

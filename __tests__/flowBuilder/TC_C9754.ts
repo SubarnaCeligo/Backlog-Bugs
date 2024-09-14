@@ -11,7 +11,7 @@ test.describe("@Env-All @Zephyr-IO-T2753 | @Env-All @Zephyr-IO-T2822 ", () => {
   });
 
 
-    test("@Env-All @Zephyr-IO-T2753| Flow Builder - Response mapping field is not showing in import lookup preview.", async ({io,page}, testInfo) => {
+    test("@Env-All @Zephyr-IO-T2753| Flow Builder - Response mapping field is not showing in import lookup preview.", async ({io, page}) => {
       var flows = await io.api.createImpOrExpAndFlowsThruAPI(TC);
       flowId = await flows.get(TC.name)["flowId"];
   await test.step(
@@ -23,12 +23,17 @@ test.describe("@Env-All @Zephyr-IO-T2753 | @Env-All @Zephyr-IO-T2822 ", () => {
       await io.homePage.loadingTime();
 
       test.step("Opened Flowbuilder of flow. ", async ()=>{});
+      await io.myAccountPage.waitForElementAttached(selectors.flowBuilderPagePO.IMPORT)
 
-      await io.homePage.clickButtonByIndex(
+      await io.homePage.clickByIndex(
         selectors.flowBuilderPagePO.IMPORT,
         1
       );
       await io.homePage.loadingTime();
+      let element = await page.locator(selectors.flowBuilderPagePO.FILTER_UPDATE);
+      await element.scrollIntoViewIfNeeded();
+      await io.homePage.loadingTime();
+      await page.pause();
       test.step("Opened NS Import of flow. ", async ()=>{});
       await io.homePage.click(
         selectors.flowBuilderPagePO.FILTER_UPDATE
