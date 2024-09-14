@@ -11,7 +11,7 @@ test.describe("TC_C28379", () => {
     test.step("*** Beginning of Test Suite ***", async ()=>{});
     await io.goToFlowsPage();
   });
-  test("@Env-All @Zephyr-IO-T7452 Verify if the request and response are shown correctly when one to many is applied in HTTP import.", async ({io, page}) => {
+  test("Verify if the request and response are shown correctly when one to many is applied in HTTP import.", async ({io, page}) => {
     test.step("*** Create a flow***", async ()=>{});
     var flows = await io.api.createImpOrExpAndFlowsThruAPI(TC_C28379);
 await test.step(
@@ -40,7 +40,7 @@ await test.step(
 , async ()=>{});
   });
 
-  test("Verify user can download the files from the Run history Action column for Data Loader", async ({io}) => {
+  test("@Env-All @Zephyr-IO-T7452 Verify user can download the files from the Run history Action column for Data Loader", async ({io}) => {
     await io.homePage.loadingTime();
     await io.homePage.isPageReady();
     await io.homePage.delay(30000);

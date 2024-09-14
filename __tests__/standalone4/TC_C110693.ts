@@ -13,7 +13,7 @@ test.describe("TC_C110693_Checking_error_count_displayed_on_top_flow_builder_pag
     await test.step("Delete created flows", async () => { });
     await io.api.deleteFlowsWithId([flowId]);
   });
-  test("TC_C110693 @Env-All @Zepphyr-IO-T14169", async ({ io, page }, testInfo) => {
+  test("TC_C110693 @Env-All @Zephyr-IO-T14169", async ({ io, page }, testInfo) => {
     flowId = await io.createResourceFromAPI(TC, "FLOWS");
     await test.step("*** Created Flows :" + TC.name, async () => { });
     await io.homePage.loadingTime();

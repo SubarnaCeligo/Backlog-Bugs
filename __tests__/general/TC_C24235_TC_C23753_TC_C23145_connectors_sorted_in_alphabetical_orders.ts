@@ -7,7 +7,7 @@ test.describe("TC_C24235_TC_C23753_TC_C23145", () => {
   test.beforeEach(async ({io,page}, testInfo) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Zephyr-IO-T2176 @Zephyr-IO-T2177 @Zephyr-IO-T5965 TC_C24235_TC_C23753_TC_C23145", async ({io,page}, testInfo) => {
+  test("@Zephyr-IO-T2176 @Zephyr-IO-T2177 @Zephyr-IO-T5965 @Env-All TC_C24235_TC_C23753_TC_C23145", async ({io,page}, testInfo) => {
     await io.homePage.navigateTo(process.env['IO_UI_CONNECTOR_URL'] + 'marketplace');
     await io.homePage.loadingTime();
     await io.homePage.click('[data-test="All applications"]')
