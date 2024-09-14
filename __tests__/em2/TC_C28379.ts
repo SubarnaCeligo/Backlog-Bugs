@@ -11,7 +11,7 @@ test.describe("TC_C28379", () => {
     test.step("*** Beginning of Test Suite ***", async ()=>{});
     await io.goToFlowsPage();
   });
-  test("Verify if the request and response are shown correctly when one to many is applied in HTTP import.", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T7452 Verify if the request and response are shown correctly when one to many is applied in HTTP import.", async ({io, page}) => {
     test.step("*** Create a flow***", async ()=>{});
     var flows = await io.api.createImpOrExpAndFlowsThruAPI(TC_C28379);
 await test.step(
