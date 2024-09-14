@@ -1,0 +1,18 @@
+{
+  "templateJSON": {
+    "Source_Environment": "Production",
+    "Source_Integration": "Delete_TC_ILM_C41137",
+    "Clone_To_Integrate": "Delete_TC_Clone_ILM_C41137"
+  },
+  "Source_Environment": "Production",
+  "Source_Integration": "Delete_TC_ILM_C41137",
+  "Destination_Enviornment": "Production",
+  "Clone_To_Integrate": "Delete_TC_Clone_ILM_C41137",
+  "Integration_Clone": true,
+  "New_connection": false,
+  "qa__api_tdata": [{
+    "createIntegrations": {
+      "name": "Delete_TC_ILM_C41137"
+    }
+  }]
+}

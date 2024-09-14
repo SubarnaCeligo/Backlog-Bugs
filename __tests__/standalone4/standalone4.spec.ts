@@ -49,3 +49,7 @@ require("./TC_C57377 & TC_C57395");
 require("./TC_C59395_C59396");
 require("./TC_C59397_Use_ServerSideEncryption_CheckBox");
 require("./TC_C59399");
+require("./TC_C109248");
+require("./TC_C110691");
+require("./TC_C110693");
+require("./TC_C55441_C55442_C55456_C55457");

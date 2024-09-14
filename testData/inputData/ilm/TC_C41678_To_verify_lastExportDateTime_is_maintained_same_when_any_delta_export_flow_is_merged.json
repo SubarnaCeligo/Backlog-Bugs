@@ -1,0 +1,128 @@
+{
+  "templateJSON": {
+    "Source_Environment": "Production",
+    "Source_Integration": "Delete_TC_ILM_C41678",
+    "Clone_To_Integrate": "Delete_TC_Cl_C41678",
+    "type": "Snapshot",
+    "status": "Completed",
+    "createPull": true
+  },
+  "flowWait": 240,
+  "Source_Environment": "Production",
+  "Source_Integration": "Delete_TC_ILM_C41678",
+  "Destination_Enviornment": "Production",
+  "Clone_To_Integrate": "Delete_TC_Cl_C41678",
+  "Integration_Clone": true,
+  "New_connection": false,
+  "name": "Del_TC_ILM_C41678_FLOW",
+  "connections": [
+    "NETSUITE CONNECTION"
+  ],
+  "qa__connections": [
+    "NETSUITE CONNECTION"
+  ],
+  "qa__api_tdata": [
+    {
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "distributed": true,
+            "_connectionId": "NETSUITE CONNECTION",
+            "name": "Delete_TC_ILM_C41678_Netsuite_Import",
+            "netsuite_da": {
+              "operation": "add",
+              "recordType": "Customer",
+              "distributed": true,
+              "mapping": {}
+            }
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "Del_TC_ILM_C41678_FLOW",
+        "disabled": true,
+        "qa__integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "62ed039db0a39054cda225ff"
+          }
+        ]
+      },
+      "createIntegrations": {
+        "name": "Delete_TC_ILM_C41678"
+      }
+    }
+  ],
+  "updates": [
+    {
+      "resource": "flows",
+      "name": "Del_TC_ILM_C41678_FLOW",
+      "field": "name",
+      "newValue": "Del_TC_ILM_C41678_FLOW_Edit1"
+    }
+  ],
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "_id": "62ed1927e945684e7c30efd1",
+        "name": "DONT_DELETE_DELTA_EXPORT_DND",
+        "_connectionId": "NETSUITE CONNECTION",
+        "_sourceId": "62ed039db0a39054cda225ff",
+        "apiIdentifier": "e91cbb7d60",
+        "asynchronous": true,
+        "type": "delta",
+        "oneToMany": false,
+        "delta": {
+          "dateField": "dateclosed,datecreated"
+        },
+        "netsuite": {
+          "type": "restlet",
+          "skipGrouping": true,
+          "statsOnly": false,
+          "restlet": {
+            "recordType": "customer",
+            "searchId": "3799",
+            "criteria": [],
+            "columns": [],
+            "useSS2Restlets": false
+          },
+          "distributed": {
+            "executionContext": [],
+            "executionType": [],
+            "useSS2Framework": false
+          }
+        },
+        "adaptorType": "NetSuiteExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "distributed": true,
+        "_connectionId": "NETSUITE CONNECTION",
+        "name": "Delete_TC_ILM_C41678_Netsuite_Import",
+        "netsuite_da": {
+          "operation": "add",
+          "recordType": "Customer",
+          "distributed": true,
+          "mapping": {}
+        }
+      }
+    }
+  ]
+}

@@ -43,3 +43,7 @@ require("./TC_C9757");
 require("./TC_C15499");
 require("./TC_C15540");
 require("./TC_C15752");
+require("./TC_C12174");
+require("./TC_C15172");
+require("./TC_C15174");
+require("./TC_C15388");

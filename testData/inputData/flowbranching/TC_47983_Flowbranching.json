@@ -62,7 +62,7 @@
                             "type": "import",
                             "qa__import": {
                                 "name": "AutomationStandaloneImport1_afsflk",
-                                "application":"zendesk support",
+                                "application": "zendesk support",
                                 "_connectionId": "HTTP ZENDESK CONNECTION",
                                 "ignoreExisting": false,
                                 "ignoreMissing": false,
@@ -70,10 +70,6 @@
                                 "sandbox": false,
                                 "mapping": {
                                     "fields": [
-                                        {
-                                            "extract": "name",
-                                            "generate": "organization.name"
-                                        },
                                         {
                                             "extract": "notes",
                                             "generate": "organization.notes"

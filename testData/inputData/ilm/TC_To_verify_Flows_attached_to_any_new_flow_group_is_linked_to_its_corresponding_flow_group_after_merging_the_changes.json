@@ -1,0 +1,172 @@
+{
+  "flowsData": {
+    "flowname1": "TC_C41672_flow1",
+    "flowname2": "TC_C41672_flow2",
+    "flowGroup1": "flowGroup1",
+    "qa__api_tdata": [
+      {
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "Netsuite customer import",
+              "parsers": [],
+              "_connectionId": "NETSUITE CONNECTION",
+              "distributed": true,
+              "apiIdentifier": "i45477eaa3",
+              "lookups": [],
+              "netsuite_da": {
+                "useSS2Restlets": false,
+                "operation": "add",
+                "recordType": "customer",
+                "lookups": [],
+                "mapping": {
+                  "fields": [],
+                  "lists": []
+                }
+              },
+              "adaptorType": "NetSuiteDistributedImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C41672_flow1",
+          "disabled": false,
+          "_integrationId": "",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "62d55b4a48a4303c75f7db7e"
+            }
+          ]
+        }
+      },
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "Shopify customer export",
+              "_connectionId": "SHOPIFY CONNECTION",
+              "asynchronous": true,
+              "assistant": "shopify",
+              "assistantMetadata": {
+                "resource": "customer",
+                "version": "v2",
+                "operation": "searches_forcustomersthatmatchasuppliedquery"
+              },
+              "http": {
+                "relativeURI": "/customers/search.json?query=first_name:C23737",
+                "method": "GET",
+                "paging": {
+                  "method": "linkheader",
+                  "lastPageStatusCode": 404,
+                  "linkHeaderRelation": "next"
+                },
+                "response": {
+                  "resourcePath": "customers"
+                }
+              },
+              "rawData": "603ce5ede9250226dcea4608dda6230d547e4261bcf2b129528d1898",
+              "rest": {
+                "relativeURI": "/customers/search.json?query=first_name:C23737",
+                "method": "GET",
+                "resourcePath": "customers",
+                "pagingMethod": "linkheader",
+                "allowUndefinedResource": false,
+                "linkHeaderRelation": "next"
+              },
+              "adaptorType": "RESTExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "Netsuite customer import",
+              "parsers": [],
+              "_connectionId": "NETSUITE CONNECTION",
+              "distributed": true,
+              "apiIdentifier": "i45477eaa3",
+              "lookups": [],
+              "netsuite_da": {
+                "useSS2Restlets": false,
+                "operation": "add",
+                "recordType": "customer",
+                "lookups": [],
+                "mapping": {
+                  "fields": [],
+                  "lists": []
+                }
+              },
+              "adaptorType": "NetSuiteDistributedImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C41672_flow2",
+          "disabled": false,
+          "_integrationId": "",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "Template": {
+    "Source_Environment": "Production",
+    "Source_Integration": "del_TC_C41672",
+    "Destination_Enviornment": "Production",
+    "Clone_To_Integrate": "del_TC_Clone_C41672",
+    "Integration_Clone": true,
+    "New_connection": false,
+    "connections": [
+      "SHOPIFY CONNECTION",
+      "NETSUITE CONNECTION",
+      "FTP CONNECTION"
+    ],
+    "qa__connections": [
+      "SHOPIFY CONNECTION",
+      "NETSUITE CONNECTION",
+      "FTP CONNECTION"
+    ],
+    "qa__api_tdata": [
+      {
+        "createIntegrations": {
+          "name": "del_TC_C41672"
+        }
+      }
+    ],
+    "templateJSON": {
+      "Source_Environment": "Production",
+      "Source_Integration": "del_TC_C41672",
+      "Clone_To_Integrate": "del_TC_Clone_C41672",
+      "createPull": true
+    }
+  }
+}

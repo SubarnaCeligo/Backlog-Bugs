@@ -28,3 +28,6 @@ require("./TC_C51224");
 require("./TC_C51327");
 require("./TC_C51532");
 require("./TC_C51533");
+require("./TC_46886_matched_fields");
+require("./TC_C46887_Verify_ChildrenArray_Fields_In_Mapping_Zendesk");
+require("./TC_C52207");

@@ -1,0 +1,49 @@
+{
+    "Source_Integration": "Delete_TC_ILM_C50260",
+    "templateJSON": {
+            "Source_Integration": "Delete_TC_ILM_C50260",
+            "templateJSON": {
+              "Source_Environment": "Production",
+              "Source_Integration": "Delete_TC_C50260",
+              "Clone_To_Integrate": "Delete_TC_Clone_C50260"
+            },
+            "Source_Environment": "Production",
+            "Destination_Enviornment": "Production",
+            "Clone_To_Integrate": "Delete_TC_ILM_Clone_C50260",
+            "Integration_Clone": true,
+            "New_connection": false,
+            "connections": ["HTTP SLACK CONNECTION"],
+            "qa__connections":["HTTP SLACK CONNECTION"]
+      },
+    "qa__api_tdata": [{
+        "pageGenerators": [{
+            "type": "export",
+            "qa__export": {
+                "name": "http export",
+                "_connectionId": "HTTP SLACK CONNECTION",
+                "apiIdentifier": "e88df6d451",
+                "asynchronous": true,
+                "oneToMany": false,
+                "http": {
+                    "relativeURI": "/exports",
+                    "method": "GET",
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }],
+        "createFlow": {
+            "name": "Del_TC_ILM_C50260_FLOW",
+            "disabled": true,
+            "qa__integrationId": "UPDATE WITH NEW INTEGRATION ID",
+            "_integrationId": "",
+            "skipRetries": false,
+            "pageGenerators": [{
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }]
+        },
+        "createIntegrations": {
+          "name": "Delete_TC_ILM_C50260"
+        }
+      }]
+    }

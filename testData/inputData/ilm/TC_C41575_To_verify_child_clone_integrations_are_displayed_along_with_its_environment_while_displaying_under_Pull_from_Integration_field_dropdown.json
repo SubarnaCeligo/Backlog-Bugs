@@ -1,0 +1,27 @@
+{
+    "templateJSON": {
+        "Source_Environment": "Production",
+        "Source_Integration": "Delete_TC_ILM_C41575"
+    },
+    "qa__api_tdata": [
+        {
+            "createIntegrations": {
+                "name": "Delete_TC_ILM_C41575"
+            }
+        }
+    ],
+    "cloneData_1":{
+        "Source_Environment": "Production",
+        "Source_Integration": "Delete_TC_ILM_C41575",
+        "Destination_Enviornment": "Production",
+        "Clone_To_Integrate": "Delete_TC_Clone_ILM_C41575",
+        "Integration_Clone": true
+    },
+    "cloneData_2":{
+        "Source_Environment": "Production",
+        "Source_Integration": "Delete_TC_ILM_C41575",
+        "Destination_Enviornment": "Sandbox",
+        "Clone_To_Integrate": "Delete_TC_Clone_ILM_C41575_Sandbox",
+        "Integration_Clone": true
+    }
+}

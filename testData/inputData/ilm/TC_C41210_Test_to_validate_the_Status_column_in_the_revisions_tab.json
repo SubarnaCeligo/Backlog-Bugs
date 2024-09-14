@@ -1,0 +1,11 @@
+{
+    "templateJSON": {
+        "Source_Environment": "Production",
+        "Source_Integration": "TC_41234",
+        "Flow_Name_Update_Integration": "Clone - TC_C41234",
+        "Clone_To_Integrate": "Clone - TC_C41234",
+        "createPull": true,
+        "type": "Revert",
+        "status": "In progress"
+    }
+}

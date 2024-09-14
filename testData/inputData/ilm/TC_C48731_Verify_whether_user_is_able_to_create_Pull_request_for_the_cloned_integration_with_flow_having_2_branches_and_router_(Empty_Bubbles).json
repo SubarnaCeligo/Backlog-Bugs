@@ -1,0 +1,145 @@
+{
+    "name": "TC_48731_Flowbranching",
+    "disabled": false,
+    "skipRetries": false,
+    "timezone": "Asia/Calcutta",
+    "templateJSON": {
+        "createPull": true,
+        "Source_Environment": "Production",
+        "Source_Integration": "48731_Clone_DELETE",
+        "Integration_Clone": true,
+        "Clone_To_Integrate": "48731_DELETE",
+        "Destination_Enviornment": "Production",
+        "connections": [
+            "NETSUITE CONNECTION"
+        ],
+        "qa__connections": [
+            "NETSUITE CONNECTION"
+        ],
+        "Flow_Name_Update_Integration": "48731_Clone_DELETE"
+    },
+    "jsonDataClone": {
+        "Source_Environment": "Production",
+        "Source_Integration": "48731_DELETE",
+        "Integration_Clone": true,
+        "Clone_To_Integrate": "48731_Clone_DELETE",
+        "connections": [
+            "NETSUITE CONNECTION"
+        ],
+        "qa__connections": [
+            "NETSUITE CONNECTION"
+        ],
+        "Destination_Enviornment": "Production",
+        "Flow_Name_Update_Integration": "48731_Clone_DELETE"
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "TC_C48732 Export",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "apiIdentifier": "e631426cc5",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "parsers": [],
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "recordType": "account",
+                                "searchId": "3603",
+                                "criteria": [],
+                                "columns": [],
+                                "useSS2Restlets": false
+                            },
+                            "distributed": {
+                                "executionContext": [],
+                                "executionType": [],
+                                "useSS2Framework": false
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_48742_Flowbranching",
+                "disabled": false,
+                "_integrationId": "",
+                "skipRetries": false,
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            },
+            "createIntegrations": {
+                "name": "48731_DELETE"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "id": "iph0mR",
+            "routeRecordsTo": "all_matching_branches",
+            "routeRecordsUsing": "input_filters",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "qa__rules": [
+                        [
+                            "record.name",
+                            "equal",
+                            "Auto_TC_47983_1"
+                        ]
+                    ],
+                    "inputFilter": {
+                        "rules": [
+                            "matches",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "name"
+                                ]
+                            ],
+                            "Auto_TC_47983_1"
+                        ]
+                    },
+                    "pageProcessors": []
+                },
+                {
+                    "name": "Branch 1.1",
+                    "pageProcessors": [],
+                    "qa__rules": [
+                        [
+                            "record.email",
+                            "equal",
+                            "Auto_TC_47983_1@gmail.com"
+                        ]
+                    ],
+                    "inputFilter": {
+                        "rules": [
+                            "matches",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "email"
+                                ]
+                            ],
+                            "Auto_TC_47983_1@gmail.com"
+                        ]
+                    }
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        }
+    ]
+}

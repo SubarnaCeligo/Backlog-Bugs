@@ -1,0 +1,33 @@
+{
+    "templateJSON": {
+        "Source_Environment": "Production",
+        "Source_Integration": "ILM_Integration",
+        "Destination_Enviornment": "Production",
+        "Destination_Integration": "5a23fdf6149a6e6afd1b4861",
+        "Flow_To_Clone": "ILM_Sandbox_Clone",
+        "Clone_Flow_Name": "ILM_Sandbox_Clone",
+        "Clone_To_Integrate": "TC_005_ILM_Sandbox_to_Prod_Clone",
+        "Integration_Clone": true,
+        "createSnapshot": true,
+        "qa__dataVerification": {
+
+            "expectedJSON": {
+                "skipRetries": false,
+                "_integrationId": "5805c9bf874bb644b93de71c",
+                "name": "Edit_Flow18_SF(Test-ALL)_To_NS_(Update-Add)",
+                "disabled": false,
+                "pageProcessors": [{
+                    "type": "import",
+                    "responseMapping": {
+                        "lists": [],
+                        "fields": []
+                    }
+                }],
+                "pageGenerators": [{
+                    "qa__ignore": true,
+                    "skipRetries": false
+                }]
+            }
+        }
+    }
+}

@@ -1,0 +1,146 @@
+{
+  "templateJSON": {
+    "Source_Environment": "Production",
+    "Source_Integration": "Del_TC_C41602",
+    "Clone_To_Integrate": "Del_TC_Cl_C41602",
+    "type": "Pull",
+    "status": "Completed"
+  },
+  "Revert_Description": "C42098",
+  "Source_Environment": "Production",
+  "Source_Integration": "Del_TC_C41602",
+  "Destination_Enviornment": "Production",
+  "Clone_To_Integrate": "Del_TC_Cl_C41602",
+  "Integration_Clone": true,
+  "New_connection": false,
+  "connections": [
+    "NETSUITE CONNECTION"
+  ],
+  "qa__connections": [
+    "NETSUITE CONNECTION"
+  ],
+  "revisionLongDescriptionVerification": {
+    "descriptionIncludes": "UPDATE WITH NEW"
+  },
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Del_TC_C41602_Netsuite_Export",
+            "_connectionId": "NETSUITE CONNECTION",
+            "netsuite": {
+              "type": "restlet",
+              "restlet": {
+                "recordType": "customer",
+                "savedSearchId": "29"
+              }
+            },
+            "transform": {
+              "type": "script",
+              "script": {
+                "_scriptId": "UPDATE AFTER CREATION",
+                "function": "transform"
+              }
+            },
+            "filter": {
+              "type": "script",
+              "script": {
+                "_scriptId": "UPDATE AFTER CREATION",
+                "function": "outputFilter"
+              }
+            }
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "distributed": true,
+            "_connectionId": "NETSUITE CONNECTION",
+            "name": "Del_TC_C41602_Netsuite_Import",
+            "netsuite_da": {
+              "operation": "add",
+              "recordType": "Customer",
+              "distributed": true,
+              "mapping": {
+                "fields": [
+                  {
+                    "extract": "Customer",
+                    "generate": "companyName"
+                  }
+                ]
+              }
+            },
+            "filter": {
+              "type": "script",
+              "script": {
+                "_scriptId": "UPDATE AFTER CREATION",
+                "function": "inputFilter"
+              }
+            }
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "Del_TC_C41602_FLOW",
+        "disabled": true,
+        "qa__integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      },
+      "createIntegrations": {
+        "name": "Del_TC_C41602"
+      }
+    }
+  ],
+  "scriptDetails1": {
+    "name": "Transform_Script",
+    "content": "/*\n* transformFunction stub:\n*\n* The name of the function can be changed to anything you like.\n*\n* The function will be passed one 'options' argument that has the following fields:\n*   'data' - an array of records representing one page of data. A record can be an object {} or array [] depending on the data source.\n*   'files' - file exports only. files[i] contains source file metadata for data[i]. i.e. files[i].fileMeta.fileName.\n*   'errors' - an array of errors where each error has the structure {code: '', message: '', source: '', retryDataKey: ''}.\n*   'retryData' - a dictionary object containing the retry data for all errors: {retryDataKey: { data: <record>, stage: '', traceKey: ''}}.\n*   '_exportId' - the _exportId currently running.\n*   '_connectionId' - the _connectionId currently running.\n*   '_flowId' - the _flowId currently running.\n*   '_integrationId' - the _integrationId currently running.\n*   'pageIndex' - 0 based. context is the batch export currently running.\n*   'lastExportDateTime' - Delta exports only.\n*   'currentExportDateTime' - Delta exports only.\n*   'settings' - all custom settings in scope for the export currently running.\n*\n* The function needs to return an object that has the following fields:\n*   'data' - your modified data.\n*   'errors' - your modified errors.\n*   'abort' - instruct the batch export currently running to stop generating new pages of data.\n*   'newErrorsAndRetryData' - return brand new errors linked to retry data: [{retryData: <record>, errors: [<error>]}].\n* Throwing an exception will signal a fatal error and stop the flow.\n*/\nfunction transform (options) {\n  // sample code that simply passes on what has been exported\n  let newData= options.data.map( (d) =>{\n    d.customername=d.customername+\" preSaveHook\";\n    return d;\n  })\n  return {\n    data: newData,\n    exportId:options._exportId,\n    exportConnectionId: options._connectionId,\n    errors: options.errors,\n    abort: false,\n    newErrorsAndRetryData: []\n  }\n}"
+  },
+  "scriptDetails2": {
+    "name": "outputFilter_Script",
+    "content": "/*\n* outputFilterFunction stub:\n*\n* The name of the function can be changed to anything you like.\n*\n* The function will be passed one 'options' argument that has the following fields:\n*   'data' - an array of records representing one page of data. A record can be an object {} or array [] depending on the data source.\n*   'files' - file exports only. files[i] contains source file metadata for data[i]. i.e. files[i].fileMeta.fileName.\n*   'errors' - an array of errors where each error has the structure {code: '', message: '', source: '', retryDataKey: ''}.\n*   'retryData' - a dictionary object containing the retry data for all errors: {retryDataKey: { data: <record>, stage: '', traceKey: ''}}.\n*   '_exportId' - the _exportId currently running.\n*   '_connectionId' - the _connectionId currently running.\n*   '_flowId' - the _flowId currently running.\n*   '_integrationId' - the _integrationId currently running.\n*   'pageIndex' - 0 based. context is the batch export currently running.\n*   'lastExportDateTime' - Delta exports only.\n*   'currentExportDateTime' - Delta exports only.\n*   'settings' - all custom settings in scope for the export currently running.\n*\n* The function needs to return an object that has the following fields:\n*   'data' - your modified data.\n*   'errors' - your modified errors.\n*   'abort' - instruct the batch export currently running to stop generating new pages of data.\n*   'newErrorsAndRetryData' - return brand new errors linked to retry data: [{retryData: <record>, errors: [<error>]}].\n* Throwing an exception will signal a fatal error and stop the flow.\n*/\nfunction outputFilter (options) {\n  // sample code that simply passes on what has been exported\n  let newData= options.data.map( (d) =>{\n    d.customername=d.customername+\" preSaveHook\";\n    return d;\n  })\n  return {\n    data: newData,\n    exportId:options._exportId,\n    exportConnectionId: options._connectionId,\n    errors: options.errors,\n    abort: false,\n    newErrorsAndRetryData: []\n  }\n}"
+  },
+  "scriptDetails3": {
+    "name": "inputFilter_Script",
+    "content": "/*\n* inputFilterFunction stub:\n*\n* The name of the function can be changed to anything you like.\n*\n* The function will be passed one 'options' argument that has the following fields:\n*   'data' - an array of records representing one page of data. A record can be an object {} or array [] depending on the data source.\n*   'files' - file exports only. files[i] contains source file metadata for data[i]. i.e. files[i].fileMeta.fileName.\n*   'errors' - an array of errors where each error has the structure {code: '', message: '', source: '', retryDataKey: ''}.\n*   'retryData' - a dictionary object containing the retry data for all errors: {retryDataKey: { data: <record>, stage: '', traceKey: ''}}.\n*   '_exportId' - the _exportId currently running.\n*   '_connectionId' - the _connectionId currently running.\n*   '_flowId' - the _flowId currently running.\n*   '_integrationId' - the _integrationId currently running.\n*   'pageIndex' - 0 based. context is the batch export currently running.\n*   'lastExportDateTime' - Delta exports only.\n*   'currentExportDateTime' - Delta exports only.\n*   'settings' - all custom settings in scope for the export currently running.\n*\n* The function needs to return an object that has the following fields:\n*   'data' - your modified data.\n*   'errors' - your modified errors.\n*   'abort' - instruct the batch export currently running to stop generating new pages of data.\n*   'newErrorsAndRetryData' - return brand new errors linked to retry data: [{retryData: <record>, errors: [<error>]}].\n* Throwing an exception will signal a fatal error and stop the flow.\n*/\nfunction inputFilter (options) {\n  // sample code that simply passes on what has been exported\n  let newData= options.data.map( (d) =>{\n    d.customername=d.customername+\" preSaveHook\";\n    return d;\n  })\n  return {\n    data: newData,\n    exportId:options._exportId,\n    exportConnectionId: options._connectionId,\n    errors: options.errors,\n    abort: false,\n    newErrorsAndRetryData: []\n  }\n}"
+  },
+  "updateResources": [
+    {
+      "resource": "scripts",
+      "field": "name",
+      "newValue": "Transform_Script_updated",
+      "resourceId": "Update After Creation"
+    },
+    {
+      "resource": "scripts",
+      "field": "name",
+      "newValue": "outputFilter_Script_updated",
+      "resourceId": "Update After Creation"
+    },
+    {
+      "resource": "scripts",
+      "field": "name",
+      "newValue": "inputFilter_Script_updated",
+      "resourceId": "Update After Creation"
+    }
+  ]
+}

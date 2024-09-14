@@ -1,0 +1,208 @@
+{
+  "templateJSON": {
+    "Source_Environment": "Production",
+    "Source_Integration": "Delete_TC_ILM_C48745",
+    "Clone_To_Integrate": "Delete_TC_Clone_ILM_C48745",
+    "type": "Pull",
+    "status": "Completed"
+  },
+  "Revert_Description": "C48745",
+  "Source_Environment": "Production",
+  "Source_Integration": "Delete_TC_ILM_C48745",
+  "Destination_Enviornment": "Production",
+  "Clone_To_Integrate": "Delete_TC_Clone_ILM_C48745",
+  "Integration_Clone": true,
+  "New_connection": false,
+  "connections": [
+    "631ae17fd2f06368a0498470",
+    "NETSUITE CONNECTION"
+  ],
+  "qa__connections": [
+    "62ceb6fe1c7d25040278087d",
+    "NETSUITE CONNECTION"
+  ],
+  "revisionLongDescriptionVerification": {
+    "descriptionIncludes": "UPDATE WITH NEW"
+  },
+  "verfyMappings": [
+    {
+      "extract": "$.person.lName",
+      "generate": "lName",
+      "dataType": "string"
+    },
+    {
+      "extract": "$.person.fName",
+      "generate": "fName",
+      "dataType": "string"
+    }
+  ],
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Delete_TC_ILM_C45250_Netsuite_Export",
+            "_connectionId": "NETSUITE CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "recordType": "customer",
+                "searchId": "1692",
+                "useSS2Restlets": false
+              },
+              "distributed": {
+                "useSS2Framework": false
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "Del_TC_ILM_C48745_FLOW",
+        "disabled": true,
+        "qa__integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "_integrationId": "",
+        "skipRetries": false,
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      },
+      "createIntegrations": {
+        "name": "Delete_TC_ILM_C48745"
+      }
+    }
+  ],
+  "updates": {
+    "resource": "flows",
+    "name": "Del_TC_ILM_C48745_FLOW",
+    "field": "name",
+    "newValue": "Del_TC_ILM_C48745_FLOW_Edit",
+    "_sourceId": "UPDATE WITH NEW"
+  },
+  "routers": [
+    {
+      "id": "Delete_TC_ILM_C48745",
+      "routeRecordsTo": "all_matching_branches",
+      "routeRecordsUsing": "input_filters",
+      "branches": [
+        {
+          "name": "Branch 1.0",
+          "qa__rules": [
+            [
+              "record.[Company Name]",
+              "equal",
+              "NStoFTP Test1"
+            ]
+          ],
+          "pageProcessors": []
+        },
+        {
+          "name": "Branch 1.1",
+          "pageProcessors": [],
+          "qa__rules": [
+            [
+              "record.Email",
+              "equal",
+              "NStoFTPTest1@gmail.com"
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "lookups": [
+    {
+      "name": "del_file_lookup_1",
+      "_connectionId": "631ae17fd2f06368a0498470",
+      "asynchronous": true,
+      "isLookup": true,
+      "type": "blob",
+      "oneToMany": false,
+      "sandbox": false,
+      "http": {
+        "relativeURI": "/test",
+        "method": "GET",
+        "formType": "http"
+      },
+      "adaptorType": "HTTPExport"
+    },
+    {
+      "name": "del_file_lookup_2",
+      "_connectionId": "631ae17fd2f06368a0498470",
+      "asynchronous": true,
+      "isLookup": true,
+      "type": "blob",
+      "oneToMany": false,
+      "sandbox": false,
+      "http": {
+        "relativeURI": "/test",
+        "method": "GET",
+        "formType": "http"
+      },
+      "adaptorType": "HTTPExport"
+    }
+  ],
+  "updaterouter": {
+    "resource": "flows",
+    "name": "Del_TC_ILM_C48745_FLOW",
+    "field": "routers",
+    "newValue": [
+      {
+        "id": "Delete_TC_ILM_C48745",
+        "routeRecordsTo": "all_matching_branches",
+        "routeRecordsUsing": "input_filters",
+        "branches": [
+          {
+            "name": "Branch 1.0",
+            "qa__rules": [
+              [
+                "record.[Company Name]",
+                "equal",
+                "NStoFTP Test1"
+              ]
+            ],
+            "pageProcessors": [
+              {
+                "responseMapping": {
+                  "fields": [],
+                  "lists": []
+                },
+                "type": "export",
+                "_exportId": "UPDATE WITH NEW"
+              }
+            ]
+          },
+          {
+            "name": "Branch 1.1",
+            "pageProcessors": [
+              {
+                "responseMapping": {
+                  "fields": [],
+                  "lists": []
+                },
+                "type": "export",
+                "_exportId": "UPDATE WITH NEW"
+              }
+            ],
+            "qa__rules": [
+              [
+                "record.Email",
+                "equal",
+                "NStoFTPTest1@gmail.com"
+              ]
+            ]
+          }
+        ]
+      }
+    ],
+    "_sourceId": "UPDATE WITH NEW"
+  }
+}
