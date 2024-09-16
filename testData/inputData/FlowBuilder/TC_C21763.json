@@ -1,8 +1,6 @@
 {
     "name": "TC_C21763",
     "disabled": false,
-    "_integrationId": "62ecc42648570015ab65cfa5",
-    "qa__integrationId": "62eca1efe386b563f638451e",
     "skipRetries": false,
     "pageGenerators": [
         {
