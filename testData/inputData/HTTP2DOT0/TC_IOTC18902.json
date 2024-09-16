@@ -1,0 +1,101 @@
+{
+    "name": "TC_IOC18902",
+    "_integrationId": "",
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "name": "Loop Returns Export",
+          "_connectionId": "LOOP RETURNS CLONE",
+          "apiIdentifier": "e6140f00ae",
+          "asynchronous": true,
+          "assistant": "loopreturns",
+          "oneToMany": false,
+          "sandbox": false,
+          "http": {
+            "relativeURI": "/cart/7b7b7b4ce7ed34011f43fda33f301f14d91d1a03",
+            "method": "GET",
+            "headers": [],
+            "requestMediaType": "json",
+            "successMediaType": "json",
+            "errorMediaType": "json",
+            "_httpConnectorVersionId": "639184209998e4b191badcb2",
+            "_httpConnectorResourceId": "639184209998e4b191badcbd",
+            "_httpConnectorEndpointId": "639184209998e4b191badcbe",
+            "formType": "assistant",
+            "response": {
+              "resourcePath": "cart",
+              "successValues": [],
+              "failPath": "errors.message",
+              "errorPath": "errors.message",
+              "twoDArray": {
+                "doNotNormalize": true
+              }
+            }
+          },
+          "adaptorType": "HTTPExport"
+        }
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "name": "Loop Returns Import",
+          "_connectionId": "LOOP RETURNS CLONE",
+          "apiIdentifier": "i93349202e",
+          "ignoreExisting": false,
+          "ignoreMissing": false,
+          "oneToMany": false,
+          "assistant": "loopreturns",
+          "sandbox": false,
+          "lookups": [],
+          "http": {
+            "relativeURI": ["/cart"],
+            "method": ["POST"],
+            "body": [
+              "{{#each data}}\n                {\n                  {{#each this}}\n                  {{#compare @key \"==\" \"ioRecordIndex\"}}  \n                  {{else}} \n                    {{#compare @key \"==\" \"ioFirstRecord\"}}  \n                      {{else}} \n                        {{#compare @key \"==\" \"ioLastRecord\"}}  \n                        {{else}} \n                          {{#if @index}},{{/if}} {{{jsonSerialize @key}}}: {{{jsonSerialize this}}} \n                        {{/compare}} \n                      {{/compare}}   \n                  {{/compare}}\n                  {{/each}}\n                }\n                {{/each}}"
+            ],
+            "headers": [],
+            "requestMediaType": "json",
+            "successMediaType": "json",
+            "errorMediaType": "json",
+            "strictHandlebarEvaluation": false,
+            "sendPostMappedData": true,
+            "_httpConnectorVersionId": "639184209998e4b191badcb2",
+            "_httpConnectorResourceId": "639184209998e4b191badcbd",
+            "_httpConnectorEndpointIds": ["639184209998e4b191badccb"],
+            "formType": "assistant",
+            "lookups": [],
+            "response": {
+              "successPath": ["token"],
+              "failPath": ["errors.message"],
+              "errorPath": "errors.message"
+            }
+          },
+          "adaptorType": "HTTPImport"
+        }
+      }
+    ],
+    "createFlow": {
+      "name": "TC_C66039 flow",
+      "disabled": true,
+      "pageGenerators": [
+        {
+          "_exportId": "UPDATE WITH NEW EXPORTID",
+          "skipRetries": false
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "_importId": "UPDATE WITH NEW IMPORTID",
+          "responseMapping": {
+            "fields": [],
+            "lists": []
+          }
+        }
+      ],
+      "autoResolveMatchingTraceKeys": true
+    }
+  }
+  

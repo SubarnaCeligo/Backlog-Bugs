@@ -82,8 +82,7 @@ test.describe("CIO46374", () => {
     const concurrencyHelptext = (await io.flowBuilder.getText(
       selectors.myAccountPagePO.HELP_BUBBLE
     )) as string;
-    await io.assert.expectToContainValue(
-      `Concurrency ID lock templateEnter a handlebars expression to reference a unique ID for each record to ensure that it isn't processed by two concurrent import requests. A Concurrency ID lock template prevents integrator.io from simultaneously submitting duplicate records when the import connection has a concurrency level greater than 1. For example, if you are importing Zendesk records into NetSuite, then you could enter the {{{record.id}}} field to identify unique Zendesk records. No two records with the same Zendesk ID value would import into NetSuite at the same time.Was this helpful?Field path: import.idLockTemplate`,
+    await io.assert.expectToContainValue(`Concurrency ID lock templateEnter a handlebars expression to reference a unique ID for each record to ensure that it isn't processed by two concurrent import requests. A Concurrency ID lock template prevents integrator.io from simultaneously submitting duplicate records when the import connection has a concurrency level greater than 1. For example, if you are importing Zendesk records into NetSuite, then you could enter the {0}} field to identify unique Zendesk records. No two records with the same Zendesk ID value would import into NetSuite at the same time.Was this helpful?Field path: import.idLockTemplate`,
       concurrencyHelptext,
       "helptext not found"
     );
@@ -187,36 +186,21 @@ test.describe("CIO46374", () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.basePagePO.TOOLS);
-    await io.flowBuilder.click(selectors.basePagePO.FLOW_BUILDER);
-    await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
-    await io.homePage.loadingTime();
-    await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, "HTTP");
-    await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
-    await io.flowBuilder.clickByText("Create flow step");
-    await io.flowBuilder.fill(selectors.exportsPagePO.BQNAME, "HTTP XML Parser");
-    await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
-    await io.homePage.loadingTime();
-    const ConnName = await page.$$(selectors.exportsPagePO.BQNAME);
-    ConnName[1].fill("CT19565");
-    await io.flowBuilder.fill(
-      selectors.importPagePO.HTTP_BASEURI,
-      "https://5634b9e3-4bde-425a-adba-c5a031019b7a.mock.pstmn.io"
-    );
-    await io.flowBuilder.click(selectors.flowBuilderPagePO.MEDIA_TYPE);
+    await io.flowBuilder.click(selectors.basePagePO.DATA_LOADER);
+    await io.homePage.loadingTime()
+    await page
+      .getByText(
+        "You can add a destination application once you complete the configuration of your data loader."
+      )
+      .waitFor({ state: "visible" });
+    await io.flowBuilder.clickButtonByIndex(selectors.basePagePO.DATA_LOADER,1);
+    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.click(selectors.exportsPagePO.FILE_TYPE);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.clickByText("XML");
-    await io.homePage.loadingTime();
-    await io.flowBuilder.click(selectors.flowBuilderPagePO.AUTHORIZATIONTYPE);
-    await io.flowBuilder.clickByText("Custom");
-    await io.homePage.loadingTime();
-    await io.flowBuilder.clickByIndex(selectors.basePagePO.SAVE_AND_CLOSE, 1);
-    await io.homePage.loadingTime();
-    await io.flowBuilder.click(selectors.exportsPagePO.HTTP_METHOD);
-    await io.flowBuilder.clickByText("GET");
-    await io.homePage.loadingTime();
-    await io.flowBuilder.fill(selectors.flowBuilderPagePO.URI, "/xmlparser");
-    await io.flowBuilder.click(selectors.flowBuilderPagePO.TYPE);
-    await io.flowBuilder.clickByText("All - always export all data");
-    await io.homePage.loadingTime();
+    let fileInput2 = await page.$(selectors.basePagePO.UPLOAD_FILE);
+    await fileInput2.setInputFiles("testData/dataloader/T19565.xml");
+    await io.homePage.addStep("Uploaded xml file");
     await io.flowBuilder.waitForElementAttached(
       selectors.flowBuilderPagePO.RESOUCEPATH
     );
@@ -226,18 +210,12 @@ test.describe("CIO46374", () => {
       "/soap:Envelope/soap:Body/AuthenticationTokenGetResponse"
     );
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
-    await io.homePage.loadingTime();
-    await io.homePage.loadingTime();
-    await io.flowBuilder.click(
-      selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP
-    );
+    await io.homePage.loadingTime();   
+    await io.flowBuilder.click("[data-test='Add destination']");
     await io.homePage.loadingTime();
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, "HTTP");
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
-    await io.flowBuilder.click(
-      selectors.flowBuilderPagePO.SELECTED_IMPORT_RECORDS
-    );
     await io.homePage.loadingTime();
     await io.flowBuilder.clickByText("Create flow step");
     await io.homePage.loadingTime();
@@ -253,29 +231,5 @@ test.describe("CIO46374", () => {
     await Cancel1[1].click();
     await io.flowBuilder.click(selectors.basePagePO.CLOSE);
     await io.flowBuilder.click(selectors.basePagePO.DISCARD_CHANGES);
-    await io.flowBuilder.click(selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU);
-    await io.flowBuilder.click(selectors.flowBuilderPagePO.DELETE_FLOW);
-    await io.flowBuilder.click(selectors.basePagePO.DELETE);
-    await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
-    await io.homePage.goToMenu("Resources", "Exports");
-    await io.flowBuilder.loadingTime();
-    await io.homePage.hover(selectors.basePagePO.ACCOUNT_BUTTON);
-    await io.homePage.fill(
-      selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR,
-      "HTTP XML parser"
-    );
-    await io.homePage.clickByIndex(selectors.integrationPagePO.OPENACTIONSMENU, 0);
-    await io.flowBuilder.click(selectors.connectionsPagePO.DELETE_CONNECTION);
-    await io.flowBuilder.click(selectors.basePagePO.DELETE);
-    await io.homePage.goToMenu("Resources", "Connections");
-    await io.flowBuilder.loadingTime();
-    await io.homePage.hover(selectors.basePagePO.ACCOUNT_BUTTON);
-    await io.homePage.fill(
-      selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR,
-      "CT19565"
-    );
-    await io.homePage.clickByIndex(selectors.integrationPagePO.OPENACTIONSMENU, 0);
-    await io.flowBuilder.click(selectors.connectionsPagePO.DELETE_CONNECTION);
-    await io.flowBuilder.click(selectors.basePagePO.DELETE);
   });
 });
