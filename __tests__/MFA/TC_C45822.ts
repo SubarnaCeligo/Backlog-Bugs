@@ -4,7 +4,7 @@ import {decrypt} from "@celigo/aut-utilities";
 import { generateOTP } from "@celigo/aut-utilities";
 
 test.describe("C45822 Verify if the  messages are shown correctly on the screen when the MFA is enabled for the first time/ enabling MFA after it has been reset for the user.", () => {
-    test.skip("@Env-All @Zephyr-IO-T17231 C45822 Verify if the  messages are shown correctly on the screen when the MFA is enabled for the first time/ enabling MFA after it has been reset for the user.", async ({io, page}) => {
+    test("@Env-All @Zephyr-IO-T17231 C45822 Verify if the  messages are shown correctly on the screen when the MFA is enabled for the first time/ enabling MFA after it has been reset for the user.", async ({io, page}) => {
         await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
         await io.myAccountPage.click(selectors.myAccountPagePO.SECURITY);
         await io.myAccountPage.click(selectors.myAccountPagePO.MFA);
