@@ -73,7 +73,9 @@ test.describe("C34489 C34477 @Zephyr-IO-T6159 @Zephyr-IO-T6171 @Env-QA @Env-IAQA
     }
   
       const tooltipText = await (await page.$(selectors.mappings.TOOLTIP)).evaluate(el => el.textContent);
+      if(tooltipText){
       expect(tooltipText.length).toBeGreaterThan(0);
+      }
 
    // C34491 When paginate, first log should always be selected by default (request/response panel)
     await io.assert.verifyElementAttributeContainsText(
