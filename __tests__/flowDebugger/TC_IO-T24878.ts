@@ -9,17 +9,19 @@ test.describe(`IO-24878 Verify Separator/Divider Line added between the icon but
   }) => {
     await io.createResourceFromAPI(testData, "FLOWS");
     await io.flowBuilder.loadingTime();
-    // test mode
-    await io.flowBuilder.click(selectors.basePagePO.ENABLESSO);
-    await io.flowBuilder.click(selectors.myAccountPagePO.CONFIRMDISABLE);
-    await io.flowBuilder.loadingTime();
+    // production mode
     await io.flowBuilder.waitForElementAttached('.MuiDivider-root');
     let dividerCount = await page.locator('.MuiDivider-root').count();
     expect(dividerCount).toBe(4);
-    // production mode
-    await io.flowBuilder.click(selectors.basePagePO.ENABLESSO);
+    // test mode
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.waitForElementAttached('.MuiDivider-root');
     dividerCount = await page.locator('.MuiDivider-root').count();
     expect(dividerCount).toBe(4);
+    
   });
 });

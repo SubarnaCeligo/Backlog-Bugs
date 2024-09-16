@@ -86,7 +86,7 @@
           }
         },
         "ftp": {
-          "directoryPath": "/io.auto.qa/BVAutoFTP"
+          "directoryPath": "/Group-QA/BVAutoFTP"
         },
         "file": {
           "output": "records",
@@ -145,7 +145,7 @@
           "type": "json"
         },
         "ftp": {
-          "directoryPath": "io.auto.qa/BVAutoFTP",
+          "directoryPath": "/io.auto.qa/BVAutoFTP",
           "fileName": "file-{{timestamp}}.json"
         },
         "adaptorType": "FTPImport"

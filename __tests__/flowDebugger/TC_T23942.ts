@@ -58,6 +58,7 @@ test.describe("IO-T23942 Verify Editing any flow step / reordering / restructuri
     await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
     await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTION_INPUT, "HTTP ZENDESK CONNECTION");
     await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CONNECTIONDROP0);
+    await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONDROP0);
     await io.assert.verifyElementText(
       selectors.basePagePO.NOTIFICTION_BAR,
       "Making edits to a flow (including modifying a step, changing step options, changing the test run source, or reordering steps) will clear all test results.Run a new test after making edits to see accurate results."

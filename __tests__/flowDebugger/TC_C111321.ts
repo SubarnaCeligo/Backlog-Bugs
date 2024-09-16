@@ -10,6 +10,7 @@ test.describe("C111321, C110854, C110846, C111404 verify items populate under 'p
         await io.createResourceFromAPI(C111321, "FLOWS");
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.TRANSFER);
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.TRANSFER,1);
+        await page.getByText("Yes (advanced)").waitFor({ state: "visible", timeout: 60000 });
         await expect(page.getByText("Yes (advanced)")).toBeChecked();
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ONE_TO_MANY);
