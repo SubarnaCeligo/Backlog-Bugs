@@ -52,7 +52,8 @@ test.describe("C34489 C34477 @Zephyr-IO-T6159 @Zephyr-IO-T6171 @Env-QA @Env-IAQA
     //   { timeout: 1200000 }
     // );
     await io.homePage.loadingTime()
-    await page.getByText("Run in progress").waitFor({ state: "hidden", timeout:360000 });
+    // await page.getByText("Run in progress").waitFor({ state: "hidden", timeout:360000 });
+    await io.api.verifyFlowStatusThroughAPI(C34489.name, id, [60,0,0]); 
     let error = await page.$$("td> button")
     let errorText = await error[1].textContent()
     errorText = errorText.replace(" errors", "")

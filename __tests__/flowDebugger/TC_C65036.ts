@@ -12,9 +12,6 @@ test.describe("TC_C65036 Verify During a test run, the progress of the run is sh
     page
   }) => {
     id = await io.createResourceFromAPI(flow, "FLOWS");
-    await io.homePage.navigateTo(
-      process.env["IO_Integration_URL"] + "flowBuilder/" + id
-    );
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.waitForElementAttached(
       selectors.flowBuilderPagePO.FLOW_TOGGLE
@@ -22,7 +19,7 @@ test.describe("TC_C65036 Verify During a test run, the progress of the run is sh
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
-    let progressBar = await page.locator(selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR).nth(1).isVisible();
+    let progressBar = await page.locator(selectors.flowBuilderPagePO.OPENAI.PROGRESS_BAR).nth(0).isVisible();
     await io.assert.expectToBeTrue(progressBar, "Progress Bar is not visible");
   });
 });
