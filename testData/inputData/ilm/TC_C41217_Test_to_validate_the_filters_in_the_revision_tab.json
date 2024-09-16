@@ -1,0 +1,7 @@
+{
+    "templateJSON": {
+        "Source_Environment": "Production",
+        "Source_Integration": "ILM_testing",
+        "createSnapshot":true
+    }
+}

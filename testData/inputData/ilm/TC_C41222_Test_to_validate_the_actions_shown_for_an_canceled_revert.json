@@ -1,0 +1,21 @@
+{
+    "templateJSON": {
+      "Source_Environment": "Production",
+      "Source_Integration": "TC_ILM_41222",
+      "Flow_Name_Update_Integration": "TC_ILM_Cl_C41222",
+      "Clone_To_Integrate": "TC_ILM_Cl_C41222",
+      "createPull": true,
+      "type": "Revert",
+      "status": "Canceled",
+      "operations": [
+        "viewDetails"
+      ]
+    },
+    "fieldsToVerifyForViewDetails": [
+      "Date created",
+      "Created by",
+      "Type",
+      "Status",
+      "Revision ID"
+    ]
+  }

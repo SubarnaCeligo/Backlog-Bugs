@@ -1,0 +1,179 @@
+{
+  "integrationDetails": {
+    "Source_Environment": "Production",
+    "Source_Integration": "TC_C45259_Del",
+    "Destination_Enviornment": "Production",
+    "Clone_To_Integrate": "TC_Clone_C45259_Del",
+    "Integration_Clone": true,
+    "New_connection": false,
+    "connections": [
+      "NETSUITE CONNECTION:NETSUITE CONNECTION",
+      "HTTP ZENDESK CONNECTION:HTTP ZENDESK CONNECTION"
+    ],
+    "qa__api_tdata": [
+      {
+        "createIntegrations": {
+          "name": "TC_C45259_Del"
+        }
+      }
+    ]
+  },
+  "pull": {
+    "integrationToPull": "TC_C45259_Del"
+  },
+  "flowsData": {
+    "flowname1": "TC_C45259",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "TC_C45259 Export",
+              "_connectionId": "NETSUITE CONNECTION",
+              "_sourceId": "62ce7fc81c7d25040277fc62",
+              "apiIdentifier": "e233807216",
+              "asynchronous": true,
+              "oneToMany": false,
+              "parsers": [],
+              "netsuite": {
+                "type": "restlet",
+                "skipGrouping": true,
+                "statsOnly": false,
+                "restlet": {
+                  "recordType": "account",
+                  "searchId": "3603",
+                  "criteria": [],
+                  "columns": [],
+                  "useSS2Restlets": false
+                },
+                "distributed": {
+                  "executionContext": [],
+                  "executionType": [],
+                  "useSS2Framework": false
+                }
+              },
+              "adaptorType": "NetSuiteExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "TC_C45259 Import",
+              "application": "zendesk support",
+              "_connectionId": "HTTP ZENDESK CONNECTION",
+              "qa__connectionId": "HTTP ZENDESK CONNECTION",
+              "apiIdentifier": "i4bc0329a6",
+              "ignoreExisting": true,
+              "ignoreMissing": false,
+              "oneToMany": false,
+              "sandbox": false,
+              "http": {
+                "relativeURI": [
+                  "34t4t"
+                ],
+                "method": [
+                  "PUT"
+                ],
+                "body": [
+                  ""
+                ],
+                "headers": [
+                  {
+                    "name": "er",
+                    "value": "rf"
+                  },
+                  {
+                    "name": "ref",
+                    "value": "efe"
+                  }
+                ],
+                "batchSize": 1,
+                "sendPostMappedData": true,
+                "ignoreExtract": "r34",
+                "formType": "http"
+              },
+              "adaptorType": "HTTPImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C45259",
+          "disabled": false,
+          "_integrationId": "",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "updatedBody": {
+    "_id": "",
+    "name": "TC_C45259 Import",
+    "application": "zendesk support",
+    "_connectionId": "HTTP ZENDESK CONNECTION",
+    "qa__connectionId": "HTTP ZENDESK CONNECTION",
+    "apiIdentifier": "i4bc0329a6",
+    "ignoreExisting": true,
+    "ignoreMissing": false,
+    "oneToMany": false,
+    "sandbox": false,
+    "mappings": [
+      {
+        "extract": "name",
+        "generate": "name",
+        "dataType": "string",
+        "conditional": {
+          "when": "extract_not_empty"
+        }
+      },
+      {
+        "generate": "save",
+        "dataType": "boolean",
+        "hardCodedValue": "true"
+      }
+    ],
+    "http": {
+      "relativeURI": [
+        "34t4t"
+      ],
+      "method": [
+        "PUT"
+      ],
+      "body": [
+        ""
+      ],
+      "headers": [
+        {
+          "name": "er",
+          "value": "rf"
+        },
+        {
+          "name": "ref",
+          "value": "efe"
+        }
+      ],
+      "batchSize": 1,
+      "sendPostMappedData": true,
+      "ignoreExtract": "r34",
+      "formType": "http"
+    },
+    "adaptorType": "HTTPImport"
+  }
+}

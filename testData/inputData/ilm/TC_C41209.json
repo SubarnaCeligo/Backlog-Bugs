@@ -1,0 +1,12 @@
+{
+	"integrationDetails": {
+    "Source_Environment": "Production",
+    "Source_Integration": "TC_C41209_Del",
+    "Destination_Enviornment": "Production",
+    "qa__api_tdata": [{
+      "createIntegrations": {
+        "name": "TC_C41209_Del"
+      }
+    }]
+  }
+}

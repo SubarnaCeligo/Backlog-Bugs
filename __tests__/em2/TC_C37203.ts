@@ -34,6 +34,9 @@ await test.step(
       flows.get(TC_C37203.name)["flowId"]
     );
 
+    await io.flowBuilder.delay(30000);
+    await io.homePage.loadingTime();
+
     await io.homePage.click(selectors.flowBuilderPagePO.RUN_CONSOLE_ERROR_ICON);
     await io.homePage.loadingTime();
     await io.homePage.isPageReady();

@@ -1,0 +1,11 @@
+{
+  "templateJSON": {
+    "Source_Environment": "Production",
+    "Source_Integration": "Salesforce - NetSuite",
+    "Clone_To_Integrate": "Salesforce_Cl_NetSuite"
+  },
+  "Source_Environment": "Production",
+  "Source_Integration": "Salesforce - NetSuite",
+  "IntegrationAppId": "631b3ce24281e504953cc5b0",
+  "qa__IntegrationAppId": "62dfd60e23ebed49287d98d9"
+}

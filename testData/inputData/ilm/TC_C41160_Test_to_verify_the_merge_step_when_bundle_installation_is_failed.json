@@ -1,0 +1,125 @@
+{
+    "templateJSON": {
+      "Source_Environment": "Production",
+      "Source_Integration": "Delete_TC_ILM_C41160",
+      "Clone_To_Integrate": "Prod_Cl_ILM_C41160"
+    },
+    "Source_Environment": "Production",
+    "Source_Integration": "Delete_TC_ILM_C41160",
+    "Destination_Enviornment": "Production",
+    "Clone_To_Integrate": "Prod_Cl_ILM_C41160",
+    "Integration_Clone": true,
+    "New_connection": false,
+    "New_SB_Clone_Name": "SB_SRC_Cl_ILM_C41160",
+    "New_Prod_Installed_Integration_Name": "Prod_SRC_ILM_C41160",
+    "integrationConnections" : ["631ae162d2f06368a049845b"],
+    "qa__integrationConnections": ["62d103b09b51830e4d644ba5"],
+    "qa__api_tdata": [{
+        "pageGenerators": [{
+            "type": "export",
+            "qa__export": {
+              "name": "Del_C41615_NON_BUNDLE_Netsuite_Export",
+              "_connectionId" : "NETSUITE CONNECTION",
+              "netsuite": {
+                "type": "restlet",
+                "restlet": {
+                  "recordType": "customer",
+                  "savedSearchId": "29"
+                }
+              }
+            }
+        }],
+        "createFlow": {
+            "name": "Del_TC_ILM_C41615_FLOW",
+            "disabled": true,
+            "qa__integrationId": "UPDATE WITH NEW INTEGRATION ID",
+            "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+            "skipRetries": false,
+            "pageProcessors": [],
+            "pageGenerators": [{
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }]
+        },
+        "createIntegrations": {
+            "name": "Delete_TC_ILM_C41160"
+          }
+      }],
+    "jsonData1": {
+        "Source_Environment": "Production",
+        "Source_Integration": "Prod_Cl_ILM_C41160",
+        "Destination_Enviornment": "Production",
+        "Clone_To_Integrate": "Prod_Cl_cl2_ILM_C41160",
+        "Integration_Clone": true,
+        "New_connection": false
+    },
+    "jsonDataInstallProduction": {
+      "Source_Environment": "Sandbox",
+      "Destination_Environment": "Production",
+      "Source_Integration": "SB_Cl_ILM_C41160",
+      "Integration_Name": "SB_Cl_ILM_C41160",
+      "Install_Template ": true,
+      "Upload_Path": "/Template_Downloads/",
+      "New_connection": false
+    },
+    "jsonDataInstallSandbox": {
+      "Source_Environment": "Production",
+      "Destination_Environment": "Sandbox",
+      "Source_Integration": "SB_Cl_ILM_C41160",
+      "Integration_Name": "SB_Cl_ILM_C41160",
+      "Install_Template ": true,
+      "Upload_Path": "/Template_Downloads/",
+      "New_connection": false
+    },
+    "jsonDataSandboxClone": {
+      "templateJSON": {
+        "Source_Environment": "Production",
+        "Source_Integration": "Prod_Cl_ILM_C41160",
+        "Clone_To_Integrate": "SB_Cl_ILM_C41160",
+        "Destination_Enviornment": "Sandbox"
+      },
+      "Source_Environment": "Production",
+      "Source_Integration": "Prod_Cl_ILM_C41160",
+      "Destination_Enviornment": "Sandbox",
+      "Clone_To_Integrate": "SB_Cl_ILM_C41160",
+      "Integration_Clone": true,
+      "New_connection": false
+    },
+    "Integration_Names_To_Verify": [
+      "Prod_Cl_ILM_C41160",
+      "SB_SRC_Cl_ILM_C41160",
+      "Prod_SRC_ILM_C41160",
+      "SB_Cl_ILM_C41160"
+    ],
+    "cloneFamilyVerificaation": [
+      {
+        "templateJSON": {
+          "Source_Environment": "Production",
+          "Source_Integration": "Delete_TC_ILM_C41160"
+        }
+      },
+      {
+        "templateJSON": {
+          "Source_Environment": "Production",
+          "Source_Integration": "Prod_Cl_ILM_C41160"
+        }
+      },
+      {
+        "templateJSON": {
+          "Source_Environment": "Sandbox",
+          "Source_Integration": "SB_SRC_Cl_ILM_C41160"
+        }
+      },
+      {
+        "templateJSON": {
+          "Source_Environment": "Production",
+          "Source_Integration": "Prod_SRC_ILM_C41160"
+        }
+      },
+      {
+        "templateJSON": {
+          "Source_Environment": "Sandbox",
+          "Source_Integration": "SB_Cl_ILM_C41160"
+        }
+      }
+    ]
+  }

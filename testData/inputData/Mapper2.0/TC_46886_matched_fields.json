@@ -39,6 +39,7 @@
             "type": "export",
             "qa__export": {
                 "name": "ftp_export",
+                "qa__path": "//FTP_uploads//TC_C46891.json",
                 "_connectionId": "FTP CONNECTION",
                 "asynchronous": true,
                 "sandbox": false,
@@ -52,7 +53,6 @@
                     "skipDelete": true,
                     "type": "json"
                 },
-                "qa__path": "/FTP_uploads/TC_46886.json",
                 "adaptorType": "FTPExport"
             }
         }

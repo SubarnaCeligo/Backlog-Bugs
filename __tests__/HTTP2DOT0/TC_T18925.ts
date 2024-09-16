@@ -20,8 +20,10 @@ test.describe("Verify the help text for Simple/HTTP toggle", () => {
 
     await io.flowBuilder.waitForElementAttached(selectors.basePagePO.CREATE_FROM_SCRATCH);
     await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
-
-    await page.locator(selectors.importPagePO.SIMPLE_HTTP_TOGGLE_HELP_TEXT).locator('nth=0').click();
+    await io.flowBuilder.loadingTime();
+    const helptext = await page.$$(selectors.exportsPagePO.HELP_TEXT_ICLIENT);
+    await helptext[1].click()
+    await io.flowBuilder.delay(20000)
     
     let value = await io.flowBuilder.getText(selectors.importPagePO.INPUTHELP)
     let func1 = value.toString().includes("Simple form helps you to quickly configure the resources by displaying only the required minimum fields.");

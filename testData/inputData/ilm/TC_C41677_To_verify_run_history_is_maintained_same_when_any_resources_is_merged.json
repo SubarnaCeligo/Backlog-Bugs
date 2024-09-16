@@ -1,0 +1,129 @@
+{
+  "templateJSON": {
+    "Source_Environment": "Production",
+    "Source_Integration": "Delete_TC_ILM_C41677",
+    "Clone_To_Integrate": "Del_TC_Cl_C41677",
+    "Flow_Name_Update_Integration": "Delete_TC_ILM_C41677",
+    "createPull": true
+  },
+  "Source_Environment": "Production",
+  "Source_Integration": "Delete_TC_ILM_C41677",
+  "Destination_Enviornment": "Production",
+  "Clone_To_Integrate": "Del_TC_Cl_C41677",
+  "Integration_Clone": true,
+  "New_connection": false,
+  "connections": [
+    "NETSUITE CONNECTION"
+  ],
+  "qa__connections": [
+    "NETSUITE CONNECTION"
+  ],
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Delete_TC_ILM_C41677_Netsuite_Export",
+            "_connectionId": "NETSUITE CONNECTION",
+            "netsuite": {
+              "type": "restlet",
+              "restlet": {
+                "recordType": "customer",
+                "savedSearchId": "29"
+              }
+            }
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "distributed": true,
+            "_connectionId": "NETSUITE CONNECTION",
+            "name": "Delete_TC_ILM_C41677_Netsuite_Import",
+            "netsuite_da": {
+              "operation": "add",
+              "recordType": "Customer",
+              "distributed": true,
+              "mapping": {
+                "fields": [
+                  {
+                    "extract": "Customer",
+                    "generate": "companyName"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "Delete_TC_ILM_C41677_FLOW",
+        "disabled": true,
+        "qa__integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      },
+      "createIntegrations": {
+        "name": "Delete_TC_ILM_C41677"
+      }
+    }
+  ],
+  "importJSON": {
+    "name": "Netsuite_ILM_C41677",
+    "type": "netsuite",
+    "netsuite": {
+      "dataCenterURLs": {
+        "webservicesDomain": "https://tstdrv1143616.suitetalk.api.netsuite.com",
+        "restDomain": "https://tstdrv1143616.restlets.api.netsuite.com",
+        "systemDomain": "https://tstdrv1143616.app.netsuite.com"
+      },
+      "wsdlVersion": "current",
+      "password": "******",
+      "environment": "production",
+      "concurrencyLevel": 1,
+      "roleId": "3",
+      "qa__password": "QXV0b1VzZXJANTgw",
+      "requestLevelCredentials": false,
+      "account": "TSTDRV1143616",
+      "email": "automationuser@gmail.com",
+      "useSsoLogin": false
+    }
+  },
+  "jsonDataClone": {
+    "templateJSON": {
+      "Source_Environment": "Production",
+      "Source_Integration": "Del_TC_Cl_C41677",
+      "Clone_To_Integrate": "Del_TC_Cl_Cl_C41677"
+    },
+    "Source_Environment": "Production",
+    "Source_Integration": "Del_TC_Cl_C41677",
+    "Destination_Enviornment": "Production",
+    "Clone_To_Integrate": "Del_TC_Cl_Cl_C41677",
+    "Integration_Clone": true,
+    "New_connection": false,
+    "connections": [
+      "NETSUITE CONNECTION"
+    ],
+    "qa__connections": [
+      "NETSUITE CONNECTION"
+    ]
+  }
+}

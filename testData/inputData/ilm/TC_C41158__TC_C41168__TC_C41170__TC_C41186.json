@@ -1,0 +1,310 @@
+{
+  "Source_Environment": "Production",
+  "Source_Integration": "TC_C41158_Del",
+  "Destination_Enviornment": "Production",
+  "Clone_To_Integrate": "TC_Clone_C41158_Del",
+  "Integration_Clone": true,
+  "qa__api_tdata": [
+    {
+      "createIntegrations": {
+        "name": "TC_C41158_Del"
+      }
+    }
+  ],
+  "pull": [
+    {
+      "integrationToPull": "TC_C41158_Del",
+      "oldConnections": [
+        "SHOPIFY CONNECTION",
+        "AMAZON SP API CONNECTION",
+        "ZENDESK CONNECTION",
+        "HUBSPOT CONNECTION"
+      ],
+      "qa__oldConnections": [
+        "SHOPIFY CONNECTION",
+        "AMAZON SP API CONNECTION",
+        "ZENDESK CONNECTION",
+        "HUBSPOT CONNECTION"
+      ]
+    }
+  ],
+  "flowsData": {
+    "flowname1": "TC_C41158_flow1",
+    "flowname2": "TC_C41158_flow2",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "TC_C41158 Shopify Export",
+              "_connectionId": "SHOPIFY CONNECTION",
+              "apiIdentifier": "e2ccc1bf78",
+              "asynchronous": true,
+              "assistant": "shopify",
+              "oneToMany": false,
+              "assistantMetadata": {
+                "resource": "customer",
+                "version": "v2",
+                "operation": "searches_forcustomersthatmatchasuppliedquery"
+              },
+              "http": {
+                "relativeURI": "/customers/search.json?query=first_name:C23737",
+                "method": "GET",
+                "successMediaType": "json",
+                "errorMediaType": "json",
+                "formType": "assistant",
+                "paging": {
+                  "method": "linkheader",
+                  "lastPageStatusCode": 404,
+                  "linkHeaderRelation": "next"
+                },
+                "response": {
+                  "resourcePath": "customers"
+                }
+              },
+              "rawData": "6266b700563089236fed58fbea5576e31117405a9255c4588353c157",
+              "rest": {
+                "relativeURI": "/customers/search.json?query=first_name:C23737",
+                "method": "GET",
+                "resourcePath": "customers",
+                "pagingMethod": "linkheader",
+                "allowUndefinedResource": false,
+                "linkHeaderRelation": "next"
+              },
+              "adaptorType": "RESTExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "TC_C41158 Zendesk Import",
+              "parsers": [],
+              "_connectionId": "ZENDESK CONNECTION",
+              "apiIdentifier": "ie594e747e",
+              "ignoreExisting": false,
+              "ignoreMissing": false,
+              "oneToMany": false,
+              "assistant": "zendesk",
+              "assistantMetadata": {
+                "operation": "create_app",
+                "resource": "apps",
+                "version": "v2"
+              },
+              "lookups": [],
+              "http": {
+                "relativeURI": [
+                  "/api/v2/apps.json"
+                ],
+                "method": [
+                  "POST"
+                ],
+                "body": [
+                  null
+                ],
+                "headers": [],
+                "batchSize": 1,
+                "requestMediaType": "json",
+                "successMediaType": "json",
+                "errorMediaType": "json",
+                "requestType": [],
+                "strictHandlebarEvaluation": true,
+                "sendPostMappedData": true,
+                "formType": "assistant",
+                "lookups": [],
+                "response": {
+                  "resourceIdPath": [
+                    null
+                  ]
+                }
+              },
+              "rest": {
+                "relativeURI": [
+                  "/api/v2/apps.json"
+                ],
+                "method": [
+                  "POST"
+                ],
+                "body": [
+                  null
+                ],
+                "headers": [],
+                "responseIdPath": [
+                  null
+                ],
+                "successPath": [
+                  null
+                ],
+                "successValues": [
+                  null
+                ],
+                "lookups": []
+              },
+              "adaptorType": "RESTImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C41158_flow1",
+          "disabled": false,
+          "_integrationId": "",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": ""
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": ""
+            }
+          ]
+        }
+      },
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "TC_C41158 Amazon Export",
+              "application": "Amazon Seller Central",
+              "unencrypted": {
+                "apiType": "Amazon-SP-API"
+              },
+              "_connectionId": "AMAZON SP API CONNECTION",
+              "qa__connectionId": "AMAZON SP API CONNECTION",
+              "apiIdentifier": "e49b5db7f2",
+              "asynchronous": true,
+              "assistant": "amazonmws",
+              "oneToMany": false,
+              "assistantMetadata": {
+                "operation": "get_orders",
+                "resource": "orders",
+                "version": "v0"
+              },
+              "parsers": [],
+              "http": {
+                "relativeURI": "/orders/v0/orders?MarketplaceIds={{connection.http.unencrypted.marketplaceId}}",
+                "method": "GET",
+                "headers": [],
+                "requestMediaType": "json",
+                "successMediaType": "json",
+                "errorMediaType": "json",
+                "formType": "assistant",
+                "paging": {
+                  "method": "token",
+                  "path": "payload.NextToken",
+                  "relativeURI": "/orders/v0/orders?NextToken={{{encodeURI export.http.paging.token}}}&MarketplaceIds={{connection.http.unencrypted.marketplaceId}}&MarketplaceIds={{connection.http.unencrypted.marketplaceId}}"
+                },
+                "response": {
+                  "resourcePath": "payload.Orders",
+                  "successValues": []
+                }
+              },
+              "adaptorType": "HTTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "TC_C41158 Hubspot Import",
+              "parsers": [],
+              "_connectionId": "HUBSPOT CONNECTION",
+              "qa__connectionId": "HUBSPOT CONNECTION",
+              "apiIdentifier": "i6d9fe5d05",
+              "ignoreExisting": false,
+              "ignoreMissing": false,
+              "oneToMany": false,
+              "assistant": "hubspot",
+              "assistantMetadata": {
+                "operation": "create_task",
+                "resource": "calendar",
+                "version": "v1"
+              },
+              "lookups": [],
+              "http": {
+                "relativeURI": [
+                  "/calendar/v1/events/task"
+                ],
+                "method": [
+                  "POST"
+                ],
+                "body": [
+                  null
+                ],
+                "headers": [],
+                "batchSize": 1,
+                "requestMediaType": "json",
+                "successMediaType": "json",
+                "errorMediaType": "json",
+                "requestType": [],
+                "strictHandlebarEvaluation": true,
+                "sendPostMappedData": true,
+                "formType": "assistant",
+                "lookups": [],
+                "response": {
+                  "resourceIdPath": [
+                    null
+                  ]
+                }
+              },
+              "rest": {
+                "relativeURI": [
+                  "/calendar/v1/events/task"
+                ],
+                "method": [
+                  "POST"
+                ],
+                "body": [
+                  null
+                ],
+                "headers": [],
+                "responseIdPath": [
+                  null
+                ],
+                "successPath": [
+                  null
+                ],
+                "successValues": [
+                  null
+                ],
+                "lookups": []
+              },
+              "adaptorType": "RESTImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C41158_flow2",
+          "disabled": false,
+          "_integrationId": "",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": ""
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": ""
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

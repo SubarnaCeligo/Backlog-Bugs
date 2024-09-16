@@ -1,0 +1,208 @@
+{
+  "Source_Environment": "Production",
+  "Source_Integration": "TC_C41162_Del",
+  "Destination_Enviornment": "Production",
+  "Clone_To_Integrate": "TC_Clone_C41162_Del",
+  "Integration_Clone": true,
+  "qa__api_tdata": [
+    {
+      "createIntegrations": {
+        "name": "TC_C41162_Del"
+      }
+    }
+  ],
+  "pull": [
+    {
+      "integrationToPull": "TC_C41162_Del",
+      "oldConnections": [
+        "631ae17fd2f06368a0498470",
+        "HTTP ZENDESK CONNECTION",
+        "AMAZON SP API CONNECTION",
+        "GOOGLEDRIVE CONNECTION"
+      ],
+      "qa__oldConnections": [
+        "62ceb6fe1c7d25040278087d",
+        "HTTP ZENDESK CONNECTION",
+        "AMAZON SP API CONNECTION",
+        "GOOGLEDRIVE CONNECTION"
+      ]
+    }
+  ],
+  "flowsData": {
+    "flowname1": "TC_C41162_flow1",
+    "flowname2": "TC_C41162_flow2",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "TC_C41162 Amazon Export",
+              "application": "Amazon Seller Central",
+              "unencrypted": {
+                "apiType": "Amazon-SP-API"
+              },
+              "_connectionId": "AMAZON SP API CONNECTION",
+              "apiIdentifier": "e49b5db7f2",
+              "asynchronous": true,
+              "assistant": "amazonmws",
+              "oneToMany": false,
+              "assistantMetadata": {
+                "operation": "get_orders",
+                "resource": "orders",
+                "version": "v0"
+              },
+              "parsers": [],
+              "http": {
+                "relativeURI": "/orders/v0/orders?MarketplaceIds={{connection.http.unencrypted.marketplaceId}}",
+                "method": "GET",
+                "headers": [],
+                "requestMediaType": "json",
+                "successMediaType": "json",
+                "errorMediaType": "json",
+                "formType": "assistant",
+                "paging": {
+                  "method": "token",
+                  "path": "payload.NextToken",
+                  "relativeURI": "/orders/v0/orders?NextToken={{{encodeURI export.http.paging.token}}}&MarketplaceIds={{connection.http.unencrypted.marketplaceId}}&MarketplaceIds={{connection.http.unencrypted.marketplaceId}}"
+                },
+                "response": {
+                  "resourcePath": "payload.Orders",
+                  "successValues": []
+                }
+              },
+              "adaptorType": "HTTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "TC_C41162 Google Drive Import",
+              "_connectionId": "GOOGLEDRIVE CONNECTION",
+              "apiIdentifier": "i997bfed34",
+              "oneToMany": false,
+              "assistant": "googledrive",
+              "file": {
+                "fileName": "file-{{timestamp}}.edi",
+                "skipAggregation": true,
+                "type": "json"
+              },
+              "http": {
+                "type": "file",
+                "relativeURI": [
+                  "chvkjghcfdx"
+                ],
+                "method": [
+                  "POST"
+                ],
+                "body": [],
+                "sendPostMappedData": true,
+                "formType": "assistant",
+                "response": {
+                  "resourcePath": [
+                    "files"
+                  ]
+                }
+              },
+              "adaptorType": "HTTPImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C41162_flow1",
+          "disabled": false,
+          "_integrationId": "",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": ""
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": ""
+            }
+          ]
+        }
+      },
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "TC_C41162 Export",
+              "application": "zendesk support",
+              "_connectionId": "HTTP ZENDESK CONNECTION",
+              "apiIdentifier": "eacf3176ea",
+              "asynchronous": true,
+              "oneToMany": false,
+              "sandbox": false,
+              "http": {
+                "relativeURI": "https://google.com",
+                "method": "GET",
+                "formType": "http"
+              },
+              "adaptorType": "HTTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "TC_C41162 HTTP Import",
+              "application": "zendesk support",
+              "_connectionId": "631ae17fd2f06368a0498470",
+              "apiIdentifier": "i91652f073",
+              "ignoreExisting": false,
+              "ignoreMissing": false,
+              "oneToMany": false,
+              "sandbox": false,
+              "http": {
+                "relativeURI": [
+                  "/test"
+                ],
+                "method": [
+                  "POST"
+                ],
+                "body": [],
+                "batchSize": 1,
+                "sendPostMappedData": true,
+                "formType": "http"
+              },
+              "adaptorType": "HTTPImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C41162_flow2",
+          "disabled": false,
+          "_integrationId": "",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": ""
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": ""
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

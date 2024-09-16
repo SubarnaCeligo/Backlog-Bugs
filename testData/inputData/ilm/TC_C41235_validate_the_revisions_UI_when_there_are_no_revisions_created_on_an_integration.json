@@ -1,0 +1,13 @@
+{
+    "templateJSON": {
+        "Source_Environment": "Production",
+        "Source_Integration": "Automation_C41235"
+    },
+    "qa__api_tdata": [
+        {
+            "createIntegrations": {
+                "name": "Automation_C41235"
+            }
+        }
+    ]
+}

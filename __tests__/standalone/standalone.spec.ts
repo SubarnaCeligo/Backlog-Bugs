@@ -44,3 +44,8 @@ require("./TC_C1999");
 require("./TC_C2000");
 require("./TC_C2001");
 require("./TC_C2003");
+require("./TC_C2004");
+require("./TC_C2005_C2002");
+require("./TC_C2006");
+require("./TC_C2011");
+require("./TC_C2012_C2010");
