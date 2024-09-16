@@ -120,10 +120,10 @@ test.describe("C34489 C34477 @Zephyr-IO-T6159 @Zephyr-IO-T6171 @Env-QA @Env-IAQA
     var dateLast = await page.$(
       selectors.flowBuilderPagePO.DEBUG_TABLE_LAST_ROW_CELL
     );
-    const dateStringLast = await dateLast.textContent();
+    // const dateStringLast = await dateLast.textContent();
 
-    var dateObjectFirst = new Date(dateStringFirst);
-    var dateObjectLast = new Date(dateStringLast);
+    // var dateObjectFirst = new Date(dateStringFirst);
+    // var dateObjectLast = new Date(dateStringLast);
 
     
 
