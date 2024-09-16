@@ -8,7 +8,7 @@ test.describe("TC_C40126", () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();
   });
-  test("@Zephyr-IO-T5977 @Enc-All TC_C40126", async ({io,page}, testInfo) => {
+  test("@Zephyr-IO-T5977 @Env-All TC_C40126", async ({io,page}, testInfo) => {
     await io.homePage.clickCreateIntegrationButton();
     await io.homePage.loadingTime()
     await io.homePage.fillWebPage(selectors.flowBuilderPagePO.RENAME, "Don't use");
